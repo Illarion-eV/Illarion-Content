@@ -4,9 +4,9 @@ module("item.id_2502_gynkfire", package.seeall, package.seeall(item.general.wood
 
 function LookAtItem(User,Item)
     if (User:getPlayerLanguage() == 0) then
-        world:itemInform(User,Item,"Du siehst ein"..( math.floor(Item.quality/100) == 2 and " brennendes " or " " ).."Gynkesisches Feuer.");
+        world:itemInform(User,Item,( math.floor(Item.quality/100) == 2 and "Brennendes " or "" ).."Gynkesisches Feuer");
     else
-        world:itemInform(User,Item,"You see a"..( math.floor(Item.quality/100) == 2 and " burning " or " " ).."Gynkese Fire.");
+        world:itemInform(User,Item,( math.floor(Item.quality/100) == 2 and "burning " or "" ).."Gynkese Fire");
     end;
 end;
 

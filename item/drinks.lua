@@ -147,5 +147,5 @@ function LookAtItem(User,Item)
         User:inform("unkown drink item ID"..Item.id);
         return
     end
-    world:itemInform(User,Item,base.common.GetNLS(User,"Du siehst ","You see ")..world:getItemName(Item.id,User:getPlayerLanguage()));
+    world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
 end

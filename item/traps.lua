@@ -45,9 +45,9 @@ end
 function LookAtItem(User,Item)
     if (User:distanceMetricToPosition(Item.pos)<2 and User:increaseAttrib("perception",0)>15) then
         if (User:getPlayerLanguage()==0) then
-            world:itemInform(User,Item,"Du siehst eine Falle auf dem Boden liegen.")
+            world:itemInform(User,Item,"Falle")
         else
-            world:itemInform(User,Item,"You see a trap laying on the ground.")
+            world:itemInform(User,Item,"trap")
         end
     end
 end

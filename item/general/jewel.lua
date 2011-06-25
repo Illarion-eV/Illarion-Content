@@ -8,72 +8,72 @@ function LookAtItem(User,Item)
     if (Item.id == 225) then
         if (Item.data == 122) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst die Krone der Nordmark");
+                world:itemInform(User,Item,"Krone der Nordmark");
             else
-                world:itemInform(User,Item,"You see the crown of the Northmark");
+                world:itemInform(User,Item,"crown of the Northmark");
             end
             return true;
         elseif ( Item.data == 121 ) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst die Krone von Greenbriar");
+                world:itemInform(User,Item,"Krone von Greenbriar");
             else
-                world:itemInform(User,Item,"You see the crown of Greenbriar");
+                world:itemInform(User,Item,"crown of Greenbriar");
             end
             return true;
         elseif ( Item.data == 120 ) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst die Krone von Varshikars");
+                world:itemInform(User,Item,"Krone von Varshikars");
             else
-                world:itemInform(User,Item,"You see the crown of Varshikars");
+                world:itemInform(User,Item,"crown of Varshikars");
             end
             return true;
         elseif ( Item.data == 119 ) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst die Krone der Grauen");
+                world:itemInform(User,Item,"Krone der Grauen");
             else
-                world:itemInform(User,Item,"You see the crown of the Greys");
+                world:itemInform(User,Item,"crown of the Greys");
             end
             return true;
         elseif ( Item.data == 118 ) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst die Krone von Trolls Bane");
+                world:itemInform(User,Item,"Krone von Trolls Bane");
             else
-                world:itemInform(User,Item,"You see the crown of Trolls Bane");
+                world:itemInform(User,Item,"crown of Trolls Bane");
             end
             return true;
         elseif ( Item.data == 123 ) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst die Krone des Königs von Silberbrand");
+                world:itemInform(User,Item,"Krone des Königs von Silberbrand");
             else
-                world:itemInform(User,Item,"You see the crown of the king of Silverbrand");
+                world:itemInform(User,Item,"crown of the king of Silverbrand");
             end
             return true;
         elseif ( Item.data == 201 ) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst eine alte zerbrochene Goldkrone");
+                world:itemInform(User,Item,"Alte zerbrochene Goldkrone");
             else
-                world:itemInform(User,Item,"You see a old broken gold crown");
+                world:itemInform(User,Item,"old broken gold crown");
             end
             return true;
         elseif ( Item.data == 202 ) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst eine vollständig edelsteinbestückte Goldkrone");
+                world:itemInform(User,Item,"Vollständig edelsteinbestückte Goldkrone");
             else
-                world:itemInform(User,Item,"You see a fully jeweled gold crown");
+                world:itemInform(User,Item,"fully jeweled gold crown");
             end
             return true;
 		elseif ( Item.data == 666 ) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst eine silbrig schimmernde, halb durchsichtige Krone.");
+                world:itemInform(User,Item,"Silbrig schimmernde, halb durchsichtige Krone.");
             else
-                world:itemInform(User,Item,"You see a silver shimmering, half-transperent crown.");
+                world:itemInform(User,Item,"silver shimmering, half-transperent crown.");
             end
             return true;
         elseif ( Item.data == 10000 ) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst einen auffälligen Krone");            
+                world:itemInform(User,Item,"Auffällige Krone");            
             else
-                world:itemInform(User,Item,"You see a peculiar crown");
+                world:itemInform(User,Item,"peculiar crown");
             end
             return true;
         end

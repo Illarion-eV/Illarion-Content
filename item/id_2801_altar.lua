@@ -5,9 +5,9 @@ module("item.id_2801_altar", package.seeall)
 function LookAtItem(User,Item)
 if (Item.data==701) then
 	if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst eine merkwürdige Konstruktion in deren Mitte ein Loch gemeißelt wurde. 'Das Schloss' ist darunter eingemeißelt.");
+            world:itemInform(User,Item,"Merkwürdige Konstruktion in deren Mitte ein Loch gemeißelt wurde. 'Das Schloss' ist darunter eingemeißelt.");
         else
-            world:itemInform(User,Item,"You see a strange construction with a hole carved in the middle. 'The Lock' is carved underneath");
+            world:itemInform(User,Item,"strange construction with a hole carved in the middle. 'The Lock' is carved underneath");
         end
 end;
 
@@ -15,9 +15,9 @@ end;
 
 if (Item.data~=701) then
 	if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst einen Altar.");
+            world:itemInform(User,Item,"Altar");
         else
-            world:itemInform(User,Item,"You see an Altar");
+            world:itemInform(User,Item,"altar");
         end
 end;
 

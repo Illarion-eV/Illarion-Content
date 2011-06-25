@@ -7,59 +7,59 @@ module("item.id_79_amethystamulet", package.seeall)
 function LookAtItem(User,Item)
 if (Item.data == 701) then
   if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst ein zerbrochenes Amulettstück mit dem Buchstaben C als Inschrift, 2 weitere Teilstücke scheinen zu fehlen");
+            world:itemInform(User,Item,"Zerbrochenes Amulettstück mit dem Buchstaben C als Inschrift, zwei weitere Teilstücke scheinen zu fehlen");
         else
-            world:itemInform(User,Item,"You see a broken Amulet with the letter C on it, 2 other parts seem missing");
+            world:itemInform(User,Item,"broken amulet with the letter C on it, two other parts seem to be missing");
         end
 	end
 		-- Cad amulet
 	if (Item.data ==702) then
 	if (User:getPlayerLanguage() ==0) then
-			world: itemInform(User,Item,"Du siehst ein zerbrochenes Amulettstück mit dem Buchstaben R als Inschrift, 2 weitere Teilstücke scheinen zu fehlen");
+			world: itemInform(User,Item,"Zerbrochenes Amulettstück mit dem Buchstaben R als Inschrift, zwei weitere Teilstücke scheinen zu fehlen");
 		else
-			world:itemInform(User,Item,"You see a broken Amulet with the letter R on it, 2 other parts seem missing");
+			world:itemInform(User,Item,"broken Amulet with the letter R on it, two other parts seem to be missing");
 		end
 end
 		-- Rune amulet
 	if (Item.data == 703) then
 	if (User:getPlayerLanguage() ==0) then
-			world: itemInform(User,Item,"Du siehst ein zerbrochenes Amulettstück mit dem Buchstaben G als Inschrift, 2 weitere Teilstücke scheinen zu fehlen");
+			world: itemInform(User,Item,"Ein zerbrochenes Amulettstück mit dem Buchstaben G als Inschrift, zwei weitere Teilstücke scheinen zu fehlen");
 		else
-			world:itemInform(User,Item,"You see a broken Amulet with the letter G on it, 2 other parts seem missing");
+			world:itemInform(User,Item,"broken amulet with the letter G on it, two other parts seem to be missing");
 		end
 	end
 		-- Gal amulet
  if (Item.data == 712) then
 	if (User:getPlayerLanguage() ==0) then
-			world: itemInform(User,Item,"Du siehst ein zerbrochenes Amulettstück mit den Buchstaben CR als Inschrift, ein weiteres Teilstück scheint zu fehlen");
+			world: itemInform(User,Item,"Zerbrochenes Amulettstück mit den Buchstaben CR als Inschrift, ein weiteres Teilstück scheint zu fehlen");
 		else
-			world:itemInform(User,Item,"You see a broken Amulet with the letters CR on it, one other part seems missing");
+			world:itemInform(User,Item,"broken amulet with the letters CR on it, one other part seems to be missing");
 		end
 	end
 		-- CadRune amulet
 
  if (Item.data == 713) then
 	if (User:getPlayerLanguage() ==0) then
-			world: itemInform(User,Item,"Du siehst ein zerbrochenes Amulettstück mit den Buchstaben CG als Inschrift, ein weiteres Teilstück scheint zu fehlen");
+			world: itemInform(User,Item,"Zerbrochenes Amulettstück mit den Buchstaben CG als Inschrift, ein weiteres Teilstück scheint zu fehlen");
 		else
-			world:itemInform(User,Item,"You see a broken Amulet with the letters CG on it, one other part seems missing");
+			world:itemInform(User,Item,"broken amulet with the letters CG on it, one other part seems to be missing");
 		end
 	end	-- CadGal amulet
 		
  if (Item.data == 723) then
 	if (User:getPlayerLanguage() ==0) then
-			world: itemInform(User,Item,"Du siehst ein zerbrochenes Amulettstück mit den Buchstaben RG als Inschrift, ein weiteres Teilstück scheint zu fehlen");
+			world: itemInform(User,Item,"Zerbrochenes Amulettstück mit den Buchstaben RG als Inschrift, ein weiteres Teilstück scheint zu fehlen");
 		else
-			world:itemInform(User,Item,"You see a broken Amulet with the letters RG on it, one other part seem missing");
+			world:itemInform(User,Item,"broken amulet with the letters RG on it, one other part seems to be missing");
 		end
 	end
 		-- RuneGal amulet
 
  if (Item.data == 705) then
 	if (User:getPlayerLanguage() ==0) then
-			world: itemInform(User,Item,"Du siehst ein zerbrochenes Amulettstück mit den Buchstaben CRG als Inschrift. Es scheint nun wieder vollkommen zu sein.");
+			world: itemInform(User,Item,"Zerbrochenes Amulettstück mit den Buchstaben CRG als Inschrift. Es scheint nun wieder vollkommen zu sein.");
 		else
-			world:itemInform(User,Item,"You see an Amulet with the letters CRG on it. It seems to be whole now");
+			world:itemInform(User,Item,"amulet with the letters CRG on it. It seems to be whole now");
 		end
 		-- Complete amulet
 	end
@@ -68,9 +68,9 @@ end
 
 if (Item.data == 707) then
 	if (User:getPlayerLanguage() ==0) then
-			world: itemInform(User,Item,"Du siehst ein zerbrochenes Amulettstück mit den Buchstaben CRG als Inschrift. Es ist matt und wird nicht wieder strahlen");
+			world: itemInform(User,Item,"Ein zerbrochenes Amulettstück mit den Buchstaben CRG als Inschrift. Es ist matt und wird nicht wieder strahlen");
 		else
-			world:itemInform(User,Item,"You see an Amulet with the letters CRG on it. It is dull and refuses to shine");
+			world:itemInform(User,Item,"amulet with the letters CRG on it. It is dull and refuses to shine");
 		end
 		-- Complete amulet - after bonus was given
 	end

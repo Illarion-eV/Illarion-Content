@@ -13,9 +13,9 @@ function LookAtItem(User,Item)
     local low24  = math.floor( low32 / 256 );
     
     if User:getPlayerLanguage() == 0 then
-        txt = "Du siehst Ledertasche";
+        txt = "Ledertasche";
     else
-        txt = "You see leather bag";
+        txt = "leather bag";
     end;
     
     if high24 == 0 then

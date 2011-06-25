@@ -7,7 +7,7 @@ module("item.id_2830_chest", package.seeall)
 
 function LookAtItem(User, Item)
     local TreasureName = base.treasure.GetTreasureName( Item.data, User:getPlayerLanguage(), false );
-    world:itemInform( User, Item, base.common.GetNLS( User,"Du siehst "..TreasureName..".","You see "..TreasureName.."." ) );
+    world:itemInform( User, Item, TreasureName );
 end
 
 function UseItem(User,SourceItem)

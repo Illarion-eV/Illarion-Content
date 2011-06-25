@@ -45,7 +45,7 @@ function LookAtItemIdent(User,Item)
 	end
 
 	if not found then
-        world:itemInform(User,Item,base.common.GetNLS(User,"Du siehst ","You see ")..world:getItemName(Item.id,User:getPlayerLanguage()));
+        world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
     end
 
 		User:inform("in LookAtItem of base_wegweiser.lua");

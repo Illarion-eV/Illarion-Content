@@ -462,10 +462,10 @@ function LookAtItem(User,Item)
             if ( BookshelvesEqual( Libraries[i][1][j], Item.pos ) ) then
                 if (User:getPlayerLanguage()==0) then
                     --world:itemInform(User,Item, "Bücherregal (" .. Libraries[i][3] .. ")" );
-                    User:inform( "Du siehst verschiedene Bücher über " .. Libraries[i][3] );
+                    User:inform( "Verschiedene Bücher über " .. Libraries[i][3] );
                 else
                     --world:itemInform(User,Item, "Bookshelf (" .. Libraries[i][5] .. ")" );
-                    User:inform( "There are books about " .. Libraries[i][4] );
+                    User:inform( "books about " .. Libraries[i][4] );
                 end  
                 return;  
             end
@@ -473,9 +473,9 @@ function LookAtItem(User,Item)
     end
     
     if (User:getPlayerLanguage()==0) then
-        world:itemInform(User,Item,"Du siehst "..world:getItemName(Item.id,0)) 
+        world:itemInform(User,Item,world:getItemName(Item.id,0)) 
     else
-        world:itemInform(User,Item,"You see "..world:getItemName(Item.id,1)) 
+        world:itemInform(User,Item,world:getItemName(Item.id,1)) 
     end        
 end
 ---- Bücherregal

@@ -118,7 +118,7 @@ function LookAtItem(User,Item)
          		end
       		end   
     else
-	       --[[base.common.InformNLS(User,"Du siehst eine Reiterstatue.","You see a statue of a rider on his horse."); --default ]]--
+	       --[[base.common.InformNLS(User,"Reiterstatue","statue of a rider"); --default ]]--
 	local test = "no value";
 	if (first==nil) then
         content.pillar.InitPillar()
@@ -159,7 +159,7 @@ function LookAtItem(User,Item)
 	end ]]
 
 	if not found then
-        world:itemInform(User,Item,base.common.GetNLS(User,"Du siehst ","You see ")..world:getItemName(Item.id,User:getPlayerLanguage()));
+        world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
     end
 
 		User:inform("in LookAtItem of base_wegweiser.lua");

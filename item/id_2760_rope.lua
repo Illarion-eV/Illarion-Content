@@ -6,15 +6,15 @@ module("item.id_2760_rope", package.seeall)
 -- UPDATE common SET com_script='I_2760_seil.lua' WHERE com_itemid=2760;
 
 tyingQuality = {};
-tyingQuality[0] = {"starkes", "stabiles", "", "fadenscheiniges", "schwaches"};
+tyingQuality[0] = {"Starkes", "Stabiles", "", "Fadenscheiniges", "Schwaches"};
 tyingQuality[1] = {"strong", "stable", "", "threadbare", "weak"};
 -- index of limit adresses a quality string in field 0 or 1
 tyingQuality["limits"] = {15,10,5,2,0};
 
 function LookAtItem(User,Item)
     
-	local gText = "Du siehst ";
-	local eText = "You see ";
+	local gText;
+	local eText;
 	if Item.data == 1 then
 		local eQual, gQual;
 		local minutes = (Item.quality - 100)/120;
@@ -25,11 +25,11 @@ function LookAtItem(User,Item)
 				break;
 			end
 		end
-		gText = gText..gQual.." Fesslungsseil";
-		eText = eText..eQual.." tying rope";
+		gText = gQual.." Fesslungsseil";
+		eText = eQual.." tying rope";
 	else
-		gText = gText.."Seil";
-		eText = eText.."rope";
+		gText = "Seil";
+		eText = "rope";
 	end
 	world:itemInform(User,Item,base.common.GetNLS(User,gText,eText));
 end

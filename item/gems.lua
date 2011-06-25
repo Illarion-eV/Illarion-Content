@@ -72,16 +72,12 @@ function LookAtItem(User,Item)
 
     if ( (Item.data > 0) and (Item.data < 11) ) then
         if User:getPlayerLanguage() == 0 then
-        world:itemInform(User,Item,"Du siehst "..GEM_DATA_DE[Item.data].."magischer "..ItemName);
+        world:itemInform(User,Item,GEM_DATA_DE[Item.data].."magischer "..ItemName);
         else
-        world:itemInform(User,Item,"You see "..GEM_DATA_EN[Item.data].."magical "..ItemName);
+        world:itemInform(User,Item,GEM_DATA_EN[Item.data].."magical "..ItemName);
         end;
     else
-    if User:getPlayerLanguage() == 0 then
-            world:itemInform(User,Item,"Du siehst "..ItemName);
-        else
-            world:itemInform(User,Item,"You see "..ItemName);
-        end;
+        world:itemInform(User,Item,ItemName);
     end 
 end
 

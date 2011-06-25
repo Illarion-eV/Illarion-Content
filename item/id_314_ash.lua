@@ -14,33 +14,33 @@ function LookAtItem(User,Item)
 
     if ( Item.quality == 101) then -- Mummie
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst grünliche Asche");
+            world:itemInform(User,Item,"Grünliche Asche");
         else
-            world:itemInform(User,Item,"You see greenish ash");
+            world:itemInform(User,Item,"greenish ash");
         end
     elseif ( Item.quality == 111 ) then -- Skeleton
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst rein weiße Asche");
+            world:itemInform(User,Item,"Reine weiße Asche");
         else
-            world:itemInform(User,Item,"You see pure white ash");
+            world:itemInform(User,Item,"pure white ash");
         end
     elseif ( Item.quality == 171 ) then -- Demonskeleton
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst rötliche Asche");
+            world:itemInform(User,Item,"Rötliche Asche");
         else
-            world:itemInform(User,Item,"You see reddish ash");
+            world:itemInform(User,Item,"reddish ash");
         end
     elseif ( Item.quality == 211 ) then --Skulls
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst silbrige Asche");
+            world:itemInform(User,Item,"Silbrige Asche");
         else
-            world:itemInform(User,Item,"You see silverish ash");
+            world:itemInform(User,Item,"silverish ash");
         end
     elseif ( Item.quality == 231 ) then --Ghostskeleton
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst bläuliche Asche");
+            world:itemInform(User,Item,"Bläuliche Asche");
         else
-            world:itemInform(User,Item,"You see blueish ash");
+            world:itemInform(User,Item,"blueish ash");
         end
     else
 	User:inform( teleportLookAt( User, Item ) );

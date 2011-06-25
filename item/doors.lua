@@ -46,15 +46,15 @@ function LookAtItem(User,Item)
     local lang=User:getPlayerLanguage();
     if (specialnames[DataVal]~=nil) then
         if (lang==0) then
-            world:itemInform(User,Item,"Du siehst "..world:getItemName(Item.id,0).." \""..specialnames[DataVal][1].."\"");
+            world:itemInform(User,Item,world:getItemName(Item.id,0).." \""..specialnames[DataVal][1].."\"");
         else
-            world:itemInform(User,Item,"You see "..world:getItemName(Item.id,1).." \""..specialnames[DataVal][2].."\"");
+            world:itemInform(User,Item,world:getItemName(Item.id,1).." \""..specialnames[DataVal][2].."\"");
         end
     else
         if (lang==0) then
-            world:itemInform(User,Item,"Du siehst "..world:getItemName(Item.id,0));
+            world:itemInform(User,Item,world:getItemName(Item.id,0));
         else
-            world:itemInform(User,Item,"You see "..world:getItemName(Item.id,1));
+            world:itemInform(User,Item,world:getItemName(Item.id,1));
         end
     end
 end

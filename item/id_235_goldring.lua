@@ -11,67 +11,35 @@ function LookAtItem(User,Item)
     --------------------------------- SPIELERRINGE [ Data 100 - 500 ] --------------------------------------------------------------------------------
     if ( Item.data == 101) then -- Trauring von Roveig
         if (User:getPlayerLanguage()==0) then
-            world:itemInform(User,Item,"Du siehst einen goldenen Trauring mit der Gravur: Katarine und Roveig, 7.Tag des Eldas im 23.Jahr")
+            world:itemInform(User,Item,"Goldener Trauring mit der Gravur: Katarine und Roveig, 7.Tag des Eldas im 23.Jahr")
         else
-            world:itemInform(User,Item,"You see a golden wedding ring with the gravure: Katarine and Roveig, 7.Day of Eldas in the 23.Year")
+            world:itemInform(User,Item,"golden wedding ring with the gravure: Katarine and Roveig, 7.Day of Eldas in the 23.Year")
         end
     elseif ( Item.data == 102) then -- Trauring von Katarine
         if (User:getPlayerLanguage()==0) then
-            world:itemInform(User,Item,"Du siehst einen goldenen Trauring mit der Gravur: Roveig und Katarine, 7.Tag des Eldas im 23.Jahr")
+            world:itemInform(User,Item,"Goldener Trauring mit der Gravur: Roveig und Katarine, 7.Tag des Eldas im 23.Jahr")
         else
-            world:itemInform(User,Item,"You see a golden wedding ring with the gravure: Roveig and Katarine, 7.Day of Eldas in the 23.Year")
+            world:itemInform(User,Item,"golden wedding ring with the gravure: Roveig and Katarine, 7.Day of Eldas in the 23.Year")
         end
 	elseif ( Item.data == 103) then -- Dajmail's Ring
         if (User:getPlayerLanguage()==0) then
-            world:itemInform(User,Item,"Du siehst einen goldenen Ring mit der Gravur: Dajmail und Nordwind")
+            world:itemInform(User,Item,"Goldener Ring mit der Gravur: Dajmail und Nordwind")
         else
-            world:itemInform(User,Item,"You see a golden ring with the gravure: Dajmail and Northwind")
+            world:itemInform(User,Item,"golden ring with the gravure: Dajmail and Northwind")
         end
 
         -------------------------------- QUESTRINGE [ Data > 500 ] ------------------------------------------------------------------------------------
     elseif ( Item.data == 666) then  -- Ring der Akademie
         if (User:getPlayerLanguage()==0) then
-            world:itemInform(User,Item,"Du siehst einen Ring mit dem Wappen der magischen Akademie Gobaiths.");
+            world:itemInform(User,Item,"Ring mit dem Wappen der magischen Akademie Gobaiths");
         else
-            world:itemInform(User,Item,"You see the ring with the emblem of the magical academy Gobaith.");
+            world:itemInform(User,Item,"ring with the emblem of the magical academy of Gobaith");
         end
     elseif ( Item.data == 10000) then  -- Ring der Akademie
         if (User:getPlayerLanguage()==0) then
-            world:itemInform(User,Item,"Du siehst einen auffälligen Ring.");
+            world:itemInform(User,Item,"Auffälliger Ring");
         else
-            world:itemInform(User,Item,"You see a peculiar dagger.");
-        end
-    elseif (Item.data == 800) then -- Questitem für Noradur (Char löst sich ig auf - teleport zum gm schloss)
-        if ( (User:isAdmin()) or (User.id==923280786)) then -- nur für gm
-            if (User:getPlayerLanguage()==0) then
-                world:itemInform(User,Item,"Auf dem Ring sind am Rand verschlungene arkane Symbole zu erkennen.");
-            else
-                world:itemInform(User,Item,"You can see some arcane symbols engraved in the ring.");
-            end
-        end
-    elseif (Item.data == 801) then -- Questitem für Noradur (Firebreathing)
-        if (User:isAdmin()) then -- nur für gm
-            if (User:getPlayerLanguage()==0) then
-                world:itemInform(User,Item,"Ring des Feuers");
-            else
-                world:itemInform(User,Item,"Ring of fire");
-            end
-        end
-    elseif (Item.data == 802) then -- Questitem  (Ritual)
-        if (User:isAdmin()) then -- nur für gm
-            if (User:getPlayerLanguage()==0) then
-                world:itemInform(User,Item,"Ritual");
-            else
-                world:itemInform(User,Item,"Ritual");
-            end
-        end
-	elseif (Item.data == 803) then -- Questitem (Icebreathing)
-        if (User:isAdmin()) then -- nur für gm
-            if (User:getPlayerLanguage()==0) then
-                world:itemInform(User,Item,"Ring des Eises");
-            else
-                world:itemInform(User,Item,"Ring of ice");
-            end
+            world:itemInform(User,Item,"peculiar ring");
         end
     elseif (Item.data == 804) then -- Questitem  (Give the crown)
         if (User:isAdmin()) then -- nur für gm

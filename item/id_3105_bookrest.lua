@@ -8,27 +8,27 @@ function LookAtItem(User,Item)
 	if (Item.data == 666) then
 	    if (Item.pos.z == -6) then
 	        if (User:getPlayerLanguage()==0) then
-	            world:itemInform(User,Item,"Du siehst ein mit arkanen Symbolen verzierten Steinsockel, auf dem eine steinernde Schriftrolle liegt, in der smaragdfarbene Schrift eingelassen ist.");
+	            world:itemInform(User,Item,"Mit arkanen Symbolen verzierter Steinsockel, auf dem eine steinernde Schriftrolle liegt, in der smaragdfarbene Schrift eingelassen ist");
 	        else
-	            world:itemInform(User,Item,"You see a stone socket decorated with arcane symbols, on which you can see a stony scroll with emerald colored letters.");
+	            world:itemInform(User,Item,"stone socket decorated with arcane symbols, on which you can see a stony scroll with emerald colored letters");
 	        end
 		elseif (Item.pos.z == 1) then
 	        if (User:getPlayerLanguage()==0) then
-	            world:itemInform(User,Item,"Du siehst ein mit arkanen Symbolen verzierten Steinsockel, auf dem eine steinernde Schriftrolle liegt, in der rubinfarbene Schrift eingelassen ist.");
+	            world:itemInform(User,Item,"Mit arkanen Symbolen verzierter Steinsockel, auf dem eine steinernde Schriftrolle liegt, in der rubinfarbene Schrift eingelassen ist");
 			else
-	            world:itemInform(User,Item,"You see a stone socket decorated with arcane symbols, on which you can see a stony scroll with ruby colored letters.");
+	            world:itemInform(User,Item,"stone socket decorated with arcane symbols, on which you can see a stony scroll with ruby colored letters");
 	        end
 		elseif (Item.pos.z == 3) then
 	        if (User:getPlayerLanguage()==0) then
-	            world:itemInform(User,Item,"Du siehst ein mit arkanen Symbolen verzierten Steinsockel, auf dem eine steinernde Schriftrolle liegt, in der amethystfarbene Schrift eingelassen ist.");
+	            world:itemInform(User,Item,"Mit arkanen Symbolen verzierter Steinsockel, auf dem eine steinernde Schriftrolle liegt, in der amethystfarbene Schrift eingelassen ist");
 	        else
-	            world:itemInform(User,Item,"You see a stone socket decorated with arcane symbols, on which you can see a stony scroll with amethyst colored letters.");
+	            world:itemInform(User,Item,"stone socket decorated with arcane symbols, on which you can see a stony scroll with amethyst colored letters");
 	        end
 		elseif (Item.pos.z == 0) then
 	        if (User:getPlayerLanguage()==0) then
-	            world:itemInform(User,Item,"Du siehst ein mit arkanen Symbolen verzierten Steinsockel, auf dem eine steinernde Schriftrolle liegt, in der blausteinfarbene Schrift eingelassen wurde.");
+	            world:itemInform(User,Item,"Mit arkanen Symbolen verzierter Steinsockel, auf dem eine steinernde Schriftrolle liegt, in der blausteinfarbene Schrift eingelassen wurde");
 	        else
-	            world:itemInform(User,Item,"You see a stone socket decorated with arcane symbols, on which you can see a stony scroll with bluestone colored letters.");
+	            world:itemInform(User,Item,"stone socket decorated with arcane symbols, on which you can see a stony scroll with bluestone colored letters");
 	        end
 	    else
 	        world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));

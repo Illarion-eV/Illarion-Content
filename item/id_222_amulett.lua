@@ -33,21 +33,21 @@ end
 function LookAtItem(User, Item)
     if ( Item.data == 666 ) then
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst ein verfluchtes Amulett des Sukkubus");
+            world:itemInform(User,Item,"Verfluchtes Amulett des Sukkubus");
         else
-            world:itemInform(User,Item,"You see the cursed amulet of the Succubus");
+            world:itemInform(User,Item,"cursed amulet of the Succubus");
         end
     elseif ( Item.data == 777 ) then
 		if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst Leeven's Amulett");
+            world:itemInform(User,Item,"Leevens Amulett");
         else
-            world:itemInform(User,Item,"You see Leeven's amulet");
+            world:itemInform(User,Item,"Leeven's amulet");
         end
 	elseif ( Item.data == 778 ) then
 		if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst ein sternförmiges Amulett in dessen Mitte eine stilisierte Eisflamme eingelassen ist, die sich um eine ebenso stilisierte Feuerflamme windet.");
+            world:itemInform(User,Item,"Sternförmiges Amulett in dessen Mitte eine stilisierte Eisflamme eingelassen ist, die sich um eine ebenso stilisierte Feuerflamme windet");
         else
-            world:itemInform(User,Item,"You see a star-shaped amulet with a	stylized iceflame in the middle, which twines about an equal stylized fireflame.");
+            world:itemInform(User,Item,"star-shaped amulet with a	stylized iceflame in the middle, which twines about an equally stylized fireflame");
         end
     else
         world:itemInform(User,Item,GetItemDescription(User,Item,1,false,false ));

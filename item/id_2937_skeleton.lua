@@ -9,9 +9,9 @@ function LookAtItem(User,Item)
     queststatus=User:getQuestProgress(112);
 
 	if Item.pos == position (501,156,0) then --The body of Madoquar
-	    base.common.InformNLS(User,"Du siehst ein zierliches Skelett, vielleicht von einer Elfin.","You see a slender skeleton, maybe an elfess."); --sending the message
+	    base.common.InformNLS(User,"Zierliches Skelett, vielleicht von einer Elfin","slender skeleton, maybe an elfess"); --sending the message
     else
-		base.common.InformNLS(User,"Du siehst ein verrottendes Skelett.","You see a rotting skeleton."); --default
+		base.common.InformNLS(User,"Verrottendes Skelett","rotting skeleton"); --default
     end
 end
 

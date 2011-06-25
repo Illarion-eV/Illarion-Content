@@ -7,29 +7,27 @@ module("item.weapon.metal", package.seeall)
 function LookAtItem(User,Item)
     if ((Item.id == 2701) and (Item.data == 50)) then
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst runenverziertes Langschwert");
+            world:itemInform(User,Item,"Runenverziertes Langschwert");
         else            
-            world:itemInform(User,Item,"You see rune ornated longsword");
+            world:itemInform(User,Item,"rune ornated longsword");
         end
-    elseif ((Item.id == 2701) and (Item.data == 16)) then   -- knighthood's dubbing sword
-        world:itemInform(User,Item,"You see the sword of dubbing" );            
     elseif ((Item.id == 3035) and (Item.data == 50)) then
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst das Schwert des Arena Siegers");            
+            world:itemInform(User,Item,"Schwert des Arena Siegers");            
         else
-            world:itemInform(User,Item,"You see the Sword of the Arena Champion");
+            world:itemInform(User,Item,"Sword of the Arena Champion");
         end
     elseif ((Item.id == 95) and (Item.data == 50)) then
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst das Wappenschild des grauen Lichtes");            
+            world:itemInform(User,Item,"Wappenschild des grauen Lichtes");            
         else
-            world:itemInform(User,Item,"You see the heraldic shield of they grey light");
+            world:itemInform(User,Item,"heraldic shield of the grey light");
         end
     elseif ((Item.id==27) and (Item.data == 10000)) then
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst einen auffälligen Dolch");            
+            world:itemInform(User,Item,"Auffälliger Dolch");            
         else
-            world:itemInform(User,Item,"You see a peculiar dagger");
+            world:itemInform(User,Item,"peculiar dagger");
         end
     else
         world:itemInform(User,Item,base.lookat.GetItemDescription(User,Item,1,true,false ));
