@@ -1,0 +1,2 @@
+item,506,node1,LookAtItem
+item,507,node2,LookAtItem
