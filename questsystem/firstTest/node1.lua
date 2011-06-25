@@ -1,5 +1,5 @@
-require("base")
-module("firstTest.node1", package.seeall)
+require("questsystem.base")
+module("questsystem.firstTest.node1", package.seeall)
 
 local QUEST_NUMBER = 10000
 local POSITION = position(681,319, 0)
@@ -9,9 +9,9 @@ local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 1
 
 function LookAtItem(player, item)
-  if base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+  if questsystem.base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
     itemInformNLS(player, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
-    base.setPostcondition(player, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+    questsystem.base.setPostcondition(player, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
     return true
   end
 

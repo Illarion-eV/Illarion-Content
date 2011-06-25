@@ -1,2 +1,2 @@
-item,506,node1,LookAtItem
-item,507,node2,LookAtItem
+item,506,LookAtItem,node1
+item,507,LookAtItem,node2

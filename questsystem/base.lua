@@ -1,4 +1,4 @@
-module("base", package.seeall)
+module("questsystem.base", package.seeall)
 
 local powersOfTwo = {1}
 local i
