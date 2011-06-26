@@ -1,22 +1,22 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Thomas Dalenus                                              None --
--- NPC Job:  none                                                             --
+-- NPC Name: Thomas Dalenus                                           Cadomyr --
+-- NPC Job:  Tailor                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  112, 596, 0            --
+-- NPC Race: human                      NPC Position:  113, 611, 0            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 25, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 26, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Thomas Dalenus"
 race = human
 sex = male
-position = 112, 596, 0
+position = 113, 611, 0
 direction = north
-affiliation = "None"
-job = "none"
+affiliation = "Cadomyr"
+job = "Tailor"
 
 language = common
 language = human
@@ -32,10 +32,10 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+hairID = 3
+beardID = 0
+colorHair = 242, 182, 0
+colorSkin = 184, 131, 89
 itemHead = 0
 itemChest = 458
 itemCoat = 2421
@@ -90,41 +90,49 @@ itemShoes = 53
 "your name", "who are you", "who art thou" -> "My name is Thomas, Thomas Dalenus. I'm a tailor.", "Dalenus' tailored goods - that is my business.", "Thomas Dalenus. And do not call me Tom or I'll sting my needle into your eye."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Thomas, Thomas Dalenus. Ich bin ein Schneider.", "Dalenus Schneiderwaren - das ist mein Geschäft.", "Thomas Dalenus. Und nennt mich nicht Tom, sonst stech ich euch die Augen mit meiner Nadel aus."
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Robes, dresses, capes, shirts, trousers... what do you need, I have everything."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Roben, Kleider, Umhänge, Hemden, Hosen,... was braucht ihr, ich habe alles."
-"tell something" -> "Never trade with Galmair. Just saying."
-"erzähl was", "erzähl etwas" -> "Handelt niemals mit Galmair, sage ich."
+-- Catching quest triggers
+"quest", "mission", english -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help."
+"quest", "mission" -> "Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht."
+"task", "adventure" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a tailor, I even made a dress for the queen once."
 "beruf" -> "Ich bin Schneider, einst habe ich sogar ein Kleid für die Königin geschneidert."
 "job", english -> "I'm a tailor, I even made a dress for the queen once."
 "job" -> "Ich bin Schneider, einst habe ich sogar ein Kleid für die Königin geschneidert."
+"Gobaith", "Gobiath", english -> "Let's not talk about sad things, please."
+"Gobaith", "Gobiath" -> "Lasst uns doch bitte nicht von traurigen Dingen reden."
+"my name" -> "And I am Thomas Dalenus; you could use a new coat if you ask me."
+"mein Name" -> "Und ich bin Thomas Dalenus; ihr könntet einen neuen Mantel vertragen."
+
+-- More small talk; add at least five triggers
 "tailor" -> "When I made the dress of queen Rosaline, I worked all day and night. It was such a honour! Is there anything I can tailor for you?"
 "Schneider" -> "Als ich das Kleid der Königin Rosaline gefertigt habe, hab ich den ganzen Tag und die ganze Nacht gearbeitet. Es war so eine Ehre! Gibt es etwas, was ich für dich schneidern kann?"
 "trader", "merchant", "collegue", "vendor", "market" -> "The amount of goods, traded on this marketplace, is magnificient. We're not a people of traders, but everyone needs something sometimes."
 "händler", "kollege", "höker", "markt" -> "Die Menge an Waren, die auf diesem Markt gehandelt werden, sind schon beeindruckend. Wir sind zwar kein Volk von Händlern, aber jeder braucht mal etwas."
-
--- More small talk; add at least five triggers
 "dye" -> "To dye clothes is tricky. You need various ingredients like herbs. Better buy dyed clothes from me instead of wasting your time."
 "färbe", "farbe" -> "Stoffe zu Färben ist aufwändig. Man braucht eine Reihe von Wirkstoffen, so wie Kräuter. Kauft besser gefärbte Stoffe direkt bei mir."
 "needle" -> "I can sell you a needle, but be careful, they are pointed."
 "Nadel" -> "Ich kann euch eine Nadel verkaufen, aber vorsichtig, sie ist spitz."
 
 -- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "You are talking about Elvaine Morgan, the archmage of Runewick? I keep forgetting his name.", "Who is that again?"
-"Elvaine", "Morgan", "archmage", "Erzmagier", german -> "Ihr redet von Elvaine Morgan, dem Erzmagier von Runewick? Ich vergesse immer wieder seinen Namen.", "Wer war das nochmal?"
+"archmage" -> "You are talking about Elvaine Morgan, the archmage of Runewick? I keep forgetting his name.", "Who is that again?"
+"Erzmagier" -> "Ihr redet von Elvaine Morgan, dem Erzmagier von Runewick? Ich vergesse immer wieder seinen Namen.", "Wer war das nochmal?"
+"Elvaine", "Morgan", english -> "You are talking about Elvaine Morgan, the archmage of Runewick? I keep forgetting his name.", "Who is that again?"
+"Elvaine", "Morgan" -> "Ihr redet von Elvaine Morgan, dem Erzmagier von Runewick? Ich vergesse immer wieder seinen Namen.", "Wer war das nochmal?"
 "Runewick", english -> "I was told they prefer silk in Runewick.", "Runewick, well, trading with Runewick takes too long, all this talking."
-"Runewick", german -> "Mir wurde erzählt, dass man in Runewick Seide bevorzugt.", "Runewick, nun, ein Handel mit Runewick dauert immer so lange, immer dieses Gelaber."
+"Runewick" -> "Mir wurde erzählt, dass man in Runewick Seide bevorzugt.", "Runewick, nun, ein Handel mit Runewick dauert immer so lange, immer dieses Gelaber."
 "Valerio", "Guilianni", "Don", english -> "The Don once ordered trousers for his ruffians from me. I refused, of course."
-"Valerio", "Guilianni", "Don", german -> "Der Don hat einst Hosen für seine Schlägertrupps bei mir bestellt. Ich hab abgelehnt, wie sich von selbst versteht."
+"Valerio", "Guilianni", "Don" -> "Der Don hat einst Hosen für seine Schlägertrupps bei mir bestellt. Ich hab abgelehnt, wie sich von selbst versteht."
 "Galmair", english -> "I am honest; I do not like Galmair. I prefer to trade with honourable men."
-"Galmair", german -> "Ich bin ganz ehrlich; ich mag Galmair nicht. Ich ziehe es vor, mit ehrbahren Leuten zu handeln."
-"rosaline", "Königin", "queen", "edwards", english -> "Did you notice the red dress the queen wears from time to mine? My work!"
-"rosaline", "königin", "queen", "edwards", german -> "Habt ihr das rote Kleid bemerkt, welches die Königin manchmal trägt? Mein Meisterwerk!"
+"Galmair" -> "Ich bin ganz ehrlich; ich mag Galmair nicht. Ich ziehe es vor, mit ehrbahren Leuten zu handeln."
+"Queen" -> "Did you notice the blue dress the queen wears from time to mine? My work!"
+"Königin" -> "Habt ihr das blaue Kleid bemerkt, welches die Königin manchmal trägt? Mein Meisterwerk!"
+"rosaline", "edwards", english -> "Did you notice the blue dress the queen wears from time to mine? My work!"
+"rosaline", "edwards" -> "Habt ihr das blaue Kleid bemerkt, welches die Königin manchmal trägt? Mein Meisterwerk!"
 "Cadomyr", english -> "I tailor for the queen, I tailor for every noble man of Cadomyr. And for every woman, of course."
-"Cadomyr", german -> "Ich schneidere für die Königin, ich schneider für jeden Edelmann von Cadomyr. Und für jede Dame, wie sich von selbst versteht."
+"Cadomyr" -> "Ich schneidere für die Königin, ich schneider für jeden Edelmann von Cadomyr. Und für jede Dame, wie sich von selbst versteht."
 
 -- Main land factions
 "albar", english -> "Once, the lords of Albar ordered a shipment of clothes. But somehow, they never payed me. I suspect Galmairian thugs are behind this!"
@@ -135,16 +143,18 @@ itemShoes = 53
 "salkama" -> "Die Damen aus Salkamar sind alle zu dünn, sagt man. Wie soll man für einen Strich in der Landschaft ein Kleid schneidern?"
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
+"god" -> "When I don't work, I sometimes pray to Irmorom; but with little effects as it seems."
+"Gott", "Götter" -> "Wenn ich mal nicht arbeite, bete ich manchmal zu Irmorom; viel hats bis jetzt nicht gebracht."
 "Irmorom", english -> "Irmorom guides my hands while stitching. I wonder why I sting myself that often with the needle!"
 "Irmorom" -> "Irmorom führt meine Hand, wenn ich sticke. Ich frag mich, warum ich mich trotzdem so oft mit der Nadel steche."
-"Malachin", english -> "Malachin is the god of battles and hunting. I'd like to fight and hunt, too, but I'm better at tailoring."
-"Malachin" -> "Malachin ist der Gott der Schlachten und der Jagd. Ich würde auch gerne Kämpfen und Jagen, aber ich bin besser in der Schneiderei."
+"Malachin", "Malachín", english -> "Malachin is the god of battles and hunting. I'd like to fight and hunt, too, but I'm better at tailoring."
+"Malachin", "Malachín" -> "Malachin ist der Gott der Schlachten und der Jagd. Ich würde auch gerne Kämpfen und Jagen, aber ich bin besser in der Schneiderei."
 
--- Catching quest triggers
-"quest", "mission", english -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help."
-"quest", "mission" -> "Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht."
-"task", "adventure" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht."
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Robes, dresses, capes, shirts, trousers... what do you need, I have everything."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Roben, Kleider, Umhänge, Hemden, Hosen,... was braucht ihr, ich habe alles."
+"tell something" -> "Never trade with Galmair. Just saying."
+"erzähl was", "erzähl etwas" -> "Handelt niemals mit Galmair, sage ich."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Yes" -> "Pardon?", "I don't understand you.", "Sorry?"

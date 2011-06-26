@@ -1,18 +1,18 @@
 --------------------------------------------------------------------------------
--- NPC Name: Thomas Dalenus                                              None --
--- NPC Job:  none                                                             --
+-- NPC Name: Thomas Dalenus                                           Cadomyr --
+-- NPC Job:  Tailor                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  112, 596, 0            --
+-- NPC Race: human                      NPC Position:  113, 611, 0            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 25, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 26, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 112, 596, 0, 0, 'Thomas Dalenus', 'npc.thomas_dalenus', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 113, 611, 0, 0, 'Thomas Dalenus', 'npc.thomas_dalenus', 0, 3, 0, 242, 182, 0, 184, 131, 89);
 ---]]
 
 require("npc.base.basic")
@@ -164,33 +164,32 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("Robes, dresses, capes, shirts, trousers... what do you need, I have everything.");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Roben, Kleider, Umhänge, Hemden, Hosen,... was braucht ihr, ich habe alles.");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Never trade with Galmair. Just saying.");
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addResponse("If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Handelt niemals mit Galmair, sage ich.");
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addResponse("Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -216,6 +215,33 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addResponse("Ich bin Schneider, einst habe ich sogar ein Kleid für die Königin geschneidert.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Let's not talk about sad things, please.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("Lasst uns doch bitte nicht von traurigen Dingen reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("And I am Thomas Dalenus; you could use a new coat if you ask me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Und ich bin Thomas Dalenus; ihr könntet einen neuen Mantel vertragen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -276,10 +302,22 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("You are talking about Elvaine Morgan, the archmage of Runewick? I keep forgetting his name.");
+talkEntry:addResponse("Who is that again?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Ihr redet von Elvaine Morgan, dem Erzmagier von Runewick? Ich vergesse immer wieder seinen Namen.");
+talkEntry:addResponse("Wer war das nochmal?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("You are talking about Elvaine Morgan, the archmage of Runewick? I keep forgetting his name.");
 talkEntry:addResponse("Who is that again?");
@@ -289,9 +327,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ihr redet von Elvaine Morgan, dem Erzmagier von Runewick? Ich vergesse immer wieder seinen Namen.");
 talkEntry:addResponse("Wer war das nochmal?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -307,7 +342,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Mir wurde erzählt, dass man in Runewick Seide bevorzugt.");
 talkEntry:addResponse("Runewick, nun, ein Handel mit Runewick dauert immer so lange, immer dieses Gelaber.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -326,7 +360,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Der Don hat einst Hosen für seine Schlägertrupps bei mir bestellt. Ich hab abgelehnt, wie sich von selbst versteht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -340,28 +373,34 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ich bin ganz ehrlich; ich mag Galmair nicht. Ich ziehe es vor, mit ehrbahren Leuten zu handeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("Did you notice the blue dress the queen wears from time to mine? My work!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Did you notice the red dress the queen wears from time to mine? My work!");
+talkEntry:addResponse("Habt ihr das blaue Kleid bemerkt, welches die Königin manchmal trägt? Mein Meisterwerk!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Habt ihr das rote Kleid bemerkt, welches die Königin manchmal trägt? Mein Meisterwerk!");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Did you notice the blue dress the queen wears from time to mine? My work!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Habt ihr das blaue Kleid bemerkt, welches die Königin manchmal trägt? Mein Meisterwerk!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,7 +413,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ich schneidere für die Königin, ich schneider für jeden Edelmann von Cadomyr. Und für jede Dame, wie sich von selbst versteht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -421,6 +459,19 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("god");
+talkEntry:addResponse("When I don't work, I sometimes pray to Irmorom; but with little effects as it seems.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("Wenn ich mal nicht arbeite, bete ich manchmal zu Irmorom; viel hats bis jetzt nicht gebracht.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Irmorom guides my hands while stitching. I wonder why I sting myself that often with the needle!");
@@ -435,6 +486,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Malachin is the god of battles and hunting. I'd like to fight and hunt, too, but I'm better at tailoring.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -442,37 +494,39 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
 talkEntry:addResponse("Malachin ist der Gott der Schlachten und der Jagd. Ich würde auch gerne Kämpfen und Jagen, aber ich bin besser in der Schneiderei.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help.");
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Robes, dresses, capes, shirts, trousers... what do you need, I have everything.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht.");
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Roben, Kleider, Umhänge, Hemden, Hosen,... was braucht ihr, ich habe alles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addResponse("If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help.");
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("Never trade with Galmair. Just saying.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht.");
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Handelt niemals mit Galmair, sage ich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
