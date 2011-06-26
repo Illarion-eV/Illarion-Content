@@ -9,6 +9,8 @@ end
 function fulfilsPrecondition(player, questNumber, questState)
   local questFlags = player:getQuestProgress(questNumber)
   local stateFlag = powersOfTwo[questState]
+  player:inform("questFlags: "..questFlags);
+  player:inform("questFlags: "..stateFlag);
   return LuaAnd(questFlags, stateFlag) > 0
 end
 
