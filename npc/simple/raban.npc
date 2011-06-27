@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Raban"
@@ -72,12 +72,12 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Einsiedler Raban. Schlüsselwörter: Hallo, Quest, Sichel, Kräuter.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, yes, an unsettled soul. Welcome to my grove.", "Who is there! Pardon me, I am not used to visitors.", "So, after all those summers, somebody comes here. I hope your intentions are good."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
+"Hello", "Greetings", "greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, yes, an unsettled soul. Welcome to my grove.", "Who is there! Pardon me, I am not used to visitors.", "So, after all those summers, somebody comes here. I hope your intentions are good."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Ah, yes, an unsettled soul. Welcome to my grove.", "Who is there! Pardon me, I am not used to visitors.", "So, after all those summers, somebody comes here. I hope your intentions are good."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Ushara may guide your way.", "Farewell.", "While leaving, do not stomp on any seedling, will you?"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Möge Ushara deinen Weg begleiten.", "Gehabt euch wohl.", "Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?"
+"Farewell", "Bye", "Fare well", "See you" -> "Ushara may guide your way.", "Farewell.", "While leaving, do not stomp on any seedling, will you?"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge Ushara deinen Weg begleiten.", "Gehabt euch wohl.", "Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?"
 "Ciao", "Adieu", "Au revoir", english -> "Ushara may guide your way.", "Farewell.", "While leaving, do not stomp on any seedling, will you?"
 "Ciao", "Adieu", "Au revoir" -> "Möge Ushara deinen Weg begleiten.", "Gehabt euch wohl.", "Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?"
 "How are you", "How feel", "How do you do" -> "I always feel pacified when surrounded by plants and trees.", "I'd feel much better if everyone honors the woods. Aren't those trees lovely?", "I cannot complain. My trees grow and this little fellow over there just turned ten years. I remember planting him like it was yesterday."

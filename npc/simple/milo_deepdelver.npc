@@ -8,7 +8,7 @@
 -- Authors:  Nanuk                                                            --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 24, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Milo Deepdelver"
@@ -57,22 +57,18 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Kräuterkundige Milo Deepdelver. Er weiß ein paar Dinge über die Götter und Kräuterkunde.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings my friend and may the Gods be with you. I don't have much time, as this bullheaded mule of mine doesn't take a step forward. But if you know anything about mules lent me a hand, will you?"
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ich grüße euch mein Freund und mögen die Götter mit euch sein. Ich habe leider nicht sehr viel Zeit, weil mein starrsinniger Esel keine Schritt mehr tut. Aber falls ihr etwas von Eseln versteht, dann könnt ihr mir gerne zur Hand gehen."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Greetings my friend and may the Gods be with you. I don't have much time, as this bullheaded mule of mine doesn't take a step forward. But if you know anything about mules lent me a hand, will you?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Ich grüße euch mein Freund und mögen die Götter mit euch sein. Ich habe leider nicht sehr viel Zeit, weil mein starrsinniger Esel keine Schritt mehr tut. Aber falls ihr etwas von Eseln versteht, dann könnt ihr mir gerne zur Hand gehen."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell my friend. May Oldra guide your ways where ever you go."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Auf Wiedersehen mein Freund. Möge Oldra über euren Wegen wachen, wo auch immer ihr hingeht."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings my friend and may the Gods be with you. I don't have much time, as this bullheaded mule of mine doesn't take a step forward. But if you know anything about mules lent me a hand, will you?"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ich grüße euch mein Freund und mögen die Götter mit euch sein. Ich habe leider nicht sehr viel Zeit, weil mein starrsinniger Esel keine Schritt mehr tut. Aber falls ihr etwas von Eseln versteht, dann könnt ihr mir gerne zur Hand gehen."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings my friend and may the Gods be with you. I don't have much time, as this bullheaded mule of mine doesn't take a step forward. But if you know anything about mules lent me a hand, will you?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ich grüße euch mein Freund und mögen die Götter mit euch sein. Ich habe leider nicht sehr viel Zeit, weil mein starrsinniger Esel keine Schritt mehr tut. Aber falls ihr etwas von Eseln versteht, dann könnt ihr mir gerne zur Hand gehen."
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell my friend. May Oldra guide your ways where ever you go."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen mein Freund. Möge Oldra über euren Wegen wachen, wo auch immer ihr hingeht."
 "Ciao", "Adieu", "Au revoir", english -> "Farewell my friend. May Oldra guide your ways where ever you go."
-"Ciao", "Adieu", "Au revoir", german -> "Auf Wiedersehen mein Freund. Möge Oldra über euren Wegen wachen, wo auch immer ihr hingeht."
+"Ciao", "Adieu", "Au revoir" -> "Auf Wiedersehen mein Freund. Möge Oldra über euren Wegen wachen, wo auch immer ihr hingeht."
 "How are you", "How feel", "How do you do" -> "#me sighs: 'Well, you know, I was on my way back home, but the Gods blessed me with this old mule, that doesn't want to move.'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "#me seufzt: 'Ach, wisst ihr, ich war auf dem Weg nach Hause, aber die Götter haben mich mit diesem alten Esel bedacht, der sich nicht mehr bewegen will.'"
 "your name", "who are you", "who art thou" -> "My Name is Milo Deepdelver. I am a herbalist from Runewick. If the Gods are with me, I will be on my way home with this no good mule of mine!"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Esel hier!"
-"name", english -> "My Name is Milo Deepdelver. I am a herbalist from Runewick. If the Gods are with me, I will be on my way home with this no good mule of mine!"
-"name", german -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Esel hier!"
-"Milo", "Deepdelver", english -> "Yes, this is my name. If you need some information on the Gods or herb lore just talk to me."
-"Milo", "Deepdelver", german -> "Ja, so heiße ich. Falls ihr ein paar Informationen zu den Göttern oder Kräuterkunde benötigt, stehe ich zu eurer Verfügung."
 
 -- quest: start
 "mule", queststatus(106) = 0 -> "This stupid mule of mine doesn't move a single step and I am late returning to my family. Could you help me with my problem?", queststatus(106) = 1
@@ -261,6 +257,10 @@ itemShoes = 369
 "Frau" -> "Meine Frau heißt Rose und sie ist die schönste Frau, welche ihr je zu Gesicht bekommen werdet!"
 "child" -> "I have a small daughter of three years and she is the sunshine of my life."
 "Kind" -> "Ich habe eine kleine Tochter von drei Jahren und sie ist der Sonnenschein in meinem Leben."
+"my name", english -> "My Name is Milo Deepdelver. I am a herbalist from Runewick. If the Gods are with me, I will be on my way home with this no good mule of mine!"
+"mein name" -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Esel hier!"
+"Milo", "Deepdelver", english -> "Yes, this is my name. If you need some information on the Gods or herb lore just talk to me."
+"Milo", "Deepdelver" -> "Ja, so heiße ich. Falls ihr ein paar Informationen zu den Göttern oder Kräuterkunde benötigt, stehe ich zu eurer Verfügung."
 
 -- typical NPC phrases
 "sell" -> "Sorry, I don't sell anything. I am trying to get this stupid mule to move. So, get out of my way if you don't want to help me."

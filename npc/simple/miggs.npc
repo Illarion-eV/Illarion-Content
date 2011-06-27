@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 25, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Miggs"
@@ -70,8 +70,8 @@ itemShoes = 326
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Tach, hat euch der Don geschickt?", "So, ihr seid also der nächste Stern am Himmel Galmairs? Irgendwie kann ich das nicht recht glauben.", "Was!? Sprecht schnell."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "G'day, did the Don send you?", "So, you are the next bigshot of Galmair? Something makes me doubt that.", "What?! Make it quick."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Tach, hat euch der Don geschickt?", "So, ihr seid also der nächste Stern am Himmel Galmairs? Irgendwie kann ich das nicht recht glauben.", "Was!? Sprecht schnell."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Go and come back. But not too soon.", "Off!", "Get lost."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Geht und beehrt mich mal wieder. Aber nicht zu bald.", "Hinfort!", "Haut ab."
+"Farewell", "Bye", "Fare well", "See you" -> "Go and come back. But not too soon.", "Off!", "Get lost."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Geht und beehrt mich mal wieder. Aber nicht zu bald.", "Hinfort!", "Haut ab."
 "Ciao", "Adieu", "Au revoir", english -> "Go and come back. But not too soon.", "Off!", "Get lost."
 "Ciao", "Adieu", "Au revoir" -> "Geht und beehrt mich mal wieder. Aber nicht zu bald.", "Hinfort!", "Haut ab."
 "How are you", "How feel", "How do you do" -> "I feel like beating up somebody. Just give me a reason.", "Four words: None of your business.", "My fist itches."

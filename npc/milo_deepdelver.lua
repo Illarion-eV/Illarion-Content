@@ -8,7 +8,7 @@
 -- Authors:  Nanuk                                                            --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 24, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -47,8 +47,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
@@ -58,9 +57,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
@@ -74,8 +72,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Greetings my friend and may the Gods be with you. I don't have much time, as this bullheaded mule of mine doesn't take a step forward. But if you know anything about mules lent me a hand, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -85,18 +82,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Ich grüße euch mein Freund und mögen die Götter mit euch sein. Ich habe leider nicht sehr viel Zeit, weil mein starrsinniger Esel keine Schritt mehr tut. Aber falls ihr etwas von Eseln versteht, dann könnt ihr mir gerne zur Hand gehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("Farewell my friend. May Oldra guide your ways where ever you go.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -105,7 +100,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Auf Wiedersehen mein Freund. Möge Oldra über euren Wegen wachen, wo auch immer ihr hingeht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -123,7 +118,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Auf Wiedersehen mein Freund. Möge Oldra über euren Wegen wachen, wo auch immer ihr hingeht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -158,36 +152,6 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Esel hier!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("name");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My Name is Milo Deepdelver. I am a herbalist from Runewick. If the Gods are with me, I will be on my way home with this no good mule of mine!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("name");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Esel hier!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Milo");
-talkEntry:addTrigger("Deepdelver");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Yes, this is my name. If you need some information on the Gods or herb lore just talk to me.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Milo");
-talkEntry:addTrigger("Deepdelver");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ja, so heiße ich. Falls ihr ein paar Informationen zu den Göttern oder Kräuterkunde benötigt, stehe ich zu eurer Verfügung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1493,6 +1457,34 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kind");
 talkEntry:addResponse("Ich habe eine kleine Tochter von drei Jahren und sie ist der Sonnenschein in meinem Leben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My Name is Milo Deepdelver. I am a herbalist from Runewick. If the Gods are with me, I will be on my way home with this no good mule of mine!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein name");
+talkEntry:addResponse("Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Esel hier!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Milo");
+talkEntry:addTrigger("Deepdelver");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Yes, this is my name. If you need some information on the Gods or herb lore just talk to me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Milo");
+talkEntry:addTrigger("Deepdelver");
+talkEntry:addResponse("Ja, so heiße ich. Falls ihr ein paar Informationen zu den Göttern oder Kräuterkunde benötigt, stehe ich zu eurer Verfügung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
