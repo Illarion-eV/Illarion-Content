@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Zerarisa"
@@ -77,8 +77,8 @@ itemShoes = 369
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greetingsss to you.", "Yess, greetingss.", "Greetsss."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "May the rainsss be heavy and frequent.", "May the ssea-Mother watch your path.", "Farewell, zsss."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Mögenss Regen häufig und ssstark sssein.", "Mögenss die Meermutter dein Pfad leitenss.", "Abschied, zsss."
+"Farewell", "Bye", "Fare well", "See you" -> "May the rainsss be heavy and frequent.", "May the ssea-Mother watch your path.", "Farewell, zsss."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mögenss Regen häufig und ssstark sssein.", "Mögenss die Meermutter dein Pfad leitenss.", "Abschied, zsss."
 "Ciao", "Adieu", "Au revoir", english -> "Goodbye", "Farewell", "#me nods slowly: 'Goodbye'."
 "Ciao", "Adieu", "Au revoir" -> "Gut wiedersehensss.", "Abschied.", "#me nickt langsam: 'Gut wiedersehensss'."
 "How are you", "How feel", "How do you do" -> "Zerarisa iss fine, yess, but her paw hurtsss."

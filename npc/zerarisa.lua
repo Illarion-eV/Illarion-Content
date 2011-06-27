@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -98,9 +98,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("May the rainsss be heavy and frequent.");
 talkEntry:addResponse("May the ssea-Mother watch your path.");
 talkEntry:addResponse("Farewell, zsss.");
@@ -111,7 +111,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Mögenss Regen häufig und ssstark sssein.");
 talkEntry:addResponse("Mögenss die Meermutter dein Pfad leitenss.");
 talkEntry:addResponse("Abschied, zsss.");

@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,13 +31,6 @@ module("npc.zaida", package.seeall)
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(76, ">", 2));
-talkEntry:addResponse("Error! Something went wrong, please inform a developer.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("help");
@@ -158,9 +151,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("Until next time, traveler!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -283,7 +276,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Bis zum nächsten mal, Reisender.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -292,7 +285,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Gehabt euch wohl, Reisender.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

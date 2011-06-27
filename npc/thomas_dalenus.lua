@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 26, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -89,9 +89,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("Farewell, go with the gods.");
 talkEntry:addResponse("Good bye, my customer.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -101,7 +101,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Gehabt euch wohl, geht mit den Göttern.");
 talkEntry:addResponse("Auf wiedersehen, mein Kunde.");
 talkingNPC:addTalkingEntry(talkEntry);

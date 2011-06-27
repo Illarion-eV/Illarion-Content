@@ -46,8 +46,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("greet");
+talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");

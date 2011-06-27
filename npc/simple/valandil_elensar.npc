@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Valandil Elensar"
@@ -72,14 +72,14 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Förster Valandil Elensar. Schlüsselwörter: Hallo, Quest, Beil, Förster, Holz.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings, friend, sorry that I won't stand up but I planted trees all day long, now I feel a little tired.", "Welcome in Elstree forest, watch out for the deers, they are easily frightened today.", "Hello, I hope you weren't send to me in order to buy wood like my last visitor."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüße, verzeiht, dass ich mich nicht erhebe aber ich habe den ganzen Tag Bäume gepflanzt und bin nun ein wenig ermüdet.", "Willkommen im Elsbaumwald, achtet auf die Rehe, sie sind heute sehr schreckhaft.", "Hallo, ich hoffe, ihr wurdet nicht zu mir geschickt, um Holz zu kaufen wie mein letzter Besucher."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Greetings, friend, sorry that I won't stand up but I planted trees all day long, now I feel a little tired.", "Welcome in the Elstree forest, watch out for the deers, they are easily frightened today.", "Hello, I hope you weren't send to me in order to buy wood like my last visitor."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Grüße, verzeiht, dass ich mich nicht erhebe aber ich habe den ganzen Tag Bäume gepflanzt und bin nun ein wenig ermüdet.", "Willkommen im Elsbaumwald, achtet auf die Rehe, sie sind heute sehr schreckhaft.", "Hallo, ich hoffe, ihr wurdet nicht zu mir geschickt, um Holz zu kaufen wie mein letzter Besucher."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell, may the gods watch your paths.", "Take care of yourself and never forget that the trees here are not to be touched by anyone but me without permission."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Auf bald, mögen die Götter über eure Pfade wachen.", "Passt auf euch auf und denkt daran, dass die Bäume hier von niemanden außer mir ohne Erlaubnis berührt werden dürfen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings, friend, sorry that I won't stand up but I planted trees all day long, now I feel a little tired.", "Welcome in Elstree forest, watch out for the deers, they are easily frightened today.", "Hello, I hope you weren't send to me in order to buy wood like my last visitor."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüße, verzeiht, dass ich mich nicht erhebe aber ich habe den ganzen Tag Bäume gepflanzt und bin nun ein wenig ermüdet.", "Willkommen im Elsbaumwald, achtet auf die Rehe, sie sind heute sehr schreckhaft.", "Hallo, ich hoffe, ihr wurdet nicht zu mir geschickt, um Holz zu kaufen wie mein letzter Besucher."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings, friend, sorry that I won't stand up but I planted trees all day long, now I feel a little tired.", "Welcome in the Elstree forest, watch out for the deers, they are easily frightened today.", "Hello, I hope you weren't send to me in order to buy wood like my last visitor."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße, verzeiht, dass ich mich nicht erhebe aber ich habe den ganzen Tag Bäume gepflanzt und bin nun ein wenig ermüdet.", "Willkommen im Elsbaumwald, achtet auf die Rehe, sie sind heute sehr schreckhaft.", "Hallo, ich hoffe, ihr wurdet nicht zu mir geschickt, um Holz zu kaufen wie mein letzter Besucher."
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell, may the gods watch your paths.", "Take care of yourself and never forget that the trees here are not to be touched by anyone but me without permission."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald, mögen die Götter über eure Pfade wachen.", "Passt auf euch auf und denkt daran, dass die Bäume hier von niemanden außer mir ohne Erlaubnis berührt werden dürfen."
 "Ciao", "Adieu", "Au revoir", english -> "Good bye, enjoy your time in Elstree forest.", "Oh, when you happen to pass sheep watch your back or else they might stick their curious noses into your pocket."
-"Ciao", "Adieu", "Au revoir", german -> "Auf Wiedersehen, genießt eure Zeit hier im Elsbaumwald.", "Oh, wenn ihr an Schafen vorbei kommen solltet, habt acht oder sie stecken ihre neugierigen Mäuler in eure Taschen."
+"Ciao", "Adieu", "Au revoir" -> "Auf Wiedersehen, genießt eure Zeit hier im Elsbaumwald.", "Oh, wenn ihr an Schafen vorbei kommen solltet, habt acht oder sie stecken ihre neugierigen Mäuler in eure Taschen."
 "How are you", "How feel", "How do you do" -> "Oh, I am fine, thank you.", "I got a splinter in my thumb but I will handle it.", "My head aches a little but it will pass after some rest."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut, danke euch.", "Ich habe einen Splitter im Daumen aber das wird schon.", "Mein Kopf schmerzt ein wenig aber das geht vorbei nach ein bischen Rast."
 "your name", "who are you", "who art thou" -> "I am Valandil Elensar.", "Valandil Elensar is my name, I am the forester.", "I am Valandil Elensar, the forester."

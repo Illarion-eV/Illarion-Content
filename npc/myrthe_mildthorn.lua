@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 22, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -87,7 +87,6 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Oh, hallo, habt ihr Schmutzwäsche? Entschuldigt, ich dachte, ihr seid einer meiner Kunden.");
 talkEntry:addResponse("#me schaut von ihrem Waschbrett auf und erwidert: 'Hiho! Hab ich euch nicht gestern erst am Bach Anthil gesehen?");
 talkEntry:addResponse("Hiho! Wie kann ich euch helfen?");
@@ -96,9 +95,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("Farewell! If your clothes get dirty, just come back to me, will you?");
 talkEntry:addResponse("Oh, you have to leave? I do not feel comfortable here, all alone.");
 talkEntry:addResponse("Ah, I look forward to meet you again.");
@@ -109,7 +108,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Gehabt euch wohl! Wenn eure Kleidung dreckig wird, kommt einfach zu mir zurück, ja?");
 talkEntry:addResponse("Oh, ihr müßt gehen? Ich fühl mich gar nicht wohl, so ganz alleine.");
 talkEntry:addResponse("Ah, ich freu mich schon darauf, euch wiederzusehen.");
@@ -131,7 +130,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Gehabt euch wohl! Wenn eure Kleidung dreckig wird, kommt einfach zu mir zurück, ja?");
 talkEntry:addResponse("Oh, ihr müßt gehen? Ich fühl mich gar nicht wohl, so ganz alleine.");
 talkEntry:addResponse("Ah, ich freu mich schon darauf, euch wiederzusehen.");

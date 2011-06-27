@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 26, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Thomas Dalenus"
@@ -81,8 +81,8 @@ itemShoes = 53
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag.", "Seid gegrüßt.", "Hallo."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Good day.", "Greetings.", "Hello"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag.", "Seid gegrüßt.", "Hallo."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell, go with the gods.", "Good bye, my customer."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Gehabt euch wohl, geht mit den Göttern.", "Auf wiedersehen, mein Kunde."
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell, go with the gods.", "Good bye, my customer."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt euch wohl, geht mit den Göttern.", "Auf wiedersehen, mein Kunde."
 "Ciao", "Adieu", "Au revoir", english -> "Farewell, go with the gods.", "Good bye, my customer."
 "Ciao", "Adieu", "Au revoir" -> "Gehabt euch wohl, geht mit den Göttern.", "Auf wiedersehen, mein Kunde."
 "How are you", "How feel", "How do you do" -> "I just finished this robe. Maybe you want to take a look at it?"

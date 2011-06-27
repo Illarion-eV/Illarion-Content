@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 22, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Myrthe Mildthorn"
@@ -80,11 +80,11 @@ itemShoes = 53
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Oh, hello, got laundry? Excuse me, I thought you're one of my customers.", "#me looks up from her washing board and replies: 'Hiho! Didn't I see you yesterday at the Anthil brook?", "Hiho! How can I help you?"
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Oh, hallo, habt ihr Schmutzwäsche? Entschuldigt, ich dachte, ihr seid einer meiner Kunden.", "#me schaut von ihrem Waschbrett auf und erwidert: 'Hiho! Hab ich euch nicht gestern erst am Bach Anthil gesehen?", "Hiho! Wie kann ich euch helfen?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Oh, hello, got laundry? Excuse me, I thought you're one of my customers.", "#me looks up from her washing board and replies: 'Hiho! Didn't I see you yesterday at the Anthil brook?", "Hiho! How can I help you?"
-"Hiho", "Hallo", "Hey", "Greeb", german -> "Oh, hallo, habt ihr Schmutzwäsche? Entschuldigt, ich dachte, ihr seid einer meiner Kunden.", "#me schaut von ihrem Waschbrett auf und erwidert: 'Hiho! Hab ich euch nicht gestern erst am Bach Anthil gesehen?", "Hiho! Wie kann ich euch helfen?"
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell! If your clothes get dirty, just come back to me, will you?", "Oh, you have to leave? I do not feel comfortable here, all alone.", "Ah, I look forward to meet you again."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Gehabt euch wohl! Wenn eure Kleidung dreckig wird, kommt einfach zu mir zurück, ja?", "Oh, ihr müßt gehen? Ich fühl mich gar nicht wohl, so ganz alleine.", "Ah, ich freu mich schon darauf, euch wiederzusehen."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Oh, hallo, habt ihr Schmutzwäsche? Entschuldigt, ich dachte, ihr seid einer meiner Kunden.", "#me schaut von ihrem Waschbrett auf und erwidert: 'Hiho! Hab ich euch nicht gestern erst am Bach Anthil gesehen?", "Hiho! Wie kann ich euch helfen?"
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell! If your clothes get dirty, just come back to me, will you?", "Oh, you have to leave? I do not feel comfortable here, all alone.", "Ah, I look forward to meet you again."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt euch wohl! Wenn eure Kleidung dreckig wird, kommt einfach zu mir zurück, ja?", "Oh, ihr müßt gehen? Ich fühl mich gar nicht wohl, so ganz alleine.", "Ah, ich freu mich schon darauf, euch wiederzusehen."
 "Ciao", "Adieu", "Au revoir", english -> "Farewell! If your clothes get dirty, just come back to me, will you?", "Oh, you have to leave? I do not feel comfortable here, all alone.", "Ah, I look forward to meet you again."
-"Ciao", "Adieu", "Au revoir", german -> "Gehabt euch wohl! Wenn eure Kleidung dreckig wird, kommt einfach zu mir zurück, ja?", "Oh, ihr müßt gehen? Ich fühl mich gar nicht wohl, so ganz alleine.", "Ah, ich freu mich schon darauf, euch wiederzusehen."
+"Ciao", "Adieu", "Au revoir" -> "Gehabt euch wohl! Wenn eure Kleidung dreckig wird, kommt einfach zu mir zurück, ja?", "Oh, ihr müßt gehen? Ich fühl mich gar nicht wohl, so ganz alleine.", "Ah, ich freu mich schon darauf, euch wiederzusehen."
 "How are you", "How feel", "How do you do" -> "I feel... clean!", "Oh, I am so worried, maybe you can help me.", "Afraid!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es... sauber!", "Oh, ich bin so besorgt, vielleicht könnt ihr mir ja helfen.", "Ich hab Angst!"
 "your name", "who are you", "who art thou" -> "I am Myrthe. Hello!", "Myrthe Mildthorn, at your service.", "Wasch-woman Myrthe Mildthorn reports for duty!"

@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Timotheus                                               Runewick --
--- NPC Job:  tailor,merchant                                                  --
+-- NPC Job:  Tailor                                                           --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  912, 813, 1            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 30, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Timotheus"
@@ -16,7 +16,7 @@ sex = male
 position = 912, 813, 1
 direction = south
 affiliation = "Runewick"
-job = "tailor,merchant"
+job = "Tailor"
 
 language = common
 language = halfling
@@ -78,14 +78,14 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schneider Timotheus. Schlüsselwörter: Hallo, Schneider.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome wise one.", "Why greetings to you!", "Greetings elevated one."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Willkommen, mein weiser Freund.", "Wie jetzt, seid gegrüßt!", "Grüße, mein Großer."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Not so informal!", "Well... Greetings.", "Is that the way they talk on the street nowadays?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Na, nicht so schnodderig.", "Nun... seid gegrüßt.", "Redet man heutzutage so auf der Straße?"
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "May Elara protect your knowledge!", "Insightful journey to you!", "Farewell now!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Möge Elara eure Weisheit bewahren.", "Eine aufschlussreiche Reise wünsche ich.", "Gehabt euch wohl."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome wise one.", "Why greetings to you!", "Greetings elevated one."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Willkommen, mein weiser Freund.", "Wie jetzt, seid gegrüßt!", "Grüße, mein Großer."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Not so informal!", "Well... Greetings.", "Is that the way they talk on the street nowadays?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Na, nicht so schnodderig.", "Nun... seid gegrüßt.", "Redet man heutzutage so auf der Straße?"
+"Farewell", "Bye", "Fare well", "See you" -> "May Elara protect your knowledge!", "Insightful journey to you!", "Farewell now!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge Elara eure Weisheit bewahren.", "Eine aufschlussreiche Reise wünsche ich.", "Gehabt euch wohl."
 "Ciao", "Adieu", "Au revoir", english -> "Charming me huh? Farewell then!", "The courtesies certainly haven't left you."
-"Ciao", "Adieu", "Au revoir", german -> "Ihr wollt mir wohl schmeicheln. Gute Reise!", "Eure Anstandsformen haben euch offensichtlich noch nicht verlassen."
+"Ciao", "Adieu", "Au revoir" -> "Ihr wollt mir wohl schmeicheln. Gute Reise!", "Eure Anstandsformen haben euch offensichtlich noch nicht verlassen."
 "How are you", "How feel", "How do you do" -> "I'm feeling wonderful, thank you.", "Great! Did you know the library has books about famous tailors? Amazing literature."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es wunderbar, danke.", "Großartig! Wußtet ihr, dass es in der Bibliothek Bücher über berühmte Schneider gibt? Spannende Lektüre, muss ich sagen."
 "your name", "who are you", "who art thou" -> "I am Timotheus.", "Why, Timotheus of course!"

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 14, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Rutrus"
@@ -76,8 +76,8 @@ itemShoes = 53
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hallo, Hallo.", "Du grüßt mich und ich grüße zurück: Grüße!", "Guten Tag.", "Willkommen in dieser sandigen Gegend."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hello, Hello.", "You greet me and I greet back: Greetings!", "Good day.", "Welcome to this sandy area."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, Hallo.", "Du grüßt mich und ich grüße zurück: Grüße!", "Guten Tag.", "Willkommen in dieser sandigen Gegend."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Have a nice day!", "Goodbye, goodbye, come back soon!", "Farewell, you friendly being!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Einen schönen Tag auch.", "Leb wohl, leb wohl, komm bald wieder!", "Auf bald, du freundliches Wesen!"
+"Farewell", "Bye", "Fare well", "See you" -> "Have a nice day!", "Goodbye, goodbye, come back soon!", "Farewell, you friendly being!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Einen schönen Tag auch.", "Leb wohl, leb wohl, komm bald wieder!", "Auf bald, du freundliches Wesen!"
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have a nice day!", "Goodbye, goodbye, come back soon!", "Farewell, you friendly being!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Einen schönen Tag auch.", "Leb wohl, leb wohl, komm bald wieder!", "Auf bald, du freundliches Wesen!"
 "How are you", "How feel", "How do you do" -> "I have a grain of sand in my eye - how would you feel?!", "Fine, fine.", "All I can say is: I hope you are feeling as good as I do!"

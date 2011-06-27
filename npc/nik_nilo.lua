@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Drathe                                                           --
 --                                                                            --
--- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -39,8 +39,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
@@ -52,9 +51,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
@@ -70,8 +68,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yeh, yeh you here to buy or sell?");
 talkEntry:addResponse("#me scratches his cheek as he looks over: 'Want to see my wares?'");
@@ -83,9 +80,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Jaja, wollt ihr nun etwas kaufen oder loswerden?");
 talkEntry:addResponse("#me kratzt sich am Kinn und schaut umher: 'Seid ihr wegen meinen Waren hier?'");
 talkEntry:addResponse("Hallo und so, warum gebt ihr nicht einfach etwas Geld bei mir aus!");
@@ -94,9 +89,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("Aye... another time.");
 talkEntry:addResponse("Come back again now!");
 talkEntry:addResponse("#me chuckles: 'I'll be seeing you again I hope.'");
@@ -107,7 +102,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Ja, bis zum nächsten mal.");
 talkEntry:addResponse("Kommt schon zurück!");
 talkEntry:addResponse("#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.");
@@ -129,7 +124,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ja, bis zum nächsten mal.");
 talkEntry:addResponse("Kommt schon zurück!");
 talkEntry:addResponse("#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.");
@@ -609,7 +603,7 @@ talkingNPC:addCycleText("Wie, wo, was, weiß... Big Nik!", "How, where, what, kno
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein hoch gewachsener Mensch. Seine Haare sind staubig und verschmutzt. Von Kohle und Steinen.", "A tall human. His hair are scummy and dusty by dust and coal.");
+mainNPC:setLookat("Ein hoch gewachsener Mensch. Seine Haare sind staubig und verschmutzt durch Kohle und Steine.", "A tall human. His hair are scummy and dusty by dust and coal.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);

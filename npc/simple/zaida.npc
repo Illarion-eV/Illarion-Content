@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Zaida"
@@ -64,9 +64,6 @@ itemShoes = 53
 -- 1: NPC tells player to bring her some wine
 -- 2: NPC is willing to answer PC questions about the ruler, faction and the treacherous neighbours!
 
--- Debugging
-".*", queststatus(76) > 2 -> "Error! Something went wrong, please inform a developer."
-
 -- Help
 "help" -> inform("[Game help] This NPC is Zaida the Apprentice. To learn more about her, your should greet the NPC first.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Anwärterin Zaida. Um mehr über sie zu erfahren, grüße sie zunächst.")
@@ -81,7 +78,7 @@ itemShoes = 53
 "How are you", "How feel", "How do you do", queststatus(76) = 0 -> inform("[New quest] Runewick's Gossiper"), "#me frowns and brushes over the front of her apprentice's robe. 'I feel thirsty. Until I have a glas full of wine, I will not be much of assistance for you.'", queststatus(76) = 1
 "How are you", "How feel", "How do you do", queststatus(76) = 1, item(2057, all) < 1 -> "#me points at the innkeeper. 'Bring me a glass of wine, and I answer your questions. Should be simple enough, I presume.'"
 "How are you", "How feel", "How do you do", queststatus(76) = 2 -> "I feel reinvigorated, thank you for asking."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Until next time, traveler!"
+"Farewell", "Bye", "Fare well", "See you" -> "Until next time, traveler!"
 "Ciao", "Adieu", "Au revoir", english -> "Farewell, traveler!"
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(76) = 0 -> inform("[Neues Quest] Die Schwätzerin von Runewick"), "#me nickt respektvoll mit dem Kopf: 'Seid gegrüßt, Reisender. Wenn ihr meine Gesellschaft genießen wollt, so bringt mir doch ein Glas Wein zunächst. Dann, wenn ihr es noch wünscht, können wir diskutieren.'", queststatus(76) = 1
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(76) = 1, item(2057, all) < 1 -> "#me deutet auf den Wirt. 'Bringt mir ein Glas Wein und ich werde eure Fragen beantworten. Sollte nicht allzu schwer sein, möchte man meinen.'"
@@ -92,8 +89,8 @@ itemShoes = 53
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", queststatus(76) = 0 -> inform("[Neues Quest] Die Schwätzerin von Runewick"), "#me blickt missbilligend drein und streicht über ihre Anwärterinnenrobe. 'Ich bin durstig. Solange ich kein Glas voll Wein habe, kann ich euch nicht wirklich beistehen.", queststatus(76) = 1
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", queststatus(76) = 1, item(2057, all) < 1 -> "#me deutet auf den Wirt. 'Bringt mir ein Glas Wein und ich werde eure Fragen beantworten. Sollte nicht allzu schwer sein, möchte man meinen.'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", queststatus(76) = 2 -> "Ich fühle mich wie neu geboren, danke der Nachfrage."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Bis zum nächsten mal, Reisender."
-"Ciao", "Adieu", "Au revoir", german -> "Gehabt euch wohl, Reisender."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Bis zum nächsten mal, Reisender."
+"Ciao", "Adieu", "Au revoir" -> "Gehabt euch wohl, Reisender."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "My name is Zaida. One day, I'll be a honourable magician, right now, I am just thirsty."
 "your name", "who are you", "who art thou" -> "Mein Name ist Zaida. Eines Tages werde ich eine ehrenhafte Magierin sein, jetzt bin ich aber erstmal durstig."
 
