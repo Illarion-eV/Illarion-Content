@@ -1,22 +1,22 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Ioannes Faber                                            Cadomyr --
--- NPC Job:  Big orders glassblowing & goldsmithing                           --
+-- NPC Job:  Royal treasurer                                                  --
 --                                                                            --
--- NPC Race: human                      NPC Position:  123, 625, 0            --
+-- NPC Race: human                      NPC Position:  129, 529, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian/Ardian                                         --
 --                                                                            --
--- Last parsing: May 24, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Ioannes Faber"
 race = human
 sex = male
-position = 123, 625, 0
+position = 129, 529, 0
 direction = west
 affiliation = "Cadomyr"
-job = "Big orders glassblowing & goldsmithing"
+job = "Royal treasurer"
 
 language = common
 defaultLanguage = common
@@ -31,10 +31,10 @@ useMsgUS = "Don't you touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+hairID = 1
+beardID = 1
+colorHair = 139, 71, 38
+colorSkin = 205, 133, 63
 itemHead = 0
 itemChest = 181
 itemCoat = 0
