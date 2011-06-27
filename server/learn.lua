@@ -5,15 +5,15 @@ module("server.learn", package.seeall)
 -- called by the server when user:learn(...) is issued by a script
 
 --[[
-Aufruf: Character:learn(skill,skillGroup,movePoints,opponent,leadAttribute);
+Call: Character:learn(skill,skillGroup,movePoints,opponent,leadAttribute);
 
-skill: Name des Skills als string, z.B. "mining"
-skillGroup: Gruppe, in der der Skill sich befindet als Integer (z.B. 2 für crafting).  
-movePoints: Die movePoints, die von der Handlung erfordert/abgezogen werden als Integer. NICHT 0 eintragen, denn jede skillrelevante Handlung MUSS einen Zeitbedarf haben.
-opponent: Falls die Handlung einen Mindestskill aufweißt, diesen hier als Integer eintragen. Falls eine Handlung nur bis zu einem gewissen Skillwert einen Lernerfolg bringen soll, diesen Wert-20 hier eintragen. Ansonsten 100 eintragen.
-leadAttribute: Den Wert des Leitattributes als Integer eintragen. Die Festlegung der Leitattribute ist hier zu finden: viewtopic.php?p=643700#p643700
+skill: Name of the skill as string, e.g. "mining"
+skillGroup: Group of the skill as integer (e.g. 2 for crafting).  
+movePoints: The amount of movePoints, required by the action, as integer. Do NOT fill in 0, every action relevant for skillgain HAS TO take some time.
+opponent: In case the action requires a minimum skill, fill it in here as integer. If the action should only yield skillgain up to a certain level, fill in this level-20. Otherwise, fill in 100.
+leadAttribute: The value of the lead attribute as integer. You find the mandatory(!) definition of lead attributes here: http://illarion.org/community/forums/viewtopic.php?p=643700#p643700
 
-Beispiel: Character:learn("mining",2,20,100,Character:increaseAttrib("constitution",0));
+Example: Character:learn("mining",2,20,100,Character:increaseAttrib("constitution",0));
 ]]
 
 function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
