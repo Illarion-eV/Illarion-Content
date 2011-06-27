@@ -653,12 +653,12 @@ mainNPC:setLookat("Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes F
 mainNPC:setUseMessage("Fasst mich nicht an!", "Don't you touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
-mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(3, 101);
+mainNPC:setEquipment(11, 195);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(9, 459);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
