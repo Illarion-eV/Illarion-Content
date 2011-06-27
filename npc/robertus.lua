@@ -1,18 +1,18 @@
 --------------------------------------------------------------------------------
--- NPC Name: Robertus                                                    None --
--- NPC Job:  none                                                             --
+-- NPC Name: Robertus                                                 Cadomyr --
+-- NPC Job:  Royal Builder                                                    --
 --                                                                            --
--- NPC Race: human                      NPC Position:  119, 601, 0            --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Race: human                      NPC Position:  123, 614, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 24, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 119, 601, 0, 0, 'Robertus', 'npc.robertus', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (0, 123, 614, 0, 4, 'Robertus', 'npc.robertus', 0, 0, 0, 255, 255, 255, 255, 255, 255);
 ---]]
 
 require("npc.base.basic")
@@ -41,8 +41,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
@@ -54,9 +53,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
@@ -72,8 +70,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.");
 talkEntry:addResponse("Welcome, stranger. Do you have any building material for me?");
@@ -85,9 +82,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Auf wiedersehen.");
 talkEntry:addResponse("Bis zum nächsten mal.");
 talkEntry:addResponse("Gehet in Frieden.");
@@ -131,7 +126,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Auf wiedersehen.");
 talkEntry:addResponse("Bis zum nächsten mal.");
 talkEntry:addResponse("Gehet in Frieden.");
@@ -176,6 +170,84 @@ talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Robertus.");
 talkEntry:addResponse("Mein Name ist Robertus, ich bin der königliche Baumeister. Ich diene der Königin mit jeder Faser meines Körpers.");
 talkEntry:addResponse("Man nennt mich Robertus. Ich bin der königliche Baumeister Cadomyrs, stets der Königin ergeben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("message");
+talkEntry:addTrigger("news");
+talkEntry:addTrigger("letter");
+talkEntry:addTrigger("scroll");
+talkEntry:addTrigger("parchment");
+talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
+talkEntry:addResponse("Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("nachricht");
+talkEntry:addTrigger("brief");
+talkEntry:addTrigger("Botschaft");
+talkEntry:addTrigger("Schriftrolle");
+talkEntry:addTrigger("Pergament");
+talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
+talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hector");
+talkEntry:addTrigger("Valerion");
+talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
+talkEntry:addResponse("Oh, my majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hector");
+talkEntry:addTrigger("Valerion");
+talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
+talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addResponse("Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -644,84 +716,6 @@ talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Niemals werde ich Cherga unsere Königin rauben lassen. Sollte sie dennoch diese Welt verlassen, so werde ich folgen.");
 talkEntry:addResponse("Ich fürchte Cherga nicht. Ich werde ihr, Seite an Seite mit der Königin, gegenübertreten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("message");
-talkEntry:addTrigger("news");
-talkEntry:addTrigger("letter");
-talkEntry:addTrigger("scroll");
-talkEntry:addTrigger("parchment");
-talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
-talkEntry:addResponse("Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("nachricht");
-talkEntry:addTrigger("brief");
-talkEntry:addTrigger("Botschaft");
-talkEntry:addTrigger("Schriftrolle");
-talkEntry:addTrigger("Pergament");
-talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
-talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hector");
-talkEntry:addTrigger("Valerion");
-talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
-talkEntry:addResponse("Oh, my majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hector");
-talkEntry:addTrigger("Valerion");
-talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
-talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
