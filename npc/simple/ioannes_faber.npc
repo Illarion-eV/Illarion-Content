@@ -85,10 +85,10 @@ itemShoes = 53
 "beruf" -> "Ich bin der königliche Kämmerer. Die Königin hat mir den Reichtum Cadomyrs anvertraut; und ich bin keiner von denen, die sie enttäuschen wird. Ihr etwa?"
 "job", english -> "I am the royal treasurer. The queen entrusted me the wealth of Cadomyr; and I am not the one who will disappoint her. Will you?"
 "job" -> "Ich bin der königliche Kämmerer. Die Königin hat mir den Reichtum Cadomyrs anvertraut; und ich bin keiner von denen, die sie enttäuschen wird. Ihr etwa?"
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "Well, I heard many refugees came from Gobaith to Cadomyr. But I do not deal that much with refugees, I have to admit."
+"Gobaith", "Gobiath" -> "Nun, ich hörte, dass viele Flüchtlinge von Gobaith nach Cadomyr gekommen sind. Aber ich muss gestehen, ich schere mich nicht sonderlich um Flüchtlinge."
+"my name" -> "Welcome to the palace. I hope you didn't come here to rob from the treasury."
+"mein Name" -> "Willkommen im Palast. Ich hoffe, ihr seid nicht hier, um die Schatzkammer zu plündern."
 
 -- More small talk; add at least five triggers
 "treasurer", "treasury" -> "The office of treasurere requires loyality, integrity and meekness. And you won't find anyone of Cadomyr who suits the office better than Ioannes Faber."
@@ -149,12 +149,12 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein: Eine Peitsche bringt Leute zum arbeiten, aber eine Krohne bringt sie dazu, zu gehorchen."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Ioannes", "Faber", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ioannes", "Faber" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ioannes", "Faber", english -> "I am the royal treasurer Ioannes Faber. I obey her majesty and only her majesty."
+"Ioannes", "Faber" -> "Ich bin der königliche Kämmerer Ioannes Faber. Ich gehorche ihrer Majestät und nur ihrere Majestät."
+"Yes" -> "Good to hear.", "Pardon me?", "Indeed.", "I agree."
+"Ja" -> "Gut zu wissen.", "Entschuldigt?", "So, so.", "Meine vollste Zustimmung."
+"No" -> "Maybe you reconsider.", "An interesting point of view.", "How comes?"
+"Nein" -> "Vielleicht überlegt ihr es euch nochmal.", "Eine interessante Sichtweise.", "Wieso das?"
 
 -- FURTHERMORE YOU CAN ALSO CHANGE THIS STANDARD BIG ORDER Phrases for each npc if you want:
 -- --    myOrderNPC.textOrderSay = { {ger="Kommt her, ich habe einen Auftrag ihrer Majestät, den es zu erfüllen gilt.",eng="Come over here. I have one order of her majesty that has to be fulfilled."},{ger="Kommt her, ich habe %d Aufträge ihrer Majestät, die es zu erfüllen gilt.",eng="Come over here. I have %d orders of her majesty that have to be fulfilled."} };
