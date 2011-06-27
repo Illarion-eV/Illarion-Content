@@ -8,7 +8,7 @@
 -- Authors:  Faladron                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: February 15, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Fronita Emery"
@@ -82,17 +82,17 @@ itemShoes = 369
 "your name", "who are you", "who art thou" -> "I'm Fronita. I am a glassblower and I sell my wares here.", "My name? Fronita Emery, I deal in glass goods."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin die Fronita. Ich bin Glasbläserin und verkaufe meine Waren hier.", "Mein Name? Fronita Emery, ich handle mit Glaswaren."
 
--- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "I do not issue any quests, sorry."
-"quest", "mission" -> "Ich vergebe keine Questen, tut mir leid."
-"task", "adventure" -> "I do not issue any quests, sorry."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich vergebe keine Questen, tut mir leid."
-
 -- Quest 107: A message from Groktan Flintsplit
 "message", "news", "letter", "scroll", "parchment", queststatus(107) = 9 -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), "#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.", queststatus(107) = 10
 "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(107) = 9 -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.", queststatus(107) = 10
 "Groktan", "Flintsplit", queststatus(107) = 9, english -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), "#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.", queststatus(107) = 10
 "Groktan", "Flintsplit", queststatus(107) = 9 -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.", queststatus(107) = 10
+
+-- Catching quest triggers. Modify if the NPC does quests.
+"quest", "mission", english -> "I do not issue any quests, sorry."
+"quest", "mission" -> "Ich vergebe keine Questen, tut mir leid."
+"task", "adventure" -> "I do not issue any quests, sorry."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ich vergebe keine Questen, tut mir leid."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Well, why should I stand around here between all this glass? I'm selling it!", "I'm a glassblower and I sell my wares here"

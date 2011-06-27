@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 07, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -3233,7 +3233,7 @@ talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Welcome to the palace.", "Willkommen im Palast.");
+talkingNPC:addCycleText("Willkommen im Palast.", "Welcome to the palace.");
 talkingNPC:addCycleText("Verbeugt euch vor der Königin!", "All bow to the queen!");
 talkingNPC:addCycleText("Ja, meine Königin?", "Yes, my queen?");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");

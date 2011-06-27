@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 07, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Anthar Vilicon"
@@ -511,7 +511,7 @@ itemShoes = 771
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Welcome to the palace.", "Willkommen im Palast."
+cycletext "Willkommen im Palast.", "Welcome to the palace."
 cycletext "Verbeugt euch vor der Königin!", "All bow to the queen!"
 cycletext "Ja, meine Königin?", "Yes, my queen?"
 cycletext "GERMAN.", "ENGLISH."
