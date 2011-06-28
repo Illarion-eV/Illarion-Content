@@ -5,9 +5,9 @@ module("lte.stoned", package.seeall)
 ------ Character starts to smoke
 -------------------------------
 function addEffect(stonedEffect, Character)       
-    Character:inform("AddEffect ausgeführt");
-    stonedEffect:addValue("stonedIndex",1);
-    stonedEffect:addValue("clearIndex",1);
+    --Character:inform("AddEffect ausgeführt");
+    --stonedEffect:addValue("stonedIndex",1);
+    --stonedEffect:addValue("clearIndex",1);
 end
 
 -----------------------------------------------
