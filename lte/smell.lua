@@ -8,7 +8,7 @@ function addEffect(stinkEffect, Character)         -- Smell starts
     --base.common.InformNLS(Character,
     --"Du fühlst dich etwas unwohl.",
     --"You feel a little sickish.");
-    stinkEffect:addValue("stinkIndex",1);
+  --  stinkEffect:addValue("stinkIndex",1); disabled
 end
 
 
