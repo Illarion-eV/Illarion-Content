@@ -9,7 +9,7 @@ module("lte.drachenpocken", package.seeall)
 -- Character gets a disease --
 ------------------------------
 function addEffect(diseaseEffect, Patient)         -- Infection starts
-    diseaseEffect:addValue("diseaseStr",2);
+    --diseaseEffect:addValue("diseaseStr",2); Disabled
 end
 
 ------------------------
@@ -17,10 +17,12 @@ end
 ------------------------
 function infect(Char)
     found,diseaseEffect = Char.effects:find(28);    -- look if he already has disease
-    if not found then                               -- if not...
-        Char.effects:addEffect(CLongTimeEffect(28,math.random(30000,40000)));    -- give disease to the patient
-        Char:inform("du wurdest infizier!");
-    end                                       -- first call in about 1 hour.
+	
+--Disabled	
+--    if not found then                               -- if not...
+--        Char.effects:addEffect(CLongTimeEffect(28,math.random(30000,40000)));    -- give disease to the patient
+--       Char:inform("du wurdest infizier!");
+--    end                                       -- first call in about 1 hour.
 end
 
 ------------------------------------
@@ -29,16 +31,16 @@ end
 function startInfection(User,InfectRange)
     newPatients = world:getPlayersInRangeOf(User.pos,InfectRange);    -- get list of all player around
             -- found at least one
-    for i, newPat in pairs(newPatients) do
-        if newPat.id~=User.id then              -- don't infect yourself
-            foundSchn, eff=newPat.effects:find(3);  -- does the new patient already have the infection?
-            if not foundSchn then
-                if (math.random(1,2)==2) then       -- infect with 50% chance
-                    infect(newPat);
-                end
-            end
-        end 
-    end
+--    for i, newPat in pairs(newPatients) do
+--        if newPat.id~=User.id then              -- don't infect yourself
+--           foundSchn, eff=newPat.effects:find(3);  -- does the new patient already have the infection?
+--          if not foundSchn then
+--                if (math.random(1,2)==2) then       -- infect with 50% chance
+--                    infect(newPat);
+ --               end
+ --           end
+ --       end 
+ --   end
 end
 
 
