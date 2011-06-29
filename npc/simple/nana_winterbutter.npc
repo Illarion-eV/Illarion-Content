@@ -87,104 +87,6 @@ itemShoes = 53
 "your name", "who are you", "who art thou" -> "I am Nana Winterbutter.", "I'm a cook as you might have noticed. And a good one I might add"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Nana Winterbutter.", "Ich bin eine Köchin, wie Ihr vielleicht bereits bemerkt habt. Und eine gute, wenn ich das hinzufügen darf."
 
--- Final dialogue: No more quests, just nice hints
-"recipe", "bowl", queststatus(70) = 8 -> "Thanks to you I finally have all the ingredients I need to try out my new recipe. I thank you with all my heart!"
-"Rezept", "Schüssel", queststatus(70) = 8 -> "Dank Euch habe ich endlich alle Zutaten zusammen, um mein neues Rezept auszuprobieren. Ich danke Euch von ganzem Herzen!"
-"quest", "mission", queststatus(70) = 8, english -> "You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!"
-"quest", "mission", queststatus(70) = 8 -> "Ihr habt bereits viel zu viel für mich getan. Ich werde Euch immer in guter Erinnerung behalten. Ihr seid wahrlich ein Held für mich! Möge Oldra Euch segnen!"
-"task", "adventure", queststatus(70) = 8 -> "You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(70) = 8 -> "Ihr habt bereits viel zu viel für mich getan. Ich werde Euch immer in guter Erinnerung behalten. Ihr seid wahrlich ein Held für mich! Möge Oldra Euch segnen!"
-
--- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe."
-"beruf" -> "Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren."
-"job", english -> "Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe."
-"job" -> "Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"cook" -> "Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe."
-"Koch", "Köchin" -> "Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren."
-"Yewdale" -> "Yewdale is a peaceful place."
-"Eibenthal", "Eibental" -> "Eibenthal ist ein friedlicher Ort."
-"grain" -> "Grain can be used as seed or you can grind it to flour. Put the grain on fertile land and the crop will grow."
-"Getreide", "Korn", "Körner" -> "Getreidekörner können als Saatgut verwendet werden oder man zermahlt sie zu Mehl. Gib die Saat auf fruchtbares Land und das Getreide wird wachsen."
-"tomato" -> "You can put tomato seeds into fertile soil. Be sure to fasten the growing plants to poles so that it grows straight up."
-"Tomate" -> "Ihr könnt Tomatensamen in fruchtbaren Boden geben. Geht sicher die heranwachsenden Pflanzen an Stangen zu befestigen, damit sie senkrecht nach oben wachsen."
-"mushroom" -> "Mushrooms love shadowy places and can be found in forests. You will need a sharp sickle to gather them."
-"Pilze", "Champignon" -> "Pilze lieben schattige Plätze und können in Wäldern gefunden werden. Ihr werdet eine scharfe Sichel brauchen, um sie zu sammeln."
-"fish" -> "I know how to prepare fish but it seems that I always forget how the fish are called. You better ask someone else if you want to know more about fish."
-"Fisch" -> "Ich weiß wie man Fisch zubereitet, aber es scheint, als würde ich immer vergessen, wie die Fischen heißen."
-"onion" -> "Onions are tasty, aren't they? But your breath turns... bah!"
-"zwiebeln" -> "Zwiebeln sind lecker, nicht wahr? Aber dein Atem... igitt!"
-"scythe" -> "You can use the scythe to reap wheat once it has this nice golden colour."
-"Sense" -> "Ihr könnt eine Sense dafür verwenden, um Getreide zu mähen sobald es diese goldene Farbe hat."
-"sickle" -> "You can use a sickle to collect vegetables once they are ripe. Or you can use it to collect herbs and mushrooms"
-"Sichel" -> "Ihr könnt eine Sichel verwenden um Gemüse einzusammeln sobald es reif ist. Oder Ihr verwendet sie um Kräuter und Pilze zu sammeln."
-
--- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Main land factions
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Sorry, I don't sell anything. But there are other people in Runewick. Some may even sell things to you."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Tut mir leid, ich verkaufe nichts. Aber es gibt andere Leute in Runewick. Einige verkaufen Euch vielleicht auch etwas."
-"tell something" -> "I'm not much of a storyteller.", "I'm just a cook. I would rather try out my new recipe instead of telling stories."
-"erzähl was", "erzähl etwas" -> "Ich bin nicht gerade eine gute Geschichtenerzählerin.", "Ich bin nur eine Köchin. Ich würde viel lieber mein Rezept ausprobieren, als Geschichten zu erzählen."
-
--- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Nana", "Winterbutter", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nana", "Winterbutter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "Pardon, I don't understand what you are referring to.", "What do you mean with 'Yes'?"
-"Ja" -> "Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.", "Was meint Ihr mit 'Ja'?"
-"No" -> "Pardon, I don't understand what you are referring to.", "What do you mean with 'No'?"
-"Nein" -> "Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.", "Was meint Ihr mit 'Nein'?"
-
--- QUARRY
-
--- Factions
-"Runewick", german -> "Runewick ist wundervoll. Und ich bin eine der besten Köchinnen hier."
-"Runewick", english -> "Runewick is wonderful. And I'm one of the best cooks around here."
-"Galmair", german -> "Ohje! Galmair ist so stinkig und dreckig!"
-"Galmair", english -> "Oh! Galmair is so smelly and dirty!"
-"Cadomyr", german -> "Ich war noch nie in Cadomyr. Aber ich hab gehört, es liegt im Süden."
-"Cadomyr", english -> "I have never visited Cadomyr myself so far. But I have heard that it is to the south."
-
 -- Tool hints
 "recipe", queststatus(70) = 0 -> "I have this special recipe in mind. I don't want to reveal too much about it but I would be grateful if you could help me with a quest."
 "Rezept", queststatus(70) = 0 -> "Ich habe dieses besondere Rezept im Kopf. Ich möchte nicht zu viel darüber verraten, aber ich wäre dankbar, wenn Ihr mir bei einer Aufgabe helfen würdet."
@@ -268,6 +170,94 @@ itemShoes = 53
 ".+", queststatus(70) = 7, item(355, all) > 9, english -> inform("[Quest solved] You are awarded 200 copper coins and your peasantry skill increases."), "Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!", skill(peasantry) + 1, money + 200, deleteItem(355, 10), queststatus(70) = 8
 ".+", queststatus(70) = 7, item(355, all) < 10, german -> "Ich brauche wirklich zehn von diesen Fischen, die mir Zerarisa normalerweise verkauft. Könntet Ihr die bitte für mich besorgen?"
 ".+", queststatus(70) = 7, item(355, all) < 10, english -> "I really need ten of the fish that Zerarisa usually sells me. Would you please get them for me?"
+
+-- Final dialogue: No more quests, just nice hints
+"recipe", "bowl", queststatus(70) = 8 -> "Thanks to you I finally have all the ingredients I need to try out my new recipe. I thank you with all my heart!"
+"Rezept", "Schüssel", queststatus(70) = 8 -> "Dank Euch habe ich endlich alle Zutaten zusammen, um mein neues Rezept auszuprobieren. Ich danke Euch von ganzem Herzen!"
+"quest", "mission", queststatus(70) = 8, english -> "You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!"
+"quest", "mission", queststatus(70) = 8 -> "Ihr habt bereits viel zu viel für mich getan. Ich werde Euch immer in guter Erinnerung behalten. Ihr seid wahrlich ein Held für mich! Möge Oldra Euch segnen!"
+"task", "adventure", queststatus(70) = 8 -> "You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(70) = 8 -> "Ihr habt bereits viel zu viel für mich getan. Ich werde Euch immer in guter Erinnerung behalten. Ihr seid wahrlich ein Held für mich! Möge Oldra Euch segnen!"
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe."
+"beruf" -> "Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren."
+"job", english -> "Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe."
+"job" -> "Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren."
+"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"cook" -> "Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe."
+"Koch", "Köchin" -> "Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren."
+"Yewdale" -> "Yewdale is a peaceful place."
+"Eibenthal", "Eibental" -> "Eibenthal ist ein friedlicher Ort."
+"grain" -> "Grain can be used as seed or you can grind it to flour. Put the grain on fertile land and the crop will grow."
+"Getreide", "Korn", "Körner" -> "Getreidekörner können als Saatgut verwendet werden oder man zermahlt sie zu Mehl. Gib die Saat auf fruchtbares Land und das Getreide wird wachsen."
+"tomato" -> "You can put tomato seeds into fertile soil. Be sure to fasten the growing plants to poles so that it grows straight up."
+"Tomate" -> "Ihr könnt Tomatensamen in fruchtbaren Boden geben. Geht sicher die heranwachsenden Pflanzen an Stangen zu befestigen, damit sie senkrecht nach oben wachsen."
+"mushroom" -> "Mushrooms love shadowy places and can be found in forests. You will need a sharp sickle to gather them."
+"Pilze", "Champignon" -> "Pilze lieben schattige Plätze und können in Wäldern gefunden werden. Ihr werdet eine scharfe Sichel brauchen, um sie zu sammeln."
+"fish" -> "I know how to prepare fish but it seems that I always forget how the fish are called. You better ask someone else if you want to know more about fish."
+"Fisch" -> "Ich weiß wie man Fisch zubereitet, aber es scheint, als würde ich immer vergessen, wie die Fischen heißen."
+"onion" -> "Onions are tasty, aren't they? But your breath turns... bah!"
+"zwiebeln" -> "Zwiebeln sind lecker, nicht wahr? Aber dein Atem... igitt!"
+"scythe" -> "You can use the scythe to reap wheat once it has this nice golden colour."
+"Sense" -> "Ihr könnt eine Sense dafür verwenden, um Getreide zu mähen sobald es diese goldene Farbe hat."
+"sickle" -> "You can use a sickle to collect vegetables once they are ripe. Or you can use it to collect herbs and mushrooms"
+"Sichel" -> "Ihr könnt eine Sichel verwenden um Gemüse einzusammeln sobald es reif ist. Oder Ihr verwendet sie um Kräuter und Pilze zu sammeln."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "Runewick is wonderful. And I'm one of the best cooks around here."
+"Runewick" -> "Runewick ist wundervoll. Und ich bin eine der besten Köchinnen hier."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "Oh! Galmair is so smelly and dirty!"
+"Galmair" -> "Ohje! Galmair ist so stinkig und dreckig!"
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "I have never visited Cadomyr myself so far. But I have heard that it is to the south."
+"Cadomyr" -> "Ich war noch nie in Cadomyr. Aber ich hab gehört, es liegt im Süden."
+
+-- Main land factions
+"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Sorry, I don't sell anything. But there are other people in Runewick. Some may even sell things to you."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Tut mir leid, ich verkaufe nichts. Aber es gibt andere Leute in Runewick. Einige verkaufen Euch vielleicht auch etwas."
+"tell something" -> "I'm not much of a storyteller.", "I'm just a cook. I would rather try out my new recipe instead of telling stories."
+"erzähl was", "erzähl etwas" -> "Ich bin nicht gerade eine gute Geschichtenerzählerin.", "Ich bin nur eine Köchin. Ich würde viel lieber mein Rezept ausprobieren, als Geschichten zu erzählen."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Nana", "Winterbutter", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nana", "Winterbutter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "Pardon, I don't understand what you are referring to.", "What do you mean with 'Yes'?"
+"Ja" -> "Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.", "Was meint Ihr mit 'Ja'?"
+"No" -> "Pardon, I don't understand what you are referring to.", "What do you mean with 'No'?"
+"Nein" -> "Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.", "Was meint Ihr mit 'Nein'?"
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
