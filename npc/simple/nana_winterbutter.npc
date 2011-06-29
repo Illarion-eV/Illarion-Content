@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Nana Winterbutter                                           None --
--- NPC Job:  none                                                             --
+-- NPC Name: Nana Winterbutter                                       Runewick --
+-- NPC Job:  cook                                                             --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  791, 798, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 29, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Nana Winterbutter"
@@ -15,8 +15,8 @@ race = halfling
 sex = female
 position = 791, 798, 0
 direction = south
-affiliation = "None"
-job = "none"
+affiliation = "Runewick"
+job = "cook"
 
 language = common
 language = halfling
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist die Köchin Nana Winterbutter."
+lookatUS = "This NPC is the cook Nana Winterbutter."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -98,6 +98,18 @@ itemShoes = 53
 "Koch", "Köchin" -> "Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren."
 "Yewdale" -> "Yewdale is a peaceful place."
 "Eibenthal", "Eibental" -> "Eibenthal ist ein friedlicher Ort."
+
+-- More small talk
+"grain" -> "Grain can be used as seed or you can grind it to flour. Put the grain on fertile land and the crop will grow."
+"Getreide", "Korn", "Körner" -> "Getreidekörner können als Saatgut verwendet werden oder man zermahlt sie zu Mehl. Gib die Saat auf fruchtbares Land und das Getreide wird wachsen."
+"tomato" -> "You can put tomato seeds into fertile soil. Be sure to fasten the growing plants to poles so that it grows straight up."
+"Tomate" -> "Ihr könnt Tomatensamen in fruchtbaren Boden geben. Geht sicher die heranwachsenden Pflanzen an Stangen zu befestigen, damit sie senkrecht nach oben wachsen."
+"mushroom" -> "Mushrooms love shadowy places and can be found in forests. You will need a sharp sickle to gather them."
+"Pilze", "Champignon" -> "Pilze lieben schattige Plätze und können in Wäldern gefunden werden. Ihr werdet eine scharfe Sichel brauchen, um sie zu sammeln."
+"fish" -> "I know how to prepare fish but it seems that I always forget how the fish are called. You better ask someone else if you want to know more about fish."
+"Fisch" -> "Ich weiß wie man Fisch zubereitet, aber es scheint, als würde ich immer vergessen, wie die Fischen heißen."
+"onion" -> "Onions are tasty, aren't they? But your breath turns... bah!"
+"zwiebeln" -> "Zwiebeln sind lecker, nicht wahr? Aber dein Atem... igitt!"
 
 -- Factions
 "Runewick", german -> "Runewick ist wundervoll. Und ich bin eine der besten Köchinnen hier."
@@ -208,16 +220,6 @@ itemShoes = 53
 "Ja" -> "Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.", "Was meint Ihr mit 'Ja'?"
 "No" -> "Pardon, I don't understand what you are referring to.", "What do you mean with 'No'?"
 "Nein" -> "Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.", "Was meint Ihr mit 'Nein'?"
-"grain" -> "Grain can be used as seed or you can grind it to flour. Put the grain on fertile land and the crop will grow."
-"Getreide", "Korn", "Körner" -> "Getreidekörner können als Saatgut verwendet werden oder man zermahlt sie zu Mehl. Gib die Saat auf fruchtbares Land und das Getreide wird wachsen."
-"tomato" -> "You can put tomato seeds into fertile soil. Be sure to fasten the growing plants to poles so that it grows straight up."
-"Tomate" -> "Ihr könnt Tomatensamen in fruchtbaren Boden geben. Geht sicher die heranwachsenden Pflanzen an Stangen zu befestigen, damit sie senkrecht nach oben wachsen."
-"mushroom" -> "Mushrooms love shadowy places and can be found in forests. You will need a sharp sickle to gather them."
-"Pilze", "Champignon" -> "Pilze lieben schattige Plätze und können in Wäldern gefunden werden. Ihr werdet eine scharfe Sichel brauchen, um sie zu sammeln."
-"fish" -> "I know how to prepare fish but it seems that I always forget how the fish are called. You better ask someone else if you want to know more about fish."
-"Fisch" -> "Ich weiß wie man Fisch zubereitet, aber es scheint, als würde ich immer vergessen, wie die Fischen heißen."
-"onion" -> "Onions are tasty, aren't they? But your breath turns... bah!"
-"zwiebeln" -> "Zwiebeln sind lecker, nicht wahr? Aber dein Atem... igitt!"
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

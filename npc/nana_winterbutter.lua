@@ -1,13 +1,13 @@
 --------------------------------------------------------------------------------
--- NPC Name: Nana Winterbutter                                           None --
--- NPC Job:  none                                                             --
+-- NPC Name: Nana Winterbutter                                       Runewick --
+-- NPC Job:  cook                                                             --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  791, 798, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 29, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -226,6 +226,69 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eibenthal");
 talkEntry:addTrigger("Eibental");
 talkEntry:addResponse("Eibenthal ist ein friedlicher Ort.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("grain");
+talkEntry:addResponse("Grain can be used as seed or you can grind it to flour. Put the grain on fertile land and the crop will grow.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Getreide");
+talkEntry:addTrigger("Korn");
+talkEntry:addTrigger("Körner");
+talkEntry:addResponse("Getreidekörner können als Saatgut verwendet werden oder man zermahlt sie zu Mehl. Gib die Saat auf fruchtbares Land und das Getreide wird wachsen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tomato");
+talkEntry:addResponse("You can put tomato seeds into fertile soil. Be sure to fasten the growing plants to poles so that it grows straight up.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tomate");
+talkEntry:addResponse("Ihr könnt Tomatensamen in fruchtbaren Boden geben. Geht sicher die heranwachsenden Pflanzen an Stangen zu befestigen, damit sie senkrecht nach oben wachsen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mushroom");
+talkEntry:addResponse("Mushrooms love shadowy places and can be found in forests. You will need a sharp sickle to gather them.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Pilze");
+talkEntry:addTrigger("Champignon");
+talkEntry:addResponse("Pilze lieben schattige Plätze und können in Wäldern gefunden werden. Ihr werdet eine scharfe Sichel brauchen, um sie zu sammeln.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("fish");
+talkEntry:addResponse("I know how to prepare fish but it seems that I always forget how the fish are called. You better ask someone else if you want to know more about fish.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Fisch");
+talkEntry:addResponse("Ich weiß wie man Fisch zubereitet, aber es scheint, als würde ich immer vergessen, wie die Fischen heißen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("onion");
+talkEntry:addResponse("Onions are tasty, aren't they? But your breath turns... bah!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("zwiebeln");
+talkEntry:addResponse("Zwiebeln sind lecker, nicht wahr? Aber dein Atem... igitt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1141,69 +1204,6 @@ talkEntry:addResponse("Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieh
 talkEntry:addResponse("Was meint Ihr mit 'Nein'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("grain");
-talkEntry:addResponse("Grain can be used as seed or you can grind it to flour. Put the grain on fertile land and the crop will grow.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Getreide");
-talkEntry:addTrigger("Korn");
-talkEntry:addTrigger("Körner");
-talkEntry:addResponse("Getreidekörner können als Saatgut verwendet werden oder man zermahlt sie zu Mehl. Gib die Saat auf fruchtbares Land und das Getreide wird wachsen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tomato");
-talkEntry:addResponse("You can put tomato seeds into fertile soil. Be sure to fasten the growing plants to poles so that it grows straight up.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tomate");
-talkEntry:addResponse("Ihr könnt Tomatensamen in fruchtbaren Boden geben. Geht sicher die heranwachsenden Pflanzen an Stangen zu befestigen, damit sie senkrecht nach oben wachsen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("mushroom");
-talkEntry:addResponse("Mushrooms love shadowy places and can be found in forests. You will need a sharp sickle to gather them.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Pilze");
-talkEntry:addTrigger("Champignon");
-talkEntry:addResponse("Pilze lieben schattige Plätze und können in Wäldern gefunden werden. Ihr werdet eine scharfe Sichel brauchen, um sie zu sammeln.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("fish");
-talkEntry:addResponse("I know how to prepare fish but it seems that I always forget how the fish are called. You better ask someone else if you want to know more about fish.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Fisch");
-talkEntry:addResponse("Ich weiß wie man Fisch zubereitet, aber es scheint, als würde ich immer vergessen, wie die Fischen heißen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("onion");
-talkEntry:addResponse("Onions are tasty, aren't they? But your breath turns... bah!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("zwiebeln");
-talkEntry:addResponse("Zwiebeln sind lecker, nicht wahr? Aber dein Atem... igitt!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
 talkingNPC:addCycleText("#me rührt etwas Teig in einer Schüssel in ihrem linken Arm um.", "#me stirs some dough in a bowl in her left arm.");
 talkingNPC:addCycleText("#me starrt besorgt in die Schüssel in ihrem linken Arm.", "#me stares worryingly into the bowl in her left arm.");
 talkingNPC:addCycleText("Das wird nie und nimmer reichen.", "This won't never ever last.");
@@ -1217,7 +1217,7 @@ talkingNPC:addCycleText("Das wird lecker!", "That's going to be tasty!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Dieser NPC ist die Köchin Nana Winterbutter.", "This NPC is the cook Nana Winterbutter.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
