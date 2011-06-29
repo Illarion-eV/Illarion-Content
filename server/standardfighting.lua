@@ -219,7 +219,7 @@ end;
 -- @param Defender The table of the attacked Character
 -- @param Globals The table of the global values
 function CauseDamage(Attacker, Defender, Globals)
-    Attacker.Char:inform("Damage:".. Globals.Damage .. " HP.");
+    Attacker.Char:inform("Damage: ".. math.floor(Globals.Damage) .. " HP.");
     if base.character.IsPlayer(Defender.Char) 
         and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
         and (Attacker.AttackKind ~= 4)
