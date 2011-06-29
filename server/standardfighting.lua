@@ -198,9 +198,9 @@ function CalculateDamage(Attacker, Globals)
     local TacticsBonus;
     
     if Attacker.IsWeapon then
-        BaseDamage = Attacker.Weapon.Attack * 5;
+        BaseDamage = Attacker.Weapon.Attack * 10;
     else
-        BaseDamage = content.fighting.GetWrestlingAttack( Attacker.Race ) * 5;
+        BaseDamage = content.fighting.GetWrestlingAttack( Attacker.Race ) * 10;
     end;
   --Defender.Char:inform("Base Damage 1 "..BaseDamage);  
     StrengthBonus = (Attacker.strength - 6) * 3;
