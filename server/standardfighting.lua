@@ -219,7 +219,7 @@ end;
 -- @param Defender The table of the attacked Character
 -- @param Globals The table of the global values
 function CauseDamage(Attacker, Defender, Globals)
-    --Defender.Char:talk(CCharacter.say, "-" .. Globals.Damage .. "HP");
+    Attacker.Char:inform("Damage:".. Globals.Damage .. " HP.");
     if base.character.IsPlayer(Defender.Char) 
         and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
         and (Attacker.AttackKind ~= 4)
@@ -269,7 +269,7 @@ function CauseDamage(Attacker, Defender, Globals)
             end;
         end;
         
-        if (Attacker.AttackKind == 4) then -- distanz angriff.
+        if (Attacker.AttackKind == 4) then -- Distanzangriff.
             Defender.Char.movepoints = Defender.Char.movepoints - 5;
             DropAmmo(Attacker, Defender.Char, false);
         end;
