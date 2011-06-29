@@ -87,19 +87,27 @@ itemShoes = 53
 "your name", "who are you", "who art thou" -> "I am Nana Winterbutter.", "I'm a cook as you might have noticed. And a good one I might add"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Nana Winterbutter.", "Ich bin eine Köchin, wie Ihr vielleicht bereits bemerkt habt. Und eine gute, wenn ich das hinzufügen darf."
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Sorry, I don't sell anything. But there are other people in Runewick. Some may even sell things to you."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Tut mir leid, ich verkaufe nichts. Aber es gibt andere Leute in Runewick. Einige verkaufen Euch vielleicht auch etwas."
-"tell something" -> "I'm not much of a storyteller.", "I'm just a cook. I would rather try out my new recipe instead of telling stories."
-"erzähl was", "erzähl etwas" -> "Ich bin nicht gerade eine gute Geschichtenerzählerin.", "Ich bin nur eine Köchin. Ich würde viel lieber mein Rezept ausprobieren, als Geschichten zu erzählen."
+-- Catching quest triggers. Modify if the NPC does quests.
+"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "cook" -> "Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe."
 "Koch", "Köchin" -> "Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren."
 "Yewdale" -> "Yewdale is a peaceful place."
 "Eibenthal", "Eibental" -> "Eibenthal ist ein friedlicher Ort."
-
--- More small talk
 "grain" -> "Grain can be used as seed or you can grind it to flour. Put the grain on fertile land and the crop will grow."
 "Getreide", "Korn", "Körner" -> "Getreidekörner können als Saatgut verwendet werden oder man zermahlt sie zu Mehl. Gib die Saat auf fruchtbares Land und das Getreide wird wachsen."
 "tomato" -> "You can put tomato seeds into fertile soil. Be sure to fasten the growing plants to poles so that it grows straight up."
@@ -110,6 +118,84 @@ itemShoes = 53
 "Fisch" -> "Ich weiß wie man Fisch zubereitet, aber es scheint, als würde ich immer vergessen, wie die Fischen heißen."
 "onion" -> "Onions are tasty, aren't they? But your breath turns... bah!"
 "zwiebeln" -> "Zwiebeln sind lecker, nicht wahr? Aber dein Atem... igitt!"
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Main land factions
+"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Sorry, I don't sell anything. But there are other people in Runewick. Some may even sell things to you."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Tut mir leid, ich verkaufe nichts. Aber es gibt andere Leute in Runewick. Einige verkaufen Euch vielleicht auch etwas."
+"tell something" -> "I'm not much of a storyteller.", "I'm just a cook. I would rather try out my new recipe instead of telling stories."
+"erzähl was", "erzähl etwas" -> "Ich bin nicht gerade eine gute Geschichtenerzählerin.", "Ich bin nur eine Köchin. Ich würde viel lieber mein Rezept ausprobieren, als Geschichten zu erzählen."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
 
 -- Factions
 "Runewick", german -> "Runewick ist wundervoll. Und ich bin eine der besten Köchinnen hier."
