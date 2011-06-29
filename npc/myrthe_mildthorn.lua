@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 29, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -224,44 +224,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 0));
-talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 11));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There is still a pack of wolves in the north. Can't you hear them howling?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 0));
-talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 11));
-talkEntry:addResponse("Immernoch treibt ein Rudel Wölfe sein Unwesen im Norden. Hört ihr nicht ihr Gejaule?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 0));
-talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 11));
-talkEntry:addResponse("There is still a pack of wolves in the north. Can't you hear them howling?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 0));
-talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 11));
-talkEntry:addResponse("Immernoch treibt ein Rudel Wölfe sein Unwesen im Norden. Hört ihr nicht ihr Gejaule?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 11));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -310,6 +272,44 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 11));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There is still a pack of wolves in the north. Can't you hear them howling?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 11));
+talkEntry:addResponse("Immernoch treibt ein Rudel Wölfe sein Unwesen im Norden. Hört ihr nicht ihr Gejaule?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 11));
+talkEntry:addResponse("There is still a pack of wolves in the north. Can't you hear them howling?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 11));
+talkEntry:addResponse("Immernoch treibt ein Rudel Wölfe sein Unwesen im Norden. Hört ihr nicht ihr Gejaule?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 12));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods II"));
@@ -346,44 +346,6 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald II"));
 talkEntry:addResponse("Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 13));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
-talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I saw a black shadow again! Are there still mean panthers around?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
-talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
-talkEntry:addResponse("Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch Panther in der Gegend?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
-talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
-talkEntry:addResponse("I saw a black shadow again! Are there still mean panthers around?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
-talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
-talkEntry:addResponse("Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch Panther in der Gegend?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -440,6 +402,44 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I saw a black shadow again! Are there still mean panthers around?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
+talkEntry:addResponse("Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch Panther in der Gegend?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
+talkEntry:addResponse("I saw a black shadow again! Are there still mean panthers around?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
+talkEntry:addResponse("Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch Panther in der Gegend?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods III"));
@@ -476,44 +476,6 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald III"));
 talkEntry:addResponse("Habt ihr dieses Netz gesehen? Dieses riesen Netz im Wald? Es muss einer riesigen Spinne gehören. Stellt euch nur vor, so ein Biest würde hierher kommen! Könnt ihr das... verhindern?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 20));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
-talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("A giant spider built a giant web in the woods! I fear for my life!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
-talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
-talkEntry:addResponse("Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
-talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
-talkEntry:addResponse("A giant spider built a giant web in the woods! I fear for my life!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
-talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
-talkEntry:addResponse("Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -566,6 +528,44 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("A giant spider built a giant web in the woods! I fear for my life!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
+talkEntry:addResponse("Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
+talkEntry:addResponse("A giant spider built a giant web in the woods! I fear for my life!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
+talkEntry:addResponse("Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 22));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Oh, you did so much for me, the woods and the laundry. You can bring me your laundry whenever you want - I'll wash it for free!");
@@ -598,55 +598,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("I can wash your laundry, but I do not trade with goods.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Ich kann eure Schmutzwäsche waschen, aber ich handele nicht mit Waren.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("First, you have to soak the laundry. Wait an hour, but not more. Then, wash it! And do not forget to rinse it twice.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Zunächst müßt ihr die Wäsche einweichen. Wartet eine Stunde, aber nicht mehr. Dann wascht sie! Vergesst nicht, sie hinterher zweimal zu spülen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("wash");
-talkEntry:addTrigger("laundry");
-talkEntry:addResponse("Doing the laundry is very important. Otherwise, all the mages and nobles wouldn't have clean robes. How would that look like!");
-talkEntry:addResponse("As a washer-woman, I am an important member of the society. I make people look noble!");
-talkEntry:addResponse("Oh, you have some laundry I should wash? Wait a bit, please, I am not done with today's batch.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wasch");
-talkEntry:addTrigger("Wäsche");
-talkEntry:addResponse("Wäsche waschen ist sehr wichtig. Denn ansonsten hätten all die Magier und Edelleute keine sauberen Roben. Wir würde das denn aussehen!");
-talkEntry:addResponse("Als Waschweib bin ich ein wichtiges Mitglied der Gesellschaft. Ich sorge erst dafür, dass Leute so herrschaftlich aussehen können!");
-talkEntry:addResponse("Oh, ihr habt etwas Wäsche, die ich waschen soll? Wartet noch ein wenig, ich bin noch nicht mit dem Stapel für heute fertig.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I'm a washer-woman. I earn my money with honest labour and I feel proud of it.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -668,6 +619,55 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addResponse("Ich bin ein Waschweib. Ich verdiene mein Geld mit ehrlicher Arbeit, worauf ich stolz bin.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Huh?");
+talkEntry:addResponse("Pardon?");
+talkEntry:addResponse("What is that?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("Huh?");
+talkEntry:addResponse("Pardon?");
+talkEntry:addResponse("Was ist das?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("Oh, nice to meet you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Oh, ich freue mich, eure Bekanntschaft zu machen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wash");
+talkEntry:addTrigger("laundry");
+talkEntry:addResponse("Doing the laundry is very important. Otherwise, all the mages and nobles wouldn't have clean robes. How would that look like!");
+talkEntry:addResponse("As a washer-woman, I am an important member of the society. I make people look noble!");
+talkEntry:addResponse("Oh, you have some laundry I should wash? Wait a bit, please, I am not done with today's batch.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wasch");
+talkEntry:addTrigger("Wäsche");
+talkEntry:addResponse("Wäsche waschen ist sehr wichtig. Denn ansonsten hätten all die Magier und Edelleute keine sauberen Roben. Wir würde das denn aussehen!");
+talkEntry:addResponse("Als Waschweib bin ich ein wichtiges Mitglied der Gesellschaft. Ich sorge erst dafür, dass Leute so herrschaftlich aussehen können!");
+talkEntry:addResponse("Oh, ihr habt etwas Wäsche, die ich waschen soll? Wartet noch ein wenig, ich bin noch nicht mit dem Stapel für heute fertig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -796,10 +796,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("The archmage trusts me - and only me! to wash his robes. I feel so honoured!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Der Erzmagier traut nur mir die Wäsche seiner Roben an. Ich fühle mich so geehrt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("The archmage trusts me - and only me! to wash his robes. I feel so honoured!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -808,8 +818,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addResponse("Der Erzmagier traut nur mir die Wäsche seiner Roben an. Ich fühle mich so geehrt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -858,9 +866,19 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("Ui, the queen of Cadomyr? I wish I'd be a queen, too.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Ui, die Königin von Cadomyr? Ich wünschte, ich wäre auch eine Königin.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Ui, the queen of Cadomyr? I wish I'd be a queen, too.");
@@ -869,8 +887,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("Ui, die Königin von Cadomyr? Ich wünschte, ich wäre auch eine Königin.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -931,6 +947,19 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("god");
+talkEntry:addResponse("Oh, I just pray to Tanora. A humble washer woman should not ask for too many favours.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("Ach, ich bete nur zu Tanora. Ein einfaches Waschweib wie ich sollte nicht um zu viele Gefallen bitten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -942,6 +971,37 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addResponse("Ich bete jeden Morgen zu Tanora, auf dass das Wasser der Anthils immer so klar bleibt wie jetzt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("I can wash your laundry, but I do not trade with goods.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Ich kann eure Schmutzwäsche waschen, aber ich handele nicht mit Waren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("First, you have to soak the laundry. Wait an hour, but not more. Then, wash it! And do not forget to rinse it twice.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Zunächst müßt ihr die Wäsche einweichen. Wartet eine Stunde, aber nicht mehr. Dann wascht sie! Vergesst nicht, sie hinterher zweimal zu spülen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -973,6 +1033,21 @@ talkEntry:addTrigger("Sunil");
 talkEntry:addTrigger("Persil");
 talkEntry:addTrigger("Tandil");
 talkEntry:addResponse("Ich nehme lieber Seife.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Myrthe");
+talkEntry:addTrigger("Mildthorn");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Yes, I am Myrthe. My last name is Mildthorn. Because my parents' name was also Mildthorn.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Myrthe");
+talkEntry:addTrigger("Mildthorn");
+talkEntry:addResponse("Ja, ich bin die Myrthe. Mein Nachname ist Mildthorn. Das ist so, weil das auch der Nachname meiner Eltern war.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
