@@ -218,9 +218,20 @@ end;
 -- @param Attacker The table of the attacking Character
 -- @param Defender The table of the attacked Character
 -- @param Globals The table of the global values
+
 function CauseDamage(Attacker, Defender, Globals)
-    Attacker.Char:inform("Dealt damage: ".. math.floor(Globals.Damage) .. " HP.");
-	Defender.Char:inform("Received damage: ".. math.floor(Globals.Damage) .. " HP.");
+
+	Globals.Damage=Globals.Damage*(math.random(8,12)/10); --Damage is randomised: 80-120%
+	
+	if base.character.IsPlayer(Defender.Char) then --only for player characters
+	    Globals.Damage=math.min(Globals.Damage,4999); --Damage is capped at 4999 Hitpoints to prevent "one hit kills" in PvP
+    end
+	
+	Globals.Damage=math.floor(Globals.Damage); --Hitpoints are an integer
+	
+    Attacker.Char:inform("Dealt damage: ".. Globals.Damage .. " HP."); --Debugging
+	Defender.Char:inform("Received damage: ".. Globals.Damage .. " HP."); --Debugging
+	
     if base.character.IsPlayer(Defender.Char) 
         and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
         and (Attacker.AttackKind ~= 4)
