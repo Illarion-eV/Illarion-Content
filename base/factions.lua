@@ -575,7 +575,7 @@ function makeCharMemberOfTown(originator,fv,theRank, theTown)
 		 	gText="Ihr seid bereits Bürger dieser Stadt!";
 			eText="You're already citizen of this town!";
 			outText=base.common.GetNLS(originator,gText,eText);
-            thisNPC:talk(CCharacter.say, outText);
+            thisNPC:talk(Character.say, outText);
 			return;
 		end
 
@@ -584,7 +584,7 @@ function makeCharMemberOfTown(originator,fv,theRank, theTown)
 		 	gText="Ihr habt nicht genug Geld dabei!";
 			eText="You don't have enough money with you!";
 			outText=base.common.GetNLS(originator,gText,eText);
-            thisNPC:talk(CCharacter.say, outText);
+            thisNPC:talk(Character.say, outText);
 			return;
 		end
 		
@@ -602,7 +602,7 @@ function makeCharMemberOfTown(originator,fv,theRank, theTown)
 		gText="Ihr seid nun als Bürger dieser Stadt eingetragen.";
 		eText="You're now registered as citizen of this town.";
 		outText=base.common.GetNLS(originator,gText,eText);
-        thisNPC:talk(CCharacter.say, outText);
+        thisNPC:talk(Character.say, outText);
 	end
 	return;
 end
@@ -645,13 +645,13 @@ function deleteDecree(originator)
 			end
 			
 			outText=base.common.GetNLS(originator,gText,eText);
-			thisNPC:talk(CCharacter.say, outText);
+			thisNPC:talk(Character.say, outText);
 			return;
 	else
 			gText="Es tut mir leid, aber ihr habt kein Dekret bei euch!";
 			eText="I'm sorry but you have no decree with you!";
 			outText=base.common.GetNLS(originator,gText,eText);
-            thisNPC:talk(CCharacter.say, outText);
+            thisNPC:talk(Character.say, outText);
 			return;
 	end
 end

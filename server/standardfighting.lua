@@ -29,7 +29,7 @@ module("server.standardfighting", package.seeall)
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
-    --Attacker:talk(CCharacter.say,"Drin in onAttack");
+    --Attacker:talk(Character.say,"Drin in onAttack");
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
@@ -38,31 +38,31 @@ function onAttack(Attacker, Defender)
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
     
-    --Attacker.Char:talk(CCharacter.say,"NI OK");
+    --Attacker.Char:talk(Character.say,"NI OK");
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
     
-     --   Attacker.Char:talk(CCharacter.say,"WP OK");
+     --   Attacker.Char:talk(Character.say,"WP OK");
     -- Check the range between the both fighting characters
     if not CheckRange(Attacker, Defender.Char) then return false; end;
     
-    --Attacker.Char:talk(CCharacter.say,"RANGE OK");
+    --Attacker.Char:talk(Character.say,"RANGE OK");
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker);
     
-    --Attacker.Char:talk(CCharacter.say,"ATT TYPE OK");
+    --Attacker.Char:talk(Character.say,"ATT TYPE OK");
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then 
-       -- Attacker.Char:talk(CCharacter.say,"ATTER NOT OK");
+       -- Attacker.Char:talk(Character.say,"ATTER NOT OK");
         return false; 
     end;
     
-    --    Attacker.Char:talk(CCharacter.say,"ATTER OK");
+    --    Attacker.Char:talk(Character.say,"ATTER OK");
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then return false; end;
     
     
-    --    Attacker.Char:talk(CCharacter.say,"AMMO OK");
+    --    Attacker.Char:talk(Character.say,"AMMO OK");
     -- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true);
     
@@ -261,7 +261,7 @@ function CauseDamage(Attacker, Defender, Globals)
             Defender.Char.pos.y + CharOffsetY, Defender.Char.pos.z);
             Defender.Char:warp(newPos);
 
-        base.common.TalkNLS(Defender.Char, CCharacter.say,
+        base.common.TalkNLS(Defender.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
             "#me stumbles back and falls to the ground.");
 
@@ -392,28 +392,28 @@ function CheckAttackOK(CharStruct)
     if (CharStruct["AttackKind"] == nil) then -- finding the attack type failed
         return false;
     end;
-    --CharStruct.Char:talk(CCharacter.say,"check 1 ok");
+    --CharStruct.Char:talk(Character.say,"check 1 ok");
     if (CharStruct.WeaponItem.id == 228) then -- Item is occupied
         return false;
     end;
-    --CharStruct.Char:talk(CCharacter.say,"check 2 ok");
+    --CharStruct.Char:talk(Character.say,"check 2 ok");
     if (CharStruct.SecIsWeapon) then
         -- there is something in the second hand
         if (CharStruct.AttackKind == 0) then
             -- but nothing in the first
-            --CharStruct.Char:talk(CCharacter.say,"check 3 ok");
+            --CharStruct.Char:talk(Character.say,"check 3 ok");
             return false;
         elseif (CharStruct.SecWeapon.WeaponType == 7) then
             -- but a distance weapon in the first
-            --CharStruct.Char:talk(CCharacter.say,"check 4 ok");
+            --CharStruct.Char:talk(Character.say,"check 4 ok");
             return false;
         elseif (CharStruct.Weapon.WeaponType == 13) then
             -- but a wand in the first
-            --CharStruct.Char:talk(CCharacter.say,"check 5 ok");
+            --CharStruct.Char:talk(Character.say,"check 5 ok");
             return false;
         end;
     end;
-   -- CharStruct.Char:talk(CCharacter.say,"check 7 ok");
+   -- CharStruct.Char:talk(Character.say,"check 7 ok");
     return true;
 end;
 
@@ -467,9 +467,9 @@ function CoupDeGrace(Attacker, Defender)
             "ihrem");
         local eText = base.common.GetGenderText(Attacker.Char, "his",
             "her");
-        Attacker.Char:talkLanguage(CCharacter.say, CPlayer.german,
+        Attacker.Char:talkLanguage(Character.say, Player.german,
             string.format("#me gibt %s Gegner den Gnadenstoß.", gText));
-        Attacker.Char:talkLanguage(CCharacter.say, CPlayer.english,
+        Attacker.Char:talkLanguage(Character.say, Player.english,
             string.format("#me gives %s enemy the coup de gráce.", eText));
         
         -- Kill character and notify other scripts about the death
@@ -763,8 +763,8 @@ end;
 -- @param CharStruct The table of the character the weapons are supposed to be
 --                      load for
 function LoadWeapons(CharStruct)
-    local rItem = CharStruct.Char:getItemAt(CCharacter.right_tool);
-    local lItem = CharStruct.Char:getItemAt(CCharacter.left_tool);
+    local rItem = CharStruct.Char:getItemAt(Character.right_tool);
+    local lItem = CharStruct.Char:getItemAt(Character.left_tool);
     local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id);
     local lAttFound, lAttWeapon = world:getWeaponStruct(lItem.id);
     
@@ -899,7 +899,7 @@ function ShowEffects(Attacker, Defender, Globals)
             InformAboutCritical(Attacker.Char, Defender.Char, Globals.HittedArea);
             --[[ Wounds Script - Disabled for now
             if base.character.IsPlayer(Defender.Char) and (math.random(8) == 1) then
-                Defender.Char.effects:addEffect(CLongTimeEffect(21, 10));
+                Defender.Char.effects:addEffect(LongTimeEffect(21, 10));
             end;
             --]]
             

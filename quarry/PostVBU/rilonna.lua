@@ -307,7 +307,7 @@ function useNPC(user,counter,param)
     if ( myOrderNPC:checkOrder(user) == true ) then
 
     else
-        thisNPC:talk(CCharacter.say,"Lass mich in ruhe wenn du nichts für mich hast");
+        thisNPC:talk(Character.say,"Lass mich in ruhe wenn du nichts für mich hast");
         mainNPC:use(char);
     end
 end

@@ -19,7 +19,7 @@ function LookAtItem(player, item)
 end
 
 function itemInformNLS(player, item, textDe, textEn)
-  if player:getPlayerLanguage() == CPlayer.german then
+  if player:getPlayerLanguage() == Player.german then
     world:itemInform(player, item, textDe)
   else
     world:itemInform(player, item, textEn)

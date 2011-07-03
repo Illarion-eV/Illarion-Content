@@ -48,8 +48,8 @@ function SentenceCharacter(User,SourceItem,TargetChar,Counter,Param)
 	end  
 	
 	if SourceItem.data>0 and SourceItem.data<=3 and User:isInRangeToPosition(prisonPosition[SourceItem.data],5) then
-          User:talkLanguage(CCharacter.say,CPlayer.german,"#me verurteilt "..TargetChar.name.." zu "..(Counter*10).." Ressourcen."); 
-          User:talkLanguage(CCharacter.say,CPlayer.english,"#me sentences "..TargetChar.name.." to "..(Counter*10).." resources."); 
+          User:talkLanguage(Character.say,Player.german,"#me verurteilt "..TargetChar.name.." zu "..(Counter*10).." Ressourcen."); 
+          User:talkLanguage(Character.say,Player.english,"#me sentences "..TargetChar.name.." to "..(Counter*10).." resources."); 
           TargetChar:setQuestProgress(25,(Counter*10)); 
           TargetChar:setQuestProgress(26, SourceItem.data); --sets the town the char got arrested from as imprisoner id
           

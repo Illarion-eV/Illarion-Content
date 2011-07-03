@@ -1008,7 +1008,7 @@ function mainTask(texttype,message,originator)
 			 	gText="Ihr seid aus der Stadt verbannt, ihr müsst mir erst ein unterschriebenes Entbannungsdekret der Königin vorzeigen damit ich Euch in die Bürgerliste eintragen kann.";
 				eText="You're outcasted from this town, you need to show me first a signed unban decree of the queen to sign you in in the citizen list.";
 				outText=base.common.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say, outText);
+                thisNPC:talk(Character.say, outText);
 				return true;
 			end
 
@@ -1018,7 +1018,7 @@ function mainTask(texttype,message,originator)
 			 	gText="Diese Eintragung wird "..base.factions.PriceListForTownChange[Factionvalues.towncnt].." Silberstücke kosten, wenn ihr nach eurem Beitritt zu einer anderen Stadt wechseln wollt verdoppeln sich die Kosten dafür. Seid ihr sicher dass ihr dieser Stadt beitreten wollt?";
 				eText="Adding you to the citizenlist will cost "..base.factions.PriceListForTownChange[Factionvalues.towncnt].." silver coins. If you decide to become a citizen of another town after joining the fee will double. Do you really wish to join this town?";
 				outText=base.common.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say, outText);
+                thisNPC:talk(Character.say, outText);
 				flag[originator.id] = 0;
 				return true;
 			end
@@ -1040,7 +1040,7 @@ function mainTask(texttype,message,originator)
 				gText="Ihr habt ein Dekret für mich...lasst mich mal nachschauen.";
 				eText="You have a decree with you...let me have a look at it.";
 				outText=base.common.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say, outText);
+                thisNPC:talk(Character.say, outText);
 				base.factions.deleteDecree(originator);
 				return true;
 
@@ -1051,14 +1051,14 @@ function mainTask(texttype,message,originator)
 				gText="Ein Entbannungsdekret, kommt sofort.";
 				eText="A unban decree, right away.";
 				outText=base.common.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say, outText);
+                thisNPC:talk(Character.say, outText);
 
 
 			else
 				gText="Nur der Anführer dieser Stadt kann ein Entbannungsdekret erwerben!";
 				eText="Only the leader of the town can buy a unban decree!";
 				outText=base.common.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say, outText);
+                thisNPC:talk(Character.say, outText);
 			end
 			return true;
 	end

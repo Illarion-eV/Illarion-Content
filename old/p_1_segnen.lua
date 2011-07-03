@@ -3,7 +3,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param)
     if neckItem.id==222 and neckItem.data==Caster.id and neckItem.quality==1000 then
         found, reg_effect = player.effects:find(1000);      -- gesegnet LTE
         if not found then
-            player.effects:addEffect( CLongTimeEffect(1000,10) );
+            player.effects:addEffect( LongTimeEffect(1000,10) );
         else
             
         end

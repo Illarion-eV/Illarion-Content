@@ -3,7 +3,7 @@ module("npc.skill", package.seeall)
 function useNPC(user,counter,param)
     --thisNPC:increaseSkill(1,"common language",100);
     
-    thisNPC:talk(CCharacter.say, "Don't you touch me!");    
+    thisNPC:talk(Character.say, "Don't you touch me!");    
 end
 
 function nextCycle()  -- ~10 times per second
@@ -11,7 +11,7 @@ function nextCycle()  -- ~10 times per second
         cycCount=1;
         --nextDelivery=math.random(40000);
         thisNPC:increaseSkill(1,"common language",100);
-        --thisNPC:talk(CCharacter.say, "Next delivery in "..nextDelivery);
+        --thisNPC:talk(Character.say, "Next delivery in "..nextDelivery);
     end
 end
 
@@ -47,25 +47,25 @@ function receiveText(texttype, message, originator)
             originator:increaseSkill(1,"common language",100);
             
             if (string.find(message,"[nN]ame")~=nil or string.find(message,"[Ww]ho.*you")~=nil) then
-                thisNPC:talk(CCharacter.say, "My name is "..thisNPC.name..". I am here to help you. Tell me if you want to be a fighter, a magician or a craftsman.");
+                thisNPC:talk(Character.say, "My name is "..thisNPC.name..". I am here to help you. Tell me if you want to be a fighter, a magician or a craftsman.");
             end
             
             if (string.find(message,"[Gg]reet")~=nil or string.find(message,"[Hh]ello")~=nil) then
-                thisNPC:talk(CCharacter.say, "My name is "..thisNPC.name..". I am here to help you. Tell me if you want to be a fighter, a magician or a craftsman.");
+                thisNPC:talk(Character.say, "My name is "..thisNPC.name..". I am here to help you. Tell me if you want to be a fighter, a magician or a craftsman.");
             end
             
             if string.find(message,"[Hh]elp")~=nil then
-                thisNPC:talk(CCharacter.say, "Say 'I want to be a craftsman' to become a craftsman, '...magician' to become a magician or '...fighter' to become a fighter");
+                thisNPC:talk(Character.say, "Say 'I want to be a craftsman' to become a craftsman, '...magician' to become a magician or '...fighter' to become a fighter");
             end
             
             if (string.find(message,"[Ww]ant.*be.*[Cc]raftsman") ~=nil) then
-                thisNPC:talk(CCharacter.say, "Not my problem.");
+                thisNPC:talk(Character.say, "Not my problem.");
             elseif (string.find(message,"[Ww]ant.*be.*[Mm]agician")~=nil) then
-                thisNPC:talk(CCharacter.say, "Not my problem.");
+                thisNPC:talk(Character.say, "Not my problem.");
             elseif (string.find(message,"[Ww]ant.*be.*[Ff]ighter") ~=nil) then
-                thisNPC:talk(CCharacter.say, "Not my problem.");
+                thisNPC:talk(Character.say, "Not my problem.");
             elseif (string.find(message,"[Ww]ant.*be.*[Gg][Mm]") ~=nil) then
-                thisNPC:talk(CCharacter.say, "Hehe. Sure. Anyhing else?");
+                thisNPC:talk(Character.say, "Hehe. Sure. Anyhing else?");
             end
         end
     end

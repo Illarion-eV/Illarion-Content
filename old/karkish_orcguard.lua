@@ -16,8 +16,8 @@ module("npc.karkish_orcguard", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Nimm Greifer deine weg, sonst du haben gleich keine mehr!"); 
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Nub touch meh, stoopid!");
+    thisNPC:talkLanguage(Character.say, Player.german, "Nimm Greifer deine weg, sonst du haben gleich keine mehr!"); 
+    thisNPC:talkLanguage(Character.say, Player.english, "Nub touch meh, stoopid!");
 end
 
 function initializeNpc()

@@ -15,7 +15,7 @@ function OpenCloseTarget(Caster,Item)
     if (Mana>=100) then
         local Language=Caster.activeLanguage;
         Caster.activeLanguage=10;
-        Caster:talk(CCharacter.say,"KEL ANTH");
+        Caster:talk(Character.say,"KEL ANTH");
         Caster.activeLanguage=Language;
         if base.doors.CloseDoor(Item) then
             Succeed(Caster)
@@ -63,10 +63,10 @@ function CastMagicOnItem(Caster,TargetItem,counter,param, ltstate)
         OpenCloseTarget(Caster,TargetItem)
     elseif ( ltstate == Action.none ) then
         Caster:startAction( 15, 21, 10, 0, 0);
-        Caster:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt mit einer mystischen Formel.");
-        Caster:talkLanguage( CCharacter.say, CPlayer.english, "#me starts with a mystical formula.");
+        Caster:talkLanguage( Character.say, Player.german, "#me beginnt mit einer mystischen Formel.");
+        Caster:talkLanguage( Character.say, Player.english, "#me starts with a mystical formula.");
     elseif ( ltstate == Action.abort ) then
-        Caster:talkLanguage(CCharacter.say, CPlayer.german, "#me stoppt apprupt mit dem Zaubern.");
-        Caster:talkLanguage(CCharacter.say, CPlayer.english,"me stopps appruptly with the casting.");
+        Caster:talkLanguage(Character.say, Player.german, "#me stoppt apprupt mit dem Zaubern.");
+        Caster:talkLanguage(Character.say, Player.english,"me stopps appruptly with the casting.");
     end
 end

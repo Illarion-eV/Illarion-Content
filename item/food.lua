@@ -209,7 +209,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			local found1, found2, dom, constModOld;
 			-- check for diet LTE
 			if not foundEffect then
-				dietEffect=CLongTimeEffect(12,2147483640);
+				dietEffect=LongTimeEffect(12,2147483640);
 				User.effects:addEffect(dietEffect);
 				found1 = true;
 				found2 = true;

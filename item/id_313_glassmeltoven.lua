@@ -43,8 +43,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
         return
     end
     
@@ -56,8 +56,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         if ((User:countItemAt("belt",316)>0) and (User:countItemAt("belt",314)>0)) then
             if ( ltstate == Action.none ) then -- Arbeit nicht gestartet -> Starten
                 User:startAction( GenWorkTime(User,"glass blowing"), 0, 0, 0, 0 );
-                User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt Glas zu schmelzen.");
-                User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to melt glass.");
+                User:talkLanguage( Character.say, Player.german, "#me beginnt Glas zu schmelzen.");
+                User:talkLanguage( Character.say, Player.english, "#me starts to melt glass.");
                 return                
             end
             if base.common.IsInterrupted( User ) then
@@ -100,9 +100,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             else
                 User:startAction( GenWorkTime(User,"glass blowing"), 0, 0, 0, 0 );
             end
-            local Tool = User:getItemAt(CCharacter.left_tool); -- Item in Linker Hand auslesen
+            local Tool = User:getItemAt(Character.left_tool); -- Item in Linker Hand auslesen
             if ((Tool == nil) or (Tool.id ~= 311)) then -- Wenn das Item nicht die Zange ist
-                Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
+                Tool = User:getItemAt(Character.right_tool); -- In anderer Hand nachsehen
             end
             if base.common.ToolBreaks( User, Tool ) then -- Zange beschädigen
                 base.common.InformNLS( User, 
@@ -125,8 +125,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         if (User:countItemAt("belt",736)>4) then
             if ( ltstate == Action.none ) then -- Arbeit nicht gestartet -> Starten
                 User:startAction( GenWorkTime(User,"fireing bricks"), 0, 0, 0, 0 );
-                User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt Ziegel zu brennen.");
-                User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to fire bricks.");
+                User:talkLanguage( Character.say, Player.german, "#me beginnt Ziegel zu brennen.");
+                User:talkLanguage( Character.say, Player.english, "#me starts to fire bricks.");
                 return                
             end
             if base.common.IsInterrupted( User ) then
@@ -167,8 +167,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         elseif (User:countItemAt("belt",26)>0) then
             if ( ltstate == Action.none ) then -- Arbeit nicht gestartet -> Starten
                 User:startAction( GenWorkTime(User,"fireing bricks"), 0, 0, 0, 0 );
-                User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt Ziegel zu brennen.");
-                User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to fire bricks.");
+                User:talkLanguage( Character.say, Player.german, "#me beginnt Ziegel zu brennen.");
+                User:talkLanguage( Character.say, Player.english, "#me starts to fire bricks.");
                 return              
             end
             if base.common.IsInterrupted( User ) then
@@ -216,9 +216,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             "You need clay and unfired bricks to make bricks.");
         end
         if didSomething then
-            local Tool = User:getItemAt(CCharacter.left_tool); -- Item in Linker Hand auslesen
+            local Tool = User:getItemAt(Character.left_tool); -- Item in Linker Hand auslesen
             if ((Tool == nil) or (Tool.id ~= 734)) then -- Wenn das Item nicht die Zange ist
-                Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
+                Tool = User:getItemAt(Character.right_tool); -- In anderer Hand nachsehen
             end
             if base.common.ToolBreaks( User, Tool ) then -- Zange beschädigen
                 base.common.InformNLS( User, 

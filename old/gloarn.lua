@@ -9,8 +9,8 @@ module("npc.gloarn", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    if (lang==0) then thisNPC:talk(CCharacter.say, "He, nicht kitzeln!") end
-    if (lang==1) then thisNPC:talk(CCharacter.say, "Hey, don't tickle me!") end
+    if (lang==0) then thisNPC:talk(Character.say, "He, nicht kitzeln!") end
+    if (lang==1) then thisNPC:talk(Character.say, "Hey, don't tickle me!") end
 end
 
 function initializeNpc()
@@ -91,7 +91,7 @@ function receiveText(texttype, message, originator)
                 gText="#me grinst dich blöde an";
                 eText="#me grins stupidly at you";
                 outText=npc.base.functions.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say,outText);
+                thisNPC:talk(Character.say,outText);
                 verwirrt=true;
             end
         end

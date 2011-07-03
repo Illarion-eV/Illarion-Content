@@ -22,8 +22,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
         return
     end
       
@@ -71,8 +71,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         else
             User:startAction( 60-math.floor( 10 * ( User:increaseAttrib( "strength", 0 ) / 10 ) ), 0, 0, 8, 15);
         end
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt Steine zu behauen");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to work stones"); 
+        User:talkLanguage( Character.say, Player.german, "#me beginnt Steine zu behauen");
+        User:talkLanguage( Character.say, Player.english, "#me starts to work stones"); 
         return
     end
     

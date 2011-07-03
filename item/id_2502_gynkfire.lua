@@ -13,8 +13,8 @@ end;
 function Drop(User,Item)
     if (math.random(1,User:increaseAttrib("dexterity",0)+7)==1) then
         Explode(User, Item);
-        User:talkLanguage(CCharacter.say,CPlayer.german,"#me lässt eine Flasche fallen, welche explodiert.");
-        User:talkLanguage(CCharacter.say,CPlayer.english,"#me drops a bottle and it explodes.");
+        User:talkLanguage(Character.say,Player.german,"#me lässt eine Flasche fallen, welche explodiert.");
+        User:talkLanguage(Character.say,Player.english,"#me drops a bottle and it explodes.");
         InformChar(User,"Das Gynkesische Feuer rutscht dir aus den Händen und explodiert vor deinen Füßen.","The Gynkese Fire slips out of your hands and explodes in front of you feets.");
     end;
 end;
@@ -42,8 +42,8 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
             if (TargetItem:getType()==3) then
                 Explode(User, TargetItem);
                 if not User:isAdmin() then
-                    User:talkLanguage(CCharacter.say,CPlayer.german,"#me wirft eine Flasche, welche explodiert.");
-                    User:talkLanguage(CCharacter.say,CPlayer.english,"#me throws a bottle and it explodes.");
+                    User:talkLanguage(Character.say,Player.german,"#me wirft eine Flasche, welche explodiert.");
+                    User:talkLanguage(Character.say,Player.english,"#me throws a bottle and it explodes.");
                 end
                 User.movepoints=User.movepoints-30;
             else

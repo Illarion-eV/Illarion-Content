@@ -24,8 +24,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
         return
     end
 
@@ -66,8 +66,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 	
 	if (ltstate == Action.none) then -- Untätig: Starte Angeln!
         User:startAction(content.gathering.fishing:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt zu fischen.");
-        User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts fishing.");
+        User:talkLanguage(Character.say, Player.german, "#me beginnt zu fischen.");
+        User:talkLanguage(Character.say, Player.english, "#me starts fishing.");
         return
     end
 	
@@ -105,8 +105,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     world:makeSound(9,TargetPos);
 	
 	if base.common.ToolBreaks(User, SourceItem, true) then -- Angel beschädigen
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me lässt die Angel aus den Händen rutschen und die Angel sinkt auf den Grund.");
-        User:talkLanguage(CCharacter.say, CPlayer.english, "#me lets the fishing rod slip out of the hands and it sinks to the ground.");
+        User:talkLanguage(Character.say, Player.german, "#me lässt die Angel aus den Händen rutschen und die Angel sinkt auf den Grund.");
+        User:talkLanguage(Character.say, Player.english, "#me lets the fishing rod slip out of the hands and it sinks to the ground.");
         return
     end
 	

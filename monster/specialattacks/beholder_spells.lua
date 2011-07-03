@@ -13,7 +13,7 @@ local CharList = world:getCharactersInRangeOf (posit, 10);
 	for i,v in pairs(CharList) do
 		if v:increaseAttrib ("mana",0) > 0 then
 			if (math.random(100)<= 10) then
-				Monster:talk(CCharacter.say, "#me makes a terrifying sound, a stream of blue energy suddenly leaving the mage and dissipating into the air.");
+				Monster:talk(Character.say, "#me makes a terrifying sound, a stream of blue energy suddenly leaving the mage and dissipating into the air.");
 				v:increaseAttrib ("mana",-3000);
 				v:inform ("#w You suddenly feel drained of mana, your energies weakening.");
 				return true;
@@ -32,7 +32,7 @@ function Energy_Beam (monster, char, distance)
 	
 	if (math.random(100)<= 10) then
 		if (monster.pos.z == char.pos.z) and ((math.abs(monster.pos.x - char.pos.x) <= 1) and (math.abs(monster.pos.y - char.pos.y) <= 1)) then
-		--	monster:talk(CCharacter.say, "#me charges a ball of pure energy which is immediately shot as a ray, in a forward direction.");
+		--	monster:talk(Character.say, "#me charges a ball of pure energy which is immediately shot as a ray, in a forward direction.");
 			
 			local DamagePosX;		
 			if char.pos.x-monster.pos.x == 0 then
@@ -119,7 +119,7 @@ function Death_Gaze (monster, char)
 				foundEff, gazeEff = v.effects:find(550);
 				
 				if not foundEff then
-					gazeEff = CLongTimeEffect(550,10);
+					gazeEff = LongTimeEffect(550,10);
 					v.effects:addEffect(gazeEff);
 					gazeEff:addValue("effTime",5);
 					

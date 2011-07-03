@@ -35,9 +35,9 @@ function useNPC(User,counter,param)
             User:inform("param "..param);
 			if ( param == 228 ) then
                User:inform(TraderInterface:addItem(User));
-			   --thisNPC:talk( CCharacter.say, "How many will you be buying?" );
+			   --thisNPC:talk( Character.say, "How many will you be buying?" );
             else
-               thisNPC:talk( CCharacter.say, "Greetings friend. Have a look at my wares." );
+               thisNPC:talk( Character.say, "Greetings friend. Have a look at my wares." );
                local newMenu = MenuStruct();
 			   newMenu:addItem( 1 );
                newMenu:addItem( 228 );
@@ -51,8 +51,8 @@ function useNPC(User,counter,param)
     end;
     --local lang=User:getPlayerLanguage();
     --thisNPC:increaseSkill(1,"common language",100);
-    --thisNPC:talkLanguage(CCharacter.say, CPlayer.german , "Fassst mich nicht an! Parameter: "..param );
-    --thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't touch me! Parameter: "..param );
+    --thisNPC:talkLanguage(Character.say, Player.german , "Fassst mich nicht an! Parameter: "..param );
+    --thisNPC:talkLanguage(Character.say, Player.english, "Don't touch me! Parameter: "..param );
 end
 
 
@@ -206,13 +206,13 @@ function receiveText(texttype, message, originator)
             end
 			
             if ( NPCItem[originator.id] ~= 0 ) and ( ( string.find( message, "one" ) ~= nil ) or ( string.find( message, "1" ) ~= nil ) ) then
-               thisNPC:talk( CCharacter.say, "You just bought one of the following item: " .. world:getItemName(NPCItem[originator.id],1) );
+               thisNPC:talk( Character.say, "You just bought one of the following item: " .. world:getItemName(NPCItem[originator.id],1) );
                NPCItem[originator.id] = 0;
             end
 
             ---------------------------------- DON'T EDIT BELOW HERE ------------------------------
             if (string.find(message,"[sS]tatus")~=nil and originator:isAdmin()==true) then
-                thisNPC:talk(CCharacter.say,"Copper="..TraderCopper ..", next delivery: "..nextDelivery.."cycCount:"..cycCount);
+                thisNPC:talk(Character.say,"Copper="..TraderCopper ..", next delivery: "..nextDelivery.."cycCount:"..cycCount);
                 statusString="Wares: ";
                 for itnCnt=1,table.getn(TraderItemId) do
                     if string.len(statusString)+string.len(world:getItemName(TraderItemId[itnCnt],1))>240 then    -- line too long
@@ -235,7 +235,7 @@ function receiveText(texttype, message, originator)
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
                 outText=npc.base.functions.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say,outText);
+                thisNPC:talk(Character.say,outText);
                 verwirrt=true;
             end
         end

@@ -89,7 +89,7 @@ function giveBonus(User, Item)          -- give the LTE and write values into it
         modifier=getModifier(modStr);   -- modify by...
         found,gemBonus = User.effects:find(50);
         if not found then               -- already has a bonus from another item? no
-            gemBonus=User.effects:addEffect(CLongTimeEffect(50,0));    -- give effect
+            gemBonus=User.effects:addEffect(LongTimeEffect(50,0));    -- give effect
             --User:inform("gave eff");
             found,gemBonus = User.effects:find(50);
         end

@@ -175,7 +175,7 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
                 world:gfx( LineOfFlight, targetPos );
                 return true;
             end );
-            base.common.TalkNLS( Monster, CCharacter.say,
+            base.common.TalkNLS( Monster, Character.say,
             "#me murmelt eine mystische Formel.",
             "#me mumbles a mystical formula.");
             Monster.movepoints=Monster.movepoints-AP;
@@ -206,7 +206,7 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
                 world:gfx( LineOfFlight, targetPos );
                 return true;
             end );
-            base.common.TalkNLS( Monster, CCharacter.say,
+            base.common.TalkNLS( Monster, Character.say,
             "#me murmelt eine mystische Formel.",
             "#me mumbles a mystical formula.");
             Monster.movepoints=Monster.movepoints-AP;
@@ -253,7 +253,7 @@ function CastHealing( Caster, rndTry, HealAmmount, Range, Effect, AP )
 
     other_monsters[ selected_monster ].movepoints = other_monsters[ selected_monster ].movepoints - AP;
 
-    base.common.TalkNLS( Monster, CCharacter.say,
+    base.common.TalkNLS( Monster, Character.say,
     "#me murmelt eine mystische Formel und wird von einem warmen Leuchten umgeben.",
     "#me mumbles a mystical formula and gets surrounded by a warm glowing.");
     return true;
@@ -356,7 +356,7 @@ function CastMonster(Monster,Enemy,rndTry,monsters,AP)
 
     world:gfx(41,SpawnMonster.pos);
     Monster.movepoints=Monster.movepoints-AP;
-    base.common.TalkNLS( Monster, CCharacter.say,
+    base.common.TalkNLS( Monster, Character.say,
     "#me murmelt eine mystische Formel.",
     "#me mumbles a mystical formula.");
     --]]
@@ -396,7 +396,7 @@ function MonsterRandomTalk(Monster,msgs)
         Monster:increaseSkill(1,"common language",100-Monster:getSkill("common language")); --if the monster could not talk, it can talk now
 
         germanMessage, englishMessage = msgs:getRandomMessage(); --choses a random message
-        base.common.TalkNLS( Monster, CCharacter.say, germanMessage, englishMessage ); --does the talking in both languages
+        base.common.TalkNLS( Monster, Character.say, germanMessage, englishMessage ); --does the talking in both languages
 
     end
 

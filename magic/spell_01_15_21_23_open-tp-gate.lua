@@ -45,8 +45,8 @@ TimeEffects = {
         ["time"] = 0        -- The time in 1/10 seconds that has to pass before the sound effect is played a second time
     },
     ["msg"] = {             -- The messages that are shown before the time delay is started in german and english
-        [CPlayer.german ] = "#me beginnt mit einer mystischen Formel.",
-        [CPlayer.english] = "#me starts with a mystical formula."
+        [Player.german ] = "#me beginnt mit einer mystischen Formel.",
+        [Player.english] = "#me starts with a mystical formula."
     }
 }
 
@@ -114,8 +114,8 @@ function DoTeleportSpell(Caster,TargetPos, ltstate)
     end
 
     if ( ltstate == Action.abort ) then
-        Caster:talkLanguage(CCharacter.say, CPlayer.german, "#me stoppt apprupt mit dem Zaubern.");
-        Caster:talkLanguage(CCharacter.say, CPlayer.english,"#me abruptly stops casting.");
+        Caster:talkLanguage(Character.say, Player.german, "#me stoppt apprupt mit dem Zaubern.");
+        Caster:talkLanguage(Character.say, Player.english,"#me abruptly stops casting.");
         return;
     end
 
@@ -125,7 +125,7 @@ function DoTeleportSpell(Caster,TargetPos, ltstate)
     magic.base.basics.gemBonis( Caster );
 
     genderMsg = {};
-    genderMsg[CPlayer.german], genderMsg[CPlayer.english] = magic.base.basics.GenderMessage( Caster );
+    genderMsg[Player.german], genderMsg[Player.english] = magic.base.basics.GenderMessage( Caster );
 
     if ( Caster:distanceMetricToPosition(TargetPos) > Settings.Range + GemBonis.Range) then
         base.common.InformNLS( Caster,
@@ -143,10 +143,10 @@ function DoTeleportSpell(Caster,TargetPos, ltstate)
 
     if ( ltstate == Action.none ) then
         Caster:startAction( TimeEffects.delay + GemBonis.Time, TimeEffects.gfx.id, TimeEffects.gfx.time, TimeEffects.sfx.id, TimeEffects.sfx.time);
-        local message = string.gsub( TimeEffects.msg[CPlayer.german], "{PP}", genderMsg[CPlayer.german] );
-        Caster:talkLanguage( CCharacter.say,  CPlayer.german, message );
-        message = string.gsub( TimeEffects.msg[CPlayer.english], "{PP}", genderMsg[CPlayer.english] );
-        Caster:talkLanguage( CCharacter.say, CPlayer.english, message );
+        local message = string.gsub( TimeEffects.msg[Player.german], "{PP}", genderMsg[Player.german] );
+        Caster:talkLanguage( Character.say,  Player.german, message );
+        message = string.gsub( TimeEffects.msg[Player.english], "{PP}", genderMsg[Player.english] );
+        Caster:talkLanguage( Character.say, Player.english, message );
         return;
     end
 

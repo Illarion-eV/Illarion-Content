@@ -32,10 +32,10 @@ function InvisibleCross()
                     end
                     fndRes, resEffect = player.effects:find(400);      -- was he just resurrected?
                     if not fndRes then                                  -- if not...
-                        player.effects:addEffect( CLongTimeEffect(400,1) );     -- add effect (400) to resurrected player
+                        player.effects:addEffect( LongTimeEffect(400,1) );     -- add effect (400) to resurrected player
                     else            -- if he has the effect already...
                         player.effects:removeEffect( resEffect );    -- reset it!
-                        player.effects:addEffect( CLongTimeEffect(400,1) );
+                        player.effects:addEffect( LongTimeEffect(400,1) );
                     end
                 end
             end

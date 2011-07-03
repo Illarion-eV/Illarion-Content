@@ -9,7 +9,7 @@ function CharacterOnField(mindmage)
     if ( (string.find( mindmage.lastSpokenText, "[Ww][Ii][Nn][Dd]") ~= nil) or (string.find( mindmage.lastSpokenText, "[Aa][Ii][Rr]") ~= nil) ) then -- Ritual starten
 		find, RitualStatus = mindmage.effects:find(666);
 		if not find then
-	    	mindmage.effects:addEffect( CLongTimeEffect(666,1) );
+	    	mindmage.effects:addEffect( LongTimeEffect(666,1) );
 	    	-- mindmage:inform("moep->Effekt gesetzt.");
 		else
 	    	-- mindmage:inform("moep->Effekt bereits vorhanden.");

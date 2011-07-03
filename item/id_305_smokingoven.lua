@@ -24,8 +24,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
         if (SourceItem.id ~= 304) then
             world:swap(SourceItem,304,0);
         end
@@ -74,8 +74,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if ( ltstate == Action.none ) then
         User:startAction( GenWorkTime(User), 0, 0, 0, 0);
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt zu räuchern.");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to roast.");
+        User:talkLanguage( Character.say, Player.german, "#me beginnt zu räuchern.");
+        User:talkLanguage( Character.say, Player.english, "#me starts to roast.");
         if (SourceItem.id ~= 305) then
             world:swap(SourceItem,305,0);
         end

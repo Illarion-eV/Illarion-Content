@@ -77,19 +77,19 @@ end
 function GetDirToNextWP(thisNPC) --returns the direction to the next waypoint
 	local RangeToCheck = 100;
 	if table.getn(waypoints[thisNPC.id])>0 then
-        --thisNPC:talk(CCharacter.say,"Calculating route to point: x="..waypoints[thisNPC.id][1].x ..", y="..waypoints[thisNPC.id][1].y);
+        --thisNPC:talk(Character.say,"Calculating route to point: x="..waypoints[thisNPC.id][1].x ..", y="..waypoints[thisNPC.id][1].y);
 		fnd,dir = player[thisNPC.id]:getNextStepDir(waypoints[thisNPC.id][1],RangeToCheck);
 		while not fnd do
 			RangeToCheck = RangeToCheck + 10;
-			thisNPC:talk(CCharacter.say,"RangeToCheck:"..RangeToCheck)
+			thisNPC:talk(Character.say,"RangeToCheck:"..RangeToCheck)
 			fnd,dir = player[thisNPC.id]:getNextStepDir(waypoints[thisNPC.id][1],RangeToCheck);
 			if RangeToCheck == 300 then
 				break;
 			end
 		end 
-		--if fnd == false then thisNPC:talk(CCharacter.say,"fnd=false"); end
-		--if dir == nil then thisNPC:talk(CCharacter.say,"dir = nil"); end
-		--if dir ~=   4 then thisNPC:talk(CCharacter.say,"dir = "..dir); end
+		--if fnd == false then thisNPC:talk(Character.say,"fnd=false"); end
+		--if dir == nil then thisNPC:talk(Character.say,"dir = nil"); end
+		--if dir ~=   4 then thisNPC:talk(Character.say,"dir = "..dir); end
 	end
 	if (dir~= false and dir~=nil) then
     	return dirTextger[dir],dirTexteng[dir], dir;
@@ -101,7 +101,7 @@ end
 
 function GetDirToPosition(thisNPC,desPos) --returns the direction to the desired position
 	local RangeToCheck = 100;
-        --thisNPC:talk(CCharacter.say,"Calculating route to point: x="..waypoints[thisNPC.id][1].x ..", y="..waypoints[thisNPC.id][1].y);
+        --thisNPC:talk(Character.say,"Calculating route to point: x="..waypoints[thisNPC.id][1].x ..", y="..waypoints[thisNPC.id][1].y);
 		fnd,dir = thisNPC:getNextStepDir(desPos,RangeToCheck);
 		while not fnd do
 			RangeToCheck = RangeToCheck + 10;
@@ -110,9 +110,9 @@ function GetDirToPosition(thisNPC,desPos) --returns the direction to the desired
 				break;
 			end
 		end 
-		--if fnd == false then thisNPC:talk(CCharacter.say,"fnd=false"); end
-		--if dir == nil then thisNPC:talk(CCharacter.say,"dir = nil"); end
-		--if dir ~=   4 then thisNPC:talk(CCharacter.say,"dir = "..dir); end
+		--if fnd == false then thisNPC:talk(Character.say,"fnd=false"); end
+		--if dir == nil then thisNPC:talk(Character.say,"dir = nil"); end
+		--if dir ~=   4 then thisNPC:talk(Character.say,"dir = "..dir); end
 	if (dir~= false and dir~=nil) then
     	return dirTextger[dir],dirTexteng[dir], dir;
     else
@@ -135,12 +135,12 @@ function BE_nextCycle(thisNPC)
   	move[thisNPC.id].nextCycle();
     if wait(1,1) then
 		local dirger,direng,dir = GetDirToNextWP(thisNPC);
-	  	--base.common.TalkNLS(thisNPC, CCharacter.say, "bla2"..lastdir[thisNPC.id].." dir:"..dir, "bla2"..lastdir[thisNPC.id].." dir:"..dir);
+	  	--base.common.TalkNLS(thisNPC, Character.say, "bla2"..lastdir[thisNPC.id].." dir:"..dir, "bla2"..lastdir[thisNPC.id].." dir:"..dir);
 	  	if lastdir[thisNPC.id]~=dir and dir~=false and dir~= nil then
-	  		base.common.TalkNLS(thisNPC, CCharacter.say, "Nun müssen wir Richtung "..dirger, "Now we need to go "..direng);
+	  		base.common.TalkNLS(thisNPC, Character.say, "Nun müssen wir Richtung "..dirger, "Now we need to go "..direng);
 	  		lastdir[thisNPC.id]=dir;
 		end
-		if dirger == false then base.common.TalkNLS(thisNPC, CCharacter.say, "ERROR, Richtung nicht gefunden", "ERROR, no direction found."); end
+		if dirger == false then base.common.TalkNLS(thisNPC, Character.say, "ERROR, Richtung nicht gefunden", "ERROR, no direction found."); end
 	end
 end
 
@@ -169,6 +169,6 @@ function useNPC(user,counter,param)
     if ( myOrderNPC:checkOrder(user) == true ) then
 
     else
-        thisNPC:talk(CCharacter.say,"Lass mich in ruhe wenn du nichts für mich hast");
+        thisNPC:talk(Character.say,"Lass mich in ruhe wenn du nichts für mich hast");
     end
 end

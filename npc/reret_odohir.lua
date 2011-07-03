@@ -10,8 +10,8 @@ module("npc.reret_odohir", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Lasst mich in Ruhe!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!");
+    thisNPC:talkLanguage(Character.say, Player.german, "Lasst mich in Ruhe!");
+    thisNPC:talkLanguage(Character.say, Player.english, "Don't you touch me!");
     currentNPC=counter;
 end
 

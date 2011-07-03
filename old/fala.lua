@@ -4,8 +4,8 @@ module("npc.fala", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    if (lang==0) then thisNPC:talk(CCharacter.say, "Fasst mich nicht an!") end
-    if (lang==1) then thisNPC:talk(CCharacter.say, "Don't you touch me!") end
+    if (lang==0) then thisNPC:talk(Character.say, "Fasst mich nicht an!") end
+    if (lang==1) then thisNPC:talk(Character.say, "Don't you touch me!") end
 end
 
 function initializeNpc()
@@ -94,7 +94,7 @@ function receiveText(texttype, message, originator)
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
                 outText=npc.base.functions.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say,outText);
+                thisNPC:talk(Character.say,outText);
                 verwirrt=true;
             end
         end

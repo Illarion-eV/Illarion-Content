@@ -102,18 +102,18 @@ function NPCTalking(NPC,Text)
                 if (Char==" ") then
                     outText=string.sub(Text,1,i-1);
                     Text=string.sub(Text,i+1,Len);
-                    NPC:talk(CCharacter.say,outText);
+                    NPC:talk(Character.say,outText);
                     outputted=true;
                 end
             until i==0 or outputted;
             if (Len==string.len(Text)) then
                 outText=string.sub(Text,1,240);
                 Text=string.sub(Text,241,Len);
-                NPC:talk(CCharacter.say,outText);
+                NPC:talk(Character.say,outText);
             end
         else
             done=true;
-            NPC:talk(CCharacter.say,Text);
+            NPC:talk(Character.say,Text);
         end
     until done
 end

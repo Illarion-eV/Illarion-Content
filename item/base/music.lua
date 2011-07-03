@@ -15,8 +15,8 @@ function PlayInstrument(User,Item,Skill)
     local Skl=User:getSkill(Skill);
     local Qual=math.floor(Item.quality/100);
     local PlayVal=base.common.Limit(math.floor((Skl+(Qual*5))/120*table.getn(TalkTexts[Skill])*(math.random(8,13)/10)),1,table.getn(TalkTexts[Skill]));
-    User:talkLanguage( CCharacter.say, CPlayer.german, TalkTexts[Skill][PlayVal][2]);
-    User:talkLanguage( CCharacter.say, CPlayer.english, TalkTexts[Skill][PlayVal][1]);
+    User:talkLanguage( Character.say, Player.german, TalkTexts[Skill][PlayVal][2]);
+    User:talkLanguage( Character.say, Player.english, TalkTexts[Skill][PlayVal][1]);
     User:learn(Skill,8,30,100,User:increaseAttrib("dexterity",0));
 	User.movepoints=User.movepoints-30;
 end

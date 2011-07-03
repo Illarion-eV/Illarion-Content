@@ -232,7 +232,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			--[[elseif (string.find(User.lastSpokenText,"cold")~=nil) then
 				fndRes, resEffect = User.effects:find(3);
 				if not fndRes then                                  -- if not...
-					resEffect=User.effects:addEffect( CLongTimeEffect(3,1) );     -- add effect (400) to resurrected player
+					resEffect=User.effects:addEffect( LongTimeEffect(3,1) );     -- add effect (400) to resurrected player
 
 					resEffect:addValue("coldStr",coldStr-1);
 					User:inform("angesteckt");

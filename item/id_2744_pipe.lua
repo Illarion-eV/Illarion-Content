@@ -25,11 +25,11 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 	end
     else
 
-	Character.effects:addEffect( CLongTimeEffect(19,10) );
+	Character.effects:addEffect( LongTimeEffect(19,10) );
     end
 
-    Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me nimmt einen tiefen Zug von der Pfeife.");
-    Character:talkLanguage(CCharacter.say,CPlayer.english,"#me takes a deep drag from the pipe.");
+    Character:talkLanguage(Character.say,Player.german ,"#me nimmt einen tiefen Zug von der Pfeife.");
+    Character:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe.");
     
     Character:eraseItem( 155, 1 );
 

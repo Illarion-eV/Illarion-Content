@@ -15,8 +15,8 @@ module("npc.norbert", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "#me kuschelt sich an "..user.name.." an.");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "#me cuddles up to "..user.name..".");
+    thisNPC:talkLanguage(Character.say, Player.german, "#me kuschelt sich an "..user.name.." an.");
+    thisNPC:talkLanguage(Character.say, Player.english, "#me cuddles up to "..user.name..".");
 end
 
 function initializeNpc()
@@ -176,8 +176,8 @@ function SayRow(message, originator)
 	
 	getRow(one,two,type);
 	
-	thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "One=>"..one..", two=>"..two.." und typ ist : "..type..". Das ergibt eine Reihe von: 1=> "..first..", 2=> "..second..", 3=> "..third..", 4=> "..fourth..", 5=> "..fifth..".");
-        thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "If I should summon a harmles creature for you, I get coppercoins. For a aggressive creature one I tak coppercoins.");
+	thisNPC:talkLanguage( Character.say, Player.german, "One=>"..one..", two=>"..two.." und typ ist : "..type..". Das ergibt eine Reihe von: 1=> "..first..", 2=> "..second..", 3=> "..third..", 4=> "..fourth..", 5=> "..fifth..".");
+        thisNPC:talkLanguage( Character.say, Player.english, "If I should summon a harmles creature for you, I get coppercoins. For a aggressive creature one I tak coppercoins.");
         return true
     end
     return false;

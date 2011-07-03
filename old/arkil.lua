@@ -9,8 +9,8 @@ module("npc.arkil", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    if (lang==0) then thisNPC:talk(CCharacter.say, "He, nicht kitzeln!") end
-    if (lang==1) then thisNPC:talk(CCharacter.say, "Hey, don't tickle me!") end
+    if (lang==0) then thisNPC:talk(Character.say, "He, nicht kitzeln!") end
+    if (lang==1) then thisNPC:talk(Character.say, "Hey, don't tickle me!") end
 end
 
 function initializeNpc()
@@ -68,7 +68,7 @@ function receiveText(texttype, message, originator)
 				gText="Seid gegrüßt! Habt ihr mein Schwert schon gefunden?";
 				eText="Greetings! Have you found my sword?";
 				outText=npc.base.functions.GetNLS(originator,gText,eText);
-				thisNPC:talk(CCharacter.say,outText);
+				thisNPC:talk(Character.say,outText);
 				npcstatus[originator.id]=2;
 				normalerweise=false;
 			end
@@ -77,7 +77,7 @@ function receiveText(texttype, message, originator)
 				gText="Ich suche mein Schwert, hilfst du mir es zu finden?";
 				eText="I lost my sword, can u help me find it?";
 				outText=npc.base.functions.GetNLS(originator,gText,eText);
-				thisNPC:talk(CCharacter.say,outText);
+				thisNPC:talk(Character.say,outText);
 				npcstatus[originator.id]=1;
 			end
 			-- hilfe anbieten ja/nein
@@ -85,7 +85,7 @@ function receiveText(texttype, message, originator)
 				gText="Sehr gut, Ich habs blabla verloren.";
 				eText="Blaenglischertext";
 				outText=npc.base.functions.GetNLS(originator,gText,eText);
-				thisNPC:talk(CCharacter.say,outText);
+				thisNPC:talk(Character.say,outText);
 				npcstatus[originator.id]=0;
 				originator:setQuestProgress( 735,1);
 			end
@@ -93,7 +93,7 @@ function receiveText(texttype, message, originator)
 				gText="Dann verschwendet meine Zeit nicht weiter.";
 				eText="Don't steal my time.";
 				outText=npc.base.functions.GetNLS(originator,gText,eText);
-				thisNPC:talk(CCharacter.say,outText);
+				thisNPC:talk(Character.say,outText);
 				npcstatus[originator.id]=0;
 			end
 			--Schwert gefunden ja/nein
@@ -102,18 +102,18 @@ function receiveText(texttype, message, originator)
 					gText="Ihr habt es gefunden! ich danke euch, hier nehmt etwas Gold für eure Mühe.";
 					eText="You found it! Thanks a lot, here take some gold.";
 					outText=npc.base.functions.GetNLS(originator,gText,eText);
-					thisNPC:talk(CCharacter.say,outText);
+					thisNPC:talk(Character.say,outText);
 					--Schwert löschen + geld geben
 					gText="#me nimmt 5 Gold entgegen.";
 					eText="#me takes 5 gold.";
 					outText=npc.base.functions.GetNLS(originator,gText,eText);
-					originator:talk(CCharacter.say,outText);
+					originator:talk(Character.say,outText);
 					originator:setQuestProgress(735,2);
 				else
 					gText="Sehr gut, Ich habs blabla verloren.";
 					eText="Blaenglischertext";
 					outText=npc.base.functions.GetNLS(originator,gText,eText);
-					thisNPC:talk(CCharacter.say,outText);
+					thisNPC:talk(Character.say,outText);
 				end
 				npcstatus[originator.id]=0;
 			end
@@ -121,7 +121,7 @@ function receiveText(texttype, message, originator)
 				gText="Dann verschwendet meine Zeit nicht weiter.";
 				eText="Don't waste my time.";
 				outText=npc.base.functions.GetNLS(originator,gText,eText);
-				thisNPC:talk(CCharacter.say,outText);
+				thisNPC:talk(Character.say,outText);
 				npcstatus[originator.id]=0;
 			end
         else
@@ -129,7 +129,7 @@ function receiveText(texttype, message, originator)
                 gText="#me schein verwirrt zu sein.";
                 eText="#me seems to be confused.";
                 outText=npc.base.functions.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say,outText);
+                thisNPC:talk(Character.say,outText);
                 verwirrt=true;
 				normalerweise=false;
             end

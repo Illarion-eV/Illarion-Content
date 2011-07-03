@@ -17,8 +17,8 @@ module("npc.warkol_hammerfaust", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    if (lang==0) then thisNPC:talk(CCharacter.say, "Fasst mich nicht an!") end
-    if (lang==1) then thisNPC:talk(CCharacter.say, "Don't you touch me!") end
+    if (lang==0) then thisNPC:talk(Character.say, "Fasst mich nicht an!") end
+    if (lang==1) then thisNPC:talk(Character.say, "Don't you touch me!") end
 end
 
 
@@ -131,8 +131,8 @@ function nextCycle()  -- ~10 times per second
 			 if (dummyVar[1]~=nil) then
 			 	prg=dummyVar[1]:getQuestProgress(2);
 			    if (prg==24 or prg==25) and not greeting_list[dummyVar[1].id] then
-					thisNPC:talkLanguage(CCharacter.say,CPlayer.german,"Arr, wieso kommste nicht näher und sagst mal 'Hallo'? Ick könnt dir ne Kampfausrüstung anbieten!");
-	       			thisNPC:talkLanguage(CCharacter.say,CPlayer.english,"Arr, why don't you come over ta 'ere and say 'hello'? I could offer ya' an fighting equipment!"); 
+					thisNPC:talkLanguage(Character.say,Player.german,"Arr, wieso kommste nicht näher und sagst mal 'Hallo'? Ick könnt dir ne Kampfausrüstung anbieten!");
+	       			thisNPC:talkLanguage(Character.say,Player.english,"Arr, why don't you come over ta 'ere and say 'hello'? I could offer ya' an fighting equipment!"); 
 					greeting_list[dummyVar[1].id]=true;
 				else
 					return;
@@ -360,12 +360,12 @@ function receiveText(texttype, message, originator)
 end
 
 function checkEquipment(originator)
-    helmet=originator:getItemAt(CCharacter.head);
-    sword=originator:getItemAt(CCharacter.left_tool);
+    helmet=originator:getItemAt(Character.head);
+    sword=originator:getItemAt(Character.left_tool);
         if (sword.id~=2701) then
-            sword=originator:getItemAt(CCharacter.right_tool);
+            sword=originator:getItemAt(Character.right_tool);
         end
-    armor= originator:getItemAt(CCharacter.breast);
+    armor= originator:getItemAt(Character.breast);
         if (helmet.id~=2291) then
             a=0;
             retVarA=0;       

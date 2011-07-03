@@ -14,11 +14,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             User:warp(position(-243,-340,-3));
         elseif ( ltstate == Action.none ) then
             User:startAction( 100,53, 4, 0, 0);
-            User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt in einem Buch zu lesen.");
-            User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts reading in a book.");
+            User:talkLanguage( Character.say, Player.german, "#me beginnt in einem Buch zu lesen.");
+            User:talkLanguage( Character.say, Player.english, "#me starts reading in a book.");
         elseif ( ltstate == Action.abort ) then
-            User:talkLanguage(CCharacter.say, CPlayer.german, "#me hört auf in dem Buch zu lesen.");
-            User:talkLanguage(CCharacter.say, CPlayer.english,"#me stops reading in the book.");
+            User:talkLanguage(Character.say, Player.german, "#me hört auf in dem Buch zu lesen.");
+            User:talkLanguage(Character.say, Player.english,"#me stops reading in the book.");
         end
         return
     end 

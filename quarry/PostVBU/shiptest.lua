@@ -1,8 +1,8 @@
 module("npc.shiptest", package.seeall)
 
 function useNPC(user,Counter,Param)
-       -- user:talk(CCharacter.say, "test");
-       thisNPC:talk(CCharacter.say, "I am used by " .. user.name .. " !");
+       -- user:talk(Character.say, "test");
+       thisNPC:talk(Character.say, "I am used by " .. user.name .. " !");
 end
 
 function nextCycle()
@@ -46,7 +46,7 @@ function nextCycle()
 					    --pgr4:setAttrib("faceto",dir);
 					    pgr4:move(dir,true);
 					    --pgr4:inform("after move");
-						--thisNPC:talk(CCharacter.say, "done " .. schritt);
+						--thisNPC:talk(Character.say, "done " .. schritt);
 						schritt=schritt+1;			-- increase schritt
 					end
 					world:erase(jesusitem,1);

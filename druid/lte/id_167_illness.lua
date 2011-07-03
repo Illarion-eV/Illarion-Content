@@ -21,7 +21,7 @@ function DoInfection(Character,Runde,Diag)
          find, Effect = chars.effects:find(167);
 		 const = math.min(25,chars:increaseAttrib("constitution",0));
          if not find and math.random(90) <= math.ceil(Runde/const) then
-            Effect=CLongTimeEffect(167,1);
+            Effect=LongTimeEffect(167,1);
 --          Laufzeit nach Quality berechnen
             duration = math.random(111,999)
             Effect:addValue("zaehler",duration)
@@ -99,8 +99,8 @@ function getEffect_2(Character,Runde)
       Character:setAttrib("faceto",richtung)
 --    Grafik für Erbrochenes?
 --    Würge-Sound wäre nicht schlecht
-      Character:talkLanguage(CCharacter.say,CPlayer.german,"#me muss sich übergeben.");
-	  Character:talkLanguage(CCharacter.say,CPlayer.english,"#me has to vomit.");
+      Character:talkLanguage(Character.say,Player.german,"#me muss sich übergeben.");
+	  Character:talkLanguage(Character.say,Player.english,"#me has to vomit.");
       world:makeSound(23,Character.pos)
 
 --    Foodlevel halbieren
@@ -482,7 +482,7 @@ function removeEffect(Effect,Character)
 	if foundIllness then
 		local foundImmunityEffect, immunityEffect = Character.effects:find(328);
 		if not foundImmunityEffect then
-			immunityEffect = CLongTimeEffect(328,1);
+			immunityEffect = LongTimeEffect(328,1);
 			Character.effects:addEffect(immunityEffect);
 		end
 		foundImmunity = immunityEffect:findValue("immunity_"..illness);

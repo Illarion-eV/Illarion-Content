@@ -13,8 +13,8 @@ module("npc.yastahl", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    if (lang==0) then thisNPC:talk(CCharacter.say, "Fast mich nicht an!") end
-    if (lang==1) then thisNPC:talk(CCharacter.say, "Don't you touch me!") end
+    if (lang==0) then thisNPC:talk(Character.say, "Fast mich nicht an!") end
+    if (lang==1) then thisNPC:talk(Character.say, "Don't you touch me!") end
 end
 
 function initializeNpc()
@@ -110,7 +110,7 @@ function receiveText(texttype, message, originator)
             elseif (Status==10 or Status==11) then
                 gText="#me stopft seine Pfeife mit den Sibanacblättern und zündet sie an. Bald beginnt er dünne Rauchringe wegzublasen";
                 eText="#me puts the Sibanac leaves in a pipe and lights it. He soon begins to puff away at the pipe"
-                thisNPC:talk(CCharacter.say,npc.base.functions.GetNLS(originator,gText,eText));
+                thisNPC:talk(Character.say,npc.base.functions.GetNLS(originator,gText,eText));
                 gText="Ahh...so. Wo waren wir? Ahja. Ich war dabei euch die Grundlagen der schönen Sprache der Elfen beizubringen.";
                 eText="Ah. Now where were we? Ah, yes. I was to teach you the basics of the Elven Tongue.";
             elseif (Status==12) then
@@ -128,7 +128,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                thisNPC:talk(CCharacter.say,npc.base.functions.GetNLS(originator,gText,eText));
+                thisNPC:talk(Character.say,npc.base.functions.GetNLS(originator,gText,eText));
                 if (Status==10) then
                     if (lang==0) then
                         originator:inform("Seine Ausführungen lassen die Sprache recht leicht erscheinen und du denkst das du schnell lernst.");
@@ -152,7 +152,7 @@ function receiveText(texttype, message, originator)
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
                 outText=npc.base.functions.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say,outText);
+                thisNPC:talk(Character.say,outText);
                 verwirrt=true;
             end
         end

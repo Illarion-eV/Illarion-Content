@@ -55,20 +55,20 @@ function LangOK(User,LangList)
 end
 
 function AddTraderTrigger(Trigger,Answer,newState, stateCondition)
-    --thisNPC:talk(CCharacter.say,"Adding new trigger");
+    --thisNPC:talk(Character.say,"Adding new trigger");
     table.insert(TraderTrig,{string.gsub(string.lower(Trigger)," ",".+")});
     table.insert(TraderText,{Answer});
-    --thisNPC:talk(CCharacter.say,"inside new trigger");
+    --thisNPC:talk(Character.say,"inside new trigger");
     if (newState~=nil) then     
         table.insert(talkState,newState);     -- for a little more complex NPCs with states
     else
         table.insert(talkState,nil);          -- nil means: dont change state!
     end
-    --thisNPC:talk(CCharacter.say,"done nearly new trigger");
+    --thisNPC:talk(Character.say,"done nearly new trigger");
     if (stateCondition~=nil) then
         talkCondition[table.getn(TraderTrig)]=stateCondition;
     end
-    --thisNPC:talk(CCharacter.say,"through new trigger");
+    --thisNPC:talk(Character.say,"through new trigger");
 end
 
 
@@ -77,14 +77,14 @@ function AddAdditionalText(Answer)
 end
 
 function AddAdditionalTrigger(Trigger)
-    --thisNPC:talk(CCharacter.say,"Adding add trigger"..table.getn(TraderTrig));
+    --thisNPC:talk(Character.say,"Adding add trigger"..table.getn(TraderTrig));
     --for i, j in TraderTrig[table.getn(TraderTrig)] do
-         --thisNPC:talk(CCharacter.say,"Adding add trigger  here "..j);
+         --thisNPC:talk(Character.say,"Adding add trigger  here "..j);
     --end
-    --thisNPC:talk(CCharacter.say,"Adding "..string.gsub(string.lower(Trigger)," ",".+").." into table");
+    --thisNPC:talk(Character.say,"Adding "..string.gsub(string.lower(Trigger)," ",".+").." into table");
     myString=string.gsub(string.lower(Trigger)," ",".+")
     table.insert(TraderTrig[table.getn(TraderTrig)],myString)
-    --thisNPC:talk(CCharacter.say,"through add trigger");
+    --thisNPC:talk(Character.say,"through add trigger");
 end
 
 function TellSmallTalk(message,userID)     -- searches for fitting answer to "message"...
@@ -120,7 +120,7 @@ function CheckForTrigger(message,ListIndex)
     local k=0;
     local done=false;
     local retVal=false;
-    --thisNPC:talk(CCharacter.say, "checking for triggers");
+    --thisNPC:talk(Character.say, "checking for triggers");
     repeat
         k=k+1;
         if (TraderTrig[ListIndex][k]~=nil) then
@@ -149,18 +149,18 @@ function NPCTalking(NPC,Text)
                 if (Char==" ") then
                     outText=string.sub(Text,1,i-1);
                     Text=string.sub(Text,i+1,Len);
-                    NPC:talk(CCharacter.say,outText);
+                    NPC:talk(Character.say,outText);
                     outputted=true;
                 end
             until i==0 or outputted;
             if (Len==string.len(Text)) then
                 outText=string.sub(Text,1,240);
                 Text=string.sub(Text,241,Len);
-                NPC:talk(CCharacter.say,outText);
+                NPC:talk(Character.say,outText);
             end
         else
             done=true;
-            NPC:talk(CCharacter.say,Text);
+            NPC:talk(Character.say,Text);
         end
     until done
 end
@@ -178,8 +178,8 @@ function SpeakerCycle()
             if (speakCount>=speakTime) then
                 speakCount=1;
                 TextNr=math.random(1,table.getn(CycleText))
-                thisNPC:talkLanguage(CCharacter.say, CPlayer.german,CycleText[TextNr][1]);
-                thisNPC:talkLanguage(CCharacter.say, CPlayer.english,CycleText[TextNr][2]);
+                thisNPC:talkLanguage(Character.say, Player.german,CycleText[TextNr][1]);
+                thisNPC:talkLanguage(Character.say, Player.english,CycleText[TextNr][2]);
                 speakTime=math.random(900,3000);
             end
         end

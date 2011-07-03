@@ -7,7 +7,7 @@ module("base.common", package.seeall)
 -- @param textInEn english text
 -- @return Text german or english text version
 function GetNLS(User, textInDe, textInEn)
-    return (User:getPlayerLanguage() == CPlayer.german and textInDe or textInEn);
+    return (User:getPlayerLanguage() == Player.german and textInDe or textInEn);
 end;
 
 --- Send a inform to the player in the language the player speaks
@@ -30,7 +30,7 @@ end;
 -- In case there is no player in range who could hear the talking nothing is
 -- said
 -- @param User The character who should say the message
--- @param method The method that is used to speak CCharacter.say, CCharacter.yell, CCharacter.whisper
+-- @param method The method that is used to speak Character.say, Character.yell, Character.whisper
 -- @param textInDe german text
 -- @param textInEn english text
 function TalkNLS(User, method, textInDe, textInEN)
@@ -38,13 +38,13 @@ function TalkNLS(User, method, textInDe, textInEN)
         return;
     end
     local Range = 0;
-    if (method == CCharacter.whisper) then
+    if (method == Character.whisper) then
         Range = 2;
-    elseif (method == CCharacter.yell) then
+    elseif (method == Character.yell) then
         Range = 30;
     else
         Range = 12;
-        method = CCharacter.say;
+        method = Character.say;
     end;
 
     local players = world:getPlayersInRangeOf(User.pos, Range);
@@ -65,7 +65,7 @@ function TalkNLS(User, method, textInDe, textInEN)
     local foundEN = false;
 
     for _, char in pairs(players) do
-        if (char:getPlayerLanguage() == CPlayer.german) then
+        if (char:getPlayerLanguage() == Player.german) then
             foundDE = true;
         else
             foundEN = true;
@@ -77,11 +77,11 @@ function TalkNLS(User, method, textInDe, textInEN)
     end;
 
     if foundDE then
-        User:talkLanguage(method, CPlayer.german,  textInDe);
+        User:talkLanguage(method, Player.german,  textInDe);
     end;
 
     if foundEN then
-        User:talkLanguage(method, CPlayer.english, textInEN);
+        User:talkLanguage(method, Player.english, textInEN);
     end;
 end;
 
@@ -134,51 +134,51 @@ function IsLookingAt(User, Location)
 
     local richtung = User:get_face_to();
 
-    return (((richtung == CCharacter.north) and (Location.y < User.pos.y)) or
-            ((richtung == CCharacter.northeast) and
+    return (((richtung == Character.north) and (Location.y < User.pos.y)) or
+            ((richtung == Character.northeast) and
                 ((Location.y < User.pos.y) or (Location.x > User.pos.x))) or
-            ((richtung == CCharacter.east) and (Location.x > User.pos.x)) or
-            ((richtung == CCharacter.southeast) and
+            ((richtung == Character.east) and (Location.x > User.pos.x)) or
+            ((richtung == Character.southeast) and
                 ((Location.y > User.pos.y) or (Location.x > User.pos.x))) or
-            ((richtung == CCharacter.south) and (Location.y > User.pos.y)) or
-            ((richtung == CCharacter.southwest) and
+            ((richtung == Character.south) and (Location.y > User.pos.y)) or
+            ((richtung == Character.southwest) and
                 ((Location.y > User.pos.y) or (Location.x < User.pos.x))) or
-            ((richtung == CCharacter.west) and (Location.x < User.pos.x)) or
-            ((richtung == CCharacter.northwest) and
+            ((richtung == Character.west) and (Location.x < User.pos.x)) or
+            ((richtung == Character.northwest) and
                 ((Location.y < User.pos.y) or (Location.x < User.pos.x))));
 end;
 
 --- Determine the direction from one position to another one
 -- @param StartPosition The start position. The place you get the direction you have to look towards to see the target location
 -- @param TargetPosition The target position
--- @return value for the direction, possible values are: CCharacter.dir_north, CCharacter.dir_northeast, CCharacter.dir_east, CCharacter.dir_southeast, CCharacter.dir_south, CCharacter.dir_southwest, CCharacter.dir_west, CCharacter.dir_northwest
+-- @return value for the direction, possible values are: Character.dir_north, Character.dir_northeast, Character.dir_east, Character.dir_southeast, Character.dir_south, Character.dir_southwest, Character.dir_west, Character.dir_northwest
 function GetDirection(StartPosition, TargetPosition)
     if (StartPosition.z < TargetPosition.z) then
-        return CCharacter.dir_up;
+        return Character.dir_up;
     elseif (StartPosition.z > TargetPosition.z) then
-        return CCharacter.dir_down;
+        return Character.dir_down;
     end
 
     local phi = GetPhi(StartPosition, TargetPosition);
 
     if (phi < math.pi / 8) then
-        return CCharacter.dir_east;
+        return Character.dir_east;
     elseif (phi < 3 * math.pi / 8) then
-        return CCharacter.dir_southeast;
+        return Character.dir_southeast;
     elseif (phi < 5 * math.pi / 8) then
-        return CCharacter.dir_south;
+        return Character.dir_south;
     elseif (phi < 7 * math.pi / 8) then
-        return CCharacter.dir_southwest;
+        return Character.dir_southwest;
     elseif (phi < 9 * math.pi / 8) then
-        return CCharacter.dir_west;
+        return Character.dir_west;
     elseif (phi < 11 * math.pi / 8) then
-        return CCharacter.dir_northwest;
+        return Character.dir_northwest;
     elseif (phi < 13 * math.pi / 8) then
-        return CCharacter.dir_north;
+        return Character.dir_north;
     elseif (phi < 15 * math.pi / 8) then
-        return CCharacter.dir_northeast;
+        return Character.dir_northeast;
     else
-        return CCharacter.dir_east;
+        return Character.dir_east;
     end;
 end;
 
@@ -200,21 +200,21 @@ end;
 function GetFrontPosition(User)
     local direct = User:get_face_to();
 
-    if (direct == CCharacter.north) then
+    if (direct == Character.north) then
         return position(User.pos.x, User.pos.y - 1, User.pos.z);
-    elseif (direct == CCharacter.northeast) then
+    elseif (direct == Character.northeast) then
         return position(User.pos.x + 1, User.pos.y - 1, User.pos.z);
-    elseif (direct == CCharacter.east) then
+    elseif (direct == Character.east) then
         return position(User.pos.x + 1, User.pos.y, User.pos.z);
-    elseif (direct == CCharacter.southeast) then
+    elseif (direct == Character.southeast) then
         return position(User.pos.x + 1, User.pos.y + 1, User.pos.z);
-    elseif (direct == CCharacter.south) then
+    elseif (direct == Character.south) then
         return position(User.pos.x, User.pos.y + 1, User.pos.z);
-    elseif (direct == CCharacter.southwest) then
+    elseif (direct == Character.southwest) then
         return position(User.pos.x - 1, User.pos.y + 1, User.pos.z);
-    elseif (direct == CCharacter.west) then
+    elseif (direct == Character.west) then
         return position(User.pos.x - 1, User.pos.y, User.pos.z);
-    elseif (direct == CCharacter.northwest) then
+    elseif (direct == Character.northwest) then
         return position(User.pos.x - 1, User.pos.y - 1, User.pos.z);
     end;
 
@@ -267,21 +267,21 @@ function GetBehindPosition(User)
 
     local direct = User:get_face_to();
 
-    if (direct == CCharacter.north) then
+    if (direct == Character.north) then
         return position(User.pos.x, User.pos.y + 1, User.pos.z);
-    elseif (direct == CCharacter.northeast) then
+    elseif (direct == Character.northeast) then
         return position(User.pos.x - 1, User.pos.y + 1, User.pos.z);
-    elseif (direct == CCharacter.east) then
+    elseif (direct == Character.east) then
         return position(User.pos.x - 1, User.pos.y, User.pos.z);
-    elseif (direct == CCharacter.southeast) then
+    elseif (direct == Character.southeast) then
         return position(User.pos.x + 1, User.pos.y - 1, User.pos.z);
-    elseif (direct == CCharacter.south) then
+    elseif (direct == Character.south) then
         return position(User.pos.x, User.pos.y - 1, User.pos.z);
-    elseif (direct == CCharacter.southwest) then
+    elseif (direct == Character.southwest) then
         return position(User.pos.x + 1, User.pos.y - 1, User.pos.z);
-    elseif (direct == CCharacter.west) then
+    elseif (direct == Character.west) then
         return position(User.pos.x + 1, User.pos.y, User.pos.z);
-    elseif (direct == CCharacter.northwest) then
+    elseif (direct == Character.northwest) then
         return position(User.pos.x + 1, User.pos.y + 1, User.pos.z);
     end;
 
@@ -710,7 +710,7 @@ function GetStiffness(Character)
     local Armor;
 
     if not InventoryFieds then
-        InventoryFieds = {CCharacter.head, CCharacter.coat, CCharacter.breast, CCharacter.hands, CCharacter.legs, CCharacter.feet};
+        InventoryFieds = {Character.head, Character.coat, Character.breast, Character.hands, Character.legs, Character.feet};
     end;
     for _, place in pairs(InventoryFieds) do
         Item=Character:getItemAt( place );
@@ -810,7 +810,7 @@ function ParalyseCharacter(Target, Time, Cumulative, forced)
         if (Time < 1) then
             return false;
         end
-        Paralysis = CLongTimeEffect(23, 1);
+        Paralysis = LongTimeEffect(23, 1);
         Target.effects:addEffect(Paralysis);
     else
         local foundTime;

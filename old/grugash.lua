@@ -5,8 +5,8 @@ module("npc.grugash", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!");
+    thisNPC:talkLanguage(Character.say, Player.german, "Finger weg!");
+    thisNPC:talkLanguage(Character.say, Player.english, "Don't you touch me!");
 end
 
 function initializeNpc()

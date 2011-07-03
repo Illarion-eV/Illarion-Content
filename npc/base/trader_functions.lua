@@ -695,10 +695,10 @@ function TraderCycle()
     else
         cycCount=cycCount+1;
         if (cycCount+1>nextDelivery+1) then
-            --thisNPC:talk(CCharacter.say, "Next");
+            --thisNPC:talk(Character.say, "Next");
             nextDelivery=math.random(RefreshTime[1],RefreshTime[2]);
             cycCount=1;
-            --thisNPC:talk(CCharacter.say, "Next delivery in "..nextDelivery.." CycCount: "..cycCount);
+            --thisNPC:talk(Character.say, "Next delivery in "..nextDelivery.." CycCount: "..cycCount);
             for itnCnt=1,table.getn(TraderItemNumber) do
                 refillItems(itnCnt);
             end

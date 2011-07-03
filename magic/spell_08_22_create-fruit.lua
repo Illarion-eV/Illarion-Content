@@ -49,8 +49,8 @@ TimeEffects = {
         ["time"] = 0        -- The time in 1/10 seconds that has to pass before the sound effect is played a second time
     },
     ["msg"] = {             -- The messages that are shown before the time delay is started in german and english
-        [CPlayer.german ] = "#me beginnt mit einer mystischen Formel..",
-        [CPlayer.english] = "#me starts with a mystical formula."
+        [Player.german ] = "#me beginnt mit einer mystischen Formel..",
+        [Player.english] = "#me starts with a mystical formula."
     }
 }
 

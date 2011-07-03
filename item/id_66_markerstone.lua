@@ -6,8 +6,8 @@ require("base.common")
 module("item.id_66_markerstone", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
-    User:talk(CCharacter.say,"Using");
-    User:talk(CCharacter.say,"You have seen "..quest.explorersguild.CountStones(User).." different stones in your lifetime.");
+    User:talk(Character.say,"Using");
+    User:talk(Character.say,"You have seen "..quest.explorersguild.CountStones(User).." different stones in your lifetime.");
 end
 
 function LookAtItem(User,Item)

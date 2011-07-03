@@ -182,7 +182,7 @@ function receiveText(texttype, message, originator)
 
 	if (string.find(message, "hammertime")) then
 		    Price(23); --lookup price of hammer
-		    thisNPC:talk(CCharacter.say,"Can't touch this!");
+		    thisNPC:talk(Character.say,"Can't touch this!");
 	end
 	
 	if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then
@@ -195,7 +195,7 @@ function useNPC(user,counter,param)
     if ( myOrderNPC:checkOrder(user) == true ) then
         
     else
-        thisNPC:talk(CCharacter.say,"Lass mich in ruhe wenn du nichts für mich hast");
+        thisNPC:talk(Character.say,"Lass mich in ruhe wenn du nichts für mich hast");
     end
 end
 
@@ -204,8 +204,8 @@ function Price(id)
 
 	myitem = world:getItemStatsFromId(id);
 
-	--thisNPC:talk(CCharacter.say,"item verlangt "..id);
-	--thisNPC:talk(CCharacter.say,"item wert "..myitem.Worth);
+	--thisNPC:talk(Character.say,"item verlangt "..id);
+	--thisNPC:talk(Character.say,"item wert "..myitem.Worth);
 
 	if (myitem.Worth == nil) then
 	    return 0;

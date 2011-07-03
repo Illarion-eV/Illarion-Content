@@ -67,8 +67,8 @@ function throwMolotov(Monster,Enemy)
         end );
 
         Monster.fightpoints=Monster.fightpoints-25;
-        Monster:talkLanguage( CCharacter.say, CPlayer.german, "#me schmeiﬂt eine weiﬂe Flasche nach "..Enemy.name..".");
-        Monster:talkLanguage( CCharacter.say, CPlayer.english, "#me tosses a white bottle at "..Enemy.name..".");
+        Monster:talkLanguage( Character.say, Player.german, "#me schmeiﬂt eine weiﬂe Flasche nach "..Enemy.name..".");
+        Monster:talkLanguage( Character.say, Player.english, "#me tosses a white bottle at "..Enemy.name..".");
         return false;
     end
     return true;

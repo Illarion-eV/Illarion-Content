@@ -42,7 +42,7 @@ function onLogin( player )
 			player:inform("Fehler beim Erstellen des Lasttieres.");
 		else
 			Transporter = world:getCharacterOnField(newPos);
-			transport_effect = CLongTimeEffect( 10, 500000 );
+			transport_effect = LongTimeEffect( 10, 500000 );
 			transport_effect:addValue("owner",player.id);
 			Transporter.effects:addEffect(transport_effect);
 		end
@@ -52,7 +52,7 @@ function onLogin( player )
 	-- Überprüfung für korrekt initiertes Regenerationsskript
 	find, reg_effect = player.effects:find(2);
 	if not find then
-		player.effects:addEffect( CLongTimeEffect(2,10) );
+		player.effects:addEffect( LongTimeEffect(2,10) );
 	end
 
 	-- Smell effect removed for the time being (annoying!!!)
@@ -132,7 +132,7 @@ function onLogin( player )
 	    player:inform("Effekt gesucht");
             if not find then
 	    player:inform("Effekt nicht gefunden");
-		player.effects:addEffect( CLongTimeEffect(600,10) );
+		player.effects:addEffect( LongTimeEffect(600,10) );
 	    player:inform("Effekt gesetzt");
 	    end
 	    player:inform("Effekt gefunden.");
@@ -164,7 +164,7 @@ function onLogin( player )
 
 			foundEffect,newbieEffect = player.effects:find(13);
 			if not foundEffect then
-				newbieEffect=CLongTimeEffect(13,1);
+				newbieEffect=LongTimeEffect(13,1);
 				player.effects:addEffect(newbieEffect);
 			else
 				newbieEffect.nextCalled=100;
@@ -176,14 +176,14 @@ function onLogin( player )
 		if (world:isCharacterOnField(position(41,50,100))==true) then
 			if (world:isCharacterOnField(position(43,50,100))==true) then
 				player:warp(position(41,48,100));
-				player:talk(CCharacter.say, "Arghh!");
+				player:talk(Character.say, "Arghh!");
 			else
 				player:warp(position(43,50,100));
-				player:talk(CCharacter.say, "Arghh!");
+				player:talk(Character.say, "Arghh!");
 			end
 		else
 			player:warp(position(41,50,100));
-			player:talk(CCharacter.say, "Arghh!"); --needed phrase for the Npc(npc_nargon_hammerfaust.lua) to react
+			player:talk(Character.say, "Arghh!"); --needed phrase for the Npc(npc_nargon_hammerfaust.lua) to react
 		end
 	end
 	-- Überprüfung von Newbie-Status fertig

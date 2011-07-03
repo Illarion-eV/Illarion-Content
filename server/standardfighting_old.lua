@@ -389,14 +389,14 @@ function AddDebugText( Text, Level, Char )
     end
 
     if( Level == 1 ) and ( DebugLevel == 1 ) then
-        Char:talk( CCharacter.say, Text );
+        Char:talk( Character.say, Text );
     elseif( Level == 2 ) and ( DebugLevel == 2 ) then
         if ( storedText ~= "" ) then
             storedText = storedText.." - ";
         end
         storedText = storedText..Text;
     elseif ( DebugLevel == 3 ) then
-        Char:talk( CCharacter.say, Text );
+        Char:talk( Character.say, Text );
     end
 end
 --]]
@@ -412,7 +412,7 @@ function SayDebug( Char )
         return true;
     end
     if storedText and storedText ~= "" then
-        Char:talk( CCharacter.say, storedText );
+        Char:talk( Character.say, storedText );
         storedText = "";
     end
 end
@@ -531,7 +531,7 @@ end
 ]]
 function PreAttack_Special( Attacker, Defender, AttackPos )
     if (Defender.id == 1502327199) and base.common.GetInArea( Defender, position(-35,-135,0), position( -20, -110, 1 ) ) then
-        if ( AttackPos == CCharacter.right_tool ) then
+        if ( AttackPos == Character.right_tool ) then
             Attacker:increaseAttrib("hitpoints", -2000);
             base.common.InformNLS( Attacker,
             "Ein Armbrustbolzen trifft dich und du stolperst zur√É¬ºck",
@@ -551,14 +551,14 @@ end
     @return CharacterTable  The character table with the weapon data
 ]]
 function LoadWeapons( CharStruct, AttackPos )
-    local Item = CharStruct.Char:getItemAt( CCharacter.right_tool );
+    local Item = CharStruct.Char:getItemAt( Character.right_tool );
     local AttFound,AttWeapon = world:getWeaponStruct( Item.id );
-    if (AttackPos==CCharacter.right_tool) then
+    if (AttackPos==Character.right_tool) then
         CharStruct["WeaponItem"] = Item;
         CharStruct["isWeapon"] = AttFound;
         CharStruct["Weapon"] = AttWeapon;
         CharStruct["WeaponQualMod"] = GetQualityEffect( Item.quality );
-    elseif (AttackPos==CCharacter.left_tool) then
+    elseif (AttackPos==Character.left_tool) then
         CharStruct["SecWeaponItem"] = Item;
         CharStruct["SecisWeapon"] = AttFound;
         CharStruct["SecWeapon"] = AttWeapon;
@@ -570,14 +570,14 @@ function LoadWeapons( CharStruct, AttackPos )
         CharStruct["RightWeaponQualMod"] = GetQualityEffect( Item.quality );
     end
 
-    Item = CharStruct.Char:getItemAt( CCharacter.left_tool );
+    Item = CharStruct.Char:getItemAt( Character.left_tool );
     AttFound,AttWeapon = world:getWeaponStruct( Item.id );
-    if (AttackPos==CCharacter.left_tool) then
+    if (AttackPos==Character.left_tool) then
         CharStruct["WeaponItem"] = Item;
         CharStruct["isWeapon"] = AttFound;
         CharStruct["Weapon"] = AttWeapon;
         CharStruct["WeaponQualMod"] = GetQualityEffect( Item.quality );
-    elseif (AttackPos==CCharacter.right_tool) then
+    elseif (AttackPos==Character.right_tool) then
         CharStruct["SecWeaponItem"] = Item;
         CharStruct["SecisWeapon"] = AttFound;
         CharStruct["SecWeapon"] = AttWeapon;
@@ -837,8 +837,8 @@ function CoupDeGrace( Attacker, Defender )
             gText = "ihrem";
             eText = "her";
         end
-        Attacker.Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me gibt "..gText.." Gegner den Gnadenstoﬂ." );
-        Attacker.Char:talkLanguage( CCharacter.say, CPlayer.english, "#me gives "..eText.." enemy the coup de gr·ce." );
+        Attacker.Char:talkLanguage( Character.say, Player.german,  "#me gibt "..gText.." Gegner den Gnadenstoﬂ." );
+        Attacker.Char:talkLanguage( Character.say, Player.english, "#me gives "..eText.." enemy the coup de gr·ce." );
 
         Defender.Char:increaseAttrib("hitpoints",-1);
         for x=-1,1 do
@@ -1362,60 +1362,60 @@ end
 function GetHitArea( Defender, Globals )
     if ( Defender.Race == 12 ) then -- beholder
         if( math.random( 10 ) <= 2 ) then
-            Globals["HittedArea"] = CCharacter.head;
+            Globals["HittedArea"] = Character.head;
         else
-            Globals["HittedArea"] = CCharacter.breast;
+            Globals["HittedArea"] = Character.breast;
         end
     elseif (Race == 17) then -- insekten
-        Globals["HittedArea"] = CCharacter.breast;
+        Globals["HittedArea"] = Character.breast;
     elseif (Race == 21) then -- rotwurm
         if( math.random( 7 ) <= 3 ) then
-            Globals["HittedArea"] = CCharacter.head;
+            Globals["HittedArea"] = Character.head;
         else
-            Globals["HittedArea"] = CCharacter.breast;
+            Globals["HittedArea"] = Character.breast;
         end
     elseif (Race == 26) then -- fliegender Totenkopf
-        Globals["HittedArea"] = CCharacter.head;
+        Globals["HittedArea"] = Character.head;
     elseif (Race == 27) then -- wasp
         if( math.random( 6 ) <= 1 ) then
-            Globals["HittedArea"] = CCharacter.head;
+            Globals["HittedArea"] = Character.head;
         else
-            Globals["HittedArea"] = CCharacter.breast;
+            Globals["HittedArea"] = Character.breast;
         end
     elseif (Race == 29) then -- shadow skeleton
         local randomValue = math.random( 68 );
         if ( randomValue < 15 ) then
-            Globals["HittedArea"] = CCharacter.head;
+            Globals["HittedArea"] = Character.head;
         elseif ( randomValue < 55 ) then
-            Globals["HittedArea"] = CCharacter.breast;
+            Globals["HittedArea"] = Character.breast;
         else
-            Globals["HittedArea"] = CCharacter.hands;
+            Globals["HittedArea"] = Character.hands;
         end
     else
         local randomValue = math.random( 100 );
         if ( randomValue < 15 ) then
-            Globals["HittedArea"] = CCharacter.head;
+            Globals["HittedArea"] = Character.head;
         elseif ( randomValue < 55 ) then
-            Globals["HittedArea"] = CCharacter.breast;
+            Globals["HittedArea"] = Character.breast;
         elseif ( randomValue < 68 ) then
-            Globals["HittedArea"] = CCharacter.hands;
+            Globals["HittedArea"] = Character.hands;
         elseif ( randomValue < 88 ) then
-            Globals["HittedArea"] = CCharacter.legs;
+            Globals["HittedArea"] = Character.legs;
         else
-            Globals["HittedArea"] = CCharacter.feet;
+            Globals["HittedArea"] = Character.feet;
         end
     end
 
 ---[[DEBUG
-    if Globals.HittedArea == CCharacter.head then
+    if Globals.HittedArea == Character.head then
         AddDebugText( "head", 2, Defender.Char );
-    elseif Globals.HittedArea == CCharacter.breast then
+    elseif Globals.HittedArea == Character.breast then
         AddDebugText( "breast", 2, Defender.Char );
-    elseif Globals.HittedArea == CCharacter.hands then
+    elseif Globals.HittedArea == Character.hands then
         AddDebugText( "hands", 2, Defender.Char );
-    elseif Globals.HittedArea == CCharacter.legs then
+    elseif Globals.HittedArea == Character.legs then
         AddDebugText( "legs", 2, Defender.Char );
-    elseif Globals.HittedArea == CCharacter.feet then
+    elseif Globals.HittedArea == Character.feet then
         AddDebugText( "feet", 2, Defender.Char );
     end
 --]]
@@ -1483,8 +1483,8 @@ function Damage( Attacker, Defender, Globals )
         end
     end
 
-    if (Globals.HittedArea == CCharacter.breast) then
-        HittedItem=Defender.Char:getItemAt(CCharacter.coat);
+    if (Globals.HittedArea == Character.breast) then
+        HittedItem=Defender.Char:getItemAt(Character.coat);
         armourfound,armour=world:getArmorStruct(HittedItem.id);
         local addarmourValue = 0;
         local addarmourAbsorb = 0;
@@ -1576,8 +1576,8 @@ function Breakarmour( CharStruct, Globals )
         end
     end
 
-    if (Globals.HittedArea == CCharacter.breast) then
-        HittedItem=CharStruct.Char:getItemAt( CCharacter.coat );
+    if (Globals.HittedArea == Character.breast) then
+        HittedItem=CharStruct.Char:getItemAt( Character.coat );
 
         if ( HittedItem.id ~= 0 ) then
 
@@ -1810,8 +1810,8 @@ function CauseDamage( Attacker, Defender, Globals )
         local newPos = position( Defender.Char.pos.x + CharOffsetX, Defender.Char.pos.y + CharOffsetY, Defender.Char.pos.z );
         Defender.Char:warp( newPos );
 
-        Defender.Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me stolpert zur¸ck und geht zu Boden." );
-        Defender.Char:talkLanguage( CCharacter.say, CPlayer.english, "#me stumbles back and falls to the ground." );
+        Defender.Char:talkLanguage( Character.say, Player.german,  "#me stolpert zur¸ck und geht zu Boden." );
+        Defender.Char:talkLanguage( Character.say, Player.english, "#me stumbles back and falls to the ground." );
 
         base.common.ParalyseCharacter(Defender.Char, 7, false, true);
 
@@ -1851,7 +1851,7 @@ function ShowEffects( Attacker, Defender, Globals )
             InformAboutCritical(Attacker.Char,Defender.Char,Globals.HittedArea);
             --[[ Wounds Script - Disabled for now
             if (Defender.Char:get_type()~=1) and (math.random(8) == 1) then
-                Defender.Char.effects:addEffect( CLongTimeEffect( 21, 10 ) );
+                Defender.Char.effects:addEffect( LongTimeEffect( 21, 10 ) );
             end
             --]]
             DropBlood(position(Defender.Char.pos.x-1,Defender.Char.pos.y-1,Defender.Char.pos.z),3101);
@@ -1944,19 +1944,19 @@ end
     @param  int hitted area
 ]]
 function InformAboutCritical(AttChar,DefChar,Area)
-    if (Area == CCharacter.head) then
+    if (Area == Character.head) then
         base.common.InformNLS(AttChar,"Du triffst deinen Gegner hart am Kopf.","You land a heavy strike against your enemies head.");
         base.common.InformNLS(DefChar,"Du wirst von deinem Gegner hart am Kopf getroffen.","You are struck by a heavy blow against your head.");
-    elseif (Area == CCharacter.breast) then
+    elseif (Area == Character.breast) then
         base.common.InformNLS(AttChar,"Du triffst deinen Gegner hart gegen die Brust.","You land a heavy strike against your enemies chest.");
         base.common.InformNLS(DefChar,"Du wirst von deinem Gegner hart gegen die Brust getroffen.","You are struck heavily against your chest.");
-    elseif (Area == CCharacter.hands) then
+    elseif (Area == Character.hands) then
         base.common.InformNLS(AttChar,"Du triffst deinen Gegner hart gegen die Brust.","You land a heavy strike against your enemies hands.");
         base.common.InformNLS(DefChar,"Du wirst von deinem Gegner hart gegen die Brust getroffen.","You are hit by a heavy blow upon your hands.");
-    elseif (Area == CCharacter.legs) then
+    elseif (Area == Character.legs) then
         base.common.InformNLS(AttChar,"Du triffst deinen Gegner hart gegen die Beine.","You land a heavy strike against your enemies legs.");
         base.common.InformNLS(DefChar,"Du wirst von deinem Gegner hart gegen die Beine getroffen.","You are hit by a heavy blow upon your legs.");
-    elseif (Area == CCharacter.feet) then
+    elseif (Area == Character.feet) then
         base.common.InformNLS(AttChar,"Du triffst deinen Gegner hart auf die F¸ﬂe.","You strike the feet of your enemy with a heavy blow.");
         base.common.InformNLS(DefChar,"Du wirst von deinem Gegner hart gegen die F¸ﬂe getroffen.","You are struck upon your feet with a heavy blow.");
     end
@@ -2071,14 +2071,14 @@ function CheckTying( Attacker, Defender )
 	end
 	if Defender.effects:find(24) and not base.common.IsCharacterParalysed(Defender) then
 		if math.random(10) > 1 then
-			Defender:talkLanguage(CCharacter.say, CPlayer.german, "#me wird hart getroffen und verliert kurz das Bewusstsein.");
-			Defender:talkLanguage(CCharacter.say, CPlayer.english, "#me is hit hard and loses consciousness shortly.");
+			Defender:talkLanguage(Character.say, Player.german, "#me wird hart getroffen und verliert kurz das Bewusstsein.");
+			Defender:talkLanguage(Character.say, Player.english, "#me is hit hard and loses consciousness shortly.");
 			base.common.ParalyseCharacter(Defender, math.random(10,15), false, true);
 		end
 	elseif Defender.effects:find(26) then
 		if Defender:increaseAttrib("hitpoints",0) < 2500 then
-			Defender:talkLanguage(CCharacter.say, CPlayer.german, "#me kann das Seil nicht mehr halten und l‰sst los.");
-			Defender:talkLanguage(CCharacter.say, CPlayer.english, "#me can't hold the rope any longer and looses it.");
+			Defender:talkLanguage(Character.say, Player.german, "#me kann das Seil nicht mehr halten und l‰sst los.");
+			Defender:talkLanguage(Character.say, Player.english, "#me can't hold the rope any longer and looses it.");
 			Defender.effects:removeEffect(26);
 		end
 	end

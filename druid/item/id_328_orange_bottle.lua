@@ -86,8 +86,8 @@ end
 function UseItem(Character,SourceItem,TargetItem,Counter,Param)
 
     if (ltstate == Action.abort) then
-        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet den Trank.");
-        Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
+        Character:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
+        Character:talkLanguage(Character.say, Player.english, "#me spills the potion.");
         world:erase(SourceItem,1);
         -- Chance for a new bottle 19/20
         if(math.random(20) == 1) then
@@ -104,8 +104,8 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
 	
     if (ltstate == Action.none) then
         User:startAction(20,0,0,12,25);
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt einen Trank zu trinken.");
-        User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to drink a potion.");
+        User:talkLanguage(Character.say, Player.german, "#me beginnt einen Trank zu trinken.");
+        User:talkLanguage(Character.say, Player.english, "#me starts to drink a potion.");
         return
     end
 

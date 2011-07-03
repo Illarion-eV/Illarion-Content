@@ -14,7 +14,7 @@ function callFireMan(User, fireItem)
         --User:inform("Name: "..fireMaster.name);
         fndFir, firEffect = fireMaster.effects:find(8);
         if not fndFir then                                  -- if not...
-            firEffect = CLongTimeEffect(8,300);              -- add effect
+            firEffect = LongTimeEffect(8,300);              -- add effect
             firEffect:addValue("fireX1",fireItem.pos.x+100000);
             firEffect:addValue("fireY1",fireItem.pos.y+100000);
             firEffect:addValue("fireZ1",fireItem.pos.z+100000);

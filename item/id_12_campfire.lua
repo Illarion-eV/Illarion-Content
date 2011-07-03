@@ -17,8 +17,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
         return
     end
     
@@ -53,8 +53,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if ( ltstate == Action.none ) then
         User:startAction(content.gathering.potashproducing:GenWorkTime(User), 0, 0, 7, 15);
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt Asche herzustellen.");
-        User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to produce potash.");
+        User:talkLanguage(Character.say, Player.german, "#me beginnt Asche herzustellen.");
+        User:talkLanguage(Character.say, Player.english, "#me starts to produce potash.");
         return
     end
     

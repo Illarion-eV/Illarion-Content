@@ -15,7 +15,7 @@ function DrinkPotion(Character,SourceItem)
 	local found, myEffect = Character.effects:find(167);
 	if not found then
 		local diagnose = 0;
-		myEffect=CLongTimeEffect(167,1);
+		myEffect=LongTimeEffect(167,1);
 		
 		if SourceItem.data == 83795161 then
 			--     Character:inform("Ork-Fieber/orc-fever")
@@ -125,7 +125,7 @@ function DoDruidism(Character,SourceItem)
 --Hier kommt die Sache mit dem Langzeiteffekt:
   local found, myEffect = Character.effects:find(167);
   if not found then
-    myEffect=CLongTimeEffect(167,1);
+    myEffect=LongTimeEffect(167,1);
 
     if SourceItem.data == 83795161 then
 --     Character:inform("Ork-Fieber/orc-fever")
@@ -181,8 +181,8 @@ end -- function DoDruidism()
 --
 function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
 	if (ltstate == Action.abort) then
-        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet den Trank.");
-        Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
+        Character:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
+        Character:talkLanguage(Character.say, Player.english, "#me spills the potion.");
         world:erase(SourceItem,1);
         -- Chance for a new bottle 19/20
         if(math.random(20) == 1) then
@@ -215,8 +215,8 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
 			end
 		else
 			Character:startAction(20,0,0,12,25);
-			Character:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt einen Trank zu trinken.");
-			Character:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to drink a potion.");
+			Character:talkLanguage(Character.say, Player.german, "#me beginnt einen Trank zu trinken.");
+			Character:talkLanguage(Character.say, Player.english, "#me starts to drink a potion.");
 			return;
 		end
     else

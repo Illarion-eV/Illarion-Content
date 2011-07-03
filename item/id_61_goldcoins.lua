@@ -24,8 +24,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		if math.random(2) == 1 then	gValue = "Kopf"; eValue = "head";
 		else gValue = "Zahl"; eValue = "tail"; end    
 		
-		User:talkLanguage(CCharacter.say, CPlayer.german, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".");
-		User:talkLanguage(CCharacter.say, CPlayer.english, "#me throws a coin in the air and catches it again. It shows "..eValue..".");
+		User:talkLanguage(Character.say, Player.german, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".");
+		User:talkLanguage(Character.say, Player.english, "#me throws a coin in the air and catches it again. It shows "..eValue..".");
 
 	end
 	

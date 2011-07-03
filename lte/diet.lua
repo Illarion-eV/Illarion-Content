@@ -15,7 +15,7 @@ function removeEffect(dietEffect,Character)
     found_constMod,constMod = dietEffect:findValue("constMod");
     found_dom,dom = dietEffect:findValue("dom");
 
-    newEffect = CLongTimeEffect(12,2147483640);
+    newEffect = LongTimeEffect(12,2147483640);
     if ( found_constMod ) then
 	    newEffect:addValue("constMod",constMod);
 	else

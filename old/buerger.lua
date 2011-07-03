@@ -199,6 +199,6 @@ end
 
 function receiveText(texttype, message, originator)
     if (message=="route") then
-        thisNPC:talk(CCharacter.say,"Current Route: "..CurrentRoute[thisNPC.id]);
+        thisNPC:talk(Character.say,"Current Route: "..CurrentRoute[thisNPC.id]);
     end
 end

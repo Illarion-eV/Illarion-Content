@@ -128,7 +128,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             oldAlcValue = ( found and value or 0 ); -- und uebertragen
             User.alcEffect:removeEffect(1); -- alten Effekt entfernen
         end
-        alcEffect = CLongTimeEffect( 1, 300 ); -- Effektstruktur erstellen
+        alcEffect = LongTimeEffect( 1, 300 ); -- Effektstruktur erstellen
         alcEffect:addValue("alcohol",oldAlcValue + math.floor(food[1]*(food[3]/100))); -- neuen Alkoholwert hinzufuegen
         User.effects:addEffect(alcEffect); -- Effekt an User senden
         -- Alkoholabhandlung fertig

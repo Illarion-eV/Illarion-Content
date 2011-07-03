@@ -17,8 +17,8 @@ module("npc.asgrimur", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    if (lang==0) then thisNPC:talk(CCharacter.say, "Fasst mich nicht an!") end
-    if (lang==1) then thisNPC:talk(CCharacter.say, "Don't touch me!") end
+    if (lang==0) then thisNPC:talk(Character.say, "Fasst mich nicht an!") end
+    if (lang==1) then thisNPC:talk(Character.say, "Don't touch me!") end
 end
 
 
@@ -85,14 +85,14 @@ function receiveText(texttype, message, originator)
 					
 					emote = string.sub (message, b+1); --puts the Text which comes after "emote" in a variable
 				
-					thisNPC:talk(CCharacter.say,"#me "..emote);   --Lets emote
+					thisNPC:talk(Character.say,"#me "..emote);   --Lets emote
             	 end
 				if (string.find(message,"[Ss]chweig")~=nil) then schweig=true; end --stops speaking
 
 				if (texttype==1 and schweig==false and string.find(message,"[(][(]")==nil  --is the originator whispering and NOT using ooc?
 					and string.find(message,"[Ss]prich")==nil and string.find(message,"[Ee]mote")==nil) then
 				
-				 thisNPC:talk(CCharacter.yell, message);   --Yell the message of player
+				 thisNPC:talk(Character.yell, message);   --Yell the message of player
 				end
 				
 

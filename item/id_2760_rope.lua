@@ -73,24 +73,24 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     local dummy_1, task = quest.aquest28.split_questdata(User);
     
     if equapos(TargetItem.pos,position(-73,-108,0)) then
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
+        User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
+        User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         User:warp(position(-73,-108,-3));
     elseif equapos(TargetItem.pos,position(-131,-123,0)) then
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
+        User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
+        User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         User:warp(position(-131,-123,-3));
 	--elseif equapos(TargetItem.pos,position(787,801,0)) then
-    --    User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
-    --    User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
+    --    User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
+    --    User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
     --    User:warp(position(797,791,-3));
 	elseif equapos(TargetItem.pos,position(528, 555, 0)) then
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
+        User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
+        User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         User:warp(position(518,559, -3));
     elseif ( equapos(TargetItem.pos,position(787,801,0)) and (task == 4 or true)) then --FARMER WELL POSITION TO PUT HERE
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
+        User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
+        User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         local monster_list = world:getMonstersInRangeOf(position(799,794,-3),10); --check if already a monster spawned there
 		if (monster_list[1]==nil) then
         	world:createMonster(133,position(801,795,-3), 14);--create a monster here
@@ -211,8 +211,8 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 		
 		gText = GetRaceGenderText(0,Target);
 		eText = GetRaceGenderText(1,Target);
-		User:talkLanguage(CCharacter.say, CPlayer.german, "#me versucht "..gText.." zu fesseln.");
-		User:talkLanguage(CCharacter.say, CPlayer.english, "#me tries to tie up "..eText..".");
+		User:talkLanguage(Character.say, Player.german, "#me versucht "..gText.." zu fesseln.");
+		User:talkLanguage(Character.say, Player.english, "#me tries to tie up "..eText..".");
 		
 		base.common.TempInformNLS(Target,
 			"Jemand versucht dich zu fesseln!",
@@ -250,7 +250,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	SourceItem.data = 1;
 	world:changeItem(SourceItem);
 	if not foundEffectTarget then
-		Tying = CLongTimeEffect(24,1);
+		Tying = LongTimeEffect(24,1);
 		Target.effects:addEffect(Tying);
 		Tying:addValue("Capturer",User.id);
 		-- check left, right tool
@@ -270,7 +270,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	
 	foundTying, Tying = User.effects:find(26);
 	if not foundTying then
-		Tying = CLongTimeEffect(26,1);
+		Tying = LongTimeEffect(26,1);
 		User.effects:addEffect(Tying);
 	end
 	Tying:addValue("Captive",Target.id);
@@ -285,8 +285,8 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 		gText = "#me ist nun mit einem weiteren Seil gefesselt.";
 		eText = "#me is now tied up with another rope.";
 	end
-	Target:talkLanguage(CCharacter.say, CPlayer.german, gText);
-	Target:talkLanguage(CCharacter.say, CPlayer.english, eText);
+	Target:talkLanguage(Character.say, Player.german, gText);
+	Target:talkLanguage(Character.say, Player.english, eText);
 	if Target.effects:find(26) then
 		base.common.TempInformNLS(Target,
 			"Du kannst deinen Gefangenen nicht mehr halten und lässt ihn frei.",
@@ -358,8 +358,8 @@ function TyingRopeHandler(User, Rope, Target)
 					Tying:removeValue("escape");
 					Tying:removeValue("success");
 				end
-				User:talkLanguage(CCharacter.say, CPlayer.german, "#me zieht das Seil straff.");
-				User:talkLanguage(CCharacter.say, CPlayer.english, "#me tightens the rope.");
+				User:talkLanguage(Character.say, Player.german, "#me zieht das Seil straff.");
+				User:talkLanguage(Character.say, Player.english, "#me tightens the rope.");
 				local rope = lte.tying_capturer.GetRope(User);
 				if rope then
 					rope.quality = math.max(104,rope.quality-60);
@@ -373,8 +373,8 @@ function TyingRopeHandler(User, Rope, Target)
 			-- target is captive, so untie him
 			gText = GetRaceGenderText(0,Target);
 			eText = GetRaceGenderText(1,Target);
-			User:talkLanguage(CCharacter.say, CPlayer.german, "#me bindet "..gText.." los.");
-			User:talkLanguage(CCharacter.say, CPlayer.english, "#me unties "..eText..".");
+			User:talkLanguage(Character.say, Player.german, "#me bindet "..gText.." los.");
+			User:talkLanguage(Character.say, Player.english, "#me unties "..eText..".");
 			foundEffect, Tying = Target.effects:find(24);
 			if foundEffect then
 				Tying:removeValue("Capturer");
@@ -398,8 +398,8 @@ function TyingRopeHandler(User, Rope, Target)
 										Tying:addValue("Capturer", Target.id);
 										gText = GetRaceGenderText(0,Target);
 										eText = GetRaceGenderText(1,Target);
-										User:talkLanguage(CCharacter.say, CPlayer.german, "#me übergibt das Seil an "..gText..".");
-										User:talkLanguage(CCharacter.say, CPlayer.english, "#me hands the rope to "..eText..".");
+										User:talkLanguage(Character.say, Player.german, "#me übergibt das Seil an "..gText..".");
+										User:talkLanguage(Character.say, Player.english, "#me hands the rope to "..eText..".");
 										base.common.TempInformNLS(User,
 											"Der Gefangene folgt dir nun nicht mehr.",
 											"Now the captive doesn't follow you any more.");

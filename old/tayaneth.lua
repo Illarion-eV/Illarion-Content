@@ -1,7 +1,7 @@
 module("npc.tayaneth", package.seeall)
 
 function useNPC(user,counter,param)
-    --user:talk(CCharacter.say, "test");
+    --user:talk(Character.say, "test");
     thisNPC:increaseSkill(1,"common language",100);
     originator:inform( "Don't dare to touch me!");
 end

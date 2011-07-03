@@ -13,8 +13,8 @@ module("npc.aq004_1", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    if (lang==0) then thisNPC:talk(CCharacter.say, "Fasst mich nicht an!") end
-    if (lang==1) then thisNPC:talk(CCharacter.say, "Don't you touch me!") end
+    if (lang==0) then thisNPC:talk(Character.say, "Fasst mich nicht an!") end
+    if (lang==1) then thisNPC:talk(Character.say, "Don't you touch me!") end
 end
 
 function initializeNpc()
@@ -71,16 +71,16 @@ function nextCycle()  -- ~10 times per second
         cycCount=1;
         nextDelivery=math.random(10000,40000);
         thisNPC:increaseSkill(1,"common language",100);
-        --thisNPC:talk(CCharacter.say, "Next delivery in "..nextDelivery);
+        --thisNPC:talk(Character.say, "Next delivery in "..nextDelivery);
     else
         cycCount=cycCount+1;
         --printerr("In Circle "..cycCount.. "With "..nextDelivery);
         if (math.floor(cycCount/600)==(cycCount/600)) then verwirrt=false end
         if (cycCount+1>nextDelivery+1) then
-            --thisNPC:talk(CCharacter.say, "Next");
+            --thisNPC:talk(Character.say, "Next");
             nextDelivery=math.random(10000,40000);
             cycCount=1;
-            --thisNPC:talk(CCharacter.say, "Next delivery in "..nextDelivery.." CycCount: "..cycCount);
+            --thisNPC:talk(Character.say, "Next delivery in "..nextDelivery.." CycCount: "..cycCount);
         end
     end
 end
@@ -111,16 +111,16 @@ function receiveText(texttype, message, originator)
                     gText="#me nimmt dir die Hilfsmittel ab und räuspert sich.";
                     eText="#me takes the things and clears his throat.";
                     originator:introduce(thisNPC);
-                    thisNPC:talk(CCharacter.say,GetNLS(originator,gText,eText));
+                    thisNPC:talk(Character.say,GetNLS(originator,gText,eText));
                     gText="Danke für deine Hilfe, ich bin Teophus. Mein Leben lang suche ich nach dieser verdammten Schatzkarte, die mir einst verloren ging. Damals war ich auf der Suche nach dem alten Schatz, man sagte, er wäre auf dieser kleinen Insel versteckt.";
                     eText="Thank you for your help, I am Teophus. All my life I was searching for this treasuremap that I once lost here. That days, I was searching for an old treasure that was said to be on this small island.";
-                    thisNPC:talk(CCharacter.say,GetNLS(originator,gText,eText));
+                    thisNPC:talk(Character.say,GetNLS(originator,gText,eText));
                     gText="Nun, ich war dort, und die Karte wurde mir aus der Hand gerissen von solchen verdammten Gnomen, die mir eigentlich helfen sollten, aber auch ihren Teil wollten.";
                     eText="Well, I was here but the map was stolen by those stupid gnomes. They wanted to help me in the first place, but then they wanted everything just for themself.";
-                    thisNPC:talk(CCharacter.say,GetNLS(originator,gText,eText));
+                    thisNPC:talk(Character.say,GetNLS(originator,gText,eText));
                     gText="Bei diesem Missgeschick wurde sie zerrissen, und ich hielt nurnoch einen kleinen Teil in der Hand. Im nächsten Moment waren diese Bastarde auch schon verschwunden. Du musst mir helfen!";
                     eText="The map was ripped into pieces, and all I got left was one of them. Those bastards disappeared. You must help me!";
-                    thisNPC:talk(CCharacter.say,GetNLS(originator,gText,eText));
+                    thisNPC:talk(Character.say,GetNLS(originator,gText,eText));
                     gText="Hier hast du den kleinen Teil, den ich habe. Finde die Gnomenhöhle, finde die Schatzkarte. Viel Glück!";
                     eText="Here you have the last piece, that I have. Find the gnomish cave, find the treasuremap. Good Luck!";
                 elseif (Status==2) then
@@ -132,14 +132,14 @@ function receiveText(texttype, message, originator)
                 end
 
                 if (Status~=0) then
-                    thisNPC:talk(CCharacter.say,GetNLS(originator,gText,eText));
+                    thisNPC:talk(Character.say,GetNLS(originator,gText,eText));
                 end
             else
                 if (verwirrt==false) then
                     gText="#me sieht dich leicht verwirrt an";
                     eText="#me looks at you a little confused";
                     outText=GetNLS(originator,gText,eText);
-                    thisNPC:talk(CCharacter.say,outText);
+                    thisNPC:talk(Character.say,outText);
                     verwirrt=true;
                 end
             end

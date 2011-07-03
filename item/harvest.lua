@@ -97,8 +97,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             	return
             end
             if (ltstate==Action.none) then
-				User:talkLanguage(CCharacter.say, CPlayer.german, "#me fängt an Früchte zu sammeln.");
-                User:talkLanguage(CCharacter.say, CPlayer.english,"#me starts to collect fruits.");
+				User:talkLanguage(Character.say, Player.german, "#me fängt an Früchte zu sammeln.");
+                User:talkLanguage(Character.say, Player.english,"#me starts to collect fruits.");
                 User:startAction(7,0,0,0,0);
         		return
         	end

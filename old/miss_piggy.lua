@@ -5,8 +5,8 @@ module("npc.miss_piggy", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "#me springt empört grunzend umher, so dass man die Krone auf ihrer Pobacke unmöglich zu fassen bekommt.");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "#me hops indignantly grunting arround, so it's impossible to grab the crown on its buttock.");
+    thisNPC:talkLanguage(Character.say, Player.german, "#me springt empört grunzend umher, so dass man die Krone auf ihrer Pobacke unmöglich zu fassen bekommt.");
+    thisNPC:talkLanguage(Character.say, Player.english, "#me hops indignantly grunting arround, so it's impossible to grab the crown on its buttock.");
 end
 
 function initializeNpc()
@@ -23,12 +23,12 @@ function initializeNpc()
     -- This pig wears the crown of SB on its butt! See the library book for backgroundstory.
 
     npc.base.autonpcfunctions.AddTraderTrigger("krone","#me trägt, wie du plötzlich begreifst die Krone des Königs von Silberbrand auf der Pobacke mit sich umher!");
-    npc.base.autonpcfunctions.AddCondition("race", CCharacter.dwarf);
+    npc.base.autonpcfunctions.AddCondition("race", Character.dwarf);
     npc.base.autonpcfunctions.AddAdditionalText("#me springt empört grunzend umher, so dass man die Krone auf ihrer Pobacke unmöglich zu fassen bekommt.");
     npc.base.autonpcfunctions.AddAdditionalText("#me legt sich in ein Schlammloch. Würde jemand nach der goldenen Krone schnappen, viele auf, das sie wohl magisch angebracht wurde.");
     npc.base.autonpcfunctions.AddConsequence("inform","Spielt dir dein Kopf einen Streich, oder hast du tatsächlich über dieses Schwein etwas in der Bibliothek gelesen?");
     npc.base.autonpcfunctions.AddTraderTrigger("crown","#me wears, you realize now, the crown of the king from Silverbrand on its buttock!");
-    npc.base.autonpcfunctions.AddCondition("race", CCharacter.dwarf);
+    npc.base.autonpcfunctions.AddCondition("race", Character.dwarf);
     npc.base.autonpcfunctions.AddAdditionalText("#me hops indignantly grunting arround, so it's impossible to grab the crown on its buttock.");
     npc.base.autonpcfunctions.AddAdditionalText("#me lays down into the mud. If someone would trie to grab it, those will notice that it seem to be fixed in a magical way.");
     npc.base.autonpcfunctions.AddConsequence("inform","Is your head kidding you? Or do you read about this pig at the library?");

@@ -61,8 +61,8 @@ function callEffect( Effect, Character) -- Initiallisierungs Script
         Effect:addValue("time",(world:getTime("day")*24)+world:getTime("hour"));
         Character:inform("auswirkungen ausgeführt");
         User:inform(Informing(Character,"Du merkst wie der Alkohol seine Wirkung entfaltet.","You feel how the alcohol starts to affect you."));
-        Character:talkLanguage( CCharacter.say, CPlayer.german, "#me 's Nase bekommt eine leicht rötliche Färbung.");
-        Character:talkLanguage( CCharacter.say, CPlayer.english, "#me 's cheeks start to turn flush.");
+        Character:talkLanguage( Character.say, Player.german, "#me 's Nase bekommt eine leicht rötliche Färbung.");
+        Character:talkLanguage( Character.say, Player.english, "#me 's cheeks start to turn flush.");
     end
     if found3 then
         EffectValue = value - ( Character:increaseAttrib("constitution",0)*24 ) - RaceBon;
@@ -73,14 +73,14 @@ function callEffect( Effect, Character) -- Initiallisierungs Script
                 Effect:addValue("alcohol",math.max(0,value - Character:increaseAttrib("constitution",0))); -- Alkohol langsam abbauen
                 Effect.nextCalled = 40; -- Gleich nochmal versuchen
             else -- Schritt wurde gemacht
-                Character:talkLanguage( CCharacter.say, CPlayer.german, "#me stolpert.");
-                Character:talkLanguage( CCharacter.say, CPlayer.english, "#me teeters slightly.");
+                Character:talkLanguage( Character.say, Player.german, "#me stolpert.");
+                Character:talkLanguage( Character.say, Player.english, "#me teeters slightly.");
                 Effect:addValue("alcohol",math.max(0,value - Character:increaseAttrib("constitution",0)*10)); -- Alkohol abbauen
                 Effect.nextCalled = 400; -- Warten wir erstmal wieder etwas
             end
         elseif ( EffectValue > 150 ) then
-            Character:talkLanguage( CCharacter.say, CPlayer.german, "#me hickst.");
-            Character:talkLanguage( CCharacter.say, CPlayer.english, "#me hiccups.");
+            Character:talkLanguage( Character.say, Player.german, "#me hickst.");
+            Character:talkLanguage( Character.say, Player.english, "#me hiccups.");
             Effect:addValue("alcohol",math.max(0,value - Character:increaseAttrib("constitution",0)*10)); -- Alkohol abbauen
             Effect.nextCalled = 400; -- Warten wir erstmal wieder etwas
         end

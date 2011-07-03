@@ -22,8 +22,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		if math.random(2) == 1 then	gValue = "Kopf"; eValue = "head";
 		else gValue = "Zahl"; eValue = "tail"; end    
 		
-		User:talkLanguage(CCharacter.say, CPlayer.german, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".");
-		User:talkLanguage(CCharacter.say, CPlayer.english, "#me throws a coin in the air and catches it again. It shows "..eValue..".");
+		User:talkLanguage(Character.say, Player.german, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".");
+		User:talkLanguage(Character.say, Player.english, "#me throws a coin in the air and catches it again. It shows "..eValue..".");
       	TimeList[User.id] = world:getTime("second");
 	end
 end
@@ -31,8 +31,8 @@ end
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
 	ZielItem=world:getItemOnField( TargetItem.pos );
 	if ( (ZielItem.id==2207) and (ZielItem.data==666) ) then
-		User:talkLanguage(CCharacter.say,CPlayer.german ,"#me wirft eine handvoll Silberstücke in den Brunnen.");
-	        User:talkLanguage(CCharacter.say,CPlayer.english,"#me tosses a fistful silver coins into the well.");
+		User:talkLanguage(Character.say,Player.german ,"#me wirft eine handvoll Silberstücke in den Brunnen.");
+	        User:talkLanguage(Character.say,Player.english,"#me tosses a fistful silver coins into the well.");
 
 		EffektTyp=math.random(10);
 		User:inform("moep!");

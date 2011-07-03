@@ -77,7 +77,7 @@ function EvilLook( monster, enemy )
         return false;
     end
 
-    base.common.TalkNLS( monster, CCharacter.say,
+    base.common.TalkNLS( monster, Character.say,
     "#me blickt "..enemy.name.." mit einem bösen Blick an.",
     "#me gives "..enemy.name.." an evil look." );
 

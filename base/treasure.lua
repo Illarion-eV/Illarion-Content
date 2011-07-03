@@ -351,7 +351,7 @@ User:inform("KillMonsters 2");
         local treasureEff;
         fndTreasure, treasureEff = User.effects:find(16);
         if not fndTreasure then --User:inform("Effect given");
-            treasureEff=CLongTimeEffect(16,1);
+            treasureEff=LongTimeEffect(16,1);
             treasureEff:addValue("pos",mapItem.data);
             User:inform("added pos value: "..mapItem.data);
             treasureEff:addValue("category",treasureLevel);

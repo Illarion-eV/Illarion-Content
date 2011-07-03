@@ -63,8 +63,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltState)
             found, blsEffect = User.effects:find( 2701 );
             
             if ( not found ) then
-                blsEffect = CLongTimeEffect( 2701, 18000 );
-                --blsEffect = CLongTimeEffect( 2701, 600 );
+                blsEffect = LongTimeEffect( 2701, 18000 );
+                --blsEffect = LongTimeEffect( 2701, 600 );
                 User.effects:addEffect( blsEffect );
             else
                 User:inform( "The power of the sword appears to be drained." );

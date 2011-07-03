@@ -19,8 +19,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
         return
     end
     
@@ -53,8 +53,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if ( ltstate == Action.none ) then
         User:startAction( 16, 0, 0, 0, 0);
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt Eingeweide zu zerschneiden.");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to cut entrails.");
+        User:talkLanguage( Character.say, Player.german, "#me beginnt Eingeweide zu zerschneiden.");
+        User:talkLanguage( Character.say, Player.english, "#me starts to cut entrails.");
         return
     end
     
@@ -102,8 +102,8 @@ function GetWoolFromSheep(User,SourceItem, Sheep, ltstate)
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
         return
     end
     
@@ -138,8 +138,8 @@ function GetWoolFromSheep(User,SourceItem, Sheep, ltstate)
     
     if ( ltstate == Action.none ) then
         User:startAction( 13, 0, 0, 0, 0);
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt das Schaf zu scheren");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to shear the sheep.");
+        User:talkLanguage( Character.say, Player.german, "#me beginnt das Schaf zu scheren");
+        User:talkLanguage( Character.say, Player.english, "#me starts to shear the sheep.");
         Sheep.movepoints = Sheep.movepoints - 30;
         return
     end

@@ -9,7 +9,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
     --anlegen des schattenmantels
     if ( TargetItem:getType() == 4 and (TargetItem.itempos == 7 or TargetItem.itempos == 8) and TargetItem.data == 100 ) then
         --unsichtbarkeitseffekt hinzu fuegen
-        User.effects:addEffect( CLongTimeEffect(11,10) );
+        User.effects:addEffect( LongTimeEffect(11,10) );
     --ablegen des schattenmantels
     elseif ( TargetItem.data == 100 ) then
         fnd, eff = User.effects:find( 11 );

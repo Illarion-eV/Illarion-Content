@@ -20,8 +20,8 @@ module("npc.nargon_hammerfaust", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    if (lang==0) then thisNPC:talk(CCharacter.say, "Fasst mich nicht an!") end
-    if (lang==1) then thisNPC:talk(CCharacter.say, "Don\'t you touch me!") end
+    if (lang==0) then thisNPC:talk(Character.say, "Fasst mich nicht an!") end
+    if (lang==1) then thisNPC:talk(Character.say, "Don\'t you touch me!") end
 end
 
 
@@ -133,7 +133,7 @@ function nextCycle()  -- ~10 times per second
 							newbie_list[newbieIndex]:setQuestProgress(2,321);
 						end
 					mummyCreated=false;
-					newbie_list[newbieIndex]:talk(CCharacter.say, "Arghh")  --needed phrase for the Npc to react
+					newbie_list[newbieIndex]:talk(Character.say, "Arghh")  --needed phrase for the Npc to react
 					NPCStatus[newbie_list[newbieIndex].id]=0;
 					while (world:isItemOnField(mummy_list[1].pos)==true) do
 						item=world:getItemOnField(mummy_list[1].pos);
@@ -150,16 +150,16 @@ function nextCycle()  -- ~10 times per second
 						mummyCreated=false;
 						newbie_list[newbieIndex]:warp(playerNearNpcPosition);
 
-						thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Glückwunsch "..newbie_list[newbieIndex].name..", du hast die Mumie getötet. Folge der Straße um zu Amelia zu gelangen, wenn ich eine Lektion wiederholen soll, komm näher und sag \"Lektion wiederholen\".");
-						thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Congratulations "..newbie_list[newbieIndex].name..", you killed the mummy. Follow the street to meet Amelia , if I shall repeat a lesson just come closer and say \"Repeat lesson\".");
+						thisNPC:talkLanguage(Character.say, Player.german, "Glückwunsch "..newbie_list[newbieIndex].name..", du hast die Mumie getötet. Folge der Straße um zu Amelia zu gelangen, wenn ich eine Lektion wiederholen soll, komm näher und sag \"Lektion wiederholen\".");
+						thisNPC:talkLanguage(Character.say, Player.english, "Congratulations "..newbie_list[newbieIndex].name..", you killed the mummy. Follow the street to meet Amelia , if I shall repeat a lesson just come closer and say \"Repeat lesson\".");
 						newbie_list[newbieIndex]:setQuestProgress(2,40);
 						NPCStatus[newbie_list[newbieIndex].id]=0;
 					else
 						mummyCreated=false;
 						newbie_list[newbieIndex]:warp(playerNearNpcPosition);
 
-						thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Glückwunsch "..newbie_list[newbieIndex].name..", du hast die Mumie getötet. Komm näher und  sag \"Weiter\" wenn du etwas mehr über das Kämpfen erfahren willst.")
-						thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Congratulations "..newbie_list[newbieIndex].name..", you killed the mummy. Come closer and say \"continue\" if you want to get more informations about fighting.")
+						thisNPC:talkLanguage(Character.say, Player.german, "Glückwunsch "..newbie_list[newbieIndex].name..", du hast die Mumie getötet. Komm näher und  sag \"Weiter\" wenn du etwas mehr über das Kämpfen erfahren willst.")
+						thisNPC:talkLanguage(Character.say, Player.english, "Congratulations "..newbie_list[newbieIndex].name..", you killed the mummy. Come closer and say \"continue\" if you want to get more informations about fighting.")
 
 						newbie_list[newbieIndex]:increaseSkill(5,"concussion weapons",5);
 						newbie_list[newbieIndex]:setQuestProgress(2,33);
@@ -195,11 +195,11 @@ function nextCycle()  -- ~10 times per second
 			world:gfx(18,position(thisNPC.pos.x-1, thisNPC.pos.y, thisNPC.pos.z));
 			rand= math.random(12);
 			if (rand==1) then				
-				thisNPC:talkLanguage(CCharacter.say,CPlayer.german,"#me schlägt auf die Strohpuppe ein");
-       			thisNPC:talkLanguage(CCharacter.say,CPlayer.english,"#me slashes at the scarecrow");
+				thisNPC:talkLanguage(Character.say,Player.german,"#me schlägt auf die Strohpuppe ein");
+       			thisNPC:talkLanguage(Character.say,Player.english,"#me slashes at the scarecrow");
 			elseif (rand==2) then
-				thisNPC:talkLanguage(CCharacter.say,CPlayer.german,"#me übt einige Manöver an der Strohpuppe");
-       			thisNPC:talkLanguage(CCharacter.say,CPlayer.english,"#me exercises some maneuvers at the scarecrow");
+				thisNPC:talkLanguage(Character.say,Player.german,"#me übt einige Manöver an der Strohpuppe");
+       			thisNPC:talkLanguage(Character.say,Player.english,"#me exercises some maneuvers at the scarecrow");
 			end
 		 end
 	 end
@@ -299,11 +299,11 @@ function receiveText(texttype, message, originator)
                         gText="Alternativ kannst du auch die beiden [Bild-Tasten] auf der Tastatur verwenden um den Zählerwert zu ändern.";
                         eText="Alternatively you can also use the [Page up] and [Page down] keys on your keyboard to change the counter value.";
                         outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-                        thisNPC:talk(CCharacter.say,outText);
+                        thisNPC:talk(Character.say,outText);
                         gText="Wenn der Zähler auf 50 gesetzt wurde kannst du das Geld genauso wie das Brötchen bei Henry in die Tasche ziehen. Sag bescheid, fallst du die Münzen verlierst, dann geb' ich dir neue Münzen.";
                         eText="If the counter is set to 50 you can drag the money just like the bread roll Henry gave you into your bag. If you loose the coins just ask me for new ones and I will give you more.";
                         outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-                        thisNPC:talk(CCharacter.say,outText);
+                        thisNPC:talk(Character.say,outText);
                         gText="Wenn du das Geld aufgehoben hast, musst du in das Haus hier rein, um zu meinem Bruder dem Schmied zu gelangen. Er wird dir eine Ausrüstung verkaufen. Alles verstanden?";
                         eText="When you picked up the money, you can enter the house behind me to meet my brother. He's a smith and could sell you fighting equipment. Did you understand everything so far?";
                         originator:setQuestProgress(2,24);

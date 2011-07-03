@@ -115,10 +115,10 @@ function receiveText(texttype, message, originator)
 			if dirger~=nil and dirger~=false then originator:inform("dirger = "..dirger);end
 			originator:inform("x = "..waypoints[thisNPC.id][1].x);
 			if dirger~=false and dirger~=nil then
-			  base.common.TalkNLS(thisNPC, CCharacter.say, "Nun müssen wir Richtung "..dirger, "Now we need to go "..direng);
+			  base.common.TalkNLS(thisNPC, Character.say, "Nun müssen wir Richtung "..dirger, "Now we need to go "..direng);
 			else
-			  if dir == false then base.common.TalkNLS(thisNPC, CCharacter.say, "dir = false", "dir = false");
-			  else base.common.TalkNLS(thisNPC, CCharacter.say, "dir = "..dir, "dir = "..dir); end
+			  if dir == false then base.common.TalkNLS(thisNPC, Character.say, "dir = false", "dir = false");
+			  else base.common.TalkNLS(thisNPC, Character.say, "dir = "..dir, "dir = "..dir); end
 			end
 
 			lastdir[thisNPC.id]=dir;
@@ -135,7 +135,7 @@ function useNPC(user,counter,param)
 		player[thisNPC.id] = getCharForId(user.id);--create a save copy of the char struct
 		  move[thisNPC.id] = moveFunction(itemlist,player[thisNPC.id]); --initialize npc.base.autonpcfunctions.walking function
 		
-		base.common.TalkNLS(thisNPC, CCharacter.say, player[thisNPC.id].name.." ist meine neue Eskorte.", player[thisNPC.id].name.." is my new escort.");
+		base.common.TalkNLS(thisNPC, Character.say, player[thisNPC.id].name.." ist meine neue Eskorte.", player[thisNPC.id].name.." is my new escort.");
 	end
 end
 
@@ -200,7 +200,7 @@ function moveFunction(itemlist,player)
 			else
 			    self.target = thisNPC.pos;--prevents further tracking
 				self.moving = false;
-				base.common.TalkNLS(thisNPC, CCharacter.say, "Ich brauche eine neue Eskorte, wer will mich eskortieren?", "I need a new escort, who wants to escort me?");
+				base.common.TalkNLS(thisNPC, Character.say, "Ich brauche eine neue Eskorte, wer will mich eskortieren?", "I need a new escort, who wants to escort me?");
 			end
 		--end
 	end

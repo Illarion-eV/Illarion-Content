@@ -206,12 +206,12 @@ function receiveText(texttype, message, originator)
 
             if (Status~=0) then
                 outText=GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say,outText);
+                thisNPC:talk(Character.say,outText);
             end
 
             ---------------------------------- DON'T EDIT BELOW HERE ------------------------------
             if (string.find(message,"[sS]tatus")~=nil and originator:isAdmin()==true) then
-                thisNPC:talk(CCharacter.say,"Copper="..TraderCopper ..", next delivery: "..nextDelivery.."cycCount:"..cycCount);
+                thisNPC:talk(Character.say,"Copper="..TraderCopper ..", next delivery: "..nextDelivery.."cycCount:"..cycCount);
                 statusString="Wares: ";
                 for itnCnt=1,table.getn(TraderItemId) do
                     if string.len(statusString)+string.len(world:getItemName(TraderItemId[itnCnt],1))>240 then    -- line too long
@@ -234,7 +234,7 @@ function receiveText(texttype, message, originator)
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
                 outText=GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say,outText);
+                thisNPC:talk(Character.say,outText);
                 verwirrt=true;
             end
         end

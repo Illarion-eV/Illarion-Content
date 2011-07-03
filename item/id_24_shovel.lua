@@ -38,8 +38,8 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
         return
     end
 
@@ -119,11 +119,11 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
     if ( ltstate == Action.none ) then
         User:startAction( GenWorkTime(User,SourceItem), 0, 0, 0, 0);
         if ( world:getField( TargetPos ):tile() == 3 ) then
-            User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt nach Sand zu graben.");
-            User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to dig for sand.");
+            User:talkLanguage( Character.say, Player.german, "#me beginnt nach Sand zu graben.");
+            User:talkLanguage( Character.say, Player.english, "#me starts to dig for sand.");
         else
-            User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt nach Lehm zu graben.");
-            User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to dig for clay.");
+            User:talkLanguage( Character.say, Player.german, "#me beginnt nach Lehm zu graben.");
+            User:talkLanguage( Character.say, Player.english, "#me starts to dig for clay.");
         end
         return
     end

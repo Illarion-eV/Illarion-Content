@@ -127,7 +127,7 @@ function receiveText(Texttype, Message, Originator)
 				if thisNPC:isInRange(Originator,1) then
 					thisNPC:move(Originator:get_face_to(),true);
 				else
-					thisNPC:talk(CCharacter.say, "IIAA");
+					thisNPC:talk(Character.say, "IIAA");
 				end
             end
         end
@@ -247,7 +247,7 @@ function nextCycle()
     end
     if not char_owner then
         if not lost[thisNPC.id] then
-            thisNPC:talk( CCharacter.say, "IIIAAAAAAAA" );
+            thisNPC:talk( Character.say, "IIIAAAAAAAA" );
             lostcnt[thisNPC.id] = 0;
             if ( depotpos[thisNPC.id] ) then
                 depot = world:getItemOnField(depotpos[thisNPC.id]);

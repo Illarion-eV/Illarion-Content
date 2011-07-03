@@ -21,8 +21,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
         return
     end
 	
@@ -39,8 +39,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	if (ltstate == Action.none) then -- Untätig: Starte Honig Sammeln!
         User:startAction(honeygathering:GenWorkTime(User, nil), 0, 0, 0, 0);
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt nach Honig zu suchen.");
-        User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to search for honey.");
+        User:talkLanguage(Character.say, Player.german, "#me beginnt nach Honig zu suchen.");
+        User:talkLanguage(Character.say, Player.english, "#me starts to search for honey.");
         return
     end
 	

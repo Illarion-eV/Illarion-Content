@@ -223,7 +223,7 @@ function informUser(effect, user)
 		if(message[1] ~= nil) then
 			base.common.InformNLS(user, message[1], message[2]);
 			-- TODO: Make this language specific. 
-			user:talk(CCharacter.say, message[1]);
+			user:talk(Character.say, message[1]);
 		end
 	end
 end

@@ -17,13 +17,13 @@ module("npc.goldra_felsreisser", package.seeall)
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
     
-	user:talkLanguage(CCharacter.say, CPlayer.german, "#me packt sie an den Armen und schüttelt sie kräftig.");
-    user:talkLanguage(CCharacter.say, CPlayer.english, "#me grabs her arms and shakes her forceful.");
+	user:talkLanguage(Character.say, Player.german, "#me packt sie an den Armen und schüttelt sie kräftig.");
+    user:talkLanguage(Character.say, Player.english, "#me grabs her arms and shakes her forceful.");
     game1.reset();
 	move.reset();
 	
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Nimm deine Finger da wech!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Dont ya' touch me!");
+    thisNPC:talkLanguage(Character.say, Player.german, "Nimm deine Finger da wech!");
+    thisNPC:talkLanguage(Character.say, Player.english, "Dont ya' touch me!");
     
 end
 
@@ -269,20 +269,20 @@ function nextCycle()  -- ~10 times per second
 			rand=math.random(20000);
 			if not joke then
 				if(rand<=2) then
-					thisNPC:talkLanguage(CCharacter.say,CPlayer.german,"#me schwankt leicht auf ihrem Hocker und muss grinsen \"Kennste den schon"..hicks().."...?\"");
+					thisNPC:talkLanguage(Character.say,Player.german,"#me schwankt leicht auf ihrem Hocker und muss grinsen \"Kennste den schon"..hicks().."...?\"");
             		joke=true;
         			initJoke();
 				elseif (rand==100) then
-					thisNPC:talkLanguage(CCharacter.say,CPlayer.german,"#me erhebt sich \"Ach, ick sollt wieder an mein' Posten, bis später!\"");
-	           	    thisNPC:talkLanguage(CCharacter.say,CPlayer.english,"#me stands up \"Hrm, I really should go back to my place, see ya' later!\"");
+					thisNPC:talkLanguage(Character.say,Player.german,"#me erhebt sich \"Ach, ick sollt wieder an mein' Posten, bis später!\"");
+	           	    thisNPC:talkLanguage(Character.say,Player.english,"#me stands up \"Hrm, I really should go back to my place, see ya' later!\"");
 					move.moveWithoutCommand(4);
 				elseif (rand>3 and rand<=4) then
-					thisNPC:talkLanguage(CCharacter.say,CPlayer.german,"#me klimpert mit einem Becher voller Münzen \"Kommt und spielt dat Trinkspiel mit mir wenn ihr euch traut.\"");
-	           	    thisNPC:talkLanguage(CCharacter.say,CPlayer.english,"#me jingles with a mug full of coins \"Come and play with me the drinking game if ya' dare.\"");	
+					thisNPC:talkLanguage(Character.say,Player.german,"#me klimpert mit einem Becher voller Münzen \"Kommt und spielt dat Trinkspiel mit mir wenn ihr euch traut.\"");
+	           	    thisNPC:talkLanguage(Character.say,Player.english,"#me jingles with a mug full of coins \"Come and play with me the drinking game if ya' dare.\"");	
 				elseif(rand>=10 and rand<=12) then
 					drinkBeer();
 				elseif(rand==13) then
-					thisNPC:talkLanguage(CCharacter.say,CPlayer.german,"Na, will jemand etwas über einen der Bürger Silberbrands wissen? Ich kenn sie alle, jau, fragt mich nur über wen ick wat erzähln' soll, jau! ");
+					thisNPC:talkLanguage(Character.say,Player.german,"Na, will jemand etwas über einen der Bürger Silberbrands wissen? Ich kenn sie alle, jau, fragt mich nur über wen ick wat erzähln' soll, jau! ");
 				end
 			end
 		end
@@ -293,14 +293,14 @@ function nextCycle()  -- ~10 times per second
 				doora=world:getItemOnField(	doorapos);
 		        doorb=world:getItemOnField(doorbpos);
 				if (doora.id==652 and doorb.id==656) then
-				   	thisNPC:talkLanguage(CCharacter.say,CPlayer.german,"#me geht vor die Tore und rüttelt an ihnen \"Aye,"..hicks().."is zu!\"");
-           	       	thisNPC:talkLanguage(CCharacter.say,CPlayer.english,"#me steps infront of the gate and juggles it \"Aye,"..hicks().."it's closed!\"");
+				   	thisNPC:talkLanguage(Character.say,Player.german,"#me geht vor die Tore und rüttelt an ihnen \"Aye,"..hicks().."is zu!\"");
+           	       	thisNPC:talkLanguage(Character.say,Player.english,"#me steps infront of the gate and juggles it \"Aye,"..hicks().."it's closed!\"");
 				end
 			elseif (rand==2) then
 				move.moveWithoutCommand(3); --get inside and close the gates
 			else
-				thisNPC:talkLanguage(CCharacter.say,CPlayer.german,"#me lehnt sich auf ihre Axt und lässt einen prüfenden Blick durch die Halle schweifen.");
-           	    thisNPC:talkLanguage(CCharacter.say,CPlayer.english,"#me leans on her axe and looks vetting through the hall.");
+				thisNPC:talkLanguage(Character.say,Player.german,"#me lehnt sich auf ihre Axt und lässt einen prüfenden Blick durch die Halle schweifen.");
+           	    thisNPC:talkLanguage(Character.say,Player.english,"#me leans on her axe and looks vetting through the hall.");
            	end
         end
  	end
@@ -721,8 +721,8 @@ end
 ]]
 function drinkBeer()
     		world:makeSound(12,thisNPC.pos); -- Trinkgeräusch machen
-			thisNPC:talkLanguage(CCharacter.say,CPlayer.german,"#me holt eine Flasche Bier aus ihrer Tasche und nimmt einen großzügigen Schluck.");
-           	thisNPC:talkLanguage(CCharacter.say,CPlayer.english,"#me pulls a bottle of beer out of her bag and takes a generous sip.");
+			thisNPC:talkLanguage(Character.say,Player.german,"#me holt eine Flasche Bier aus ihrer Tasche und nimmt einen großzügigen Schluck.");
+           	thisNPC:talkLanguage(Character.say,Player.english,"#me pulls a bottle of beer out of her bag and takes a generous sip.");
 end
 
 function lookAtNpc(Char, mode)
@@ -854,7 +854,7 @@ function drinkGame()
 		elseif rand==8 then
 			gText="Digge Aue, Digger Kopp, Scheiß egal Ex un hopp";
 		end
-		thisNPC:talkLanguage(CCharacter.say, CPlayer.german, gText);
+		thisNPC:talkLanguage(Character.say, Player.german, gText);
 	end		
 	
 			
@@ -906,10 +906,10 @@ function drinkGame()
 						self.player:createItem(3077,1,666,0); --create Silvercoin
 						reset();
 					end	
-						thisNPC:talkLanguage(CCharacter.say, CPlayer.german, gTextR);
-			    		thisNPC:talkLanguage(CCharacter.say, CPlayer.english, eTextR);
+						thisNPC:talkLanguage(Character.say, Player.german, gTextR);
+			    		thisNPC:talkLanguage(Character.say, Player.english, eTextR);
 						if gTextR1~=nil then
-							thisNPC:talkLanguage(CCharacter.say, CPlayer.german, gTextR1);
+							thisNPC:talkLanguage(Character.say, Player.german, gTextR1);
 						end
 			
 				elseif self.trinkCounter==100 then  --Trinkspruch
@@ -919,8 +919,8 @@ function drinkGame()
 				elseif self.trinkCounter==150 then
 						gText="PROST!";
 						eText="Cheers!"
-						thisNPC:talkLanguage(CCharacter.say, CPlayer.german, gText);
-			    		thisNPC:talkLanguage(CCharacter.say, CPlayer.english, eText);
+						thisNPC:talkLanguage(Character.say, Player.german, gText);
+			    		thisNPC:talkLanguage(Character.say, Player.english, eText);
 				elseif self.trinkCounter==180 then
 				    world:makeSound(12,thisNPC.pos); -- Trinkgeräusch machen
 					gText="#me reicht "..checkGender(self.player,3).." eine Flasche die "..checkGender(self.player,0).." austrinkt.";
@@ -960,16 +960,16 @@ function drinkGame()
 						gText="#w Dir wird schlecht und du musst dich übergeben.";
 						eText="#w You feel perish and have to puke.";
 						base.common.InformNLS( self.player, gText, eText );
-		        		self.player:talkLanguage(CCharacter.say, CPlayer.german, "#me übergibt sich.");
-		       			self.player:talkLanguage(CCharacter.say, CPlayer.english,"#me pukes.");
+		        		self.player:talkLanguage(Character.say, Player.german, "#me übergibt sich.");
+		       			self.player:talkLanguage(Character.say, Player.english,"#me pukes.");
 					
 					elseif self.outcome1>0 and self.outcome2>0 then
 						self.rundenzahl=self.rundenzahl+1;		
 						self.gameState=0;
 						gText="Du bist ne Runde weiter, machst du weiter oder gibste auf?";
 						eText="You reached the next round, do you want to continue or to give up?";
-						thisNPC:talkLanguage(CCharacter.say, CPlayer.german, gText);
-		    			thisNPC:talkLanguage(CCharacter.say, CPlayer.english, eText);	
+						thisNPC:talkLanguage(Character.say, Player.german, gText);
+		    			thisNPC:talkLanguage(Character.say, Player.english, eText);	
 		 			end
 	
 					if self.player~=nil then
@@ -991,8 +991,8 @@ function drinkGame()
 							if self.outcome1<=0 then
 								gText="Pah, wusst ick doch das du gegen mick nich gewinnst! Aber sei nich traurig, niemand hat ne Chance gegen Irima!";
 								eText="Pah, I knew that ya' want win against me! But don't be sad, nobody has a chance against Irima!";
-								thisNPC:talkLanguage(CCharacter.say, CPlayer.german, gText);
-								thisNPC:talkLanguage(CCharacter.say, CPlayer.english, eText);
+								thisNPC:talkLanguage(Character.say, Player.german, gText);
+								thisNPC:talkLanguage(Character.say, Player.english, eText);
 								if math.random(5)==1 then
 			        				gText="#me reicht "..checkGender(self.player,3).." ein Kleid \"Da du ja anscheinend wie nen Langbeinerweib trinkst kannst du dich uch so anziehen\".";
 									eText="#me hands "..checkGender(self.player,3).." a dress \"It seems ya' drink like a longleg-woman so why not also dressing so\".";
@@ -1346,8 +1346,8 @@ function moveFunction(doorapos,doorbpos,itemlist)
 				eText="#me opens the gate and looks vetting through the hall.";
 				self.movestate=3.2;
 			end
-				thisNPC:talkLanguage(CCharacter.say,CPlayer.german,gText);
-	           	thisNPC:talkLanguage(CCharacter.say,CPlayer.english,eText);
+				thisNPC:talkLanguage(Character.say,Player.german,gText);
+	           	thisNPC:talkLanguage(Character.say,Player.english,eText);
 	           	self.target=nil;
 		elseif self.movestate==2 then
 			if ( world:isCharacterOnField(doorapos) or world:isCharacterOnField(doorbpos)) then -- Is a char. on the position of the doors?
@@ -1365,8 +1365,8 @@ function moveFunction(doorapos,doorbpos,itemlist)
 
 				gText="#me schubst "..checkGender(char,2).." zur Seite \"Arr...wech da!\"";
 	            eText="#me pushes "..checkGender(char,2).." to the side \"Arr...get out of my way!\"";
-				thisNPC:talkLanguage(CCharacter.say,CPlayer.german,gText);
-	           	thisNPC:talkLanguage(CCharacter.say,CPlayer.english,eText);
+				thisNPC:talkLanguage(Character.say,Player.german,gText);
+	           	thisNPC:talkLanguage(Character.say,Player.english,eText);
 
 			    char=nil; char1=nil; char2=nil;
 			end
@@ -1385,8 +1385,8 @@ function moveFunction(doorapos,doorbpos,itemlist)
 
 			gText="#me lässt die Flügel des Tores krachend zufallen und sperrt ab.";
 			eText="#me shuts the gate crashing then locks it.";
-			thisNPC:talkLanguage(CCharacter.say,CPlayer.german,gText);
-	        thisNPC:talkLanguage(CCharacter.say,CPlayer.english,eText);
+			thisNPC:talkLanguage(Character.say,Player.german,gText);
+	        thisNPC:talkLanguage(Character.say,Player.english,eText);
 			if  self.NpcOutside then
 				self.movestate=4.2;
 			else
@@ -1421,8 +1421,8 @@ function moveFunction(doorapos,doorbpos,itemlist)
 
 				gText="#me schubst "..checkGender(char,2).." zur Seite \"Arr...wech da!\"";
 	            eText="#me pushes "..checkGender(char,2).." to the side \"Arr...get out of my way!\"";
-				thisNPC:talkLanguage(CCharacter.say,CPlayer.german,gText);
-	           	thisNPC:talkLanguage(CCharacter.say,CPlayer.english,eText);
+				thisNPC:talkLanguage(Character.say,Player.german,gText);
+	           	thisNPC:talkLanguage(Character.say,Player.english,eText);
 			    char=nil; char1=nil; char2=nil;
 			end
 
@@ -1438,15 +1438,15 @@ function moveFunction(doorapos,doorbpos,itemlist)
 
 			gText="#me lässt die Flügel des Tores krachend zufallen und sperrt ab.";
 			eText="#me shuts the gate crashing then locks it.";
-			thisNPC:talkLanguage(CCharacter.say,CPlayer.german,gText);
-	        thisNPC:talkLanguage(CCharacter.say,CPlayer.english,eText);
+			thisNPC:talkLanguage(Character.say,Player.german,gText);
+	        thisNPC:talkLanguage(Character.say,Player.english,eText);
 			self.movestate=self.movestate+0.1;
 			self.target=nil;
 		elseif self.movestate==3.2 then
 				gText="#me setzt sich.";
 				eText="#me takes a seat.";
-				thisNPC:talkLanguage(CCharacter.say,CPlayer.german,gText);
-	           	thisNPC:talkLanguage(CCharacter.say,CPlayer.english,eText);
+				thisNPC:talkLanguage(Character.say,Player.german,gText);
+	           	thisNPC:talkLanguage(Character.say,Player.english,eText);
 	           	self.movestate=self.movestate+0.1;
 		elseif self.movestate==4 then
 
@@ -1476,8 +1476,8 @@ function moveFunction(doorapos,doorbpos,itemlist)
 				gText="#me schubst "..checkGender(char,2).." zur Seite \"Arr...wech da!\"";
 	            eText="#me pushes "..checkGender(char,2).." to the side \"Arr...get out of my way!\"";
 
-				thisNPC:talkLanguage(CCharacter.say,CPlayer.german,gText);
-	           	thisNPC:talkLanguage(CCharacter.say,CPlayer.english,eText);
+				thisNPC:talkLanguage(Character.say,Player.german,gText);
+	           	thisNPC:talkLanguage(Character.say,Player.english,eText);
 
 				char=nil; char1=nil; char2=nil;
 			end
@@ -1494,8 +1494,8 @@ function moveFunction(doorapos,doorbpos,itemlist)
 
 			gText="#me lässt die Flügel des Tores krachend zufallen und sperrt ab.";
 			eText="#me shuts the gate crashing then locks it.";
-			thisNPC:talkLanguage(CCharacter.say,CPlayer.german,gText);
-	        thisNPC:talkLanguage(CCharacter.say,CPlayer.english,eText);
+			thisNPC:talkLanguage(Character.say,Player.german,gText);
+	        thisNPC:talkLanguage(Character.say,Player.english,eText);
 			self.movestate=self.movestate+0.1;
 			self.target=nil;
 		else
@@ -1607,8 +1607,8 @@ function moveFunction(doorapos,doorbpos,itemlist)
 					if _waitVar==200 then  --20sec.
 						gText="Dat Ding da versperrt meinen Weg, räumt et mal einer weg, sonst komm ick nit an das Schloss!";
 						eText="This thing there is blocking my way, I can't reach the lock until someone removes it!";
-						thisNPC:talkLanguage(CCharacter.say,CPlayer.german,gText);
-						thisNPC:talkLanguage(CCharacter.say,CPlayer.english,eText);
+						thisNPC:talkLanguage(Character.say,Player.german,gText);
+						thisNPC:talkLanguage(Character.say,Player.english,eText);
 						
 						if self.NpcOutside then
 							self.movestate=4.2;
@@ -1663,9 +1663,9 @@ end
 
 function tellJoke()
 	rand=math.random(1,14);
-	thisNPC:talkLanguage(CCharacter.say,CPlayer.german,jokelist_de[rand]);	
+	thisNPC:talkLanguage(Character.say,Player.german,jokelist_de[rand]);	
 	if jokelist_en[rand]~=nil then
-		thisNPC:talkLanguage(CCharacter.say,CPlayer.english,jokelist_en[rand]);
+		thisNPC:talkLanguage(Character.say,Player.english,jokelist_en[rand]);
 	end
 end
 

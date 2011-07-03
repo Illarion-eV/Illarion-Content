@@ -716,11 +716,11 @@ function SpeakerCycle()
             speakCount=1;
             TextNr=math.random(1,table.getn(CycleText));
           
-            thisNPC:talkLanguage(CCharacter.say,
-                                 CPlayer.german,
+            thisNPC:talkLanguage(Character.say,
+                                 Player.german,
                                  CycleText[TextNr][1]);
-            thisNPC:talkLanguage(CCharacter.say,
-                                 CPlayer.english,
+            thisNPC:talkLanguage(Character.say,
+                                 Player.english,
                                  CycleText[TextNr][2]);
             speakTime=math.random(900,3000);
         end
@@ -903,8 +903,8 @@ end
 ]]
 function Confused( gText, eText )
     if not verwirrt then
-        thisNPC:talkLanguage( CCharacter.say, CPlayer.german, gText );
-        thisNPC:talkLanguage( CCharacter.say, CPlayer.english, eText );
+        thisNPC:talkLanguage( Character.say, Player.german, gText );
+        thisNPC:talkLanguage( Character.say, Player.english, eText );
         verwirrt=true;
     end
 end
@@ -1080,18 +1080,18 @@ function NPCTalking(NPC,Text)
                 if (Char==" ") then
                     outText=string.sub(Text,1,i-1);
                     Text=string.sub(Text,i+1,Len);
-                    NPC:talk(CCharacter.say,outText);
+                    NPC:talk(Character.say,outText);
                     outputted=true;
                 end
             until i==0 or outputted;
             if (Len == string.len(Text)) then
                 outText=string.sub(Text,1,240);
                 Text=string.sub(Text,241,Len);
-                NPC:talk(CCharacter.say,outText);
+                NPC:talk(Character.say,outText);
             end
         else
             done=true;
-            NPC:talk(CCharacter.say,Text);
+            NPC:talk(Character.say,Text);
         end
     until done
 end

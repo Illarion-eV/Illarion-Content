@@ -42,7 +42,7 @@ function MGolem_PowerFist (monster, char, distance)
 				end );
 	
 				if tileFound then
-					monster:talk(CCharacter.say, "#me spins just slightly, sending a powerful solid fist on a forward trajectory.");					
+					monster:talk(Character.say, "#me spins just slightly, sending a powerful solid fist on a forward trajectory.");					
 					char:warp(tilePos);
 					
 					-- here we check if the char is wearing metal armor or not. If not, though luck, the golem's hard hit will hurt like hell.
@@ -118,7 +118,7 @@ CharList = world:getCharactersInRangeOf (posit, 1);
 				base.common.CreateLine(startPos, endPos, lineFunction);
 	
 				if tileFound then
-					monster:talk(CCharacter.say, "#me slams his fist into the ground, creating a massive shockwave.");					
+					monster:talk(Character.say, "#me slams his fist into the ground, creating a massive shockwave.");					
 					v:warp(tilePos);
 					v:increaseAttrib("hitpoints", -3000);
 				return true;
@@ -134,10 +134,10 @@ function MGolem_Shield (monster,char)
 --  Permanent Spell Shield - each time when casted upon, there is a chance of either shooting a spell back at the attacker (as reflection) or healing itself slightly. (onCasted)	
 	if (math.random(100)<= 25) then	
 		if (math.random(100)<= 70) then
-			monster:talk(CCharacter.say, "#me's merinium body absorbs the spell, soon to repell it back at the caster.");
+			monster:talk(Character.say, "#me's merinium body absorbs the spell, soon to repell it back at the caster.");
 			char:increaseAttrib ("hitpoints",-3000);
 		else
-			monster:talk(CCharacter.say, "#me's merinium body absorbs the spell, seemingly energising the it with new strenght.");
+			monster:talk(Character.say, "#me's merinium body absorbs the spell, seemingly energising the it with new strenght.");
 			monster:increaseAttrib ("hitpoints",-1500);
 		end
 	else

@@ -68,7 +68,7 @@ function SpellResistence(TChar)                 -- should be 0 (no res) to 100 (
     RWillpower=TChar:increaseAttrib("willpower",0);
 
     BaseSuccess=math.ceil((MRes+RWillpower+RInt)*100/140);
-    --TChar:talk(CCharacter.say,"Eval SpRes. for "..TChar.name..": Mag Res= "..MRes..", Int= "..RInt..", WP="..RWillpower.." and calcbase= "..BaseSuccess);
+    --TChar:talk(Character.say,"Eval SpRes. for "..TChar.name..": Mag Res= "..MRes..", Int= "..RInt..", WP="..RWillpower.." and calcbase= "..BaseSuccess);
     return math.max(math.ceil((BaseSuccess*base.common.NormalRnd(0,100))/50),0);
 end
 

@@ -3,8 +3,8 @@ module("npc.bob", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't touch me!");
+    thisNPC:talkLanguage(Character.say, Player.german, "Finger weg!");
+    thisNPC:talkLanguage(Character.say, Player.english, "Don't touch me!");
 end
 function initializeNpc()
     if TraderFirst then
@@ -50,11 +50,11 @@ sex=female
     npc.base.autonpcfunctions.AddAdditionalTrigger("wer seid ihr");
     -- Argwohn gegenüber Orks
     npc.base.autonpcfunctions.AddTraderTrigger(" ","So einer wie Du hat hier nichts zu suchen. Hau ab oder ich ruf die Wachen!");
-    npc.base.autonpcfunctions.AddCondition("race", CCharacter.orc);
+    npc.base.autonpcfunctions.AddCondition("race", Character.orc);
     npc.base.autonpcfunctions.AddCondition("lang","german");
     
     npc.base.autonpcfunctions.AddTraderTrigger(" ","You should not be here. Leave before i call for guards!");
-    npc.base.autonpcfunctions.AddCondition("race", CCharacter.orc);
+    npc.base.autonpcfunctions.AddCondition("race", Character.orc);
     npc.base.autonpcfunctions.AddCondition("lang","english");
     
     

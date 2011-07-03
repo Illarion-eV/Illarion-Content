@@ -21,7 +21,7 @@ function onReload()
                 Char:inform("Fehler beim erstellen des Lasttieres");
             else
                 Transporter = world:getCharacterOnField(PosOfCow);
-                transport_effect = CLongTimeEffect( 10, 500000 );
+                transport_effect = LongTimeEffect( 10, 500000 );
                 transport_effect:addValue("owner",Char.id);
                 Transporter.effects:addEffect(transport_effect);
             end

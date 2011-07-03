@@ -3,7 +3,7 @@
 module("triggerfield.notherot_entrace", package.seeall)
 
 function CharacterOnField(Character)
-    local TestItem = Character:getItemAt(CCharacter.right_tool);
+    local TestItem = Character:getItemAt(Character.right_tool);
     if ((TestItem.id == 283) and (TestItem.data == 6666)) then
         return
     end

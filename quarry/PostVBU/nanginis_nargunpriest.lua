@@ -36,8 +36,8 @@ function RandomStart(thisNPC)
 	local rand=math.random(table.getn(PossiblePositions));
 
 	thisNPC:warp(PossiblePositions[rand]);
-	thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Nargun sei gepriesen, da bin ich!");
-	thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Praise Nargun, here I am!");
+	thisNPC:talkLanguage(Character.say, Player.german, "Nargun sei gepriesen, da bin ich!");
+	thisNPC:talkLanguage(Character.say, Player.english, "Praise Nargun, here I am!");
 
 end
 
@@ -1225,13 +1225,13 @@ function nextCycle()
 		if i==10 then
 			gText="#me streckt seine Arme nach links und rechts aus so weit er kann.";
 			eText="#me widens his arms as much as he can.";
-			thisNPC:talkLanguage(CCharacter.say,CPlayer.german,gText);
-			thisNPC:talkLanguage(CCharacter.say,CPlayer.english,eText);
+			thisNPC:talkLanguage(Character.say,Player.german,gText);
+			thisNPC:talkLanguage(Character.say,Player.english,eText);
 		elseif i==40 then
 		  	gText="Ich hab mal einen Fisch gefangen, der war SO GROß!"	
 			eText="Once I cought a fish THIS BIG!"
 			outText=base.common.GetNLS(User,gText,eText);
-            thisNPC:talk(CCharacter.say, outText);
+            thisNPC:talk(Character.say, outText);
 		elseif i==70 then --some sound and graphic
 			thePosition=base.common.GetFrontPosition(thisNPC);
 			world:gfx(45,thePosition);
@@ -1244,7 +1244,7 @@ function nextCycle()
 			gText="Hihihi. Da, ich hoffe du hast bekommen was du wolltest. Es gibt keinen Ersatz, aber versuchs doch nochmal wenn du nicht zufrieden bist. Willst du nochmal?";
 			eText="Hihihi. There, I hope you got what you wanted. Remember, no refunds, but you're welcome to try again if you want. Want to try it again?";
 			outText=base.common.GetNLS(User,gText,eText);
-            thisNPC:talk(CCharacter.say, outText);
+            thisNPC:talk(Character.say, outText);
 			i=-1;
 			User:setQuestProgress(63,3);
 			startPrayer=false;
@@ -1279,7 +1279,7 @@ function mainTask(texttype,message,originator)
 						gText="Pah! Langweiler, hinfort mit euch. Soll euch der Fisch holen.";
 		                eText="Pah! Boring, begone. The fish shall come after you.";
 						outText=base.common.GetNLS(User,gText,eText);
-            			thisNPC:talk(CCharacter.say, outText);
+            			thisNPC:talk(Character.say, outText);
 						User:setQuestProgress(63,2);
 						return true;
 				        	
@@ -1290,7 +1290,7 @@ function mainTask(texttype,message,originator)
 							gText="Sehr schön! Ahja, die Summe stimmt. Dann werde ich sofort beginnen.";
 			                eText="Very good! Ah yes, the sum is correct. I shall begin immediately.";
 							outText=base.common.GetNLS(User,gText,eText);
-            				thisNPC:talk(CCharacter.say, outText);
+            				thisNPC:talk(Character.say, outText);
 							Pay(User,G,S,C);
 							startPrayer=true; --starts the prayer
 							i=0;
@@ -1298,7 +1298,7 @@ function mainTask(texttype,message,originator)
 							gText="Möge Nargun dich kreuzbuckeln! Du hast nicht genug Geld, hinfort mit euch!";
 			                eText="Nargun shall smite you with angerberries! You don't have enough money, begone!";
 							outText=base.common.GetNLS(User,gText,eText);
-            				thisNPC:talk(CCharacter.say, outText);
+            				thisNPC:talk(Character.say, outText);
 							User:setQuestProgress(63,2);
 						end
 					else
@@ -1308,7 +1308,7 @@ function mainTask(texttype,message,originator)
 					gText="Seht ihr nicht das ich beschäftigt bin? Wartet ein bisschen!";
 	                eText="Can't you see that I'm busy right now? Wait a bit!";
 					outText=base.common.GetNLS(User,gText,eText);
-            		thisNPC:talk(CCharacter.say, outText);
+            		thisNPC:talk(Character.say, outText);
             		return true;
 				end
 		else

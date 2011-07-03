@@ -93,8 +93,8 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
             if ( Hitpoints > 0 ) then -- HP Verlust aber kein Tod
                 if ( math.random(1,20) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 20 Sekunden )
                     -------------- Meldungen ausgeben ------------------
-                    Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me scheint Hunger zu haben, ein lautes Magenknurren ist zu vernehmen.");
-                    Char:talkLanguage( CCharacter.say, CPlayer.english, "#me 's stomach grumbles loudly.");
+                    Char:talkLanguage( Character.say, Player.german,  "#me scheint Hunger zu haben, ein lautes Magenknurren ist zu vernehmen.");
+                    Char:talkLanguage( Character.say, Player.english, "#me 's stomach grumbles loudly.");
                     base.common.InformNLS(Char,
                         "Dein Magen schmerzt. Du bist am verhungern",
                         "Your stomach hurts. You are going to die of hunger");
@@ -104,8 +104,8 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
             -- Andere Scripts ggf. benachrichtigen
             base.playerdeath.playerKilled(Char);
                 -------------- Meldungen ausgeben ------------------
-                Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me krampft zusammen und geht zu Boden.");
-                Char:talkLanguage( CCharacter.say, CPlayer.english, "#me convulses and falls to the ground.");
+                Char:talkLanguage( Character.say, Player.german,  "#me krampft zusammen und geht zu Boden.");
+                Char:talkLanguage( Character.say, Player.english, "#me convulses and falls to the ground.");
                 base.common.InformNLS(Char,
                     "Dein Magen verkrampft sich und du merkst nur noch wie dein Körper auf dem Boden aufschlägt, bevor alles um dich dunkel wird.",
                     "Your stomach cramps and the last thing you feel is  your body hitting the ground before everything goes dark.");
@@ -138,8 +138,8 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
             base.playerdeath.playerKilled(Char);
             
                 Poisonvalue = 0; -- Char Tod, Gift verfliegt
-                Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me tropft etwas Speichel aus dem Mund und bricht zusammen.");
-                Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me starts to drool and falls to the ground.");
+                Char:talkLanguage( Character.say, Player.german,  "#me tropft etwas Speichel aus dem Mund und bricht zusammen.");
+                Char:talkLanguage( Character.say, Player.english,  "#me starts to drool and falls to the ground.");
                 base.common.InformNLS(Char,
                     "Du fühlst ein Brennen in deinem Körper und wie sich der Speicheln in deinem Mund zusammen zieht, ehe die Welt um dich herum dunkel wird.",
                     "You feel a burning sensation in your body and your mouth watering before everything goes dark.");
@@ -193,8 +193,8 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
          Manapoints = Manapoints - 1;
          Char:increaseSkill(7,pSkill,1);
          if Char:getSkill(pSkill) == 100 or Manapoints == 0 then
-            Char:talkLanguage(CCharacter.say,CPlayer.german,"#me beendet das Gebet.");
-            Char:talkLanguage(CCharacter.say,CPlayer.english,"#me finishes the prayer.");
+            Char:talkLanguage(Character.say,Player.german,"#me beendet das Gebet.");
+            Char:talkLanguage(Character.say,Player.english,"#me finishes the prayer.");
          end
       else
          Manapoints = Manapoints + 1;
@@ -264,18 +264,18 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
                     end
                 elseif ( ( Foodvalue < 3000 ) and ( Foodvalue > 1000 ) ) then -- Noch 50 Minuten bis zum verhungern
                     if ( math.random(1,120) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 10 Minuten )
-                        Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me scheint Hunger zu haben, ein leises Magenknurren ist zu vernehmen.");
-                        Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me 's stomach grumbles slightly.");
+                        Char:talkLanguage( Character.say, Player.german,  "#me scheint Hunger zu haben, ein leises Magenknurren ist zu vernehmen.");
+                        Char:talkLanguage( Character.say, Player.english,  "#me 's stomach grumbles slightly.");
                     end
                 elseif ( ( Foodvalue < 1000 ) and ( Foodvalue > 100 ) ) then -- Noch 16 Minuten bis zum verhungern
                     if ( math.random(1,36) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 3 Minuten )
-                        Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me scheint Hunger zu haben, ein gut hörbares Magenknurren ist zu vernehmen.");
-                        Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me 's stomach grumbles quite audibly.");
+                        Char:talkLanguage( Character.say, Player.german,  "#me scheint Hunger zu haben, ein gut hörbares Magenknurren ist zu vernehmen.");
+                        Char:talkLanguage( Character.say, Player.english,  "#me 's stomach grumbles quite audibly.");
                     end
                 elseif ( Foodvalue < 100 ) then -- Noch 1 Minute 16 Sekunden bis zum verhungern
                     if ( math.random(1,2) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 10 Sekunden )
-                        Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me scheint Hunger zu haben, ein lautes Magenknurren ist zu vernehmen.");
-                        Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me 's stomach grumbles loudly.");
+                        Char:talkLanguage( Character.say, Player.german,  "#me scheint Hunger zu haben, ein lautes Magenknurren ist zu vernehmen.");
+                        Char:talkLanguage( Character.say, Player.english,  "#me 's stomach grumbles loudly.");
                     end
                 end
                 --------------- Warnmeldungen Fertig ---------------------------------
@@ -310,7 +310,7 @@ end --all above is only conducted for players that aren't afk for more than five
 end
 
 function removeEffect( Effect, Character )
-    local newEffect = CLongTimeEffect(2,50);
+    local newEffect = LongTimeEffect(2,50);
     local found = false;
     local value = 0;
     found, value = Effect:findValue( "no_reg" );

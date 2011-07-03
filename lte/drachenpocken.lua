@@ -20,7 +20,7 @@ function infect(Char)
 	
 --Disabled	
 --    if not found then                               -- if not...
---        Char.effects:addEffect(CLongTimeEffect(28,math.random(30000,40000)));    -- give disease to the patient
+--        Char.effects:addEffect(LongTimeEffect(28,math.random(30000,40000)));    -- give disease to the patient
 --       Char:inform("du wurdest infizier!");
 --    end                                       -- first call in about 1 hour.
 end
@@ -80,8 +80,8 @@ function callEffect(diseaseEffect, Patient)    -- Effect wird ausgeführt
             --if (not Patient:isAdmin()) then     -- is he admin? admins do not sneeze.
                 rnd=math.random(1,10);
                 if rnd==2 then
-                    Patient:talkLanguage(CCharacter.say, CPlayer.german, "#me kratzt sich.");
-                    Patient:talkLanguage(CCharacter.say, CPlayer.english, "#me has a scratch.");
+                    Patient:talkLanguage(Character.say, Player.german, "#me kratzt sich.");
+                    Patient:talkLanguage(Character.say, Player.english, "#me has a scratch.");
                 elseif rnd==3 then
                     base.common.InformNLS(Patient,"Du fühlst dich verwundbar.","You feel vulnerable.");
                 elseif rnd==4 then

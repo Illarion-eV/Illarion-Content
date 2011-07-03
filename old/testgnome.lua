@@ -10,8 +10,8 @@ module("npc.testgnome", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    if (lang==0) then thisNPC:talk(CCharacter.say, "He, nicht kitzeln!") end
-    if (lang==1) then thisNPC:talk(CCharacter.say, "Hey, don't tickle me!") end
+    if (lang==0) then thisNPC:talk(Character.say, "He, nicht kitzeln!") end
+    if (lang==1) then thisNPC:talk(Character.say, "Hey, don't tickle me!") end
 end
 
 function initializeNpc()
@@ -93,7 +93,7 @@ function doGamble(user)         -- does all the gambling actions
     end
     if npcStatus[user.id]==2 then        -- spiel zugestimmt
         sayText=npc.base.functions.GetNLS(user,"Komm schon, zieh einen Stein!", "Come on, draw a stone!");
-        thisNPC:talk(CCharacter.say,sayText);
+        thisNPC:talk(Character.say,sayText);
         
         repeat
             drawnStone=math.random(1,10);
@@ -101,8 +101,8 @@ function doGamble(user)         -- does all the gambling actions
         table.insert(hasDrawn, drawnStone);
         
         stoneSum[user.id]=stoneSum[user.id]+drawnStone;
-        user:talkLanguage(CCharacter.say,CPlayer.german,"#me zieht einen Stein mit der Nummer "..drawnStone);
-        user:talkLanguage(CCharacter.say,CPlayer.english,"#me draws a stone with the number "..drawnStone);
+        user:talkLanguage(Character.say,Player.german,"#me zieht einen Stein mit der Nummer "..drawnStone);
+        user:talkLanguage(Character.say,Player.english,"#me draws a stone with the number "..drawnStone);
         --user:inform("1");
         talkString=npc.base.functions.GetNLS(user,"Damit hast Du jetzt "..stoneSum[user.id]..". ","So you have "..stoneSum[user.id].." now. ");
         --user:inform("2");
@@ -129,7 +129,7 @@ function doGamble(user)         -- does all the gambling actions
             lastTime=GetServerSeconds();
             --user:inform("set lasttime to "..lastTime);
         end
-        thisNPC:talk(CCharacter.say, talkString);
+        thisNPC:talk(Character.say, talkString);
     end
     if npcStatus[user.id]==3 then    -- npc muss ziehen
         finished=false;
@@ -142,12 +142,12 @@ function doGamble(user)         -- does all the gambling actions
             table.insert(hasDrawn, drawnStone);
             stoneSumNPC=stoneSumNPC+drawnStone;
             sayText=npc.base.functions.GetNLS(user,"Ich habe "..drawnStone.." gezogen und insgesamt jetzt "..stoneSumNPC,"I have drawn "..drawnStone.." and summed up that makes "..stoneSumNPC);
-            thisNPC:talk(CCharacter.say,sayText);
+            thisNPC:talk(Character.say,sayText);
             if stoneSumNPC>11 then 
                 finished=true;
                 npcStatus[user.id]=0;
                 sayText=npc.base.functions.GetNLS(user,"Oh, ich habe verloren. Hier, dein Gewinn, 10 Kupferstücke.","Oh, I lost. Here's your reward: 10 copper coins.");
-                thisNPC:talk(CCharacter.say, sayText);
+                thisNPC:talk(Character.say, sayText);
                 user:createItem(3076,10,333,0);
                 stoneSumNPC=0;
                 stoneSum[user.id]=0;
@@ -157,7 +157,7 @@ function doGamble(user)         -- does all the gambling actions
                 finished=true;
                 npcStatus[user.id]=0;
                 sayText=npc.base.functions.GetNLS(user,"Ich habe gewonnen!","I won!");
-                thisNPC:talk(CCharacter.say, sayText);
+                thisNPC:talk(Character.say, sayText);
                 stoneSum[user.id]=0;
                 npcTalksTo=0;
                 stoneSumNPC=0;
@@ -200,27 +200,27 @@ function receiveText(texttype, message, originator)
                 --originator:inform("3");
                 hasDrawn={0};
                 lastTime=0;
-                thisNPC:talk(CCharacter.say, "Timeout error");
+                thisNPC:talk(Character.say, "Timeout error");
             end
             
             originator:inform("status: "..npcStatus[originator.id].." talks to: "..npcTalksTo);
             if (string.find(message,"[Ss]piel") or string.find(message,"[Pp]lay")) and npcStatus[originator.id]==0 and npcTalksTo==0 then
                 npcTalksTo=originator.id;
-                thisNPC:talk(CCharacter.say, npc.base.functions.GetNLS(originator,"Willst du mit mir spielen?","Do you want to play a game with me?"));
+                thisNPC:talk(Character.say, npc.base.functions.GetNLS(originator,"Willst du mit mir spielen?","Do you want to play a game with me?"));
                 npcStatus[originator.id]=1;
             end        
             if string.find(message,"[Rr]egel") or string.find(message,"[Rr]ule") then
-                thisNPC:talk(CCharacter.say, npc.base.functions.GetNLS(originator,"Ach so, ja. Die Regeln. Ein Spiel kostet dich 5 Kupfer. In diesem Säckchen sind Steine mit einer Nummer von 1 bis 10. Du ziehst sooft du möchtest.", 
+                thisNPC:talk(Character.say, npc.base.functions.GetNLS(originator,"Ach so, ja. Die Regeln. Ein Spiel kostet dich 5 Kupfer. In diesem Säckchen sind Steine mit einer Nummer von 1 bis 10. Du ziehst sooft du möchtest.", 
                     "Oh yes, the rules. A game costs you 5 copper. I have 10 stones in this bag, labeled with numbers from 1 to 10. You draw one as often as you want to."));
-                thisNPC:talk(CCharacter.say, npc.base.functions.GetNLS(originator,"Erreichst du zusammengerechnet genau 11, bekommst du 15 Kupfer, kommst du über 11, verlierst du sofort. Bleibst du darunter und ziehst nicht weiter,",
+                thisNPC:talk(Character.say, npc.base.functions.GetNLS(originator,"Erreichst du zusammengerechnet genau 11, bekommst du 15 Kupfer, kommst du über 11, verlierst du sofort. Bleibst du darunter und ziehst nicht weiter,",
                     "If the numbers add up to 11, you get 15 copper coins, if they add up to more that, you lose. If they add up to less than 11 and you don't want to draw anymore,"));
-                thisNPC:talk(CCharacter.say, npc.base.functions.GetNLS(originator,"versuche ich dich zu überbieten, ohne über 11 zu kommen. Schaffe ich das nicht, gewinnst du 10 Kupfer.",
+                thisNPC:talk(Character.say, npc.base.functions.GetNLS(originator,"versuche ich dich zu überbieten, ohne über 11 zu kommen. Schaffe ich das nicht, gewinnst du 10 Kupfer.",
                     "I will try to get more than you without drawing more than 11. If I am not able to do that, you win 10."));
                 if npcStatus[originator.id]==2 then
-                    thisNPC:talk(CCharacter.say,npc.base.functions.GetNLS(originator,"Na, willst du jetzt noch einen Stein ziehen oder nicht?",
+                    thisNPC:talk(Character.say,npc.base.functions.GetNLS(originator,"Na, willst du jetzt noch einen Stein ziehen oder nicht?",
                         "So, do you want to draw another stone or not?"));
                 elseif npcStatus[originator.id]==0 and npcTalksTo==0 then
-                    thisNPC:talk(CCharacter.say,npc.base.functions.GetNLS(originator,"Na, Lust auf ein Spielchen?",
+                    thisNPC:talk(Character.say,npc.base.functions.GetNLS(originator,"Na, Lust auf ein Spielchen?",
                         "Hey, wanna play a game?"));
                     npcStatus[originator.id]=1;
                     npcTalksTo=originator.id;
@@ -229,7 +229,7 @@ function receiveText(texttype, message, originator)
             -- Willst du noch einmal ziehen?
             if (string.find(message,"[Jj]a") or string.find(message,"[Yy]es")) and npcStatus[originator.id]==2 and npcTalksTo==originator.id then
                 sayText=npc.base.functions.GetNLS(originator,"Gut, versuch nochmal dein Glück!","Well, try again!");
-                thisNPC:talk(CCharacter.say,sayText);
+                thisNPC:talk(Character.say,sayText);
                 doGamble(originator);
                 lastTime=GetServerSeconds();
                 --originator:inform("set lasttime to "..lastTime);
@@ -237,7 +237,7 @@ function receiveText(texttype, message, originator)
             if (string.find(message,"[Nn]ein") or string.find(message,"[Nn]o")) and npcStatus[originator.id]==2 and npcTalksTo==originator.id then
                 npcStatus[originator.id]=3;      -- spieler beendet, NPC zieht noch
                 sayText=npc.base.functions.GetNLS(originator,"Na gut, wirf deine Steine wieder rein, jetzt bin ich dran!","Well, throw back the stones, it's my turn now!");
-                thisNPC:talk(CCharacter.say,sayText);
+                thisNPC:talk(Character.say,sayText);
                 doGamble(originator);
                 npcTalksTo=0;
                 lastTime=0;
@@ -256,7 +256,7 @@ function receiveText(texttype, message, originator)
                     
                 else
                     sayText=npc.base.functions.GetNLS(originator,"Du hast nicht genug Geld.","You don't have enough money.");
-                    thisNPC:talk(CCharacter.say,sayText );
+                    thisNPC:talk(Character.say,sayText );
                     npcTalksTo=0;
                     npcStatus[originator.id]=0;
                 end
@@ -265,7 +265,7 @@ function receiveText(texttype, message, originator)
                 npcStatus[originator.id]=0;
                 npcTalksTo=0;
                 sayText=npc.base.functions.GetNLS(originator,"Na gut, dann spielen wir eben nicht.", "Well then, we're not going to play.");
-                thisNPC:talk(CCharacter.say, sayText);
+                thisNPC:talk(Character.say, sayText);
             end
             
         else
@@ -273,7 +273,7 @@ function receiveText(texttype, message, originator)
                 gText="#me grinst dich blöde an";
                 eText="#me grins stupidly at you";
                 outText=npc.base.functions.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say,outText);
+                thisNPC:talk(Character.say,outText);
                 verwirrt=true;
             end
         end

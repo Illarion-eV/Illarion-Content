@@ -131,12 +131,12 @@ function nextCycle()
                     world:createMonster(MonID,SpawnLocation,10)
                     SaveItem.data=CurrentMon+1;
                     world:changeItem(SaveItem);
-                    if Debugging then thisNPC:talk(CCharacter.say,"spawn monster with ID "..MonID.." at position "..SpawnLocation.x..","..SpawnLocation.y..","..SpawnLocation.z.." successfully") end
+                    if Debugging then thisNPC:talk(Character.say,"spawn monster with ID "..MonID.." at position "..SpawnLocation.x..","..SpawnLocation.y..","..SpawnLocation.z.." successfully") end
                 else
-                    if Debugging then thisNPC:talk(CCharacter.say,"spawn monster failed, because of bad item at position "..SpawnLocation.x..","..SpawnLocation.y..","..SpawnLocation.z) end
+                    if Debugging then thisNPC:talk(Character.say,"spawn monster failed, because of bad item at position "..SpawnLocation.x..","..SpawnLocation.y..","..SpawnLocation.z) end
                 end
             else
-                if Debugging then thisNPC:talk(CCharacter.say,"spawn monster failed, because of bad ground tile at position "..SpawnLocation.x..","..SpawnLocation.y..","..SpawnLocation.z) end
+                if Debugging then thisNPC:talk(Character.say,"spawn monster failed, because of bad ground tile at position "..SpawnLocation.x..","..SpawnLocation.y..","..SpawnLocation.z) end
             end
         end
     end
@@ -145,7 +145,7 @@ end
 function receiveText(TextTyp, Message, Originator)
     if (Originator.id~=thisNPC.id) then
         if (string.find(Message,"[Cc]ommands")~=nil) then
-            thisNPC:talk(CCharacter.say,"List of commands: 'current settings', 'spawn on', 'spawn off', 'spawn only <monster id>', 'debug on', 'debug off', 'max monsters <number>', 'reset'");
+            thisNPC:talk(Character.say,"List of commands: 'current settings', 'spawn on', 'spawn off', 'spawn only <monster id>', 'debug on', 'debug off', 'max monsters <number>', 'reset'");
         end
         if (string.find(Message,"[Cc]urrent.+[Ss]ettings")~=nil) then
             local spawntext="";
@@ -166,43 +166,43 @@ function receiveText(TextTyp, Message, Originator)
             end
             local spwnum=LiveSettings("get","spawn_nr",nil);
             local spawnnumtext="Maximal Monsters: "..spwnum;
-            thisNPC:talk(CCharacter.say,spawntext.." - "..debugtext.." - "..spawnnumtext);
+            thisNPC:talk(Character.say,spawntext.." - "..debugtext.." - "..spawnnumtext);
         end
         if (string.find(Message,"[Ss]pawn.+[Oo][Nn]")~=nil) then
             if (string.find(Message,"[Ss]pawn.+[Oo]nly")==nil) then
                 LiveSettings("set","spawn_on",nil);
-                thisNPC:talk(CCharacter.say,"Spawning: ON");
+                thisNPC:talk(Character.say,"Spawning: ON");
             end
         end
         if (string.find(Message,"[Ss]pawn.+[Oo][Ff][Ff]")~=nil) then
             LiveSettings("set","spawn_off",nil);
-            thisNPC:talk(CCharacter.say,"Spawning: OFF");
+            thisNPC:talk(Character.say,"Spawning: OFF");
         end
         if (string.find(Message,"[Ss]pawn.+[Oo]nly.+%d+")~=nil) then
             a,b,countStr=string.find(Message,"[Ss]pawn [Oo]nly (%d+)");
             count=countStr+1-1;
             LiveSettings("set","spawn_only",count);
-            thisNPC:talk(CCharacter.say,"Spawning: ID "..count);
+            thisNPC:talk(Character.say,"Spawning: ID "..count);
         end
         if (string.find(Message,"[Dd]ebug.+[Oo][Nn]")~=nil) then
             LiveSettings("set","debug_on",nil);
-            thisNPC:talk(CCharacter.say,"Debugging: ON");
+            thisNPC:talk(Character.say,"Debugging: ON");
         end
         if (string.find(Message,"[Dd]ebug.+[Oo][Ff][Ff]")~=nil) then
             LiveSettings("set","debug_off",nil);
-            thisNPC:talk(CCharacter.say,"Debugging: OFF");
+            thisNPC:talk(Character.say,"Debugging: OFF");
         end
         if (string.find(Message,"[Mm]ax.+[Mm]onsters.+%d+")~=nil) then
             a,b,countStr=string.find(Message,"[Mm]ax.+[Mm]onster.+(%d+)");
             count=countStr+1-1;
             LiveSettings("set","spawn_nr",count);
-            thisNPC:talk(CCharacter.say,"Maximal Monsters: "..count);
+            thisNPC:talk(Character.say,"Maximal Monsters: "..count);
         end
         if (string.find(Message,"[Rr]eset")~=nil) then
             LiveSettings("set","spawn_on",nil);
             LiveSettings("set","debug_off",nil);
             LiveSettings("set","spawn_nr",MaxMonsters);
-            thisNPC:talk(CCharacter.say,"Settings reseted");
+            thisNPC:talk(Character.say,"Settings reseted");
         end
     end
 end

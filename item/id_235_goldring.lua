@@ -62,7 +62,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
     else
         if ( TargetItem:getType() == 4 and (TargetItem.itempos == 7 or TargetItem.itempos == 8) and TargetItem.data == 100 ) then
             --unsichtbarkeitseffekt hinzufuegen
-            User.effects:addEffect( CLongTimeEffect(11,10) );
+            User.effects:addEffect( LongTimeEffect(11,10) );
             --ablegen des einen rings
         elseif ( TargetItem.data == 100 ) then
             fnd, eff = User.effects:find( 11 );
@@ -117,8 +117,8 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		if ( (SourceItem.itempos == 7) or (SourceItem.itempos == 8) )   	-- am Finger getragen?
 		and (User.activeLanguage == 10) 		-- Ancient aktiv?
 		and ( string.find( User.lastSpokenText, "[Hh][Oo][Nn][Ii][Gg][Kk][Uu][Cc][Hh][Ee][Nn][Pp][Ff][Ee][Rr][Dd]" ) ~= nil ) then  -- Losung ok?
-			User:talkLanguage( CCharacter.say, CPlayer.german, "#me dreht den schmalen Goldring an "..gText.." Finger.");
-			User:talkLanguage( CCharacter.say, CPlayer.english, "#me spins the small goldring on "..eText.." finger.");
+			User:talkLanguage( Character.say, Player.german, "#me dreht den schmalen Goldring an "..gText.." Finger.");
+			User:talkLanguage( Character.say, Player.english, "#me spins the small goldring on "..eText.." finger.");
 			if equapos(User.pos,position(-89,-123,0)) then		-- Standort: Bane
 				world:gfx(31,position(-88,-123,0));
 				world:gfx(31,position(-90,-123,0));
@@ -137,8 +137,8 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 				world:gfx(41,position(-89,-123,0));
 			end
 		else
-			User:talkLanguage( CCharacter.say, CPlayer.german, "#me dreht den schmalen Goldring an "..gText.." Finger, aber nichts passiert.");
-			User:talkLanguage( CCharacter.say, CPlayer.english, "#me spins the small goldring on "..eText.." finger, but nothing happens.");
+			User:talkLanguage( Character.say, Player.german, "#me dreht den schmalen Goldring an "..gText.." Finger, aber nichts passiert.");
+			User:talkLanguage( Character.say, Player.english, "#me spins the small goldring on "..eText.." finger, but nothing happens.");
 		end
 	end
 	if ( SourceItem.data == 100 ) then
@@ -153,8 +153,8 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	if (SourceItem.data == 800) then
 		if ( (User:isAdmin())  or (User.id==923280786) ) then -- nur für gm!!
 			if ( string.find( User.lastSpokenText, "[Aa][Ss][Tt][Rr][Aa][Ll]" ) ~= nil ) then
-				User:talkLanguage( CCharacter.say, CPlayer.german, "#me's Konturen scheinen für einen kurzen Augenblick zu flimmern, bevor sich seine Gestalt vollständig auflöst.");
-				User:talkLanguage( CCharacter.say, CPlayer.english, "#me's outlines begins to glimmer, before his form dissolves completely.");
+				User:talkLanguage( Character.say, Player.german, "#me's Konturen scheinen für einen kurzen Augenblick zu flimmern, bevor sich seine Gestalt vollständig auflöst.");
+				User:talkLanguage( Character.say, Player.english, "#me's outlines begins to glimmer, before his form dissolves completely.");
 				world:gfx(52,User.pos);
 				User:warp(position(-37,-193,1));
 				world:gfx(52,position(-37,-193,1));

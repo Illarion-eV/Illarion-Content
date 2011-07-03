@@ -93,10 +93,10 @@ function newPokerTable(
     };
     
     local compareBets = function( index1, index2 )
-        --self.npcDealer:talk(CCharacter.yell, "Entering..." );
-        --self.npcDealer:talk(CCharacter.yell, "Compare: "..index1.." and "..index2);
+        --self.npcDealer:talk(Character.yell, "Entering..." );
+        --self.npcDealer:talk(Character.yell, "Compare: "..index1.." and "..index2);
         --local txt = (not self.listBets[index1] or ( self.listBets[index2] and self.listBets[index1] < self.listBets[index2] )) and "true" or "false";
-        --self.npcDealer:talk(CCharacter.yell, "Return: "..txt);
+        --self.npcDealer:talk(Character.yell, "Return: "..txt);
         return not self.listBets[index1] or ( self.listBets[index2] and self.listBets[index1] < self.listBets[index2] );
     end;
     
@@ -290,7 +290,7 @@ function newPokerTable(
         end;
         str = str .. " ]";
         local eval = evaluateHand();
-        self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." shows his cards: "..str.. " ("..eval.desc..")");
+        self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." shows his cards: "..str.. " ("..eval.desc..")");
         
         i = 1;
 
@@ -397,18 +397,18 @@ function newPokerTable(
     
     local debugReset = function() -- reset and print a message
         reset();
-        self.npcDealer:talk(CCharacter.yell, "### program incomplete - game aborted and reset ###");
+        self.npcDealer:talk(Character.yell, "### program incomplete - game aborted and reset ###");
     end;
     
     local errorReset = function( msg ) -- reset and print a message
         reset();
-        self.npcDealer:talk(CCharacter.yell, "### CRITICAL ERROR: '"..msg.."' - game aborted and reset ###");
+        self.npcDealer:talk(Character.yell, "### CRITICAL ERROR: '"..msg.."' - game aborted and reset ###");
     end;
     
     local gameReset = function() -- reset and print a message
         local n    = self.numberPlayer;
         local list = self.listPlayer;
-        self.npcDealer:talk(CCharacter.say, "Not enough players, round ended. We will wait for more to join.");
+        self.npcDealer:talk(Character.say, "Not enough players, round ended. We will wait for more to join.");
         reset();
         self.numberPlayer = n;
         self.listPlayer   = list;
@@ -435,15 +435,15 @@ function newPokerTable(
             if self.gameState < 3 then -- still blinds -> out of game
                 self.listPlayer[self.activePlayer] = nil;
                 self.numberPlayer = self.numberPlayer - 1;
-                self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." did not place the blind and has left the game.");
+                self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." did not place the blind and has left the game.");
             else
-                self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." has folded.");                
+                self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." has folded.");                
             end;
             return true;
         elseif self.timeoutCounter == self.timeoutWarning2 then
-            self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." has "..math.floor((self.timeoutFinal-self.timeoutWarning2)/10).." seconds to act.");
+            self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." has "..math.floor((self.timeoutFinal-self.timeoutWarning2)/10).." seconds to act.");
         elseif self.timeoutCounter == self.timeoutWarning1 then
-            self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." has "..math.floor((self.timeoutFinal-self.timeoutWarning1)/10).." seconds to act.");
+            self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." has "..math.floor((self.timeoutFinal-self.timeoutWarning1)/10).." seconds to act.");
         end;
         self.timeoutCounter = self.timeoutCounter + 1;
         return false;
@@ -518,7 +518,7 @@ function newPokerTable(
         self.activePlayer       = self.buttonPlayer;
         nextPlayer();
         self.buttonPlayer       = self.activePlayer;
-        self.npcDealer:talk(CCharacter.say, "Seat "..self.buttonPlayer.." is now on the button.");
+        self.npcDealer:talk(Character.say, "Seat "..self.buttonPlayer.." is now on the button.");
         bet(0);
         nextPlayer();
     end;
@@ -542,7 +542,7 @@ function newPokerTable(
             end;
         end;
         payPlayer( self.activePlayer, money );
-        self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." wins "..money..".");
+        self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." wins "..money..".");
     end;
     
     local showAvailableCards = function()
@@ -571,29 +571,29 @@ function newPokerTable(
                         self.numberPlayer = self.numberPlayer + 1;
                         char:introduce(self.npcDealer);
                         char:setAttrib( "perception", 254 );
-                        self.npcDealer:talk(CCharacter.say, "Seat "..i.." has been taken.");
+                        self.npcDealer:talk(Character.say, "Seat "..i.." has been taken.");
                     end;
                 else
                     if self.listPlayer[i] then
                         self.listPlayer[i] = nil;
                         self.numberPlayer = self.numberPlayer - 1;
-                        self.npcDealer:talk(CCharacter.say, "Seat "..i.." has become vacant.");
+                        self.npcDealer:talk(Character.say, "Seat "..i.." has become vacant.");
                     end;                    
                 end;
             end;
             if self.numberPlayer >= 2 then -- enough players, but wait some seconds if more want to join
                 if oldNumberPlayer < 2 then
-                    self.npcDealer:talk(CCharacter.say, "The next round will start in "..math.ceil(self.initialDelay/10).." seconds.");
+                    self.npcDealer:talk(Character.say, "The next round will start in "..math.ceil(self.initialDelay/10).." seconds.");
                 end;
                 self.timeoutCounter = self.timeoutCounter + 1;
                 if self.timeoutCounter >= self.initialDelay then
                     self.timeoutCounter = 0;
                     self.gameState = 1;
-                    self.npcDealer:talk(CCharacter.say, "Welcome to another round of poker!");
+                    self.npcDealer:talk(Character.say, "Welcome to another round of poker!");
                 end;
             else
                 if oldNumberPlayer >= 2 then
-                    self.npcDealer:talk(CCharacter.say, "Too many players left the table, we will have to wait.");
+                    self.npcDealer:talk(Character.say, "Too many players left the table, we will have to wait.");
                 end;
                 self.timeoutCounter = 0;
             end;
@@ -616,12 +616,12 @@ function newPokerTable(
                 end;
                 self.activePlayer = self.buttonPlayer;
                 bet( 0 );
-                self.npcDealer:talk(CCharacter.say, "Seat "..self.buttonPlayer.." has the highest card ("..cardHigh.getEnglishShort()..") and is now on the button.");
+                self.npcDealer:talk(Character.say, "Seat "..self.buttonPlayer.." has the highest card ("..cardHigh.getEnglishShort()..") and is now on the button.");
                 nextPlayer();
             else                           -- wait for small blind
                 if self.timeoutCounter == 0 then
                     self.numberInHand = self.numberPlayer;
-                    self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer..", please place the small blind.");
+                    self.npcDealer:talk(Character.say, "Seat "..self.activePlayer..", please place the small blind.");
                     self.listPlayer[self.activePlayer]:inform("#w ##### You can now place the small blind #####");
                 end;
                 if isTimeout() then
@@ -634,13 +634,13 @@ function newPokerTable(
             end;
         elseif (self.gameState == 2) then -- wait for big blind  
             if self.timeoutCounter == 0 then
-                self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer..", please place the big blind.");
+                self.npcDealer:talk(Character.say, "Seat "..self.activePlayer..", please place the big blind.");
                 self.listPlayer[self.activePlayer]:inform("#w ##### You can now place the big blind #####");
             end;
             if isTimeout() then
                 if self.numberPlayer < 2 then
                     payPlayer( self.smallPlayer, self.smallBlind );
-                    self.npcDealer:talk(CCharacter.say, "Seat "..self.smallPlayer.." gets back the small blind.");
+                    self.npcDealer:talk(Character.say, "Seat "..self.smallPlayer.." gets back the small blind.");
                     gameReset();
                 else
                     nextPlayer();
@@ -648,7 +648,7 @@ function newPokerTable(
             end;
         elseif (self.gameState >= 3) and (self.gameState <= 6) then -- betting
             if self.timeoutCounter == 0 then
-                self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer..", it is your turn.");
+                self.npcDealer:talk(Character.say, "Seat "..self.activePlayer..", it is your turn.");
                
                 showAvailableCards();
                 
@@ -672,7 +672,7 @@ function newPokerTable(
             end;
 	    elseif self.gameState == 7 then -- showdown
 	        if self.timeoutCounter == 0 then
-	            self.npcDealer:talk(CCharacter.say, "What will you do with your cards seat "..self.activePlayer.."?");
+	            self.npcDealer:talk(Character.say, "What will you do with your cards seat "..self.activePlayer.."?");
 	            showAvailableCards();
                 self.listPlayer[self.activePlayer]:inform("#w ##### You can now fold or show your cards #####");
 	        end;
@@ -700,7 +700,7 @@ function newPokerTable(
                 if string.find( message, "[Bb]lind" ) then
                     if bet( self.smallBlind ) then
                         self.smallPlayer = self.activePlayer;
-                        self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." places the small blind.");
+                        self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." places the small blind.");
                         nextPlayer();
                         self.gameState = 2;
                         self.timeoutCounter = 0;
@@ -712,8 +712,8 @@ function newPokerTable(
                 if string.find( message, "[Bb]lind" ) then
                     if bet( self.bigBlind ) then
                         self.bigPlayer = self.activePlayer;
-                        self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." places the big blind.");
-                        self.npcDealer:talk(CCharacter.say, "#me deals the pocket cards.");
+                        self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." places the big blind.");
+                        self.npcDealer:talk(Character.say, "#me deals the pocket cards.");
                         self.cardDeck52.shuffle();
                         local i;
                         for i=1,self.tableSize do
@@ -742,7 +742,7 @@ function newPokerTable(
                     self.listHasFolded[self.activePlayer] = true;
                     self.listBets[self.activePlayer] = self.listBets[self.activePlayer] or 0;
                     self.numberInHand = self.numberInHand - 1;
-                    self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." folds.");
+                    self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." folds.");
                     if self.numberInHand < 2 then
                         nextPlayer();
                         payPotsToPlayer();
@@ -756,7 +756,7 @@ function newPokerTable(
                         if self.maxBet == 0 then
                             self.listBets[self.activePlayer] = 0;
                         end;
-                        self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." checks.");
+                        self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." checks.");
                         cont = true;
                     elseif string.find( message, "[Bb]et" ) then
                         local amount;
@@ -767,7 +767,7 @@ function newPokerTable(
                                 if bet( amount ) then
                                     self.listBets[self.activePlayer] = amount;
                                     self.maxBet = amount;
-                                    self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." bets "..amount..".");
+                                    self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." bets "..amount..".");
                                     cont = true;
                                 else
                                     self.listPlayer[self.activePlayer]:inform("#w ##### You do not have enough money to cover this bet #####");
@@ -787,13 +787,13 @@ function newPokerTable(
                         success, pMoney = bet( self.maxBet - (self.listBets[self.activePlayer] or 0) );
                         if success then
                             self.listBets[self.activePlayer] = self.maxBet;
-                            self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." calls "..self.maxBet..".");
+                            self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." calls "..self.maxBet..".");
                             cont = true;
                         else
                             bet( pMoney );
                             self.listIsAllIn[self.activePlayer] = true;
                             self.numberAllIn = self.numberAllIn + 1;
-                            self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." calls all in with "..self.listBets[self.activePlayer]..".");
+                            self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." calls all in with "..self.listBets[self.activePlayer]..".");
                             cont = true;
                         end;
                     elseif string.find( message, "[Rr]aise" ) then
@@ -805,7 +805,7 @@ function newPokerTable(
                                 if bet( amount - (self.listBets[self.activePlayer] or 0) ) then
                                     self.listBets[self.activePlayer] = amount;
                                     self.maxBet = amount;
-                                    self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." raises to "..amount..".");
+                                    self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." raises to "..amount..".");
                                     cont = true;
                                 else
                                     self.listPlayer[self.activePlayer]:inform("#w ##### You do not have enough money to cover this raise #####");
@@ -845,7 +845,7 @@ function newPokerTable(
                             if self.listBets[ idx ] and self.listBets[ idx ] > 0 then
                                 if i == self.tableSize then
                                     payPlayer( idx, self.listBets[ idx ] );
-                                    self.npcDealer:talk(CCharacter.say, "Seat "..idx.." receives "..self.listBets[ idx ].." back.");
+                                    self.npcDealer:talk(Character.say, "Seat "..idx.." receives "..self.listBets[ idx ].." back.");
                                     self.listBets[ idx ] = 0;
                                 else
 	                                local pot = self.listPots[ table.getn( self.listPots ) ];
@@ -863,7 +863,7 @@ function newPokerTable(
 		                            self.listBets[ idx ] = 0;
 		                            pot.listPlayersInPot[ idx ] = true;
 		                            if self.listBets[ self.listIndex[ self.tableSize ] ] > 0 then
-		                                self.npcDealer:talk(CCharacter.say, "#me moves a pot of "..pot.value.." aside.");
+		                                self.npcDealer:talk(Character.say, "#me moves a pot of "..pot.value.." aside.");
                                         table.insert( self.listPots, { value=0, listPlayersInPot = {}, maxHandValue = 0, listPotCandidates = {} } );
 		                            end;
 		                        end;
@@ -899,23 +899,23 @@ function newPokerTable(
                             self.listBoard[1] = self.cardDeck52.draw();
                             self.listBoard[2] = self.cardDeck52.draw();
                             self.listBoard[3] = self.cardDeck52.draw();
-                            self.npcDealer:talk(CCharacter.say, "#me shows the flop: "..self.listBoard[1].getEnglish()..", "..self.listBoard[2].getEnglish()..", "..self.listBoard[3].getEnglish());
+                            self.npcDealer:talk(Character.say, "#me shows the flop: "..self.listBoard[1].getEnglish()..", "..self.listBoard[2].getEnglish()..", "..self.listBoard[3].getEnglish());
                             self.gameState = self.gameState + (drawall and 1 or 0);
                         end;
                         if self.gameState == 5 then -- show turn
                             self.cardDeck52.draw();
                             self.listBoard[4] = self.cardDeck52.draw();
-                            self.npcDealer:talk(CCharacter.say, "#me shows the turn: "..self.listBoard[4].getEnglish());
+                            self.npcDealer:talk(Character.say, "#me shows the turn: "..self.listBoard[4].getEnglish());
                             self.gameState = self.gameState + (drawall and 1 or 0);
                         end;
                         if self.gameState == 6 then -- show river
                             self.cardDeck52.draw();
                             self.listBoard[5] = self.cardDeck52.draw();
-                            self.npcDealer:talk(CCharacter.say, "#me shows the river: "..self.listBoard[5].getEnglish());
+                            self.npcDealer:talk(Character.say, "#me shows the river: "..self.listBoard[5].getEnglish());
                             self.gameState = self.gameState + (drawall and 1 or 0);
                         end;
                         if self.gameState == 7 then -- prepare showdown
-                            self.npcDealer:talk(CCharacter.say, "The showdown begins");
+                            self.npcDealer:talk(Character.say, "The showdown begins");
                             showHand();
                             nextPlayer();
                         end;
@@ -926,7 +926,7 @@ function newPokerTable(
                     self.listHasFolded[self.activePlayer] = true;
                     self.listBets[self.activePlayer] = self.listBets[self.activePlayer] or 0;
                     self.numberInHand = self.numberInHand - 1;
-                    self.npcDealer:talk(CCharacter.say, "Seat "..self.activePlayer.." folds.");
+                    self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." folds.");
                     if self.numberInHand < 2 then
                         nextPlayer();
                         payPotsToPlayer();
@@ -950,7 +950,7 @@ function newPokerTable(
                             money = math.floor( money / n * 100 ) / 100;
                             for z=1,n do
                                 payPlayer( pot.listPotCandidates[z], money );
-                                self.npcDealer:talk(CCharacter.say, "Seat "..pot.listPotCandidates[z].." wins "..money.." of pot #"..i..".");
+                                self.npcDealer:talk(Character.say, "Seat "..pot.listPotCandidates[z].." wins "..money.." of pot #"..i..".");
                             end;
                         end;
                         
@@ -962,7 +962,7 @@ function newPokerTable(
     end
     
     local beforeReload = function()
-        self.npcDealer:talk(CCharacter.say, "Sorry, but we have to take a short break from poker. You will get your money back.");
+        self.npcDealer:talk(Character.say, "Sorry, but we have to take a short break from poker. You will get your money back.");
         -- pay players
         local i,z;
         local money;
@@ -984,7 +984,7 @@ function newPokerTable(
         for z=1,self.tableSize do
             if self.listBets[ z ] and self.listBets[ z ] > 0 then
                 payPlayer( z, self.listBets[ z ] );
-                self.npcDealer:talk(CCharacter.say, "Seat "..z.." gets "..self.listBets[ z ].." back.");
+                self.npcDealer:talk(Character.say, "Seat "..z.." gets "..self.listBets[ z ].." back.");
             end;
         end;
     end;

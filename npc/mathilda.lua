@@ -3,9 +3,9 @@ module("npc.mathilda", package.seeall)
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
     if ( User:getPlayerLanguage()==0 ) then
-         thisNPC:talk(CCharacter.say, "Rede doch lieber mit mir anstatt mich zu begrapschen.");
+         thisNPC:talk(Character.say, "Rede doch lieber mit mir anstatt mich zu begrapschen.");
     elseif ( User:getPlayerLanguage()==1 ) then
-    thisNPC:talk(CCharacter.say, "Talk to me instead of touching me, please.");
+    thisNPC:talk(Character.say, "Talk to me instead of touching me, please.");
     end
 end
 
@@ -146,7 +146,7 @@ thisNPC:introduce(originator);
    repeat
        i=i+1;
        if string.find(message,NpcTrig[i])~=nil then
-           thisNPC:talk(CCharacter.say, NpcAnsw[i]);
+           thisNPC:talk(Character.say, NpcAnsw[i]);
            foundTrig=true;
        end
    until (i==table.getn(NpcTrig) or foundTrig==true)

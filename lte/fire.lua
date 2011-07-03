@@ -43,7 +43,7 @@ function isFireOnField(fldPos)
 end
 
 function addEffect(fireEffect, Patient)         -- Infection starts
-    --Patient:talk(CCharacter.say, "Ich habs.");
+    --Patient:talk(Character.say, "Ich habs.");
     if burnList == nil then
         burnList = initBurnList();
         burnLength = table.getn(burnList);
@@ -52,7 +52,7 @@ function addEffect(fireEffect, Patient)         -- Infection starts
 end
 
 function loadEffect(fireEffect, Patient)         -- Infection starts
-    Patient:talk(CCharacter.say, "Ich habs geladen.");
+    Patient:talk(Character.say, "Ich habs geladen.");
     if burnList == nil then
         burnList = initBurnList();
         burnLength = table.getn(burnList);
@@ -80,15 +80,15 @@ end
 function callEffect(fireEffect, NPC)
     fireEffect.nextCalled=300;
     
-    --NPC:talk(CCharacter.say,"callEffect:");
+    --NPC:talk(Character.say,"callEffect:");
     fnd, lstNo = fireEffect:findValue("lastNumber");
     fnd, fstNo = fireEffect:findValue("firstNumber");
     i = fstNo;
     oldLstNo = lstNo;
-    --NPC:talk(CCharacter.say,"fstNo: "..fstNo);
-    --NPC:talk(CCharacter.say,"lstNo: "..lstNo);
+    --NPC:talk(Character.say,"fstNo: "..fstNo);
+    --NPC:talk(Character.say,"lstNo: "..lstNo);
     while (i <= oldLstNo) and (i ~= 0) do
-        --NPC:talk(CCharacter.say,"Feuer: "..i..":");
+        --NPC:talk(Character.say,"Feuer: "..i..":");
         fnd,posX=fireEffect:findValue("fireX"..i);
         posX = posX - 100000;
         fnd,posY=fireEffect:findValue("fireY"..i);
@@ -97,11 +97,11 @@ function callEffect(fireEffect, NPC)
         posZ = posZ - 100000;
         fnd,next=fireEffect:findValue("fireN"..i);
         
-        --NPC:talk(CCharacter.say,"Position: "..posX..", "..posY..", "..posZ);
-        --NPC:talk(CCharacter.say,"Next: "..next);
+        --NPC:talk(Character.say,"Position: "..posX..", "..posY..", "..posZ);
+        --NPC:talk(Character.say,"Next: "..next);
         flamePos = position(posX, posY, posZ);
         if isFireOnField( flamePos ) then
-            --NPC:talk(CCharacter.say,"Brennt!");
+            --NPC:talk(Character.say,"Brennt!");
             prvNo = i;
             ---[[
 
@@ -114,7 +114,7 @@ function callEffect(fireEffect, NPC)
             world:changeItem( flame );
 
             -- AUSBREITUNG DES FEUERS AN posX, posY, posZ STARTEN
-            --NPC:talk(CCharacter.say,"Ausbreitung:");
+            --NPC:talk(Character.say,"Ausbreitung:");
             for x=posX-burnRad,posX+burnRad do
                 for y=posY-burnRad,posY+burnRad do
                     for z=posZ-1,posZ+1 do
@@ -122,7 +122,7 @@ function callEffect(fireEffect, NPC)
                             if ( not( FireInRain( x, y, z ) ) ) then -- Edit by abcfantasy: If fire not under the rain
                                 burnPos = position(x,y,z);
                                 if (world:isItemOnField( burnPos ) and not isFireOnField( burnPos )) and isBurnableField( burnPos ) then
-                                    -- NPC:talk(CCharacter.say,"Neues Feuer!");
+                                    -- NPC:talk(Character.say,"Neues Feuer!");
                                     world:createItemFromId( 359, 1, burnPos, true, 999, 0);
                                     nextFree = lstNo + 1;
                                     fireEffect:addValue("fireX"..nextFree,x+100000);
@@ -145,21 +145,21 @@ function callEffect(fireEffect, NPC)
         
         fnd,next=fireEffect:findValue("fireN"..i);
         if fstNo == lstNo then
-            --NPC:talk(CCharacter.say,"Entferne alles!");
+            --NPC:talk(Character.say,"Entferne alles!");
             NPC.effects:removeEffect( 8 );
             return false;
         else
             if i == fstNo then
-                --NPC:talk(CCharacter.say,"Entferne erstes! Next: "..next);
+                --NPC:talk(Character.say,"Entferne erstes! Next: "..next);
                 fireEffect:addValue("firstNumber", next);
                 fstNo = next;
             elseif i == lstNo then
-                --NPC:talk(CCharacter.say,"Entferne letztes!");
+                --NPC:talk(Character.say,"Entferne letztes!");
                 fireEffect:addValue("lastNumber", prvNo);
                 lstNo = prvNo;
                 fireEffect:addValue("fireN"..prvNo, 0);
             else
-                --NPC:talk(CCharacter.say,"Entferne aus der Mitte!");
+                --NPC:talk(Character.say,"Entferne aus der Mitte!");
                 fireEffect:addValue("fireN"..prvNo, next);
             end;
             fireEffect:removeValue("fireX"..i);
@@ -175,5 +175,5 @@ function callEffect(fireEffect, NPC)
 end
 
 function removeEffect( Effect, Character )
-    Character:talk(CCharacter.say, "Feuer gelöscht!");
+    Character:talk(Character.say, "Feuer gelöscht!");
 end

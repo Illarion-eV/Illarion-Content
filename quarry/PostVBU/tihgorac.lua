@@ -13,8 +13,8 @@ module("npc.tihgorac", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    if (lang==0) then thisNPC:talk(CCharacter.say, "Fast mich nicht an!") end
-    if (lang==1) then thisNPC:talk(CCharacter.say, "Don't you touch me!") end
+    if (lang==0) then thisNPC:talk(Character.say, "Fast mich nicht an!") end
+    if (lang==1) then thisNPC:talk(Character.say, "Don't you touch me!") end
 end
 
 function initializeNpc()
@@ -94,13 +94,13 @@ function receiveText(texttype, message, originator)
             elseif (Status==7) then
                 gText="#me zeigt ein Manöver mit der Axt";
                 eText="#me displays a maneuver with his axe";
-                thisNPC:talk(CCharacter.say,npc.base.functions.GetNLS(originator,gText,eText));
+                thisNPC:talk(Character.say,npc.base.functions.GetNLS(originator,gText,eText));
                 gText="Jetzt du!";
                 eText="Now you try!";
             elseif (Status==8) then
                 gText="#me zeigt ein einfaches Manöver";
                 eText="#me displays a simple maneuver";
-                thisNPC:talk(CCharacter.say,npc.base.functions.GetNLS(originator,gText,eText));
+                thisNPC:talk(Character.say,npc.base.functions.GetNLS(originator,gText,eText));
                 gText="Jetzt du!";
                 eText="Now you try!";
             elseif (Status==9) then
@@ -115,7 +115,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                thisNPC:talk(CCharacter.say,npc.base.functions.GetNLS(originator,gText,eText));
+                thisNPC:talk(Character.say,npc.base.functions.GetNLS(originator,gText,eText));
                 if (Status==7) then
                     if (lang==0) then
                         originator:inform("Du denkst du das vielleicht etwas gelernt hast, dadurch das du ihm zugesehen hast.");
@@ -135,7 +135,7 @@ function receiveText(texttype, message, originator)
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
                 outText=npc.base.functions.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say,outText);
+                thisNPC:talk(Character.say,outText);
                 verwirrt=true;
             end
         end

@@ -14,8 +14,8 @@ module("npc.jenny_copperneedle", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Bitte nicht anfassen");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Please don't touch.");
+    thisNPC:talkLanguage(Character.say, Player.german, "Bitte nicht anfassen");
+    thisNPC:talkLanguage(Character.say, Player.english, "Please don't touch.");
 end
 
 function initializeNpc()

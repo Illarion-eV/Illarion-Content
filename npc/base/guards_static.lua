@@ -14,12 +14,12 @@ Radius = {};
 CheckCenter = {}
 
 function Init(guard, factionId, warpPos, radius, checkCenter)
-	--guard:talk(CCharacter.say,"BEGIN guards_static.Init");
+	--guard:talk(Character.say,"BEGIN guards_static.Init");
 	WarpPos[guard.id] = warpPos;
 	FactionId[guard.id] = factionId;
 	Radius[guard.id] = radius;
 	CheckCenter[guard.id] = checkCenter;
-	--guard:talk(CCharacter.say,"END guards_static.Init");
+	--guard:talk(Character.say,"END guards_static.Init");
 end
 
 --- Checks for chars in range and handles them (warp)

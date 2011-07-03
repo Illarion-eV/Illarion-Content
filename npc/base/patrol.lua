@@ -247,7 +247,7 @@ function CharacterNear(guard,char)
 end
 
 function npcdebug(text)
-	thisNPC:talk(CCharacter.say,"[DEBUG] ".. text);
+	thisNPC:talk(Character.say,"[DEBUG] ".. text);
 end
 
 function getPos(pos)

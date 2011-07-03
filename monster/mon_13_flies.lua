@@ -107,7 +107,7 @@ function onDeath(Monster)
 			task = 0; --reset task
 			quest.aquest28.glue_questdata(User, cow,task,counter); --put the quest data with changes together
 
-			aquest28Effect = CLongTimeEffect(32,100); -- create new effect and initialize with nextcalled = 1s
+			aquest28Effect = LongTimeEffect(32,100); -- create new effect and initialize with nextcalled = 1s
 			User.effects:addEffect(aquest28Effect); -- add effect #3         2
 		end
 		--Drops

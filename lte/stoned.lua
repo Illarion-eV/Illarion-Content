@@ -60,11 +60,11 @@ function callEffect(stonedEffect, Character)    -- Effect wird ausgeführt
             "You feel a little bit dizzy." );
 	end
 	if (stonedEffectType == 1) then
-	    Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me grinst.");
-            Character:talkLanguage(CCharacter.say,CPlayer.english,"#me grins.");
+	    Character:talkLanguage(Character.say,Player.german ,"#me grinst.");
+            Character:talkLanguage(Character.say,Player.english,"#me grins.");
 	else
-            Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me seufzt tief.");
-            Character:talkLanguage(CCharacter.say,CPlayer.english,"#me sighs deeply.");
+            Character:talkLanguage(Character.say,Player.german ,"#me seufzt tief.");
+            Character:talkLanguage(Character.say,Player.english,"#me sighs deeply.");
 	end
 
     elseif ((stonedIndex_n>=5) and (stonedIndex_n<10)) then
@@ -74,11 +74,11 @@ function callEffect(stonedEffect, Character)    -- Effect wird ausgeführt
             "You have the feeling that your sight is hazy." );
         end
 	if (stonedEffectType == 1) then
-            Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me blinzelt irritiert.");
-            Character:talkLanguage(CCharacter.say,CPlayer.english,"#me blinks irritatedly.");
+            Character:talkLanguage(Character.say,Player.german ,"#me blinzelt irritiert.");
+            Character:talkLanguage(Character.say,Player.english,"#me blinks irritatedly.");
         else
-            Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me sieht sich verwirrt um.");
-            Character:talkLanguage(CCharacter.say,CPlayer.english,"#me looks around like a lunatic.");
+            Character:talkLanguage(Character.say,Player.german ,"#me sieht sich verwirrt um.");
+            Character:talkLanguage(Character.say,Player.english,"#me looks around like a lunatic.");
         end
     elseif ((stonedIndex_n>=10) and (stonedIndex_n<15)) then
         if ((stonedIndex_n==13) and (clearIndex_n==2)) then
@@ -87,11 +87,11 @@ function callEffect(stonedEffect, Character)    -- Effect wird ausgeführt
             "Your mind feels like a bunch of entangled wool." );
         end
         if (stonedEffectType == 1) then
-            Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me summt gedankenverloren eine Melodie vor sich hin.");
-            Character:talkLanguage(CCharacter.say,CPlayer.english,"#me hums a melody absentmindedly to "..eTextm.."self.");
+            Character:talkLanguage(Character.say,Player.german ,"#me summt gedankenverloren eine Melodie vor sich hin.");
+            Character:talkLanguage(Character.say,Player.english,"#me hums a melody absentmindedly to "..eTextm.."self.");
         else
-            Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me kneift die geröteten Augen zusammen.");
-            Character:talkLanguage(CCharacter.say,CPlayer.english,"#me squints "..eText.." reddened eyes.");
+            Character:talkLanguage(Character.say,Player.german ,"#me kneift die geröteten Augen zusammen.");
+            Character:talkLanguage(Character.say,Player.english,"#me squints "..eText.." reddened eyes.");
         end
     elseif ((stonedIndex_n>=15) and (stonedIndex_n<20)) then
         if ((stonedIndex_n==18) and (clearIndex_n==2)) then
@@ -100,11 +100,11 @@ function callEffect(stonedEffect, Character)    -- Effect wird ausgeführt
             "You notices the surroundings look fuzzy due to your unclear vision." );
         end
         if (stonedEffectType == 1) then
-            Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me wiegt sich langsam vor und zurück.");
-            Character:talkLanguage(CCharacter.say,CPlayer.english,"#me sways slowly back and forth");
+            Character:talkLanguage(Character.say,Player.german ,"#me wiegt sich langsam vor und zurück.");
+            Character:talkLanguage(Character.say,Player.english,"#me sways slowly back and forth");
         else
-            Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me sieht mit weit aufgerissenen Augen plötzlich hinter sich.");
-            Character:talkLanguage(CCharacter.say,CPlayer.english,"#me suddenly looks behind "..eTextm.."self with eyes wide open.");
+            Character:talkLanguage(Character.say,Player.german ,"#me sieht mit weit aufgerissenen Augen plötzlich hinter sich.");
+            Character:talkLanguage(Character.say,Player.english,"#me suddenly looks behind "..eTextm.."self with eyes wide open.");
         end
 
     elseif stonedIndex_n>=20 then
@@ -114,11 +114,11 @@ function callEffect(stonedEffect, Character)    -- Effect wird ausgeführt
             "You feel like you want to just topple down and fall asleep." );
         end
         if (stonedEffectType == 1) then
-            Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me fallen immer wieder die Augen zu.");
-            Character:talkLanguage(CCharacter.say,CPlayer.english,"#me closes "..eText.." eyes every now and then.");
+            Character:talkLanguage(Character.say,Player.german ,"#me fallen immer wieder die Augen zu.");
+            Character:talkLanguage(Character.say,Player.english,"#me closes "..eText.." eyes every now and then.");
         else
-            Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me murmelt unverständliches Zeug.");
-            Character:talkLanguage(CCharacter.say,CPlayer.english,"#me murmurs nothing but gibberish.");
+            Character:talkLanguage(Character.say,Player.german ,"#me murmelt unverständliches Zeug.");
+            Character:talkLanguage(Character.say,Player.english,"#me murmurs nothing but gibberish.");
         end
 
 

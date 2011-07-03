@@ -50,7 +50,7 @@ function nextCycle()
 				if foundRes then
 					doubleEffect(resEffect,player);
 				else
-					player.effects:addEffect( CLongTimeEffect(400,math.random(600,1800)) );
+					player.effects:addEffect( LongTimeEffect(400,math.random(600,1800)) );
 				end
             end
         end

@@ -245,12 +245,12 @@ function Craft:CheckMaterial( User, ItemID, Step )
             "You do not have a required material ready." );
         elseif (available == 0) then
             base.common.TempInformNLS( User,
-            "Dir fehlt "..world:getItemName( StepInfos[1], CPlayer.german )..".",
-            "You lack "..world:getItemName( StepInfos[1], CPlayer.english ).."." );
+            "Dir fehlt "..world:getItemName( StepInfos[1], Player.german )..".",
+            "You lack "..world:getItemName( StepInfos[1], Player.english ).."." );
         else
             base.common.TempInformNLS( User,
-            "Das Material reicht nicht. Du brauchst mehr "..world:getItemName( StepInfos[1], CPlayer.german ),
-            "The materials are insufficient. You lack of "..world:getItemName( StepInfos[1], CPlayer.english ) );
+            "Das Material reicht nicht. Du brauchst mehr "..world:getItemName( StepInfos[1], Player.german ),
+            "The materials are insufficient. You lack of "..world:getItemName( StepInfos[1], Player.english ) );
         end
         return false;
     end
@@ -544,8 +544,8 @@ end
 function Craft:RepairItem( User, Item, ltstate ,toolItem)
     if (ltstate == Action.none) then
         User:startAction( self:GenWorkTime( User, Item.id, toolItem ), self.Products[ Item.id ].GfxEffect[1], self.Products[ Item.id ].GfxEffect[2], self.Products[ Item.id ].SfxEffect[1], self.Products[ Item.id ].SfxEffect[2]);
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt mit der Reparatur.");
-        User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to repair.");
+        User:talkLanguage(Character.say, Player.german, "#me beginnt mit der Reparatur.");
+        User:talkLanguage(Character.say, Player.english, "#me starts to repair.");
         self:SwapToActiveItem( User );
         return
     end
@@ -590,8 +590,8 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
 		end
 		User:startAction( self:GenWorkTime( User, ItemID,toolItem ), self.Products[ ItemID ].GfxEffect[1], self.Products[ ItemID ].GfxEffect[2], self.Products[ ItemID ].SfxEffect[1], self.Products[ ItemID ].SfxEffect[2]);
         if (Step == 1) then
-            User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt zu arbeiten.");
-            User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to work.");
+            User:talkLanguage(Character.say, Player.german, "#me beginnt zu arbeiten.");
+            User:talkLanguage(Character.say, Player.english, "#me starts to work.");
         else
             base.common.TempInformNLS(User,
 				"Du setzt die Arbeit fort.",

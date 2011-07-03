@@ -120,7 +120,7 @@ end
 function SayRunes( Char )
     local Language=Char.activeLanguage;
     Char.activeLanguage=10;
-    Char:talk(CCharacter.whisper,Settings.Runes);
+    Char:talk(Character.whisper,Settings.Runes);
     Char.activeLanguage=Language;
 end
 
@@ -337,8 +337,8 @@ function AddBonus(User,ItemList,ItemBoniList)   -- Adds bonus/malus for items to
 end
 
 function actionDisturbed(Caster,disturber)
-    local RItem = disturber:getItemAt(CCharacter.right_tool); -- Item in der Rechten Hand
-    local LItem = disturber:getItemAt(CCharacter.left_tool); -- Item in der Linken Hand
+    local RItem = disturber:getItemAt(Character.right_tool); -- Item in der Rechten Hand
+    local LItem = disturber:getItemAt(Character.left_tool); -- Item in der Linken Hand
     local DefrFound,DefRightWeapon = world:getWeaponStruct(RItem.id);   -- Waffenwerte Rechte Waffe
     local DeflFound,DefLeftWeapon = world:getWeaponStruct(LItem.id);     -- Waffenwerte linke Waffe
     Distance = 1;
@@ -377,9 +377,9 @@ function gemBonis( Char )
         ["Radius"] = 0
     }
 
-    local StoneItem = Char:getItemAt( CCharacter.right_tool );
+    local StoneItem = Char:getItemAt( Character.right_tool );
     if ItemClass[StoneItem.id]~=5 then
-        StoneItem = Char:getItemAt( CCharacter.left_tool );
+        StoneItem = Char:getItemAt( Character.left_tool );
 	    if ItemClass[StoneItem.id]~=5 then
 	        return;
 	    end

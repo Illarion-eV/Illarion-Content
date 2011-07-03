@@ -1058,12 +1058,12 @@ if base.common. BasicNPCChecks(speaker,2, thisNPC) then
 		gText="Sehr gut, dann fangen wir an. Um euch nicht zu überfordern müsst ihr euch auch nur um eine Kuh kümmern und zwar um "..cowname[cowrnd]..". Ich werde euch täglich sagen welche Aufgaben ihr zu tun habt.";
 	    eText="Very good, let's start. You only have to take care of one cow namely "..cowname[cowrnd].." so it's not that hard. I will tell you daily what to do.";
 		outText=base.common.GetNLS(speaker,gText,eText);
-        thisNPC:talk(CCharacter.say, outText);
+        thisNPC:talk(Character.say, outText);
 	
 		-- TELL the TASK TO DO
 		gText,eText = TaskText(task);
 		outText=base.common.GetNLS(speaker,gText,eText);
-        thisNPC:talk(CCharacter.say, outText);
+        thisNPC:talk(Character.say, outText);
         
 	elseif ((string.find(message,"[Hh]ilfe")~=nil or string.find(message,"[Hh]elp")~=nil) and speaker:getQuestProgress(28)>0) then
 		gText = "Schlüsselwörter: 'Wie lautet meine Aufgabe?','Gib mir einen Hinweis zur Aufgabe'";
@@ -1076,7 +1076,7 @@ if base.common. BasicNPCChecks(speaker,2, thisNPC) then
 	
 		dummy1,dummy2,gText,eText = TaskText(task);
 		outText=base.common.GetNLS(speaker,gText,eText);
-        thisNPC:talk(CCharacter.say, outText);
+        thisNPC:talk(Character.say, outText);
         
 	elseif ((string.find(message,"[Aa]ufgabe")~=nil or string.find(message,"[Tt]ask")~=nil) and speaker:getQuestProgress(28)>0) then
 	
@@ -1091,7 +1091,7 @@ if base.common. BasicNPCChecks(speaker,2, thisNPC) then
 		
 		gText,eText = TaskText(task);
 		outText=base.common.GetNLS(speaker,gText,eText);
-        thisNPC:talk(CCharacter.say, outText);
+        thisNPC:talk(Character.say, outText);
         
 	else
 		mainNPC:receiveText(speaker, message); 

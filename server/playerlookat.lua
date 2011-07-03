@@ -124,9 +124,9 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     --SourceCharacter:inform("now checking diseaseeeee:");
     --found,diseaseEffect = TargetCharacter.effects:find(28);
     --if found then
-        --SourceCharacter:talk(CCharacter.say,"found!");
+        --SourceCharacter:talk(Character.say,"found!");
         --fndStr,disStr=diseaseEffect:findValue("diseaseStr");
-        --SourceCharacter:talk(CCharacter.say,"Char infiziert. Str="..disStr);
+        --SourceCharacter:talk(Character.say,"Char infiziert. Str="..disStr);
     --end
 
     if (mode == 1) then
@@ -158,7 +158,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 end
 
 function checkCoat( TargetCharacter, lang, SourceCharacter )
-    local coat = TargetCharacter:getItemAt( CCharacter.coat );
+    local coat = TargetCharacter:getItemAt( Character.coat );
     if ( coat ~= nil ) and ( coat.id > 0 ) then
         -- The dude has a coat!
         output = output .. getText( "genus_"..content.genus.GenusData( coat.id ), lang );
@@ -171,7 +171,7 @@ end
 
 function checkArmor( TargetCharacter, lang, modify, belowcoat, SourceCharacter )
     if ( LookingAt > modify ) then
-        local breast = TargetCharacter:getItemAt( CCharacter.breast );
+        local breast = TargetCharacter:getItemAt( Character.breast );
         if ( breast ~= nil ) and ( breast.id > 0 ) then
             if belowcoat then
                 output = output .. " " .. getText( "below_coat", lang );
@@ -433,10 +433,10 @@ end
 -- in seinen Händen hat er ein Serinjahschwert[ und ein Schild].
 function getWeaponText( Char, lang, SourceChar )
     local message = "";
-    local leftItem = Char:getItemAt( CCharacter.left_tool );
+    local leftItem = Char:getItemAt( Character.left_tool );
     handleCustomLookat(Char,SourceChar,leftItem);
 	leftItem = ( leftItem == nil and 0 or leftItem.id );
-    local rightItem = Char:getItemAt( CCharacter.right_tool );
+    local rightItem = Char:getItemAt( Character.right_tool );
     handleCustomLookat(Char,SourceChar,rightItem);
 	rightItem = ( rightItem == nil and 0 or rightItem.id );
     if ( leftItem == 228 or leftItem == 93 or leftItem == 99 or leftItem == 100 or leftItem == 382 ) then

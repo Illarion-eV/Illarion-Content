@@ -47,17 +47,17 @@ end
 
 function PrintTaskText(User, task) --EDIT HERE THE TEXT FOR THE MESSAGES
 	if task == 1 then --task 1: Brush the cow with a comb 2719
-		base.common.TalkNLS(User, CCharacter.say, "#me beginnt damit die Kuh mit dem Kamm zu bürsten.", "#me starts brushing the cow with a comb.");
+		base.common.TalkNLS(User, Character.say, "#me beginnt damit die Kuh mit dem Kamm zu bürsten.", "#me starts brushing the cow with a comb.");
 	elseif task == 2 then -- task 2: Wash the cow with a water bucket 52
-		base.common.TalkNLS(User, CCharacter.say, "#me beginnt damit die Kuh zu waschen.", "#me starts washing the cow.");
+		base.common.TalkNLS(User, Character.say, "#me beginnt damit die Kuh zu waschen.", "#me starts washing the cow.");
 	elseif task == 3 then -- play some tunes on a lute for the cow
-		base.common.TalkNLS(User, CCharacter.say, "#me spielt der Kuh eine Melodie vor.", "#me plays a melody for the cow.");
+		base.common.TalkNLS(User, Character.say, "#me spielt der Kuh eine Melodie vor.", "#me plays a melody for the cow.");
 	elseif task == 4 then  -- clear the water in the well
 		return; --  NOT IN COW SCRIPT, needs to kill monsters in the well
 	elseif task == 5 then  -- feed the cow
-		base.common.TalkNLS(User, CCharacter.say, "#me gibt der Kuh etwas Getreide zu fressen.", "#me gives the cow some grain to eat.");
+		base.common.TalkNLS(User, Character.say, "#me gibt der Kuh etwas Getreide zu fressen.", "#me gives the cow some grain to eat.");
 	elseif task == 6 then  -- milk the cow
-		base.common.TalkNLS(User, CCharacter.say, "#me beginnt die Kuh zu melken.", "#me starts milking the cow.");
+		base.common.TalkNLS(User, Character.say, "#me beginnt die Kuh zu melken.", "#me starts milking the cow.");
 	else
 		return;
 	end
@@ -82,7 +82,7 @@ end
 
 
 function Cow_useNPC(User, CowID, u_act_task,thisNPC)
---base.common.TalkNLS(User, CCharacter.say, "#me muht.", "#me muht.");
+--base.common.TalkNLS(User, Character.say, "#me muht.", "#me muht.");
 	local cow, task, counter = split_questdata(User);
 	local itemlist = getTaskItems();
 	-- DID PLAYER WAIT 1 DAY till next task?
@@ -202,13 +202,13 @@ function Cow_NextCycle(User,n_active_task,thisNPC)
 				fv = base.factions.put(User,fv);
 				-----------------------------------------------------------
 			else
-				base.common.TalkNLS(thisNPC, CCharacter.say, "#me scheint sich über die Pflege zu freuen und muht zufrieden.", "#me seems to enjoy the care and gives a content and haunting \"Mooooo!\"");
+				base.common.TalkNLS(thisNPC, Character.say, "#me scheint sich über die Pflege zu freuen und muht zufrieden.", "#me seems to enjoy the care and gives a content and haunting \"Mooooo!\"");
 				counter = counter - 1 ;
 			end
 			task = 0; --reset task
 			glue_questdata(User, cow,task,counter); --put the quest data with changes together
 
-			aquest28Effect = CLongTimeEffect(32,100); -- create new effect and initialize with nextcalled = 1s
+			aquest28Effect = LongTimeEffect(32,100); -- create new effect and initialize with nextcalled = 1s
 			User.effects:addEffect(aquest28Effect); -- add effect #3         2
 		end
 	end 

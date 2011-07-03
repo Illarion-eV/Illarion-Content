@@ -32,20 +32,20 @@ function callEffect(stinkEffect, Character)    -- Effect wird ausgeführt
     stinkEffect:addValue("stinkIndex",stinkIndex_n);
     --Character:inform("callEffect 3");
     if ((stinkIndex_n>10) and (stinkIndex_n<20)) then
-        Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me müffelt leicht nach Kuh.");
-        Character:talkLanguage(CCharacter.say,CPlayer.english,"#me smells a bit of cow.");
+        Character:talkLanguage(Character.say,Player.german ,"#me müffelt leicht nach Kuh.");
+        Character:talkLanguage(Character.say,Player.english,"#me smells a bit of cow.");
     elseif ((stinkIndex_n>=20) and (stinkIndex_n<30)) then
-        Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me riecht dezent nach Kuh.");
-	      Character:talkLanguage(CCharacter.say,CPlayer.english,"#me smells decently of cow.");
+        Character:talkLanguage(Character.say,Player.german ,"#me riecht dezent nach Kuh.");
+	      Character:talkLanguage(Character.say,Player.english,"#me smells decently of cow.");
     elseif ((stinkIndex_n>=30) and (stinkIndex_n<40)) then
-        Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me riecht deutlich nach Kuhmist.");
-	      Character:talkLanguage(CCharacter.say,CPlayer.english,"#me smells noticeably of cow dung.");
+        Character:talkLanguage(Character.say,Player.german ,"#me riecht deutlich nach Kuhmist.");
+	      Character:talkLanguage(Character.say,Player.english,"#me smells noticeably of cow dung.");
     elseif ((stinkIndex_n>=40) and (stinkIndex_n<50)) then
-        Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me stinkt regelrecht nach Kuh.");
-        Character:talkLanguage(CCharacter.say,CPlayer.english,"#me stinks a lot of cow.");
+        Character:talkLanguage(Character.say,Player.german ,"#me stinkt regelrecht nach Kuh.");
+        Character:talkLanguage(Character.say,Player.english,"#me stinks a lot of cow.");
     elseif stinkIndex_n>=50 then
-        Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me stinkt bestialisch nach Kuhmist.");
-        Character:talkLanguage(CCharacter.say,CPlayer.english,"#me stinks terribly of cow dung.");
+        Character:talkLanguage(Character.say,Player.german ,"#me stinkt bestialisch nach Kuhmist.");
+        Character:talkLanguage(Character.say,Player.english,"#me stinks terribly of cow dung.");
     end
 
     return true;

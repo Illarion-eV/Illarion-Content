@@ -6,8 +6,8 @@ module("npc.abc", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "ABC!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "ABC!");
+    thisNPC:talkLanguage(Character.say, Player.german, "ABC!");
+    thisNPC:talkLanguage(Character.say, Player.english, "ABC!");
 end
 
 function initializeNpc()

@@ -26,8 +26,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
         return
     end
     
@@ -53,9 +53,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return
     end
     
-    local Tool = User:getItemAt(CCharacter.left_tool); -- Item in Linker Hand auslesen
+    local Tool = User:getItemAt(Character.left_tool); -- Item in Linker Hand auslesen
     if ((Tool == nil) or (Tool.id ~= 6)) then -- Wenn das Item nicht die Zange ist
-        Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
+        Tool = User:getItemAt(Character.right_tool); -- In anderer Hand nachsehen
     end
     
     if base.common.ToolBreaks( User, Tool, true) then -- Schere beschädigen
@@ -76,8 +76,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if ( ltstate == Action.none ) then
         User:startAction( GenWorkTime(User), 0, 0, 0, 0);
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt Wolle zu spinnen.");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to spin wool.");
+        User:talkLanguage( Character.say, Player.german, "#me beginnt Wolle zu spinnen.");
+        User:talkLanguage( Character.say, Player.english, "#me starts to spin wool.");
         return
     end
     

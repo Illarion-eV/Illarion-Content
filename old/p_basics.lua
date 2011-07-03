@@ -220,7 +220,7 @@ function P_DevoteFollower(Char,God)
 	Char:setQuestProgress(18,God);
 	local fEffect = P_GetFollowerEffect(Char);
 	if not fEffect then
-		fEffect = CLongTimeEffect(6,10);
+		fEffect = LongTimeEffect(6,10);
 		Char.effects:addEffect(fEffect);
 	end
 	fEffect:addValue("day",world:getTime("day"));
@@ -312,7 +312,7 @@ end
 function P_CharToPriest(Char,God)
 	Char:setQuestProgress(18,100+God);
 	Char.effects:removeEffect(6);
-	Char.effects:addEffect(CLongTimeEffect(17,10));
+	Char.effects:addEffect(LongTimeEffect(17,10));
 	Char:setMagicType(1);
 	Char:teachMagic(1,RUNE_HEALING);
 	Char:teachMagic(1,RUNE_SMALL);

@@ -15,8 +15,8 @@ module("npc.rian_delarn", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger wech oder du bist ein Kopf kürzer!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Dont ya' touch me!");
+    thisNPC:talkLanguage(Character.say, Player.german, "Finger wech oder du bist ein Kopf kürzer!");
+    thisNPC:talkLanguage(Character.say, Player.english, "Dont ya' touch me!");
 end
 
 function initializeNpc()
@@ -157,7 +157,7 @@ function nextCycle()  -- ~10 times per second
 	    if (CastAggr==1) then 
        		local Language=thisNPC.activeLanguage;
 	    	thisNPC.activeLanguage=10;
-	    	thisNPC:talk(CCharacter.say,"IRA TAUR LUK");
+	    	thisNPC:talk(Character.say,"IRA TAUR LUK");
 	    	thisNPC.activeLanguage=Language;
 	        world:makeSound(1,position(26,57,50));
 	        world:gfx(5,position(26,57,50));
@@ -182,7 +182,7 @@ function nextCycle()  -- ~10 times per second
             if (CastHarml==1) then
                 local Language=thisNPC.activeLanguage;
                 thisNPC.activeLanguage=10;
-                thisNPC:talk(CCharacter.say,"IRA TAUR LUK");
+                thisNPC:talk(Character.say,"IRA TAUR LUK");
                 thisNPC.activeLanguage=Language;
                 world:makeSound(13,position(26,57,50));
                 world:gfx(5,position(26,57,50));
@@ -223,8 +223,8 @@ end
 
 function SayPrice(message, originator)
 	if (string.find(message,"koste")~=nil) or (string.find(message,"costs")~=nil) then
-        thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Wenn ich dir eine harmlose Kreatur beschwören soll, bekomme ich "..PreisHarmlKrea.." Kupferstücke von dir. Für eine aggressive Kreatur möchte ich "..PreisAggrKrea.." Kupferstücke haben.");
-        thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "If I should summon a harmles creature for you, I get "..PreisHarmlKrea.." coppercoins. For a aggressive creature one I take "..PreisAggrKrea.." coppercoins.");
+        thisNPC:talkLanguage( Character.say, Player.german, "Wenn ich dir eine harmlose Kreatur beschwören soll, bekomme ich "..PreisHarmlKrea.." Kupferstücke von dir. Für eine aggressive Kreatur möchte ich "..PreisAggrKrea.." Kupferstücke haben.");
+        thisNPC:talkLanguage( Character.say, Player.english, "If I should summon a harmles creature for you, I get "..PreisHarmlKrea.." coppercoins. For a aggressive creature one I take "..PreisAggrKrea.." coppercoins.");
         return true
     end
     return false;
@@ -242,19 +242,19 @@ function getCreature (message, originator)
 	if npc.base.autonpcfunctions.CheckMoney(originator,GCoins,SCoins,CCoins) then
 	    Pay(originator,GCoins,SCoins,CCoins);
 
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "#me nickt und richtet seine Konzentration ganz auf die Arena während er die mystische Formel spricht.");
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "#me nods and starts to concentrate on the arena field while speaking the mystical formula.");
+            thisNPC:talkLanguage( Character.say, Player.german, "#me nickt und richtet seine Konzentration ganz auf die Arena während er die mystische Formel spricht.");
+            thisNPC:talkLanguage( Character.say, Player.english, "#me nods and starts to concentrate on the arena field while speaking the mystical formula.");
 
 	    CastHarml=6;
             logStr=os.date()..": "..originator.name.." ask NPC Rian for a harmless creature\n";
             logToFile_npc(logStr);
 
 
-	    -- thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Bitte sehr.");
-	    -- thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "Here we go.");
+	    -- thisNPC:talkLanguage( Character.say, Player.german, "Bitte sehr.");
+	    -- thisNPC:talkLanguage( Character.say, Player.english, "Here we go.");
 	else
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Du hast nicht genug Geld. Ich möchte "..PreisHarmlKrea.." Kupferstücke haben." );
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.english,"You don't have enough money. I get "..PreisHarmlKrea.." coppercoins." );
+            thisNPC:talkLanguage( Character.say, Player.german, "Du hast nicht genug Geld. Ich möchte "..PreisHarmlKrea.." Kupferstücke haben." );
+            thisNPC:talkLanguage( Character.say, Player.english,"You don't have enough money. I get "..PreisHarmlKrea.." coppercoins." );
         end
 	return true;
     elseif (string.find(message,"beschwör.+aggressiv.+kreatur")~=nil)
@@ -266,17 +266,17 @@ function getCreature (message, originator)
         if npc.base.autonpcfunctions.CheckMoney(originator,GCoins,SCoins,CCoins) then
             Pay(originator,GCoins,SCoins,CCoins);
 
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "#me nickt und richtet seine Konzentration ganz auf die Arena während er die mystische Formel spricht.");
-	    thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "#me nods and starts to concentrate on the arena field while speaking the mystical formula.");
+            thisNPC:talkLanguage( Character.say, Player.german, "#me nickt und richtet seine Konzentration ganz auf die Arena während er die mystische Formel spricht.");
+	    thisNPC:talkLanguage( Character.say, Player.english, "#me nods and starts to concentrate on the arena field while speaking the mystical formula.");
 	    
 	    CastAggr=6;
             logStr=os.date()..": "..originator.name.." ask NPC Rian for a aggressive creature\n";
 	    logToFile_npc(logStr);
 
-            --thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "Here we go.");
+            --thisNPC:talkLanguage( Character.say, Player.english, "Here we go.");
         else
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Du hast nicht genug Geld. Ich möchte "..PreisAggrKrea.." Kupferstücke haben." );
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.english,"You don't have enough money. I get "..PreisAggrKrea.." coppercoins." );
+            thisNPC:talkLanguage( Character.say, Player.german, "Du hast nicht genug Geld. Ich möchte "..PreisAggrKrea.." Kupferstücke haben." );
+            thisNPC:talkLanguage( Character.say, Player.english,"You don't have enough money. I get "..PreisAggrKrea.." coppercoins." );
         end
         return true;
     end

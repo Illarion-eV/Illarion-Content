@@ -9,8 +9,8 @@ end;
 function Drop(User,Item)
     if (math.random(1,User:increaseAttrib("dexterity",0)+7)==1) then
         Explode(Item);
-        User:talkLanguage(CCharacter.say,CPlayer.german,"#me lässt eine Flasche fallen, welche explodiert.");
-        User:talkLanguage(CCharacter.say,CPlayer.english,"#me drops a bottle and it explodes.");
+        User:talkLanguage(Character.say,Player.german,"#me lässt eine Flasche fallen, welche explodiert.");
+        User:talkLanguage(Character.say,Player.english,"#me drops a bottle and it explodes.");
         InformChar(User,
         "Der Molotov Cocktail rutscht dir aus den Händen und explodiert vor deinen Füßen.",
         "The molotov cocktail slip out of your hands and explode in front of you feets.");
@@ -39,8 +39,8 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
         if (SourceItem:getType()==4 and (SourceItem.itempos==5 or SourceItem.itempos==6)) then
             if (TargetItem:getType()==3) then
                 Explode(TargetItem);
-                User:talkLanguage(CCharacter.say,CPlayer.german,"#me wirft eine Flasche, welche explodiert.");
-                User:talkLanguage(CCharacter.say,CPlayer.english,"#me throws a bottle and it explodes.");
+                User:talkLanguage(Character.say,Player.german,"#me wirft eine Flasche, welche explodiert.");
+                User:talkLanguage(Character.say,Player.english,"#me throws a bottle and it explodes.");
                 User.movepoints=User.movepoints-30;
             else
                 Drop(User,TargetItem);

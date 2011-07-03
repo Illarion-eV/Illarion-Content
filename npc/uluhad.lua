@@ -24,8 +24,8 @@ function cashOut()
             filepoint:close();
         end;
         
-        thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Der Hausanteil ist "..houseRakePercent.."% aller Gewinne");
-        thisNPC:talkLanguage(CCharacter.say, CPlayer.english,"The house rake is "..houseRakePercent.."% of all winnings");
+        thisNPC:talkLanguage(Character.say, Player.german, "Der Hausanteil ist "..houseRakePercent.."% aller Gewinne");
+        thisNPC:talkLanguage(Character.say, Player.english,"The house rake is "..houseRakePercent.."% of all winnings");
     end;
     User:setQuestProgress(playerMoneyID, 0);
     User:setQuestProgress(playerBuyInID, 0);
@@ -34,8 +34,8 @@ end
 
  function useNPC(user,counter,param)
    thisNPC:increaseSkill(1,"common language",100);
-   thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-   thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!");
+   thisNPC:talkLanguage(Character.say, Player.german, "Finger weg!");
+   thisNPC:talkLanguage(Character.say, Player.english, "Don't you touch me!");
  end
 
  function initializeNpc()
@@ -129,11 +129,11 @@ end
    else
   debugText=debugText.." St=0";
    end
-   thisNPC:talk(CCharacter.say,"Debug Info: "..debugText);
+   thisNPC:talk(Character.say,"Debug Info: "..debugText);
  end
- --thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "before npc.base.autonpcfunctions.TellSmallTalk");
+ --thisNPC:talkLanguage(Character.say, Player.german, "before npc.base.autonpcfunctions.TellSmallTalk");
  npc.base.autonpcfunctions.TellSmallTalk(message,originator);
- --thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "after npc.base.autonpcfunctions.TellSmallTalk");
+ --thisNPC:talkLanguage(Character.say, Player.german, "after npc.base.autonpcfunctions.TellSmallTalk");
   else
  npc.base.autonpcfunctions.Confused(
   "#me sieht dich leicht verwirrt an",

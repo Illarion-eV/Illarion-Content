@@ -13,8 +13,8 @@ module("npc.grushub", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    if (lang==0) then thisNPC:talk(CCharacter.say, "Geh weg!") end
-    if (lang==1) then thisNPC:talk(CCharacter.say, "Nhub touch me!") end
+    if (lang==0) then thisNPC:talk(Character.say, "Geh weg!") end
+    if (lang==1) then thisNPC:talk(Character.say, "Nhub touch me!") end
 end
 
 function initializeNpc()
@@ -1489,15 +1489,15 @@ function nextCycle()  -- ~10 times per second
         cycCount=1;
         nextDelivery=math.random(10000,40000);
         thisNPC:increaseSkill(1,"common language",100);
-        --thisNPC:talk(CCharacter.say, "Next delivery in "..nextDelivery);
+        --thisNPC:talk(Character.say, "Next delivery in "..nextDelivery);
     else
         cycCount=cycCount+1;
         --printerr("In Circle "..cycCount.. "With "..nextDelivery);
         if (cycCount+1>nextDelivery+1) then
-            --thisNPC:talk(CCharacter.say, "Next");
+            --thisNPC:talk(Character.say, "Next");
             nextDelivery=math.random(10000,40000);
             cycCount=1;
-            --thisNPC:talk(CCharacter.say, "Next delivery in "..nextDelivery.." CycCount: "..cycCount);
+            --thisNPC:talk(Character.say, "Next delivery in "..nextDelivery.." CycCount: "..cycCount);
             for itnCnt=1,table.getn(TraderItemNumber) do
                 npc.base.trader_functions.refillItems(itnCnt);
             end
@@ -1538,7 +1538,7 @@ function receiveText(texttype, message, originator)
                         until (searchfin==true);
                         TextSel=math.random(0,Texts);
                         if (TextSel>0) then TextSel=TextSel-1 end
-                        thisNPC:talk(CCharacter.say,TraderText[i+(TextSell*1000)]);
+                        thisNPC:talk(Character.say,TraderText[i+(TextSell*1000)]);
                         ready=true;
                     end
                     i=i+1;
@@ -1637,12 +1637,12 @@ function receiveText(texttype, message, originator)
 
                     if (Status~=0) then
                         outText=GetNLS(originator,gText,eText);
-                        thisNPC:talk(CCharacter.say,outText);
+                        thisNPC:talk(Character.say,outText);
                     end
 
                     ---------------------------------- DON'T EDIT BELOW HERE ------------------------------
                     if (string.find(message,"[sS]tatus")~=nil and originator:isAdmin()==true) then
-                        thisNPC:talk(CCharacter.say,"Copper="..TraderCopper ..", next delivery: "..nextDelivery.."cycCount:"..cycCount);
+                        thisNPC:talk(Character.say,"Copper="..TraderCopper ..", next delivery: "..nextDelivery.."cycCount:"..cycCount);
                         statusString="Wares: ";
                         for itnCnt=1,table.getn(TraderItemId) do
                             if string.len(statusString)+string.len(world:getItemName(TraderItemId[itnCnt],1))>240 then    -- line too long
@@ -1664,7 +1664,7 @@ function receiveText(texttype, message, originator)
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
                 outText=GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say,outText);
+                thisNPC:talk(Character.say,outText);
             end
         end --id
     end-- range

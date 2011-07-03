@@ -312,8 +312,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
         return
     end
 
@@ -365,8 +365,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     end
 
     if (ltstate == Action.none) then
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt mit der Spitzhacke auf den Stein zu schlagen.");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to hit the stone with a pick axe.");
+        User:talkLanguage( Character.say, Player.german, "#me beginnt mit der Spitzhacke auf den Stein zu schlagen.");
+        User:talkLanguage( Character.say, Player.english, "#me starts to hit the stone with a pick axe.");
 		User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
         return
     end
@@ -379,8 +379,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     end
 
     if breakRock(TargetItem) then
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me zertrümmert den Stein.");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me destroys the rock.");
+        User:talkLanguage( Character.say, Player.german, "#me zertrümmert den Stein.");
+        User:talkLanguage( Character.say, Player.english, "#me destroys the rock.");
         return
     end
 

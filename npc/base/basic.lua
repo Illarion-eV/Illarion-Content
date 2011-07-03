@@ -253,8 +253,8 @@ function baseNPC:_displayLanguageConfusion()
     if (currentUnix - self._lastConfusionTimestamp > 59) then
         self._lastConfusionTimestamp = currentUnix;
         thisNPC.activeLanguage = self._defaultLanguage;
-        thisNPC:talkLanguage(CCharacter.say, CPlayer.german, self._confusedDE);
-        thisNPC:talkLanguage(CCharacter.say, CPlayer.english, self._confusedUS);
+        thisNPC:talkLanguage(Character.say, Player.german, self._confusedDE);
+        thisNPC:talkLanguage(Character.say, Player.english, self._confusedUS);
     end;
 end;
 
@@ -345,8 +345,8 @@ end;
 --  @param mode the mode used to look at the NPC (no effect)
 function baseNPC:use(char)
     thisNPC.activeLanguage = self._defaultLanguage;
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, self._useMsgDE);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, self._useMsgUS);
+    thisNPC:talkLanguage(Character.say, Player.german, self._useMsgDE);
+    thisNPC:talkLanguage(Character.say, Player.english, self._useMsgUS);
     
     if self._autointroduce then
         char:introduce(thisNPC);

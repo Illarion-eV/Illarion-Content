@@ -89,7 +89,7 @@ function setThrustWorthyness(user,ntwn,ngoodorders)
 end
 
 local function activateRetentionPeriod(user)
-    local retentionperiod = CLongTimeEffect(31,OrderRetentionPeriod * 600);
+    local retentionperiod = LongTimeEffect(31,OrderRetentionPeriod * 600);
 	user.effects:addEffect(retentionperiod);
 end
 
@@ -241,14 +241,14 @@ function OrderNPC:talkOrder()
         local ger = string.format(text.ger,count);
         local eng = string.format(text.eng,count);
         if ( self.npc ~= nil ) then
-            base.common.TalkNLS(self.npc,CCharacter.say,ger,eng);
+            base.common.TalkNLS(self.npc,Character.say,ger,eng);
         end
     else
         local text = self.textOrderSay[1];
         local ger = string.format(text.ger,table.getn(self.openOrders));
         local eng = string.format(text.eng,table.getn(self.openOrders));
         if ( self.npc ~= nil ) then
-            base.common.TalkNLS(self.npc,CCharacter.say,text.ger,text.eng);
+            base.common.TalkNLS(self.npc,Character.say,text.ger,text.eng);
         end
     end
 end
@@ -301,22 +301,22 @@ function OrderNPC:receiveText(who,text)
             number = getNumberInString(text);
             if ( number ~= nil ) then
                 if ( number <= 0 or number > table.getn(self.openOrders) ) then
-                    base.common.TalkNLS(self.npc,CCharacter.say,"Ich habe nur "..table.getn(self.openOrders).." Aufträge!","I only have "..table.getn(self.openOrders).." orders!");
+                    base.common.TalkNLS(self.npc,Character.say,"Ich habe nur "..table.getn(self.openOrders).." Aufträge!","I only have "..table.getn(self.openOrders).." orders!");
                 else
                     local twn, go = getThrustWorthyness(who);
                     --schon eine Sperrfrist dann einfach den Text der Sperrfrist ausgeben
                     if ( checkRetentionPeriod(who) ) then
-                        base.common.TalkNLS(self.npc,CCharacter.say,self.textRetentionPeriod.ger,self.textRetentionPeriod.eng);
+                        base.common.TalkNLS(self.npc,Character.say,self.textRetentionPeriod.ger,self.textRetentionPeriod.eng);
                     --Vertrauenswürdigkeit ausreichend?
                     elseif ( twn < ThrustworthynessBorder ) then
-                        base.common.TalkNLS(self.npc,CCharacter.say,self.textNotThrustworthy.ger,self.textNotThrustworthy.eng);
+                        base.common.TalkNLS(self.npc,Character.say,self.textNotThrustworthy.ger,self.textNotThrustworthy.eng);
                         activateRetentionPeriod(who);
                     --alles ok, den Auftrag erzeugen
                     else
                         local order = self.openOrders[number];
                         order:setTime();
                         if ( order:createOrderItem(who) ) then
-                            base.common.TalkNLS(self.npc,CCharacter.say,self.textGetOrder.ger,self.textGetOrder.eng);
+                            base.common.TalkNLS(self.npc,Character.say,self.textGetOrder.ger,self.textGetOrder.eng);
                             setThrustWorthyness(who,ThrustworthynessChangeAfterGetOrder,0);
                             base.common.TempInformNLS(who, "[Neues Quest] Bringe Ihm die verlangten Waren innerhalb der im Vertrag vorgegebenen Zeit.", "[New quest] Bring him the demanded wares within the given time of the contract.");
                             table.remove(self.openOrders,number);
@@ -334,11 +334,11 @@ function OrderNPC:receiveText(who,text)
             if ( number ~= nil ) then
                 if ( number <= 0 or number > ordercount ) then
                     if ( ordercount == 0 ) then
-                        base.common.TalkNLS(self.npc, CCharacter.say,"Ich habe keinen Auftrag!","I don't have any orders!");
+                        base.common.TalkNLS(self.npc, Character.say,"Ich habe keinen Auftrag!","I don't have any orders!");
                     elseif (ordercount == 1 ) then
-                        base.common.TalkNLS(self.npc, CCharacter.say,"Ich habe nur einen Auftrag!","I only have one order!");
+                        base.common.TalkNLS(self.npc, Character.say,"Ich habe nur einen Auftrag!","I only have one order!");
                     else
-                        base.common.TalkNLS(self.npc, CCharacter.say,"Ich habe nur "..ordercount.." Aufträge!","I only have "..ordercount.." orders!");
+                        base.common.TalkNLS(self.npc, Character.say,"Ich habe nur "..ordercount.." Aufträge!","I only have "..ordercount.." orders!");
                     end
                 else
                     local order = self.openOrders[number];
@@ -348,15 +348,15 @@ function OrderNPC:receiveText(who,text)
                 end
             else
                 if ( ordercount == 0 ) then
-                    base.common.TalkNLS(self.npc, CCharacter.say,"Ich habe keinen Auftrag!","I don't have any orders!");
+                    base.common.TalkNLS(self.npc, Character.say,"Ich habe keinen Auftrag!","I don't have any orders!");
                 elseif (ordercount == 1 ) then
-                    base.common.TalkNLS(self.npc, CCharacter.say,"Ich habe einen Auftrag.","I have one order.");
+                    base.common.TalkNLS(self.npc, Character.say,"Ich habe einen Auftrag.","I have one order.");
                     local order = self.openOrders[1];
                     order:setTime();
                     base.common.InformNLS(who,"Dieser Auftrag enthält:", "This order contains:");
                     who:inform(order:lookAt(who));
                 else
-                    base.common.TalkNLS(self.npc, CCharacter.say,"Welchen der "..table.getn(self.openOrders).." Aufträge möchtest du sehen?","Which one of the "..table.getn(self.openOrders).." orders do you want to see?");
+                    base.common.TalkNLS(self.npc, Character.say,"Welchen der "..table.getn(self.openOrders).." Aufträge möchtest du sehen?","Which one of the "..table.getn(self.openOrders).." orders do you want to see?");
                 end
             end
             return;
@@ -431,7 +431,7 @@ function OrderNPC:payBoni(user,order)
         user:createItem(KupferID,copper,333,0);
         user:createItem(SilberID,silver,333,0);
         user:createItem(GoldID,gold,333,0);
-        base.common.TalkNLS( self.npc, CCharacter.say, self.textBoni.ger, self.textBoni.eng );
+        base.common.TalkNLS( self.npc, Character.say, self.textBoni.ger, self.textBoni.eng );
     end
    -- give some rankpoints as reward
    if NpcLocation[thisNPC.id] == nil then
@@ -459,25 +459,25 @@ function OrderNPC:checkOrder(user)
     else
         local orderstruct = order:checkOrder(user,self.npc);
         if ( orderstruct.rightnpc == false ) then
-            base.common.TalkNLS( self.npc, CCharacter.say, self.textFalseNPC.ger, self.textFalseNPC.eng );
+            base.common.TalkNLS( self.npc, Character.say, self.textFalseNPC.ger, self.textFalseNPC.eng );
             return true;
         end
         if ( orderstruct.allItems == false ) then
             if ( orderstruct.someItems == false ) then
-                base.common.TalkNLS( self.npc, CCharacter.say, self.textNoItems.ger, self.textNoItems.eng );
+                base.common.TalkNLS( self.npc, Character.say, self.textNoItems.ger, self.textNoItems.eng );
                 return true;
             else
                 --einige der Items im Inventar 
                 if ( self.lastOrderString ~= order:getDataString() ) then
                     --es ist noch nie versucht worden eine teillieferung zu veranlassen
                     order:partDelivery(user,orderstruct);
-					base.common.TalkNLS( self.npc, CCharacter.say, self.textSomeItems.ger, self.textSomeItems.eng );
+					base.common.TalkNLS( self.npc, Character.say, self.textSomeItems.ger, self.textSomeItems.eng );
                     self.lastOrderString = order:getDataString();
                     return true;
                 else
                     --wir wollen eine Teillieferung.
                     order:partDelivery(user,orderstruct);
-                    base.common.TalkNLS( self.npc, CCharacter.say, self.textGetSomeItems.ger, self.textGetSomeItems.eng );
+                    base.common.TalkNLS( self.npc, Character.say, self.textGetSomeItems.ger, self.textGetSomeItems.eng );
                     self.lastOrderString = "";
                     return true;
                 end
@@ -488,7 +488,7 @@ function OrderNPC:checkOrder(user)
         if ( orderstruct.intime == true and orderstruct.inquality == true ) then
             --ausführen der Bestellung
             order:doOrder(user,orderstruct);
-            base.common.TalkNLS( self.npc, CCharacter.say, self.textOk.ger, self.textOk.eng );
+            base.common.TalkNLS( self.npc, Character.say, self.textOk.ger, self.textOk.eng );
             --Da eine gute Bestellung getätigt wurde, evtl einen Bonus auszahlen.
             self:payBoni(user,order);
             return true;
@@ -499,7 +499,7 @@ function OrderNPC:checkOrder(user)
         if ( self.lastOrderString == order:getDataString() ) then
             --zweiter versuch einen auftrag ein zu lösen innerhalb von 60 sekunden, wirklich verkaufen
             order:doOrder(user,orderstruct);
-            base.common.TalkNLS( self.npc, CCharacter.say, self.textNotOk.ger, self.textNotOk.eng );
+            base.common.TalkNLS( self.npc, Character.say, self.textNotOk.ger, self.textNotOk.eng );
             return true;
         end 
         local ger = "";
@@ -513,7 +513,7 @@ function OrderNPC:checkOrder(user)
             gold, silver, copper = CoinsToGSC(order:recalcPrice(orderstruct));
             ger = string.format(self.textBoth.ger,gold,silver,copper);
             eng = string.format(self.textBoth.eng,gold,silver,copper);
-            base.common.TalkNLS( self.npc, CCharacter.say, ger, eng );
+            base.common.TalkNLS( self.npc, Character.say, ger, eng );
             self.lastOrderString = order:getDataString();
             return true;
         end
@@ -522,7 +522,7 @@ function OrderNPC:checkOrder(user)
             gold, silver, copper = CoinsToGSC(order:recalcPrice(orderstruct));
             ger = string.format(self.textTimeOver.ger,gold,silver,copper);
             eng = string.format(self.textTimeOver.eng,gold,silver,copper);
-            base.common.TalkNLS( self.npc, CCharacter.say, ger, eng );
+            base.common.TalkNLS( self.npc, Character.say, ger, eng );
             self.lastOrderString = order:getDataString();
             return true;
         end
@@ -531,7 +531,7 @@ function OrderNPC:checkOrder(user)
             gold, silver, copper = CoinsToGSC(order:recalcPrice(orderstruct));
             ger = string.format(self.textQualityLess.ger,gold,silver,copper);
             eng = string.format(self.textQualityLess.eng,gold,silver,copper);
-            base.common.TalkNLS( self.npc, CCharacter.say, ger, eng );
+            base.common.TalkNLS( self.npc, Character.say, ger, eng );
             self.lastOrderString = order:getDataString();
             return true;
         end
@@ -641,13 +641,13 @@ end
     @return Item welches ein Auftrag ist oder nil wenn kein Auftrag vorhanden
 ]]--
 function Order:getInHand(Character)
-    local item = Character:getItemAt( CCharacter.right_tool );
+    local item = Character:getItemAt( Character.right_tool );
     local data = "";
     if ( item.id == OrderItem ) then
         data = item:getValue(1);
     end
     if ( item.id ~= OrderItem or data:len()<=0) then
-        item = Character:getItemAt( CCharacter.left_tool );
+        item = Character:getItemAt( Character.left_tool );
         data = item:getValue(1);
     end
     if ( item.id == OrderItem and data:len()>0 ) then
@@ -667,7 +667,7 @@ end
     @return Item welches ein Auftrag ist oder nil wenn kein Auftrag vorhanden
 ]]--
 function Order:getInHandForNPC(Character,npc)
-    local item = Character:getItemAt( CCharacter.right_tool );
+    local item = Character:getItemAt( Character.right_tool );
     if ( item.id == OrderItem ) then
         local data = item:getValue(1);
         if ( data:len() > 0 ) then
@@ -680,7 +680,7 @@ function Order:getInHandForNPC(Character,npc)
             end
         end
     end
-    local item = Character:getItemAt( CCharacter.left_tool );
+    local item = Character:getItemAt( Character.left_tool );
     if ( item.id == OrderItem ) then
         local data = item:getValue(1);
         if ( data:len() > 0 ) then
@@ -732,9 +732,9 @@ end
 ]]--
 function Order:createOrderItem(Character)
     
-    scriptitem = Character:getItemAt( CCharacter.right_tool );
+    scriptitem = Character:getItemAt( Character.right_tool );
     if ( scriptitem.id ~= 0 ) then
-        scriptitem = Character:getItemAt( CCharacter.left_tool);
+        scriptitem = Character:getItemAt( Character.left_tool);
     end
     for i=12,17 do --checks the whole belt
 		if ( scriptitem.id ~= 0 ) then

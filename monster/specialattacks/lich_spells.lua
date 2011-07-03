@@ -7,12 +7,12 @@ function Lich_MagicShield (monster, char)
 -- Magic shield: If the boss is being cast on, he casts back a massive spell of doom on a) the caster b) a random char around (to be used with onCasted function)
 	if (math.random(100)<= 10) then
 		if (math.random(100)<= 70) then
-			monster:talk(CCharacter.say, "Your efforts are worthless, mortal.. Come, embrace death.");
+			monster:talk(Character.say, "Your efforts are worthless, mortal.. Come, embrace death.");
 			char:increaseAttrib ("hitpoints",-4000);
 			char.movepoints = 0;
 			return true;
 		else
-			monster:talk(CCharacter.say, "You shouldn't toy with powers you cannot understand, mortal.");
+			monster:talk(Character.say, "You shouldn't toy with powers you cannot understand, mortal.");
 			CharList={};
 			local posit = monster.pos;
 			CharList = world:getCharactersInRangeOf (posit, 5);
@@ -36,7 +36,7 @@ end
 function Lich_Forcefield (monster, char)
 --  Forcefield: If the boss is attacked with weapons, the attacker gets a ray of energy in his face (to be used with onAttacked function)
 	if (math.random(100)<= 70) then
-		monster:talk(CCharacter.say, "You want to destroy me..? You can not kill enthernity!");
+		monster:talk(Character.say, "You want to destroy me..? You can not kill enthernity!");
 		char:increaseAttrib ("hitpoints",-3000);
 		return true;
 	else

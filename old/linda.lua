@@ -3,9 +3,9 @@ module("npc.linda", package.seeall)
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
     if ( User:getPlayerLanguage()==0 ) then
-        thisNPC:talk(CCharacter.say, "Finger weg! Hilf mir lieber.");
+        thisNPC:talk(Character.say, "Finger weg! Hilf mir lieber.");
     elseif ( User:getPlayerLanguage()==1 ) then
-        thisNPC:talk(CCharacter.say, "Hands off! Help me, instead.");
+        thisNPC:talk(Character.say, "Hands off! Help me, instead.");
     end
 end
 
@@ -26,7 +26,7 @@ function nextCycle()
 --        end
 --        if (cycCount==1200) then
 --            cycCount=1;
---            thisNPC:talk(CCharacter.say, "Hello you! Over here! Could you help me?");
+--            thisNPC:talk(Character.say, "Hello you! Over here! Could you help me?");
 --        end
 --    end
 end
@@ -37,9 +37,9 @@ function receiveText(texttype, message, originator)
     if (originator.id ~= thisNPC.id) then                                                  --avoid talking to himself.
         thisNPC:introduce(originator);
         if (originator:countItemAt("all",302) == 0) then    --cherries
-            thisNPC:talk(CCharacter.say, "I like cherries very much. Will you bring me some from the garden?");
+            thisNPC:talk(Character.say, "I like cherries very much. Will you bring me some from the garden?");
         else
-            thisNPC:talk(CCharacter.say, "Thank you, cherries are so tasteful. Here, I give you an apple in return.");
+            thisNPC:talk(Character.say, "Thank you, cherries are so tasteful. Here, I give you an apple in return.");
             originator:eraseItem(302,1);
             originator:createItem(15,1);
         end

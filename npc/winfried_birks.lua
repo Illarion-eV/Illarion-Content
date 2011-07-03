@@ -13,8 +13,8 @@ module("npc.winfried_birks", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Ich würde es bevorzugen, wenn ihr mich nicht anfasst!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Ich would prefer, that you don't touch me!!");
+    thisNPC:talkLanguage(Character.say, Player.german, "Ich würde es bevorzugen, wenn ihr mich nicht anfasst!");
+    thisNPC:talkLanguage(Character.say, Player.english, "Ich would prefer, that you don't touch me!!");
 	
 end
                 

@@ -93,8 +93,8 @@ function eat()
 			gText = "#me schnuppert vorsichtig an dem Pilz, beißt dann aber doch genüsslich hinein.";
 			eText = "#me sniffs carefully at the mushroom, then takes a bite of the mushroom with relish.";
 			world:erase(curItem,1);
-			thisNPC:talkLanguage(CCharacter.say, CPlayer.german, gText);
-			thisNPC:talkLanguage(CCharacter.say, CPlayer.english, eText);
+			thisNPC:talkLanguage(Character.say, Player.german, gText);
+			thisNPC:talkLanguage(Character.say, Player.english, eText);
 			--gText = "#me schaut stumpf zu Boden.";
 			--eText = "#me looks dully to the ground.";
 		end

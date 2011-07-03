@@ -112,7 +112,7 @@ function nextCycle()
         thisCounter = thisCounter + 1;
     elseif ( thisCounter > 120 ) and ( thisCounter <= 159 ) then
         if ( thisCounter == 159 ) then
-          thisNPC:talk( CCharacter.say, "#me drifts forward and places his ethereal hand on " .. currentOriginator.name ..
+          thisNPC:talk( Character.say, "#me drifts forward and places his ethereal hand on " .. currentOriginator.name ..
             "'s shoulder, \"Do you hold your words to be true and faithful?\"" );
           world:gfx( 37, position( currentOriginator.pos.x, currentOriginator.pos.y - 1, currentOriginator.pos.z ) );
           state[currentOriginator.id] = 4;
@@ -121,7 +121,7 @@ function nextCycle()
     elseif ( thisCounter > 160 ) and ( thisCounter <= 199 ) then
         if ( thisCounter == 199 ) then
             thisCounter = 0;
-            thisNPC:talk( CCharacter.say, "#me slowly fades away and disappears while whispering, \"Then you have my blessings, " ..
+            thisNPC:talk( Character.say, "#me slowly fades away and disappears while whispering, \"Then you have my blessings, " ..
             " and your armor shall protect you in the dark times of battle. Your prayer has been heard.\"" );
             world:gfx( 31, currentOriginator.pos );
             -- improve quality of armor

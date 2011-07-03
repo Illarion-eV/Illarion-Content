@@ -52,7 +52,7 @@ end
 
 function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
     local FrontChar = base.common.GetFrontCharacter(User);
-	if FrontChar and FrontChar:get_type() == CCharacter.npc then
+	if FrontChar and FrontChar:get_type() == Character.npc then
 		CheckOrderNpc(User, SourceItem, FrontChar);
 		return;
 	end
@@ -165,13 +165,13 @@ function teleportUseItem( User, SourceItem, ltstate )
                 destination = teleportTarget( SourceItem );
                 world:gfx(41,destination);
                     
-                User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt konzentriert auf eine Pergamentrolle zu starren.");
-                User:talkLanguage( CCharacter.say, CPlayer.english, "#me begins to stare on a scroll of parchment intensely.");
+                User:talkLanguage( Character.say, Player.german, "#me beginnt konzentriert auf eine Pergamentrolle zu starren.");
+                User:talkLanguage( Character.say, Player.english, "#me begins to stare on a scroll of parchment intensely.");
             
             elseif ( ltstate == Action.abort ) then
                 
-                User:talkLanguage(CCharacter.say, CPlayer.german, "#me wird abgelenkt.");
-                User:talkLanguage(CCharacter.say, CPlayer.english,"#me gets distracted.");
+                User:talkLanguage(Character.say, Player.german, "#me wird abgelenkt.");
+                User:talkLanguage(Character.say, Player.english,"#me gets distracted.");
                 
             end
 end
@@ -202,8 +202,8 @@ function selfTeleportUseItem( Caster, Item )
     TelePos.x = TelePos.x - dx;
     TelePos.y = TelePos.y - dy;
     
-    Caster:talkLanguage( CCharacter.say, CPlayer.german, "#me starrt konzentriert auf eine Pergamentrolle.");
-    Caster:talkLanguage( CCharacter.say, CPlayer.english, "#me stares on a scroll of parchment intensely.");
+    Caster:talkLanguage( Character.say, Player.german, "#me starrt konzentriert auf eine Pergamentrolle.");
+    Caster:talkLanguage( Character.say, Player.english, "#me stares on a scroll of parchment intensely.");
                    
     world:gfx(41,Caster.pos);
     world:gfx(41,TelePos);

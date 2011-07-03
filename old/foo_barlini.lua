@@ -15,8 +15,8 @@ module("npc.foo_barlini", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger wech!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Dont ya' touch me!");
+    thisNPC:talkLanguage(Character.say, Player.german, "Finger wech!");
+    thisNPC:talkLanguage(Character.say, Player.english, "Dont ya' touch me!");
 end
 
 function initializeNpc()
@@ -178,7 +178,7 @@ function nextCycle()  -- ~10 times per second
 	    if (CastStone==1) then 
        		local Language=thisNPC.activeLanguage;
 	    	thisNPC.activeLanguage=10;
-	    	thisNPC:talk(CCharacter.say,"SOLH ORL QWAN DUN");
+	    	thisNPC:talk(Character.say,"SOLH ORL QWAN DUN");
 	    	thisNPC.activeLanguage=Language;
 	        world:makeSound(13,position(26,57,50));
 		-- Positionen checken, ob ein Char dort steht
@@ -214,7 +214,7 @@ function nextCycle()  -- ~10 times per second
             if (CastFire==1) then
                 local Language=thisNPC.activeLanguage;
                 thisNPC.activeLanguage=10;
-                thisNPC:talk(CCharacter.say,"RA IRA ANTH DUN QWAN");
+                thisNPC:talk(Character.say,"RA IRA ANTH DUN QWAN");
                 thisNPC.activeLanguage=Language;
                 world:makeSound(7,position(26,57,50));
 		-- Positionen checken, ob ein Char dort steht
@@ -246,7 +246,7 @@ function nextCycle()  -- ~10 times per second
             if (CastIce==1) then
                 local Language=thisNPC.activeLanguage;
                 thisNPC.activeLanguage=10;
-                thisNPC:talk(CCharacter.say,"HEPT IRA ANTH DUN QWAN");
+                thisNPC:talk(Character.say,"HEPT IRA ANTH DUN QWAN");
                 thisNPC.activeLanguage=Language;
                 world:makeSound(7,position(26,57,50));
                 -- Positionen checken, ob ein Char dort steht
@@ -278,7 +278,7 @@ function nextCycle()  -- ~10 times per second
             if (CastPoison==1) then
                 local Language=thisNPC.activeLanguage;
                 thisNPC.activeLanguage=10;
-                thisNPC:talk(CCharacter.say,"YEG IRA ANTH DUN QWAN");
+                thisNPC:talk(Character.say,"YEG IRA ANTH DUN QWAN");
                 thisNPC.activeLanguage=Language;
                 world:makeSound(7,position(26,57,50));
                 -- Positionen checken, ob ein Char dort steht
@@ -326,8 +326,8 @@ end
 
 function SayPrice(message, originator)
 	if (string.find(message,"koste")~=nil) or (string.find(message,"[Pp]reis")~=nil) or (string.find(message,"[Ww]ieviel")~=nil) or (string.find(message,"costs")~=nil) or (string.find(message,"[Hh]ow much")~=nil) then
-        thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Hrm...Ich würd sagen...gib mit 10 Kupfer für ein paar Steinmauern, 15  für Feuerflammen, 20  für Eisflammen und 25 Kupferstücke, wenn ich dir ein Giftfeld erschaffen soll.");
-        thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "Hrm...I would say...give me 10 coppercoins for some stone walls, 15 for fire flames, 20 for ice flames and 25 coppercoins, when I should summon a poison field for you..");
+        thisNPC:talkLanguage( Character.say, Player.german, "Hrm...Ich würd sagen...gib mit 10 Kupfer für ein paar Steinmauern, 15  für Feuerflammen, 20  für Eisflammen und 25 Kupferstücke, wenn ich dir ein Giftfeld erschaffen soll.");
+        thisNPC:talkLanguage( Character.say, Player.english, "Hrm...I would say...give me 10 coppercoins for some stone walls, 15 for fire flames, 20 for ice flames and 25 coppercoins, when I should summon a poison field for you..");
         return true
     end
     return false;
@@ -353,18 +353,18 @@ function getCreature (message, originator)
         GCoins,SCoins,CCoins = CalcSilverCopper(PreisMauer);
         if npc.base.autonpcfunctions.CheckMoney(originator,GCoins,SCoins,CCoins) then
             Pay(originator,GCoins,SCoins,CCoins);
-                thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "#me nimmt das Geld mit einem Nicken und deutet dann mit dem Stab in Richtung Übungsplatz.");
-                thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "#me takes the money with a nod and flicks her wand to the training field.");
+                thisNPC:talkLanguage( Character.say, Player.german, "#me nimmt das Geld mit einem Nicken und deutet dann mit dem Stab in Richtung Übungsplatz.");
+                thisNPC:talkLanguage( Character.say, Player.english, "#me takes the money with a nod and flicks her wand to the training field.");
 
             CastStone=6;
 	    logStr=os.date()..": "..originator.name.." ask NPC Foo for stone walls\n";
             logToFile_npc(logStr);
 
-            -- thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Bitte sehr.");
-	    -- thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "Here we go.");
+            -- thisNPC:talkLanguage( Character.say, Player.german, "Bitte sehr.");
+	    -- thisNPC:talkLanguage( Character.say, Player.english, "Here we go.");
 	else
-	    thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Du hast nicht genug Geld. Für Steinmauern möchte ich "..PreisMauer.." Kupferstücke haben." );
-	    thisNPC:talkLanguage( CCharacter.say, CPlayer.english,"You don't have enough money. For stonewalls I want "..PreisMauer.." coppercoins." );
+	    thisNPC:talkLanguage( Character.say, Player.german, "Du hast nicht genug Geld. Für Steinmauern möchte ich "..PreisMauer.." Kupferstücke haben." );
+	    thisNPC:talkLanguage( Character.say, Player.english,"You don't have enough money. For stonewalls I want "..PreisMauer.." coppercoins." );
 	end
 	return true;
 	
@@ -386,18 +386,18 @@ function getCreature (message, originator)
 	if npc.base.autonpcfunctions.CheckMoney(originator,GCoins,SCoins,CCoins) then
 	    Pay(originator,GCoins,SCoins,CCoins);
 
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "#me nimmt das Geld mit einem Nicken und deutet dann mit dem Stab in Richtung Übungsplatz.");
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "#me takes the money with a nod and flicks her wand to the training field.");
+            thisNPC:talkLanguage( Character.say, Player.german, "#me nimmt das Geld mit einem Nicken und deutet dann mit dem Stab in Richtung Übungsplatz.");
+            thisNPC:talkLanguage( Character.say, Player.english, "#me takes the money with a nod and flicks her wand to the training field.");
 
 	    CastFire=6;
             logStr=os.date()..": "..originator.name.." ask NPC Foo for fire flames\n";
 	    logToFile_npc(logStr);
 
-	    -- thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Bitte sehr.");
-	    -- thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "Here we go.");
+	    -- thisNPC:talkLanguage( Character.say, Player.german, "Bitte sehr.");
+	    -- thisNPC:talkLanguage( Character.say, Player.english, "Here we go.");
 	else
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Du hast nicht genug Geld. Für Feuerflammen möchte ich "..PreisFeuerFlamme.." Kupferstücke haben." );
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.english,"You don't have enough money. For fireflames I want "..PreisFeuerFlamme.." coppercoins." );
+            thisNPC:talkLanguage( Character.say, Player.german, "Du hast nicht genug Geld. Für Feuerflammen möchte ich "..PreisFeuerFlamme.." Kupferstücke haben." );
+            thisNPC:talkLanguage( Character.say, Player.english,"You don't have enough money. For fireflames I want "..PreisFeuerFlamme.." coppercoins." );
         end
 	return true;
     elseif (string.find(message,"eisflamme.+beschwör")~=nil)
@@ -418,18 +418,18 @@ function getCreature (message, originator)
         if npc.base.autonpcfunctions.CheckMoney(originator,GCoins,SCoins,CCoins) then
             Pay(originator,GCoins,SCoins,CCoins);
 
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "#me nimmt das Geld mit einem Nicken und deutet dann mit dem Stab in Richtung Übungsplatz.");
-	    thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "#me takes the money with a nod and flicks her wand to the training field.");
+            thisNPC:talkLanguage( Character.say, Player.german, "#me nimmt das Geld mit einem Nicken und deutet dann mit dem Stab in Richtung Übungsplatz.");
+	    thisNPC:talkLanguage( Character.say, Player.english, "#me takes the money with a nod and flicks her wand to the training field.");
 	    
 	    CastIce=6;
             logStr=os.date()..": "..originator.name.." ask NPC Foo for ice flames\n";
             logToFile_npc(logStr);
 
 
-            --thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "Here we go.");
+            --thisNPC:talkLanguage( Character.say, Player.english, "Here we go.");
         else
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Du hast nicht genug Geld. Für Eisflammen möchte ich "..PreisEisFlamme.." Kupferstücke haben." );
-            thisNPC:talkLanguage( CCharacter.say, CPlayer.english,"You don't have enough money. For iceflames I want "..PreisEisFlamme.." coppercoins." );
+            thisNPC:talkLanguage( Character.say, Player.german, "Du hast nicht genug Geld. Für Eisflammen möchte ich "..PreisEisFlamme.." Kupferstücke haben." );
+            thisNPC:talkLanguage( Character.say, Player.english,"You don't have enough money. For iceflames I want "..PreisEisFlamme.." coppercoins." );
         end
         return true;
     elseif (string.find(message,"giftwolke.+beschwör")~=nil)
@@ -450,18 +450,18 @@ function getCreature (message, originator)
 	if npc.base.autonpcfunctions.CheckMoney(originator,GCoins,SCoins,CCoins) then
 	    Pay(originator,GCoins,SCoins,CCoins);
 
-	    thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "#me nimmt das Geld mit einem Nicken und deutet dann mit dem Stab in Richtung Übungsplatz.");
-	    thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "#me takes the money with a nod and flicks her wand to the training field.");
+	    thisNPC:talkLanguage( Character.say, Player.german, "#me nimmt das Geld mit einem Nicken und deutet dann mit dem Stab in Richtung Übungsplatz.");
+	    thisNPC:talkLanguage( Character.say, Player.english, "#me takes the money with a nod and flicks her wand to the training field.");
 
 	    CastPoison=6;
             logStr=os.date()..": "..originator.name.." ask NPC Foo for poison clouds\n";
             logToFile_npc(logStr);
 
 
-	    --thisNPC:talkLanguage( CCharacter.say, CPlayer.english, "Here we go.");
+	    --thisNPC:talkLanguage( Character.say, Player.english, "Here we go.");
         else
-	    thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Du hast nicht genug Geld. Für Eisflammen möchte ich "..PreisGift.." Kupferstücke haben." );
-	    thisNPC:talkLanguage( CCharacter.say, CPlayer.english,"You don't have enough money. For iceflames I want "..PreisGift.." coppercoins." );
+	    thisNPC:talkLanguage( Character.say, Player.german, "Du hast nicht genug Geld. Für Eisflammen möchte ich "..PreisGift.." Kupferstücke haben." );
+	    thisNPC:talkLanguage( Character.say, Player.english,"You don't have enough money. For iceflames I want "..PreisGift.." coppercoins." );
         end
 	return true;
     end

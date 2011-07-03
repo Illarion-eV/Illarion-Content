@@ -103,9 +103,9 @@ function DoTeachSpell(TeachingChar,StudentChar)
     local Language = TeachingChar.activeLanguage;
     TeachingChar.activeLanguage = 10;
     if Rune.name == "BHONA" then
-        TeachingChar:talk( CCharacter.whisper, "BHONA" );
+        TeachingChar:talk( Character.whisper, "BHONA" );
     else
-        TeachingChar:talk( CCharacter.whisper, Rune.name.." BHONA" );
+        TeachingChar:talk( Character.whisper, Rune.name.." BHONA" );
     end
     TeachingChar.activeLanguage = Language;
 
@@ -185,7 +185,7 @@ end
 function LTELockRune( Char )
     local find, teachEffect = Char.effects:find(22);
     if not find then
-        Char.effects:addEffect( CLongTimeEffect(22,10) );
+        Char.effects:addEffect( LongTimeEffect(22,10) );
         return;
     end
 
@@ -222,11 +222,11 @@ function GetAttributeSum( Char )
 end
 
 function GetAttributeBonus(Char)
-	local Breast = Char:getItemAt(CCharacter.breast);
-	local RTool = Char:getItemAt(CCharacter.right_tool);
-	local LTool = Char:getItemAt(CCharacter.left_tool);
-	local RRing = Char:getItemAt(CCharacter.finger_right_hand);
-	local LRing = Char:getItemAt(CCharacter.finger_left_hand);
+	local Breast = Char:getItemAt(Character.breast);
+	local RTool = Char:getItemAt(Character.right_tool);
+	local LTool = Char:getItemAt(Character.left_tool);
+	local RRing = Char:getItemAt(Character.finger_right_hand);
+	local LRing = Char:getItemAt(Character.finger_left_hand);
 	local idx,str,idx2,str2;
 	local Int = 0;
 	local Ess = 0;

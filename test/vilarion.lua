@@ -24,7 +24,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     -- User:inform("- after -");
 
     -- world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
-    -- e = CLongTimeEffect( 777, 30 );
+    -- e = LongTimeEffect( 777, 30 );
     -- User.effects:addEffect( e );
     
     -- User:increaseMentalCapacity( 100 );

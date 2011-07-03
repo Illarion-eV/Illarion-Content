@@ -168,8 +168,8 @@ end;
 function Drop(User,Item)
     if (math.random(1,User:increaseAttrib("dexterity",0)+7)==1) then
         Explode(User,Item);
-        User:talkLanguage(CCharacter.say,CPlayer.german,"#me lässt eine Flasche fallen, welche explodiert.");
-        User:talkLanguage(CCharacter.say,CPlayer.english,"#me drops a bottle and it explodes.");
+        User:talkLanguage(Character.say,Player.german,"#me lässt eine Flasche fallen, welche explodiert.");
+        User:talkLanguage(Character.say,Player.english,"#me drops a bottle and it explodes.");
         base.common.InformNLS( User,
         "Der Wurfkörper rutscht dir aus den Händen und zerplatzt vor deinen Füßen.",
         "The missile slips out of your hands and burst asunder in front of you feets.");
@@ -199,8 +199,8 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 
     -- Alles okay, werfen und explodieren
     Explode(User,TargetItem);
-    User:talkLanguage(CCharacter.say,CPlayer.german,"#me wirft eine Flasche, die zerplatzt.");
-    User:talkLanguage(CCharacter.say,CPlayer.english,"#me throws a bottle that splits.");
+    User:talkLanguage(Character.say,Player.german,"#me wirft eine Flasche, die zerplatzt.");
+    User:talkLanguage(Character.say,Player.english,"#me throws a bottle that splits.");
     User.movepoints=User.movepoints-30;
 	end    
 end;

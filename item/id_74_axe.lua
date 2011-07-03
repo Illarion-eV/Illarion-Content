@@ -188,11 +188,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     if ( ltstate == Action.none ) then
         User:startAction( 12, 0, 0, 6, 15);
         if (logs[ TargetItem.id ] == nil) then
-            User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt den Baum zu fällen.");
-            User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to cut down a tree.");
+            User:talkLanguage( Character.say, Player.german, "#me beginnt den Baum zu fällen.");
+            User:talkLanguage( Character.say, Player.english, "#me starts to cut down a tree.");
         else
-            User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt Holz aus dem Baumstamm zu schlagen.");
-            User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to cut wood from the log.");
+            User:talkLanguage( Character.say, Player.german, "#me beginnt Holz aus dem Baumstamm zu schlagen.");
+            User:talkLanguage( Character.say, Player.english, "#me starts to cut wood from the log.");
         end
     elseif ( ltstate == nil or ltstate == Action.success ) then
         if Lumberjack( User, SourceItem, TargetItem, Counter, Param, ltstate ) then
@@ -226,8 +226,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
     end
 end
 

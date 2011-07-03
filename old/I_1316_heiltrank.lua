@@ -19,8 +19,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (ltstate == Action.abort) then
 
         -- Cast forced emotes from the Charakter who uses our potion (german for germans, english for the rest)
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet den Trank.");
-        User:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
+        User:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
+        User:talkLanguage(Character.say, Player.english, "#me spills the potion.");
 
         -- remove the potion item
         world:erase(SourceItem,1);
@@ -69,8 +69,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         User:startAction(20,0,0,12,25);
 
         -- lets tell everyone that our User drink a potion by a forced emote
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt einen Trank zu trinken.");
-        User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to drink a potion.");
+        User:talkLanguage(Character.say, Player.german, "#me beginnt einen Trank zu trinken.");
+        User:talkLanguage(Character.say, Player.english, "#me starts to drink a potion.");
 
         -- And quit the script since we are done now and waiting for the next call
         return

@@ -8,9 +8,9 @@ language = base.class.class(npc.base.condition.condition.condition,
 function(self, value)
     npc.base.condition.condition.condition:init(self);
     if (value == "german" or value == "deutsch") then
-        self["value"] = CPlayer.german;
+        self["value"] = Player.german;
     else
-        self["value"] = CPlayer.english;
+        self["value"] = Player.english;
     end;
     self["check"] = _language_helper_equal;
 end);

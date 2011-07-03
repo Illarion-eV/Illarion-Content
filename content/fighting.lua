@@ -367,15 +367,15 @@ end;
 function GetHitArea(Race)
     local randomValue = math.random(100);
     if ( randomValue < 15 ) then
-        return CCharacter.head;
+        return Character.head;
     elseif ( randomValue < 55 ) then
-        return CCharacter.breast;
+        return Character.breast;
     elseif ( randomValue < 68 ) then
-        return CCharacter.hands;
+        return Character.hands;
     elseif ( randomValue < 88 ) then
-        return CCharacter.legs;
+        return Character.legs;
     else
-        return CCharacter.feet;
+        return Character.feet;
     end;
 end;
 

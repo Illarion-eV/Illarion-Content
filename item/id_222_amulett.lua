@@ -62,8 +62,8 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	end
 		
 	if (TargetItem.id == 914) and (TargetItem.data == 666) then
-        User:talkLanguage(CCharacter.say,CPlayer.german ,"#me's Hand leuchtet, ebenso wie das Drachenamulett, hell auf und als das Licht verlischt liegt ein seltsam geformter Schlüssel in der Hand und die Schrift auf dem Steinsockel glüht auf.");
-        User:talkLanguage(CCharacter.say,CPlayer.english,"#me's Hand, as well as the dragon amulet, starts to glow brightly and as the light is gone there is a strange formed key inside the hand and the letters on the stone socket starts to shine.");
+        User:talkLanguage(Character.say,Player.german ,"#me's Hand leuchtet, ebenso wie das Drachenamulett, hell auf und als das Licht verlischt liegt ein seltsam geformter Schlüssel in der Hand und die Schrift auf dem Steinsockel glüht auf.");
+        User:talkLanguage(Character.say,Player.english,"#me's Hand, as well as the dragon amulet, starts to glow brightly and as the light is gone there is a strange formed key inside the hand and the letters on the stone socket starts to shine.");
 		world:gfx(8,TargetItem.pos);
 		world:gfx(11,TargetItem.pos);
 		world:gfx(31,TargetItem.pos);
@@ -126,7 +126,7 @@ function RoadToNode(User, effectType)
 	end
 	if retVal then
 		local target = validChars[math.random(1,table.getn(validChars))];
-		local effect = CLongTimeEffect(29,1);
+		local effect = LongTimeEffect(29,1);
 		effect:addValue("effectType", effectType);
 		target.effects:addEffect(effect);
 	end

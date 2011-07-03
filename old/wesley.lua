@@ -2,7 +2,7 @@ module("npc.wesley", package.seeall)
 
 function useNPC(user,counter,param)
     --thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talk(CCharacter.say, "Don't you touch me!");
+    thisNPC:talk(Character.say, "Don't you touch me!");
 end
 
 
@@ -142,15 +142,15 @@ function nextCycle()  -- ~10 times per second
         cycCount=1;
         nextDelivery=math.random(40000);
         thisNPC:increaseSkill(1,"common language",100);
-        --thisNPC:talk(CCharacter.say, "Next delivery in "..nextDelivery);
+        --thisNPC:talk(Character.say, "Next delivery in "..nextDelivery);
     else
         cycCount=cycCount+1;
         --printerr("In Circle "..cycCount.. "With "..nextDelivery);
         if (cycCount+1>nextDelivery+1) then
-            --thisNPC:talk(CCharacter.say, "Next");
+            --thisNPC:talk(Character.say, "Next");
             nextDelivery=math.random(40000);
             cycCount=1;
-            --thisNPC:talk(CCharacter.say, "Next delivery in "..nextDelivery.." CycCount: "..cycCount);
+            --thisNPC:talk(Character.say, "Next delivery in "..nextDelivery.." CycCount: "..cycCount);
             for itnCnt=1,table.getn(TraderItemNumber) do
                 refill(itnCnt);
             end
@@ -165,7 +165,7 @@ function refill(itNumb)
         TraderCopper=TraderCopper-math.random(20,150);
     end
     TraderItemNumber[itNumb]=TraderItemNumber[itNumb]+TraderItemStandard[itNumb];
-    --thisNPC:talk(CCharacter.say,"refilled "..TraderItemName[itNumb].." to "..TraderItemNumber[itNumb]);
+    --thisNPC:talk(Character.say,"refilled "..TraderItemName[itNumb].." to "..TraderItemNumber[itNumb]);
     if TraderItemNumber[itNumb]>TraderItemStandard[itNumb]*5 then TraderItemNumber[itNumb]=TraderItemStandard[itNumb]*5 end
 end
 
@@ -201,7 +201,7 @@ function receiveText(texttype, message, originator)
             repeat
                 if (string.find(message,TraderTrig[i]) ~= nil) then
                     --originator:inform("Ready set true");
-                    thisNPC:talk(CCharacter.say,TraderText[i]);
+                    thisNPC:talk(Character.say,TraderText[i]);
                     ready=true;
 
                 end
@@ -220,23 +220,23 @@ function receiveText(texttype, message, originator)
                                 ActPrice=CalcPrice(TraderItemPrice[itnCnt],TraderItemNumber[itnCnt],TraderItemStandard[itnCnt]);
                                 if(TraderItemNumber[itnCnt]>count) then                         -- if he has enough of it
                                     if (originator:countItem(3076)>=ActPrice*count) then   -- if he has enough money
-                                        thisNPC:talk(CCharacter.say, "You want "..count.." "..itemname.."? Here you are, that makes "..ActPrice*count.." copper pieces.");
+                                        thisNPC:talk(Character.say, "You want "..count.." "..itemname.."? Here you are, that makes "..ActPrice*count.." copper pieces.");
                                         if (originator:createItem(TraderItemId[itnCnt],count,333) ~=0 ) then
-                                            thisNPC:talk(CCharacter.say, "Sorry, you do not have enough space in your inventory.");
+                                            thisNPC:talk(Character.say, "Sorry, you do not have enough space in your inventory.");
                                         else
                                             originator:eraseItem(3076,ActPrice*count);
                                             TraderCopper=TraderCopper+ActPrice*count;
                                             TraderItemNumber[itnCnt]=TraderItemNumber[itnCnt]-count;
                                         end
                                     else        -- not enough money
-                                        thisNPC:talk(CCharacter.say,"Come back when you have enough money!");
+                                        thisNPC:talk(Character.say,"Come back when you have enough money!");
                                     end -- enough money
                                 else
-                                    thisNPC:talk(CCharacter.say,"I am sorry, I don't have this currently. Come back later.");
+                                    thisNPC:talk(Character.say,"I am sorry, I don't have this currently. Come back later.");
                                 end
                                 foundItem=true;
                             else
-                                thisNPC:talk(CCharacter.say,"Sorry, I do not sell that item.");
+                                thisNPC:talk(Character.say,"Sorry, I do not sell that item.");
                             end
                             foundItem=true;
                         end --string find (itemname)
@@ -252,22 +252,22 @@ function receiveText(texttype, message, originator)
                             if (TraderItemPrice[itnCnt]~=0) then
                                 if(TraderItemNumber[itnCnt]>0) then
                                     if (originator:countItem(3076)>=ActPrice) then -- if he has enough money
-                                        thisNPC:talk(CCharacter.say, "You want a "..itemname.."? Here you are, that makes "..ActPrice.." copper pieces.");
+                                        thisNPC:talk(Character.say, "You want a "..itemname.."? Here you are, that makes "..ActPrice.." copper pieces.");
                                         if (originator:createItem(TraderItemId[itnCnt],1,333) ~=0 ) then
-                                            thisNPC:talk(CCharacter.say, "Sorry, you do not have enough space in your inventory.");
+                                            thisNPC:talk(Character.say, "Sorry, you do not have enough space in your inventory.");
                                         else
                                             originator:eraseItem(3076,ActPrice);
                                             TraderCopper=TraderCopper+ActPrice;
                                             TraderItemNumber[itnCnt]=TraderItemNumber[itnCnt]-1;
                                         end
                                     else        -- not enough money
-                                        thisNPC:talk(CCharacter.say,"Come back when you have enough money!");
+                                        thisNPC:talk(Character.say,"Come back when you have enough money!");
                                     end -- enough money
                                 else
-                                    thisNPC:talk(CCharacter.say,"I am sorry, I don't have this currently. Come back later.");
+                                    thisNPC:talk(Character.say,"I am sorry, I don't have this currently. Come back later.");
                                 end
                             else
-                                thisNPC:talk(CCharacter.say,"Sorry, I do not sell that item.");
+                                thisNPC:talk(Character.say,"Sorry, I do not sell that item.");
                             end
                             foundItem=true;
                         end --string find (itemname)
@@ -277,7 +277,7 @@ function receiveText(texttype, message, originator)
                 elseif (string.find(message,"price.+") ~= nil or string.find(message,"[Ww]hat.+cost")~=nil) then     -- if asked for price...
                     for i=1,table.getn(TraderItemTrig) do                           -- run through all triggers
                         if (string.find(message,TraderItemTrig[i])~=nil) then       -- if trigger found in question
-                            thisNPC:talk(CCharacter.say, "The "..TraderItemName[i].." costs "..CalcPrice(TraderItemPrice[i],TraderItemNumber[i],TraderItemStandard[i]).." copper pieces."); -- tell the price
+                            thisNPC:talk(Character.say, "The "..TraderItemName[i].." costs "..CalcPrice(TraderItemPrice[i],TraderItemNumber[i],TraderItemStandard[i]).." copper pieces."); -- tell the price
                         end
                     end --for
                 elseif (string.find(message,"[Yy]ou.+pay.+") ~= nil or string.find(message,"[Hh]ow much.+for.+")~=nil ) then
@@ -288,7 +288,7 @@ function receiveText(texttype, message, originator)
                             else
                                 artic="a ";
                             end
-                            thisNPC:talk(CCharacter.say, "I would pay "..CalcPrice(TraderItemSellPrice[i],TraderItemNumber[i],TraderItemStandard[i]).." copper pieces for "..artic..TraderItemName[i]); -- tell the price
+                            thisNPC:talk(Character.say, "I would pay "..CalcPrice(TraderItemSellPrice[i],TraderItemNumber[i],TraderItemStandard[i]).." copper pieces for "..artic..TraderItemName[i]); -- tell the price
                         end --if
                     end --for
                 elseif (string.find(message,"sell.+%d.+s")~=nil) then
@@ -302,22 +302,22 @@ function receiveText(texttype, message, originator)
                             if (TraderItemSellPrice[intItn]~=0) then
                                 if (TraderCopper>=ActPrice*count) then
                                     if (originator:countItem(TraderItemId[itnCnt])>=count) then -- if he has enough of that
-                                        thisNPC:talk(CCharacter.say, "You want to sell "..count.." "..itemname.."? I give you "..ActPrice*count.." copper pieces.");
+                                        thisNPC:talk(Character.say, "You want to sell "..count.." "..itemname.."? I give you "..ActPrice*count.." copper pieces.");
                                         if (originator:createItem(3076,ActPrice*count,333) ~=0 ) then
-                                            thisNPC:talk(CCharacter.say, "Sorry, you do not have enough space in your inventory.");
+                                            thisNPC:talk(Character.say, "Sorry, you do not have enough space in your inventory.");
                                         else
                                             originator:eraseItem(TraderItemId[itnCnt],count);
                                             TraderCopper=TraderCopper-ActPrice*count;
                                             TraderItemNumber[itnCnt]=TraderItemNumber[itnCnt]+count;
                                         end
                                     else        -- not enough money
-                                        thisNPC:talk(CCharacter.say,"Come back when you have that!");
+                                        thisNPC:talk(Character.say,"Come back when you have that!");
                                     end -- enough money
                                 else
-                                    thisNPC:talk(CCharacter.say, "Sorry, I cannot buy that. I do not have enough money.");
+                                    thisNPC:talk(Character.say, "Sorry, I cannot buy that. I do not have enough money.");
                                 end
                             else
-                                thisNPC:talk(CCharacter.say,"Sorry, I do not buy that item.");
+                                thisNPC:talk(Character.say,"Sorry, I do not buy that item.");
                             end
                             foundItem=true;
                         end --string find (itemname)
@@ -333,22 +333,22 @@ function receiveText(texttype, message, originator)
                             if (TraderItemSellPrice[itnCnt]~=0) then
                                 if (TraderCopper>=ActPrice) then
                                     if (originator:countItem(TraderItemId[itnCnt])>=1) then -- if he has enough of that
-                                        thisNPC:talk(CCharacter.say, "You want to sell a "..itemname.."? I give you "..ActPrice.." copper pieces.");
+                                        thisNPC:talk(Character.say, "You want to sell a "..itemname.."? I give you "..ActPrice.." copper pieces.");
                                         if (originator:createItem(3076,ActPrice,333) ~=0 ) then        --give money!
-                                            thisNPC:talk(CCharacter.say, "Sorry, you do not have enough space in your inventory.");
+                                            thisNPC:talk(Character.say, "Sorry, you do not have enough space in your inventory.");
                                         else
                                             originator:eraseItem(TraderItemId[itnCnt],1);
                                             TraderCopper=TraderCopper-ActPrice;
                                             TraderItemNumber[itnCnt]=TraderItemNumber[itnCnt]+1;
                                         end
                                     else        -- not enough money
-                                        thisNPC:talk(CCharacter.say,"Come back when you have that!");
+                                        thisNPC:talk(Character.say,"Come back when you have that!");
                                     end -- enough money
                                 else
-                                    thisNPC:talk(CCharacter.say, "Sorry, I cannot buy that. I do not have enough money.");
+                                    thisNPC:talk(Character.say, "Sorry, I cannot buy that. I do not have enough money.");
                                 end
                             else
-                                thisNPC:talk(CCharacter.say,"Sorry, I do not buy that item.");
+                                thisNPC:talk(Character.say,"Sorry, I do not buy that item.");
                             end
                             foundItem=true;
                         end --string find (itemname)
@@ -362,26 +362,26 @@ function receiveText(texttype, message, originator)
                         if (TraderItemPrice[itnCnt]~=0) then
                             --originator:inform("hier: "..TraderItemName[itnCnt]);
                             if string.len(wareString)+string.len(TraderItemName[itnCnt])>240 then    -- line too long
-                                thisNPC:talk(CCharacter.say,wareString);                     -- say everything until here
+                                thisNPC:talk(Character.say,wareString);                     -- say everything until here
                                 wareString="";
                             end
                             --originator:inform("="..TraderItemName[itnCnt]);
                             wareString=wareString..TraderItemName[itnCnt]..", ";
                         end
                     end
-                    thisNPC:talk(CCharacter.say,wareString);
+                    thisNPC:talk(Character.say,wareString);
                 elseif (string.find(message,"[Ww]hat.+buy")~=nil) then                -- asked for a list of wares he buys
                     wareString="I buy ";
                     for itnCnt=1,table.getn(TraderItemId) do
                         if (TraderItemSellPrice[itnCnt]~=0) then
                             if string.len(wareString)+string.len(TraderItemName[itnCnt])>240 then    -- line too long
-                                thisNPC:talk(CCharacter.say,wareString);                     -- say everything until here
+                                thisNPC:talk(Character.say,wareString);                     -- say everything until here
                                 wareString="";
                             end
                             wareString=wareString..TraderItemName[itnCnt]..", ";
                         end
                     end
-                    thisNPC:talk(CCharacter.say,wareString);
+                    thisNPC:talk(Character.say,wareString);
                 elseif (string.find(message,"[sS]tatus")~=nil and originator:isAdmin()==true) then
                     originator:inform("Copper="..TraderCopper..", next delivery: "..nextDelivery.."cycCount:"..cycCount);
                     statusString="Wares: ";

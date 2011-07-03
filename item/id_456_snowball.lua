@@ -7,8 +7,8 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 		Round=1;
 	end
 	if Round==1 then
-        User:talkLanguage(CCharacter.say,CPlayer.german,"#me wirft einen Schneeball.");
-        User:talkLanguage(CCharacter.say,CPlayer.english,"#me throws a snowball.");
+        User:talkLanguage(Character.say,Player.german,"#me wirft einen Schneeball.");
+        User:talkLanguage(Character.say,Player.english,"#me throws a snowball.");
 		Round=2;
 	else
 		Round=nil;

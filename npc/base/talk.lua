@@ -68,8 +68,8 @@ function talkNPC:nextCycle(counter)
     if (counter >= self._nextCycleText) then
 	    self._nextCycleText = math.random(1200, 3600); --2 to 6 minutes
         local german, english = self._cycleText:getRandomMessage();
-        thisNPC:talkLanguage(CCharacter.say, CPlayer.german, german);
-        thisNPC:talkLanguage(CCharacter.say, CPlayer.english, english);
+        thisNPC:talkLanguage(Character.say, Player.german, german);
+        thisNPC:talkLanguage(Character.say, Player.english, english);
     else
         self._nextCycleText = self._nextCycleText - counter;
     end;
@@ -163,7 +163,7 @@ function talkNPCEntry:execute(player)
     	self._responses[selectedResponse] = string.gsub(self._responses[selectedResponse],"%%CHARNAME",player.name);
     	self._responses[selectedResponse] = string.gsub(self._responses[selectedResponse],"%%NPCNAME",thisNPC.name);
     	
-		thisNPC:talk(CCharacter.say, self._responses[selectedResponse]);
+		thisNPC:talk(Character.say, self._responses[selectedResponse]);
     end;
     
 	table.foreach(self._consequences, function(_, consequence)

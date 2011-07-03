@@ -26,8 +26,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             gText = "ihre";
             eText = "her";
         end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
         if (SourceItem.id == 2835) then
            SourceItem.wear = 255;
            SourceItem.id = 2836;
@@ -58,9 +58,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return
     end
     
-    local Tool = User:getItemAt(CCharacter.left_tool); -- Item in Linker Hand auslesen
+    local Tool = User:getItemAt(Character.left_tool); -- Item in Linker Hand auslesen
     if ((Tool == nil) or (Tool.id ~= 2751)) then -- Wenn das Item nicht die Zange ist
-        Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
+        Tool = User:getItemAt(Character.right_tool); -- In anderer Hand nachsehen
     end
     
     if base.common.ToolBreaks( User, Tool ) then -- Zange beschädigen
@@ -114,8 +114,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if ( ltstate == Action.none ) then
         if (SourceItem.id == 2836) then
             User:startAction( GenWorkTime(User), 0, 0, 7, 15);
-            User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt an der Esse Erze einzuschmelzen.");
-            User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to melt ore at the furnace.");
+            User:talkLanguage( Character.say, Player.german, "#me beginnt an der Esse Erze einzuschmelzen.");
+            User:talkLanguage( Character.say, Player.english, "#me starts to melt ore at the furnace.");
             SourceItem.wear = 1;
             SourceItem.id = 2835;
             world:changeItem(SourceItem);

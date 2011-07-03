@@ -6,8 +6,8 @@ module("npc.henry_cunningan", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Dont you touch me!");
+    thisNPC:talkLanguage(Character.say, Player.german, "Finger weg!");
+    thisNPC:talkLanguage(Character.say, Player.english, "Dont you touch me!");
 end
 
 function initializeNpc()
@@ -198,11 +198,11 @@ function receiveText(texttype, message, originator)
 					gText="Man kann mit einem '#s' am Anfang der Nachricht schreien.";
 					eText="One can shout with a '#s' at the beginning of the message.";
 					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-					thisNPC:talk(CCharacter.yell,outText);
+					thisNPC:talk(Character.yell,outText);
 					gText="Flüstern kann man mit einem '#f'. Allerdings hören das nur Personen im Umkreis von 2 Feldern. Bereit für die nächste Lektion?";
 					eText="One can also whisper with a '#w'. But only persons within a radius of 2 tiles can hear it. Ready for the next lesson?";
 					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-					thisNPC:talk(CCharacter.whisper,outText);
+					thisNPC:talk(Character.whisper,outText);
 					if State~=0 then
 						NPCStatus[originator.id]=8;
 					else
@@ -252,11 +252,11 @@ function receiveText(texttype, message, originator)
 		elseif Progress==10 then
 			if (string.find(message,"[(][(].+[)][)]")~=nil) then
 				a,b=string.find(message,"[(][(].+[)][)]");
-				if (a==1 and b==string.len(message) and texttype == CCharacter.whisper) then
+				if (a==1 and b==string.len(message) and texttype == Character.whisper) then
 					gText="Sehr gut! Wie Ihr seht, steht OOC in Doppelklammern und sollte geflüstert werden, um andere nicht zu stören. '#o' macht das alles automatisch. Ihr könnt auch alle Sprechfunktionen außer Emotes durchschalten.";
 					eText="Very good! As you can see, OOC is in double brackets and should be whispered in order to not disturb others. '#o' does everything automatically. You can also toggle all talking functions except emotes.";
 					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-					thisNPC:talk(CCharacter.say,outText);
+					thisNPC:talk(Character.say,outText);
 					gText="Dazu müsst Ihr nur entweder auf die Taste [Einfügen] drücken oder einfach auf das kleine Feld neben dem Nachrichtenfenster klicken. Dann muss kein Befehl mehr am Anfang stehen. Bereit für die nächste Lektion?";
 					eText="You can do that by either pressing the button [Insert] or just clicking on the small field next to the message window. Then you don't need to put a command at the beginning. Ready for the next lesson?";
 					if State~=0 then
@@ -278,7 +278,7 @@ function receiveText(texttype, message, originator)
 					gText="Gut, gut. Jetzt üben wir das Umgehen mit Gegenständen. Falls Ihr noch nicht Eure Tasche geöffnet habt - sie befindet sich im Inventar neben dem Kopf -, tut dies per Rechtsklick und wählt dann 'Öffnen'.";
 					eText="Good, good. Now we make you familiar with objects. If you haven't already opened your bag - it is in your inventory next to the head - do it by right-clicking on it and choose 'open'.";
 					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-					thisNPC:talk(CCharacter.say,outText);
+					thisNPC:talk(Character.say,outText);
 					retVal=createBreadRoll(originator);
 					gText="Ich habe neben mich ein Brötchen gelegt. Klickt und haltet mit der linken Maustaste darauf und zieht es in Eure Tasche und lasst dann die Taste wieder los. Sagt, wenn Ihr fertig seid oder ein neues Brötchen braucht.";
 					eText="I have placed a bread roll beside me. Click and hold the left mouse button on it and drag it into your bag, then release the button. Tell me if you are done or you need a new bread roll.";
@@ -341,7 +341,7 @@ function receiveText(texttype, message, originator)
 					gText="Sehr gut! Die Kirschen könnt Ihr behalten. Ihr könnt sie essen, indem Ihr sie 'benutzt', wie Ihr den Baum 'benutzt' habt.";
 					eText="Very good! You can keep the cherries. You can eat them by 'using' them, the same way like you 'used' the tree.";
 					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-					thisNPC:talk(CCharacter.say,outText);
+					thisNPC:talk(Character.say,outText);
 					gText="Wollt ihr die Lektion über die Gegenstände wiederholen?";
 					eText="Do you want to repeat the lesson about objects?";
 					if State~=0 then
@@ -364,7 +364,7 @@ function receiveText(texttype, message, originator)
 				gText="Nun gut, ich habe Euch alles beigebracht, was ich weiß. Geht die Straße entlang bis Ihr zum Haus der Gebrüder Hammerfaust kommt. Sie werden Euch weiterhelfen.";
 				eText="Well then, I have taught you everything I know. Follow this street until you reach the house of the brothers Hammerfaust. They can help you along.";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-				thisNPC:talk(CCharacter.say,outText);
+				thisNPC:talk(Character.say,outText);
 				gText="Ihr könnt jederzeit wiederkommen und meine Lektionen wiederholen, sprecht mich einfach darauf an. Ich wünsche Euch noch viel Spaß und viel Glück auf Eurer weiteren Reise!";
 				eText="You can always come back and repeat my lessons, just ask for it. Now I wish you much fun and good luck on your further journey!";
 				if originator:getQuestProgress(2)<20 then

@@ -14,8 +14,8 @@ module("npc.onor", package.seeall)
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german , "Fasst mich nicht an!" );
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!" );
+    thisNPC:talkLanguage(Character.say, Player.german , "Fasst mich nicht an!" );
+    thisNPC:talkLanguage(Character.say, Player.english, "Don't you touch me!" );
 end
 
 function initializeNpc()
@@ -163,12 +163,12 @@ function receiveText(texttype, message, originator)
 
             if (Status~=0) then
                 outText=npc.base.functions.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say,outText);
+                thisNPC:talk(Character.say,outText);
             end
 
             ---------------------------------- DON'T EDIT BELOW HERE ------------------------------
             if (string.find(message,"[sS]tatus")~=nil and originator:isAdmin()==true) then
-                thisNPC:talk(CCharacter.say,"Copper="..TraderCopper ..", next delivery: "..nextDelivery.."cycCount:"..cycCount);
+                thisNPC:talk(Character.say,"Copper="..TraderCopper ..", next delivery: "..nextDelivery.."cycCount:"..cycCount);
                 statusString="Wares: ";
                 for itnCnt=1,table.getn(TraderItemId) do
                     if string.len(statusString)+string.len(world:getItemName(TraderItemId[itnCnt],1))>240 then    -- line too long
@@ -191,7 +191,7 @@ function receiveText(texttype, message, originator)
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
                 outText=npc.base.functions.GetNLS(originator,gText,eText);
-                thisNPC:talk(CCharacter.say,outText);
+                thisNPC:talk(Character.say,outText);
                 verwirrt=true;
             end
         end

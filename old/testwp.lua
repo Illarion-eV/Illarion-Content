@@ -26,7 +26,7 @@ function characterOnSight(npc,Enemy)
 end
 
 function abortRoute(npc)
-	thisNPC:talk(CCharacter.say,"Route abgebrochen");
+	thisNPC:talk(Character.say,"Route abgebrochen");
 	thisNPC.waypoints:clear();
 	waypoints = {position(-110,-117,0),position(-113,-111,0)};
 	thisNPC.waypoints:addFromList(waypoints);

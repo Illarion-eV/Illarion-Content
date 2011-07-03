@@ -14,8 +14,8 @@ module("npc.findecano_melwasul", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Dont you touch me!");
+    thisNPC:talkLanguage(Character.say, Player.german, "Finger weg!");
+    thisNPC:talkLanguage(Character.say, Player.english, "Dont you touch me!");
 end
 
 function initializeNpc()
@@ -139,8 +139,8 @@ function receiveText(texttype, message, originator)
         if npc.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
             npc.base.autonpcfunctions.TellSmallTalk(message,originator);
 			if NPCStatus[originator.id] == 3 then
-				thisNPC:talkLanguage(CCharacter.say,CPlayer.english,"#me raises his hand and mumbles a mystical formula.");
-				thisNPC:talkLanguage(CCharacter.say,CPlayer.german,"#me hebt seine Hand und murmelt eine mystische Formel.");
+				thisNPC:talkLanguage(Character.say,Player.english,"#me raises his hand and mumbles a mystical formula.");
+				thisNPC:talkLanguage(Character.say,Player.german,"#me hebt seine Hand und murmelt eine mystische Formel.");
 				world:gfx(53,originator.pos);
 				world:makeSound(13,originator.pos);
 				NPCStatus[originator.id]=1;
