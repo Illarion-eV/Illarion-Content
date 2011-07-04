@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Baldo Proudtoe"
@@ -191,7 +191,7 @@ itemShoes = 53
 
 -- Easteregg
 "Samwise", english -> "How comes everyone asks me about a 'Samwise'?", "My name is not 'Samwise'! Who is that, anyway?", "Pardon me? 'Samwise', who's that? "
-"Samwise" -> "Warum fragt mich eigentlich jeder über einen gewissen 'Samwise'?.", "Mein Name ist nicht 'Samwise'. Wer ist das überhaupt?", "Pardon? 'Samwise', wer soll das sein?"
+"Samwise" -> "Warum fragt mich eigentlich jeder über einen gewissen 'Samwise'?", "Mein Name ist nicht 'Samwise'. Wer ist das überhaupt?", "Pardon? 'Samwise', wer soll das sein?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

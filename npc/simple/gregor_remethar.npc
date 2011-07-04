@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 11, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Gregor Remethar"
@@ -242,7 +242,7 @@ cycletext "Die Dunkelheit wartet... darauf, dass das Licht ausgeht.", "Darkness 
 cycletext "Eine helle Kerze soll dir ein Leuchtfeuer sein.", "A candle of light shall be your beacon in the night."
 cycletext "Drei Schicksale und ich bin der Schätzer; was wird wohl euer Schicksal sein?", "Three fates and I have to choose; what may be your fate?"
 cycletext "Es ist nicht die Zeit, Trübsal zu blasen.", "No time to wallow in the mire."
-cycletext "Drei Pfade; welchen werdet ihr beschreiten?.", "Three paths - which will you go?"
+cycletext "Drei Pfade; welchen werdet ihr beschreiten?", "Three paths - which will you go?"
 cycletext "#me rollt bedächtig ein Maßband aus.", "#me rolls out a measuring tape."
 cycletext "Soll ich eure Maße jetzt oder später aufnehmen?", "Shall I take your measures now or later?"
 cycletext "Mein Geschäft ist sicher - gestorben wird immer!", "My business is save - people always die."

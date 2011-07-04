@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1092,7 +1092,7 @@ talkingNPC:addCycleText("Die Dunkelheit wartet... darauf, dass das Licht ausgeht
 talkingNPC:addCycleText("Eine helle Kerze soll dir ein Leuchtfeuer sein.", "A candle of light shall be your beacon in the night.");
 talkingNPC:addCycleText("Drei Schicksale und ich bin der Schätzer; was wird wohl euer Schicksal sein?", "Three fates and I have to choose; what may be your fate?");
 talkingNPC:addCycleText("Es ist nicht die Zeit, Trübsal zu blasen.", "No time to wallow in the mire.");
-talkingNPC:addCycleText("Drei Pfade; welchen werdet ihr beschreiten?.", "Three paths - which will you go?");
+talkingNPC:addCycleText("Drei Pfade; welchen werdet ihr beschreiten?", "Three paths - which will you go?");
 talkingNPC:addCycleText("#me rollt bedächtig ein Maßband aus.", "#me rolls out a measuring tape.");
 talkingNPC:addCycleText("Soll ich eure Maße jetzt oder später aufnehmen?", "Shall I take your measures now or later?");
 talkingNPC:addCycleText("Mein Geschäft ist sicher - gestorben wird immer!", "My business is save - people always die.");

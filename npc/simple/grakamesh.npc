@@ -239,7 +239,7 @@ itemShoes = 53
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
 "Grakamesh", english -> "Dat be mes, yubba!"
 "Grakamesh" -> "Das sein mir, yubba!"
-"Yes" -> "#me starts to dance wildly.", "#me grunts: 'Whub?'", "Whub?."
+"Yes" -> "#me starts to dance wildly.", "#me grunts: 'Whub?'", "Whub?"
 "Ja" -> "#me beginnt wild zu tanzen.", "#me grunzt: 'Whas?'", "Whas?"
 "No" -> "Whub now?", "#me stomps on the ground rhythmically.", "Mes gottur dance more so old oomie chief hab peace again."
 "Nein" -> "Whas jetz'?", "#me stampft rhytmisch auf den Boden.", "Ich werdige tanzen, weiter für alte Oomie Häuptling."

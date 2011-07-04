@@ -1394,7 +1394,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Madoquar");
-talkEntry:addResponse("Guten Tag, wie geht es euch?.");
+talkEntry:addResponse("Guten Tag, wie geht es euch?");
 talkEntry:addResponse("Das Wetter ist ganz nett, oder?");
 talkEntry:addResponse("Ich glaube, ihr habt da was verloren, haha.");
 talkingNPC:addTalkingEntry(talkEntry);

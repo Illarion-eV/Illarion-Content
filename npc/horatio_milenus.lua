@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Kawan Baxter, translation by Estralis Seborian                   --
 --                                                                            --
--- Last parsing: December 19, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -20,7 +20,6 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
-require("npc.base.guards_static")
 module("npc.horatio_milenus", package.seeall)
 
 function initNpc()
@@ -161,7 +160,7 @@ talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("Don't ask me such silly questions.");
 talkEntry:addResponse("Don't ask me such silly qu- Actually today is a pretty good day.");
 talkEntry:addResponse("I guard, I don't feel.");
-talkEntry:addResponse("I'm on duty. How should I feel?.");
+talkEntry:addResponse("I'm on duty. How should I feel?");
 talkEntry:addResponse("Everyday it's the same anyway.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -174,7 +173,7 @@ talkEntry:addTrigger("Wie Befind");
 talkEntry:addResponse("Fragt nicht so ein dummes Zeug.");
 talkEntry:addResponse("Fragt nicht so ein dummes - also genau genommen geht es mir heute recht gut.");
 talkEntry:addResponse("Ich bin ein Wächter, ich habe keine Gefühle.");
-talkEntry:addResponse("Ich bin im Dienst. Wie soll es mir da gehen?.");
+talkEntry:addResponse("Ich bin im Dienst. Wie soll es mir da gehen?");
 talkEntry:addResponse("Ist jeden Tag sowieso immer dasselbe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -309,6 +308,131 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gate");
+talkEntry:addResponse("Anyone or anything that passes between these walls are under my eyes. Remember that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tor");
+talkEntry:addResponse("Nichts und niemand, der durch dieses Tor geht, entgeht meinen Augen. Denkt immer daran.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hastings");
+talkEntry:addTrigger("Baron");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I swear, on the day that the gods decide, that man's head will be fell by my blade.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hastings");
+talkEntry:addTrigger("Baron");
+talkEntry:addResponse("Ich schwöre, dass so wahr mir die Götter helfen, eines Tages wird der Kopf dieses Mannes durch mein Schwert rollen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Desert");
+talkEntry:addResponse("I am but this realm's second greatest protector, the sand is it's first.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wüste");
+talkEntry:addResponse("Ich bin nur der zweitgrößte Beschützer dieses Reiches, die Wüste ist der wichtigste.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tomb");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The resting place of the greatest of our people is the tomb.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gruft");
+talkEntry:addResponse("Die letzte Ruhestätte der größten Helden unseres Volkes ist die Gruft.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Family");
+talkEntry:addResponse("Mind your business.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Familie");
+talkEntry:addResponse("Das geht euch nichts an.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Palace");
+talkEntry:addResponse("If you have no business at the palace, stay away from there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Palast");
+talkEntry:addResponse("Wenn ihr im Palast nichts zu suchen habt, dann haltet euch fern von ihm.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("King");
+talkEntry:addResponse("Reginald, the greatest king of the last generation. All honest men in Cadomyr aspire to be like him.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("König");
+talkEntry:addResponse("Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Reginald");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Reginald, he greatest king of the last generation. All honest men in Cadomyr aspire to be like him.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Reginals");
+talkEntry:addResponse("Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Guard");
+talkEntry:addResponse("I guard the gate of this city. That it is the mission the queen assigned to me and I am proud to fulfill.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wache");
+talkEntry:addResponse("Ich bewache das Tor dieser Stadt. Das ist die Aufgabe, die die Königin mir übertragen hat und es erfüllt mich mit Stolz, sie zu erfüllen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("private");
+talkEntry:addResponse("I am not a private anymore! The queen promoted me, haha!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gefreite");
+talkEntry:addResponse("Ich bin kein Gefreiter mehr! Die Königin hat mich befördert, haha!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addResponse("He's quite a merry fellow.");
 talkEntry:addResponse("The towers the archmage of Runewick built must be easy to defend.");
@@ -425,119 +549,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Mein ein und alles: Cadomyr.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gate");
-talkEntry:addResponse("Anyone or anything that passes between these walls are under my eyes. Remember that.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tor");
-talkEntry:addResponse("Nichts und niemand, der durch dieses Tor geht, entgeht meinen Augen. Denkt immer daran.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hastings");
-talkEntry:addTrigger("Baron");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I swear, on the day that the gods decide, that man's head will be fell by my blade.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hastings");
-talkEntry:addTrigger("Baron");
-talkEntry:addResponse("Ich schwöre, dass so wahr mir die Götter helfen, eines Tages wird der Kopf dieses Mannes durch mein Schwert rollen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Desert");
-talkEntry:addResponse("I am but this realm's second greatest protector, the sand is it's first.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wüste");
-talkEntry:addResponse("Ich bin nur der zweitgrößte Beschützer dieses Reiches, die Wüste ist der wichtigste.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tomb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The resting place of the greatest of our people is the tomb.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gruft");
-talkEntry:addResponse("Die letzte Ruhestätte der größten Helden unseres Volkes ist die Gruft.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Family");
-talkEntry:addResponse("Mind your business.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Familie");
-talkEntry:addResponse("Das geht euch nichts an.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Palace");
-talkEntry:addResponse("If you have no business at the palace, stay away from there.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Palast");
-talkEntry:addResponse("Wenn ihr im Palast nichts zu suchen habt, dann haltet euch fern von ihm.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("King");
-talkEntry:addResponse("Reginald, the greatest king of the last generation. All honest men in Cadomyr aspire to be like him.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("König");
-talkEntry:addResponse("Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Reginald");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Reginald, he greatest king of the last generation. All honest men in Cadomyr aspire to be like him.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Reginals");
-talkEntry:addResponse("Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Guard");
-talkEntry:addResponse("I guard the gate of this city. That it is the mission the queen assigned to me and I am proud to fulfill.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wache");
-talkEntry:addResponse("Ich bewache das Tor dieser Stadt. Das ist die Aufgabe, die die Königin mir übertragen hat und es erfüllt mich mit Stolz, sie zu erfüllen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -860,14 +871,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("private");
-talkEntry:addResponse("I am not a private anymore! The queen promoted me, haha!");
+talkEntry:addTrigger("Horatio");
+talkEntry:addTrigger("Milenus");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("That is I. State your business.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gefreite");
-talkEntry:addResponse("Ich bin kein Gefreiter mehr! Die Königin hat mich befördert, haha!");
+talkEntry:addTrigger("Horatio");
+talkEntry:addTrigger("Milenus");
+talkEntry:addResponse("Das bin ich. Was ist euer Begehr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -922,21 +936,6 @@ talkEntry:addResponse("Lungert hier nicht herum.");
 talkEntry:addResponse("Rein oder raus?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Horatio");
-talkEntry:addTrigger("Milenus");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That is I. State your business.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Horatio");
-talkEntry:addTrigger("Milenus");
-talkEntry:addResponse("Das bin ich. Was ist euer Begehr?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
 talkingNPC:addCycleText("#me zieht einen beeindruckenden Krummsäbel aus einer Lederscheide.", "#me unsheathes his giant scimitar.");
 talkingNPC:addCycleText("#me schärft seinen großen Krummsäbel. ", "#me sharpens his giant scimitar.");
 talkingNPC:addCycleText("#me lässt seinen furchteinflößenden Krummsäbel zurück in seine Lederscheide gleiten.", "#me resheathes his giant scimitar.");
@@ -972,32 +971,8 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker)
-	npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
-	mainNPC:receiveText(speaker, message);
-end;
-function nextCycle()
-	mainNPC:nextCycle();
-	if not guards_init then
-		-- init after 10 cycles
-		guards_init = 10;
-		gCount = 0;
-	end
-	if guards_init == 0 then
-		guards_init = -1;
-		npc.base.guards_static.Init(thisNPC, 1, position(114, 639, 0), 3, position(114, 634, 0));
-	elseif guards_init > 0 then
-		guards_init = guards_init - 1;
-	end
-	if guards_init == -1 then
-		if gCount == 4 then
-			gCount = 0;
-			npc.base.guards_static.CheckForEnemies(thisNPC);
-		else
-			gCount = gCount + 1;
-		end
-	end
-end;
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function nextCycle() mainNPC:nextCycle(); end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
 initNpc();

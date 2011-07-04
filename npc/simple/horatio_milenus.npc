@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Kawan Baxter, translation by Estralis Seborian                   --
 --                                                                            --
--- Last parsing: December 19, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Horatio Milenus"
@@ -119,8 +119,8 @@ itemShoes = 771
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Nehmt euch in Acht, die Wüste kann unerbitterlich sein.", "Nehmt euch in Acht und macht keinen Ärger.", "Nehmt euch in Acht.", "Auf Wiedersehen.", "Bis zum nächsten Mal."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Care, the desert can be quite unforgiving.", "Care, make no trouble.", "Care.", "Farewell.", "Good bye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Nehmt euch in Acht, die Wüste kann unerbitterlich sein.", "Nehmt euch in Acht und macht keinen Ärger.", "Nehmt euch in Acht.", "Auf Wiedersehen.", "Bis zum nächsten Mal."
-"How are you", "How feel", "How do you do" -> "Don't ask me such silly questions.", "Don't ask me such silly qu- Actually today is a pretty good day.", "I guard, I don't feel.", "I'm on duty. How should I feel?.", "Everyday it's the same anyway."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Fragt nicht so ein dummes Zeug.", "Fragt nicht so ein dummes - also genau genommen geht es mir heute recht gut.", "Ich bin ein Wächter, ich habe keine Gefühle.", "Ich bin im Dienst. Wie soll es mir da gehen?.", "Ist jeden Tag sowieso immer dasselbe."
+"How are you", "How feel", "How do you do" -> "Don't ask me such silly questions.", "Don't ask me such silly qu- Actually today is a pretty good day.", "I guard, I don't feel.", "I'm on duty. How should I feel?", "Everyday it's the same anyway."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Fragt nicht so ein dummes Zeug.", "Fragt nicht so ein dummes - also genau genommen geht es mir heute recht gut.", "Ich bin ein Wächter, ich habe keine Gefühle.", "Ich bin im Dienst. Wie soll es mir da gehen?", "Ist jeden Tag sowieso immer dasselbe."
 "your name", "who are you", "who art thou" -> "I am Horatio Milenus, guard of this realm.", "I am Horatio Milenus protector of Cadomyr.", "This is Cadomyr. I am Cadomyr.", "My name is Horatio Milenus. I am guarding this town entrance.", "I am Horatio Milenus, town guard of Cadomyr."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Horatio Milenus, Wächter des Reiches.", "Ich bin Horation Milenus, der Beschützer Cadomyrs.", "Dies ist Cadomyr. Ich bin Cadomyr.", "Mein  Name ist Horatio Milenus. Ich bewache diesen Eingang Stadt.", "Ich bin Horatio Milenus, Stadtwache von Cadomyr."
 
@@ -244,6 +244,36 @@ itemShoes = 771
 ".*", english, chance(20) -> "I am the merely a guard of Cadomyr.", "Tell that somebody else.", "Move along.", "Pass along", "Do not loiter!", "In or out?"
 ".*", german, chance(20) -> "Ich bin in erster Linie der Wächter Cadomyrs.", "Erzählt das jemanden anderes.", "Geht weiter.", "Weitergehen.", "Lungert hier nicht herum.", "Rein oder raus?"
 
+-- Causes errors, Ardian! Fix plz!
+-- [[ replace the receiveText and nextCycle functions:
+-- function receiveText(texttype, message, speaker)
+-- npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
+-- mainNPC:receiveText(speaker, message);
+-- end;
+-- function nextCycle()
+-- mainNPC:nextCycle();
+-- if not guards_init then
+-- init after 10 cycles
+-- guards_init = 10;
+-- gCount = 0;
+-- end
+-- if guards_init == 0 then
+-- guards_init = -1;
+-- npc.base.guards_static.Init(thisNPC, 1, position(114, 639, 0), 3, position(114, 634, 0));
+-- elseif guards_init > 0 then
+-- guards_init = guards_init - 1;
+-- end
+-- if guards_init == -1 then
+-- if gCount == 4 then
+-- gCount = 0;
+-- npc.base.guards_static.CheckForEnemies(thisNPC);
+-- else
+-- gCount = gCount + 1;
+-- end
+-- end
+-- end;
+-- ]]
+
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
@@ -265,32 +295,3 @@ cycletext "Galmair, Galmair, Galmair! Reden die anderen Völker über nichts and
 cycletext "Wer zur Königin will, muss zunächst ein den Palast, wer in den Palast will, muss erst in die Stadt und wer in die Stadt will, muss an mir vorbei.", "Those who wish to see the queen must first be allowed into the palace, those allowed into the palace must first enter the city, those entering the city must first speak to me."
 cycletext "Dies ist Cadomyr und der Palast der Edwards. Die derzeitige Regentin der königlichen albarischen Blutlinie ist die weise und wunderschöne Königin Rosaline.", "This is Cadomyr and the palace of the Edwards. The current regent of the Abarian royal Edward's bloodline is Queen Rosaline Edwards, a Queen who is both wise and beautiful."
 cycletext "Rosaline, ihr seid mein Herz und meine Seele.", "Rosaline, you're my heart, you're my soul, I keep it shining everywhere I go."
-
---[[ replace the receiveText and nextCycle functions:
-function receiveText(texttype, message, speaker)
-	npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
-	mainNPC:receiveText(speaker, message);
-end;
-function nextCycle()
-	mainNPC:nextCycle();
-	if not guards_init then
-		-- init after 10 cycles
-		guards_init = 10;
-		gCount = 0;
-	end
-	if guards_init == 0 then
-		guards_init = -1;
-		npc.base.guards_static.Init(thisNPC, 1, position(114, 639, 0), 3, position(114, 634, 0));
-	elseif guards_init > 0 then
-		guards_init = guards_init - 1;
-	end
-	if guards_init == -1 then
-		if gCount == 4 then
-			gCount = 0;
-			npc.base.guards_static.CheckForEnemies(thisNPC);
-		else
-			gCount = gCount + 1;
-		end
-	end
-end;
-]]

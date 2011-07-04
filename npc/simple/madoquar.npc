@@ -312,7 +312,7 @@ itemShoes = 369
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Madoquar", english -> "Good day, how are you?", "The weather is fine today is it not?", "I think you might have dropped something, haha. I was kidding."
-"Madoquar" -> "Guten Tag, wie geht es euch?.", "Das Wetter ist ganz nett, oder?", "Ich glaube, ihr habt da was verloren, haha."
+"Madoquar" -> "Guten Tag, wie geht es euch?", "Das Wetter ist ganz nett, oder?", "Ich glaube, ihr habt da was verloren, haha."
 "Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
 "Ja" -> "Ich habe eigentlich nichts gesagt.", "Ich glaube nicht, dass ich eine Frage gestellt habe, die mit 'Ja' oder 'Nein' zu beantworten wäre.", "Moment, wie bitte?"
 "No" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"

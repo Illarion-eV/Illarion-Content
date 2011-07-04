@@ -8,7 +8,7 @@
 -- Authors:  Faladron                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -531,7 +531,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I have to admit, there's better glassblowers than me there. But what else do you expect with all the sand there?.");
+talkEntry:addResponse("I have to admit, there's better glassblowers than me there. But what else do you expect with all the sand there?");
 talkEntry:addResponse("I don't like them. There's always troubles everytime I try to gather sand from the dessert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

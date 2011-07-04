@@ -8,7 +8,7 @@
 -- Authors:  Faladron                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Fronita Emery"
@@ -135,7 +135,7 @@ itemShoes = 369
 "Königin" -> "Man sagt sie könne Glasschmuck von echtem Schmuck unterscheiden. Am Geruch!", "Zwei große Kindheitsträume vereint: Königin spielen in einem riesen Sandkasten."
 "rosaline", "edwards", english -> "They say she can tell glass jewelry and real jewelry apart. By their smell!", "Two big childhood dreams combined: Queen of her own enormous sandbox."
 "rosaline", "edwards" -> "Man sagt sie könne Glasschmuck von echtem Schmuck unterscheiden. Am Geruch!", "Zwei große Kindheitsträume vereint: Königin spielen in einem riesen Sandkasten."
-"Cadomyr", english -> "I have to admit, there's better glassblowers than me there. But what else do you expect with all the sand there?.", "I don't like them. There's always troubles everytime I try to gather sand from the dessert."
+"Cadomyr", english -> "I have to admit, there's better glassblowers than me there. But what else do you expect with all the sand there?", "I don't like them. There's always troubles everytime I try to gather sand from the dessert."
 "Cadomyr" -> "Leider muss ich sagen, dort gibt es bessere Glasbläser als mich. Aber kein Wunder! Bei all dem Sand.", "Ich mag sie nicht. Es gibt immer wieder Probleme wenn ich Sand aus der Wüste holen will."
 
 -- Main land factions

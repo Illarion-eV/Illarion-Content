@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -909,7 +909,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Samwise");
-talkEntry:addResponse("Warum fragt mich eigentlich jeder über einen gewissen 'Samwise'?.");
+talkEntry:addResponse("Warum fragt mich eigentlich jeder über einen gewissen 'Samwise'?");
 talkEntry:addResponse("Mein Name ist nicht 'Samwise'. Wer ist das überhaupt?");
 talkEntry:addResponse("Pardon? 'Samwise', wer soll das sein?");
 talkingNPC:addTalkingEntry(talkEntry);

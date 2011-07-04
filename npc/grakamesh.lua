@@ -1060,7 +1060,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("#me starts to dance wildly.");
 talkEntry:addResponse("#me grunts: 'Whub?'");
-talkEntry:addResponse("Whub?.");
+talkEntry:addResponse("Whub?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
