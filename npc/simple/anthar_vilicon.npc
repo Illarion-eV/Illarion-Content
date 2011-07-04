@@ -181,20 +181,20 @@ itemShoes = 771
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 4, item(545, all) < 10, town = Cadomyr -> "Wenn die Königin etwas haßt, dann ist das ein Wassertropfen, der von der Decke auf ihr Haar fällt. Bringt zehn Bretter Kirscholz um das Dach auszubessern, bevor der Regen einsetzt."
 
 -- 5: Quest 5 taken, get a white heraldic dress (852), reward: golden ring (235), 5 rankpoints
-"quest", "mission", queststatus(119) = 0, english, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 5
-"quest", "mission", queststatus(119) = 0, german, chance(6), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 5
-"task", "adventure", queststatus(119) = 0, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 5
-"Auftrag", "Aufgabe", queststatus(119) = 0, chance(6), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 5
+"quest", "mission", queststatus(119) = 0, english, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "A new maidservant recently started working for her majesty. To dress her properly, a white heraldic dress is neede. Quick, run to one of the tailors and obtain one.", queststatus(119) = 5
+"quest", "mission", queststatus(119) = 0, german, chance(6), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Eine neue Zofe steht seit kurzem im Dienste ihrer Majestät. Um sie gebührend einzukleiden wird ein weißes Wappenkleid benötigt. Los, lauft zu einem Schneider und besorgt eines.", queststatus(119) = 5
+"task", "adventure", queststatus(119) = 0, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "A new maidservant recently started working for her majesty. To dress her properly, a white heraldic dress is neede. Quick, run to one of the tailors and obtain one.", queststatus(119) = 5
+"Auftrag", "Aufgabe", queststatus(119) = 0, chance(6), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Eine neue Zofe steht seit kurzem im Dienste ihrer Majestät. Um sie gebührend einzukleiden wird ein weißes Wappenkleid benötigt. Los, lauft zu einem Schneider und besorgt eines.", queststatus(119) = 5
 
 -- Quest 5 solved, reward: golden ring (235), 5 rankpoints, delay: 3h
-".*", queststatus(119) = 5, item(852, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded a golden ring. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", deleteItem(852, 1), item(235, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
-".*", queststatus(119) = 5, item(852, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einen goldenen Ring. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", deleteItem(852, 1), item(235, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 5, item(852, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded a golden ring. You advance in Queen Rosaline Edwards' favour."), "Excellent, that dress even has the right size. This ring shall remind you every day on your service for your queen.", deleteItem(852, 1), item(235, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 5, item(852, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einen goldenen Ring. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Exzellent, das Kleid hat sogar die richtige Größe. Dieser Ring soll euch ewig an eure Dienste für die Königin erinnern.", deleteItem(852, 1), item(235, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
 
 -- Quest 5 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(119) = 5, item(852, all) < 1, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(119) = 5, item(852, all) < 1, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(119) = 5, item(852, all) < 1, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 5, item(852, all) < 1, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(119) = 5, item(852, all) < 1, english, town = Cadomyr -> "The maidservant is still clad in rugs! This way, I cannot let her serve the queen. Please, bring a white heraldic dress for the maidservant and I have a special reward for you."
+"quest", "mission", queststatus(119) = 5, item(852, all) < 1, town = Cadomyr -> "Die Zofe ist noch immer in Lumpen gehüllt. So kann sie doch nicht der Königin dienen. Besorgt bitte ein weißes Wappenkleid und ich werde eine besondere Belohnung für euch haben."
+"task", "adventure", queststatus(119) = 5, item(852, all) < 1, town = Cadomyr -> "The maidservant is still clad in rugs! This way, I cannot let her serve the queen. Please, bring a white heraldic dress for the maidservant and I have a special reward for you."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 5, item(852, all) < 1, town = Cadomyr -> "Die Zofe ist noch immer in Lumpen gehüllt. So kann sie doch nicht der Königin dienen. Besorgt bitte ein weißes Wappenkleid und ich werde eine besondere Belohnung für euch haben."
 
 -- 6: Quest 6 taken, get 20 bricks (2588), reward: bag (97), 5 rankpoints
 "quest", "mission", queststatus(119) = 0, english, chance(7), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 6
