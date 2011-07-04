@@ -149,36 +149,36 @@ itemShoes = 771
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 2, item(316, all) < 20, town = Cadomyr -> "Das Schiff kann nicht mehr lange warten. Zwanzig Haufen Quarzsand werden für den Export benötigt."
 
 -- 3: Quest 3 taken, get 3 cut rubies (46), reward: 60cp, 5 rankpoints
-"quest", "mission", queststatus(119) = 0, english, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 3
-"quest", "mission", queststatus(119) = 0, german, chance(6), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 3
-"task", "adventure", queststatus(119) = 0, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 3
-"Auftrag", "Aufgabe", queststatus(119) = 0, chance(6), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 3
+"quest", "mission", queststatus(119) = 0, english, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "I have a special assignement for you. Queen Rosaline wants to send a diadem to her grand aunt in Albar as present. For that diadem, three cut rubies are needed. You are the one who will get them!", queststatus(119) = 3
+"quest", "mission", queststatus(119) = 0, german, chance(6), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Ich habe eine besondere Aufgabe für euch. Königin Rosaline möchte ein Diadem als Geschenk an ihre Großtante in Albar senden. Für dieses Diadem werden noch drei geschliffene Rubine benötigt. Ihr werdet derjenige sein, der sie besorgt!", queststatus(119) = 3
+"task", "adventure", queststatus(119) = 0, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "I have a special assignement for you. Queen Rosaline wants to send a diadem to her grand nice in Albar as present. For that diadem, three cut rubies are needed. You are the one who will get them!", queststatus(119) = 3
+"Auftrag", "Aufgabe", queststatus(119) = 0, chance(6), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Ich habe eine besondere Aufgabe für euch. Königin Rosaline möchte ein Diadem als Geschenk an ihre Großtante in Albar senden. Für dieses Diadem werden noch drei geschliffene Rubine benötigt. Ihr werdet derjenige sein, der sie besorgt!", queststatus(119) = 3
 
 -- Quest 3 solved, reward: 60cp, 5 rankpoints, delay: 2h
-".*", queststatus(119) = 3, item(46, all) > 2, english, town = Cadomyr -> inform("[Quest solved] You are awarded sixty coppercoins. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 60, deleteItem(46, 3), queststatus(119) = 0, queststatus(120) = 1440, rankpoints(Cadomyr) + 5
-".*", queststatus(119) = 3, item(46, all) > 2, town = Cadomyr -> inform("[Quest gelöst] Du erhältst sechsig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 60, deleteItem(46, 3), queststatus(119) = 0, queststatus(120) = 1440, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 3, item(46, all) > 2, english, town = Cadomyr -> inform("[Quest solved] You are awarded sixty coppercoins. You advance in Queen Rosaline Edwards' favour."), "I thank you. The diadem, albeit not the first present this year, will reduce the tensions between Cadomyr and Albar. Here, have this little compensation.", money + 60, deleteItem(46, 3), queststatus(119) = 0, queststatus(120) = 1440, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 3, item(46, all) > 2, town = Cadomyr -> inform("[Quest gelöst] Du erhältst sechsig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ich danke euch. Das Diadem, auch wenn es nicht das erste Geschenk in diesem Jahr ist, wird die Spannung zwischen Cadomyr und Albar reduzieren. Hier, nehmt diese Entlohnung.", money + 60, deleteItem(46, 3), queststatus(119) = 0, queststatus(120) = 1440, rankpoints(Cadomyr) + 5
 
 -- Quest 3 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(119) = 3, item(46, all) < 3, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(119) = 3, item(46, all) < 3, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(119) = 3, item(46, all) < 3, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 3, item(46, all) < 3, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(119) = 3, item(46, all) < 3, english, town = Cadomyr -> "Just imagine what happens when the queen finds out you did not bring the three cut rubies for her grand aunt's diadem in time... better hurry!"
+"quest", "mission", queststatus(119) = 3, item(46, all) < 3, town = Cadomyr -> "Stellt euch nur mal vor, was passiert, wenn die Königin herausfindet, dass ihr es seid, der die drei geschliffenen Rubine für das Diadem ihrer Großtante nicht besorgen konntet... beilt euch besser."
+"task", "adventure", queststatus(119) = 3, item(46, all) < 3, town = Cadomyr -> "Just imagine what happens when the queen finds out you did not bring the three cut rubies for her grand aunt's diadem in time... better hurry!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 3, item(46, all) < 3, town = Cadomyr -> "Stellt euch nur mal vor, was passiert, wenn die Königin herausfindet, dass ihr es seid, der die drei geschliffenen Rubine für das Diadem ihrer Großtante nicht besorgen konntet... beilt euch besser."
 
 -- 4: Quest 4 taken, get 10 cherry wood boards, reward: 100cp, 5 rankpoints
-"quest", "mission", queststatus(119) = 0, english, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 4
-"quest", "mission", queststatus(119) = 0, german, chance(6), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 4
-"task", "adventure", queststatus(119) = 0, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 4
-"Auftrag", "Aufgabe", queststatus(119) = 0, chance(6), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 4
+"quest", "mission", queststatus(119) = 0, english, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "#me points at the ceiling: 'As administrator of the palace, I even have to care for leaks in the ceiling. Did you see that hole? For fixing it, the artisans need ten cherry wood boards. Please provide them and the queen will be grateful.", queststatus(119) = 4
+"quest", "mission", queststatus(119) = 0, german, chance(6), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "#me deutet zur Decke: 'Als Verwalter des Palastes muss ich mich sogar um Löcher in der Decke kümmern, habt ihr jenes gesehen? Die Artisanen brauchen zehn Kirschholzbretter, um es auszubessern. Bitte besorgt diese und der Dank der Königin ist euch gewiss.", queststatus(119) = 4
+"task", "adventure", queststatus(119) = 0, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "#me points at the ceiling: 'As administrator of the palace, I even have to care for leaks in the ceiling. Did you see that hole? For fixing it, the artisans need ten cherry wood boards. Please provide them and the queen will be grateful.", queststatus(119) = 4
+"Auftrag", "Aufgabe", queststatus(119) = 0, chance(6), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "#me deutet zur Decke: 'Als Verwalter des Palastes muss ich mich sogar um Löcher in der Decke kümmern, habt ihr jenes gesehen? Die Artisanen brauchen zehn Kirschholzbretter, um es auszubessern. Bitte besorgt diese und der Dank der Königin ist euch gewiss.", queststatus(119) = 4
 
 -- Quest 4 solved, reward: 100cp, 5 rankpoints, delay: 4h
-".*", queststatus(119) = 4, item(545, all) > 9, english, town = Cadomyr -> inform("[Quest solved] You are awarded a hundred coppercoins. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 100, deleteItem(545, 10), queststatus(119) = 0, queststatus(120) = 2880, rankpoints(Cadomyr) + 5
-".*", queststatus(119) = 4, item(545, all) > 9, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einhundert Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 100, deleteItem(545, 10), queststatus(119) = 0, queststatus(120) = 2880, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 4, item(545, all) > 9, english, town = Cadomyr -> inform("[Quest solved] You are awarded a hundred coppercoins. You advance in Queen Rosaline Edwards' favour."), "With that cherry wood, the artisans can fix the ceiling. I don't want to think about what could have happened when it rains the next time...", money + 100, deleteItem(545, 10), queststatus(119) = 0, queststatus(120) = 2880, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 4, item(545, all) > 9, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einhundert Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Mit diesem Kirschholz können die Artisanen die Decke ausbessern. Ich möchte mir gar nicht ausmalen, was geschehen wäre, wenn es das nächste mal geregnet hätte...", money + 100, deleteItem(545, 10), queststatus(119) = 0, queststatus(120) = 2880, rankpoints(Cadomyr) + 5
 
 -- Quest 4 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(119) = 4, item(545, all) < 10, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(119) = 4, item(545, all) < 10, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(119) = 4, item(545, all) < 10, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 4, item(545, all) < 10, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(119) = 4, item(545, all) < 10, english, town = Cadomyr -> "If there is one thing the queen hates, then it is a water drop falling from the ceiling and hitting her hair. Bring ten cherry wood boards to fix the ceiling before next rainfall."
+"quest", "mission", queststatus(119) = 4, item(545, all) < 10, town = Cadomyr -> "Wenn die Königin etwas haßt, dann ist das ein Wassertropfen, der von der Decke auf ihr Haar fällt. Bringt zehn Bretter Kirscholz um das Dach auszubessern, bevor der Regen einsetzt."
+"task", "adventure", queststatus(119) = 4, item(545, all) < 10, town = Cadomyr -> "If there is one thing the queen hates, then it is a water drop falling from the ceiling and hitting her hair. Bring ten cherry wood boards to fix the ceiling before next rainfall."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 4, item(545, all) < 10, town = Cadomyr -> "Wenn die Königin etwas haßt, dann ist das ein Wassertropfen, der von der Decke auf ihr Haar fällt. Bringt zehn Bretter Kirscholz um das Dach auszubessern, bevor der Regen einsetzt."
 
 -- 5: Quest 5 taken, get a white heraldic dress (852), reward: golden ring (235), 5 rankpoints
 "quest", "mission", queststatus(119) = 0, english, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 5
