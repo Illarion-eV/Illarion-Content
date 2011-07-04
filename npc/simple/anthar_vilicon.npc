@@ -261,20 +261,20 @@ itemShoes = 771
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 9, item(2493, all) < 10, town = Cadomyr -> "Die königlichen Pferde sind hungrig. Hungrige Pferde können nicht reiten und die Feinde Cadomyrs davonfegen. Also, zehn Karotten werden ihr Futter heute sein."
 
 -- 10: Quest 10 taken, get a candle mould (429), reward: 60cp, 5 rankpoints
-"quest", "mission", queststatus(119) = 0, english, chance(9), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 10
-"quest", "mission", queststatus(119) = 0, german, chance(9), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 10
-"task", "adventure", queststatus(119) = 0, chance(9), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 10
-"Auftrag", "Aufgabe", queststatus(119) = 0, chance(9), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 10
+"quest", "mission", queststatus(119) = 0, english, chance(9), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "Administration can be quite exhausting. Sometimes, I even work during the night. For that, I need a constant supply of candles. Please bring me a candle mould.", queststatus(119) = 10
+"quest", "mission", queststatus(119) = 0, german, chance(9), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Verwaltung kann manchmal ganz schön anstrengend sein. Manchmal arbeite ich bis tief in die Nacht. Dafür brauche ich immer eine Menge Kerzen. Bringt mir doch bitte eine Kerzenziehform.", queststatus(119) = 10
+"task", "adventure", queststatus(119) = 0, chance(9), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "Administration can be quite exhausting. Sometimes, I even work during the night. For that, I need a constant supply of candles. Please bring me a candle mould.", queststatus(119) = 10
+"Auftrag", "Aufgabe", queststatus(119) = 0, chance(9), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Verwaltung kann manchmal ganz schön anstrengend sein. Manchmal arbeite ich bis tief in die Nacht. Dafür brauche ich immer eine Menge Kerzen. Bringt mir doch bitte eine Kerzenziehform.", queststatus(119) = 10
 
 -- Quest 10 solved, reward: 60cp, 5 rankpoints, delay: 4h
-".*", queststatus(119) = 10, item(429, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded sixty coppercoins. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 60, deleteItem(429, 1), queststatus(119) = 0, queststatus(120) = 2880, rankpoints(Cadomyr) + 5
-".*", queststatus(119) = 10, item(429, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Du erhältst sechszig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 60, deleteItem(429, 1), queststatus(119) = 0, queststatus(120) = 2880, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 10, item(429, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded sixty coppercoins. You advance in Queen Rosaline Edwards' favour."), "Now I can spend even more time for serving the queen. Thank you very much for the candle mould, please accept this compensation.", money + 60, deleteItem(429, 1), queststatus(119) = 0, queststatus(120) = 2880, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 10, item(429, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Du erhältst sechszig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Jetzt kann ich endlich noch mehr Zeit damit zubringen, der Königin zu dienen. Vielen Dank für die Kerzenziehform, bitte nehmt diese Belohnung.", money + 60, deleteItem(429, 1), queststatus(119) = 0, queststatus(120) = 2880, rankpoints(Cadomyr) + 5
 
 -- Quest 10 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(119) = 10, item(429, all) < 1, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(119) = 10, item(429, all) < 1, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(119) = 10, item(429, all) < 1, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 10, item(429, all) < 1, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(119) = 10, item(429, all) < 1, english, town = Cadomyr -> "Candles are rare, we have enough way but no candle mould to produce new candles. Please hurry and bring me a candle mould so I can serve the queen in the night, too."
+"quest", "mission", queststatus(119) = 10, item(429, all) < 1, town = Cadomyr -> "Die Kerzen werden knapp, es gibt genug Wachs, aber keine Kerzenziehform. Bitte bringt mir eine solche Form, damit ich der Königin auch in der Nacht dienen kann."
+"task", "adventure", queststatus(119) = 10, item(429, all) < 1, town = Cadomyr -> "Candles are rare, we have enough way but no candle mould to produce new candles. Please hurry and bring me a candle mould so I can serve the queen in the night, too."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 10, item(429, all) < 1, town = Cadomyr -> "Die Kerzen werden knapp, es gibt genug Wachs, aber keine Kerzenziehform. Bitte bringt mir eine solche Form, damit ich der Königin auch in der Nacht dienen kann."
 
 -- 11: Quest 11 taken, get 20 soup bowls (2935), reward: gilded dagger (297), 5 rankpoints
 "quest", "mission", queststatus(119) = 0, english, chance(10), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 11
