@@ -213,20 +213,20 @@ itemShoes = 771
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 6, item(2588, all) < 20, town = Cadomyr -> "Cadomyrs Feinde warten doch nur auf ein Zeichen der Schwäche. Wir dürfen keines zeigen; zwanzig Ziegelsteine werden benötigt, um die kleine Bresche in der Stadtmauer zu reparieren."
 
 -- 7: Quest 7 taken, get a longsword (2701), reward: 120cp, 5 rankpoints
-"quest", "mission", queststatus(119) = 0, english, chance(7), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 7
-"quest", "mission", queststatus(119) = 0, german, chance(7), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 7
-"task", "adventure", queststatus(119) = 0, chance(7), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 7
-"Auftrag", "Aufgabe", queststatus(119) = 0, chance(7), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 7
+"quest", "mission", queststatus(119) = 0, english, chance(7), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "You! I just checked the armoury and found a long sword missing! Please investigate on this theft - either, bring me the head of the thief or a newly crafted long sword as replacement.", queststatus(119) = 7
+"quest", "mission", queststatus(119) = 0, german, chance(7), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Ihr da! Ich habe gerade die Waffenkammer überprüft und festgestellt, dass ein Langschwert fehlt. Bitte untersucht diesen Diebstahl - entweder, ihr bringt mir den Kopf des Diebes oder ein neues Langschwert als Ersatz.", queststatus(119) = 7
+"task", "adventure", queststatus(119) = 0, chance(7), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "You! I just checked the armoury and found a sword missing! Please investigate on this theft - either, bring me the head of the thief or a newly crafted long sword as replacement.", queststatus(119) = 7
+"Auftrag", "Aufgabe", queststatus(119) = 0, chance(7), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Ihr da! Ich habe gerade die Waffenkammer überprüft und festgestellt, dass ein Langschwert fehlt. Bitte untersucht diesen Diebstahl - entweder, ihr bringt mir den Kopf des Diebes oder ein neues Langschwert als Ersatz.", queststatus(119) = 7
 
 -- Quest 7 solved, reward: 120cp, 5 rankpoints, delay: 5h
-".*", queststatus(119) = 7, item(2701, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded one hundred and twenty coppercoins. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 120, deleteItem(2701, 1), queststatus(119) = 0, queststatus(120) = 3600, rankpoints(Cadomyr) + 5
-".*", queststatus(119) = 7, item(2701, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einhundertzwanzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 120, deleteItem(2701, 1), queststatus(119) = 0, queststatus(120) = 3600, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 7, item(2701, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded one hundred and twenty coppercoins. You advance in Queen Rosaline Edwards' favour."), "Ah, a new long sword for the armoury. I guess we'll never find out who stole one, most probably a minion of Baron Hastings.", money + 120, deleteItem(2701, 1), queststatus(119) = 0, queststatus(120) = 3600, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 7, item(2701, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einhundertzwanzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ah, ein neues Langschwert für die Waffenkammer. Ich nehme an, wir werden nie herausfinden, wer eines stahl. Wahrscheinlich einer von Baron Hastings Handlangern.", money + 120, deleteItem(2701, 1), queststatus(119) = 0, queststatus(120) = 3600, rankpoints(Cadomyr) + 5
 
 -- Quest 7 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(119) = 7, item(2701, all) < 1, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(119) = 7, item(2701, all) < 1, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(119) = 7, item(2701, all) < 1, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 7, item(2701, all) < 1, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(119) = 7, item(2701, all) < 1, english, town = Cadomyr -> "The armoury is not fully equipped, a long sword is missing. A long sword that might save Rosaline's life in the right hands - provide a new one and maybe those hands will be yours one day."
+"quest", "mission", queststatus(119) = 7, item(2701, all) < 1, town = Cadomyr -> "Die Waffenkammer ist nicht komplett bestückt, es fehlt ein Langschwert. Ein Langschwert, welches in den rechten Händen Rosalines Leben retten kann - bring ein neues und vielleicht werden diese Hände einst die eurigen sein."
+"task", "adventure", queststatus(119) = 7, item(2701, all) < 1, town = Cadomyr -> "The armoury is not fully equipped, a long sword is missing. A long sword that might save Rosaline's life in the right hands - provide a new one and maybe those hands will be yours one day."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 7, item(2701, all) < 1, town = Cadomyr -> "Die Waffenkammer ist nicht komplett bestückt, es fehlt ein Langschwert. Ein Langschwert, welches in den rechten Händen Rosalines Leben retten kann - bring ein neues und vielleicht werden diese Hände einst die eurigen sein."
 
 -- 8: Quest 8 taken, get 15 firnis blossoms (148), reward: mushroom soup (2456), 5 rankpoints
 "quest", "mission", queststatus(119) = 0, english, chance(8), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 8
