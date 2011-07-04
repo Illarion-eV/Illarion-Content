@@ -117,36 +117,36 @@ itemShoes = 771
 
 -- 1: Quest 1 taken, get 5 strawberries, reward: 20cp, 5 rankpoints
 -- Quest 1: Gather five strawberries (151)
-"quest", "mission", queststatus(119) = 0, english, chance(5), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 1
-"quest", "mission", queststatus(119) = 0, german, chance(5), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 1
-"task", "adventure", queststatus(119) = 0, chance(5), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 1
-"Auftrag", "Aufgabe", queststatus(119) = 0, chance(5), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 1
+"quest", "mission", queststatus(119) = 0, english, chance(5), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "Your mission today: The queen desires sweet fruit and I will not dissapoint her. Bring me five strawberries as fast as possible and I'll mention your name infront of her.", queststatus(119) = 1
+"quest", "mission", queststatus(119) = 0, german, chance(5), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Eure heutige Mission: Die Königin verlang nach süßen Früchten und ich werde sie nicht enttäuschen. Bringt mir fünf Erdbeeren und ich werde euren Namen ihr gegenüber lobend erwähnen.", queststatus(119) = 1
+"task", "adventure", queststatus(119) = 0, chance(5), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "Your mission today: The queen desires sweet fruit and I will not dissapoint her. Bring five strawberries as fast as possible and I'll mention your name infront of her.", queststatus(119) = 1
+"Auftrag", "Aufgabe", queststatus(119) = 0, chance(5), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Eure heutige Mission: Die Königin verlang nach süßen Früchten und ich werde sie nicht enttäuschen. Bringt mir fünf Erdbeeren und ich werde euren Namen ihr gegenüber lobend erwähnen.", queststatus(119) = 1
 
 -- Quest 1 solved, reward: 20cp, 5 rankpoints, delay: 5h
-".*", queststatus(119) = 1, item(151, all) > 4, english, town = Cadomyr -> inform("[Quest solved] You are awarded twenty coppercoins. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 20, deleteItem(151, 5), queststatus(119) = 0, queststatus(120) = 3600, rankpoints(Cadomyr) + 5
-".*", queststatus(119) = 1, item(151, all) > 4, town = Cadomyr -> inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 20, deleteItem(151, 5), queststatus(119) = 0, queststatus(120) = 3600, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 1, item(151, all) > 4, english, town = Cadomyr -> inform("[Quest solved] You are awarded twenty coppercoins. You advance in Queen Rosaline Edwards' favour."), "Very good. I am authorised to grant you a small reward. The queen will enjoy these fruits!", money + 20, deleteItem(151, 5), queststatus(119) = 0, queststatus(120) = 3600, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 1, item(151, all) > 4, town = Cadomyr -> inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Sehr gut. Ich bin berechtigt, euch eine kleine Belohnung zu zahlen. Die Königin wird sich über diese Früchte sicher freuen.", money + 20, deleteItem(151, 5), queststatus(119) = 0, queststatus(120) = 3600, rankpoints(Cadomyr) + 5
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(119) = 1, item(151, all) < 5, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(119) = 1, item(151, all) < 5, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(119) = 1, item(151, all) < 5, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 1, item(151, all) < 5, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(119) = 1, item(151, all) < 5, english, town = Cadomyr -> "I told you to bring five strawberries. Her majesty has to rule a whole realm and you fail in such a simple task?"
+"quest", "mission", queststatus(119) = 1, item(151, all) < 5, town = Cadomyr -> "Ich habe euch befohlen, fünf Erdbeeren zu beschaffen. Ihre Majestät regiert ein ganzes Reich und ihr versagt bei so einer einfachen Aufgabe?"
+"task", "adventure", queststatus(119) = 1, item(151, all) < 5, town = Cadomyr -> "I told you to bring five strawberries. Her majesty has to rule a whole realm and you fail in such a simple task?"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 1, item(151, all) < 5, town = Cadomyr -> "Ich habe euch befohlen, fünf Erdbeeren zu beschaffen. Ihre Majestät regiert ein ganzes Reich und ihr versagt bei so einer einfachen Aufgabe?"
 
 -- 2: Quest 2 taken, get 20 quartz sand (316), reward: shovel (24), 5 rankpoints
-"quest", "mission", queststatus(119) = 0, english, chance(5), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 2
-"quest", "mission", queststatus(119) = 0, german, chance(5), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 2
-"task", "adventure", queststatus(119) = 0, chance(5), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 2
-"Auftrag", "Aufgabe", queststatus(119) = 0, chance(5), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 2
+"quest", "mission", queststatus(119) = 0, english, chance(5), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "Cadomyr's economy is based on sand. Very funny, I know - but take a look at the treasurey and you won't laugh anymore. A shipment of quartz sand to abroad lacks twenty piles. Please provide them anytime soon.", queststatus(119) = 2
+"quest", "mission", queststatus(119) = 0, german, chance(5), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Cadomyrs Wirtschaft ist auf Sand gebaut. Sehr witzig, ich weiß - aber wenn ihr einen Blick in die Schatzkammer werfen dürftet, würde euch das Lachen vergehen. Einer Lieferung Quartzsand ins Ausland fehlen noch zwanzig Haufen. Beschafft sie bitte möglichst bald.", queststatus(119) = 2
+"task", "adventure", queststatus(119) = 0, chance(5), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "Cadomyr's economy is based on sand. Very funny, I know - but take a look at the treasurey and you won't laugh anymore. A shipment of quartz sand to abroad lacks twenty piles. Please provide them anytime soon.", queststatus(119) = 2
+"Auftrag", "Aufgabe", queststatus(119) = 0, chance(5), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Cadomyrs Wirtschaft ist auf Sand gebaut. Sehr witzig, ich weiß - aber wenn ihr einen Blick in die Schatzkammer werfen dürftet, würde euch das Lachen vergehen. Einer Lieferung Quartzsand ins Ausland fehlen noch zwanzig Haufen. Beschafft sie bitte möglichst bald.", queststatus(119) = 2
 
 -- Quest 2 solved, reward: shovel (24), 5 rankpoints, delay: 3h
-".*", queststatus(119) = 2, item(316, all) > 19, english, town = Cadomyr -> inform("[Quest solved] You are awarded a shovel. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", deleteItem(316, 20), item(24, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
-".*", queststatus(119) = 2, item(316, all) > 19, town = Cadomyr -> inform("[Quest gelöst] Du erhältst eine Schaufel. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", deleteItem(316, 20), item(24, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 2, item(316, all) > 19, english, town = Cadomyr -> inform("[Quest solved] You are awarded a shovel. You advance in Queen Rosaline Edwards' favour."), "Very good! The shipment can leave Cadomyr in time. Next time: Be a bit faster. Here you have a shovel that might be helpful.", deleteItem(316, 20), item(24, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 2, item(316, all) > 19, town = Cadomyr -> inform("[Quest gelöst] Du erhältst eine Schaufel. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Sehr gut! Die Lieferung kann Cadomyr pünktlich verlassen. Aber nächstes mal: Seid noch schneller. Hier, nehmt diese Schaufel, sie dürfte euch helfen.", deleteItem(316, 20), item(24, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(119) = 2, item(316, all) < 20, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(119) = 2, item(316, all) < 20, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(119) = 2, item(316, all) < 20, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 2, item(316, all) < 20, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(119) = 2, item(316, all) < 20, english, town = Cadomyr -> "The ship cannot wait much longer. Twenty piles of quartz sand are needed for the export."
+"quest", "mission", queststatus(119) = 2, item(316, all) < 20, town = Cadomyr -> "Das Schiff kann nicht mehr lange warten. Zwanzig Haufen Quarzsand werden für den Export benötigt."
+"task", "adventure", queststatus(119) = 2, item(316, all) < 20, town = Cadomyr -> "The ship cannot wait much longer. Twenty piles of quartz sand are needed for the export."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 2, item(316, all) < 20, town = Cadomyr -> "Das Schiff kann nicht mehr lange warten. Zwanzig Haufen Quarzsand werden für den Export benötigt."
 
 -- 3: Quest 3 taken, get 3 cut rubies (46), reward: 60cp, 5 rankpoints
 "quest", "mission", queststatus(119) = 0, english, chance(6), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 3
