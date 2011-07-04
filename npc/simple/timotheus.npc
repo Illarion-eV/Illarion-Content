@@ -5,9 +5,10 @@
 -- NPC Race: halfling                   NPC Position:  912, 813, 1            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Estralis Seborian                                                --
+-- Authors:  Estralis Seborian                                                --
+--           Mesha                                                            --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Timotheus"
@@ -24,6 +25,7 @@ defaultLanguage = common
 autointroduce = on
 
 author = "Estralis Seborian"
+author = "Mesha"
 
 lookatDE = "Dieser NPC ist der Schneider Timotheus."
 lookatUS = "This NPC is the tailor Timotheus."
@@ -32,18 +34,18 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+hairID = 1
+beardID = 0
+colorHair = 208, 125, 4
+colorSkin = 231, 186, 144
 itemHead = 0
-itemChest = 181
-itemCoat = 0
-itemMainHand = 0
+itemChest = 811
+itemCoat = 193
+itemMainHand = 47
 itemSecondHand = 0
-itemHands = 48
-itemTrousers = 34
-itemShoes = 53
+itemHands = 2295
+itemTrousers = 367
+itemShoes = 369
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -91,41 +93,49 @@ itemShoes = 53
 "your name", "who are you", "who art thou" -> "I am Timotheus.", "Why, Timotheus of course!"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Timotheus.", "Wie jetzt, Timotheus natürlich!"
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I sell all kinds of tailored goods."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe allerlei Schneiderwaren."
-"tell something" -> "Did you know only we from Runewick have such marvelous clothing? I wonder what rags the people of Galmair wear.", "My robes are the finest in the land!"
-"erzähl was", "erzähl etwas" -> "Wußtet ihr, dass nur wir in Runewick hier so feine Kleidung haben? Ich frage mich, in was für Lumpen die Leute in Galmair rumrennen.", "Meine Roben sind die besten im ganzen Land."
+-- Catching quest triggers
+"quest", english -> "I only sell goods, my apologies. Quests are for the courageous and the air-heads."
+"quest" -> "Ich bin nur ein Händler, entschuldigt. Abenteuer sind für die mutigen und törichten."
+"task", "adventure" -> "Adventures? I'm pretty happy with my robes thank you."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Abenteuer? Ich bin ziemlich glücklich mit meinen Roben, danke."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a tailor. I sell tailor goods, and even make some myself!", "Profession, my life, whatever you prefer, it's tailoring!"
 "beruf" -> "Ich bin ein Schneider. Ich verkaufe Schneiderwaren und mache auch welche für mich selbst.", "Mein Beruf, ja, mein Leben, das ist die Schneiderei."
-"job", german -> "Ich bin ein Schneider. Ich verkaufe Schneiderwaren und mache auch welche für mich selbst.", "Mein Beruf, ja, mein Leben, das ist die Schneiderei."
 "job", english -> "I am a tailor. I sell tailor goods, and even make some myself!", "Profession, my life, whatever you prefer, it's tailoring!"
+"job" -> "Ich bin ein Schneider. Ich verkaufe Schneiderwaren und mache auch welche für mich selbst.", "Mein Beruf, ja, mein Leben, das ist die Schneiderei."
+"Gobaith", "Gobiath", english -> "Gobaith? No one goes there anymore man! It's a shadow of it's former glory.", "Ah that's right! All these Gobaithian refugees...", "That good old island isn't much anymore is it?"
+"Gobaith", "Gobiath" -> "Gobaith? Da wagt sich niemand mehr hin. Es ist nur noch ein Schatten längst vergangenen Ruhmes.", "Ja, genau! All diese Flüchtlinge aus Gobaith...", "Die gute alte Insel gibt es nicht mehr, richtig?"
+"my name" -> "And I am Timotheus. Ti-mo-the-us."
+"mein Name" -> "Und ich bin Timotheus. Ti-mo-the-us."
+
+-- More small talk
 "tailor" -> "Tailoring is an underestimated craft. A robe can tell a tale, of great adventures and wisdom."
 "Schneider" -> "Die Schneiderei ist ein unterschätztes Handwerk. Eine Robe kann eine ganze Geschichte von Abenteuern und Weisheit erzählen."
 "location" -> "Why, you are in Runewick of course, where else.", "The place to be in Runewick, at the tailor!"
 "Ort" -> "Wie jetzt, ihr seid natürlich in Runewick.", "Der Platz schlechthin, Runewick beim Schneider."
-"trader", "merchant", "collegue", "vendor", "market" -> "Well of course there is NAME. He sells the goods all the farmers have been working for on the fields.", "Wise old NAME, he sells all the goods for your studies late at night.", "NAME over there is the finest cook there has been in a long time."
-"händler", "kollege", "höker", "markt" -> "Nun, da gibt es Fred. Er handelt mit all dem, was Bauern auf den Feldern bestellt haben.", "Der alte, weise Wilbert wird euch alles verkaufen, was ihr bei nächtlichen Studien benötigt.", "Carlton dort drüben ist der beste Koch weit und breit."
-"Gobaith", english -> "Gobaith? No one goes there anymore man! It's a shadow of it's former glory.", "Ah that's right! All these Gobaithian refugees...", "That good old island isn't much anymore is it?"
-"Gobaith" -> "Gobaith? Da wagt sich niemand mehr hin. Es ist nur noch ein Schatten längst vergangenen Ruhmes.", "Ja, genau! All diese Flüchtlinge aus Gobaith...", "Die gute alte Insel gibt es nicht mehr, richtig?"
+"trader", "merchant", "collegue", "vendor", "market" -> "Well of course there is Francois. He sells the goods all the farmers have been working for on the fields.", "Wise old William, he sells all the goods for your studies late at night.", "Alysa over there is the finest cook there has been in a long time."
+"händler", "kollege", "höker", "markt" -> "Nun, da gibt es Francois. Er handelt mit all dem, was Bauern auf den Feldern bestellt haben.", "Der alte, weise William wird euch alles verkaufen, was ihr bei nächtlichen Studien benötigt.", "Alysa dort drüben ist der beste Köchin weit und breit."
 "Timmy", english -> "I am not living a lie!"
 "Timmy" -> "Ich lebe keine Lüge!"
 
 -- Faction stuff
-"Elvaine", "Morgan", "Archmage", "Erzmagier", english -> "He is a brilliant, BRILLIANT man.", "If he wasn't here... I just wouldn't know what would happen with Runewick. Runewick wouldn't flourish like it does today.", "Rather restrained, isn't he?"
-"Elvaine", "Morgan", "Archmage", "Erzmagier", german -> "Er ist ein brillianter, ich sage, brillianter Mann.", "Wenn es ihn nicht gäbe... Ich kann mir gar nicht ausmalen, was dann aus Runewick werden würde. Es würde nicht so florieren wie heute, so viel ist sicher.", "Er wirkt ziemlich reserviert, nicht wahr?"
+"Archmage" -> "He is a brilliant, BRILLIANT man.", "If he wasn't here... I just wouldn't know what would happen with Runewick. Runewick wouldn't flourish like it does today.", "Rather restrained, isn't he?"
+"Erzmagier" -> "Er ist ein brillianter, ich sage, brillianter Mann.", "Wenn es ihn nicht gäbe... Ich kann mir gar nicht ausmalen, was dann aus Runewick werden würde. Es würde nicht so florieren wie heute, so viel ist sicher.", "Er wirkt ziemlich reserviert, nicht wahr?"
+"Elvaine", "Morgan", english -> "He is a brilliant, BRILLIANT man.", "If he wasn't here... I just wouldn't know what would happen with Runewick. Runewick wouldn't flourish like it does today.", "Rather restrained, isn't he?"
+"Elvaine", "Morgan" -> "Er ist ein brillianter, ich sage, brillianter Mann.", "Wenn es ihn nicht gäbe... Ich kann mir gar nicht ausmalen, was dann aus Runewick werden würde. Es würde nicht so florieren wie heute, so viel ist sicher.", "Er wirkt ziemlich reserviert, nicht wahr?"
 "Runewick", english -> "The finest city in the land, that's for sure.", "Power through knowledge, that's the motto!", "The south-eastern jewel, that's what it is."
-"Runewick", german -> "Die beste Stadt weit und weit, so viel steht fest.", "Wissen ist Macht, das ist das Motto!", "Das Juwel des Südwesten, das ist es."
+"Runewick" -> "Die beste Stadt weit und weit, so viel steht fest.", "Wissen ist Macht, das ist das Motto!", "Das Juwel des Südwesten, das ist es."
 "Don", "Valerio", "Guilianni", english -> "I'm not sure what to think of him. His morals are certainly on the wrong side of a pig.", "Money money money, that's all I hear in my head when I hear that name.", "Valerio Pighead is his name if you ask me."
-"Don", "Valerio", "Guilianni", german -> "Ich weiß nicht recht, was ich von ihm halten soll. Seine Moralvorstellungen ähneln dem Hinterteil eines Schweines.", "Geld, Geld, Geld, das ist alles, was mir bei dem Namen in den Kopf kommt.", "Valerio Schweinskopf ist sein Name, wenn ihr mich fragt."
+"Don", "Valerio", "Guilianni" -> "Ich weiß nicht recht, was ich von ihm halten soll. Seine Moralvorstellungen ähneln dem Hinterteil eines Schweines.", "Geld, Geld, Geld, das ist alles, was mir bei dem Namen in den Kopf kommt.", "Valerio Schweinskopf ist sein Name, wenn ihr mich fragt."
 "Galmair", english -> "About as bad as it's rules I guess.", "Built upon the corpses of those with fewer financial reserves.", "I heard Galmair is ruled by merchants. I say: Ruled by pigs!"
-"Galmair", german -> "Es ist genauso schlecht dort wie die dortigen Regeln.", "Gebaut auf den Leichen derer, die über kein ausreichendes Finanzpolster verfügen.", "Ich habe gehört, Galmair wird von Händlern dominiert. Ich sage: Es wird von Schweinen beherrscht."
-"Rosaline", "queen", "Edwards", "königin", english -> "Queen Rosaline, queen Rosaline. Honourable woman, but not the smartest in her class.", "She should spend more time reading books instead of boasting.", "The archmage is right to distrust her."
-"Rosaline", "queen", "Edwards", "Königin", german -> "Königin Rosaline, Königin Rosaline. Eine ehrbare Frau, aber nicht gerade die schlauste ihrer Art.", "Sie sollte mal mehr Zeit mit Büchern als mit ihren Prahlereien verbringen.", "Ich denke, der Erzmagier tut gut daran, ihr nicht zu trauen."
+"Galmair" -> "Es ist genauso schlecht dort wie die dortigen Regeln.", "Gebaut auf den Leichen derer, die über kein ausreichendes Finanzpolster verfügen.", "Ich habe gehört, Galmair wird von Händlern dominiert. Ich sage: Es wird von Schweinen beherrscht."
+"queen" -> "Queen Rosaline, queen Rosaline. Honourable woman, but not the smartest in her class.", "She should spend more time reading books instead of boasting.", "The archmage is right to distrust her."
+"Königin" -> "Queen Rosaline, queen Rosaline. Honourable woman, but not the smartest in her class.", "She should spend more time reading books instead of boasting.", "The archmage is right to distrust her."
+"Rosaline", "Edwards", english -> "Queen Rosaline, queen Rosaline. Honourable woman, but not the smartest in her class.", "She should spend more time reading books instead of boasting.", "The archmage is right to distrust her."
+"Rosaline", "Edwards" -> "Königin Rosaline, Königin Rosaline. Eine ehrbare Frau, aber nicht gerade die schlauste ihrer Art.", "Sie sollte mal mehr Zeit mit Büchern als mit ihren Prahlereien verbringen.", "Ich denke, der Erzmagier tut gut daran, ihr nicht zu trauen."
 "Cadomyr", english -> "Beautiful city I guess, too bad the inhabitants are airheads.", "I bet they have awfully empty libraries."
-"Cadomyr", german -> "Eine schöne Stadt, so denke ich, aber ihre Einwohner sind hirnverbrannt.", "Ich schätze, sie haben dort eine schrecklich leere Bibliothek."
+"Cadomyr" -> "Eine schöne Stadt, so denke ich, aber ihre Einwohner sind hirnverbrannt.", "Ich schätze, sie haben dort eine schrecklich leere Bibliothek."
 
 -- Main land factions
 "albar", english -> "Sir Reginald of Cadomyr owned land in Albar I believe.", "Strange customs, those albarians.", "Isn't that somewhere at the end of the Aramon mountains?"
@@ -136,18 +146,22 @@ itemShoes = 53
 "salkama" -> "Oberhalb der Mittelberge - eine schöne Stadt, das ist es wahrhaftig.", "Erzmagier Morgan stammt aus Salkamar, wußtet ihr das?", "Oh, wie ich mich nach den Gassen von Salkamar sehne."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
+"god" -> "I worship Irmorom and Elara - two gods are enough for one halfling!"
+"Gott", "Götter" -> "Ich bete zu Irmorom und Elara - zwei Götter müssen für einen Halbling reichen!"
 "Elara", english -> "Elara brings us all knowledge. At least, that is what I believe.", "Elara's blessings elevated one."
 "Elara" -> "Elara gewährt uns all unser Wissen - daran glaube ich fest.", "Elaras Segen, mein Großer."
-"Irmorom", english -> "Only dwarves pray to Irmorom. Everyone else takes what he grants for granted, as it seems."
-"Irmorom" -> "Nur Zwerge beten zu Irmorom. Anscheinend nimmt Jedermann seine Gaben als selbstverständlich hin."
+"Irmorom", english -> "Only dwarves really pray to Irmorom. Everyone else takes what he grants for granted, as it seems."
+"Irmorom" -> "Nur Zwerge beten wirklich zu Irmorom. Anscheinend nimmt Jedermann seine Gaben als selbstverständlich hin."
 
--- Catching quest triggers
-"quest", english -> "I only sell goods, my apologies. Quests are for the courageous and the air-heads."
-"quest" -> "Ich bin nur ein Händler, entschuldigt. Abenteuer sind für die mutigen und törichten."
-"task", "adventure" -> "Adventures? I'm pretty happy with my robes thank you."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Abenteuer? Ich bin ziemlich glücklich mit meinen Roben, danke."
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I sell all kinds of tailored goods."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe allerlei Schneiderwaren."
+"tell something" -> "Did you know only we from Runewick have such marvelous clothing? I wonder what rags the people of Galmair wear.", "My robes are the finest in the land!"
+"erzähl was", "erzähl etwas" -> "Wußtet ihr, dass nur wir in Runewick hier so feine Kleidung haben? Ich frage mich, in was für Lumpen die Leute in Galmair rumrennen.", "Meine Roben sind die besten im ganzen Land."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Timotheus", english -> "Yes, I am Timotheus. Ti-mo-the-us."
+"Timotheus" -> "Ja, ich bin Timotheus. Ti-mo-the-us."
 "Yes" -> "Yes? Yes to what?", "Yes? I'm happy you agree..."
 "Ja" -> "Ja? Wozu ja?", "Ja? Freut mich, dass ihr zustimmt."
 "No" -> "No to what?", "No? You don't like my robes?"
@@ -160,9 +174,13 @@ itemShoes = 53
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN", "The finest robes, vests, shirts! Do not ever walk around like a bum again."
-cycletext "GERMAN", "#me straightens his blue satin robes. They are adorned with orange filigree on the sleeves."
-cycletext "GERMAN", "#me looks around for a moment before returning to his book."
-cycletext "GERMAN", "#me turns the page of his book."
-cycletext "GERMAN", "#me suddenly giggles: 'Oh, my apologies. The man who wrote this is simply brilliant.'"
-cycletext "GERMAN", "#me begins to mumble: '...and so Mesha Gobblesworth left the council after an outburst of aggression. He wouldn't se...'. He turns silent again."
+cycletext "Die feinsten Roben, Westen und Hemden! Niemals mehr wie ein Landstreicher herumlaufen!", "The finest robes, vests, shirts! Do not ever walk around like a bum again."
+cycletext "#me streicht seine blaue Satinrobe glatt. Orangene Stickereien zieren die Ärmel.", "#me straightens his blue satin robes. They are adorned with orange filigree on the sleeves."
+cycletext "#me schaut sich kurz um und wendet sich dann wieder einem Buch zu.", "#me looks around for a moment before returning to his book."
+cycletext "#me blättert die Seiten eines Buches um.", "#me turns the page of his book."
+cycletext "#me kichert auf einmal: 'Oh, entschuldigt. Der Mann, der dies hier schrieb, ist einfach brilliant.", "#me suddenly giggles: 'Oh, my apologies. The man who wrote this is simply brilliant.'"
+cycletext "#me murmelt vor sich hin: '...und so verließ Mesha Gobblesworth den Rat nach seinem Wutanfall. Er würde nicht mehr sehen, wie...'. Er verstummt anschließend.", "#me begins to mumble: '...and so Mesha Gobblesworth left the council after an outburst of aggression. He wouldn't see...'. He turns silent again."
+cycletext "Heda! Eure Kleidung sieht schäbig aus, ich hätte da was passendes.", "Lo! Your clothes look ugly. I have something fitting for you."
+cycletext "Ich habe die besten Umhänge weit und breit. Kauft oder seht häßlich aus.", "I have the best cloaks around. Buy or look ugly, your decision."
+cycletext "Satin! Brokat! Seide! Leinen!", "Satin! Brocade! Silk! Linen!"
+cycletext "Ihr da! Ein Hut würde eurem Kopf gut tun. Schlimmer kanns ja nicht mehr werden...", "You! A hat would suit your head well. Can't become any worse..."
