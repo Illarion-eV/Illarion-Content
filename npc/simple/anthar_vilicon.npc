@@ -197,20 +197,20 @@ itemShoes = 771
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 5, item(852, all) < 1, town = Cadomyr -> "Die Zofe ist noch immer in Lumpen gehüllt. So kann sie doch nicht der Königin dienen. Besorgt bitte ein weißes Wappenkleid und ich werde eine besondere Belohnung für euch haben."
 
 -- 6: Quest 6 taken, get 20 bricks (2588), reward: bag (97), 5 rankpoints
-"quest", "mission", queststatus(119) = 0, english, chance(7), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 6
-"quest", "mission", queststatus(119) = 0, german, chance(7), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 6
-"task", "adventure", queststatus(119) = 0, chance(7), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 6
-"Auftrag", "Aufgabe", queststatus(119) = 0, chance(7), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 6
+"quest", "mission", queststatus(119) = 0, english, chance(7), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "Today's mission is a little more important: The town wall of Cadomyr is in need of constant repair. There is a small damage in the southern wall, nothing serious, but still, twenty bricks are needed to fix it.", queststatus(119) = 6
+"quest", "mission", queststatus(119) = 0, german, chance(7), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Die heutige Mission ist etwas wichtiger: Die Stadtmauer Cadomyrs muss ständig in Schuss gehalten werden. In der Südmauer ist ein kleiner Schaden, nichts schlimmes, aber dennoch werden zwanzig Ziegelsteine benötigt, um sie auszubessern.", queststatus(119) = 6
+"task", "adventure", queststatus(119) = 0, chance(7), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "Today's mission is a little more important: The town wall of Cadomyr is in need of constant repair. There is a small damage in the southern wall, nothing serious, but still, twenty bricks are needed to fix it.", queststatus(119) = 6
+"Auftrag", "Aufgabe", queststatus(119) = 0, chance(7), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Die heutige Mission ist etwas wichtiger: Die Stadtmauer Cadomyrs muss ständig in Schuss gehalten werden. In der Südmauer ist ein kleiner Schaden, nichts schlimmes, aber dennoch werden zwanzig Ziegelsteine benötigt, um sie auszubessern.", queststatus(119) = 6
 
 -- Quest 6 solved, reward: bag (97), 5 rankpoints, delay: 2h
-".*", queststatus(119) = 6, item(2588, all) > 19, english, town = Cadomyr -> inform("[Quest solved] You are awarded a bag. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", deleteItem(2588, 20), item(97, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 1440, rankpoints(Cadomyr) + 5
-".*", queststatus(119) = 6, item(2588, all) > 19, town = Cadomyr -> inform("[Quest gelöst] Du erhältst eine Tasche. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", deleteItem(2588, 20), item(97, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 1440, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 6, item(2588, all) > 19, english, town = Cadomyr -> inform("[Quest solved] You are awarded a bag. You advance in Queen Rosaline Edwards' favour."), "The masons will immediatly start fixing the wall with your bricks. Have this bag, it might help you in future missions.", deleteItem(2588, 20), item(97, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 1440, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 6, item(2588, all) > 19, town = Cadomyr -> inform("[Quest gelöst] Du erhältst eine Tasche. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Die Maurer werden sofort damit beginnen, die Mauer mit euren Ziegeln auszubessern. Nehmt diesen Sack, er wird euch in zukünftigen Missionen gute Dienste erweisen.", deleteItem(2588, 20), item(97, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 1440, rankpoints(Cadomyr) + 5
 
 -- Quest 6 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(119) = 6, item(2588, all) < 20, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(119) = 6, item(2588, all) < 20, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(119) = 6, item(2588, all) < 20, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 6, item(2588, all) < 20, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(119) = 6, item(2588, all) < 20, english, town = Cadomyr -> "Cadomyr's enemies are just waiting for a sign of weakness. We must not show any; so twenty bricks is what we need to fix the small breach in the town wall."
+"quest", "mission", queststatus(119) = 6, item(2588, all) < 20, town = Cadomyr -> "Cadomyrs Feinde warten doch nur auf ein Zeichen der Schwäche. Wir dürfen keines zeigen; zwanzig Ziegelsteine werden benötigt, um die kleine Bresche in der Stadtmauer zu reparieren."
+"task", "adventure", queststatus(119) = 6, item(2588, all) < 20, town = Cadomyr -> "Cadomyr's enemies are just waiting for a sign of weakness. We must not show any; so twenty bricks is what we need to fix the small breach in the wall."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 6, item(2588, all) < 20, town = Cadomyr -> "Cadomyrs Feinde warten doch nur auf ein Zeichen der Schwäche. Wir dürfen keines zeigen; zwanzig Ziegelsteine werden benötigt, um die kleine Bresche in der Stadtmauer zu reparieren."
 
 -- 7: Quest 7 taken, get a longsword (2701), reward: 120cp, 5 rankpoints
 "quest", "mission", queststatus(119) = 0, english, chance(7), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 7
