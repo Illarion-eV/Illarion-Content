@@ -245,20 +245,20 @@ itemShoes = 771
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 8, item(148, all) < 15, town = Cadomyr -> "Dekoration eines Palastes ist etwas, was uns von den Barbaren unterscheidet. Und eine Königin sieht doch immernoch am besten aus mit einer Blume im Haar, richtig? Also bringt mir fünfzehn Firnisblüten."
 
 -- 9: Quest 9 taken, get 10 carrots (2493), reward: 40cp, 5 rankpoints
-"quest", "mission", queststatus(119) = 0, english, chance(8), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 9
-"quest", "mission", queststatus(119) = 0, german, chance(8), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 9
-"task", "adventure", queststatus(119) = 0, chance(8), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 9
-"Auftrag", "Aufgabe", queststatus(119) = 0, chance(8), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 9
+"quest", "mission", queststatus(119) = 0, english, chance(8), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "The cavalary of Cadomyr's knights has always been feared by our enemies. Today, you'll learn that a cavalary needs more than a lance; the horses need to be fed every day. It is your job to bring ten carrots for the royal horses.", queststatus(119) = 9
+"quest", "mission", queststatus(119) = 0, german, chance(8), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Die Kavallerie der Ritter Cadomyrs wurde schon immer von unseren Feinden gefürchtet. Heute lernt ihr, dass zu einer Kavallerie mehr gehört als Lanzen; die Pferde müssen jeden Tag gefüttert werden. Eure Aufgabe ist es, zehn Karotten für das königliche Gestüt herzubringen.", queststatus(119) = 9
+"task", "adventure", queststatus(119) = 0, chance(8), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "The cavalary of Cadomyr's knights has always been feared by our enemies. Today, you'll learn that a cavalary needs more than a lance; the horses need to be fed every day. It is your job to bring ten carrots for the royal horses.", queststatus(119) = 9
+"Auftrag", "Aufgabe", queststatus(119) = 0, chance(8), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Die Kavallerie der Ritter Cadomyrs wurde schon immer von unseren Feinden gefürchtet. Heute lernt ihr, dass zu einer Kavallerie mehr gehört als Lanzen; die Pferde müssen jeden Tag gefüttert werden. Eure Aufgabe ist es, zehn Karotten für das königliche Gestüt herzubringen.", queststatus(119) = 9
 
 -- Quest 9 solved, reward: 40cp, 5 rankpoints, delay: 3h
-".*", queststatus(119) = 9, item(2493, all) > 9, english, town = Cadomyr -> inform("[Quest solved] You are awarded fourty coppercoins. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 40, deleteItem(2493, 10), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
-".*", queststatus(119) = 9, item(2493, all) > 9, town = Cadomyr -> inform("[Quest gelöst] Du erhältst vierzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 40, deleteItem(2493, 10), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 9, item(2493, all) > 9, english, town = Cadomyr -> inform("[Quest solved] You are awarded fourty coppercoins. You advance in Queen Rosaline Edwards' favour."), "Here is a small reward for the carrots you brought. Certainly, you do not mind money when serving the queen, do you?", money + 40, deleteItem(2493, 10), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 9, item(2493, all) > 9, town = Cadomyr -> inform("[Quest gelöst] Du erhältst vierzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Hier ist eine kleine Belohnung für die Karotten, die ihr brachtet. Aber sicherlich ist euch Geld nicht so wichtig, wenn ihr der Königin dienen könnt, nicht wahr?", money + 40, deleteItem(2493, 10), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
 
 -- Quest 9 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(119) = 9, item(2493, all) < 10, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(119) = 9, item(2493, all) < 10, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(119) = 9, item(2493, all) < 10, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 9, item(2493, all) < 10, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(119) = 9, item(2493, all) < 10, english, town = Cadomyr -> "The royal horses are hungry. Hungry horses cannot ride to sweep away the foes of Cadomyr. So, ten carrots will feed them for today."
+"quest", "mission", queststatus(119) = 9, item(2493, all) < 10, town = Cadomyr -> "Die königlichen Pferde sind hungrig. Hungrige Pferde können nicht reiten und die Feinde Cadomyrs davonfegen. Also, zehn Karotten werden ihr Futter heute sein."
+"task", "adventure", queststatus(119) = 9, item(2493, all) < 10, town = Cadomyr -> "The royal horses are hungry. Hungry horses cannot ride to sweep away the foes of Cadomyr. So, ten carrots will feed them for today."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 9, item(2493, all) < 10, town = Cadomyr -> "Die königlichen Pferde sind hungrig. Hungrige Pferde können nicht reiten und die Feinde Cadomyrs davonfegen. Also, zehn Karotten werden ihr Futter heute sein."
 
 -- 10: Quest 10 taken, get a candle mould (429), reward: 60cp, 5 rankpoints
 "quest", "mission", queststatus(119) = 0, english, chance(9), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 10
