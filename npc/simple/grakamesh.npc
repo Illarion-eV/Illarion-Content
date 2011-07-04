@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 05, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Grakamesh"
@@ -152,12 +152,12 @@ itemShoes = 53
 "quest", "mission", queststatus(78) > 19, queststatus(78) < 21, english -> "Meh still feel evil presence ob ghost ob foe ob old chief ob Cadomyr. Expel dat from plane ob mortals!"
 "quest", "mission", queststatus(78) > 19, queststatus(78) < 21 -> "Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoße es von dem Land der Sterblichen!"
 "task", "adventure", queststatus(78) > 19, queststatus(78) < 21 -> "Meh still feel evil presence ob ghost ob foe ob old chief ob Cadomyr. Expel dat from plane ob mortals!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(78) > 19, queststatus(78) < 21 -> "Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoße es von dem Land der Sterblichen!."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(78) > 19, queststatus(78) < 21 -> "Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoße es von dem Land der Sterblichen!"
 
 -- No more quests, just nice words of gratitude
-"quest", "mission", queststatus(78) = 22, english -> "Danks fer everyding yoos hab do. Reginald oomie can now rest in peace. Until Hastings oomie does next mischief!."
+"quest", "mission", queststatus(78) = 22, english -> "Danks fer everyding yoos hab do. Reginald oomie can now rest in peace. Until Hastings oomie does next mischief!"
 "quest", "mission", queststatus(78) = 22 -> "Sei gedankt, für alle deine Taten. Reginald wird liegen in Friede, solange bis Oomie Hastings tut nächste Misstat!"
-"task", "adventure", queststatus(78) = 22 -> "Danks fer everyding yoos hab do. Reginald oomie can now rest in peace. Until Hastings oomie does next mischief!."
+"task", "adventure", queststatus(78) = 22 -> "Danks fer everyding yoos hab do. Reginald oomie can now rest in peace. Until Hastings oomie does next mischief!"
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(78) = 22 -> "Sei gedankt, für alle deine Taten. Reginald wird liegen in Friede, solange bis Oomie Hastings tut nächste Misstat!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!

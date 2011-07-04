@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Hassan"
@@ -229,7 +229,7 @@ itemShoes = 53
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Hassan", english -> "So, who sent you?", "Yes, yes, I know, I should be in the palace.", "No."
 "Hassan" -> "So, wer schickt euch?", "Ja, ja, ich weiß, ich sollte im Palast sein.", "Nein."
-"Yes" -> "No.", "Not really.", "Peon!."
+"Yes" -> "No.", "Not really.", "Peon!"
 "Ja" -> "Nein.", "Nicht wirklich.", "Peon!"
 "No" -> "Oh, I could tell you so many secrets of the queen, but I am loyal to her.", "Did I mention that I am thirsty?", "Wine is divine."
 "Nein" -> "Oh, ich könnte so viele Geheimnisse der Königin ausplaudern, aber ich bin ihr treu ergeben.", "Erwähnte ich, dass ich Durst habe?", "Wein ist fein."

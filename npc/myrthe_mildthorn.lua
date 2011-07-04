@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 29, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -540,7 +540,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
-talkEntry:addResponse("Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!.");
+talkEntry:addResponse("Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

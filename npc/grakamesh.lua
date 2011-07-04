@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -569,7 +569,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 19));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "<", 21));
-talkEntry:addResponse("Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoße es von dem Land der Sterblichen!.");
+talkEntry:addResponse("Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoße es von dem Land der Sterblichen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -578,7 +578,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 22));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Danks fer everyding yoos hab do. Reginald oomie can now rest in peace. Until Hastings oomie does next mischief!.");
+talkEntry:addResponse("Danks fer everyding yoos hab do. Reginald oomie can now rest in peace. Until Hastings oomie does next mischief!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -594,7 +594,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 22));
-talkEntry:addResponse("Danks fer everyding yoos hab do. Reginald oomie can now rest in peace. Until Hastings oomie does next mischief!.");
+talkEntry:addResponse("Danks fer everyding yoos hab do. Reginald oomie can now rest in peace. Until Hastings oomie does next mischief!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

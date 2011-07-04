@@ -8,7 +8,7 @@
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -985,7 +985,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addResponse("Mir egal, was gehen mich die Angelegenheiten der Menschen an?");
-talkEntry:addResponse("Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!.");
+talkEntry:addResponse("Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!");
 talkEntry:addResponse("Menschen verbünden sich, doch sind nie eins. Sie gelüsten, kriegen aber nicht. Töten um zu erlangen, aber können nichts behalten. Menschen kämpfen und streiten, doch haben sie nichts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1004,7 +1004,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
 talkEntry:addResponse("Mir egal, was gehen mich die Angelegenheiten der Menschen an?");
-talkEntry:addResponse("Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!.");
+talkEntry:addResponse("Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!");
 talkEntry:addResponse("Menschen verbünden sich, doch sind nie eins. Sie gelüsten, kriegen aber nicht. Töten um zu erlangen, aber können nichts behalten. Menschen kämpfen und streiten, doch haben sie nichts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1021,7 +1021,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Mir egal, was gehen mich die Angelegenheiten der Menschen an?");
-talkEntry:addResponse("Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!.");
+talkEntry:addResponse("Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!");
 talkEntry:addResponse("Menschen verbünden sich, doch sind nie eins. Sie gelüsten, kriegen aber nicht. Töten um zu erlangen, aber können nichts behalten. Menschen kämpfen und streiten, doch haben sie nichts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

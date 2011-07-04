@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 29, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Myrthe Mildthorn"
@@ -146,7 +146,7 @@ itemShoes = 53
 
 -- Quest 3 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(79) > 19, queststatus(79) < 21, english -> "A giant spider built a giant web in the woods! I fear for my life!"
-"quest", "mission", queststatus(79) > 19, queststatus(79) < 21 -> "Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!."
+"quest", "mission", queststatus(79) > 19, queststatus(79) < 21 -> "Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!"
 "task", "adventure", queststatus(79) > 19, queststatus(79) < 21 -> "A giant spider built a giant web in the woods! I fear for my life!"
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(79) > 19, queststatus(79) < 21 -> "Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!"
 

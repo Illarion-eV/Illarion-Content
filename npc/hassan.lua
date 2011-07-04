@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1222,7 +1222,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("No.");
 talkEntry:addResponse("Not really.");
-talkEntry:addResponse("Peon!.");
+talkEntry:addResponse("Peon!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

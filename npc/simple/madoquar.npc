@@ -8,7 +8,7 @@
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Madoquar"
@@ -256,11 +256,11 @@ itemShoes = 369
 
 -- Main land factions
 "albar", english -> "I do not care. I bother myself not with the fickle ways of man.", "What is war? What is it good for? Absolutely nothing.", "Men create factions and are never whole. Men lust, and have not. Men kill, and desire to have, and cannot obtain. Men fight and war, yet they have not."
-"albar" -> "Mir egal, was gehen mich die Angelegenheiten der Menschen an?", "Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!.", "Menschen verbünden sich, doch sind nie eins. Sie gelüsten, kriegen aber nicht. Töten um zu erlangen, aber können nichts behalten. Menschen kämpfen und streiten, doch haben sie nichts."
+"albar" -> "Mir egal, was gehen mich die Angelegenheiten der Menschen an?", "Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!", "Menschen verbünden sich, doch sind nie eins. Sie gelüsten, kriegen aber nicht. Töten um zu erlangen, aber können nichts behalten. Menschen kämpfen und streiten, doch haben sie nichts."
 "gynk", "gync", english -> "I do not care. I bother myself not with the fickle ways of man.", "What is war? What is it good for? Absolutely nothing.", "Men create factions and are never whole. Men lust, and have not. Men kill, and desire to have, and cannot obtain. Men fight and war, yet they have not."
-"gync", "gynk" -> "Mir egal, was gehen mich die Angelegenheiten der Menschen an?", "Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!.", "Menschen verbünden sich, doch sind nie eins. Sie gelüsten, kriegen aber nicht. Töten um zu erlangen, aber können nichts behalten. Menschen kämpfen und streiten, doch haben sie nichts."
+"gync", "gynk" -> "Mir egal, was gehen mich die Angelegenheiten der Menschen an?", "Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!", "Menschen verbünden sich, doch sind nie eins. Sie gelüsten, kriegen aber nicht. Töten um zu erlangen, aber können nichts behalten. Menschen kämpfen und streiten, doch haben sie nichts."
 "salkama", english -> "I do not care. I bother myself not with the fickle ways of man.", "What is war? What is it good for? Absolutely nothing.", "Men create factions and are never whole. Men lust, and have not. Men kill, and desire to have, and cannot obtain. Men fight and war, yet they have not."
-"salkama" -> "Mir egal, was gehen mich die Angelegenheiten der Menschen an?", "Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!.", "Menschen verbünden sich, doch sind nie eins. Sie gelüsten, kriegen aber nicht. Töten um zu erlangen, aber können nichts behalten. Menschen kämpfen und streiten, doch haben sie nichts."
+"salkama" -> "Mir egal, was gehen mich die Angelegenheiten der Menschen an?", "Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!", "Menschen verbünden sich, doch sind nie eins. Sie gelüsten, kriegen aber nicht. Töten um zu erlangen, aber können nichts behalten. Menschen kämpfen und streiten, doch haben sie nichts."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "There are no younger gods, there are five gods, ten old, holy ancestors and uncalled ones."
