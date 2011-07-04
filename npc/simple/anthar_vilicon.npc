@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Anthar Vilicon"
@@ -80,8 +80,8 @@ itemShoes = 771
 -- 20: Quest 20 taken, get a gold nugget, reward: 50cp, 5 rankpoints
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Anthar Vilicon the chancellor. Keyphrases: Hello, Mission, Chancellor, Cadomyr, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Anthar Vilicon der Kanzler. Schlüsselwörter: Hallo, Mission, Kanzler, Cadomyr, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Anthar Vilicon the chancellor. Keyphrases: Hello, Mission, Chancellor, Cadomyr, Elf.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Anthar Vilicon der Kanzler. Schlüsselwörter: Hallo, Mission, Kanzler, Cadomyr, Elf.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -108,12 +108,12 @@ itemShoes = 771
 "Auftrag", "Aufgabe", "Abenteuer", town = Runewick -> "GERMAN1."
 
 -- Catching quest triggers of those who have to wait for a new quest
-"quest", "mission", queststatus(120) ~= 0, english, town = Cadomyr -> "ENGLISH1."
-"quest", "mission", queststatus(120) ~= 0, town = Cadomyr -> "GERMAN1."
-"task", "adventure", queststatus(120) ~= 0, town = Cadomyr -> "ENGLISH1."
-"Auftrag", "Aufgabe", queststatus(120) ~= 0, town = Cadomyr -> "GERMAN1."
+"quest", "mission", queststatus(120) ~= 0, english, town = Cadomyr -> "I don't have a mission for you at this moment. Please come back later.", "I appreciate that you want to do deeds in the name of her majesty, but currently, there are no orders for you.", "Your words honour you and the day will come when you can prove your loyality to the throne by deeds. But this day is not today. Please come back later."
+"quest", "mission", queststatus(120) ~= 0, town = Cadomyr -> "Derzeit gibt es keine Mission für euch. Kommt bitte später wieder.", "Ich schätze eure Bereitschaft, Taten im Namen der Königin zu vollbringen. Derzeit habe ich jedoch keine Befehle für euch.", "Eure Worte ehren euch und der Tag wird kommen, an dem ihr euren Worten Taten folgen lassen könnt und eure Loyalität dem Thron gegenüber beweisen könnt. Aber dieser Tag ist nicht heute, kommt bitte später wieder."
+"task", "adventure", queststatus(120) ~= 0, town = Cadomyr -> "I don't have a mission for you at this moment. Please come back later.", "I appreciate that you want to do deeds in the name of her majesty, but currently, there are no orders for you.", "Your words honour you and the day will come when you can prove your loyality to the throne by deeds. But this day is not today. Please come back later."
+"Auftrag", "Aufgabe", queststatus(120) ~= 0, town = Cadomyr -> "Derzeit gibt es keine Mission für euch. Kommt bitte später wieder.", "Ich schätze eure Bereitschaft, Taten im Namen der Königin zu vollbringen. Derzeit habe ich jedoch keine Befehle für euch.", "Eure Worte ehren euch und der Tag wird kommen, an dem ihr euren Worten Taten folgen lassen könnt und eure Loyalität dem Thron gegenüber beweisen könnt. Aber dieser Tag ist nicht heute, kommt bitte später wieder."
 
--- A quest is chosen by random!
+-- A quest is chosen at random!
 
 -- 1: Quest 1 taken, get 5 strawberries, reward: 20cp, 5 rankpoints
 -- Quest 1: Gather five strawberries (151)
@@ -437,38 +437,38 @@ itemShoes = 771
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 20, item(234, all) < 1, town = Cadomyr -> "GERMAN."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"profession" -> "I am Cadomyr's chancellor. I issue orders of her majesty and care about the palace.", "As chancellor, it is my duty to make sure that the queen has all she needs and that her palace is clean and secure.", "As Cadomyr's chancellor, I am the head of the royal administration. The queen relies on my any my initiative to take care of the unwanted and little things in her kingdom."
+"beruf" -> "Ich bin der Kanzler Cadomyrs. Ich verteile die Befehle der Königin und sorge für den Palast.", "Als Kanzler obliegt es mir sicherzustellen, dass es der Königin an nichts mangelt und dass ihr Palast sauber und sicher ist.", "Als Cadomyrs Kanzler bin ich der Obereste in Cadomyrs Verwaltung. Die Königin verläßt sich auf mich und meine Eigeninitiative, so dass ich mich um die kleinen, unliebsamen Dinge im Königreich kümmere."
+"job", english -> "I am Cadomyr's chancellor. I issue orders of her majesty and care about the palace.", "As chancellor, it is my duty to make sure that the queen has all she needs and that her palace is clean and secure.", "As Cadomyr's chancellor, I am the head of the royal administration. The queen relies on my any my initiative to take care of the unwanted and little things in her kingdom."
+"job" -> "Ich bin der Kanzler Cadomyrs. Ich verteile die Befehle der Königin und sorge für den Palast.", "Als Kanzler obliegt es mir sicherzustellen, dass es der Königin an nichts mangelt und dass ihr Palast sauber und sicher ist.", "Als Cadomyrs Kanzler bin ich der Obereste in Cadomyrs Verwaltung. Die Königin verläßt sich auf mich und meine Eigeninitiative, so dass ich mich um die kleinen, unliebsamen Dinge im Königreich kümmere."
+"Gobaith", "Gobiath", english -> "I've been to Gobaith before the fall: I had a horrible glass of wine in a horrible tavern with a sheep running around in the taproom!"
+"Gobaith", "Gobiath" -> "Vor der Vernichtung war ich einmal auf Gobaith: Ich trank ein Glas widerlichem Weines in einer stinkenden Taverne, wo ein Schaf im Schankraum herumlief!"
+"my name" -> "Very well. I am sure you can do good deeds in the name of Cadomyr. As chancellor, I have to take care of many things and you can do your share."
+"mein Name" -> "Wunderbar. Ich bin mir sicher, ihr könnt viele gute Taten für Cadomyr vollbringen. Als Kanzler kümmere ich mich um viele Angelegenheiten und ihr könnt euren Teil dazu beitragen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"Chancellor" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Kanzler" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Chancellor" -> "I am Cadomyr's chancellor. I issue orders of her majesty and care about the palace.", "As chancellor, it is my duty to make sure that the queen has all she needs and that her palace is clean and secure.", "As Cadomyr's chancellor, I am the head of the royal administration. The queen relies on my any my initiative to take care of the unwanted and little things in her kingdom."
+"elf", english -> "I am indeed an elf and I obey the orders of humans. I've been loyal to the Edwards family and the throne for ages and I cannot imagine any better kin of rulers."
+"Palace" -> "The palace is the house of the Edwards and I am the housekeeper - in simple words. I care for the administration of Cadomyr, delegating what needs to be done."
+"Guard" -> "I doubt this palace needs a guard. No one in Cadomyr would raise his hand against queen Rosaline and if that bastard Hastings dares to appear here, I'd give my life to defend her majesty."
+"loyal", english -> "I am loyal to Rosaline as I was loyal to Reginald and all their forefathers. Likewise, I will be loyal to the heirs of Cadomyr until end of time."
+"Kanzler" -> "Ich bin der Kanzler Cadomyrs. Ich verteile die Befehle der Königin und sorge für den Palast.", "Als Kanzler obliegt es mir sicherzustellen, dass es der Königin an nichts mangelt und dass ihr Palast sauber und sicher ist.", "Als Cadomyrs Kanzler bin ich der Obereste in Cadomyrs Verwaltung. Die Königin verläßt sich auf mich und meine Eigeninitiative, so dass ich mich um die kleinen, unliebsamen Dinge im Königreich kümmere."
+"elf" -> "Ich bin fürwahr ein Elf, der den Befehlen von Menschen gehorcht. Ich diene der Familie der Edwards und dem Thron nun schon eine Ewigkeit und ich kann mir keine bessere Herrschersippe vorstellen."
+"Palast" -> "Der Palast ist das Haus der Edwards und ich bin der Hausmeister - in einfachen Worten. Ich bin für die Verwaltung Cadomyrs verwantwortlich und delegiere die Dinge, die nunmal gemacht werden müssen."
+"Wache", "Wächter" -> "Ich wage zu behaupten, dass der Palast gar keine Wache benötigt. Niemand aus Cadomyr würde seine Hand gegen Königin Rosaline erheben und wenn dieser Bastard Hastings hier aufkreuzt, würde ich liebend gerne die Königin mit meinem Leben verteidigen."
+"loyal" -> "Ich bin Rosaline so loyal, wie ich es Reginald war und allen ihren Vorvätern. Genauso werde ich ihren Erben dienen bis zum Ende aller Tage."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"archmage" -> "Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense for honour; sometimes, loyality is more important than rationality."
+"Erzmagier" -> "Elvaine Morgan, der Erzmagier Runewicks, ist ein ehrbarer Elf. Ich schätze ihn und sein Wort. Allerdings fehlt es ihm an Ehrgefühl, denn manchmal ist Loyalität wichtiger als Vernunft."
+"Elvaine", "Morgan", english -> "Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense for honour; sometimes, loyality is more important than rationality."
+"Elvaine", "Morgan" -> "Elvaine Morgan, der Erzmagier Runewicks, ist ein ehrbarer Elf. Ich schätze ihn und sein Wort. Allerdings fehlt es ihm an Ehrgefühl, denn manchmal ist Loyalität wichtiger als Vernunft."
+"Runewick", english -> "Runewick consists of four magnificient towers in the ocean, deemed the most beautiful buildings in these lands, only second to the palace of the Edwards."
+"Runewick" -> "Runewick besteht aus vier beeindruckenden Türmen im Meer, die schönsten Bauwerke in diesen Landen, nur noch in den Schatten gestellt durch den Palast der Edwards."
+"Valerio", "Guilianni", "Don", english -> "Don Valerio is a honourless bastard who even dared to propose to my queen - my scimitar shall prevent a second attempt."
+"Valerio", "Guilianni", "Don" -> "Don Valerio ist ein ehrloser Bastard, der es wagte, um die Hand meiner Königin anzuhalten. Einen zweiten Versuch wird mein Säbel zu verhindern wissen!"
+"Galmair", english -> "One thing is good about Galmair: Gold. But do not ask how they get it, you might learn sad stories."
+"Galmair" -> "Nur eines ist gut an Galmair: Gold. Aber fragt nicht, wo sie es her haben, ihr könntet traurige Geschichten hören."
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -477,34 +477,34 @@ itemShoes = 771
 "Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"albar", english -> "Being of albarian origin, the family of the Edwards' certainly has respect for the albarian people. However: Cadomyr is not Albar!"
+"albar" -> "Die Familie der Edwards ist von albarischem Geblüt und von daher hat sie sicherlich Hochachtung vor dem albarischen Volk. Aber: Cadomyr gehört nicht zu Albar!"
+"gynk", "gync", english -> "If you want to see traitors, cowards, liers and cheaters, either go to a gaol or to Gynk."
+"gync", "gynk" -> "Wenn ihr Verräter, Feiglinge, Lügner und Betrüger sehen wollt, geht entweder in ein Zuchthaus oder nach Gynk."
+"salkama", english -> "I have high hopes that one day, the people of Salkamar will understand that abandoning the old customs doesn't do any good."
+"salkama" -> "Ich habe die Hoffnung noch nicht aufgegeben, dass das Volk Salkamars eines Tages einsehen wird, dass es nicht der richtige Weg ist, die alten Sitten über Bord zu werfen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"god" -> "My hand is guided by Malachín, my feet walk on Zhambra's path and my heart beats for my queen."
+"Gott", "Götter" -> "Meine Hand wird von Malachín geführt, meine Füße gehen auf Zhambras Wegen und mein Herz schlägt für meine Königin."
+"Malachin", "Malachín", english -> "Malachín is the god of war one could say. But I regard his ways to be just and noble while a war isn't always noble. Want to know more about unnoble deeds? Ask Don Valerio!"
+"Malachin", "Malachín" -> "Malachín ist der Gott des Krieges, wie manche sagen. Ich hingegen sehe seine Wege als gerecht und ehrlich an, ein Krieg hingegen ist dies nicht immer. Wollt ihr mehr über unrühmliche Taten erfahren? Fragt Don Valerio!"
+"Zhambra", english -> "Zhambra is the god of loyality. And I am loyal to my queen and her family, the Edwards'. I've been in their services longer than a dozen human lives."
+"Zhambra" -> "Zhambra ist der Gott der Loyalität und ich bin loyal gegenüber meiner Königin und ihrer Familie, den Edwards. Ich stehe in ihren Diensten schon seit einem Dutzend Menschenleben."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"what sell", "what buy", "list wares", "price of" -> "Where is the sign above my head, reading 'Anthar's general store'? I am not a trader!"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Wo ist denn bitte das Schild über meinem Kopf, auf dem 'Anthars Gemischtwarenhandel' steht? Ich bin kein Händler!"
+"tell something" -> "I could tell you a lot about Cadomyr, queen Rosaline and the palace."
+"erzähl was", "erzähl etwas" -> "Ich könnte euch etwas über Cadomyr, Königin Rosaline und den Palast erzählen."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Anthar", "Vilicon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Anthar", "Vilicon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Anthar", "Vilicon", english -> "I am the royal chancellor, Anthar Vilicon. Treat me with respect and I will treat you likewise. Treat me without respect and you'll end up beheaded.", "ENGLISH2.", "ENGLISH3."
+"Anthar", "Vilicon" -> "Ich bin der königliche Kanzler, Anthar Vilicon. Erweißt mir Respekt und ich werde euch entsprechend behandeln. Seid respektlos und ihr werdet geköpft."
+"Yes" -> "Very well.", "I assume you agree.", "What do you mean?", "Pardon?"
+"Ja" -> "Sehr gut.", "Ich nehme an, ihr stimmt mir zu.", "Wie meinen?", "Pardon?"
+"No" -> "You dare to disagree?", "I do not know that word: 'No'.", "Obey!", "Pardon?"
+"Nein" -> "Ihr wagt es, zu widersprechen?", "Das Wort kenne ich nicht: 'Nein'.", "Gehorcht!", "Pardon?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -514,10 +514,10 @@ itemShoes = 771
 cycletext "Willkommen im Palast.", "Welcome to the palace."
 cycletext "Verbeugt euch vor der Königin!", "All bow to the queen!"
 cycletext "Ja, meine Königin?", "Yes, my queen?"
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "#me rückt seine leichte Rüstung zurecht, die wohl nur dekorativen Zwecken dient.", "#me adjusts his light armour which seems to be just decorative."
+cycletext "#me schwingt einen Krummsäbel geschwind durch die Luft, so dass ein surrendes Geräusch entsteht.", "#me swirls a scimitar, so fast that a buzzing noise can be heard."
+cycletext "Für die Ehre Cadomyrs!", "For the glory of Cadomyr!"
+cycletext "#me blickt zur Decke.", "#me stares at the ceiling."
+cycletext "Königin Rosaline ist eine der letzten mit Ehre und Anmut!", "Queen Rosaline in one of the last ones with honour and grace!"
+cycletext "Ihr da! Kommt her, eventuell habe ich eine Mission für euch.", "You, come here! Maybe I have a mission for you."
+cycletext "Der nächste selbsternannte Traumprinz, der sich an meine Königin ranmacht, wird gevierteilt!", "The next self proclaimed Prince Charming who proposes to my queen will be quartered!"

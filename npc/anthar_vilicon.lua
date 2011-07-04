@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -36,13 +36,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Anthar Vilicon the chancellor. Keyphrases: Hello, Mission, Chancellor, Cadomyr, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Anthar Vilicon the chancellor. Keyphrases: Hello, Mission, Chancellor, Cadomyr, Elf."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Anthar Vilicon der Kanzler. Schlüsselwörter: Hallo, Mission, Kanzler, Cadomyr, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Anthar Vilicon der Kanzler. Schlüsselwörter: Hallo, Mission, Kanzler, Cadomyr, Elf."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -257,7 +257,9 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(120, "~=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("I don't have a mission for you at this moment. Please come back later.");
+talkEntry:addResponse("I appreciate that you want to do deeds in the name of her majesty, but currently, there are no orders for you.");
+talkEntry:addResponse("Your words honour you and the day will come when you can prove your loyality to the throne by deeds. But this day is not today. Please come back later.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,7 +268,9 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(120, "~=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("Derzeit gibt es keine Mission für euch. Kommt bitte später wieder.");
+talkEntry:addResponse("Ich schätze eure Bereitschaft, Taten im Namen der Königin zu vollbringen. Derzeit habe ich jedoch keine Befehle für euch.");
+talkEntry:addResponse("Eure Worte ehren euch und der Tag wird kommen, an dem ihr euren Worten Taten folgen lassen könnt und eure Loyalität dem Thron gegenüber beweisen könnt. Aber dieser Tag ist nicht heute, kommt bitte später wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -275,7 +279,9 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(120, "~=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("I don't have a mission for you at this moment. Please come back later.");
+talkEntry:addResponse("I appreciate that you want to do deeds in the name of her majesty, but currently, there are no orders for you.");
+talkEntry:addResponse("Your words honour you and the day will come when you can prove your loyality to the throne by deeds. But this day is not today. Please come back later.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -284,7 +290,9 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addCondition(npc.base.condition.quest.quest(120, "~=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("Derzeit gibt es keine Mission für euch. Kommt bitte später wieder.");
+talkEntry:addResponse("Ich schätze eure Bereitschaft, Taten im Namen der Königin zu vollbringen. Derzeit habe ich jedoch keine Befehle für euch.");
+talkEntry:addResponse("Eure Worte ehren euch und der Tag wird kommen, an dem ihr euren Worten Taten folgen lassen könnt und eure Loyalität dem Thron gegenüber beweisen könnt. Aber dieser Tag ist nicht heute, kommt bitte später wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2750,34 +2758,34 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am Cadomyr's chancellor. I issue orders of her majesty and care about the palace.");
+talkEntry:addResponse("As chancellor, it is my duty to make sure that the queen has all she needs and that her palace is clean and secure.");
+talkEntry:addResponse("As Cadomyr's chancellor, I am the head of the royal administration. The queen relies on my any my initiative to take care of the unwanted and little things in her kingdom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin der Kanzler Cadomyrs. Ich verteile die Befehle der Königin und sorge für den Palast.");
+talkEntry:addResponse("Als Kanzler obliegt es mir sicherzustellen, dass es der Königin an nichts mangelt und dass ihr Palast sauber und sicher ist.");
+talkEntry:addResponse("Als Cadomyrs Kanzler bin ich der Obereste in Cadomyrs Verwaltung. Die Königin verläßt sich auf mich und meine Eigeninitiative, so dass ich mich um die kleinen, unliebsamen Dinge im Königreich kümmere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am Cadomyr's chancellor. I issue orders of her majesty and care about the palace.");
+talkEntry:addResponse("As chancellor, it is my duty to make sure that the queen has all she needs and that her palace is clean and secure.");
+talkEntry:addResponse("As Cadomyr's chancellor, I am the head of the royal administration. The queen relies on my any my initiative to take care of the unwanted and little things in her kingdom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin der Kanzler Cadomyrs. Ich verteile die Befehle der Königin und sorge für den Palast.");
+talkEntry:addResponse("Als Kanzler obliegt es mir sicherzustellen, dass es der Königin an nichts mangelt und dass ihr Palast sauber und sicher ist.");
+talkEntry:addResponse("Als Cadomyrs Kanzler bin ich der Obereste in Cadomyrs Verwaltung. Die Königin verläßt sich auf mich und meine Eigeninitiative, so dass ich mich um die kleinen, unliebsamen Dinge im Königreich kümmere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2785,130 +2793,105 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I've been to Gobaith before the fall: I had a horrible glass of wine in a horrible tavern with a sheep running around in the taproom!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Vor der Vernichtung war ich einmal auf Gobaith: Ich trank ein Glas widerlichem Weines in einer stinkenden Taverne, wo ein Schaf im Schankraum herumlief!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Very well. I am sure you can do good deeds in the name of Cadomyr. As chancellor, I have to take care of many things and you can do your share.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Wunderbar. Ich bin mir sicher, ihr könnt viele gute Taten für Cadomyr vollbringen. Als Kanzler kümmere ich mich um viele Angelegenheiten und ihr könnt euren Teil dazu beitragen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Chancellor");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am Cadomyr's chancellor. I issue orders of her majesty and care about the palace.");
+talkEntry:addResponse("As chancellor, it is my duty to make sure that the queen has all she needs and that her palace is clean and secure.");
+talkEntry:addResponse("As Cadomyr's chancellor, I am the head of the royal administration. The queen relies on my any my initiative to take care of the unwanted and little things in her kingdom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER2");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addTrigger("elf");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I am indeed an elf and I obey the orders of humans. I've been loyal to the Edwards family and the throne for ages and I cannot imagine any better kin of rulers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER3");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addTrigger("Palace");
+talkEntry:addResponse("The palace is the house of the Edwards and I am the housekeeper - in simple words. I care for the administration of Cadomyr, delegating what needs to be done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER4");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addTrigger("Guard");
+talkEntry:addResponse("I doubt this palace needs a guard. No one in Cadomyr would raise his hand against queen Rosaline and if that bastard Hastings dares to appear here, I'd give my life to defend her majesty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER5");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addTrigger("loyal");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I am loyal to Rosaline as I was loyal to Reginald and all their forefathers. Likewise, I will be loyal to the heirs of Cadomyr until end of time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kanzler");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin der Kanzler Cadomyrs. Ich verteile die Befehle der Königin und sorge für den Palast.");
+talkEntry:addResponse("Als Kanzler obliegt es mir sicherzustellen, dass es der Königin an nichts mangelt und dass ihr Palast sauber und sicher ist.");
+talkEntry:addResponse("Als Cadomyrs Kanzler bin ich der Obereste in Cadomyrs Verwaltung. Die Königin verläßt sich auf mich und meine Eigeninitiative, so dass ich mich um die kleinen, unliebsamen Dinge im Königreich kümmere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER2");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("elf");
+talkEntry:addResponse("Ich bin fürwahr ein Elf, der den Befehlen von Menschen gehorcht. Ich diene der Familie der Edwards und dem Thron nun schon eine Ewigkeit und ich kann mir keine bessere Herrschersippe vorstellen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER3");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Palast");
+talkEntry:addResponse("Der Palast ist das Haus der Edwards und ich bin der Hausmeister - in einfachen Worten. Ich bin für die Verwaltung Cadomyrs verwantwortlich und delegiere die Dinge, die nunmal gemacht werden müssen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER4");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Wache");
+talkEntry:addTrigger("Wächter");
+talkEntry:addResponse("Ich wage zu behaupten, dass der Palast gar keine Wache benötigt. Niemand aus Cadomyr würde seine Hand gegen Königin Rosaline erheben und wenn dieser Bastard Hastings hier aufkreuzt, würde ich liebend gerne die Königin mit meinem Leben verteidigen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER5");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("loyal");
+talkEntry:addResponse("Ich bin Rosaline so loyal, wie ich es Reginald war und allen ihren Vorvätern. Genauso werde ich ihren Erben dienen bis zum Ende aller Tage.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense for honour; sometimes, loyality is more important than rationality.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Elvaine Morgan, der Erzmagier Runewicks, ist ein ehrbarer Elf. Ich schätze ihn und sein Wort. Allerdings fehlt es ihm an Ehrgefühl, denn manchmal ist Loyalität wichtiger als Vernunft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2916,35 +2899,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense for honour; sometimes, loyality is more important than rationality.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Elvaine Morgan, der Erzmagier Runewicks, ist ein ehrbarer Elf. Ich schätze ihn und sein Wort. Allerdings fehlt es ihm an Ehrgefühl, denn manchmal ist Loyalität wichtiger als Vernunft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Runewick consists of four magnificient towers in the ocean, deemed the most beautiful buildings in these lands, only second to the palace of the Edwards.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Runewick besteht aus vier beeindruckenden Türmen im Meer, die schönsten Bauwerke in diesen Landen, nur noch in den Schatten gestellt durch den Palast der Edwards.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2953,9 +2928,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Don Valerio is a honourless bastard who even dared to propose to my queen - my scimitar shall prevent a second attempt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2963,26 +2936,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Don Valerio ist ein ehrloser Bastard, der es wagte, um die Hand meiner Königin anzuhalten. Einen zweiten Versuch wird mein Säbel zu verhindern wissen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("One thing is good about Galmair: Gold. But do not ask how they get it, you might learn sad stories.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Nur eines ist gut an Galmair: Gold. Aber fragt nicht, wo sie es her haben, ihr könntet traurige Geschichten hören.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3041,17 +3008,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Being of albarian origin, the family of the Edwards' certainly has respect for the albarian people. However: Cadomyr is not Albar!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Die Familie der Edwards ist von albarischem Geblüt und von daher hat sie sicherlich Hochachtung vor dem albarischen Volk. Aber: Cadomyr gehört nicht zu Albar!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3059,52 +3022,40 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("If you want to see traitors, cowards, liers and cheaters, either go to a gaol or to Gynk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Wenn ihr Verräter, Feiglinge, Lügner und Betrüger sehen wollt, geht entweder in ein Zuchthaus oder nach Gynk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I have high hopes that one day, the people of Salkamar will understand that abandoning the old customs doesn't do any good.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich habe die Hoffnung noch nicht aufgegeben, dass das Volk Salkamars eines Tages einsehen wird, dass es nicht der richtige Weg ist, die alten Sitten über Bord zu werfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("My hand is guided by Malachín, my feet walk on Zhambra's path and my heart beats for my queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Meine Hand wird von Malachín geführt, meine Füße gehen auf Zhambras Wegen und mein Herz schlägt für meine Königin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3112,35 +3063,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Malachín is the god of war one could say. But I regard his ways to be just and noble while a war isn't always noble. Want to know more about unnoble deeds? Ask Don Valerio!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Malachín ist der Gott des Krieges, wie manche sagen. Ich hingegen sehe seine Wege als gerecht und ehrlich an, ein Krieg hingegen ist dies nicht immer. Wollt ihr mehr über unrühmliche Taten erfahren? Fragt Don Valerio!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Zhambra is the god of loyality. And I am loyal to my queen and her family, the Edwards'. I've been in their services longer than a dozen human lives.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zhambra ist der Gott der Loyalität und ich bin loyal gegenüber meiner Königin und ihrer Familie, den Edwards. Ich stehe in ihren Diensten schon seit einem Dutzend Menschenleben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3149,9 +3092,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Where is the sign above my head, reading 'Anthar's general store'? I am not a trader!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3160,26 +3101,20 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Wo ist denn bitte das Schild über meinem Kopf, auf dem 'Anthars Gemischtwarenhandel' steht? Ich bin kein Händler!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I could tell you a lot about Cadomyr, queen Rosaline and the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich könnte euch etwas über Cadomyr, Königin Rosaline und den Palast erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3187,7 +3122,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Anthar");
 talkEntry:addTrigger("Vilicon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("I am the royal chancellor, Anthar Vilicon. Treat me with respect and I will treat you likewise. Treat me without respect and you'll end up beheaded.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -3196,53 +3131,55 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Anthar");
 talkEntry:addTrigger("Vilicon");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin der königliche Kanzler, Anthar Vilicon. Erweißt mir Respekt und ich werde euch entsprechend behandeln. Seid respektlos und ihr werdet geköpft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Very well.");
+talkEntry:addResponse("I assume you agree.");
+talkEntry:addResponse("What do you mean?");
+talkEntry:addResponse("Pardon?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Sehr gut.");
+talkEntry:addResponse("Ich nehme an, ihr stimmt mir zu.");
+talkEntry:addResponse("Wie meinen?");
+talkEntry:addResponse("Pardon?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("You dare to disagree?");
+talkEntry:addResponse("I do not know that word: 'No'.");
+talkEntry:addResponse("Obey!");
+talkEntry:addResponse("Pardon?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ihr wagt es, zu widersprechen?");
+talkEntry:addResponse("Das Wort kenne ich nicht: 'Nein'.");
+talkEntry:addResponse("Gehorcht!");
+talkEntry:addResponse("Pardon?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen im Palast.", "Welcome to the palace.");
 talkingNPC:addCycleText("Verbeugt euch vor der Königin!", "All bow to the queen!");
 talkingNPC:addCycleText("Ja, meine Königin?", "Yes, my queen?");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("#me rückt seine leichte Rüstung zurecht, die wohl nur dekorativen Zwecken dient.", "#me adjusts his light armour which seems to be just decorative.");
+talkingNPC:addCycleText("#me schwingt einen Krummsäbel geschwind durch die Luft, so dass ein surrendes Geräusch entsteht.", "#me swirls a scimitar, so fast that a buzzing noise can be heard.");
+talkingNPC:addCycleText("Für die Ehre Cadomyrs!", "For the glory of Cadomyr!");
+talkingNPC:addCycleText("#me blickt zur Decke.", "#me stares at the ceiling.");
+talkingNPC:addCycleText("Königin Rosaline ist eine der letzten mit Ehre und Anmut!", "Queen Rosaline in one of the last ones with honour and grace!");
+talkingNPC:addCycleText("Ihr da! Kommt her, eventuell habe ich eine Mission für euch.", "You, come here! Maybe I have a mission for you.");
+talkingNPC:addCycleText("Der nächste selbsternannte Traumprinz, der sich an meine Königin ranmacht, wird gevierteilt!", "The next self proclaimed Prince Charming who proposes to my queen will be quartered!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);
