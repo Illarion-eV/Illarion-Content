@@ -229,20 +229,20 @@ itemShoes = 771
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 7, item(2701, all) < 1, town = Cadomyr -> "Die Waffenkammer ist nicht komplett bestückt, es fehlt ein Langschwert. Ein Langschwert, welches in den rechten Händen Rosalines Leben retten kann - bring ein neues und vielleicht werden diese Hände einst die eurigen sein."
 
 -- 8: Quest 8 taken, get 15 firnis blossoms (148), reward: mushroom soup (2456), 5 rankpoints
-"quest", "mission", queststatus(119) = 0, english, chance(8), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 8
-"quest", "mission", queststatus(119) = 0, german, chance(8), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 8
-"task", "adventure", queststatus(119) = 0, chance(8), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 8
-"Auftrag", "Aufgabe", queststatus(119) = 0, chance(8), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 8
+"quest", "mission", queststatus(119) = 0, english, chance(8), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "You know what makes a glorious palace? Decoration. The queen likes firnis blossoms and she likes many of them. Bring me fifteen of them so I can decorate her chamber.", queststatus(119) = 8
+"quest", "mission", queststatus(119) = 0, german, chance(8), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Wißt ihr, was einen Palast erst so richtig prunkvoll macht? Dekoration. Die Königin liebt Firnisblüten über alles und sie mag sie in Massen. Bringt bitte fünfzehn Blüten, so dass ich ihre Kammer ausschmücken kann.", queststatus(119) = 8
+"task", "adventure", queststatus(119) = 0, chance(8), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "You know what makes a glorious palace? Decoration. The queen likes firnis blossoms and she likes many of them. Bring me fifteen of them so I can decorate her chamber.", queststatus(119) = 8
+"Auftrag", "Aufgabe", queststatus(119) = 0, chance(8), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "Wißt ihr, was einen Palast erst so richtig prunkvoll macht? Dekoration. Die Königin liebt Firnisblüten über alles und sie mag sie in Massen. Bringt bitte fünfzehn Blüten, so dass ich ihre Kammer ausschmücken kann.", queststatus(119) = 8
 
 -- Quest 8 solved, reward: mushroom soup (2456), 5 rankpoints, delay: 5h
-".*", queststatus(119) = 8, item(148, all) > 14, english, town = Cadomyr -> inform("[Quest solved] You are awarded a mushroom soup. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", deleteItem(148, 15), item(2456, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 3600, rankpoints(Cadomyr) + 5
-".*", queststatus(119) = 8, item(148, all) > 14, town = Cadomyr -> inform("[Quest gelöst] Du erhältst eine Pilzsuppe. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", deleteItem(148, 15), item(2456, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 3600, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 8, item(148, all) > 14, english, town = Cadomyr -> inform("[Quest solved] You are awarded a mushroom soup. You advance in Queen Rosaline Edwards' favour."), "Ah, firnis blossoms, that'll be a great surprise for her majesty. To recover from your journey, have this soup. Regain some strength for your next mission.", deleteItem(148, 15), item(2456, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 3600, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 8, item(148, all) > 14, town = Cadomyr -> inform("[Quest gelöst] Du erhältst eine Pilzsuppe. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ah, Firnisblüten, das wird eine schöne Überraschung für ihre Majestät. Nehmt diese Suppe zu euch, um euch von eurer Reise zu erholen und Kraft für die nächste Mission zu sammeln.", deleteItem(148, 15), item(2456, 1, 599, 0), queststatus(119) = 0, queststatus(120) = 3600, rankpoints(Cadomyr) + 5
 
 -- Quest 8 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(119) = 8, item(148, all) < 15, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(119) = 8, item(148, all) < 15, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(119) = 8, item(148, all) < 15, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 8, item(148, all) < 15, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(119) = 8, item(148, all) < 15, english, town = Cadomyr -> "Decoration of a palace really seperates us from the barbarians. And a queen looks best with a flower in her hair, no? So, please bringe fifteen firnis blossoms."
+"quest", "mission", queststatus(119) = 8, item(148, all) < 15, town = Cadomyr -> "Dekoration eines Palastes ist etwas, was uns von den Barbaren unterscheidet. Und eine Königin sieht doch immernoch am besten aus mit einer Blume im Haar, richtig? Also bringt mir fünfzehn Firnisblüten."
+"task", "adventure", queststatus(119) = 8, item(148, all) < 15, town = Cadomyr -> "Decoration of a palace really seperates us from the barbarians. And a queen looks best with a flower in her hair, no? So, please bringe fifteen firnis blossoms."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 8, item(148, all) < 15, town = Cadomyr -> "Dekoration eines Palastes ist etwas, was uns von den Barbaren unterscheidet. Und eine Königin sieht doch immernoch am besten aus mit einer Blume im Haar, richtig? Also bringt mir fünfzehn Firnisblüten."
 
 -- 9: Quest 9 taken, get 10 carrots (2493), reward: 40cp, 5 rankpoints
 "quest", "mission", queststatus(119) = 0, english, chance(8), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 9
