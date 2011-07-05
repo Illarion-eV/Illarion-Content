@@ -1,29 +1,31 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Valandil Elensar                                            None --
--- NPC Job:  none                                                             --
+-- NPC Job:  forester                                                         --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  783, -400, 0           --
+-- NPC Race: elf                        NPC Position:  783, 462, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Authors:  Estralis Seborian                                                --
+--           Zak                                                              --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 06, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Valandil Elensar"
 race = elf
 sex = male
-position = 783, -400, 0
+position = 783, 462, 0
 direction = south
 affiliation = "None"
-job = "none"
+job = "forester"
 
 language = common
 language = elf
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
+author = "Zak"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
@@ -31,11 +33,10 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
-radius = 40
 hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+beardID = 0
+colorHair = 208, 125, 4
+colorSkin = 242, 199, 157
 itemHead = 0
 itemChest = 181
 itemCoat = 0
