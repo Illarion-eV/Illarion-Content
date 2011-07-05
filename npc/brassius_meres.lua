@@ -2,7 +2,7 @@
 -- NPC Name: Brassius Meres                                          Runewick --
 -- NPC Job:  Guard                                                            --
 --                                                                            --
--- NPC Race: human                      NPC Position:  841, 821, 0            --
+-- NPC Race: human                      NPC Position:  841, 819, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk & Estralis Seborian                                        --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 841, 821, 0, 4, 'Brassius Meres', 'npc.brassius_meres', 0, 3, 3, 204, 124, 25, 245, 180, 137);
+VALUES (0, 841, 819, 0, 4, 'Brassius Meres', 'npc.brassius_meres', 0, 3, 3, 204, 124, 25, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")

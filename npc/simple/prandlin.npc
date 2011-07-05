@@ -2,18 +2,18 @@
 -- NPC Name: Prandlin                                                    None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  786, 790, 0            --
+-- NPC Race: halfling                   NPC Position:  789, 790, 0            --
 -- NPC Sex:  male                       NPC Direction: northeast              --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: July 05, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Prandlin"
 race = halfling
 sex = male
-position = 786, 790, 0
+position = 789, 790, 0
 direction = northeast
 affiliation = "None"
 job = "none"
@@ -23,7 +23,7 @@ language = halfling
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Rincewind"
 
 lookatDE = "Ein steinalter Halbling, der friedlich in seine Decke gekuschelt vor sich hin schlummert."
 lookatUS = "ENGLISH1"
