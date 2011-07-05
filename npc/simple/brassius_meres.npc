@@ -259,7 +259,7 @@ itemShoes = 697
 ".*", english, chance(20) -> "I should really be returning to my work.", "If the Archmage catches me chatting away, he will not be pleased.", "Please, you shall get me into trouble if I am caught standing here chatting."
 ".*", german, chance(20) -> "Ich sollte mich wieder um meinen Dienst kümmern.", "Wenn der Erzmagier mich dabei erwischt, wie ich herumklöne, wird er nicht zufrieden sein.", "Bitte, ich bekomme noch Ärger, wenn man mich hier tratschen sieht."
 
--- That stuff causes errors! Ardian, fix that.
+-- That stuff causes errors! pharse, fix that.
 -- [[ replace the receiveText and nextCycle functions:
 -- function receiveText(texttype, message, speaker)
 -- npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);

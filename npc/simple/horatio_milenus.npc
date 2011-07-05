@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Kawan Baxter, translation by Estralis Seborian                   --
 --                                                                            --
--- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 05, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Horatio Milenus"
@@ -244,7 +244,7 @@ itemShoes = 771
 ".*", english, chance(20) -> "I am the merely a guard of Cadomyr.", "Tell that somebody else.", "Move along.", "Pass along", "Do not loiter!", "In or out?"
 ".*", german, chance(20) -> "Ich bin in erster Linie der Wächter Cadomyrs.", "Erzählt das jemanden anderes.", "Geht weiter.", "Weitergehen.", "Lungert hier nicht herum.", "Rein oder raus?"
 
--- Causes errors, Ardian! Fix plz!
+-- Causes errors, pharse! Fix plz!
 -- [[ replace the receiveText and nextCycle functions:
 -- function receiveText(texttype, message, speaker)
 -- npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Kawan Baxter, translation by Estralis Seborian                   --
 --                                                                            --
--- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 05, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
