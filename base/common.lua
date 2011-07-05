@@ -262,27 +262,29 @@ end;
 
 --- Get the position right behind a character 
 -- @param User The character the back position is wanted
+-- @param distance How far behind the char? Defaults to 1.
 -- @return The position behind the character
-function GetBehindPosition(User)
+function GetBehindPosition(User, distance)
 
+    local d = distance or 1;
     local direct = User:get_face_to();
 
     if (direct == Character.north) then
-        return position(User.pos.x, User.pos.y + 1, User.pos.z);
+        return position(User.pos.x, User.pos.y + d, User.pos.z);
     elseif (direct == Character.northeast) then
-        return position(User.pos.x - 1, User.pos.y + 1, User.pos.z);
+        return position(User.pos.x - d, User.pos.y + d, User.pos.z);
     elseif (direct == Character.east) then
-        return position(User.pos.x - 1, User.pos.y, User.pos.z);
+        return position(User.pos.x - d, User.pos.y, User.pos.z);
     elseif (direct == Character.southeast) then
-        return position(User.pos.x + 1, User.pos.y - 1, User.pos.z);
+        return position(User.pos.x + d, User.pos.y - d, User.pos.z);
     elseif (direct == Character.south) then
-        return position(User.pos.x, User.pos.y - 1, User.pos.z);
+        return position(User.pos.x, User.pos.y - d, User.pos.z);
     elseif (direct == Character.southwest) then
-        return position(User.pos.x + 1, User.pos.y - 1, User.pos.z);
+        return position(User.pos.x + d, User.pos.y - d, User.pos.z);
     elseif (direct == Character.west) then
-        return position(User.pos.x + 1, User.pos.y, User.pos.z);
+        return position(User.pos.x + d, User.pos.y, User.pos.z);
     elseif (direct == Character.northwest) then
-        return position(User.pos.x + 1, User.pos.y + 1, User.pos.z);
+        return position(User.pos.x + d, User.pos.y + d, User.pos.z);
     end;
 
     debug("Invalid user direction");
