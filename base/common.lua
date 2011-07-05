@@ -285,7 +285,7 @@ function GetBehindPosition(User)
         return position(User.pos.x + 1, User.pos.y + 1, User.pos.z);
     end;
 
-    return User.pos;
+    debug("Invalid user direction");
 end;
 
 --- Get the item that is behind the character in case there is one
