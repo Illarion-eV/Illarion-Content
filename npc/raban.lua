@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 05, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -194,7 +194,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 0));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Rabans Hain I"));
 talkEntry:addResponse("So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehnSetzlinge von den Fichten des Hains.");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 399, 0));
@@ -229,9 +228,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(149, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Kräuterkundefertigkeit steigt."));
-talkEntry:addResponse("Habt besten Dank für die Fichtensetzlinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen.");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your herb lore skill increases."));
+talkEntry:addResponse("Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(149, 10));
@@ -243,9 +242,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(149, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your herb lore skill increases."));
-talkEntry:addResponse("Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Kräuterkundefertigkeit steigt."));
+talkEntry:addResponse("Habt besten Dank für die Fichtensetzlinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(149, 10));
@@ -266,7 +264,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 1));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Und, wie kommt ihr voran mit dem Finden von zehn Fichtensetzlingen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -303,7 +300,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Rabans Hain II"));
 talkEntry:addResponse("Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntet ihr so nett sein und zwanzig Brombeeren sammeln, süße Geschenke der Oldra?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 3));
@@ -335,7 +331,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(147, "all", ">", 19));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your herb lore skill increases."));
 talkEntry:addResponse("I am grateful for the twenty black berries you brought me. Have this small reward.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
@@ -349,7 +345,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(147, "all", ">", 19));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kräuterkundefertigkeit steigt."));
 talkEntry:addResponse("Ich bin dankbar für die zwanzig Brombeeren, die ihr dargebracht habt. Nehmt diese kleine Belohnung.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
@@ -372,7 +367,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 3));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -409,7 +403,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 4));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Rabans Hain III"));
 talkEntry:addResponse("Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Geburtspilze, um Leben auf dem Erdboden zu sähen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 5));
@@ -441,7 +434,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(162, "all", ">", 4));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your herb lore skill increases."));
 talkEntry:addResponse("Ah, you brought the five birth mushrooms. Long did I store this reward, now it is yours.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
@@ -455,7 +448,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(162, "all", ">", 4));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kräuterkundefertigkeit steigt."));
 talkEntry:addResponse("Ah, ihr habt die fünf Geburtspilze mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
@@ -478,7 +470,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 5));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Sucht nach den fünf Geburtspilzen in den Pilskreisen, die ihr nahe der Bäume findet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -515,7 +506,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 6));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Rabans Hain IV"));
 talkEntry:addResponse("Nun benötige ich etwas besonderes. Der Mutterboden hier ist ein wenig zu feucht, damit gewisse Pflanzen hier wachsen können. Ich benötige zehn Schaufeln voll groben Sand. Bitte geht zu meinem alten Freund Rutrus zur Sternenoase und holt mir welchen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 7));
@@ -547,7 +537,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(726, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins and your herb lore skill increases."));
 talkEntry:addResponse("I thank you so much for venturing to the Oasis. I hope my friend Rutrus is well? Here, have this reward in exchange for the coarse sand.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
@@ -561,7 +551,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(726, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Kräuterkundefertigkeit steigt."));
 talkEntry:addResponse("Ich danke euch vielmals für die Reise zur Oase. Ich hoffe, meinem Freund Rutrus geht es gut? Hier, nehmt diese Belohnung für den groben Sand.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
@@ -576,7 +565,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Head for the Oasis of Stars in order to find ten shovels of coarse sand. You get there when you head north and turn east when you reach the sea.");
+talkEntry:addResponse("Head for the Oasis of Stars in order to find ten shovels of coarse sand. You get there when you head south and turn west when you reach the ocean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -584,8 +573,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 7));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Geht zur Sternenoase um zehn Schaufeln voll groben Sand zu finden. Ihr gelangt dorthin, indem ihr euch in nördlicher Richtung auf den Weg macht und euch dann östlich haltet, wenn ihr zum Meer kommt.");
+talkEntry:addResponse("Geht zur Sternenoase um zehn Schaufeln voll grobem Sand zu finden. Ihr gelangt dorthin, indem ihr euch in südlicher Richtung auf den Weg macht und euch dann westlich haltet, wenn ihr zum Meer kommt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -593,7 +581,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 7));
-talkEntry:addResponse("Head for the Oasis of Hope in order to find ten shovels of coarse sand. You get there when you head north and turn east when you reach the sea.");
+talkEntry:addResponse("Head for the Oasis of Hope in order to find ten shovels of coarse sand. You get there when you head south and turn west when you reach the ocean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -602,7 +590,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 7));
-talkEntry:addResponse("Geht zur Oase der Offnung um zehn Schaufeln voll groben Sand zu finden. Ihr gelangt dorthin, indem ihr euch in nördlicher Richtung auf den Weg macht und euch dann östlich haltet, wenn ihr zum Meer kommt.");
+talkEntry:addResponse("Geht zur Oase der Offnung um zehn Schaufeln voll grobem Sand zu finden. Ihr gelangt dorthin, indem ihr euch in südlicher Richtung auf den Weg macht und euch dann westlich haltet, wenn ihr zum Meer kommt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -641,41 +629,54 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("Is money all that matters for you? I abstain from it since decades and never missed it a single day.");
-talkEntry:addResponse("I have no use for money. So I do not trade.");
-talkEntry:addResponse("I am not a trader. Maybe you want to help me in a quest?");
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("One could call me a hermit. Or a forester. Or a ranger. I do not care anymore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Ist denn Gold alles, was für euch zählt? Ich entsagte ihm schon vor langer Zeit und habe es nicht an einem einzelnen Tag vermißt.");
-talkEntry:addResponse("Ich brauche kein Gold, also handele ich auch nicht.");
-talkEntry:addResponse("Ich bin kein Händler. Aber vielleicht kannst du mir bei einem Auftrag helfen?");
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Man könnte sagen, ich bin ein Einsiedler. Oder ein Waldhüter. Oder ein Förster. Es ist mir einerlei.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.");
-talkEntry:addResponse("I did not make this place, nature did. But few honor the wonders of Ushara and Oldra.");
-talkEntry:addResponse("Tales of old I never witnessed. Seldom, travellers come here to tell me about foreign lands.");
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("One could call me a hermit. Or a forester. Or a ranger. I do not care anymore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.");
-talkEntry:addResponse("Ich habe diesen Ort nicht geschaffen. Die Natur tat es. Aber nur wenige ehren die Wunder von Ushara und Oldra.");
-talkEntry:addResponse("Die Legenden alter Zeiten habe ich nie erlebt. Und nur selten kommen Wanderer hierher, um aus anderen Ländern zu berichten.");
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Man könnte sagen, ich bin ein Einsiedler. Oder ein Waldhüter. Oder ein Förster. Es ist mir einerlei.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I've been to Gobaith, but that is long ago.");
+talkEntry:addResponse("I do not want to talk about this with you, I hope you respect that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addResponse("Ich war einst auf Gobaith, aber das ist schon lange her.");
+talkEntry:addResponse("Darüber möchte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("Names have lost their meaning to me. Behold the trees and ask for their names...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Namen haben ihre Bedeutung für mich verloren. Sehet euch die Bäume an und fragt sie nach ihrem Namen...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -771,17 +772,191 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I've been to Gobaith, but that is long ago.");
-talkEntry:addResponse("I do not want to talk about this with you, I hope you respect that.");
+talkEntry:addTrigger("herbs");
+talkEntry:addResponse("You can gather herbs with a sickle. But do not cut too many - Ushara won't be pleased when you plunder her treasury.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addResponse("Ich war einst auf Gobaith, aber das ist schon lange her.");
-talkEntry:addResponse("Darüber möchte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das.");
+talkEntry:addTrigger("Kräuter");
+talkEntry:addResponse("Ihr könnt Kräuter mit einer Sichel sammeln. Aber schneidet nicht zu viele ab - Ushara wird nicht erfreut sein, wenn ihr ihren Garten plündert.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sickle");
+talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 0));
+talkEntry:addResponse("With sickles, you can cut fir tree seedlings to plant new trees. If you want to help me, ask me for a task.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sichel");
+talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 0));
+talkEntry:addResponse("Mit einer Sichel könnt ihr Fichtensetzlinge schneiden um neue Bäume zu pflanzen. Wenn ihr mir dabei helfen wollt, fragt mich nach einem Auftrag.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sickle");
+talkEntry:addResponse("In case you need a new sickle, ask for William in Runewick. If he is still alive after all those years we didn't meet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sichel");
+talkEntry:addResponse("Wenn du einen neue Sichel benötigst, fragt nach William in Runewick. Ich hoffe, er ist nach all diesen Jahren, die wir uns nicht sahen, noch am Leben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("Once, I called the archmage of Runewick a friend of mine. But we disagreed in too many things, so I left Runewick for good.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Einst nannte ich den Erzmagier Runewicks einen Freund. Aber wir stritten über zu viele Dinge, so dass ich Runewick für immer verließ.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Once, I called the archmage of Runewick a friend of mine. But we disagreed in too many things, so I left Runewick for good.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addResponse("Einst nannte ich den Erzmagier Runewicks einen Freund. Aber wir stritten über zu viele Dinge, so dass ich Runewick für immer verließ.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The only place where you can find peace is Runewick. But I still prefer the forest.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Der einzige Ort, wo es Frieden gibt ist Runewick. Dennoch ziehe ich den Wald vor.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I thank for every minute of life, not having to deal with any greedy dwarf.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Ich bin für jede Minute meines Lebens dankbar, in der ich mich nicht mit gierigen Zwergen herumplagen muss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Galmair? A pool of sins, it is!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Galmair? Ein Sündenpfuhl ist das!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("Isn't Cadomyr's souvereign king Reginald Edwards?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Heißt der Herrscher Cadomyrs nicht König Reginald Edwards?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Isn't Cadomyr's souvereign king Reginald Edwards?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Heißt der Herrscher Cadomyrs nicht König Reginald Edwards?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Cadomyr is a rough place to the south. I wonder how Rutrus can stand this place.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Cadomyr ist ein wüster Ort im Süden. Ich frage mich, wie Rutrus es dort aushält.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I stopped caring about things that happen abroad. Be it Albar, Gynk or Salkamar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addResponse("Ich habe aufgehört mich um Dinge zu sorgen, die weit entfernt geschehen, egal of Albar, Gynk oder Salkamar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("gync");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I stopped caring about things that happen abroad. Be it Albar, Gynk or Salkamar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addResponse("Ich habe aufgehört mich um Dinge zu sorgen, die weit entfernt geschehen, egal of Albar, Gynk oder Salkamar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I stopped caring about things that happen abroad. Be it Albar, Gynk or Salkamar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addResponse("Ich habe aufgehört mich um Dinge zu sorgen, die weit entfernt geschehen, egal of Albar, Gynk oder Salkamar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -827,85 +1002,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The only place where you can find peace is Runewick. But I still prefer the forest.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Der einzige Ort, wo es Frieden gibt ist Runewick. Dennoch ziehe ich den Wald vor.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Galmair? Ein Sündenpfuhl ist das!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair? A pool of sins, it is!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Cadomyr ist ein wüster Ort im Süden. Ich frage mich, wie Rutrus es dort aushält.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Cadomyr is a rough place to the south. I wonder how Rutrus can stand this place.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sickle");
-talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 0));
-talkEntry:addResponse("With sickles, you can cut fir tree seedlings to plant new trees. If you want to help me, ask me for a task.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sichel");
-talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 0));
-talkEntry:addResponse("Mit einer Sichel könnt ihr Fichtensetzlinge schneiden um neue Bäume zu pflanzen. Wenn ihr mir dabei helfen wollt, fragt mich nach einem Auftrag.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sickle");
-talkEntry:addResponse("In case you need a new sickle, ask for William in Runewick. If he is still alive after all those years we didn't meet.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sichel");
-talkEntry:addResponse("Wenn du einen neue Sichel benötigst, fragt nach William in Runewick. Ich hoffe, er ist nach all diesen Jahren, die wir uns nicht sahen, noch am Leben.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("herbs");
-talkEntry:addResponse("You can gather herbs with a sickle. But do not cut too many - Ushara won't be pleased when you plunder her treasury.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Kräuter");
-talkEntry:addResponse("Ihr könnt Kräuter mit einer Sichel sammeln. Aber schneidet nicht zu viele ab - Ushara wird nicht erfreut sein, wenn ihr ihren Garten plündert.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Darlok");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Could you please not mention that name in front of me?");
@@ -930,6 +1026,58 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Falkner");
 talkEntry:addResponse("Wie bitte?");
 talkEntry:addResponse("So heiße ich nicht... mehr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Is money all that matters for you? I abstain from it since decades and never missed it a single day.");
+talkEntry:addResponse("I have no use for money. So I do not trade.");
+talkEntry:addResponse("I am not a trader. Maybe you want to help me in a quest?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Ist denn Gold alles, was für euch zählt? Ich entsagte ihm schon vor langer Zeit und habe es nicht an einem einzelnen Tag vermißt.");
+talkEntry:addResponse("Ich brauche kein Gold, also handele ich auch nicht.");
+talkEntry:addResponse("Ich bin kein Händler. Aber vielleicht kannst du mir bei einem Auftrag helfen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.");
+talkEntry:addResponse("I did not make this place, nature did. But few honor the wonders of Ushara and Oldra.");
+talkEntry:addResponse("Tales of old I never witnessed. Seldom, travellers come here to tell me about foreign lands.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.");
+talkEntry:addResponse("Ich habe diesen Ort nicht geschaffen. Die Natur tat es. Aber nur wenige ehren die Wunder von Ushara und Oldra.");
+talkEntry:addResponse("Die Legenden alter Zeiten habe ich nie erlebt. Und nur selten kommen Wanderer hierher, um aus anderen Ländern zu berichten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Raban");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Raban... yes, that's how they uses to call me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Raban");
+talkEntry:addResponse("Raban... ja, so hat man mich mal genannt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
