@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk & Estralis Seborian                                        --
 --                                                                            --
--- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: July 05, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -33,13 +33,6 @@ module("npc.brassius_meres", package.seeall)
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 0");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Debugging] Quest status set to 0"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
@@ -1406,32 +1399,8 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker)
-	npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
-	mainNPC:receiveText(speaker, message);
-end;
-function nextCycle()
-	mainNPC:nextCycle();
-	if not guards_init then
-		-- init after 10 cycles
-		guards_init = 10;
-		gCount = 0;
-	end
-	if guards_init == 0 then
-		guards_init = -1;
-		npc.base.guards_static.Init(thisNPC, 2, position(836, 823, 0), 2, position(840, 823, 0));
-	elseif guards_init > 0 then
-		guards_init = guards_init - 1;
-	end
-	if guards_init == -1 then
-		if gCount == 4 then
-			gCount = 0;
-			npc.base.guards_static.CheckForEnemies(thisNPC);
-		else
-			gCount = gCount + 1;
-		end
-	end
-end;
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function nextCycle() mainNPC:nextCycle(); end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
 initNpc();
