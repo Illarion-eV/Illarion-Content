@@ -2,7 +2,7 @@
 -- NPC Name: Valandil Elensar                                            None --
 -- NPC Job:  forester                                                         --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  783, 462, 0            --
+-- NPC Race: elf                        NPC Position:  796, 463, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
@@ -14,7 +14,7 @@
 name = "Valandil Elensar"
 race = elf
 sex = male
-position = 783, 462, 0
+position = 796, 463, 0
 direction = south
 affiliation = "None"
 job = "forester"
