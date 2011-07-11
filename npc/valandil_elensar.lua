@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Zak                                                              --
 --                                                                            --
--- Last parsing: July 10, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 11, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1103,12 +1103,12 @@ mainNPC:setLookat("Dieser NPC ist der Förster Valandil Elensar.", "This NPC is t
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt drein.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
-mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(3, 364);
+mainNPC:setEquipment(11, 194);
+mainNPC:setEquipment(5, 74);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(9, 824);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 

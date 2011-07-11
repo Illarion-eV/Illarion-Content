@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Zak                                                              --
 --                                                                            --
--- Last parsing: July 10, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 11, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Valandil Elensar"
@@ -38,12 +38,12 @@ beardID = 0
 colorHair = 208, 125, 4
 colorSkin = 242, 199, 157
 itemHead = 0
-itemChest = 181
-itemCoat = 0
-itemMainHand = 0
+itemChest = 364
+itemCoat = 194
+itemMainHand = 74
 itemSecondHand = 0
 itemHands = 48
-itemTrousers = 34
+itemTrousers = 824
 itemShoes = 53
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
