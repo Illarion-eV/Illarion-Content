@@ -662,8 +662,31 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elder");
+talkEntry:addResponse("The Elder Gods were first on this world. There are five of them with the name of Ushara, Brágon, Eldan, Toanora and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Alte");
+talkEntry:addResponse("Die Alten Götter kamen zuerst auf diese Welt. Es gibt fünf von Ihnen und sie heißen Ushara, Brágon, Eldan, Tanora und Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("young");
+talkEntry:addResponse("The Younger Gods were created by the Elder Ones. Their names are Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan and Moshran.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Junge");
+talkEntry:addResponse("Die Jungen Götter wurden von den Alten erschaffen. Ihre Namen lauten Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan und Moshran.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("God");
-talkEntry:addTrigger("Gods");
 talkEntry:addResponse("The Gods effect our lives in all aspects. It would be wise to give them due respect. There are the Younger and Elder Gods. Which group are you interested in?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -676,34 +699,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elder Gods");
-talkEntry:addTrigger("Elder");
-talkEntry:addResponse("The Elder Gods were first on this world. There are five of them with the name of Ushara, Brágon, Eldan, Toanora and Findari.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Alte Götter");
-talkEntry:addTrigger("Die Alten");
-talkEntry:addResponse("Die Alten Götter kamen zuerst auf diese Welt. Es gibt fünf von Ihnen und sie heißen Ushara, Brágon, Eldan, Tanora und Findari.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("younger Gods");
-talkEntry:addTrigger("Younger");
-talkEntry:addResponse("The Younger Gods were created by the Elder Ones. Their names are Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan and Moshran.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Junge Götter");
-talkEntry:addTrigger("Die Jungen");
-talkEntry:addResponse("Die Jungen Götter wurden von den Alten erschaffen. Ihre Namen lauten Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan und Moshran.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Oldra is the beginning of everything on earth. From her all has emerged. Well, maybe with the exception of this stubborn mule.");
@@ -712,7 +707,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Oldra verdanken wir alles auf dieser Welt. Aus Ihr ist jeder hervorgegangen. Nun ja, vielleicht mit Ausnahme von diesem störrischen Tier hier.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -726,21 +720,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Unsere Mutter, Göttin der Erde. Geehrt sei Sie!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Br[áàa]gon");
+talkEntry:addTrigger("Brágon");
+talkEntry:addTrigger("Bragon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Now we are talking about a great God. He imprisoned Moshran a long time ago. Unfortunately he escaped.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Br[áàa]gon");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Brágon");
+talkEntry:addTrigger("Bragon");
 talkEntry:addResponse("Ja, das ist mal einer der ganz großen Götter. Er hat vor langer Zeit Moshran eingekerkert. Zu unserem Unglück ist er wieder entkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -754,7 +748,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Eldan ist einer der alten Götter. Das einzige, was ich mit Ihm gemeinsam habe ist wohl dieser hölzerne Stab, den ich trage.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -768,7 +761,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Tanora ist die Göttin des Wassers. Aber ihr solltest einen Echsenmenschen über Sie befragen. Bei ihnen ist Sie unter dem Namen Zelphia bekannt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -782,7 +774,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ja, die Göttin Tanora ist bei den Echsenmenschen unter diesem Namen bekannt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -796,21 +787,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Die beste Tavernenmusik, die ich kenne, kommt von den Barden und Musikern, welche die Göttin der Luft verehren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Narg[úùu]n");
+talkEntry:addTrigger("Nargún");
+talkEntry:addTrigger("Nargun");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Argh, don't call him by his name unless you want to seek his attention. Chaos follows his path and we don't really want that, do we?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Narg[úùu]n");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Nargún");
+talkEntry:addTrigger("Nargun");
 talkEntry:addResponse("Argh, nennt Ihn doch nicht bei seinem Namen sofern ihr nicht Seine Aufmerksamkeit erregen wollt. Auf seinen Pfaden folgt das Chaos und das ist nicht etwas, was wir wirklich wollen, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -824,7 +815,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Elara ist angefüllt mir Weisheit und Wissen. Sie ist nicht so das richtige für mich, aber wenn Ihr gerne in Büchern stöbert, dann wäre Sie genau das richtige für euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -838,7 +828,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Adron ist eines meine beliebtesten Götter. Wenn ich mit Freunden auf ein Glas Wein zusammen sitze, wetteifern wir mit Trinksprüchen für den Gott des Weines und der Feste.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -852,21 +841,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Wenn ich den Namen Cherga höre, stehen mir die Fußhaare zu Berge. Ihr solltet vorsichtig sein, wenn ich auf Anhänger der Göttin der Geister und der Unterwelt trefft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Malach[íìi]n");
+talkEntry:addTrigger("Malachín");
+talkEntry:addTrigger("Malachin");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Malachín, the God of Battle and Hunting, flourishes his swords too much. Why battle, if all problems can be discussed with a nice roast on your plate and a beaker with wine in your hand?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Malach[íìi]n");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Malachín");
+talkEntry:addTrigger("Malachin");
 talkEntry:addResponse("Malachín, der Gott der Jagt und der Schlachten, fuchtelt mir ein wenig zu viel mit Schwertern herum. Warum sich streiten, wenn man alle Probleme bei einem schönen Braten und einem Humpen Wein besprechen könnte?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -880,7 +869,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ihr solltet niemals diesen Zwergenhändlern vertrauen, die zum Gott des Handels und Handwerks beten. Mit einer Hand bieten sie Euch einen guten Handel an und mit der anderen klauen sie euch das letzte Kupferstück aus der Tasche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -894,7 +882,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ich muss zugeben, dass Sirani manchmal in meinen Träumen tanzt. Ach ja, die Göttin der Liebe und Freuden ist wahrlich ein Anblick, an den man sich gerne erinnert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -908,7 +895,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Schätzt euch glücklich, wenn ihr einen Freund habt, welcher ein ehrfürchtiger Anhänger von Zhambra ist. Auf so eine Person ist immer Verlaß. Es würde keiner wagen, dem Gott der Freundschaft und Treue so zu hintergehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -922,7 +908,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me lacht herzhaft. 'Der Spitzbube in unserem Götter Pantheon. Er ist immer für einen guten Scherz zu haben. Aber ihr solltet ihm niemals auf dem falschen Fuß erwischen. Der Gott der Diebe und der Schatten liebt es nicht, den Kürzeren zu ziehen.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -936,7 +921,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Wenn Ihr nicht lebensmüde seid, so haltet euch fern vom Gott des Blutes und der Gebeine. Ich wage nicht, seinen Namen auszusprechen, so mir nicht Unglück und Verderben widerfährt. Er lauert im Dunkeln auf eine Schwäche eurer Seele, um ihrer habhaft zu werden... auf ewige Zeiten. Seid auf der Hut!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1048,7 +1032,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nifrindarai");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Er hat herausgefunden, dass alle Kräuter zwei aktive Substanzen mit unterschiedlichen Wirkungen beinhalten. Der Erfolg einer Formel bedarf somit einer harmonischen Zusammenstellung der Ingredienzien und deren Mischungsverhältnisse.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1062,24 +1045,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Raenandor");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ich weiß nicht viel über ihre Geschichte, da selbst der Name schon so alt ist, dass der Staub bei deren Erwähnung aufgewirbelt wird.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She is our wise and benevolent archmage, the ruler of Runewick. Never before was there such a fair mind in such a fair lady.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Sie ist unser weiser und mildtätiger Erzmagier, die Gebieterin von Runewick. Niemals zuvor ward gesehen ein so brillianter Kopf auf einem so wunderschönen Körper.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1096,6 +1062,21 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("She is our wise and benevolent archmage, the ruler of Runewick. Never before was there such a fair mind in such a fair lady.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addResponse("Sie ist unser weiser und mildtätiger Erzmagier, die Gebieterin von Runewick. Niemals zuvor ward gesehen ein so brillianter Kopf auf einem so wunderschönen Körper.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Could you imagine a nicer place to live at than Runewick? This fabulous city of wisdom fills my heart with joy.");
@@ -1104,7 +1085,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Könnt Ihr Euch einen schöneren Ort zum Leben als Runewick vorstellen? Diese fabelhafte Stadt der Weisheit erfüllt mich jedesmal mit großer Freude.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1122,7 +1102,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ein unangenehmer Zeitgenosse mit zu viel Gold in seinen Händen. Ich habe auch gehört, dass er seine Finger im Spiel hatte, als sein Vater gestorben ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1136,14 +1115,24 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Wenn ihr mich fragt, so ist Galmair kein guter Ort sich aufzuhalten. Ihr Sinn steht nur nach Geld, doch ihr Charakter ist verdorben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Rosaline");
 talkEntry:addTrigger("queen");
+talkEntry:addResponse("Quite stiff they are over there in Cadomyr and their Queen Rosaline is no exception. I would expect that the back of most people in Cadomyr is hurting from all the bowing they have to perform.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Die sind schon recht steif drüben in Cadomyr und ihre Königin Rosaline ist da keine Ausnahme. I würde mich nicht wundern, wenn der Rücken der meisten Leute in Cadomyr schmerzt aufgrund der ganzen Verbeugungen, die sie täglich ausüben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rosaline");
 talkEntry:addTrigger("Edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Quite stiff they are over there in Cadomyr and their Queen Rosaline is no exception. I would expect that the back of most people in Cadomyr is hurting from all the bowing they have to perform.");
@@ -1152,9 +1141,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rosaline");
-talkEntry:addTrigger("Königin");
 talkEntry:addTrigger("Edwards");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Die sind schon recht steif drüben in Cadomyr und ihre Königin Rosaline ist da keine Ausnahme. I würde mich nicht wundern, wenn der Rücken der meisten Leute in Cadomyr schmerzt aufgrund der ganzen Verbeugungen, die sie täglich ausüben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1168,7 +1155,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Cadomyrs Gebräuche sind eigenartig. Anstatt sich auf Weisheit und Wissen zu berufen, wird der Status einer Person in der Gesellschaft durch dessen Rang bestimmt. Es könnte sogar passieren, dass ein absoluter Volltrottel das Land beherrscht. Verrückt, nicht wahr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1182,7 +1168,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Albar");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Soweit ich gehört habe, gab es wieder mal eine Rebellion in Albar. Diese armen Bauern haben sich wieder erhoben. Aber wie so häufig werden diese sogenannten Edlen dem bald ein Ende setzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1198,7 +1183,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gync");
 talkEntry:addTrigger("Gynk");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ich sage es euch, ihr könnt eine Person von Gynk drei Meilen gegen den Wind riechen. Diese verdorbenen Leute leben in stingenden und chaotischen Misthaufen, was sie auch noch als Städte bezeichen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1212,7 +1196,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Salkamar");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ein mal bin ich in Salkamar gewesen. Ach, diese wunderschönen Orte, diese einzigartigen Leute! Ihr solltet selbst einmal dort hingehen und ich verspreche euch, dass ihr bei eurer Rückkehr nicht mehr der gleiche sein werdet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1226,7 +1209,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me lacht laut: 'Niemand wird jemals wieder mit seinen beiden Füßen auf Gobaith stehen. Ich denke mir, dass ihr das gewußt habt.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
