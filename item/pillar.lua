@@ -92,8 +92,8 @@ function LookAtItem(User,Item)
            		User:setQuestProgress(110,queststatus+1); --the player read a text
        		else
         		User:setQuestProgress(110,0); --start from the beginning
-         		if User:getQuestProgress(111)==0 then --change when quest is ready!
-              		User:setQuestProgress(111,1); --the player read all laws
+         		if User:getQuestProgress(111)==1 then --change when quest is ready!
+              		User:setQuestProgress(111,2); --the player read all laws
               		base.common.InformNLS(User,"[Queststatus] Du hast nun alle Gesetze Cadomyrs gelesen.","[Quest progress] You read all the Cadomyrian customs."); --sending the message
          		end
       		end   
