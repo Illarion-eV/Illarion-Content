@@ -73,19 +73,21 @@ itemShoes = 53
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Mandatory: Catching quest triggers. Modify if the NPC does quests
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
 "quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Mandatory: Small talk - The talk here should focus on possible questions. Feel free to add more!
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Mandatory: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -97,13 +99,11 @@ itemShoes = 53
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Mandatory: Catching typical NPC phrases
+-- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- OPTIONAL TRIGGERS
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
