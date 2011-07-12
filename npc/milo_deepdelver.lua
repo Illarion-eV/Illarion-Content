@@ -8,7 +8,7 @@
 -- Authors:  Nanuk                                                            --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1387,7 +1387,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zerarisa");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Eine sehr nette Echsenfrau, die am Kap des Abschiedes lebt. Sie ist eine Fischerin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1403,7 +1402,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fronita");
 talkEntry:addTrigger("Emery");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Sie ist die zwergische Glaskünstlerin von Runewick. Ein wirklich sympatisches Mädel, die die besten Flaschen der Stadt bläßt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1419,7 +1417,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nana");
 talkEntry:addTrigger("Winterbutter");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Nana ist eine gute Freundin von mir. Man kann sie meistens bei den Feldern im Eibenthal finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
