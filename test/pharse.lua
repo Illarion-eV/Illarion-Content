@@ -18,7 +18,7 @@ wBridgeArea = 0;
 wBridgeWarp = false;
 wMirror = false;
 
-testPos = position(0,0,0);
+testPos = position(0,0,0)
 
 function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	if dowp then
