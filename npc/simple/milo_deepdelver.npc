@@ -126,6 +126,12 @@ itemShoes = 369
 "problem", "mission", "quest", queststatus(106) = 3, english -> "With the carrots you have brought I will have no problems returning home. May Adron give you wine whenever you desire."
 "Problem", "Mission", "Quest", queststatus(106) = 3, german -> "Mit den Karotten, die ihr gebracht habt, werde ich kein Problem haben, nach Hause zurück zu kehren. Adron gebe euch Wein wann immer ihr danach gelüstet."
 
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
 -- Gods
 "Elder" -> "The Elder Gods were first on this world. There are five of them with the name of Ushara, Brágon, Eldan, Toanora and Findari."
 "Alte" -> "Die Alten Götter kamen zuerst auf diese Welt. Es gibt fünf von Ihnen und sie heißen Ushara, Brágon, Eldan, Tanora und Findari."
@@ -172,17 +178,15 @@ itemShoes = 369
 "herbalist" -> "You can do a lot of stuff working as a herbalist. You can heal the wounded or poison the culprit. You can strengthen the weak or weaken the strong. You can change the biggest troll to the smallest fairy or create devastating bombs. All that is possible!"
 "Kräuterkundiger" -> "Als Kräuterkundiger kan man eine Menge machen. Ihr könnt die Kranken heilen oder den Schuldigen vergiften. Ihr könnt den Schwachen stark oder den Starken schwach machen. Ihr könnt den größten Troll in die kleinste Fee verwandeln oder zerstörerische Bomben herstellen. All das ist möglich!"
 "Druid", english -> "You can do a lot of stuff working as a druid. You can heal the wounded or poison the culprit. You can strengthen the weak or weaken the strong. You can change the biggest troll to the smallest fairy or create devastating bombs. All that is possible!"
-"Druid", german -> "Als Druide kann man eine Menge machen. Ihr könnt die Kranken heilen oder den Schuldigen vergiften. Ihr könnt den Schwachen stark oder den Starken schwach machen. Ihr könnt den größten Troll in die kleinste Fee verwandeln oder zerstörerische Bomben herstellen. All das ist möglich!"
+"Druid" -> "Als Druide kann man eine Menge machen. Ihr könnt die Kranken heilen oder den Schuldigen vergiften. Ihr könnt den Schwachen stark oder den Starken schwach machen. Ihr könnt den größten Troll in die kleinste Fee verwandeln oder zerstörerische Bomben herstellen. All das ist möglich!"
 "herb lore" -> "It is a good and decent trade. You learn a lot about herbs and other ingredients, their usage and the history of herb lore."
 "Kräuterkunde" -> "Dies ist ein gutes und respektables Handwerk. Man lernt eine Menge zu Kräutern umd anderen Ingredienzien, ihren Gebrauch und die Geschichte der Kräuterkunde."
 "herb" -> "There are different kind of herbs which can be found on the ground. You just need a sickel in your hand to find them."
 "Kräuter" -> "Es gibt verschiedene Arten von Kräutern, die auf der Erde gefunden werden können. Ihr benötigt nur eine Sichel in eurer Hand, um sie zu finden."
 "ingredient" -> "There are some kind of minerals which are used to finish a brew. In general it is gem dust."
 "Ingredienz" -> "Es gibt bestimmt Arten von Mineralien, mit denen man das Gebräu 'abschmeckt'. In der Regel ist dies der zermalene Staub von Edelsteinen."
-"usage" -> "You will need a copper kettle in your belt, the plants and ingrediences and an empty bottle in your hand to create a potion."
-"Gebrauch" -> "Ihr benötigt einen kupfernen Kessel im Gürtel, die Kräuter und Ingredienzien und eine leere Flasche in der Hand, um einen Trank herzustellen."
-"kettle" -> "Last I knew a merchant at the harbor is selling a copper kettle."
-"Kessel" -> "Soweit ich weiß verkauft ein Händler am Hafen einen kupfernen Kessel."
+"usage" -> "You will need a copper kettle, the plants and ingrediences and an empty bottle in your hand to create a potion."
+"Gebrauch" -> "Ihr benötigt einen kupfernen Kessel, die Kräuter und Ingredienzien und eine leere Flasche in der Hand, um einen Trank herzustellen."
 "history" -> "The history of herb lore is very interesting. It dates back to the old seer Nifrindarai from the perished Elven domain of the Raenandor dynasty."
 "Geschichte" -> "Die Geschichte der Kräuterkunde ist sehr interessant. Sie basiert auf die Lehren des alten Sehers Nifrindarai aus den untergegangenen Elfenreichen der Geschlechter der Raenandor."
 "Nifrindarai", english -> "He has found out that all herbs contain two active substances with differnet effects. The success of a formula therefore requires a harmonic combination of the ingredients and their proportions."
@@ -224,15 +228,15 @@ itemShoes = 369
 "Halfling" -> "Yes, I am a Halfling. Naturally the best people there are! Good for a nice chat and easy to have around. You only need to watch you provisions if one of us is around."
 "Halbling" -> "Ja, ich bin ein Halbling. Selbstverständlich das beste Volk weit und breit! Immer für einen netten Plausch zu haben und gute Gesellschafter. Man muss nur auf seinen Proviant aufpassen, wenn wir in der Nähe sind."
 "Hobbit", english -> "Some call us Hobbits but most refer to us as Halflings."
-"Hobbit", german -> "Manche nennen uns Hobbits, aber von den meisten werden wir als Halblinge bezeichnet."
-"Dwarf", "Dwarves", "Dwarfs" -> "There is quite a strong community of Dwarves living at Galmair in the mountain range."
+"Hobbit" -> "Manche nennen uns Hobbits, aber von den meisten werden wir als Halblinge bezeichnet."
+"Dwarf", "Dwarv" -> "There is quite a strong community of Dwarves living at Galmair in the mountain range."
 "Zwerg" -> "Es gibt eine recht große Niederlassung der Zwerge in Galmair in den Bergen."
 "Human" -> "Humans provide the biggest group of people in this land. You will find good and bad people amongst them."
 "Menschen" -> "Die Menschen stellen die größte Gruppe in diesen Landen. Du wirst gute und schlechte Leute unter ihnen finden."
 "Elves", "Elfs" -> "I don't really have much to do with the Elves. They are quite snobbish if you ask my."
 "Elben", "Elfen" -> "Mit den Elfen habe ich eigentlich nicht viel zu tun. Sie sind mir einfach zu eingebildet."
 "Elb", "Elf", english -> "I don't really have much to do with the Elves. They are quite snobbish if you ask my."
-"Elb", "Elf", german -> "Mit den Elfen habe ich eigentlich nicht viel zu tun. Sie sind mir einfach zu eingebildet."
+"Elb", "Elf" -> "Mit den Elfen habe ich eigentlich nicht viel zu tun. Sie sind mir einfach zu eingebildet."
 "Lizard" -> "The Lizardmen are a very guarded community. With the exception of Zerarisa at Cape Farewell I don't really know them."
 "Echsen" -> "Die Echsenmenschen sind eine sehr verschlossene Gruppe. Mit Ausnahme von Zerarisa am Kap des Abschiedes kenne ich nicht wirklich jemanden von ihnen."
 "Orc" -> "The Orcs are a kind of brutish lot. You don't want to mess with them."
@@ -240,9 +244,9 @@ itemShoes = 369
 "Fairy", "Fairies" -> "The little flying creatures can be annoying sometimes, but in general they are good natured. I haven't seen many of them around though."
 "Fee" -> "Die kleinen fliegenden Kreaturen können manchmal recht nervig sein, aber in der Regel sind sie freundlich. Ich habe nur in letzter Zeit wenige von ihnen gesehen."
 "Gnom", english -> "Sorry, I have never really met a Gnome. I just heard that they are similar to dwarves but I can't say if that is true."
-"Gnom", german -> "Entschuldigt, aber ich habe bisher noch keinen Gnom angetroffen. Man hört, sie wären den Zwergen nicht unähnlich, aber ob das stimmt, kann ich nicht sagen."
+"Gnom" -> "Entschuldigt, aber ich habe bisher noch keinen Gnom angetroffen. Man hört, sie wären den Zwergen nicht unähnlich, aber ob das stimmt, kann ich nicht sagen."
 "Goblin", english -> "In my youth my mother used to tell me lurid tales about these little creatures. I would advice to stay away from them."
-"Goblin", german -> "In meiner Jugend hat meine Mutter mir immer Horrorgeschichten von den Goblins erzählt. Mein Rat wäre, sich von ihnen fern zu halten."
+"Goblin" -> "In meiner Jugend hat meine Mutter mir immer Horrorgeschichten von den Goblins erzählt. Mein Rat wäre, sich von ihnen fern zu halten."
 
 -- NPCs background: other NPCs
 "Zerarisa", english -> "A very nice lizardwoman living at Cape Farewell. She works as a fisherwoman."
@@ -265,8 +269,20 @@ itemShoes = 369
 "Milo", "Deepdelver" -> "Ja, so heiße ich. Falls ihr ein paar Informationen zu den Göttern oder Kräuterkunde benötigt, stehe ich zu eurer Verfügung."
 
 -- typical NPC phrases
-"sell" -> "Sorry, I don't sell anything. I am trying to get this stupid mule to move. So, get out of my way if you don't want to help me."
-"verkauf" -> "Entschuldigt, aber ich verkaufe nichts. Ich versuche diesen dummen Esel in Bewegung zu setzten. Also, geht mir aus dem Weg, wenn ihr mir nicht helfen wollt."
+"what sell", "what buy", "list wares", "price of" -> "Sorry, I don't sell anything. I am trying to get this stupid mule to move. So, get out of my way if you don't want to help me."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Entschuldigt, aber ich verkaufe nichts. Ich versuche diesen dummen Esel in Bewegung zu setzten. Also, geht mir aus dem Weg, wenn ihr mir nicht helfen wollt."
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

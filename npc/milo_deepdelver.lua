@@ -662,6 +662,39 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elder");
 talkEntry:addResponse("The Elder Gods were first on this world. There are five of them with the name of Ushara, Brágon, Eldan, Toanora and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -946,7 +979,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Druid");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Als Druide kann man eine Menge machen. Ihr könnt die Kranken heilen oder den Schuldigen vergiften. Ihr könnt den Schwachen stark oder den Starken schwach machen. Ihr könnt den größten Troll in die kleinste Fee verwandeln oder zerstörerische Bomben herstellen. All das ist möglich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -989,25 +1021,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("usage");
-talkEntry:addResponse("You will need a copper kettle in your belt, the plants and ingrediences and an empty bottle in your hand to create a potion.");
+talkEntry:addResponse("You will need a copper kettle, the plants and ingrediences and an empty bottle in your hand to create a potion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gebrauch");
-talkEntry:addResponse("Ihr benötigt einen kupfernen Kessel im Gürtel, die Kräuter und Ingredienzien und eine leere Flasche in der Hand, um einen Trank herzustellen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("kettle");
-talkEntry:addResponse("Last I knew a merchant at the harbor is selling a copper kettle.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Kessel");
-talkEntry:addResponse("Soweit ich weiß verkauft ein Händler am Hafen einen kupfernen Kessel.");
+talkEntry:addResponse("Ihr benötigt einen kupfernen Kessel, die Kräuter und Ingredienzien und eine leere Flasche in der Hand, um einen Trank herzustellen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1234,15 +1254,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hobbit");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Manche nennen uns Hobbits, aber von den meisten werden wir als Halblinge bezeichnet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Dwarf");
-talkEntry:addTrigger("Dwarves");
-talkEntry:addTrigger("Dwarfs");
+talkEntry:addTrigger("Dwarv");
 talkEntry:addResponse("There is quite a strong community of Dwarves living at Galmair in the mountain range.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1290,7 +1308,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elb");
 talkEntry:addTrigger("Elf");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Mit den Elfen habe ich eigentlich nicht viel zu tun. Sie sind mir einfach zu eingebildet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1341,7 +1358,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gnom");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Entschuldigt, aber ich habe bisher noch keinen Gnom angetroffen. Man hört, sie wären den Zwergen nicht unähnlich, aber ob das stimmt, kann ich nicht sagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1355,7 +1371,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Goblin");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("In meiner Jugend hat meine Mutter mir immer Horrorgeschichten von den Goblins erzählt. Mein Rat wäre, sich von ihnen fern zu halten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1468,14 +1483,104 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sell");
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
 talkEntry:addResponse("Sorry, I don't sell anything. I am trying to get this stupid mule to move. So, get out of my way if you don't want to help me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("verkauf");
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
 talkEntry:addResponse("Entschuldigt, aber ich verkaufe nichts. Ich versuche diesen dummen Esel in Bewegung zu setzten. Also, geht mir aus dem Weg, wenn ihr mir nicht helfen wollt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("<NPC first name>");
+talkEntry:addTrigger("<NPC last name>");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("<NPC-Vorname>");
+talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Nun komm schon, du störrischer alter Esel!", "Come on, you stubborn old mule!");
