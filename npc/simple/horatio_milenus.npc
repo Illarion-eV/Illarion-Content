@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Kawan Baxter, translation by Estralis Seborian                   --
 --                                                                            --
--- Last parsing: July 05, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Horatio Milenus"
@@ -153,10 +153,6 @@ itemShoes = 771
 "Familie" -> "Das geht euch nichts an."
 "Palace" -> "If you have no business at the palace, stay away from there."
 "Palast" -> "Wenn ihr im Palast nichts zu suchen habt, dann haltet euch fern von ihm."
-"King" -> "Reginald, the greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
-"König" -> "Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein."
-"Reginald", english -> "Reginald, he greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
-"Reginals" -> "Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein."
 "Guard" -> "I guard the gate of this city. That it is the mission the queen assigned to me and I am proud to fulfill."
 "Wache" -> "Ich bewache das Tor dieser Stadt. Das ist die Aufgabe, die die Königin mir übertragen hat und es erfüllt mich mit Stolz, sie zu erfüllen."
 
@@ -181,6 +177,12 @@ itemShoes = 771
 "rosaline", "edwards" -> "Wenn Cadomyr mein Herz ist, dann ist Königin Rosaline mein Herz."
 "Cadomyr", english -> "My home and my heart: Cadomyr."
 "Cadomyr" -> "Mein ein und alles: Cadomyr."
+
+-- Even more small talk
+"King" -> "Reginald, the greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
+"König" -> "Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein."
+"Reginald", english -> "Reginald, he greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
+"Reginald" -> "Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein."
 
 -- Main land factions
 "albar", english -> "I am Albarian, yes.", "You aren't in Albar. Look with your eyes.", "Please do not disturb me. I am at work."
