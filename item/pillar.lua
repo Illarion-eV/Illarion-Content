@@ -175,9 +175,9 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
 end
 
+--Dude, you cannot - must not have two UseItem functions in one script. This CANNOT work! ~Estralis
 
-
-
+--[[
 --copyed from id_272_statue.lua; locations are all in gobaith
 function UseItem( User, Item, TargetItem, counter, param )
     lang=User:getPlayerLanguage();
@@ -229,4 +229,4 @@ function UseItem( User, Item, TargetItem, counter, param )
             end
         end
     end            
-end
+end]]
