@@ -1,4 +1,4 @@
--- Wegweiser Script
+-- Wegweiserskript
 -- Nitram
 require("base.common")
 require("content.signpost")

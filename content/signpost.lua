@@ -20,9 +20,9 @@ function InitWegweiser()
     
 	--SW/Cadomyr map
     AddWeg({42,634,0},"Piratenbucht","Pirate Cove",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
-    AddWeg({50,640,0},"Faber's Wache","Faber's Guardhouse",6,0); -- <Name hier> Zerstörter Außenposten -- <name here> ruin of a outpost
-    AddWeg({110,659,0},"Cape Farewell; Faber's Wache","Cape Farewell; Faber's Guardhouse",6,0);
-	AddWeg({112,659,0},"Grundstein der Aufrichtigkeit; Malachíntempel; Rosaline-Kubus; Harbour","Candour Foundation; Malachín Temple; Rosaline Cube; Harbour",4,0);
+    AddWeg({50,640,0},"Fabers Wache","Faber's Guardhouse",6,0); -- <Name hier> Zerstörter Außenposten -- <name here> ruin of a outpost
+    AddWeg({110,659,0},"Cape Farewell; Fabers Wache","Cape Farewell; Faber's Guardhouse",6,0);
+	AddWeg({112,659,0},"Grundstein der Aufrichtigkeit; Malachíntempel; Rosaline-Kubus; Hafen","Candour Foundation; Malachín Temple; Rosaline Cube; Harbour",4,0);
 	AddWeg({114,659,0},"Katanbi Desert; Freiheitsbruch; Arena; Gladiatoren; Sklavenmarkt; Galmair; Runewick","Katanbi Desert; Liberty Quarry; Arena; Gladiatoren; Slave Market; Galmair; Runewick",2,0);
 	AddWeg({87,642,0},"Cadomyr","Cadomyr",0,0);
     AddWeg({137,633,0},"Cadomyr","Cadomyr",0,0);
@@ -32,12 +32,12 @@ function InitWegweiser()
     AddWeg({91,586,0},"Gasthaus 'Seeufer'","Inn 'Lakeshore'",0,0);
     AddWeg({123,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
     AddWeg({120,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
-    AddWeg({129,563,0},"Zhambratempel","Zhambratemple",2,0);
+    AddWeg({129,563,0},"Zhambratempel","Temple of Zhambra",2,0);
     AddWeg({129,699,0},"Grundstein der Aufrichtigkeit","Candour Foundation",2,0);  --<coal mine>
     AddWeg({176,612,0},"Freiheitsbruch","Liberty Quarry",6,0); --<copper/gold/iron mine>
     AddWeg({174,635,0},"Freiheitsbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
-	AddWeg({209,552,0},"Grugmutz's Höhle","Grugmutz's cave",6,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
-    AddWeg({145,694,1},"Malachíntempel","Malachín Temple",0,0);
+	AddWeg({209,552,0},"Grugmutzs Höhle","Grugmutz's cave",6,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
+    AddWeg({145,694,1},"Malachíntempel","Temple of Malachín",0,0);
     AddWeg({90,690,0},"Rosaline-Kubus","Rosaline Cube",4,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
     AddWeg({76,689,0},"Cape Farewell","Cape Farewell",6,0);
     AddWeg({109,771,0},"Königlicher Hafen","Royal Harbour",4,0);
@@ -62,14 +62,14 @@ function InitWegweiser()
     AddWeg({253,690,0},"Königlicher Sklavenmarkt; Wüstenloch; Sternenoase","Royal Slave Market; Desert Hole; Oasis of Stars",2,0); -- <Name hier> Sandcamp -- <name here> sandcamp
     AddWeg({200,757,0},"Träne der Sirani","Tear of Sirani",6,0);
 	AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
-    AddWeg({468,794,0},"Katanbi Wüste; dahinter Cadomyr","Katanbi Desert; behind Cadomyr",6,0);
+    AddWeg({468,794,0},"Katanbiwüste; dahinter Cadomyr","Katanbi Desert; behind Cadomyr",6,0);
     AddWeg({481,794,0},"Wachstützpunkt; Leuchtturm; Galmair; Runewick","Sentry Outpost; Lighthouse; Galmair; Runewick",2,0);
     AddWeg({290,673,0},"Königlicher Sklavenmarkt","Royal Slave Market",0,0);
     AddWeg({226,646,0},"Perle der Sirani","Pearl of Sirani",0,0); -- <Name hier> Oase -- <name here> oasis
     AddWeg({109,771,0},"Cadomyr Hafen","Cadomyr Harbour",4,0);
 
     --NW/Galmair-map
-    AddWeg({365,247,0},"Guilianni-Residenz oder Galmair's Crest","Guilianni Residence or Galmair's Crest",0,0); -- Don's palace
+    AddWeg({365,247,0},"Guilianni-Residenz oder Galmairs Crest","Guilianni Residence or Galmair's Crest",0,0); -- Don's palace
     AddWeg({392,249,0},"","",0,0);-- <Name hier> Gildengebäude -- <name here> guild hall
     AddWeg({376,259,0},"Werkstatt","Workshop",2,0);-- <Name hier> Werkstatt -- <name here> workshop
     AddWeg({401,293,0},"Gasthof zum schläfrigen Bujhaar","Sleepy Bujhaar Inn",2,0);-- <Name hier> Gasthaus -- <name here> Inn
@@ -140,7 +140,7 @@ function InitWegweiser()
     AddWeg({791,821,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
     AddWeg({840,821,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
     AddWeg({840,824,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
-    AddWeg({853,821,0},"Hölzfällersiedlung; Zwillingsaugen Inseln","Woodcutter's Hut; Twin Eyes Islands",4,0);
+    AddWeg({853,821,0},"Hölzfällersiedlung; Zwillingsaugeninseln","Woodcutter's Hut; Twin Eyes Islands",4,0);
     AddWeg({855,814,0},"Heilige Eiche; Triumphfeuer","Holy Oak; Fire of Triumph",0,0);
     AddWeg({851,816,0},"Vierbeiniger Roter Vogel; Hafen; Bauernhöfe; Cadomyr; Galmair; ...","Quadruped Red Bird; Harbour; Farmland; Cadomyr; Galmair; ...",6,0);
     AddWeg({856,819,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
