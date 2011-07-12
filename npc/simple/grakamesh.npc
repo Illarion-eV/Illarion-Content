@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Grakamesh"
@@ -204,9 +204,9 @@ itemShoes = 53
 "Galmair", english -> "Dem priddy stoopid in Galmair. Dem nub understand how important faith be. Dey just pray to gold, like dem stumpies."
 "Galmair" -> "In Galmair, sie wirklich dumm sind. Niemand versteht die Wichtigkeit von Glaube, dort. Sie nur beten zum Gold, so wie es die Stumpfe tun."
 "Queen" -> "Dat female hab respect fer bruddahs. Orcies proud and hab honour. Bruddahs loyal to queen!"
-"Königin" -> "Diese Weib hat respekt für die Orks übrig. Orks sind stolz und haben Ehre. Also Orcs stehen hinter der Königin!"
+"Königin" -> "Diese Weib hat Respekt für die Orks übrig. Orks sind stolz und haben Ehre. Also Orcs stehen hinter der Königin!"
 "rosaline", "edwards", english -> "Dat female hab respect fer bruddahs. Orcies proud and hab honour. Bruddahs loyal to queen!"
-"rosaline", "edwards" -> "Diese Weib hat respekt für die Orks übrig. Orks sind stolz und haben Ehre. Also Orcs stehen hinter der Königin!"
+"rosaline", "edwards" -> "Diese Weib hat Respekt für die Orks übrig. Orks sind stolz und haben Ehre. Also Orcs stehen hinter der Königin!"
 "Cadomyr", english -> "Cadomyr be gud place fer orc warriors. All hab faith in dem gods and all hab honour. Dat's how it should be!"
 "Cadomyr" -> "Cadomyr ist ein guter Ort, für Krieger der Orks. Jeder hat Glaube in die Götter und issigt ehrenhaft. So wie es sein sollte."
 

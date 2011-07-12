@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -870,7 +870,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("Diese Weib hat respekt für die Orks übrig. Orks sind stolz und haben Ehre. Also Orcs stehen hinter der Königin!");
+talkEntry:addResponse("Diese Weib hat Respekt für die Orks übrig. Orks sind stolz und haben Ehre. Also Orcs stehen hinter der Königin!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -885,7 +885,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Diese Weib hat respekt für die Orks übrig. Orks sind stolz und haben Ehre. Also Orcs stehen hinter der Königin!");
+talkEntry:addResponse("Diese Weib hat Respekt für die Orks übrig. Orks sind stolz und haben Ehre. Also Orcs stehen hinter der Königin!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
