@@ -112,10 +112,13 @@ function LookAtItem(User,Item)
            		User:setQuestProgress(610,queststatus+1); --the player read a text
        		else
         		User:setQuestProgress(610,0); --start from the beginning
+				--envi wants to do a quest with the stuff below.
+				--[[
          		if User:getQuestProgress(611)==0 then --change when quest is ready!
               		User:setQuestProgress(611,1); --the player read all laws
               		base.common.InformNLS(User,"[Queststatus] Du hast nun alle Herrscher Cadomyrs gelesen.","[Quest progress] You read all the Cadomyrian rulers."); --sending the message
          		end
+				]]
       		end   
     else
 	       --[[base.common.InformNLS(User,"Reiterstatue","statue of a rider"); --default ]]--
