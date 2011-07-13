@@ -8,7 +8,7 @@
 -- Authors:  Nanuk                                                            --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 13, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Milo Deepdelver"
@@ -71,66 +71,68 @@ itemShoes = 369
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Esel hier!"
 
 -- quest: start
-"mule", queststatus(106) = 0 -> "This stupid mule of mine doesn't move a single step and I am late returning to my family. Could you help me with my problem?", queststatus(106) = 1
-"Esel", queststatus(106) = 0 -> "Meine dummer Esel bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Könnt Ihr mir bei meinem Problem helfen?", queststatus(106) = 1
+"quest", "mission", "Problem", queststatus(106) = 0, english -> "This stupid mule of mine doesn't move a single step and I am late returning to my family. Could you help me with my problem?", queststatus(106) = 1
+"quest", "mission", "Problem", queststatus(106) = 0 -> "Meine dummer Esel bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Könnt Ihr mir bei meinem Problem helfen?", queststatus(106) = 1
+"task", "adventure", "order", "mule", queststatus(106) = 0 -> "This stupid mule of mine doesn't move a single step and I am late returning to my family. Could you help me with my problem?", queststatus(106) = 1
+"Aufgabe", "Auftrag", "Abenteuer", "Befehl", "Esel", queststatus(106) = 0 -> "Meine dummer Esel bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Könnt Ihr mir bei meinem Problem helfen?", queststatus(106) = 1
 
 -- quest: give out the mission
-"yes", "help", "mule", queststatus(106) = 1 -> inform("[New quest] Milo's mule"), "My mule is doing anything for carrots, but a few miles ago they ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art.", queststatus(106) = 2
-"ja", "Hilfe", "helfe", "Esel", queststatus(106) = 1 -> inform("[Neues Quest] Milos Esel"), "Mein Esel würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst.", queststatus(106) = 2
 "problem", "mission", "quest", queststatus(106) = 1, english -> inform("[New quest] Milo's mule"), "My mule is doing anything for carrots, but a few miles ago they ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art.", queststatus(106) = 2
-"Problem", "Mission", "Quest", queststatus(106) = 1, german -> inform("[Neues Quest] Milos Esel"), "Mein Esel würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst.", queststatus(106) = 2
+"Problem", "Mission", "Quest", queststatus(106) = 1 -> inform("[Neues Quest] Milos Esel"), "Mein Esel würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst.", queststatus(106) = 2
+"task", "adventure", "order", "yes", "mule", queststatus(106) = 1 -> inform("[New quest] Milo's mule"), "My mule is doing anything for carrots, but a few miles ago they ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art.", queststatus(106) = 2
+"Aufgabe", "Auftrag", "Abenteuer", "Befehl", "ja", "helfe", "Esel", queststatus(106) = 1 -> inform("[Neues Quest] Milos Esel"), "Mein Esel würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst.", queststatus(106) = 2
 
 -- quest: doesn't except the mission
 "no", queststatus(106) = 1 -> "Damn, you don't want to help me? What a pity! But please come back, if you want to lent me a hand with my mule!", queststatus(106) = 0
 "nein", queststatus(106) = 1 -> "Verdammt, ihr wollt mir nicht helfen? Wie schade! Aber bitte kommt wieder zurück zu mir, wenn ihr mir mit meinem Esel zur Hand gehen wollt!", queststatus(106) = 0
 
--- quest: repeat mission if no carrots
-"carrot", "help", "task", "adventure", "mule", queststatus(106) = 2, item(2493, all) = 0 -> "Yes, I am still waiting for those ten carrots you wanted to bring to me. Please hurry up, my family is waiting for me."
-"Möhre", "Wurzel", "Karotte", "Hilfe", "helfe", "Aufgabe", "Abenteuer", "Esel", queststatus(106) = 2, item(2493, all) = 0 -> "Ja, ich warte immer noch auf die zehn Karotten, die ihr mir versprochen habt, zu bringen. Bitte, beeilt euch, meine Familie macht sich bestimmt schon Sorgen."
-"problem", "mission", "quest", queststatus(106) = 2, item(2493, all) = 0, english -> "Yes, I am still waiting for those ten carrots you wanted to bring to me. Please hurry up, my family is waiting for me."
-"Problem", "Mission", "Quest", queststatus(106) = 2, item(2493, all) = 0, german -> "Ja, ich warte immer noch auf die zehn Karotten, die ihr mir versprochen habt, zu bringen. Bitte, beeilt euch, meine Familie macht sich bestimmt schon Sorgen."
-
--- quest: not enough carrots to complete mission
-"carrot", "help", "task", "adventure", "mule", queststatus(106) = 2, item(2493, all) < 10 -> "But this is not the number of carrots I would need. I would not get home with this few. Bring me back exactly ten carrots and please hurry up!"
-"Möhre", "Wurzel", "Karotte", "Hilfe", "helfe", "Aufgabe", "Abenteuer", "Esel", queststatus(106) = 2, item(2493, all) < 10 -> "Aber das ist nicht die Anzahl an Karotten, die ich brauche. Mit den wenigen würde ich es niemals bis nach Hause schaffen. Bringt mir genau 10 Karotten und bitte beeilt euch!"
-"problem", "mission", "quest", queststatus(106) = 2, item(2493, all) < 10, english -> "But this is not the number of carrots I would need. I would not get home with this few. Bring me back exactly ten carrots and please hurry up!"
-"Problem", "Mission", "Quest", queststatus(106) = 2, item(2493, all) < 10, german -> "Aber das ist nicht die Anzahl an Karotten, die ich brauche. Mit den wenigen würde ich es niemals bis nach Hause schaffen. Bringt mir genau 10 Karotten und bitte beeilt euch!"
-
 -- quest: mission completed successful, very high skill level
-"carrot", "help", "task", "adventure", "mule", skill(herb lore) > 89, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest solved] You received one potion of intelligence, one potion of constitution and one bottle of elven wine."), "Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. But I can't teach you anything anymore. You are already surpassing my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!", deleteItem(2493, 10), item(59, 1, 333, 55559555), item(59, 1, 333, 55595555), item(1318, 1, 333, 0), queststatus(106) = 3
-"Möhre", "Wurzel", "Karotte", "Hilfe", "helfe", "Aufgabe", "Abenteuer", "Esel", skill(herb lore) > 89, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest gelöst] Du erhälst einen Trank der Intelligenz, einen Trank der Konstitution und eine Flasche Elfenwein."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elven-Wein!", deleteItem(2493, 10), item(59, 1, 333, 55559555), item(59, 1, 333, 55595555), item(1318, 1, 333, 0), queststatus(106) = 3
 "problem", "mission", "quest", skill(herb lore) > 89, queststatus(106) = 2, item(2493, all) => 10, english -> inform("[Quest solved] You received one potion of intelligence, one potion of constitution and one bottle of elven wine."), "Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. But I can't teach you anything anymore. You are already surpassing my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!", deleteItem(2493, 10), item(59, 1, 333, 55559555), item(59, 1, 333, 55595555), item(1318, 1, 333, 0), queststatus(106) = 3
-"Problem", "Mission", "Quest", skill(herb lore) > 89, queststatus(106) = 2, item(2493, all) => 10, german -> inform("[Quest gelöst] Du erhälst einen Trank der Intelligenz, einen Trank der Konstitution und eine Flasche Elfenwein."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elven-Wein!", deleteItem(2493, 10), item(59, 1, 333, 55559555), item(59, 1, 333, 55595555), item(1318, 1, 333, 0), queststatus(106) = 3
+"Problem", "Mission", "Quest", skill(herb lore) > 89, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest gelöst] Du erhälst einen Trank der Intelligenz, einen Trank der Konstitution und eine Flasche Elfenwein."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elfenwein!", deleteItem(2493, 10), item(59, 1, 333, 55559555), item(59, 1, 333, 55595555), item(1318, 1, 333, 0), queststatus(106) = 3
+"carrot", "task", "adventure", "order", "mule", skill(herb lore) > 89, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest solved] You received one potion of intelligence, one potion of constitution and one bottle of elven wine."), "Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. But I can't teach you anything anymore. You are already surpassing my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!", deleteItem(2493, 10), item(59, 1, 333, 55559555), item(59, 1, 333, 55595555), item(1318, 1, 333, 0), queststatus(106) = 3
+"Möhre", "Wurzel", "Karotte", "helfe", "Aufgabe", "Abenteuer", "Befehl", "Esel", skill(herb lore) > 89, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest gelöst] Du erhälst einen Trank der Intelligenz, einen Trank der Konstitution und eine Flasche Elfenwein."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr mit diesem faulen Bastard haben. Aber ich kann euch leider nichts mehr beibringen. Ihr übertrefft meine Fähigkeiten bereits. Lasst mich euch im Austausch ein paar meiner Vorräte geben, insbesondere dieser exzellente Elfenwein!", deleteItem(2493, 10), item(59, 1, 333, 55559555), item(59, 1, 333, 55595555), item(1318, 1, 333, 0), queststatus(106) = 3
 
 -- quest: mission completed successful, high skill level
-"carrot", "help", "task", "adventure", "mule", skill(herb lore) > 70, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest solved] Your skill in herb lore increased."), "Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Here let me show you a few things about herbs!", skill(herb lore) + 2, deleteItem(2493, 10), queststatus(106) = 3
-"Möhre", "Wurzel", "Karotte", "Hilfe", "helfe", "Aufgabe", "Abenteuer", "Esel", skill(herb lore) > 70, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest gelöst] Deine Fähigkeit in Kräuterkunde wurde gesteigert."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Dinge zu Kräuterkunde zeigen!", skill(herb lore) + 2, deleteItem(2493, 10), queststatus(106) = 3
 "problem", "mission", "quest", skill(herb lore) > 70, queststatus(106) = 2, item(2493, all) => 10, english -> inform("[Quest solved] Your skill in herb lore increased."), "Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Here let me show you a few things about herbs!", skill(herb lore) + 2, deleteItem(2493, 10), queststatus(106) = 3
-"Problem", "Mission", "Quest", skill(herb lore) > 70, queststatus(106) = 2, item(2493, all) => 10, german -> inform("[Quest gelöst] Deine Fähigkeit in Kräuterkunde wurde gesteigert."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Dinge zu Kräuterkunde zeigen!", skill(herb lore) + 2, deleteItem(2493, 10), queststatus(106) = 3
+"Problem", "Mission", "Quest", skill(herb lore) > 70, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest gelöst] Deine Fähigkeit in Kräuterkunde wurde gesteigert."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Dinge zu Kräuterkunde zeigen!", skill(herb lore) + 2, deleteItem(2493, 10), queststatus(106) = 3
+"carrot", "task", "adventure", "order", "mule", skill(herb lore) > 70, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest solved] Your skill in herb lore increased."), "Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Here let me show you a few things about herbs!", skill(herb lore) + 2, deleteItem(2493, 10), queststatus(106) = 3
+"Möhre", "Wurzel", "Karotte", "helfe", "Aufgabe", "Abenteuer", "befehl", "Esel", skill(herb lore) > 70, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest gelöst] Deine Fähigkeit in Kräuterkunde wurde gesteigert."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Dinge zu Kräuterkunde zeigen!", skill(herb lore) + 2, deleteItem(2493, 10), queststatus(106) = 3
 
 -- quest: mission completed successful, medium skill level
-"carrot", "help", "task", "adventure", "mule", skill(herb lore) > 30, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest solved] Your skill in herb lore increased."), "Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Here let me show you a few things about herbs!", skill(herb lore) + 5, deleteItem(2493, 10), queststatus(106) = 3
-"Möhre", "Wurzel", "Karotte", "Hilfe", "helfe", "Aufgabe", "Abenteuer", "Esel", skill(herb lore) > 30, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest gelöst] Deine Fähigkeit in Kräuterkunde wurde gesteigert."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Dinge zu Kräuterkunde zeigen!", skill(herb lore) + 5, deleteItem(2493, 10), queststatus(106) = 3
 "problem", "mission", "quest", skill(herb lore) > 30, queststatus(106) = 2, item(2493, all) => 10, english -> inform("[Quest solved] Your skill in herb lore increased."), "Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Here let me show you a few things about herbs!", skill(herb lore) + 5, deleteItem(2493, 10), queststatus(106) = 3
-"Problem", "Mission", "Quest", skill(herb lore) > 30, queststatus(106) = 2, item(2493, all) => 10, german -> inform("[Quest gelöst] Deine Fähigkeit in Kräuterkunde wurde gesteigert."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Dinge zu Kräuterkunde zeigen!", skill(herb lore) + 5, deleteItem(2493, 10), queststatus(106) = 3
+"Problem", "Mission", "Quest", skill(herb lore) > 30, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest gelöst] Deine Fähigkeit in Kräuterkunde wurde gesteigert."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Dinge zu Kräuterkunde zeigen!", skill(herb lore) + 5, deleteItem(2493, 10), queststatus(106) = 3
+"carrot", "task", "adventure", "order", "mule", skill(herb lore) > 30, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest solved] Your skill in herb lore increased."), "Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Here let me show you a few things about herbs!", skill(herb lore) + 5, deleteItem(2493, 10), queststatus(106) = 3
+"Möhre", "Wurzel", "Karotte", "Hilfe", "helfe", "Aufgabe", "Abenteuer", "befehl", "Esel", skill(herb lore) > 30, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest gelöst] Deine Fähigkeit in Kräuterkunde wurde gesteigert."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Dinge zu Kräuterkunde zeigen!", skill(herb lore) + 5, deleteItem(2493, 10), queststatus(106) = 3
 
 -- quest: mission completed successful, low skill level
-"carrot", "help", "task", "adventure", "mule", skill(herb lore) < 31, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest solved] Your skill in herb lore increased."), "Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Here let me show you a few things about herbs!", skill(herb lore) + 10, deleteItem(2493, 10), queststatus(106) = 3
-"Möhre", "Wurzel", "Karotte", "Hilfe", "helfe", "Aufgabe", "Abenteuer", "Esel", skill(herb lore) < 31, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest gelöst] Deine Fähigkeit in Kräuterkunde wurde gesteigert."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Dinge zu Kräuterkunde zeigen!", skill(herb lore) + 10, deleteItem(2493, 10), queststatus(106) = 3
 "problem", "mission", "quest", skill(herb lore) < 31, queststatus(106) = 2, item(2493, all) => 10, english -> inform("[Quest solved] Your skill in herb lore increased."), "Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Here let me show you a few things about herbs!", skill(herb lore) + 10, deleteItem(2493, 10), queststatus(106) = 3
-"Problem", "Mission", "Quest", skill(herb lore) < 31, queststatus(106) = 2, item(2493, all) => 10, german -> inform("[Quest gelöst] Deine Fähigkeit in Kräuterkunde wurde gesteigert."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Dinge zu Kräuterkunde zeigen!", skill(herb lore) + 10, deleteItem(2493, 10), queststatus(106) = 3
+"Problem", "Mission", "Quest", skill(herb lore) < 31, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest gelöst] Deine Fähigkeit in Kräuterkunde wurde gesteigert."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Dinge zu Kräuterkunde zeigen!", skill(herb lore) + 10, deleteItem(2493, 10), queststatus(106) = 3
+"carrot", "task", "adventure", "order", "mule", skill(herb lore) < 31, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest solved] Your skill in herb lore increased."), "Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Here let me show you a few things about herbs!", skill(herb lore) + 10, deleteItem(2493, 10), queststatus(106) = 3
+"Möhre", "Wurzel", "Karotte", "helfe", "Aufgabe", "Abenteuer", "Befehl", "Esel", skill(herb lore) < 31, queststatus(106) = 2, item(2493, all) => 10 -> inform("[Quest gelöst] Deine Fähigkeit in Kräuterkunde wurde gesteigert."), "Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Dinge zu Kräuterkunde zeigen!", skill(herb lore) + 10, deleteItem(2493, 10), queststatus(106) = 3
+
+-- quest: repeat mission if no carrots
+"problem", "mission", "quest", queststatus(106) = 2, item(2493, all) = 0, english -> "Yes, I am still waiting for those ten carrots you wanted to bring to me. Please hurry up, my family is waiting for me."
+"Problem", "Mission", "Quest", queststatus(106) = 2, item(2493, all) = 0 -> "Ja, ich warte immer noch auf die zehn Karotten, die ihr mir versprochen habt, zu bringen. Bitte, beeilt euch, meine Familie macht sich bestimmt schon Sorgen."
+"carrot", "task", "adventure", "order", "mule", queststatus(106) = 2, item(2493, all) = 0 -> "Yes, I am still waiting for those ten carrots you wanted to bring to me. Please hurry up, my family is waiting for me."
+"Möhre", "Wurzel", "Karotte", "Hilfe", "helfe", "Aufgabe", "Abenteuer", "befehl", "Esel", queststatus(106) = 2, item(2493, all) = 0 -> "Ja, ich warte immer noch auf die zehn Karotten, die ihr mir versprochen habt, zu bringen. Bitte, beeilt euch, meine Familie macht sich bestimmt schon Sorgen."
+
+-- quest: not enough carrots to complete mission
+"problem", "mission", "quest", queststatus(106) = 2, item(2493, all) < 10, english -> "But this is not the number of carrots I would need. I would not get home with this few. Bring me back exactly ten carrots and please hurry up!"
+"Problem", "Mission", "Quest", queststatus(106) = 2, item(2493, all) < 10 -> "Aber das ist nicht die Anzahl an Karotten, die ich brauche. Mit den wenigen würde ich es niemals bis nach Hause schaffen. Bringt mir genau 10 Karotten und bitte beeilt euch!"
+"carrot", "order", "task", "adventure", "mule", queststatus(106) = 2, item(2493, all) < 10 -> "But this is not the number of carrots I would need. I would not get home with this few. Bring me back exactly ten carrots and please hurry up!"
+"Möhre", "Wurzel", "Karotte", "Befehl", "helfe", "Aufgabe", "Abenteuer", "Esel", queststatus(106) = 2, item(2493, all) < 10 -> "Aber das ist nicht die Anzahl an Karotten, die ich brauche. Mit den wenigen würde ich es niemals bis nach Hause schaffen. Bringt mir genau 10 Karotten und bitte beeilt euch!"
 
 -- quest: nice words, if mission completed
+"problem", "mission", "quest", queststatus(106) = 3, english -> "With the carrots you have brought I will have no problems returning home. May Adron give you wine whenever you desire."
+"Problem", "Mission", "Quest", queststatus(106) = 3 -> "Mit den Karotten, die ihr gebracht habt, werde ich kein Problem haben, nach Hause zurück zu kehren. Adron gebe euch Wein wann immer ihr danach gelüstet."
 "mule", "help", "carrot", "task", "adventure", queststatus(106) = 3 -> "With the carrots you have brought I will have no problems returning home. May Adron give you wine whenever you desire."
 "Möhre", "Wurzel", "Esel", "Hilfe", "helfe", "Karotte", "Aufgabe", "Abenteuer", queststatus(106) = 3 -> "Mit den Karotten, die ihr gebracht habt, werde ich kein Problem haben, nach Hause zurück zu kehren. Adron gebe euch Wein wann immer ihr danach gelüstet."
-"problem", "mission", "quest", queststatus(106) = 3, english -> "With the carrots you have brought I will have no problems returning home. May Adron give you wine whenever you desire."
-"Problem", "Mission", "Quest", queststatus(106) = 3, german -> "Mit den Karotten, die ihr gebracht habt, werde ich kein Problem haben, nach Hause zurück zu kehren. Adron gebe euch Wein wann immer ihr danach gelüstet."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"profession" -> "I am an expert when it comes to herbs. I could tell you all day long about herb lore!"
+"beruf" -> "Ich bin ein Kräuterexperte. Ich könnte euch den ganzen Tag über Kräuterkunde vollquatschen!"
+"job", english -> "I am an expert when it comes to herbs. I could tell you all day long about herb lore!"
+"job" -> "Ich bin ein Kräuterexperte. Ich könnte euch den ganzen Tag über Kräuterkunde vollquatschen!"
 
 -- Gods
 "Elder" -> "The Elder Gods were first on this world. There are five of them with the name of Ushara, Brágon, Eldan, Toanora and Findari."
@@ -181,7 +183,7 @@ itemShoes = 369
 "Druid" -> "Als Druide kann man eine Menge machen. Ihr könnt die Kranken heilen oder den Schuldigen vergiften. Ihr könnt den Schwachen stark oder den Starken schwach machen. Ihr könnt den größten Troll in die kleinste Fee verwandeln oder zerstörerische Bomben herstellen. All das ist möglich!"
 "herb lore" -> "It is a good and decent trade. You learn a lot about herbs and other ingredients, their usage and the history of herb lore."
 "Kräuterkunde" -> "Dies ist ein gutes und respektables Handwerk. Man lernt eine Menge zu Kräutern umd anderen Ingredienzien, ihren Gebrauch und die Geschichte der Kräuterkunde."
-"herb" -> "There are different kind of herbs which can be found on the ground. You just need a sickel in your hand to find them."
+"herb" -> "There are different kind of herbs which can be found on the ground. You just need a sickle in your hand to find them."
 "Kräuter" -> "Es gibt verschiedene Arten von Kräutern, die auf der Erde gefunden werden können. Ihr benötigt nur eine Sichel in eurer Hand, um sie zu finden."
 "ingredient" -> "There are some kind of minerals which are used to finish a brew. In general it is gem dust."
 "Ingredienz" -> "Es gibt bestimmt Arten von Mineralien, mit denen man das Gebräu 'abschmeckt'. In der Regel ist dies der zermalene Staub von Edelsteinen."
@@ -263,26 +265,22 @@ itemShoes = 369
 "Frau" -> "Meine Frau heißt Rose und sie ist die schönste Frau, welche ihr je zu Gesicht bekommen werdet!"
 "child" -> "I have a small daughter of three years and she is the sunshine of my life."
 "Kind" -> "Ich habe eine kleine Tochter von drei Jahren und sie ist der Sonnenschein in meinem Leben."
-"my name", english -> "My Name is Milo Deepdelver. I am a herbalist from Runewick. If the Gods are with me, I will be on my way home with this no good mule of mine!"
-"mein name" -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Esel hier!"
-"Milo", "Deepdelver", english -> "Yes, this is my name. If you need some information on the Gods or herb lore just talk to me."
-"Milo", "Deepdelver" -> "Ja, so heiße ich. Falls ihr ein paar Informationen zu den Göttern oder Kräuterkunde benötigt, stehe ich zu eurer Verfügung."
 
 -- typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Sorry, I don't sell anything. I am trying to get this stupid mule to move. So, get out of my way if you don't want to help me."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Entschuldigt, aber ich verkaufe nichts. Ich versuche diesen dummen Esel in Bewegung zu setzten. Also, geht mir aus dem Weg, wenn ihr mir nicht helfen wollt."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"tell something" -> "I could tell you a lot about herb lore - and my family, if you wish."
+"erzähl was", "erzähl etwas" -> "Ich könnte eine Menge über Kräuterkunde erzählen - und über meine Familie, wenn ihr wollt."
 
 -- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name", english -> "My Name is Milo Deepdelver. I am a herbalist from Runewick. If the Gods are with me, I will be on my way home with this no good mule of mine!"
+"mein name" -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Esel hier!"
+"Milo", "Deepdelver", english -> "Yes, this is my name. If you need some information on the Gods or herb lore just talk to me."
+"Milo", "Deepdelver" -> "Ja, so heiße ich. Falls ihr ein paar Informationen zu den Göttern oder Kräuterkunde benötigt, stehe ich zu eurer Verfügung."
+"Yes" -> "Pardon?", "Could you rephrase that?", "Good to hear that.", "Sure?"
+"Ja" -> "Pardon?", "Könntet ihr das anders ausdrücken?", "Gut zu hören!", "Sicher?"
+"No" -> "Pardon?", "Could you rephrase that?", "Oh, I see.", "Sure?"
+"Nein" -> "Pardon?", "Könntet ihr das anders ausdrücken?", "Nun, ich verstehe.", "Sicher?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
