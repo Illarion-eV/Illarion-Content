@@ -129,10 +129,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 
 		for i=1,table.getn(location) do
 
-			Field=world:getField(location[i]); -- get reference to "Field"
-			TileID=Field.tile;
-
-			if (not world:isItemOnField(location[i])) and (TileID==2 or TileID==3 or TileID==4 or TileID==6 or TileID==7 or TileID==8 or TileID==9 or TileID==10 or TileID==11) then --only empty "outside" tiles!
+			if not world:isItemOnField(location[i]) then --only empty "outside" tiles!
 
 				world:gfx(2,location[i]); --FLASH, ahaaaa...
 
@@ -200,10 +197,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 
 		for i=1,table.getn(flames) do
 
-			Field=world:getField(flames[i]); -- get reference to "Field"
-			TileID=Field.tile;
-
-			if (not world:isItemOnField(flames[i])) and (TileID==2 or TileID==3 or TileID==4 or TileID==6 or TileID==7 or TileID==8 or TileID==9 or TileID==10 or TileID==11) then --only empty "outside" tiles!
+			if not world:isItemOnField(flames[i]) then --only empty "outside" tiles!
 
 				world:createItemFromId(359,1,flames[i],true,999,0); --spawn a flame
 				theItem=world:getItemOnField(flames[i]);
