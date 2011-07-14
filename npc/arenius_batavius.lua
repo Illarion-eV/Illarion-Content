@@ -2,17 +2,17 @@
 -- NPC Name: Arenius Batavius                                         Cadomyr --
 -- NPC Job:  Crusader                                                         --
 --                                                                            --
--- NPC Race: human                      NPC Position:  116, 641, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
+-- NPC Race: human                      NPC Position:  86, 586, 0             --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 17, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 116, 641, 0, 6, 'Arenius Batavius', 'npc.arenius_batavius', 0, 2, 3, 192, 107, 5, 191, 139, 97);
+VALUES (0, 86, 586, 0, 4, 'Arenius Batavius', 'npc.arenius_batavius', 0, 2, 3, 192, 107, 5, 191, 139, 97);
 ---]]
 
 require("npc.base.basic")

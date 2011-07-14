@@ -223,9 +223,7 @@ function CauseDamage(Attacker, Defender, Globals)
 
 	Globals.Damage=Globals.Damage*(math.random(8,12)/10); --Damage is randomised: 80-120%
 	
-	if base.character.IsPlayer(Defender.Char) then --only for player characters
-	    Globals.Damage=math.min(Globals.Damage,4999); --Damage is capped at 4999 Hitpoints to prevent "one hit kills" in PvP
-    end
+	Globals.Damage=math.min(Globals.Damage,4999); --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
 	
 	Globals.Damage=math.floor(Globals.Damage); --Hitpoints are an integer
 	

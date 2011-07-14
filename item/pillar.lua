@@ -92,8 +92,8 @@ function LookAtItem(User,Item)
            		User:setQuestProgress(110,queststatus+1); --the player read a text
        		else
         		User:setQuestProgress(110,0); --start from the beginning
-         		if User:getQuestProgress(111)==0 then --change when quest is ready!
-              		User:setQuestProgress(111,1); --the player read all laws
+         		if User:getQuestProgress(111)==1 then --change when quest is ready!
+              		User:setQuestProgress(111,2); --the player read all laws
               		base.common.InformNLS(User,"[Queststatus] Du hast nun alle Gesetze Cadomyrs gelesen.","[Quest progress] You read all the Cadomyrian customs."); --sending the message
          		end
       		end   
@@ -112,10 +112,13 @@ function LookAtItem(User,Item)
            		User:setQuestProgress(610,queststatus+1); --the player read a text
        		else
         		User:setQuestProgress(610,0); --start from the beginning
+				--envi wants to do a quest with the stuff below.
+				--[[
          		if User:getQuestProgress(611)==0 then --change when quest is ready!
               		User:setQuestProgress(611,1); --the player read all laws
               		base.common.InformNLS(User,"[Queststatus] Du hast nun alle Herrscher Cadomyrs gelesen.","[Quest progress] You read all the Cadomyrian rulers."); --sending the message
          		end
+				]]
       		end   
     else
 	       --[[base.common.InformNLS(User,"Reiterstatue","statue of a rider"); --default ]]--
@@ -175,9 +178,9 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
 end
 
+--Dude, you cannot - must not have two UseItem functions in one script. This CANNOT work! ~Estralis
 
-
-
+--[[
 --copyed from id_272_statue.lua; locations are all in gobaith
 function UseItem( User, Item, TargetItem, counter, param )
     lang=User:getPlayerLanguage();
@@ -229,4 +232,4 @@ function UseItem( User, Item, TargetItem, counter, param )
             end
         end
     end            
-end
+end]]
