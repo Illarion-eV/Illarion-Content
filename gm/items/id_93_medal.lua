@@ -9,8 +9,12 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 	--Additions to circumvent the absence of the counter
 
 	local a, _, number = string.find(User.lastSpokenText, "(%d+)");
-    Counter = 1 * number;
-
+    if number then
+	    Counter = 1 * number;
+	else
+	counter=1;
+	end
+	
 	--Additions end
 
     if (SourceItem.data==0) then --monster
