@@ -126,7 +126,6 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 		location[9]=position(TargetPos.x+8,TargetPos.y+5,TargetPos.z);
 		location[10]=position(TargetPos.x+10,TargetPos.y+7,TargetPos.z);
 
-
 		for i=1,table.getn(location) do
 
 			Field=world:getField(location[i]); -- get reference to "Field"
