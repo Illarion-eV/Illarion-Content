@@ -68,14 +68,15 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 			end
 
 			world:changeTile(6,location[i]); --change to water
-
+			
 			if math.random(1,20)==1 then --5% chance for a rock
 				zufall=math.random(1,table.getn(rocks));
 				world:createItemFromId(rocks[zufall],1,location[i],true,333,0);
 			end
 
 		end --all tiles affected
-
+		world:sendMapUpdate(TargetPos,30);
+		
 	elseif (SourceItem.data==7) then --earthquake
 
 		world:makeSound(5,TargetPos); --SFX 5 (BOOOM)
@@ -159,7 +160,6 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 		location[8]=position(TargetPos.x+1,TargetPos.y,TargetPos.z);
 		location[9]=position(TargetPos.x+1,TargetPos.y+1,TargetPos.z);
 
-
 		rocks={1246, 915, 1245, 1254, 232, 233, 914, 1265, 1273, 1257, 1276, 1278, 1250, 1251};
 
 		for i=1,table.getn(location) do
@@ -184,7 +184,8 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 		world:changeTile(2,TargetPos); --change to rock
 		zufall=math.random(1,table.getn(rocks));
 		world:createItemFromId(rocks[zufall],1,TargetPos,true,333,0); --spawn a rock
-
+		world:sendMapUpdate(TargetPos,30);
+		
 		flames={}; --Affected positions
 		flames[1]=position(TargetPos.x-10,TargetPos.y-2,TargetPos.z);
 		flames[2]=position(TargetPos.x-8,TargetPos.y+6,TargetPos.z);
