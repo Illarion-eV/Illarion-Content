@@ -122,6 +122,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 		location[9]=position(TargetPos.x+8,TargetPos.y+5,TargetPos.z);
 		location[10]=position(TargetPos.x+10,TargetPos.y+7,TargetPos.z);
 
+
 		for i=1,table.getn(location) do
 
 			Field=world:getField(location[i]); -- get reference to "Field"
@@ -154,6 +155,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 		location[7]=position(TargetPos.x+1,TargetPos.y-1,TargetPos.z);
 		location[8]=position(TargetPos.x+1,TargetPos.y,TargetPos.z);
 		location[9]=position(TargetPos.x+1,TargetPos.y+1,TargetPos.z);
+
 
 		rocks={1246, 915, 1245, 1254, 232, 233, 914, 1265, 1273, 1257, 1276, 1278, 1250, 1251};
 
