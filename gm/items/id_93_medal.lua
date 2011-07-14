@@ -67,7 +67,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 
 			if math.random(1,20)==1 then --5% chance for a rock
 				zufall=math.random(1,table.getn(rocks));
-				world:createItemFromId(rocks[zufall],1,location[i],true,333);
+				world:createItemFromId(rocks[zufall],1,location[i],true,333,0);
 			end
 
 		end --all tiles affected
@@ -101,7 +101,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 
 			if not world:isItemOnField(location[i]) then --empty tile?
 				zufall=math.random(1,table.getn(rocks));
-				world:createItemFromId(rocks[zufall],1,location[i],true,333); --spawn a rock
+				world:createItemFromId(rocks[zufall],1,location[i],true,333,0); --spawn a rock
 			end
 
 		end --all tiles affected
@@ -121,6 +121,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 		location[8]=position(TargetPos.x+6,TargetPos.y-8,TargetPos.z);
 		location[9]=position(TargetPos.x+8,TargetPos.y+5,TargetPos.z);
 		location[10]=position(TargetPos.x+10,TargetPos.y+7,TargetPos.z);
+
 
 		for i=1,table.getn(location) do
 
@@ -155,6 +156,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 		location[8]=position(TargetPos.x+1,TargetPos.y,TargetPos.z);
 		location[9]=position(TargetPos.x+1,TargetPos.y+1,TargetPos.z);
 
+
 		rocks={1246, 915, 1245, 1254, 232, 233, 914, 1265, 1273, 1257, 1276, 1278, 1250, 1251};
 
 		for i=1,table.getn(location) do
@@ -178,7 +180,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 
 		world:changeTile(2,TargetPos); --change to rock
 		zufall=math.random(1,table.getn(rocks));
-		world:createItemFromId(rocks[zufall],1,TargetPos,true,333); --spawn a rock
+		world:createItemFromId(rocks[zufall],1,TargetPos,true,333,0); --spawn a rock
 
 		flames={}; --Affected positions
 		flames[1]=position(TargetPos.x-10,TargetPos.y-2,TargetPos.z);
@@ -199,7 +201,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 
 			if (not world:isItemOnField(flames[i])) and (TileID==2 or TileID==3 or TileID==4 or TileID==6 or TileID==7 or TileID==8 or TileID==9 or TileID==10 or TileID==11) then --only empty "outside" tiles!
 
-				world:createItemFromId(359,1,flames[i],true,999); --spawn a flame
+				world:createItemFromId(359,1,flames[i],true,999,0); --spawn a flame
 				theItem=world:getItemOnField(flames[i]);
 
 				if theItem.id==359 then --only flames!
