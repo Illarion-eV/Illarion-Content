@@ -179,28 +179,28 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
                 a,b,newdata=string.find(User.lastSpokenText,"setdata (%d+)");
                 TargetItem.data=newdata+1-1;
                 world:changeItem(TargetItem);
-                User:inform("Data of "..world:getItemName(TargetItem.id,0).."set to "..TargetItem.data);
+                User:inform("Data of "..world:getItemName(TargetItem.id,0).." set to "..TargetItem.data);
                 -- LogGMAction(User,User.name.."("..User.id..") changed data of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.data);
             end
             if (string.find(User.lastSpokenText,"setqual (%d)(%d)(%d)")~=nil) then
                 a,b,newqual=string.find(User.lastSpokenText,"setqual (%d+)");
                 TargetItem.quality=newqual+1-1;
                 world:changeItem(TargetItem);
-                User:inform("Quality of "..world:getItemName(TargetItem.id,0).."set to "..TargetItem.quality);
+                User:inform("Quality of "..world:getItemName(TargetItem.id,0).." set to "..TargetItem.quality);
                 -- LogGMAction(User,User.name.."("..User.id..") changed quality of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.quality);
             end
             if (string.find(User.lastSpokenText,"setwear (%d+)")~=nil) then
                 a,b,newwear=string.find(User.lastSpokenText,"setwear (%d+)");
                 TargetItem.wear=newwear+1-1;
                 world:changeItem(TargetItem);
-                User:inform("Wear of "..world:getItemName(TargetItem.id,0).."set to "..TargetItem.wear);
+                User:inform("Wear of "..world:getItemName(TargetItem.id,0).." set to "..TargetItem.wear);
                 -- LogGMAction(User,User.name.."("..User.id..") changed wear of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.wear);
             end
             if (string.find(User.lastSpokenText,"setnumber (%d+)")~=nil) then
                 a,b,newwear=string.find(User.lastSpokenText,"setnumber (%d+)");
                 TargetItem.number=math.min(250,newwear+1-1);
                 world:changeItem(TargetItem);
-                User:inform("Amount of "..world:getItemName(TargetItem.id,0).."set to "..TargetItem.number);
+                User:inform("Amount of "..world:getItemName(TargetItem.id,0).." set to "..TargetItem.number);
                 -- LogGMAction(User,User.name.."("..User.id..") changed number of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.wear);
             end
         end
