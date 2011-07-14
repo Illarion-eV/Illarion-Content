@@ -145,7 +145,8 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 	elseif (SourceItem.data==9) then --meteor shower
 
 		world:makeSound(5,TargetPos); --SFX 5 (BOOOM)
-
+		world:gfx(9,TargetPos);
+				
 		location={}; --Affected positions
 		location[1]=position(TargetPos.x-1,TargetPos.y-1,TargetPos.z);
 		location[2]=position(TargetPos.x-1,TargetPos.y,TargetPos.z);
