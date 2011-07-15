@@ -1,13 +1,14 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Lothar Piero                                                None --
--- NPC Job:  Insert profession here                                           --
+-- NPC Job:  trader                                                           --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  896, 816, 1            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
--- Author:   Rincewind                                                --
+-- Authors:  Rincewind                                                        --
+--           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: December ??, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: July 15, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Lothar Piero"
@@ -23,7 +24,8 @@ language = halfling
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Rincewind"
+author = "Estralis Seborian"
 
 lookatDE = "Ein beliebter Halbling mit faltigem Gesicht und braunen wuscheligen Haaren."
 lookatUS = "ENGLISH"
@@ -105,18 +107,18 @@ itemShoes = 53
 "mein Name" -> "Sehr erfreut - sehr erfreut. Schön Euch kennen zu lernen.", "So, so? Das werde ich mir gut merken.", "Seid gegrüßt, und lasst Euch sagen, Lothar hat noch keinen Kunden übers Ohr geschlagen."
 
 -- More small talk; add at least five triggers
-"Pennymill"->"ENGLISH1"
-"Pfennigmühle"->"In Pfennigmühle, ich will es Euch erzählen - kontrolliert die Miliz alle Tavernen und Gasthäuser des Hafenviertels. So braucht sich kein Halbling, niemals vor Unruhestiftern und Grobianen fürchten.","Die Straßen in Pfennigmühle werden stehts mit dicken Ölkerzen beleuchtet. Wenn man Abends nach Hause geht, gibt es kein schattiges Plätzchen wo sich Unholde verkreichen könnten.","Nachts sind die Tore innerhalb von Pfennigmühle geschlossen. Man kann sich so nur innerhalb der verschiedenen Viertel bewegen. So ist alles viel Sicherer und kontrollierbar.","Ich möchte nicht prahlen, doch in Pfennigmühle gibt es die saftigsten und riesigsten Melonen, Kürbisse und Tomaten, Illarions!"
-"poetry"->"ENGLISH1"
-"Poesie"->"Poesie, Poesie. Das Schönste was ein Schreiner zu schaffen vermag, ist zweifelsfrei eine Harfe. Sehe ich einem Meister beim schnitzen zu, glaube ich oft eine Melodie zu hören."
+"Pennymill" -> "ENGLISH1"
+"Pfennigmühle" -> "In Pfennigmühle, ich will es Euch erzählen - kontrolliert die Miliz alle Tavernen und Gasthäuser des Hafenviertels. So braucht sich kein Halbling, niemals vor Unruhestiftern und Grobianen fürchten.", "Die Straßen in Pfennigmühle werden stehts mit dicken Ölkerzen beleuchtet. Wenn man Abends nach Hause geht, gibt es kein schattiges Plätzchen wo sich Unholde verkreichen könnten.", "Nachts sind die Tore innerhalb von Pfennigmühle geschlossen. Man kann sich so nur innerhalb der verschiedenen Viertel bewegen. So ist alles viel Sicherer und kontrollierbar.", "Ich möchte nicht prahlen, doch in Pfennigmühle gibt es die saftigsten und riesigsten Melonen, Kürbisse und Tomaten, Illarions!"
+"poetry" -> "ENGLISH1"
+"Poesie" -> "Poesie, Poesie. Das Schönste was ein Schreiner zu schaffen vermag, ist zweifelsfrei eine Harfe. Sehe ich einem Meister beim schnitzen zu, glaube ich oft eine Melodie zu hören."
 "trader", "merchant", "collegue", "vendor", "market" -> "OTHER NPCs1", "OTHER NPCs2", "OTHER NPCs3"
 "händler", "kollege", "höker", "markt" -> "Wir Händler Runewicks geben uns Mühe, ein möglichst großes Angebot an Wahren und Güter für die Stadt bereitzustellen.", "Der Erzmagier persönlich hat uns Händlern aufgetragen, ausschließlich die nötigsten Güter zu importieren. Alles andere sind Güter aus Runewick.", "Hiho! Die Händler Runewicks stehen zusammen. Und der Erzmagier hinter uns."
 
 -- Faction stuff
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Erzmagier" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.","Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!","Der Erzmagier ist der Weißeste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
+"Erzmagier" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weißeste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
 "Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.","Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!","Der Erzmagier ist der Weißeste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
+"Elvaine", "Morgan" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weißeste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
 "Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Runewick" -> "Elara möge Runewick bewahren. Die vier Türme sollen den Göttern schmeicheln und benachbraten Städten unsere Macht demonstrieren."
 "Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -142,7 +144,7 @@ itemShoes = 53
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gott", "Götter" -> "Gepriesen sein Oldra und Elara. Mögen sie uns vor den Übeln aus Galmair und Cadomyr bewahren."
 "Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elara" -> "Elara, leite Erzmagier Morgan, damit er die Wiesesten Entscheidungen treffen mag."
+"Elara" -> "Elara, leite Erzmagier Morgan, damit er die weisesten Entscheidungen treffen mag."
 "Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Oldra" -> "Oldra, ich danke für das Holz, deiner Bäume, die meine Schilder so stark und die Instrumente so wohlklingend machen."
 
@@ -153,17 +155,16 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Ich liebe die Poesie. All zu gern lass ich mich davon betören. Liebt ihr die schönen Künste so sehr wie ich?", "Meine Heimat liegt in Pfennigmühle. Kennt Ihr meine Heimat?", "Ich finde es im Allgemeinen sehr annehmlich, zusammen mit dem schönen Volk, Runewick zu bewohnen. Immerzu ungiebt uns alle, eine betörende und fantastische Magie, die ich nicht missen mag."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Lothar", "Piero",english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Lothar", "Piero", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Lothar", "Piero" -> "Hiho! Welche meiner Güter vermögen Euch zu begeistern?"
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ja" -> "Ja, das ist mir auch Recht.", "Bestimmt, das denke ich auch.", "Wie fantastisch, wir sind einer Meinung."
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "Sodar ihr das für Weise haltet.", "Das meine ich wie ich es sagte.", "Nein? Vielleicht sollten wir uns an Elaras Altar beratschlagen."
+"Nein" -> "So denn ihr das für weise haltet.", "Das meine ich wie ich es sagte.", "Nein? Vielleicht sollten wir uns an Elaras Altar beratschlagen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-
-".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-".*",german,chance(20)->"Oldras segen, über Eure Gärten.","Elaras Weisheit sei mit Euch.","Hiho, das gefällt mir."
+".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+".*", german, chance(20) -> "Oldras Segen über Eure Gärten.", "Elaras Weisheit sei mit Euch.", "Hiho, das gefällt mir."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
