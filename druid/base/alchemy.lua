@@ -516,3 +516,50 @@ function CheckIfQuillInHand(User) -- we need this check for labeling the potions
 	end
 	return retVal;
 end
+
+-- the following functions are adaptions of existing ones
+-- the old ones will be delted as soon as the reworked alchemy system works fine
+function CheckIfAlchemyPlant(User)
+local retVal = nil;
+for i,checkId in pairs(plantList) do
+    if SourceItem.id == checkId then
+    retVal = SourceItem
+    break;
+    end
+end	
+return retVal
+end
+
+function SplitCauldronData(User,cauldron.data)
+    local dataZList = {};
+	local thisDigit;
+	local workData=cauldron.data
+     for digit=1,8 do
+      thisDigit=math.floor(workData/10^(8-digit));
+      workData=workData-thisDigit*10^(8-digit);
+      dataZList[digit] = (thisDigit==0 and 5 or math.min(9,math.max(1,thisDigit)));
+   end
+   return dataZList;
+end
+
+function PasteCauldronData(User,dataZList)
+
+-- create new data:
+local NDW = 0
+     for i=1,8 do
+     NDW = NDW + math.min(9,math.max(1,dataZList[i]))*10^(8-i);
+     end
+     return NDW
+
+end
+
+function CheckIfGemDust(User)
+local retVal = nil;
+for i,checkId in pairs(gemList) do
+    if SourceItem.id == checkId then
+    retVal = SourceItem
+    break;
+    end
+end	
+return retVal
+end

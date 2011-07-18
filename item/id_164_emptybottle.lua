@@ -9,6 +9,66 @@ module("item.id_164_emptybottle", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
+	-- the following few lines are for the alchemy system
+    -- getting the stock or potion from the cauldron into the bottle
+   if base.common.GetFrontItemID(User) == 1008 then   -- is the char infront of a culdron?
+   local cauldron = base.common.GetFrontItem( User );
+   
+   if cauldron.data < 11111111 then -- no stock
+        base.common.InformNLS( User,
+                "In dem Kessel befindet sich nichts zum Abfüllen.",
+                "There is nothing to be bottled in the cauldron."
+                       );
+		return;
+	end
+	
+    if cauldron.data >= 11111111 and cauldron.data <= 99999999 then -- a normal stock
+	   SourceItem.id = 331
+       SourceItem.data = cauldron.data
+       SourceItem.quality = cauldron.quality
+       world:changeItem(SourceItem)
+       cauldron.data = 0
+	   cauldron.quality = 333
+	   world:changeItem(cauldron)
+	   world:makeSound(10,User.pos);
+	   User:talkLanguage(Character.say, Player.german, "#me füllt den Inhalt des Kessels in eine Flasche.");
+       User:talkLanguage(Character.say, Player.english,"#me bottles the substances from the cauldron.");
+	   return;
+	end
+	
+	if cauldron.data > 99999999 then -- a potion
+	   local PotionMarker = cauldron.data-(math.floor(cauldron.data/10))*10
+	   if Potion Marker == 1 then
+	      PotionId = 165;
+	   elseif Potion Marker == 2 then
+	      PotionId = 59;
+       elseif Potion Marker == 3 then
+	      PotionId =  327;
+	   elseif Potion Marker == 4 then
+	      PotionId =  329;
+	   elseif Potion Marker == 5 then
+	      PotionId =  166;
+	   elseif Potion Marker == 6 then
+	      PotionId =  328;
+       elseif Potion Marker == 7 then
+	      PotionId =  330;
+       end
+	   
+	   SourceItem.id = PotionId
+	   SourceItem.data = cauldron.data
+	   SourceItem.quality = cauldron.quality
+	   world:changeItem(SourceItem)
+	   cauldron.data = 0
+	   cauldron.quality = 333
+	   world:changeItem(cauldron)
+	   world:makeSound(10,User.pos);
+	   User:talkLanguage(Character.say, Player.german, "#me füllt den Inhalt des Kessels in eine Flasche.");
+       User:talkLanguage(Character.say, Player.english,"#me bottles the substances from the cauldron.");
+	   return;
+	end
+    end
+
+	
 	-- bottle in hand?
 	if SourceItem:getType() == 4 and (SourceItem.itempos == 5 or SourceItem.itempos == 6) then
 
