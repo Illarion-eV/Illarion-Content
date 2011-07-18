@@ -15,7 +15,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   
 	   -- first of all, the char has to stand infront of a cauldron
 	   if base.common.GetFrontItemID(User) ~= 1008 then
-       return;
+          return;
+	   end  
        -- if there is a cauldron, it will become our subject of changes; let's save it
        local cauldron = base.common.GetFrontItem( User );
 
