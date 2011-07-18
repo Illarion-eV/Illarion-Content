@@ -519,7 +519,7 @@ end
 
 -- the following functions are adaptions of existing ones
 -- the old ones will be delted as soon as the reworked alchemy system works fine
-function CheckIfAlchemyPlant(User)
+function CheckIfAlchemyPlant(User,SourceItem)
 local retVal = nil;
 for i,checkId in pairs(plantList) do
     theItem = SourceItem
@@ -554,7 +554,7 @@ local NDW = 0
 
 end
 
-function CheckIfGemDust(User)
+function CheckIfGemDust(User,SourceItem)
 local retVal = nil;
 for i,checkId in pairs(gemList) do
     theItem = SourceItem
