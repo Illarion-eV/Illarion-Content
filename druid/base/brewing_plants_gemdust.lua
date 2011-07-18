@@ -122,7 +122,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			cauldron.data = cauldron.data * 10 + PotionMarker;
 			cauldron.quality = 999; -- note to myself (merung): replace it with a proper calculation
 			world:changeItem(cauldron);
+		   
+		   User:increaseAtPos(SourceItem.itempos,-1); -- delete gemdust
 		    
-		    User.movepoints=User.movepoints-30 --Delay of 30 movepoints for scaling skillgain and prevent macro abuse. If you change this, also change the movepoints in the learn(...) line in alchemy.lua
+			User.movepoints=User.movepoints-30 --Delay of 30 movepoints for scaling skillgain and prevent macro abuse. If you change this, also change the movepoints in the learn(...) line in alchemy.lua
 		end
 	end	   	
