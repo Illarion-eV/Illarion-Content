@@ -149,8 +149,8 @@ itemShoes = 53
 "Oldra" -> "Oldra, ich danke für das Holz, deiner Bäume, die meine Schilder so stark und die Instrumente so wohlklingend machen."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Stäbe, Pfeifen, Bolzen, bei Lothar werdet's ihr finden, solang es ist aus Holzen.", "Seid ihr Schreiner? Lasst Euch sagen, bei mir, hat es Euch an den rechten Ort verschlagen.", "Ob großer Elf, ob Halbling ganz klein, bei Lothar kauft jeder sein Hölzchen ein."
+"what sell", "what buy", "list wares", "price of" -> "Staffs, pipes, bolts, Lothar has it all.", "Are you a carpenter? Then you came to the right place.", "Tall elves, small halflings, everyone buys his wood at Lothar's."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Stäbe, Pfeifen, Bolzen, bei Lothar werdet's ihr finden, solang es ist aus Holzen.", "Seid ihr Schreiner? Lasst Euch sagen, bei mir hat es Euch an den rechten Ort verschlagen.", "Ob großer Elf, ob Halbling ganz klein, bei Lothar kauft jeder sein Hölzchen ein."
 "tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "erzähl was", "erzähl etwas" -> "Ich liebe die Poesie. All zu gern lass ich mich davon betören. Liebt ihr die schönen Künste so sehr wie ich?", "Meine Heimat liegt in Pfennigmühle. Kennt Ihr meine Heimat?", "Ich finde es im Allgemeinen sehr annehmlich, zusammen mit dem schönen Volk, Runewick zu bewohnen. Immerzu ungiebt uns alle, eine betörende und fantastische Magie, die ich nicht missen mag."
 
@@ -159,11 +159,11 @@ itemShoes = 53
 "Lothar", "Piero" -> "Hiho! Welche meiner Güter vermögen Euch zu begeistern?"
 "Yes" -> "Yes, very well.", "Indeed, just what I wanted to say.", "How marvellous, we have the same opinion."
 "Ja" -> "Ja, das ist mir auch Recht.", "Bestimmt, das denke ich auch.", "Wie fantastisch, wir sind einer Meinung."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"No" -> "If you think that's good...", "I ment it the way I said it.", "No? Maybe we should discuss that at Elara's shrine."
 "Nein" -> "So denn ihr das für weise haltet.", "Das meine ich wie ich es sagte.", "Nein? Vielleicht sollten wir uns an Elaras Altar beratschlagen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+".*", english, chance(20) -> "Oldra's blessing for your gardens.", "Elara's wisdom may guide you.", "Hiho, that's funny!"
 ".*", german, chance(20) -> "Oldras Segen über Eure Gärten.", "Elaras Weisheit sei mit Euch.", "Hiho, das gefällt mir."
 
 ------------------------------------------------------------------------------AC
@@ -171,13 +171,13 @@ itemShoes = 53
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me greift sich mit beiden Händen in die wuscheligen braunen Haare und lächelt.", "ENGLISH."
-cycletext "#me poliert mit einem öligen Laken einen gefinkelt verzeirten Gehstock.", "ENGLISH."
+cycletext "#me greift sich mit beiden Händen in die wuscheligen braunen Haare und lächelt.", "#me combs his tousled hairs with his hands, smiling."
+cycletext "#me poliert mit einem öligen Laken einen gefinkelt verzierten Gehstock.", "#me polishes a decorated walking cane with an oiled rag."
 cycletext "#me klimpert mit seinen spröden Fingern auf einer zierlichen Laute.", "ENGLISH."
-cycletext "#me hohlt tief Luft und seufzt liese. 'H-hm! Tannenhölz!'", "ENGLISH."
+cycletext "#me hohlt tief Luft und seufzt leise: 'H-hm! Tannenholz!'", "#me breathes deeply and sighs: 'Ahh, fir wood!'."
 cycletext "#me lächelt sanft und sein faltiges Gesicht wirkt dabei wie eine große Rosine.", "ENGLISH."
 cycletext "#me streicht mit der Hand über verschiedene hölzerne Dinge welche ihn umgeben.", "ENGLISH."
 cycletext "Rosen sind Rot, Veilchen sind Blau, ich mag den Himmel, und meine Frau. - Hab mein Holz, was braucht ein Halbling mehr? Darauf bin ich stolz.", "ENGLISH."
-cycletext "#me verängt mit einem Lächeln die Augen und mustert seine Umgebung.", "ENGLISH."
-cycletext "#me lehnt sich zufrieden lächelnd zurück.", "ENGLISH."
+cycletext "#me verängt mit einem Lächeln die Augen und mustert seine Umgebung.", "#me blinks with one eye and inspects his surrounding."
+cycletext "#me lehnt sich zufrieden lächelnd zurück.", "#me leans back, smiling contently."
 cycletext "#me steckt seine Hand in die Tasche neben dem Stuhl und zieht ein Brötchen heraus. Dann beginnt er daran zu knabbern.", "ENGLISH."
