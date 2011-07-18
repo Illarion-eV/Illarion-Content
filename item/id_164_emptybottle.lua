@@ -38,19 +38,19 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	if cauldron.data > 99999999 then -- a potion
 	   local PotionMarker = cauldron.data-(math.floor(cauldron.data/10))*10
-	   if Potion Marker == 1 then
+	   if PotionMarker == 1 then
 	      PotionId = 165;
-	   elseif Potion Marker == 2 then
+	   elseif PotionMarker == 2 then
 	      PotionId = 59;
-       elseif Potion Marker == 3 then
+       elseif PotionMarker == 3 then
 	      PotionId =  327;
-	   elseif Potion Marker == 4 then
+	   elseif PotionMarker == 4 then
 	      PotionId =  329;
-	   elseif Potion Marker == 5 then
+	   elseif PotionMarker == 5 then
 	      PotionId =  166;
-	   elseif Potion Marker == 6 then
+	   elseif PotionMarker == 6 then
 	      PotionId =  328;
-       elseif Potion Marker == 7 then
+       elseif PotionMarker == 7 then
 	      PotionId =  330;
        end
 	   
