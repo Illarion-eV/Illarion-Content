@@ -6,7 +6,7 @@
 require("base.common")
 require("druid.base.alchemy")
 
-module("druid.item.id_1008_cauldron", package.seeall)
+module("druid.base.brewing_plants_gemdust", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
        -- information: take also item.id_164_emptybottle in account, please. 
