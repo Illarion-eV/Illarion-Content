@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 15, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 18, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Lothar Piero"
@@ -27,24 +27,24 @@ autointroduce = on
 author = "Rincewind"
 author = "Estralis Seborian"
 
-lookatDE = "Ein beliebter Halbling mit faltigem Gesicht und braunen wuscheligen Haaren."
-lookatUS = "ENGLISH"
+lookatDE = "Dieser NPC ist Lothar Piero der Holzhändler."
+lookatUS = "This NPC is Lothar Piero the tibmer merchant."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+hairID = 1
+beardID = 0
+colorHair = 192, 107, 5
+colorSkin = 232, 188, 146
 itemHead = 0
-itemChest = 181
-itemCoat = 0
+itemChest = 365
+itemCoat = 195
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 48
-itemTrousers = 34
+itemTrousers = 459
 itemShoes = 53
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
@@ -73,11 +73,11 @@ itemShoes = 53
 -- 10% Wands: 323, 2782, 2783, 2784, 2785
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is <Insert Name> the <insert profession/function>. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name hier> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Lothar Piero the tibmer merchant. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lothar Piero der Holzhändler. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "May Oldra bless you. Do you need... wood?", "ENGLISH2.", "ENGLISH3."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Oldra mit Euch. Benötigt Ihr hölzernes Gut?", "#me neigt seinen Kopf: 'Weisheit und Ausgeglichenheit. Wie darf ich Euch behilfich sein?'", "Hiho! Womit kann ich dienlich sein?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Das ist durchwegs salopp gesagt, aber ich bin nicht kleinlich. Seid gegrüßt.", "Ehre den Göttern, wollt ihr Bretter kaufen?", "Guten Tag. Im Namen aller Händler will ich Euch willkommen heißen."
@@ -155,9 +155,9 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Ich liebe die Poesie. All zu gern lass ich mich davon betören. Liebt ihr die schönen Künste so sehr wie ich?", "Meine Heimat liegt in Pfennigmühle. Kennt Ihr meine Heimat?", "Ich finde es im Allgemeinen sehr annehmlich, zusammen mit dem schönen Volk, Runewick zu bewohnen. Immerzu ungiebt uns alle, eine betörende und fantastische Magie, die ich nicht missen mag."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Lothar", "Piero", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Lothar", "Piero", english -> "Hiho! What goods may I offer to you?"
 "Lothar", "Piero" -> "Hiho! Welche meiner Güter vermögen Euch zu begeistern?"
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Yes" -> "Yes, very well.", "Indeed, just what I wanted to say.", "How marvellous, we have the same opinion."
 "Ja" -> "Ja, das ist mir auch Recht.", "Bestimmt, das denke ich auch.", "Wie fantastisch, wir sind einer Meinung."
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Nein" -> "So denn ihr das für weise haltet.", "Das meine ich wie ich es sagte.", "Nein? Vielleicht sollten wir uns an Elaras Altar beratschlagen."
