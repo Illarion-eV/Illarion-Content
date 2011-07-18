@@ -530,10 +530,10 @@ end
 return retVal
 end
 
-function SplitCauldronData(User,cauldron.data)
+function SplitCauldronData(User,CauldronData)
     local dataZList = {};
 	local thisDigit;
-	local workData=cauldron.data
+	local workData=CauldronData
      for digit=1,8 do
       thisDigit=math.floor(workData/10^(8-digit));
       workData=workData-thisDigit*10^(8-digit);

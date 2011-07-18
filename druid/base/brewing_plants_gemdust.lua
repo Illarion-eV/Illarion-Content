@@ -39,8 +39,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             end
             
 		 -- splitting of plant data and cauldron data (creating a list)
-            local plusWertPos,minusWertPos = druid.base.alchemy.SplitPlantData(SourceItem.id);
-            local dataZList = druid.base.alchemy.SplitCauldronData(User,cauldron.data);
+            local CauldronData = cauldron.data
+			local Plant = SourceItem.id
+			local plusWertPos,minusWertPos = druid.base.alchemy.SplitPlantData(Plant);
+            local dataZList = druid.base.alchemy.SplitCauldronData(User,CauldronData);
 
            -- "overflow" leads to explosion of the stock
             if dataZList[plusWertPos] == 9 or dataZList[minusWertPos] == 1 then
