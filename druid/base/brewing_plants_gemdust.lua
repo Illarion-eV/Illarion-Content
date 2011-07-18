@@ -22,7 +22,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
       
 	  -- check if the SourceItem is a herb
-	  local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User);
+	  local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem);
 	  if AlchemyPlant then
             -- data > 99999999 means that it is a completed potion   
             if cauldron.data > 99999999 then 
@@ -83,7 +83,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   end
 		
       -- check if it is gem dust
-	  local GemDust = druid.base.alchemy.CheckIfGemDust(User);
+	  local GemDust = druid.base.alchemy.CheckIfGemDust(User,SourceItem);
 	  if GemDust then
           -- data > 99999999 means that it is a completed potion   
             if cauldron.data > 99999999 then 
