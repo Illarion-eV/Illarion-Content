@@ -522,8 +522,9 @@ end
 function CheckIfAlchemyPlant(User)
 local retVal = nil;
 for i,checkId in pairs(plantList) do
-    if SourceItem.id == checkId then
-    retVal = SourceItem
+    theItem = SourceItem
+	if theItem.id == checkId then
+    retVal = theItem
     break;
     end
 end	
@@ -556,8 +557,9 @@ end
 function CheckIfGemDust(User)
 local retVal = nil;
 for i,checkId in pairs(gemList) do
-    if SourceItem.id == checkId then
-    retVal = SourceItem
+    theItem = SourceItem
+	if theItem.id == checkId then
+    retVal = theItem
     break;
     end
 end	
