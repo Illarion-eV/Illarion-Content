@@ -112,7 +112,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                    PotionMarker = 5
             elseif SourceItem.id == 451 then -- topaz
                    PotionMarker = 6
-            elseif SourceItem.id = 452 then -- diamond
+            elseif SourceItem.id == 452 then -- diamond
                    PotionMarker = 7
             end 
             
