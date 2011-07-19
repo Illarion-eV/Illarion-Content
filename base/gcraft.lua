@@ -21,6 +21,7 @@ GCraft = {
 	LeadAttribute = "",
 	LeadSkill = "",
 	LeadSkillGroup = 2,
+	Movepoints = 10,
 	Treasure = 0,
 	TreasureMsg = { },
 	FoodLevel = 100

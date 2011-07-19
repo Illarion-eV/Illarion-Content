@@ -29,6 +29,7 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
 
     local groundTile = world:getField( TargetPos ):tile();
     local GroundType = base.common.GetGroundType( groundTile );
+	local gt = base.common.GroundType;
 
     if ( ltstate == Action.abort ) then
         if (User:increaseAttrib("sex",0) == 0) then
@@ -54,7 +55,7 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
         return
     end
 
-    if (GroundType ~= 5) and
+    if (GroundType ~= gt.rocks) and
 			base.treasure.DigForTreasure( User, TargetPos, (User:getSkill("mining")/10)+1,
 			base.common.GetNLS( User,
 				"Du gräbst mit deiner Schaufel in den Boden und stößt auf etwas hartes, von dem ein hölzerner Klang ausgeht. Noch einmal graben und du hältst den Schatz in deinen Händen.",
@@ -64,24 +65,24 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
     end
 
 	-- neither sand nor dirt => find nothing
-    if (( groundTile ~= 3 ) and ( groundTile ~= 8 )) then
-        if ( GroundType == 1 ) then
+    if (( GroundType ~= gt.sand ) and ( GroundType ~= gt.dirt )) then
+        if ( GroundType == gt.field ) then
             base.common.InformNLS( User,
             "Du gräbst ein kleines Loch in den Ackerboden doch findest du hier gar nichts.",
             "You dig a small hole into the farming ground. But you find nothing.");
-        elseif ( GroundType == 2 ) then
+        elseif ( GroundType == gt.forest ) then
             base.common.InformNLS( User,
             "Du gräbst ein kleines Loch in den Waldboden doch findest du hier gar nichts.",
             "You dig a small hole into the forest ground. But you find nothing.");
-        elseif ( GroundType == 4 ) then
+        elseif ( GroundType == gt.gras ) then
             base.common.InformNLS( User,
             "Du gräbst ein kleines Loch in die Wiese doch findest du hier gar nichts.",
             "You dig a small hole into the grass. But you find nothing.");
-        elseif ( GroundType == 5 ) then
+        elseif ( GroundType == gt.rocks ) then
             base.common.InformNLS( User,
             "Der Boden besteht hier aus solidem Stein. Mit einer Schaufel hast du eindeutig das falsche Werkzeug.",
             "The ground here is heavy stone. With a shovel you have the wrong tool here for sure.");
-        elseif ( GroundType == 6 ) then
+        elseif ( GroundType == gt.water ) then
             base.common.InformNLS( User,
             "Im Wasser mit einer Schaufel zu graben geht zwar relativ leicht, doch der Effekt ist recht gering.",
             "To dig with a shovel in the water is pretty easy. But sadly there is no effect in doing this.");
@@ -103,8 +104,8 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
     if not base.common.IsLookingAt( User, TargetPos ) then
         base.common.TurnTo( User, TargetPos );
     end
-    if not LocationCheck(TargetPos,groundTile) then
-        if ( groundTile == 3 ) then
+    if not LocationCheck(TargetPos,GroundType) then
+        if ( GroundType == gt.sand ) then
             base.common.InformNLS( User,
             "Der Wind hat hier allen Sand fortgeweht.",
             "The wind has blown away the whole sand." );
@@ -116,9 +117,17 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
             return
         end
     end
+	
+	local theCraft;
+	if ( GroundType == gt.sand ) then
+		theCraft = content.gathering.sanddigging;
+	else
+		theCraft = content.gathering.claydigging;
+	end
+	
     if ( ltstate == Action.none ) then
-        User:startAction( GenWorkTime(User,SourceItem), 0, 0, 0, 0);
-        if ( world:getField( TargetPos ):tile() == 3 ) then
+        User:startAction( theCraft:GenWorkTime(User,SourceItem), 0, 0, 0, 0);
+        if ( GroundType == gt.sand ) then
             User:talkLanguage( Character.say, Player.german, "#me beginnt nach Sand zu graben.");
             User:talkLanguage( Character.say, Player.english, "#me starts to dig for sand.");
         else
@@ -127,24 +136,15 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
         end
         return
     end
-
-	local sanddigging = content.gathering.sanddigging;
-	local claydigging = content.gathering.claydigging;
 	
-	if ( groundTile == 3 ) then
-		if not sanddigging:FindRandomItem(User) then
-			return;
-		end
-	else
-		if not claydigging:FindRandomItem(User) then
-			return;
-		end
+	if not theCraft:FindRandomItem(User) then
+		return;
 	end
 
-    --User:learn( 2, "mining", 2, 50 );
-	--Replace with new learn function, see learn.lua 
-    local Skill = User:getSkill( "mining" );
-    gem1, str1, gem2, str2=getBonusFromItem(SourceItem);
+	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.Movepoints, 50, User:increaseAttrib(theCraft.LeadAttribute,0) );
+	
+    local Skill = User:getSkill( theCraft.LeadSkill );
+    gem1, str1, gem2, str2=base.common.GetBonusFromTool(SourceItem);
     step=0;
     if gem1==3 then     --ruby gives skill
         step=str1;
@@ -153,11 +153,11 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
         step=step+str2;
     end
     Skill=Skill+step;
-    if not checkSuccess( User, Skill ) then
-        User:startAction( GenWorkTime(User,SourceItem), 0, 0, 0, 0);
+    if not checkSuccess( User, Skill, theCraft.LeadAttribute ) then
+        User:startAction( theCraft:GenWorkTime(User,SourceItem), 0, 0, 0, 0);
         return
     end
-    local numberSand=getNumb( User, Skill );
+    local numberSand=getNumb( User, Skill, theCraft.LeadAttribute );
     if ( world:getField( TargetPos ):tile() == 3 ) then
         ItemID = 726;
     else
@@ -176,16 +176,16 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
             "You can't carry more clay and it falls to the ground.");
         end
     end
-    User:startAction( GenWorkTime(User,SourceItem), 0, 0, 0, 0);
+    User:startAction( theCraft:GenWorkTime(User,SourceItem), 0, 0, 0, 0);
 end
 
-function getNumb( Char, skillValue )
-    UPerc=Char:increaseAttrib( "perception", 0 );
-    return math.max(1, math.ceil( math.random( math.ceil(( skillValue+UPerc*2 )/30 )) ) );
+function getNumb( Char, skillValue, attrib )
+    UAttrib=Char:increaseAttrib( attrib, 0 );
+    return math.max(1, math.ceil( math.random( math.ceil(( skillValue+UAttrib*2 )/30 )) ) );
 end
 
-function checkSuccess( Char, skillValue )
-    local usertest= 0.46*(2*Char:increaseAttrib( "dexterity", 0 )+skillValue)+30;
+function checkSuccess( Char, skillValue, attrib )
+    local usertest= 0.46*(2*Char:increaseAttrib( attrib, 0 )+skillValue)+30;
     if ( usertest > math.random( 0, 100 )) then
         return true
     else
@@ -198,35 +198,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	UseShovelWithField( User, SourceItem, base.common.GetFrontPosition( User ), ltstate );
 end
 
--- Arbeitszeit generieren
-function GenWorkTime(User,toolItem)
-    local Attrib = User:increaseAttrib("constitution",0); -- Geschicklichkeit: 0 - 20
-    local Skill  = math.min(100,User:getSkill("mining")*5);     -- Schneidern: 0 - 100
-
-    gem1, str1, gem2, str2=base.common.GetBonusFromTool(toolItem);
-    step=0;
-    if gem1==3 then     -- ruby modifies skill!
-        step=str1;
-    end
-    if gem2==3 then
-        step=step+str2;
-    end
-    Skill=Skill+step;
-    step=0;
-    if gem1==6 then     -- amethyst modifies time needed
-        step=str1;
-    end
-    if gem2==6 then
-        step=step+str2;
-    end
-    step=step*1.75;
-    return math.floor((-0.25 * (Attrib + Skill) + 40)*(100-step)/100);
-end
-
 function LocationCheck(TargetPos,DigginType)
-    if (DigginType == 3) then -- sand
+    local gt = base.common.GroundType;
+	if (DigginType == gt.sand) then
+		-- check for a nearby stone
         local testPos;
-        local foundStone = false;
         for Xoff=-1, 1 do
             for Yoff=-1, 1 do
                 testPos=position( TargetPos.x+Xoff, TargetPos.y+Yoff, TargetPos.z );
@@ -240,15 +216,20 @@ function LocationCheck(TargetPos,DigginType)
             end
         end
         return false;
-    else -- Lehm
-		-- old Illarion
-        -- if ((( TargetPos.x > -409 ) and ( TargetPos.x < -257 ) and ( TargetPos.y > -245 ) and ( TargetPos.y < -187 )) or
-        -- (( TargetPos.x >  114 ) and ( TargetPos.x <  178 ) and ( TargetPos.y > -129 ) and ( TargetPos.y <  -75 ))) then
-		if true then
-            return true;
-        else
-            return false;
+    elseif (DigginType == base.common.GroundType.dirt)
+		-- check for nearby water tile
+		local testPos;
+        for Xoff=-1, 1 do
+            for Yoff=-1, 1 do
+                testPos=position( TargetPos.x+Xoff, TargetPos.y+Yoff, TargetPos.z );
+				local groundTile = world:getField( TargetPos ):tile();
+				local GroundType = base.common.GetGroundType( groundTile );
+				if ( base.common.GetGroundType(world:getField(TargetPos)) == gt.water ) then
+					return true;
+                end
+            end
         end
+        return false;
     end
     return false
 end
