@@ -216,7 +216,7 @@ function LocationCheck(TargetPos,DigginType)
             end
         end
         return false;
-    elseif (DigginType == base.common.GroundType.dirt)
+    elseif (DigginType == base.common.GroundType.dirt) then
 		-- check for nearby water tile
 		local testPos;
         for Xoff=-1, 1 do
