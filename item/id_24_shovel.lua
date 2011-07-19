@@ -222,8 +222,6 @@ function LocationCheck(TargetPos,DigginType)
         for Xoff=-1, 1 do
             for Yoff=-1, 1 do
                 testPos=position( TargetPos.x+Xoff, TargetPos.y+Yoff, TargetPos.z );
-				local groundTile = world:getField( TargetPos ):tile();
-				local GroundType = base.common.GetGroundType( groundTile );
 				if ( base.common.GetGroundType(world:getField(TargetPos)) == gt.water ) then
 					return true;
                 end
