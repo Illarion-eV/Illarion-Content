@@ -16,6 +16,7 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
     if (StoneList==nil) then
         StoneList={ 914, 915, 1245, 1246, 1273, 1276 };
         foundTreasureAt = {};
+		content.gathering.InitGathering();
     end
 
 	-- old Illarion: graveyard
