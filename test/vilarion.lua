@@ -13,6 +13,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     local value = SourceItem:getValue( 4 );
     User:inform( "old value: "..value );
     SourceItem:setValue( 4, User.lastSpokenText );
+    world:changeItem(SourceItem);
     value = SourceItem:getValue( 4 );
     User:inform( "new value: "..value );
 
