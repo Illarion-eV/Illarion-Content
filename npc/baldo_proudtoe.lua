@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 22, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -460,7 +460,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 4));
-talkEntry:addResponse("Ihr könnte mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, dass ist alles, worum ich bitte!");
+talkEntry:addResponse("Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -477,7 +477,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 4));
-talkEntry:addResponse("Ihr könnte mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, dass ist alles, worum ich bitte!");
+talkEntry:addResponse("Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

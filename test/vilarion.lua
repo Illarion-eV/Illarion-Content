@@ -10,11 +10,12 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
     -- User:inform("ID: "..SourceItem.id.."; Quality: "..SourceItem.quality.."; Data: "..SourceItem.data);
 
-
-    -- User:inform( "setValue( 4, 'blabla' )" );
-    -- SourceItem:setValue( 4, "blabla" );
-    local value = SourceItem:getValue( 4 );
-    User:inform( "getValue: "..value );
+    local value = SourceItem:getData( "test" );
+    User:inform( "old value: "..value );
+    SourceItem:setData( "test", User.lastSpokenText );
+    world:changeItem(SourceItem);
+    value = SourceItem:getData( "test" );
+    User:inform( "new value: "..value );
 
     --User:eraseItem(2640,1);
 
