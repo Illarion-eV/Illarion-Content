@@ -205,7 +205,7 @@ end
 
 function LookAtItem(User,Item)
     local PotionLabel = Item:getData("PotionLabel");
-	if (Item:getData(PotionLabel) ~= nil) then
+	if (Item:getData("PotionLabel") ~= nil) then
 	    if (User:getPlayerLanguage()==0) then
            world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: " ..PotionLabel);
         else
