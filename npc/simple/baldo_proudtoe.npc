@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 22, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Baldo Proudtoe"
@@ -111,9 +111,9 @@ itemShoes = 53
 
 -- Final dialogue: No more quests, just nice hints
 "quest", "mission", queststatus(118) = 4, english -> "You can help me by... staying. Stay a little longer, that's all I ask for. Please!"
-"quest", "mission", queststatus(118) = 4 -> "Ihr könnte mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, dass ist alles, worum ich bitte!"
+"quest", "mission", queststatus(118) = 4 -> "Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!"
 "task", "adventure", queststatus(118) = 4 -> "You can help me by... staying. Stay a little longer, that's all I ask for. Please!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 4 -> "Ihr könnte mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, dass ist alles, worum ich bitte!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 4 -> "Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the gardener here, can't you see? Oh, sorry, I didn't mean to be rude."
