@@ -46,10 +46,11 @@ function _state_helper_greaterequal(self, _)
 end;
 
 function _state_helper_lesser(self, _)
-    thisNPC:talk(Character.say, "value = "..value);
-    thisNPC:talk(Character.say, "state = "..self.npc._state);
+    
     
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    thisNPC:talk(Character.say, "value = "..value);
+    thisNPC:talk(Character.say, "state = "..self.npc._state);
     return (value < self.npc._state)
 end;
 
