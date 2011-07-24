@@ -15,8 +15,8 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     red,green,blue=getHairColor();
     User:inform("r "..red.." g "..green.." b "..blue);
     
-    User:inform("hair = "..User:getHair);
-    User:inform("beard= "..User:getBeard);
+    User:inform("hair = "..User:getHair());
+    User:inform("beard= "..User:getBeard());
 
     User:createItem(1, 2, 333, 0);
     User:createItem(1, 1, 333, 1);
