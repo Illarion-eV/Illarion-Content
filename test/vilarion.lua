@@ -10,12 +10,18 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
     -- User:inform("ID: "..SourceItem.id.."; Quality: "..SourceItem.quality.."; Data: "..SourceItem.data);
 
-    local value = SourceItem:getData( "test" );
-    User:inform( "old value: "..value );
-    SourceItem:setData( "test", User.lastSpokenText );
-    world:changeItem(SourceItem);
-    value = SourceItem:getData( "test" );
-    User:inform( "new value: "..value );
+    local item = User:getItemAt(Character.belt_pos_1)
+    local value = item:getData("test")
+    User:inform("belt1: id: " .. item.id .. ", data.test: " .. value)
+    item = User:getItemAt(Character.belt_pos_2)
+    value = item:getData("test")
+    User:inform("belt2: id: " .. item.id .. ", data.test: " .. value)
+    --local value = SourceItem:getData( "test" );
+    --User:inform( "old value: "..value );
+    --SourceItem:setData( "test", User.lastSpokenText );
+    --world:changeItem(SourceItem);
+    --value = SourceItem:getData( "test" );
+    --User:inform( "new value: "..value );
 
     --User:eraseItem(2640,1);
 
