@@ -12,7 +12,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     User:setSkinColor(255,100,100);
     
     User:setHairColor(100,100,255);
-    red,green,blue=getHairColor();
+    red,green,blue=User:getHairColor();
     User:inform("r "..red.." g "..green.." b "..blue);
     
     User:inform("hair = "..User:getHair());
