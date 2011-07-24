@@ -22,7 +22,7 @@ function(self, comp, value)
         self["check"] = _state_helper_lesser;
     else
         -- unkonwn comparator
-    end;
+    end; 
 end);
 
 function _state_helper_equal(self, _)
