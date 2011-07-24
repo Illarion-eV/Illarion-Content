@@ -5,6 +5,19 @@
 module("item.id_2_flour", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
+
+    red,green,blue=User:getSkinColor();
+    User:inform("r "..red.." g "..green.." b "..blue);
+    
+    User:setSkinColor(255,100,100);
+    
+    User:setHairColor(100,100,255);
+    red,green,blue=getHairColor();
+    User:inform("r "..red.." g "..green.." b "..blue);
+    
+    User:inform("hair = "..User:getHair);
+    User:inform("beard= "..User:getBeard);
+
     User:createItem(1, 2, 333, 0);
     User:createItem(1, 1, 333, 1);
     
