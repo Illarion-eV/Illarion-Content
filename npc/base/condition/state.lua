@@ -37,24 +37,20 @@ end;
 
 function _state_helper_lesserequal(self, _)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return (value <= self.npc._state)
+    return (self.npc._state <= value)
 end;
 
 function _state_helper_greaterequal(self, _)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return (value >= self.npc._state)
+    return (self.npc._state >= value)
 end;
 
 function _state_helper_lesser(self, _)
-    
-    
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    thisNPC:talk(Character.say, "value = "..value);
-    thisNPC:talk(Character.say, "state = "..self.npc._state);
-    return (value < self.npc._state)
+    return (self.npc._state < value)
 end;
 
 function _state_helper_greater(self, _)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return (value > self.npc._state)
+    return (self.npc._state > value)
 end;
