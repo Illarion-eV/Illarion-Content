@@ -29,6 +29,8 @@ end);
 
 function _quest_helper_equal(self, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    thisNPC:talk(Character.say,"COMP: questID: "..self.questid);
+    thisNPC:talk(Character.say,"COMP: value  : "..value);
     return player:getQuestProgress(self.questid) == value;
 end;
 
