@@ -412,7 +412,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("Königin Rosaline herrscht aufgrund der Götter Gnade. Malachin und Zhambra, doch sie schneken der Weisheit keinen Wert. Ist es Weise eine Stadt mit Schwert und Schlachtenehre zu regieren?");
+talkEntry:addResponse("Königin Rosaline herrscht aufgrund der Götter Gnade. Malachín und Zhambra, doch sie schenken der Weisheit keinen Wert. Ist es weise eine Stadt mit Schwert und Schlachtenehre zu regieren?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -429,7 +429,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Königin Rosaline herrscht aufgrund der Götter Gnade. Malachin und Zhambra, doch sie schneken der Weisheit keinen Wert. Ist es Weise eine Stadt mit Schwert und Schlachtenehre zu regieren?");
+talkEntry:addResponse("Königin Rosaline herrscht aufgrund der Götter Gnade. Malachín und Zhambra, doch sie schenken der Weisheit keinen Wert. Ist es weise eine Stadt mit Schwert und Schlachtenehre zu regieren?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
