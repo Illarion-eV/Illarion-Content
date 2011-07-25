@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 18, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 25, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -29,7 +29,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Lothar Piero the tibmer merchant. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Lothar Piero the timber merchant. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -47,8 +47,8 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addResponse("May Oldra bless you. Do you need... wood?");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("#me nods slowly: 'Wisdom and patience. How can I help you?'");
+talkEntry:addResponse("Hiho! How can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -72,9 +72,9 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("May Oldra bless you. Do you need... wood?");
+talkEntry:addResponse("#me nods slowly: 'Wisdom and patience. How can I help you?'");
+talkEntry:addResponse("Hiho! How can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -94,9 +94,9 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Sounds sloppy, but I'm not picky. Be greeted.");
+talkEntry:addResponse("Honour the gods, do you need boards?");
+talkEntry:addResponse("Good day. I welcome you on behalf of all my collegues.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -105,7 +105,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("Auf Wiedersehen. Möge Oldra Eure Gärten und Fälder hüten.");
+talkEntry:addResponse("Auf Wiedersehen. Möge Oldra Eure Gärten und Felder hüten.");
 talkEntry:addResponse("Gehabt Euch wohl. Bis Bald.");
 talkEntry:addResponse("Adieu! Besucht mich wieder einmal.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -117,9 +117,9 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Good bye. May Oldra bless your gardens and fields.");
+talkEntry:addResponse("Farewell and see you soon.");
+talkEntry:addResponse("Adieu! Come back anytime soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -138,9 +138,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Wonderful! Indeed, Oldra smiles upon me.");
+talkEntry:addResponse("Even if a cloud covers the sun, I know that it shines on my every day.");
+talkEntry:addResponse("A dark night is defeated by the sunrise.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -149,9 +149,9 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befinden");
-talkEntry:addResponse("Ausgezeichnet. Ja-ja, Oldra blickt wohlwollend auf mich herab.");
-talkEntry:addResponse("Auch wenn hier und dort eine Wolke die Sonne verdecken mag, ich weis das sie trozdem jeden neuen Tag am Himmel stehen wird.");
-talkEntry:addResponse("So Finster Euch manche Nacht erscheinen kann, die Sonne wird erwachen und alles Finstere vertreiben.");
+talkEntry:addResponse("Ausgezeichnet. Ja, Oldra blickt wohlwollend auf mich herab.");
+talkEntry:addResponse("Auch wenn hier und dort eine Wolke die Sonne verdecken mag, ich weiß, dass sie trotzdem jeden neuen Tag am Himmel stehen wird.");
+talkEntry:addResponse("So finster Euch manche Nacht erscheinen kann, die Sonne wird erwachen und alles Finstere vertreiben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -159,9 +159,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("My name is Lothar Piero. Welcome to the market of Runewick.");
+talkEntry:addResponse("I am Lothar Piero and I trade... wood.");
+talkEntry:addResponse("Boards, shields, bows, what do you desire? I am Lothar Piero and I got wood!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -170,7 +170,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Ich heiße Lothar Piero. Seid mir Wilkommen am Markt von Runewick.");
+talkEntry:addResponse("Ich heiße Lothar Piero. Seid mir willkommen am Markt von Runewick.");
 talkEntry:addResponse("Ich bin Lothar Piero und handle mit allerlei hölzernen Gut.");
 talkEntry:addResponse("Bretter, Schilde, Bögen, was wollt Ihr wohl mögen? Ich bin Lothar Piero und handle mit Holz.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -180,9 +180,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Sorry, I have no job for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -196,9 +194,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("Sorry, I have no job for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -206,13 +203,15 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Es tut mir Leid, ich habe keine Arbeit für Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("ANSWER1 wood is good");
+talkEntry:addResponse("Wood is good.");
+talkEntry:addResponse("I am a trader and thus, I trade wood. My wood makes me proud, hihi.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,9 +230,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("ANSWER1");
-talkEntry:addResponse("ANSWER2");
-talkEntry:addResponse("ANSWER3");
+talkEntry:addResponse("Wood is good.");
+talkEntry:addResponse("I am a trader and thus, I trade wood. My wood makes me proud, hihi.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -241,9 +239,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ANSWER1");
-talkEntry:addResponse("ANSWER2");
-talkEntry:addResponse("ANSWER3");
+talkEntry:addResponse("Gobaith, isn't that a tiny a island in the ocean?");
+talkEntry:addResponse("Gobaith isn't important enough to attract Runewick's attention.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -257,9 +254,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am delighted. A pleasure to meet you.");
+talkEntry:addResponse("Well, I should remember that.");
+talkEntry:addResponse("Be greeted and be told: I won't betray you with my wood.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -661,7 +658,7 @@ talkingNPC:addCycleText("#me steckt seine Hand in die Tasche neben dem Stuhl und
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Lothar Piero der Holzhändler.", "This NPC is Lothar Piero the tibmer merchant.");
+mainNPC:setLookat("Dieser NPC ist Lothar Piero der Holzhändler.", "This NPC is Lothar Piero the timber merchant.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
