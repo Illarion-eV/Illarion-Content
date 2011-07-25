@@ -656,7 +656,11 @@ function HandleMovepoints(Attacker)
     local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
     base.character.ChangeFightingpoints(Attacker.Char,
         -math.floor(reduceFightpoints));
-    Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
+    if (Attacker.AttackKind == 4) then
+        Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints*2); 
+    else
+        Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
+    end
     return true;
 end;
 
