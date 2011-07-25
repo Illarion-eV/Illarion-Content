@@ -32,7 +32,7 @@ msgs:addMessage("#me hebt seine imposanten Fäuste und stößt einen donnernden Kri
 end
 
 function enemyNear(Monster,Enemy)
-local MonID=Monster:get_mon_type();
+local MonID=Monster:getMonsterType();
 	if(MonID == 301) then
 	
 		if monster.specialattacks.mgolem_spells.MGolem_PowerFist (Monster, Enemy, 10) then
@@ -63,7 +63,7 @@ local MonID=Monster:get_mon_type();
 end
 
 function enemyOnSight(Monster,Enemy)
-local MonID=Monster:get_mon_type();
+local MonID=Monster:getMonsterType();
 	if(MonID == 301) then
 		if monster.specialattacks.demon_spells.Demon_Pull (Monster, Enemy) then
 			return true;
@@ -99,7 +99,7 @@ function onAttacked(Monster,Enemy)
 end
 
 function onCasted(Monster,Enemy)
-local MonID=Monster:get_mon_type();
+local MonID=Monster:getMonsterType();
 	if(MonID == 301) then
 		if monster.specialattacks.mgolem_spells.MGolem_Shield (monster,char) then
 			return true;
@@ -131,7 +131,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 if (MonID==301) then --Stone Golem, Level: 7, Armourtype: -, Weapontype: wrestling
 
         --Category 1: Armor

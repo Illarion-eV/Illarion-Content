@@ -13,7 +13,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local ft = getFigureText(User:increaseAttrib("body_height",0),User:increaseAttrib("weight",0),User:increaseAttrib("strength",0), lang);
 	if(lang == 0) then
 		output = "Du bist ";
-		output = output..getAgeText(User:get_race(), User:increaseAttrib("age", 0), lang);
+		output = output..getAgeText(User:getRace(), User:increaseAttrib("age", 0), lang);
 		if(ft ~= nil) then
 			output = output..", "..ft;
 		end
@@ -21,7 +21,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		output = output.."Deine Kleidung wirkt "..getClothesQualText(qual, lang).." und "..getClothesDuraText(dura, lang)..".";
 	else
 		output = "You are ";
-		output = output..getAgeText(User:get_race(), User:increaseAttrib("age", 0), lang);
+		output = output..getAgeText(User:getRace(), User:increaseAttrib("age", 0), lang);
 		if(ft ~= nil) then
 			output = output..", "..getFigureText(User:increaseAttrib("body_height",0),User:increaseAttrib("weight",0),User:increaseAttrib("strength",0), lang);
 		end

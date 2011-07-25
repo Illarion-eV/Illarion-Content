@@ -42,7 +42,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==45) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,6,{1500,2000},{{51,5}},{},40,1,{50,60}) or monster.base.drop.CastHealing( Monster, 6, {2000,3500}, 8, {16, 13}, 40 ) );
     elseif (MonID==43) then
@@ -60,7 +60,7 @@ function enemyOnSight(Monster,Enemy)
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
     elseif (MonID==45) then
@@ -104,7 +104,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
         if (MonID==41) then --Orc, Level: 5, Armourtype: medium, Weapontype: concussion
 
         --Category 1: Armor

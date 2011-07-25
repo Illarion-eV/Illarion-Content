@@ -60,5 +60,5 @@ end;
 -- @param User The character to check
 -- @return true in case the character is a player character
 function IsPlayer(User)
-    return User:get_type() == 0;
+    return User:getType() == 0;
 end;

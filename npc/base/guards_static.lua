@@ -29,7 +29,7 @@ function CheckForEnemies(guard)
 	-- check for hostile monsters
 	local monsterList = world:getMonstersInRangeOf(CheckCenter[guard.id], Radius[guard.id]);
 	for i,mon in pairs(monsterList) do
-		if ( not base.common.IsMonsterDocile(mon:get_mon_type()) ) then
+		if ( not base.common.IsMonsterDocile(mon:getMonsterType()) ) then
 			-- kill them and get help
 			-- but warp for now
 			Warp(guard, mon);

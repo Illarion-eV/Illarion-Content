@@ -39,7 +39,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==53) then
         return ( monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,6,{1200,2400},{{4,5}},{},40,1,{25,60}) );
     elseif (MonID==54) then
@@ -59,7 +59,7 @@ function enemyOnSight(Monster,Enemy)
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
     elseif (MonID==53) then
@@ -105,7 +105,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
    if (MonID==51) then --Lizard, Level: 5, Armourtype: medium, Weapontype: concussion
 
         --Category 1: Armor

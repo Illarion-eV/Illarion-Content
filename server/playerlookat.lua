@@ -54,7 +54,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
         else
             output = ( lang == 0 and "Sie ist " or "She is " );
         end
-        output=output .. getAge(TargetCharacter:get_race(),TargetCharacter:increaseAttrib("age",0),lang);
+        output=output .. getAge(TargetCharacter:getRace(),TargetCharacter:increaseAttrib("age",0),lang);
         --output=output .. " ! ";
         output=output .. getClothesQualText(qual, lang);
         --output=output .. " ! ";

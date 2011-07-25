@@ -44,7 +44,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==115) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,8,{900,1000},{{4,5},{9,5},{51,5}},{},40,1,{25,65}) == true );
     else
@@ -61,7 +61,7 @@ function enemyOnSight(Monster,Enemy)
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
     elseif (MonID==115) then
@@ -106,7 +106,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 
     if (MonID==111) then --Skeleton, Level: 3, Armourtype: medium, Weapontype: concussion
 

@@ -13,7 +13,7 @@ function addEffect(Effect, Char)
 	local effectType = PN_GetEffectType(Effect);
 	
 	if effectType >= 1 and effectType <= 4 then
-		Effect:addValue("saveRace", Char:get_race() );
+		Effect:addValue("saveRace", Char:getRace() );
 		Char:setAttrib("racetyp", PN_FriendlyRaces[math.random(1,table.getn(PN_FriendlyRaces))]);
 		world:gfx(31,Char.pos);
 		base.common.TempInformNLS(Char,

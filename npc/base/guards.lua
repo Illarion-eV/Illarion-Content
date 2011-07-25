@@ -77,7 +77,7 @@ end
 -- check if and what has to be done with this char, depending on the faction and the mode
 -- for testing: check if char has flour (ID 2) in hand slots
 function CheckCharacter(guard, char)
-	if char:get_type()==1 then
+	if char:getType()==1 then
 		return true,ACTION_KILL;
 	end
 	

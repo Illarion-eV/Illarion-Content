@@ -154,7 +154,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	end
 	
 	-- tie up only PCs without admin rights
-	if Target:get_type()~=0 or ( Target:isAdmin() and not User:isAdmin() ) then
+	if Target:getType()~=0 or ( Target:isAdmin() and not User:isAdmin() ) then
 		base.common.TempInformNLS(User,
 			"Dieses Wesen kannst du nicht fesseln.",
 			"You can't tie this creature up.");

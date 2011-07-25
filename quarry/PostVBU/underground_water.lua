@@ -43,7 +43,7 @@ function MoveToField(User)
 			function() 
 				base.common.InformNLS(User, "Du rutscht auf irgendwas aus, aber kannst mit einem schnellen Schritt zum Glueck dein Gleichgewicht halten.",
 					"You slip, but make a quick move forward and are able to keep your balance.");
-				User:move(User:get_face_to(), false);
+				User:move(User:getFaceTo(), false);
 			end,
 			10
 		},

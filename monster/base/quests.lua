@@ -469,7 +469,7 @@ end
 
 function checkQuest(User,Monster)
 
-    local MonID = Monster:get_mon_type();
+    local MonID = Monster:getMonsterType();
     local qList = questList[MonID]; 
     local queststatus = 0;
 

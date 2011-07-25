@@ -29,7 +29,7 @@ function GenWorkTime(User) -- generate work time
 end
 
 function useTile(User,Position,counter,param,ltstate)
-	if (User:get_race()~=5) then
+	if (User:getRace()~=5) then
 	    return
 	end
 

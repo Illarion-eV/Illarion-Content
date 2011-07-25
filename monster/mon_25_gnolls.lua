@@ -40,7 +40,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==253) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{1000,3000},{{4,5},{9,5},{51,5}},{},40,1) == true );
     elseif (MonID==254) then
@@ -51,7 +51,7 @@ function enemyNear(Monster,Enemy)
 end
 
 function enemyOnSight(Monster,Enemy)
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 
     if init==nil then
         ini(Monster);
@@ -102,7 +102,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==251) then --Gnoll, Level: 6, Armourtype: light, Weapontype: slashing
 
         --Category 1: Armor

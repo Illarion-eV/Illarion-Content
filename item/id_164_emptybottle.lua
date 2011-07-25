@@ -74,7 +74,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 		-- check for sheep
 		local frontChar = base.common.GetFrontCharacter(User);
-		if frontChar and frontChar:get_race() == 18 then
+		if frontChar and frontChar:getRace() == 18 then
 			-- get milk
 			world:erase(SourceItem,1);
             User:createItem(330,1,333,0);

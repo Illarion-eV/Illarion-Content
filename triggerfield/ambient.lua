@@ -319,7 +319,7 @@ end
 
 function getAmbient(Char)
 	local pos = Char.pos;
-	local dir = Char:get_face_to();
+	local dir = Char:getFaceTo();
 	if AmbientList[pos.x] and AmbientList[pos.x][pos.y] and AmbientList[pos.x][pos.y][pos.z] then
 		local this = AmbientList[pos.x][pos.y][pos.z];
 		local list = {};

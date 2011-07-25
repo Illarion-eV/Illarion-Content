@@ -36,7 +36,7 @@ function BW_OneStepToPosition( Character, TargetPos )
 end
 
 function BW_StepAlongRoad( Character )
-    local direct = Character:get_face_to(  );
+    local direct = Character:getFaceTo(  );
     local newpos;
     if (last_dir[Character.id] and math.random(0,1)==1) then
         if (last_dir[Character.id] == 1) then
@@ -146,7 +146,7 @@ function BW_StepAlongRoad( Character )
         return;
     end
     
-    direct = Character:get_face_to(  );
+    direct = Character:getFaceTo(  );
     
     if (last_dir[Character.id] == 1) then
         if (direct==0) then
@@ -203,7 +203,7 @@ function BW_StepAlongRoad( Character )
         return;
     end
     
-    direct = Character:get_face_to(  );
+    direct = Character:getFaceTo(  );
     if (direct == 0) then
         direct = 4;
         if (last_dir[Character.id] == 1) then

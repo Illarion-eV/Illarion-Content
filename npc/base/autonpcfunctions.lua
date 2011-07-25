@@ -298,7 +298,7 @@ function CheckCondition( User, condition )
 			return not CheckMoney( User, getNumber( condition[3] ) );
         end
     elseif ( condition[1] == "race" ) then
-        return ( User:get_race() == condition[2] );
+        return ( User:getRace() == condition[2] );
     elseif ( condition[1] == "item" ) then
         return CompareItem( User, condition[2], condition[3], 
                             condition[4], getNumber( condition[5] ) );
@@ -771,7 +771,7 @@ end
 - Makes the NPC Turning
 ]]
 function TurnAround()
-    faceTo = thisNPC:get_face_to();
+    faceTo = thisNPC:getFaceTo();
     possDirs = {};
     if ( faceTo == 0 ) or ( faceTo == 4 ) then
         newPos1 = position( thisNPC.pos.x - 1, thisNPC.pos.y, 
@@ -809,7 +809,7 @@ end
 - makes the Character walking around. But not out of range
 ]]
 function walk()
-    faceTo = thisNPC:get_face_to();
+    faceTo = thisNPC:getFaceTo();
     if ( faceTo == 0 ) then
         newPos = position( thisNPC.pos.x, thisNPC.pos.y - 1, 
                            thisNPC.pos.z );
@@ -865,7 +865,7 @@ function TurnToPlayer( player )
             newFaceTo = 0;
         end
     end
-    faceTo = thisNPC:get_face_to();
+    faceTo = thisNPC:getFaceTo();
     if ( faceTo ~= newFaceTo ) then
         thisNPC:setAttrib( "faceto", newFaceTo );
     end
@@ -886,7 +886,7 @@ function BasicNPCChecks(originator,NPCRange)
         return false;
     end
     
-    if ( originator:get_type() ~= 0 ) then
+    if ( originator:getType() ~= 0 ) then
         return false;
     end
     

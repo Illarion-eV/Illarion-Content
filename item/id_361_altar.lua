@@ -21,7 +21,7 @@ function LookAtItem(User, Item)
         else
             ret = "Altar "..GOD_EN[Item.data];
         end;
-        if User:get_race() == 5 then
+        if User:getRace() == 5 then
             ret = string.gsub( ret, "Tanora", "Zshhel-pheey-arrr" );
         end;
     else

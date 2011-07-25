@@ -93,7 +93,7 @@ function onDeath(Monster)
     end
     
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 
 if (MonID==101) then --Mummy, Level: 2, Armourtype: -, Weapontype: slashing
 

@@ -35,7 +35,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 
     local Const       = Char:increaseAttrib("constitution",0) -- Konstitution einlesen ( 0 - 20 )
     local Essence     = Char:increaseAttrib("essence",0)      -- Essenze einlesen      ( 0 - 20 )
-    local Race        = Char:get_race()                       -- Rasse einlesen
+    local Race        = Char:getRace()                       -- Rasse einlesen
     -----------------------EINLESEN FERTIG------------------------------------
 
     -----------------------GRENZWERTE VORBEREITEN-----------------------------

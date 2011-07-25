@@ -15,7 +15,7 @@ function MoveToField(User)
 		Init = 1;
 	end
 	
-	local race = User:get_race();
+	local race = User:getRace();
 	for i,v in pairs(RacesAllowed) do
 		if(race == RacesAllowed[i]) then
 			return;

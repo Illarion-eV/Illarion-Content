@@ -87,7 +87,7 @@ end
 function MagicResistence( Char )
     local CWil   = Char:increaseAttrib("willpower",0);
     local CEss   = Char:increaseAttrib("essence",0);
-    local CSkill = Char:getSkill("magic resistance") * GetDefensiveRaceBoni( Char:get_race() );
+    local CSkill = Char:getSkill("magic resistance") * GetDefensiveRaceBoni( Char:getRace() );
     CSkill = base.common.Limit( CSkill, 0, MaximalMagicResistance( Char ) );
 
     local ResTry=base.common.Limit(CSkill * ( ( CEss*3 + CWil*2 ) / 63 ), 0, 100 );
@@ -105,7 +105,7 @@ function CasterValue( Char )
     end
 
     local CSkill = Char:getSkill( Skill.name );
-    CSkill = CSkill * GetOffensiveRaceBoni( Char:get_race() ) + GemBonis.Skill;
+    CSkill = CSkill * GetOffensiveRaceBoni( Char:getRace() ) + GemBonis.Skill;
 
     local Boni=100+(AddBonus(Char,HelpList,HelpLBon)/2);
     Boni = Boni / 100;

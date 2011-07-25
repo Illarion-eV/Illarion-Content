@@ -7,7 +7,7 @@ module("triggerfield.salavesh_firetrap", package.seeall)
 
 function MoveToField(User)
 
-    if User:get_type() == 0 and User:increaseAttrib("hitpoints",0)>0 then --only player characters trigger the triggerfield
+    if User:getType() == 0 and User:increaseAttrib("hitpoints",0)>0 then --only player characters trigger the triggerfield
 	    
 		base.common.TempInformNLS(User,"Ein Feuerball schieﬂt aus einem kleinen Loch in der Wand die Halle entlang!","A firewall is shot from a small hole in the wall down the hallway!"); --sending a message
         

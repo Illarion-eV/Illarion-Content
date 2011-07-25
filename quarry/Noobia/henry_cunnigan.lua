@@ -444,7 +444,7 @@ function HenryCheck(originator)
         return false;
     end
     
-    if ( originator:get_type() ~= 0 ) then
+    if ( originator:getType() ~= 0 ) then
         return false;
     end
 	

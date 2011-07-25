@@ -38,7 +38,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==154) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{4000,5000},{{9,5}},{},40,1) == true );
     else
@@ -54,7 +54,7 @@ function enemyOnSight(Monster,Enemy)
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
     elseif (MonID==154) then
@@ -98,7 +98,7 @@ function onDeath(Monster)
     end
     
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
    if (MonID==151) then --Spider, Level: 6, Armourtype: -, Weapontype: wrestling
 
         --Category 1: Armor

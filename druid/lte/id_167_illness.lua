@@ -80,7 +80,7 @@ function getEffect_2(Character,Runde)
       xpos = Character.pos.x
       ypos = Character.pos.y
       zpos = Character.pos.z
-      richtung = Character:get_face_to()
+      richtung = Character:getFaceTo()
 
       if richtung == 0 then
 --         richtung = 2
@@ -146,7 +146,7 @@ function getEffect_4(Character,Runde)
    local interval = math.max(5,30-math.floor(Runde/30));
    if Runde -(math.floor(Runde/interval)*interval) == 0 then
 --   Blickrichtung feststellen, Gegenrichtung feststellen
-     richtung = Character:get_face_to()
+     richtung = Character:getFaceTo()
      richtung = richtung + 4
      if richtung > 6 then richtung = 0 end
 
@@ -207,7 +207,7 @@ function getEffect_4(Character,Runde)
 			paranoiaList[2][11] = "The ground trembles and cracks open. Flames shoot up from the cracks and with them a creature with red skin, bloody claws and hideous grimace arises: a demon.";
 		end
 		local chance = math.random(1,table.getn(paranoiaList[1]));
-		local race = Character:get_race() + 1;
+		local race = Character:getRace() + 1;
 		if race > 9 then race = 4 end;
 		base.common.TempInformNLS(Character,
 			string.gsub(paranoiaList[1][chance],"%RACETEXT",raceList[1][race]),

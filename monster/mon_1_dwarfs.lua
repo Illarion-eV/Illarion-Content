@@ -50,7 +50,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==13) then
         return ( monster.base.drop.CastLargeAreaMagic(Monster,15,3,{36,0},{3500,5000},8,{36,5},60,{60,65}) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,7,{1000,2000},{{36,5}},{},40,1,{35,50}) );
     else
@@ -66,7 +66,7 @@ function enemyOnSight(Monster,Enemy)
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true;
     elseif (MonID==13) then
@@ -110,7 +110,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==11) then --Dwarf, Level: 5, Armourtype: medium, Weapontype: slashing
 
         --Category 1: Armor

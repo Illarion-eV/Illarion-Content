@@ -82,7 +82,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			if Param==505 then
 				file:write("Waypoint:new(position("..User.pos.x ..","..User.pos.y ..","..User.pos.z .."),PLACE");
 				if wpWait then
-					file:write(","..User:get_face_to());
+					file:write(","..User:getFaceTo());
 				end
 				if wpLight then
 					file:write(",Light:new(position("..wpLight.pos.x ..","..wpLight.pos.y .. ","..wpLight.pos.z .."),"..wpLight.id ..")");
@@ -284,7 +284,7 @@ end
 
 function ShowCharInfo(User,TargetCharakter)
     TargetHP=TargetCharakter:increaseAttrib("hitpoints",0);
-    User:inform("Target Charakter HP: "..TargetHP.." - Race: "..TargetCharakter:get_race().." - Sex: "..TargetCharakter:increaseAttrib("sex",0));
+    User:inform("Target Charakter HP: "..TargetHP.." - Race: "..TargetCharakter:getRace().." - Sex: "..TargetCharakter:increaseAttrib("sex",0));
 end
 
 function ShowPosition(User) 

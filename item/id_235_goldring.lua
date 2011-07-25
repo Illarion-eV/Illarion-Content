@@ -172,12 +172,12 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	-----------------------------------------------------------------
 	if (User:isAdmin()) then -- nur für gm!!
 		if (SourceItem.data == 801) then
-			if (User:get_race() == 33) then
+			if (User:getRace() == 33) then
 				FireBreath(User);
 			end
 		end
 		if (SourceItem.data == 803) then
-			if (User:get_race() == 53) then
+			if (User:getRace() == 53) then
 				IceBreath(User);
 			end
 		end
@@ -287,7 +287,7 @@ function FireBreath(Monster)
 		FireNearBreathShape[5]={0,0,9,0,0};
 		firstFireBreath=true;
 	end
-	FireLooking=Monster:get_face_to()
+	FireLooking=Monster:getFaceTo()
 	if (FireLooking==0) then
 		FireBreathShape=FireNearBreathShape;
 	elseif (FireLooking==2) then
@@ -333,7 +333,7 @@ function IceBreath(Monster)
 		IceNearBreathShape[5]={0,0,4,0,0};
 		firstIceBreath=true;
 	end
-	IceLooking=Monster:get_face_to()
+	IceLooking=Monster:getFaceTo()
 	if (IceLooking==0) then
 		IceBreathShape=IceNearBreathShape;
 	elseif (IceLooking==2) then

@@ -39,7 +39,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==23) then
         return ( monster.base.drop.Stealing(Monster,Enemy) == true );
     else
@@ -55,7 +55,7 @@ function enemyOnSight(Monster,Enemy)
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
@@ -98,7 +98,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==21) then --Halfling, Level: 3, Armourtype: cloth, Weapontype: slashing
 
         --Category 1: Armor

@@ -35,12 +35,12 @@ function receiveText(texttype, message, originator)
         if (originator.id ~= thisNPC.id) then
             originator:introduce(thisNPC);
             
-            if originator:get_race()==0 then skill="human language"
-            elseif originator:get_race()==1 then skill="dwarf language"
-            elseif originator:get_race()==2 then skill="halfling language"
-            elseif originator:get_race()==3 then skill="elf language"
-            elseif originator:get_race()==4 then skill="orc language"
-            elseif originator:get_race()==5 then skill="lizard language" end
+            if originator:getRace()==0 then skill="human language"
+            elseif originator:getRace()==1 then skill="dwarf language"
+            elseif originator:getRace()==2 then skill="halfling language"
+            elseif originator:getRace()==3 then skill="elf language"
+            elseif originator:getRace()==4 then skill="orc language"
+            elseif originator:getRace()==5 then skill="lizard language" end
             
             originator:increaseSkill(1,skill,100);
             

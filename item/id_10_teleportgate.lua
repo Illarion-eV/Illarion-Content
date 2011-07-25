@@ -292,7 +292,7 @@ function CharacterOnField( User )
 
     --User:inform( "using teleport gate" )
 
-	if (User:get_type() ~= 0) then
+	if (User:getType() ~= 0) then
         return
     end
 

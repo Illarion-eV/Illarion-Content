@@ -132,7 +132,7 @@ function IsLookingAt(User, Location)
         return true;
     end
 
-    local richtung = User:get_face_to();
+    local richtung = User:getFaceTo();
 
     return (((richtung == Character.north) and (Location.y < User.pos.y)) or
             ((richtung == Character.northeast) and
@@ -186,7 +186,7 @@ end;
 -- @param User The character who shall be turned
 -- @param Location The position the character shall turn to
 function TurnTo(User, Location)
-    local oldDir = User:get_face_to();
+    local oldDir = User:getFaceTo();
     local newDir = GetDirection(User.pos, Location);
 
     if (newDir ~= oldDir) then
@@ -198,7 +198,7 @@ end;
 -- @param User The character the front position is wanted
 -- @return The position in front of the character
 function GetFrontPosition(User)
-    local direct = User:get_face_to();
+    local direct = User:getFaceTo();
 
     if (direct == Character.north) then
         return position(User.pos.x, User.pos.y - 1, User.pos.z);
@@ -267,7 +267,7 @@ end;
 function GetBehindPosition(User, distance)
 
     local d = distance or 1;
-    local direct = User:get_face_to();
+    local direct = User:getFaceTo();
 
     if (direct == Character.north) then
         return position(User.pos.x, User.pos.y + d, User.pos.z);
@@ -1516,7 +1516,7 @@ function BasicNPCChecks(originator,NPCRange, npc)
         return false;
     end
 
-    if ( originator:get_type() ~= 0 ) then
+    if ( originator:getType() ~= 0 ) then
         return false;
     end
 

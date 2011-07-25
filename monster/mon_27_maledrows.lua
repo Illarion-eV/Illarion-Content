@@ -43,7 +43,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==273) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,3,{2000,3000},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1) == true );
     elseif (MonID==274) then
@@ -54,7 +54,7 @@ function enemyNear(Monster,Enemy)
 end
 
 function enemyOnSight(Monster,Enemy)
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 
     if init==nil then
         ini(Monster);
@@ -107,7 +107,7 @@ function onDeath(Monster)
     end
     
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==271) then --Drow, Level: 6, Armourtype: light, Weapontype: slashing
 
         --Category 1: Armor
