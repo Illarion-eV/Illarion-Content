@@ -52,7 +52,7 @@ end
 
 function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
     local FrontChar = base.common.GetFrontCharacter(User);
-	if FrontChar and FrontChar:get_type() == Character.npc then
+	if FrontChar and FrontChar:getType() == Character.npc then
 		CheckOrderNpc(User, SourceItem, FrontChar);
 		return;
 	end
@@ -178,7 +178,7 @@ end
 
 function selfTeleportUseItem( Caster, Item )
 
-    local faceto = Caster:get_face_to();
+    local faceto = Caster:getFaceTo();
 
     local dx, dy;
     if (faceto == 0) then
@@ -223,7 +223,7 @@ end
 function summonCreature( Caster, Item )
     Caster:inform("moep->start");
 
-    faceto = Caster:get_face_to();
+    faceto = Caster:getFaceTo();
     
     if (faceto==0) then    	--north
 	CreaturePos  = position(Caster.pos.x,Caster.pos.y-1,Caster.pos.z);

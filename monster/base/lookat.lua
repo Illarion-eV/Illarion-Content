@@ -4,7 +4,7 @@ module("monster.base.lookat")
 -- mode is always 0
 function lookAtMonster( player, monster, mode )
 	
-	player:inform("name: ".. monster.name .. "; ID: ".. monster:get_mon_type());
+	player:inform("name: ".. monster.name .. "; ID: ".. monster:getMonsterType());
 	local output = "";
 	
 	local lang = player:getPlayerLanguage();

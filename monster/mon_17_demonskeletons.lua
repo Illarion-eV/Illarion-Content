@@ -52,7 +52,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==172) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{4,5},{9,5},{51,5}},{},40,1) == true );
     elseif (MonID==175) then
@@ -79,7 +79,7 @@ function enemyOnSight(Monster,Enemy)
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
     elseif (MonID==172) then
@@ -98,7 +98,7 @@ function enemyOnSight(Monster,Enemy)
 end
 
 function onAttacked(Monster,Enemy)
-local MonID=Monster:get_mon_type();
+local MonID=Monster:getMonsterType();
 	if(MonID == 175) then
 		if monster.specialattacks.lich_spells.Lich_Forcefield (monster, char) then
 			return true;
@@ -114,7 +114,7 @@ local MonID=Monster:get_mon_type();
 end
 
 function onCasted(Monster,Enemy)
-local MonID=Monster:get_mon_type();
+local MonID=Monster:getMonsterType();
 	if(MonID == 175) then
 		if monster.specialattacks.lich_spells.Lich_MagicShield (monster, char) then
 			return true;
@@ -146,7 +146,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     
 if (MonID==171) then --Demon Skeleton, Level: 6, Armourtype: heavy, Weapontype: slashing
 

@@ -37,7 +37,7 @@ function nextCycle()
                 if ((langSkill > 0) and (langSkill < 100 )) then
                     player:increaseSkill(1,"common language",100-langSkill);
                 end
-                SkillName = LangSkillName(player:get_race());
+                SkillName = LangSkillName(player:getRace());
                 langSkill = player:getSkill(SkillName);
                 if ((langSkill > 0) and (langSkill < 100 )) then
                     player:increaseSkill(1,SkillName,100-langSkill);

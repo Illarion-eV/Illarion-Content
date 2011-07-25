@@ -21,7 +21,7 @@ end
 function receiveText(texttype, message, originator) 
 
 	thisNPC:increaseSkill(1,"common language",100); 
-	Face_Direction = originator:get_face_to() 
+	Face_Direction = originator:getFaceTo() 
 	Right_Hand = originator:getItemAt(6) 
 	Left_Hand = originator:getItemAt(5) 
 	R_Item_Name = world:getItemName(Right_Hand,1) 
@@ -44,7 +44,7 @@ function receiveText(texttype, message, originator)
     end
     
    if(string.find(string.lower(Text), "check me") ~= nil or string.find(string.lower(Text), "überprüfe mich") ~= nil) then
-      local dir = Originator:get_face_to();
+      local dir = Originator:getFaceTo();
       if(dir == 0) then
          thisNPC:talkLanguage(Character.yell, Player.german, "Du schaust nach Norden!");
          thisNPC:talkLanguage(Character.yell, Player.english, "You are looking to the north!");

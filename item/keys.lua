@@ -127,7 +127,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
         return true;
     end
 
-    if (User:get_race() == 1) then
+    if (User:getRace() == 1) then
         return true;
     end
 

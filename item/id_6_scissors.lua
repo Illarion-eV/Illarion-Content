@@ -122,7 +122,7 @@ function GetWoolFromSheep(User,SourceItem, Sheep, ltstate)
         return
     end
     
-    if (Sheep:get_race()~=18) then
+    if (Sheep:getRace()~=18) then
         base.common.InformNLS( User,
         "Du kannst nur Schafen die Wolle abnehmen.",
         "You can only cut wool from sheeps.");

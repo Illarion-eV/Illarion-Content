@@ -166,7 +166,7 @@ function StartLearning(originator,message)
     end
     if (string.find(message,"[Ee]lf.+[Ll]ernen") ~= nil) or (string.find(message,"[Tt]each.*[Ee]lvish") ~= nil) then
         retVal=1;
-        if (originator:get_race()~=3) then
+        if (originator:getRace()~=3) then
             StudentStats[originator.id][1]=true;
         else
             retVal=15;
@@ -259,7 +259,7 @@ function GenLangSkill(User)
     end
     Skill=User:getSkill("elf language");
     Int=User:increaseAttrib("intelligence",0);
-    Race=User:get_race();
+    Race=User:getRace();
     if (Race==3) then
         User:increaseSkill(1,"elf language",100-Skill);
         retVal=11;

@@ -28,7 +28,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==501) or (MonID==502) then -- Fire Elementaries
         if (true) then
             world:gfx(36,Monster.pos);
@@ -103,7 +103,7 @@ function enemyOnSight(Monster,Enemy)
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==501) or (MonID==502) then -- Fire Elementaries
         if (math.random(1,2) == 1) then
             world:gfx(36,Monster.pos);
@@ -257,7 +257,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==501) then --Lower Fire Elementary, Level: 4, Armourtype: -, Weapontype: wrestling
 
         --Category 1: Armor

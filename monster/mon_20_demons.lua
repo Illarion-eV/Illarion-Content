@@ -50,7 +50,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==203) then
         return ( monster.base.drop.CastMonster(Monster,Enemy,10,{172,173},40) == true );
     else
@@ -59,7 +59,7 @@ function enemyNear(Monster,Enemy)
 end
 
 function enemyOnSight(Monster,Enemy)
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 
     if init==nil then
         ini(Monster);
@@ -110,7 +110,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
      if (MonID==201) then --Higher Demon, Level: 8, Armourtype: medium, Weapontype: concussion (wrestling)
 
         --Category 1: Armor

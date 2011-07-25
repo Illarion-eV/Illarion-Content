@@ -28,7 +28,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==144) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{4000,5000},{{44,5},{46,5},{51,5}},{},40,1) == true );
     else
@@ -93,7 +93,7 @@ end
 
 --    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 --
---    local MonID=Monster:get_mon_type();
+--    local MonID=Monster:getMonsterType();
 --    if monster.base.drop.DefaultSlowdown( Monster ) then
 --        return true
 --    elseif (MonID==144) then
@@ -137,7 +137,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 
     if (MonID==141) then --Beholder, Level: 7, Armourtype: -, Weapontype: wrestling
 

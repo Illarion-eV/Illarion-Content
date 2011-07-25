@@ -21,7 +21,7 @@ function callEffect(stinkEffect, Character)    -- Effect wird ausgeführt
     if found then
         npcs = world:getNPCSInRangeOf(Character.pos,2);
         for i, npc in pairs(npcs) do
-	    if npc:get_race() == 37 then
+	    if npc:getRace() == 37 then
 	       stinkIndex_n=stinkIndex_n+1;
 	    end   
 	end

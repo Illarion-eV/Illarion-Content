@@ -8,7 +8,7 @@ function addEffect(spookeyEffect, Character)         -- Smell starts
     --base.common.InformNLS(Character,
     --"Du fühlst dich etwas unwohl.",
     --"You feel a little sickish.");
-	CharRace=Character:get_race()
+	CharRace=Character:getRace()
     spookeyEffect:addValue("OriginalRace",CharRace);
 end
 

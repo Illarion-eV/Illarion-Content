@@ -767,7 +767,7 @@ function drinkGame()
 
 	local getFactor	= function (trinker)
 		local konsti=trinker:increaseAttrib("constitution",0);
-		local race=trinker:get_race();
+		local race=trinker:getRace();
 			if race==0 then --human
 				 factor=4.2;
 			elseif race==1 then --dwarf

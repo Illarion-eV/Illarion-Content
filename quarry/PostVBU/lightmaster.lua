@@ -135,7 +135,7 @@ function nextCycle()  -- ~10 times per second
 end
 
 function receiveText(texttype, message, originator)
-    if npc.base.functions.BasicNPCChecks(originator,2) and originator:get_type()==0 then
+    if npc.base.functions.BasicNPCChecks(originator,2) and originator:getType()==0 then
         if (npc.base.functions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
 			if string.find(message,"delete") then

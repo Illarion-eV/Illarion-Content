@@ -152,7 +152,7 @@ function CheckWalk()
                 laufen[thisNPC.id] = false;
             elseif world:isCharacterOnField(nextpos) then
                 BlockingChar=world:getCharacterOnField(nextpos);
-                if (BlockingChar:get_type()==2) then
+                if (BlockingChar:getType()==2) then
                     if (StayTogether[thisNPC.id]==nil) then
                         StayTogether[thisNPC.id]=0;
                     end

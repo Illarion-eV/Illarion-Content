@@ -437,7 +437,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 end
 
 function getFreePosition( User, BS )
-   local faceto = User:get_face_to();
+   local faceto = User:getFaceTo();
    
    if BS.id == 266 then
       return position( User.pos.x + 1, User.pos.y, User.pos.z );

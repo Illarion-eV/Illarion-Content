@@ -12,5 +12,5 @@ function(self, value)
 end);
 
 function _race_helper_equal(self, player)
-    return (player:get_race() == self.value);
+    return (player:getRace() == self.value);
 end;

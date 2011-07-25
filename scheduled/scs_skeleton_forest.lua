@@ -24,7 +24,7 @@ function SpawnSkeleton(Charakter)
     
     if (table.getn(Monsters) > 0) then
         for i, Monster in Monsters do
-            MonType = Monster:get_mon_type();
+            MonType = Monster:getMonsterType();
             if ((MonType>110) and (MonType<121)) then -- Skeletons
                 return false;
             end

@@ -22,7 +22,7 @@ function callEffect( Tying, Capturer )
 	if foundCaptive then
 		Captive = IsCharidInRangeOf(Captive,Capturer.pos,5);
 		if Captive then
-			if Captive:get_race() == 13 then
+			if Captive:getRace() == 13 then
 				InformW(Capturer,
 					"Du bindest den Gefangenen los.",
 					"You untie the captive.");

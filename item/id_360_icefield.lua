@@ -25,7 +25,7 @@ function CharacterOnField(User)
 		end
 	end
     if (FieldItem.quality>100) then
-        UserRace=User:get_race();                  -- Char Rasse
+        UserRace=User:getRace();                  -- Char Rasse
         for i,theRace in pairs(AffectedRaces) do   -- Rassenliste durchlaufen
             if UserRace==theRace then              -- User Rasse finden
                 resist=SpellResistence(User);      -- Magieresistenz prüfen

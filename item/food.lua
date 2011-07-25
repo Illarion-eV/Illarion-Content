@@ -102,7 +102,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		return;
 	end
 	-- define user's race (+1 for valid table index), non-playable races are set to 10
-	local race = math.min(User:get_race()+1, 10);
+	local race = math.min(User:getRace()+1, 10);
 	-- not eatable for user's race
 	if FoodList[SourceItem.id].UnEatable[race] then
 		return;
@@ -119,9 +119,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			local foodLevel = User:increaseAttrib("foodlevel",0);
 			-- adjust food value for small races
 			local foodVal;
-			if ( User:get_race() == 7 ) then                                    -- fairy (food * 1.8)
+			if ( User:getRace() == 7 ) then                                    -- fairy (food * 1.8)
 				foodVal = math.ceil( food.Value * 1.8 )
-			elseif ( User:get_race() == 2 ) or ( User:get_race() == 6 ) or ( User:get_race() == 8 ) then    -- halfling or gnome and goblin (food * 1.4)
+			elseif ( User:getRace() == 2 ) or ( User:get_race() == 6 ) or ( User:get_race() == 8 ) then    -- halfling or gnome and goblin (food * 1.4)
 				foodVal = math.ceil( food.Value * 1.4 )
 			else                                                                -- other races
 				foodVal = food.Value;

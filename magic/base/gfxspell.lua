@@ -190,7 +190,7 @@ function TargetHitting( Caster, Target, CasterValue, Resistance, Percent)
         local AttribEffect = math.floor(base.common.Scale(TargetEffects.minSkill.hitpoints, TargetEffects.maxSkill.hitpoints, Value));
         if (AttribEffect~=0) then
             local oldHP = Target:increaseAttrib("hitpoints", 0 );
-            if( oldHP > 1 and oldHP+AttribEffect < 2 and Target:get_type()~=1 ) then
+            if( oldHP > 1 and oldHP+AttribEffect < 2 and Target:getType()~=1 ) then
                 Target:increaseAttrib("hitpoints", 1 - oldHP );
                 local CharOffsetX = base.common.Limit(Caster.pos.x - Target.pos.x,-1,1);
                 local CharOffsetY = base.common.Limit(Caster.pos.y - Target.pos.y,-1,1);
@@ -244,7 +244,7 @@ function TargetHitting( Caster, Target, CasterValue, Resistance, Percent)
 
     if TargetEffects.minSkill.posoffset and TargetEffects.maxSkill.posoffset then
         local AttribEffect = math.floor(base.common.Scale(TargetEffects.minSkill.posoffset, TargetEffects.maxSkill.posoffset, Value));
-        if (AttribEffect~=0) and Target:get_type() ~= 2 then
+        if (AttribEffect~=0) and Target:getType() ~= 2 then
             local phi;
             if ( Caster.id == Target.id ) then
                 phi = math.random()*2;

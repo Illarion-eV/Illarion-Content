@@ -125,7 +125,7 @@ function receiveText(Texttype, Message, Originator)
                 end
                 moving[thisNPC.id] = true;
 				if thisNPC:isInRange(Originator,1) then
-					thisNPC:move(Originator:get_face_to(),true);
+					thisNPC:move(Originator:getFaceTo(),true);
 				else
 					thisNPC:talk(Character.say, "IIAA");
 				end
@@ -135,7 +135,7 @@ function receiveText(Texttype, Message, Originator)
 end
 
 function genDepotPos( )
-    npc_look_at = thisNPC:get_face_to();
+    npc_look_at = thisNPC:getFaceTo();
     if (npc_look_at == 0) then
         return position(thisNPC.pos.x + 1,thisNPC.pos.y,thisNPC.pos.z);
     elseif (npc_look_at == 2) then

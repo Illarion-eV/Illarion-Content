@@ -42,7 +42,7 @@ function FireBreath(Monster,Enemy)
         retVal=true;
         Monster.fightpoints=Monster.fightpoints-40;
         if (Monster:distanceMetric(Enemy)<=4) then
-            Looking=Monster:get_face_to()
+            Looking=Monster:getFaceTo()
             if (Looking==0) then
                 BreathShape=NearBreathShape;
             elseif (Looking==2) then
@@ -109,7 +109,7 @@ function enemyNear(Monster,Enemy)
 end
 
 function enemyOnSight(Monster,Enemy)
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 
     if init==nil then
         ini(Monster);
@@ -158,7 +158,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==261) then --Fire Dragon, Level: 8, Armourtype: -, Weapontype: wrestling
 
         --Category 1: Armor

@@ -22,7 +22,7 @@ end
 
 function CharacterOnField( user )
 
-    if( base.common.isItemIdInFieldStack( 35, position(-32, 193, -8) ) and ( user:get_face_to() ~= 2 ) ) then
+    if( base.common.isItemIdInFieldStack( 35, position(-32, 193, -8) ) and ( user:getFaceTo() ~= 2 ) ) then
         if user:getPlayerLanguage()==0 then
             user:inform("Als du dich wegdrehst ist die Leiter verschwunden...");
         else

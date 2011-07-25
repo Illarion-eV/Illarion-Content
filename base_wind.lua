@@ -11,7 +11,7 @@ function CharacterOnField( User )
     repeat
     
     local SourceItem = world:getItemOnField( User.pos );
-    direction=User:get_face_to();
+    direction=User:getFaceTo();
     if (SourceItem==373) then
     	if (direction==0) then
 	    --User:warp(position(User.pos.x,User.pos.y+2,User.pos.z));

@@ -43,7 +43,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==214) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,10,{300,500},{{9,5}},{},40,9,{0,40}) == true );
     elseif (MonID==215) then
@@ -54,7 +54,7 @@ function enemyNear(Monster,Enemy)
 end
 
 function enemyOnSight(Monster,Enemy)
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 
     if init==nil then
         ini(Monster);
@@ -107,7 +107,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==211) then --Skull, Level: 2, Armourtype: medium, Weapontype: wrestling
 
         --Category 1: Armor

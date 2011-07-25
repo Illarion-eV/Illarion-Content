@@ -492,7 +492,7 @@ function NewbieIsland( Attacker, Defender )
     end
 
     -- in case the character it not a other player character, the Attack is okay anyway.
-    if (Defender:get_type() ~= 0) then
+    if (Defender:getType() ~= 0) then
         return true;
     end
 
@@ -707,7 +707,7 @@ function LoadAttribsSkills( CharStruct, offsive )
         CharStruct["dodge"]        = CharStruct.Char:getSkill( "dodge" );
         CharStruct["constitution"] = ReadAndAlterAttribute( CharStruct.Char, "constitution" );
     end
-    CharStruct["Race"]         = CharStruct.Char:get_race();
+    CharStruct["Race"]         = CharStruct.Char:getRace();
     return CharStruct;
 end
 
@@ -757,7 +757,7 @@ end
     @return boolean  true if the attack can go on, false if not
 ]]
 function HandleAmmunition( Attacker, DefenderChar )
-    if (Attacker.Char:get_type()==1) then
+    if (Attacker.Char:getType()==1) then
         return true;
     end
 
@@ -803,7 +803,7 @@ function SpecialGM( Attacker, Defender )
         return true;
     end
 
-    if ( Attacker.Char:get_type() ~= 1 ) then
+    if ( Attacker.Char:getType() ~= 1 ) then
         return true;
     end
 
@@ -826,7 +826,7 @@ end
     @return boolean  true if a coup de gráce was done
 ]]
 function CoupDeGrace( Attacker, Defender )
-    if ( Attacker.Char:get_type() ~= 0 ) then
+    if ( Attacker.Char:getType() ~= 0 ) then
         return false;
     end
     local Hitpoints = Defender.Char:increaseAttrib("hitpoints",0);
@@ -991,8 +991,8 @@ end
     @return GlobalTable The global table with the new modificator
 ]]
 function GenPositionMod( AttackerChar, DefenderChar, Globals )
-    local AttLookDir=AttackerChar:get_face_to();
-    local DefLookDir=DefenderChar:get_face_to();
+    local AttLookDir=AttackerChar:getFaceTo();
+    local DefLookDir=DefenderChar:getFaceTo();
     local NewAttShape = 0;
     local NewDefShape = 0;
     if (AttLookDir==2) then
@@ -1276,7 +1276,7 @@ end
     @return boolean true at all times
 ]]
 function BreakWeapon( CharStruct, NameFirst, NameSec )
-    if (CharStruct.Char:get_type()==1) then
+    if (CharStruct.Char:getType()==1) then
         return true;
     end
 
@@ -1476,7 +1476,7 @@ function Damage( Attacker, Defender, Globals )
             armourValue=armour.PunctureArmor;
         end
         armourAbsorb = armour.Absorb;
-        if (Defender.Char:get_type()~=1) then
+        if (Defender.Char:getType()~=1) then
             local qualMod = GetQualityEffect(HittedItem.quality);
             armourValue  = armourValue  * qualMod;
             armourAbsorb = armourAbsorb * qualMod;
@@ -1503,7 +1503,7 @@ function Damage( Attacker, Defender, Globals )
                 addarmourValue= armour.PunctureArmor;
             end
             addarmourAbsorb = armour.Absorb;
-            if (Defender.Char:get_type()~=1) then
+            if (Defender.Char:getType()~=1) then
                 local qualMod = GetQualityEffect(HittedItem.quality);
                 addarmourValue  = addarmourValue  * qualMod;
                 addarmourAbsorb = addarmourAbsorb * qualMod;
@@ -1553,7 +1553,7 @@ end
     @return boolean true at all times
 ]]
 function Breakarmour( CharStruct, Globals )
-    if (CharStruct.Char:get_type()==1) then
+    if (CharStruct.Char:getType()==1) then
         return true;
     end
 
@@ -1788,7 +1788,7 @@ end
 function CauseDamage( Attacker, Defender, Globals )
     local Hitpoints = Defender.Char:increaseAttrib("hitpoints",0);
     Globals.Damage = base.common.Limit( Globals.Damage, 80, 4999 );
-    if (( Defender.Char:get_type() == 0 ) and ( Hitpoints-1 <= Globals.Damage ) and ( Attacker.AttackKind ~= 4 ) and ( Hitpoints > 1 )) then
+    if (( Defender.Char:getType() == 0 ) and ( Hitpoints-1 <= Globals.Damage ) and ( Attacker.AttackKind ~= 4 ) and ( Hitpoints > 1 )) then
         -- Character would die. Nearly killing him and moving him back in case its possible
         Defender.Char:increaseAttrib("hitpoints",-Hitpoints+1);
 
@@ -1826,7 +1826,7 @@ function CauseDamage( Attacker, Defender, Globals )
     else
 	
 		if (Hitpoints - Globals.Damage <= 0) then
-			base.playerdeath.monsterKilledByFighting(Defender.Char:get_mon_type(), Attacker.Char);
+			base.playerdeath.monsterKilledByFighting(Defender.Char:getMonsterType(), Attacker.Char);
 		end
 	
         Defender.Char:increaseAttrib("hitpoints",-Globals.Damage);
@@ -1850,7 +1850,7 @@ function ShowEffects( Attacker, Defender, Globals )
         if (Globals.criticalHit) then
             InformAboutCritical(Attacker.Char,Defender.Char,Globals.HittedArea);
             --[[ Wounds Script - Disabled for now
-            if (Defender.Char:get_type()~=1) and (math.random(8) == 1) then
+            if (Defender.Char:getType()~=1) and (math.random(8) == 1) then
                 Defender.Char.effects:addEffect( LongTimeEffect( 21, 10 ) );
             end
             --]]
@@ -1998,7 +1998,7 @@ function MissingTarget( Attacker, Defender )
 
     if world:isCharacterOnField( dropPos ) then
         Defender.Char = world:getCharacterOnField( dropPos );
-        if ( Defender.Char:get_type() == 2 ) then
+        if ( Defender.Char:getType() == 2 ) then
             return false;
         end
         return Defender;
@@ -2052,7 +2052,7 @@ function DropAmmo( Attacker, dropPos, dropChar )
                 end
             end
             world:createItemFromId( AmmoItem.id, 1, dropPos, true, AmmoItem.quality, AmmoItem.data );
-        elseif ( dropChar:get_type() == 1 ) then -- dropping ammo only into monsters
+        elseif ( dropChar:getType() == 1 ) then -- dropping ammo only into monsters
             dropChar:createItem( AmmoItem.id, 1, AmmoItem.quality, AmmoItem.data );
         end
     end
@@ -2066,7 +2066,7 @@ end
 ]]
 function CheckTying( Attacker, Defender )
 
-	if Attacker:get_type() ~= 0 then
+	if Attacker:getType() ~= 0 then
 		return;
 	end
 	if Defender.effects:find(24) and not base.common.IsCharacterParalysed(Defender) then

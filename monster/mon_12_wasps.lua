@@ -37,7 +37,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==126) then
         world:gfx(9,Monster.pos);
     end
@@ -52,7 +52,7 @@ function enemyOnSight(Monster,Enemy)
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
     if (MonID==126) then
         world:gfx(9,Monster.pos);
     end
@@ -99,7 +99,7 @@ function onDeath(Monster)
     end
 
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 
     monster.base.drop.AddDropItem(2529,1,100,333,0,1); --honeycombs
 
@@ -150,12 +150,12 @@ end;
 function HitChar(Posi,Hitpoints,CenterPos)
     if world:isCharacterOnField(Posi) then
         local Character = world:getCharacterOnField(Posi);
-        if (Character:get_type()==1) then
-            if (Character:get_mon_type() == 401) then
+        if (Character:getType()==1) then
+            if (Character:getMonsterType() == 401) then
                 if not equapos(Posi,CenterPos) then
                     return
                 end
-            elseif (Character:get_mon_type() == 126) then
+            elseif (Character:getMonsterType() == 126) then
                 Character:increaseAttrib("hitpoints",-10000);
                 return
             end

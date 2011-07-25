@@ -43,7 +43,7 @@ function createdeathtree(Tree,User,Qual)
     if (Tree.pos.x~=User.pos.x) then DiffX=true end
     if (Tree.pos.y~=User.pos.y) then DiffY=true end
     if DiffX and DiffY then
-        local LookAt=User:get_face_to();
+        local LookAt=User:getFaceTo();
         if (LookAt==0 or LookAt==4) then
             if (User.pos.x<Tree.pos.x) then
                 local createpos=position(Tree.pos.x-1,Tree.pos.y,Tree.pos.z)

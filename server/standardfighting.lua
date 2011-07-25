@@ -275,7 +275,7 @@ function CauseDamage(Attacker, Defender, Globals)
                     Attacker.Char);
             else
                 base.playerdeath.monsterKilledByFighting(
-                    Defender.Char:get_mon_type(), Attacker.Char);
+                    Defender.Char:getMonsterType(), Attacker.Char);
             end;
         end;
         
@@ -446,7 +446,7 @@ end;
 -- @param Defender The table of the attacked character
 -- @return true if a coup de gráce was done
 function CoupDeGrace(Attacker, Defender)
-    if (Attacker.Char:get_type() ~= 0) then -- Only for player characters
+    if (Attacker.Char:getType() ~= 0) then -- Only for player characters
         return false;
     end;
 
@@ -508,7 +508,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
             return false;
         end;
     
-        if not GroundOnly and (Defender:get_type() == 1) then -- monsters get 
+        if not GroundOnly and (Defender:getType() == 1) then -- monsters get 
             -- the ammo into the inventory
             Defender:createItem(AmmoItem.id, 1, AmmoItem.quality,
                 AmmoItem.data);
@@ -623,7 +623,7 @@ end;
 -- @param Attacker The table that stores the data of the attacking char
 -- @return true in case the attack is good to go
 function HandleAmmunition(Attacker)
-    if (Attacker.Char:get_type() == 1) then -- Monsters do not use ammo
+    if (Attacker.Char:getType() == 1) then -- Monsters do not use ammo
         return true;
     end;
     
@@ -753,7 +753,7 @@ function LoadAttribsSkills(CharStruct, Offensive)
         CharStruct["parry"] = NotNil(CharStruct.Char:getSkill("parry"));
         CharStruct["dodge"] = NotNil(CharStruct.Char:getSkill("dodge"));
     end;
-    CharStruct["Race"] = CharStruct.Char:get_race();
+    CharStruct["Race"] = CharStruct.Char:getRace();
 end;
 
 --- Load all weapon data for a character. The data is stored in the table that
@@ -804,7 +804,7 @@ function NewbieIsland(Attacker, Defender)
 
     -- in case the character it not a other player character, the Attack is
     -- okay anyway.
-    if (Defender:get_type() ~= 0) then
+    if (Defender:getType() ~= 0) then
         return true;
     end;
 

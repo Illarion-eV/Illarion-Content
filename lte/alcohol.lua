@@ -29,7 +29,7 @@ function callEffect( Effect, Character) -- Initiallisierungs Script
             return true
         end
     end
-    if ( Character:get_race()==1 ) then -- Zwerg mit Boni aufs betrinken
+    if ( Character:getRace()==1 ) then -- Zwerg mit Boni aufs betrinken
         RaceBon = 60;
         Character:inform("Zwergenboni");
     end

@@ -40,7 +40,7 @@ msgs:addMessage("Wer wagt es mich zu stören?", "Who dares to bother me?");
 end
 
 function enemyNear(Monster,Enemy)
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 
     if init==nil then
         ini(Monster);
@@ -97,7 +97,7 @@ end
 
 function onDeath(Monster)
     monster.base.drop.ClearDropping();
-    local MonID=Monster:get_mon_type();
+    local MonID=Monster:getMonsterType();
 
        if (MonID==1) then --Human, Level: 5, Armourtype: medium, Weapontype: slashing
 

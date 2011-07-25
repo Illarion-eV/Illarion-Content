@@ -8,7 +8,7 @@ module("triggerfield.loo_door", package.seeall)
 
 function MoveToField( User )
 
-    if User:get_face_to() == 2 then -- looking east, probably walking inside
+    if User:getFaceTo() == 2 then -- looking east, probably walking inside
         local door = world:getItemOnField( position( -74, -68, 0 ) );
         base.doors.CloseDoor( door );
         door = world:getItemOnField( position( -74, -68, 0 ) );

@@ -220,7 +220,7 @@ function baseNPC:receiveText(speaker, text)
         return false;
     end;
 
-    if (speaker:get_type() ~= 0) then
+    if (speaker:getType() ~= 0) then
         return false;
     end;
 

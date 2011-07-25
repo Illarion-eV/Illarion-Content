@@ -126,7 +126,7 @@ function receiveText(Texttype, Message, Originator)
                 end
                 moving[thisNPC.id] = true;
 				if thisNPC:isInRange(Originator,1) then
-					thisNPC:move(Originator:get_face_to(),true);
+					thisNPC:move(Originator:getFaceTo(),true);
 				else
                     thisNPC:talkLanguage( Character.say, Player.german, "Meister warten...ich nicht so schnell sein." );
                     thisNPC:talkLanguage( Character.say, Player.english,"Master wait...I'm not that fast." );
@@ -137,7 +137,7 @@ function receiveText(Texttype, Message, Originator)
 end
 
 function genDepotPos( )
-    npc_look_at = thisNPC:get_face_to();
+    npc_look_at = thisNPC:getFaceTo();
     if (npc_look_at == 0) then
         return position(thisNPC.pos.x + 1,thisNPC.pos.y,thisNPC.pos.z);
     elseif (npc_look_at == 2) then
