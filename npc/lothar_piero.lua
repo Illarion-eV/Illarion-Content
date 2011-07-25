@@ -270,7 +270,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Pennymill");
-talkEntry:addResponse("ENGLISH1");
+talkEntry:addResponse("The militia controls alls inns in Pennymill's harbour quarter. A halfling doesn't have to be afraid of ruffians and thugs there.");
+talkEntry:addResponse("The streets of Pennymill are illuminated with thick candles. No shadow is cast where evil might lurk.");
+talkEntry:addResponse("During the night, the gates of Pennymill are closed so you can only walk from quarter to quarter. That's much more save this way!");
+talkEntry:addResponse("Pennymill's farmer's daughters have the most huge melons.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,7 +288,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("poetry");
-talkEntry:addResponse("ENGLISH1");
+talkEntry:addResponse("Poetry, poetry. The carpenter's poetry's masterpiece is a harp. If you behold a true master carving the harp, you can almost hear the melody.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,9 +304,9 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addResponse("OTHER NPCs1");
-talkEntry:addResponse("OTHER NPCs2");
-talkEntry:addResponse("OTHER NPCs3");
+talkEntry:addResponse("Us traders of Runewick always try to offer as many goods and wares as possible.");
+talkEntry:addResponse("The archmage asked us to import as few items as possible and rely on domestic goods.");
+talkEntry:addResponse("Hiho! The traders of Runewick stand united and the archmage backs us up.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,9 +331,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.");
+talkEntry:addResponse("Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, dass sein Plan niemals fehlt.");
 talkEntry:addResponse("Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!");
-talkEntry:addResponse("Der Erzmagier ist der Weißeste von uns. Wie könnte ich jemals an seinen Worten zweifeln?");
+talkEntry:addResponse("Der Erzmagier ist der Weiseste von uns. Wie könnte ich jemals an seinen Worten zweifeln?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -349,7 +352,7 @@ talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addResponse("Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.");
 talkEntry:addResponse("Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!");
-talkEntry:addResponse("Der Erzmagier ist der Weißeste von uns. Wie könnte ich jemals an seinen Worten zweifeln?");
+talkEntry:addResponse("Der Erzmagier ist der Weiseste von uns. Wie könnte ich jemals an seinen Worten zweifeln?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -364,7 +367,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Elara möge Runewick bewahren. Die vier Türme sollen den Göttern schmeicheln und benachbraten Städten unsere Macht demonstrieren.");
+talkEntry:addResponse("Elara möge Runewick bewahren. Die vier Türme sollen den Göttern schmeicheln und benachbarten Städten unsere Macht demonstrieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -383,7 +386,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Ein wahrer Dickkopf, habe ich mir sagen lassen. Ihm ist nur daran gelegen Gold zu häufen. Es ist nur eine Frage der Zeit bis einer Seiner Konkruenten das Ruder Galmairs aus seinen Händen reißt.");
+talkEntry:addResponse("Ein wahrer Dickkopf, habe ich mir sagen lassen. Ihm ist nur daran gelegen Gold zu häufen. Es ist nur eine Frage der Zeit bis einer seiner Konkurenten das Ruder Galmairs aus seinen Händen reißt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -451,9 +454,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Albar is a horrible place. Lucky you, you found Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -467,25 +468,21 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I overheard Valerio Guilianni came from Gynk to Galmair. He brought strange customs from that spoiled land. With the arrival of the Don, the pearl of the mountains went down the sewers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Ich hörte  Valerio Guilianni sei einst aus Gynk nach Galmair gekommen. Mit sich brachte er, alle vermeintlichen Tugenden aus seinem abschäulichen Land. Denn mit dem Don ist auch die Stadt in den bergen verkommen.");
+talkEntry:addResponse("Ich hörte Valerio Guilianni sei einst aus Gynk nach Galmair gekommen. Mit sich brachte er alle vermeintlichen Tugenden aus seinem abschäulichen Land. Denn mit dem Don ist auch die Stadt in den Bergen verkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Salkamar, you flourishing garden of mankind! If only all humans could live like the paladins of Salkamar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

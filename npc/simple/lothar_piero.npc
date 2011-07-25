@@ -106,25 +106,26 @@ itemShoes = 53
 "my name" -> "I am delighted. A pleasure to meet you.", "Well, I should remember that.", "Be greeted and be told: I won't betray you with my wood."
 "mein Name" -> "Sehr erfreut - sehr erfreut. Schön Euch kennen zu lernen.", "So, so? Das werde ich mir gut merken.", "Seid gegrüßt, und lasst Euch sagen, Lothar hat noch keinen Kunden übers Ohr geschlagen."
 
--- BIS HIER
-
 -- More small talk; add at least five triggers
-"Pennymill" -> "ENGLISH1"
+-- Boah, Rince, so viel Blablubb über Pennymill!? Das interessiert doch keine Nuss...
+"Pennymill" -> "The militia controls alls inns in Pennymill's harbour quarter. A halfling doesn't have to be afraid of ruffians and thugs there.", "The streets of Pennymill are illuminated with thick candles. No shadow is cast where evil might lurk.", "During the night, the gates of Pennymill are closed so you can only walk from quarter to quarter. That's much more save this way!", "Pennymill's farmer's daughters have the most huge melons."
 "Pfennigmühle" -> "In Pfennigmühle, ich will es Euch erzählen - kontrolliert die Miliz alle Tavernen und Gasthäuser des Hafenviertels. So braucht sich ein Halbling niemals vor Unruhestiftern und Grobianen fürchten.", "Die Straßen in Pfennigmühle werden stehts mit dicken Ölkerzen beleuchtet. Wenn man abends nach Hause geht, gibt es kein schattiges Plätzchen, wo sich Unholde verkreichen könnten.", "Nachts sind die Tore von Pfennigmühle geschlossen. Man kann sich so nur innerhalb der verschiedenen Viertel bewegen. So ist alles viel sicherer und kontrollierbar.", "Ich möchte nicht prahlen, doch in Pfennigmühle gibt es die saftigsten und riesigsten Melonen, Kürbisse und Tomaten Illarions!"
-"poetry" -> "ENGLISH1"
+"poetry" -> "Poetry, poetry. The carpenter's poetry's masterpiece is a harp. If you behold a true master carving the harp, you can almost hear the melody."
 "Poesie" -> "Poesie, Poesie. Das Schönste was ein Schreiner zu schaffen vermag, ist zweifelsfrei eine Harfe. Sehe ich einem Meister beim Schnitzen zu, glaube ich oft eine Melodie zu hören."
-"trader", "merchant", "collegue", "vendor", "market" -> "OTHER NPCs1", "OTHER NPCs2", "OTHER NPCs3"
+"trader", "merchant", "collegue", "vendor", "market" -> "Us traders of Runewick always try to offer as many goods and wares as possible.", "The archmage asked us to import as few items as possible and rely on domestic goods.", "Hiho! The traders of Runewick stand united and the archmage backs us up."
 "händler", "kollege", "höker", "markt" -> "Wir Händler Runewicks geben uns Mühe, ein möglichst großes Angebot an Waren und Güter für die Stadt bereitzustellen.", "Der Erzmagier persönlich hat uns Händlern aufgetragen, ausschließlich die nötigsten Güter zu importieren. Alles andere sind Güter aus Runewick.", "Hiho! Die Händler Runewicks stehen zusammen. Und der Erzmagier hinter uns."
+
+-- BIS HIER
 
 -- Faction stuff
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Erzmagier" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weißeste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
+"Erzmagier" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, dass sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weiseste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
 "Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weißeste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
+"Elvaine", "Morgan" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weiseste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
 "Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Runewick" -> "Elara möge Runewick bewahren. Die vier Türme sollen den Göttern schmeicheln und benachbraten Städten unsere Macht demonstrieren."
+"Runewick" -> "Elara möge Runewick bewahren. Die vier Türme sollen den Göttern schmeicheln und benachbarten Städten unsere Macht demonstrieren."
 "Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "Ein wahrer Dickkopf, habe ich mir sagen lassen. Ihm ist nur daran gelegen Gold zu häufen. Es ist nur eine Frage der Zeit bis einer Seiner Konkruenten das Ruder Galmairs aus seinen Händen reißt."
+"Valerio", "Guilianni", "Don" -> "Ein wahrer Dickkopf, habe ich mir sagen lassen. Ihm ist nur daran gelegen Gold zu häufen. Es ist nur eine Frage der Zeit bis einer seiner Konkurenten das Ruder Galmairs aus seinen Händen reißt."
 "Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Galmair" -> "Wir Händler haben ein Sprichwort: Traue Galmair nicht, dort schätzt man nur das Gold, von Gewicht. Doch willst du Weisheit tragen, sollt Ihr die Bücher befragen."
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -135,11 +136,11 @@ itemShoes = 53
 "Cadomyr" -> "Cadomyr ist eine Sandgrube, voller Barbaren die zu viel Sonne bekommen haben. Wer im Zweikampf obliegt, erfährt Ehre und Recht. Der Verlierer lebt in Schande."
 
 -- Main land factions
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"albar", english -> "Albar is a horrible place. Lucky you, you found Runewick."
 "albar" -> "Albar ist ein schrecklicher Ort. Seid froh, das ihr Euren Weg nach Runewick gefunden habt."
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk" -> "Ich hörte  Valerio Guilianni sei einst aus Gynk nach Galmair gekommen. Mit sich brachte er, alle vermeintlichen Tugenden aus seinem abschäulichen Land. Denn mit dem Don ist auch die Stadt in den bergen verkommen."
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"gynk", "gync", english -> "I overheard Valerio Guilianni came from Gynk to Galmair. He brought strange customs from that spoiled land. With the arrival of the Don, the pearl of the mountains went down the sewers."
+"gync", "gynk" -> "Ich hörte Valerio Guilianni sei einst aus Gynk nach Galmair gekommen. Mit sich brachte er alle vermeintlichen Tugenden aus seinem abschäulichen Land. Denn mit dem Don ist auch die Stadt in den Bergen verkommen."
+"salkama", english -> "Salkamar, you flourishing garden of mankind! If only all humans could live like the paladins of Salkamar."
 "salkama" -> "Salkamar, du blühender Garten des Menschenvolkes! Würden sich doch alle Menschen besinnen und leben wie die Paladine Salkamars."
 
 -- Gods - use the triggers of the god the NPC worships or fights
