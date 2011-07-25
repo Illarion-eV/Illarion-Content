@@ -22,10 +22,7 @@ end);
 
 function _quest_helper_set(self, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    thisNPC:talk(Character.say,"questID: "..self.questid);
-    thisNPC:talk(Character.say,"value  : "..value);
     player:setQuestProgress(self.questid, value);
-    thisNPC:talk(Character.say,"COMP: p:qID  : "..player:getQuestProgress(self.questid));
 end;
 
 function _quest_helper_add(self, player)
