@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 25, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: July 26, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Lothar Piero"
@@ -115,24 +115,22 @@ itemShoes = 53
 "trader", "merchant", "collegue", "vendor", "market" -> "Us traders of Runewick always try to offer as many goods and wares as possible.", "The archmage asked us to import as few items as possible and rely on domestic goods.", "Hiho! The traders of Runewick stand united and the archmage backs us up."
 "händler", "kollege", "höker", "markt" -> "Wir Händler Runewicks geben uns Mühe, ein möglichst großes Angebot an Waren und Güter für die Stadt bereitzustellen.", "Der Erzmagier persönlich hat uns Händlern aufgetragen, ausschließlich die nötigsten Güter zu importieren. Alles andere sind Güter aus Runewick.", "Hiho! Die Händler Runewicks stehen zusammen. Und der Erzmagier hinter uns."
 
--- BIS HIER
-
 -- Faction stuff
-"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"archmage" -> "I'd never disagree with the archmage. Everyone knows he has the master plan!", "I trust Archmage Morgan, he is my guide. His able hands will forge Runewick's future.", "The archmage is the most wise person of all of us. Who dares to know it better?"
 "Erzmagier" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, dass sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weiseste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
-"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan", english -> "I'd never disagree with the archmage. Everyone knows he has the master plan!", "I trust Archmage Morgan, he is my guide. His able hands will forge Runewick's future.", "The archmage is the most wise person of all of us. Who dares to know it better?"
 "Elvaine", "Morgan" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weiseste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick", english -> "May Elara bless Runewick. The four towers are built to honour the gods and to demonstrate our might to our neighbours."
 "Runewick" -> "Elara möge Runewick bewahren. Die vier Türme sollen den Göttern schmeicheln und benachbarten Städten unsere Macht demonstrieren."
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don", english -> "He is stubborn I was told. All he cares for is gold. It is only a matter time until another thug overtakes Galmair."
 "Valerio", "Guilianni", "Don" -> "Ein wahrer Dickkopf, habe ich mir sagen lassen. Ihm ist nur daran gelegen Gold zu häufen. Es ist nur eine Frage der Zeit bis einer seiner Konkurenten das Ruder Galmairs aus seinen Händen reißt."
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair", english -> "Us trader have a proverb: Do not trust Galmair, gold opens the door of the stupid. But if you want to walk into the house of wisdom, you have to open a book instead."
 "Galmair" -> "Wir Händler haben ein Sprichwort: Traue Galmair nicht, dort schätzt man nur das Gold, von Gewicht. Doch willst du Weisheit tragen, sollt Ihr die Bücher befragen."
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Queen" -> "Queen Rosaline rules on behalf of the gods Malachín and Zhambra. They do not care about wisdom, but is it wise to rule a town by sword and battle?"
 "Königin" -> "Königin Rosaline herrscht aufgrund der Götter Gnade. Malachín und Zhambra, doch sie schenken der Weisheit keinen Wert. Ist es weise eine Stadt mit Schwert und Schlachtenehre zu regieren?"
-"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards", english -> "Queen Rosaline rules on behalf of the gods Malachín and Zhambra. They do not care about wisdom, but is it wise to rule a town by sword and battle?"
 "rosaline", "edwards" -> "Königin Rosaline herrscht aufgrund der Götter Gnade. Malachín und Zhambra, doch sie schenken der Weisheit keinen Wert. Ist es weise eine Stadt mit Schwert und Schlachtenehre zu regieren?"
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr", english -> "Cadomyr is a sand pit, lots of barbarians that got too much sun on their heads. Who wins a duel takes it all, the loser standing small."
 "Cadomyr" -> "Cadomyr ist eine Sandgrube, voller Barbaren die zu viel Sonne bekommen haben. Wer im Zweikampf obliegt, erfährt Ehre und Recht. Der Verlierer lebt in Schande."
 
 -- Main land factions
@@ -142,6 +140,8 @@ itemShoes = 53
 "gync", "gynk" -> "Ich hörte Valerio Guilianni sei einst aus Gynk nach Galmair gekommen. Mit sich brachte er alle vermeintlichen Tugenden aus seinem abschäulichen Land. Denn mit dem Don ist auch die Stadt in den Bergen verkommen."
 "salkama", english -> "Salkamar, you flourishing garden of mankind! If only all humans could live like the paladins of Salkamar."
 "salkama" -> "Salkamar, du blühender Garten des Menschenvolkes! Würden sich doch alle Menschen besinnen und leben wie die Paladine Salkamars."
+
+-- BIS HIER
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
