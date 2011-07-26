@@ -299,6 +299,18 @@ function ChanceToHit(Attacker, Defender)
     else
         chance = chance * (40 + content.fighting.GetWrestlingAccuracy( Attacker.Race )) / 100;
     end;
+    -- penalty for distance weapons:
+    if (Attacker.AttackKind == 4) then -- Distance weapon
+        local distance = Attacker.Char:distanceMetric(Defender);
+        local range = Attacker.Weapon.Range;
+        chanceMod = 100 + 50*(distance - 1)/(1 - range);    -- reduce chance in %: at distance 1 chance is unmodified, 
+                                                            -- at distance=range it is 50%
+        chance = chance * chanceMod / 100;
+        Attacker.Char:inform("Chance to hit: "..chance);
+    end;
+    return (distance <= 1 );
+        
+    end
     return base.common.Chance(chance);
 end;
 
