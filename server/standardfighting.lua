@@ -432,7 +432,7 @@ end;
 function CheckRange(AttackerStruct, Defender)
     local distance = AttackerStruct.Char:distanceMetric(Defender);
     if distance > 1 then
-        blockList = world:LoS( AttackerStruct.Char.pos, Defender.Char.pos )
+        blockList = world:LoS( AttackerStruct.Char.pos, Defender.pos )
         if blockList ~= nil then
             return false;
         end
