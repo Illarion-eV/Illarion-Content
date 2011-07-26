@@ -301,7 +301,7 @@ function ChanceToHit(Attacker, Defender)
     end;
     -- penalty for distance weapons:
     if (Attacker.AttackKind == 4) then -- Distance weapon
-        local distance = Attacker.Char:distanceMetric(Defender);
+        local distance = Attacker.Char:distanceMetric(Defender.Char);
         local range = Attacker.Weapon.Range;
         chanceMod = 100 + 50*(distance - 1)/(1 - range);    -- reduce chance in %: at distance 1 chance is unmodified, 
                                                             -- at distance=range it is 50%
