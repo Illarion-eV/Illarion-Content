@@ -431,6 +431,15 @@ end;
 -- @return true in case the range is fine, else false
 function CheckRange(AttackerStruct, Defender)
     local distance = AttackerStruct.Char:distanceMetric(Defender);
+    if distance > 1 then
+        blockList = world:LoS( AttackerStruct.Char.pos, Defender.Char.pos )
+        if blockList ~= nil then
+            return false;
+        end
+    end
+    if (distance == 1 and AttackerStruct.AttackKind == 4) then
+        return false;
+    end
     if AttackerStruct.IsWeapon then
         return (distance <= AttackerStruct.Weapon.Range);
     end;
