@@ -73,8 +73,8 @@ itemShoes = 53
 -- 10% Wands: 323, 2782, 2783, 2784, 2785
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Lothar Piero the timber merchant. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lothar Piero der Holzhändler. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Lothar Piero the timber merchant. Keyphrases: Hello, profession, poetry, Pennymill, Archmage Morgan.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lothar Piero der Holzhändler. Schlüsselwörter: Hallo, Beruf, Poesie, Pfennigmühle, Erzmagier Morgan.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "May Oldra bless you. Do you need... wood?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
@@ -141,21 +141,19 @@ itemShoes = 53
 "salkama", english -> "Salkamar, you flourishing garden of mankind! If only all humans could live like the paladins of Salkamar."
 "salkama" -> "Salkamar, du blühender Garten des Menschenvolkes! Würden sich doch alle Menschen besinnen und leben wie die Paladine Salkamars."
 
--- BIS HIER
-
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"god" -> "Hail Oldra and Elara. May they protect us from all evil from Galmair or Cadomyr."
 "Gott", "Götter" -> "Gepriesen sein Oldra und Elara. Mögen sie uns vor den Übeln aus Galmair und Cadomyr bewahren."
-"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elara", english -> "O Elara, guide archmage Morgan, for he may take the wisest step next."
 "Elara" -> "Elara, leite Erzmagier Morgan, damit er die weisesten Entscheidungen treffen mag."
-"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Oldra" -> "Oldra, ich danke für das Holz, deiner Bäume, die meine Schilder so stark und die Instrumente so wohlklingend machen."
+"Oldra", english -> "Oldra, I thank thee for my wood, for the trees and for all what is made from them."
+"Oldra" -> "Oldra, ich danke für das Holz deiner Bäume, die meine Schilder so stark und die Instrumente so wohlklingend machen."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Staffs, pipes, bolts, Lothar has it all.", "Are you a carpenter? Then you came to the right place.", "Tall elves, small halflings, everyone buys his wood at Lothar's."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Stäbe, Pfeifen, Bolzen, bei Lothar werdet's ihr finden, solang es ist aus Holzen.", "Seid ihr Schreiner? Lasst Euch sagen, bei mir hat es Euch an den rechten Ort verschlagen.", "Ob großer Elf, ob Halbling ganz klein, bei Lothar kauft jeder sein Hölzchen ein."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "Ich liebe die Poesie. All zu gern lass ich mich davon betören. Liebt ihr die schönen Künste so sehr wie ich?", "Meine Heimat liegt in Pfennigmühle. Kennt Ihr meine Heimat?", "Ich finde es im Allgemeinen sehr annehmlich, zusammen mit dem schönen Volk, Runewick zu bewohnen. Immerzu ungiebt uns alle, eine betörende und fantastische Magie, die ich nicht missen mag."
+"tell something" -> "I love poetry. I really enjoy it, perhaps you feel likewise?", "My home is Pennymill, maybe you heard about it.", "I really adore sharing Runewick with the fair folk. Everywhere, you can feel this sparkling magic, I'd miss it elsewhere."
+"erzähl was", "erzähl etwas" -> "Ich liebe die Poesie. All zu gern lass ich mich davon betören. Liebt ihr die schönen Künste so sehr wie ich?", "Meine Heimat liegt in Pfennigmühle. Vielleicht kennt Ihr meine Heimat.", "Ich finde es im Allgemeinen sehr annehmlich, zusammen mit dem schönen Volk Runewick zu bewohnen. Immerzu ungiebt uns alle eine betörende und fantastische Magie, die ich nicht missen mag."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Lothar", "Piero", english -> "Hiho! What goods may I offer to you?"
