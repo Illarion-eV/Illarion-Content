@@ -6,7 +6,7 @@ module("item.id_2_flour", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
-    ScriptVars:set("test","Martin");
+    --ScriptVars:set("test","Martin");
     isThere, value = ScriptVars:find("test");
     if isThere then
         User:inform("sv = "..value);
