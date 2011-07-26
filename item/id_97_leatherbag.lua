@@ -24,9 +24,9 @@ end
 
 function UseItem( User, Item, TargetItem, Counter, Param )
     local itemType = Item:getType()
-    if (itemType == ScriptItem.field)
-    or (itemType == ScriptItem.inventory)
-    or (itemType == ScriptItem.belt) then
+    if (itemType == scriptItem.field)
+    or (itemType == scriptItem.inventory)
+    or (itemType == scriptItem.belt) then
         local lastText = User.lastSpokenText
         if lastText == "!bag" then
             Item:setData(BAG_LABEL_KEY, "")
