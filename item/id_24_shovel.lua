@@ -105,7 +105,7 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
     if not base.common.IsLookingAt( User, TargetPos ) then
         base.common.TurnTo( User, TargetPos );
     end
-    if not LocationCheck(TargetPos,GroundType) then
+    if not LocationCheck(TargetPos,GroundType, User) then
         if ( GroundType == gt.sand ) then
             base.common.InformNLS( User,
             "Der Wind hat hier allen Sand fortgeweht.",
@@ -199,7 +199,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	UseShovelWithField( User, SourceItem, base.common.GetFrontPosition( User ), ltstate );
 end
 
-function LocationCheck(TargetPos,DigginType)
+function LocationCheck(TargetPos,DigginType, User)
     local gt = base.common.GroundType;
 	if (DigginType == gt.sand) then
 		-- check for a nearby stone
@@ -223,7 +223,7 @@ function LocationCheck(TargetPos,DigginType)
         for Xoff=-1, 1 do
             for Yoff=-1, 1 do
                 testPos=position( TargetPos.x+Xoff, TargetPos.y+Yoff, TargetPos.z );
-				if ( base.common.GetGroundType(world:getField(TargetPos)) == gt.water ) then
+				if ( base.common.GetGroundType(world:getField(testPos)) == gt.water ) then
 					return true;
                 end
             end
