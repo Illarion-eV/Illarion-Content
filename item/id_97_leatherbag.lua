@@ -4,7 +4,7 @@ module("item.id_97_leatherbag", package.seeall)
 
 BAG_LABEL_KEY = "bagLabel"
 BAG_LABEL_COMMAND = "!bag"
-MAX_LABEL_LENGTH = 30
+MAX_LABEL_LENGTH = 100
 
 function LookAtItem(User,Item)
     local description
