@@ -56,12 +56,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			base.common.InformNLS(User, "Du kannst nichts mehr halten!", "You can't carry anymore!");
 			return false
 		end
-		--User:learn(2, "peasantry", 2, 100);
-		--Replace with new learn function, see learn.lua 
-	else
-		--User:learn(2, "peasantry", 1, 100);
-		--Replace with new learn function, see learn.lua 
 	end
+	User:learn( honeygathering.LeadSkill, honeygathering.LeadSkillGroup, honeygathering.Movepoints, 100, User:increaseAttrib(honeygathering.LeadAttribute,0) );
 	
 	User:startAction(honeygathering:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
 end

@@ -200,7 +200,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 end
 
 function LocationCheck(TargetPos,DigginType, User)
-    local gt = base.common.GroundType;
+	local gt = base.common.GroundType;
 	if (DigginType == gt.sand) then
 		-- check for a nearby stone
         local testPos;
@@ -223,7 +223,7 @@ function LocationCheck(TargetPos,DigginType, User)
         for Xoff=-1, 1 do
             for Yoff=-1, 1 do
                 testPos=position( TargetPos.x+Xoff, TargetPos.y+Yoff, TargetPos.z );
-				if ( base.common.GetGroundType(world:getField(testPos)) == gt.water ) then
+				if ( base.common.GetGroundType(world:getField(testPos):tile()) == gt.water ) then
 					return true;
                 end
             end
