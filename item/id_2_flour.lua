@@ -10,7 +10,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
     if list ~= nil then
         for key, value in pairs(list) do
-            User:inform(" test : "..key);
+            User:inform(" test : "..value.TYPE);
         end
     end
 
