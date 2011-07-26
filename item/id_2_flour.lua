@@ -6,7 +6,7 @@ module("item.id_2_flour", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
-    list=World:LoS(User.pos,position(User.pos.x+5,User.pos.y,User.pos.z));
+    list=world:LoS(User.pos,position(User.pos.x+5,User.pos.y,User.pos.z));
 
     if list ~= nil then
         for key, value in pairs(list) do
