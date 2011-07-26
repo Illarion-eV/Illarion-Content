@@ -308,9 +308,6 @@ function ChanceToHit(Attacker, Defender)
         chance = chance * chanceMod / 100;
         Attacker.Char:inform("Chance to hit: "..chance);
     end;
-    return (distance <= 1 );
-        
-    end
     return base.common.Chance(chance);
 end;
 
