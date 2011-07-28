@@ -112,9 +112,10 @@ end -- function
 
 function CharacterOnField(User)
     base.common.InformNLS( User,
-      "Du fühlst Schmerzen vom brennenden Feuer.",
-      "You can feel the pain from the burning fire." );
-    if not (User:getQuestProgress(2) > 0) and not (User:increaseAttrib("hitpoints",0) < 2000) then
+      "Du fühlst die aufsteigende Hitze des Feuers.",
+      "You feel the heat of the fire." );
+	--Damage from campfires is annoying and abuseable; deactivated.  
+    --[[if not (User:getQuestProgress(2) > 0) and not (User:increaseAttrib("hitpoints",0) < 2000) then
 		User:increaseAttrib("hitpoints",-math.random(200,400));
-	end
+	end]]
 end
