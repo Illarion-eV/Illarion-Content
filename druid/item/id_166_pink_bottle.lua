@@ -14,14 +14,14 @@ attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitud
 
 
 
-function DrinkPotion(Character,SourceItem)
+function DrinkPotion(User,SourceItem)
      
 		
-	local dataZList = druid.base.alchemy.SplitBottleData(Character,SourceItem.data);
-	druid.base.alchemy.generateTasteMessage(Character,dataZList);
+	local dataZList = druid.base.alchemy.SplitBottleData(User,SourceItem.data);
+	druid.base.alchemy.generateTasteMessage(User,dataZList);
 
-	if (druid.base.alchemy.checkPotionSpam(Character)) then
-		base.common.TempInformNLS(Character,
+	if (druid.base.alchemy.checkPotionSpam(User)) then
+		base.common.TempInformNLS(User,
 			"Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass sie vorrübergehend ihre Wirkung nicht mehr entfalten.",
 			"Due to excessive drinking of potions they seem to have temporarily no effect on you.");
 	else
@@ -47,7 +47,7 @@ function DrinkPotion(Character,SourceItem)
 		User.movepoints=User.movepoints-20;
 	end
 	
-	world:makeSound(12,Character.pos);
+	world:makeSound(12,User.pos);
 	
 	-- BEGIN: has nothing to do with the DS
     if SourceItem.data == 75357464 and User.effects:find(28) then
@@ -175,13 +175,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 		--end
     --else
 		-- drink self
-		DrinkPotion(Character, SourceItem);
+		DrinkPotion(User, SourceItem);
 	--end
 	
 	world:erase(SourceItem,1);
 
     if( math.random( 20 ) <= 1 ) then
-        base.common.TempInformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
+        base.common.TempInformNLS( User, "Die Flasche zerbricht.", "The bottle breaks.");
     else
         User:createItem( 164, 1, 333,0);
     end
