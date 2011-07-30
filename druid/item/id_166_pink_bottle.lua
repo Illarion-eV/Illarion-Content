@@ -38,31 +38,31 @@ function DrinkPotion(Character,SourceItem)
 			local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
 			--Character:inform(""..Val)
 			if ( attribList[i] == "poisonvalue" ) then
-				Val = base.common.Limit( (Character:getPoisonValue() + Val) , 0, 10000 ); 
-				Character:setPoisonValue( Val );
+				Val = base.common.Limit( (User:getPoisonValue() + Val) , 0, 10000 ); 
+				User:setPoisonValue( Val );
 				--Character:increasePoisonValue( Val );
 			elseif ( attribList[i] == "mental capacity" ) then
-				Val = base.common.Limit( (Character:getMentalCapacity() + Val) , 0, 2400 ); 
-				Character:setMentalCapacity( Val );
+				Val = base.common.Limit( (User:getMentalCapacity() + Val) , 0, 2400 ); 
+				User:setMentalCapacity( Val );
 			elseif ( attribList[i] == "hitpoints" ) then
-				Character:LTIncreaseHP(Val / 5, 5, 5);
+				User:LTIncreaseHP(Val / 5, 5, 5);
 			elseif ( attribList[i] == "mana" ) then
-				Character:LTIncreaseMana(Val / 5, 5, 1000);
+				User:LTIncreaseMana(Val / 5, 5, 1000);
 			else
-				Character:increaseAttrib(attribList[i],Val);
+				User:increaseAttrib(attribList[i],Val);
 			end
 		end
-		Character.movepoints=Character.movepoints-20;
+		User.movepoints=User.movepoints-20;
 	end
 	
 	world:makeSound(12,Character.pos);
 	
 	-- BEGIN: has nothing to do with the DS
-    if SourceItem.data == 75357464 and Character.effects:find(28) then
-        Character.effects:removeEffect(28);
+    if SourceItem.data == 75357464 and User.effects:find(28) then
+        User.effects:removeEffect(28);
         return;
-    elseif SourceItem.data == 75676578 and Character.effects:find(29) then
-        Character.effects:removeEffect(29);
+    elseif SourceItem.data == 75676578 and User.effects:find(29) then
+        User.effects:removeEffect(29);
         return;
     end
 	-- END
@@ -144,20 +144,20 @@ function PoisonCharacter(User,SourceItem,Character)
 	return false;
 end
 
-function UseItem(User,Character,SourceItem,TargetItem,Counter,Param, ltstate)
+function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
      if druid.base.alchemy.CheckIfQuillInHand(User) then 
 	    return;
      end
     
 	if (ltstate == Action.abort) then
-        Character:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
-        Character:talkLanguage(Character.say, Player.english, "#me spills the potion.");
+        User:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
+        User:talkLanguage(Character.say, Player.english, "#me spills the potion.");
         world:erase(SourceItem,1);
         -- Chance for a new bottle 19/20
         if(math.random(20) == 1) then
             base.common.TempInformNLS(Character, "Die Flasche zerbricht.", "The bottle breaks.");
         else
-            Character:createItem(164, 1, 333, 0);
+            User:createItem(164, 1, 333, 0);
         end
         return
     end
@@ -183,9 +183,9 @@ function UseItem(User,Character,SourceItem,TargetItem,Counter,Param, ltstate)
 				return;
 			end
 		else
-			Character:startAction(20,0,0,12,25);
-			Character:talkLanguage(Character.say, Player.german, "#me beginnt einen Trank zu trinken.");
-			Character:talkLanguage(Character.say, Player.english, "#me starts to drink a potion.");
+			User:startAction(20,0,0,12,25);
+			User:talkLanguage(Character.say, Player.german, "#me beginnt einen Trank zu trinken.");
+			User:talkLanguage(Character.say, Player.english, "#me starts to drink a potion.");
 			return;
 		end
     else
@@ -198,7 +198,7 @@ function UseItem(User,Character,SourceItem,TargetItem,Counter,Param, ltstate)
     if( math.random( 20 ) <= 1 ) then
         base.common.TempInformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
     else
-        Character:createItem( 164, 1, 333,0);
+        User:createItem( 164, 1, 333,0);
     end
 end
 
