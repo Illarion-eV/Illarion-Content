@@ -10,6 +10,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     
     local callback = function(dialog)
         User:inform("Input: "..dialog:getInput())
+        a()
     end
     local inputDialog = InputDialog("Enter something cool!", true, 0, callback)
     User:requestInputDialog(inputDialog)
