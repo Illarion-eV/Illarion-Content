@@ -3,39 +3,13 @@
 module("test.vilarion", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
-    if User.id ~= 64 then
-        User:inform("e-Vil says: You are not allowed to use this!");
-        return;
-    end;
-
-    -- User:inform("ID: "..SourceItem.id.."; Quality: "..SourceItem.quality.."; Data: "..SourceItem.data);
-
-    local item = User:getItemAt(Character.belt_pos_1)
-    local value = item:getData("test")
-    User:inform("belt1: id: " .. item.id .. ", data.test: " .. value)
-    item = User:getItemAt(Character.belt_pos_2)
-    value = item:getData("test")
-    User:inform("belt2: id: " .. item.id .. ", data.test: " .. value)
-    --local value = SourceItem:getData( "test" );
-    --User:inform( "old value: "..value );
-    --SourceItem:setData( "test", User.lastSpokenText );
-    --world:changeItem(SourceItem);
-    --value = SourceItem:getData( "test" );
-    --User:inform( "new value: "..value );
-
-    --User:eraseItem(2640,1);
-
-    -- User:inform("- before -");
-    -- world:erase( it, 1 );
-    -- debug( "Testing debug(...)" );
-    -- User:inform("- after -");
-
-    -- world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
-    -- e = LongTimeEffect( 777, 30 );
-    -- User.effects:addEffect( e );
+    --if User.id ~= 64 then
+    --    User:inform("e-Vil says: You are not allowed to use this!");
+    --    return;
+    --end;
     
-    -- User:increaseMentalCapacity( 100 );
-
+    local inputDialog = InputDialog("Enter something cool!", true, 0)
+    User:requestInputDialog(inputDialog)
 end
 
 function useNPC(User,counter,param)

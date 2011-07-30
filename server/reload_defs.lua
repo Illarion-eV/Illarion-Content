@@ -191,7 +191,9 @@ end
 
 
 function initTreasureChests()
-	AddTreasureChest(8,1,-73,-100,0);
+	--This tile does not exist!
+	--AddTreasureChest(8,1,-73,-100,0);
+	AddTreasureChest(8,1,3,3,0);
 end
 
 --[[
