@@ -163,14 +163,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
     end
 
     if User.attackmode then
-        base.common.TempInformNLS(Character,
+        base.common.TempInformNLS(User,
 			"Du kannst den Trank nicht benutzen während du kämpfst.",
 			"You can't use the potion while you are fighting.");
 		return;
 	end
 	
 	if not base.common.IsItemInHands(SourceItem) then
-		base.common.TempInformNLS(Character,
+		base.common.TempInformNLS(User,
 			"Du musst die Flasche in die Hand nehmen.",
 			"You have to take the bottle in your hand.");
 		return;
