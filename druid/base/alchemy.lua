@@ -399,7 +399,7 @@ function IsBottleAlreadyInfected(dataZList)
 	return infect
 end
 -- --------------------------------------------------------------------------------
-function generateTasteMessage(character,dataZList)
+function generateTasteMessage(Character,dataZList)
     local textDe = "Der Trank schmeckt ";
 	local textEn = "The potion tastes ";
     local anyTaste = false;
@@ -441,7 +441,7 @@ function generateTasteMessage(character,dataZList)
 		textEn = string.sub(textEn, 0, -3);
         textEn = textEn..".";
     end
-    base.common.TempInformNLS(character,textDe,textEn);
+    base.common.TempInformNLS(Character,textDe,textEn);
 end
 
 function ds_skillgain(User)
