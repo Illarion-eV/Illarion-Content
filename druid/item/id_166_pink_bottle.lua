@@ -12,18 +12,10 @@ topBorder = {7000      ,100          ,50000      ,100   ,10000        ,9000     
 attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitude","mental capacity","mana"};
 
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-     if not druid.base.alchemy.ChekIfQuillInHand(User) then
-           return;
-        end
-SourceItem:setValue(1,User.lastSpokenText);
-User:talk(Character.say,"Ich setze auf: "..User.lastSpokenText);
-end	
+
 
 function DrinkPotion(Character,SourceItem)
-     if druid.base.alchemy.CheckIfQuillInHand(User) then 
-	    return;
-     end
+     
 		
 	local dataZList = druid.base.alchemy.SplitBottleData(Character,SourceItem.data);
 	druid.base.alchemy.generateTasteMessage(Character,dataZList);
@@ -71,9 +63,7 @@ end
 -- TODO: implement poisoning of items (also in food script)
 -- @return true if poisoning was successful
 function PoisonItem(Character,SourceItem,TargetItem)
-     if druid.base.alchemy.CheckIfQuillInHand(User) then 
-	    return;
-     end
+     
 
 -- Vergiften von Items
 -- Liste der vergiftbaren Items
@@ -97,9 +87,7 @@ end
 
 -- @return true if potion has been used
 function PoisonCharacter(User,SourceItem,Character)
-	if druid.base.alchemy.CheckIfQuillInHand(User) then 
-	    return;
-     end
+	
 	
 	if User.id == Character.id then
 		return false;
@@ -145,22 +133,20 @@ function PoisonCharacter(User,SourceItem,Character)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
-     if druid.base.alchemy.CheckIfQuillInHand(User) then 
-	    return;
-     end
     
-	if (ltstate == Action.abort) then
-        User:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
-        User:talkLanguage(Character.say, Player.english, "#me spills the potion.");
-        world:erase(SourceItem,1);
+    
+	--if (ltstate == Action.abort) then
+       -- User:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
+        --User:talkLanguage(Character.say, Player.english, "#me spills the potion.");
+        --world:erase(SourceItem,1);
         -- Chance for a new bottle 19/20
-        if(math.random(20) == 1) then
-            base.common.TempInformNLS(Character, "Die Flasche zerbricht.", "The bottle breaks.");
-        else
-            User:createItem(164, 1, 333, 0);
-        end
-        return
-    end
+        --if(math.random(20) == 1) then
+           -- base.common.TempInformNLS(Character, "Die Flasche zerbricht.", "The bottle breaks.");
+        --else
+            --User:createItem(164, 1, 333, 0);
+        --end
+        --return
+    --end
 
     if User.attackmode then
         base.common.TempInformNLS(User,
@@ -176,22 +162,22 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 		return;
 	end
 	
-    if (ltstate == Action.none) then
-		local frontChar = base.common.GetFrontCharacter(Character);
-		if frontChar then
-			if not PoisonCharacter(Character, SourceItem, frontChar) then
-				return;
-			end
-		else
-			User:startAction(20,0,0,12,25);
-			User:talkLanguage(Character.say, Player.german, "#me beginnt einen Trank zu trinken.");
-			User:talkLanguage(Character.say, Player.english, "#me starts to drink a potion.");
-			return;
-		end
-    else
+    --if (ltstate == Action.none) then
+		--local frontChar = base.common.GetFrontCharacter(Character);
+		--if frontChar then
+			--if not PoisonCharacter(Character, SourceItem, frontChar) then
+				--return;
+			--end
+		--else
+			--User:startAction(20,0,0,12,25);
+			--User:talkLanguage(Character.say, Player.german, "#me beginnt einen Trank zu trinken.");
+			--User:talkLanguage(Character.say, Player.english, "#me starts to drink a potion.");
+			--return;
+		--end
+    --else
 		-- drink self
 		DrinkPotion(Character, SourceItem);
-	end
+	--end
 	
 	world:erase(SourceItem,1);
 
