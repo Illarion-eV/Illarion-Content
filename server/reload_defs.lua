@@ -191,7 +191,7 @@ end
 
 
 function initTreasureChests()
-	AddTreasureChest(8,1,-73,-100,0);
+	--AddTreasureChest(8,1,-73,-100,0);
 end
 
 --[[
