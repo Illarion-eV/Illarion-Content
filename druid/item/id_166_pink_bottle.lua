@@ -133,8 +133,7 @@ function PoisonCharacter(User,SourceItem,Character)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
-    
-    
+
 	--if (ltstate == Action.abort) then
        -- User:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
         --User:talkLanguage(Character.say, Player.english, "#me spills the potion.");
