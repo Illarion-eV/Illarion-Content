@@ -3,11 +3,11 @@
 module("test.vilarion", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
-    if User.id ~= 64 then
-        User:inform("e-Vil says: You are not allowed to use this!");
-        return;
-    end;
-
+    --if User.id ~= 64 then
+    --    User:inform("e-Vil says: You are not allowed to use this!");
+    --    return;
+    --end;
+    
     local inputDialog = InputDialog("Enter something cool!", true, 0)
     User:requestInputDialog(inputDialog)
 end
