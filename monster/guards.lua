@@ -2,6 +2,7 @@ module("monster.guards", package.seeall)
 
 -- Set clothes, weapons, hair/beard, colors
 function onSpawn(Guard)
+    Guard:increaseSkill(1,"human language",100);
     Guard:increaseSkill(1,"common language",100);
     Guard:talk(Character.say, "This is my script!");
 end
@@ -9,12 +10,12 @@ end
 -- Check if the enemy should be attacked, return true (did something) or false (nothing),
 -- not called if enemy is in attack range
 function enemyNear(Guard,Enemy)
-
     return false;
 end
 
+-- 6,9  16,14  27,3  30,13  20,15
 
--- Who should be attacked, return index of char in candList; return 0 to ignore completely.
+-- Who should be attacked, return index of char in candList; return 0 to ignore everyone completely.
 function setTarget(Guard, candList)
     for key,target in pairs(candList) do                      -- search list for someone
         target:inform("now checking...");
@@ -42,8 +43,10 @@ function setTarget(Guard, candList)
 end
 
 
-function enemyOnSight(Guard,Enemy)
 
+
+function enemyOnSight(Guard,Enemy)
+    return false;
 end
 
 
@@ -60,6 +63,7 @@ end
 
 
 -- if someone is talking to you, stand still and talk back (a little)
+-- also check if the character should be attacked!
 function receiveText(Guard, type, text, originator)
 
 end
