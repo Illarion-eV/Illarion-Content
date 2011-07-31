@@ -116,8 +116,10 @@ end
 
 
 function abortRoute(Guard)
+Guard:talk(Character.say,"ABORTING ROUTE NOW!");
     restList=Guard.waypoints:getWaypoints();
     if restList==nil then
+        Guard:talk(Character.say,"no more WP!");
         WPList={position(6,9,0), 
             position(16,14,0),
             position(27,3,0),
@@ -126,6 +128,7 @@ function abortRoute(Guard)
         Guard.waypoints:addFromList(WPList);
         Guard:setOnRoute(true);
     end
+    Guard:talk(Character.say,"my list has now this number of entries: "..# Guard.waypoints:getWaypoints());
 end
 
 
