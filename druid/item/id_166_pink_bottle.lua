@@ -28,7 +28,7 @@ function DrinkPotion(User,SourceItem)
 		for i=1,8 do
 			--Trankwirkung
 			local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
-			--User:inform(""..Val)
+			User:inform(""..Val)
 			if ( attribList[i] == "hitpointsOT" ) then
 			    hitpointsOT = (Val * 1.25) / 5;
 			elseif ( attribList[i] == "poisonvalueOT" ) then
@@ -42,7 +42,8 @@ function DrinkPotion(User,SourceItem)
 				User:setPoisonValue( Val );
 			else
 			    User:increaseAttrib(attribList[i],Val);
-	        end
+	            User:inform("tata!")
+			end
 	      end  
 	 	
           
