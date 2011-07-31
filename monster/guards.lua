@@ -10,7 +10,7 @@ end
 -- not called if enemy is in attack range
 function enemyNear(Guard,Enemy)
 
-    return true;
+    return false;
 end
 
 
