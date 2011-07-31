@@ -9,7 +9,7 @@ module("druid.item.id_166_pink_bottle", package.seeall)
 
 bottomBorder = 2;
 topBorder = {7000         ,50000      ,10000          ,7000  ,7000    ,10000        ,50000        ,7000}
-attribList ={"hitpointsOT","foodlevel","poisonvalueOT","mana","manaOT","poisonvalue","foodlevelOT","mana"};
+attribList ={"hitpointsOT","foodlevel","poisonvalueOT","mana","manaOT","poisonvalue","foodlevelOT","hitpoints"};
 
 
 
