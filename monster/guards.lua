@@ -6,17 +6,28 @@ function initGuard(Guard)
     Guard:increaseSkill(1,"common language",100);
     Guard:talk(Character.say, "This is my script!");
     
+    -- no more bad hair day!
     Guard:setHair(2);
     Guard:setBeard(1);
     Guard:setHairColor(30,30,30);
     
+    -- put on some clothes:
     Guard:createAtPos(Character.head,16,1);
     Guard:createAtPos(Character.coat,368,1); ---193 blue
     Guard:createAtPos(Character.breast,2393,1);
     Guard:createAtPos(Character.feet,771,1);
     Guard:createAtPos(Character.legs,461,1);
     Guard:createAtPos(Character.right_tool,2723,1);
-    
+   
+    -- manage the route to walk:
+    WPList={position(6,9,0), 
+            position(16,14,0),
+            position(27,3,0),
+            position(30,13,0),
+            position(20,15,0)};
+    Monster.waypoints:addFromList(WPList);
+    Monster:setOnRoute(true);
+
     isEnemy={};
     
 end
@@ -47,22 +58,8 @@ function setTarget(Guard, candList)
             target:inform("gotcha");
             return key;
         end
-    end
-    
---[[
-    myTar:inform("check done");
-    if (firstWP==nil) then                          -- if there was noone found
-        monsterPos=Monster.pos;                                 -- let the monster have WP
-        targetPos=position(monsterPos.x+10,monsterPos.y+10,monsterPos.z);
-        WPList={targetPos,monsterPos,targetPos,monsterPos};
-        Monster.waypoints:addFromList(WPList);
-        Monster:setOnRoute(true);
-        firstWP=1;
-        myTar:inform("habe firstWP in setTarget gesetzt!");
-    end
---]]
-    
-    return 0;
+    end    
+    return 0;       -- don't attack anyone.
 end
 
 
