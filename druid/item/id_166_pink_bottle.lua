@@ -28,7 +28,7 @@ function DrinkPotion(User,SourceItem)
 		for i=1,8 do
 			--Trankwirkung
 			local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
-			--Character:inform(""..Val)
+			--User:inform(""..Val)
 			if ( attribList[i] == "hitpointsOT" ) then
 			    hitpointsOT = (Val * 1.25) / 5;
 			elseif ( attribList[i] == "poisonvalueOT" ) then
@@ -41,12 +41,12 @@ function DrinkPotion(User,SourceItem)
 				Val = base.common.Limit( (User:getPoisonValue() + Val) , 0, 10000 ); 
 				User:setPoisonValue( Val );
 			else
-			    Character:increaseAttrib(attribList[i],Val);
+			    User:increaseAttrib(attribList[i],Val);
 	        end
 	      end  
 	 	
           
-		Character.movepoints=Character.movepoints-20;
+		User.movepoints=User.movepoints-20;
 	    world:makeSound(12,User.pos);
 	
 	    --find, myEffect = User.effects:find(XXX) -- don't forget to fill in the effect ID!!!
