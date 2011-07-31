@@ -46,7 +46,7 @@ end
 
 
 function enemyOnSight(Guard,Enemy)
-    return false;
+    --return false;
 end
 
 
