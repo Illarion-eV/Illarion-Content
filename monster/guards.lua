@@ -11,6 +11,10 @@ function initGuard(Guard)
     Guard:setHairColor(30,30,30);
     
     Guard:createAtPos(Character.head,16,1);
+    Guard:createAtPos(Character.coat,368,1); ---193 blue
+    Guard:createAtPos(Character.breast,2393,1);
+    Guard:createAtPos(Character.feet,771,1);
+    Guard:createAtPos(Character.legs,461,1);
     
     
     isEnemy={};
