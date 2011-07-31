@@ -50,26 +50,26 @@ function DrinkPotion(User,SourceItem)
 		User.movepoints=User.movepoints-20;
 	    world:makeSound(12,User.pos);
 	
-	    --find, myEffect = User.effects:find(XXX) -- don't forget to fill in the effect ID!!!
+	    find, myEffect = User.effects:find(166) -- don't forget to fill in the effect ID!!!
 
-        --if not find then
-	       --myEffect=LongTimeEffect(XXX,1); 
-	      -- User.effects:addEffect(myEffect); -- create the effect
+        if not find then
+	       myEffect=LongTimeEffect(166,1); 
+	       User.effects:addEffect(myEffect); -- create the effect
 	   
-	     -- if not find then  -- security check 
-	      --   User:inform("An error occured, inform a developer.");
-	      --   return;
-	      -- end  
-	  -- end
-       -- no we add the values
-	  -- myEffect:addValue("hitpointsIncrease",hitpointsOT)
-      -- myEffect:addValue("manaIncrease",manaOT)
-	  -- myEffect:addValue("foodlevelIncrease",foodlevelOT)
-	  -- myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
-	  -- myEffect:addValue("counter",5)	   
+	     if not find then  -- security check 
+	         User:inform("An error occured, inform a developer.");
+	         return;
+	       end  
+	   end
+        -- no we add the values
+	   myEffect:addValue("hitpointsIncrease",hitpointsOT)
+       myEffect:addValue("manaIncrease",manaOT)
+	   myEffect:addValue("foodlevelIncrease",foodlevelOT)
+	   myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
+	   myEffect:addValue("counter",5)	   
 	
-   --end
-end
+   end
+
    
 	
 	
