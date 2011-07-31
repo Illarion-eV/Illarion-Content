@@ -118,7 +118,7 @@ end
 function abortRoute(Guard)
 Guard:talk(Character.say,"ABORTING ROUTE NOW!");
     restList=Guard.waypoints:getWaypoints();
-    if (# restList==0 then
+    if (# restList==0) then
         Guard:talk(Character.say,"no more WP!");
         WPList={position(6,9,0), 
             position(16,14,0),
