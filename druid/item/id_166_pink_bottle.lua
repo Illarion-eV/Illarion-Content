@@ -8,8 +8,8 @@ module("druid.item.id_166_pink_bottle", package.seeall)
 -- UPDATE common SET com_script='druid.item.id_166_pink_bottle' WHERE com_itemid = 166;
 
 bottomBorder = 2;
-topBorder = {7000      ,100          ,50000      ,100   ,10000        ,9000      ,800             ,7000}
-attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitude","mental capacity","mana"};
+topBorder = {7000         ,50000      ,10000          ,7000  ,7000    ,10000        ,50000        ,7000}
+attribList ={"hitpointsOT","foodlevel","poisonvalueOT","mana","manaOT","poisonvalue","foodlevelOT","mana"};
 
 
 
@@ -20,45 +20,62 @@ function DrinkPotion(User,SourceItem)
 	local dataZList = druid.base.alchemy.SplitBottleData(User,SourceItem.data);
 	druid.base.alchemy.generateTasteMessage(User,dataZList);
 
-	if (druid.base.alchemy.checkPotionSpam(User)) then
-		base.common.TempInformNLS(User,
-			"Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass sie vorrübergehend ihre Wirkung nicht mehr entfalten.",
-			"Due to excessive drinking of potions they seem to have temporarily no effect on you.");
-	else
+	--if (druid.base.alchemy.checkPotionSpam(User)) then
+		--base.common.TempInformNLS(User,
+			--"Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass sie vorrübergehend ihre Wirkung nicht mehr entfalten.",
+			--"Due to excessive drinking of potions they seem to have temporarily no effect on you.");
+	--else
 		for i=1,8 do
 			--Trankwirkung
 			local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
-			--Character:inform(""..Val)
-			if ( attribList[i] == "poisonvalue" ) then
+			User:inform(""..Val)
+			if ( attribList[i] == "hitpointsOT" ) then
+			    hitpointsOT = (Val * 1.25) / 5;
+			elseif ( attribList[i] == "poisonvalueOT" ) then
+			       poisonvalueOT = (Val * 1.25) / 5;
+			elseif ( attribList[i] == "manaOT" ) then
+			       manaOT = (Val * 1.25) / 5;
+            elseif ( attribList[i] == "foodlevelOT" ) then     			
+			       foodlevelOT = (Val * 1.25) / 5;
+			elseif ( attribList[i] == "poisonvalue" ) then
 				Val = base.common.Limit( (User:getPoisonValue() + Val) , 0, 10000 ); 
 				User:setPoisonValue( Val );
-				--Character:increasePoisonValue( Val );
-			elseif ( attribList[i] == "mental capacity" ) then
-				Val = base.common.Limit( (User:getMentalCapacity() + Val) , 0, 2400 ); 
-				User:setMentalCapacity( Val );
-			elseif ( attribList[i] == "hitpoints" ) then
-				User:LTIncreaseHP(Val / 5, 5, 5);
-			elseif ( attribList[i] == "mana" ) then
-				User:LTIncreaseMana(Val / 5, 5, 1000);
 			else
-				User:increaseAttrib(attribList[i],Val);
+			    User:increaseAttrib(attribList[i],Val);
+	            User:inform("tata!")
 			end
-		end
+	      end  
+	 	
+          
 		User.movepoints=User.movepoints-20;
-	end
+	    world:makeSound(12,User.pos);
 	
-	world:makeSound(12,User.pos);
+	    --find, myEffect = User.effects:find(XXX) -- don't forget to fill in the effect ID!!!
+
+        --if not find then
+	       --myEffect=LongTimeEffect(XXX,1); 
+	      -- User.effects:addEffect(myEffect); -- create the effect
+	   
+	     -- if not find then  -- security check 
+	      --   User:inform("An error occured, inform a developer.");
+	      --   return;
+	      -- end  
+	  -- end
+       -- no we add the values
+	  -- myEffect:addValue("hitpointsIncrease",hitpointsOT)
+      -- myEffect:addValue("manaIncrease",manaOT)
+	  -- myEffect:addValue("foodlevelIncrease",foodlevelOT)
+	  -- myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
+	  -- myEffect:addValue("counter",5)	   
 	
-	-- BEGIN: has nothing to do with the DS
-    if SourceItem.data == 75357464 and User.effects:find(28) then
-        User.effects:removeEffect(28);
-        return;
-    elseif SourceItem.data == 75676578 and User.effects:find(29) then
-        User.effects:removeEffect(29);
-        return;
-    end
-	-- END
+   --end
 end
+   
+	
+	
+	
+	
+
 
 -- TODO: implement poisoning of items (also in food script)
 -- @return true if poisoning was successful
