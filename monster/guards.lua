@@ -64,7 +64,6 @@ end
 -- attack back, whoever it is
 function onAttacked(Guard,Enemy)
     isEnemy[Enemy.id]=1;
-    
 end
 
 
