@@ -31,7 +31,7 @@ function DrinkPotion(User,SourceItem)
 			--Character:inform(""..Val)
 			if ( attribList[i] == "hitpointsOT" ) then
 			    hitpointsOT = (Val * 1.25) / 5;
-			elseif attribList[i] == "poisonvalueOT" ) then
+			elseif ( attribList[i] == "poisonvalueOT" ) then
 			       poisonvalueOT = (Val * 1.25) / 5;
 			elseif ( attribList[i] == "manaOT" ) then
 			       manaOT = (Val * 1.25) / 5;
