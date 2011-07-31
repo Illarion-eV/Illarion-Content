@@ -15,7 +15,7 @@ function initGuard(Guard)
     Guard:createAtPos(Character.breast,2393,1);
     Guard:createAtPos(Character.feet,771,1);
     Guard:createAtPos(Character.legs,461,1);
-    
+    Guard:createAtPos(Character.right_tool,2723,1);
     
     isEnemy={};
     
