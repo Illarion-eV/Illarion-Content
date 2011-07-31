@@ -56,7 +56,8 @@ function DrinkPotion(User,SourceItem)
 	       myEffect=LongTimeEffect(166,1); 
 	       User.effects:addEffect(myEffect); -- create the effect
 	   
-	     if not find then  -- security check 
+	     find, myEffect = User.effects:find(166)
+		 if not find then  -- security check 
 	         User:inform("An error occured, inform a developer.");
 	         return;
 	       end  
