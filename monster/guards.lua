@@ -24,6 +24,7 @@ end
 -- 6,9  16,14  27,3  30,13  20,15
 
 -- Who should be attacked, return index of char in candList; return 0 to ignore everyone completely.
+-- ATM: 1) check if there's someone already on the enemylist, 2) then check for "sign"
 function setTarget(Guard, candList)
     for key,target in pairs(candList) do                      -- search list for someone
         target:inform("now checking...");
@@ -57,7 +58,7 @@ end
 
 
 function enemyOnSight(Guard,Enemy)
-    --return false;
+    return false;
 end
 
 
@@ -85,10 +86,13 @@ function receiveText(Guard, type, text, originator)
                     Guard:setOnRoute(false);
                 end
             end
-        elseif originator:getType()==1 and type==Character.yell then
+        elseif originator:getType()==1 and type==Character.yell then        -- Monster yells for help!
             text=string.lower(text);
-            if (string.find(text,"help") ~= nil) then
-                -- run to the corresponding guard!
+            if (string.find(text,"help") ~= nil) then          -- run to the corresponding guard!
+                if Guard:getOnRoute() then
+                    Guard:setOnRoute(false);
+                end
+                
                 Guard:talk(Character.yell, "I am coming!");
             end
         end
