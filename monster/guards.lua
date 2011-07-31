@@ -2,7 +2,8 @@ module("monster.guards", package.seeall)
 
 -- Set clothes, weapons, hair/beard, colors
 function onSpawn(Guard)
-
+    Guard:increaseSkill(1,"common language",100);
+    Guard:talk(Character.say, "This is my script!");
 end
 
 -- Check if the enemy should be attacked, return true (did something) or false (nothing),
