@@ -20,11 +20,11 @@ function DrinkPotion(User,SourceItem)
 	local dataZList = druid.base.alchemy.SplitBottleData(User,SourceItem.data);
 	druid.base.alchemy.generateTasteMessage(User,dataZList);
 
-	if (druid.base.alchemy.checkPotionSpam(User)) then
-		base.common.TempInformNLS(User,
-			"Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass sie vorrübergehend ihre Wirkung nicht mehr entfalten.",
-			"Due to excessive drinking of potions they seem to have temporarily no effect on you.");
-	else
+	--if (druid.base.alchemy.checkPotionSpam(User)) then
+		--base.common.TempInformNLS(User,
+			--"Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass sie vorrübergehend ihre Wirkung nicht mehr entfalten.",
+			--"Due to excessive drinking of potions they seem to have temporarily no effect on you.");
+	--else
 		for i=1,8 do
 			--Trankwirkung
 			local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
@@ -42,8 +42,9 @@ function DrinkPotion(User,SourceItem)
 				User:setPoisonValue( Val );
 			else
 			    Character:increaseAttrib(attribList[i],Val);
-	       end
-		end	
+	        end
+	      end  
+	 	
           
 		Character.movepoints=Character.movepoints-20;
 	    world:makeSound(12,User.pos);
@@ -66,7 +67,7 @@ function DrinkPotion(User,SourceItem)
 	  -- myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
 	  -- myEffect:addValue("counter",5)	   
 	
-   end
+   --end
 end
    
 	
