@@ -43,7 +43,7 @@ function DrinkPotion(User,SourceItem)
 			else
 			    Character:increaseAttrib(attribList[i],Val);
 	       end
-			
+		end	
           
 		Character.movepoints=Character.movepoints-20;
 	    world:makeSound(12,User.pos);
@@ -67,6 +67,7 @@ function DrinkPotion(User,SourceItem)
 	  -- myEffect:addValue("counter",5)	   
 	
    end
+end
    
 	
 	
