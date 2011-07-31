@@ -61,9 +61,10 @@ function enemyOnSight(Guard,Enemy)
 end
 
 
--- attack back, whoever it is
+-- attack back, whoever it is (set on isEnemy-List!)
 function onAttacked(Guard,Enemy)
     isEnemy[Enemy.id]=1;
+    Guard:talk(Character.yell, "I am under attack, help!");
 end
 
 
@@ -77,16 +78,19 @@ end
 -- also check if the character should be attacked!
 function receiveText(Guard, type, text, originator)
     -- check distance
-    if originator:getType()==0 then
-        if (Guard:distanceMetric(originator)<5) then
-            if Guard:getOnRoute() then
-                Guard:setOnRoute(false);
+    if originator.id ~= Guard.id then
+        if originator:getType()==0 then
+            if (Guard:distanceMetric(originator)<5) then
+                if Guard:getOnRoute() then
+                    Guard:setOnRoute(false);
+                end
             end
-        end
-    elseif originator:getType()==1 and type==Character.yell then
-        text=string.lower(text);
-        if (string.find(text,"help") ~= nil) then
-            -- run to the corresponding guard!
+        elseif originator:getType()==1 and type==Character.yell then
+            text=string.lower(text);
+            if (string.find(text,"help") ~= nil) then
+                -- run to the corresponding guard!
+                Guard:talk(Character.yell, "I am coming!");
+            end
         end
     end
 end
