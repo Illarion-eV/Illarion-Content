@@ -2,6 +2,8 @@ module("monster.guards", package.seeall)
 
 
 function initGuard(Guard)
+    Guard:setAttrib("agility",10);
+
     Guard:increaseSkill(1,"human language",100);
     Guard:increaseSkill(1,"common language",100);
     Guard:talk(Character.say, "This is my script!");
@@ -59,6 +61,11 @@ function setTarget(Guard, candList)
             return key;
         end
     end    
+    -- no targets any longer: go back on route:
+    
+    if Guard:getOnRoute()==false then
+        Guard:setOnRoute(true);
+    end
     return 0;       -- don't attack anyone.
 end
 
@@ -100,7 +107,7 @@ function receiveText(Guard, type, text, originator)
                 if Guard:getOnRoute() then
                     Guard:setOnRoute(false);
                 end
-                
+                -- use getStepList
                 Guard:talk(Character.yell, "I am coming!");
             end
         end
@@ -109,7 +116,16 @@ end
 
 
 function abortRoute(Guard)
-
+    restList=Guard.waypoints:getWaypoints();
+    if restList==nil then
+        WPList={position(6,9,0), 
+            position(16,14,0),
+            position(27,3,0),
+            position(30,13,0),
+            position(20,15,0)};
+        Guard.waypoints:addFromList(WPList);
+        Guard:setOnRoute(true);
+    end
 end
 
 
