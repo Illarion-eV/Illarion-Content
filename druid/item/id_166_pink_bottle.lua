@@ -36,7 +36,7 @@ function DrinkPotion(User,SourceItem)
 			elseif ( attribList[i] == "manaOT" ) then
 			       manaOT = (Val * 1.25) / 5;
             elseif ( attribList[i] == "foodlevelOT" ) then     			
-			       foodlevelOT = Val * 1.25) / 5;
+			       foodlevelOT = (Val * 1.25) / 5;
 			elseif ( attribList[i] == "poisonvalue" ) then
 				Val = base.common.Limit( (User:getPoisonValue() + Val) , 0, 10000 ); 
 				User:setPoisonValue( Val );
