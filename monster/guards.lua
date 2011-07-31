@@ -6,6 +6,13 @@ function initGuard(Guard)
     Guard:increaseSkill(1,"common language",100);
     Guard:talk(Character.say, "This is my script!");
     
+    Guard:setHair(2);
+    Guard:setBeard(1);
+    Guard:setHairColor(30,30,30);
+    
+    Guard:createAtPos(Character.head,16,1);
+    
+    
     isEnemy={};
     
 end
