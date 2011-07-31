@@ -8,8 +8,8 @@ module("druid.item.id_166_pink_bottle", package.seeall)
 -- UPDATE common SET com_script='druid.item.id_166_pink_bottle' WHERE com_itemid = 166;
 
 bottomBorder = 2;
-topBorder = {7000      ,100          ,50000      ,100   ,10000        ,9000      ,800             ,7000}
-attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitude","mental capacity","mana"};
+topBorder = {7000         ,50000      ,10000          ,7000  ,7000    ,10000        ,50000        ,7000}
+attribList ={"hitpointsOT","foodlevel","poisonvalueOT","mana","manaOT","poisonvalue","foodlevelOT","mana"};
 
 
 
