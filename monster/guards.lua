@@ -26,7 +26,8 @@ function initGuard(Guard)
             position(16,14,0),
             position(27,3,0),
             position(30,13,0),
-            position(20,15,0)};
+            position(20,15,0)
+            position(10,10,0)};
     Guard.waypoints:addFromList(WPList);
     Guard:setOnRoute(true);
 
@@ -124,7 +125,8 @@ Guard:talk(Character.say,"ABORTING ROUTE NOW!");
             position(16,14,0),
             position(27,3,0),
             position(30,13,0),
-            position(20,15,0)};
+            position(20,15,0)
+            position(10,10,0)};
         Guard.waypoints:addFromList(WPList);
         Guard:setOnRoute(true);
     end
