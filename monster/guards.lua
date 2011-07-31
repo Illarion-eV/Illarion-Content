@@ -25,8 +25,8 @@ function initGuard(Guard)
             position(27,3,0),
             position(30,13,0),
             position(20,15,0)};
-    Monster.waypoints:addFromList(WPList);
-    Monster:setOnRoute(true);
+    Guard.waypoints:addFromList(WPList);
+    Guard:setOnRoute(true);
 
     isEnemy={};
     
