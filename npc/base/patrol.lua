@@ -11,10 +11,10 @@ module("npc.base.patrol", package.seeall)
 PatrolPointer = {};				--
 WpPointer = {};					-- pointers for the PatrolList
 RandomPatrolChooser = {};		-- define if the patrols are randomly chosen. Can be changed in other scripts.
-WpDone = {};						-- count how many waypoints (as destination) have been visited
+WpDone = {};					-- count how many waypoints (as destination) have been visited
 WpMax = {};						-- save how many waypoints have to be visited in this patrol
 NextWp = {};					-- save the next waypoint (the guard is walking to)
-CurWp = {};					-- save the current waypoint (the guard is walking away from)
+CurWp = {};					    -- save the current waypoint (the guard is walking away from)
 WpTry = {};						-- save how many times the route was aborted and choose a solution
 PatrolInitDone = {};
 

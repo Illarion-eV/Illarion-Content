@@ -121,7 +121,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			local foodVal;
 			if ( User:getRace() == 7 ) then                                    -- fairy (food * 1.8)
 				foodVal = math.ceil( food.Value * 1.8 )
-			elseif ( User:getRace() == 2 ) or ( User:get_race() == 6 ) or ( User:get_race() == 8 ) then    -- halfling or gnome and goblin (food * 1.4)
+			elseif ( User:getRace() == 2 ) or ( User:getRace() == 6 ) or ( User:getRace() == 8 ) then    -- halfling or gnome and goblin (food * 1.4)
 				foodVal = math.ceil( food.Value * 1.4 )
 			else                                                                -- other races
 				foodVal = food.Value;
