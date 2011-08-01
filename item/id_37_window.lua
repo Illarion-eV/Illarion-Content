@@ -21,7 +21,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 	local queststatus = 1; --remove later
 
 
-	if SourceItem.pos == win) then
+	if SourceItem.pos == win then
 		if queststatus >= 1 then
 			if User.pos == outside then
 				User:inform("You climb in through the window");
