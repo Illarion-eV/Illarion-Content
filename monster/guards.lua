@@ -117,7 +117,7 @@ end
 
 
 function abortRoute(Guard)
-Guard:talk(Character.say,"ABORTING ROUTE NOW!");
+    Guard:talk(Character.say,"ABORTING ROUTE NOW!");
     restList=Guard.waypoints:getWaypoints();
     if (# restList==0) then
         Guard:talk(Character.say,"no more WP!");
@@ -129,8 +129,13 @@ Guard:talk(Character.say,"ABORTING ROUTE NOW!");
             position(10,10,0)};
         Guard.waypoints:addFromList(WPList);
         Guard:setOnRoute(true);
+    elseif (# restList > 0) then  -- aborted route we because can't reach WP
+        table.remove(restList,1);   -- remove this waypoint from list
+        Guard.waypoints:clear();
+        Guard.waypoints:addFromList(restList);
+        Guard:setOnRoute(true);
     end
-    Guard:talk(Character.say,"my list has now this number of entries: "..# Guard.waypoints:getWaypoints());
+    --Guard:talk(Character.say,"my list has now this number of entries: "..# Guard.waypoints:getWaypoints());
 end
 
 
