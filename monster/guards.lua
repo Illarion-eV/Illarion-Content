@@ -130,6 +130,7 @@ function abortRoute(Guard)
         Guard.waypoints:addFromList(WPList);
         Guard:setOnRoute(true);
     elseif (# restList > 0) then  -- aborted route we because can't reach WP
+        Guard:talk(Character.say,"Ignoring this WP now.");
         table.remove(restList,1);   -- remove this waypoint from list
         Guard.waypoints:clear();
         Guard.waypoints:addFromList(restList);
