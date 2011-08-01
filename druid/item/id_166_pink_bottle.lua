@@ -97,10 +97,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 			User:startAction(20,0,0,12,25);
 			User:talkLanguage(User.say, Player.german, "#me beginnt einen Trank zu trinken.");
 			User:talkLanguage(User.say, Player.english, "#me starts to drink a potion.");
-			return;
-	  
-    
-		    DrinkPotion(User, SourceItem);
+			DrinkPotion(User, SourceItem);
 	end
 	
 	world:erase(SourceItem,1);
