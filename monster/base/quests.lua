@@ -105,8 +105,8 @@ function iniQuests()
     table.insert(questList[135],id); 
     minimumQueststatus[id]=1; 
     maximumQueststatus[id]=11; 
-    questLocation[id]=position(383,286,-3); 
-    radius[id]=50; 
+    questLocation[id]=position(298,352,-6); 
+    radius[id]=50;
 
     --Quest 2: Galmair Sewers II (77)
 
@@ -126,8 +126,8 @@ function iniQuests()
     table.insert(questList[107],id); 
     minimumQueststatus[id]=13; 
     maximumQueststatus[id]=18; 
-    questLocation[id]=position(383,286,-3); 
-    radius[id]=50; 
+    questLocation[id]=position(298,352,-6); 
+    radius[id]=50;
 
     --Quest 3: Galmair Sewers III (77)
 
@@ -141,8 +141,8 @@ function iniQuests()
     table.insert(questList[23],id); 
     minimumQueststatus[id]=20; 
     maximumQueststatus[id]=21; 
-    questLocation[id]=position(383,286,-3); 
-    radius[id]=50; 
+    questLocation[id]=position(298,352,-6); 
+    radius[id]=50;
 
     --Quest 4: Sir Reginald's Tomb I (78)
 
@@ -382,8 +382,8 @@ function iniQuests()
     table.insert(questList[107],id);
     minimumQueststatus[id]=3; 
     maximumQueststatus[id]=9; 
-    questLocation[id]=position(665,415,-3); 
-    radius[id]=100; 
+    questLocation[id]=position(705,410,-3); 
+    radius[id]=75; 
 
     --Quest 17: The Errant Crusade III
 
@@ -401,8 +401,8 @@ function iniQuests()
     table.insert(questList[115],id); 
     minimumQueststatus[id]=11; 
     maximumQueststatus[id]=23; 
-    questLocation[id]=position(665,415,-3); 
-    radius[id]=100;
+    questLocation[id]=position(705,410,-3); 
+    radius[id]=75; 
 
     --Quest 18: The Errant Crusade IV
 
@@ -416,8 +416,8 @@ function iniQuests()
     table.insert(questList[4],id); 
     minimumQueststatus[id]=26; 
     maximumQueststatus[id]=28; 
-    questLocation[id]=position(665,415,-3); 
-    radius[id]=100;
+    questLocation[id]=position(705,410,-3); 
+    radius[id]=75; 
 
     --Quest 19: The Errant Crusade V
 
@@ -431,8 +431,8 @@ function iniQuests()
     table.insert(questList[173],id); 
     minimumQueststatus[id]=30; 
     maximumQueststatus[id]=31; 
-    questLocation[id]=position(665,415,-3); 
-    radius[id]=100;
+    questLocation[id]=position(705,410,-3); 
+    radius[id]=75; 
 
     --Quest 20: The Errant Crusade VI
 
@@ -446,8 +446,8 @@ function iniQuests()
     table.insert(questList[264],id); 
     minimumQueststatus[id]=33; 
     maximumQueststatus[id]=34; 
-    questLocation[id]=position(665,415,-3); 
-    radius[id]=100;
+    questLocation[id]=position(705,410,-3); 
+    radius[id]=75; 
 	
 	--Quest 21: The Ghost Oak IV
 
