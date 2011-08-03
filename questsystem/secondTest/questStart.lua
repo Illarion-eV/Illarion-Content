@@ -11,8 +11,9 @@ local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 0
 
 function MoveItemAfterMove(player, itemBefore, itemAfter)
-
+player:inform("TEST");
   if AREA ~= nil then
+    player:inform("not nil");
     zLevel = {AREA[1].z}
     table.insert{AREA,zLevel};
     validArea = base.polygons.Polygon(AREA);
@@ -25,7 +26,7 @@ function MoveItemAfterMove(player, itemBefore, itemAfter)
         return false;
     end
   end
-
+player:inform("survived if");
   if questsystem.base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
     itemInformNLS(player, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
     questsystem.base.setPostcondition(player, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
