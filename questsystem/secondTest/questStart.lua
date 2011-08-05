@@ -31,7 +31,7 @@ player:inform("TEST");
   end
 player:inform("survived if");
   if questsystem.base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-    base.common.InformNLS(player, item, PUTDOWN_TEXT_DE, PUTDOWN_TEXT_EN)
+    base.common.InformNLS(player, PUTDOWN_TEXT_DE, PUTDOWN_TEXT_EN)
     questsystem.base.setPostcondition(player, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
     return true
   end
