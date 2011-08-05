@@ -137,7 +137,7 @@ debug("in pip");
 		end
 	end
 	if not zValid then
-	debug("PIP: no valid Z!");
+	    debug("PIP: no valid Z!");
 		return false;
 	end
 	-- coarse test: point in bounding box?
@@ -145,6 +145,7 @@ debug("in pip");
 	    debug("PIP: not in bounding box!");
 		return false;
 	end
+	debug("now creating line");
 	-- create a test line from the point to the right most boundary
 	local testLine = Line(point, position(self.max.x+1, point.y, 0));
 	local count = 0;
@@ -161,5 +162,6 @@ debug("in pip");
 	end
 	-- add (intWpoints + 1) to take multiple intersections with points into account
 	count = count + intWpoints + 1;
+	debug("now returning the end where count = "..count);
 	return (count%2 == 1);
 end
