@@ -136,10 +136,12 @@ function Polygon:pip(point)
 		end
 	end
 	if not zValid then
+	debug("PIP: no valid Z!");
 		return false;
 	end
 	-- coarse test: point in bounding box?
 	if not ( self.min.x <= point.x and self.min.y <= point.y and point.x <= self.max.x and point.y <= self.max.y) then
+	    debug("PIP: not in bounding box!");
 		return false;
 	end
 	-- create a test line from the point to the right most boundary
