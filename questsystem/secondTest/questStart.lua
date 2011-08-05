@@ -4,7 +4,7 @@ module("questsystem.secondTest.questStart", package.seeall)
 
 local QUEST_NUMBER = 10001
 local POSITION = position(681,319, 0)
-local AREA = {position(0,0,0),position(20,0,0),position(20,20,0),position(0,20,0)};
+local AREA = {position(0,0,0),position(20,0,0),position(20,20,0),position(0,20,0),position(0,0,0)};
 local PUTDOWN_TEXT_DE = "Als du das Mehl hinlegst, überkommt dich ein kalter Schauer."
 local PUTDOWN_TEXT_EN = "As you put down the flour, you feel a cold shiver."
 local PRECONDITION_QUESTSTATE = 0
