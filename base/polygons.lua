@@ -168,7 +168,7 @@ debug("in pip");
 		end
 	end
 	-- add (intWpoints + 1) to take multiple intersections with points into account
-	count = count + intWpoints + 1;
+	count = count + intWpoints; -- + 1;
 	debug("now returning the end where count = "..count);
 	return (count%2 == 1);
 end
