@@ -161,8 +161,10 @@ debug("in pip");
 		local b,n = testLine:intersectsLine(curLine);
 		if b then
 		    debug("n =" .. n);
-			count = count + 1;
-			intWpoints = intWpoints + n;
+		    if n~=2 then
+    			count = count + 1;
+    			intWpoints = intWpoints + n;
+    		end
 		end
 	end
 	-- add (intWpoints + 1) to take multiple intersections with points into account
