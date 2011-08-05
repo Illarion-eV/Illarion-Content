@@ -1,5 +1,6 @@
 require("questsystem.base")
 require("base.polygons")
+require("base.common")
 module("questsystem.secondTest.questStart", package.seeall)
 
 local QUEST_NUMBER = 10001
@@ -30,7 +31,7 @@ player:inform("TEST");
   end
 player:inform("survived if");
   if questsystem.base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-    itemInformNLS(player, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
+    InformNLS(player, item, PUTDOWN_TEXT_DE, PUTDOWN_TEXT_EN)
     questsystem.base.setPostcondition(player, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
     return true
   end
@@ -38,10 +39,3 @@ player:inform("survived if");
   return false
 end
 
-function itemInformNLS(player, item, textDe, textEn)
-  if player:getPlayerLanguage() == Player.german then
-    world:itemInform(player, item, textDe)
-  else
-    world:itemInform(player, item, textEn)
-  end
-end
