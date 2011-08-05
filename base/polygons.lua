@@ -148,7 +148,7 @@ debug("in pip");
 	debug("now creating line");
 	-- create a test line from the point to the right most boundary
 	local testLine = Line(point, position(self.max.x+1, point.y, point.z));
-	debug("create line between: ("..point.x..","..point.y..","..point.z..") and ("..self.max.x+1..","..point.y..","..point.z.."));
+	debug("create line between: ("..point.x..","..point.y..","..point.z..") and ("..self.max.x+1..","..point.y..","..point.z..")");
 	local count = 0;
 	local intWpoints = 0;
 	for _,curLine in pairs(self.lineList) do
