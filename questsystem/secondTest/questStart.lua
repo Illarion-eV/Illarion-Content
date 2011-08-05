@@ -15,8 +15,7 @@ player:inform("TEST");
   if AREA ~= nil then
     player:inform("not nil");
     zLevel = {AREA[1].z}
-    table.insert(AREA,zLevel);
-    validArea = base.polygons.Polygon(AREA);
+    validArea = base.polygons.Polygon(AREA,zLevel);
     if itemAfter.pos~=nil then
         thePosition=itemAfter.pos;
     else
