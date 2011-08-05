@@ -1,6 +1,6 @@
 require("questsystem.base")
 require("base.polygons")
-module("questsystem.firstTest.node1", package.seeall)
+module("questsystem.secondTest.questStart", package.seeall)
 
 local QUEST_NUMBER = 10001
 local POSITION = position(681,319, 0)
