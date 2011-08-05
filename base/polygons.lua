@@ -58,7 +58,7 @@ function Line:intersectsLine(otherLine)
 	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - self.startPoint.y);
 	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (otherLine.endPoint.y - otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
 	local nominator2 = (self.endPoint.x - self.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (self.endPoint.y - self.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
-	-- debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
+	debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
 	if denominator == 0 then
 		if nominator1==0 and nominator2==0 then
 			return false,2;
@@ -75,7 +75,7 @@ function Line:intersectsLine(otherLine)
 	if p2==0 or p2==1 then
 		ret2 = ret2 + 1;
 	end
-	-- debug("p1=" .. p1 .. "; p2=" .. p2);
+	debug("p1=" .. p1 .. "; p2=" .. p2);
 	-- intersection point is only on both line segments if 0 < p1,p2 < 1
 	-- otherwise intersection point is on the line, but not on the segments
 	if (0<=p1) and (p1<=1) and (0<=p2) and (p2<=1) then
@@ -147,7 +147,8 @@ debug("in pip");
 	end
 	debug("now creating line");
 	-- create a test line from the point to the right most boundary
-	local testLine = Line(point, position(self.max.x+1, point.y, 0));
+	local testLine = Line(point, position(self.max.x+1, point.y, point.z));
+	debug("create line between: ("..point.x..","..point.y..","..point.z..") and ("..self.max.x+1..","..point.y..","..point.z.."));
 	local count = 0;
 	local intWpoints = 0;
 	for _,curLine in pairs(self.lineList) do
@@ -156,6 +157,7 @@ debug("in pip");
 		end
 		local b,n = testLine:intersectsLine(curLine);
 		if b then
+		    debug("n =" .. n);
 			count = count + 1;
 			intWpoints = intWpoints + n;
 		end
