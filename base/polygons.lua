@@ -127,6 +127,7 @@ end
 -- @param posStruct The point to be tested if inside the Polygon
 -- @return boolean True if point is in Polygon
 function Polygon:pip(point)
+debug("in pip");
 	-- valid z level?
 	local zValid = false;
 	for _,level in pairs(self.zList) do

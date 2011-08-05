@@ -22,6 +22,7 @@ player:inform("TEST");
         thePosition=player.pos;
     end
     player:inform("done with pos");
+    debug("now calling pip");
     if validArea:pip(thePosition)==false then
         player:inform("not in polygon!");
         return false;
