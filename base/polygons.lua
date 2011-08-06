@@ -64,12 +64,12 @@ function Line:intersectsLine(otherLine)
     debug("intersect with this line: "..base.common.PositionToText(otherLine.startPoint).."--"..base.common.PositionToText(otherLine.endPoint));
     dy = 0;--0,2;
     local Ax = otherLine.startPoint.x;
-    local Ay = otherLine.endPoint.x;
-    local Bx = otherLine.startPoint.y;
+    local Ay = otherLine.startPoint.y;
+    local Bx = otherLine.endPoint.x;
     local By = otherLine.endPoint.y;
     local Cx = self.startPoint.x;
-    local Cy = self.endPoint.x;
-    local Dx = self.startPoint.y;
+    local Cy = self.startPoint.y;
+    local Dx = self.endPoint.x;
     local Dy = self.endPoint.y;
     
     local denominator = By*(Cx - Dx) + Ay*(-Cx + Dx) + (Ax - Bx)*(Cy - Dy); -- (c) mathematica
