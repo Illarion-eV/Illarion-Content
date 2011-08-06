@@ -1,6 +1,7 @@
 -- basic handling for polygonal areas on the map
 
 require("base.class");
+require("base.common");
 
 module("base.polygons",package.seeall);
 
@@ -60,6 +61,7 @@ function Line:intersectsLine(otherLine)
     -- if 0<p1<1, then they intersect within the otherLine, if 0 they intersect with exactly the startpoint etc.
     -- if we increase the y-coordinate of every polygon-startpoint by a little something, we can't count the corner
     -- points twice anymore, as startpoints never lie on the other line segment!
+    debug("intersect with this line: "..base.common.PositionToText(self.startPoint).."--"..base.common.PositionToText(self.endPoint));
     dy = 0,2;
 	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - (self.startPoint.y+dy));
 	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (otherLine.endPoint.y - (otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x));
@@ -157,7 +159,7 @@ function Polygon:pip(point)
 	--debug("now creating line");
 	-- create a test line from the point to the right most boundary
 	local testLine = Line(point, position(self.max.x+1, point.y, point.z));
-	--debug("create line between: ("..point.x..","..point.y..","..point.z..") and ("..(self.max.x+1)..","..point.y..","..point.z..")");
+	debug("create line between: ("..point.x..","..point.y..","..point.z..") and ("..(self.max.x+1)..","..point.y..","..point.z..")");
 	local count = 0;
 	local intWpoints = 0;
 	for _,curLine in pairs(self.lineList) do
