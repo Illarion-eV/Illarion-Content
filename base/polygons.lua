@@ -72,9 +72,9 @@ function Line:intersectsLine(otherLine)
     local Dx = self.startPoint.y;
     local Dy = self.endPoint.y;
     
-    local denominator = By (Cx - Dx) + Ay (-Cx + Dx) + (Ax - Bx) (Cy - Dy); -- (c) mathematica
-    local nominator1 = -Cy Dx + Ay (-Cx + Dx) + Ax (Cy - Dy) + Cx Dy;       -- (c) mathematica
-    local nominator1 = Ay (Bx - Cx) + By Cx - Bx Cy + Ax (-By + Cy);        -- (c) mathematica
+    local denominator = By*(Cx - Dx) + Ay*(-Cx + Dx) + (Ax - Bx)*(Cy - Dy); -- (c) mathematica
+    local nominator1 = -Cy*Dx + Ay*(-Cx + Dx) + Ax*(Cy - Dy) + Cx*Dy;       -- (c) mathematica
+    local nominator2 = Ay*(Bx - Cx) + By*Cx - Bx*Cy + Ax*(-By + Cy);        -- (c) mathematica
     
 	--local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - (self.startPoint.y+dy));
 	--local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (otherLine.endPoint.y - (otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x));
