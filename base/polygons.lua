@@ -63,9 +63,22 @@ function Line:intersectsLine(otherLine)
     -- points twice anymore, as startpoints never lie on the other line segment!
     debug("intersect with this line: "..base.common.PositionToText(otherLine.startPoint).."--"..base.common.PositionToText(otherLine.endPoint));
     dy = 0;--0,2;
-	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - (self.startPoint.y+dy));
-	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (otherLine.endPoint.y - (otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x));
-	local nominator2 = (self.endPoint.x - self.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (self.endPoint.y - (self.startPoint.y+dy))*(self.startPoint.x - otherLine.startPoint.x);
+    local Ax = otherLine.startPoint.x;
+    local Ay = otherLine.endPoint.x;
+    local Bx = otherLine.startPoint.y;
+    local By = otherLine.endPoint.y;
+    local Cx = self.startPoint.x;
+    local Cy = self.endPoint.x;
+    local Dx = self.startPoint.y;
+    local Dy = self.endPoint.y;
+    
+    local denominator = By (Cx - Dx) + Ay (-Cx + Dx) + (Ax - Bx) (Cy - Dy); -- (c) mathematica
+    local nominator1 = -Cy Dx + Ay (-Cx + Dx) + Ax (Cy - Dy) + Cx Dy;       -- (c) mathematica
+    local nominator1 = Ay (Bx - Cx) + By Cx - Bx Cy + Ax (-By + Cy);        -- (c) mathematica
+    
+	--local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - (self.startPoint.y+dy));
+	--local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (otherLine.endPoint.y - (otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x));
+	--local nominator2 = (self.endPoint.x - self.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (self.endPoint.y - (self.startPoint.y+dy))*(self.startPoint.x - otherLine.startPoint.x);
 	debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
 	if denominator == 0 then
 		if nominator1==0 and nominator2==0 then
