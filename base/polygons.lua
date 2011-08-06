@@ -62,7 +62,7 @@ function Line:intersectsLine(otherLine)
     -- points twice anymore, as startpoints never lie on the other line segment!
     dy = 0,2;
 	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - (self.startPoint.y+dy));
-	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (otherLine.endPoint.y - (otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
+	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (otherLine.endPoint.y - (otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x));
 	local nominator2 = (self.endPoint.x - self.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (self.endPoint.y - (self.startPoint.y+dy))*(self.startPoint.x - otherLine.startPoint.x);
 	--debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
 	if denominator == 0 then
