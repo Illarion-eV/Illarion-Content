@@ -61,7 +61,7 @@ function Line:intersectsLine(otherLine)
     -- if 0<p1<1, then they intersect within the otherLine, if 0 they intersect with exactly the startpoint etc.
     -- if we increase the y-coordinate of every polygon-startpoint by a little something, we can't count the corner
     -- points twice anymore, as startpoints never lie on the other line segment!
-    debug("intersect with this line: "..base.common.PositionToText(self.startPoint).."--"..base.common.PositionToText(self.endPoint));
+    debug("intersect with this line: "..base.common.PositionToText(otherLine.startPoint).."--"..base.common.PositionToText(otherLine.endPoint));
     dy = 0,2;
 	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - (self.startPoint.y+dy));
 	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (otherLine.endPoint.y - (otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x));
