@@ -69,6 +69,7 @@ function Line:intersectsLine(otherLine)
 	debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
 	if denominator == 0 then
 		if nominator1==0 and nominator2==0 then
+		    debug("now returning false,2");
 			return false,2;
 		end
 		debug("now returning false,0");
@@ -88,10 +89,10 @@ function Line:intersectsLine(otherLine)
 	-- intersection point is only on both line segments if 0 < p1,p2 < 1
 	-- otherwise intersection point is on the line, but not on the segments
 	if (0<=p1) and (p1<=1) and (0<=p2) and (p2<=1) then
-	    --debug("now returning true, ret2="..ret2);
+	    debug("now returning true, ret2="..ret2);
 		return true, ret2;
 	end
-	--debug("now returning false,ret2="..ret2);
+	debug("now returning false,ret2="..ret2);
 	return false, ret2;
 end
 
