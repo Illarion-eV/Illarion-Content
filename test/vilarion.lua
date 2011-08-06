@@ -9,8 +9,18 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     end;
     
     p = position(1,2,3)
-    User:inform("Pos: " .. tostring(p));
-    User:inform(tostring(p));
+    q = position(4,5,6)
+    r = position(1,2,3)
+    if p==q then
+        User:inform(tostring(p).." == "..tostring(q))
+    else
+        User:inform(tostring(p).." != "..tostring(q));
+    end
+    if p==r then
+        User:inform(tostring(p).." == "..tostring(r))
+    else
+        User:inform(tostring(p).." != "..tostring(r));
+    end
 
     --local callback = function(dialog)
     --    User:inform("Input: "..dialog:getInput())
