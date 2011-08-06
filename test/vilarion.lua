@@ -9,8 +9,8 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     end;
     
     p = position(1,2,3)
-    User:inform("Pos: " .. p);
-    User:inform(p);
+    User:inform("Pos: " .. tostring(p));
+    User:inform(tostring(p));
 
     --local callback = function(dialog)
     --    User:inform("Input: "..dialog:getInput())
