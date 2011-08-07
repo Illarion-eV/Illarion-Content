@@ -4,8 +4,8 @@ module("questsystem.firstTest.node0", package.seeall)
 local QUEST_NUMBER = 10000
 local NPC_TRIGGER_DE = "quest"
 local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Ich habe eine Aufgabe für dich, bitte fang den Hamster der meine Vorräte frisst!"
-local NPC_REPLY_EN = "I have a task for you, please catch the hamster eating my supplies!"
+local NPC_REPLY_DE = "Ich habe eine Aufgabe für dich, bitte fang den Hamster der meine Vorräte frisst! Sag mir wenn du fertig bist."
+local NPC_REPLY_EN = "I have a task for you, please catch the hamster eating my supplies! Tell me when you are done."
 local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 1
 
