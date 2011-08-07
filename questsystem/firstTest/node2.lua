@@ -9,7 +9,8 @@ local PRECONDITION_QUESTSTATE = 1
 local POSTCONDITION_QUESTSTATE = 0
 
 function LookAtItem(player, item)
-  if questsystem.base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+  if questsystem.base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE)
+      and item.pos == POSITION then
     itemInformNLS(player, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
     questsystem.base.setPostcondition(player, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
     return true
