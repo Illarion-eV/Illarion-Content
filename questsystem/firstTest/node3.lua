@@ -1,5 +1,5 @@
 require("questsystem.base")
-module("questsystem.firstTest.node0", package.seeall)
+module("questsystem.firstTest.node3", package.seeall)
 
 local QUEST_NUMBER = 10000
 local NPC_TRIGGER_DE = "fertig"
