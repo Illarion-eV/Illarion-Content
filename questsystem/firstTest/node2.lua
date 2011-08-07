@@ -5,8 +5,8 @@ local QUEST_NUMBER = 10000
 local POSITION = position(682, 324, 0)
 local LOOKAT_TEXT_DE = "Du packst den Hamster und steckst ihn in die nächste Gefriertruhe. Vielleicht wird er ja in der Zunkunft nochmal jemandem nützlich sein."
 local LOOKAT_TEXT_EN = "You get a hold of the hamster and put him in the next freezer. Maybe he will be of use to somebody in the future."
-local PRECONDITION_QUESTSTATE = 1
-local POSTCONDITION_QUESTSTATE = 0
+local PRECONDITION_QUESTSTATE = 2
+local POSTCONDITION_QUESTSTATE = 3
 
 function LookAtItem(player, item)
   if questsystem.base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE)
