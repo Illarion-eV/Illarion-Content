@@ -25,7 +25,7 @@ player:inform("5")
   return false
 end
 
-local function getNLS(player, textDe, textEn)
+function getNLS(player, textDe, textEn)
   if player:getPlayerLanguage() == Player.german then
     return textDe
   else

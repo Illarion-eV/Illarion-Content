@@ -19,7 +19,7 @@ function LookAtItem(player, item)
   return false
 end
 
-local function itemInformNLS(player, item, textDe, textEn)
+function itemInformNLS(player, item, textDe, textEn)
   if player:getPlayerLanguage() == Player.german then
     world:itemInform(player, item, textDe)
   else
