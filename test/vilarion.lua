@@ -8,12 +8,26 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
     
-    local callback = function(dialog)
-        User:inform("Input: "..dialog:getInput())
-        a()
+    p = position(1,2,3)
+    q = position(4,5,6)
+    r = position(1,2,3)
+    if p==q then
+        User:inform(tostring(p).." == "..tostring(q))
+    else
+        User:inform(tostring(p).." != "..tostring(q));
     end
-    local inputDialog = InputDialog("Enter something cool!", true, 0, callback)
-    User:requestInputDialog(inputDialog)
+    if p==r then
+        User:inform(tostring(p).." == "..tostring(r))
+    else
+        User:inform(tostring(p).." != "..tostring(r));
+    end
+
+    --local callback = function(dialog)
+    --    User:inform("Input: "..dialog:getInput())
+    --    a()
+    --end
+    --local inputDialog = InputDialog("Enter something cool!", true, 0, callback)
+    --User:requestInputDialog(inputDialog)
 end
 
 function useNPC(User,counter,param)

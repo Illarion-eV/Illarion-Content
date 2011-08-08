@@ -1,6 +1,7 @@
 -- basic handling for polygonal areas on the map
 
 require("base.class");
+require("base.common");
 
 module("base.polygons",package.seeall);
 
@@ -52,17 +53,39 @@ Polygon = base.class.class(
 --- tests intersection of two lines (actually line segments).
 -- @param LineStruct The otherLine for which intersection with current Line is tested
 -- @return boolean True if the two lines intersect
--- @return int Number of intersections with the start/end points. [0,1,2]
+-- @return int Number of intersections with the start/end points. [0,1,2] (startpoints can't intersect any longer!)
 function Line:intersectsLine(otherLine)
 	-- solve for p1, p2 i.e. the fraction on the two lines from the start point to the intersection point
-	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - self.startPoint.y);
-	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (otherLine.endPoint.y - otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
-	local nominator2 = (self.endPoint.x - self.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (self.endPoint.y - self.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
-	-- debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
+	-- p1 and p2 represent the parameters in the equation:
+	-- X = otherLine.StartPoint + p1 * ( otherLine.EndPoint - otherLine.StartPoint) etc.,
+    -- if 0<p1<1, then they intersect within the otherLine, if 0 they intersect with exactly the startpoint etc.
+    -- if we increase the y-coordinate of every polygon-startpoint by a little something, we can't count the corner
+    -- points twice anymore, as startpoints never lie on the other line segment!
+    debug("intersect with this line: "..base.common.PositionToText(otherLine.startPoint).."--"..base.common.PositionToText(otherLine.endPoint));
+    dy = 0;--0,2;
+    local Ax = otherLine.startPoint.x;
+    local Ay = otherLine.startPoint.y;
+    local Bx = otherLine.endPoint.x;
+    local By = otherLine.endPoint.y;
+    local Cx = self.startPoint.x;
+    local Cy = self.startPoint.y;
+    local Dx = self.endPoint.x;
+    local Dy = self.endPoint.y;
+    
+    local denominator = By*(Cx - Dx) + Ay*(-Cx + Dx) + (Ax - Bx)*(Cy - Dy); -- (c) mathematica
+    local nominator1 = -Cy*Dx + Ay*(-Cx + Dx) + Ax*(Cy - Dy) + Cx*Dy;       -- (c) mathematica
+    local nominator2 = Ay*(Bx - Cx) + By*Cx - Bx*Cy + Ax*(-By + Cy);        -- (c) mathematica
+    
+	--local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - (self.startPoint.y+dy));
+	--local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (otherLine.endPoint.y - (otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x));
+	--local nominator2 = (self.endPoint.x - self.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (self.endPoint.y - (self.startPoint.y+dy))*(self.startPoint.x - otherLine.startPoint.x);
+	debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
 	if denominator == 0 then
 		if nominator1==0 and nominator2==0 then
+		    debug("now returning false,2");
 			return false,2;
 		end
+		debug("now returning false,0");
 		return false,0;
 	end
 	local p1 = nominator1 / denominator;
@@ -75,12 +98,14 @@ function Line:intersectsLine(otherLine)
 	if p2==0 or p2==1 then
 		ret2 = ret2 + 1;
 	end
-	-- debug("p1=" .. p1 .. "; p2=" .. p2);
+	debug("p1=" .. p1 .. "; p2=" .. p2);
 	-- intersection point is only on both line segments if 0 < p1,p2 < 1
 	-- otherwise intersection point is on the line, but not on the segments
 	if (0<=p1) and (p1<=1) and (0<=p2) and (p2<=1) then
+	    debug("now returning true, ret2="..ret2);
 		return true, ret2;
 	end
+	debug("now returning false,ret2="..ret2);
 	return false, ret2;
 end
 
@@ -127,6 +152,7 @@ end
 -- @param posStruct The point to be tested if inside the Polygon
 -- @return boolean True if point is in Polygon
 function Polygon:pip(point)
+    --debug("in pip");
 	-- valid z level?
 	local zValid = false;
 	for _,level in pairs(self.zList) do
@@ -136,14 +162,18 @@ function Polygon:pip(point)
 		end
 	end
 	if not zValid then
+	    --debug("PIP: no valid Z!");
 		return false;
 	end
 	-- coarse test: point in bounding box?
 	if not ( self.min.x <= point.x and self.min.y <= point.y and point.x <= self.max.x and point.y <= self.max.y) then
+	    --debug("PIP: not in bounding box!");
 		return false;
 	end
+	--debug("now creating line");
 	-- create a test line from the point to the right most boundary
-	local testLine = Line(point, position(self.max.x+1, point.y, 0));
+	local testLine = Line(point, position(self.max.x+1, point.y, point.z));
+	debug("create line between: ("..point.x..","..point.y..","..point.z..") and ("..(self.max.x+1)..","..point.y..","..point.z..")");
 	local count = 0;
 	local intWpoints = 0;
 	for _,curLine in pairs(self.lineList) do
@@ -152,11 +182,15 @@ function Polygon:pip(point)
 		end
 		local b,n = testLine:intersectsLine(curLine);
 		if b then
-			count = count + 1;
-			intWpoints = intWpoints + n;
+		    --debug("n =" .. n);
+		    if n~=2 then
+    			count = count + 1;
+    			intWpoints = intWpoints + n;
+    		end
 		end
 	end
 	-- add (intWpoints + 1) to take multiple intersections with points into account
-	count = count + intWpoints + 1;
+	--count = count + intWpoints; -- + 1;
+	debug("now returning the end where count = "..count);
 	return (count%2 == 1);
 end

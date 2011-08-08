@@ -1,12 +1,12 @@
 require("questsystem.base")
-module("questsystem.firstTest.node1", package.seeall)
+module("LookAtItem", package.seeall)
 
-local QUEST_NUMBER = 10000
-local POSITION = position(681,319, 0)
-local LOOKAT_TEXT_DE = "Ein Hamster hat sich durch die Vorräte auf dem Wagen gefressen. Jetzt eben läuft er zur anderen Karre hinüber."
-local LOOKAT_TEXT_EN = "A hamster ate almost all supplies on the wagon. Right now he is on his way to the other cart."
-local PRECONDITION_QUESTSTATE = 1
-local POSTCONDITION_QUESTSTATE = 2
+local QUEST_NUMBER = 0
+local POSITION = position(0,0,0)
+local LOOKAT_TEXT_DE = ""
+local LOOKAT_TEXT_EN = ""
+local PRECONDITION_QUESTSTATE = 0
+local POSTCONDITION_QUESTSTATE = 0
 
 function LookAtItem(player, item)
   if questsystem.base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE)
