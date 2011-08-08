@@ -6,6 +6,9 @@ require("base.common")
 module("triggerfield.salavesh_teleport", package.seeall)
 
 function MoveToField( User )
+
+ if User:getType() == 0 then --monsters are unaffected
+ 
     if User.pos == position(731,441,-3) then --To the dragon chamber
         base.common.TempInformNLS(User,"Du trittst durch das Portal. Eine wohlmöglich schlechte Idee!","You step through the portal. A bad idea!"); --sending a message
 	    world:gfx(41,User.pos);
@@ -33,4 +36,7 @@ function MoveToField( User )
         world:gfx(41,User.pos);
         world:makeSound(13,User.pos);
 	end
+	
+ end
+ 
 end
