@@ -46,9 +46,6 @@ function MoveToField(User)
     if User:getType() == 0 and User:increaseAttrib("hitpoints",0)>0 and math.random(1,10) ~= 1 then --only player characters trigger the triggerfield at a chance of 10%
 	
 		queststatus=User:getQuestProgress(121); --here, we save which events were triggered
-
-		User:inform(queststatus.." Status!");
-					
 		queststatuslist={};
 		queststatuslist=base.common.Split_number(queststatus, 6); --reading the digits of the queststatus as table
  	
@@ -146,10 +143,6 @@ function MoveToField(User)
             world:createMonster(1042,position(695,449,-3),0); --wandering garbage
 			world:gfx(41,position(695,450,-3));
             world:createMonster(612,position(695,450,-3),0); --slimy slime
-		
-		else --debugging
-		
-		    base.common.TempInformNLS(User,"[Debugging] Fehler in salavesh_triggered_events.lua!","[Debugging] Error in salavesh_triggered_events.lua!"); --sending a message
 			 
 		end --all events handled
 		
