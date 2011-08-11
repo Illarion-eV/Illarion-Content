@@ -12,11 +12,11 @@ function Init()
     end
    
     waypoint={}; --a list with positions of the event triggers
-    waypoint[1]=position(0,0,0); --1: A firetrap
+    waypoint[1]=position(710,405,-3); --1: A firetrap
     waypoint[2]=position(749,442,-3); --2: A boss in the small alcove
-    waypoint[3]=position(0,0,0); --3: An ambush by mummies
-    waypoint[4]=position(0,0,0); --4: An icetrap and ambush by imps
-	waypoint[5]=position(0,0,0); --5: A boss in the big alcove
+    waypoint[3]=position(718,432,-3); --3: An ambush by mummies
+    waypoint[4]=position(759,388,-3); --4: An icetrap and ambush by imps
+	waypoint[5]=position(689,440,-3); --5: A boss in the big alcove
     waypoint[6]=position(689,449,-3); --6: An ambush by slime in the flooded tunnel
 	
     messageG={}; --German informs
@@ -84,16 +84,16 @@ function MoveToField(User)
             User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 
 			--The actual event
-            world:gfx(41,position(X,Y,Z));
-            world:createMonster(101,position(X,Y,Z),0); --mummy
-			world:gfx(41,position(X,Y,Z));
-            world:createMonster(101,position(X,Y,Z),0); --another mummy
-            world:gfx(41,position(X,Y,Z));
-            world:createMonster(152,position(X,Y,Z),0); --smelly mummy
-			world:gfx(41,position(X,Y,Z));
-            world:createMonster(172,position(X,Y,Z),0); --mummified temple servant
-			world:gfx(41,position(X,Y,Z));
-            world:createMonster(701,position(X,Y,Z),0); --Cherga's servant
+            world:gfx(41,position(721,429,-3));
+            world:createMonster(101,position(721,429,-3),0); --mummy
+			world:gfx(41,position(721,434,-3));
+            world:createMonster(101,position(721,434,-3),0); --another mummy
+            world:gfx(41,position(723,431,-3));
+            world:createMonster(152,position(723,431,-3),0); --smelly mummy
+			world:gfx(41,position(714,431,-3));
+            world:createMonster(172,position(714,431,-3),0); --mummified temple servant
+			world:gfx(41,position(716,434,-3));
+            world:createMonster(701,position(716,434,-3),0); --Cherga's servant
 			
 		elseif User.pos == waypoint[4] and queststatuslist[4] == 0 then --icetrap and an ambush by imps
 
@@ -108,14 +108,14 @@ function MoveToField(User)
 		    User:increaseAttrib("hitpoints",math.random(-2499,-1249)); --damaging the User
 			User.movepoints=User.movepoints-50; --Paralysing the user
 			
-            world:gfx(41,position(X,Y,Z));
-            world:createMonster(551,position(X,Y,Z),0); --imp
+            world:gfx(41,position(755,391,-3));
+            world:createMonster(551,position(755,391,-3),0); --imp
+			world:gfx(41,position(761,393,-3));
+            world:createMonster(551,position(761,393,-3),0); --another imp
 			world:gfx(41,position(X,Y,Z));
-            world:createMonster(551,position(X,Y,Z),0); --another imp
-			world:gfx(41,position(X,Y,Z));
-            world:createMonster(891,position(X,Y,Z),0); --fire imp
-            world:gfx(41,position(X,Y,Z));
-            world:createMonster(901,position(X,Y,Z),0); --shadow imp
+            world:createMonster(891,position(757,386,-3),0); --fire imp
+            world:gfx(41,position(758,396,-3));
+            world:createMonster(901,position(758,396,-3),0); --shadow imp
 
 		elseif User.pos == waypoint[5] and queststatuslist[5] == 0 and User:get_face_to() == 6 then --the boss in the small alcove, only triggered once by each char upon entering the alcove
 
@@ -124,7 +124,7 @@ function MoveToField(User)
             User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 
 			--The actual event
-			monsterpos=position(X,Y,Z);
+			monsterpos=position(679,441,-3);
             world:gfx(41,monsterpos); --swirly
             world:createMonster(203,monsterpos,0); --Unholy akolyth (demon skeleton)
 		    world:makeSound(25,monsterpos); --MWHAHAHA!
