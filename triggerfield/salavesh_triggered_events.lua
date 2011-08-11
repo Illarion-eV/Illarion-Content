@@ -43,7 +43,7 @@ function MoveToField(User)
 
     Init(); --Initialising
 	
-    if User:getType() == 0 and User:increaseAttrib("hitpoints",0)>0 and math.random(1,10) ~= 1 then --only player characters trigger the triggerfield at a chance of 10%
+    if User:getType() == 0 and User:increaseAttrib("hitpoints",0)>0 and math.random(1,10) == 1 then --only player characters trigger the triggerfield at a chance of 10%
 	
 		queststatus=User:getQuestProgress(121); --here, we save which events were triggered
 
@@ -58,14 +58,7 @@ function MoveToField(User)
             base.common.TempInformNLS(User,messageG[1],messageE[1]); --sending a message
             User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 			queststatus=User:getQuestProgress(121); --and reading it again
-			
-			User:inform(queststatuslist[1].." 1!");
-			User:inform(queststatuslist[2].." 2!");
-			User:inform(queststatuslist[3].." 3!");
-			User:inform(queststatuslist[4].." 4!");			
-			User:inform(queststatuslist[5].." 5!");			
-			User:inform(queststatuslist[6].." 6!");			
-	
+
 			--The actual event
 			world:gfx(9,User.pos); --Fireball!
 			world:makeSound(5,User.pos); --BOOM!
