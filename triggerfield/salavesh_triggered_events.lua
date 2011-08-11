@@ -13,14 +13,14 @@ function Init()
    
     waypoint={}; --a list with positions of the event triggers
     waypoint[1]=position(0,0,0); --1: A firetrap
-    waypoint[2]=position(0,0,0); --2: A boss in the small alcove
+    waypoint[2]=position(749,442,-3); --2: A boss in the small alcove
     waypoint[3]=position(0,0,0); --3: An ambush by mummies
     waypoint[4]=position(0,0,0); --4: An icetrap and ambush by imps
 	waypoint[5]=position(0,0,0); --5: A boss in the big alcove
-    waypoint[6]=position(0,0,0); --6: An ambush by slime in the flooded tunnel
+    waypoint[6]=position(689,449,-3); --6: An ambush by slime in the flooded tunnel
 	
     messageG={}; --German informs
-    messageG[1]="Ein Falle lößt aus!";
+    messageG[1]="Ein Falle löst aus!";
     messageG[2]="Dein letzter Schritt war bei weitem der schlechteste am heutigen Tage...";
 	messageG[3]="Von hirnlosen Wesen der Verdammnis in einen Hinterhalt gelockt zu werden ist ganz schön nervig, oder?";
 	messageG[4]="Du hast eine lähmende Eisfalle ausgelöst. Kobolde fallen aus der Dunkelheit über dich her!";
@@ -45,7 +45,7 @@ function MoveToField(User)
 	
     if User:get_type() == 0 and User:increaseAttrib("hitpoints",0)>0 and math.random(1,10) == 1 then --only player characters trigger the triggerfield at a chance of 10%
 	
-		queststatus=User:getQuestProgress(XXXX); --here, we save which events were triggered
+		queststatus=User:getQuestProgress(121); --here, we save which events were triggered
       	queststatuslist={};
 		queststatuslist=base.common.Split_number(queststatus, 6); --reading the digits of the queststatus as table
  	
@@ -53,7 +53,7 @@ function MoveToField(User)
 		
 			queststatuslist[1]=1; --triggered it!
             base.common.TempInformNLS(User,messageG[i],messageE[i]); --sending a message
-            User:setQuestProgress(XXXX,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
+            User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 			
 			--The actual event
 			world:gfx(9,User.pos); --Fireball!
@@ -69,10 +69,10 @@ function MoveToField(User)
 
 			queststatuslist[2]=1; --triggered it!
             base.common.TempInformNLS(User,messageG[2],messageE[2]); --sending a message
-            User:setQuestProgress(XXXX,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
+            User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 
 			--The actual event
-			monsterpos=position(X,Y,Z);
+			monsterpos=position(744,443,-3);
             world:gfx(41,monsterpos); --swirly
             world:createMonster(534,monsterpos,0); --zombie giant
 		    world:makeSound(25,monsterpos); --MWHAHAHA!
@@ -81,7 +81,7 @@ function MoveToField(User)
 
 			queststatuslist[3]=1; --triggered it!
             base.common.TempInformNLS(User,messageG[3],messageE[3]); --sending a message
-            User:setQuestProgress(XXXX,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
+            User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 
 			--The actual event
             world:gfx(41,position(X,Y,Z));
@@ -99,7 +99,7 @@ function MoveToField(User)
 
 			queststatuslist[4]=1; --triggered it!
             base.common.TempInformNLS(User,messageG[4],messageE[4]); --sending a message
-            User:setQuestProgress(XXXX,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
+            User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 
 			--The actual event
 			
@@ -121,7 +121,7 @@ function MoveToField(User)
 
 			queststatuslist[5]=1; --triggered it!
             base.common.TempInformNLS(User,messageG[5],messageE[5]); --sending a message
-            User:setQuestProgress(XXXX,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
+            User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 
 			--The actual event
 			monsterpos=position(X,Y,Z);
@@ -133,15 +133,15 @@ function MoveToField(User)
 
 			queststatuslist[6]=1; --triggered it!
             base.common.TempInformNLS(User,messageG[6],messageE[6]); --sending a message
-            User:setQuestProgress(XXXX,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
+            User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 
 			--The actual event
-            world:gfx(41,position(X,Y,Z));
-            world:createMonster(611,position(X,Y,Z),0); --slime
-            world:gfx(41,position(X,Y,Z));
-            world:createMonster(1042,position(X,Y,Z),0); --wandering garbage
-			world:gfx(41,position(X,Y,Z));
-            world:createMonster(612,position(X,Y,Z),0); --slimy slime
+            world:gfx(41,position(695,447,-3));
+            world:createMonster(611,position(695,447,-3),0); --slime
+            world:gfx(41,position(695,449,-3));
+            world:createMonster(1042,position(695,449,-3),0); --wandering garbage
+			world:gfx(41,position(695,450,-3));
+            world:createMonster(612,position(695,450,-3),0); --slimy slime
 		
 		else --debugging
 		
