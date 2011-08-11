@@ -17,7 +17,7 @@ function Init()
     waypoint[3]=position(718,432,-3); --3: An ambush by mummies
     waypoint[4]=position(759,388,-3); --4: An icetrap and ambush by imps
 	waypoint[5]=position(689,440,-3); --5: A boss in the big alcove
-    waypoint[6]=position(689,449,-3); --6: An ambush by slime in the flooded tunnel
+    waypoint[6]=position(698,449,-3); --6: An ambush by slime in the flooded tunnel
 	
     messageG={}; --German informs
     messageG[1]="Ein Falle löst aus!";
@@ -112,8 +112,8 @@ function MoveToField(User)
 		    User:increaseAttrib("hitpoints",math.random(-2499,-1249)); --damaging the User
 			User.movepoints=User.movepoints-50; --Paralysing the user
 			
-            world:gfx(41,position(755,391,-3));
-            world:createMonster(551,position(755,391,-3),0); --imp
+            world:gfx(41,position(756,391,-3));
+            world:createMonster(551,position(756,391,-3),0); --imp
 			world:gfx(41,position(761,393,-3));
             world:createMonster(551,position(761,393,-3),0); --another imp
 			world:gfx(41,position(757,386,-3));
