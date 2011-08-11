@@ -116,7 +116,7 @@ function MoveToField(User)
             world:createMonster(551,position(755,391,-3),0); --imp
 			world:gfx(41,position(761,393,-3));
             world:createMonster(551,position(761,393,-3),0); --another imp
-			world:gfx(41,position(X,Y,Z));
+			world:gfx(41,position(757,386,-3));
             world:createMonster(891,position(757,386,-3),0); --fire imp
             world:gfx(41,position(758,396,-3));
             world:createMonster(901,position(758,396,-3),0); --shadow imp
