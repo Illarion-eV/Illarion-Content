@@ -43,7 +43,7 @@ function MoveToField(User)
 
     Init(); --Initialising
 	
-    if User:getType() == 0 and User:increaseAttrib("hitpoints",0)>0 and math.random(1,10) == 1 then --only player characters trigger the triggerfield at a chance of 10%
+    if User:getType() == 0 and User:increaseAttrib("hitpoints",0)>0 and math.random(1,10) ~= 1 then --only player characters trigger the triggerfield at a chance of 10%
 	
 		queststatus=User:getQuestProgress(121); --here, we save which events were triggered
 
@@ -69,7 +69,7 @@ function MoveToField(User)
 			world:createItemFromId(359,1,position(User.pos.x,User.pos.y+1,User.pos.z),true,599,0); --pretty hot isn't it?
 			world:createItemFromId(359,1,position(User.pos.x,User.pos.y-1,User.pos.z),true,599,0); --BURN SUCKER!!!111
 			
-		elseif User.pos == waypoint[2] and queststatuslist[2] == 0 and User:get_face_to() == 6 then --the boss in the small alcove, only triggered once by each char upon entering the alcove
+		elseif User.pos == waypoint[2] and queststatuslist[2] == 0 and User:getFaceTo() == 6 then --the boss in the small alcove, only triggered once by each char upon entering the alcove
 
 			queststatuslist[2]=1; --triggered it!
             base.common.TempInformNLS(User,messageG[2],messageE[2]); --sending a message
@@ -121,7 +121,7 @@ function MoveToField(User)
             world:gfx(41,position(758,396,-3));
             world:createMonster(901,position(758,396,-3),0); --shadow imp
 
-		elseif User.pos == waypoint[5] and queststatuslist[5] == 0 and User:get_face_to() == 6 then --the boss in the small alcove, only triggered once by each char upon entering the alcove
+		elseif User.pos == waypoint[5] and queststatuslist[5] == 0 and User:getFaceTo() == 6 then --the boss in the small alcove, only triggered once by each char upon entering the alcove
 
 			queststatuslist[5]=1; --triggered it!
             base.common.TempInformNLS(User,messageG[5],messageE[5]); --sending a message
