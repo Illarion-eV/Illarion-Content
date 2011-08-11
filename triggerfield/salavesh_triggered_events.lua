@@ -55,7 +55,7 @@ function MoveToField(User)
 		if User.pos == waypoint[1] and queststatuslist[1] == 0 then --the firetrap, only triggered once by each char
 		
 			queststatuslist[1]=1; --triggered it!
-            base.common.TempInformNLS(User,messageG[i],messageE[i]); --sending a message
+            base.common.TempInformNLS(User,messageG[1],messageE[1]); --sending a message
             User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 			
 			--The actual event
