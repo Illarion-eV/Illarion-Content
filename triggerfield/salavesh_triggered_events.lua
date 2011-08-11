@@ -43,10 +43,13 @@ function MoveToField(User)
 
     Init(); --Initialising
 	
-    if User:getType() == 0 and User:increaseAttrib("hitpoints",0)>0 and math.random(1,10) == 1 then --only player characters trigger the triggerfield at a chance of 10%
+    if User:getType() == 0 and User:increaseAttrib("hitpoints",0)>0 and math.random(1,10) ~= 1 then --only player characters trigger the triggerfield at a chance of 10%
 	
 		queststatus=User:getQuestProgress(121); --here, we save which events were triggered
-      	queststatuslist={};
+		if not questatus then
+			queststatus=0;
+		end
+		queststatuslist={};
 		queststatuslist=base.common.Split_number(queststatus, 6); --reading the digits of the queststatus as table
  	
 		if User.pos == waypoint[1] and queststatuslist[1] == 0 then --the firetrap, only triggered once by each char
