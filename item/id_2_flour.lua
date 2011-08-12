@@ -50,7 +50,7 @@ end;
 
 
 
-UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
+function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     -- nop
     a=1;
 end
