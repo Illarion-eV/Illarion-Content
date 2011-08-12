@@ -50,6 +50,41 @@ Polygon = base.class.class(
 	end
 );
 
+
+--- tests intersection of a test-ray starting from a point with an edge of the polygon. The test-ray has constant y, Cy-Dy=0
+-- @param LineStruct The otherLine for which intersection with current Line is tested
+-- @return boolean True if the two lines intersect
+function Line:testRay(polyLine)
+    local Ax = polyLine.startPoint.x;
+    local Ay = polyLine.startPoint.y;
+    local Bx = polyLine.endPoint.x;
+    local By = polyLine.endPoint.y;
+    local Cx = self.startPoint.x;
+    local Cy = self.startPoint.y;
+    local Dx = self.endPoint.x;
+    local Dy = self.endPoint.y;
+    
+    local denominator = By*(Cx - Dx) + Ay*(-Cx + Dx);                   -- (c) mathematica
+    local nominator1 = -Cy*Dx + Ay*(-Cx + Dx) + Cx*Dy;                  -- (c) mathematica
+    local nominator2 = Ay*(Bx - Cx) + By*Cx - Bx*Cy + Ax*(-By + Cy);    -- (c) mathematica
+    
+    if denominator == 0 then                        -- parallels
+		if nominator1==0 and nominator2==0 then     -- identical, cover eachother
+		    debug("now returning false,2");
+			return false,2;
+		end
+		debug("now returning false,0");
+		return false,0;
+	end
+	
+	local p1 = nominator1 / denominator;
+	local p2 = nominator2 / denominator;
+	
+	
+    
+end
+
+
 --- tests intersection of two lines (actually line segments).
 -- @param LineStruct The otherLine for which intersection with current Line is tested
 -- @return boolean True if the two lines intersect
@@ -57,12 +92,12 @@ Polygon = base.class.class(
 function Line:intersectsLine(otherLine)
 	-- solve for p1, p2 i.e. the fraction on the two lines from the start point to the intersection point
 	-- p1 and p2 represent the parameters in the equation:
-	-- X = otherLine.StartPoint + p1 * ( otherLine.EndPoint - otherLine.StartPoint) etc.,
+	-- X = A + p1 * ( B - A) and X = C + p2 * ( D - C ) 
     -- if 0<p1<1, then they intersect within the otherLine, if 0 they intersect with exactly the startpoint etc.
     -- if we increase the y-coordinate of every polygon-startpoint by a little something, we can't count the corner
     -- points twice anymore, as startpoints never lie on the other line segment!
     debug("intersect with this line: "..base.common.PositionToText(otherLine.startPoint).."--"..base.common.PositionToText(otherLine.endPoint));
-    dy = 0;--0,2;
+    -- otherLine is the line of the polygon
     local Ax = otherLine.startPoint.x;
     local Ay = otherLine.startPoint.y;
     local Bx = otherLine.endPoint.x;
@@ -76,9 +111,6 @@ function Line:intersectsLine(otherLine)
     local nominator1 = -Cy*Dx + Ay*(-Cx + Dx) + Ax*(Cy - Dy) + Cx*Dy;       -- (c) mathematica
     local nominator2 = Ay*(Bx - Cx) + By*Cx - Bx*Cy + Ax*(-By + Cy);        -- (c) mathematica
     
-	--local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - (self.startPoint.y+dy));
-	--local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (otherLine.endPoint.y - (otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x));
-	--local nominator2 = (self.endPoint.x - self.startPoint.x)*((self.startPoint.y+dy) - otherLine.startPoint.y) - (self.endPoint.y - (self.startPoint.y+dy))*(self.startPoint.x - otherLine.startPoint.x);
 	debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
 	if denominator == 0 then
 		if nominator1==0 and nominator2==0 then
@@ -90,12 +122,12 @@ function Line:intersectsLine(otherLine)
 	end
 	local p1 = nominator1 / denominator;
 	local p2 = nominator2 / denominator;
-	-- count intersections with start (0) or end (1) point
+	-- count intersections with start (pi=0) or end (pi=1) point
 	local ret2 = 0;
-	if p1==0 or p1==1 then
+	if p1==0 or p1==1 then -- hit one endpoint of polygon! we should check 
 		ret2 = 1;
 	end
-	if p2==0 or p2==1 then
+	if p2==0 or p2==1 then  -- polygon hits endpoint of our testing ray
 		ret2 = ret2 + 1;
 	end
 	debug("p1=" .. p1 .. "; p2=" .. p2);

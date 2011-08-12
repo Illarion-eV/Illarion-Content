@@ -6,6 +6,11 @@ module("item.id_2_flour", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
+    if User.id==42 then
+        UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
+        return
+    end
+
     list=world:LoS(User.pos,position(User.pos.x+5,User.pos.y,User.pos.z));
 
     if list ~= nil then
@@ -42,3 +47,9 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     
     User:inform("All tests done.");
 end;
+
+
+
+UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
+    
+end
