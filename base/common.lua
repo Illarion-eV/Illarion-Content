@@ -1523,3 +1523,11 @@ function BasicNPCChecks(originator,NPCRange, npc)
     originator:introduce(npc);
     return true;
 end
+
+function PositionToText(pos)
+    if pos ~= nil then
+        retString="("..pos.x..","..pos.y..","..pos.z..")";
+        return retString;
+    end
+    return "nil","nil","nil"
+end

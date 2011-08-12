@@ -320,7 +320,7 @@ User:inform("KillMonsters 2");
 
         worked,mapItem,mapItemNr = checkMap( User, TargetPosition );
         if not worked then
-            User:inform( "map check failed" );
+            --User:inform( "map check failed" );
             return false;
         end
 
