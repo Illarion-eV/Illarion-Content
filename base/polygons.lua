@@ -51,9 +51,9 @@ Polygon = base.class.class(
 
 --- tests intersection of two lines (actually line segments).
 -- @param LineStruct The otherLine for which intersection with current Line is tested
--- @return boolean True if the two lines intersect
--- @return int Number of intersections with the start/end points. [0,1,2]
-function Line:intersectsLine(otherLine)
+-- @param boolean True if self is a horizontal ray. Thus if the start/end point of otherLine is on self then true is returned if and only if the rest of otherLine is below self.
+-- @return boolean True if the two lines intersect, false if no intersection or lines are identical
+function Line:intersectsLine(otherLine, selfIsRay)
 	-- solve for p1, p2 i.e. the fraction on the two lines from the start point to the intersection point
 	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - self.startPoint.y);
 	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (otherLine.endPoint.y - otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
@@ -61,27 +61,29 @@ function Line:intersectsLine(otherLine)
 	-- debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
 	if denominator == 0 then
 		if nominator1==0 and nominator2==0 then
-			return false,2;
+			return false;
 		end
-		return false,0;
+		return false;
 	end
-	local p1 = nominator1 / denominator;
-	local p2 = nominator2 / denominator;
-	-- count intersections with start (0) or end (1) point
-	local ret2 = 0;
-	if p1==0 or p1==1 then
-		ret2 = 1;
-	end
-	if p2==0 or p2==1 then
-		ret2 = ret2 + 1;
+	local p1 = nominator1 / denominator; -- fraction of self
+	local p2 = nominator2 / denominator; -- fraction of otherLine
+	if selfIsRay then
+		-- intersections with start (0) or end (1) point
+		if p2==0 then
+			-- start of otherLine is on self, check if end is below
+			return (otherLine.endPoint.y < otherLine.startPoint.y);
+		elseif p2==1 then
+			-- end of otherLine is on self, check if start is below
+			return (otherLine.startPoint.y < otherLine.endPoint.y);
+		end
 	end
 	-- debug("p1=" .. p1 .. "; p2=" .. p2);
 	-- intersection point is only on both line segments if 0 < p1,p2 < 1
 	-- otherwise intersection point is on the line, but not on the segments
 	if (0<=p1) and (p1<=1) and (0<=p2) and (p2<=1) then
-		return true, ret2;
+		return true;
 	end
-	return false, ret2;
+	return false;
 end
 
 --- tests if a point is on a line.
@@ -145,18 +147,13 @@ function Polygon:pip(point)
 	-- create a test line from the point to the right most boundary
 	local testLine = Line(point, position(self.max.x+1, point.y, 0));
 	local count = 0;
-	local intWpoints = 0;
 	for _,curLine in pairs(self.lineList) do
 		if curLine:pointOnLine(point) then
 			return true;
 		end
-		local b,n = testLine:intersectsLine(curLine);
-		if b then
+		if testLine:intersectsLine(curLine, true) then
 			count = count + 1;
-			intWpoints = intWpoints + n;
 		end
 	end
-	-- add (intWpoints + 1) to take multiple intersections with points into account
-	count = count + intWpoints + 1;
 	return (count%2 == 1);
 end
