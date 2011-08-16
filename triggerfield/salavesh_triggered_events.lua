@@ -43,7 +43,7 @@ function MoveToField(User)
 
     Init(); --Initialising
 	
-    if User:getType() == 0 and User:increaseAttrib("hitpoints",0)>0 and math.random(1,10) == 1 then --only player characters trigger the triggerfield at a chance of 10%
+    if User:getType() == 0 and User:increaseAttrib("hitpoints",0)>0 and math.random(1,5) == 1 then --only player characters trigger the triggerfield at a chance of 20%
 	
 		queststatus=User:getQuestProgress(121); --here, we save which events were triggered
 		queststatuslist={};
