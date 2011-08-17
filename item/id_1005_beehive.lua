@@ -38,7 +38,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
 	
 	if (ltstate == Action.none) then -- Untätig: Starte Honig Sammeln!
-        User:startAction(honeygathering:GenWorkTime(User, nil), 0, 0, 0, 0);
+        honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
+		User:startAction(honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
         User:talkLanguage(Character.say, Player.german, "#me beginnt nach Honig zu suchen.");
         User:talkLanguage(Character.say, Player.english, "#me starts to search for honey.");
         return
@@ -57,7 +58,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			return false
 		end
 	end
-	User:learn( honeygathering.LeadSkill, honeygathering.LeadSkillGroup, honeygathering.Movepoints, 100, User:increaseAttrib(honeygathering.LeadAttribute,0) );
-	
-	User:startAction(honeygathering:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
+	User:learn( honeygathering.LeadSkill, honeygathering.LeadSkillGroup, honeygathering.SavedWorkTime[User.id], 100, User:increaseAttrib(honeygathering.LeadAttribute,0) );
+	honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
+	User:startAction(honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
 end

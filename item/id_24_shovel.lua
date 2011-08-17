@@ -127,7 +127,8 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
 	end
 	
     if ( ltstate == Action.none ) then
-        User:startAction( theCraft:GenWorkTime(User,SourceItem), 0, 0, 0, 0);
+        theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
+		User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
         if ( GroundType == gt.sand ) then
             User:talkLanguage( Character.say, Player.german, "#me beginnt nach Sand zu graben.");
             User:talkLanguage( Character.say, Player.english, "#me starts to dig for sand.");
@@ -142,7 +143,8 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
 		return;
 	end
 
-	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.Movepoints, 50, User:increaseAttrib(theCraft.LeadAttribute,0) );
+	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.SavedWorkTime[User.id], 50, User:increaseAttrib(theCraft.LeadAttribute,0) );
+	theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
 	
     local Skill = User:getSkill( theCraft.LeadSkill );
     gem1, str1, gem2, str2=base.common.GetBonusFromTool(SourceItem);
@@ -155,7 +157,7 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
     end
     Skill=Skill+step;
     if not checkSuccess( User, Skill, theCraft.LeadAttribute ) then
-        User:startAction( theCraft:GenWorkTime(User,SourceItem), 0, 0, 0, 0);
+        User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
         return
     end
     local numberSand=getNumb( User, Skill, theCraft.LeadAttribute );
@@ -177,7 +179,7 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
             "You can't carry more clay and it falls to the ground.");
         end
     end
-    User:startAction( theCraft:GenWorkTime(User,SourceItem), 0, 0, 0, 0);
+    User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
 end
 
 function getNumb( Char, skillValue, attrib )
