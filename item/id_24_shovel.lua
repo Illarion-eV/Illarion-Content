@@ -146,21 +146,11 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
 	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.SavedWorkTime[User.id], 50, User:increaseAttrib(theCraft.LeadAttribute,0) );
 	theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
 	
-    local Skill = User:getSkill( theCraft.LeadSkill );
-    gem1, str1, gem2, str2=base.common.GetBonusFromTool(SourceItem);
-    step=0;
-    if gem1==3 then     --ruby gives skill
-        step=str1;
-    end
-    if gem2==3 then
-        step=step+str2;
-    end
-    Skill=Skill+step;
-    if not checkSuccess( User, Skill, theCraft.LeadAttribute ) then
+    if math.random(1,100) <= 15 then
         User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
         return
     end
-    local numberSand=getNumb( User, Skill, theCraft.LeadAttribute );
+    local numberSand=math.random(1,4);
     if ( world:getField( TargetPos ):tile() == 3 ) then
         ItemID = 726;
     else
@@ -180,20 +170,6 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
         end
     end
     User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
-end
-
-function getNumb( Char, skillValue, attrib )
-    UAttrib=Char:increaseAttrib( attrib, 0 );
-    return math.max(1, math.ceil( math.random( math.ceil(( skillValue+UAttrib*2 )/30 )) ) );
-end
-
-function checkSuccess( Char, skillValue, attrib )
-    local usertest= 0.46*(2*Char:increaseAttrib( attrib, 0 )+skillValue)+30;
-    if ( usertest > math.random( 0, 100 )) then
-        return true
-    else
-        return false
-    end
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
@@ -220,14 +196,18 @@ function LocationCheck(TargetPos,DigginType, User)
         end
         return false;
     elseif (DigginType == gt.dirt) then
-		-- check for nearby water tile
+		-- check for nearby water tiles
+		local waterCount = 0;
 		local testPos;
         for Xoff=-1, 1 do
             for Yoff=-1, 1 do
                 testPos=position( TargetPos.x+Xoff, TargetPos.y+Yoff, TargetPos.z );
 				if ( base.common.GetGroundType(world:getField(testPos):tile()) == gt.water ) then
-					return true;
+					waterCount = waterCount + 1;
                 end
+				if waterCount >= 2 then
+					return true;
+				end
             end
         end
         return false;

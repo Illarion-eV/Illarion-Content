@@ -64,18 +64,23 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         base.common.TurnTo(User, TargetPos);
     end
 	
+	local fishing = content.gathering.fishing;
+	
 	if (ltstate == Action.none) then -- Untätig: Starte Angeln!
-        User:startAction(content.gathering.fishing:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
+        fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User, SourceItem);
+		User:startAction(fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
         User:talkLanguage(Character.say, Player.german, "#me beginnt zu fischen.");
         User:talkLanguage(Character.say, Player.english, "#me starts fishing.");
         return
     end
 	
-	if not content.gathering.fishing:FindRandomItem(User) then
+	if not fishing:FindRandomItem(User) then
 		return
 	end
 	
 	-- Spieler fischt bereits
+	User:learn( fishing.LeadSkill, fishing.LeadSkillGroup, fishing.SavedWorkTime[User.id], 100, User:increaseAttrib(fishing.LeadAttribute,0) );
+	fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User, SourceItem);
 	local chance = math.random(1,10)
 	if(chance <= 3) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance beträgt 30% für Lachs
 		local notcreated = User:createItem(73, 1, 333, 0);
@@ -84,8 +89,6 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 			base.common.InformNLS(User, "Du kannst nichts mehr halten!", "You can't carry anymore!");
 			return false
 		end
-		--User:learn(2, "fishing", 2, 100);
-		--Replace with new learn function, see learn.lua 
 	elseif(chance <= 9) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance beträgt 60% für Forelle
 		local notcreated = User:createItem(355, 1, 333, 0);
 		if(notcreated > 0) then
@@ -93,11 +96,6 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 			base.common.InformNLS(User, "Du kannst nichts mehr halten!", "You can't carry anymore!");
 			return false
 		end
-		--User:learn(2, "fishing", 2, 100);
-		--Replace with new learn function, see learn.lua 
-	else
-		--User:learn(2, "fishing", 1, 100);
-		--Replace with new learn function, see learn.lua 
 	end
 	
 	-- GFX + Sound
@@ -109,8 +107,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         User:talkLanguage(Character.say, Player.english, "#me lets the fishing rod slip out of the hands and it sinks to the ground.");
         return
     end
-	
-    User:startAction(content.gathering.fishing:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
+    User:startAction(fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
 end
 
 function LookAtItem( User, Item )

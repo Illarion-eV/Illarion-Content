@@ -47,66 +47,42 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             base.common.InformNLS(User,
             "Du benötigst Holz um daraus Asche herzustellen.",
             "You need wood to produce potash.");
+			return;
         end
-        return
     end
-    
+	local potashproducing = content.gathering.potashproducing;
     if ( ltstate == Action.none ) then
-        User:startAction(content.gathering.potashproducing:GenWorkTime(User), 0, 0, 7, 15);
+		potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
+        User:startAction(potashproducing.SavedWorkTime[User.id], 0, 0, 7, 15);
         User:talkLanguage(Character.say, Player.german, "#me beginnt Asche herzustellen.");
         User:talkLanguage(Character.say, Player.english, "#me starts to produce potash.");
         return
     end
     
-    if not content.gathering.potashproducing:FindRandomItem(User) then
+    if not potashproducing:FindRandomItem(User) then
 		return
 	end
+	
+	User:learn( potashproducing.LeadSkill, potashproducing.LeadSkillGroup, potashproducing.SavedWorkTime[User.id], 20, User:increaseAttrib(potashproducing.LeadAttribute,0) );
+	potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
+	
+	local woodList = {2560,543,544,3};
+	for _,wood in pairs(woodList) do
+		if (User:countItemAt("all",wood)>0) then
+			User:eraseItem(wood,1);
+			notCreated = User:createItem(314,3,333,0);
+			if (notCreated > 0) then
+				world:createItemFromId(314, notcreated, User.pos, true, 333 ,0);
+				base.common.InformNLS(User,
+				"Du kannst nichts mehr halten.",
+				"You can't carry any more.");
+			else
+				User:startAction(potashproducing.SavedWorkTime[User.id], 0, 0, 7, 15);
+			end
+			break;
+		end
+	end
     
-    if (User:countItemAt("all",2560)>0) then
-        User:eraseItem(2560,1);
-        notCreated = User:createItem(314,3,333,0);
-        if (notCreated > 0) then
-            world:createItemFromId(314, notcreated, User.pos, true, 333 ,0);
-            base.common.InformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You can't carry any more.");
-        else
-            User:startAction(content.gathering.potashproducing:GenWorkTime(User), 0, 0, 7, 15);
-        end
-    elseif (User:countItemAt("all",543)>0) then
-        User:eraseItem(543,1);
-        notCreated = User:createItem(314,3,333,0);
-        if (notCreated > 0) then
-            world:createItemFromId(314, notcreated, User.pos, true, 333 ,0);
-            base.common.InformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You can't carry any more.");
-        else
-            User:startAction(content.gathering.potashproducing:GenWorkTime(User), 0, 0, 7, 15);
-        end
-    elseif (User:countItemAt("all",544)>0) then
-        User:eraseItem(544,1);
-        notCreated = User:createItem(314,3,333,0);
-        if (notCreated > 0) then
-            world:createItemFromId(314, notcreated, User.pos, true, 333 ,0);
-            base.common.InformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You can't carry any more.");
-        else
-            User:startAction(content.gathering.potashproducing:GenWorkTime(User), 0, 0, 7, 15);
-        end
-    elseif (User:countItemAt("all",3)>0) then
-        User:eraseItem(3,1);
-        notCreated = User:createItem(314,3,333,0);
-        if (notCreated > 0) then
-            world:createItemFromId(314, notCreated, User.pos, true, 333 ,0);
-            base.common.InformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You can't carry any more.");
-        else
-            User:startAction(content.gathering.potashproducing:GenWorkTime(User), 0, 0, 7, 15);
-        end
-    end
     base.common.GetHungry( User, 200 );
 end -- function
 
