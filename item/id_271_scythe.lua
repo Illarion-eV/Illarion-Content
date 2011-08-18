@@ -35,8 +35,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
     if not base.common.IsLookingAt( User, TargetItem.pos ) then -- Blickrichtung prüfen
         base.common.TurnTo( User, TargetItem.pos ); -- notfalls drehen
     end
-    
-	if not content.gathering.farming:FindRandomItem(User) then
+    local farming = content.gathering.farming;
+	if not farming:FindRandomItem(User) then
 		return
 	end
 	

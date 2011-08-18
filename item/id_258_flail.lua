@@ -7,11 +7,15 @@
 -- UPDATE common SET com_script='item.id_258_flail' WHERE com_itemid IN (258);
 
 require("item.general.wood")
+require("base.common")
+require("content.gathering")
 
 module("item.id_258_flail", package.seeall, package.seeall(item.general.wood))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-    base.common.ResetInterruption( User, ltstate );
+    content.gathering.InitGathering();
+	
+	base.common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- Arbeit unterbrochen
         if (User:increaseAttrib("sex",0) == 0) then
             gText = "seine";
@@ -47,21 +51,29 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return
     end
     
-    if (User:countItemAt("belt",249)==0) then -- Getreidebündel im Gürtel
-        if (ltstate ~= Action.success) then
-            base.common.InformNLS( User, 
-            "Was willst du mich dem Dreschflegel bearbeiten? Dich selbst?", 
-            "What do you want to flail? Yourself?" );
-        end
-        return
+	if not base.common.IsLookingAt( User, TargetItem.pos ) then -- Blickrichtung prüfen
+        base.common.TurnTo( User, TargetItem.pos ); -- notfalls drehen
     end
+	
+	local farming = content.gathering.farming;
+	
     
     if ( ltstate == Action.none ) then -- Arbeit noch nicht begonnen -> Los gehts
-        User:startAction( GenWorkTime(User), 0, 0, 0, 0);
+        if (User:countItemAt("all",249)==0) then -- Getreidebündel im Gürtel
+			base.common.InformNLS( User, 
+				"Was willst du mit dem Dreschflegel bearbeiten? Dich selbst?", 
+				"What do you want to flail? Yourself?" );
+			return;
+		end
+		User:startAction( GenWorkTime(User), 0, 0, 0, 0);
         User:talkLanguage( Character.say, Player.german, "#me beginnt Getreide zu dreschen");
         User:talkLanguage( Character.say, Player.english, "#me starts to flail grain"); 
         return
     end
+	
+	if not farming:FindRandomItem(User) then
+		return
+	end
     
     if base.common.IsInterrupted( User ) then
         local selectMessage = math.random(1,5);
