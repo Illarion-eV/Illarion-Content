@@ -41,17 +41,15 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return
     end
     
-    if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
-       (User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then
-        if (ltstate ~= Action.success) then
-            base.common.InformNLS(User,
-            "Du benötigst Holz um daraus Asche herzustellen.",
-            "You need wood to produce potash.");
-			return;
-        end
-    end
 	local potashproducing = content.gathering.potashproducing;
     if ( ltstate == Action.none ) then
+		if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
+			(User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then
+			base.common.InformNLS(User,
+				"Du benötigst Holz um daraus Asche herzustellen.",
+				"You need wood to produce potash.");
+			return;
+		end
 		potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
         User:startAction(potashproducing.SavedWorkTime[User.id], 0, 0, 7, 15);
         User:talkLanguage(Character.say, Player.german, "#me beginnt Asche herzustellen.");
@@ -63,12 +61,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return
 	end
 	
-	User:learn( potashproducing.LeadSkill, potashproducing.LeadSkillGroup, potashproducing.SavedWorkTime[User.id], 20, User:increaseAttrib(potashproducing.LeadAttribute,0) );
-	potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
-	
 	local woodList = {2560,543,544,3};
 	for _,wood in pairs(woodList) do
 		if (User:countItemAt("all",wood)>0) then
+			User:learn( potashproducing.LeadSkill, potashproducing.LeadSkillGroup, potashproducing.SavedWorkTime[User.id], 20, User:increaseAttrib(potashproducing.LeadAttribute,0) );
+			potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
 			User:eraseItem(wood,1);
 			notCreated = User:createItem(314,3,333,0);
 			if (notCreated > 0) then
@@ -79,11 +76,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			else
 				User:startAction(potashproducing.SavedWorkTime[User.id], 0, 0, 7, 15);
 			end
-			break;
+			base.common.GetHungry( User, 200 );
+			return;
 		end
 	end
-    
-    base.common.GetHungry( User, 200 );
+	-- we started the action with wood, but somehow there is no more there!
+	base.common.InformNLS(User,
+		"Du benötigst Holz um daraus Asche herzustellen.",
+		"You need wood to produce potash.");
 end -- function
 
 function CharacterOnField(User)
