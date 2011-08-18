@@ -54,9 +54,9 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
     else
         DeleteFlame(User,FieldItem);
         if (User:getPlayerLanguage()==0) then
-            User:inform("Die Feuerflamme war nur eine Illusion und verpufft");
+            User:inform("Die Feuerflamme war nur eine Illusion und verpufft.");
         else
-            User:inform("The fireflame was just an illusion and disappears");
+            User:inform("The fireflame was just an illusion and disappears.");
         end
     end
 end
