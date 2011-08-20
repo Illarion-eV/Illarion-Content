@@ -5,29 +5,29 @@ module("base.orders", package.seeall)
 --Welches Item ist ein Auftrag (Schriftrolle)
 OrderItem = 3110;
 
---Wie viele minuten wird ein Char gesperrt wenn er zu viele offene Auftrï¿½ge hat und einen neuen annehmen will
+--Wie viele minuten wird ein Char gesperrt wenn er zu viele offene Aufträge hat und einen neuen annehmen will
 OrderRetentionPeriod = 5*60; --5 rl hours ig time retention period(8 was bit too high!)
 
---Um welchen Wert wird die Vertrauenswï¿½rdigkeit nach ablauf der Sperrfrist erhï¿½ht
+--Um welchen Wert wird die Vertrauenswürdigkeit nach ablauf der Sperrfrist erhöht
 ThrustworthynessChangeAfterRetentionPeriod = 5;
 
---Um welchen Wert wird die Vertrauenswï¿½rdigkeit nach annehmen eines neuen Auftrags vermindert
+--Um welchen Wert wird die Vertrauenswürdigkeit nach annehmen eines neuen Auftrags vermindert
 ThrustworthynessChangeAfterGetOrder = -5;
 
---Um welchen Wert wird die Vertrauenswï¿½rdigkeit erhï¿½ht wenn ein Auftrag innerhalb der normalen Zeit erfï¿½llt wird.
+--Um welchen Wert wird die Vertrauenswürdigkeit erhöht wenn ein Auftrag innerhalb der normalen Zeit erfüllt wird.
 ThrustworthynessChangeAfterSuccessOrder = 10;
 
---Um welchen Wert wird die Vertrauenswï¿½rdigkeit erhï¿½ht wenn ein Auftrag erfï¿½llt wird aber zu spï¿½t ist oder die Qualitï¿½t nicht stimmt
+--Um welchen Wert wird die Vertrauenswürdigkeit erhöht wenn ein Auftrag erfüllt wird aber zu spät ist oder die Qualitï¿½t nicht stimmt
 ThrustworthynessChangeAfterNotSuccessOrder = 5;
 
---Untergrenze der Vertrauenswï¿½rdigkeit, hat ein char weniger vertrauenswï¿½rdigkeit wird eine Sperrfrist festegelegt. 
+--Untergrenze der Vertrauenswürdigkeit, hat ein char weniger vertrauenswürdigkeit wird eine Sperrfrist festegelegt. 
 ThrustworthynessBorder = 10;
 
---Um welchen Wert wird der Wert fï¿½r Gute Auftrï¿½ge erhï¿½ht wenn ein Auftrag innerhalb der normalen Zeit erfï¿½llt wird.
+--Um welchen Wert wird der Wert fï¿½r Gute Aufträge erhöht wenn ein Auftrag innerhalb der normalen Zeit erfüllt wird.
 GoodOrderChangeAfterSuccessOrder = 3;
---Um welchen Wert wird der Wert fï¿½r Gute Auftrï¿½ge erhï¿½ht wenn ein Auftrag ï¿½berzogen wurde
+--Um welchen Wert wird der Wert fï¿½r Gute Aufträge erhöht wenn ein Auftrag ï¿½berzogen wurde
 GoodOrderChangeAfterNotSuccessOrder = -15;
---Um welchen Wert wird der Wert fï¿½r Gute Auftrï¿½ge gesenkt nach einer Sperrfrist
+--Um welchen Wert wird der Wert fï¿½r Gute Aufträge gesenkt nach einer Sperrfrist
 GoodOrderChangeAfterRetentionPeriod = -50;
 
 
@@ -52,7 +52,7 @@ end
 --     CoinsModStruct(50,20)
 --     fï¿½r je 50 Punkte ï¿½ber 300 gibt es +20 mehr Geld
 --     am Beispiel wï¿½re das +40 Geld da 400 = 2*50 es gï¿½be gesamt 140 Gold
---Bsp fï¿½r Zeit: auftrag 5 h zu spï¿½t, Gold wï¿½rde es 1000 Geben
+--Bsp fï¿½r Zeit: auftrag 5 h zu spät, Gold wï¿½rde es 1000 Geben
 --     CoinsModStruct(2,100)
 --     fï¿½r je 2 Stunden ï¿½ber den Auftrag wï¿½rde 100 abgezogen werden
 --     bei 5 Stunden sind das 200 weniger also noch 800 Gold.
@@ -61,15 +61,15 @@ function CoinsModStruct(qualmod,mvalue)
 end 
 
 --[[
-    ï¿½ndert den Vertrausenwï¿½rdigkeitsstatus eines Character
+    ï¿½ndert den Vertrausenwürdigkeitsstatus eines Character
     prï¿½ft dabei die einhaltung der Grenzen 
     @param user der nutzer der geprï¿½ft werden soll
-    @param ntwn der neue Vertrauenswï¿½rdigkeitswert
-    @param ngoodorders der neue Wert fï¿½r Gute Auftrï¿½ge
+    @param ntwn der neue Vertrauenswürdigkeitswert
+    @param ngoodorders der neue Wert fï¿½r Gute Aufträge
 ]]--
 function setThrustWorthyness(user,ntwn,ngoodorders)
     local qp = user:getQuestProgress(61);
-    --Vertrauenswï¿½rdigkeit herausmasken
+    --Vertrauenswürdigkeit herausmasken
     twn = LuaAnd(qp,255);
     --Lieferfï¿½higkeit herausmasken
     goodorders = LuaAnd(LuaRShift32(qp,8),255);
@@ -99,13 +99,13 @@ local function checkRetentionPeriod(usr)
 end
 
 --[[
-    ï¿½ndert den Vertrausenwï¿½rdigkeitsstatus eines Character
+    ï¿½ndert den Vertrausenwürdigkeitsstatus eines Character
     prï¿½ft dabei die einhaltung der Grenzen 
-    @return Vertrauenswï¿½rdigkeit, Wert fï¿½r Gute Auftrï¿½ge
+    @return Vertrauenswürdigkeit, Wert fï¿½r Gute Aufträge
 ]]--
 local function getThrustWorthyness(user)
     local qp = user:getQuestProgress(61);
-    --Vertrauenswï¿½rdigkeit herausmasken
+    --Vertrauenswürdigkeit herausmasken
     local twn = LuaAnd(qp,255);
     --Lieferfï¿½higkeit herausmasken
     local goodorders = LuaAnd(LuaRShift32(qp,8),255);
@@ -150,7 +150,7 @@ OrderNPC =
     textNotOk = { ger = "", eng = ""},
     --Text wenn jemand ein Bonus bekommt
     textBoni = { ger = "", eng = ""},
-    --Trigger um Auftrï¿½ge dieses NPC's an zu schauen
+    --Trigger um Aufträge dieses NPC's an zu schauen
     triggerSeeOrder={},
     triggerGetOrder={},
     --Text der ausgegeben wird wenn der Char eine Sperrfrist hat
@@ -161,17 +161,17 @@ OrderNPC =
     lastOrderString = "",
     --Aktueller Zyklus
     lastOrderCycle = 0,
-    --Liste mit allen aktuell offenen Auftrï¿½gen
+    --Liste mit allen aktuell offenen Aufträgen
     openOrders = {},
-    --Liste zur erstellung mï¿½glicher Auftrï¿½ge
+    --Liste zur erstellung mï¿½glicher Aufträge
     orderPool = {},
-    --Maximale Anzahl an offenen Auftrï¿½gen (Sofern diese erreicht wird wird der erste Auftrag in openOrders gelï¿½scht um einen neuen zu generieren)
+    --Maximale Anzahl an offenen Aufträgen (Sofern diese erreicht wird wird der erste Auftrag in openOrders gelï¿½scht um einen neuen zu generieren)
     maxOpenOrders =0,
     --In wievielen Minuten wird ein neuer auftrag generiert
     generationTime = { min = 10, max=20 },
     --Weiviele Zyklen wurde kein Auftrag generiert
     generationCycle = -1,
-    --Boniliste Dabei ist jeder Eintrag fï¿½r je 10 Punkte im "Gute Auftrï¿½ge" Wert. Min, Max ergeben den Bonus im % zum erfï¿½llten Auftrag
+    --Boniliste Dabei ist jeder Eintrag fï¿½r je 10 Punkte im "Gute Aufträge" Wert. Min, Max ergeben den Bonus im % zum erfüllten Auftrag
     --Boni fï¿½r Wert [0-10]       [10-20]       [20-30]       [30-40]
     bonilist = { {min=0,max=0},{min=0,max=5},{min=5,max=8},{min=6,max=12},{min=8,max=15},{min=10,max=20},{min=14,max=25},{min=18,max=28},{min=20,max=30},{min=20,max=35}},
     curCycle = 0
@@ -186,23 +186,23 @@ function OrderNPC:new( onpc )
     setmetatable( onpc, self);
     self.__index = self; --Inherit from nothing only point to my own functions
     onpc.npc = nil;
-    onpc.textOrderSay = { {ger="Ich habe einen Auftrag anzubieten.",eng="I have one order."},{ger="Ich habe %d Auftrï¿½ge anzubieten",eng="I have %d orders!"} };
+    onpc.textOrderSay = { {ger="Ich habe einen Auftrag anzubieten.",eng="I have one order."},{ger="Ich habe %d Aufträge anzubieten",eng="I have %d orders!"} };
     onpc.timeOrderSay = {min=5,max=15};
     onpc.timeOrderCycle = -1;
     onpc.textFalseNPC.ger = "Was soll das! Der Ist nicht von mir!";
     onpc.textFalseNPC.eng = "Hey, this contract isn't from me!";
-    onpc.textNoItems.ger = "Komm wieder wenn du etwas fï¿½r mich hast!";
+    onpc.textNoItems.ger = "Komm wieder wenn du etwas für mich hast!";
     onpc.textNoItems.eng = "Come again if you have something for me!";
     onpc.textSomeItems.ger = "Wenigstens schon etwas. Du kannst das hier lassen und den Rest holen!";
-    onpc.textGetSomeItems.ger = "Danke. Bring mir den Rest so bald wie mï¿½glich!";
+    onpc.textGetSomeItems.ger = "Danke. Bring mir den Rest so bald wie möglich!";
     onpc.textGetSomeItems.eng = "Thanks. Bring me the remaining wares as soon as possible!";
     onpc.textSomeItems.eng = "At least something. You can leave it here and get the remaining wares!";
    -- onpc.textSomeItems.eng = "Come again if you have something for me!";
-    onpc.textQualityLess.ger = "Das ist ja nur minderwertige Ware, dafï¿½r bekommst du nur %d Gold %d Silber und %d Kupfer!";
+    onpc.textQualityLess.ger = "Das ist ja nur minderwertige Ware, dafür bekommst du nur %d Gold %d Silber und %d Kupfer!";
     onpc.textQualityLess.eng = "This isn't the Quality I wanted, you only get %d gold %d silver and %d Copper for it!";
-    onpc.textTimeOver.ger = "Du bist zu spï¿½t dran, daher zahle ich nur %d Gold %d Silber und %d Kupfer.";
-    onpc.textTimeOver.eng = "You are to late. I pay only %d gold %d silver %d copper for that!";
-    onpc.textBoth.ger = "Zu spï¿½t und auch noch minderwertige Ware, na Warte mehr als %d Gold %d Silber und %d Kupfer kriegst du nicht!";
+    onpc.textTimeOver.ger = "Du bist zu spät dran, daher zahle ich nur %d Gold %d Silber und %d Kupfer.";
+    onpc.textTimeOver.eng = "You are too late. I pay only %d gold %d silver %d copper for that!";
+    onpc.textBoth.ger = "Zu spät und auch noch minderwertige Ware, na Warte mehr als %d Gold %d Silber und %d Kupfer kriegst du nicht!";
     onpc.textBoth.eng = "To late and awful quality, you won't get more than %d gold %d silver %d copper!";
     onpc.textNotOk.ger = "Naja... was solls! Hier hast du das Geld!";
     onpc.textNotOk.eng = "Hmm... it's ok, here is the money!";
@@ -210,15 +210,15 @@ function OrderNPC:new( onpc )
     onpc.textOk.eng = "That looks good, here is your reward!";
     onpc.textGetOrder.ger = "Hier ist der Auftrag, pass auf das alles rechtzeitig fertig wird!";
     onpc.textGetOrder.eng = "Here is my order. I hope you deliver it in time!";
-    onpc.textRetentionPeriod.ger = "Meine Kollegen haben mir gesagt das du gerne mal Auftrï¿½ge vergisst oder nicht ordentlich lieferst, von mir kriegst du keinen Auftrag!"
+    onpc.textRetentionPeriod.ger = "Meine Kollegen haben mir gesagt das du gerne mal Aufträge vergisst oder nicht ordentlich lieferst, von mir kriegst du keinen Auftrag!"
     onpc.textRetentionPeriod.eng = "My partners told me that you forget the orders often, or you delivered shabby wares, you won't get an order from me! ";
-    onpc.textNotThrustworthy.ger = "Hmmm... du scheinst dich nicht wirklich um deine Auftrï¿½ge zu kï¿½mmern. Von mir kriegst du nichts!";
+    onpc.textNotThrustworthy.ger = "Hmmm... du scheinst dich nicht wirklich um deine Aufträge zu kümmern. Von mir kriegst du nichts!";
     onpc.textNotThrustworthy.eng = "Hmmm... It seems that you aren't interested in fullfilling your orders. You won't get a new one from me!";
-    onpc.textBoni.ger = "Hier, hast du was Extra. Da du immer so gute Lieferungen tï¿½tigst.";
+    onpc.textBoni.ger = "Hier, hast du was Extra. Da du immer so gute Lieferungen tätigst.";
     onpc.textBoni.eng = "Here, you get something extra, because you did a good job.";
     onpc.lastOrderString="";
     onpc.lastOrderCycle = 0;
-    onpc.triggerSeeOrder = { ".*[Aa]uftrag.+(%d+).+[Aa]nsehen.*",".*[Ss]ee.+[Oo]rder.+(%d+).*",".*[Aa]uftrag.+(%d+).+sehen.*",".*[Au]ftr[ï¿½a][ge][eg].*","[Oo]rder.*", };
+    onpc.triggerSeeOrder = { ".*[Aa]uftrag.+(%d+).+[Aa]nsehen.*",".*[Ss]ee.+[Oo]rder.+(%d+).*",".*[Aa]uftrag.+(%d+).+sehen.*",".*[Au]ftr[äa][ge][eg].*","[Oo]rder.*", };
     onpc.triggerGetOrder = { ".*[Aa]uftrag.+(%d+).+[Aa]nnehmen.*",".*[Gg]et.+[Oo]rder.+(%d+).*", ".*[Aa]uftrag.+(%d+).+[Ll]iefern.*",".*[Dd]eliver.+[Oo]rder.+(%d+).*",".*[Aa]uftrag.+(%d+).+[Hh]aben.*",".*[Hh]ave.+[Oo]rder.+(%d+).*",".*[Aa]uftrag.+(%d+).+[Nn]ehmen.*",".*[Tt]ake.+[Oo]rder.+(%d+).*" };
     onpc.openOrders = {};
     onpc.orderPool = OrderPool:new();
@@ -254,7 +254,7 @@ function OrderNPC:talkOrder()
 end
 
 --[[
-    listet fï¿½r den npc alle wichtigen daten auf
+    listet für den npc alle wichtigen daten auf
     ]]--
 function OrderNPC:showStats(who) 
    local text = "Open orders: "..table.getn(self.openOrders).." time min: "..self.generationTime.min.." max: "..self.generationTime.max.." next (1/10s): "..self.generationCycle;
@@ -301,13 +301,13 @@ function OrderNPC:receiveText(who,text)
             number = getNumberInString(text);
             if ( number ~= nil ) then
                 if ( number <= 0 or number > table.getn(self.openOrders) ) then
-                    base.common.TalkNLS(self.npc,Character.say,"Ich habe nur "..table.getn(self.openOrders).." Auftrï¿½ge!","I only have "..table.getn(self.openOrders).." orders!");
+                    base.common.TalkNLS(self.npc,Character.say,"Ich habe nur "..table.getn(self.openOrders).." Aufträge!","I only have "..table.getn(self.openOrders).." orders!");
                 else
                     local twn, go = getThrustWorthyness(who);
                     --schon eine Sperrfrist dann einfach den Text der Sperrfrist ausgeben
                     if ( checkRetentionPeriod(who) ) then
                         base.common.TalkNLS(self.npc,Character.say,self.textRetentionPeriod.ger,self.textRetentionPeriod.eng);
-                    --Vertrauenswï¿½rdigkeit ausreichend?
+                    --Vertrauenswürdigkeit ausreichend?
                     elseif ( twn < ThrustworthynessBorder ) then
                         base.common.TalkNLS(self.npc,Character.say,self.textNotThrustworthy.ger,self.textNotThrustworthy.eng);
                         activateRetentionPeriod(who);
@@ -338,12 +338,12 @@ function OrderNPC:receiveText(who,text)
                     elseif (ordercount == 1 ) then
                         base.common.TalkNLS(self.npc, Character.say,"Ich habe nur einen Auftrag!","I only have one order!");
                     else
-                        base.common.TalkNLS(self.npc, Character.say,"Ich habe nur "..ordercount.." Auftrï¿½ge!","I only have "..ordercount.." orders!");
+                        base.common.TalkNLS(self.npc, Character.say,"Ich habe nur "..ordercount.." Aufträge!","I only have "..ordercount.." orders!");
                     end
                 else
                     local order = self.openOrders[number];
                     order:setTime();
-                    base.common.InformNLS(who,"Dieser Auftrag enthï¿½lt:", "This order contains:");
+                    base.common.InformNLS(who,"Dieser Auftrag enthält:", "This order contains:");
                     who:inform(order:lookAt(who));
                 end
             else
@@ -353,10 +353,10 @@ function OrderNPC:receiveText(who,text)
                     base.common.TalkNLS(self.npc, Character.say,"Ich habe einen Auftrag.","I have one order.");
                     local order = self.openOrders[1];
                     order:setTime();
-                    base.common.InformNLS(who,"Dieser Auftrag enthï¿½lt:", "This order contains:");
+                    base.common.InformNLS(who,"Dieser Auftrag enthält:", "This order contains:");
                     who:inform(order:lookAt(who));
                 else
-                    base.common.TalkNLS(self.npc, Character.say,"Welchen der "..table.getn(self.openOrders).." Auftrï¿½ge mï¿½chtest du sehen?","Which one of the "..table.getn(self.openOrders).." orders do you want to see?");
+                    base.common.TalkNLS(self.npc, Character.say,"Welchen der "..table.getn(self.openOrders).." Aufträge möchtest du sehen?","Which one of the "..table.getn(self.openOrders).." orders do you want to see?");
                 end
             end
             return;
@@ -371,7 +371,7 @@ end
 function OrderNPC:createOrder()
     local oocount = table.getn(self.openOrders);
     if ( oocount >= self.maxOpenOrders ) then
-        --ï¿½ltesten Eintrag lï¿½schen wenn mehr Auftrï¿½ge als erlaubt da sind 
+        --ï¿½ltesten Eintrag lï¿½schen wenn mehr Aufträge als erlaubt da sind 
         table.remove(self.openOrders,1);
     end
     --Auftrag aus liste generieren
@@ -379,12 +379,12 @@ function OrderNPC:createOrder()
     
     --name des NPC's eintragen
     order.npcname = self.npc.name;
-    --In liste mit offenen Auftrï¿½gen einfï¿½gen
+    --In liste mit offenen Aufträgen einfï¿½gen
     table.insert(self.openOrders,order);
 end
 
 --[[
-neuer Zyklus fï¿½r den NPC (ggf vergessen wann ein Auftrag das letzte mal verwendet wurde)
+neuer Zyklus für den NPC (ggf vergessen wann ein Auftrag das letzte mal verwendet wurde)
 ]]--
 function OrderNPC:nextCycle()
     --Prï¿½fen ob ein Auftrag vergesen werden soll
@@ -556,9 +556,9 @@ Order =
     time = {},
     --Welche Qualitï¿½t wird erwartet bei den Items
     quality = 3,
-     --Wieviel mï¿½nzen gibts fï¿½r den Auftrage
+     --Wieviel mï¿½nzen gibts für den Auftrage
     coins = 0,
-    --Wieviele Mï¿½nzen gibts minimal fï¿½r diesen Auftrag
+    --Wieviele Mï¿½nzen gibts minimal für diesen Auftrag
     mincoins = 0,
     --Wie stark wird der Auftrag durch quality beeinflusst
     --ist ein QualityModCoinsStruct
@@ -581,9 +581,9 @@ function Order:new( bo )
     bo.state = OrderState.NormalOrder; --Order 3 Bit + 3 Bit wieviel Items enthalten sind
     bo.items = {}; --Item = 16 Bit id und 8 Bit Anzahl
     bo.time = TimeStruct(0,0,0,0); --Order: 17  5 Bit Tag, 4 Bit Monat, 8 Bit Jahr
-    bo.quality = 3; --Order: 4 Bit da nur 100 er stelle fï¿½r Quality wichtig ist 
-    bo.qualitymodcoins = CoinsModStruct(0,0); --Modnumber 4 Bit fï¿½r den qualmod und 10 Bit fï¿½r den Betragsmod
-    bo.timemodcoins = CoinsModStruct(0,0); --Modnumber 8 Bit fï¿½r den stundenmod und 10 Bit fï¿½r den Betrag
+    bo.quality = 3; --Order: 4 Bit da nur 100 er stelle für Quality wichtig ist 
+    bo.qualitymodcoins = CoinsModStruct(0,0); --Modnumber 4 Bit für den qualmod und 10 Bit für den Betragsmod
+    bo.timemodcoins = CoinsModStruct(0,0); --Modnumber 8 Bit für den stundenmod und 10 Bit für den Betrag
     bo.coins = 0;
     bo.mincoins = 0;
     bo.npcname = "";
@@ -765,7 +765,7 @@ end
 function Order:checkOrder(Character,npc)
     ret = OrderStateStruct();
     --items = {}
-    --Werte fï¿½r durchschnittsberechnung
+    --Werte für durchschnittsberechnung
     local allcount = 0;
     local curquali = self.curquality;
     --wenn schon eine qualitï¿½t aus vorhergehenden Werten vorhanden ist dann schon 1 als vorgabewert eingehen lassen
@@ -912,7 +912,7 @@ function Order:partDelivery(character,orderstatestruct)
 end
 
 
---Fï¿½hrt eine Bestellung aus indem beim Character entsprechende Items gelï¿½scht werden 
+--Fï¿½hrt eine Bestellung aus indem beim Character entsprechende Items gelöscht werden 
 --und dannach entsprechende Belohnungen generiert werden.
 function Order:doOrder(character,orderstatestruct)
     local price = self:recalcPrice(orderstatestruct);
@@ -923,23 +923,23 @@ function Order:doOrder(character,orderstatestruct)
     character:createItem(KupferID,copper,333,0);
     character:createItem(SilberID,silver,333,0);
     character:createItem(GoldID,gold,333,0);
-    --Auftrag selbst lï¿½schen
+    --Auftrag selbst löschen
     if ( self.orderitem ~= nil ) then
         world:erase(self.orderitem,1);
     end
-    --alle items lï¿½schen
+    --alle items löschen
     for i,oitem in pairs(self.items) do
         removeItems(oitem.id, oitem.count,orderstatestruct.itemlist,character);
     end
-    --Vertrauenswï¿½rdigkeit erhï¿½hen
+    --Vertrauenswürdigkeit erhï¿½hen
     if ( orderstatestruct.intime and orderstatestruct.inquality ) then
-        --Wert fï¿½r gut erfï¿½llten auftrag.
+        --Wert für gut erfüllten auftrag.
         setThrustWorthyness(character,ThrustworthynessChangeAfterSuccessOrder,GoodOrderChangeAfterSuccessOrder);
     else
-        --Wert fï¿½r schlecht erfï¿½llten auftrag.
+        --Wert für schlecht erfüllten auftrag.
         setThrustWorthyness(character,ThrustworthynessChangeAfterNotSuccessOrder,GoodOrderChangeAfterNotSuccessOrder);
     end
-	base.common.TempInformNLS(character, "[Quest gelï¿½st] Du erhï¿½ltst "..price.." Kupferstï¿½cke.", "[Quest solved] You are awarded "..price.." copper coins.")
+	base.common.TempInformNLS(character, "[Quest gelöst] Du erhälst "..price.." Kupferstücke.", "[Quest solved] You are awarded "..price.." copper coins.")
 end
 
 
@@ -963,7 +963,7 @@ end
 --Codiert alle Daten in einen String welcher die Daten interprï¿½tiert und 
 --Speichert diese im item
 function Order:set()
---Order ist 32 Bit und enthï¿½lt, 3 Bit (Type), 3 Bit (anzahl items), 4 Bit (Qualitï¿½t), 5 Bit (Tag), 4 Bit (monat), 8 Bit Jahr.
+--Order ist 32 Bit und enthält, 3 Bit (Type), 3 Bit (anzahl items), 4 Bit (Qualitï¿½t), 5 Bit (Tag), 4 Bit (monat), 8 Bit Jahr.
     if (self.orderitem ~= nil ) then
         self.orderitem:setValue(1,self:getDataString());
         world:changeItem(self.orderitem);
@@ -1058,7 +1058,7 @@ QualityText = { {ger = "furchtbar",eng = "horrible"},
                 {ger = "schrecklich",eng = "awful"},
                 {ger = "very bad",eng = "very bad"},
                 {ger = "schlecht",eng = "bad" },
-                {ger = "mï¿½ï¿½ig", eng = "average"},
+                {ger = "mäßig", eng = "average"},
                 {ger = "normal",eng = "normal"},
                 {ger = "gut", eng = "good"},
                 {ger = "sehr gut", eng = "very good"},
@@ -1101,13 +1101,13 @@ function Order:lookAt(Char)
         end
         g,s,c = CoinsToGSC(self.coins);
         if g == 0 then
-			text = text .. " fï¿½r " .. s .. " Silber und " .. c .. " Kupfermï¿½nzen."; 
+			text = text .. " für " .. s .. " Silber und " .. c .. " Kupfermünzen."; 
 		else
-			text = text .. " fï¿½r " .. g .. " Gold " .. s .. " Silber und " .. c .. " Kupfermï¿½nzen.";
+			text = text .. " für " .. g .. " Gold " .. s .. " Silber und " .. c .. " Kupfermünzen.";
 		end  
         if ( Char:isAdmin() ) then
             text = text .. " Wertverlust Zeit: " .. self.timemodcoins.value .. " Kupfer in " ..self.timemodcoins.mod.." Stunden,"
-            text = text .. " Wertverlust Qualitï¿½t: "..self.qualitymodcoins.value .. " Kupfer pro "..self.qualitymodcoins.mod.." Qualitï¿½t." 
+            text = text .. " Wertverlust Qualität: "..self.qualitymodcoins.value .. " Kupfer pro "..self.qualitymodcoins.mod.." Qualität." 
         end
         return text;
     else --english
@@ -1150,12 +1150,12 @@ end
     Erzeugt ein Gegenstand in einen Auftragspool
     @param nid id des Gegenstandes
     @param nnumber Menge der gegenstï¿½nde auf der sich der price und die Zeit bezieht
-    @param nprice der nosrmale Preis fï¿½r diesen Gegensant.
+    @param nprice der nosrmale Preis für diesen Gegensant.
     @param ntime die Zeit in der diese Gegenstï¿½nde normalerweise gefertigt werden.
     @param nchance chance das dieser Gegenstand in einen Auftrag aufgenommen wird.
     @param mincount die minimal Anzahl an gegenstï¿½nden 
     @param maxcount die maximale Anzahl an gegenstï¿½nden
-    @param mincoins die minimale anzahl an mï¿½nzen die man fï¿½r diesen gegenstand bekommt.
+    @param mincoins die minimale anzahl an münzen die man für diesen gegenstand bekommt.
     Hinweis: mincount, maxcount bezieht sich auf nnumber d.h. mincount 5 bei nnumber = 10... d.H. minimal 50
              nprice, ntime bezieht sich auf 1 gegenstand der menge nnumber und wird ï¿½ber die tatsï¿½chliche Anzahl
              aufmultipliziert
@@ -1193,19 +1193,19 @@ OrderPool =
     pool = {},
     --chance das ein auftrag aus einen bestimmten pool generiert wird
     poolchances = {},
-    --Chance fï¿½r die Dringlichkeit der Auftrï¿½ge 
+    --Chance für die Dringlichkeit der Aufträge 
     timechances = {},
-    --Chance fï¿½r die Qualitï¿½t der Auftrï¿½ge
+    --Chance für die Qualität der Aufträge
     qualitychances = {},
-    --Chancen fï¿½r die Anzahl der Items (0-3)
+    --Chancen für die Anzahl der Items (0-3)
     countchances = {},
-    --Modifkatoren fï¿½r den Zeitfaktor
+    --Modifkatoren für den Zeitfaktor
     timemodifikators = {},
-    --Modifikatoren fï¿½r die Mï¿½nzen
+    --Modifikatoren für die münzen
     coinsmodifikators = {},
-    --Modifkatoren fï¿½r den Werteverlust bei nichteinhaltung der Zeit
+    --Modifkatoren für den Werteverlust bei nichteinhaltung der Zeit
     valuelossfortime = {},
-    --Modifikatoren fï¿½r den Werteverlust bei nichteinhaltung der Qualitï¿½t
+    --Modifikatoren für den Werteverlust bei nichteinhaltung der Qualität
     valuelossforquality = {}
 };
 
@@ -1219,12 +1219,12 @@ TimeModTable = { {90,110},{80,90},{65,80},{50,65},{30,50} };
 CoinsModTable = { {80,115},{90,115},{100,130},{120,170},{130,200} };
 --Wie groï¿½ ist der Werteverlust nach bestimmter Zeit die beiden Zahlen bedeuten
 --links: Nach wieviel Prozent der Stunden, rechts: wird welche Wert (in prozent) verloren.
---Bsp.: Auftrag in 10h Wert 100 fï¿½r die Werte {20,50}->nach 12 h ist der Auftrag nur noch 50 Wert. Nach 14 h gar nichts mehr.
+--Bsp.: Auftrag in 10h Wert 100 für die Werte {20,50}->nach 12 h ist der Auftrag nur noch 50 Wert. Nach 14 h gar nichts mehr.
 --Dabei ist die kleinste Zeit immer 1 h... d.H. {1,100} wï¿½rde fast immer bedeuten das bei ï¿½berziehung des Auftrags hinterher kein
 --Gewinn abgegeben wï¿½rde. Bzw. nur der mindestgewinn.
 ValueLossTimeTable = { {30,30},{20,40},{15,50},{10,60},{10,80} };
---Wertverlust je qualitï¿½tspunkt unter dem Geforderten {1,20} Wert wird um 20 % vermindert je 1 qualitï¿½tspunkt weniger. 
---Bei geforderter Qualitï¿½t von 6 und gelieferter Qualitï¿½t von 4 = 40 % weniger Geld. 
+--Wertverlust je Qualitätspunkt unter dem Geforderten {1,20} Wert wird um 20 % vermindert je 1 Qualitätspunkt weniger. 
+--Bei geforderter Qualität von 6 und gelieferter Qualität von 4 = 40 % weniger Geld. 
 ValueLossQualityTable = { 1,20 }
 
 --[[
@@ -1235,15 +1235,15 @@ function OrderPool:new( op )
     op = op or {};
     setmetatable( op, self);
     self.__index = self; --Inherit from nothing only point to my own functions
-    --pool[0] mï¿½ssen immer qualitï¿½tslose items sein
+    --pool[0] mï¿½ssen immer Qualitätslose items sein
     op.pool = {};
     op.poolchances = {};
-    --chancen fï¿½r NORMAL,HASTY,URGENT,VERY_URGENT,INSTANT
+    --chancen für NORMAL,HASTY,URGENT,VERY_URGENT,INSTANT
     op.timechances = { 35,30,20,10,5 };
-    --chancen fï¿½r dabei benï¿½tigt jeder pool seine eigene liste aus je 10 Werten wobei der gesamtwert der 
-    --list immer 100 ergeben muss: {Qualitï¿½tslos,Qualitï¿½t 1, Qualitï¿½t 2,...,Qualitï¿½t 9}.
+    --chancen für dabei benï¿½tigt jeder pool seine eigene liste aus je 10 Werten wobei der gesamtwert der 
+    --list immer 100 ergeben muss: {Qualitätslos,Qualität 1, Qualität 2,...,Qualität 9}.
     op.qualitychances = {};
-    --chancen Auftrï¿½ge mit einer bestimmten itemanzahl zu erstellen ( 1 item, 2 items, 3 items)
+    --chancen Aufträge mit einer bestimmten itemanzahl zu erstellen ( 1 item, 2 items, 3 items)
     op.countchances = {20,50,30};
     --modifkatoren auf standard setzen
     op.timemodifikators = TimeModTable;
@@ -1288,7 +1288,7 @@ end
 --[[
     Fï¿½gt ein item an einen Auftragspool hinzu
     @param pool die Id des pools zu dem der auftrag hinzu gefï¿½gt werden soll
-           dabei ist 0 ein Pool der nur Items enthï¿½lt die keine Qualitï¿½t benï¿½tigen
+           dabei ist 0 ein Pool der nur Items enthält die keine Qualität benï¿½tigen
            1 sehr leichte Items die jeder noob herstellen kï¿½nnte. 2 Schwerere gegenstï¿½nde ....
     @param orderpoolitem der gegenstand der den pool hinzu gefï¿½gt werden soll
 ]]--    
@@ -1322,12 +1322,12 @@ function OrderPool:generateOrder()
     local tpool = chanceToNumber(self.poolchances,100);
     --anzahl der items
     local itemcount = chanceToNumber(self.countchances,100);
-    --qualitï¿½t (-1 da listen mit 1 anfangen aber keine Qualitï¿½t = 0 bedeutet)
+    --Qualität (-1 da listen mit 1 anfangen aber keine Qualität = 0 bedeutet)
     local quality = chanceToNumber(self.qualitychances[tpool],100) - 1;
     local timechances = chanceToNumber(self.timechances,100);
     --Der konkrete Pool
     local poolForItem = self.pool[tpool];
-    --kalkulieren der chancen fï¿½r items
+    --kalkulieren der chancen für items
     local itemchances = {};
     local maxchance = 0;
     if ( poolForItem ~= nil ) then
@@ -1391,7 +1391,7 @@ function OrderPool:generateOrder()
         table.insert(order.items,OrderItemStruct(item.id,item.concretenumber*item.number));
     end
     order.reltime = ordertime;
-    --eintrag aus der tabelle fï¿½r Wertverlust durch zeit holen
+    --eintrag aus der tabelle für Wertverlust durch zeit holen
     local timeloss = self.valuelossfortime[timechances];
     order.coins = ordercoins;
     order.timemodcoins = CoinsModStruct(math.ceil(ordertime*(timeloss[1]/100)),math.ceil(ordercoins*(timeloss[2]/100)));
@@ -1410,7 +1410,7 @@ function getDigitName(number,lang) --returns a digit from 0-9 as text
 if number<10 then
 	if not InitDigitNames then
 		InitDigitNames = true;
-		digit_de = {"eins", "zwei", "drei", "vier", "fï¿½nf", "sechs", "sieben", "acht", "neun"};
+		digit_de = {"eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"};
 		digit_de[0] = "null";
 		digit_eng ={"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 		digit_eng[0] = "zero";
