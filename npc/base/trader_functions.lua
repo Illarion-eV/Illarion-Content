@@ -251,8 +251,8 @@ function MakeTrigger(ItemID,lang)
         NextChar=string.sub(ItemName,i+1,i+1);
         if (string.upper(Char)==Char) then
             retString=retString..string.lower(Char);
-        elseif (Char=="ï¿½") then
-            retString=retString.."[ï¿½s]+";
+        elseif (Char=="ß") then
+            retString=retString.."[ßs]+";
         elseif (Char=="'") then
             retString=retString.."[' ]*";
         elseif (NextChar==" " or NextChar=="-") then
@@ -262,12 +262,12 @@ function MakeTrigger(ItemID,lang)
                 retString=retString..Char..".*";
             end
             i=i+1;
-        elseif (Char=="ï¿½") then
-            retString=retString.."[ï¿½u]e*";
-        elseif (Char=="ï¿½") then
-            retString=retString.."[ï¿½o]e*";
-        elseif (Char=="ï¿½") then
-            retString=retString.."[ï¿½a]e*";
+        elseif (Char=="ü") then
+            retString=retString.."[üu]e*";
+        elseif (Char=="ö") then
+            retString=retString.."[öo]e*";
+        elseif (Char=="ä") then
+            retString=retString.."[äa]e*";
         else
             retString=retString..Char;
         end
@@ -458,7 +458,7 @@ function SayPriceBuy(originator, message)
     local i=0;
     message=string.lower(message);
     if (string.find(message,"you.+pay.+") ~= nil or string.find(message,"how much.+for.+")~=nil or
-    string.find(message,"wieviel zahlt .+fï¿½r.+")~=nil or string.find(message,"was zahlt .+fï¿½r.+")~=nil ) then
+    string.find(message,"wieviel zahlt .+für.+")~=nil or string.find(message,"was zahlt .+für.+")~=nil ) then
         repeat                           -- run through all triggers
             i=i+1;
             if CheckItemTrigger(message,i) then

@@ -400,7 +400,7 @@ function CharacterOnField( User )
         end
     else
         base.common.InformNLS( User,
-        "Ein Gegenstand stï¿½rt die Magie des Portals.",
+        "Ein Gegenstand stÃ¶rt die Magie des Portals.",
         "Some item disturbs the magic of the portal." );
     end
 end
@@ -471,7 +471,7 @@ if (Item.data==15) then
 end;
 
 if (Item.data==16) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zu den Sï¿½mpfen", "Magical gate to the Swamps" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zu den Sümpfen", "Magical gate to the Swamps" ) );
 end;
 
 if (Item.data==17) then
@@ -483,7 +483,7 @@ if (Item.data==18) then
 end;
 
 if (Item.data==19) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zur Kumdah Wï¿½ste", "Magical gate to the Kumdah Desert" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zur Kumdah Wüste", "Magical gate to the Kumdah Desert" ) );
 end;
 
 if (Item.data==20) then
@@ -491,7 +491,7 @@ if (Item.data==20) then
 end;
 
 if (Item.data==21) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zur Bloodskull Hï¿½hle", "Magical gate to the Bloodskull Cave" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zur Bloodskull Höhle", "Magical gate to the Bloodskull Cave" ) );
 end;
 
 if (Item.data==22) then
@@ -567,18 +567,18 @@ if (Item.data==39) then
 end;
 
 if (Item.data==40) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zum Sï¿½dwald", "Magical gate to North Southern Woods" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zum Südwald", "Magical gate to North Southern Woods" ) );
 end;
 
 if (Item.data==41) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zum Sï¿½dwald", "Magical gate to East Southern Woods" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zum Südwald", "Magical gate to East Southern Woods" ) );
 end;
 if (Item.data==42) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zum Sï¿½dwald", "Magical gate to South Southern Woods" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zum Südwald", "Magical gate to South Southern Woods" ) );
 end;
 
 if (Item.data==43) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zum Sï¿½dwald", "Magical gate to West Southern Woods" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zum Südwald", "Magical gate to West Southern Woods" ) );
 end;
 
 if (Item.data==44) then
