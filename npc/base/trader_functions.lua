@@ -1,4 +1,4 @@
--- Basisscript für NPC Händlerfunktionen
+-- Basisscript fï¿½r NPC Hï¿½ndlerfunktionen
 -- Nitram
 
 require("content.genus")
@@ -6,7 +6,7 @@ require("base.factions")
 
 module("npc.base.trader_functions", package.seeall)
 
--- Auffüllen der Itembestände
+-- Auffï¿½llen der Itembestï¿½nde
 function refillItems(itNumb)
     if (TraderItemNumber[itNumb] == 4294967295) then
         return
@@ -18,7 +18,7 @@ function refillItems(itNumb)
     end
 end
 
--- Auffüllen der Geldbestände
+-- Auffï¿½llen der Geldbestï¿½nde
 function refillMoney()
     if TraderCopper<TraderStdCopper/2 then
         TraderCopper=TraderCopper+math.random(TraderStdCopper/100,TraderStdCopper/10);
@@ -27,7 +27,7 @@ function refillMoney()
     end
 end
 
--- Definieren aller Händler relevanter Listen
+-- Definieren aller Hï¿½ndler relevanter Listen
 function InitItemLists()
     TraderItemPrice={};
     TraderItemId={};
@@ -43,7 +43,7 @@ function InitItemLists()
 end
 
 -- Preiskalkulation
--- Preis abhänig von Itembestand und Standartbestand
+-- Preis abhï¿½nig von Itembestand und Standartbestand
 -- Return 1: Preis(Int)
 function CalcPrice(stdPrice,actAmount,stdAmount)  -- TraderItemPrice[..]->CalcPrice(TraderItemPrice[..],TraderItemNumber[..],TraderItemStandard);
     if (stdAmount == 4294967295) then
@@ -59,12 +59,12 @@ function CalcPrice(stdPrice,actAmount,stdAmount)  -- TraderItemPrice[..]->CalcPr
     end;
 end
 
--- Aufspalten der Kosten in Kupfer in Kupfer und Silbermünzen
--- Wechselwert: 1 Goldmünze   = 100 Silbermünzen
---              1 Silbermünze = 100 Kupfermünzen
--- Return 1: Goldmünzen(Int)
--- Return 2: Silbermünzen(Int)
--- Return 3: Kupfermünzen(Int)
+-- Aufspalten der Kosten in Kupfer in Kupfer und Silbermï¿½nzen
+-- Wechselwert: 1 Goldmï¿½nze   = 100 Silbermï¿½nzen
+--              1 Silbermï¿½nze = 100 Kupfermï¿½nzen
+-- Return 1: Goldmï¿½nzen(Int)
+-- Return 2: Silbermï¿½nzen(Int)
+-- Return 3: Kupfermï¿½nzen(Int)
 function CalcSilverCopper(CAmount)
     local GAmount=math.floor(CAmount/10000);
     local SAmount=math.floor((CAmount-GAmount*10000)/100);
@@ -72,8 +72,8 @@ function CalcSilverCopper(CAmount)
     return GAmount,SAmount,CAmount
 end
 
---TLang={"Gold,"gold","Silber","silver","Kupfer","copper","stücke","pieces"};
--- Erstellt Text für die Kosten
+--TLang={"Gold,"gold","Silber","silver","Kupfer","copper","stï¿½cke","pieces"};
+-- Erstellt Text fï¿½r die Kosten
 -- Return 1: Text(Str)
 function MoneyText(lang,Gold,Silver,Copper,TLang)
     local retText="";
@@ -124,8 +124,8 @@ function MoneyText(lang,Gold,Silver,Copper,TLang)
     return retText
 end
 
--- Erstellt Sigular von Wörtern
--- Funktionstüchtig in Deutsch und englisch
+-- Erstellt Sigular von Wï¿½rtern
+-- Funktionstï¿½chtig in Deutsch und englisch
 function Zeitform(Zahl,Word)
     if (Zahl==1) then
         local retStr="";
@@ -146,7 +146,7 @@ function Zeitform(Zahl,Word)
     end
 end
 
--- Geldprüfung
+-- Geldprï¿½fung
 -- Return 1 (bool) genug Geld - nicht genug Geld
 function CheckMoney(User,Gold,Silber,Kupfer)
     local UserGold=User:countItem(61);
@@ -162,10 +162,10 @@ function CheckMoney(User,Gold,Silber,Kupfer)
 end
 
 -- Bezahlen Funktion
--- Versucht Silber/Kupfermünzen passend zu nehmen
--- Wenn nicht möglich: Weicht auf andere Münzen aus
+-- Versucht Silber/Kupfermï¿½nzen passend zu nehmen
+-- Wenn nicht mï¿½glich: Weicht auf andere Mï¿½nzen aus
 
--- Folgende Liste wird nicht korrekt zurückgegeben (Gold fehlt). Die ts-Version hat sie nicht (Schlamperei).  An Vilarion wenden(dalli).
+-- Folgende Liste wird nicht korrekt zurï¿½ckgegeben (Gold fehlt). Die ts-Version hat sie nicht (Schlamperei).  An Vilarion wenden(dalli).
 -- Return 1: Liste {Bezahltes Silber (int), Bezahltes Kupfer (int)}
 function Pay(User,Gold,Silber,Kupfer)
     
@@ -242,7 +242,7 @@ function Pay(User,Gold,Silber,Kupfer)
     end
 end
 
--- Generiert aus ItemID passenden TriggerText, für die Suche nach dem Item im Text
+-- Generiert aus ItemID passenden TriggerText, fï¿½r die Suche nach dem Item im Text
 function MakeTrigger(ItemID,lang)
     local retString="";
     ItemName=world:getItemName(ItemID,lang);
@@ -251,8 +251,8 @@ function MakeTrigger(ItemID,lang)
         NextChar=string.sub(ItemName,i+1,i+1);
         if (string.upper(Char)==Char) then
             retString=retString..string.lower(Char);
-        elseif (Char=="ß") then
-            retString=retString.."[ßs]+";
+        elseif (Char=="ï¿½") then
+            retString=retString.."[ï¿½s]+";
         elseif (Char=="'") then
             retString=retString.."[' ]*";
         elseif (NextChar==" " or NextChar=="-") then
@@ -262,12 +262,12 @@ function MakeTrigger(ItemID,lang)
                 retString=retString..Char..".*";
             end
             i=i+1;
-        elseif (Char=="ü") then
-            retString=retString.."[üu]e*";
-        elseif (Char=="ö") then
-            retString=retString.."[öo]e*";
-        elseif (Char=="ä") then
-            retString=retString.."[äa]e*";
+        elseif (Char=="ï¿½") then
+            retString=retString.."[ï¿½u]e*";
+        elseif (Char=="ï¿½") then
+            retString=retString.."[ï¿½o]e*";
+        elseif (Char=="ï¿½") then
+            retString=retString.."[ï¿½a]e*";
         else
             retString=retString..Char;
         end
@@ -275,7 +275,7 @@ function MakeTrigger(ItemID,lang)
     return retString;
 end
 
--- Erstellt Item Quality Wert aus den Gegebenen Größen
+-- Erstellt Item Quality Wert aus den Gegebenen Grï¿½ï¿½en
 function GenQual(QualList,DuraList)
     local Qualcount=table.getn(QualList);
     local Duracount=table.getn(DuraList);
@@ -315,20 +315,20 @@ end
 
 -- Item verkaufen Funktion
 -- Return 1: Status Value (Int)
--- Return 2: Zusätzliche Variablen (List)
+-- Return 2: Zusï¿½tzliche Variablen (List)
 
 -- Status:
 --  0 - keine Aktion
 --  1 - ein Item verkauft
 --  2 - Inventar voll
 --  3 - Zu wenig Geld
---  4 - Händler hat Item nicht mehr
+--  4 - Hï¿½ndler hat Item nicht mehr
 --  5 - Item wird nicht verkauft
 --  6 - mehrere Items verkauft
 
--- Zusätzliche Variablen:
+-- Zusï¿½tzliche Variablen:
 --  Bei Status 1 oder 6:
---   Liste: {Anzahl der verkauften Items (Int),ItemID (Int),Kosten Silberstücke (Int),Kosten Kupferstücke (Int)}
+--   Liste: {Anzahl der verkauften Items (Int),ItemID (Int),Kosten Silberstï¿½cke (Int),Kosten Kupferstï¿½cke (Int)}
 --  Bei Status 0 oder 2-5:
 --   Liste: {nil}
 function Buying(originator, message)
@@ -398,16 +398,16 @@ end
 
 -- Ansage Verkaufspreis
 -- Return 1: Status Value (Int)
--- Return 2: Zusätzliche Variablen (List)
+-- Return 2: Zusï¿½tzliche Variablen (List)
 
 -- Status:
 --  0 - keine Aktion
 --  5 - Item wird nicht verkauft
 --  7 - Item wird verkauft
 
--- Zusätzliche Variablen:
+-- Zusï¿½tzliche Variablen:
 --  Bei Status 7:
---   Liste: {ItemID (Int),Kosten Silberstücke (Int),Kosten Kupferstücke (Int)}
+--   Liste: {ItemID (Int),Kosten Silberstï¿½cke (Int),Kosten Kupferstï¿½cke (Int)}
 --  Bei Status 0,5:
 --   Liste: {nil}
 function SayPriceSell(originator, message)
@@ -438,16 +438,16 @@ end
 
 -- Ansage Einkaufspreis
 -- Return 1: Status Value (Int)
--- Return 2: Zusätzliche Variablen (List)
+-- Return 2: Zusï¿½tzliche Variablen (List)
 
 -- Status:
 --  0 - keine Aktion
 --  12 - Item wird nicht eingekauft
 --  8 - Item wird eingekauft
 
--- Zusätzliche Variablen:
+-- Zusï¿½tzliche Variablen:
 --  Bei Status 8:
---   Liste: {Engl. Artikel (Str),ItemID (Int),Kosten Silberstücke (Int),Kosten Kupferstücke (Int)}
+--   Liste: {Engl. Artikel (Str),ItemID (Int),Kosten Silberstï¿½cke (Int),Kosten Kupferstï¿½cke (Int)}
 --  Bei Status 0,12:
 --   Liste: {nil}
 function SayPriceBuy(originator, message)
@@ -458,7 +458,7 @@ function SayPriceBuy(originator, message)
     local i=0;
     message=string.lower(message);
     if (string.find(message,"you.+pay.+") ~= nil or string.find(message,"how much.+for.+")~=nil or
-    string.find(message,"wieviel zahlt .+für.+")~=nil or string.find(message,"was zahlt .+für.+")~=nil ) then
+    string.find(message,"wieviel zahlt .+fï¿½r.+")~=nil or string.find(message,"was zahlt .+fï¿½r.+")~=nil ) then
         repeat                           -- run through all triggers
             i=i+1;
             if CheckItemTrigger(message,i) then
@@ -480,20 +480,20 @@ end
 
 -- Item einkaufen Funktion
 -- Return 1: Status Value (Int)
--- Return 2: Zusätzliche Variablen (List)
+-- Return 2: Zusï¿½tzliche Variablen (List)
 
 -- Status:
 --  0 - keine Aktion
 --  2 - Inventar voll
 --  9 - mehrere Items eingekauft
--- 10 - Item beim Spieler nicht in nötiger Anzahl vorhanden
--- 11 - Händler hat zu wenig Geld
+-- 10 - Item beim Spieler nicht in nï¿½tiger Anzahl vorhanden
+-- 11 - Hï¿½ndler hat zu wenig Geld
 -- 12 - Item wird nicht eingekauft
 -- 13 - ein Item eingekauft
 
--- Zusätzliche Variablen:
+-- Zusï¿½tzliche Variablen:
 --  Bei Status 13 oder 9:
---   Liste: {Anzahl der eingekauften Items (Int),ItemID (Int),Kosten Silberstücke (Int),Kosten Kupferstücke (Int)}
+--   Liste: {Anzahl der eingekauften Items (Int),ItemID (Int),Kosten Silberstï¿½cke (Int),Kosten Kupferstï¿½cke (Int)}
 --  Bei Status 0,2,10,11,12:
 --   Liste: {nil}
 function Selling(originator, message)
@@ -569,7 +569,7 @@ end
 
 -- Status:
 --  0 - keine Aktion
---  16 - Liste enthält Items
+--  16 - Liste enthï¿½lt Items
 --  17 - Liste leer
 function ShowItemList(originator,message)
     if not NPCStatus then
@@ -656,16 +656,16 @@ function ShowItemList(originator,message)
     return retStatus,retValues
 end
 
--- Hinzufügen eines Items In Händler Liste
+-- Hinzufï¿½gen eines Items In Hï¿½ndler Liste
 -- Erwartete Werte:
 --  1. Verkaufspreis (Int)
 --  2. ItemID (Int)
 --  3. Itemanzahl beim Laden des Scripts (Int)
 --  4. Einkaufspreis (Int)
 --  5. Angestrebte Itemmenge (Int)
---  6. Qualitätsbereich (List) - Werte zwischen 1 - 9
---      Listen Format 1: {max. Qualität (Int), min. Qualität(Int)}
---      Listen Format 2: {Qualität (Int)}
+--  6. Qualitï¿½tsbereich (List) - Werte zwischen 1 - 9
+--      Listen Format 1: {max. Qualitï¿½t (Int), min. Qualitï¿½t(Int)}
+--      Listen Format 2: {Qualitï¿½t (Int)}
 --  7. Haltbarkeitsbereich (List) - Werte zwischen 1 - 99
 --      Listen Format 1: {max. Haltbarkeit (Int), min. Haltbarkeit(Int)}
 --      Listen Format 2: {Haltbarkeit (Int)}
@@ -686,7 +686,7 @@ function AddTraderItem(BuyPrice,ItemId,ItemNumber,SellPrice,ItemStandard,Qual,Du
     end        
 end
 
--- Next Cycle Funktion für Händler
+-- Next Cycle Funktion fï¿½r Hï¿½ndler
 function TraderCycle()
 --[[ Whoever wrote this crap can fix this himself. Hint: You might want to google what a 'parameter' is
     if (cycCount==nil or nextDelivery==nil) then
@@ -708,7 +708,7 @@ function TraderCycle()
 --]]
 end
 
--- Zusätzlichen ItemTrigger Anfügen
+-- Zusï¿½tzlichen ItemTrigger Anfï¿½gen
 -- Eingabe Werte:
 --  1. Trigger Text
 function AddItemTrigger(TrigText)
@@ -740,7 +740,7 @@ function CheckCatTrigger(message,Category)
     return found
 end
 
--- Überprüft ob der Text einen ItemTrigger enthält
+-- ï¿½berprï¿½ft ob der Text einen ItemTrigger enthï¿½lt
 function CheckItemTrigger(message,ItemPoint)
     if (string.find(message,MakeTrigger(TraderItemId[ItemPoint],0))~=nil or
     string.find(message,MakeTrigger(TraderItemId[ItemPoint],1))~=nil) then
@@ -763,7 +763,7 @@ function CheckItemTrigger(message,ItemPoint)
 end
 
 function PayTheTax(amount)
-  	local location = base.factions.BF_setLocation(thisNPC);
+  	local location = base.factions.setLocation(thisNPC);
 
 	if location ==     1 then --cadomyr
         TaxVar = "cadomyr";

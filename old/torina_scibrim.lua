@@ -28,15 +28,15 @@ function initializeNpc()
     npc.base.autonpcfunctions.AddTraderTrigger("sell","Thanks, but I already have everything I need.");
     npc.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+buy","Thanks, but I already have everything I need.");
     npc.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I sell decrees and keys.");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Kk]aufen","Ick verkauf nur Dekrete und Schlüssel.");
+    npc.base.autonpcfunctions.AddTraderTrigger("[Kk]aufen","Ick verkauf nur Dekrete und Schlï¿½ssel.");
     npc.base.autonpcfunctions.AddTraderTrigger("[Vv]erkaufen","Danke nein, ich habe bereits alles, was ich brauche.");
     npc.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+kauf","Danke nein, ich habe bereits alles, was ich brauche.");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ick verkauf nur Dekrete und Schlüssel.");
+    npc.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ick verkauf nur Dekrete und Schlï¿½ssel.");
 		
 	npc.base.autonpcfunctions.AddTraderTrigger("[Mm]ein.+[Nn]ame.+ist.*","Freut mich %CHARNAME, ich bin die "..thisNPC.name..".");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Ii]c[hk].+bin.*");
     npc.base.autonpcfunctions.AddAdditionalTrigger("Man.+nennt.+mich.*");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Ii]c[hk].+hei[sß][se].*");
+    npc.base.autonpcfunctions.AddAdditionalTrigger("[Ii]c[hk].+hei[sï¿½][se].*");
 	npc.base.autonpcfunctions.AddCondition("lang","german");
 	npc.base.autonpcfunctions.AddConsequence("state","=",1);
 	
@@ -46,11 +46,11 @@ function initializeNpc()
 	npc.base.autonpcfunctions.AddConsequence("state","=",1);
 	
     npc.base.autonpcfunctions.AddTraderTrigger("[Aa]uf [Bb]ald","Auf bald.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ötter.+euch");
+    npc.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ï¿½tter.+euch");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Uu]ff.+[Bb]ald");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ünf.+euch");
-    npc.base.autonpcfunctions.AddConsequence("inform","Der Händler lächelt dich an und winkt zum Abschied.");
+    npc.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ï¿½nf.+euch");
+    npc.base.autonpcfunctions.AddConsequence("inform","Der Hï¿½ndler lï¿½chelt dich an und winkt zum Abschied.");
 
 	npc.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Farewell.");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
@@ -78,10 +78,10 @@ function initializeNpc()
 	
 	
 	
-    npc.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","Ich verkaufe Dekrete und Schlüssel, außerdem könnt ihr bei mir Dekrete einlösen und euch als Bürger eintragen lassen.");
+    npc.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","Ich verkaufe Dekrete und Schlï¿½ssel, auï¿½erdem kï¿½nnt ihr bei mir Dekrete einlï¿½sen und euch als Bï¿½rger eintragen lassen.");
     npc.base.autonpcfunctions.AddAdditionalTrigger("helfen");
     npc.base.autonpcfunctions.AddAdditionalTrigger("hilf");
-    npc.base.autonpcfunctions.AddConsequence("inform","Stichwörter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlösen\", \" Schlüssel\", \" Bürger werden\"");  
+    npc.base.autonpcfunctions.AddConsequence("inform","Stichwï¿½rter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlï¿½sen\", \" Schlï¿½ssel\", \" Bï¿½rger werden\"");  
     
 	npc.base.autonpcfunctions.AddTraderTrigger("[Hh]elp"," I sell decrees and keys, furthermore you can exchange decrees and get registered as citizen here.");
     npc.base.autonpcfunctions.AddConsequence("inform","Keywords on which the NPC reacts:\" Buy decree\", \" Exchange decree\", \" Key\", \" become citizen\".");
@@ -99,25 +99,25 @@ function initializeNpc()
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Hh]i");
     npc.base.autonpcfunctions.AddConsequence("inform","Keywords on which the NPC reacts:\" Buy decree\", \" Exchange decree\", \" Key\", \" become citizen\".");
 	
-    npc.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[sß]","Grüße %CHARNAME, schön euch mal wieder hier zu sehen.");
+    npc.base.autonpcfunctions.AddTraderTrigger("[Gg]rï¿½[sï¿½]","Grï¿½ï¿½e %CHARNAME, schï¿½n euch mal wieder hier zu sehen.");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Gg]rue[sß]");
+    npc.base.autonpcfunctions.AddAdditionalTrigger("[Gg]rue[sï¿½]");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Tt]a[gc].*");
     npc.base.autonpcfunctions.AddCondition("state","=",1);
-    npc.base.autonpcfunctions.AddAdditionalText("Grüß dich %CHARNAME, schön euch mal wiederzusehen.");
-	npc.base.autonpcfunctions.AddConsequence("inform","Stichwörter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlösen\", \" Schlüssel\", \" Bürger werden\"");
+    npc.base.autonpcfunctions.AddAdditionalText("Grï¿½ï¿½ dich %CHARNAME, schï¿½n euch mal wiederzusehen.");
+	npc.base.autonpcfunctions.AddConsequence("inform","Stichwï¿½rter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlï¿½sen\", \" Schlï¿½ssel\", \" Bï¿½rger werden\"");
 	
-	npc.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[sß]","Zum Gruße, ich bin "..thisNPC.name..", die Notarin dieser Stadt, bei mir kannst du Dekrete kaufen und einlösen.Außerdem kannst du hier Schlüssel kaufen und dich als Bürger anmelden.");
+	npc.base.autonpcfunctions.AddTraderTrigger("[Gg]rï¿½[sï¿½]","Zum Gruï¿½e, ich bin "..thisNPC.name..", die Notarin dieser Stadt, bei mir kannst du Dekrete kaufen und einlï¿½sen.Auï¿½erdem kannst du hier Schlï¿½ssel kaufen und dich als Bï¿½rger anmelden.");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Gg]rue[sß]");
+    npc.base.autonpcfunctions.AddAdditionalTrigger("[Gg]rue[sï¿½]");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Tt]a[gc].*");
-    npc.base.autonpcfunctions.AddAdditionalText("Grüß dich!");
-    npc.base.autonpcfunctions.AddConsequence("inform","Stichwörter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlösen\", \" Schlüssel\", \" Bürger werden\""); 
+    npc.base.autonpcfunctions.AddAdditionalText("Grï¿½ï¿½ dich!");
+    npc.base.autonpcfunctions.AddConsequence("inform","Stichwï¿½rter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlï¿½sen\", \" Schlï¿½ssel\", \" Bï¿½rger werden\""); 
     
 
-    npc.base.autonpcfunctions.AddTraderTrigger("","Habt ihr ein Dekret für mich oder wollt ihr vielleicht ein Dekret oder Schlüssel kaufen?");
+    npc.base.autonpcfunctions.AddTraderTrigger("","Habt ihr ein Dekret fï¿½r mich oder wollt ihr vielleicht ein Dekret oder Schlï¿½ssel kaufen?");
     npc.base.autonpcfunctions.AddCondition("lang","german");
-	npc.base.autonpcfunctions.AddConsequence("inform","Stichwörter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlösen\", \" Schlüssel\", \" Bürger werden\"");
+	npc.base.autonpcfunctions.AddConsequence("inform","Stichwï¿½rter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlï¿½sen\", \" Schlï¿½ssel\", \" Bï¿½rger werden\"");
     npc.base.autonpcfunctions.AddTraderTrigger("","Do you have a decree for me or do you maybe want to buy a decree or a key?");
     npc.base.autonpcfunctions.AddCondition("lang","english");  
     npc.base.autonpcfunctions.AddConsequence("inform","Keywords on which the NPC reacts:\" Buy decree\", \" Exchange decree\", \" Key\", \" become citizen\".");
@@ -129,7 +129,7 @@ function initializeNpc()
         --thisNPC:setAttrib("faceto",4);
         --thisNPC:setAttrib("racetyp",30);
 
-		townID = base.factions.BF_setLocation(thisNPC); --look up where the npc is standing!
+		townID = base.factions.setLocation(thisNPC); --look up where the npc is standing!
 		InitDone = true;
 		
 	end
@@ -160,7 +160,7 @@ function nextCycle()  -- ~10 times per second
 end
 
 function receiveText(texttype, message, originator)
-	if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then  --Npc wird aus nächster Nähe angesprochen
+	if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then  --Npc wird aus nï¿½chster Nï¿½he angesprochen
         if npc.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then			
 			if not mainTask(texttype,message,originator) then
 				npc.base.autonpcfunctions.TellSmallTalk(message,originator);
@@ -177,15 +177,15 @@ end
 
 
 function mainTask(texttype,message,originator)
-	Factionvalues = base.factions.BF_get(originator);		
+	Factionvalues = base.factions.get(originator);		
 
-	if (string.find(message,"[Bb]ürger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Cc]itizen")~=nil or
+	if (string.find(message,"[Bb]ï¿½rger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Cc]itizen")~=nil or
 		   string.find(message,"[Bb]uerger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Mm]ember.+[Tt]own")~=nil or
 		   string.find(message,"[Mm]itglied.+Stadt")~=nil) then
 
 			if (Factionvalues[NpcLocation[thisNPC.id]+RANK_OFFSET] == outcastRank) then
 			--OUTCASTED CHAR CHECK
-			 	gText="Ihr seid aus der Stadt verbannt, ihr müsst mir erst ein unterschriebenes Entbannungsdekret der Königin vorzeigen damit ich Euch in die Bürgerliste eintragen kann.";
+			 	gText="Ihr seid aus der Stadt verbannt, ihr mï¿½sst mir erst ein unterschriebenes Entbannungsdekret der Kï¿½nigin vorzeigen damit ich Euch in die Bï¿½rgerliste eintragen kann.";
 				eText="You're outcasted from this town, you need to show me first a signed unban decree of the queen to sign you in in the citizen list.";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
@@ -195,7 +195,7 @@ function mainTask(texttype,message,originator)
 
 			--if ((TextRepeatCnt[originator.id]==nil) or (TextRepeatCnt[originator.id] == 0)) then
 			if ((flag[originator.id]==nil) or (flag[originator.id] == 0)) then
-			 	gText="Diese Eintragung wird "..PriceListForTownChange[Factionvalues.towncnt].." Silberstücke kosten, wenn ihr nach eurem Beitritt zu einer anderen Stadt wechseln wollt verdoppeln sich die Kosten dafür. Seid ihr sicher dass ihr dieser Stadt beitreten wollt?";
+			 	gText="Diese Eintragung wird "..PriceListForTownChange[Factionvalues.towncnt].." Silberstï¿½cke kosten, wenn ihr nach eurem Beitritt zu einer anderen Stadt wechseln wollt verdoppeln sich die Kosten dafï¿½r. Seid ihr sicher dass ihr dieser Stadt beitreten wollt?";
 				eText="Adding you to the citizenlist will cost "..PriceListForTownChange[Factionvalues.towncnt].." silver coins. If you decide to become a citizen of another town after joining the fee will double. Do you really wish to join this town?";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
@@ -214,10 +214,10 @@ function mainTask(texttype,message,originator)
 				flag[originator.id] = nil;
 				return true;
 
-	elseif string.find(message,"[Dd]ekret.+einl[öo][se][es][ne]")~=nil or string.find(message,"[Ee]xchange.+[Dd]ecree")~=nil or
+	elseif string.find(message,"[Dd]ekret.+einl[ï¿½o][se][es][ne]")~=nil or string.find(message,"[Ee]xchange.+[Dd]ecree")~=nil or
 		   string.find(message,"[Dd]ecree.+[Ee]xchange")~=nil then
 
-				gText="Ihr habt ein Dekret für mich...lasst mich mal nachschauen.";
+				gText="Ihr habt ein Dekret fï¿½r mich...lasst mich mal nachschauen.";
 				eText="You have a decree with you...let me have a look at it.";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
@@ -236,7 +236,7 @@ function mainTask(texttype,message,originator)
 				
 				
 			else	
-				gText="Nur der Anführer dieser Stadt kann ein Entbannungsdekret erwerben!";
+				gText="Nur der Anfï¿½hrer dieser Stadt kann ein Entbannungsdekret erwerben!";
 				eText="Only the leader of the town can buy a unban decree!";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
@@ -249,7 +249,7 @@ end
 function lookAtNpc(Char, mode)
     if initLook==nil then
         output={};
-        output[0]="Sie trägt eine prunkvolle Robe mit einem aufgestickten Wappen Cadomyrs darauf.(Notarin Cadomyrs)";
+        output[0]="Sie trï¿½gt eine prunkvolle Robe mit einem aufgestickten Wappen Cadomyrs darauf.(Notarin Cadomyrs)";
         output[1]="She wears a quite new-looking robe with an embroidered emblem of Cadomyr on it.(Notary of Cadomyr)";
         initLook=1;
     end

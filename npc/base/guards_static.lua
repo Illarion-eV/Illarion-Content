@@ -60,7 +60,7 @@ function GetMode(char, thisFaction)
 		-- return ACTION_NONE;
 	-- end
 
-	local f = base.factions.BF_get_Faction(char).tid;
+	local f = base.factions.get_Faction(char).tid;
 	return GetModeByFaction(thisFaction, f);
 end
 

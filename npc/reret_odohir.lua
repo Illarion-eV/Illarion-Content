@@ -27,15 +27,15 @@ function initializeNpc()
     npc.base.autonpcfunctions.AddTraderTrigger("sell","Thanks, but I already have everything I need.");
     npc.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+buy","Thanks, but I already have everything I need.");
     npc.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I sell decrees and keys.");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Kk]aufen","Ick verkauf nur Dekrete und Schlüssel.");
+    npc.base.autonpcfunctions.AddTraderTrigger("[Kk]aufen","Ick verkauf nur Dekrete und Schlï¿½ssel.");
     npc.base.autonpcfunctions.AddTraderTrigger("[Vv]erkaufen","Danke nein, ich habe bereits alles, was ich brauche.");
     npc.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+kauf","Danke nein, ich habe bereits alles, was ich brauche.");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ick verkauf nur Dekrete und Schlüssel.");
+    npc.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ick verkauf nur Dekrete und Schlï¿½ssel.");
 
 	npc.base.autonpcfunctions.AddTraderTrigger("[Mm]ein.+[Nn]ame.+ist.*","Freut mich %CHARNAME, ich bin die "..thisNPC.name..".");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Ii]c[hk].+bin.*");
     npc.base.autonpcfunctions.AddAdditionalTrigger("Man.+nennt.+mich.*");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Ii]c[hk].+hei[sß][se].*");
+    npc.base.autonpcfunctions.AddAdditionalTrigger("[Ii]c[hk].+hei[sï¿½][se].*");
 	npc.base.autonpcfunctions.AddCondition("lang","german");
 	npc.base.autonpcfunctions.AddConsequence("state","=",1);
 
@@ -45,11 +45,11 @@ function initializeNpc()
 	npc.base.autonpcfunctions.AddConsequence("state","=",1);
 
     npc.base.autonpcfunctions.AddTraderTrigger("[Aa]uf [Bb]ald","Auf bald.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ötter.+euch");
+    npc.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ï¿½tter.+euch");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Uu]ff.+[Bb]ald");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ünf.+euch");
-    npc.base.autonpcfunctions.AddConsequence("inform","Der Händler lächelt dich an und winkt zum Abschied.");
+    npc.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ï¿½nf.+euch");
+    npc.base.autonpcfunctions.AddConsequence("inform","Der Hï¿½ndler lï¿½chelt dich an und winkt zum Abschied.");
 
 	npc.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Farewell.");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
@@ -77,10 +77,10 @@ function initializeNpc()
 
 
 
-    npc.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","Ich verkaufe Dekrete und Schlüssel, außerdem könnt ihr bei mir Dekrete einlösen und euch als Bürger eintragen lassen.");
+    npc.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","Ich verkaufe Dekrete und Schlï¿½ssel, auï¿½erdem kï¿½nnt ihr bei mir Dekrete einlï¿½sen und euch als Bï¿½rger eintragen lassen.");
     npc.base.autonpcfunctions.AddAdditionalTrigger("helfen");
     npc.base.autonpcfunctions.AddAdditionalTrigger("hilf");
-    npc.base.autonpcfunctions.AddConsequence("inform","Stichwörter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlösen\", \" Schlüssel\", \" Bürger werden\"");
+    npc.base.autonpcfunctions.AddConsequence("inform","Stichwï¿½rter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlï¿½sen\", \" Schlï¿½ssel\", \" Bï¿½rger werden\"");
 
 	npc.base.autonpcfunctions.AddTraderTrigger("[Hh]elp"," I sell decrees and keys, furthermore you can exchange decrees and get registered as citizen here.");
     npc.base.autonpcfunctions.AddConsequence("inform","Keywords on which the NPC reacts:\" Buy decree\", \" Exchange decree\", \" Key\", \" become citizen\".");
@@ -98,25 +98,25 @@ function initializeNpc()
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Hh]i");
     npc.base.autonpcfunctions.AddConsequence("inform","Keywords on which the NPC reacts:\" Buy decree\", \" Exchange decree\", \" Key\", \" become citizen\".");
 
-    npc.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[sß]","Grüße %CHARNAME, schön euch mal wieder hier zu sehen.");
+    npc.base.autonpcfunctions.AddTraderTrigger("[Gg]rï¿½[sï¿½]","Grï¿½ï¿½e %CHARNAME, schï¿½n euch mal wieder hier zu sehen.");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Gg]rue[sß]");
+    npc.base.autonpcfunctions.AddAdditionalTrigger("[Gg]rue[sï¿½]");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Tt]a[gc].*");
     npc.base.autonpcfunctions.AddCondition("state","=",1);
-    npc.base.autonpcfunctions.AddAdditionalText("Grüß dich %CHARNAME, schön euch mal wiederzusehen.");
-	npc.base.autonpcfunctions.AddConsequence("inform","Stichwörter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlösen\", \" Schlüssel\", \" Bürger werden\"");
+    npc.base.autonpcfunctions.AddAdditionalText("Grï¿½ï¿½ dich %CHARNAME, schï¿½n euch mal wiederzusehen.");
+	npc.base.autonpcfunctions.AddConsequence("inform","Stichwï¿½rter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlï¿½sen\", \" Schlï¿½ssel\", \" Bï¿½rger werden\"");
 
-	npc.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[sß]","Zum Gruße, ich bin "..thisNPC.name..", die Notarin dieser Stadt, bei mir kannst du Dekrete kaufen und einlösen.Außerdem kannst du hier Schlüssel kaufen und dich als Bürger anmelden.");
+	npc.base.autonpcfunctions.AddTraderTrigger("[Gg]rï¿½[sï¿½]","Zum Gruï¿½e, ich bin "..thisNPC.name..", die Notarin dieser Stadt, bei mir kannst du Dekrete kaufen und einlï¿½sen.Auï¿½erdem kannst du hier Schlï¿½ssel kaufen und dich als Bï¿½rger anmelden.");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Gg]rue[sß]");
+    npc.base.autonpcfunctions.AddAdditionalTrigger("[Gg]rue[sï¿½]");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Tt]a[gc].*");
-    npc.base.autonpcfunctions.AddAdditionalText("Grüß dich!");
-    npc.base.autonpcfunctions.AddConsequence("inform","Stichwörter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlösen\", \" Schlüssel\", \" Bürger werden\"");
+    npc.base.autonpcfunctions.AddAdditionalText("Grï¿½ï¿½ dich!");
+    npc.base.autonpcfunctions.AddConsequence("inform","Stichwï¿½rter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlï¿½sen\", \" Schlï¿½ssel\", \" Bï¿½rger werden\"");
 
 
-    npc.base.autonpcfunctions.AddTraderTrigger("","Habt ihr ein Dekret für mich oder wollt ihr vielleicht ein Dekret oder Schlüssel kaufen?");
+    npc.base.autonpcfunctions.AddTraderTrigger("","Habt ihr ein Dekret fï¿½r mich oder wollt ihr vielleicht ein Dekret oder Schlï¿½ssel kaufen?");
     npc.base.autonpcfunctions.AddCondition("lang","german");
-	npc.base.autonpcfunctions.AddConsequence("inform","Stichwörter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlösen\", \" Schlüssel\", \" Bürger werden\"");
+	npc.base.autonpcfunctions.AddConsequence("inform","Stichwï¿½rter auf die der NPC reagiert: \" Dekret kaufen\", \" Dekret einlï¿½sen\", \" Schlï¿½ssel\", \" Bï¿½rger werden\"");
     npc.base.autonpcfunctions.AddTraderTrigger("","Do you have a decree for me or do you maybe want to buy a decree or a key?");
     npc.base.autonpcfunctions.AddCondition("lang","english");
     npc.base.autonpcfunctions.AddConsequence("inform","Keywords on which the NPC reacts:\" Buy decree\", \" Exchange decree\", \" Key\", \" become citizen\".");
@@ -124,7 +124,7 @@ function initializeNpc()
 	if not InitDone then
     	choiceIndex={}; --value which stands for the decree/key the user wants
 
-		townID = base.factions.BF_setLocation(thisNPC); --look up where the npc is standing!
+		townID = base.factions.setLocation(thisNPC); --look up where the npc is standing!
 		InitDone = true;
 
 	end
@@ -155,7 +155,7 @@ function nextCycle()  -- ~10 times per second
 end
 
 function receiveText(texttype, message, originator)
-	if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then  --Npc wird aus nächster Nähe angesprochen
+	if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then  --Npc wird aus nï¿½chster Nï¿½he angesprochen
         if npc.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
 			if not mainTask(texttype,message,originator) then
 				npc.base.autonpcfunctions.TellSmallTalk(message,originator);
@@ -172,26 +172,26 @@ end
 
 
 function mainTask(texttype,message,originator)
-	Factionvalues = base.factions.BF_get(originator);
+	Factionvalues = base.factions.get(originator);
 
 	if 	(string.find(message,"[Dd]ekret.+kaufen.*")~=nil or string.find(message,"[Bb]uy.+decree.*")~=nil or
 		 string.find(message,"[Dd]ekret.+erwerben.*")~=nil) then
 			if (Factionvalues.rankTown == leaderRank) then --if Character is leader in this town
-		 		gText="Was für ein Dekret benötigt ihr? Eines für die Eintragung als 'Anführer', 'vollständiges Mitglied' oder 'Anwärter' einer Gilde oder doch ein 'Entbannungsdekret'?";
+		 		gText="Was fï¿½r ein Dekret benï¿½tigt ihr? Eines fï¿½r die Eintragung als 'Anfï¿½hrer', 'vollstï¿½ndiges Mitglied' oder 'Anwï¿½rter' einer Gilde oder doch ein 'Entbannungsdekret'?";
 				eText="What kind of decree do you need? For a entry as a 'leader', 'full member' or 'aspirant' of a guild or a 'unban decree'?";
 			else
-				gText="Was für ein Dekret benötigt ihr? Eines für die Eintragung als 'Anführer', 'vollständiges Mitglied' oder 'Anwärter' einer Gilde?";
+				gText="Was fï¿½r ein Dekret benï¿½tigt ihr? Eines fï¿½r die Eintragung als 'Anfï¿½hrer', 'vollstï¿½ndiges Mitglied' oder 'Anwï¿½rter' einer Gilde?";
 				eText="What kind of decree do you need? For a entry as a 'leader', 'full member' or 'aspirant' of a guild?";
 			end
 			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 			return true;
 
-	elseif string.find(message,"[Aa]nführer.+[Ss]tadt")~=nil or string.find(message,"[Ll]eader.+ [Tt]own")~=nil or
+	elseif string.find(message,"[Aa]nfï¿½hrer.+[Ss]tadt")~=nil or string.find(message,"[Ll]eader.+ [Tt]own")~=nil or
 		   string.find(message,"[Aa]nfuehrer.+[Ss]tadt")~=nil or string.find(message,"[Ll]eader.+ [Cc]ity")~=nil or
-		   string.find(message,"[Hh]errscher.+[Ss]tadt")~=nil or string.find(message,"[Aa]nführer.+ [Oo]rt")~=nil then
+		   string.find(message,"[Hh]errscher.+[Ss]tadt")~=nil or string.find(message,"[Aa]nfï¿½hrer.+ [Oo]rt")~=nil then
 		 	if (originator:isAdmin()) then --only GMs can become faction leaders
-				gText="Gut, ich trage euch als neuen Anführer dieser Stadt ein.";
+				gText="Gut, ich trage euch als neuen Anfï¿½hrer dieser Stadt ein.";
 				eText="Good, I will enregister you as new leader of this town.";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
@@ -199,18 +199,18 @@ function mainTask(texttype,message,originator)
 			end
 			return true;
 
-	elseif (string.find(message,"[Bb]ürger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Cc]itizen")~=nil or
+	elseif (string.find(message,"[Bb]ï¿½rger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Cc]itizen")~=nil or
 		   string.find(message,"[Bb]uerger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Mm]ember.+[Tt]own")~=nil or
 		   string.find(message,"[Mm]itglied.+Stadt")~=nil) then
 			if (Factionvalues[NpcLocation[thisNPC.id]+RANK_OFFSET] == outcastRank) then -- the char is outcasted from this town
-			 	gText="Ihr seid aus der Stadt verbannt, kommt mit einem Entbannungsdekret des Anführers wieder wenn ihr Bürger werden wollt.";
+			 	gText="Ihr seid aus der Stadt verbannt, kommt mit einem Entbannungsdekret des Anfï¿½hrers wieder wenn ihr Bï¿½rger werden wollt.";
 				eText="You're outcasted from this town, come back with a unban decree from the leader if you want to become a citizen.";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				return true;
 			end
 			if ((TextRepeatCnt[originator.id]==nil) or (TextRepeatCnt[originator.id] == 0)) then
-			 	gText="Diese Eintragung wird "..PriceListForTownChange[Factionvalues.towncnt].." Silberstücke kosten, wenn ihr nach eurem Beitritt zu einer anderen Stadt wechseln wollt verdoppeln sich die Kosten dafür. Seid ihr sicher dass ihr dieser Stadt beitreten wollt?";
+			 	gText="Diese Eintragung wird "..PriceListForTownChange[Factionvalues.towncnt].." Silberstï¿½cke kosten, wenn ihr nach eurem Beitritt zu einer anderen Stadt wechseln wollt verdoppeln sich die Kosten dafï¿½r. Seid ihr sicher dass ihr dieser Stadt beitreten wollt?";
 				eText="Adding you to the citizenlist will cost "..PriceListForTownChange[Factionvalues.towncnt].." silver coins. If you decide to become a citizen of another town after joining the fee will double. Do you really wish to join this town?";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
@@ -224,37 +224,37 @@ function mainTask(texttype,message,originator)
 	elseif (string.find(message,"[Nn]ein")~=nil or string.find(message,"[Nn]o")~=nil) and (TextRepeatCnt[originator.id] == 0) then
 			TextRepeatCnt[originator.id] = nil;
 			return true;
-	elseif string.find(message,"[Aa]nw[äa][re][tr][et][re]")~=nil or string.find(message,"[Aa]spirant")~=nil then
+	elseif string.find(message,"[Aa]nw[ï¿½a][re][tr][et][re]")~=nil or string.find(message,"[Aa]spirant")~=nil then
 
 			choiceIndex[originator.id]=1; --aspirant of guild
-			gText="Das Dekret für eine Anwärtereintragung wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nur noch bitte den Namen der Gilde.";
+			gText="Das Dekret fï¿½r eine Anwï¿½rtereintragung wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nur noch bitte den Namen der Gilde.";
 			eText="The decree for a aspirant entry will cost "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." silver coins, now please tell me the name of the guild.";
 			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 			return true;
 	elseif string.find(message,"[Mm]itglied")~=nil or string.find(message,"[Mm]ember")~=nil then
 		 	choiceIndex[originator.id]=2; --member of guild
-			gText="Das Dekret für eine Mitgliedseintragung wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nur noch bitte den Namen der Gilde.";
+			gText="Das Dekret fï¿½r eine Mitgliedseintragung wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nur noch bitte den Namen der Gilde.";
 			eText="The decree for a member entry will cost "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." silver coins, now please tell me the name of the guild.";
 			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 			return true;
-	elseif string.find(message,"[Aa]nf[üu][he][rh][er][re]")~=nil or string.find(message,"[Ll]eader")~=nil then
+	elseif string.find(message,"[Aa]nf[ï¿½u][he][rh][er][re]")~=nil or string.find(message,"[Ll]eader")~=nil then
 			choiceIndex[originator.id]=3; --leader of guild
-		 	gText="Das Dekret für eine Anführereintragung wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nur noch bitte den Namen der Gilde.";
+		 	gText="Das Dekret fï¿½r eine Anfï¿½hrereintragung wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nur noch bitte den Namen der Gilde.";
 			eText="The decree for a leader entry will cost "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." silver coins, now please tell me the name of the guild.";
 			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 			return true;
-	elseif string.find(message,"[Hh]auptschlüssel")~=nil or string.find(message,"[Mm]ain.+[Kk]ey")~=nil then
+	elseif string.find(message,"[Hh]auptschlï¿½ssel")~=nil or string.find(message,"[Mm]ain.+[Kk]ey")~=nil then
 			if  (string.find(message,"[Ss]tadt")~=nil or string.find(message,"[Tt]own")~=nil) and (Factionvalues.rankTown == leaderRank) then
 				if (TownMainKey[NpcLocation[thisNPC.id]]==nil) then
-		            gText="Für diese Stadt existiert kein Hauptschlüssel!";
+		            gText="Fï¿½r diese Stadt existiert kein Hauptschlï¿½ssel!";
 					eText="There does no main key exist for this town!";
 					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 					npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				else
-		            gText="Bitte sehr, euer Hauptschlüssel.";
+		            gText="Bitte sehr, euer Hauptschlï¿½ssel.";
 					eText="Here is your main key.";
 					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 					npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
@@ -263,21 +263,21 @@ function mainTask(texttype,message,originator)
 				return true;
 			end
 			choiceIndex[originator.id] = 4; -- main key
-			gText="Der Hauptschlüssel wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nun noch den Namen der Gilde bitte.";
+			gText="Der Hauptschlï¿½ssel wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nun noch den Namen der Gilde bitte.";
 			eText="The main key will cost "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." silver coins, now please tell me the name of the guild.";
 			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 
 			return true;
-	elseif string.find(message,"[Kk]erkerschlüssel")~=nil or string.find(message,"[Jj]ail.+[Kk]ey")~=nil then
+	elseif string.find(message,"[Kk]erkerschlï¿½ssel")~=nil or string.find(message,"[Jj]ail.+[Kk]ey")~=nil then
 			if  (string.find(message,"[Ss]tadt")~=nil or string.find(message,"[Tt]own")~=nil) and (Factionvalues.rankTown == leaderRank) then
 				if (TownJailKey[NpcLocation[thisNPC.id]]==nil) then
-		            gText="Für diese Stadt existiert kein Kerkerschlüssel!";
+		            gText="Fï¿½r diese Stadt existiert kein Kerkerschlï¿½ssel!";
 					eText="There does no jail key exist for this town!";
 					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 					npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				else
-		            gText="Bitte sehr, euer Kerkerschlüssel.";
+		            gText="Bitte sehr, euer Kerkerschlï¿½ssel.";
 					eText="Here is your jail key.";
 					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 					npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
@@ -286,7 +286,7 @@ function mainTask(texttype,message,originator)
 				return true;
 			end
 			choiceIndex[originator.id] = 5; -- jail key
-			gText="Der Kerkerschlüssel wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nun noch den Namen der Gilde bitte.";
+			gText="Der Kerkerschlï¿½ssel wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nun noch den Namen der Gilde bitte.";
 			eText="The jail key will cost "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." silver coins, now please tell me the name of the guild.";
 			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
@@ -301,27 +301,27 @@ function mainTask(texttype,message,originator)
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				createChoice(originator,message,choiceIndex,Factionvalues);
 			else
-				gText="Nur der Anführer dieser Stadt kann ein Entbannungsdekret erwerben!";
+				gText="Nur der Anfï¿½hrer dieser Stadt kann ein Entbannungsdekret erwerben!";
 				eText="Only the leader of the town can buy a unban decree!";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 			end
 			return true;
-	elseif string.find(message,"[Ss]chl[üu][se][ss][es][le].*")~=nil or string.find(message,"[Kk]ey")~=nil then
+	elseif string.find(message,"[Ss]chl[ï¿½u][se][ss][es][le].*")~=nil or string.find(message,"[Kk]ey")~=nil then
 			if (Factionvalues.rankTown == leaderRank) then --if Character is leader in this town
-				gText="Was für einen Schlüssel benötigt ihr? Einen 'Kerkerschlüssel' oder 'Hauptschlüssel'? Und benötigt ihr diesen für diese Stadt oder eine Gilde?";
+				gText="Was fï¿½r einen Schlï¿½ssel benï¿½tigt ihr? Einen 'Kerkerschlï¿½ssel' oder 'Hauptschlï¿½ssel'? Und benï¿½tigt ihr diesen fï¿½r diese Stadt oder eine Gilde?";
 				eText="What kind of key do you need? A 'jail key' or a 'main key'? And do you need it for this town or a guild?";
 			else
-				gText="Was für einen Schlüssel benötigt ihr? Einen 'Kerkerschlüssel' oder 'Hauptschlüssel'?";
+				gText="Was fï¿½r einen Schlï¿½ssel benï¿½tigt ihr? Einen 'Kerkerschlï¿½ssel' oder 'Hauptschlï¿½ssel'?";
 				eText="What kind of key do you need? A 'jail key' or a 'main key'?";
 			end
 			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 			return true;
 
-	elseif string.find(message,"[Dd]ekret.+einl[öo][se][es][ne]")~=nil or string.find(message,"[Ee]xchange.+[Dd]ecree")~=nil or
+	elseif string.find(message,"[Dd]ekret.+einl[ï¿½o][se][es][ne]")~=nil or string.find(message,"[Ee]xchange.+[Dd]ecree")~=nil or
 		   string.find(message,"[Dd]ecree.+[Ee]xchange")~=nil then
-		gText="Ihr habt ein Dekret für mich...lasst mich mal nachschauen.";
+		gText="Ihr habt ein Dekret fï¿½r mich...lasst mich mal nachschauen.";
 		eText="You have a decree with you...let me have a look at it.";
 		outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 		npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
@@ -340,7 +340,7 @@ end
 function lookAtNpc(Char, mode)
     if initLook==nil then
         output={};
-        output[0]="Sie trägt einen langen roten Mantel mit einem aufgestickten Wappen Runewicks darauf.(Notarin Runewicks)";
+        output[0]="Sie trï¿½gt einen langen roten Mantel mit einem aufgestickten Wappen Runewicks darauf.(Notarin Runewicks)";
         output[1]="She wears a long red coat with an embroidered emblem of Runewick on it.(Notary of Runewick)";
         initLook=1;
     end
