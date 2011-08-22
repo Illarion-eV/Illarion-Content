@@ -81,7 +81,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
     -----------------------HITPOINTS ANFANG-----------------------------------
     if ( Hitpoints < maxHitpoints and Poisonvalue == 0 ) then -- HP nicht voll und nicht vergiftet - Regeneration
         if ( Foodvalue >= maxFoodvalue/12 ) then -- Schnelles HP regenerieren mit FP
-            Hitpoints = math.min( maxHitpoints, Hitpoints + ( 400 * ( Const / 20 ) ) );  -- Lebenspunkte steigen bei Konst 10 in 4 Minuten und 10 Sekunden von 0 auf 10000
+            Hitpoints = math.min( maxHitpoints, Hitpoints + 50 + ( 350 * ( Const / 20 ) ) );  -- Lebenspunkte steigen bei Konst 10 in 3 Minuten und 42 Sekunden von 0 auf 10000
             Foodvalue = Foodvalue - math.min(200,(10000-Hitpoints) * ( 10 / Const ) );                     -- Nahrungspunkte fallen in 12 Minute und 30 Sekunden von 60000 auf 30000
         elseif (Foodvalue ~= 0) then  -- Langsame Regeneration ohne FP
             Hitpoints = math.min( maxHitpoints, Hitpoints + 10 * 5 );  -- Lebenspunkte steigen in 16 Minuten und 40 Sekunden von 0 auf 10000
@@ -178,7 +178,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
          end
 
             if ( Foodvalue >= maxFoodvalue/12 ) then -- Schnelles HP regenerieren mit FP
-                Manapoints = math.min( maxManapoints, Manapoints + ( (400 * ( Essence / 20 ) ) * RegBoni)/100 ); -- Manapunkte regenerieren bei Ess 10 in 4 Minuten und 10 Sekunden von 0 auf 10000
+                Manapoints = math.min( maxManapoints, Manapoints + ( ( 50 + 350 * ( Essence / 20 ) ) * RegBoni)/100 ); -- Manapunkte regenerieren bei Ess 10 in 3 Minuten und 42 Sekunden von 0 auf 10000
             Foodvalue = Foodvalue - math.min(200,(10000-Manapoints) * ( 10 / Essence ) );                                           -- Nahrungspunkte fallen in 6 Minute und 15 Sekunden von 60000 auf 30000
             else -- Langsame Regeneration ohne FP
                 Manapoints = math.min( maxManapoints, Manapoints + ( Essence * 5 ) + RegBoni );  -- Manapunkte steigen bei Ess 10 in 16 Minuten und 40 Sekunden von 0 auf 10000
