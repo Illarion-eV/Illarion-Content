@@ -179,7 +179,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 
             if ( Foodvalue >= maxFoodvalue/12 ) then -- Schnelles HP regenerieren mit FP
                 Manapoints = math.min( maxManapoints, Manapoints + ( ( 50 + 350 * ( Essence / 20 ) ) * RegBoni)/100 ); -- Manapunkte regenerieren bei Ess 10 in 3 Minuten und 42 Sekunden von 0 auf 10000
-            Foodvalue = Foodvalue - math.min(200,(10000-Manapoints) * ( 10 / Essence ) );                                           -- Nahrungspunkte fallen in 6 Minute und 15 Sekunden von 60000 auf 30000
+                Foodvalue = Foodvalue - math.min(200,(10000-Manapoints) * ( 10 / Essence ) );                                           -- Nahrungspunkte fallen in 6 Minute und 15 Sekunden von 60000 auf 30000
             else -- Langsame Regeneration ohne FP
                 Manapoints = math.min( maxManapoints, Manapoints + ( Essence * 5 ) + RegBoni );  -- Manapunkte steigen bei Ess 10 in 16 Minuten und 40 Sekunden von 0 auf 10000
             end
