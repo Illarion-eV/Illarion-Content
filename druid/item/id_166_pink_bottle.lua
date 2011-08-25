@@ -95,8 +95,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
     if (ltstate == Action.none) then
 		
 			User:startAction(20,0,0,12,25);
-			User:talkLanguage(User.say, Player.german, "#me beginnt einen Trank zu trinken.");
-			User:talkLanguage(User.say, Player.english, "#me starts to drink a potion.");
+			--User:talkLanguage(User.say, Player.german, "#me beginnt einen Trank zu trinken.");
+			--User:talkLanguage(User.say, Player.english, "#me starts to drink a potion.");
 			DrinkPotion(User, SourceItem);
 	end
 	

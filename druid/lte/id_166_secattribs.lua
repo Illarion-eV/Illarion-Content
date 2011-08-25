@@ -12,7 +12,7 @@ end
 
 function callEffect(Effect,User) 
 
-    findCounter,counterPink = Effect:findValue("counterpink")
+    findCounter,counterPink = Effect:findValue("counterPink")
     findHitpoints,hitpointsIncrease = Effect:findValue("hitpointsIncrease")
     findMana,manaIncrease = Effect:findValue("manaIncrease")
     findFoodlevel,foodlevelIncrease = Effect:findValue("foodlevelIncrease")
