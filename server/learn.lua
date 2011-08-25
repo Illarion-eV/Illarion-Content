@@ -57,7 +57,8 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
             else
      			user:increaseMinorSkill(skillGroup,skill,minorIncrease);
 				base.common.TempInformNLS(user,"[Levelaufstieg] Deine Fertigkeit steigt von "..skillValue.." auf "..(skillValue+1).."!","[Level up] Your skill '"..skill.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
-            end
+				world:gfx(13,user.pos); --swirly!           
+		    end
         else
 		    --user:inform("No skill gained.");
 		end
