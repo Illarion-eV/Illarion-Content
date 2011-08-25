@@ -80,9 +80,6 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 	
 	-- Spieler fischt bereits
 	User:learn( fishing.LeadSkill, fishing.LeadSkillGroup, fishing.SavedWorkTime[User.id], 100, User:increaseAttrib(fishing.LeadAttribute,0) );
-	
-	User:inform("Time: "..fishing.SavedWorkTime[User.id].."!");
-
 	fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User, SourceItem);
 	local chance = math.random(1,10)
 	if(chance <= 3) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance beträgt 30% für Lachs
