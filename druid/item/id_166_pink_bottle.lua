@@ -71,12 +71,12 @@ function DrinkPotion(User,SourceItem)
 function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 
 	if (ltstate == Action.abort) then
-       User:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
-        User:talkLanguage(Character.say, Player.english, "#me spills the potion.");
+       User:talkLanguage(User.say, Player.german, "#me verschüttet den Trank.");
+        User:talkLanguage(User.say, Player.english, "#me spills the potion.");
         world:erase(SourceItem,1);
         -- Chance for a new bottle 19/20
         if(math.random(20) == 1) then
-           base.common.TempInformNLS(Character, "Die Flasche zerbricht.", "The bottle breaks.");
+           base.common.TempInformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
         else
             User:createItem(164, 1, 333, 0);
         end
