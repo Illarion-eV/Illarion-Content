@@ -40,7 +40,8 @@ function callEffect(Effect,User)
 	      poisonvalueIncrease = base.common.Limit( (User:getPoisonValue() + poisonvalueIncrease) , 0, 10000 ); 
 	      User:setPoisonValue( poisonvalueIncrease );
 	   end
-	
+	   User:inform("runde "..counterPink);
+	   
 	   Effect.nextCalled = 50
 	
 	   if counterPink == 0 then
