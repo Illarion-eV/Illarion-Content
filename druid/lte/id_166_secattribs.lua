@@ -12,20 +12,20 @@ end
 
 function callEffect(Effect,User) 
 
-    findCounter,counter = Effect:findValue("counter")
+    findCounter,counterPink = Effect:findValue("counterpink")
     findHitpoints,hitpointsIncrease = Effect:findValue("hitpointsIncrease")
     findMana,manaIncrease = Effect:findValue("manaIncrease")
     findFoodlevel,foodlevelIncrease = Effect:findValue("foodlevelIncrease")
     findPoisonvalue,poisonvalueIncrease = Effect:findValue("poisonvalueIncrease")
     
 	if findCounter then 
-       counter = counter - 1;
-       if counter <0 then 
-	      counter=0; 
+       counterPink = counterPink - 1;
+       if counterPink <0 then 
+	      counterPink=0; 
     
 	   end
        
-	   Effect:addValue("counter",counter)
+	   Effect:addValue("counterPink",counterPink)
    
        if findHitpoints then
           User:increaseAttrib("hitpoints",hitpointsIncrease);
@@ -43,7 +43,7 @@ function callEffect(Effect,User)
 	
 	   Effect.nextCalled = 50
 	
-	   if counter == 0 then
+	   if counterPink == 0 then
 	      return false
 	   else 
          return true
@@ -56,5 +56,5 @@ function loadEffect(Effect, User)
 end
 
 function removeEffect(Effect,User)         
-
+User:inform("effekt entfernen");
 end
