@@ -58,6 +58,8 @@ function callEffect(Effect,User)
          Effect:addValue("cooldownPink",cooldownPink)
       end
    end
+
+   Effect.nextCalled = 50
 end
 function loadEffect(Effect, User)
 
