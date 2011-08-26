@@ -59,6 +59,8 @@ function callEffect(Effect,User)
          Effect.nextCalled = 50
 	  end
    end
+
+   Effect.nextCalled = 50
 end
 function loadEffect(Effect, User)
 
