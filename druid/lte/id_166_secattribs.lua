@@ -45,23 +45,17 @@ function callEffect(Effect,User)
 	       end
 	   end
    
-       Effect.nextCalled = 50
-       
-	   if findCooldown then
-          if cooldownPink == 0 then
+       if findCooldown then
+          if cooldownPink < 1 then
 	         return false
 	      else 
-             return true
-	       end
-       
-	      if cooldownPink > 0 then
-	         cooldownPink = cooldownPink - 1;
+             cooldownPink = cooldownPink - 1;
              Effect:addValue("cooldownPink",cooldownPink)
-           end
-	  end
+			 Effect.nextCalled = 50
+			 return true
+	       end
+       end
    end
-
-   
 end
 function loadEffect(Effect, User)
 
