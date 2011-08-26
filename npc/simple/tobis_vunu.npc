@@ -1,15 +1,3 @@
-------------------------------------------------------------------------------AC
--- NPC Name: Tobis Vunu                                                  None --
--- NPC Job:  pirate                                                           --
---                                                                            --
--- NPC Race: human                      NPC Position:  42, 517, 0             --
--- NPC Sex:  male                       NPC Direction: south                  --
---                                                                            --
--- Author:   not set                                                          --
---                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
---------------------------------------------------------------------------------
-
 name = "Tobis Vunu"
 race = human
 sex = male
@@ -23,7 +11,7 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Rincewind"
 
 lookatDE = "Arr, das ist ein hässlicher wilder Pirat! Nimm dich in Acht!"
 lookatUS = "Arr, thiss seems like a ugly wild pirate! Take care."
@@ -51,14 +39,8 @@ itemTrousers = 2194
 itemShoes = 369
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
 
--- NPC by Rincewind
+
 -- QuestID=305
 -- Queststatus Overview "spionage bei den Piraten"
 -- 1: Quest started. 'spy the pirates' - Player is sended into Pirate Bay. To search Tobis vunu.
@@ -68,8 +50,13 @@ itemShoes = 369
 -- 5: Secret Message told.
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends.
 
--- language: human, common
+
+"Help" -> inform("[Game Help] This NPC is Tobis Vunu the pirate. Keyphrases: Adventure, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tobis Vunu der Pirat. Schlüsselwörter: Abenteuer, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
+
 -- create script at tobacco field. [[use 'lighted toarch' & 'tobaccofield tile = spawn flames (item wich disapear by time) over whole tobacco field tiles. + set queststauts=3 + inform( You destroyed the tabacco field. Well done. Talk to Tobis Vunu now. ) // inform( Du hast das Tabakfeld zerstört. gut gemacht. Spreche nun mit Tobis Vunu. ) ]]
+
 "Botschaft", "verdienen", "aufgabe", "abenteuer", queststatus(305) = 1 -> inform("Tobis Vunu reicht dir ein Bündel Gewand und einen Schlapphut. Du sollst alles anziehen und das Tabakfeld suchen um es mit einer Fackel unbemerkt zu zerstören."), "Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!", item(356, 1, 550, 0), item(180, 1, 550, 0), item(181, 1, 550, 0), item(391, 1, 550, 0), queststatus(305) = 2
 "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 1, german -> inform("Tobis Vunu reicht dir ein Bündel Gewand und einen Schlapphut. Du sollst alles anziehen und das Tabakfeld suchen um es mit einer Fackel unbemerkt zu zerstören."), "Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!", item(356, 1, 550, 0), item(180, 1, 550, 0), item(181, 1, 550, 0), item(391, 1, 550, 0), queststatus(305) = 2
 "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 1, english -> inform("Tobis Vunu hands you a bunch cloth and a slouch hat. Dress up and sneak at the tobaccofield to burn it."), "Aye. Piero sends you? Allright, get dressed with this stuff. Take the toarch and burn the pirates tabacco field. And do't let you catched, by doing it!", item(356, 1, 550, 0), item(180, 1, 550, 0), item(181, 1, 550, 0), item(391, 1, 550, 0), queststatus(305) = 2
