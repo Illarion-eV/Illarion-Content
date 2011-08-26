@@ -65,7 +65,7 @@ function DrinkPotion(User,SourceItem)
 	   myEffect:addValue("foodlevelIncrease",foodlevelOT)
 	   myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
 	   myEffect:addValue("counterPink",5)	   
-	   myEffect:addValue("cooldownPink",24)
+	   --myEffect:addValue("cooldownPink",24)
    end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
