@@ -13,45 +13,52 @@ end
 function callEffect(Effect,User) 
 
     findCounter,counterPink = Effect:findValue("counterPink")
-    findHitpoints,hitpointsIncrease = Effect:findValue("hitpointsIncrease")
+    findCooldown,cooldownPink = Effect:findValue("cooldownPink")
+	
+	findHitpoints,hitpointsIncrease = Effect:findValue("hitpointsIncrease")
     findMana,manaIncrease = Effect:findValue("manaIncrease")
     findFoodlevel,foodlevelIncrease = Effect:findValue("foodlevelIncrease")
     findPoisonvalue,poisonvalueIncrease = Effect:findValue("poisonvalueIncrease")
     
-	if findCounter then 
-       counterPink = counterPink - 1;
-       if counterPink <0 then 
-	      counterPink=0; 
-    
-	   end
-       
-	   Effect:addValue("counterPink",counterPink)
-   
-       if findHitpoints then
-          User:increaseAttrib("hitpoints",hitpointsIncrease);
-       end
-       if findMana then   
-          User:increaseAttrib("mana",manaIncrease);
-       end
-       if findFoodlevel then
-          User:increaseAttrib("foodlevel",foodlevelIncrease);
-       end
-       if findPoisonvalue then    
-	      poisonvalueIncrease = base.common.Limit( (User:getPoisonValue() + poisonvalueIncrease) , 0, 10000 ); 
-	      User:setPoisonValue( poisonvalueIncrease );
-	   end
-	   User:inform("runde ausgeführt");
-	   
-	   Effect.nextCalled = 50
 	
-	   if counterPink == 0 then
+	if findCounter then 
+       if counterPink > 0 then
+       
+	       if findHitpoints then
+              User:increaseAttrib("hitpoints",hitpointsIncrease);
+           end
+           if findMana then   
+              User:increaseAttrib("mana",manaIncrease);
+           end
+           if findFoodlevel then
+              User:increaseAttrib("foodlevel",foodlevelIncrease);
+           end
+           if findPoisonvalue then    
+	          poisonvalueIncrease = base.common.Limit( (User:getPoisonValue() + poisonvalueIncrease) , 0, 10000 ); 
+	          User:setPoisonValue( poisonvalueIncrease );
+	       end
+	       User:inform("runde ausgeführt");
+	   
+	       if findCounter then
+		      counterPink = counterPink - 1;
+	          Effect:addValue("counterPink",counterPink)
+	       end
+	   end
+   end
+
+   if findCooldown then
+      if cooldownPink == 0 then
 	      return false
 	   else 
          return true
 	   end
+       
+	  if cooldownPink > 0 then
+	     cooldownPink = cooldownPink - 1;
+         Effect:addValue("cooldownPink",cooldownPink)
+      end
    end
 end
-
 function loadEffect(Effect, User)
 
 end
