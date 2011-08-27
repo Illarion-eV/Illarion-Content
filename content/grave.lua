@@ -179,7 +179,8 @@ function InitGrave()
 	AddGrave({925,940,0},"","", 1,5); --Twin Eyes Islands
 	AddGrave({865,846,0},"","", 2,5); --Woodcutter's Hut
 	AddGrave({862,847,0},"","", 3,5); --Woodcutter's Hut
-	AddGrave({879,759,0},"","", 1,5); --Fire of Triumph
+	AddGrave({879,759,0},"","In remembrance of all victims of the mindless campaign in 118 BS between Cadomyr and Galmair who we could not reanimate, because they hid their bodies. Elara may help those fools from Cadomyr and Galmair to overcome their shortsightedness. Shall the four Fire of Triumph light for us!", 1,5); --Fire of Triumph
+	AddGrave({871,757,0},"","In remembrance of all those who had been reanimated by our arcane talented unite in 117 BS but were slaughter again afterwards. Oldra may guide us to their corpses in order to further reanimation and protect them to get hurt again. Shall the four Fire of Triumph light for us!", 1,5); --Fire of Triumph
 	--Snakehead Coast
     AddGrave({621,463,0},"","", 1,0);
     AddGrave({692,483,0},"","", 1,0); --Wilder Island
