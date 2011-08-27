@@ -5,9 +5,9 @@
 -- NPC Race: human                      NPC Position:  42, 517, 0             --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 27, 2011                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -16,6 +16,7 @@ VALUES (0, 42, 517, 0, 4, 'Tobis Vunu', 'npc.tobis_vunu', 0, 2, 5, 123, 62, 9, 2
 ---]]
 
 require("npc.base.basic")
+require("npc.base.condition.chance")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
@@ -33,6 +34,22 @@ mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Tobis Vunu the pirate. Keyphrases: Adventure, Gods."));
+talkEntry:addResponse("Help? I won't help you.  Get rid, Jack!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Tobis Vunu der Pirat. Schlüsselwörter: Abenteuer, Götter."));
+talkEntry:addResponse("Helfen? Ich werd dir nich helfen. Verschwinde Leichtmatrose!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
@@ -599,15 +616,29 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hallo");
-talkEntry:addTrigger("gr[üue]+[sß]+e");
-talkEntry:addTrigger("guten tag");
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greet");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addResponse("Hej lubber!");
+talkEntry:addResponse("Aye.");
+talkEntry:addResponse("Always fair winds and following seas, Jack.");
+talkEntry:addResponse("Arr! Whats new?");
+talkEntry:addResponse("Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?");
+talkEntry:addResponse("Ahoy, me Hearties!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
+talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addTrigger("Greb");
 talkEntry:addResponse("Hej Landratte!");
 talkEntry:addResponse("Aye.");
 talkEntry:addResponse("Mast- und Schotbruch, Matrose!");
@@ -617,28 +648,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("good day");
-talkEntry:addTrigger("greetings");
-talkEntry:addTrigger("greets");
-talkEntry:addTrigger("hail");
-talkEntry:addTrigger("hello");
-talkEntry:addTrigger("Be greeted");
-talkEntry:addTrigger("Good morning");
-talkEntry:addResponse("Hej lubber!");
-talkEntry:addResponse("Aye.");
-talkEntry:addResponse("Always fair winds and following seas, Jack.");
-talkEntry:addResponse("Arr! Whats new?");
-talkEntry:addResponse("Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?");
-talkEntry:addResponse("Ahoy, me Hearties!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hej lubber!");
 talkEntry:addResponse("Aye.");
@@ -653,9 +666,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Hej Landratte!");
 talkEntry:addResponse("Aye.");
 talkEntry:addResponse("Mast- und Schotbruch, Matrose!");
@@ -665,28 +676,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("wie hei[sß]+t du");
-talkEntry:addTrigger("wie hei[sß]+t ihr");
-talkEntry:addTrigger("dein name");
-talkEntry:addTrigger("wer seid");
-talkEntry:addTrigger("wer bist");
-talkEntry:addResponse("Ich bin Tobis Vunu. Bei meinen wankenden Masten!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("your name");
-talkEntry:addTrigger("who are you");
-talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am Tobis Vunu. Siver me timbers!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Farewel");
-talkEntry:addTrigger("Good bye");
+talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("Don't get biten by seedogs!");
 talkEntry:addResponse("Aye.");
 talkEntry:addResponse("Good wind.");
@@ -697,7 +690,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Lass dich nich von Seehunden beissn!");
 talkEntry:addResponse("Aye.");
 talkEntry:addResponse("Gut Wind.");
@@ -706,9 +699,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
-talkEntry:addTrigger("Fareba");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Don't get biten by seedogs!");
 talkEntry:addResponse("Aye.");
@@ -718,10 +711,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
-talkEntry:addTrigger("Fareba");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Lass dich nich von Seehunden beissn!");
 talkEntry:addResponse("Aye.");
 talkEntry:addResponse("Gut Wind.");
@@ -740,41 +732,111 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addTrigger("Wie Befind");
 talkEntry:addResponse("Mir geht's gut, Kumpel. Die Winde sind gut und die Flasche is voll. Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("I am");
-talkEntry:addTrigger("I'm");
-talkEntry:addResponse("Ace name, matee!");
+talkEntry:addTrigger("your name");
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("who art thou");
+talkEntry:addResponse("I am Tobis Vunu. Siver me timbers!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich bin");
-talkEntry:addResponse("Spitzen Name, Kumpel!");
+talkEntry:addTrigger("dein name");
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Ich bin Tobis Vunu. Bei meinen wankenden Masten!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hilfe");
-talkEntry:addResponse("Helfen? Ich werd dir nich helfen. Verschwinde Leichtmatrose!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("I'm a scary Pirate! Arr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("helfen");
-talkEntry:addResponse("Helfen? ich werd dir nich helfen. Verschwinde Leichtmatrose!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Ich bin n' gefährlicher Pirat! Arr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("help");
-talkEntry:addResponse("Help? I won't help you.  Get rid, Jack!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'm a scary Pirate! Arr!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Ich bin n' gefährlicher Pirat! Arr!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Pirat");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hey - pirates ho! Ho-h! We're mean guys, ho!");
+talkEntry:addResponse("Arr! We're robbing an' invade an' slitting an' ... uh robbin'! Aye.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Reginald");
+talkEntry:addTrigger("king");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh... good old King Reginald. I'm sad he's dead now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Reginald");
+talkEntry:addTrigger("king");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Oh... guter alter König Reginald. Schade, dass er jetzt tot ist.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Piero");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich kenne keinen Piero.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Piero");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I don't know any Piero's.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ruggero");
+talkEntry:addTrigger("bloom");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Aye, Ruggero ist ein guter Kumpel von mir. Leg dich lieber nicht mit ihm an, er ist leicht reizbar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ruggero");
+talkEntry:addTrigger("bloom");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye Ruggero is my matee! Don't annoy him, he's kind of bullsish.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Pirat");
+talkEntry:addResponse("Hey - Pirat'n ho! Ho-h! Wir sin' üble Kerle, ho!");
+talkEntry:addResponse("Arr! Wirr raub'n und entern und schlitzn und ... äh raubn! Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -824,50 +886,93 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("profession");
-talkEntry:addResponse("I'm a scary Pirate! Arr!");
+talkEntry:addTrigger("god");
+talkEntry:addResponse("There matee's who don't care about the gods at all. Idiots I say - Tanora an' Ronagan may save my live when our ship get's in trouble. Aye.");
+talkEntry:addResponse("There matee's who don't care about the gods at all. Idiots I say - Adron shall save all the rum and Nargun shall make me a rich man! Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin n' gefährlicher Pirat! Arr!");
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("S' gibt Kumpel die kümmern sich nich um die Götter - Allesamt Idioten. Tanora und Ronagan soll'n mir helfn wenn's Ärger am Schiff gibt. Aye.");
+talkEntry:addResponse("S' gibt Kumpel die kümmern sich nich um die Götter - Allesamt Idioten. Adron schütze unsre Fässer mit Rum und Nargun mög' für sorgen daß ich einmal n' reicher Mann werd! Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ich bin n' gefährlicher Pirat! Arr!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
+talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I'm a scary Pirate! Arr!");
+talkEntry:addResponse("Adron may save all the rum. Arr. Hail Adron, praise to the rum - I say.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Adron");
+talkEntry:addResponse("Adron schütze die Rum-fässer. Arr. Heil Adron, ein Loblied dem Rum sag ich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nargun");
+talkEntry:addTrigger("Nargún");
+talkEntry:addTrigger("Nargùn");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aye, I went there for a loot trip, once. But I don't think there's a ship sealing there, this days.");
+talkEntry:addResponse("Nargun is Chaos. He makes a man rich one day - the other he's poor again. Chance of fifty-fifty. I take the risk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Aye, ich war dort mal auf Beutezug. Aber ich denke nicht das heutzutage da noch Schiffe hinsegeln.");
+talkEntry:addTrigger("Nargun");
+talkEntry:addTrigger("Nargún");
+talkEntry:addTrigger("Nargùn");
+talkEntry:addResponse("Nargun ist Chaos. Heute biste ein reicher Mann, morgen arm. Iss ne Chanche von fünfzig zu fünfzig - ich geh's Risiko ein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Ronagan respects our Pirate Code. Aye. Therefore it's good to offer his altair some coins now and again. Eh?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addResponse("Ronagan respektiert unsren Codex. Den Piratn-Codex. Aye. Also hinterlass ich ihm immer wieder mal'n paar Münzen am Altar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("All Sailor's praise Tanora. Aye. She'S goddes of wather and sea. You don't want her angry when shipping with a nutshell over the migthy sea.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addResponse("Alle Seeleute beten zu Tanora. Aye. Sie's die Göttin des Meeres - du will's sie nich verärgern wenn du mit ner Nußschale über'n Ozean schipperst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("Elvaine Morgan isn't that the name of this renegade Mage comming from Lor Angur? He's kind of chief in Runewick now, it seems to me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Elvaine Morgan ist das nicht dieser abtrünnige Magier aus Lor Angur? Der scheint jetzt der große Häuptling in Runewick zu sein, wenn du mich fragst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Elvaine Morgan isn't that the name of this renegade Mage comming from Lor Angur? He's kind of chief in Runewick now, it seems to me.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -876,9 +981,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Elvaine Morgan ist das nicht dieser abtrünnige Magier aus Lor Angur? Der scheint jetzt der große Häuptling in Runewick zu sein, wenn du mich fragst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -892,7 +994,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Jaja! In Runewick gibts viele kluge Leute. Oder zumindest halten sie sich dafür. Als Pirat hat man's dort nicht leicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -910,7 +1011,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Weißt du.. es gibt Leute mit denen sollte man sich nicht anlegen. Don Valerio Guilianni ist wohl genauso jemand, wenn du mich fragst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -924,15 +1024,25 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Galmair wäre ja ein nettes Plätzchen. Wäre es dort bloß nicht voller knausriger Zwerge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("The guard of queen Rosaline makes it hard to live our pirate-life. But we'll Kkep our tails up!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Die Wache von Königin Rosaline macht uns das Piratenleben schwer. Aber wir lassen uns nicht unterkriegen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("The guard of queen Rosaline makes it hard to live our pirate-life. But we'll Kkep our tails up!");
@@ -941,27 +1051,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Die Wache von Königin Rosaline macht uns das Piratenleben schwer. Aber wir lassen uns nicht unterkriegen!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Reginald");
-talkEntry:addTrigger("king");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oh... good old King Reginald. I'm sad he's dead now.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Reginald");
-talkEntry:addTrigger("king");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Oh... guter alter König Reginald. Schade, dass er jetzt tot ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -974,38 +1065,142 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Das hier ist nicht Cadomyr! Hier ist die Piratebay! Hier haben wir unseren eigenen Codex! Solang uns die Seehunde nich beissn!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Piero");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ich kenne keinen Piero.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Piero");
+talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I don't know any Piero's.");
+talkEntry:addResponse("Once I knew a guy from Albar... dirty swine. He choped of the hand of a friend. Aye. Damn Albarian.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("ruggero");
-talkEntry:addTrigger("bloom");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Aye, Ruggero ist ein guter Kumpel von mir. Leg dich lieber nicht mit ihm an, er ist leicht reizbar.");
+talkEntry:addTrigger("albar");
+talkEntry:addResponse("Arr. Ich kannte Mal nen Typn aus Albar... Dreckskerl. Hat'n Freund von mir die Hand abgehackt. Aye. Verdammter Albarer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("ruggero");
-talkEntry:addTrigger("bloom");
+talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aye Ruggero is my matee! Don't annoy him, he's kind of bullsish.");
+talkEntry:addResponse("I know many people comming from Gynk. You can't trust them. - Well that remainds me my mother was Gynkese as well... thie-hie!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addResponse("Ich kenn viele Leute aus Gynk. Denen kannste nich vertraun. - Da fällt mir ein 'ch bin selber einer... hähähä.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Weirdos... Salkamarians are weirdos. They are crazy, if you count on my opinion. Aye.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addResponse("Die Salkamarer sin' allesamt Spinner, sag ich dir. Verückt sin se. Aye.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, I went there for a loot trip, once. But I don't think there's a ship sealing there, this days.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("Aye, ich war dort mal auf Beutezug. Aber ich denke nicht das heutzutage da noch Schiffe hinsegeln.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("Ace name, matee!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Spitzen Name, Kumpel!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tobis");
+talkEntry:addTrigger("Vunu");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye - that's me! What's up matee?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tobis");
+talkEntry:addTrigger("Vunu");
+talkEntry:addResponse("Aye - 's bin ich. Was gibt's Kumpel?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Aye.");
+talkEntry:addResponse("Shiver me timbers, matee!");
+talkEntry:addResponse("Well. - Eh you got a bottle of rum?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Aye.");
+talkEntry:addResponse("Bei meinen wankenden Masten, Kumpel!");
+talkEntry:addResponse("Gut. - Eh, du hass nich ne Flasche Rum übrich oder?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("Nevermind.");
+talkEntry:addResponse("Of Course.");
+talkEntry:addResponse("Arr-h!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Vergiss, dass ich was gesagt hab.");
+talkEntry:addResponse("Selbstverständlich.");
+talkEntry:addResponse("Arr-h!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("We?re drinking rum all night long.- Ho! Ho! Ho! The waves are high, the wind is strong.- Ho! Ho! Ho!");
+talkEntry:addResponse("We are the lords of the sea. - Ho! Ho! Ho! Drink rum and beer, but never tea.- Ho! Ho! Ho!");
+talkEntry:addResponse("Thirteen men on a dead man´s chest! - Ho! Ho! Ho! Every man has got the pest! - Ho! Ho! Ho!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("Dreizehn Mann saßen auf einem Sarg, Ho! Ho! Ho! -  Sie soffen drei Tage, der Schnaps war stark. - Ho! Ho! Ho!");
+talkEntry:addResponse("Sie liebten das Meer und den Schnaps und das Gold. Ho! Ho! Ho! -  Bis einst alle dreizehn n' Dämon holt. - Ho! Ho! Ho!");
+talkEntry:addResponse("Wir sind die Herrn der See. - Ho! Ho! Ho! Drinken Rum und Bier, aber niemals Tee! Ho! Ho! Ho!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me säuselt leise ein Lied. '...und ne Buddel voll Rum!'", "#me sings a quit song. '... and a bottle with rum!'");
