@@ -1,15 +1,3 @@
-------------------------------------------------------------------------------AC
--- NPC Name: Prandlin                                                    None --
--- NPC Job:  none                                                             --
---                                                                            --
--- NPC Race: halfling                   NPC Position:  789, 790, 0            --
--- NPC Sex:  male                       NPC Direction: northeast              --
---                                                                            --
--- Author:   Rincewind                                                        --
---                                                                            --
--- Last parsing: July 25, 2011                           easyNPC Parser v1.02 --
---------------------------------------------------------------------------------
-
 name = "Prandlin"
 race = halfling
 sex = male
@@ -33,8 +21,8 @@ wrongLangDE = "#me schnarcht laut."
 wrongLangUS = "#me snorts loudly."
 radius = 0
 hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
+beardID = 0
+colorHair = 226,224,222
 colorSkin = 245, 180, 137
 itemHead = 0
 itemChest = 811
@@ -46,12 +34,7 @@ itemTrousers = 460
 itemShoes = 53
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
+
 
 -- NPC by Rincewind.
 -- Prandlin is asleep. So I don't used the usual template. Altough it's a cool NPC. He's with the quest "Jack's Peg leg."
@@ -62,23 +45,27 @@ itemShoes = 53
 -- queststatus(304)=3 ordered to get a fake to change it against the staff/pegleg. (ornate mage's staff 208)
 -- queststatus(304)=4 the staff/pegleg is stolen
 -- queststatus(304)=5 quest end. Jack got his leg.
-".+", queststatus(304) = 1, german -> inform("'Dort! Prandlins Gehstock... er sieht aus als wäre er früher ein Holzbein gewesen! Das muss das Holzbein von Holzbein-Jack sein! Aber wie kann ich es nehmen ohne, dass der alte Halbling aufwacht?'"), "#me umklammert seinen Gehstock und zieht die Wolldecke hoch, ohne zu erwachen. Es ist ein kurzer schön verzierter Stab wie ihn Magier verwenden.", queststatus(304) = 2
-".+", queststatus(304) = 1, english -> inform("'xxx'"), "xxx", queststatus(304) = 2
-".+", queststatus(304) = 2, german -> inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"), "#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke. ", queststatus(304) = 3
-".+", queststatus(304) = 2, english -> inform("'xxx'"), "xxx", queststatus(304) = 3
-"#me (.+) stab", "#me (.+) bein", queststatus(304) = 3, item(208, all, 1) => 1 -> inform("Großartig! es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen."), "#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft selig weiter.", deleteItem(208, 1), item(208, 1, 933, 0), queststatus(304) = 4
+
+
+
+".*", queststatus(304) = 1, german -> inform("'Dort! Prandlins Gehstock... er sieht aus als wäre er früher ein Holzbein gewesen! Das muss das Holzbein von Holzbein-Jack sein! Aber wie kann ich es nehmen ohne, dass der alte Halbling aufwacht?'"), "#me umklammert seinen Gehstock und zieht die Wolldecke hoch, ohne zu erwachen. Es ist ein kurzer schön verzierter Stab wie ihn Magier verwenden.", queststatus(304) = 2
+".*", queststatus(304) = 1, english -> inform("'xxx'"), "xxx", queststatus(304) = 2
+".*", queststatus(304) = 2, german -> inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"), "#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke. ", queststatus(304) = 3
+".*", queststatus(304) = 2, english -> inform("'xxx'"), "xxx", queststatus(304) = 3
+"Hilfe", queststatus(304) -> inform("[Spielhilfe] Es wird ein Emote benötigt um das Holzbein mit dem verzierten Magierstab auszutauschen, welcher ebenso mitgebracht werden muss. ")
+"Help", queststatus(304) -> inform("[Game Help] A emote is needed to replace the peg leg with the ornate mage's staff, which need to be brought as well. ")
+"#me (.+) stab", "#me (.+) bein","#me (.+) Holzbein","#me (.+) Magierstab" queststatus(304) = 3, item(208, all, 1) => 1 -> inform("Großartig! es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen."), "#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft selig weiter.", deleteItem(208, 1), item(208, 1, 933, 0), queststatus(304) = 4
 "#me (.+) staff", "#me (.+) leg", queststatus(304) = 3, item(208, all, 1) => 1 -> inform("xxx"), "#me xxx", deleteItem(208, 1), item(208, 1, 933, 0), queststatus(304) = 4
-".+", queststatus(304) = 3, german -> inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"), "#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke.", queststatus(304) = 3
-".+", queststatus(304) = 3, english -> inform("'xxx'"), "xxx"
-"hilfe" -> "#me ist ein alter runzeliger Halbling der im Sessel eingeschlafen ist. Dabei kuschelt er sich, so gut wie möglich an einen verzierten Magierstab."
-"helfen" -> "#me ist ein alter, runzeliger Halbling der im Sessel eingeschlafen ist. Dabei kuschelt er sich, so gut wie möglich an einen verzierten Magierstab."
-"help" -> "XX"
-".", german -> "#me murmelt im Schlaf: 'Eh-n. Gnh.'", "#me murmelt im Schlaf: 'Piraten werd... gehängt.'", "#me murmelt im Schlaf: 'Piraten werd... gehängt.'", "#me murmelt im Schlaf: 'Wie sie mein-n...'", "#me murmelt im Schlaf: 'Jetzt hab ich nur noch Einen übrig...'"
-"?", german -> "#me murmelt im Schlaf: 'Hm-hhm? Ich nehm Kuchn...'", "#me murmelt im Schlaf: 'Lasst den alten Prandlin in frieden...'", "#me murmelt im Schlaf: 'Ja-ja.. ich kümmere mich darum. Gleich morgen...'", "#me murmelt im Schlaf: 'Uh, schon Mittag...?'"
-"!", german -> "#me murmelt im Schlaf: 'Diese Piraten... verflucht sein...'", "#me murmelt im Schlaf: 'Elara... vertraun wir dem Wissen...'", "#me murmelt im Schlaf: 'Galmair soll sich bloß nicht für voll nehmn...'", "#me murmelt im Schlaf: '..und dann wird Cadomyr verhandeln müssen..'"
-".", english -> "xxx"
-"?", english -> "xxx"
-"!", english -> "xxx"
+".*", queststatus(304) = 3, german -> inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"), "#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke.", queststatus(304) = 3
+".*", queststatus(304) = 3, english -> inform("'xxx'"), "xxx"
+
+
+"Hilfe" -> "#me ist ein alter runzeliger Halbling der im Sessel eingeschlafen ist. Dabei kuschelt er sich, so gut wie möglich an einen verzierten Magierstab.",inform("[Spielhilfe] Dieser NPC ist Prandlin der Piratenjäger in Ruhestand. Schlüsselwörter: keine spezifischen.")
+"Help" -> inform("[Game Help] This NPC is Prandlin the retired pirate hunter. Keyphrases: nothing specific.")
+
+".*", german -> "#me murmelt im Schlaf: 'Eh-n. Gnh.'", "#me murmelt im Schlaf: 'Piraten werd... gehängt.'", "#me murmelt im Schlaf: 'Piraten werd... gehängt.'", "#me murmelt im Schlaf: 'Wie sie mein-n...'", "#me murmelt im Schlaf: 'Jetzt hab ich nur noch Einen übrig...'","#me murmelt im Schlaf: 'Hm-hhm? Ich nehm Kuchn...'", "#me murmelt im Schlaf: 'Lasst den alten Prandlin in frieden...'", "#me murmelt im Schlaf: 'Ja-ja.. ich kümmere mich darum. Gleich morgen...'", "#me murmelt im Schlaf: 'Uh, schon Mittag...?'","#me murmelt im Schlaf: 'Diese Piraten... verflucht sein...'", "#me murmelt im Schlaf: 'Elara... vertraun wir dem Wissen...'", "#me murmelt im Schlaf: 'Galmair soll sich bloß nicht für voll nehmn...'", "#me murmelt im Schlaf: '..und dann wird Cadomyr verhandeln müssen..'"
+".*", english -> "xxx"
+
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

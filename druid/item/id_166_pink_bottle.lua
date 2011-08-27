@@ -16,7 +16,12 @@ attribList ={"hitpointsOT","foodlevel","poisonvalueOT","mana","manaOT","poisonva
 
 function DrinkPotion(User,SourceItem)
      
-		
+	if User.effects:find(166) then
+	   User:inform("lte noch aktiv");   
+	   return;
+	end	
+	
+	
 	local dataZList = druid.base.alchemy.SplitBottleData(User,SourceItem.data);
 	druid.base.alchemy.generateTasteMessage(User,dataZList);
 

@@ -1,3 +1,15 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Tobis Vunu                                                  None --
+-- NPC Job:  pirate                                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  42, 517, 0             --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Rincewind                                                        --
+--                                                                            --
+-- Last parsing: August 27, 2011                         easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
 name = "Tobis Vunu"
 race = human
 sex = male
@@ -40,7 +52,6 @@ itemShoes = 369
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
-
 -- QuestID=305
 -- Queststatus Overview "spionage bei den Piraten"
 -- 1: Quest started. 'spy the pirates' - Player is sended into Pirate Bay. To search Tobis vunu.
@@ -49,14 +60,10 @@ itemShoes = 369
 -- 4: Tobis vunu hands you 3 silver.  rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
 -- 5: Secret Message told.
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends.
-
-
-"Help" -> inform("[Game Help] This NPC is Tobis Vunu the pirate. Keyphrases: Adventure, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tobis Vunu der Pirat. Schlüsselwörter: Abenteuer, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-
+"Help" -> inform("[Game Help] This NPC is Tobis Vunu the pirate. Keyphrases: Adventure, Gods."), "Help? I won't help you.  Get rid, Jack!", state = 0
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tobis Vunu der Pirat. Schlüsselwörter: Abenteuer, Götter."), "Helfen? Ich werd dir nich helfen. Verschwinde Leichtmatrose!", state = 0
 
 -- create script at tobacco field. [[use 'lighted toarch' & 'tobaccofield tile = spawn flames (item wich disapear by time) over whole tobacco field tiles. + set queststauts=3 + inform( You destroyed the tabacco field. Well done. Talk to Tobis Vunu now. ) // inform( Du hast das Tabakfeld zerstört. gut gemacht. Spreche nun mit Tobis Vunu. ) ]]
-
 "Botschaft", "verdienen", "aufgabe", "abenteuer", queststatus(305) = 1 -> inform("Tobis Vunu reicht dir ein Bündel Gewand und einen Schlapphut. Du sollst alles anziehen und das Tabakfeld suchen um es mit einer Fackel unbemerkt zu zerstören."), "Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!", item(356, 1, 550, 0), item(180, 1, 550, 0), item(181, 1, 550, 0), item(391, 1, 550, 0), queststatus(305) = 2
 "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 1, german -> inform("Tobis Vunu reicht dir ein Bündel Gewand und einen Schlapphut. Du sollst alles anziehen und das Tabakfeld suchen um es mit einer Fackel unbemerkt zu zerstören."), "Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!", item(356, 1, 550, 0), item(180, 1, 550, 0), item(181, 1, 550, 0), item(391, 1, 550, 0), queststatus(305) = 2
 "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 1, english -> inform("Tobis Vunu hands you a bunch cloth and a slouch hat. Dress up and sneak at the tobaccofield to burn it."), "Aye. Piero sends you? Allright, get dressed with this stuff. Take the toarch and burn the pirates tabacco field. And do't let you catched, by doing it!", item(356, 1, 550, 0), item(180, 1, 550, 0), item(181, 1, 550, 0), item(391, 1, 550, 0), queststatus(305) = 2
@@ -104,58 +111,99 @@ itemShoes = 369
 "quest", "job", "problem", english -> "Take a Knife and take a Virgins as hostage! Arr. And then you put her at the place where the sun never shines! Get rid, Lubber."
 "Mesage", "task", "adventure", "mission", "money", "earn" -> "Take a Knife and take a Virgins as hostage! Arr. And then you put her at the place where the sun never shines! Get rid, Lubber."
 
--- generall
-"hallo", "gr[üue]+[sß]+e", "guten tag", "Gruß", "Seid gegrüßt", "Guten Abend", "Tach", "Moin", "Greb" -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
-"good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
-"wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin Tobis Vunu. Bei meinen wankenden Masten!"
-"your name", "who are you", "who art thou" -> "I am Tobis Vunu. Siver me timbers!"
-"Farewel", "Good bye", "Bye", "Fare thee well" -> "Don't get biten by seedogs!", "Aye.", "Good wind."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Lass dich nich von Seehunden beissn!", "Aye.", "Gut Wind."
-"Ciao", "Fareba", "Adieu", "Au revoir", english -> "Don't get biten by seedogs!", "Aye.", "Good wind."
-"Ciao", "Fareba", "Adieu", "Au revoir", german -> "Lass dich nich von Seehunden beissn!", "Aye.", "Gut Wind."
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
+"Farewell", "Bye", "Fare well", "See you" -> "Don't get biten by seedogs!", "Aye.", "Good wind."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lass dich nich von Seehunden beissn!", "Aye.", "Gut Wind."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Don't get biten by seedogs!", "Aye.", "Good wind."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Lass dich nich von Seehunden beissn!", "Aye.", "Gut Wind."
 "How are you", "How feel", "How do you do" -> "I'm good matee! The winds fair and my bottle is filled. Aye."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht's gut, Kumpel. Die Winde sind gut und die Flasche is voll. Aye."
-"I am", "I'm" -> "Ace name, matee!"
-"Ich bin" -> "Spitzen Name, Kumpel!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht's gut, Kumpel. Die Winde sind gut und die Flasche is voll. Aye."
+"your name", "who are you", "who art thou" -> "I am Tobis Vunu. Siver me timbers!"
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Tobis Vunu. Bei meinen wankenden Masten!"
 
--- Help
-"hilfe" -> "Helfen? Ich werd dir nich helfen. Verschwinde Leichtmatrose!", state = 0
-"helfen" -> "Helfen? ich werd dir nich helfen. Verschwinde Leichtmatrose!", state = 0
-"help" -> "Help? I won't help you.  Get rid, Jack!", state = 0
-
--- smalltalk
-"murgo", english -> "Also under the flags of us pirates is the orc Murgo well known. They say he is able to rip a tree out of the ground with his bare hands!"
-"murgo", german -> "Auch unter den Falggen von uns Piraten ist der Ork Murgo bestens bekannt. Man sagt, er könne einen Baum mit seinen bloßen Händen entwurzeln!"
-"what sell", "what buy", "list wares", "price of" -> "Har, Har! I'm a pirate! I don't BUY stuff! I take it! Aye?"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Har, Har! Ich bin n' Piart! Ich KAUFE kein Zeug! Ich nehms mir einfach, klar?"
-"tell something" -> "Once, when we shipped over the sea I saw a ...you never guess what... a mermaid! Honestly."
-"erzähl was", "erzähl etwas" -> "Einmal... als wir über die See reisten sah ich... ihr werdets nich glauben... ne Meerjungfrau! Ehrlich."
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a scary Pirate! Arr!"
 "beruf" -> "Ich bin n' gefährlicher Pirat! Arr!"
-"job", german -> "Ich bin n' gefährlicher Pirat! Arr!"
 "job", english -> "I'm a scary Pirate! Arr!"
-"Gobaith", english -> "Aye, I went there for a loot trip, once. But I don't think there's a ship sealing there, this days."
-"Gobaith", german -> "Aye, ich war dort mal auf Beutezug. Aber ich denke nicht das heutzutage da noch Schiffe hinsegeln."
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Elvaine Morgan isn't that the name of this renegade Mage comming from Lor Angur? He's kind of chief in Runewick now, it seems to me."
-"Elvaine", "Morgan", "archmage", "Erzmagier", german -> "Elvaine Morgan ist das nicht dieser abtrünnige Magier aus Lor Angur? Der scheint jetzt der große Häuptling in Runewick zu sein, wenn du mich fragst."
-"Runewick", english -> "Ye, ye! In Runewick are a lot of clever people. Or they think they are. A pirate have a hard stand there."
-"Runewick", german -> "Jaja! In Runewick gibts viele kluge Leute. Oder zumindest halten sie sich dafür. Als Pirat hat man's dort nicht leicht."
-"Valerio", "Guilianni", "Don", english -> "Do you know... there are people better not annoyed. Don Valerio Guilianni is one of those."
-"Valerio", "Guilianni", "Don", german -> "Weißt du.. es gibt Leute mit denen sollte man sich nicht anlegen. Don Valerio Guilianni ist wohl genauso jemand, wenn du mich fragst."
-"Galmair", english -> "Galmair would be a nice place indeed, when ignored all the churlish dwarves there."
-"Galmair", german -> "Galmair wäre ja ein nettes Plätzchen. Wäre es dort bloß nicht voller knausriger Zwerge."
-"rosaline", "königin", "queen", "edwards", english -> "The guard of queen Rosaline makes it hard to live our pirate-life. But we'll Kkep our tails up!"
-"rosaline", "königin", "queen", "edwards", german -> "Die Wache von Königin Rosaline macht uns das Piratenleben schwer. Aber wir lassen uns nicht unterkriegen!"
+"job" -> "Ich bin n' gefährlicher Pirat! Arr!"
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"Pirat", english -> "Hey - pirates ho! Ho-h! We're mean guys, ho!", "Arr! We're robbing an' invade an' slitting an' ... uh robbin'! Aye."
 "Reginald", "king", english -> "Oh... good old King Reginald. I'm sad he's dead now."
 "Reginald", "king", german -> "Oh... guter alter König Reginald. Schade, dass er jetzt tot ist."
-"Cadomyr", english -> "Her's not Cadomyr! Her's the pirate bay! Here we follow our own code! As long as the seadogs don't bite us!"
-"Cadomyr", german -> "Das hier ist nicht Cadomyr! Hier ist die Piratebay! Hier haben wir unseren eigenen Codex! Solang uns die Seehunde nich beissn!"
 "Piero", german -> "Ich kenne keinen Piero."
 "Piero", english -> "I don't know any Piero's."
 "ruggero", "bloom", german -> "Aye, Ruggero ist ein guter Kumpel von mir. Leg dich lieber nicht mit ihm an, er ist leicht reizbar."
 "ruggero", "bloom", english -> "Aye Ruggero is my matee! Don't annoy him, he's kind of bullsish."
+"Pirat" -> "Hey - Pirat'n ho! Ho-h! Wir sin' üble Kerle, ho!", "Arr! Wirr raub'n und entern und schlitzn und ... äh raubn! Aye."
+"murgo", english -> "Also under the flags of us pirates is the orc Murgo well known. They say he is able to rip a tree out of the ground with his bare hands!"
+"murgo", german -> "Auch unter den Falggen von uns Piraten ist der Ork Murgo bestens bekannt. Man sagt, er könne einen Baum mit seinen bloßen Händen entwurzeln!"
+
+-- Optional: Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Har, Har! I'm a pirate! I don't BUY stuff! I take it! Aye?"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Har, Har! Ich bin n' Piart! Ich KAUFE kein Zeug! Ich nehms mir einfach, klar?"
+"tell something" -> "Once, when we shipped over the sea I saw a ...you never guess what... a mermaid! Honestly."
+"erzähl was", "erzähl etwas" -> "Einmal... als wir über die See reisten sah ich... ihr werdets nich glauben... ne Meerjungfrau! Ehrlich."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "There matee's who don't care about the gods at all. Idiots I say - Tanora an' Ronagan may save my live when our ship get's in trouble. Aye.", "There matee's who don't care about the gods at all. Idiots I say - Adron shall save all the rum and Nargun shall make me a rich man! Aye."
+"Gott", "Götter" -> "S' gibt Kumpel die kümmern sich nich um die Götter - Allesamt Idioten. Tanora und Ronagan soll'n mir helfn wenn's Ärger am Schiff gibt. Aye.", "S' gibt Kumpel die kümmern sich nich um die Götter - Allesamt Idioten. Adron schütze unsre Fässer mit Rum und Nargun mög' für sorgen daß ich einmal n' reicher Mann werd! Aye."
+"Adron", english -> "Adron may save all the rum. Arr. Hail Adron, praise to the rum - I say."
+"Adron" -> "Adron schütze die Rum-fässer. Arr. Heil Adron, ein Loblied dem Rum sag ich."
+"Nargun", "Nargún", "Nargùn", english -> "Nargun is Chaos. He makes a man rich one day - the other he's poor again. Chance of fifty-fifty. I take the risk."
+"Nargun", "Nargún", "Nargùn" -> "Nargun ist Chaos. Heute biste ein reicher Mann, morgen arm. Iss ne Chanche von fünfzig zu fünfzig - ich geh's Risiko ein."
+"Ronagan", english -> "Ronagan respects our Pirate Code. Aye. Therefore it's good to offer his altair some coins now and again. Eh?"
+"Ronagan" -> "Ronagan respektiert unsren Codex. Den Piratn-Codex. Aye. Also hinterlass ich ihm immer wieder mal'n paar Münzen am Altar."
+"Tanora", "Zelphia", english -> "All Sailor's praise Tanora. Aye. She'S goddes of wather and sea. You don't want her angry when shipping with a nutshell over the migthy sea."
+"Tanora", "Zelphia" -> "Alle Seeleute beten zu Tanora. Aye. Sie's die Göttin des Meeres - du will's sie nich verärgern wenn du mit ner Nußschale über'n Ozean schipperst."
+
+-- Optional: Faction stuff
+"archmage" -> "Elvaine Morgan isn't that the name of this renegade Mage comming from Lor Angur? He's kind of chief in Runewick now, it seems to me."
+"Erzmagier" -> "Elvaine Morgan ist das nicht dieser abtrünnige Magier aus Lor Angur? Der scheint jetzt der große Häuptling in Runewick zu sein, wenn du mich fragst."
+"Elvaine", "Morgan", english -> "Elvaine Morgan isn't that the name of this renegade Mage comming from Lor Angur? He's kind of chief in Runewick now, it seems to me."
+"Elvaine", "Morgan" -> "Elvaine Morgan ist das nicht dieser abtrünnige Magier aus Lor Angur? Der scheint jetzt der große Häuptling in Runewick zu sein, wenn du mich fragst."
+"Runewick", english -> "Ye, ye! In Runewick are a lot of clever people. Or they think they are. A pirate have a hard stand there."
+"Runewick" -> "Jaja! In Runewick gibts viele kluge Leute. Oder zumindest halten sie sich dafür. Als Pirat hat man's dort nicht leicht."
+"Valerio", "Guilianni", "Don", english -> "Do you know... there are people better not annoyed. Don Valerio Guilianni is one of those."
+"Valerio", "Guilianni", "Don" -> "Weißt du.. es gibt Leute mit denen sollte man sich nicht anlegen. Don Valerio Guilianni ist wohl genauso jemand, wenn du mich fragst."
+"Galmair", english -> "Galmair would be a nice place indeed, when ignored all the churlish dwarves there."
+"Galmair" -> "Galmair wäre ja ein nettes Plätzchen. Wäre es dort bloß nicht voller knausriger Zwerge."
+"Queen" -> "ENGLISH1.", "The guard of queen Rosaline makes it hard to live our pirate-life. But we'll Kkep our tails up!"
+"Königin" -> "Die Wache von Königin Rosaline macht uns das Piratenleben schwer. Aber wir lassen uns nicht unterkriegen!"
+"rosaline", "edwards", english -> "The guard of queen Rosaline makes it hard to live our pirate-life. But we'll Kkep our tails up!"
+"rosaline", "edwards" -> "Die Wache von Königin Rosaline macht uns das Piratenleben schwer. Aber wir lassen uns nicht unterkriegen!"
+"Cadomyr", english -> "Her's not Cadomyr! Her's the pirate bay! Here we follow our own code! As long as the seadogs don't bite us!"
+"Cadomyr" -> "Das hier ist nicht Cadomyr! Hier ist die Piratebay! Hier haben wir unseren eigenen Codex! Solang uns die Seehunde nich beissn!"
+
+-- Optional: Main land factions
+"albar", english -> "Once I knew a guy from Albar... dirty swine. He choped of the hand of a friend. Aye. Damn Albarian."
+"albar" -> "Arr. Ich kannte Mal nen Typn aus Albar... Dreckskerl. Hat'n Freund von mir die Hand abgehackt. Aye. Verdammter Albarer."
+"gynk", "gync", english -> "I know many people comming from Gynk. You can't trust them. - Well that remainds me my mother was Gynkese as well... thie-hie!"
+"gync", "gynk" -> "Ich kenn viele Leute aus Gynk. Denen kannste nich vertraun. - Da fällt mir ein 'ch bin selber einer... hähähä."
+"salkama", english -> "Weirdos... Salkamarians are weirdos. They are crazy, if you count on my opinion. Aye."
+"salkama" -> "Die Salkamarer sin' allesamt Spinner, sag ich dir. Verückt sin se. Aye."
+
+-- Optional: Gobaith
+"Gobaith", "Gobiath", english -> "Aye, I went there for a loot trip, once. But I don't think there's a ship sealing there, this days."
+"Gobaith", "Gobiath" -> "Aye, ich war dort mal auf Beutezug. Aber ich denke nicht das heutzutage da noch Schiffe hinsegeln."
+
+-- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+"my name" -> "Ace name, matee!"
+"mein Name" -> "Spitzen Name, Kumpel!"
+"Tobis", "Vunu", english -> "Aye - that's me! What's up matee?"
+"Tobis", "Vunu" -> "Aye - 's bin ich. Was gibt's Kumpel?"
+"Yes" -> "Aye.", "Shiver me timbers, matee!", "Well. - Eh you got a bottle of rum?"
+"Ja" -> "Aye.", "Bei meinen wankenden Masten, Kumpel!", "Gut. - Eh, du hass nich ne Flasche Rum übrich oder?"
+"No" -> "Nevermind.", "Of Course.", "Arr-h!"
+"Nein" -> "Vergiss, dass ich was gesagt hab.", "Selbstverständlich.", "Arr-h!"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "We’re drinking rum all night long.- Ho! Ho! Ho! The waves are high, the wind is strong.- Ho! Ho! Ho!", "We are the lords of the sea. - Ho! Ho! Ho! Drink rum and beer, but never tea.- Ho! Ho! Ho!", "Thirteen men on a dead man´s chest! - Ho! Ho! Ho! Every man has got the pest! - Ho! Ho! Ho!"
+".*", german, chance(20) -> "Dreizehn Mann saßen auf einem Sarg, Ho! Ho! Ho! -  Sie soffen drei Tage, der Schnaps war stark. - Ho! Ho! Ho!", "Sie liebten das Meer und den Schnaps und das Gold. Ho! Ho! Ho! -  Bis einst alle dreizehn n' Dämon holt. - Ho! Ho! Ho!", "Wir sind die Herrn der See. - Ho! Ho! Ho! Drinken Rum und Bier, aber niemals Tee! Ho! Ho! Ho!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
