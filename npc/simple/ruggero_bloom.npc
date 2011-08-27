@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 27, 2011                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Ruggero Bloom"
@@ -77,7 +77,7 @@ itemShoes = 53
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends.
 
 -- language: human, common
-".*", state = 5, english -> "#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want to see you again here!", state = 6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
+".*", state = 5, english -> "#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want to see you again here!'", state = 6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
 ".*", state = 5, german -> "#me schlägt dir seine Faust in den Magen. 'Hast du Käse zwischen den Ohren? Ich will dich hier nicht mehr sehn!'", state = 6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
 ".*", state = 6, english -> "#me's face becomes red like a tomato and he gives you a proper beating.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
 ".*", state = 6, german -> "#me läuft Rot an wie eine Tomate und verprügelt dich, wie's im Lehrbuch steht.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
