@@ -16,7 +16,12 @@ attribList ={"hitpointsOT","foodlevel","poisonvalueOT","mana","manaOT","poisonva
 
 function DrinkPotion(User,SourceItem)
      
-		
+	if User.effects:find(166) then
+	   User:inform("lte noch aktiv");   
+	   return;
+	end	
+	
+	
 	local dataZList = druid.base.alchemy.SplitBottleData(User,SourceItem.data);
 	druid.base.alchemy.generateTasteMessage(User,dataZList);
 
@@ -70,11 +75,6 @@ function DrinkPotion(User,SourceItem)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 
-	if User.effects:find(166) then
-	   User:inform("lte noch aktiv");   
-	   return;
-	end
-	
 	if (ltstate == Action.abort) then
        User:talkLanguage(User.say, Player.german, "#me verschüttet den Trank.");
         User:talkLanguage(User.say, Player.english, "#me spills the potion.");
