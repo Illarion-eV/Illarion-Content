@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 27, 2011                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -33,7 +33,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.state.state("=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want to see you again here!");
+talkEntry:addResponse("#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want to see you again here!'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 5000));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
