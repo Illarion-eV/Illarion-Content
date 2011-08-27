@@ -70,7 +70,7 @@ function DrinkPotion(User,SourceItem)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 
-	if Character.effects:find(166) then
+	if User.effects:find(166) then
 	   User:inform("lte noch aktiv");   
 	   return;
 	end
