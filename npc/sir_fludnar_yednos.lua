@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: June 09, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 27, 2011                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -225,6 +225,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(10));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos"));
 talkEntry:addResponse("Hmm... findet heraus, in welchem Zeitalter Bragon half die Orks zu erschaffen! Ich denke es war das vierte. Wie auch immer, ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu finden sein.");
@@ -321,6 +322,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(11));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos"));
 talkEntry:addResponse("Hmm... seid ihr sicher? Naja egal, findet heraus, was der Grund für Bragons Unterstützung für den Blutgott in der Erschaffung der Orks war! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu finden sein.");
@@ -417,6 +419,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(13));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos"));
 talkEntry:addResponse("Hmm... Naja egal, findet heraus, was Bragon für die Orks ist... etwas mit Vernichter oder ähnlichem, aber ich kann mich nicht mehr recht erinnern! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu finden sein.");
@@ -513,6 +516,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(14));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos"));
 talkEntry:addResponse("Hmm... Naja egal, findet heraus, in welchem Zeitalter Bragon bemerkt hat, dass die Erschaffung der Orks den Blutgott besänftigen konnte! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu finden sein.");
@@ -609,6 +613,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(17));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos"));
 talkEntry:addResponse("Hmm... seid ihr sicher? Naja egal, findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sonne! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu finden sein. Viel Glück und seid vorsichtig!");
@@ -705,6 +710,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos"));
 talkEntry:addResponse("Hmm... seid ihr sicher? Naja egal, findet heraus, was Bragon in Bezug auf die Wiedergutmachung seines Fehlers durch die Erschaffung der Orks tat! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu finden sein.");
@@ -801,6 +807,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(25));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos"));
 talkEntry:addResponse("Hmm... seid ihr sicher? Naja egal, findet heraus, was verbindet die Bragon und dem Blutgott! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu finden sein. Viel Glück und seid vorsichtig!");
@@ -897,6 +904,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(34));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos"));
 talkEntry:addResponse("Hmm... seid ihr sicher? Naja egal, findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sommer! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu finden sein. Viel Glück und seid vorsichtig!");
@@ -993,6 +1001,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(51));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos"));
 talkEntry:addResponse("Hmm... seid ihr sicher? Naja egal, findet heraus, warum die Orks zu Bragon beten! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu finden sein. Viel Glück und seid vorsichtig!");
@@ -1089,6 +1098,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos"));
 talkEntry:addResponse("Hmm... seid ihr sicher? Naja egal, findet heraus, was es mit dem so genannten 'Tribunal der Ewigkeit' auf sich hat! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu finden sein. Viel Glück und seid vorsichtig!");
