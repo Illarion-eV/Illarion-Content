@@ -247,25 +247,25 @@ function InitPillar()
     AddPillar({360,190,-3},"","", 3, 5); --Treasury
     AddPillar({364,190,-3},"","", 3, 5); --Treasury  ]]--
     AddPillar({384,207,-6},"1. Der Don beschützt dich wenn du die Gebühr bezahlst.","1. The Don protects you if you pay the fee.", 1, 5); --Hog Dens
-	AddPillar({385,207,-6},"Die Statue entspricht dem Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 5); --Hog Dens
+	AddPillar({385,207,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 5); --Hog Dens
     AddPillar({386,207,-6},"1. Der Don beschützt dich wenn du die Gebühr bezahlst.","1. The Don protects you if you pay the fee.", 1, 5); --Hog Dens
     AddPillar({389,208,-6},"2. Zahl die Abgaben und die Zinsen, und kein Leid soll dir widerfahren.","2. Pay the toll and the interest and no harm will be done.", 1, 5); --Hog Dens
-	AddPillar({390,208,-6},"Die Statue entspricht dem Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 5); --Hog Dens
+	AddPillar({390,208,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 5); --Hog Dens
     AddPillar({391,208,-6},"2. Zahl die Abgaben und die Zinsen, und kein Leid soll dir widerfahren.","2. Pay the toll and the interest and no harm will be done.", 1, 5); --Hog Dens
     AddPillar({394,211,-6},"3. Handle frei, bleibe und gehe wie es dir beliebt.","3. Trade freely, stay and depart as you wish.", 1, 5); --Hog Dens
-	AddPillar({394,212,-6},"Die Statue entspricht dem Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 5); --Hog Dens
+	AddPillar({394,212,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 5); --Hog Dens
     AddPillar({394,213,-6},"3. Handle frei, bleibe und gehe wie es dir beliebt.","3. Trade freely, stay and depart as you wish.", 1, 5); --Hog Dens
     AddPillar({387,246,-6},"4. Komm zum Don wenn du Hilfe benötigst. Er ist dein Pate.","4. Come to the Don if you need help. He is your godfather.", 1, 5); --Ronagans Altar
-	AddPillar({387,247,-6},"Die Statue entspricht dem Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 5); --Ronagans Altar
+	AddPillar({387,247,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 5); --Ronagans Altar
     AddPillar({387,248,-6},"4. Komm zum Don wenn du Hilfe benötigst. Er ist dein Pate.","4. Come to the Don if you need help. He is your godfather.", 1, 5); --Ronagans Altar
     AddPillar({385,246,-6},"5. Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.","5. A deal with the Don is a deal with your fate.", 1, 5); --Ronagans Altar
-	AddPillar({386,247,-6},"Die Statue entspricht dem Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 5); --Ronagans Altar
+	AddPillar({386,247,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 5); --Ronagans Altar
     AddPillar({387,248,-6},"5. Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.","5. A deal with the Don is a deal with your fate.", 1, 5); --Ronagans Altar
     AddPillar({387,284,-6},"6. Hast du Schaden angerichtet, so kompensiere ihn großzügig mit der zweifachen Menge des Schadens.","6. If you did harm, compensate generously, twice the damage.", 1, 5); --Ronagans Altar
-	AddPillar({387,285,-6},"Die Statue entspricht dem Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 5); --Ronagans Altar
+	AddPillar({387,285,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 5); --Ronagans Altar
     AddPillar({387,286,-6},"6. Hast du Schaden angerichtet, so kompensiere ihn großzügig mit der zweifachen Menge des Schadens.","6. If you did harm, compensate generously, twice the damage.", 1, 5); --Ronagans Altar
     AddPillar({378,292,-6},"Folge diesen sechs einfachen Regeln des Don, und du kannst tun und lassen was immer du möchtest.","Follow the simple rules of the Don and you can do whatever you like.", 1, 5); --Ronagans Altar
-	AddPillar({377,292,-6},"Die Statue entspricht dem Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 5); --Ronagans Altar
+	AddPillar({377,292,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 5); --Ronagans Altar
     AddPillar({376,292,-6},"Folge diesen sechs einfachen Regeln des Don, und du kannst tun und lassen was immer du möchtest.","Follow the simple rules of the Don and you can do whatever you like.", 1, 5); --Ronagans Altar
     --[[AddPillar({384,337,-6},"","", 4, 5); --The Winged Sow Tavern
     AddPillar({384,339,-6},"","", 4, 5); --The Winged Sow Tavern

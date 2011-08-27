@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: May 01, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 27, 2011                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -304,8 +304,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("elf");
 talkEntry:addTrigger("elb");
-talkEntry:addTrigger("longear");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Longears hub berreh long ears. Dere beh a bruddah whub collecting dem, but meh nub remember more about him. He beh onleh bruddah habs rank ob 'Red Skull'.");
+talkEntry:addResponse("Chop down dere trees, ib yoo want fun whib dem!*smirks*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("longear");
 talkEntry:addResponse("Longears hub berreh long ears. Dere beh a bruddah whub collecting dem, but meh nub remember more about him. He beh onleh bruddah habs rank ob 'Red Skull'.");
 talkEntry:addResponse("Chop down dere trees, ib yoo want fun whib dem!*smirks*");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -416,7 +422,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("elf");
 talkEntry:addTrigger("elb");
-talkEntry:addTrigger("longear");
+talkEntry:addResponse("Longears haba lange Ohra. Mich erinnern Bruddha der sammla diese. Aber mich nix wissen mehr. Aussa Brudda haba Rang von 'Red Skull'.");
+talkEntry:addResponse("Holz ab ihra Baum, wenn du wollen Spaß mit ihna.*grinst böse*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Langohr");
 talkEntry:addResponse("Longears haba lange Ohra. Mich erinnern Bruddha der sammla diese. Aber mich nix wissen mehr. Aussa Brudda haba Rang von 'Red Skull'.");
 talkEntry:addResponse("Holz ab ihra Baum, wenn du wollen Spaß mit ihna.*grinst böse*");
 talkingNPC:addTalkingEntry(talkEntry);
