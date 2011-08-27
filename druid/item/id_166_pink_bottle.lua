@@ -70,6 +70,11 @@ function DrinkPotion(User,SourceItem)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 
+	if Character.effects:find(166) then
+	   User:inform("lte noch aktiv");   
+	   return;
+	end
+	
 	if (ltstate == Action.abort) then
        User:talkLanguage(User.say, Player.german, "#me verschüttet den Trank.");
         User:talkLanguage(User.say, Player.english, "#me spills the potion.");
