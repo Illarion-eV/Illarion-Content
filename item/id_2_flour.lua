@@ -52,5 +52,7 @@ end;
 
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     -- nop
-    handler.sendmessage.sendMessage(User.pos,"TEST MESSAGE",2):execute();
+    User:inform("now doing it!")
+    sendmsg=handler.sendmessage.sendMessage(User.pos,"TEST MESSAGE",2);
+    sebdnsg:execute();
 end
