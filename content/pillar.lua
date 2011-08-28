@@ -53,19 +53,19 @@ function InitPillar()
     AddPillar({84,619,1},"","", 6,5); --guardtower
     AddPillar({84,619,0},"","", 9,5); --guardtower
     AddPillar({91,623,0},"","", 3,5); --guardtower
-    AddPillar({90,623,0},"","", 3,5); --guardtower
-    AddPillar({128,631,0},"","", 6,5); --townwall
-    AddPillar({128,634,0},"","", 6,5); --townwall
-    AddPillar({132,619,1},"","", 9,5); --
-    AddPillar({136,619,1},"","", 9,5); --
-    AddPillar({129,619,1},"","", 6,5); --
-    AddPillar({129,628,1},"","", 6,5); --
-    AddPillar({139,626,1},"","", 4,5); --
-    AddPillar({139,629,1},"","", 4,5); --
-    AddPillar({139,632,1},"","", 4,5); --
-    AddPillar({139,636,1},"","", 5,5); --
-    AddPillar({136,636,1},"","", 5,5); --
-  	AddPillar({132,566,0},"","", 11,5); --temple
+    AddPillar({90,623,0},"","", 3,5); --guardtower   ]]--
+    AddPillar({128,631,0},"","A tall warrior holds a burning pirate flag in his one and an lighted torch in his other hand. His by ashes dark coloured face appears scary and determined.", 6,0); --townwall
+    AddPillar({128,634,0},"","An as an mariner but still noble dressed man holds an anchor and a spyglass in his hands. He stands proudly with one of his foot on a beer barrel with the image of single horned lion.", 6,0); --townwall
+    AddPillar({132,619,1},"","A proud and brave knight is riding on a single horned lion into an attack. His raised shiny broadsword shivers in the light. The big red white banner in his other hand seems to be used as a lance.", 9,0); --
+    AddPillar({136,619,1},"","A man is wearing a shiny armour while he is sitting at a tall and proud black horse. His dark beard is recognizable under his luxuriant decorated albarian helmet. He carries also a banner. It's reading 'In Malachin we trust'.", 9,0); --
+    AddPillar({129,619,1},"","A knight with a shiny golden armour waves a white banner with both hands while he seems to yell. On the banner are following words written in red: 'In friendship and loyalty'.", 6,0); --
+    AddPillar({129,628,1},"","A noble dressed man is sitting at a golden throne. He wears a bright crown at his dark long hear and red white noble robe with several glittering gems. He holds a huge golden box and a golden blade in his hands.", 6,0); --
+    AddPillar({139,626,1},"","A young knight is sitting at a throne. His left elbow is resting on his legs. His right hand holds a long-sword. He seems restless and bored.", 4,0); --
+    AddPillar({139,629,1},"","A tall and strong man with narrowed eyes. His long black hear is flowing through the wind. His armour bears a portrayal of a single horned red white lion. His boots are covered in blood.", 4,0); --
+    AddPillar({139,632,1},"","A strong looking man is dressed as a gladiator. He carries a net and a trident which is coloured in red. He seems wounded but his face appears painless.", 4,0); --
+    AddPillar({139,636,1},"","A white dressed man with a red hooded cloak holds a bow. The body of a golem is lying at his feet. The head of golem rests in the left hand of the man.", 5,0); --
+    AddPillar({136,636,1},"","A proudly and brave looking knight presents a burned wizard hat and a broken mage staff. A tablet rests at his legs with the inscription: 'Remember, remember, our king's sword which cut out the heart of the evil sorcerer 'Mordak al Kharud'.", 5,0); --
+  	--[[AddPillar({132,566,0},"","", 11,5); --temple
     AddPillar({132,562,0},"","", 11,5); --temple
     AddPillar({136,560,0},"","", 11,5); --temple
     AddPillar({136,568,0},"","", 11,5); --temple
@@ -80,14 +80,14 @@ function InitPillar()
     AddPillar({143,566,0},"","A young and noble warrior wears a shiny armour covered in blood while he carries fearless a wounded soldier at his shoulders.", 4,0); --temple
     AddPillar({143,562,0},"","A young and noble warrior wears a shiny armour and seems to gave the order to attack while he raises his fists.", 4,0); --temple
     --[[AddPillar({144,566,0},"","", 11,5); --temple
-    AddPillar({144,562,0},"","", 11,5); --temple
-    AddPillar({124,548,0},"","", 11,0); --palace
-    AddPillar({120,548,0},"","", 11,0); --palace
-    AddPillar({122,547,1},"","", 2,5); --palace
-    AddPillar({119,528,0},"","", 5,5); --palace
-    AddPillar({124,528,0},"","", 5,5); --palace
-    AddPillar({130,529,0},"","", 2,5); --palace
-    AddPillar({149,512,-3},"","", 5,5); --tresuray
+    AddPillar({144,562,0},"","", 11,5); --temple ]]--
+    AddPillar({124,548,0},"","At the column is written: 'In glory and and honour we march.", 11,0); --palace
+    AddPillar({120,548,0},"","At the column is written: 'Build with the braveness of Malachin, the loyalty of Zhambra, and the love of Sirani'.", 11,0); --palace
+    AddPillar({122,547,1},"","A young and attractive woman looks determined into the distance. She holds brave a golden key in her left and a golden sceptre in her right hand. Her majestically dress bears a single horned lion on the chest.", 2,0); --palace
+    AddPillar({119,528,0},"","An very old and frail but proud and determined looking man is sitting at a throne. His eyes, hair and beard are bright silver. His clothes are red, white and golden. His sword rests on his knees and is covered with a dark red liquid.", 5,0); --palace
+    AddPillar({124,528,0},"","A very noble dressed man with a crown at his head. His long hear and beard are reaching his red robe with a single horned lion at his chest. He holds a key and a tablet with the engraving 'Cadomyr - 137 BS'.", 5,0); --palace
+    AddPillar({130,529,0},"","An handsome looking man wears a rich decorated red robe. He is flanked by a young and very attractive woman in a long white dress. They are holding together a shield with an image of a single horned lion.", 2,0); --palace
+    --[[AddPillar({149,512,-3},"","", 5,5); --tresuray
     AddPillar({153,516,-3},"","", 9,5); --tresuray
     AddPillar({150,516,-3},"","", 9,5); --tresuray
     AddPillar({147,516,-3},"","", 9,5); --tresuray
