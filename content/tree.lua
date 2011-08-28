@@ -36,11 +36,11 @@ function InitTree()
 	AddTree({565,712,0},"","", 1,5);
 	AddTree({564,710,0},"","", 3,5);
 	--Irundar
-	AddTree({286,546,0},"","", 6,5); --tree check!!!
+	AddTree({286,546,0},"","", 6,5); --tree check!!!  ]]--
 	--Oldra's Corner
-	AddTree({653,681,0},"","", 6,5);
+	AddTree({653,681,0},"","A very old looking tree which carries all kind of fruits and leaves and reaches almost the sun with its branches.", 6,0);
 	--Runewick Hinterland
-	AddTree({853,778,0},"","", 6,5); --Holy Oak]]--
+	--AddTree({853,778,0},"","", 6,5); --Holy Oak
 	--Snakehead Coast
 	AddTree({653,465,0},"Zwischen uns führt der Weg zur Finsternis.","The way to the Darkness starts between us.", 6,5);
 	AddTree({647,465,0},"Zwischen uns führt der Weg zur Finsternis.","The way to the Darkness starts between us.", 6,5);

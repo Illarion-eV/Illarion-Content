@@ -77,8 +77,8 @@ function InitPillar()
 	AddPillar({138,568,0},"","", 8,5); --temple
 	AddPillar({139,568,0},"","", 8,5); --temple
 	AddPillar({140,568,0},"","", 8,5); --temple ]]--
-    AddPillar({143,566,0},"","A young and noble warrior wears a shiny armour covered in blood while he carries fearless a wounded soldier at his shoulders.", 4,0); --temple
-    AddPillar({143,562,0},"","A young and noble warrior wears a shiny armour and seems to gave the order to attack while he raises his fists.", 4,0); --temple
+    AddPillar({143,566,0},"","A young and noble warrior wears a shiny armour covered in blood while he carries fearless a wounded soldier at his shoulders.", 6,0); --temple
+    AddPillar({143,562,0},"","A young and noble warrior wears a shiny armour and seems to gave the order to attack while he raises his fists.", 6,0); --temple
     --[[AddPillar({144,566,0},"","", 11,5); --temple
     AddPillar({144,562,0},"","", 11,5); --temple ]]--
     AddPillar({124,548,0},"","At the column is written: 'In glory and and honour we march.", 11,0); --palace
@@ -283,7 +283,8 @@ function InitPillar()
     AddPillar({332,242,-6},"","", 3, 5); --Scoria Mine ]]--
     AddPillar({255,292,-5},"","At the top of the column a huge black raven peers into distance. The raven holds an earring in his beak and the shade of flames appears in the eyes.", 1, 0); --Flicker Swale
     AddPillar({255,294,-5},"","At the top of the column a huge black raven peers into distance. The raven holds an earring in his beak and the shade of flames appears in the eyes.", 1, 0); --Flicker Swale
-    --[[AddPillar({255,292,-6},"","", 4, 5); --Flicker Swale
+    AddPillar({252,288,-5},"","A black dressed man, wearing noble and tasteful clothing, looks at a picklock in his left hand. He grins sardonic while scratches one of his earrings with his other hand.", 3, 0); --Flicker Swale
+	--[[AddPillar({255,292,-6},"","", 4, 5); --Flicker Swale
     AddPillar({255,294,-6},"","", 4, 5); --Flicker Swale
     AddPillar({248,298,-5},"","", 3, 5); --Flicker Swale
     AddPillar({251,298,-5},"","", 3, 5); --Flicker Swale
@@ -364,10 +365,10 @@ function InitPillar()
 	AddPillar({636,274,0},"","", 2,5);
 	AddPillar({636,275,0},"","", 1,5);
 	AddPillar({483,248,0},"","", 6,5);
-	AddPillar({483,251,0},"","", 6,5);
+	AddPillar({483,251,0},"","", 6,5);]]--
     --Oldra's Corner
-	AddPillar({645,679,0},"","", 2,5);
-	AddPillar({645,683,0},"","", 2,5);]]--
+	AddPillar({645,679,0},"","A blue dressed, stout and elder woman is feeding a rabbit while she pets a wolf and two birds are sitting at her shoulders.", 2,0);
+	AddPillar({645,683,0},"","A blue dressed, stout and elder woman holds a basket filled with apples and other fruits in her hands.", 2,0);
 	--Pauldron Isle
 	AddPillar({892,387,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Balance'.","The words 'Cherga brings balance' are written with blood at the column.", 1,5); --Temple of Cherga
 	AddPillar({892,389,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Gerechtigkeit'.","The words 'Cherga brings justice' are written with blood at the column.", 1,5); --Temple of Cherga
