@@ -13,6 +13,7 @@ function sendMessage:execute()
     debug("      FOUND: "..#plyList)
     for i, player in pairs(plyList) do
     debug("   NOW LOOPING THROUGH THEM: "..i)
+    debug("   NAME: "..player.name);
         player:inform(self.msg)
     end
 end
