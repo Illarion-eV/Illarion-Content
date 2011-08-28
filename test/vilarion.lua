@@ -1,3 +1,5 @@
+require("handler.sendmessage")
+
 -- UPDATE common SET com_script = 'test.vilarion' WHERE com_itemid = 9;
 
 module("test.vilarion", package.seeall)
@@ -7,20 +9,9 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         User:inform("e-Vil says: You are not allowed to use this!");
         return;
     end;
+
+    handler.sendmessage.sendMessage(User.pos, "testmsg", 0).execute()
     
-    p = position(1,2,3)
-    q = position(4,5,6)
-    r = position(1,2,3)
-    if p==q then
-        User:inform(tostring(p).." == "..tostring(q))
-    else
-        User:inform(tostring(p).." != "..tostring(q));
-    end
-    if p==r then
-        User:inform(tostring(p).." == "..tostring(r))
-    else
-        User:inform(tostring(p).." != "..tostring(r));
-    end
 
     --local callback = function(dialog)
     --    User:inform("Input: "..dialog:getInput())
