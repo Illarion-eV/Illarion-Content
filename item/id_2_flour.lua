@@ -52,5 +52,5 @@ end;
 
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     -- nop
-    sendmsg=handler.sendmessage.sendMessage(User.pos,"TEST MESSAGE",2):execute();
+    sendmsg=handler.sendmessage.sendMessage(User.pos,"TEST MESSAGE DE","TEST MESSAGE EN",2):execute();
 end
