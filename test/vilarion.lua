@@ -10,7 +10,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    handler.sendmessage.sendMessage(User.pos, "testmsg", 0).execute()
+    handler.sendmessage.sendMessage(User.pos, "testmsg", 0):execute()
     
 
     --local callback = function(dialog)
