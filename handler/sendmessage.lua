@@ -14,6 +14,7 @@ function sendMessage:execute()
     for i, player in pairs(plyList) do
     debug("   NOW LOOPING THROUGH THEM: "..i)
     debug("   NAME: "..player.name);
+        player:talk(Character.say,"TESTING THIS!")
         player:inform(self.msg)
     end
 end
