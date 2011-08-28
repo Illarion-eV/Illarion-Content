@@ -1,5 +1,5 @@
 -- General Testscript
-
+require("handler.sendmessage")
 -- UPDATE common SET com_script='item.id_2_flour' WHERE com_itemid IN (2);
 
 module("item.id_2_flour", package.seeall)
@@ -52,5 +52,5 @@ end;
 
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     -- nop
-    a=1;
+    handler.sendmessage.sendMessage(User.pos,"TEST MESSAGE",2):execute();
 end
