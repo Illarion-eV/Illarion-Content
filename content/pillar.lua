@@ -77,8 +77,8 @@ function InitPillar()
 	AddPillar({138,568,0},"","", 8,5); --temple
 	AddPillar({139,568,0},"","", 8,5); --temple
 	AddPillar({140,568,0},"","", 8,5); --temple ]]--
-    AddPillar({143,566,0},"","A young and noble warrior wears a shiny armour covered in blood while he carries fearless a wounded soldier at his shoulders.", 6,0); --temple
-    AddPillar({143,562,0},"","A young and noble warrior wears a shiny armour and seems to gave the order to attack while he raises his fists.", 6,0); --temple
+    AddPillar({143,566,0},"","A young and noble warrior wears a shiny armour covered in blood while he carries fearless a wounded soldier at his shoulders.", 4,0); --temple
+    AddPillar({143,562,0},"","A young and noble warrior wears a shiny armour and seems to gave the order to attack while he raises his fists.", 4,0); --temple
     --[[AddPillar({144,566,0},"","", 11,5); --temple
     AddPillar({144,562,0},"","", 11,5); --temple
     AddPillar({124,548,0},"","", 11,0); --palace
@@ -368,7 +368,7 @@ function InitPillar()
 	AddPillar({645,683,0},"","", 2,5);]]--
 	--Pauldron Isle
 	AddPillar({892,387,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Balance'.","The words 'Cherga brings balance' are written with blood at the column.", 1,5); --Temple of Cherga
-	AddPillar({892,387,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Gerechtigkeit'.","The words 'Cherga brings justice' are written with blood at the column.", 1,5); --Temple of Cherga
+	AddPillar({892,389,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Gerechtigkeit'.","The words 'Cherga brings justice' are written with blood at the column.", 1,5); --Temple of Cherga
 	--Pyramide of Chaos
     --[[AddPillar({227,581,0},"","", 1,5);
     AddPillar({237,590,0},"","", 1,5);
