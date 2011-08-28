@@ -10,7 +10,9 @@ end);
 
 function sendMessage:execute()
     plyList=world:getPlayersInRangeOf(self.pos, self.radius);
+    debug("      FOUND: "..#plyList)
     for i, player in pairs(plyList) do
+    debug("   NOW LOOPING THROUGH THEM: "..i)
         player:inform(self.msg)
     end
 end
