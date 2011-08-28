@@ -10,11 +10,7 @@ end);
 
 function sendMessage:execute()
     plyList=world:getPlayersInRangeOf(self.pos, self.radius);
-    debug("      FOUND: "..#plyList)
     for i, player in pairs(plyList) do
-    debug("   NOW LOOPING THROUGH THEM: "..i)
-    debug("   NAME: "..player.name);
-        player:talk(Character.say,"TESTING THIS!")
-        player:inform(self.msg)
+        player:inform(self.message)
     end
 end
