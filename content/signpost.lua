@@ -67,6 +67,8 @@ function InitWegweiser()
     AddWeg({290,673,0},"Königlicher Sklavenmarkt","Royal Slave Market",0,0);
     AddWeg({226,646,0},"Perle der Sirani","Pearl of Sirani",0,0); -- <Name hier> Oase -- <name here> oasis
     AddWeg({109,771,0},"Cadomyr Hafen","Cadomyr Harbour",4,0);
+    AddWeg({117,642,0},"Sir Reginalds Gruft","Sir Reginald's Tomb",2,0);
+    AddWeg({134,631,0},"Sir Reginalds Gruft","Sir Reginald's Tomb",6,0);
 
     --NW/Galmair-map
     AddWeg({365,247,0},"Guilianni-Residenz oder Galmairs Crest","Guilianni Residence or Galmair's Crest",0,0); -- Don's palace

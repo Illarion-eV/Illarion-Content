@@ -211,7 +211,9 @@ function InitPillar()
     --Galmair
 	AddPillar({311,229,1},"","The statue looks like a rich dressed gray skinned and haired dwarf is wearing an apron is holding a golden hammer and tasteful looking beer.", 4,0); --Irmoroms Temple
 	AddPillar({311,235,1},"","The statue looks like a rich dressed gray skinned and haired dwarf is wearing an apron is holding a golden hammer and tasteful looking beer.", 4,0); --Irmoroms Temple
-    --[[AddPillar({340,283,1},"","", 1,5); --Nagrun Temple
+    AddPillar({310,255,1},"","The statue looks like a rich dressed gray skinned and haired man who is wearing an apron and swings his big golden hammer at an anvil.", 4,0); --Irmoroms Temple
+    AddPillar({310,256,1},"","The statue looks like a rich dressed gray skinned and haired man who is wearing an apron and swings his big golden hammer at an anvil.", 4,0); --Irmoroms Temple
+	--[[AddPillar({340,283,1},"","", 1,5); --Nagrun Temple
     AddPillar({340,281,1},"","", 1,5); --Nagrun Temple
     AddPillar({334,277,0},"","", 1, 5); --Nagrun Temple
 	AddPillar({334,280,0},"","", 1, 5); --Nagrun Temple
