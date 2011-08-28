@@ -305,9 +305,9 @@ itemShoes = 369
 "Katanbi" -> "Die Katanbi Wüste kann im Westen gefunden werden. Sprich, in der Nähe von Cadomyr."
 
 -- Faction stuff
-"archmage" -> "He has so much knowledge.", "I have not seen anyone who is smarter than he.", "If you have a question, nobody can answer it better than him.."
+"archmage" -> "He has so much knowledge.", "I have not seen anyone who is smarter than he.", "If you have a question, nobody can answer it better than him."
 "Erzmagier" -> "Er hat so viel Wissen.", "Ich habe noch nie jemanden gesehen der so schlau ist.", "Wenn ihr eine Frage habt, es gibt niemanden der es besser beantworten kann."
-"Elvaine", "Morgan", english -> "He has so much knowledge.", "I have not seen anyone who is smarter than he.", "If you have a question, nobody can answer it better than him.."
+"Elvaine", "Morgan", english -> "He has so much knowledge.", "I have not seen anyone who is smarter than he.", "If you have a question, nobody can answer it better than him."
 "Elvaine", "Morgan" -> "Er hat so viel Wissen.", "Ich habe noch nie jemanden gesehen der so schlau ist.", "Wenn ihr eine Frage habt, es gibt niemanden der es besser beantworten kann."
 "Runewick", english -> "Nice towers do we have, haven't we? And many great books. Take a look.", "Our forest is so beautiful, isn't it?", "I enjoy it to live here."
 "Runewick" -> "Schöne Türme haben wir, nicht wahr? Und viele tolle Bücher. Werft einen Blick rein.", "Unser Wald ist so wunderhübsch, oder?", "Ich genieße es hier zu leben."

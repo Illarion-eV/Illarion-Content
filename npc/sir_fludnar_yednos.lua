@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: August 27, 2011                         easyNPC Parser v1.02 --
+-- Last parsing: August 29, 2011                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -2243,7 +2243,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addResponse("He has so much knowledge.");
 talkEntry:addResponse("I have not seen anyone who is smarter than he.");
-talkEntry:addResponse("If you have a question, nobody can answer it better than him..");
+talkEntry:addResponse("If you have a question, nobody can answer it better than him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2261,7 +2261,7 @@ talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("He has so much knowledge.");
 talkEntry:addResponse("I have not seen anyone who is smarter than he.");
-talkEntry:addResponse("If you have a question, nobody can answer it better than him..");
+talkEntry:addResponse("If you have a question, nobody can answer it better than him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

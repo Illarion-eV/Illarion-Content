@@ -99,6 +99,24 @@ itemShoes = 369
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
+-- Faction stuff
+"archmage" -> ""
+"Erzmagier" -> ""
+"Elvaine", "Morgan", english -> ""
+"Elvaine", "Morgan" -> ""
+"Runewick", english -> ""
+"Runewick" -> ""
+"Valerio", "Guilianni", "Don", english -> ""
+"Valerio", "Guilianni", "Don" -> ""
+"Galmair", english -> ""
+"Galmair" -> ""
+"Queen" -> ""
+"Königin" -> ""
+"rosaline", "edwards", english -> ""
+"rosaline", "edwards" -> ""
+"Cadomyr", english -> ""
+"Cadomyr" -> ""
+
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "You better try your luck at our marketplace here."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ihr versucht besser euer Glück auf unserem Marktplatz."
