@@ -1,0 +1,196 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Iradona Goldschein                                          None --
+-- NPC Job:  Informant                                           --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  416, 248, 0                --
+-- NPC Sex:  female                       NPC Direction: south                --
+--                                                                            --
+-- Author:   envi                                     					      --
+--                                                                            --
+-- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Iradona Goldschein"
+race = dwarf
+sex = female
+position = 416, 248, 0
+direction = west
+affiliation = "Galmair"
+job = "Informant"
+
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "envi"
+
+lookatDE = "Dieser NPC ist Iradona Goldschein die Auskunftgeberin."
+lookatUS = "This NPC is Iradona Goldschein the informant."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 210, 105, 30
+colorSkin = 255, 248, 220
+itemHead = 0
+itemChest = 800
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 826
+itemShoes = 369
+
+-- Template Version 1.04, 07/12/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Elesil Dael'won the informant. Keyphrases: Information, Galmair, building, game.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Iradona Goldschein die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Galmair, Gebäude, Spiel.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day, my dear. Can I help you with some information?"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day, my dear. Can I help you with some information?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
+"Farewell", "Bye", "Fare well", "See you" -> "See ya soon."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Und servus, bis bald."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "See ya soon."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Und servus, bis bald."
+"How are you", "How feel", "How do you do" -> "My head hurts, because of these thousand of questions of the people of Galmair here."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mein Kopf schmerzt von der vielen Fragerei der Leute von Galmair hier."
+"your name", "who are you", "who art thou" -> "Iradona Goldschein, the informant of Galmair."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Iradona Goldschein, die Auskunftgeberin von Galmair."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "Informant. I can tell you many things about Galmair. Just ask me about buildings, places, events, people, history or gods of Galmair. Additionaly, I have a little task."
+"beruf" -> "Auskunftgeberin. Ich kann dir viele Dinge über Galmair erzählen. Frag nur nach Gebäude, Plätze, Ereignisse, Leute, Geschichte oder Götter von Galmair. Zusätzlich hätte ich noch eine kleine Aufgabe."
+"job", english -> "Informant. I can tell you many things about Galmair. Just ask me about buildings, places, events, people, history or gods of Galmair. Additionaly, I have a little task."
+"job" -> "Auskunftgeberin. Ich kann dir viele Dinge über Galmair erzählen. Frag nur nach Gebäude, Plätze, Ereignisse, Leute, Geschichte oder Götter von Galmair. Zusätzlich hätte ich noch eine kleine Aufgabe."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"inform", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"inform" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"question" -> ""
+"Frage", "Auskunft" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"building" -> ""
+"Gebäude" -> ""
+"game" -> ""
+"spiel" -> ""
+"place" -> ""
+"Platz","Plätz" -> ""
+"people" -> ""
+"Leute" -> ""
+"history" -> ""
+"Geschichte" -> ""
+"events" -> ""
+"Ereignis", "Geschehnis" -> ""
+"market" -> ""
+"Markt" -> ""
+"temple" -> ""
+"Tempel" -> ""
+
+-- Optional: Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I don't sell or buy anything. But we have a marketplace. You can try your luck there."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe oder kaufe gar nichts. Aber wir haben einen Marktplatz. Versuch dein Glück doch dort."
+"tell something" -> "I can tell you many things about Galmair. Just ask me about buildings, places, events, people, history or gods of Galmair. Additionaly, I have a little task."
+"erzähl was", "erzähl etwas" -> "Ich kann dir viele Dinge über Galmair erzählen. Frag nur nach Gebäude, Plätze, Ereignisse, Leute, Geschichte oder Götter von Galmair. Zusätzlich hätte ich noch eine kleine Aufgabe."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Primarly, we pray to three gods in Galmair. They are Ronagan, Nargun and Irmorom of course, my favorite god."
+"Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Galmair an. Die wären Adron, Oldra und natürlich Elara, meine bevorzugte Gottheit."
+"Adron", english -> "One of the weak younger gods. You can find fellows in Runewick."
+"Adron" -> "Einer der schwachen, jüngeren Götter. Du kann Anhänger in Runewick finden."
+"Bragon", "Brágon", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+"Bragon", "Brágon" -> "Einer der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
+"Cherga", english -> "Goddess of Spirits and the Underworld. She appears as a black dressed ageless woman with gray skin colour and gray hairs. Her face appears as life would disgust her."
+"Cherga" -> "Die Göttin der Geister und der Unterwelt. Sie erscheint als schwar gekleidete alterlose Frau mit grauer Hautfarbe und grauen Haaren. Ihr Gesicht wirkt als würde sie das Leben sie anwidern."
+"Elara", english -> "One of the weak younger gods. You can find fellows in Runewick."
+"Elara" -> "Eine der schwachen, jüngeren Götter. Du kann Anhänger in Runewick finden."
+"Eldan", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+"Eldan" -> "Einer der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
+"Findari", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+"Findari" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
+"Irmorom", english -> "Most dwarves, businessmen and crafters, i.e. blacksmiths, pray to Irmorom. They believe that in life, they will be rewarded for their doings with wealth, and they pray for enchantment of crafted things, for a good trade, riches, and things like this.","You can find a Temple of him at the other side of Galmair. Just go through Galmair to the Well of Dreams and shortly before Villa Goldvein you will find it in the North. You will find a signpost there."
+"Irmorom" -> "Die meisten seiner Anhänger sind Zwerge, Händler, Handwerker und Schmiede. Sie glauben, wenn sie Irmoron anbeten, gelangen sie zu Wohlstand und Reichtum. Angeblich gewährt er auch Kräfte, um Waffen und Gegenstände zu verzaubern.","Du kannst den Tempel von ihm auf der anderen Seite von Galmair finden. Gehe einfach durch Galmair zur Quelle der Träume und kurz vor der Villa Goldader findest du ihn im Norden. Du wirst es am Wegschild sehen."
+"Malachin", "Malachín", english -> "One of the weak younger gods. You can find fellows in Cadomyr."
+"Malachin", "Malachín" -> "Einer der schwachen, jüngeren Götter. Du kann Anhänger in Cadomyr finden."
+"Moshran", english -> "What do you want with the bloodgod? I don't like him, we don't like him and you should also avoid him!"
+"Moshran" -> "Was willst du mit dem Blutgott? Ich mag ihn nicht, wir mögen ihn nicht und du solltest ihn besser auch nicht mögen!"
+"Nargun", "Nargún", "Nargùn", english -> "His followers are few, and most people simply do not mention his name not to attract his attention. They believe that everything happens accidentally, and to make a fortune, one must play with high risk to have fun.","You can find a Temple of him down at the Scoria Mine. There you walk through the Flicker Swale and the very end you will find a room with a ladder, climb up and there you are. You will find also signposts to your orientation. And be careful!"
+"Nargun", "Nargún", "Nargùn" -> "Seine Gefolgsleute sind nur gering an der Zahl und die meisten Leute sprechen seinen Namen nicht aus, um nicht seine Aufmerksamkeit zu erregen. Sie glauben, dass alles zufällig geschieht, und dass das Glück nur Jenen winkt, die mit Risiko spielen.","Du kannst den Tempel von ihm unten in der Schlackengrube finden. Dort gehst du einfach durch die Schimmersenke zu einem Raum am bitteren Ende, die Leiter dort hoch und schon bist du da. Wegschilder sollten zu sehen sein. Und vorsichtig sein!"
+"Oldra", english -> "One of the weak younger gods. You can find fellows in Runewick."
+"Oldra" -> "Eine der schwachen, jüngeren Götter. Du kann Anhänger in Runewick finden."
+"Ronagan", english -> "Ronagan's followers are mostly poor people who grow up on the streets, and most become thieves, spies or assassins. They believe that perhaps Ronagan will help them to steal and to protect them from the protectors of the rich, the authorities.","You can find a Temple of him down at the Scoria Mine. Usually, just follow the signpost there, but unfortunately the corridor is flooded. "
+"Ronagan" -> "Ronagan's Anhänger sind zumeist arme Leute aus denen häufig Diebe, Spione oder gedungene Mörder werden. Sie glauben daran, dass Ronagan ihnen bei der Ausführung ihrer Taten helfen wird oder sie vor dem Zugriff der Justiz bewahrt.","Du kannst den Tempel von ihm unten in der Schlackengrube finden. Im Prinzip einfach dem Wegschild dort nach. Nur leider ist der Gang gerade geflutet."
+"Sirani", english -> "One of the weak younger gods. You can find fellows in Cadomyr."
+"Sirani" -> "Eine der schwachen, jüngeren Götter. Du kann Anhänger in Cadomyr finden"
+"Tanora", "Zelphia", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+"Tanora", "Zelphia" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
+"Ushara", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+"Ushara" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
+"Zhambra", english -> "One of the weak younger gods. You can find fellows in Cadomyr."
+"Zhambra" -> "Einer der schwachen, jüngeren Götter. Du kann Anhänger in Cadomyr finden"
+
+-- Optional: Main land factions
+--"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gobaith
+"Gobaith", "Gobiath", english -> "Arrr, what shall that be?"
+"Gobaith", "Gobiath" -> "Arrr, was soll das sein?"
+
+-- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+"my name" -> "My name sounds better! I hope your questions sound better!"
+"mein Name" -> "Mein Name klingt besser! Ich hoffe deine Fragen klingen besser!"
+"Iradona", "Goldschein", english -> "Yes, that is my name. About what do you want information?"
+"Iradona", "Goldschein" -> "Ja, das ist mein Name. Über was wollt ihr Information?"
+"Yes" -> "As I see, you can say one word, but what about a whole sentence?"
+"Ja" -> "Wie ich merke, kannst du schon ein Wort sagen. Aber wie sieht es mit einem ganzen Satz aus?"
+"No" -> "As I see, you can say one word, but what about a whole sentence?"
+"Nein" -> "Wie ich merke, kannst du schon ein Wort sagen. Aber wie sieht es mit einem ganzen Satz aus?"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "Huh, about what shall I give you information? Do you mind just to ask for help as a first step?"
+".*", german, chance(20) -> "Huh, über was wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Ich bin die Auskunftsgeberin von Galmair. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Galmair. Ask me if for informations if you want some."
+cycletext "Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places."
+cycletext "Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If someone wants to know something about the buildings here, just ask me for these buildings."
+cycletext "Wer etwas über die Geschichte von Galmair wissen will, soll mich nur nach der Geschichte fragen.", "If someone wants to know something about the history of Galmair, just ask me for the history."
+cycletext "Wer etwas über die Leute hier wissen will, soll mich nur nach diesen Leuten fragen.", "If someone wants to know something about the people here, just ask me for these people."
+cycletext "Wer etwas über die Götter hier wissen will, soll mich nur nach diesen Gottheiten fragen.", "If someone wants to know something about the gods here, just ask me for these gods."
+cycletext "Wer etwas über die Ereignisse hier wissen will, soll mich nur nach diesen Ereignissen fragen.", "If someone wants to know something about the events here, just ask me for these events."
+cycletext "#me kratzt sich im Gesicht.", "#me paddles her face."
+cycletext "#me blickt herum mit ihren weit geöffneten Augen.", "#me looks around with wide opened eyes."
+cycletext "#me untersucht ihr Kleid.", "#me examines her dress."
+cycletext "#me streichelt ihren Bauch.", "#me pets her belly."
+cycletext "#me isst eine Wurst.", "#me eats a sausage."

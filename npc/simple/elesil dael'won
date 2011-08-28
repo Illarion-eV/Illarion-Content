@@ -1,0 +1,187 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Elesil Dael'won                                             None --
+-- NPC Job:  Informant                                           --
+--                                                                            --
+-- NPC Race: elf                      NPC Position:  862, 814, 0                  --
+-- NPC Sex:  female                       NPC Direction: south                --
+--                                                                            --
+-- Author:   envi                                     					      --
+--                                                                            --
+-- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Elesil Dael'won"
+race = elf
+sex = female
+position = 862, 814, 0
+direction = south
+affiliation = "Runewick"
+job = "Informant"
+
+language = common
+language = elf
+defaultLanguage = common
+autointroduce = on
+
+author = "envi"
+
+lookatDE = "Dieser NPC ist Elesil Dael'won die Auskunftgeberin."
+lookatUS = "This NPC is Elesil Dael'won the informant."
+useMsgDE = "Ihr seid gut damit beraten mich nicht anzufassen."
+useMsgUS = "I recommend do not touch me."
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 25, 25, 112
+colorSkin = 230, 230, 250
+itemHead = 0
+itemChest = 835
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 822
+itemShoes = 369
+
+-- Template Version 1.04, 07/12/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Elesil Dael'won the informant. Keyphrases: Information, Runewick, building, game.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Dael'won die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Spiel.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hail Oldra. *Closes her eyes*"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Heil Oldra. *Schließt ihre Augen*"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Hail Oldra. *Closes her eyes*"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Heil Oldra. *Schließt ihre Augen*"
+"Farewell", "Bye", "Fare well", "See you" -> "Au revoir. *Closes her eyes*"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Au revoir. *Schließt ihre Augen*"
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Au revoir. *Closes her eyes*"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Schließt ihre Augen*"
+"How are you", "How feel", "How do you do" -> "Fine, fine. *Closes her eyes*"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Fein, fein. *Schließt ihre Augen*"
+"your name", "who are you", "who art thou" -> "Elesil Dael'won. *Closes her eyes*"
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Elesil Dael'won. *Schließt ihre Augen*"
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "If necessary I'm an informant. In this case I will inform you about Runewick, its buildings, places, events, people, history or gods. If you require even more, at least one task is alos pending."
+"beruf" -> "Wenn notwendig diene ich als Auskunftsgeberin. In diesem Fall würde ich euch über Runewick informieren, seine Gebäude, Plätze, Ereignisse, Leute, Geschichte oder Götter. Und wenn erwünscht, wären auch mindestens eine Aufgabe zu lösen."
+"job", english -> "If necessary I'm an informant. In this case I will inform you about Runewick, its buildings, places, events, people, history or gods. If you require even more, at least one task is alos pending."
+"job" -> "Wenn notwendig diene ich als Auskunftsgeberin. In diesem Fall würde ich euch über Runewick informieren, seine Gebäude, Plätze, Ereignisse, Leute, Geschichte oder Götter. Und wenn erwünscht, wären auch mindestens eine Aufgabe zu lösen."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "You better try your luck at our marketplace here."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ihr versucht besser euer Glück auf unserem Marktplatz."
+"tell something" -> "If necessary I will inform you about Runewick, its buildings, places, events, people, history or gods. If you require even more, at least one task is alos pending."
+"erzähl was", "erzähl etwas" -> "Falls notwendig würde ich euch über Runewick informieren, seine Gebäude, Plätze, Ereignisse, Leute, Geschichte oder Götter. Und wenn erwünscht, wären auch mindestens eine Aufgabe zu lösen."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Primarly, we pray to three gods in Runewick. They are Adron, Oldra and Elara of course, my favorite god."
+"Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Runewick an. Die wären Adron, Oldra und natürlich Elara, meine bevorzugte Gottheit."
+"Adron", english -> "Adron's followers are mostly tavern keepers or wine growers. Some bards too. They believe that when they die, there will be an orgy that lasts forever, and the really bad or evil ones will be condemned to be servants until they are enlightened.","You may find a Temple of him in the North at the behind the Hemp Necktie Inn. You can either use a teleporter or you walk there according the signposts. But you will need companions."
+"Adron" -> "Seine Anhänger sind meistens Gastwirte oder Weinbauern. Auch einigen Barden. Sie glauben, wenn sie sterben, wird es eine Orgie zu ihren Ehren geben, die niemals enden wird. Solche, die in Sünde gelebt haben, werden verurteilt, als Diener zu leben.","Ihr möget den Tempel von ihm im Norden hinter dem Gasthof zur Hanfschlinge finden. Hierzu könnt ihr entweder einen Teleporter verwenden oder entlang der Wegweiser wandern. Ohne Begleitung werdet ihr ihn aber nicht erlangen."
+"Bragon", "Brágon", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+"Bragon", "Brágon" -> "Einer der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
+"Cherga", english -> "Goddess of Spirits and the Underworld. She likes Balance and justice. She does not care much about the living."
+"Cherga" -> "Die Göttin der Geister und der Unterwelt. Sie steht ein für ausgeglichene Gerechtigkeit. Sie gibt nicht viel auf das Leben an sich, der Tod ist Ihr Reich."
+"Elara", english -> "Her followers believe in the power of wisdom. Some of these people are praying to be told great secrets, or even the sense of life - as legend tells, one holy man has been told it after long prayers and discussions with the Goddess.","You may find a Temple of her in the Tower of Air at the third floor."
+"Elara" -> "Ihre Anhänger glauben an die Macht der Weisheit. Einige dieser Anhänger beten, um geheimes und altes Wissen zu erlangen oder um den Sinn des Leben zu erfahren. Eine Legende erzählt von einem Mann, der so lange betete, bis sich ihm dies offenbarte.","Ihr möget den Tempel von ihr im zweiten Stock Luftturm finden."
+"Eldan", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+"Eldan" -> "Einer der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
+"Findari", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+"Findari" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
+"Irmorom", english -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
+"Irmorom" -> "Einer der unwichtigen, jüngeren Götter. Man kann Anhänger in Galmair finden."
+"Malachin", "Malachín", english -> "One of the unimportant, younger gods. You can find fellowsss in Cadomyr."
+"Malachin", "Malachín" -> "Einer der unwichtigen, jüngeren Götter. Man kann Anhänger in Cadomyr finden."
+"Moshran", english -> "#me narrows her eyes and takes a blade which she swings immediately without a single word against her opposite.", attrib(hitpoints) - 6666, attrib(hitpoints) + 1
+"Moshran" -> "#me verengt ihre Augen, zieht ein Schwert und schlägt sogleich ohne ein einzelnes Wort damit herum.", attrib(hitpoints) - 6666, attrib(hitpoints) + 1
+-- ein HP abzug zufällig zwischen 1 und 10000 wäre wünschenswert
+"Nargun", "Nargún", "Nargùn", english -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
+"Nargun", "Nargún", "Nargùn" -> "Einer der unwichtigen, jüngeren Götter. Man kann Anhänger in Galmair finden."
+"Oldra", english -> "Most of her priests are female, who serve the Goddess into high age. They think that when they die, they will be brought to a big garden gate. If they have been good, they can enjoy the wonders of the never ending garden.","You may find a Temple of her on the other side of the Snakehead Bay in the Northeast of the Sentry Forrest. This place is also known as Oldra’s Corner. Follow the signposts, but keep in mind a dangerous journey is waiting for you."
+"Oldra" -> "Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben.","Ihr möget den Tempel von ihr auf der anderen Seite der Schlagenkopfbucht im Nordosten des Wachewald finden. Der Platz ist auch als Oldra’s Eck bekannt. Folgt den Wegweisern, aber beachtet, dass Gefahren auf euch warten."
+"Ronagan", english -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
+"Ronagan" -> "Einer der unwichtigen, jüngeren Götter. Man kann Anhänger in Galmair finden."
+"Sirani", english -> "One of the unimportant, younger gods. You can find fellowsss in Cadomyr."
+"Sirani" -> "Eine der unwichtigen, jüngeren Götter. Man kann Anhänger in Cadomyr finden."
+"Tanora", "Zelphia", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+"Tanora", "Zelphia" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
+"Ushara", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+"Ushara" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
+"Zhambra", english -> "One of the unimportant, younger gods. You can find fellowsss in Cadomyr."
+"Zhambra" -> "Eine der unwichtigen, jüngeren Götter. Man kann Anhänger in Cadomyr finden."
+
+-- Optional: Main land factions
+--"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gobaith
+"Gobaith", "Gobiath", english -> "Hmm...ask someone else if you want know about it."
+"Gobaith", "Gobiath" -> "Hmm...fragt jemand anderen bezüglich dieses Ort."
+
+-- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+"my name" -> "Hmm...you want some information? But about what?"
+"mein Name" -> "Hmm...und ihr wünscht nach Information? Aber welche?"
+"Elesil", "Dael'won", english -> "Yes, that is my name. About what do you want information?"
+"Elesil", "Dael'won" -> "Ja, das ist mein Name. Über was wollt ihr Information?"
+"Yes" -> "A bit more concrete, please!"
+"Ja" -> "Etwas konkreter wenn ich bitten darf!"
+"No" -> "A bit more concrete, please!"
+"Nein" -> "Etwas konkreter wenn ich bitten darf!"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "Huh, about what shall I give you information? Do you mind just to ask for help as a first step?"
+".*", german, chance(20) -> "Huh, über was wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Ich bin die Auskunftsgeberin von Runewick. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Runewick. Ask me if for informations if you want some."
+cycletext "Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places."
+cycletext "Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If someone wants to know something about the buildings here, just ask me for these buildings."
+cycletext "Wer etwas über die Geschichte von Runewick wissen will, soll mich nur nach der Geschichte fragen.", "If someone wants to know something about the history of Runewick, just ask me for the history."
+cycletext "Wer etwas über die Leute hier wissen will, soll mich nur nach diesen Leuten fragen.", "If someone wants to know something about the people here, just ask me for these people."
+cycletext "Wer etwas über die Götter hier wissen will, soll mich nur nach diesen Gottheiten fragen.", "If someone wants to know something about the gods here, just ask me for these gods."
+cycletext "Wer etwas über die Ereignisse hier wissen will, soll mich nur nach diesen Ereignissen fragen.", "If someone wants to know something about the events here, just ask me for these events."
+cycletext "#me gähnt.", "#me yawns."
+cycletext "#me blickt herum mit ihren geschlossenen Augen.", "#me looks around with closed eyes."
+cycletext "#me untersucht ihr Kleid.", "#me examines her dress."
+cycletext "#me kämmt ihr Haar.", "#me combs her hair."
+cycletext "#me isst einen Apfel.", "#me eats an apple."
