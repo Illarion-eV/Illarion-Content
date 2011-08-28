@@ -49,9 +49,11 @@ function InitPaintings()
     AddPicture({96,602,0},"","The picture shows proud knights watching ordinary folk building a palace at the periphery of a desert close at a mountain. One of the knights has a long beard and wears a crown. He holds also a red-white banner. At the bottom right is a date: 137 BS.", 4,5); --building
     AddPicture({100,611,1},"","The picture shows a man fighting numberless soldiers dressed as pirates in front of a burning building. His sword cuts through them and the fear in the eyes of his opponents cannot be ignored. At the bottom right is a date: 22 BS.", 3,5); --building
     --[[--Eastland
-    AddPicture({894,540,0},"","", 2,5); --Paddock Farm
+    AddPicture({894,540,0},"","", 2,5); --Paddock Farm  ]]--
     --Galmair
-    AddPicture({309,270,0},"","", 4,5); --Villa 'Goldvein'
+    AddPicture({313,231,1},"","The paintint shows a rich dressed gray skinned and haired man, who is wearing an apron and swings his big golden hammer at an anvil.", 4,5); --Irmoroms Temple
+    AddPicture({313,233,1},"","The paintint shows a rich dressed gray skinned and haired man, who is wearing an apron and swings his big golden axe against a rock.", 4,5); --Irmoroms Temple
+	--[[AddPicture({309,270,0},"","", 4,5); --Villa 'Goldvein'
     AddPicture({309,277,0},"","", 4,5); --Villa 'Goldvein'
     AddPicture({372,214,0},"","", 7,5); --Council Chamber
     AddPicture({370,214,0},"","", 7,5); --Council Chamber

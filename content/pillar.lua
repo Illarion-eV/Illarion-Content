@@ -76,10 +76,10 @@ function InitPillar()
 	AddPillar({137,568,0},"","", 8,5); --temple
 	AddPillar({138,568,0},"","", 8,5); --temple
 	AddPillar({139,568,0},"","", 8,5); --temple
-	AddPillar({140,568,0},"","", 8,5); --temple
-    AddPillar({143,566,0},"","", 6,5); --temple
-    AddPillar({143,562,0},"","", 6,5); --temple
-    AddPillar({144,566,0},"","", 11,5); --temple
+	AddPillar({140,568,0},"","", 8,5); --temple ]]--
+    AddPillar({143,566,0},"","A young and noble warrior wears a shiny armour covered in blood while he carries fearless a wounded soldier at his shoulders.", 6,0); --temple
+    AddPillar({143,562,0},"","A young and noble warrior wears a shiny armour and seems to gave the order to attack while he raises his fists.", 6,0); --temple
+    --[[AddPillar({144,566,0},"","", 11,5); --temple
     AddPillar({144,562,0},"","", 11,5); --temple
     AddPillar({124,548,0},"","", 11,0); --palace
     AddPillar({120,548,0},"","", 11,0); --palace
@@ -207,11 +207,11 @@ function InitPillar()
     AddPillar({517,589,0},"","", 1,5);
     AddPillar({517,590,0},"","", 1,5);
     AddPillar({514,589,0},"","", 1,5);
-    AddPillar({514,590,0},"","", 1,5);
+    AddPillar({514,590,0},"","", 1,5);]]--
     --Galmair
-	AddPillar({311,229,1},"","", 4,5); --Irmoroms Temple
-	AddPillar({311,235,1},"","", 4,5); --Irmoroms Temple
-    AddPillar({340,283,1},"","", 1,5); --Nagrun Temple
+	AddPillar({311,229,1},"","The statue looks like a rich dressed gray skinned and haired dwarf is wearing an apron is holding a golden hammer and tasteful looking beer.", 4,0); --Irmoroms Temple
+	AddPillar({311,235,1},"","The statue looks like a rich dressed gray skinned and haired dwarf is wearing an apron is holding a golden hammer and tasteful looking beer.", 4,0); --Irmoroms Temple
+    --[[AddPillar({340,283,1},"","", 1,5); --Nagrun Temple
     AddPillar({340,281,1},"","", 1,5); --Nagrun Temple
     AddPillar({334,277,0},"","", 1, 5); --Nagrun Temple
 	AddPillar({334,280,0},"","", 1, 5); --Nagrun Temple
@@ -247,25 +247,25 @@ function InitPillar()
     AddPillar({360,190,-3},"","", 3, 5); --Treasury
     AddPillar({364,190,-3},"","", 3, 5); --Treasury  ]]--
     AddPillar({384,207,-6},"1. Der Don beschützt dich wenn du die Gebühr bezahlst.","1. The Don protects you if you pay the fee.", 1, 5); --Hog Dens
-	AddPillar({385,207,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 5); --Hog Dens
+	AddPillar({385,207,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 0); --Hog Dens
     AddPillar({386,207,-6},"1. Der Don beschützt dich wenn du die Gebühr bezahlst.","1. The Don protects you if you pay the fee.", 1, 5); --Hog Dens
     AddPillar({389,208,-6},"2. Zahl die Abgaben und die Zinsen, und kein Leid soll dir widerfahren.","2. Pay the toll and the interest and no harm will be done.", 1, 5); --Hog Dens
-	AddPillar({390,208,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 5); --Hog Dens
+	AddPillar({390,208,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 0); --Hog Dens
     AddPillar({391,208,-6},"2. Zahl die Abgaben und die Zinsen, und kein Leid soll dir widerfahren.","2. Pay the toll and the interest and no harm will be done.", 1, 5); --Hog Dens
     AddPillar({394,211,-6},"3. Handle frei, bleibe und gehe wie es dir beliebt.","3. Trade freely, stay and depart as you wish.", 1, 5); --Hog Dens
-	AddPillar({394,212,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 5); --Hog Dens
+	AddPillar({394,212,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 0); --Hog Dens
     AddPillar({394,213,-6},"3. Handle frei, bleibe und gehe wie es dir beliebt.","3. Trade freely, stay and depart as you wish.", 1, 5); --Hog Dens
     AddPillar({387,246,-6},"4. Komm zum Don wenn du Hilfe benötigst. Er ist dein Pate.","4. Come to the Don if you need help. He is your godfather.", 1, 5); --Ronagans Altar
-	AddPillar({387,247,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 5); --Ronagans Altar
+	AddPillar({387,247,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 0); --Ronagans Altar
     AddPillar({387,248,-6},"4. Komm zum Don wenn du Hilfe benötigst. Er ist dein Pate.","4. Come to the Don if you need help. He is your godfather.", 1, 5); --Ronagans Altar
     AddPillar({385,246,-6},"5. Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.","5. A deal with the Don is a deal with your fate.", 1, 5); --Ronagans Altar
-	AddPillar({386,247,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 5); --Ronagans Altar
+	AddPillar({386,247,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 0); --Ronagans Altar
     AddPillar({387,248,-6},"5. Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.","5. A deal with the Don is a deal with your fate.", 1, 5); --Ronagans Altar
     AddPillar({387,284,-6},"6. Hast du Schaden angerichtet, so kompensiere ihn großzügig mit der zweifachen Menge des Schadens.","6. If you did harm, compensate generously, twice the damage.", 1, 5); --Ronagans Altar
-	AddPillar({387,285,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 5); --Ronagans Altar
+	AddPillar({387,285,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 0); --Ronagans Altar
     AddPillar({387,286,-6},"6. Hast du Schaden angerichtet, so kompensiere ihn großzügig mit der zweifachen Menge des Schadens.","6. If you did harm, compensate generously, twice the damage.", 1, 5); --Ronagans Altar
     AddPillar({378,292,-6},"Folge diesen sechs einfachen Regeln des Don, und du kannst tun und lassen was immer du möchtest.","Follow the simple rules of the Don and you can do whatever you like.", 1, 5); --Ronagans Altar
-	AddPillar({377,292,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 5); --Ronagans Altar
+	AddPillar({377,292,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 0); --Ronagans Altar
     AddPillar({376,292,-6},"Folge diesen sechs einfachen Regeln des Don, und du kannst tun und lassen was immer du möchtest.","Follow the simple rules of the Don and you can do whatever you like.", 1, 5); --Ronagans Altar
     --[[AddPillar({384,337,-6},"","", 4, 5); --The Winged Sow Tavern
     AddPillar({384,339,-6},"","", 4, 5); --The Winged Sow Tavern
@@ -278,10 +278,10 @@ function InitPillar()
     AddPillar({331,247,-6},"","", 4, 5); --Scoria Mine
     AddPillar({332,248,-6},"","", 3, 5); --Scoria Mine
     AddPillar({331,241,-6},"","", 4, 5); --Scoria Mine
-    AddPillar({332,242,-6},"","", 3, 5); --Scoria Mine
-    AddPillar({255,292,-5},"","", 1, 5); --Flicker Swale
-    AddPillar({255,294,-5},"","", 1, 5); --Flicker Swale
-    AddPillar({255,292,-6},"","", 4, 5); --Flicker Swale
+    AddPillar({332,242,-6},"","", 3, 5); --Scoria Mine ]]--
+    AddPillar({255,292,-5},"","At the top of the column a huge black raven peers into distance. The raven holds an earring in his beak and the shade of flames appears in the eyes.", 1, 0); --Flicker Swale
+    AddPillar({255,294,-5},"","At the top of the column a huge black raven peers into distance. The raven holds an earring in his beak and the shade of flames appears in the eyes.", 1, 0); --Flicker Swale
+    --[[AddPillar({255,292,-6},"","", 4, 5); --Flicker Swale
     AddPillar({255,294,-6},"","", 4, 5); --Flicker Swale
     AddPillar({248,298,-5},"","", 3, 5); --Flicker Swale
     AddPillar({251,298,-5},"","", 3, 5); --Flicker Swale
@@ -315,9 +315,14 @@ function InitPillar()
     AddPillar({547,689,2},"","", 7,5);
     AddPillar({548,689,2},"","", 10,5);
     AddPillar({524,692,2},"","", 1,5);
-	AddPillar({524,696,2},"","", 1,5);
+	AddPillar({524,696,2},"","", 1,5);]]--
+	--Igruk's Cave
+	AddPillar({656,388,2},"Auf der Säule steht mit Blut geschrieben 'Macht'.","The word 'power' is written with blood at the column.", 1,5);
+    AddPillar({661,388,2},"Auf der Säule steht mit Blut geschrieben 'Furcht'.","The word 'fear' is written with blood at the column.", 1,5);
+    AddPillar({661,393,2},"Auf der Säule steht mit Blut geschrieben 'Stärke'.","The word 'strength' is written with blood at the column.", 1,5);
+    AddPillar({656,393,2},"Auf der Säule steht mit Blut geschrieben 'Blut'.","The word 'blood' is written with blood at the column.", 1,5);
 	--Kata Island
-	AddPillar({169,834,0},"","", 2,5);
+	--[[AddPillar({169,834,0},"","", 2,5);
     --Lighthouse
     AddPillar({535,605,0},"","", 2,5);
     AddPillar({537,636,0},"","", 2,5);
@@ -339,10 +344,10 @@ function InitPillar()
 	AddPillar({401,733,0},"Was ist klein und stinkt? - Ein Zwerg. Was ist groß und stinkt? - Ein Elf. Was ist dumm und stinkt? - Ein Mensch.","What is small and smells? - A Dwarf. What is tall and smells? - An Elf. What is dumb and smells? - A Human.", 1,5);
     AddPillar({389,727,0},"Wer das liest stirbt gleich!","Read this line and die!", 1,5);
 	--Mount Zotmore
-	AddPillar({361,495,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,5);
-	AddPillar({357,495,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,5);
-	AddPillar({366,497,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,5);
-	AddPillar({366,501,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,5);
+	AddPillar({361,495,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,0);
+	AddPillar({357,495,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,0);
+	AddPillar({366,497,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,0);
+	AddPillar({366,501,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,0);
 	--[[--Nagrun's Plain
 	AddPillar({522,240,0},"","", 2,5);
 	AddPillar({534,259,0},"","", 6,5);
@@ -360,9 +365,12 @@ function InitPillar()
 	AddPillar({483,251,0},"","", 6,5);
     --Oldra's Corner
 	AddPillar({645,679,0},"","", 2,5);
-	AddPillar({645,683,0},"","", 2,5);
+	AddPillar({645,683,0},"","", 2,5);]]--
+	--Pauldron Isle
+	AddPillar({892,387,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Balance'.","The words 'Cherga brings balance' are written with blood at the column.", 1,5); --Temple of Cherga
+	AddPillar({892,387,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Gerechtigkeit'.","The words 'Cherga brings justice' are written with blood at the column.", 1,5); --Temple of Cherga
 	--Pyramide of Chaos
-    AddPillar({227,581,0},"","", 1,5);
+    --[[AddPillar({227,581,0},"","", 1,5);
     AddPillar({237,590,0},"","", 1,5);
     AddPillar({233,590,0},"","", 1,5);
     AddPillar({237,593,0},"","", 1,5);
@@ -406,9 +414,9 @@ function InitPillar()
 	AddPillar({898,832,4},"","", 2, 5);
 	AddPillar({901,824,4},"","", 2, 5);
 	AddPillar({910,827,4},"","", 2, 5);
-    AddPillar({909,826,3},"","", 2, 5);
-    AddPillar({905,824,2},"","", 2, 5); --elara shrine
-    AddPillar({910,828,2},"","", 1, 5); --elara shrine
+    AddPillar({909,826,3},"","", 2, 5); ]]--
+    AddPillar({905,824,2},"","A tall and ageless woman rises one of her fingers as she has to mention her advice. In her other hand she holds some books and scrolls.", 2, 0); --elara shrine
+    --[[AddPillar({910,828,2},"","", 1, 5); --elara shrine
     AddPillar({910,830,2},"","", 1, 5); --elara shrine
     AddPillar({910,827,1},"","", 2, 5);
     AddPillar({907,824,1},"","", 2, 5);
@@ -433,19 +441,24 @@ function InitPillar()
 	AddPillar({649,483,0},"","", 9, 5);
 	AddPillar({654,487,0},"","",10, 5);
 	AddPillar({649,492,0},"","", 8, 5);
-	AddPillar({644,487,0},"","", 7, 5);
+	AddPillar({644,487,0},"","", 7, 5);]]--
 	--Spider's Mouth
-	AddPillar({733,310,0},"","", 2, 5);
-	AddPillar({733,314,0},"","", 2, 5);
-	AddPillar({696,316,0},"","", 2, 5); --The Hemp Necktie Inn
+	AddPillar({733,310,0},"","An old and drunken man who wears ragged clothes and seems to beg for some coins while he hides a bottle of wine behind himself.", 2, 0);--Temple of Adron
+	AddPillar({733,314,0},"","A brown dressed young and attractive man sings and dances around with some grapes and a bottle of wine in his hands.", 2, 0); --Temple of Adron
+	--[[AddPillar({696,316,0},"","", 2, 5); --The Hemp Necktie Inn
 	AddPillar({696,320,0},"","", 2, 5); --The Hemp Necktie Inn
 	AddPillar({698,315,1},"","", 2, 5); --The Hemp Necktie Inn
-	AddPillar({698,319,1},"","", 2, 5); --The Hemp Necktie Inn
+	AddPillar({698,319,1},"","", 2, 5); --The Hemp Necktie Inn ]]--
+	--Tempel of Malachin
+	AddPillar({140,684,1},"","A brown haired and green clothed tall ranger bends a bow to aim his target. His arrow has engraved words like law, justice and good manners.", 5,0);
+	AddPillar({144,684,1},"","A brown haired and green clothed tall ranger bends a bow to aim his target. His arrow has engraved words like law, justice and good manners.", 5,0);
+	AddPillar({148,675,1},"","A gray haired strong tall knight in shiny armour rises his sword while he covers himself behind a big shield, which has engraved words like law, justice and good manners.", 6,0);
+	AddPillar({148,680,1},"","A gray haired strong tall knight in shiny armour rises his sword while he covers himself behind a big shield, which has engraved words like law, justice and good manners.", 6,0);
  	--Tempel of Sirani
-    AddPillar({176,759,0},"","", 2,5);
-    AddPillar({176,764,0},"","", 2,5);
+    AddPillar({176,759,0},"","A young and very attractive woman dances in her long white dress. His hair shines in the surrounding light.", 2,0);
+    AddPillar({176,764,0},"","A young and very attractive woman seems to be very furious while she looks at parchment with the insulting word 'bitch'.", 2,0);
     --Tempel of Tanora
-    AddPillar({621,590,0},"","", 1,5);
+    --[[AddPillar({621,590,0},"","", 1,5);
     AddPillar({621,599,0},"","", 1,5);
     AddPillar({630,596,0},"","", 1,5);
     AddPillar({630,592,0},"","", 1,5);
