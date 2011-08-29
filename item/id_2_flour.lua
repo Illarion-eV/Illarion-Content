@@ -52,5 +52,8 @@ end;
 
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     -- nop
+    str="what sell";
+    str2=string.gsub(str,'([ ]+)',' .*');
+    User:inform("got: "..str2);
     sendmsg=handler.sendmessage.sendMessage(User.pos,"TEST MESSAGE DE","TEST MESSAGE EN",2):execute();
 end
