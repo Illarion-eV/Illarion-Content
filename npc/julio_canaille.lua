@@ -185,7 +185,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1, 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Meanwhile speaking this words, a rapier rises from the tomb, when raeching for it, it starts to glow gentle. Then the shine disappears."));
 talkEntry:addResponse("Aye myn Peg Leg! Here it is, ch! You made me a happy ghost, today. Thank you - thousand times, aye may the wind blow your sail.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
@@ -200,11 +200,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Holz");
 talkEntry:addTrigger("Holzbein");
+talkEntry:addTrigger("bein");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1, 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."));
 talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blasen!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
@@ -267,6 +268,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Holz");
 talkEntry:addTrigger("Holzbein");
+talkEntry:addTrigger("bein");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
@@ -310,6 +312,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Holz");
 talkEntry:addTrigger("Holzbein");
+talkEntry:addTrigger("bein");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
@@ -354,6 +357,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Holz");
 talkEntry:addTrigger("Holzbein");
+talkEntry:addTrigger("bein");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
@@ -400,6 +404,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Holz");
 talkEntry:addTrigger("Holzbein");
+talkEntry:addTrigger("bein");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
@@ -443,6 +448,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Holz");
 talkEntry:addTrigger("Holzbein");
+talkEntry:addTrigger("bein");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
