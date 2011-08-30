@@ -25,6 +25,8 @@ end;
 
 function callEffect( Effect, Char ) -- Effect wird ausgeführt
 
+Char:inform("Time:"..os.clock().."!");
+
 if Char:idleTime() < 300 then --absolutely no regeneration effect if the player is afk for more than five minutes
 
     -----------------------EINLESEN ANFANG------------------------------------
