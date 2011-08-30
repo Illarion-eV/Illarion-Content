@@ -92,7 +92,7 @@ function talkNPCEntry:addTrigger(text)
         return;
     end;
     text = string.lower(text);
-    text=string.gsub(text,'([ ]+)',' .*'); -- replace all spaces by " .*"
+    text = string.gsub(text,'([ ]+)',' .*'); -- replace all spaces by " .*"
     table.insert(self._trigger, text);
 end;
 
