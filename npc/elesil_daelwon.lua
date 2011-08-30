@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Elesil Dael'won                                         Runewick --
+-- NPC Name: Elesil Daelwon                                          Runewick --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
 -- NPC Race: elf                        NPC Position:  862, 814, 0            --
@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: August 29, 2011                         easyNPC Parser v1.02 --
+-- Last parsing: August 30, 2011                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 862, 814, 0, 4, 'Elesil Dael'won', 'npc.elesil_dael'won', 1, 2, 5, 25, 25, 112, 230, 230, 250);
+VALUES (3, 862, 814, 0, 4, 'Elesil Daelwon', 'npc.elesil_daelwon', 1, 2, 5, 25, 25, 112, 230, 230, 250);
 ---]]
 
 require("npc.base.basic")
@@ -21,7 +21,7 @@ require("npc.base.condition.language")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
-module("npc.elesil_dael'won", package.seeall)
+module("npc.elesil_daelwon", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -29,13 +29,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Elesil Dael'won the informant. Keyphrases: Information, Runewick, building, game."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Elesil Daelwon the informant. Keyphrases: Information, Runewick, building, game."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Elesil Dael'won die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Spiel."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Spiel."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -139,7 +139,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Elesil Dael'won. *Closes her eyes*");
+talkEntry:addResponse("Elesil Daelwon. *Closes her eyes*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -148,7 +148,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Elesil Dael'won. *Schließt ihre Augen*");
+talkEntry:addResponse("Elesil Daelwon. *Schließt ihre Augen*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -708,7 +708,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elesil");
-talkEntry:addTrigger("Dael'won");
+talkEntry:addTrigger("Daelwon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, that is my name. About what do you want information?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -716,7 +716,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elesil");
-talkEntry:addTrigger("Dael'won");
+talkEntry:addTrigger("Daelwon");
 talkEntry:addResponse("Ja, das ist mein Name. Über was wollt ihr Information?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -775,7 +775,7 @@ talkingNPC:addCycleText("#me isst einen Apfel.", "#me eats an apple.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Elesil Dael'won die Auskunftgeberin.", "This NPC is Elesil Dael'won the informant.");
+mainNPC:setLookat("Dieser NPC ist Elesil Dael'won die Auskunftgeberin.", "This NPC is Elesil Daelwon the informant.");
 mainNPC:setUseMessage("Ihr seid gut damit beraten mich nicht anzufassen.", "I recommend do not touch me.");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
