@@ -7,8 +7,8 @@ local POSTCONDITION_QUESTSTATE = 3
 
 local NPC_TRIGGER_DE = "quest"
 local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Psst... Ich habe da etwas munkeln gehört von einer Botschaft, die in eine Kiefer eingeritzt wurde... gleich außerhalb Galmairs"
-local NPC_REPLY_EN = "Psst... I heard rumors about something that was carved into a pine tree, right outside of Galmair"
+local NPC_REPLY_DE = "Psst... Ich habe da etwas munkeln gehört von einer Botschaft, die in eine Kiefer eingeritzt wurde... etwas südöstlich vom Tor zu Galmair, in der Nähe des Wassers."
+local NPC_REPLY_EN = "Psst... I heard rumors about something that was carved into a pine tree, in the southeast of the gate to Galmair, near the water."
 
 function receiveText(type, text, player)
   if questsystem.base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE)
