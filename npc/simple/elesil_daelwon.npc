@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Elesil Dael'won                                             None --
+-- NPC Name: Elesil Daelwon                                             None --
 -- NPC Job:  Informant                                           --
 --                                                                            --
 -- NPC Race: elf                      NPC Position:  862, 814, 0                  --
@@ -10,7 +10,7 @@
 -- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "Elesil Dael'won"
+name = "Elesil Daelwon"
 race = elf
 sex = female
 position = 862, 814, 0
@@ -26,7 +26,7 @@ autointroduce = on
 author = "envi"
 
 lookatDE = "Dieser NPC ist Elesil Dael'won die Auskunftgeberin."
-lookatUS = "This NPC is Elesil Dael'won the informant."
+lookatUS = "This NPC is Elesil Daelwon the informant."
 useMsgDE = "Ihr seid gut damit beraten mich nicht anzufassen."
 useMsgUS = "I recommend do not touch me."
 wrongLangDE = "#me schaut verwirrt."
@@ -56,8 +56,8 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Elesil Dael'won the informant. Keyphrases: Information, Runewick, building, game.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Dael'won die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Spiel.")
+"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keyphrases: Information, Runewick, building, game.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Spiel.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hail Oldra. *Closes her eyes*"
@@ -70,8 +70,8 @@ itemShoes = 369
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Schließt ihre Augen*"
 "How are you", "How feel", "How do you do" -> "Fine, fine. *Closes her eyes*"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Fein, fein. *Schließt ihre Augen*"
-"your name", "who are you", "who art thou" -> "Elesil Dael'won. *Closes her eyes*"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Elesil Dael'won. *Schließt ihre Augen*"
+"your name", "who are you", "who art thou" -> "Elesil Daelwon. *Closes her eyes*"
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Elesil Daelwon. *Schließt ihre Augen*"
 
 -- OPTIONAL TRIGGERS
 
@@ -175,8 +175,8 @@ itemShoes = 369
 -- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
 "my name" -> "Hmm...you want some information? But about what?"
 "mein Name" -> "Hmm...und ihr wünscht nach Information? Aber welche?"
-"Elesil", "Dael'won", english -> "Yes, that is my name. About what do you want information?"
-"Elesil", "Dael'won" -> "Ja, das ist mein Name. Über was wollt ihr Information?"
+"Elesil", "Daelwon", english -> "Yes, that is my name. About what do you want information?"
+"Elesil", "Daelwon" -> "Ja, das ist mein Name. Über was wollt ihr Information?"
 "Yes" -> "A bit more concrete, please!"
 "Ja" -> "Etwas konkreter wenn ich bitten darf!"
 "No" -> "A bit more concrete, please!"
