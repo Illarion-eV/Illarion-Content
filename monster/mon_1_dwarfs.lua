@@ -1,6 +1,7 @@
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
+require("monster.base.kills")
 require("base.messages");
 module("monster.mon_1_dwarfs", package.seeall)
 
@@ -84,7 +85,7 @@ debug ("in onattacked (original)")
     debug ("now initializing monsters!!!")
         ini(Monster);
     end
-
+    monster.base.kills.setLastAttacker(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
