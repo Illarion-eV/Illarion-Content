@@ -75,12 +75,11 @@ function onCasted(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
-
 function onDeath(Monster)
 
-    if killer[Monster.id] ~= nil then
+    if killer[Monster.id] ~= nil then   -- last one who attacked
 
-        murderer=getCharForId(killer[Monster.id]);
+        murderer=getCharForId(killer[Monster.id]); -- get hold of character struct
     
         if murderer then --Checking for quests
 

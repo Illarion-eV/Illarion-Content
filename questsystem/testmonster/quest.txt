@@ -1,0 +1,1 @@
+monster,0,onDeath,trigger1
