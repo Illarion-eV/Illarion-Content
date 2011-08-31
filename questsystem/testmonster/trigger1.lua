@@ -14,7 +14,7 @@ function onDeath(MONSTER)
     if monster.base.kills.lastAttacker[MONSTER.id]~=nil then
         debug("*** FOUND PLAYER!!")
         PLAYER = monster.base.kills.lastAttacker[MONSTER.id]  -- get killer
-        if questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+        if questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then     -- this one is really doing our quest
             if killList == nil then
                 killList = {};
             end
@@ -22,12 +22,12 @@ function onDeath(MONSTER)
             if killList[PLAYER.id] == nil then
                 debug ("*** CHECKPOINT 2")
                 killList[PLAYER.id] = {};
-                killList[PLAYER.id][MONSTER.id]=0;
+                killList[PLAYER.id][MONSTER:getMonType()]=0;
                 debug ("*** CHECKPOINT 3")
             end
-            killList[PLAYER.id][MONSTER.id]=killList[PLAYER.id][MONSTER.id]+1;
-            debug ("*** KILLED: "..killList[PLAYER.id][MONSTER.id])
-            if killList[PLAYER.id][MONSTER.id] >= MONSTER_AMNT then
+            killList[PLAYER.id][MONSTER:getMonType()]=killList[PLAYER.id][MONSTER:getMonType()]+1;
+            debug ("*** KILLED: "..killList[PLAYER.id][MONSTER:getMonType()])
+            if killList[PLAYER.id][MONSTER:getMonType()] >= MONSTER_AMNT then
 handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "test", "test"):execute()
                 questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
             end
