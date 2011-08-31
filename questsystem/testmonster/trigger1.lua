@@ -35,6 +35,7 @@ end
 function onAttacked(Monster,Attacker)
     if lastAttack==nil then
         lastAttack={};
+            debug("init lastAttack")
     end
     lastAttack[Monster.id]=Attacker; -- Keeps track who attacked the monster last
     return false
