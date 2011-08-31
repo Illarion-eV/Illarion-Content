@@ -33,11 +33,17 @@ handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "test", "test"):execute(
 end
 
 function onAttacked(Monster,Attacker)
+    if lastAttack==nil then
+        lastAttack={};
+    end
     lastAttack[Monster.id]=Attacker; -- Keeps track who attacked the monster last
     return false
 end
 
 function onCasted(Monster,Attacker)
+    if lastAttack==nil then
+        lastAttack={};
+    end
     lastAttack[Monster.id]=Attacker; -- Keeps track who attacked the monster last
     return false
 end
