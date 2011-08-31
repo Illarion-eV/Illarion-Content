@@ -15,7 +15,7 @@ function onDeath(MONSTER)
         debug ("*** MONSTER ID OK")
         if lastAttack[MONSTER.id]~=nil then
             PLAYER=lastAttack[MONSTER.id]  -- get killer
-            if questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE)
+            if questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
                 if killList == nil then
                     killList = {};
                 end
@@ -27,7 +27,7 @@ function onDeath(MONSTER)
                 killList[PLAYER.id][MONSTER.id]=killList[PLAYER.id][MONSTER.id]+1;
                 debug ("*** KILLED: "..killList[PLAYER.id][MONSTER.id])
                 if killList[PLAYER.id][MONSTER.id] >= MONSTER_AMNT then
-handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du hast die Aufgabe erfüllt!", "You fulfilled the task!"):execute()
+handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "test", "test"):execute()
                     questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
                 end
             end
