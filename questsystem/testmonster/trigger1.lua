@@ -20,8 +20,10 @@ function onDeath(MONSTER)
             end
             debug ("*** CHECKPOINT 1")
             if killList[PLAYER.id] == nil then
+                debug ("*** CHECKPOINT 2")
                 killList[PLAYER.id] = {};
                 killList[PLAYER.id][MONSTER.id]=0;
+                debug ("*** CHECKPOINT 3")
             end
             killList[PLAYER.id][MONSTER.id]=killList[PLAYER.id][MONSTER.id]+1;
             debug ("*** KILLED: "..killList[PLAYER.id][MONSTER.id])
