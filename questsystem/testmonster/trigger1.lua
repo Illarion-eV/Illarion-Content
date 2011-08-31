@@ -11,7 +11,7 @@ local MONSTER_AMNT = 2
 
 function onDeath(MONSTER)
     debug ("*** IN ONDEATH")
-    if monster.base.kills.lastAttack[MONSTER.id]~=nil then
+    if monster.base.kills.lastAttacker[MONSTER.id]~=nil then
         debug("*** FOUND PLAYER!!")
         PLAYER=lastAttack[MONSTER.id]  -- get killer
         if questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
