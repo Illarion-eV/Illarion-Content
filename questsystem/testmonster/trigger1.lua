@@ -13,7 +13,7 @@ function onDeath(MONSTER)
     debug ("*** IN ONDEATH")
     if monster.base.kills.lastAttacker[MONSTER.id]~=nil then
         debug("*** FOUND PLAYER!!")
-        PLAYER=lastAttack[MONSTER.id]  -- get killer
+        PLAYER=lastAttacker[MONSTER.id]  -- get killer
         if questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
             if killList == nil then
                 killList = {};
