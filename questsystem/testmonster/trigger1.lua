@@ -10,6 +10,10 @@ local MONSTER_AMNT = 2
 
 function onDeath(MONSTER)
     debug ("*** IN ONDEATH")
+    if lastAttack==nil then
+        lastAttack={};
+        debug("init lastAttack (onDeath)")
+    end
     if lastAttack[MONSTER.id]~=nil then
         PLAYER=lastAttack[MONSTER.id]  -- get killer
         if questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -33,10 +37,13 @@ handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "test", "test"):execute(
 end
 
 function onAttacked(Monster,Attacker)
+    debug("in onattacked")
     if lastAttack==nil then
+        debug("init lastAttack")
         lastAttack={};
-            debug("init lastAttack")
+            
     end
+    debug("after lastattack")
     lastAttack[Monster.id]=Attacker; -- Keeps track who attacked the monster last
     return false
 end
