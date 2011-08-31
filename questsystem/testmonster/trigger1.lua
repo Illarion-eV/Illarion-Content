@@ -22,12 +22,12 @@ function onDeath(MONSTER)
             if killList[PLAYER.id] == nil then
                 debug ("*** CHECKPOINT 2")
                 killList[PLAYER.id] = {};
-                killList[PLAYER.id][MONSTER:getMonType()]=0;
+                killList[PLAYER.id][MONSTER:getMonsterType()]=0;
                 debug ("*** CHECKPOINT 3")
             end
-            killList[PLAYER.id][MONSTER:getMonType()]=killList[PLAYER.id][MONSTER:getMonType()]+1;
-            debug ("*** KILLED: "..killList[PLAYER.id][MONSTER:getMonType()])
-            if killList[PLAYER.id][MONSTER:getMonType()] >= MONSTER_AMNT then
+            killList[PLAYER.id][MONSTER:getMonsterType()]=killList[PLAYER.id][MONSTER:getMonsterType()]+1;
+            debug ("*** KILLED: "..killList[PLAYER.id][MONSTER:getMonsterType()])
+            if killList[PLAYER.id][MONSTER:getMonsterType()] >= MONSTER_AMNT then
 handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "test", "test"):execute()
                 questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
             end
