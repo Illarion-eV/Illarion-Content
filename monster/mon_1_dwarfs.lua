@@ -79,7 +79,7 @@ function enemyOnSight(Monster,Enemy)
 end
 
 function onAttacked(Monster,Enemy)
-
+debug ("in onattacked (original)")
     if init==nil then
     debug ("now initializing monsters!!!")
         ini(Monster);
