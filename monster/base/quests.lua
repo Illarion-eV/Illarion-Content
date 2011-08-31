@@ -24,7 +24,7 @@ module("monster.base.quests", package.seeall)
 --Quest 3: To accept quest 3, set queststatus to 20 with the NPC. Use queststatus 20->21 to count 1 monster. If the quest is finished, set queststatus to 22 with the NPC.
 
 function iniQuests()
-
+debug("INI QUEETS START")
     --Initilisation
     
     statusId={};
@@ -295,7 +295,7 @@ function iniQuests()
     questList[1071]={}; --Crazy Chicken
     questList[1081]={}; --Black Chicken
     questList[2000]={}; --Guards
-
+debug("INI QUEETS MID 1")
     --Quest 1: Galmair Sewers I (77)
     
     local id=1;
@@ -670,7 +670,7 @@ function iniQuests()
     maximumQueststatus[id]=10; 
     questLocation[id]=position(501,107,0); 
     radius[id]=15;
-
+debug("INI QUEETS END")
 end
 
 
