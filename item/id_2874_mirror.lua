@@ -32,7 +32,7 @@ function LookAtItem( User, Item )
             world:itemInform(User, Item, "mirror");
         end
     end;
-	User:inform("in LookAtItem of spiegel");
+--	User:inform("in LookAtItem of spiegel");
 	LookAtItemIdent(User,Item);
 end
 

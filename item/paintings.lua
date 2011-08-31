@@ -150,7 +150,7 @@ function LookAtItemIdent(User,Item)
         world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
     end  ]]                                                 
 
-		User:inform("in LookAtItem of base_weiser.lua");  
+--		User:inform("in LookAtItem of base_weiser.lua");  
 		User:inform(test);
 end
 --[[

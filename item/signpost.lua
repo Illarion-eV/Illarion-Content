@@ -48,7 +48,7 @@ function LookAtItemIdent(User,Item)
         world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
     end
 
-		User:inform("in LookAtItem of base_wegweiser.lua");
+--		User:inform("in LookAtItem of base_wegweiser.lua");
 		User:inform(test);
 end
 
