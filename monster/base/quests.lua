@@ -314,7 +314,7 @@ debug("INI QUEETS MID 1")
     maximumQueststatus[id]=11; 
     questLocation[id]=position(298,352,-6); 
     radius[id]=50;
-
+debug("INI QUEETS MID 2")
     --Quest 2: Galmair Sewers II (77)
 
     local id=2;
@@ -390,7 +390,7 @@ debug("INI QUEETS MID 1")
     maximumQueststatus[id]=18;
     questLocation[id]=position(135,655,-4); 
     radius[id]=50; 
-
+debug("INI QUEETS MID 3")
     --Quest 6: Sir Reginald's Tomb III (78)
 
     local id=6;
@@ -496,7 +496,7 @@ debug("INI QUEETS MID 1")
     maximumQueststatus[id]=21; 
     questLocation[id]=position(775,475,0); 
     radius[id]=75; 
-
+debug("INI QUEETS MID 4")
     --Quest 12: The Poacher III (4)
 
     local id=12;
@@ -591,7 +591,7 @@ debug("INI QUEETS MID 1")
     maximumQueststatus[id]=9; 
     questLocation[id]=position(705,410,-3); 
     radius[id]=75; 
-
+debug("INI QUEETS MID 5")
     --Quest 17: The Errant Crusade III
 
     local id=17;
