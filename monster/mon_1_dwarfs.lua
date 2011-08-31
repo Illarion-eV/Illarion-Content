@@ -79,6 +79,7 @@ end
 function onAttacked(Monster,Enemy)
 
     if init==nil then
+    debug ("now initializing monsters!!!")
         ini(Monster);
     end
 
