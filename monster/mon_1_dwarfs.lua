@@ -43,6 +43,7 @@ end
 function enemyNear(Monster,Enemy)
 
     if init==nil then
+        debug ("now initializing monsters!!!")
         ini(Monster);
     end
 
@@ -61,6 +62,7 @@ end
 function enemyOnSight(Monster,Enemy)
 
     if init==nil then
+        debug ("now initializing monsters!!!")
         ini(Monster);
     end
 
@@ -89,6 +91,7 @@ end
 function onCasted(Monster,Enemy)
 
     if init==nil then
+    debug ("now initializing monsters!!!")
         ini(Monster);
     end
 
