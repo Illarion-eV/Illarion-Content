@@ -10,3 +10,11 @@ function onSpawn(thisPig)
     
     thisPig:setSkinColor(red,green,blue);
 end
+
+function onAttacked()
+    monster.base.kills.setLastAttacker(Monster,Enemy)
+end
+
+function onCasted()
+    monster.base.kills.setLastAttacker(Monster,Enemy)
+end

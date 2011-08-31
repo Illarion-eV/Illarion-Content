@@ -82,12 +82,13 @@ end
 function onAttacked(Guard,Enemy)
     isEnemy[Enemy.id]=1;
     Guard:talk(Character.yell, "I am under attack, help!");
+    monster.base.kills.setLastAttacker(Guard,Enemy)
 end
 
 
 -- attack back, whoever it is
 function onCasted(Guard,Enemy)
-
+    monster.base.kills.setLastAttacker(Guard,Enemy)
 end
 
 

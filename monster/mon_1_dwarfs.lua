@@ -95,7 +95,7 @@ function onCasted(Monster,Enemy)
     debug ("now initializing monsters!!!")
         ini(Monster);
     end
-
+    monster.base.kills.setLastAttacker(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 

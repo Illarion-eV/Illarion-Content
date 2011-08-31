@@ -28,7 +28,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-
+    
     return false
 end
 
@@ -101,7 +101,7 @@ function onAttacked(Monster,Enemy)
     if init==nil then
         ini(Monster);
     end
-
+    monster.base.kills.setLastAttacker(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
@@ -110,7 +110,7 @@ function onCasted(Monster,Enemy)
     if init==nil then
         ini(Monster);
     end
-
+    monster.base.kills.setLastAttacker(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 

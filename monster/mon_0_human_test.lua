@@ -84,6 +84,7 @@ function onAttacked(Monster,Enemy)
     end
 
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
+    monster.base.kills.setLastAttacker(Monster,Enemy)
 end
 
 function onCasted(Monster,Enemy)
@@ -91,7 +92,7 @@ function onCasted(Monster,Enemy)
     if init==nil then
         ini(Monster);
     end
-
+    monster.base.kills.setLastAttacker(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
