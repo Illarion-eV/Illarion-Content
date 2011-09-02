@@ -52,6 +52,18 @@ end;
 
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     -- nop
+    stri="first|second|third"
+    triggerlist={};
+    i=1;
+    for word in string.gmatch(stri, "[^|]|") do 
+        triggerlist[i]=word;
+        i=i+1;
+    end
+    
+    for k=1,i do
+        User:inform("trigger "..k.." is "..triggerlist[i]);
+    end
+    
     str="what sell";
     str2=string.gsub(str,'([ ]+)',' .*');
     User:inform("got: "..str2);
