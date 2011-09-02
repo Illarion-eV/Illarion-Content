@@ -56,6 +56,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     triggerlist={};
     for word in string.gmatch(stri, "[^|]+") do 
         table.insert(triggerlist,word)
+        User:inform("inserted "..word)
     end
     
     for key, trigger in triggerlist do
