@@ -55,7 +55,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     stri="first|secüßond|third fourth"
     triggerlist={};
     i=1;
-    for word in string.gmatch(stri, "%w+") do 
+    for word in string.gmatch(stri, "[^|]+") do 
         triggerlist[i]=word;
         User:inform("trigger "..word);
         i=i+1;
