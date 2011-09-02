@@ -53,6 +53,7 @@ end;
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     -- nop
     stri="first|secüßond|third fourth"
+    stri=string.gsub(stri,'([ ]+)',' .*');
     triggerlist={};
     for word in string.gmatch(stri, "[^|]+") do 
         table.insert(triggerlist,word)
