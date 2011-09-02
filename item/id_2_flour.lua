@@ -58,7 +58,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
         table.insert(triggerlist,word)
     end
     
-    for key, trigger in triggerlist do
+    for key, trigger in pairs(triggerlist) do
         User:inform("trigger is "..trigger);
     end
     
