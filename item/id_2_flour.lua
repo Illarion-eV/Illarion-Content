@@ -54,13 +54,11 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     -- nop
     stri="first|secüßond|third fourth"
     triggerlist={};
-    i=1;
     for word in string.gmatch(stri, "[^|]+") do 
-        triggerlist[i]=word;
-        i=i+1;
+        table.insert(triggerlist,word)
     end
     
-    for _, trigger in triggerlist do
+    for key, trigger in triggerlist do
         User:inform("trigger is "..trigger);
     end
     
