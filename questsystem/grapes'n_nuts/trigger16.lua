@@ -49,3 +49,4 @@ function getNLS(player, textDe, textEn)
     return textEn
   end
 end
+end
