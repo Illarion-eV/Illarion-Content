@@ -45,6 +45,9 @@ itemHands = 0
 itemTrousers = 2113
 itemShoes = 53
 
+
+--Stock: 1908 (beer mug - empty),1909 (beer mug),518 (bottle wine - empty),517 (bottle wine),2278 (cabbage stew),2935 (bowl)
+
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
