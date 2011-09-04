@@ -41,7 +41,7 @@ colorSkin = 217, 154, 123
 itemTrousers = 823
 itemShoes = 369
 
--- Hagar Wernson (tavern): 2185 wooden cup, 2187 cup with wine, 2188 cup with mead, 2189 cup with cider, 1908, 1909 beer, 2276 mulligan
+-- stock: 1908 (beer mug - empty),1909 (beer mug),2189 (cider cup),2188 (mead cup),2186 (water cup),2187 (wine cup),2185 (wooden cup),518 (bottle wine - empty),517 (bottle wine),2276 (mulligan ),2935 (bowl),191 (bread roll)
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 -- tavern keeper at Galmair 'The Winged Sow', 'Taverne zur geflügelten Sau'

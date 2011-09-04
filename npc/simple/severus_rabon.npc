@@ -46,6 +46,9 @@ itemHands = 0
 itemTrousers = 367
 itemShoes = 369
 
+--stock 1908 (beer mug - empty),1909 (beer mug),2055 (glass),2057 (glass wine),2058 (glass water),2058 (glass mead),2059 ( glass cider),518 (bottle wine - empty),517 (bottle wine),2923 (onion stew ),2935 (bowl),454 (muffin)
+
+
 -- Waiter: Severus Rabon
 -- Occupation: waiter
 -- Age: 31
