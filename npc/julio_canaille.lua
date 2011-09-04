@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 29, 2011                         easyNPC Parser v1.02 --
+-- Last parsing: September 04, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -397,7 +397,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=>", 1));
-talkEntry:addResponse("Aye, aye. I can't rest. Myn old Peg Leg causes pain. The old Prandlin, damn - DAMN!... he have stolen it. Arr! Curse on you Prandlin! You heard that? CURSE on you!");
+talkEntry:addResponse("Aye, aye. I can't rest. Myn old Peg Leg causes pain. The old Prandlin, damn - DAMN!... he have stolen it. Arr! Curse on you Prandlin! Heard that, Prandlin? CURSE on you! Eh Lubber, do me a favour and get my peg leg back!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -409,7 +409,7 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=>", 1));
-talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!");
+talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr! Du - Landratte! Geh Prandlin suchen und bring meen Holzbein zurück!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -419,7 +419,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=>", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aye, aye. I can't rest. Myn old Peg Leg causes pain. The old Prandlin, damn - he have stolen it. Arr! Curse on you Prandlin! You heard that? CURSE on you!");
+talkEntry:addResponse("Aye, aye. I can't rest. Myn old Peg Leg causes pain. The old Prandlin, damn - he have stolen it. Arr! Curse on you Prandlin! Heard that, Prandlin? CURSE on you! Eh Lubber, do me a favour and get my peg leg back!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -429,7 +429,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=>", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!");
+talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr! Du - Landratte! Geh Prandlin suchen und bring meen Holzbein zurück!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -440,7 +440,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addResponse("Aye, aye. I can't rest. Myn old Peg Leg causes pain. The old Prandlin, damn - DAMN!... he have stolen it. Arr! Curse on you Prandlin! You heard that? CURSE on you!");
+talkEntry:addResponse("Aye, aye. I can't rest. Myn old Peg Leg causes pain. The old Prandlin, damn - DAMN!... he have stolen it. Arr! Curse on you Prandlin! Heard that, Prandlin? CURSE on you! Eh Lubber, do me a favour and get my peg leg back!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -452,7 +452,7 @@ talkEntry:addTrigger("bein");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
-talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!");
+talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr! Du - Landratte! Geh Prandlin suchen und bring meen Holzbein zurück!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -462,7 +462,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aye, aye. I can't rest. Myn old Peg Leg causes pain. The old Prandlin, damn - DAMN!... he have stolen it. Arr! Curse on you Prandlin! You heard that? CURSE on you!");
+talkEntry:addResponse("Aye, aye. I can't rest. Myn old Peg Leg causes pain. The old Prandlin, damn - DAMN!... he have stolen it. Arr! Curse on you Prandlin! Heard that, Prandlin? CURSE on you! Eh Lubber, do me a favour and get my peg leg back!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -472,7 +472,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!");
+talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr! Du - Landratte! Geh Prandlin suchen und bring meen Holzbein zurück!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
