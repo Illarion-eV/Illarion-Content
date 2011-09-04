@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: September 04, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -33,13 +33,6 @@ mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(105, ">", 2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Status error] Something went wrong, please inform a developer."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This is NPC is the mortician Gregor Remethar. Keyphrases: Hello, quest, mortician, tomb, chambers, value of life."));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -58,7 +51,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Ah, one of the living visits me. What brought you here - do you want to honour your ancestors in the tomb?");
+talkEntry:addResponse("Ah, one of the living visits me. What brought you here - you want to honour your ancestors in the crypt?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -80,7 +73,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ah, one of the living visits me. What brought you here - do you want to visit your ancestors in the tomb?");
+talkEntry:addResponse("Ah, one of the living visits me. What brought you here - you want to honour your ancestors in the crypt?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -98,7 +91,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Go with the gods' blessing. And don't return too soon, if you know what I mean.");
+talkEntry:addResponse("Go with the blessing of the Gods. And do not return again too soon, if you know what I mean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -117,7 +110,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Go with the gods' blessing. And don't return too soon, if you know what I mean.");
+talkEntry:addResponse("Go with the blessing of the Gods. And do not return again too soon, if you know what I mean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -134,7 +127,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I bury those who fell. How do you I think I feel? Assessing one's life's value is not an easy task.");
+talkEntry:addResponse("I bury those who died. How do yousuppose I feel? To appreciate the value of life is indeed not easy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -150,7 +143,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am called Gregor Remethar, nice to meet you and to be able to - still - talk to you.");
+talkEntry:addResponse("My name is Gregor Remethar, I am delighted to meet you and to be able to - still - talk to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,7 +162,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A light at the end of the tunnel"));
-talkEntry:addResponse("Indeed, I have a task for you. Could you go down into the tomb and make sure the lights of honour in front of the urns of the mages are alight? Here, have this lamp oil and come back if you lit the lamps.");
+talkEntry:addResponse("Indeed, I have a task for you. Could you please go down into the crypt and make sure the lights burn in front of the urns in honour of the mages? Here, take this lamp oil and come back to me when you have lit the lamps.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -189,9 +182,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A light at the end of the tunnel"));
-talkEntry:addResponse("Indeed, I have a task for you. Could you go down into the tomb and make sure the lights of honour in front of the urns of the mages are alight? Here, have this lamp oil and come back if you lit the lamps.");
+talkEntry:addResponse("Indeed, I have a task for you. Could you please go down into the crypt and make sure the lights burn in front of the urns in honour of the mages? Here, take this lamp oil and come back to me when you have lit the lamps.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -201,6 +195,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Ein Licht am Ende des Tunnels"));
 talkEntry:addResponse("In der Tat, ich habe einen Auftrag für euch. Könntet ihr bitte in die Gruft gehen und sicherstellen, dass die Ehrenlichter vor den Urnen der Magier brennen? Hier, nehmt dieses Lampenöl und kommt zu mir zurück, wenn ihr die Leuchten angezündet habt.");
@@ -214,7 +209,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Well, did you make sure the lights are burning in the tomb? Whenever you lit the flames of honour, come here for a small compensation.");
+talkEntry:addResponse("Well, did you make sure the lights are burning in honour of the tomb? If you do ever light the lamps, come to me for a little compensation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -229,8 +224,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 1));
-talkEntry:addResponse("Well, did you make sure the lights are burning in the tomb? Whenever you lit the flames of honour, come here for a small compensation.");
+talkEntry:addResponse("Well, did you make sure the lights are burning in honour of the tomb? If you do ever light the lamps, come to me for a little compensation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -238,6 +234,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 1));
 talkEntry:addResponse("Nun, habt ihr schon sichergestellt, dass die Ehrenlichter in der Gruft brennen? Wenn immer ihr die Leuchten angezündet habt, kommt zu mir für eine kleine Aufwandsentschädigung.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -249,8 +246,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(30));
 talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 copper coins. You advance in archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have these twenty coppercoins as compensation. Come back whenever you relit the lights.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 copper coins. Your reputation with Archmage Elvaine Morgan rises."));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take these twenty copper coins for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
@@ -276,7 +273,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(30));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 copper coins."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have these twenty coppercoins as compensation. Come back whenever you relit the lights.");
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take these twenty copper coins for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -299,8 +296,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(14));
 talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a bottle of lamp oil. You advance in archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this lamp oil as compensation. Come back whenever you relit the lights.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a bottle of lamp oil. Your reputation with Archmage Elvaine Morgan rises."));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this lamp oil for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
@@ -326,7 +323,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(14));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a bottle of lamp oil."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this lamp oil as compensation. Come back whenever you relit the lights.");
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this lamp oil for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -349,8 +346,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(17));
 talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a piece of wax. You advance in archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this piece of wax as compensation. Come back whenever you relit the lights.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a piece of wax. Your reputation with Archmage Elvaine Morgan rises."));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this piece of wax for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(431, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
@@ -376,7 +373,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(17));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a piece of wax."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this this piece of wax as compensation. Come back whenever you relit the lights.");
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this piece of waxfor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(431, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -399,8 +396,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a candle. You advance in archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this candle as compensation. Come back whenever you relit the lights.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a candle. Your reputation with Archmage Elvaine Morgan rises."));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this candlefor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(43, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
@@ -426,7 +423,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a candle."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this candle as compensation. Come back whenever you relit the lights.");
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this candlefor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(43, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -449,8 +446,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(25));
 talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a torch. You advance in archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this torch as compensation. Come back whenever you relit the lights.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a torch. Your reputation with Archmage Elvaine Morgan rises."));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this torchfor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
@@ -476,7 +473,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(25));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a torch."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this torch as compensation. Come back whenever you relit the lights.");
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this torchfor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -499,8 +496,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(33));
 talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a cookie. You advance in archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this cookie as compensation. Come back whenever you relit the lights.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a cookie. Your reputation with Archmage Elvaine Morgan rises."));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this cookiefor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(453, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
@@ -526,7 +523,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(33));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a cookie."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this cookie as compensation. Come back whenever you relit the lights.");
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this cookiefor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(453, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -549,8 +546,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(50));
 talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a parchment. You advance in archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this parchment as compensation. Come back whenever you relit the lights.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a parchment. Your reputation with Archmage Elvaine Morgan rises."));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this parchmentfor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2745, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
@@ -576,7 +573,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(50));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a parchment."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this parchment as compensation. Come back whenever you relit the lights.");
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this parchmentfor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2745, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -598,8 +595,8 @@ talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a golden ring. You advance in archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this golden ring as compensation. Come back whenever you relit the lights.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a golden ring. Your reputation with Archmage Elvaine Morgan rises."));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this golden ringfor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 577, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
@@ -623,7 +620,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a golden ring."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, have this golden ring as compensation. Come back whenever you relit the lights.");
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this golden ringfor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 577, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -651,7 +648,7 @@ talkEntry:addTrigger("mortician");
 talkEntry:addTrigger("undertaker");
 talkEntry:addTrigger("gravedigger");
 talkEntry:addTrigger("funeral");
-talkEntry:addResponse("My job is to bury those who fell - and to assess the value of their life. Depending on that, their fate is sealed.");
+talkEntry:addResponse("My job is to bury those whose life is at an end - and to assess the value of their life. That determines what happens to them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -665,7 +662,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am the local mortician. I judge who earned himself most fame about wisdom and justice. For this is what determines our fame in the afterlife.");
+talkEntry:addResponse("I am the local mortician. I judge who has made such valuable contributions by wisdom and justice. After all this is what determines our reputation in the afterlife.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -678,7 +675,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I am the local mortician. I judge who earned himself most fame about wisdom and justice. For this is what determines our fame in the afterlife.");
+talkEntry:addResponse("I am the local mortician. I judge who has made such valuable contributions by wisdom and justice. After all this is what determines our reputation in the afterlife.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -690,7 +687,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Mind me taking your measures?");
+talkEntry:addResponse("May I take your measurements?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -702,7 +699,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tomb");
-talkEntry:addResponse("The tomb of Runewick is a place where the people seperates; urns for the mages, coffins for the apprentices and darkness for the commoners. They are buried in different chambers.");
+talkEntry:addResponse("The crypt of Runewick is a place where the people are divided; urns for the mages, caskets for the apprentices and darkness for the common folk. All are buried in different chambers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -710,7 +707,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("value");
 talkEntry:addTrigger("fame");
 talkEntry:addTrigger("fate");
-talkEntry:addResponse("Depening on the value of one's life, there are three methods to get buried. I could tell you more on these methods...");
+talkEntry:addResponse("Depending on the value of one's life, there are three methods to bury someone. I could tell you more about these methods...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -718,7 +715,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("assess");
 talkEntry:addTrigger("earn");
 talkEntry:addTrigger("judge");
-talkEntry:addResponse("Who am I to judge over one's life you might say? I do not judge. One's fame usually arrives here long before one's body.");
+talkEntry:addResponse("What, do I imagine Ican judge the value of a life? That I must not; the reputation mosly precedes the corpse.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -726,7 +723,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("method");
 talkEntry:addTrigger("urn");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Those who earned most fame in life are cremated so that their body cannot be spoiled. Those who did well are buried in coffins - for future use. And those who failed are tossed into darkness...");
+talkEntry:addResponse("Those whose lives had a high value will be cremated such that their body may not be desecrated. Those who did good are buried in caskets - for future use. Those who failed will be cast into darkness...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -734,7 +731,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("bury");
 talkEntry:addTrigger("grave");
 talkEntry:addTrigger("coffin");
-talkEntry:addResponse("Those who earned most fame in life are cremated so that their body cannot be spoiled. Those who did well are buried in coffins - for future use. And those who failed are tossed into darkness...");
+talkEntry:addResponse("Those whose lives had a high value will be cremated such that their body may not be desecrated. Those who did good are buried in caskets - for future use. Those who failed will be cast into darkness...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -780,7 +777,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("room");
 talkEntry:addTrigger("chamber");
-talkEntry:addResponse("The tomb of Runewick has three chambers: The Chamber of Light, the Chamber of Twilight and the Chamber of Darkness.");
+talkEntry:addResponse("The crypt has three chambers: The Chamber of Light, the Chamber of Twilight and the Chamber of Darkness.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -792,7 +789,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Twilight");
-talkEntry:addResponse("In the Chamber of Twilight there are the coffins of the apprentices - for future use.");
+talkEntry:addResponse("In the Chamber of Twilight there are the coffins of the apprentices - located where their body will be needed once again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -804,7 +801,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("dark");
-talkEntry:addResponse("In the Chamber of Darkness the bones of the unworthy rot. They did not strive for wisdom while alive for they were simple minded.");
+talkEntry:addResponse("In the Chamber of Darkness the bones of the unworthy rot. Those who have not understood during their lifetime the need to strive for wisdom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -816,7 +813,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Light");
-talkEntry:addResponse("In the Chamber of Light the mages of Runewick are buried. Their bodies are cremated according to old customs.");
+talkEntry:addResponse("In the Chamber of Light the wise mages of Runewick are buried, after having their body cremated, as has always been the custom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -835,7 +832,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The archmage is a good man. He knows exactly who's life is valuable for the society and who's isn't.");
+talkEntry:addResponse("The archmage is a good man. He knows exactly whose life is valuable to the community.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -849,7 +846,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The archmage is a good man. He knows exactly who's life is valuable for the society and who's isn't.");
+talkEntry:addResponse("The archmage is a good man. He knows exactly whose life is valuable to the community.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -863,7 +860,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("In Runewick, everyone is equal; you have equal chances, but if you don't achieve something, your life is wasted.");
+talkEntry:addResponse("Everyone is born equal in Runewick. Anyone who brings about nothing, however, his life is forfeited.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -878,7 +875,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I heard a rumour about the Don; that he makes people dissapear he does not like. No tombstone reminds on them...");
+talkEntry:addResponse("I have heard a rumour about the Don; he makes people disappear as easily as they come to him. No gravestone will ever remember them...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -893,7 +890,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("In Galmair, your fame in afterlife depends a lot on the amount of money you have - or had. Big purse, big grave, small purse, no grave. Horrible!");
+talkEntry:addResponse("In Galmair, the reputaion of a deceased person depends greatly on their wealth obviously. Large purse, large grave, small purse, no grave. How terrible!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -905,7 +902,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("I overheard queen Rosaline wants to have a magnificient grave in the desert. Her royal builder Robertus is in charge; I wonder whether he'll finish the grave before she passes...");
+talkEntry:addResponse("I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned; I just wonder whether he will finish before she passes...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -919,7 +916,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I overheard queen Rosaline wants to have a magnificient grave in the desert. Her royal builder Robertus is in charge; I wonder whether he'll finish the grave before she passes...");
+talkEntry:addResponse("I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned; I just wonder whether he will finish before she passes...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -933,7 +930,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I do respect the people of Cadomyr. Their habits are unlike ours; they assess the value of one's life upon birth, we do upon death. But does this make us so different?");
+talkEntry:addResponse("I appreciate the people of Cadomyr. Their habits are somewhat different to ours; the value of life is determined by birth, with us after death. But does this make us so different?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -946,7 +943,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("They are burning the bodies of their deads in Albar. This is, as a matter of fact, an act of honour - for those will never be raised as undeads by foul craft.");
+talkEntry:addResponse("The Albarians burn their dead. This is indeed a homage, for he who is burnt can not be called back into life by the dark arts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -960,7 +957,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("They have strange habits in Gynk. Word is they just sink their deads in the swamps. What a horrible custom!");
+talkEntry:addResponse("There are strange customs in Gynk. They say they just cast their dead into the swamps. What a cruel custom!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -974,7 +971,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The archmage once told me that in Salkamar, only the good are buried in coffins while the evil face an undescribeable fate.");
+talkEntry:addResponse("The archmage once told me that in Salkamar, only the righteous are buried in coffins whereas the wicked face an indescribeable fate.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -986,7 +983,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("I do service to Cherga every day.");
+talkEntry:addResponse("I serve Cherga every day.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1000,7 +997,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I do not love Cherga. But I honour her. Being the keeper of the afterlife, her deeds deserve our respect. Or would you like to do that job?");
+talkEntry:addResponse("I do not love Cherga, but I honour her. Her acts as Guardian of the Afterlife deserve our respect. Or would you like to do that job?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1015,7 +1012,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("You cannot bribe me. I do not accept any goods nor money. My judgement is neutral.");
+talkEntry:addResponse("You cannot bribe me. I accept neither goods nor money. My judgement is independent.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1045,7 +1042,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gregor");
 talkEntry:addTrigger("Remethar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I am the local mortician. Nobody loves me, but everyone needs me. One day.");
+talkEntry:addResponse("I am the local mortician. Nobody loves me, but everyone needs me - one day.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1059,7 +1056,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("Really.");
-talkEntry:addResponse("By Cherga, could you rephrase that?");
+talkEntry:addResponse("By Cherga, could you put that differently?");
 talkEntry:addResponse("Honour the dead.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1074,8 +1071,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("Shall I take your measurements for a coffin now or later?");
-talkEntry:addResponse("I do not understand. Do I have to?");
+talkEntry:addResponse("Should I take your measurements for a coffin now or later?");
+talkEntry:addResponse("I do not quite understand. I would have some?");
 talkEntry:addResponse("Pardon?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1087,16 +1084,16 @@ talkEntry:addResponse("Ich verstehe nicht recht. Müßte ich etwa?");
 talkEntry:addResponse("Pardon?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Wie soll jemand seine letzte Ruhe finden, wenn kein Licht brennt?", "How can they rest when no light is burning?");
-talkingNPC:addCycleText("Die Dunkelheit wartet... darauf, dass das Licht ausgeht.", "Darkness awaits... that the light goes off.");
-talkingNPC:addCycleText("Eine helle Kerze soll dir ein Leuchtfeuer sein.", "A candle of light shall be your beacon in the night.");
-talkingNPC:addCycleText("Drei Schicksale und ich bin der Schätzer; was wird wohl euer Schicksal sein?", "Three fates and I have to choose; what may be your fate?");
+talkingNPC:addCycleText("Wie soll jemand seine letzte Ruhe finden, wenn kein Licht brennt?", "How should someone find their final resting place when no light is burning?");
+talkingNPC:addCycleText("Die Dunkelheit wartet... darauf, dass das Licht ausgeht.", "The darkness is waiting... that the light goes out.");
+talkingNPC:addCycleText("Eine helle Kerze soll dir ein Leuchtfeuer sein.", "A candle of light, to you shall be a beacon.");
+talkingNPC:addCycleText("Drei Schicksale und ich bin der Schätzer; was wird wohl euer Schicksal sein?", "Three fates and I am the valuer; what will become your fate?");
 talkingNPC:addCycleText("Es ist nicht die Zeit, Trübsal zu blasen.", "No time to wallow in the mire.");
-talkingNPC:addCycleText("Drei Pfade; welchen werdet ihr beschreiten?", "Three paths - which will you go?");
-talkingNPC:addCycleText("#me rollt bedächtig ein Maßband aus.", "#me rolls out a measuring tape.");
-talkingNPC:addCycleText("Soll ich eure Maße jetzt oder später aufnehmen?", "Shall I take your measures now or later?");
-talkingNPC:addCycleText("Mein Geschäft ist sicher - gestorben wird immer!", "My business is save - people always die.");
-talkingNPC:addCycleText("#me keucht wiederholt auf.", "#me coughes over and over again.");
+talkingNPC:addCycleText("Drei Pfade; welchen werdet ihr beschreiten?.", "Three paths, which will you tread?");
+talkingNPC:addCycleText("#me rollt bedächtig ein Maßband aus.", "#me slowly rolls out a measuring tape.");
+talkingNPC:addCycleText("Soll ich eure Maße jetzt oder später aufnehmen?", "Should I take your measurements now or later?");
+talkingNPC:addCycleText("Mein Geschäft ist sicher - gestorben wird immer!", "My business is safe - there will always be death.");
+talkingNPC:addCycleText("#me keucht wiederholt auf.", "#me coughs repeatedly.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);

@@ -1,3 +1,15 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Gregor Remethar                                         Runewick --
+-- NPC Job:  mortician                                                        --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  907, 804, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                                            --
+-- Last parsing: September 04, 2011                      easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
 name = "Gregor Remethar"
 race = human
 sex = male
@@ -50,10 +62,6 @@ itemShoes = 53
 -- 1: Quest 1 taken - light the fire in the tomb
 -- 2: Quest 1 solved, reward: random, see below
 
--- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(105) = 0
-".+", queststatus(105) > 2 -> inform("[Status error] Something went wrong, please inform a developer.")
-
 -- Help
 "Help" -> inform("[Game Help] This is NPC is the mortician Gregor Remethar. Keyphrases: Hello, quest, mortician, tomb, chambers, value of life.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Leichenbestatter Gregor Remethar. Schlüsselwörter: Hallo, Quest, Leichenbestatter, Gruft, Kammern, Wert des Lebens.")
@@ -78,14 +86,14 @@ itemShoes = 53
 -- Give out quest 1
 "quest", "mission", queststatus(105) = 0, english -> inform("[New quest] A light at the end of the tunnel"), "Indeed, I have a task for you. Could you please go down into the crypt and make sure the lights burn in front of the urns in honour of the mages? Here, take this lamp oil and come back to me when you have lit the lamps.", item(390, 1, 333, 0), queststatus(105) = 1
 "quest", "mission", queststatus(105) = 0 -> inform("[Neues Quest] Ein Licht am Ende des Tunnels"), "In der Tat, ich habe einen Auftrag für euch. Könntet ihr bitte in die Gruft gehen und sicherstellen, dass die Ehrenlichter vor den Urnen der Magier brennen? Hier, nehmt dieses Lampenöl und kommt zu mir zurück, wenn ihr die Leuchten angezündet habt.", item(390, 1, 333, 0), queststatus(105) = 1
-"task", "adventure", queststatus(105) = 0 -> inform("[New quest] A light at the end of the tunnel"), "Indeed, I have a task for you. Could you please go down into the crypt and make sure the lights burn in front of the urns in honour of the mages? Here, take this lamp oil and come back to me when you have lit the lamps.", item(390, 1, 333, 0), queststatus(105) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(105) = 0 -> inform("[Neues Quest] Ein Licht am Ende des Tunnels"), "In der Tat, ich habe einen Auftrag für euch. Könntet ihr bitte in die Gruft gehen und sicherstellen, dass die Ehrenlichter vor den Urnen der Magier brennen? Hier, nehmt dieses Lampenöl und kommt zu mir zurück, wenn ihr die Leuchten angezündet habt.", item(390, 1, 333, 0), queststatus(105) = 1
+"task", "adventure", "order", queststatus(105) = 0 -> inform("[New quest] A light at the end of the tunnel"), "Indeed, I have a task for you. Could you please go down into the crypt and make sure the lights burn in front of the urns in honour of the mages? Here, take this lamp oil and come back to me when you have lit the lamps.", item(390, 1, 333, 0), queststatus(105) = 1
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(105) = 0 -> inform("[Neues Quest] Ein Licht am Ende des Tunnels"), "In der Tat, ich habe einen Auftrag für euch. Könntet ihr bitte in die Gruft gehen und sicherstellen, dass die Ehrenlichter vor den Urnen der Magier brennen? Hier, nehmt dieses Lampenöl und kommt zu mir zurück, wenn ihr die Leuchten angezündet habt.", item(390, 1, 333, 0), queststatus(105) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(105) = 1, english -> "Well, did you make sure the lights are burning in honour of the tomb? If you do ever light the lamps, come to me for a little compensation."
 "quest", "mission", queststatus(105) = 1 -> "Nun, habt ihr schon sichergestellt, dass die Ehrenlichter in der Gruft brennen? Wenn immer ihr die Leuchten angezündet habt, kommt zu mir für eine kleine Aufwandsentschädigung."
-"task", "adventure", queststatus(105) = 1 -> "Well, did you make sure the lights are burning in honour of the tomb? If you do ever light the lamps, come to me for a little compensation."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(105) = 1 -> "Nun, habt ihr schon sichergestellt, dass die Ehrenlichter in der Gruft brennen? Wenn immer ihr die Leuchten angezündet habt, kommt zu mir für eine kleine Aufwandsentschädigung."
+"task", "adventure", "order", queststatus(105) = 1 -> "Well, did you make sure the lights are burning in honour of the tomb? If you do ever light the lamps, come to me for a little compensation."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(105) = 1 -> "Nun, habt ihr schon sichergestellt, dass die Ehrenlichter in der Gruft brennen? Wenn immer ihr die Leuchten angezündet habt, kommt zu mir für eine kleine Aufwandsentschädigung."
 
 -- Quest 1 solved, reward: random, 2 rankpoints if Runewick. Remind the player that the quest can solved over and over again
 
@@ -143,9 +151,9 @@ itemShoes = 53
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "mortician", "undertaker", "gravedigger", "funeral" -> "My job is to bury those whose life is at an end - and to assess the value of their life. That determines what happens to them."
 "Bestatter", "Totengräber", "Beerdigung" -> "Meine Aufgabe ist es, diejenigen zu begraben, deren Leben am Ende ist - und den Wert ihres Lebens einzuschätzen. Den der bestimmt, was mit ihnen geschieht."
-"profession" -> "I am the undertaker. I judge who has made such valuable contributions by wisdom and justice. After all this is what determines our reputation in the afterlife."
+"profession" -> "I am the local mortician. I judge who has made such valuable contributions by wisdom and justice. After all this is what determines our reputation in the afterlife."
 "beruf" -> "Ich bin hier der Bestatter. Ich entscheide, wer sich wie sehr verdient gemacht hat um die Weisheit und die Gerechtigkeit. Denn dies bestimmt unser aller Ansehen im Tode."
-"job", english -> "I am the undertaker. I judge who has made such valuable contributions by wisdom and justice. After all this is what determines our reputation in the afterlife."
+"job", english -> "I am the local mortician. I judge who has made such valuable contributions by wisdom and justice. After all this is what determines our reputation in the afterlife."
 "job" -> "Ich bin hier der Bestatter. Ich entscheide, wer sich wie sehr verdient gemacht hat um die Weisheit und die Gerechtigkeit. Denn dies bestimmt unser aller Ansehen im Tode."
 "my name" -> "May I take your measurements?"
 "mein Name" -> "Darf ich schonmal eure Maße aufnehmen?"
@@ -170,7 +178,7 @@ itemShoes = 53
 "Light" -> "In the Chamber of Light the wise mages of Runewick are buried, after having their body cremated, as has always been the custom."
 
 -- Easter egg
-"Calaway", english -> "I am not the gravedigger! I prefer the term undertaker."
+"Calaway", english -> "I am not the undertaker! I prefer the term mortician."
 "Calaway" -> "Ich bin nicht der Totengräber! Ich ziehe die Bezeichnung Leichenbestatter vor."
 
 -- Faction stuff
@@ -212,7 +220,7 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Wir könnten über die Gruft oder meinen Beruf reden. Ich habe auch eine Aufgabe für euch."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-"Gregor", "Remethar", english -> "I am the undertaker. Nobody loves me, but everyone needs me - one day."
+"Gregor", "Remethar", english -> "I am the local mortician. Nobody loves me, but everyone needs me - one day."
 "Gregor", "Remethar" -> "Ich bin hier der Leichenbestatter. Niemand liebt mich, aber jeder braucht mich - eines Tages."
 "Yes" -> "Really.", "By Cherga, could you put that differently?", "Honour the dead."
 "Ja" -> "Wirklich.", "Bei Cherga, könntet ihr das anders ausdrücken?", "Ehret die Toten."
@@ -227,10 +235,10 @@ itemShoes = 53
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Wie soll jemand seine letzte Ruhe finden, wenn kein Licht brennt?", "How should someone find their final resting place when no light is burning?"
-cycletext "Die Dunkelheit wartet... darauf, dass das Licht ausgeht.", "The darkness is waiting... sure that the light goes out."
+cycletext "Die Dunkelheit wartet... darauf, dass das Licht ausgeht.", "The darkness is waiting... that the light goes out."
 cycletext "Eine helle Kerze soll dir ein Leuchtfeuer sein.", "A candle of light, to you shall be a beacon."
 cycletext "Drei Schicksale und ich bin der Schätzer; was wird wohl euer Schicksal sein?", "Three fates and I am the valuer; what will become your fate?"
-cycletext "Es ist nicht die Zeit, Trübsal zu blasen.", "It is not the tim to mope."
+cycletext "Es ist nicht die Zeit, Trübsal zu blasen.", "No time to wallow in the mire."
 cycletext "Drei Pfade; welchen werdet ihr beschreiten?.", "Three paths, which will you tread?"
 cycletext "#me rollt bedächtig ein Maßband aus.", "#me slowly rolls out a measuring tape."
 cycletext "Soll ich eure Maße jetzt oder später aufnehmen?", "Should I take your measurements now or later?"
