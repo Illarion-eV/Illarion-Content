@@ -68,7 +68,7 @@ module("base.treasure", package.seeall)
         monster5=monsters[level-2][math.random(1,table.getn(monsters[level-2]))];
         monster6=monsters[level-2][math.random(1,table.getn(monsters[level-2]))];
 
-        return {monster1}; --,monster2,monster3,monster4,monster5,monster6};
+        return {monster1,monster2,monster3,monster4,monster5,monster6};
 
     end
 
