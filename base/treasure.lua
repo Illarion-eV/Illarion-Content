@@ -117,8 +117,8 @@ module("base.treasure", package.seeall)
         local showMsgs = {};
         local mon;
         for i, monID in pairs(monList) do
-            newPos=getFreePos( TargetPos, 4 );
-            User:inform("found pos x="..newPos.x.." pos y="..newPos.y.." spawning monster "..monID );
+            newPos=getFreePos( TargetPos, 5 );
+
             world:gfx(31,newPos);
             mon = world:createMonster(monID, newPos, 10);
             if isValidChar(mon) then
@@ -128,8 +128,6 @@ module("base.treasure", package.seeall)
                         "The dragon gleams and shimmers in the air. It seems that it is 'just' an illusion." }
                     );
                 end
-                User:inform("trying to fetch monster");
-                User:inform("inserting into treasureMonsters for "..User.id.." monsterID "..mon.id);
                 table.insert( treasureMonsters[User.id], mon );
             end
         end
@@ -137,42 +135,39 @@ module("base.treasure", package.seeall)
 
     function CheckMonsters( User )
         if not treasureMonsters[User.id] then
-            User:inform("CheckMonsters 1");
             return true;
         end
 
         for i,mon in pairs(treasureMonsters[User.id]) do
             if isValidChar(mon) then
                 if mon:increaseAttrib("hitpoints",0) > 0 then
-                    User:inform("CheckMonsters 2. some are still alive");
                     return false;
                 end
             end
         end
-User:inform("CheckMonsters true");
         treasureMonsters[User.id] = nil;
         return true;
     end
 
     function KillMonsters( User )
-        User:inform("KillMonsters 1");
+
         if not treasureMonsters[User.id] then
-            User:inform("KillMonsters returns true");
+
             return true;
         end
-User:inform("KillMonsters 2");
+
         for i,mon in pairs(treasureMonsters[User.id]) do
-        User:inform("KillMonsters 3");
+
             if isValidChar(mon) then
                 if mon:increaseAttrib("hitpoints",0) > 0 then
-                    User:inform("Killmonsters 2");
+
                     mon:increaseAttrib("hitpoints",-10000);
                 end
             end
         end
-        User:inform("KillMonsters 4");
+
         treasureMonsters[User.id] = nil;
-        User:inform("KillMonsters returns true 2.1");
+
         return true;
     end
 
@@ -313,7 +308,7 @@ User:inform("KillMonsters 2");
 
         worked,mapItem,mapItemNr = checkMap( User, TargetPosition );
         if not worked then
-            --User:inform( "map check failed" );
+
             return false;
         end
 
