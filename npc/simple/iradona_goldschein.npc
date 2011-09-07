@@ -56,7 +56,7 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Elesil Dael'won the informant. Keyphrases: Information, Galmair, building, game.")
+"Help" -> inform("[Game Help] This NPC is Iradona Goldschein the informant. Keyphrases: Information, Galmair, building, game.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Iradona Goldschein die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Galmair, Gebäude, Spiel.")
 
 -- Mandatory: General speech
