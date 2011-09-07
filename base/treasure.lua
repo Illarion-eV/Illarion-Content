@@ -48,7 +48,7 @@ module("base.treasure", package.seeall)
         --Please add any new monsters according to their level!
 
         monsters={};
-      --[[  
+    
         monsters[-1]={252, 271, 274, 278, 382, 582, 592, 622, 991, 1031, 1051, 1071}; --YoungBoar, Wasp, WaspDrone, FireWasp, YoungBull, ViciousDog, HunterBeetle, AngryChicken, Copperling, Bloodslime, Ectoplasm, CrazyChicken
         monsters[0]={252, 271, 274, 278, 382, 582, 592, 622, 991, 1031, 1051, 1071}; --YoungBoar, Wasp, WaspDrone, FireWasp, YoungBull, ViciousDog, HunterBeetle, AngryChicken, Copperling, Bloodslime, Ectoplasm, CrazyChicken
         monsters[1]={252, 271, 274, 278, 382, 582, 592, 622, 991, 1031, 1051, 1071}; --YoungBoar, Wasp, WaspDrone, FireWasp, YoungBull, ViciousDog, HunterBeetle, AngryChicken, Copperling, Bloodslime, Ectoplasm, CrazyChicken
@@ -61,13 +61,6 @@ module("base.treasure", package.seeall)
         monsters[8]={125, 132, 205, 262, 631, 681, 912}; --TerrorEye, EyeofDarkness, Lich, Soulpain, BoneDragon, GoldenBonedragon, GoldGolem  
         monsters[9]={302, 641, 911, }; --SonoftheMountains, BlackDragonskeleton, MeriniumGolem, 
         
-        --]]
-        
-        -- temporary: to check everything
-        for i=-1,9 do
-            monsters[i]={102};
-        end
-
         monster1=monsters[level][math.random(1,table.getn(monsters[level]))];
         monster2=monsters[level-1][math.random(1,table.getn(monsters[level-1]))];
         monster3=monsters[level-1][math.random(1,table.getn(monsters[level-1]))];
