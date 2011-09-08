@@ -33,7 +33,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	  local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem);
 	  if AlchemyPlant then
             -- if there is the data "potionType", it is a completed potion   
-            if (cauldron:getData("potionType") == "") then 
+            if (cauldron:getData("potionType") ~= "") then 
 		     base.common.InformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
