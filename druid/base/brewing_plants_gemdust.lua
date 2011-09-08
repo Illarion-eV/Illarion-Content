@@ -105,23 +105,23 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end
 			
 			if SourceItem.id == 446 then --bluestone
-			   PM = 1
+			   gemDustType = 1
 			elseif SourceItem.id == 447 then  -- ruby
-                   PM = 2
+                   gemDustType = 2
             elseif SourceItem.id == 448 then  -- emerald
-                   PM = 3
+                   gemDustType = 3
             elseif SourceItem.id ==	449 then  -- blackstone
-                   PM = 4
+                   gemDustType = 4
             elseif SourceItem.id == 450 then -- amethyst
-                   PM = 5
+                   gemDustType = 5
             elseif SourceItem.id == 451 then -- topaz
-                   PM = 6
+                   gemDustType = 6
             elseif SourceItem.id == 452 then -- diamond
-                   PM = 7
+                   gemDustType = 7
             end 
             
 			-- change cauldron's data and quality
-			cauldron:setData("potionMarker", PM);
+			cauldron:setData("potionType", gemDustType);
 			cauldron.quality = 999; -- !!!!!!!!!!!!!!!!!!!!!! note to myself (merung): replace it with a proper calculation  !!!!!!!!!!!!!!!!!!
 			world:changeItem(cauldron);
 		    
