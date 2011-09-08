@@ -38,7 +38,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		  return;
 	   end
 	
-	   if (cauldron:getData("potionType") ~= nil then -- a potion
+	   if (cauldron:getData("potionType") ~= nil) then -- a potion
 	    
 		   local potionType = tonumber(cauldron:getData(potionType));
 	       if potionType == 1 then

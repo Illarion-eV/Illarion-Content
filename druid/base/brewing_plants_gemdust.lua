@@ -25,6 +25,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 "Only those who have been introduced to the art of alchemy are able to work here."
 			                );
 		  return;
+	   end
 	   
 	   -- if there is a cauldron, it will become our subject of changes; let's save it
        local cauldron = base.common.GetFrontItem( User );
