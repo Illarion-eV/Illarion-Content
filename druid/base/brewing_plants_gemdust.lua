@@ -31,8 +31,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   
 	   
         -- if there is no cauldronData, we will create one    
-        if not (cauldron:getData("cauldronData") ~= nil) then
-	       cauldron:setData("cauldronData","55555555");
+        if (cauldron:getData("cauldronData") == "") then
+	       cauldron:setData("cauldronData",55555555);
 	       User:inform("nummer 1")
 		end
 
