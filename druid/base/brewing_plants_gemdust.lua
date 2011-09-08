@@ -100,7 +100,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			-- the new data value is being created
 			local newData = druid.base.alchemy.PasteCauldronData(User,dataZList);
 			User:inform("neuer Datawert"..newData)
-			cauldron:setData("cauldronData", ..newData);
+			cauldron:setData("cauldronData",""..newData);
+
 			
 	   
 	        User.movepoints=User.movepoints-30 --Delay of 30 movepoints for scaling skillgain and prevent macro abuse. If you change this, also change the movepoints in the learn(...) line in alchemy.lua
