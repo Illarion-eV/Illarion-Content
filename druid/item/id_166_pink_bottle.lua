@@ -22,7 +22,8 @@ function DrinkPotion(User,SourceItem)
 	end	
 	
 	
-	local dataZList = druid.base.alchemy.SplitBottleData(User,SourceItem.data);
+	local potionData = tonumber(SourceItem:getData(potionData));
+	local dataZList = druid.base.alchemy.SplitBottleData(User,potionData);
 	druid.base.alchemy.generateTasteMessage(User,dataZList);
 
 	
