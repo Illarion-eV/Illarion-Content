@@ -26,7 +26,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	  local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem);
 	  if AlchemyPlant then
             -- data > 99999999 means that it is a completed potion   
-            if cauldron:getData(potionMarker) ~= nil then 
+            if (cauldron:getData(potionMarker) ~= nil) then 
 		     base.common.InformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
@@ -35,9 +35,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end	
 			-- cauldron.data < 11111111 means that there is no stock 
 		    -- therefore, we will cange it to a proper value to start with
-		  --  if cauldronData < 11111111 or cauldronData = nil then
-          --     cauldron:setData("cauldronData", 55555555);
-          --  end
+		    if cauldronData < 11111111 or (cauldronData == nil) then
+               cauldron:setData("cauldronData", 55555555);
+            end
             
 		 -- splitting of plant data and cauldron data (creating a list)
             local Plant = SourceItem.id
@@ -88,7 +88,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	  local GemDust = druid.base.alchemy.CheckIfGemDust(User,SourceItem);
 	  if GemDust then
           -- data > 99999999 means that it is a completed potion   
-            if cauldron:getData(potionMarker) ~= nil then 
+            if (cauldron:getData(potionMarker) ~= nil) then 
 		     base.common.InformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
@@ -96,7 +96,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		        return;
 			end
 			-- no stock, no potion!	
-		    if cauldronData < 11111111 or cauldronData = nil then
+		    if cauldronData < 11111111 or (cauldronData == nil) then
 			   base.common.InformNLS( User,
                 "Im Kessel muss sich ein Sud befinden, um diesen zu verazubern.",
                 "There has to be a stock in the cauldron so that you can enchant it."
