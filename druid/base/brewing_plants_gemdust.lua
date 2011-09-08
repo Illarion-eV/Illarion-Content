@@ -44,7 +44,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		    -- if there is no cauldronData, we will create one    
 			if (cauldron:getData("cauldronData") == "") then
 			   User:inform("nummer 1")
-			   cauldron:setData("cauldronData",55555555);
+			   cauldron:setData("cauldronData","55555555");
 			   User:inform("nummer 2")
 			end
 
@@ -54,7 +54,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		   -- if the cauldronData is < 11111111, which should not be possible anyway
 		   if cauldronData < 11111111 then
 			  User:inform("nummer 3")
-			  cauldron:setData("cauldronData",55555555);
+			  cauldron:setData("cauldronData","55555555");
 			  User:inform("nummer 4")
 		   end
 		 
@@ -76,7 +76,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 "Deine letzte Handlung scheint den Sud zerstört und zu einer Explosion geführt zu haben.",
                 "Your last doing seems to have destroyed the stock and caused an explosion."
 			                );
-			  cauldron:setData("cauldronData", 0);
+			  cauldron:setData("cauldronData", "0");
 			  world:changeItem(cauldron)
 			  User:increaseAttrib("hitpoints", -3000);
 			  return;
@@ -99,7 +99,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			
 			-- the new data value is being created
 			local newData = druid.base.alchemy.PasteCauldronData(User,dataZList);
-			cauldron:setData("cauldronData", 55555555);
+			cauldron:setData("cauldronData", "55555555");
 			world:changeItem(cauldron);
 	   
 	        User.movepoints=User.movepoints-30 --Delay of 30 movepoints for scaling skillgain and prevent macro abuse. If you change this, also change the movepoints in the learn(...) line in alchemy.lua
@@ -126,19 +126,19 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end
 			
 			if SourceItem.id == 446 then --bluestone
-			   gemDustType = 1
+			   gemDustType = "1"
 			elseif SourceItem.id == 447 then  -- ruby
-                   gemDustType = 2
+                   gemDustType = "2"
             elseif SourceItem.id == 448 then  -- emerald
-                   gemDustType = 3
+                   gemDustType = "3"
             elseif SourceItem.id ==	449 then  -- blackstone
-                   gemDustType = 4
+                   gemDustType = "4"
             elseif SourceItem.id == 450 then -- amethyst
-                   gemDustType = 5
+                   gemDustType = "5"
             elseif SourceItem.id == 451 then -- topaz
-                   gemDustType = 6
+                   gemDustType = "6"
             elseif SourceItem.id == 452 then -- diamond
-                   gemDustType = 7
+                   gemDustType = "7"
             end 
             
 			-- change cauldron's data and quality
