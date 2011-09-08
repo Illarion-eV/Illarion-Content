@@ -76,7 +76,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 "Deine letzte Handlung scheint den Sud zerstört und zu einer Explosion geführt zu haben.",
                 "Your last doing seems to have destroyed the stock and caused an explosion."
 			                );
-			  cauldron:setData("cauldronData", "0");
+			  cauldron:setData("cauldronData","0");
 			  world:changeItem(cauldron)
 			  User:increaseAttrib("hitpoints", -3000);
 			  return;
@@ -99,7 +99,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			
 			-- the new data value is being created
 			local newData = druid.base.alchemy.PasteCauldronData(User,dataZList);
-			cauldron:setData("cauldronData", "newData");
+			User:inform("neuer Datawert")
+			cauldron:setData("cauldronData", ""..newData);
 			
 	   
 	        User.movepoints=User.movepoints-30 --Delay of 30 movepoints for scaling skillgain and prevent macro abuse. If you change this, also change the movepoints in the learn(...) line in alchemy.lua
@@ -142,7 +143,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             end 
             
 			-- change cauldron's data and quality
-			cauldron:setData("potionType", gemDustType);
+			cauldron:setData("potionType", ""..gemDustType);
 			cauldron.quality = 999; -- !!!!!!!!!!!!!!!!!!!!!! note to myself (merung): replace it with a proper calculation  !!!!!!!!!!!!!!!!!!
 			world:changeItem(cauldron);
 		    
