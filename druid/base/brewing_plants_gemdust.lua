@@ -100,7 +100,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			-- the new data value is being created
 			local newData = druid.base.alchemy.PasteCauldronData(User,dataZList);
 			User:inform("neuer Datawert"..newData)
+<<<<<<< HEAD
 			cauldron:setData("cauldronData",""..newData);
+=======
+			cauldron:setData("cauldronData", ""..newData);
+>>>>>>> 1013bc83326258e8a7a9154af4b40977de4f288f
 
 			
 	   
