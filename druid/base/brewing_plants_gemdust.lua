@@ -32,8 +32,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   
         -- if there is no cauldronData, we will create one    
         if (cauldron:getData("cauldronData") == "") then
-	       cauldron:setData("cauldronData",55555555);
 	       User:inform("nummer 1")
+		   cauldron:setData("cauldronData","55555555");
+	       User:inform("nummer 2")
 		end
 
 	    local cauldronData = tonumber(cauldron:getData("cauldronData"));
@@ -41,8 +42,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   
 	   -- if the cauldronData is < 11111111, which should not be possible anyway
 	   if cauldronData < 11111111 then
-	      cauldron:setData("cauldronData","55555555");
-	      User:inform("nummer 2")
+	      User:inform("nummer 3")
+		  cauldron:setData("cauldronData","55555555");
+	      User:inform("nummer 4")
 	   end
 	  
 	  -- check if the SourceItem is a herb
