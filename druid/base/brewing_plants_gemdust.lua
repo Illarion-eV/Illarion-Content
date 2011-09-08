@@ -33,7 +33,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         -- if there is no cauldronData, we will create one    
         if (cauldron:getData("cauldronData") == nil) then
 	       cauldron:setData("cauldronData","55555555");
-	    end
+	       User:inform("nummer 1 "..cauldron:getData("cauldronData"))
+		end
 
 	    local cauldronData = tonumber(cauldron:getData("cauldronData"));
 
