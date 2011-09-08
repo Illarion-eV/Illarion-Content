@@ -29,7 +29,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   
 	   -- if there is a cauldron, it will become our subject of changes; let's save it
        local cauldron = base.common.GetFrontItem( User );
-       local cauldronData = tonumber(cauldron:getData(cauldronData));
+            
+	   -- cauldron.data < 11111111 means that there is no stock 
+	   -- therefore, we will cange it to a proper value to start with
+	   if tonumber(cauldron:getData(cauldronData)) < 11111111 or (cauldron:getData("cauldronData") == nil) then
+		  cauldron:setData("cauldronData", 55555555);
+	   end
+	   local cauldronData = tonumber(cauldron:getData(cauldronData));
        
 	  
 	  -- check if the SourceItem is a herb
@@ -43,11 +49,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                        );
 		        return;
 			end	
-			-- cauldron.data < 11111111 means that there is no stock 
-		    -- therefore, we will cange it to a proper value to start with
-		    if cauldronData < 11111111 or (cauldronData == nil) then
-               cauldron:setData("cauldronData", 55555555);
-            end
+			
             
 		 -- splitting of plant data and cauldron data (creating a list)
             local Plant = SourceItem.id
