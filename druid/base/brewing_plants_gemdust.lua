@@ -34,7 +34,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         if (cauldron:getData("cauldronData") == nil) then
 	       cauldron:setData("cauldronData",55555555);
 	    end
+
 	    local cauldronData = tonumber(cauldron:getData("cauldronData"));
+
 	   
 	   -- if the cauldronData is < 11111111, which should not be possible anyway
 	   if cauldronData < 11111111 then
