@@ -17,7 +17,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   if base.common.GetFrontItemID(User) ~= 1008 then
           return;
 	   end  
-       
+       -- if there is a cauldron, it will become our object of changes; let's save it
+       local cauldron = base.common.GetFrontItem( User );
+	   
 	   -- is the char a druid?
 	   if User:getMagicType() ~= 3 then
 	      base.common.InformNLS( User,
@@ -27,20 +29,17 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		  return;
 	   end
 	   
-	   -- if there is a cauldron, it will become our subject of changes; let's save it
-       local cauldron = base.common.GetFrontItem( User );
-            
 	   
-	   -- if there is no Data yet, we will set it to a proper value to start with
-	   if cauldron:getData("cauldronData") == nil) then
-		  tonumber(cauldron:getData(cauldronData));
-	   end
-	   local cauldronData = tonumber(cauldron:getData(cauldronData));
-       
-	   -- < 11111111 means we have it also to a proper value
+        -- if there is no cauldronData, we will create one    
+        if (cauldron:getData("cauldronData") == nil) then
+	       cauldron:setData("cauldronData",55555555);
+	    end
+	    local cauldronData = tonumber(cauldron:getData(cauldronData));
+	   
+	   -- if the cauldronData is < 11111111, which should not be possible anyway
 	   if cauldronData < 11111111 then
-	      tonumber(cauldron:getData(cauldronData));
-	   end  
+	      cauldron:setData("cauldronData",55555555);
+	   end
 	  
 	  -- check if the SourceItem is a herb
 	  local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem);
