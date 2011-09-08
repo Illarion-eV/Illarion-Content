@@ -17,16 +17,25 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   if base.common.GetFrontItemID(User) ~= 1008 then
           return;
 	   end  
-       -- if there is a cauldron, it will become our subject of changes; let's save it
+       
+	   -- is the char a druid?
+	   if User:getMagicType() ~= 3 then
+	      base.common.InformNLS( User,
+                "Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
+                "Only those who have been introduced to the art of alchemy are able to work here."
+			                );
+		  return;
+	   
+	   -- if there is a cauldron, it will become our subject of changes; let's save it
        local cauldron = base.common.GetFrontItem( User );
        local cauldronData = tonumber(cauldron:getData(cauldronData));
-       local potionMarker = cauldron:getData("potionMarker");
+       
 	  
 	  -- check if the SourceItem is a herb
 	  local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem);
 	  if AlchemyPlant then
-            -- data > 99999999 means that it is a completed potion   
-            if (cauldron:getData(potionMarker) ~= nil) then 
+            -- if there is the data "potionType", it is a completed potion   
+            if (cauldron:getData("potionType") ~= nil) then 
 		     base.common.InformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
@@ -88,7 +97,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	  local GemDust = druid.base.alchemy.CheckIfGemDust(User,SourceItem);
 	  if GemDust then
           -- data > 99999999 means that it is a completed potion   
-            if (cauldron:getData(potionMarker) ~= nil) then 
+            if (cauldron:getData("potionType") ~= nil) then 
 		     base.common.InformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
@@ -125,7 +134,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			cauldron.quality = 999; -- !!!!!!!!!!!!!!!!!!!!!! note to myself (merung): replace it with a proper calculation  !!!!!!!!!!!!!!!!!!
 			world:changeItem(cauldron);
 		    
-		    User:increaseAtPos(SourceItem.itempos,-1); -- delete gemdust
+		    
+			User:increaseAtPos(SourceItem.itempos,-1); -- delete gemdust
 		    
 			User.movepoints=User.movepoints-30 --Delay of 30 movepoints for scaling skillgain and prevent macro abuse. If you change this, also change the movepoints in the learn(...) line in alchemy.lua
 		end
