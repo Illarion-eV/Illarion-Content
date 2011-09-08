@@ -29,29 +29,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		  return;
 	   end
 	   
-	   
-        -- if there is no cauldronData, we will create one    
-        if (cauldron:getData("cauldronData") == "") then
-	       User:inform("nummer 1")
-		   cauldron:setData("cauldronData","55555555");
-	       User:inform("nummer 2")
-		end
-
-	    local cauldronData = tonumber(cauldron:getData("cauldronData"));
-
-	   
-	   -- if the cauldronData is < 11111111, which should not be possible anyway
-	   if cauldronData < 11111111 then
-	      User:inform("nummer 3")
-		  cauldron:setData("cauldronData","55555555");
-	      User:inform("nummer 4")
-	   end
-	  
-	  -- check if the SourceItem is a herb
+	   -- check if the SourceItem is a herb used for alchemy
 	  local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem);
 	  if AlchemyPlant then
             -- if there is the data "potionType", it is a completed potion   
-            if (cauldron:getData("potionType") ~= nil) then 
+            if (cauldron:getData("potionType") == "") then 
 		     base.common.InformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
@@ -59,7 +41,25 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		        return;
 			end	
 			
-            
+		    -- if there is no cauldronData, we will create one    
+			if (cauldron:getData("cauldronData") == "") then
+			   User:inform("nummer 1")
+			   cauldron:setData("cauldronData",55555555);
+			   User:inform("nummer 2")
+			end
+
+			local cauldronData = tonumber(cauldron:getData("cauldronData"));
+
+		   
+		   -- if the cauldronData is < 11111111, which should not be possible anyway
+		   if cauldronData < 11111111 then
+			  User:inform("nummer 3")
+			  cauldron:setData("cauldronData",55555555);
+			  User:inform("nummer 4")
+		   end
+		 
+		 
+		 
 		 -- splitting of plant data and cauldron data (creating a list)
             local Plant = SourceItem.id
 			local plusWertPos,minusWertPos = druid.base.alchemy.SplitPlantData(Plant);
@@ -109,7 +109,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	  local GemDust = druid.base.alchemy.CheckIfGemDust(User,SourceItem);
 	  if GemDust then
           -- data > 99999999 means that it is a completed potion   
-            if (cauldron:getData("potionType") ~= nil) then 
+            if (cauldron:getData("potionType") ~= "") then 
 		     base.common.InformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
@@ -117,9 +117,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		        return;
 			end
 			-- no stock, no potion!	
-		    if cauldronData < 11111111 or (cauldronData == nil) then
+		    if cauldronData < 11111111 or (cauldronData == "") then
 			   base.common.InformNLS( User,
-                "Im Kessel muss sich ein Sud befinden, um diesen zu verazubern.",
+                "Im Kessel muss sich ein Sud befinden, um diesen zu verazaubern.",
                 "There has to be a stock in the cauldron so that you can enchant it."
                        );
 		        return;
