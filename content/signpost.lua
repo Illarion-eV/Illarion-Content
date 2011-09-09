@@ -71,7 +71,7 @@ function InitWegweiser()
     AddWeg({134,631,0},"Sir Reginalds Gruft","Sir Reginald's Tomb",6,0);
 
     --NW/Galmair-map
-    AddWeg({365,247,0},"Guilianni-Residenz oder Galmairs Crest","Guilianni Residence or Galmair's Crest",0,0); -- Don's palace
+    AddWeg({365,247,0},"Guilianni-Residenz oder Galmairs Krone","Guilianni Residence or Galmair's Crest",0,0); -- Don's palace
     AddWeg({392,249,0},"","",0,0);-- <Name hier> Gildengebäude -- <name here> guild hall
     AddWeg({376,259,0},"Werkstatt","Workshop",2,0);-- <Name hier> Werkstatt -- <name here> workshop
     AddWeg({401,293,0},"Gasthof zum schläfrigen Bujhaar","Sleepy Bujhaar Inn",2,0);-- <Name hier> Gasthaus -- <name here> Inn
