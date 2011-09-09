@@ -15,8 +15,18 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
    
        local cauldron = base.common.GetFrontItem( User );
        
-	 
-	   if tonumber(cauldron:getData(cauldronData)) < 11111111 or (cauldron:getData(cauldronData) == "") then -- no stock
+	   if (cauldron:getData(cauldronData) == "") then -- no stock
+			base.common.InformNLS( User,
+					"In dem Kessel befindet sich nichts zum Abfüllen.",
+					"There is nothing to be bottled in the cauldron."
+						   );
+			return;
+	   end
+	   
+	   
+	   local cauldronData = tonumber(cauldron:getData(cauldronData));
+	   
+	   if cauldronData < 11111111  -- no stock
 			base.common.InformNLS( User,
 					"In dem Kessel befindet sich nichts zum Abfüllen.",
 					"There is nothing to be bottled in the cauldron."
