@@ -43,9 +43,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			
 		    -- if there is no cauldronData, we will create one    
 			if (cauldron:getData("cauldronData") == "") then
-			   User:inform("nummer 1")
 			   cauldron:setData("cauldronData","55555555");
-			   User:inform("nummer 2")
 			end
 
 			local cauldronData = tonumber(cauldron:getData("cauldronData"));
@@ -53,9 +51,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		   
 		   -- if the cauldronData is < 11111111, which should not be possible anyway
 		   if cauldronData < 11111111 then
-			  User:inform("nummer 3")
 			  cauldron:setData("cauldronData","55555555");
-			  User:inform("nummer 4")
 		   end
 		 
 		 
@@ -98,12 +94,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		    User:increaseAtPos(SourceItem.itempos,-1);
 			
 			-- the new data value is being created
-			User:inform("alter Data "..cauldron:getData("cauldronData"))
+			
 			local newData = druid.base.alchemy.PasteCauldronData(User,dataZList);
-			User:inform("neuer Datawert"..newData)
-            cauldron:setData("cauldronData",""..newData);
-            User:inform("nun ist der data "..cauldron:getData("cauldronData"))
-			world:changeItem(cauldron)
+			cauldron:setData("cauldronData",""..newData);
+            world:changeItem(cauldron)
 			
 			User.movepoints=User.movepoints-30 --Delay of 30 movepoints for scaling skillgain and prevent macro abuse. If you change this, also change the movepoints in the learn(...) line in alchemy.lua
 	   end
