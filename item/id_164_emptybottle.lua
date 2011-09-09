@@ -27,7 +27,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   end
 	   
 	   if cauldronData >= 11111111 and cauldronData <= 99999999 and (cauldron:getData("potionType") == "") then -- a normal stock
-		  SourceItem:setData("stockData",cauldronData)
+		  SourceItem:setData("stockData",""..cauldronData)
 		  SourceItem.id = 331
 		  SourceItem.quality = cauldron.quality
 		  world:changeItem(SourceItem)
