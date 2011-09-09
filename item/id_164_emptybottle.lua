@@ -15,26 +15,15 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
    
        local cauldron = base.common.GetFrontItem( User );
        
-	   if (cauldron:getData(cauldronData) == "") then -- no stock
+	   local cauldronData = tonumber(cauldron:getData("cauldronData"));
+	   
+	   if (cauldron:getData("cauldronData") == "") or cauldronData < 11111111 then -- no stock
 			base.common.InformNLS( User,
 					"In dem Kessel befindet sich nichts zum Abfüllen.",
 					"There is nothing to be bottled in the cauldron."
 						   );
 			return;
 	   end
-	   
-	   
-	   local cauldronData = tonumber(cauldron:getData(cauldronData));
-	   
-	   if cauldronData < 11111111  -- no stock
-			base.common.InformNLS( User,
-					"In dem Kessel befindet sich nichts zum Abfüllen.",
-					"There is nothing to be bottled in the cauldron."
-						   );
-			return;
-	   end
-	
-       local cauldronData = tonumber(cauldron:getData(cauldronData));
 	   
 	   if cauldronData >= 11111111 and cauldronData <= 99999999 and (cauldron:getData("potionType") == "") then -- a normal stock
 		  SourceItem:setData("stockData",cauldronData)
