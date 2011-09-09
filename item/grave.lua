@@ -6,6 +6,16 @@ require("content.grave")
 module("item.grave", package.seeall)
 
 -- UPDATE common SET com_script='item.grave' WHERE com_itemid IN (337, 519, 520, 521);
+  
+GraveListGerman = 
+{
+"PLACEHOLDER.",
+};
+
+GraveListEnglish = 
+{
+"PLACEHOLDER.",
+};
 
 function LookAtItemIdent(User,Item)
     local test = "no value";
@@ -50,6 +60,10 @@ function LookAtItemIdent(User,Item)
 	if not found then
         world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
     end
+    --[[if not found then
+        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(GraveListGerman))+1;
+        world:itemInform( User, Item, base.common.GetNLS(User, GraveListGerman[val], GraveListEnglish[val]) );
+	end]]-- 
 
 --		User:inform("in LookAtItem of base_wegweiser.lua");
 		User:inform(test);

@@ -7,6 +7,17 @@ module("item.pillar", package.seeall)
 
 -- UPDATE common SET com_script='item.pillar' WHERE com_itemid IN (272, 440, 441, 442, 443, 467, 692, 693, 694, 695, 2805);
 
+PillarListGerman = 
+{
+"PLACEHOLDER.",
+};
+
+PillarListEnglish = 
+{
+"PLACEHOLDER.",
+};
+
+
 function Init()
 
     if InitDone then
@@ -164,6 +175,10 @@ function LookAtItem(User,Item)
 	if not found then
         world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
     end
+    --[[if not found then
+        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PillarListGerman))+1;
+        world:itemInform( User, Item, base.common.GetNLS(User, PillarListGerman[val], PillarListEnglish[val]) );
+	end]]-- 
 
 --		User:inform("in LookAtItem of base_wegweiser.lua");
 		User:inform(test);

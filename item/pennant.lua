@@ -6,6 +6,17 @@ require("content.pennant")
 module("item.pennant", package.seeall)
 
 -- UPDATE common SET com_script='item.pennant' WHERE com_itemid IN (2046, 2069, 512, 2924, 2925, 2926, 2927);
+ 
+PennantListGerman = 
+{
+"PLACEHOLDER.",
+};
+
+PennantListEnglish = 
+{
+"PLACEHOLDER.",
+};
+
 
 function LookAtItemIdent(User,Item)
     local test = "no value";
@@ -50,6 +61,10 @@ function LookAtItemIdent(User,Item)
 	if not found then
         world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
     end
+    --[[if not found then
+        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(TreeListGerman))+1;
+        world:itemInform( User, Item, base.common.GetNLS(User, PennantListGerman[val], PennantListEnglish[val]) );
+	end]]-- 
 
 --		User:inform("in LookAtItem of base_wegweiser.lua");
 		User:inform(test);

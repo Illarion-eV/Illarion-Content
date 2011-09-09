@@ -7,6 +7,17 @@ module("item.tree", package.seeall)
 
 -- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (308, 586, 1804, 1807, 1808, 1809, 1817);
 
+TreeListGerman = 
+{
+"PLACEHOLDER.",
+};
+
+TreeListEnglish = 
+{
+"PLACEHOLDER.",
+};
+
+
 function LookAtItemIdent(User,Item)
     local test = "no value";
 	if (first==nil) then
@@ -50,7 +61,11 @@ function LookAtItemIdent(User,Item)
 	if not found then
         world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
     end
-
+    --[[if not found then
+        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(TreeListGerman))+1;
+        world:itemInform( User, Item, base.common.GetNLS(User, TreeListGerman[val], TreeListEnglish[val]) );
+	end]]-- 
+	
 --		User:inform("in LookAtItem of base_wegweiser.lua");
 		User:inform(test);
 end
