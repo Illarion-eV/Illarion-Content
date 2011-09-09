@@ -48,15 +48,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
 			local cauldronData = tonumber(cauldron:getData("cauldronData"));
 
-		   
-		   -- if the cauldronData is < 11111111, which should not be possible anyway
-		   if cauldronData < 11111111 then
-			  cauldron:setData("cauldronData","55555555");
-		   end
-		 
-		 
-		 
-		 -- splitting of plant data and cauldron data (creating a list)
+		    -- splitting of plant data and cauldron data (creating a list)
             local Plant = SourceItem.id
 			local plusWertPos,minusWertPos = druid.base.alchemy.SplitPlantData(Plant);
             local dataZList = druid.base.alchemy.SplitCauldronData(User,cauldronData);
@@ -72,7 +64,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 "Deine letzte Handlung scheint den Sud zerstört und zu einer Explosion geführt zu haben.",
                 "Your last doing seems to have destroyed the stock and caused an explosion."
 			                );
-			  cauldron:setData("cauldronData","0");
+			  cauldron:setData("cauldronData","");
 			  world:changeItem(cauldron)
 			  User:increaseAttrib("hitpoints", -3000);
 			  return;

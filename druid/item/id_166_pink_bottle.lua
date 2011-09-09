@@ -1,4 +1,4 @@
--- Druidsystem: poison
+-- Druidsystem: potion
 
 require("base.common")
 require("druid.base.alchemy")

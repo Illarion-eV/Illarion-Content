@@ -1,6 +1,6 @@
 -- Schaf melken
 -- Nop
-
+-- Merung 2011: fill stock or potion into bottle
 -- UPDATE common SET com_script='item.id_164_emptybottle' WHERE com_itemid IN (164);
 
 require("base.common")
@@ -18,7 +18,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   local cauldronData = tonumber(cauldron:getData("cauldronData"));
 	   
 
-	   if (cauldron:getData("cauldronData") == "") or cauldronData < 11111111 then -- no stock
+	   if (cauldron:getData("cauldronData") == "")  -- no stock
 					base.common.InformNLS( User,
 					"In dem Kessel befindet sich nichts zum Abfüllen.",
 					"There is nothing to be bottled in the cauldron."
@@ -26,7 +26,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			return;
 	   end
 	   
-	   if cauldronData >= 11111111 and cauldronData <= 99999999 and (cauldron:getData("potionType") == "") then -- a normal stock
+	   if (cauldron:getData("cauldronData") ~= "") and (cauldron:getData("potionType") == "") then -- a normal stock
 		  SourceItem:setData("stockData",""..cauldronData)
 		  SourceItem.id = 331
 		  SourceItem.quality = cauldron.quality
