@@ -32,10 +32,10 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 210, 105, 30
-colorSkin = 255, 248, 220
+hairID = 5
+beardID = 2
+colorHair = 255, 215, 0
+colorSkin = 238, 203, 173
 itemHead = 0
 itemChest = 800
 itemCoat = 0
@@ -108,24 +108,26 @@ itemShoes = 369
 "Markt" -> ""
 "temple" -> ""
 "Tempel" -> ""
+"teleport", english -> ""
+"teleport" -> ""
 
 -- Faction stuff
-"archmage" -> ""
-"Erzmagier" -> ""
-"Elvaine", "Morgan", english -> ""
-"Elvaine", "Morgan" -> ""
-"Runewick", english -> ""
-"Runewick" -> ""
-"Valerio", "Guilianni", "Don", english -> ""
-"Valerio", "Guilianni", "Don" -> ""
-"Galmair", english -> ""
-"Galmair" -> ""
-"Queen" -> ""
-"Königin" -> ""
-"rosaline", "edwards", english -> ""
-"rosaline", "edwards" -> ""
-"Cadomyr", english -> ""
-"Cadomyr" -> ""
+"archmage" -> "Arrgh! The ruler of Runewick and I do not care about him! Just bring his head to the Don."
+"Erzmagier" -> "Arrgh! Der Herrscher von Runewick und der interessiert mich auch nicht. Bring einfach seinen Kopf dem Don."
+"Elvaine", "Morgan", english -> "Arrgh! The ruler of Runewick and I do not care about him! Just bring his head to the Don."
+"Elvaine", "Morgan" -> "Arrgh! Der Herrscher von Runewick und der interessiert mich auch nicht. Bring einfach seinen Kopf dem Don."
+"Runewick", english -> "That's is the Southeast. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southeast. Look for signposts. But be careful. Dangerous way, use better the teleporter outside the town.","Don't waste your time there, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find some there."
+"Runewick" -> "Das liegt im Südosten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.","Verschwende deine Zeit dort nicht, aber wenn du Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst du dort welche finden."
+"Valerio", "Guilianni", "Don", english -> "Our ruler. You can find him at his residence in the Galmair's Crest. Just follow the road to the Well of Dreams."
+"Valerio", "Guilianni", "Don" -> "Unser Herrscher. Du findest ihn in seiner Residenz in Galmairs Krone. Folge einfach der Straße zur Quelle der Träume."
+"Galmair", english -> "That is here and if you want to know more about it ask me for further information.","Here at Galmair, we are interested in Blacksmiths, Brick makers, Masons, Miners, and Brewers."
+"Galmair" -> "Das ist hier und wenn du mehr darüber wissen möchtest, dann frag mich nach weiterer Information.","Hier in Galmair suchen wir immer nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
+"Queen" -> "#me shudders 'This ugly face is rules Cadomyr. If you bring her hair to the Don he will probably like that.'"
+"Königin" -> "#me schaudert 'Dieses hässliche Gesicht regiert Cadomyr. Wenn du ihr Haar dem Don bringst wird er das viellecht mögen.'"
+"rosaline", "edwards", english -> "#me shudders 'This ugly face is rules Cadomyr. If you bring her hair to the Don he will probably like that.'"
+"rosaline", "edwards" -> "#me schaudert 'Dieses hässliche Gesicht regiert Cadomyr. Wenn du ihr Haar dem Don bringst wird er das viellecht mögen.'"
+"Cadomyr", english -> "That's is the Southwest. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southwest. Look for signposts. But be careful. Dangerous way, use better Or use the teleporter outside the town.","Don't waste your time there, but if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders you will find some there."
+"Cadomyr" -> "Das liegt im Südwesten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.","Verschwende deine Zeit dort nicht, aber wenn du Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer suchst, kannst du dort welche finden."
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I don't sell or buy anything. But we have a marketplace. You can try your luck there."

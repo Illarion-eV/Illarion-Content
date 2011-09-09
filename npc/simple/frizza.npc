@@ -100,22 +100,22 @@ itemShoes = 369
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Faction stuff
-"archmage" -> ""
-"Erzmagier" -> ""
-"Elvaine", "Morgan", english -> ""
-"Elvaine", "Morgan" -> ""
-"Runewick", english -> ""
-"Runewick" -> ""
-"Valerio", "Guilianni", "Don", english -> ""
-"Valerio", "Guilianni", "Don" -> ""
-"Galmair", english -> ""
-"Galmair" -> ""
-"Queen" -> ""
-"Königin" -> ""
-"rosaline", "edwards", english -> ""
-"rosaline", "edwards" -> ""
-"Cadomyr", english -> ""
-"Cadomyr" -> ""
+"archmage" -> "Morgan? Zzzz. That isss an evil sorcerer in Runewick and rulesss there."
+"Erzmagier" -> "Morgan? Zzzz. Dasss issst ein bössser Zauberer in Runewick der auch dort herrssscht."
+"Elvaine", "Morgan", english -> "Morgan? Zzzz. That isss an evil sorcerer in Runewick and rulesss there."
+"Elvaine", "Morgan" -> "Morgan? Zzzz. Dasss issst ein bössser Zauberer in Runewick der auch dort herrssscht."
+"Runewick", english -> "Runewick? It isss in the Eassst. Crosss Katanbi Dessert, get behind Border Mountainsss to the other ssside of the Snakehead Bay. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.","That isss a wired place, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find sssome there."
+"Runewick" -> "Runewick? Dasss issst im Osssten. Durchquäre die Katanbi Wüste, gehe hinter dasss Grenzberge zu der anderen Ssseite der Ssschlangenkopf Bucht. Ssschau nach Wegssschildern. Issst aber ein gefährlicher Weg. Verwende bessser den Teleporter.","Dasss issst ein verrückter Platz, aber wenn man Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst man dort welche finden."
+"Valerio", "Guilianni", "Don", english -> "Don? Zzzz. That thief rulesss in Galmair."
+"Valerio", "Guilianni", "Don" -> "Don? Zzzz. Diessser Dieb herrssscht in Galmair."
+"Galmair", english -> "Galmair? It isss in the North. Crosss Katanbi Dessert, get behind Border Mountainsss, and then walk to the North. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.","That isss a sssneaky place, but if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers you will find sssome there."
+"Galmair" -> "Galmair? Dasss issst im Norden. Durchquäre die Katanbi Wüste, gehe hinter dasss Grenzberge und dann in den Norden. Ssschau nach Wegssschildern. Issst aber ein gefährlicher Weg. Verwende bessser den Teleporter.","Dasss issst ein hinterhältiger Platz, aber wenn man einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer sssuchst, findessst man den dort."
+"Queen" -> "Our nice Queen Rosaline Edwards hasss been ruling for many years know. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in."
+"Königin" -> "Unsere nette Königin Rosaline Edwards herrssscht nun ssschon ssseit einigen Jahren. Sssie ist mutig, ssschlau und ssschön. Man findet sssie in ihrem Palassst auf der anderen Ssseite der Ssstadt. Einfach rein gehen."
+"rosaline", "edwards", english -> "Our nice Queen Rosaline Edwards has been ruling for many years know. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in."
+"rosaline", "edwards" -> "Unsere nette Königin Rosaline Edwards herrssscht nun ssschon ssseit einigen Jahren. Sssie ist mutig, ssschlau und ssschön. Man findet sssie in ihrem Palassst auf der anderen Ssseite der Ssstadt. Einfach rein gehen."
+"Cadomyr", english -> "That isss here and if you want to know more about it asssk me for further information.","Here at Cadomyr, we are interesssted in Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders."
+"Cadomyr" -> "Das issst hier und wenn du mehr darüber wisssen möchtest, dann frag mich nach weiterer Information.","Hier in Cadomyr sssuchen wir immer nach Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer."
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I don't sssell or buy anything. But we have a marketplace. You can try your luck there."
@@ -170,7 +170,7 @@ itemShoes = 369
 --"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gobaith
-"Gobaith", "Gobiath", english -> "I have never heared that name."
+"Gobaith", "Gobiath", english -> "I have never heard that name."
 "Gobaith", "Gobiath" -> "Ich habe diesssen Namen nie gehört."
 
 -- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
