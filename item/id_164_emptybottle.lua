@@ -14,9 +14,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
    if base.common.GetFrontItemID(User) == 1008 then   -- is the char infront of a culdron?
    
        local cauldron = base.common.GetFrontItem( User );
-       local cauldronData = tonumber(cauldron:getData(cauldronData));
+       
 	 
-	   if cauldronData < 11111111 or (cauldronData == nil) then -- no stock
+	   if tonumber(cauldron:getData(cauldronData)) < 11111111 or (cauldron:getData(cauldronData) == "") then -- no stock
 			base.common.InformNLS( User,
 					"In dem Kessel befindet sich nichts zum Abfüllen.",
 					"There is nothing to be bottled in the cauldron."
@@ -24,7 +24,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			return;
 	   end
 	
-       if cauldronData >= 11111111 and cauldronData <= 99999999 and (cauldron:getData("potionType") == "") then -- a normal stock
+       local cauldronData = tonumber(cauldron:getData(cauldronData));
+	   
+	   if cauldronData >= 11111111 and cauldronData <= 99999999 and (cauldron:getData("potionType") == "") then -- a normal stock
 		  SourceItem:setData("stockData",cauldronData)
 		  SourceItem.id = 331
 		  SourceItem.quality = cauldron.quality
