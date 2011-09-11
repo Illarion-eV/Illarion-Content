@@ -42,20 +42,20 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	   if (cauldron:getData("potionType") ~= "") then -- a potion
 	    
-		   local potionType = tonumber(cauldron:getData(potionType));
-	       if potionType == 1 then
+		   local potionKind = tonumber(cauldron:getData(potionType));
+	       if potionKind == 1 then
 	          PotionId = 165;
-	       elseif potionType == 2 then
+	       elseif potionKind == 2 then
 	          PotionId = 59;
-           elseif potionType == 3 then
+           elseif potionKind == 3 then
 	          PotionId =  327;
-	       elseif potionType == 4 then
+	       elseif potionKind == 4 then
 	          PotionId =  329;
-	       elseif potionType == 5 then
+	       elseif potionKind == 5 then
 	          PotionId =  166;
-	       elseif potionType == 6 then
+	       elseif potionKind == 6 then
 	          PotionId =  328;
-           elseif potionType == 7 then
+           elseif potionKind == 7 then
 	          PotionId =  330;
            end
 	   
