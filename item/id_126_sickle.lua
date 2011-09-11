@@ -9,8 +9,8 @@ module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- function changes potion Data; only for testing
-	local potion? = base.common.GetFrontItemID(User);
-	if potion? == 166 or potion? == 329 or potion? == 165 or potion? == 330 or potion? == 59 or potion? == 327 or potion? == 328 or potion? == 167 then
+	local potionA = base.common.GetFrontItemID(User);
+	if potionA == 166 or potionA == 329 or potionA == 165 or potionA == 330 or potionA == 59 or potionA == 327 or potionA == 328 or potionA == 167 then
 	   local potion = base.common.GetFrontItem( User );
 	   local newDataPotion = User.lastSpokenText;
 	   potion:setData("potionData",""..newDataPotion);
