@@ -106,7 +106,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		        return;
 			end
 			-- no stock, no potion!	
-		    if (cauldron:getData("cauldronData") == "" then
+		    if (cauldron:getData("cauldronData") == "") then
 			   base.common.InformNLS( User,
                 "Im Kessel muss sich ein Sud befinden, um diesen zu verazaubern.",
                 "There has to be a stock in the cauldron so that you can enchant it."
