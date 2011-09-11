@@ -76,6 +76,30 @@ function DrinkPotion(User,SourceItem)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 
+	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
+	   local cauldron = base.common.GetFrontItem( User );
+	
+	   if tonumber(cauldron:getData("cauldronData") ~= "") then 
+	      base.common.InformNLS( User,
+					"In dem Kessel befindet sich bereits etwas. Du kannst nichts mehr hinzutun.",
+					"There is already something in the cauldron. You cannot add something else to it."
+						   );
+	       return;
+      
+	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
+	      cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
+	      cauldron.quality = SourceItem.quality
+		  world:changeItem(cauldron)
+		  User:talkLanguage(Character.say, Player.german, "#me kippt einen Trank in den Kessel.");
+          User:talkLanguage(Character.say, Player.english, "#me pours a potion into the cauldron.");
+		  world:makeSound(10,User.pos);
+		  world:erase(SourceItem,1);
+		  User:createItem(164, 1, 333, 0);
+	      User.movepoints=User.movepoints-20;
+		  return;
+	   end  
+	end
+	
 	if (ltstate == Action.abort) then
        User:talkLanguage(User.say, Player.german, "#me verschüttet den Trank.");
         User:talkLanguage(User.say, Player.english, "#me spills the potion.");

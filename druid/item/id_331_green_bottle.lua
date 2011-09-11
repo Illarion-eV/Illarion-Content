@@ -29,8 +29,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	      cauldron:setData("cauldronData",""..SourceItem:getData("stockData"))
 	      cauldron.quality = SourceItem.quality
 		  world:changeItem(cauldron)
-		  User:talkLanguage(Character.say, Player.german, "#me kippt eienn Sud in den Kessel.");
-          User:talkLanguage(Character.say, Player.english, "#me pours a stock tinto the cauldron.");
+		  User:talkLanguage(Character.say, Player.german, "#me kippt einen Sud in den Kessel.");
+          User:talkLanguage(Character.say, Player.english, "#me pours a stock into the cauldron.");
 		  world:makeSound(10,User.pos);
 		  world:erase(SourceItem,1);
 		  User:createItem(164, 1, 333, 0);
@@ -52,7 +52,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         end
 	    User.movepoints=User.movepoints-20;
 	end
-
+end
 function LookAtItem(User,Item)
          world:itemInform( User, Item, base.common.GetNLS( User,
         "Du siehst ein Flaschenetikett mit der Aufschrift: \"Kräutersud\"",
