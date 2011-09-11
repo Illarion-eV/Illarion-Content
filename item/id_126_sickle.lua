@@ -8,6 +8,17 @@ require("base.common")
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	-- function changes potion Data; only for testing
+	local potion? == base.common.GetFrontItemID(User);
+	if potion? == 166 or potion? == 329 or potion? == 165 or potion? == 330 or potion? == 59 or potion? == 327 or potion? == 328 or potion? == 167 then
+	   local potion = base.common.GetFrontItem( User );
+	   local newDataPotion = User.lastSpokenText;
+	   potion:setData("potionData",""..newDataPotion);
+	   User:inform("potionData gesetzt auf "..potion:getData("potionData"));
+	   return;
+	end
+	-- function end
+	
 	content.gathering.InitGathering();
 	InitHerblore();
 	
