@@ -58,4 +58,3 @@ function LookAtItem(User,Item)
         "Du siehst ein Flaschenetikett mit der Aufschrift: \"Kräutersud\"",
         "You look at a sticker telling: \"Herbage Broth\"" ) );
   end   
-end
