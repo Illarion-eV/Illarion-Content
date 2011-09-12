@@ -92,6 +92,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 
 	if (SourceItem:getData("potionData") == "")  then
 		User:inform("kein potionData")
+		User:inform("data? hier: "..SourceItem:getData("potionData"))
 		return; -- no potion, maybe ink or something else
 	elseif potionData == 71796337 then -- Unsichtbarkeitstrank
 		User:inform("Deactivated due to technical issues.");
@@ -234,7 +235,7 @@ function LookAtItem(User,Item)
         EtikettEn = "Shape Shifter Potion gnome"
     else
 
-      if (Item:getData("potionData") == "") == 0 then
+      if (Item:getData("potionData") == "") then
         EtikettDe = "Tinte"
         EtikettEn = "Ink"
       elseif (Item:getData("potionData") == "1") then
