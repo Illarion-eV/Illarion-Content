@@ -65,30 +65,30 @@ end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
 
-    if (ltstate == Action.abort) then
-        User:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
-        User:talkLanguage(Character.say, Player.english, "#me spills the potion.");
-        world:erase(SourceItem,1);
-        -- Chance for a new bottle 19/20
-        if(math.random(20) == 1) then
-            base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
-        else
-            User:createItem(164, 1, 333, 0);
-        end
-        return
-    end
+    --if (ltstate == Action.abort) then
+       -- User:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
+       -- User:talkLanguage(Character.say, Player.english, "#me spills the potion.");
+        --world:erase(SourceItem,1);
+      --  -- Chance for a new bottle 19/20
+       -- if(math.random(20) == 1) then
+       --     base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
+       -- else
+       --     User:createItem(164, 1, 333, 0);
+       -- end
+      --  return
+   -- end
 
-    if User.attackmode then
-        base.common.InformNLS(User, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
-		return
-	end
+   -- if User.attackmode then
+    --    base.common.InformNLS(User, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
+	--	return
+	--end
 	
-    if (ltstate == Action.none) then
-        User:startAction(20,0,0,12,25);
-        User:talkLanguage(Character.say, Player.german, "#me beginnt einen Trank zu trinken.");
-        User:talkLanguage(Character.say, Player.english, "#me starts to drink a potion.");
-        return
-    end
+    --if (ltstate == Action.none) then
+    --    User:startAction(20,0,0,12,25);
+    --    User:talkLanguage(Character.say, Player.german, "#me beginnt einen Trank zu trinken.");
+    --    User:talkLanguage(Character.say, Player.english, "#me starts to drink a potion.");
+    --    return
+   -- end
 
 	if (SourceItem:getData("potionData") == "")  then
 		User:inform("kein potionData")
@@ -230,10 +230,10 @@ function LookAtItem(User,Item)
         EtikettDe = "Gestaltenwandler Gnom"
         EtikettEn = "Shape Shifter Potion gnome"
     else
-      if Item.data == 0 then
+      if (SourceItem:getData("potionData") == "") == 0 then
         EtikettDe = "Tinte"
         EtikettEn = "Ink"
-      else
+      elseif (SourceItem:getData("potionData") == "1") then
         EtikettDe = "Janus-Trunk"
         EtikettEn = "Janus Potion"
       end
