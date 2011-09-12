@@ -27,9 +27,9 @@ function DoDruidism(User,SourceItem)
      firsttime = 1
   end
   old_race = User:getRace()
+  potionData = tonumber(SourceItem:getData("potionData"));
   for i=1,table.getn(ListCodecs) do
-     local potionData = tonumber(SourceItem:getData("potionData"));
-	 if potionData == ListCodecs[i] then
+     if potionData == ListCodecs[i] then
 
 --      Hier kommt die Sache mit dem Langzeiteffekt:
         find, myEffect = User.effects:find(329);
