@@ -29,7 +29,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 	          Effect:addValue("counterBlack",counterBlack)
 	       end
 		
-		   if counterBlack = 0 then
+		   if counterBlack == 0 then
 		        find,old_race = Effect:findValue("old_race")
 	            if find then
 		         -- transformation back into the old race
