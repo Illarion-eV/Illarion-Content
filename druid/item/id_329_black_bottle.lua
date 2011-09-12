@@ -230,6 +230,7 @@ function LookAtItem(User,Item)
         EtikettDe = "Gestaltenwandler Gnom"
         EtikettEn = "Shape Shifter Potion gnome"
     else
+
       if (Item:getData("potionData") == "") == 0 then
         EtikettDe = "Tinte"
         EtikettEn = "Ink"
