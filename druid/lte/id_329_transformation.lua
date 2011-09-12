@@ -34,7 +34,8 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 	            if find then
 		         -- transformation back into the old race
 		          User:setAttrib("racetyp",old_race)      
-	            else
+	              User:inform("alte Rasse")
+				else
 		          User:inform("LTE-Error 1: please call dev")     
 	            end
 	            world:gfx(45,User.pos)  
@@ -45,7 +46,8 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 	               return false
 	           else 
                    cooldownBlack = cooldownBlack - 1;
-                   Effect:addValue("cooldownBlack",cooldownBlack)
+                   User:inform("cooldown - 1 = "..cooldownBlack)
+				   Effect:addValue("cooldownBlack",cooldownBlack)
 			       Effect.nextCalled = 50
 			       return true
 	           end
