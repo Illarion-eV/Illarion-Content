@@ -17,7 +17,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
-	
+	   User:inform("data im kessel "..cauldron:getData("cauldronData"))
 	   if (cauldron:getData("cauldronData") ~= "") then 
 	      base.common.InformNLS( User,
 					"In dem Kessel befindet sich bereits etwas. Du kannst nichts mehr hinzutun.",
