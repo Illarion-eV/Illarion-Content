@@ -118,8 +118,9 @@ end
 --
 function LookAtItem(User,Item)
     
+
 	local potionData = tonumber(Item:getData("potionData"));
-    
+
 	if Item.data == 77744151 then
         EtikettDe = "Gestaltenwandler Mensch"
         EtikettEn = "Shape Shifter Potion Human"
