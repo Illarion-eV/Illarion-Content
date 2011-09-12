@@ -8,29 +8,31 @@ module("druid.item.id_329_black_bottle", package.seeall, package.seeall(druid.ba
 
 -- UPDATE common SET com_script='druid.item.id_329_black_bottle' WHERE com_itemid = 329;
 
-function DoDruidism(Character,SourceItem)
-
-	if (druid.base.alchemy.checkPotionSpam(Character)) then
-		base.common.InformNLS(Character, "Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass Tränke vorrübergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
-		return;
-	end
+function DoDruidism(User,SourceItem)
+   
+   if User.effects:find(329) then
+	   User:inform("lte noch aktiv; wird entfernt");   
+	   User.effects:removeEffect(329)
+	   --return;
+	end	
 
 --   Verwandlungszauber
   if firsttime == nil then
      ListCodecs = {}
      ListRaces  = {}
      ListRaceId = {}
-     ListCodecs = {77744151,18784522,32699619,54876565,61348438,71378653,58548893,45634355,75529399,44554428,18861363,26562174,47418515,58151138,22551786,72225438,99992352,38114786,95371655,71796337,87611881,31231973,14523375,46852135,37531813,85293266,86659455,51464953,97171535,77577615,11695753,62545579,81519773,95153618,52728756,91986793,19831914}
+     ListCodecs = {77744151,65545555,32699619,54876565,61348438,71378653,58548893,45634355,75529399,44554428,18861363,26562174,47418515,58151138,22551786,72225438,99992352,38114786,95371655,71796337,87611881,31231973,14523375,46852135,37531813,85293266,86659455,51464953,97171535,77577615,11695753,62545579,81519773,95153618,52728756,91986793,19831914}
      ListRaces  = {"Mensch","Zwerg","Halbling","Elb","Orc","Echse","Gnom","Oger","Mumie","Skelett","Beholder","Fliege","Schaf" ,"Spinne","Rotes Skelett","Rotwurm","Big Demon","Skorpion","Schwein","Unsichtbar","Schï¿½del","Wespe","Waldtroll","Geister-Skelett","SteinGolem","Goblin","Gnoll","Drache", "Drow","Drow-Frau","Kleiner Dämon","Kuh","Hirsch","Wolf","Panther","Hase","Gnom"}
      ListRaceId = {0,1,2,3,4,5,6,9,10,11,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,44}
      firsttime = 1
   end
-  old_race = Character:getRace()
+  old_race = User:getRace()
   for i=1,table.getn(ListCodecs) do
-     if SourceItem.data == ListCodecs[i] then
+     local potionData = tonumber(SourceItem:getData("potionData"));
+	 if potionData == ListCodecs[i] then
 
 --      Hier kommt die Sache mit dem Langzeiteffekt:
-        find, myEffect = Character.effects:find(329);
+        find, myEffect = User.effects:find(329);
 
         if not find then
 
@@ -42,41 +44,42 @@ function DoDruidism(Character,SourceItem)
            myEffect:addValue("new_race",ListRaceId[i])
 --         Verwandlung ausfï¿½hren
 
-					 world:gfx(5,Character.pos)
-           Character:setAttrib("racetyp",ListRaceId[i])
-           old_hp = Character:increaseAttrib("hitpoints",0)
-           Character:increaseAttrib("hitpoints",-10000)
-           Character:increaseAttrib("hitpoints",old_hp)
-           Character:move(6,true)
+					 world:gfx(5,User.pos)
+           User:setAttrib("racetyp",ListRaceId[i])
+           old_hp = User:increaseAttrib("hitpoints",0)
+           User:increaseAttrib("hitpoints",-10000)
+           Userr:increaseAttrib("hitpoints",old_hp)
+           User:move(6,true)
 
 --         Laufzeit nach Quality berechnen
-           myEffect:addValue("zaehler",Sourceitem.id_quality)
+           myEffect:addValue("counterBlack",5)
+           myEffect:addValue("cooldownBlack",24)
 
 --         Effekt an Char binden
-           Character.effects:addEffect(myEffect);
+           User.effects:addEffect(myEffect);
         end
      end
   end
 
 end
 
-function UseItem(Character,SourceItem,TargetItem,Counter,Param)
+function UseItem(User,SourceItem,TargetItem,Counter,Param)
 
     if (ltstate == Action.abort) then
-        Character:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
-        Character:talkLanguage(Character.say, Player.english, "#me spills the potion.");
+        User:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
+        User:talkLanguage(Character.say, Player.english, "#me spills the potion.");
         world:erase(SourceItem,1);
         -- Chance for a new bottle 19/20
         if(math.random(20) == 1) then
-            base.common.InformNLS(Character, "Die Flasche zerbricht.", "The bottle breaks.");
+            base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
         else
-            Character:createItem(164, 1, 333, 0);
+            User:createItem(164, 1, 333, 0);
         end
         return
     end
 
-    if Character.attackmode then
-        base.common.InformNLS(Character, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
+    if User.attackmode then
+        base.common.InformNLS(User, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
 		return
 	end
 	
@@ -87,27 +90,27 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
         return
     end
 
-	if SourceItem.data == 0 then
-		return; -- vermutlich Tinte
-	elseif SourceItem.data == 71796337 then -- Unsichtbarkeitstrank
-		Character:inform("Deactivated due to technical issues.");
+	if (SourceItem:getData("potionData") == "")  then
+		return; -- no potion, maybe ink or something else
+	elseif potionData == 71796337 then -- Unsichtbarkeitstrank
+		User:inform("Deactivated due to technical issues.");
 		return;
 	else
 
 		world:erase(SourceItem,1);
-		world:gfx(5,Character.pos);
+		world:gfx(5,User.pos);
 
 		-- Hier verweisen wir auf die Wirkung
 		-- Korrektur von Nitram, erst Flasche löschen, dann Verwandeln, weil beim Verwandeln die Flasche gedropped wird.
-		DoDruidism(Character,SourceItem)
+		DoDruidism(User,SourceItem)
 
 		if( math.random( 20 ) <= 1 ) then
-			base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
+			base.common.InformNLS( User, "Die Flasche zerbricht.", "The bottle breaks.");
 		else
-			Character:createItem( 164, 1, 333,0);
+			User:createItem( 164, 1, 333,0);
 		end
 
-		Character.movepoints=Character.movepoints-50;
+		User.movepoints=User.movepoints-50;
   end
 end
 
@@ -117,7 +120,7 @@ function LookAtItem(User,Item)
     if Item.data == 77744151 then
         EtikettDe = "Gestaltenwandler Mensch"
         EtikettEn = "Shape Shifter Potion Human"
-    elseif  Item.data == 18784522 then
+    elseif  potionData == 65545555 then
         EtikettDe = "Gestaltenwandler Zwerg"
         EtikettEn = "Shape Shifter Potion Dwarf"
     elseif  Item.data == 32699619 then
