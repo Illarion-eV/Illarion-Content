@@ -234,7 +234,7 @@ function LookAtItem(User,Item)
         EtikettEn = "Shape Shifter Potion gnome"
     else
 
-      if (Item:getData("potionData") == "") == 0 then
+      if (Item:getData("potionData") == "") then
         EtikettDe = "Tinte"
         EtikettEn = "Ink"
       elseif (Item:getData("potionData") == "1") then
