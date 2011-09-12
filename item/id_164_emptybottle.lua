@@ -61,7 +61,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   
 	   
 	       SourceItem:setData("potionData",""..cauldronData)
+<<<<<<< HEAD
 	       SourceItem.id = potionId
+=======
+	       SourceItem.id = PotionId
+>>>>>>> 105e8dbfd3b7b0d123a998da74d8aac9e3ac92df
 	       SourceItem.quality = cauldron.quality
 	       world:changeItem(SourceItem)
 	   
