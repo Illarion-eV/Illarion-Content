@@ -26,16 +26,16 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	       return;
       
 	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
-	      cauldron:setData("cauldronData",""..SourceItem:getData("stockData"))
-	      cauldron.quality = SourceItem.quality
-		  world:changeItem(cauldron)
-		  User:talkLanguage(Character.say, Player.german, "#me kippt einen Sud in den Kessel.");
-          User:talkLanguage(Character.say, Player.english, "#me pours a stock into the cauldron.");
-		  world:makeSound(10,User.pos);
-		  world:erase(SourceItem,1);
-		  User:createItem(164, 1, 333, 0);
-	      User.movepoints=User.movepoints-20;
-		  return;
+			  cauldron:setData("cauldronData",""..SourceItem:getData("stockData"))
+			  cauldron.quality = SourceItem.quality
+			  world:changeItem(cauldron)
+			  User:talkLanguage(Character.say, Player.german, "#me kippt einen Sud in den Kessel.");
+			  User:talkLanguage(Character.say, Player.english, "#me pours a stock into the cauldron.");
+			  world:makeSound(10,User.pos);
+			  world:erase(SourceItem,1);
+			  User:createItem(164, 1, 333, 0);
+			  User.movepoints=User.movepoints-20;
+			  return;
 	   end  
    
    else

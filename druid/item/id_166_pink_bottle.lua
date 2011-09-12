@@ -79,7 +79,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	
-	   if tonumber(cauldron:getData("cauldronData") ~= "") then 
+	   if (cauldron:getData("cauldronData") ~= "") then 
 	      base.common.InformNLS( User,
 					"In dem Kessel befindet sich bereits etwas. Du kannst nichts mehr hinzutun.",
 					"There is already something in the cauldron. You cannot add something else to it."
@@ -87,7 +87,24 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 	       return;
       
 	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
-	      cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
+	      if SourceItem.id == 165 then
+		     potionKind = 1;
+		  elseif SourceItem.id == 59 then
+             potionKind = 2;
+          elseif SourceItem.id == 327 then
+             potionKind = 3;		  
+		  elseif SourceItem.id == 329 then
+             potionKind = 4;		  
+		  elseif SourceItem.id == 166 then
+             potionKind = 5;		  
+		  elseif SourceItem.id == 328 then
+             potionKind = 6; 		  
+		  elseif SourceItem.id == 330 then
+             potionKind = 7;		  
+		  end			 
+		  
+		  cauldron:setData("potionType", ""..potionKind);
+		  cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
 	      cauldron.quality = SourceItem.quality
 		  world:changeItem(cauldron)
 		  User:talkLanguage(Character.say, Player.german, "#me kippt einen Trank in den Kessel.");

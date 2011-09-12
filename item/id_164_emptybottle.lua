@@ -44,24 +44,24 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    
 		   local potionKind = tonumber(cauldron:getData("potionType"));
 	       if potionKind == 1 then
-	          PotionId = 165;
+	          potionId = 165;
 	       elseif potionKind == 2 then
-	          PotionId = 59;
+	          potionId = 59;
            elseif potionKind == 3 then
-	          PotionId =  327;
+	          potionId =  327;
 	       elseif potionKind == 4 then
-	          PotionId =  329;
+	          potionId =  329;
 	       elseif potionKind == 5 then
-	          PotionId =  166;
+	          potionId =  166;
 	       elseif potionKind == 6 then
-	          PotionId =  328;
+	          potionId =  328;
            elseif potionKind == 7 then
-	          PotionId =  330;
+	          potionId =  330;
            end
 	   
 	   
 	       SourceItem:setData("potionData",""..cauldronData)
-	       SourceItem.id = PotionId
+	       SourceItem.id =pPotionId
 	       SourceItem.quality = cauldron.quality
 	       world:changeItem(SourceItem)
 	   
