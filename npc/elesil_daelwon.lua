@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 11, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 13, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -379,25 +379,235 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Garden of Eldan");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Slums");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tomb");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Room of Light");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Room of Darkness");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Room of Twilight");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Library");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower of Air");
+talkEntry:addResponse("Mainly made for priests");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Treekitchen");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Library of Air");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Air Library");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("House of Gods");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elara Shrine");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower of Fire");
+talkEntry:addResponse("Mainly made for mages");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Workshop");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Library of Fire");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Fire Library");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Archmage Saloon");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hall of Elara");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragon Stronghold");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragon Shrine");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower of Water");
+talkEntry:addResponse("Mainly made for bards");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Library of Water");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Water Library");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Adron's Swill");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hubbub Champer");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower of Earth");
+talkEntry:addResponse("Mianly made for druids");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Library of Earth");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Earth Library");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Kettle Champer");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Root Champer");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Test Champer");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hinterland");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Fire of Triumph");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Holy Oak");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Woodcutter's Hut");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Twin Eyes Islands");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldra's Column");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Mermaid");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -475,25 +685,73 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Fire of Triumph");
+talkEntry:addTrigger("Shadowland");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Holy Oak");
+talkEntry:addTrigger("Spider's Mouth");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Woodcutter's Hut");
+talkEntry:addTrigger("Hemp Necktie Inn");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Twin Eyes Islands");
+talkEntry:addTrigger("Draganfod");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Great Ocean");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Snakehead Bay");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bounding Stream");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Glowing River");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lonely Mountains");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bounding Stream");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Northern Woods");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("The Insurmountable Limes");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -677,14 +935,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god.");
+talkEntry:addResponse("One of the elder gods. He is also known as God of Fire. There is a shrine at the top of the Tower of Fire.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Einer der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit.");
+talkEntry:addResponse("Einer der alten Götter. Er ist auch als Gott des Feuers bekannt. Es gibt einen Schrein auf der Spitze des Turm des Feuers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -719,26 +977,26 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god.");
+talkEntry:addResponse("One of the elder gods. He is also known as God of Spirit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Einer der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit.");
+talkEntry:addResponse("Einer der alten Götter. Er ist auch bekannt als Gott des Geists.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god.");
+talkEntry:addResponse("One of the elder gods. She is also known as Goddess of Air. There is a shrine at the top of the Tower of Air.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit.");
+talkEntry:addResponse("Eine der alten Götter. Sie ist auch als Göttin der Luft bekannt. Es gibt einen Schrein auf der Spitze des Turm der Luft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -849,27 +1107,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god.");
+talkEntry:addResponse("One of the elder gods. She is also known as Goddess of Water.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit.");
+talkEntry:addResponse("Eine der alten Götter. Sie ist auch als Göttin des Wassers bekannt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god.");
+talkEntry:addResponse("One of the elder god. She is also known as Goddess of Earth");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit.");
+talkEntry:addResponse("Eine der alten Götter. Sie ist auch als Göttin der Erde bekannt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
