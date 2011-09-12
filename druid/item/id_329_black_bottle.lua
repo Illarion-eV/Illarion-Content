@@ -91,6 +91,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     end
 
 	if (SourceItem:getData("potionData") == "")  then
+		User:inform("kein potionData")
 		return; -- no potion, maybe ink or something else
 	elseif potionData == 71796337 then -- Unsichtbarkeitstrank
 		User:inform("Deactivated due to technical issues.");
