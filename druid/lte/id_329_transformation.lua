@@ -18,8 +18,8 @@ end
 function callEffect(Effect,User)                  -- Effect wird ausgeführt
 --User:inform("debug func callEffect")
 --Erst einmal kommt der Rundenzähler  
-	findCounter,counterPink = Effect:findValue("counterPink")
-    findCooldown,cooldownPink = Effect:findValue("cooldownPink")
+	findCounter,counterBlack = Effect:findValue("counterBlack")
+    findCooldown,cooldownBlack = Effect:findValue("cooldownBlack")
 	
 	if findCounter then
 	    if counterBlack > 0 then
