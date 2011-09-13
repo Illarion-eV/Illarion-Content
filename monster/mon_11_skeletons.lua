@@ -138,7 +138,7 @@ function onDeath(Monster)
         monster.base.drop.AddDropItem(3076,math.random(2,6),100,333,0,4); --copper coins
 
 
-    elseif (MonID==112) then --Rusted Skeleton, Level: 3, Armourtype: medium, Weapontype: slashing
+    elseif (MonID==112) then --Scruffy Skeleton, Level: 3, Armourtype: medium, Weapontype: slashing
 
         --Category 1: Armor
 
@@ -168,7 +168,7 @@ function onDeath(Monster)
         monster.base.drop.AddDropItem(3076,math.random(2,6),100,333,0,4); --copper coins
 
 
-    elseif (MonID==113) then --Strong Skeleton, Level: 3, Armourtype: heavy, Weapontype: puncture
+    elseif (MonID==113) then --Armored Skeleton, Level: 4, Armourtype: heavy, Weapontype: puncture
 
         --Category 1: Armor
 
@@ -228,7 +228,7 @@ function onDeath(Monster)
         monster.base.drop.AddDropItem(3076,math.random(1,3),100,333,0,4); --copper coins
 
 
-    elseif (MonID==115) then --Skeleton Mage, Level: 3, Armourtype: cloth, Weapontype: concussion
+    elseif (MonID==115) then --Mystic Skeleton, Level: 3, Armourtype: cloth, Weapontype: concussion
 
         --Category 1: Armor
 
