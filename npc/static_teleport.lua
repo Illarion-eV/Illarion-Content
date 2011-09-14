@@ -199,6 +199,7 @@ debug("INITIALIZE THESE NPCS DONE");
 	local receiveText = function (texttype, message, originator)
 	debug("RECEIVE TEXT NEW START");
 		if self.TeleportInProgress[thisNPC.id] then
+		debug(" ******** RECEIVE TEXT NEW 1.0");
 	        return
 	    end
 	    debug(" ******** RECEIVE TEXT NEW 1");
