@@ -28,10 +28,13 @@ function nextCycle()  -- ~10 times per second
 end
 
 function receiveText(texttype, message, originator)
+debug("RECEIVED TEXT");
 	Teleportation.receiveText(texttype,message,originator);
+debug("RECEIVED TEXT DONE");
 end
 
 function ShowAnimationFrame( frame, posi )
+debug("DISPLAY EFFECT GRAPHICS");
     if ( frame <= 6) then
         world:gfx(41,position(posi.x+1,posi.y+1,posi.z));
         world:gfx(41,position(posi.x-1,posi.y-1,posi.z));
@@ -72,6 +75,7 @@ function ShowAnimationFrame( frame, posi )
         world:gfx(31,posi);
         CreateCircle(1,posi,1);
     end
+    debug("ENDED DISPLAY EFFECT GRAPHICS");
 end
 
 function CheckAndRemoveItem( posi, itemid )
@@ -84,6 +88,7 @@ function CheckAndRemoveItem( posi, itemid )
 end
 
 function CreateCircle(gfxid,CenterPos,Radius)
+debug("CREATE GRAPHICS");
 	local irad = math.ceil(Radius);
 	local dim = 2*(irad+1);
 	local x;
@@ -106,6 +111,7 @@ function CreateCircle(gfxid,CenterPos,Radius)
 			end;
 		end;
 	end;
+	debug("ENDED CREATE GRAPHICS");
 end
 
 function InformNLS( User, textInDe, textInEn )
@@ -139,7 +145,7 @@ function TeleportationFunction(thisNPC)
 
 
 	local initializeNpc = function(thisNPC)
-
+debug("INITIALIZE THESE NPCS");
 	        self.targetPosition[1] = position(127,647,0);
 	        self.townName[1] = "Cadomyr";
 	        self.trigger[1] = "[Cc]adomyr";
@@ -173,9 +179,11 @@ function TeleportationFunction(thisNPC)
 	    thisNPC:increaseSkill(1,"gnome language",100);
 	    thisNPC:increaseSkill(1,"goblin language",100);
 	    thisNPC:increaseSkill(1,"ancient language",100);
+	    debug("INITIALIZE THESE NPCS DONE");
 	end
 		
 	local receiveText = function (texttype, message, originator)
+	debug("RECEIVE TEXT NEW START");
 		if self.TeleportInProgress[thisNPC.id] then
 	        return
 	    end
@@ -228,6 +236,7 @@ function TeleportationFunction(thisNPC)
 	    "#w [Teleporter] You make the teleporter open a portal to "..self.townName[self.desiredDestination[thisNPC.id]].." at a cost of "..self.travelFee.." copper coins.");
 	    self.TeleportInProgress[thisNPC.id] = true;
 	    self.TeleportCharacter[thisNPC.id] = originator;
+	    debug("RECEIVE TEXT NEW END");
 	end
 
 
