@@ -47,8 +47,8 @@ function DoDruidism(User,SourceItem)
 					 world:gfx(5,User.pos)
            User:setAttrib("racetyp",ListRaceId[i])
            old_hp = User:increaseAttrib("hitpoints",0)
-           User:increaseAttrib("hitpoints",-10000)
-           Userr:increaseAttrib("hitpoints",old_hp)
+           User:increaseAttrib("hitpoints",-1000)
+           User:increaseAttrib("hitpoints",old_hp)
            User:move(6,true)
 
 --         Laufzeit nach Quality berechnen
