@@ -21,7 +21,7 @@ function DoDruidism(User,SourceItem)
      ListCodecs = {}
      ListRaces  = {}
      ListRaceId = {}
-     ListCodecs = {77744151,65545555,32699619,54876565,61348438,71378653,58548893,45634355,75529399,44554428,18861363,26562174,47418515,58151138,22551786,72225438,99992352,38114786,95371655,71796337,87611881,31231973,14523375,46852135,37531813,85293266,86659455,51464953,97171535,77577615,11695753,62545579,81519773,95153618,52728756,91986793,19831914}
+     ListCodecs = {77744151,65545555,32699619,54876565,61348438,75535555,58548893,45634355,75529399,44554428,18861363,26562174,47418515,58151138,22551786,72225438,99992352,38114786,95371655,71796337,87611881,31231973,14523375,46852135,37531813,85293266,86659455,51464953,97171535,77577615,11695753,62545579,81519773,95153618,52728756,91986793,19831914}
      ListRaces  = {"Mensch","Zwerg","Halbling","Elb","Orc","Echse","Gnom","Oger","Mumie","Skelett","Beholder","Fliege","Schaf" ,"Spinne","Rotes Skelett","Rotwurm","Big Demon","Skorpion","Schwein","Unsichtbar","Schï¿½del","Wespe","Waldtroll","Geister-Skelett","SteinGolem","Goblin","Gnoll","Drache", "Drow","Drow-Frau","Kleiner Dämon","Kuh","Hirsch","Wolf","Panther","Hase","Gnom"}
      ListRaceId = {0,1,2,3,4,5,6,9,10,11,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,44}
      firsttime = 1
@@ -67,6 +67,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
    if User.effects:find(329) then
       User.effect:removeEffect(329);
 	  User:inform("LTE 329 da, wird entfernt");
+   else
+      User:inform("kein LTE da")
    end
 	
 	
