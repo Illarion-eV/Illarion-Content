@@ -28,13 +28,13 @@ function nextCycle()  -- ~10 times per second
 end
 
 function receiveText(texttype, message, originator)
-debug("RECEIVED TEXT");
+-- debug("RECEIVED TEXT"..message);
 	Teleportation.receiveText(texttype,message,originator);
-debug("RECEIVED TEXT DONE");
+-- debug("RECEIVED TEXT DONE");
 end
 
 function ShowAnimationFrame( frame, posi )
-debug("DISPLAY EFFECT GRAPHICS");
+-- debug("DISPLAY EFFECT GRAPHICS");
     if ( frame <= 6) then
         world:gfx(41,position(posi.x+1,posi.y+1,posi.z));
         world:gfx(41,position(posi.x-1,posi.y-1,posi.z));
@@ -75,7 +75,7 @@ debug("DISPLAY EFFECT GRAPHICS");
         world:gfx(31,posi);
         CreateCircle(1,posi,1);
     end
-    debug("ENDED DISPLAY EFFECT GRAPHICS");
+    -- debug("ENDED DISPLAY EFFECT GRAPHICS");
 end
 
 function CheckAndRemoveItem( posi, itemid )
@@ -88,7 +88,7 @@ function CheckAndRemoveItem( posi, itemid )
 end
 
 function CreateCircle(gfxid,CenterPos,Radius)
-debug("CREATE GRAPHICS");
+-- debug("CREATE GRAPHICS");
 	local irad = math.ceil(Radius);
 	local dim = 2*(irad+1);
 	local x;
@@ -111,7 +111,7 @@ debug("CREATE GRAPHICS");
 			end;
 		end;
 	end;
-	debug("ENDED CREATE GRAPHICS");
+	-- debug("ENDED CREATE GRAPHICS");
 end
 
 function InformNLS( User, textInDe, textInEn )
@@ -145,13 +145,13 @@ function TeleportationFunction(thisNPC)
 
 
 	local initializeNpc = function(thisNPC)
-debug("INITIALIZE THESE NPCS");
+-- debug("INITIALIZE THESE NPCS");
 	        self.targetPosition[1] = position(127,647,0);
-	        debug("INITIALIZE 1");
+	        -- debug("INITIALIZE 1");
 	        self.townName[1] = "Cadomyr";
-	        debug("INITIALIZE 2");
+	        -- debug("INITIALIZE 2");
 	        self.trigger[1] = "[Cc]adomyr";
-	        debug("INITIALIZE 3");
+	        -- debug("INITIALIZE 3");
 
 	        self.targetPosition[2] = position(788,826,0);
 	        self.townName[2] = "Runewick";
@@ -164,66 +164,66 @@ debug("INITIALIZE THESE NPCS");
 	        self.targetPosition[4] = position(684,307,0);
 	        self.townName[4] = "Wilderland";
 	        self.trigger[4] = "[Ww]ilderland";
-debug("INITIALIZE 4");
+-- debug("INITIALIZE 4");
 	    for i, possHomes in pairs(self.targetPosition) do
 	        if thisNPC:isInRangeToPosition(possHomes,5) then
 	            self.HomePosition[thisNPC.id] = i;
 	            thisNPC:forceWarp(position(possHomes.x+1,possHomes.y+1,possHomes.z));
 	        end
 	    end
-	    debug("INITIALIZE 5");
+	    -- debug("INITIALIZE 5");
 	    thisNPC:increaseSkill(1,"common language",100);
-	    debug("INITIALIZE 6");
+	    -- debug("INITIALIZE 6");
 	    thisNPC:increaseSkill(1,"human language",100);
-	    debug("INITIALIZE 7");
+	    -- debug("INITIALIZE 7");
 	    thisNPC:increaseSkill(1,"dwarf language",100);
-	    debug("INITIALIZE 8");
+	    -- debug("INITIALIZE 8");
 	    thisNPC:increaseSkill(1,"elf language",100);
-	    debug("INITIALIZE 9");
+	    -- debug("INITIALIZE 9");
 	    thisNPC:increaseSkill(1,"lizard language",100);
-	    debug("INITIALIZE 10");
+	    -- debug("INITIALIZE 10");
 	    thisNPC:increaseSkill(1,"orc language",100);
-	    debug("INITIALIZE 11");
+	    -- debug("INITIALIZE 11");
 	    thisNPC:increaseSkill(1,"halfling language",100);
-	    debug("INITIALIZE 12");
+	    -- debug("INITIALIZE 12");
 	    thisNPC:increaseSkill(1,"fairy language",100);
-	    debug("INITIALIZE 13");
+	    -- debug("INITIALIZE 13");
 	    thisNPC:increaseSkill(1,"gnome language",100);
-	    debug("INITIALIZE 14");
+	    -- debug("INITIALIZE 14");
 	    thisNPC:increaseSkill(1,"goblin language",100);
-	    debug("INITIALIZE 15");
+	    -- debug("INITIALIZE 15");
 	    thisNPC:increaseSkill(1,"ancient language",100);
-debug("INITIALIZE THESE NPCS DONE");
+-- debug("INITIALIZE THESE NPCS DONE");
 	end
 		
 	local receiveText = function (texttype, message, originator)
 	debug("RECEIVE TEXT NEW START");
 		if self.TeleportInProgress[thisNPC.id] then
-		debug(" ******** RECEIVE TEXT NEW 1.0");
+		  debug(" ******** RECEIVE TEXT NEW 1.0");
 	        return
 	    end
-	    debug(" ******** RECEIVE TEXT NEW 1");
+	     debug(" ******** RECEIVE TEXT NEW 1");
 	    if (originator.id == thisNPC.id) then
 	        return
 	    end
 	    if not originator:isInRangeToPosition(self.targetPosition[self.HomePosition[thisNPC.id]],4) then
 	        return
 	    end
-	    debug(" ******** RECEIVE TEXT NEW 2");
+	    -- debug(" ******** RECEIVE TEXT NEW 2");
 	    self.desiredDestination[thisNPC.id] = 0;
 	    for i, currentTrigger in pairs(self.trigger) do
 	        if (string.find(message,currentTrigger)~=nil) then
 	            self.desiredDestination[thisNPC.id] = i;
 	        end
 	    end
-	    debug(" ******** RECEIVE TEXT NEW 3");
+	    -- debug(" ******** RECEIVE TEXT NEW 3");
 	    if (self.desiredDestination[thisNPC.id]==self.HomePosition[thisNPC.id]) then --already there
 	        InformNLS(originator,
 	        "#w [Teleporter] Ihr seid bereits in "..self.townName[self.desiredDestination[thisNPC.id]]..".",
 	        "#w [Teleporter] You are already in "..self.townName[self.desiredDestination[thisNPC.id]]..".");
 	        return
 	    end
-	    debug(" ******** RECEIVE TEXT NEW 4");
+	    -- debug(" ******** RECEIVE TEXT NEW 4");
 	    if ((self.desiredDestination[thisNPC.id]==0) or (self.desiredDestination[thisNPC.id]==nil)) then
 	        InformNLS(originator,
 	        "#w [Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Cadomyr, Runewick, Galmair, Wilderland.",
@@ -237,7 +237,7 @@ debug("INITIALIZE THESE NPCS DONE");
 	        "#w [Teleporter] You don't have enough money for this journey. The journey costs "..self.travelFee.." copper coins.");
 	        return
 	    end
-debug(" ******** RECEIVE TEXT NEW 5");
+-- debug(" ******** RECEIVE TEXT NEW 5");
 	    if (originator:countItem(3076)>=self.travelFee) then
 	        originator:eraseItem(3076,self.travelFee);
 	    elseif (originator:countItem(3077)>0) then
@@ -249,13 +249,13 @@ debug(" ******** RECEIVE TEXT NEW 5");
 			originator:createItem(3076,100-self.travelFee,333,0);
 	    end
 	    coins = self.travelFee;
-debug(" ******** RECEIVE TEXT NEW 6");
+-- debug(" ******** RECEIVE TEXT NEW 6");
 	    InformNLS(originator,
 	    "#w [Teleporter] Ihr lasst den Teleporter ein Tor nach "..self.townName[self.desiredDestination[thisNPC.id]].." zu einem Preis von "..self.travelFee.." Kupferstücken öffnen.",
 	    "#w [Teleporter] You make the teleporter open a portal to "..self.townName[self.desiredDestination[thisNPC.id]].." at a cost of "..self.travelFee.." copper coins.");
 	    self.TeleportInProgress[thisNPC.id] = true;
 	    self.TeleportCharacter[thisNPC.id] = originator;
-	    debug("RECEIVE TEXT NEW END");
+	    -- debug("RECEIVE TEXT NEW END");
 	end
 
 
