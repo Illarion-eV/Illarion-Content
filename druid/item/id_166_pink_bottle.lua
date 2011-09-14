@@ -17,8 +17,8 @@ attribList ={"hitpointsOT","foodlevel","poisonvalueOT","mana","manaOT","poisonva
 function DrinkPotion(User,SourceItem)
      
 	if User.effects:find(166) then
-	   User:inform("lte noch aktiv");   
-	   return;
+	   User:inform("lte noch aktiv; wird entfernt");   
+	   User.effect:removeEffect(166);
 	end	
 	
 	

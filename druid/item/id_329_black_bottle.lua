@@ -64,8 +64,13 @@ function DoDruidism(User,SourceItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-
-    --if (ltstate == Action.abort) then
+   if User.effects:find(329) then
+      User.effect:removeEffect(329);
+	  User:inform("LTE 329 da, wird entfernt");
+   end
+	
+	
+	--if (ltstate == Action.abort) then
        -- User:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
        -- User:talkLanguage(Character.say, Player.english, "#me spills the potion.");
         --world:erase(SourceItem,1);
