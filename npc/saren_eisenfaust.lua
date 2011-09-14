@@ -3,17 +3,17 @@
 -- NPC Job:  stuff for skill                                                  --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  333, 258, 0            --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Someone                                                          --
 --           & Rincewind                                                      --
 --                                                                            --
--- Last parsing: May 28, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: September 14, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 333, 258, 0, 0, 'Saren Eisenfaust', 'npc.saren_eisenfaust', 0, 3, 4, 255, 113, 3, 245, 180, 137);
+VALUES (1, 333, 258, 0, 4, 'Saren Eisenfaust', 'npc.saren_eisenfaust', 0, 3, 4, 255, 113, 3, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
