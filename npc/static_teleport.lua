@@ -173,15 +173,25 @@ debug("INITIALIZE 4");
 	    end
 	    debug("INITIALIZE 5");
 	    thisNPC:increaseSkill(1,"common language",100);
+	    debug("INITIALIZE 6");
 	    thisNPC:increaseSkill(1,"human language",100);
+	    debug("INITIALIZE 7");
 	    thisNPC:increaseSkill(1,"dwarf language",100);
+	    debug("INITIALIZE 8");
 	    thisNPC:increaseSkill(1,"elf language",100);
+	    debug("INITIALIZE 9");
 	    thisNPC:increaseSkill(1,"lizard language",100);
+	    debug("INITIALIZE 10");
 	    thisNPC:increaseSkill(1,"orc language",100);
+	    debug("INITIALIZE 11");
 	    thisNPC:increaseSkill(1,"halfling language",100);
+	    debug("INITIALIZE 12");
 	    thisNPC:increaseSkill(1,"fairy language",100);
+	    debug("INITIALIZE 13");
 	    thisNPC:increaseSkill(1,"gnome language",100);
+	    debug("INITIALIZE 14");
 	    thisNPC:increaseSkill(1,"goblin language",100);
+	    debug("INITIALIZE 15");
 	    thisNPC:increaseSkill(1,"ancient language",100);
 debug("INITIALIZE THESE NPCS DONE");
 	end
