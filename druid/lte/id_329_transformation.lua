@@ -22,7 +22,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
     findCooldown,cooldownBlack = Effect:findValue("cooldownBlack")
 	
 	if findCooldown then
-	    if cooldownBlack >= 0 then
+	    if counterBlack > 0 then
 		
 		   if findCounter then
 		      counterBlack = counterBlack - 1;

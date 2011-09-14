@@ -44,7 +44,7 @@ itemCoat = 0
 itemMainHand = 23
 itemSecondHand = 0
 itemHands = 48
-itemTrousers = 2123
+itemTrousers = 2113
 itemShoes = 697
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
@@ -153,6 +153,10 @@ itemShoes = 697
 "quest", "mission", queststatus(81) = 8, german -> "Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!"
 "task", "adventure", queststatus(81) = 8 -> "Nah, you learned enough from me. You have to figure out everything else for yourself. That's what a good smith is all about."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(81) = 8 -> "Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!"
+"quest", "mission", english -> "Sorry, I only issue tasks to unexperienced smithes."
+"quest", "mission" -> "Tut mir Leid, Kumpel. Aber ich geb nur unerfahrenen Schmieden Aufgaben auf."
+"smith", "task", "adventure" -> "Sorry, I only issue tasks to unexperienced smithes."
+"Schmied", "Auftrag", "Aufgabe", "Abenteuer" -> "Tut mir Leid, Kumpel. Aber ich geb nur unerfahrenen Schmieden Aufgaben auf."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "You ask what my profession is? I'm a smith, the best even.", "I'm a smith and you?"

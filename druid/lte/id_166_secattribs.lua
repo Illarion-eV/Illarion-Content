@@ -21,7 +21,7 @@ function callEffect(Effect,User)
     findPoisonvalue,poisonvalueIncrease = Effect:findValue("poisonvalueIncrease")
     
 	
-	if findCounter then 
+	if findCooldown then 
        if counterPink > 0 then
        
 	       if findHitpoints then
