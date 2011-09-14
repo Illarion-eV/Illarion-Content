@@ -14,7 +14,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   local potion = base.common.GetFrontItem( User );
 	   local newDataPotion = User.lastSpokenText;
 	   potion:setData("potionData",""..newDataPotion);
-	   world:changeItem(potion)
 	   User:inform("potionData gesetzt auf "..potion:getData("potionData"));
 	   return;
 	end

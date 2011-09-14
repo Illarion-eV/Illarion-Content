@@ -67,7 +67,7 @@ function LookAtItemIdent(User,Item)
 	end]]-- 
 	
 --		User:inform("in LookAtItem of base_wegweiser.lua");
-		--User:inform(test);
+		User:inform(test);
 end
 --[[
 	LookAtItemIdent

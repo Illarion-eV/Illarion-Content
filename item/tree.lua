@@ -45,7 +45,7 @@ function LookAtItemIdent(User,Item)
 						test = signTextDe[tablePosition][i];
 					else
                         found = true;
-						world:itemInform(User,Item,base.common.GetNLS(User,"Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.","You recognise something, but you cannot read it, because you are too blind."));
+						world:itemInform(User,Item,base.common.GetNLS(User,"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~"));
 					end
 				end
 			end
@@ -67,7 +67,7 @@ function LookAtItemIdent(User,Item)
 	end]]-- 
 	
 --		User:inform("in LookAtItem of base_wegweiser.lua");
-		--User:inform(test);
+		User:inform(test);
 end
 --[[
 	LookAtItemIdent
