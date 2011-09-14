@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 13, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 14, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -294,13 +294,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("history");
-talkEntry:addResponse("");
+talkEntry:addResponse("I do not think that you have time to listen to all my knowledge about our history. Therefore, I recommend our history book in our libraries.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Geschichte");
-talkEntry:addResponse("");
+talkEntry:addResponse("Ich denke nicht, dass ihr die Zeit habt all meinem Wissen über unsere Geschichte euer Gehör zu schenken. Daher empfehle ich unser Geschichtsbuch in unseren Bibliotheken.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -314,6 +314,30 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ereignis");
 talkEntry:addTrigger("Geschehnis");
 talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("law");
+talkEntry:addResponse("If you can read, I suggest to read our law-book in our libraries. If you cannot read, I suggest to move either to Galmair or Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gesetz");
+talkEntry:addResponse("Wenn ihr des Lesen mächtig seid, dann empfehle ich unser Gesetzesbuch in unseren Bibliotheken. Wenn ihr es nicht seid, dann empfehle ich nach Galmair oder Cadomyr umzuziehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ruler");
+talkEntry:addResponse("Our highest advisor is Archmage Elvaine Morgan. He has founded this place of wisedom and might be found either in his champer - the Archmage champer - or in the Hall of Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Herrscher");
+talkEntry:addResponse("Unser höchster Ratgeber ist Erzmagier Elvaine Morgan. Er hat diesen Platz der Weisheit erschaffen und entweder in seiner Kammer - der Erzmagier Kammer - oder in den Hallen der Elara gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -481,7 +505,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Archmage Saloon");
+talkEntry:addTrigger("Archmage Champer");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
