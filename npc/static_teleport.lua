@@ -147,8 +147,11 @@ function TeleportationFunction(thisNPC)
 	local initializeNpc = function(thisNPC)
 debug("INITIALIZE THESE NPCS");
 	        self.targetPosition[1] = position(127,647,0);
+	        debug("INITIALIZE 1");
 	        self.townName[1] = "Cadomyr";
+	        debug("INITIALIZE 2");
 	        self.trigger[1] = "[Cc]adomyr";
+	        debug("INITIALIZE 3");
 
 	        self.targetPosition[2] = position(788,826,0);
 	        self.townName[2] = "Runewick";
@@ -161,13 +164,14 @@ debug("INITIALIZE THESE NPCS");
 	        self.targetPosition[4] = position(684,307,0);
 	        self.townName[4] = "Wilderland";
 	        self.trigger[4] = "[Ww]ilderland";
-
+debug("INITIALIZE 4");
 	    for i, possHomes in pairs(self.targetPosition) do
 	        if thisNPC:isInRangeToPosition(possHomes,5) then
 	            self.HomePosition[thisNPC.id] = i;
 	            thisNPC:forceWarp(position(possHomes.x+1,possHomes.y+1,possHomes.z));
 	        end
 	    end
+	    debug("INITIALIZE 5");
 	    thisNPC:increaseSkill(1,"common language",100);
 	    thisNPC:increaseSkill(1,"human language",100);
 	    thisNPC:increaseSkill(1,"dwarf language",100);
@@ -179,7 +183,7 @@ debug("INITIALIZE THESE NPCS");
 	    thisNPC:increaseSkill(1,"gnome language",100);
 	    thisNPC:increaseSkill(1,"goblin language",100);
 	    thisNPC:increaseSkill(1,"ancient language",100);
-	    debug("INITIALIZE THESE NPCS DONE");
+debug("INITIALIZE THESE NPCS DONE");
 	end
 		
 	local receiveText = function (texttype, message, originator)
