@@ -201,24 +201,28 @@ debug("INITIALIZE THESE NPCS DONE");
 		if self.TeleportInProgress[thisNPC.id] then
 	        return
 	    end
+	    debug(" ******** RECEIVE TEXT NEW 1");
 	    if (originator.id == thisNPC.id) then
 	        return
 	    end
 	    if not originator:isInRangeToPosition(self.targetPosition[self.HomePosition[thisNPC.id]],4) then
 	        return
 	    end
+	    debug(" ******** RECEIVE TEXT NEW 2");
 	    self.desiredDestination[thisNPC.id] = 0;
 	    for i, currentTrigger in pairs(self.trigger) do
 	        if (string.find(message,currentTrigger)~=nil) then
 	            self.desiredDestination[thisNPC.id] = i;
 	        end
 	    end
+	    debug(" ******** RECEIVE TEXT NEW 3");
 	    if (self.desiredDestination[thisNPC.id]==self.HomePosition[thisNPC.id]) then --already there
 	        InformNLS(originator,
 	        "#w [Teleporter] Ihr seid bereits in "..self.townName[self.desiredDestination[thisNPC.id]]..".",
 	        "#w [Teleporter] You are already in "..self.townName[self.desiredDestination[thisNPC.id]]..".");
 	        return
 	    end
+	    debug(" ******** RECEIVE TEXT NEW 4");
 	    if ((self.desiredDestination[thisNPC.id]==0) or (self.desiredDestination[thisNPC.id]==nil)) then
 	        InformNLS(originator,
 	        "#w [Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Cadomyr, Runewick, Galmair, Wilderland.",
@@ -232,7 +236,7 @@ debug("INITIALIZE THESE NPCS DONE");
 	        "#w [Teleporter] You don't have enough money for this journey. The journey costs "..self.travelFee.." copper coins.");
 	        return
 	    end
-
+debug(" ******** RECEIVE TEXT NEW 5");
 	    if (originator:countItem(3076)>=self.travelFee) then
 	        originator:eraseItem(3076,self.travelFee);
 	    elseif (originator:countItem(3077)>0) then
@@ -244,7 +248,7 @@ debug("INITIALIZE THESE NPCS DONE");
 			originator:createItem(3076,100-self.travelFee,333,0);
 	    end
 	    coins = self.travelFee;
-
+debug(" ******** RECEIVE TEXT NEW 6");
 	    InformNLS(originator,
 	    "#w [Teleporter] Ihr lasst den Teleporter ein Tor nach "..self.townName[self.desiredDestination[thisNPC.id]].." zu einem Preis von "..self.travelFee.." Kupferstücken öffnen.",
 	    "#w [Teleporter] You make the teleporter open a portal to "..self.townName[self.desiredDestination[thisNPC.id]].." at a cost of "..self.travelFee.." copper coins.");
