@@ -28,7 +28,7 @@ function nextCycle()  -- ~10 times per second
 end
 
 function receiveText(texttype, message, originator)
--- debug("RECEIVED TEXT"..message);
+ debug("RECEIVED TEXT"..message);
 	Teleportation.receiveText(texttype,message,originator);
 -- debug("RECEIVED TEXT DONE");
 end
@@ -200,7 +200,7 @@ function TeleportationFunction(thisNPC)
 	debug("RECEIVE TEXT NEW START");
 		if self.TeleportInProgress[thisNPC.id] then
 		  debug(" ******** RECEIVE TEXT NEW 1.0");
-	        return
+	    --    return
 	    end
 	     debug(" ******** RECEIVE TEXT NEW 1");
 	    if (originator.id == thisNPC.id) then
