@@ -151,7 +151,7 @@ function LookAtItemIdent(User,Item)
     end  ]]                                                 
 
 --		User:inform("in LookAtItem of base_weiser.lua");  
-		User:inform(test);
+		--User:inform(test);
 end
 --[[
 	LookAtItemIdent
