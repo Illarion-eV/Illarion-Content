@@ -2,7 +2,7 @@
 -- NPC Name: Advari Stonebog                                          Galmair --
 -- NPC Job:  Trader                                                           --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  261, 250, 0            --
+-- NPC Race: dwarf                      NPC Position:  361, 250, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
@@ -13,7 +13,7 @@
 name = "Advari Stonebog"
 race = dwarf
 sex = male
-position = 261, 250, 0
+position = 361, 250, 0
 direction = east
 affiliation = "Galmair"
 job = "Trader"
