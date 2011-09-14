@@ -65,7 +65,7 @@ end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
    if User.effects:find(329) then
-      User.effect:removeEffect(329);
+      User.effects:removeEffect(329);
 	  User:inform("LTE 329 da, wird entfernt");
    else
       User:inform("kein LTE da")
