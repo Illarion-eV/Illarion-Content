@@ -2,19 +2,19 @@
 -- NPC Name: Advari Stonebog                                          Galmair --
 -- NPC Job:  Trader                                                           --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  361, 250, 0            --
--- NPC Sex:  male                       NPC Direction: east                   --
+-- NPC Race: dwarf                      NPC Position:  361, 251, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 14, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 15, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Advari Stonebog"
 race = dwarf
 sex = male
-position = 361, 250, 0
-direction = east
+position = 361, 251, 0
+direction = south
 affiliation = "Galmair"
 job = "Trader"
 
@@ -42,6 +42,14 @@ itemTrousers = 2116
 itemShoes = 326
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Trader Stock
+-- Tools (Farmer): 51, 126, 258, 271
+-- Animal skins: 69, 2547, 2586
+-- Crops: 154, 200, 201, 290, 249, 259, 772, 778, 2493
+-- Fruits: 15, 80, 81, 147, 151, 199, 302, 388
+-- Milk: 330
+-- Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917
+-- Raw meat: 307, 552, 553, 2934
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Advari Stonebog the trader. Dwarf, Beer, Orcs, Name.")
@@ -113,7 +121,7 @@ itemShoes = 326
 "albar", english -> "About Albar, you desire to speak? Please a well suited dwarf does no busniess over there."
 "albar" -> "Über Albar wollt ihr sprechen? Ich bitte Euch, ich bin ein angesehener Zwerg und hab dort tunlichst, nichts zu tun."
 "gynk", "gync", english -> "Gynk, ye-ye! There are mines! Selfunderstood not comparable to the mines of the dwarves and filled with fainaiguers, but what else's to expect from humans?"
-"gync", "gynk" -> "Gynk, ja-ja! Dort gibt's Mienen! Natürlich nicht mit unseren zu vergleichen und alles voll mit Betrügern, aber was soll man von den Menschen schon besseres erwarten?"
+"gync", "gynk" -> "Gynk, ja-ja! Dort gibt's Minen! Natürlich nicht mit unseren zu vergleichen und alles voll mit Betrügern, aber was soll man von den Menschen schon besseres erwarten?"
 "salkama", english -> "Sunny, shining Salkamar. overfilled with Wizard-riffraff. By only thinking of it my eyes are burning. Such a country isn't made for us dwarves."
 "salkama" -> "Sonniges, leuchtendes Salkamar. Überfüllt mit Magier-Pöbel. Wenn ich nur daran denke, reibt's mir in den Augen. Für so ein Land hat uns Irmorom nicht geschaffen. Nein."
 
@@ -159,6 +167,6 @@ cycletext "#me knurrt etwas Unverständliches in seinen Bart, indessen funkelt e
 cycletext "Arr...", "Arr..."
 cycletext "Ich verkauf die schönsten Fälle zu den besten Preisen!", "I sell the finest fur to best prices!"
 cycletext "Frische Schafsmilch! Leute, kommt her und kauft bei mir ein!", "Fresh milk from sheep, come closer have a look!"
-cycletext "Dort, edle Dame! Kauft mir leckere Früchte ab! Die Besten Früchte Galmairs verkaufe ich.", "Over there, good maiden! Buy tasty fruits! The best fruits of Galmair are sold at this market stall!"
+cycletext "Dort, edle Dame! Kauft mir leckere Früchte ab! Die besten Früchte Galmairs verkaufe ich.", "Over there, good maiden! Buy tasty fruits! The best fruits of Galmair are sold at this market stall!"
 cycletext "#me verengt die Augen und betrachtet einen Moment lang misstrauisch den Ork gegenüber.", "#me narrows his eyes and glances the orc at the opposite market stall."
 cycletext "Ha'ak! Ga strak ja'ada! Arr.", "Ha'ak! Ga strak ja'ada! Arr."
