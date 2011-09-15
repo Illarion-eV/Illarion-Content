@@ -63,7 +63,7 @@ Iron/gold/coppermine: Galmair "Malachite Mine"
 Coordinates: 420,371,0
 Radius 30
 
-Coalmine: Cadomyr "Candour Foundation"
+Coalmine: Cadomyr "Cornerstone of Candour"
 Coordinates: 142,686,0
 Radius 15
 
@@ -107,7 +107,7 @@ Radius 15
 	SetRessource( 2, 1273,  253, 7, 0); -- bluestone
 	SetRessource( 2, 1273,  252, 3, 0); -- blackstone
 	
-	--Cadomyr "Candour Foundation"
+	--Cadomyr "Cornerstone of Candour"
 	AddArea( 3, position(142,686,0), 15 );
     AddStone( 3, 1245 );
     SetRessource( 3, 1245,  21, 60,  0); -- coal

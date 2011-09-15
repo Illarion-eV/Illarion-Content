@@ -22,7 +22,7 @@ function InitWegweiser()
     AddWeg({42,634,0},"Piratenbucht","Pirate Cove",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
     AddWeg({50,640,0},"Fabers Wache","Faber's Guardhouse",6,0); -- <Name hier> Zerstörter Außenposten -- <name here> ruin of a outpost
     AddWeg({110,659,0},"Cape Farewell; Fabers Wache","Cape Farewell; Faber's Guardhouse",6,0);
-	AddWeg({112,659,0},"Grundstein der Aufrichtigkeit; Malachíntempel; Rosaline-Kubus; Hafen","Candour Foundation; Temple of Malachín; Rosaline Cube; Harbour",4,0);
+	AddWeg({112,659,0},"Grundstein der Aufrichtigkeit; Malachíntempel; Rosaline-Kubus; Hafen","Cornerstone of Candour; Temple of Malachín; Rosaline Cube; Harbour",4,0);
 	AddWeg({114,659,0},"Katanbi Desert; Freiheitsbruch; Arena; Gladiatoren; Sklavenmarkt; Galmair; Runewick","Katanbi Desert; Liberty Quarry; Arena; Gladiatoren; Slave Market; Galmair; Runewick",2,0);
 	AddWeg({87,642,0},"Cadomyr","Cadomyr",0,0);
     AddWeg({137,633,0},"Cadomyr","Cadomyr",0,0);
@@ -33,7 +33,7 @@ function InitWegweiser()
     AddWeg({123,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
     AddWeg({120,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
     AddWeg({129,563,0},"Zhambratempel","Temple of Zhambra",2,0);
-    AddWeg({129,699,0},"Grundstein der Aufrichtigkeit; darüber Malachintempel","Candour Foundation; Tempel of Malachin is above",2,0);  --<coal mine>
+    AddWeg({129,699,0},"Grundstein der Aufrichtigkeit; darüber Malachintempel","Cornerstone of Candour; Tempel of Malachin is above",2,0);  --<coal mine>
     AddWeg({176,612,0},"Freiheitsbruch","Liberty Quarry",6,0); --<copper/gold/iron mine>
     AddWeg({174,635,0},"Freiheitsbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
 	AddWeg({209,552,0},"Grugmutzs Höhle","Grugmutz's cave",6,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
