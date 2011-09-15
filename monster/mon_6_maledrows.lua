@@ -4,6 +4,26 @@ require("monster.base.quests")
 require("base.messages");
 module("monster.mon_27_maledrows", package.seeall)
 
+function onSpawn(theDrow)
+    if theDrow:getMonsterType()<70 then
+        mySex=0;
+    else
+        mySex=1;
+    end
+    var=40; -- variation of color, +/- var
+    baseC=100;  -- baseColor (C,C,C)
+    red=math.min(255,baseC-var+math.random(2*var));
+    green=math.min(255,baseC-var+math.random(2*var));
+    blue=math.min(255,baseC-var+math.random(2*var));
+    myHair={};
+    myHair[0]={1,2};    -- list of possible hair IDs
+    myHair[1]={1,7,8};
+    theDrow:setAttrib("sex",mySex);
+    theDrow:setSkinColor(red,green,blue);
+    theDrow:setHair( myHair[mySex][math.random(1,#myHair[mySex])] );
+    theDrow:setHairColor(210,210,210)
+ end
+
 
 function ini(Monster)
 
