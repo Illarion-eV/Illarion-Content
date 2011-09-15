@@ -60,7 +60,14 @@ function callEffect(Effect,User)
    end
 end
 function loadEffect(Effect, User)
-
+    User:inform("Effekt laden")
+	findCounter,counterPink = Effect:findValue("counterPink")
+    findCooldown,cooldownPink = Effect:findValue("cooldownPink")
+	
+	findHitpoints,hitpointsIncrease = Effect:findValue("hitpointsIncrease")
+    findMana,manaIncrease = Effect:findValue("manaIncrease")
+    findFoodlevel,foodlevelIncrease = Effect:findValue("foodlevelIncrease")
+    findPoisonvalue,poisonvalueIncrease = Effect:findValue("poisonvalueIncrease")
 end
 
 function removeEffect(Effect,User)         
