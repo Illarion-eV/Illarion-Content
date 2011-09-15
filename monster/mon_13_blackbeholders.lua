@@ -27,7 +27,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+end	
 
 function setTarget(Monster, targetList)
 
