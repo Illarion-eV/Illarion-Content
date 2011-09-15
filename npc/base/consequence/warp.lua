@@ -11,9 +11,9 @@ function(self, x, y, z)
     self["x"] = tonumber(x);
     self["y"] = tonumber(y);
     self["z"] = tonumber(z);
-    self["perform"] = _inform_helper;
+    self["perform"] = _warp_helper;
 end);
 
-function _inform_helper(self, player)
+function _warp_helper(self, player)
     player:warp(self.x,self.y,self.z);
 end;

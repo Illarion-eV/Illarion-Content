@@ -24,9 +24,11 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ab");
 talkEntry:addResponse("yes, sire");
+
 debug("            *******INIT NPC BEFORE WARP")
 talkEntry:addConsequence(npc.base.consequence.warp.warp(10, 10, 0));
 debug("            *******INIT NPC AFTER WARP")
+
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 mainNPC:addLanguage(0);
