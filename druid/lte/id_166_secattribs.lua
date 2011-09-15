@@ -43,11 +43,13 @@ function callEffect(Effect,User)
 		      counterPink = counterPink - 1;
 	          Effect:addValue("counterPink",counterPink)
 	       end
+	       User:inform("wirkung ausgefüfhrt")
 	   end
    
        if findCooldown then
           if cooldownPink < 1 then
-	         return false
+	         User:inform("cooldown reduziert")
+			 return false
 	      else 
              cooldownPink = cooldownPink - 1;
              Effect:addValue("cooldownPink",cooldownPink)
