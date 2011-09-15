@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 13, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 15, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -226,13 +226,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("inform");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I have information about buildingsss, placesss, eventsss, people, hissstory and godsss of Cadomyr. Just asssk me!");
+talkEntry:addResponse("I have information about buildingsss, placesss, eventsss, people, hissstory, lawsss and godsss of Cadomyr. Just asssk me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("inform");
-talkEntry:addResponse("Ich habe Informationen über Gebäude, Plätze, Ereignissse, Leute, Geschichte und Götter von Cadomyr geben. Frag einfach!");
+talkEntry:addResponse("Ich habe Informationen über Gebäude, Plätze, Ereignissse, Leute, Geschichte, Gesetze und Götter von Cadomyr geben. Frag einfach!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -300,13 +300,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("history");
-talkEntry:addResponse("");
+talkEntry:addResponse("We have a glory hissstory here and you can find more information about it at ssseveral picturesss here in our town. There you can find illustrationsss of the actionsss of our rulersss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Geschichte");
-talkEntry:addResponse("");
+talkEntry:addResponse("Wir haben eine glorreiche Gessschichte hier und man kann Information darüber an verssschiedenen Bildern hier finden. Dort findet man Illustrationen der Handlungen unserer Herrscher.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -320,6 +320,30 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ereignis");
 talkEntry:addTrigger("Geschehnis");
 talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("law");
+talkEntry:addResponse("We do not have realy lawsss. We have rather a codex which can be found at a rider-ssstatue in front of the palace.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gesetz");
+talkEntry:addResponse("Wir haben nicht wirklich Gesetze hier. Wir haben eher einen Kodex der an einer Reiterssstatue vor dem Palast gefunden werden kann.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ruler");
+talkEntry:addResponse("Our current ruler isss our wonderful queen Rosaline Edwards. You find her in our palace. The namesss of our former rulesss can be found at a rider-ssstatue in front of the palace.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Herrscher");
+talkEntry:addResponse("Unsere aktuelle Herrscherin ist unsssere wunderbare Königin Rosaline Edwards. Man findet sssie in unserem Palast. Die Namen unserer früheren Herrscher können auf einer Reiterssstatue vor dem Palast gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -505,7 +529,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Candour Foundation");
+talkEntry:addTrigger("Cornerstone of Candour");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -814,7 +838,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Our nice Queen Rosaline Edwards hasss been ruling for many years know. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in.");
+talkEntry:addResponse("Our nice Queen Rosaline Edwards hasss been ruling for many years now. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -828,7 +852,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Our nice Queen Rosaline Edwards has been ruling for many years know. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in.");
+talkEntry:addResponse("Our nice Queen Rosaline Edwards has been ruling for many years now. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

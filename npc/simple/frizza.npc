@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Frizza                                 			         None --
--- NPC Job:  Informant                                           --
+-- NPC Name: Frizza                                                   Cadomyr --
+-- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: lizard                      NPC Position:  123, 629, 0               --
--- NPC Sex:  female                       NPC Direction: south                --
+-- NPC Race: lizardman                  NPC Position:  123, 629, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
--- Author:   envi                                     					      --
+-- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: September 15, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Frizza"
@@ -97,7 +97,7 @@ itemShoes = 369
 "game" -> ""
 "spiel" -> ""
 "place" -> ""
-"Platz","Plätz" -> ""
+"Platz", "Plätz" -> ""
 "people" -> ""
 "Leute" -> ""
 "history" -> "We have a glory hissstory here and you can find more information about it at ssseveral picturesss here in our town. There you can find illustrationsss of the actionsss of our rulersss."
@@ -108,7 +108,6 @@ itemShoes = 369
 "Gesetz" -> "Wir haben nicht wirklich Gesetze hier. Wir haben eher einen Kodex der an einer Reiterssstatue vor dem Palast gefunden werden kann."
 "ruler" -> "Our current ruler isss our wonderful queen Rosaline Edwards. You find her in our palace. The namesss of our former rulesss can be found at a rider-ssstatue in front of the palace."
 "Herrscher" -> "Unsere aktuelle Herrscherin ist unsssere wunderbare Königin Rosaline Edwards. Man findet sssie in unserem Palast. Die Namen unserer früheren Herrscher können auf einer Reiterssstatue vor dem Palast gefunden werden."
-
 "market" -> ""
 "Markt" -> ""
 "temple" -> ""
@@ -119,7 +118,6 @@ itemShoes = 369
 "Donkey" -> ""
 "Rooms" -> ""
 "Guild" -> ""
-
 "Palace" -> ""
 "Royal Champer" -> ""
 "Treasureroom" -> ""
@@ -134,15 +132,13 @@ itemShoes = 369
 "Quartermaster's Store" -> ""
 "Flat quarter" -> ""
 "Sir Reginald Tomb" -> ""
-
 "Mount Siba" -> ""
 "Kata Island" -> ""
 "Mount Letma" -> ""
 "Tear of Sirani" -> ""
-
 "Liberty Quarry" -> ""
 "Milkhouse" -> ""
-"Candour Foundation" -> ""
+"Cornerstone of Candour" -> ""
 "Rosaline Cube" -> ""
 "Cube Camp" -> ""
 "Faber's Guardhouse" -> ""
@@ -153,7 +149,6 @@ itemShoes = 369
 "Cadomyr Harbour" -> ""
 "Harp of Pain" -> ""
 "Lost Harbour" -> ""
-
 "Grugmutz's cave" -> ""
 "Creek Settlement" -> ""
 "Prison" -> ""
@@ -168,7 +163,6 @@ itemShoes = 369
 "Shadowland" -> ""
 "Queens Corner" -> ""
 "Zumbrass Tomb" -> ""
-
 "Draganfod" -> ""
 "Lonely Mountains" -> ""
 "Great Ocean" -> ""
@@ -180,7 +174,6 @@ itemShoes = 369
 "Katanbi Delta" -> ""
 "Weary Inn" -> ""
 "Mount Zotmore" -> ""
-
 "Spider's Mouth" -> ""
 "Hemp Necktie Inn" -> ""
 "The Insurmountable Limes" -> ""
@@ -190,18 +183,18 @@ itemShoes = 369
 "Erzmagier" -> "Morgan? Zzzz. Dasss issst ein bössser Zauberer in Runewick der auch dort herrssscht."
 "Elvaine", "Morgan", english -> "Morgan? Zzzz. That isss an evil sorcerer in Runewick and rulesss there."
 "Elvaine", "Morgan" -> "Morgan? Zzzz. Dasss issst ein bössser Zauberer in Runewick der auch dort herrssscht."
-"Runewick", english -> "Runewick? It isss in the Eassst. Crosss Katanbi Dessert, get behind Border Mountainsss to the other ssside of the Snakehead Bay. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.","That isss a wired place, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find sssome there."
-"Runewick" -> "Runewick? Dasss issst im Osssten. Durchquäre die Katanbi Wüste, gehe hinter dasss Grenzberge zu der anderen Ssseite der Ssschlangenkopf Bucht. Ssschau nach Wegssschildern. Issst aber ein gefährlicher Weg. Verwende bessser den Teleporter.","Dasss issst ein verrückter Platz, aber wenn man Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst man dort welche finden."
+"Runewick", english -> "Runewick? It isss in the Eassst. Crosss Katanbi Dessert, get behind Border Mountainsss to the other ssside of the Snakehead Bay. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.", "That isss a wired place, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find sssome there."
+"Runewick" -> "Runewick? Dasss issst im Osssten. Durchquäre die Katanbi Wüste, gehe hinter dasss Grenzberge zu der anderen Ssseite der Ssschlangenkopf Bucht. Ssschau nach Wegssschildern. Issst aber ein gefährlicher Weg. Verwende bessser den Teleporter.", "Dasss issst ein verrückter Platz, aber wenn man Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst man dort welche finden."
 "Valerio", "Guilianni", "Don", english -> "Don? Zzzz. That thief rulesss in Galmair."
 "Valerio", "Guilianni", "Don" -> "Don? Zzzz. Diessser Dieb herrssscht in Galmair."
-"Galmair", english -> "Galmair? It isss in the North. Crosss Katanbi Dessert, get behind Border Mountainsss, and then walk to the North. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.","That isss a sssneaky place, but if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers you will find sssome there."
-"Galmair" -> "Galmair? Dasss issst im Norden. Durchquäre die Katanbi Wüste, gehe hinter dasss Grenzberge und dann in den Norden. Ssschau nach Wegssschildern. Issst aber ein gefährlicher Weg. Verwende bessser den Teleporter.","Dasss issst ein hinterhältiger Platz, aber wenn man einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer sssuchst, findessst man den dort."
+"Galmair", english -> "Galmair? It isss in the North. Crosss Katanbi Dessert, get behind Border Mountainsss, and then walk to the North. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.", "That isss a sssneaky place, but if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers you will find sssome there."
+"Galmair" -> "Galmair? Dasss issst im Norden. Durchquäre die Katanbi Wüste, gehe hinter dasss Grenzberge und dann in den Norden. Ssschau nach Wegssschildern. Issst aber ein gefährlicher Weg. Verwende bessser den Teleporter.", "Dasss issst ein hinterhältiger Platz, aber wenn man einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer sssuchst, findessst man den dort."
 "Queen" -> "Our nice Queen Rosaline Edwards hasss been ruling for many years now. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in."
 "Königin" -> "Unsere nette Königin Rosaline Edwards herrssscht nun ssschon ssseit einigen Jahren. Sssie ist mutig, ssschlau und ssschön. Man findet sssie in ihrem Palassst auf der anderen Ssseite der Ssstadt. Einfach rein gehen."
 "rosaline", "edwards", english -> "Our nice Queen Rosaline Edwards has been ruling for many years now. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in."
 "rosaline", "edwards" -> "Unsere nette Königin Rosaline Edwards herrssscht nun ssschon ssseit einigen Jahren. Sssie ist mutig, ssschlau und ssschön. Man findet sssie in ihrem Palassst auf der anderen Ssseite der Ssstadt. Einfach rein gehen."
-"Cadomyr", english -> "That isss here and if you want to know more about it asssk me for further information.","Here at Cadomyr, we are interesssted in Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders."
-"Cadomyr" -> "Das issst hier und wenn du mehr darüber wisssen möchtest, dann frag mich nach weiterer Information.","Hier in Cadomyr sssuchen wir immer nach Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer."
+"Cadomyr", english -> "That isss here and if you want to know more about it asssk me for further information.", "Here at Cadomyr, we are interesssted in Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders."
+"Cadomyr" -> "Das issst hier und wenn du mehr darüber wisssen möchtest, dann frag mich nach weiterer Information.", "Hier in Cadomyr sssuchen wir immer nach Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer."
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I don't sssell or buy anything. But we have a marketplace. You can try your luck there."
@@ -226,34 +219,34 @@ itemShoes = 369
 "Findari" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 "Irmorom", english -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
 "Irmorom" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Galmair finden."
-"Malachin", "Malachín", english -> "Many follow the honourable Malachín. Soldiers and knights pray for protection in battles, hunters for a good hunt and protection while hunting, paladins for protection and a powerful fist against the evil.","You can find a Temple of him outside the town in the South. Just go through the town gate to the mine 'Candour Foundation', and you will find the temple above. Just follow the signposts."
-"Malachin", "Malachín" -> "Viele folgen dem ehrenwerten Malachin. Soldaten und Ritter beten zu ihm, um Schutz in schweren Kämpfen zu erhalten; Jäger, um den erfolgreichen Ausgang einer Jagd; Paladine allgemein für den Schutz im Kampf gegen das Böse.","Du kannst den Tempel von ihm außerhalb der Stadt im Süden. Gehe einfach durch das Stadttor zur Mine 'Grundstein der Aufrichtigkeit', und du wirst den Tempel darüber finden. Folge einfach den Wegschildern."
-"Moshran", english -> "Sssss, I do not like thisss God. Yoo better avoid thisss name. People should kill you for usssing thisss name!","#s Helpsss! We have potential fellow of the bloodgod here! Head up!"
-"Moshran" -> "Sssss, I do not like thisss God. Yoo better avoid thisss name. People should kill you for usssing thisss name!","#s Hilfe! Wir haben einen potentiellen Anhänger desss Blutgott hier! Kopf ab!"
+"Malachin", "Malachín", english -> "Many follow the honourable Malachín. Soldiers and knights pray for protection in battles, hunters for a good hunt and protection while hunting, paladins for protection and a powerful fist against the evil.", "You can find a Temple of him outside the town in the South. Just go through the town gate to the mine 'Candour Foundation', and you will find the temple above. Just follow the signposts."
+"Malachin", "Malachín" -> "Viele folgen dem ehrenwerten Malachin. Soldaten und Ritter beten zu ihm, um Schutz in schweren Kämpfen zu erhalten; Jäger, um den erfolgreichen Ausgang einer Jagd; Paladine allgemein für den Schutz im Kampf gegen das Böse.", "Du kannst den Tempel von ihm außerhalb der Stadt im Süden. Gehe einfach durch das Stadttor zur Mine 'Grundstein der Aufrichtigkeit', und du wirst den Tempel darüber finden. Folge einfach den Wegschildern."
+"Moshran", english -> "Sssss, I do not like thisss God. Yoo better avoid thisss name. People should kill you for usssing thisss name!", "#s Helpsss! We have potential fellow of the bloodgod here! Head up!"
+"Moshran" -> "Sssss, I do not like thisss God. Yoo better avoid thisss name. People should kill you for usssing thisss name!", "#s Hilfe! Wir haben einen potentiellen Anhänger desss Blutgott hier! Kopf ab!"
 "Nargun", "Nargún", "Nargùn", english -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
 "Nargun", "Nargún", "Nargùn" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Galmair finden."
 "Oldra", english -> "One of the unimportant, younger gods. You can find fellows in Runewick."
 "Oldra" -> "Eine der unwichtigen, jüngeren Götter. Du kann Anhänger in Runewick finden."
 "Ronagan", english -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
 "Ronagan" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Galmair finden."
-"Sirani", english -> "Many young females pray to her for advice in love or simple beauty tips. Most Sirani priests are good healers. Her followers believe in peace and harmony, and most of them don't like weapons or violence.","You can find a Temple of her outside the town in the Southeast. Just go through the town gate, then east, and go south after you cross the Katanbi-river. Just follow the signposts, but be careful!"
-"Sirani" -> "Viele junge Frauen beten zu Ihr, der Liebe wegen oder um Schönheit zu erlangen. Die meisten Priester Siranis sind gute Heiler und glauben wie alle Ihre Anhänger an ein Leben in Friede und Harmonie. Sie verabscheuen Gewalt und Waffen.","Du kannst den Tempel von ihr außerhalb der Stadt im Südosten. Gehe einfach durch das Stadttor, dann in den Osten, und nachdem du den Katanbi-Fluss überquert hast. Folge einfach den Wegschildern, aber sei vorsichtig!"
-"Tanora", "Zelphia", race=lizardman, english -> "One of the elder gods, but except of our race noone cares about this god here. You can find a temple at the Temple of the five, far in the North."
-"Tanora", "Zelphia", race=lizardman -> "Eine der alten Götter, aber ausgenohmen von unserer Rasse niemand kümmert sich hier nicht um diese Gottheit. Du kannst einen Tempel hoch im Norden bei den Tempel der Fünf finden.."
+"Sirani", english -> "Many young females pray to her for advice in love or simple beauty tips. Most Sirani priests are good healers. Her followers believe in peace and harmony, and most of them don't like weapons or violence.", "You can find a Temple of her outside the town in the Southeast. Just go through the town gate, then east, and go south after you cross the Katanbi-river. Just follow the signposts, but be careful!"
+"Sirani" -> "Viele junge Frauen beten zu Ihr, der Liebe wegen oder um Schönheit zu erlangen. Die meisten Priester Siranis sind gute Heiler und glauben wie alle Ihre Anhänger an ein Leben in Friede und Harmonie. Sie verabscheuen Gewalt und Waffen.", "Du kannst den Tempel von ihr außerhalb der Stadt im Südosten. Gehe einfach durch das Stadttor, dann in den Osten, und nachdem du den Katanbi-Fluss überquert hast. Folge einfach den Wegschildern, aber sei vorsichtig!"
+"Tanora", "Zelphia", race = lizardman, english -> "One of the elder gods, but except of our race noone cares about this god here. You can find a temple at the Temple of the five, far in the North."
+"Tanora", "Zelphia", race = lizardman -> "Eine der alten Götter, aber ausgenohmen von unserer Rasse niemand kümmert sich hier nicht um diese Gottheit. Du kannst einen Tempel hoch im Norden bei den Tempel der Fünf finden.."
 "Tanora", "Zelphia", english -> "One of the elder gods, but except of me and my race noone cares about this god here. So, better do not waste your time with this god."
 "Tanora", "Zelphia" -> "Eine der alten Götter, aber ausgenohmen von mir und meiner Rasse niemand kümmert sich hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 "Ushara", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
 "Ushara" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
-"Zhambra", english -> "The followers of Zhambra are righteous and loyal ones who believe in honor and law. They often try to rescue others, and fight against the evil. Zhambra is worshipped by nobles and knights, paladins, and many soldiers.","You can find a Temple of him behind this wall. Just go through the next two doors to my left, pass the marketplace and then you will find it on the right after the workshop."
-"Zhambra" -> "Die Anhänger Zhambras sind geradlinig und ergebene Gefolgsleute, die an Ehre und Recht glauben. Sie versuchen häufig, Andere zu retten und stehen im Kampf gegen das Böse. Zhambra wird gehuldigt von Adligen, Rittern, Höflingen und von vielen Kriegern.","Du kannst den Tempel von ihm hinter dieser Mauer hier finden. Gehe einfach durch die beiden Tore zu meiner Linken, überquere den Marktplatz und dann findest du ihn auch schon an der rechten Seite hinter der Werkstatt."
+"Zhambra", english -> "The followers of Zhambra are righteous and loyal ones who believe in honor and law. They often try to rescue others, and fight against the evil. Zhambra is worshipped by nobles and knights, paladins, and many soldiers.", "You can find a Temple of him behind this wall. Just go through the next two doors to my left, pass the marketplace and then you will find it on the right after the workshop."
+"Zhambra" -> "Die Anhänger Zhambras sind geradlinig und ergebene Gefolgsleute, die an Ehre und Recht glauben. Sie versuchen häufig, Andere zu retten und stehen im Kampf gegen das Böse. Zhambra wird gehuldigt von Adligen, Rittern, Höflingen und von vielen Kriegern.", "Du kannst den Tempel von ihm hinter dieser Mauer hier finden. Gehe einfach durch die beiden Tore zu meiner Linken, überquere den Marktplatz und dann findest du ihn auch schon an der rechten Seite hinter der Werkstatt."
 
 -- Optional: Main land factions
---"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
---"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
---"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gobaith
 "Gobaith", "Gobiath", english -> "I have never heard that name."
