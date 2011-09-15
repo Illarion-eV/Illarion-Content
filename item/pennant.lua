@@ -62,7 +62,7 @@ function LookAtItemIdent(User,Item)
         world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
     end
     --[[if not found then
-        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(TreeListGerman))+1;
+        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PennantListGerman))+1;
         world:itemInform( User, Item, base.common.GetNLS(User, PennantListGerman[val], PennantListEnglish[val]) );
 	end]]-- 
 
