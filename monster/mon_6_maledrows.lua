@@ -2,7 +2,7 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
-module("monster.mon_27_maledrows", package.seeall)
+module("monster.mon_6_maledrows", package.seeall)
 
 function onSpawn(theDrow)
     if theDrow:getMonsterType()<70 then
@@ -34,9 +34,7 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-msgs:addMessage("#me fährt mit einer Hand durch sein Haar, ein grausames Grinsen liegt auf seinem Gesicht.", "#me runs a hand through his hair, a cruel smirk covering his face.");
-msgs:addMessage("#me fasst seine Waffe fester.", "#me tightly grips his weapon.");
-msgs:addMessage("#me schließt seine Augen und beginnt wie wahnsinnig zu lachen.", "#me closes his eyes and begins to laugh maniacally.");
+msgs:addMessage("#me schließt die Augen und beginnt wie wahnsinnig zu lachen.", "#me closes the eyes and begins to laugh maniacally.");
 msgs:addMessage("#mes Mund ist an den Mundwinkeln zu einem verdrehten Lächeln verzogen.", "#me's mouth curles up into a twisted smile.");
 msgs:addMessage("#mes verengte Augen starren geradeaus.", "#me's narrow eyes stare straight ahead.");
 msgs:addMessage("Brüder! Lasst uns Jagd auf die Schwachen machen.", "Brothers! Let us prey upon the weak.");
@@ -64,9 +62,9 @@ function enemyNear(Monster,Enemy)
     end
 	
     local MonID=Monster:getMonsterType();
-    if (MonID==273) then
+    if (MonID==63) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,3,{2000,3000},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1) == true );
-    elseif (MonID==274) then
+    elseif (MonID==64) then
         return ( monster.base.drop.CastMonster(Monster,Enemy,8,{101,111},40) == true );
     else
         return false;
@@ -84,9 +82,9 @@ function enemyOnSight(Monster,Enemy)
 
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
-    elseif (MonID==273) then
+    elseif (MonID==63) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,3,{2000,3000},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1) == true );
-    elseif (MonID==274) then
+    elseif (MonID==64) then
         return ( monster.base.drop.CastMonster(Monster,Enemy,8,{101,111},40) == true );
     else
         return false;
@@ -277,13 +275,13 @@ function onDeath(Monster)
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
 
-    elseif (MonID==276) then
+    elseif (MonID==66) then
         -- Drops
-    elseif (MonID==277) then
+    elseif (MonID==67) then
         --Drops
-    elseif (MonID==278) then
+    elseif (MonID==68) then
         --Drops
-    elseif (MonID==279) then
+    elseif (MonID==69) then
         --Drops
     else
         --Drops
