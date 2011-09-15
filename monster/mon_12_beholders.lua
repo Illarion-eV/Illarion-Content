@@ -288,13 +288,13 @@ function onDeath(Monster)
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
 
-    elseif (MonID==146) then
+    elseif (MonID==126) then
         -- Drops
-    elseif (MonID==147) then
+    elseif (MonID==127) then
         --Drops
-    elseif (MonID==148) then
+    elseif (MonID==128) then
         --Drops
-    elseif (MonID==149) then
+    elseif (MonID==129) then
         --Drops
     else
         --Drops
