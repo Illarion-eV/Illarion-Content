@@ -4,7 +4,7 @@ require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.warp", package.seeall)
 
-inform = base.class.class(npc.base.consequence.consequence.consequence,
+warp = base.class.class(npc.base.consequence.consequence.consequence,
 function(self, x, y, z)
     npc.base.consequence.consequence.consequence:init(self);
     
