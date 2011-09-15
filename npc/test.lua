@@ -8,7 +8,7 @@ require("npc.base.basic")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.warp")
 require("npc.base.talk")
-module("npc.john_doe", package.seeall)
+module("npc.test", package.seeall)
 
 function initNpc()
 debug("            *******INIT NPC START")
@@ -47,7 +47,10 @@ debug("            *******RECEIVETEXT START")
 mainNPC:receiveText(speaker, message); 
 debug("            *******RECEIVETEXT END")
 end;
-function nextCycle() mainNPC:nextCycle(); end;
+function nextCycle() 
+mainNPC:nextCycle(); 
+end;
+
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
 initNpc();
