@@ -127,20 +127,20 @@ function talkNPCEntry:addResponse(text)
 end;
 
 function talkNPCEntry:addConsequence(consequence)
-debug("            *******ADD CONSEQUENCE START")
+-- debug("            *******ADD CONSEQUENCE START")
     if (consequence == nil or not consequence:is_a(npc.base.consequence.consequence.consequence)) then
-    debug("            *******ADD CONSEQUENCE 1")
+    -- debug("            *******ADD CONSEQUENCE 1")
         return;
     end;
-    debug("            *******ADD CONSEQUENCE 2")
+    -- debug("            *******ADD CONSEQUENCE 2")
     table.insert(self._consequences, consequence);
-    debug("            *******ADD CONSEQUENCE 3")
+    -- debug("            *******ADD CONSEQUENCE 3")
 	if (self._parent ~= nil) then
-	debug("            *******ADD CONSEQUENCE 4")
+	-- debug("            *******ADD CONSEQUENCE 4")
 		consequence:setNPC(self._parent);
-		debug("            *******ADD CONSEQUENCE 5")
+		-- debug("            *******ADD CONSEQUENCE 5")
 	end;
-	debug("            *******ADD CONSEQUENCE 6")
+	-- debug("            *******ADD CONSEQUENCE 6")
 end;
 
 function talkNPCEntry:checkEntry(player, text)
