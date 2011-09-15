@@ -76,9 +76,9 @@ itemShoes = 326
 "Auftrag", "Aufgabe", "Abenteuer" -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you evrything you need! Aye. Furthermore I hold'n eye on these pignoses over there."
+"profession" -> "I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there."
 "beruf" -> "Ich handle mit Saatgut. Wenn du ein Bauer bist, bist du bei mir richtig. Ich verkauf dir alles was du brauchst. Aye. Und außerdem pass ich auf, dass die Grünschnauzen dort drüben keinen Unsinn treiben."
-"job", english -> "I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you evrything you need! Aye. Furthermore I hold'n eye on these pignoses over there."
+"job", english -> "I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there."
 "job" -> "Ich handle mit Saatgut. Wenn du ein Bauer bist, bist du bei mir richtig. Ich verkauf dir alles was du brauchst. Aye. Und außerdem pass ich auf, dass die Grünschnauzen dort drüben keinen Unsinn treiben."
 "Gobaith", "Gobiath", english -> "Gobaith? Drhg'hgin! Nobody's allowed to speak that way about my granny! Get rid!"
 "Gobaith", "Gobiath" -> "Gobaith? Drhg'hgin! So spricht niemand über meine Großmutter! Verzieh dich!"
@@ -88,7 +88,7 @@ itemShoes = 326
 -- More small talk; add at least five triggers
 "Dwar[vf]" -> "The dwarven folk is the proudest! Terrifying warriors! Masterly masons! Awesome Smiths! The most famous poets and bards!", "Hey dwarf, hey dwarf - hey dwarf ho! Hey dwarf, hey dwarf go-go-go!"
 "or[ck]", english -> "Arr the don gave two markt stalls to the pignoses. Now I have to guard their actions.", "You see the Orc opponent - over there? J'uk, he lolls the whole long day, guzzling the own goods. The beer tastes like piss, don't ask me where he got it - in no case by dwarves thats for sure."
-"name", english -> "A true dwarf like me... don't tells his name to evrybody. This defends us dwarves against bad magic frippery! And such rubbish, got it?"
+"name", english -> "A true dwarf like me... doesn't tell his name to everybody. This defends us dwarves against bad magic frippery! And such rubbish, got it?"
 "hagar", "wernson", english -> "Us dwarves brew his beer. Lucky man, otherwise nobody would guzzle down there, in the Winged Sow Inn."
 "gold", english -> "#me starts to sing with a deep throaty voice.'Gooold! Gold, Gold, Gold. Gold... Gold, Gold, Gold!'"
 "beer" -> "Aye, the best beer is sold at Hagar Wernson's The Winged Sow Inn. Bevore dringing the piss, sold by the orc over there, I wouldn't drink if it was a healing potion and an axe is tuck into my shoulder!"
@@ -126,16 +126,16 @@ itemShoes = 326
 "salkama" -> "Sonniges, leuchtendes Salkamar. Überfüllt mit Magier-Pöbel. Wenn ich nur daran denke, reibt's mir in den Augen. Für so ein Land hat uns Irmorom nicht geschaffen. Nein."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Irmorom, father of dwarves - and Sir Ronagan shelter my pocket against larcenous halblings and treacherous humans."
+"god" -> "Irmorom, father of dwarves - and Ronagan protect my pocket against larcenous halblings and treacherous humans."
 "Gott", "Götter" -> "Irmorom, der Vater der Zwerge und ihr Ronagan, schützt mich vor langfingrigen Halblingen und betrügerischen Menschen."
-"Irmorom", english -> "Hail Irmorom. Shelter my Clan, deep down in hall's made of stone. Far away they are but noone will seperate us ever."
+"Irmorom", english -> "Hail Irmorom. Respect my clan, deep down in the halls, made of stone. They are far away they but noone will ever seperate us."
 "Irmorom" -> "Heil Irmorom. Schütze meinen Clan, in seinen Hallen aus Stein. Weit sind sie weg, doch kann man uns niemals trennen."
 "Ronagan", english -> "Aye, I sacrifice a good part of my income the Lord of the shadows. In opposite train I'll be untroubled by larcenous riffraff! Arr."
 "Ronagan" -> "Aye, ich opfere einen guten Teil meiner Einkünfte dem Schattengott. So sorgt er dafür, dass ich vom diebischen Gesindel verschont bleibe! Arr."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I sell evrything the farmers heart might crave. And a littl ebit more."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe alle Dinge, die eines Farmers Herz begehren könnte. Und noch ein Bisschen mehr."
+"what sell", "what buy", "list wares", "price of" -> "I sell everything the farmers heart might crave. And a little bit more."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe alle Dinge, die eines Farmers Herz begehren könnte. Und noch ein bisschen mehr."
 "tell something" -> "I administer the seeds of Galmair. A verry important task, which is commissioned only to the best man!", "Arr. I take care that the pignoses, arroun' the market, don't mess it up. They aren't that clever aren't they?", " Praise Irmorom and thank Ronagan the last week just went fine. And not a single piferer arround. Arr."
 "erzähl was", "erzähl etwas" -> "Ich verwalte das Saatgut von Galmair. Eine äußerst wichtige Aufgabe. Die der Don, nur den fähigsten Männern anvertraut.", "Arr. Ich pass auf das die Schweineschnauzen, hier am Markt, keinen Unsinn treiben! Sind ja so wie so nicht die klügsten, nicht wahr?", "Gepriesen sei Irmorom, und gedankt sei's Ronagan. Die letzte Woche lief ausgezeichnet, und kein einziger Langfinger in der Nähe. Arr."
 

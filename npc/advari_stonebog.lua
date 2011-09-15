@@ -215,7 +215,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you evrything you need! Aye. Furthermore I hold'n eye on these pignoses over there.");
+talkEntry:addResponse("I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -228,7 +228,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you evrything you need! Aye. Furthermore I hold'n eye on these pignoses over there.");
+talkEntry:addResponse("I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,7 +287,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("name");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("A true dwarf like me... don't tells his name to evrybody. This defends us dwarves against bad magic frippery! And such rubbish, got it?");
+talkEntry:addResponse("A true dwarf like me... doesn't tell his name to everybody. This defends us dwarves against bad magic frippery! And such rubbish, got it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -504,7 +504,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Irmorom, father of dwarves - and Sir Ronagan shelter my pocket against larcenous halblings and treacherous humans.");
+talkEntry:addResponse("Irmorom, father of dwarves - and Ronagan protect my pocket against larcenous halblings and treacherous humans.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -518,7 +518,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hail Irmorom. Shelter my Clan, deep down in hall's made of stone. Far away they are but noone will seperate us ever.");
+talkEntry:addResponse("Hail Irmorom. Respect my clan, deep down in the halls, made of stone. They are far away they but noone will ever seperate us.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -546,7 +546,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I sell evrything the farmers heart might crave. And a littl ebit more.");
+talkEntry:addResponse("I sell everything the farmers heart might crave. And a little bit more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -555,7 +555,7 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Ich verkaufe alle Dinge, die eines Farmers Herz begehren könnte. Und noch ein Bisschen mehr.");
+talkEntry:addResponse("Ich verkaufe alle Dinge, die eines Farmers Herz begehren könnte. Und noch ein bisschen mehr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
