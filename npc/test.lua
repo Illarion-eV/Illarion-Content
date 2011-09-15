@@ -25,9 +25,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ab");
 talkEntry:addResponse("yes, sire");
 
-debug("            *******INIT NPC BEFORE WARP")
 talkEntry:addConsequence(npc.base.consequence.warp.warp(10, 10, 0));
-debug("            *******INIT NPC AFTER WARP")
 
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -38,12 +36,10 @@ mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibu
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
-debug("            *******INIT NPC END")
 mainNPC:initDone();
 end;
 
 function receiveText(texttype, message, speaker) 
-debug("            *******RECEIVETEXT START")
 mainNPC:receiveText(speaker, message); 
 debug("            *******RECEIVETEXT END")
 end;
