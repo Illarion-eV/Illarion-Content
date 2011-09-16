@@ -2,7 +2,7 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
-module("monster.mon_17_demonskeletons", package.seeall)
+module("monster.mon_20_demonskeletons", package.seeall)
 
 
 function ini(Monster)
@@ -53,9 +53,9 @@ function enemyNear(Monster,Enemy)
     end
 	
     local MonID=Monster:getMonsterType();
-    if (MonID==172) then
+    if (MonID==202) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{4,5},{9,5},{51,5}},{},40,1) == true );
-    elseif (MonID==175) then
+    elseif (MonID==205) then
         if monster.base.drop.SuddenWarp(Monster,Enemy,true) then
             return true
         end
@@ -82,9 +82,9 @@ function enemyOnSight(Monster,Enemy)
     local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
-    elseif (MonID==172) then
+    elseif (MonID==202) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{4,5},{9,5},{51,5}},{},40,1) == true );
-    elseif (MonID==175) then
+    elseif (MonID==205) then
         if monster.base.drop.CastMonster(Monster,Enemy,10,{111,115},40) then
             return true
         end
@@ -99,7 +99,7 @@ end
 
 function onAttacked(Monster,Enemy)
 local MonID=Monster:getMonsterType();
-	if(MonID == 175) then
+	if(MonID == 205) then
 		if monster.specialattacks.lich_spells.Lich_Forcefield (monster, char) then
 			return true;
 		else
@@ -115,7 +115,7 @@ end
 
 function onCasted(Monster,Enemy)
     local MonID=Monster:getMonsterType();
-	if(MonID == 175) then
+	if(MonID == 205) then
 		if monster.specialattacks.lich_spells.Lich_MagicShield (monster, char) then
 			return true;
 		else
@@ -148,7 +148,7 @@ function onDeath(Monster)
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
     
-if (MonID==171) then --Demon Skeleton, Level: 6, Armourtype: heavy, Weapontype: slashing
+if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype: slashing
 
         --Category 1: Armor
 
@@ -178,7 +178,7 @@ if (MonID==171) then --Demon Skeleton, Level: 6, Armourtype: heavy, Weapontype: 
         monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
 
 
-    elseif (MonID==172) then --Demon Skeleton Mage, Level: 7, Armourtype: cloth, Weapontype: concussion (wrestling)
+    elseif (MonID==202) then --Mystic Demon Skeleton, Level: 6, Armourtype: light, Weapontype: concussion (wrestling)
 
         --Category 1: Armor
 
@@ -193,7 +193,7 @@ if (MonID==171) then --Demon Skeleton, Level: 6, Armourtype: heavy, Weapontype: 
         local done=monster.base.drop.AddDropItem(68,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --ruby ring
         if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --blackstone ring
         if not done then done=monster.base.drop.AddDropItem(336,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --mirror
-        if not done then done=monster.base.drop.AddDropItem(223,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --iron goblet
+        if not done then done=monster.base.drop.AddDropItem(334,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --charm of the icebird
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --ruby
 
         --Category 3: Weapon
@@ -205,10 +205,10 @@ if (MonID==171) then --Demon Skeleton, Level: 6, Armourtype: heavy, Weapontype: 
         if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --skull staff
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
 
 
-    elseif (MonID==173) then --Demon Skeleton Warrior, Level: 7, Armourtype: heavy, Weapontype: slashing
+    elseif (MonID==203) then --Unholy Akolyth, Level: 7, Armourtype: heavy, Weapontype: concussion
 
         --Category 1: Armor
 
@@ -238,7 +238,7 @@ if (MonID==171) then --Demon Skeleton, Level: 6, Armourtype: heavy, Weapontype: 
         monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
 
 
-    elseif (MonID==174) then --Old Demon Skeleton, Level: 7, Armourtype: medium, Weapontype: concussion
+    elseif (MonID==204) then --Unholy Archmage, Level: 7, Armourtype: heavy, Weapontype: slashing
 
         --Category 1: Armor
 
@@ -254,7 +254,7 @@ if (MonID==171) then --Demon Skeleton, Level: 6, Armourtype: heavy, Weapontype: 
         if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --blackstone ring
         if not done then done=monster.base.drop.AddDropItem(2185,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --wooden cup
         if not done then done=monster.base.drop.AddDropItem(1858,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --goblet
-        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --topaz
+        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(6,7)+math.random(66,77)),1,2); end --magic topaz
 
         --Category 3: Weapon
 
@@ -268,7 +268,7 @@ if (MonID==171) then --Demon Skeleton, Level: 6, Armourtype: heavy, Weapontype: 
         monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
 
 
-    elseif (MonID==175) then --Lich, Level: 8, Armourtype: cloth, Weapontype: concussion
+    elseif (MonID==205) then --Lich, Level: 8, Armourtype: heavy, Weapontype: puncture
 
         --Category 1: Armor
 
@@ -290,20 +290,20 @@ if (MonID==171) then --Demon Skeleton, Level: 6, Armourtype: heavy, Weapontype: 
 
         local done=monster.base.drop.AddDropItem(207,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --battle staff
         if not done then done=monster.base.drop.AddDropItem(208,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --ornate mage's staff
-        if not done then done=monster.base.drop.AddDropItem(323,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --wand
+        if not done then done=monster.base.drop.AddDropItem(2551,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --pure air
         if not done then done=monster.base.drop.AddDropItem(2782,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --wand of earth
         if not done then done=monster.base.drop.AddDropItem(2783,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --wand of fire
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
 
-    elseif (MonID==176) then
+    elseif (MonID==206) then
         -- Drops
-    elseif (MonID==177) then
+    elseif (MonID==207) then
         --Drops
-    elseif (MonID==178) then
+    elseif (MonID==208) then
         --Drops
-    elseif (MonID==179) then
+    elseif (MonID==209) then
         --Drops
     else
         --Drops
