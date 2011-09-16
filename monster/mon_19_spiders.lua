@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
@@ -261,7 +261,7 @@ function onDeath(Monster)
     end
     monster.base.drop.Dropping(Monster);
 end
-=======
+
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
@@ -524,4 +524,4 @@ function onDeath(Monster)
     end
     monster.base.drop.Dropping(Monster);
 end
->>>>>>> d6f02cbad9328a26f9b195ce192ede275ad14ddd
+

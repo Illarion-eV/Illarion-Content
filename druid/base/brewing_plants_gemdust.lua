@@ -52,15 +52,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                   User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
                   User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
                   return
-               end
-			end
+            end
 			
 			if (ltstate == Action.none) then
 			   User:startAction(20,21,25,0,0);
 			   return
 			end
 			
-			if 
+			
 			-- if there is no cauldronData, we will create one    
 			if (cauldron:getData("cauldronData") == "") then
 			   cauldron:setData("cauldronData","55555555");
@@ -142,8 +141,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                   User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
                   User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
                   return
-               end
-			end
+            end
 			
 			if (ltstate == Action.none) then
 			   User:startAction(20,21,25,0,0);
