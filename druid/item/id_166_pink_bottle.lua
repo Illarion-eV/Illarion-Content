@@ -50,7 +50,7 @@ function DrinkPotion(User,SourceItem)
 	      end  
 	 	
           
-		User.movepoints=User.movepoints-20;
+		
 	    world:makeSound(12,User.pos);
 	
 	    find, myEffect = User.effects:find(166)
@@ -87,23 +87,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 	       return;
       
 	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
-	      if SourceItem.id == 165 then
-		     potionKind = 1;
-		  elseif SourceItem.id == 59 then
-             potionKind = 2;
-          elseif SourceItem.id == 327 then
-             potionKind = 3;		  
-		  elseif SourceItem.id == 329 then
-             potionKind = 4;		  
-		  elseif SourceItem.id == 166 then
-             potionKind = 5;		  
-		  elseif SourceItem.id == 328 then
-             potionKind = 6; 		  
-		  elseif SourceItem.id == 330 then
-             potionKind = 7;		  
-		  end			 
+	      local ID_potion = SourceItem:getData("potionID")			 
 		  
-		  cauldron:setData("potionType", ""..potionKind);
+		  cauldron:setData("potionID", ""..ID_potion);
 		  cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
 	      cauldron.quality = SourceItem.quality
 		  world:changeItem(cauldron)
@@ -112,8 +98,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 		  world:makeSound(10,User.pos);
 		  world:erase(SourceItem,1);
 		  User:createItem(164, 1, 333, 0);
-	      User.movepoints=User.movepoints-20;
-		  return;
+	      return;
 	   end  
 	end
 	

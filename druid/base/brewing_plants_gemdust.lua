@@ -33,7 +33,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	  local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem);
 	  if AlchemyPlant then
             -- if there is the data "potionType", it is a completed potion   
-            if (cauldron:getData("potionType") ~= "") then 
+            if (cauldron:getData("potionID") ~= "") then 
 		     base.common.InformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
@@ -41,7 +41,27 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		        return;
 			end	
 			
-		    -- if there is no cauldronData, we will create one    
+		    if ( ltstate == Action.abort ) then
+                if (User:increaseAttrib("sex",0) == 0) then
+                   gText = "seine";
+                   eText = "his";
+              else
+                  gText = "ihre";
+                  eText = "her";
+               end
+                  User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+                  User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+                  return
+               end
+			end
+			
+			if (ltstate == Action.none) then
+			   User:startAction(20,21,25,0,0);
+			   return
+			end
+			
+			if 
+			-- if there is no cauldronData, we will create one    
 			if (cauldron:getData("cauldronData") == "") then
 			   cauldron:setData("cauldronData","55555555");
 			end
@@ -55,10 +75,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
            -- "overflow" leads to explosion of the stock
             if dataZList[plusWertPos] == 9 or dataZList[minusWertPos] == 1 then
-		      world:gfx(21,User.pos)
-			  world:makeSound(10,User.pos);
-	          User:increaseAtPos(SourceItem.itempos,-1);
-		      world:makeSound(5,User.pos);
+		      world:makeSound(10,cauldron.pos);
+			  User:increaseAtPos(SourceItem.itempos,-1);
+		      world:makeSound(5,cauldron.pos);
 	          world:gfx(9,cauldron.pos);
 		      base.common.InformNLS( User,
                 "Deine letzte Handlung scheint den Sud zerstört und zu einer Explosion geführt zu haben.",
@@ -81,7 +100,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             end
 		
 		    -- delete the plant
-			world:gfx(21,User.pos)
 			world:makeSound(10,cauldron.pos);
 		    User:increaseAtPos(SourceItem.itempos,-1);
 			
@@ -91,14 +109,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			cauldron:setData("cauldronData",""..newData);
             world:changeItem(cauldron)
 			
-			User.movepoints=User.movepoints-30 --Delay of 30 movepoints for scaling skillgain and prevent macro abuse. If you change this, also change the movepoints in the learn(...) line in alchemy.lua
-	   end
+		end
 		
       -- check if it is gem dust
 	  local GemDust = druid.base.alchemy.CheckIfGemDust(User,SourceItem);
 	  if GemDust then
-          -- data > 99999999 means that it is a completed potion   
-            if (cauldron:getData("potionType") ~= "") then 
+             
+            if (cauldron:getData("potionID") ~= "") then 
 		     base.common.InformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
@@ -114,33 +131,50 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		        return;
 			end
 			
+			if ( ltstate == Action.abort ) then
+                if (User:increaseAttrib("sex",0) == 0) then
+                   gText = "seine";
+                   eText = "his";
+              else
+                  gText = "ihre";
+                  eText = "her";
+               end
+                  User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+                  User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+                  return
+               end
+			end
+			
+			if (ltstate == Action.none) then
+			   User:startAction(20,21,25,0,0);
+			   return
+			end
+			
 			if SourceItem.id == 446 then --bluestone
-			   gemDustType = "1"
+			   ID_potion = 165 -- id of the matching potion
 			elseif SourceItem.id == 447 then  -- ruby
-                   gemDustType = "2"
+                   ID_potion = 59
             elseif SourceItem.id == 448 then  -- emerald
-                   gemDustType = "3"
+                   ID_potion = 327
             elseif SourceItem.id ==	449 then  -- blackstone
-                   gemDustType = "4"
+                   ID_potion = 329
             elseif SourceItem.id == 450 then -- amethyst
-                   gemDustType = "5"
+                   ID_potion = 166
             elseif SourceItem.id == 451 then -- topaz
-                   gemDustType = "6"
+                   ID_potion = 328
             elseif SourceItem.id == 452 then -- diamond
-                   gemDustType = "7"
+                   ID_potion = 330
             end 
             
 			-- change cauldron's data and quality
-			world:gfx(21,User.pos)
 			world:makeSound(13,cauldron.pos);
 			world:gfx(52,cauldron.pos);
-			cauldron:setData("potionType", ""..gemDustType);
+			cauldron:setData("potionID", ""..ID_potion);
 			cauldron.quality = 999; -- !!!!!!!!!!!!!!!!!!!!!! note to myself (merung): replace it with a proper calculation  !!!!!!!!!!!!!!!!!!
 			world:changeItem(cauldron);
 		    
 		    
 			User:increaseAtPos(SourceItem.itempos,-1); -- delete gemdust
 		    
-			User.movepoints=User.movepoints-30 --Delay of 30 movepoints for scaling skillgain and prevent macro abuse. If you change this, also change the movepoints in the learn(...) line in alchemy.lua
 		end
 	end	   	

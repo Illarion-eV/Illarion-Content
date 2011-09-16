@@ -26,7 +26,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			return;
 	   end
 	   
-	   if (cauldron:getData("cauldronData") ~= "") and (cauldron:getData("potionType") == "") then -- a normal stock
+	   if (cauldron:getData("cauldronData") ~= "") and (cauldron:getData("potionID") == "") then -- a normal stock
 		  SourceItem:setData("stockData",""..cauldronData)
 		  SourceItem.id = 331
 		  SourceItem.quality = cauldron.quality
@@ -40,33 +40,16 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		  return;
 	   end
 	
-	   if (cauldron:getData("potionType") ~= "") then -- a potion
-	    
-		   local potionKind = tonumber(cauldron:getData("potionType"));
-	       if potionKind == 1 then
-	          potionId = 165;
-	       elseif potionKind == 2 then
-	          potionId = 59;
-           elseif potionKind == 3 then
-	          potionId =  327;
-	       elseif potionKind == 4 then
-	          potionId =  329;
-	       elseif potionKind == 5 then
-	          potionId =  166;
-	       elseif potionKind == 6 then
-	          potionId =  328;
-           elseif potionKind == 7 then
-	          potionId =  330;
-           end
-	   
-	   
-	       SourceItem:setData("potionData",""..cauldronData)
-		   SourceItem.id = potionId
+	   if (cauldron:getData("potionID") ~= "") then -- a potion
+	       local ID_potion = cauldron:getData("potionID")
+		   
+		   SourceItem:setData("potionData",""..cauldronData)
+		   SourceItem.id = ID_potion
            SourceItem.quality = cauldron.quality
 	       world:changeItem(SourceItem)
 	   
 	       cauldron:setData("cauldronData","")
-	       cauldron:setData("potionType","")
+	       cauldron:setData("potionID","")
 	       cauldron.quality = 333
 	       world:changeItem(cauldron)
 	       world:makeSound(10,User.pos);
