@@ -12,7 +12,7 @@ function Init()
        waypoint={}; --a list with positions
        waypoint[1]=position(470,795,0); --1: Eastern border
        waypoint[2]=position(261,679,0); --2: Arena Circle of Blood
-       waypoint[3]=position(135,696,0); --3: Mine Candour Foundation
+       waypoint[3]=position(135,696,0); --3: Mine Cornerstone of Candour
        waypoint[4]=position(236,440,0); --4: Bridge over the Kantabi River (ambush!)
       messageG={};
       messageG[1]="[Queststatus] Du erblickst einen betenden komischen Kauz, als du dich der Ostgrenze näherst.";
@@ -22,7 +22,7 @@ function Init()
       messageE={};
       messageE[1]="[Quest status] You spot a strange fellow chanting prayers as you approach the eastern border.";
       messageE[2]="[Quest status] The Circle of Blood thirsts for fresh blood but all looks clear.";
-      messageE[3]="[Quest status] The Candour Foundation vigilantly resists against the encroaching sand dunes.";
+      messageE[3]="[Quest status] The Cornerstone of Candour vigilantly resists against the encroaching sand dunes.";
       messageE[4]="[Quest status] As you cross the Kantabi River you hear an uproar of voices, and a band of cloaked men charge you. Ambush!";
        InitDone = true;
     

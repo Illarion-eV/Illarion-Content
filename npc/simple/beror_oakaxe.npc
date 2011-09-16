@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 27, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: September 15, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Beror Oakaxe"
@@ -154,10 +154,10 @@ itemShoes = 770
 "task", "adventure", queststatus(111) = 7, town = Cadomyr -> "Twenty fired bricks are needed  to fix that town wall. If you need help, ask Robertus at the marketplace."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 7, town = Cadomyr -> "Zwanzig gebrannte Ziegel werden benötigt, um die Stadtmauer auszubessern. Wenn du Hilfe brauchst, frage auf dem Markt nach Robertus."
 
--- Quest 4: Patrol the eastern border, Circle of Blood Arena, Mine Candour Foundation and the northern bridge over the Kantabi River (ambush!)
-"quest", "mission", queststatus(111) = 8, english, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "Alright Greenhorn you've proven yourself to be a grunt. Now it's time for some real work, need you to check out the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River, and the eastern border. We've unconfirmed reports of suspicious activity going on in those locations. You're dismissed.", queststatus(111) = 9
+-- Quest 4: Patrol the eastern border, Circle of Blood Arena, Mine Cornerstone of Candour and the northern bridge over the Kantabi River (ambush!)
+"quest", "mission", queststatus(111) = 8, english, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "Alright Greenhorn you've proven yourself to be a grunt. Now it's time for some real work, need you to check out the Cornerstone of Candour, the Circle of Blood, the northern bridge over the Kantabi River, and the eastern border. We've unconfirmed reports of suspicious activity going on in those locations. You're dismissed.", queststatus(111) = 9
 "quest", "mission", queststatus(111) = 8, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre IV"), "Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die nördliche Brücke über den Kantabifluss und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!", queststatus(111) = 9
-"task", "adventure", queststatus(111) = 8, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "Alright Greenhorn you've proven yourself to be a grunt. Now it's time for some real work, need you to check out the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River, and the eastern border. We've unconfirmed reports of suspicious activity going on in those locations. You're dismissed.", queststatus(111) = 9
+"task", "adventure", queststatus(111) = 8, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "Alright Greenhorn you've proven yourself to be a grunt. Now it's time for some real work, need you to check out the Cornerstone of Candour, the Circle of Blood, the northern bridge over the Kantabi River, and the eastern border. We've unconfirmed reports of suspicious activity going on in those locations. You're dismissed.", queststatus(111) = 9
 "Auftrag", "Aufgabe", queststatus(111) = 8, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre IV"), "Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die nördliche Brücke über den Kantabifluss und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!", queststatus(111) = 9
 
 -- Quest 4 solved, reward: Albarian soldier helmet (2287), 15 rankpoints
@@ -165,9 +165,9 @@ itemShoes = 770
 ".*", queststatus(111) = 10, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einen albarischen Soldatenhelm. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Was? Ein Banditenhinterhalt? Schlimme Kunde, die ich der Königin so bald wie möglich zu berichten habe. Gute Arbeit, Rekrut! Du hast dir diesen Helm der Krieger Cadomyrs redlich verdient.", item(2287, 1, 699, 0), queststatus(111) = 11, rankpoints(Cadomyr) + 15
 
 -- Quest 4 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(111) = 9, english, town = Cadomyr -> "The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north, and your patrol should also lead you to the eastern border."
+"quest", "mission", queststatus(111) = 9, english, town = Cadomyr -> "The Cornerstone of Candour is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north, and your patrol should also lead you to the eastern border."
 "quest", "mission", queststatus(111) = 9, town = Cadomyr -> "Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die nördliche Brücker über den Kantabifluss ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen."
-"task", "adventure", queststatus(111) = 9, town = Cadomyr -> "The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north, and your patrol should also lead you to the eastern border.."
+"task", "adventure", queststatus(111) = 9, town = Cadomyr -> "The Cornerstone of Candour is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north, and your patrol should also lead you to the eastern border.."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 9, town = Cadomyr -> "Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die nördliche Brücker über den Kantabifluss ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen."
 
 -- Quest 5: Reconnoitre the other factions and the neutral tavern

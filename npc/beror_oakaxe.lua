@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 27, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: September 15, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -582,7 +582,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour IV"));
-talkEntry:addResponse("Alright Greenhorn you've proven yourself to be a grunt. Now it's time for some real work, need you to check out the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River, and the eastern border. We've unconfirmed reports of suspicious activity going on in those locations. You're dismissed.");
+talkEntry:addResponse("Alright Greenhorn you've proven yourself to be a grunt. Now it's time for some real work, need you to check out the Cornerstone of Candour, the Circle of Blood, the northern bridge over the Kantabi River, and the eastern border. We've unconfirmed reports of suspicious activity going on in those locations. You're dismissed.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -604,7 +604,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 8));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour IV"));
-talkEntry:addResponse("Alright Greenhorn you've proven yourself to be a grunt. Now it's time for some real work, need you to check out the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River, and the eastern border. We've unconfirmed reports of suspicious activity going on in those locations. You're dismissed.");
+talkEntry:addResponse("Alright Greenhorn you've proven yourself to be a grunt. Now it's time for some real work, need you to check out the Cornerstone of Candour, the Circle of Blood, the northern bridge over the Kantabi River, and the eastern border. We've unconfirmed reports of suspicious activity going on in those locations. You're dismissed.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -651,7 +651,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north, and your patrol should also lead you to the eastern border.");
+talkEntry:addResponse("The Cornerstone of Candour is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north, and your patrol should also lead you to the eastern border.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -669,7 +669,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north, and your patrol should also lead you to the eastern border..");
+talkEntry:addResponse("The Cornerstone of Candour is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north, and your patrol should also lead you to the eastern border..");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

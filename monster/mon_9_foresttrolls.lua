@@ -2,7 +2,7 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
-module("monster.mon_22_foresttrolls", package.seeall)
+module("monster.mon_9_foresttrolls", package.seeall)
 
 
 function ini(Monster)
@@ -38,7 +38,7 @@ function enemyNear(Monster,Enemy)
     end
 	
     local MonID=Monster:getMonsterType();
-    if (MonID==223) then
+    if (MonID==93) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,6,{1000,1500},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1,{30,60}) );
     else
         return false;
@@ -56,7 +56,7 @@ function enemyOnSight(Monster,Enemy)
     local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true;
-    elseif (MonID==223) then
+    elseif (MonID==93) then
         return ( monster.base.drop.CastHealing( Monster, 4, {2000,3500}, 8, {16, 13}, 40 ) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1500,2500},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1,{45,70}) );
     else
         return false;
@@ -247,13 +247,13 @@ function onDeath(Monster)
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
 
-    elseif (MonID==226) then
+    elseif (MonID==96) then
         -- Drops
-    elseif (MonID==227) then
+    elseif (MonID==97) then
         --Drops
-    elseif (MonID==228) then
+    elseif (MonID==98) then
         --Drops
-    elseif (MonID==229) then
+    elseif (MonID==99) then
         --Drops
     else
         --Drops

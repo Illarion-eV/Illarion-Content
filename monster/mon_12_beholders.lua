@@ -2,7 +2,7 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
-module("monster.mon_14_beholders", package.seeall)
+module("monster.mon_12_beholders", package.seeall)
 
 
 function ini(Monster)
@@ -288,13 +288,13 @@ function onDeath(Monster)
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
 
-    elseif (MonID==146) then
+    elseif (MonID==126) then
         -- Drops
-    elseif (MonID==147) then
+    elseif (MonID==127) then
         --Drops
-    elseif (MonID==148) then
+    elseif (MonID==128) then
         --Drops
-    elseif (MonID==149) then
+    elseif (MonID==129) then
         --Drops
     else
         --Drops
