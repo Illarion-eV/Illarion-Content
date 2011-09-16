@@ -131,6 +131,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             end 
             
 			-- change cauldron's data and quality
+			world:gfx(21,User.pos)
+			world:makeSound(13,cauldron.pos);
+			world:gfx(52,cauldron.pos);
 			cauldron:setData("potionType", ""..gemDustType);
 			cauldron.quality = 999; -- !!!!!!!!!!!!!!!!!!!!!! note to myself (merung): replace it with a proper calculation  !!!!!!!!!!!!!!!!!!
 			world:changeItem(cauldron);

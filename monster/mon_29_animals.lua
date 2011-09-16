@@ -72,7 +72,7 @@ function onDeath(Monster)
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
-    if (MonID==291) then --sheep
+    if (MonID==181) then --sheep
 
         monster.base.drop.AddDropItem(63,1,50,333,0,1); --inners
         monster.base.drop.AddDropItem(170,10,50,333,0,2); --wool
