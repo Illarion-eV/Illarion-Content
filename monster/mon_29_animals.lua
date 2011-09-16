@@ -14,19 +14,13 @@ killer={}; --A list that keeps track of who attacked the monster last
 end
 
 function onSpawn(thisPig)
-	if thisPig:getMonsterType()==241 then
-	if thisPig:getMonsterType()==251 then
-	if thisPig:getMonsterType()==252 then
-	if thisPig:getMonsterType()==253 then
+	if thisPig:getMonsterType()==241 or thisPig:getMonsterType()==251 or thisPig:getMonsterType()==252 or thisPig:getMonsterType()==253 then
     var=60;
     red,green,blue=thisPig:getSkinColor();
     red=math.min(255,red-var+math.random(2*var));
     green=math.min(255,green-var+math.random(2*var));
     blue=math.min(255,blue-var+math.random(2*var));
-    
     thisPig:setSkinColor(red,green,blue);
-	end
-	end
 	end
 end
 
