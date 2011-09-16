@@ -132,9 +132,9 @@ function onDeath(Monster)
 
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
-if (MonID==301) then --Stone Golem, Level: 7, Armourtype: -, Weapontype: wrestling
+if (MonID==301) then --Stone Golem, Level: 4, Armourtype: light, Weapontype: concussion
 
-        --Category 1: Armor
+        --Category 1: Raw gems
 
         local done=monster.base.drop.AddDropItem(251,1,20,(100*math.random(6,7)+math.random(66,77)),0,1); --raw amethyst
         if not done then done=monster.base.drop.AddDropItem(256,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw emerald
@@ -142,7 +142,7 @@ if (MonID==301) then --Stone Golem, Level: 7, Armourtype: -, Weapontype: wrestli
         if not done then done=monster.base.drop.AddDropItem(254,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw diamond
         if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw topaz
 
-        --Category 2: Special loot
+        --Category 2: Gems
 
         local done=monster.base.drop.AddDropItem(197,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --amethyst
         if not done then done=monster.base.drop.AddDropItem(45,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --emerald
@@ -150,7 +150,7 @@ if (MonID==301) then --Stone Golem, Level: 7, Armourtype: -, Weapontype: wrestli
         if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --diamond
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --topaz
 
-        --Category 3: Weapon
+        --Category 3: Special Loot
 
         local done=monster.base.drop.AddDropItem(735,1,20,(100*math.random(6,7)+math.random(66,77)),0,3); --raw stone
         if not done then done=monster.base.drop.AddDropItem(733,1,10,(100*math.random(6,7)+math.random(66,77)),0,3); end --stone block
@@ -159,102 +159,12 @@ if (MonID==301) then --Stone Golem, Level: 7, Armourtype: -, Weapontype: wrestli
         if not done then done=monster.base.drop.AddDropItem(1266,10,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --stone
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3076,math.random(3,9),100,333,0,4); --copper coins
 
 
-    elseif (MonID==302) then --Copper Golem, Level: 7, Armourtype: -, Weapontype: wrestling
+    elseif (MonID==302) then --Son of the Mountains, Level: 9, Armourtype: medium, Weapontype: slashing
 
-        --Category 1: Armor
-
-        local done=monster.base.drop.AddDropItem(255,1,20,(100*math.random(6,7)+math.random(66,77)),0,1); --raw ruby
-        if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw bluestone
-        if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw topaz
-        if not done then done=monster.base.drop.AddDropItem(252,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw blackstone
-        if not done then done=monster.base.drop.AddDropItem(256,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw emerald
-
-        --Category 2: Special loot
-
-        local done=monster.base.drop.AddDropItem(46,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --ruby
-        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --bluestone
-        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --topaz
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --blackstone
-        if not done then done=monster.base.drop.AddDropItem(45,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --emerald
-
-        --Category 3: Weapon
-
-        local done=monster.base.drop.AddDropItem(22,1,20,(100*math.random(6,7)+math.random(66,77)),0,3); --iron ore
-        if not done then done=monster.base.drop.AddDropItem(733,1,10,(100*math.random(6,7)+math.random(66,77)),0,3); end --stone block
-        if not done then done=monster.base.drop.AddDropItem(234,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --gold nugget
-        if not done then done=monster.base.drop.AddDropItem(2534,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --merinium ore
-        if not done then done=monster.base.drop.AddDropItem(2536,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --copper ore
-
-        --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
-
-
-    elseif (MonID==303) then --Iron Golem, Level: 7, Armourtype: -, Weapontype: wrestling
-
-        --Category 1: Armor
-
-        local done=monster.base.drop.AddDropItem(256,1,20,(100*math.random(6,7)+math.random(66,77)),0,1); --raw emerald
-        if not done then done=monster.base.drop.AddDropItem(252,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw blackstone
-        if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw bluestone
-        if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw topaz
-        if not done then done=monster.base.drop.AddDropItem(254,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw diamond
-
-        --Category 2: Special loot
-
-        local done=monster.base.drop.AddDropItem(45,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --emerald
-        if not done then done=monster.base.drop.AddDropItem(283,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --blackstone
-        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --bluestone
-        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --topaz
-        if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --diamond
-
-        --Category 3: Weapon
-
-        local done=monster.base.drop.AddDropItem(2536,1,20,(100*math.random(6,7)+math.random(66,77)),0,3); --copper ore
-        if not done then done=monster.base.drop.AddDropItem(735,1,10,(100*math.random(6,7)+math.random(66,77)),0,3); end --raw stone
-        if not done then done=monster.base.drop.AddDropItem(234,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --gold nugget
-        if not done then done=monster.base.drop.AddDropItem(2534,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --merinium ore
-        if not done then done=monster.base.drop.AddDropItem(22,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --iron ore
-
-        --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
-
-
-    elseif (MonID==304) then --Gold Golem, Level: 8, Armourtype: -, Weapontype: wrestling
-
-        --Category 1: Armor
-
-        local done=monster.base.drop.AddDropItem(257,1,20,(100*math.random(7,8)+math.random(77,88)),0,1); --raw topaz
-        if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --raw bluestone
-        if not done then done=monster.base.drop.AddDropItem(251,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --raw amethyst
-        if not done then done=monster.base.drop.AddDropItem(252,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --raw blackstone
-        if not done then done=monster.base.drop.AddDropItem(255,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --raw ruby
-
-        --Category 2: Special loot
-
-        local done=monster.base.drop.AddDropItem(198,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --topaz
-        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --bluestone
-        if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --amethyst
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(7,8)+math.random(77,88)),1,2); end --magic blackstone
-        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --ruby
-
-        --Category 3: Weapon
-
-        local done=monster.base.drop.AddDropItem(234,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --gold nugget
-        if not done then done=monster.base.drop.AddDropItem(733,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --stone block
-        if not done then done=monster.base.drop.AddDropItem(22,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --iron ore
-        if not done then done=monster.base.drop.AddDropItem(2536,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --copper ore
-        if not done then done=monster.base.drop.AddDropItem(1266,10,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --stone
-
-        --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
-
-
-    elseif (MonID==305) then --Merinium Golem, Level: 9, Armourtype: -, Weapontype: wrestling
-
-        --Category 1: Armor
+        --Category 1: Raw gems
 
         local done=monster.base.drop.AddDropItem(254,1,20,(100*math.random(8,9)+math.random(88,99)),0,1); --raw diamond
         if not done then done=monster.base.drop.AddDropItem(252,1,10,(100*math.random(8,9)+math.random(88,99)),0,1); end --raw blackstone
@@ -262,7 +172,7 @@ if (MonID==301) then --Stone Golem, Level: 7, Armourtype: -, Weapontype: wrestli
         if not done then done=monster.base.drop.AddDropItem(251,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --raw amethyst
         if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --raw bluestone
 
-        --Category 2: Special loot
+        --Category 2: Cutted gems
 
         local done=monster.base.drop.AddDropItem(285,1,20,(100*math.random(8,9)+math.random(88,99)),0,2); --diamond
         if not done then done=monster.base.drop.AddDropItem(283,1,10,(100*math.random(8,9)+math.random(88,99)),0,2); end --blackstone
@@ -270,12 +180,12 @@ if (MonID==301) then --Stone Golem, Level: 7, Armourtype: -, Weapontype: wrestli
         if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(8,9)+math.random(88,99)),1,2); end --magic amethyst
         if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(8,9)+math.random(88,99)),1,2); end --magic bluestone
 
-        --Category 3: Weapon
+        --Category 3: Special Loot
 
         local done=monster.base.drop.AddDropItem(2534,1,20,(100*math.random(8,9)+math.random(88,99)),0,3); --merinium ore
         if not done then done=monster.base.drop.AddDropItem(735,1,10,(100*math.random(8,9)+math.random(88,99)),0,3); end --raw stone
-        if not done then done=monster.base.drop.AddDropItem(22,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --iron ore
-        if not done then done=monster.base.drop.AddDropItem(2536,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --copper ore
+        if not done then done=monster.base.drop.AddDropItem(2551,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --pure air
+        if not done then done=monster.base.drop.AddDropItem(2552,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --pure earth
         if not done then done=monster.base.drop.AddDropItem(733,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --stone block
 
         --Category 4: Perma Loot
