@@ -81,7 +81,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             end
 		
 		    -- delete the plant
-			world:gfx(21,User.pos)
+			world:gfx(21,cauldron.pos)
 			world:makeSound(10,cauldron.pos);
 		    User:increaseAtPos(SourceItem.itempos,-1);
 			
@@ -131,6 +131,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             end 
             
 			-- change cauldron's data and quality
+			world:makeSound(13,cauldron.pos);
+			world:gfx(53,cauldron.pos);
 			cauldron:setData("potionType", ""..gemDustType);
 			cauldron.quality = 999; -- !!!!!!!!!!!!!!!!!!!!!! note to myself (merung): replace it with a proper calculation  !!!!!!!!!!!!!!!!!!
 			world:changeItem(cauldron);
