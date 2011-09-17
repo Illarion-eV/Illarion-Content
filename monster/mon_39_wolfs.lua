@@ -101,7 +101,7 @@ function onDeath(Monster)
         --Category 2: Perma Loot
         monster.base.drop.AddDropItem(2856,math.random(1,3),100,333,0,2); --fur
 		
-		if (MonID==392) then --Welp, Level: 2, Armourtype: cloth, Weapontype: wrestling
+		elseif (MonID==392) then --Welp, Level: 2, Armourtype: cloth, Weapontype: wrestling
 
         --Category 1: Special Loot
 
@@ -110,7 +110,7 @@ function onDeath(Monster)
         --Category 2: Perma Loot
         monster.base.drop.AddDropItem(2856,math.random(1,3),100,333,0,2); --fur
 		
-		if (MonID==393) then --Young wolf, Level: 2, Armourtype: light, Weapontype: slashing
+		elseif (MonID==393) then --Young wolf, Level: 2, Armourtype: light, Weapontype: slashing
 
         --Category 1: Special Loot
 
@@ -119,7 +119,7 @@ function onDeath(Monster)
         --Category 2: Perma Loot
         monster.base.drop.AddDropItem(2856,math.random(1,3),100,333,0,2); --fur
 		
-		if (MonID==394) then --Giant wolf, Level: 3, Armourtype: light, Weapontype: concussion
+		elseif (MonID==394) then --Giant wolf, Level: 3, Armourtype: light, Weapontype: concussion
 
         --Category 1: Special Loot
 
@@ -128,7 +128,7 @@ function onDeath(Monster)
         --Category 2: Perma Loot
         monster.base.drop.AddDropItem(2856,math.random(1,3),100,333,0,2); --fur
 		
-		if (MonID==395) then --Packleader, Level: 4, Armourtype: light, Weapontype: puncture
+		elseif (MonID==395) then --Packleader, Level: 4, Armourtype: light, Weapontype: puncture
 
         --Category 1: Special Loot
 

@@ -92,7 +92,7 @@ function onDeath(Monster)
         --Category 2: Perma Loot
         monster.base.drop.AddDropItem(2856,math.random(1,3),100,333,0,2); --fur
 		
-		if (MonID==492) then --Young Silverback, Level: 5, Armourtype: medium, Weapontype: wrestling
+		elseif (MonID==492) then --Young Silverback, Level: 5, Armourtype: medium, Weapontype: wrestling
 
         --Category 1: Special Loot
 
