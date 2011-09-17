@@ -137,8 +137,7 @@ function onDeath(Monster)
         --Category 2: Perma Loot
         monster.base.drop.AddDropItem(2856,math.random(1,3),100,333,0,2); --fur
 	end
-    monster.base.drop.Dropping(Monster);
-		
+    monster.base.drop.Dropping(Monster);	
 end
 
 
