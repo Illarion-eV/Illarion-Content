@@ -82,13 +82,13 @@ function onDeath(Monster)
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
-    if (MonID==181) then --sheep
+    if (MonID==181 or MonID==182) then --sheep
 
         monster.base.drop.AddDropItem(63,1,50,333,0,1); --inners
         monster.base.drop.AddDropItem(170,10,50,333,0,2); --wool
         monster.base.drop.AddDropItem(2934,1,100,333,0,3); --lamb meat
 
-    elseif (MonID==293) then --cow
+    elseif (MonID==371 or MonID==381 or MonID==382) then --cow
 
         monster.base.drop.AddDropItem(69,1,50,333,0,1); --leather
         monster.base.drop.AddDropItem(333,1,50,333,0,2); --horn
@@ -99,16 +99,6 @@ function onDeath(Monster)
         monster.base.drop.AddDropItem(69,1,50,333,0,1); --leather
         monster.base.drop.AddDropItem(63,1,50,333,0,2); --entrails
         monster.base.drop.AddDropItem(307,1,100,333,0,3); --pork
-
-    elseif (MonID==294) then --deer
-
-        monster.base.drop.AddDropItem(63,1,50,333,0,1); --inners
-        monster.base.drop.AddDropItem(552,1,100,333,0,2); --deer meat
-
-    elseif (MonID==295) then --bunny
-
-        monster.base.drop.AddDropItem(63,1,50,333,0,1); --inners
-        monster.base.drop.AddDropItem(553,1,100,333,0,2); --rabbit meat
 
     end
     monster.base.drop.Dropping(Monster);
