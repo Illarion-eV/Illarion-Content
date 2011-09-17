@@ -144,7 +144,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             end
 			
 			if (ltstate == Action.none) then
-			   User:startAction(20,21,25,0,0);
+			   User:startAction(20,21,10,0,0);
 			   return
 			end
 			
