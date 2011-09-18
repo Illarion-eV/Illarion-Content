@@ -22,7 +22,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   
 	   -- is the char a druid?
 	   if User:getMagicType() ~= 3 then
-	      base.common.InformNLS( User,
+	      base.common.TempInformNLS( User,
                 "Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
                 "Only those who have been introduced to the art of alchemy are able to work here."
 			                );
@@ -34,7 +34,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	  if AlchemyPlant then
             -- if there is the data "potionType", it is a completed potion   
             if (cauldron:getData("potionID") ~= "") then 
-		     base.common.InformNLS( User,
+		     base.common.TempInformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
                        );
@@ -42,16 +42,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end	
 			
 		    if ( ltstate == Action.abort ) then
-                if (User:increaseAttrib("sex",0) == 0) then
-                   gText = "seine";
-                   eText = "his";
-              else
-                  gText = "ihre";
-                  eText = "her";
-               end
-                  User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-                  User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-                  return
+                base.common.TempInformNLS( User,
+                "Du brichst Deine Arbeit ab.",
+                "You abort your work."
+                       );
+		        return;
             end
 			
 			if (ltstate == Action.none) then
@@ -115,7 +110,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	  if GemDust then
              
             if (cauldron:getData("potionID") ~= "") then 
-		     base.common.InformNLS( User,
+		     base.common.TempInformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
                        );
@@ -123,7 +118,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end
 			-- no stock, no potion!	
 		    if (cauldron:getData("cauldronData") == "") then
-			   base.common.InformNLS( User,
+			   base.common.TempInformNLS( User,
                 "Im Kessel muss sich ein Sud befinden, um diesen zu verazaubern.",
                 "There has to be a stock in the cauldron so that you can enchant it."
                        );
@@ -131,16 +126,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end
 			
 			if ( ltstate == Action.abort ) then
-                if (User:increaseAttrib("sex",0) == 0) then
-                   gText = "seine";
-                   eText = "his";
-              else
-                  gText = "ihre";
-                  eText = "her";
-               end
-                  User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-                  User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-                  return
+                base.common.TempInformNLS( User,
+                "Du brichst Deine Arbeit ab.",
+                "You abort your work."
+                       );
+		        return;
             end
 			
 			if (ltstate == Action.none) then

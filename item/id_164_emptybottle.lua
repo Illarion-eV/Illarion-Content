@@ -19,43 +19,47 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   
 
 	   if (cauldron:getData("cauldronData") == "") then -- no stock
-					base.common.InformNLS( User,
+					base.common.TempInformNLS( User,
 					"In dem Kessel befindet sich nichts zum Abfüllen.",
 					"There is nothing to be bottled in the cauldron."
 						   );
 			return;
 	   end
 	   
-	   if (cauldron:getData("cauldronData") ~= "") and (cauldron:getData("potionID") == "") then -- a normal stock
-		  SourceItem:setData("stockData",""..cauldronData)
-		  SourceItem.id = 331
-		  SourceItem.quality = cauldron.quality
-		  world:changeItem(SourceItem)
-		  cauldron:setData("cauldronData","")
-		  cauldron.quality = 333
-		  world:changeItem(cauldron)
-		  world:makeSound(10,User.pos);
-		  User:talkLanguage(Character.say, Player.german, "#me füllt den Inhalt des Kessels in eine Flasche.");
-		  User:talkLanguage(Character.say, Player.english,"#me bottles the substances from the cauldron.");
-		  return;
-	   end
-	
-	   if (cauldron:getData("potionID") ~= "") then -- a potion
-	       local ID_potion = cauldron:getData("potionID")
+	   if (cauldron:getData("cauldronData") ~= "") and (cauldron:getData("potionID") == "") then
+		    
+			if ( ltstate == Action.abort ) then
+                base.common.TempInformNLS( User,
+                "Du brichst Deine Arbeit ab.",
+                "You abort your work."
+                       );
+		        return;
+            end
+			
+			if (ltstate == Action.none) then
+			   User:startAction(20,21,5,0,0);
+			   return
+			end
+			
+			if (cauldron:getData("potionID") ~= "") then -- if there is not just a stock but a potion in the cauldron
+		       local ID_potion = cauldron:getData("potionID")
+		       SourceItem.id = ID_potion
+			   SourceItem:setData("potionData",""..cauldronData)
+		   else
+		       SourceItem.id = 331
+		       SourceItem:setData("stockData",""..cauldronData)
+		   end
 		   
-		   SourceItem:setData("potionData",""..cauldronData)
-		   SourceItem.id = ID_potion
-           SourceItem.quality = cauldron.quality
-	       world:changeItem(SourceItem)
-	   
-	       cauldron:setData("cauldronData","")
-	       cauldron:setData("potionID","")
-	       cauldron.quality = 333
-	       world:changeItem(cauldron)
-	       world:makeSound(10,User.pos);
-	       User:talkLanguage(Character.say, Player.german, "#me füllt den Inhalt des Kessels in eine Flasche.");
-           User:talkLanguage(Character.say, Player.english,"#me bottles the substances from the cauldron.");
-	       return;
+		   SourceItem.quality = cauldron.quality
+		   world:changeItem(SourceItem)
+		   cauldron:setData("cauldronData","")
+		   cauldron.quality = 333
+		   world:changeItem(cauldron)
+		   world:makeSound(10,User.pos);
+		   User:talkLanguage(Character.say, Player.german, "#me füllt den Inhalt des Kessels in eine Flasche.");
+		   User:talkLanguage(Character.say, Player.english,"#me bottles the substances from the cauldron.");
+		   return;
+	       
 	   end
 	end
     
