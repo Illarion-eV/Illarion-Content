@@ -90,6 +90,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 		  cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
 	      cauldron.quality = SourceItem.quality
 		  world:changeItem(cauldron)
+		  User:inform(""..ID_potion)
 		  User:talkLanguage(Character.say, Player.german, "#me kippt einen Trank in den Kessel.");
           User:talkLanguage(Character.say, Player.english, "#me pours a potion into the cauldron.");
 		  world:makeSound(10,User.pos);
