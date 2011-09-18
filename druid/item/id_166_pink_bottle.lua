@@ -84,7 +84,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 	       return;
       
 	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
-	      local ID_potion = SourceItem:getData("potionID")			 
+	      local ID_potion = tonumber(SourceItem:getData("potionID"))			 
 		  
 		  cauldron:setData("potionID", ""..ID_potion);
 		  cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
