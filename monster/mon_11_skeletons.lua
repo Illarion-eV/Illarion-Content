@@ -172,27 +172,27 @@ function onDeath(Monster)
 
         --Category 1: Armor
 
-        local done=monster.base.drop.AddDropItem(2290,1,20,(100*math.random(2,3)+math.random(22,33)),0,1); --round steel hat
-        if not done then done=monster.base.drop.AddDropItem(2112,1,10,(100*math.random(2,3)+math.random(22,33)),0,1); end --short blue steel greaves
-        if not done then done=monster.base.drop.AddDropItem(2364,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --albarian steel plate
-        if not done then done=monster.base.drop.AddDropItem(2364,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --steel plate
-        if not done then done=monster.base.drop.AddDropItem(4,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --plate armor
+        local done=monster.base.drop.AddDropItem(2290,1,20,(100*math.random(3,4)+math.random(33,44)),0,1); --round steel hat
+        if not done then done=monster.base.drop.AddDropItem(2112,1,10,(100*math.random(3,4)+math.random(33,44)),0,1); end --short blue steel greaves
+        if not done then done=monster.base.drop.AddDropItem(2364,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --albarian steel plate
+        if not done then done=monster.base.drop.AddDropItem(2364,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --steel plate
+        if not done then done=monster.base.drop.AddDropItem(4,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --plate armor
 
         --Category 2: Special loot
 
-        local done=monster.base.drop.AddDropItem(1317,1,20,(100*math.random(2,3)+math.random(22,33)),0,2); --bottle
-        if not done then done=monster.base.drop.AddDropItem(255,1,10,(100*math.random(2,3)+math.random(22,33)),0,2); end --raw rubies
-        if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --raw topaz
-        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --topaz
-        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --ruby
+        local done=monster.base.drop.AddDropItem(1317,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --bottle
+        if not done then done=monster.base.drop.AddDropItem(255,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --raw rubies
+        if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --raw topaz
+        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --topaz
+        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --ruby
 
         --Category 3: Weapon
 
-        local done=monster.base.drop.AddDropItem(190,1,20,(100*math.random(2,3)+math.random(22,33)),0,3); --ornate dagger
-        if not done then done=monster.base.drop.AddDropItem(27,1,10,(100*math.random(2,3)+math.random(22,33)),0,3); end --simple dagger
-        if not done then done=monster.base.drop.AddDropItem(189,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --dagger
-        if not done then done=monster.base.drop.AddDropItem(398,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --coppered dagger
-        if not done then done=monster.base.drop.AddDropItem(389,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --silvered dagger
+        local done=monster.base.drop.AddDropItem(190,1,20,(100*math.random(3,4)+math.random(33,44)),0,3); --ornate dagger
+        if not done then done=monster.base.drop.AddDropItem(27,1,10,(100*math.random(3,4)+math.random(33,44)),0,3); end --simple dagger
+        if not done then done=monster.base.drop.AddDropItem(189,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --dagger
+        if not done then done=monster.base.drop.AddDropItem(398,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --coppered dagger
+        if not done then done=monster.base.drop.AddDropItem(389,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --silvered dagger
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(2,6),100,333,0,4); --copper coins
