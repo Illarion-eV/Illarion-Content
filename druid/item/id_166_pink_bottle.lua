@@ -84,8 +84,21 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 	       return;
       
 	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
-	      local ID_potion = SourceItem.id			 
+	      
+		  if ( ltstate == Action.abort ) then
+                base.common.TempInformNLS( User,
+                "Du brichst Deine Arbeit ab.",
+                "You abort your work."
+                       );
+		        return;
+            end
+			
+			if (ltstate == Action.none) then
+			   User:startAction(20,21,5,0,0);
+			   return
+			end
 		  
+		  local ID_potion = SourceItem.id			 
 		  cauldron:setData("potionID", ""..ID_potion);
 		  cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
 	      cauldron.quality = SourceItem.quality
