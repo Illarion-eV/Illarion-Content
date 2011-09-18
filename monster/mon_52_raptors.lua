@@ -170,7 +170,7 @@ if (MonID==521) then --Snapper, Level: 4, Armourtype: heavy, Weapontype: wrestli
 
 
     elseif (MonID==525) then --Rippertooth, Level: 6, Armourtype: heavy, Weapontype: puncture
-
+	
         --Category 1: Plants
 
         local done=monster.base.drop.AddDropItem(133,3,40,(100*math.random(5,6)+math.random(55,66)),0,1); --sun herb
@@ -197,7 +197,7 @@ if (MonID==521) then --Snapper, Level: 4, Armourtype: heavy, Weapontype: wrestli
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(63,math.random(1,1),100,333,0,4); --entrails
-
+		
     end
     monster.base.drop.Dropping(Monster);
 end
