@@ -26,7 +26,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			return;
 	   end
 	   
-	   if (cauldron:getData("cauldronData") ~= "") and (cauldron:getData("potionID") == "") then
+	   if (cauldron:getData("cauldronData") ~= "") then
 		    
 			if ( ltstate == Action.abort ) then
                 base.common.TempInformNLS( User,
