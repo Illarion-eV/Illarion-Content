@@ -45,7 +45,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		       local ID_potion = tonumber(cauldron:getData("potionID"))
 		       SourceItem.id = ID_potion
 			   SourceItem:setData("potionData",""..cauldronData)
-		   else
+		    else
 		       SourceItem.id = 331
 		       SourceItem:setData("stockData",""..cauldronData)
 		   end
@@ -53,6 +53,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		   SourceItem.quality = cauldron.quality
 		   world:changeItem(SourceItem)
 		   cauldron:setData("cauldronData","")
+		   cauldron:setData("potionID","")
 		   cauldron.quality = 333
 		   world:changeItem(cauldron)
 		   world:makeSound(10,User.pos);
