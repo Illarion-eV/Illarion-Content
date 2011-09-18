@@ -42,7 +42,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			end
 			
 			if (cauldron:getData("potionID") ~= "") then -- if there is not just a stock but a potion in the cauldron
-		       local ID_potion = cauldron:getData("potionID")
+		       local ID_potion = tonumber(cauldron:getData("potionID"))
 		       SourceItem.id = ID_potion
 			   SourceItem:setData("potionData",""..cauldronData)
 		   else
