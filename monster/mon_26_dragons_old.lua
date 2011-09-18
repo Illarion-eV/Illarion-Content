@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
