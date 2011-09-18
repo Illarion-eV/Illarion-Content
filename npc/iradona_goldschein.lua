@@ -1166,11 +1166,13 @@ mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
 end;
-
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
-initNpc();
-initNpc = nil;
+-- Achtung!!! habe die folgenden Zeilen rauskommentiert, da sie ein paar Zeilen zu viel im Fehlerlog brauchen
+-- "jemand" möge sich bei Gelegenheit darum kümmern ;)
+-- signed Merung
+--function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+--function nextCycle() mainNPC:nextCycle(); end;
+--function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
+--function useNPC(char, counter, param) mainNPC:use(char); end;
+--initNpc();
+--initNpc = nil;
 -- END
