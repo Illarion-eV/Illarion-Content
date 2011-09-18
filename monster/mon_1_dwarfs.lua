@@ -140,7 +140,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2946,1,10,(100*math.random(4,5)+math.random(44,55)),0,3); end --battleaxe
         if not done then done=monster.base.drop.AddDropItem(2642,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --orc axe
         if not done then done=monster.base.drop.AddDropItem(2629,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --heavy battleaxe
-        if not done then done=monster.base.drop.AddDropItem(192,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --coppered battleaxe
+        if not done then done=monster.base.drop.AddDropItem(356,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --flame
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins

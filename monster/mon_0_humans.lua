@@ -126,7 +126,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(25,1,10,(100*math.random(4,5)+math.random(44,55)),0,3); end --sabre
         if not done then done=monster.base.drop.AddDropItem(2757,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --scimitar
         if not done then done=monster.base.drop.AddDropItem(2658,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --broad sword
-        if not done then done=monster.base.drop.AddDropItem(359,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --flame
+        if not done then done=monster.base.drop.AddDropItem(78,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --short sword
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
