@@ -48,13 +48,9 @@ function DrinkPotion(User,SourceItem)
 			    User:increaseAttrib(attribList[i],Val);
 	            User:inform("tata!")
 			end
-	      end  
+	    end  
 	 	
-          
-		
-	    world:makeSound(12,User.pos);
-	
-	    find, myEffect = User.effects:find(166)
+        find, myEffect = User.effects:find(166)
 
         if not find then
 	       myEffect=LongTimeEffect(166,1); 
@@ -103,43 +99,24 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 	   end  
 	end
 	
-	if (ltstate == Action.abort) then
-       User:talkLanguage(User.say, Player.german, "#me verschüttet den Trank.");
-        User:talkLanguage(User.say, Player.english, "#me spills the potion.");
-        world:erase(SourceItem,1);
-        -- Chance for a new bottle 19/20
-        if(math.random(20) == 1) then
-           base.common.TempInformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
-        else
-            User:createItem(164, 1, 333, 0);
-        end
-        return;
-    end
-
-    if User.attackmode then
+	-- not infront of a cauldron: let's drink the potion!
+	if User.attackmode then
         base.common.TempInformNLS(User,
-			"Du kannst den Trank nicht benutzen während du kämpfst.",
+			"Du kannst den Trank nicht benutzen, während Du kämpfst.",
 			"You can't use the potion while you are fighting.");
 		return;
 	end
 	
 	
-	
-    if (ltstate == Action.none) then
-		
-			User:startAction(20,0,0,12,25);
-			--User:talkLanguage(User.say, Player.german, "#me beginnt einen Trank zu trinken.");
-			--User:talkLanguage(User.say, Player.english, "#me starts to drink a potion.");
-			DrinkPotion(User, SourceItem);
-	end
-	
+	base.character.ChangeFightingpoints(User, -20);
+	world:makeSound(12,User.pos);
 	world:erase(SourceItem,1);
-
-    if( math.random( 20 ) <= 1 ) then
-        base.common.TempInformNLS( User, "Die Flasche zerbricht.", "The bottle breaks.");
-    else
-        User:createItem( 164, 1, 333,0);
-    end
+	   if(math.random(20) == 1) then
+           base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
+        else
+            User:createItem(164, 1, 333, 0);
+        end
+	DrinkPotion(User, SourceItem);
 end
 
 function LookAtItem(User,Item)

@@ -27,6 +27,20 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	       return;
       
 	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
+		  
+		  if ( ltstate == Action.abort ) then
+                base.common.TempInformNLS( User,
+                "Du brichst Deine Arbeit ab.",
+                "You abort your work."
+                       );
+		        return;
+            end
+			
+			if (ltstate == Action.none) then
+			   User:startAction(20,21,5,0,0);
+			   return
+			end
+		  
 		  cauldron:setData("cauldronData",""..SourceItem:getData("stockData"))
 		  cauldron.quality = SourceItem.quality
 		  world:changeItem(cauldron)
