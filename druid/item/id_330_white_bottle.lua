@@ -9,12 +9,7 @@ module("druid.item.id_330_white_bottle", package.seeall(druid.base.alchemy))
 
 -- UPDATE common SET com_script='druid.item.id_330_white_bottle' WHERE com_itemid = 330;
 
-function DoDruidism(Character,SourceItem)
-
-	if (druid.base.alchemy.checkPotionSpam(Character)) then
-		base.common.InformNLS(Character, "Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass Tränke vorrübergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
-		return;
-	end
+function DoDruidism(User,SourceItem)
 
 -- Grundwerte, Listen einlesen:
 -- Sprachverständnis (man kann eine Zeitlang fremde Sprachen verstehen/lesen)
@@ -34,10 +29,10 @@ function DoDruidism(Character,SourceItem)
   for i=1,table.getn(ListCodecs) do
     if potionData == ListCodecs[i] then
 
-      find, myEffect = Character.effects:find(330);
+      find, myEffect = User.effects:find(330);
       if not find then
 
-      	oldSkill = Character:getSkill(ListLanguages[i])
+      	oldSkill = User:getSkill(ListLanguages[i])
 
       	if oldSkill == nil then
       	   oldSkill = 0
@@ -66,21 +61,21 @@ function DoDruidism(Character,SourceItem)
 		myEffect:addValue("cooldownWhite",15)	
 			
 			--Character:inform(ListCodecs[i].." / "..ListLanguages[i].." / "..oldSkill)
-      	Character:increaseSkill(ListSkillGroup[i],ListLanguages[i],newSkill)
+      	User:increaseSkill(ListSkillGroup[i],ListLanguages[i],newSkill)
  			--Character:inform(ListCodecs[i].." / "..ListLanguages[i].." / "..Character:getSkill(ListLanguages[i]))
 
 --      Verwandlung ausführen
-        world:gfx(5,Character.pos)
+        world:gfx(5,User.pos)
 
 --      Effekt an Char binden
-        Character.effects:addEffect(myEffect);
+        User.effects:addEffect(myEffect);
       end
     end
   end
     
 end
 
-function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 -- if not milk then	  
   if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
