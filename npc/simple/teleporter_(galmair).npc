@@ -2,7 +2,7 @@
 -- NPC Name: Teleporter (Galmair)                                     Galmair --
 -- NPC Job:  Teleporter                                                       --
 --                                                                            --
--- NPC Race: human                      NPC Position:  425, 244, 0            --
+-- NPC Race: human                      NPC Position:  424, 245, 0            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Teleporter (Galmair)"
 race = human
 sex = male
-position = 425, 244, 0
+position = 424, 245, 0
 direction = north
 affiliation = "Galmair"
 job = "Teleporter"

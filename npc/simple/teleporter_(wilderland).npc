@@ -2,7 +2,7 @@
 -- NPC Name: Teleporter (Wilderland)                                     None --
 -- NPC Job:  Teleporter                                                       --
 --                                                                            --
--- NPC Race: human                      NPC Position:  685, 306, 0            --
+-- NPC Race: human                      NPC Position:  684, 307, 0            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Teleporter (Wilderland)"
 race = human
 sex = male
-position = 685, 306, 0
+position = 684, 307, 0
 direction = north
 affiliation = "None"
 job = "Teleporter"
