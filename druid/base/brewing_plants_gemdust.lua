@@ -165,6 +165,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		    
 		    User:increaseAtPos(SourceItem.itempos,-1); -- delete gemdust
 		    -- learn!
-			User:learn("alchemy",6,20,100,Character:increaseAttrib("essence",0));
+			User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0));
 		end
 	end	   	
