@@ -2,7 +2,7 @@
 -- NPC Name: Teleporter (Wilderland)                                     None --
 -- NPC Job:  Teleporter                                                       --
 --                                                                            --
--- NPC Race: human                      NPC Position:  684, 307, 0            --
+-- NPC Race: human                      NPC Position:  685, 306, 0            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 684, 307, 0, 0, 'Teleporter (Wilderland)', 'npc.teleporter_(wilderland)', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (0, 685, 306, 0, 0, 'Teleporter (Wilderland)', 'npc.teleporter_(wilderland)', 0, 0, 0, 255, 255, 255, 255, 255, 255);
 ---]]
 
 require("npc.base.basic")

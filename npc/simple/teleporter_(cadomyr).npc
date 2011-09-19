@@ -2,7 +2,7 @@
 -- NPC Name: Teleporter (Cadomyr)                                     Cadomyr --
 -- NPC Job:  Teleporter                                                       --
 --                                                                            --
--- NPC Race: human                      NPC Position:  127, 647, 0            --
+-- NPC Race: human                      NPC Position:  128, 646, 0            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Teleporter (Cadomyr)"
 race = human
 sex = male
-position = 127, 647, 0
+position = 128, 646, 0
 direction = north
 affiliation = "Cadomyr"
 job = "Teleporter"

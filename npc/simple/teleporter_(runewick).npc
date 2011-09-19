@@ -2,7 +2,7 @@
 -- NPC Name: Teleporter (Runewick)                                   Runewick --
 -- NPC Job:  Teleporter                                                       --
 --                                                                            --
--- NPC Race: human                      NPC Position:  788, 826, 0            --
+-- NPC Race: human                      NPC Position:  789, 825, 0            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Teleporter (Runewick)"
 race = human
 sex = male
-position = 788, 826, 0
+position = 789, 825, 0
 direction = north
 affiliation = "Runewick"
 job = "Teleporter"
