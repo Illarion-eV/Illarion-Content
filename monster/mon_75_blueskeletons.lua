@@ -47,7 +47,7 @@ function enemyNear(Monster,Enemy)
 	return false
 end
 
-ffunction enemyOnSight(Monster,Enemy)
+function enemyOnSight(Monster,Enemy)
 
     if init==nil then
         ini(Monster);
