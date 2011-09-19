@@ -41,14 +41,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
+talkEntry:addTrigger("Wilderland");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You are already in Wilderland."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
+talkEntry:addTrigger("Wilderland");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr seid bereits in Wilderland."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -56,7 +56,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addTrigger("Wilderland");
+talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.money.money("<", 100));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You don't have enough money for this journey. The journey costs a silver coin."));
@@ -66,7 +66,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addTrigger("Wilderland");
+talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.money.money("<", 100));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr habt nicht genug Geld für diese Reise. Die Reise kostet ein Silberstück."));
 talkingNPC:addTalkingEntry(talkEntry);
