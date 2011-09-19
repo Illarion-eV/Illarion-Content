@@ -17,12 +17,6 @@ attribList ={"hitpointsOT","foodlevel","poisonvalueOT","mana","manaOT","poisonva
 
 function DrinkPotion(User,SourceItem)
      
-	if User.effects:find(166) then
-	   User:inform("lte noch aktiv");   
-	   return;
-	end	
-	
-	
 	local potionData = tonumber(SourceItem:getData("potionData"));
 	local dataZList = druid.base.alchemy.SplitBottleData(User,potionData);
 	druid.base.alchemy.generateTasteMessage(User,dataZList);
@@ -121,6 +115,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 		return;
 	end
 	
+	if User.effects:find(166) then
+	   base.common.TempInformNLS( User,
+                "Der Trank hätte jetzt keine Wirkung.",
+                "The potion wouldn't have any effect now."
+                       );  
+	   return;
+	end	
 	
 	base.character.ChangeFightingpoints(User, -20);
 	world:makeSound(12,User.pos);
