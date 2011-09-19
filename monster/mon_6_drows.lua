@@ -2,7 +2,7 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
-module("monster.mon_6_maledrows", package.seeall)
+module("monster.mon_6_drows", package.seeall)
 
 function onSpawn(theDrow)
     if theDrow:getMonsterType()<70 then
@@ -37,7 +37,7 @@ msgs = base.messages.Messages();
 msgs:addMessage("#me schließt die Augen und beginnt wie wahnsinnig zu lachen.", "#me closes the eyes and begins to laugh maniacally.");
 msgs:addMessage("#mes Mund ist an den Mundwinkeln zu einem verdrehten Lächeln verzogen.", "#me's mouth curles up into a twisted smile.");
 msgs:addMessage("#mes verengte Augen starren geradeaus.", "#me's narrow eyes stare straight ahead.");
-msgs:addMessage("Brüder! Lasst uns Jagd auf die Schwachen machen.", "Brothers! Let us prey upon the weak.");
+msgs:addMessage("Brüder, Schwestern! Lasst uns Jagd auf die Schwachen machen.", "Brothers, sisters! Let us prey upon the weak.");
 msgs:addMessage("Dein Unbehagen amüsiert mich.", "Your discomfort amuses me.");
 msgs:addMessage("Deine Schmerzen sind meine Freude.", "Your pain; my pleasure.");
 msgs:addMessage("Deine Schreie werden wie Musik in meinen Ohren klingen.", "Your screams shall be music to my ears.");
@@ -246,7 +246,7 @@ function onDeath(Monster)
         monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
 
 
-    elseif (MonID==65) then --Drow Patriarch, Level: 6, Armourtype: heavy, Weapontype: slashing
+    elseif (MonID==65) then --Drow-leader, Level: 6, Armourtype: heavy, Weapontype: slashing
 
         --Category 1: Armor
 
