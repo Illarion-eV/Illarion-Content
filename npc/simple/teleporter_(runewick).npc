@@ -63,5 +63,5 @@ wrongLangUS = "[Teleporter] Say the name of the realm you want to travel to: Wil
 "Galmair" -> inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Galmair zu einem Preis von einem Silberstück öffnen."), money - 100, warp(424, 245, 0)
 
 -- Default
-".*", english -> inform("[Teleporter] Say the name of the realm you want to travel to: Wilderland, Galmair, Galmair.")
-".*" -> inform("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Wilderland, Galmair, Galmair.")
+".*", english -> inform("[Teleporter] Say the name of the realm you want to travel to: Wilderland, Cadomyr, Galmair.")
+".*" -> inform("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Wilderland, Cadomyr, Galmair.")
