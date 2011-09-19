@@ -94,7 +94,7 @@ talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You make the teleporter open a portal to Galmair at a cost of one silver piece."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.warp.warp(425, 246, 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(424, 246, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -102,7 +102,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Galmair zu einem Preis von einem Silberstück öffnen."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.warp.warp(425, 246, 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(424, 246, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
