@@ -2,7 +2,7 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
-module("monster.mon_28_femaledrows", package.seeall)
+module("monster.mon_7_femaledrows", package.seeall)
 
 
 function ini(Monster)
