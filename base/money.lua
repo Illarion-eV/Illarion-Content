@@ -26,7 +26,7 @@ CopperCoinsID = 3076;
 --  @param cCoins - number - the amount of copper coins
 --  @return number - the total amount of the money in copper coins
 function CoinsToMoney(gCoins, sCoins, cCoins)
-    return (cCoins * 100 + sCoins) * 100 + gCoins;
+    return (gCoins * 100 + sCoins) * 100 + cCoins;
 end;
 
 --- This method returns the total amount of money in copper coins the char has
