@@ -86,7 +86,7 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
         local done=monster.base.drop.AddDropItem(324,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --bucket 
         if not done then done=monster.base.drop.AddDropItem(92,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --oil lamp
         if not done then done=monster.base.drop.AddDropItem(67,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --rubin amulet
-        if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --treasure map
+        if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(4,5)+math.random(44,55)),nil,1); end --treasure map
         if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --pott ash
 
         --Category 2: Gems
@@ -116,7 +116,7 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
         local done=monster.base.drop.AddDropItem(2445,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --small wooden shield
         if not done then done=monster.base.drop.AddDropItem(53,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --leather boots
         if not done then done=monster.base.drop.AddDropItem(62,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --emerald amulet
-        if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --treasure map
+        if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(4,5)+math.random(44,55)),nil,1); end --treasure map
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --ruby
 
         --Category 2: Gems
@@ -146,7 +146,7 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
         local done=monster.base.drop.AddDropItem(324,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --chain helmet
         if not done then done=monster.base.drop.AddDropItem(164,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --big empty bottle
         if not done then done=monster.base.drop.AddDropItem(71,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --bluestone amulet
-        if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --treasure map
+        if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(5,6)+math.random(55,66)),nil,1); end --treasure map
         if not done then done=monster.base.drop.AddDropItem(2745,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --parchment
 
         --Category 2: Gems
