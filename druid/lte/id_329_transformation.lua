@@ -40,7 +40,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 	            end
 	            world:gfx(45,User.pos)  
 		    end
-		
+	   end
 		   if findCooldown then
                 if cooldownBlack < 1 then
 	               return false
@@ -52,7 +52,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 			       return true
 	           end
 		   end
-       end
+       
 	end
 end
 
