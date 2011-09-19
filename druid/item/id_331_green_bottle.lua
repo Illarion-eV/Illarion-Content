@@ -53,8 +53,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   end  
    
    else
-       User:talkLanguage(Character.say, Player.german, "#me trinkt den grünen dickflüssigen Sud.");
-       User:talkLanguage(Character.say, Player.english, "#me drinks the green viscous broth.");
+       base.common.TempInformNLS( User,
+                "Du leerst die Flasche.",
+                "You empty the bottle."
+                       );
 
 	   world:makeSound(12,User.pos);
 	   world:gfx(1,User.pos);

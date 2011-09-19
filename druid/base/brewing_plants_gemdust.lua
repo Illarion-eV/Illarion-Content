@@ -97,8 +97,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			world:makeSound(10,cauldron.pos);
 		    User:increaseAtPos(SourceItem.itempos,-1);
 			
-			-- the new data value is being created
+			-- learn!
+			User:learn("alchemy",6,20,100,Character:increaseAttrib("essence",0));
 			
+			-- the new data value is being created
 			local newData = druid.base.alchemy.PasteCauldronData(User,dataZList);
 			cauldron:setData("cauldronData",""..newData);
             world:changeItem(cauldron)
@@ -161,8 +163,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			cauldron.quality = 999; -- !!!!!!!!!!!!!!!!!!!!!! note to myself (merung): replace it with a proper calculation  !!!!!!!!!!!!!!!!!!
 			world:changeItem(cauldron);
 		    
-		    
-			User:increaseAtPos(SourceItem.itempos,-1); -- delete gemdust
-		    
+		    User:increaseAtPos(SourceItem.itempos,-1); -- delete gemdust
+		    -- learn!
+			User:learn("alchemy",6,20,100,Character:increaseAttrib("essence",0));
 		end
 	end	   	
