@@ -56,8 +56,8 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Alexis Dostas the mule seller. Keyphrases: Hello, mule, Cadomyr, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alexis Dostas der Maultierhändler. Schlüsselwörter: Hallo, Maultier, Cadomyr, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Alexis Dostas the mule seller. Keyphrases: Hello, mule, Cadomyr, profession, stables.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alexis Dostas der Maultierhändler. Schlüsselwörter: Hallo, Maultier, Cadomyr, Beruf, Stallungen.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted. You came here for a mule I suppose.", "Welcome to the stables.", "If you need a beast of burden, you came to the right place."
@@ -68,10 +68,10 @@ itemShoes = 53
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt euch wohl und kommt gesund zurück."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell. And come back alive."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt euch wohl und kommt gesund zurück."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel", "How do you do" -> "This is none of your business, sorry."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Entschuldigt, aber das tut jetzt nichts zur Sache."
+"your name", "who are you", "who art thou" -> "My name is Alexis Dostas, I am the local mule seller."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Alexis Dostas, ich bin hier der Maultierhändler."
 
 -- OPTIONAL TRIGGERS
 
@@ -88,24 +88,22 @@ itemShoes = 53
 "job" -> "Ich füttere die Lasttiere hier. Ich kümmere mich um sie und leihe sie jedem, der verspricht, sie gut zu behandeln."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"mule", "donkey", "burden" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Maultier", "Muli", "Esel", "Lasttier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"mule", "donkey", "burden" -> "Mules are rather frugal animals. They just need a little oat from time to time."
+"feed", "food", "oat" -> "Mules love oat! No wonder, they're related to horses."
+"Stable" -> "Sometimes, I may care for proud destriers of noble knights, the other day for Bette and the other mules. I treat all of them well, all of them work hard for Cadomyr's honour."
+"horse", "destrier" -> "There are two differences between horses and mules: Longer legs and even more hunger for oat!"
+"Maultier", "Muli", "Esel", "Lasttier" -> "Maultiere sind recht genügsame Tiere. Sie brauchen nur hin und wieder etwas Hafer."
+"Futter", "Fütter", "Hafer" -> "Maultiere lieben Hafer! Kein Wunder, sind sie doch mit Pferden verwandt."
+"Stall" -> "Manchmal darf ich mich um stolze Schlachrösser edler Ritter kümmern, an anderen Tagen um Bette und die anderen Maultiere. Ich behandle alle gleich gut, denn alle tragen ihren Teil zu Cadomyrs Ehre bei."
+"pferd", "ross" -> "Es gibt genau zwei Unterschiede zwischen Pferden und Maultieren: Längere Beine und noch mehr Hunger auf Hafer!"
 
 -- Optional: Faction stuff
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "Queen Rosaline is a good sovereign. She rules just and fair, just like her father."
+"Königin" -> "Königin Rosaline ist eine gute Herrscherin. Sie regiert gerecht und weise, genau wie ihr Vater."
+"rosaline", "edwards", english -> "Queen Rosaline is a good sovereign. She rules just and fair, just like her father."
+"rosaline", "edwards" -> "Königin Rosaline ist eine gute Herrscherin. Sie regiert gerecht und weise, genau wie ihr Vater."
+"Cadomyr", english -> "I have to admit: When Sir Reginald... passed away, I was a little afraid about the future. But Queen Rosaline drove away all my sorrows."
+"Cadomyr" -> "Ich gebe zu: Als Sir Reginald... nicht mehr war, da war ich etwas unsicher über die Zukunft. Aber Königin Rosaline hat alle meine Sorgen von mir genommen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
