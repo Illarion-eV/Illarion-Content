@@ -56,7 +56,7 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keyphrases: Information, Runewick, building, game.")
+"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keyphrases: Question, information, Runewick, building, game.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Spiel.")
 
 -- Mandatory: General speech
@@ -80,6 +80,8 @@ itemShoes = 369
 "quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"game" -> ""
+"spiel" -> ""
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "If necessary I'm an informant. In this case I will inform you about Runewick, its buildings, places, events, people, history or gods. If you require even more, at least one task is alos pending."
@@ -92,10 +94,8 @@ itemShoes = 369
 "inform" -> "Ich habe Informationen über Gebäude, Plätze, Ereignisse, Leute, Geschichte und Götter von Galmair für euch wenn ihr wünscht."
 "question" -> "I have information about buildings, places, events, people, history and gods of Galmair for you if you want to know them."
 "Frage", "Auskunft" -> "Ich habe Informationen über Gebäude, Plätze, Ereignisse, Leute, Geschichte und Götter von Galmair für euch wenn ihr wünscht."
-"building" -> ""
-"Gebäude" -> ""
-"game" -> ""
-"spiel" -> ""
+"building" -> "Which building do you mean? Market, temple, teleport, census office, donkey place, library, Garden of Eldan, Slums, Tomb, Tower of Air, Tower of Fire, Tower of Water or Tower of Earth?"
+"Gebäude" -> "Welches Gebäude meint ihr? Markt, Tempel, Teleport, Zensusbüro, Eselplatz, Bibliothek, Garten des Eldan, Slums, Gruft, Luftturm, Feuerturm, Wasserturm, Erdeturm?"
 "place" -> ""
 "Platz","Plätz" -> ""
 "people" -> ""
@@ -119,6 +119,7 @@ itemShoes = 369
 "Donkey" -> ""
 "Rooms" -> ""
 "Guild" -> ""
+"Library" -> ""
 
 "Garden of Eldan" -> ""
 "Slums" -> ""

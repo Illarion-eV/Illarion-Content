@@ -56,7 +56,7 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Iradona Goldschein the informant. Keyphrases: Information, Galmair, building, game.")
+"Help" -> inform("[Game Help] This NPC is Iradona Goldschein the informant. Keyphrases: Question, information, Galmair, building, game.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Iradona Goldschein die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Galmair, Gebäude, Spiel.")
 
 -- Mandatory: General speech
@@ -80,6 +80,8 @@ itemShoes = 369
 "quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"game" -> ""
+"spiel" -> ""
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Informant. I can tell you many things about Galmair. Just ask me about buildings, places, events, people, history or gods of Galmair. Additionaly, I have a little task."
@@ -92,10 +94,8 @@ itemShoes = 369
 "inform" -> "Ich kann dir Informationen über Gebäude, Plätze, Ereignisse, Leute, Geschichte und Götter von Galmair geben. Frag einfach!"
 "question" -> "I can give you information about buildings, places, events, people, history and gods of Galmair. Just ask me!"
 "Frage", "Auskunft" -> "Ich kann dir Informationen über Gebäude, Plätze, Ereignisse, Leute, Geschichte und Götter von Galmair geben. Frag einfach!"
-"building" -> ""
-"Gebäude" -> ""
-"game" -> ""
-"spiel" -> ""
+"building" -> "Argh, be more precisely! Market, temple, teleport, donkey place, library, Well of Dreams, Villa Goldvein, workshop, guardroom, Dark Ally, Galmair's Crest or the Scoria Mine?"
+"Gebäude" -> "Argh, etwas genauer! Markt, Tempel, Teleport, Eselplatz, Bibliothek, Quelle der Träume, Villa Goldader, Werkstatt, Wachstube, Dunkle Gasse, Galmairs Krone oder die Schlackengrube?"
 "place" -> ""
 "Platz","Plätz" -> ""
 "people" -> ""
@@ -122,7 +122,7 @@ itemShoes = 369
 "Well of Dreams" -> ""
 "Villa Goldvein" -> ""
 "Workshop" -> ""
-"Guardoffice" -> ""
+"Guardroom" -> ""
 "Dark Alley" -> ""
 "Library" -> ""
 
