@@ -3,7 +3,7 @@
 -- NPC Job:  mule seller                                                      --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  141, 637, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 141, 637, 0, 4, 'Alexis Dostas', 'npc.alexis_dostas', 0, 3, 4, 123, 62, 9, 205, 133, 73);
+VALUES (0, 141, 637, 0, 6, 'Alexis Dostas', 'npc.alexis_dostas', 0, 3, 4, 123, 62, 9, 205, 133, 73);
 ---]]
 
 require("npc.base.basic")
@@ -44,9 +44,9 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Be greeted. You came here for a mule I suppose.");
+talkEntry:addResponse("Welcome to the stables.");
+talkEntry:addResponse("If you need a beast of burden, you came to the right place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -58,9 +58,9 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Seid gegrüßt. Ihr seid hier eines Maultiers wegen, nehme ich an.");
+talkEntry:addResponse("Willkommen in den Stallungen.");
+talkEntry:addResponse("Falls ihr ein Lasttier benötigt seid ihr hier richtig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -70,9 +70,9 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Be greeted. You came here for a mule I suppose.");
+talkEntry:addResponse("Welcome to the stables.");
+talkEntry:addResponse("If you need a beast of burden, you came to the right place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -81,9 +81,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Seid gegrüßt. Ihr seid hier eines Maultiers wegen, nehme ich an.");
+talkEntry:addResponse("Willkommen in den Stallungen.");
+talkEntry:addResponse("Falls ihr ein Lasttier benötigt seid ihr hier richtig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -92,9 +92,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Farewell. And come back alive.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -103,9 +101,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Gehabt euch wohl und kommt gesund zurück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -115,9 +111,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Farewell. And come back alive.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -126,9 +120,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Gehabt euch wohl und kommt gesund zurück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -367,8 +359,8 @@ talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("Willkommen in den Stallungen.", "Welcome to the stables.");
+talkingNPC:addCycleText("Die Götter mögen die Königin schützen.", "Gods, save the queen.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
