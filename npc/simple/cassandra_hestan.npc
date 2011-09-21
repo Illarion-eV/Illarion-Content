@@ -56,8 +56,8 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Cassandra Hestan the money changer. Keyphrases: Hello, money, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cassandra Hestan die Geldwechslerin. Schlüsselwörter: Hallo, Geld, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Cassandra Hestan the money changer. Keyphrases: Hello, money, Cadomyr, Beruf, Ronagan.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cassandra Hestan die Geldwechslerin. Schlüsselwörter: Hallo, Geld, Cadomyr, Beruf, Ronagan.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -88,16 +88,14 @@ itemShoes = 369
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"money" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"silver" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"copper" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"gold", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Geld" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Silber" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Kupfer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gold" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -106,8 +104,8 @@ itemShoes = 369
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "You don't think that Ronagan is one of the evil guys, do you? If so, you have to learn a lot about the nature of the gods."
+"Ronagan" -> "Ihr denkt doch nicht etwa auch, dass Ronagan einer der bösen Jungs ist, oder? Falls doch, dann müßt ihr noch viel über das Wesen der Götter lernen."
 
 -- Optional: Faction stuff
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -123,12 +121,11 @@ itemShoes = 369
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Psst! Wollt ihr etwas Geld wechseln?", "Shh! Want to change some money?"
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "Hast mal 'nen Silberling?", "Got some change?"
+cycletext "Wollt ihr mehr Geld? Wechselt eure Goldstücke in Kupferstücke ein!", "Do you want more money? Change your gold coins to copper coins!"
+cycletext "Ihr da. Ja, genau ihr. Kommt doch mal näher.", "You there. Yes, you. Come a little closer."
+cycletext "#me stellt einen kleinen Becher vor sich auf die Straße.", "#me places a small mug on the street."
+cycletext "#me klimpert mit ein paar Münzen.", "#me rattles the coins."
+cycletext "#me betrachtet eine Münze und sagt: 'Königin Rosalines Porträt ist wirklich schmeichelhaft.'.", "#me beholds a coin and says: 'Queen Rosaline's potrait is charming.'."
+cycletext "Geld macht nicht glücklich, aber kein Geld macht unglücklich!", "Money doesn't make you happy, but no money makes you sad!"
+cycletext "Ich wechsle Geld!", "I change money!"
