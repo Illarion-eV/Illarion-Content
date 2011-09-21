@@ -64,61 +64,72 @@ function DoDruidism(User,SourceItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-    if User.effects:find(329) then
-       User.effects:removeEffect(329);
-	   User:inform("LTE 329 da, wird entfernt");
-   else
-       User:inform("kein LTE da")
-   end
-    --if (ltstate == Action.abort) then
-       -- User:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
-       -- User:talkLanguage(Character.say, Player.english, "#me spills the potion.");
-        --world:erase(SourceItem,1);
-      --  -- Chance for a new bottle 19/20
-       -- if(math.random(20) == 1) then
-       --     base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
-       -- else
-       --     User:createItem(164, 1, 333, 0);
-       -- end
-      --  return
-   -- end
 
-   -- if User.attackmode then
-    --    base.common.InformNLS(User, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
-	--	return
-	--end
+	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
+	   local cauldron = base.common.GetFrontItem( User );
 	
-    --if (ltstate == Action.none) then
-    --    User:startAction(20,0,0,12,25);
-    --    User:talkLanguage(Character.say, Player.german, "#me beginnt einen Trank zu trinken.");
-    --    User:talkLanguage(Character.say, Player.english, "#me starts to drink a potion.");
-    --    return
-   -- end
-
-	if (SourceItem:getData("potionData") == "")  then
-		User:inform("kein potionData")
-		User:inform("data? hier: "..SourceItem:getData("potionData"))
-		return; -- no potion, maybe ink or something else
-	elseif potionData == 71796337 then -- Unsichtbarkeitstrank
-		User:inform("Deactivated due to technical issues.");
+	   if (cauldron:getData("cauldronData") ~= "") then 
+	      base.common.InformNLS( User,
+					"In dem Kessel befindet sich bereits etwas. Du kannst nichts mehr hinzutun.",
+					"There is already something in the cauldron. You cannot add something else to it."
+						   );
+	       return;
+      
+	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
+	      
+		  if ( ltstate == Action.abort ) then
+                base.common.TempInformNLS( User,
+                "Du brichst Deine Arbeit ab.",
+                "You abort your work."
+                       );
+		        return;
+            end
+			
+			if (ltstate == Action.none) then
+			   User:startAction(20,21,5,0,0);
+			   return
+			end
+		  
+		  local ID_potion = SourceItem.id			 
+		  cauldron:setData("potionID", ""..ID_potion);
+		  cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
+	      cauldron.quality = SourceItem.quality
+		  world:changeItem(cauldron)
+		  User:inform(""..ID_potion)
+		  User:talkLanguage(Character.say, Player.german, "#me kippt einen Trank in den Kessel.");
+          User:talkLanguage(Character.say, Player.english, "#me pours a potion into the cauldron.");
+		  world:makeSound(10,User.pos);
+		  world:erase(SourceItem,1);
+		  User:createItem(164, 1, 333, 0);
+	      return;
+	   end  
+	end
+	
+	-- not infront of a cauldron: let's drink the potion!
+	if User.attackmode then
+        base.common.TempInformNLS(User,
+			"Du kannst den Trank nicht benutzen, während Du kämpfst.",
+			"You can't use the potion while you are fighting.");
 		return;
-	else
-
-		world:erase(SourceItem,1);
-		world:gfx(5,User.pos);
-
-		-- Hier verweisen wir auf die Wirkung
-		-- Korrektur von Nitram, erst Flasche löschen, dann Verwandeln, weil beim Verwandeln die Flasche gedropped wird.
-		DoDruidism(User,SourceItem)
-
-		if( math.random( 20 ) <= 1 ) then
-			base.common.InformNLS( User, "Die Flasche zerbricht.", "The bottle breaks.");
-		else
-			User:createItem( 164, 1, 333,0);
-		end
-
-		User.movepoints=User.movepoints-50;
-  end
+	end
+	
+	if User.effects:find(329) then
+	   base.common.TempInformNLS( User,
+                "Der Trank hätte jetzt keine Wirkung.",
+                "The potion wouldn't have any effect now."
+                       );  
+	   return;
+	end	
+	
+	base.character.ChangeFightingpoints(User, -20);
+	world:makeSound(12,User.pos);
+	world:erase(SourceItem,1);
+	   if(math.random(20) == 1) then
+           base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
+        else
+            User:createItem(164, 1, 333, 0);
+        end
+	DrinkPotion(User, SourceItem);
 end
 
 --

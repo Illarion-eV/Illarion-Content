@@ -125,7 +125,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return;
 	end
 	
-	if User.effects:find(166) then
+	if User.effects:find(330) then
 	   base.common.TempInformNLS( User,
                 "Der Trank hätte jetzt keine Wirkung.",
                 "The potion wouldn't have any effect now."

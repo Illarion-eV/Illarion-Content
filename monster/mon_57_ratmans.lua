@@ -113,7 +113,7 @@ if (MonID==571) then --Nuzzler, Level: 3, Armourtype: light, Weapontype: punctur
 
         --Category 1: Armor
 
-        local done=monster.base.drop.AddDropItem(257,1,20,(100*math.random(6,3)+math.random(33,44)),0,1); --leather shoes
+        local done=monster.base.drop.AddDropItem(257,1,20,(100*math.random(3,4)+math.random(33,44)),0,1); --leather shoes
         if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(3,4)+math.random(33,44)),0,1); end --leather legs
         if not done then done=monster.base.drop.AddDropItem(251,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --light hunting armor
         if not done then done=monster.base.drop.AddDropItem(252,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --full leatherarmor
