@@ -60,60 +60,58 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cassandra Hestan die Geldwechslerin. Schlüsselwörter: Hallo, Geld, Cadomyr, Beruf, Ronagan.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings. You came to me to change money, am I not right?"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings. You came to me to change money, am I not right?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?"
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell and come back with more money."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Einen guten Tag wünsche ich und kommt mir mehr Geld zurück."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell and come back with more money."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Einen guten Tag wünsche ich und kommt mir mehr Geld zurück."
+"How are you", "How feel", "How do you do" -> "Let's skip this and get straight to business."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Überspringen wir die Höflichkeiten und lasst uns zum Geschäft kommen."
+"your name", "who are you", "who art thou" -> "Cassandra."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cassandra."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"quest", "mission", english -> "I am just a humble servant of her majesty. I do not have orders for you."
+"quest", "mission" -> "Ich bin auch nur eine Dienerin ihrer Majestät. Ich vermag euch keine Befehle zu erteilen."
+"task", "adventure", "order" -> "I am just a humble servant of her majesty. I do not have orders for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin auch nur eine Dienerin ihrer Majestät. Ich vermag euch keine Befehle zu erteilen."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"profession" -> "I change money. That is not a honourable profession, I am aware of that. However, my services are needed and my hands are not able to do more honourable deeds."
+"beruf" -> "Ich wechsle Geld. Das ist kein ehrbarer Beruf, dem bin ich mir bewußt. Dennoch sind meine Dienste von Nöten und meine Hände sind nicht geschickt genug für ehrbare Tätigkeiten."
+"job", english -> "I change money. That is not a honourable profession, I am aware of that. However, my services are needed and my hands are not able to do more honourable deeds."
+"job" -> "Ich wechsle Geld. Das ist kein ehrbarer Beruf, dem bin ich mir bewußt. Dennoch sind meine Dienste von Nöten und meine Hände sind nicht geschickt genug für ehrbare Tätigkeiten."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"money" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"silver" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"copper" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gold", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Geld" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Silber" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Kupfer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gold" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"money" -> "In Cadomyr, we know three types of coins: Copper, silver and gold."
+"silver" -> "A silver coins equals a hundred copper coins. One hundred silver coins equal one gold coin."
+"copper" -> "One hundred copper coins equal a silver coin."
+"gold", english -> "A gold coin equals a hundred silver coins."
+"Geld" -> "In Cadomyr kennt man drei Sorten Münzen: Kupfer, Silber und Gold."
+"Silber" -> "Ein Silberstück entspricht einhundert Kupfermünzen. Einhundert Silbermünzen entsprechen einem Goldstück."
+"Kupfer" -> "Einhundert Kupferstücke entsprechen einem Silberstück."
+"Gold" -> "Ein Goldstück entspricht einhundert Silberstücken."
 
 -- Optional: Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"what sell", "what buy", "list wares", "price of" -> "I just change money. I do not offer any other services."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich wechsle einfach nur Geld. Ich biete keine anderen Dienste an."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "Ronagan", english -> "You don't think that Ronagan is one of the evil guys, do you? If so, you have to learn a lot about the nature of the gods."
 "Ronagan" -> "Ihr denkt doch nicht etwa auch, dass Ronagan einer der bösen Jungs ist, oder? Falls doch, dann müßt ihr noch viel über das Wesen der Götter lernen."
 
 -- Optional: Faction stuff
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "Queen Rosaline just tolerates my profession - changing money isn't very honourable."
+"Königin" -> "Königin Rosaline toleriert lediglich meine Tätigkeit - Geld zu wechseln ist nicht sonderlich ehrbar."
+"rosaline", "edwards", english -> "Queen Rosaline just tolerates my profession - changing money isn't very honourable."
+"rosaline", "edwards" -> "Königin Rosaline toleriert lediglich meine Tätigkeit - Geld zu wechseln ist nicht sonderlich ehrbar."
+"Cadomyr", english -> "Cadomyr is my home and I love it. Whether Cadomyr loves me or not - I do not know."
+"Cadomyr" -> "Cadomyr ist meine Heimat und ich liebe es. Ob nun Cadomyr mich auch liebt oder nicht - das weiß ich nicht."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

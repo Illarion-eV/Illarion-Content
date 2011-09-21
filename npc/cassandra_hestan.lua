@@ -44,9 +44,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Greetings. You came to me to change money, am I not right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -58,9 +56,7 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -70,9 +66,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Greetings. You came to me to change money, am I not right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -81,9 +75,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -92,9 +84,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Farewell and come back with more money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -103,9 +93,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Einen guten Tag wünsche ich und kommt mir mehr Geld zurück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -115,9 +103,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Farewell and come back with more money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -126,9 +112,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Einen guten Tag wünsche ich und kommt mir mehr Geld zurück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -136,9 +120,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Let's skip this and get straight to business.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -147,9 +129,7 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Überspringen wir die Höflichkeiten und lasst uns zum Geschäft kommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -157,9 +137,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Cassandra.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -168,9 +146,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Cassandra.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -178,18 +154,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am just a humble servant of her majesty. I do not have orders for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin auch nur eine Dienerin ihrer Majestät. Ich vermag euch keine Befehle zu erteilen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -197,9 +169,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am just a humble servant of her majesty. I do not have orders for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -208,107 +178,81 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin auch nur eine Dienerin ihrer Majestät. Ich vermag euch keine Befehle zu erteilen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I change money. That is not a honourable profession, I am aware of that. However, my services are needed and my hands are not able to do more honourable deeds.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich wechsle Geld. Das ist kein ehrbarer Beruf, dem bin ich mir bewußt. Dennoch sind meine Dienste von Nöten und meine Hände sind nicht geschickt genug für ehrbare Tätigkeiten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I change money. That is not a honourable profession, I am aware of that. However, my services are needed and my hands are not able to do more honourable deeds.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich wechsle Geld. Das ist kein ehrbarer Beruf, dem bin ich mir bewußt. Dennoch sind meine Dienste von Nöten und meine Hände sind nicht geschickt genug für ehrbare Tätigkeiten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("money");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("In Cadomyr, we know three types of coins: Copper, silver and gold.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("silver");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("A silver coins equals a hundred copper coins. One hundred silver coins equal one gold coin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("copper");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("One hundred copper coins equal a silver coin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gold");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("A gold coin equals a hundred silver coins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Geld");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("In Cadomyr kennt man drei Sorten Münzen: Kupfer, Silber und Gold.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Silber");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ein Silberstück entspricht einhundert Kupfermünzen. Einhundert Silbermünzen entsprechen einem Goldstück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kupfer");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Einhundert Kupferstücke entsprechen einem Silberstück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gold");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ein Goldstück entspricht einhundert Silberstücken.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -317,9 +261,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I just change money. I do not offer any other services.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,26 +270,7 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich wechsle einfach nur Geld. Ich biete keine anderen Dienste an.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,17 +289,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Queen Rosaline just tolerates my profession - changing money isn't very honourable.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Königin Rosaline toleriert lediglich meine Tätigkeit - Geld zu wechseln ist nicht sonderlich ehrbar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -384,35 +303,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Queen Rosaline just tolerates my profession - changing money isn't very honourable.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Königin Rosaline toleriert lediglich meine Tätigkeit - Geld zu wechseln ist nicht sonderlich ehrbar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Cadomyr is my home and I love it. Whether Cadomyr loves me or not - I do not know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Cadomyr ist meine Heimat und ich liebe es. Ob nun Cadomyr mich auch liebt oder nicht - das weiß ich nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Psst! Wollt ihr etwas Geld wechseln?", "Shh! Want to change some money?");
