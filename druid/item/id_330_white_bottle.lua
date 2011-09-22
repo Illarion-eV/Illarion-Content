@@ -122,7 +122,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- not infront of a cauldron: let's drink the potion!
     if User.effects:find(330) then
-	   User.effects::removeEffect(330);
+	   User.effects:removeEffect(330);
 	end
 	if User.attackmode then
 	   base.common.TempInformNLS(User,
