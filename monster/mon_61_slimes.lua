@@ -141,7 +141,7 @@ if (MonID==611) then --Stinky Slime, Level: 3, Armourtype: cloth, Weapontype: wr
 
         --Category 1: Raw gens
 
-        local done=monster.base.drop.AddDropItem(256,1,20,(100*math.random(6,3)+math.random(33,44)),0,1); --raw emerald
+        local done=monster.base.drop.AddDropItem(256,1,20,(100*math.random(3,4)+math.random(33,44)),0,1); --raw emerald
         if not done then done=monster.base.drop.AddDropItem(252,1,10,(100*math.random(3,4)+math.random(33,44)),0,1); end --raw blackstone
         if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --raw bluestone
         if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --raw topaz

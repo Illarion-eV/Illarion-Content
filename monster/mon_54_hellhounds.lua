@@ -113,7 +113,7 @@ if (MonID==541) then --Crippled Deamonbeast, Level: 6, Armourtype: heavy, Weapon
 
         --Category 1: Speical Loot
 
-        local done=monster.base.drop.AddDropItem(63,1,20,(100*math.random(6,3)+math.random(66,77)),0,1); --entrails
+        local done=monster.base.drop.AddDropItem(63,1,20,(100*math.random(6,7)+math.random(66,77)),0,1); --entrails
         if not done then done=monster.base.drop.AddDropItem(256,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw emerald
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --ruby
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --topaz
