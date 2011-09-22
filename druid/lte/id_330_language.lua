@@ -62,6 +62,7 @@ function callEffect(Effect,User)
 				   Effect:addValue("cooldownWhite",cooldownWhite)
 			       Effect.nextCalled = 50
 			       User:inform("return true")
+				   User:inform("Skillhöhe: "..User:increaseSkill(skillGroup,skillName,0)
 				   return true
 	           end
 		   end
@@ -70,26 +71,7 @@ function callEffect(Effect,User)
 end
 
 function removeEffect(Effect,User)
-	--User:inform("debug func removeEffect")
-
-	--SkillID laden 
-	find,skillID = Effect:findValue("skillID")
-	skillName = ListLanguages[skillID]
-           
-	--Alten SkillWert laden           
-	find,oldSkill = Effect:findValue( "oldSkill")          
-
-	--Neuen Skillwert laden
-	find,newSkill = Effect:findValue( "newSkill")
-  
-	--SkillGroup laden
-	find,skillGroup = Effect:findValue( "skillGroup")
-
-	--Wiederherstellung des alten Zustand
-	User:increaseSkill(skillGroup,skillName,(-(newSkill-oldSkill))) -- ergibt wahrscheinlich noch falsche Werte
-     
-	world:gfx(45,User.pos)
-  
+User:inform("Skillhöhe: "..User:increaseSkill(skillGroup,skillName,0)
 end
 
 function loadEffect(Effect,User)                  			
