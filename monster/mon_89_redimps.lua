@@ -61,24 +61,9 @@ function onCasted(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
-function onDeath(Monster)
-
-    if killer[Monster.id] ~= nil then
-
-        murderer=getCharForId(killer[Monster.id]);
-    
-        if murderer then --Checking for quests
-
-            monster.base.quests.checkQuest(murderer,Monster);
-            killer[Monster.id]=nil;
-            murderer=nil;
-
-        end
-    end
-    
+function onDeath(Monster)    
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
-
 if (MonID==891) then --Fireimp, Level: 2, Armourtype: light, Weapontype: puncture
 
         --Category 1: Special Loot
