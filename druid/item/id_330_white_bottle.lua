@@ -10,7 +10,7 @@ module("druid.item.id_330_white_bottle",package.seeall); --, package.seeall(drui
 -- UPDATE common SET com_script='druid.item.id_330_white_bottle' WHERE com_itemid = 330;
 
 function DrinkPotion(User,SourceItem)
-
+User:inform("beginng dringPotion")
 -- Grundwerte, Listen einlesen:
 -- Sprachverständnis (man kann eine Zeitlang fremde Sprachen verstehen/lesen)
 	if firsttime == nil then
@@ -69,7 +69,8 @@ function DrinkPotion(User,SourceItem)
 
 --      Effekt an Char binden
         User.effects:addEffect(myEffect);
-      end
+        User:inform("ende drinPotion, effekt hinzufügen")
+	  end
     end
   end
     
@@ -141,7 +142,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         else
             User:createItem(164, 1, 333, 0);
         end
-	
+	User:inform("ende von useitem")
 	DrinkPotion(User, SourceItem);
 -- end (milk)
   
