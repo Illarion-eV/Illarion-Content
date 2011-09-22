@@ -71,7 +71,7 @@ function callEffect(Effect,User)
 end
 
 function removeEffect(Effect,User)
-User:inform("Skillhöhe: "..User:increaseSkill(skillGroup,skillName,0)
+User:inform("Skillhöhe: "..User:increaseSkill(skillGroup,skillName,0))
 end
 
 function loadEffect(Effect,User)                  			
