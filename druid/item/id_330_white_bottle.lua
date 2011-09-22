@@ -10,7 +10,7 @@ module("druid.item.id_330_white_bottle",package.seeall); --, package.seeall(drui
 -- UPDATE common SET com_script='druid.item.id_330_white_bottle' WHERE com_itemid = 330;
 
 function DrinkPotion(User,SourceItem)
-User:inform("beginng dringPotion")
+User:inform("beginng drinkPotion")
 -- Grundwerte, Listen einlesen:
 -- Sprachverständnis (man kann eine Zeitlang fremde Sprachen verstehen/lesen)
 	if firsttime == nil then
@@ -26,8 +26,10 @@ User:inform("beginng dringPotion")
 	ListSkillGroup={1,1,1,1,1,1,1}
 
     potionData = tonumber(SourceItem:getData("potionData")); 
+    User:inform("potionData bestimmt")
   for i=1,table.getn(ListCodecs) do
-    if potionData == ListCodecs[i] then
+    User:inform("nach for")
+	if potionData == ListCodecs[i] then
 
       find, myEffect = User.effects:find(330);
       if not find then
