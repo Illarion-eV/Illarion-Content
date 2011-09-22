@@ -2,17 +2,17 @@
 -- NPC Name: Iradona Goldschein                                       Galmair --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  416, 248, 0            --
--- NPC Sex:  female                     NPC Direction: west                   --
+-- NPC Race: dwarf                      NPC Position:  409, 247, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 21, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 22, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 416, 248, 0, 6, 'Iradona Goldschein', 'npc.iradona_goldschein', 1, 5, 2, 255, 215, 0, 238, 203, 173);
+VALUES (1, 409, 247, 0, 4, 'Iradona Goldschein', 'npc.iradona_goldschein', 1, 5, 2, 255, 215, 0, 238, 203, 173);
 ---]]
 
 require("npc.base.basic")
