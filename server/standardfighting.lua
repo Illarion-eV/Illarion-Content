@@ -208,8 +208,9 @@ function CalculateDamage(Attacker, Globals)
     DexterityBonus = (Attacker.dexterity - 6) * 1;
     SkillBonus = (Attacker.skill - 20) * 1;
     TacticsBonus = (Attacker.tactics - 20) * 0.5;
+    GemBonus = getGemBonus(Attacker.Weapon);
 
-    Globals["Damage"] = BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + TacticsBonus)/100;
+    Globals["Damage"] = BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + TacticsBonus + GemBonus)/100;
     
 end;
 
@@ -939,6 +940,29 @@ function ShowEffects(Attacker, Defender, Globals)
 end;
 
 
+-- calculates the gem bonus and returns it in %
+function getGemBonus(item)
+    gemStrength={};
+    gemStrength[1]=tonumber(item:getData("magicalEmerald"));
+    gemStrength[2]=tonumber(item:getData("magicalRuby"));
+    gemStrength[3]=tonumber(item:getData("magicalTopaz"));
+    gemStrength[4]=tonumber(item:getData("magicalAmethyst"));
+    gemStrength[5]=tonumber(item:getData("magicalBluestone"));
+    gemStrength[6]=tonumber(item:getData("magicalBlackstone"));
+    
+    gemSum=0;
+    gemMin=1000;   -- arbitrarily high number
+    
+    for _, gStrength in pais(gemStrength) do
+        gemSum=gemSum+gStrength;
+        if gStrength<gemMin then gemMin=gStrength end;
+    end
+    
+    return gemSum+gemMin*6*2;
+    
+end
+
+
 -- Parry sounds
 -- Line and column the item Types the attacker and the defender are
 -- using
@@ -951,3 +975,5 @@ Sounds[4]={32,42,42,42,42,44};
 Sounds[5]={32,42,40,42,42,44};
 Sounds[6]={32,44,41,44,44,41};
 Sounds[14]={32,43,41,42,40,41};
+
+
