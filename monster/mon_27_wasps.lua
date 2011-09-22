@@ -84,23 +84,8 @@ end
 
 
 function onDeath(Monster)
-
-    if killer[Monster.id] ~= nil then
-
-        murderer=getCharForId(killer[Monster.id]);
-    
-        if murderer then --Checking for quests
-
-            monster.base.quests.checkQuest(murderer,Monster);
-            killer[Monster.id]=nil;
-            murderer=nil;
-
-        end
-    end
-
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
-
     monster.base.drop.AddDropItem(2529,1,100,333,0,1); --honeycombs
 
     if (MonID==278) then -- wasp of Fire!!!
