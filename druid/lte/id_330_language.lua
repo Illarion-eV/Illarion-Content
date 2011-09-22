@@ -59,7 +59,7 @@ function callEffect(Effect,User)
 	           else 
                    cooldownWhite = cooldownWhite - 1;
                    User:inform("cooldown - 1 = "..cooldownWhite)
-				   Effect:addValue("cooldownBlack",cooldownWhite)
+				   Effect:addValue("cooldownWhite",cooldownWhite)
 			       Effect.nextCalled = 50
 			       User:inform("return true")
 				   return true

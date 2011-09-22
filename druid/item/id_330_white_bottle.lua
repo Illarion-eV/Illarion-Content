@@ -121,8 +121,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	
 	-- not infront of a cauldron: let's drink the potion!
-    if User.attackmode then
-        base.common.TempInformNLS(User,
+    if User.effects:find(330) then
+	   User.effects::removeEffect(330);
+	end
+	if User.attackmode then
+	   base.common.TempInformNLS(User,
 			"Du kannst den Trank nicht benutzen, während Du kämpfst.",
 			"You can't use the potion while you are fighting.");
 		return;
