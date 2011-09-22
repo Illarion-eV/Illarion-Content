@@ -31,11 +31,12 @@ function initGuard(Guard)
     Guard.waypoints:addFromList(WPList);
     Guard:setOnRoute(true);
 
+	-- isEnemy[enemyID]~=nil means: This is an enemy to attack
     isEnemy={};
     
 end
 
--- Set clothes, weapons, hair/beard, colors
+-- Set clothes, weapons, hair/beard, colors, waypoints + set on this route, talking-skills
 function onSpawn(Guard)
     initGuard(Guard);
 end
@@ -45,19 +46,16 @@ end
 function enemyNear(Guard,Enemy)
     return false;
 end
-
--- 6,9  16,14  27,3  30,13  20,15
-
 -- Who should be attacked, return index of char in candList; return 0 to ignore everyone completely.
 -- ATM: 1) check if there's someone already on the enemylist, 2) then check for "sign"
 function setTarget(Guard, candList)
     for key,target in pairs(candList) do                      -- search list for someone
-        target:inform("now checking...");
-        if isEnemy[target.id] ~= nil then
+        --target:inform("now checking...");
+        if isEnemy[target.id] ~= nil then			-- attack this guy
             return key;
         end
         myTar=target;
-        if string.find(target.lastSpokenText,"me")~=nil then    -- who said ".*me.*"
+        if string.find(target.lastSpokenText,"me")~=nil then    -- who said ".*me.*" -> THIS SHOULD GENERALLY BE SOME MARK WHO TO ATTACK
             target:inform("gotcha");
             return key;
         end
@@ -71,8 +69,6 @@ function setTarget(Guard, candList)
 end
 
 
-
-
 function enemyOnSight(Guard,Enemy)
     return false;
 end
@@ -80,7 +76,7 @@ end
 
 -- attack back, whoever it is (set on isEnemy-List!)
 function onAttacked(Guard,Enemy)
-    isEnemy[Enemy.id]=1;
+    isEnemy[Enemy.id]=1;		-- this one is put on our list of enemys
     Guard:talk(Character.yell, "I am under attack, help!");
     monster.base.kills.setLastAttacker(Guard,Enemy)
 end
@@ -97,15 +93,15 @@ end
 function receiveText(Guard, type, text, originator)
     -- check distance
     if originator.id ~= Guard.id then
-        if originator:getType()==0 then
-            if (Guard:distanceMetric(originator)<5) then
+        if originator:getType()==0 then		-- A player!
+            if (Guard:distanceMetric(originator)<5) then	-- stands close
                 if Guard:getOnRoute() then
-                    Guard:setOnRoute(false);
+                    Guard:setOnRoute(false);		-- get off the route
                 end
             end
-        elseif originator:getType()==1 and type==Character.yell then        -- Monster yells for help!
+        elseif originator:getType()==1 and type==Character.yell then   	-- Guard yells for help!
             text=string.lower(text);
-            if (string.find(text,"help") ~= nil) then          -- run to the corresponding guard!
+            if (string.find(text,"help") ~= nil) then          			-- run to the corresponding guard!
                 if Guard:getOnRoute() then
                     Guard:setOnRoute(false);
                 end
@@ -117,6 +113,7 @@ function receiveText(Guard, type, text, originator)
 end
 
 
+-- is called once a guard is set off his route or when his route is simply finished
 function abortRoute(Guard)
     Guard:talk(Character.say,"ABORTING ROUTE NOW!");
     restList=Guard.waypoints:getWaypoints();

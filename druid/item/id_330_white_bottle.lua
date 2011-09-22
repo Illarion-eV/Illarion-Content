@@ -5,11 +5,11 @@
 require("base.common")
 require("druid.base.alchemy")
 
-module("druid.item.id_330_white_bottle", package.seeall(druid.base.alchemy))
+module("druid.item.id_330_white_bottle",package.seeall); --, package.seeall(druid.base.alchemy))
 
 -- UPDATE common SET com_script='druid.item.id_330_white_bottle' WHERE com_itemid = 330;
 
-function DoDruidism(User,SourceItem)
+function DrinkPotion(User,SourceItem)
 
 -- Grundwerte, Listen einlesen:
 -- Sprachverständnis (man kann eine Zeitlang fremde Sprachen verstehen/lesen)
