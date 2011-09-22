@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: September 22, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Hassan"
@@ -111,7 +111,7 @@ itemShoes = 53
 "Aufgabe", "Abenteuer", "Frage", queststatus(75) = 2 -> "Fragt einfach, wonach auch immer und ich werde mein Wissen über den Palast mit euch teilen."
 
 -- bringing the wine--
-".+", queststatus(75) = 1, item(2057, all) > 0, english, town = Cadomyr -> inform("[Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favor."), "#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'", deleteItem(2057, 1), queststatus(75) = 2, rankpoints(Cadomyr) + 20
+".+", queststatus(75) = 1, item(2057, all) > 0, english, town = Cadomyr -> inform("[Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favour."), "#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'", deleteItem(2057, 1), queststatus(75) = 2, rankpoints(Cadomyr) + 20
 ".+", queststatus(75) = 1, item(2057, all) > 0, english -> inform("[Quest solved] Hassan will now answer your questions."), "#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'", deleteItem(2057, 1), queststatus(75) = 2
 ".+", queststatus(75) = 1, item(2057, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten. Dein Ansehen bei Königin Rosaline Edwards steigt."), "#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'", deleteItem(2057, 1), queststatus(75) = 2, rankpoints(Cadomyr) + 20
 ".+", queststatus(75) = 1, item(2057, all) > 0 -> inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten."), "#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'", deleteItem(2057, 1), queststatus(75) = 2
@@ -121,7 +121,7 @@ itemShoes = 53
 -- questions--
 "town", queststatus(75) = 2 -> "Cadomyr is the most civilized and advanced community! I hear the others live in pitiful clay huts."
 "nobles", queststatus(75) = 2 -> "Like any proper nation, below the Queen are her nobles, just like the men are below the Gods... just as the Gods themselves have intended!"
-"hono[u]+r", queststatus(75) = 2 -> "We value honor above all in Cadomyr. If you have no honor, then you have nothing and will be nothing."
+"hono[u]+r", queststatus(75) = 2 -> "We value honour above all in Cadomyr. If you have no honour, then you have nothing and will be nothing."
 "like[s]", queststatus(75) = 2 -> "The Queen likes the shine of gold and the sparkle of precious gemstones."
 "gift", queststatus(75) = 2 -> "Gifts? Of course our Queen likes gifts! Expensive jewelry and shiny gemstones, especially diamonds, is what she fancies."
 "baron", "hastings", queststatus(75) = 2, english -> "Baron Hastings? He was not at all happy about Queen Rosaline finding a clause that enabled her to succeed her father on the throne, but now he has gone missing..."
@@ -155,7 +155,7 @@ itemShoes = 53
 "queen", queststatus(75) = 2 -> "We are ruled by the Queen in Cadomyr! She can trace her ancestry back a millennia or more, having the bluest of blue blood in all the land."
 "Rosaline", queststatus(75) = 2, english -> "Oh, so you have heard about our Queen? Of course, not everyone thought that a woman should rule. Baron Hastings was quite vocal about that, but then he... disappeared."
 "Edwards", queststatus(75) = 2, english -> "Cadomyr has been ruled by the House of Edwards since its inception. Finest stock of Albarian bluebloods! The queen's father, King Reginald, ruled the town with a firm grip."
-"Cadomyr", queststatus(75) = 2, english -> "#me sighs. 'Cadomyr, oh Cadomyr! We are the most honorable and magnificent nation in all the land, held back only by the treachery of our cursed neighbors.'"
+"Cadomyr", queststatus(75) = 2, english -> "#me sighs. 'Cadomyr, oh Cadomyr! We are the most honourable and magnificent nation in all the land, held back only by the treachery of our cursed neighbors.'"
 "stadt", queststatus(75) = 2 -> "Cadomyr ist die zivilisierteste und fortschrittlichste Gesellschaft. Ich hörte, unsere Nachbarn wohnen in erbärmlichen Lehmhütten."
 "Königin", queststatus(75) = 2 -> "Wir werden von der Königin von Cadomyr regiert. Sie kann ihre Ahnen tausend Jahre zurückverfolgen und hat das blauste Blut von allen."
 "Rosaline", queststatus(75) = 2 -> "Nun, was habt ihr über unsere Königin gehört? Nicht jeder stimmt damit überein, dass eine Frau die Macht hat. Baron Hastings war ihr Redelsführer, aber dann verschwand er..."
@@ -173,15 +173,15 @@ itemShoes = 53
 "Valerio", "Guilianni", "Don", queststatus(75) = 2 -> "Wenn ich diesen Bastard jemals dabei erwische, wie er meine Königin betatscht, zieh' ich ihm eins mit meinem Fächel über!"
 
 -- Main land factions
-"albar", queststatus(75) = 2, english -> "Did you ever realize Albar reads Rabla, spelled backwards?"
+"albar", queststatus(75) = 2, english -> "Did you ever realise Albar reads Rabla, spelled backwards?"
 "albar", queststatus(75) = 2 -> "Habt ihr jemals bemerkt, dass Albar rückwärts gesprochen zu Rabla wird?"
-"gynk", "gync", queststatus(75) = 2, english -> "Blasted Gynk-people! They have no honor and no enchanting queen either."
+"gynk", "gync", queststatus(75) = 2, english -> "Blasted Gynk-people! They have no honour and no enchanting queen either."
 "gync", "gynk", queststatus(75) = 2 -> "Verdammte Gynk-Leute! Sie haben weder Ehre, noch eine Königin."
 "salkama", queststatus(75) = 2, english -> "I heard many people talking about Salkamar being similar to the realm of Albar. They must be kidding."
 "salkama", queststatus(75) = 2 -> "Manche Leute sagen, dass Salkamar so ähnlich wie das albarische Reich wäre. Selten so gelacht!"
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"gods", queststatus(75) = 2 -> "#me nods eagerly, spilling some wine on the table. 'We are proper, honorable, and Gods-fearing people in Cadomyr, unlike our wretched neighbors!'"
+"gods", queststatus(75) = 2 -> "#me nods eagerly, spilling some wine on the table. 'We are proper, honourable, and Gods-fearing people in Cadomyr, unlike our wretched neighbors!'"
 "Gott", "Götter", queststatus(75) = 2 -> "#me nickt heftig, etwas Wein verschüttend: 'Wir sind gute, ehrenhaft, götterfürchtige Leute hier in Cadomyr, nicht so unsere verdorbenen Nachbarn.'"
 "Zhambra", queststatus(75) = 2, english -> "Zhambra, Zhambra, what shall I say! I am his minion, well actually, I am the queen's royal fan waver, that's beyond being a humble minion I guess."
 "Zhambra", queststatus(75) = 2 -> "Zhambra, Zhambra, was soll ich sagen - ich bin sein Diener. Nun, genau genommen bin ich der königliche Fächelwedler ihrer Majestät, das macht mich zu mehr als einen Diener."
@@ -247,6 +247,6 @@ cycletext "#me tippt sich mit seinem Zeigefinger auf die Brust: 'Ich kenne die K
 cycletext "Wie, ich soll für meine Getränke zahlen? Ihr solltet mich dafür bezahlen, dass ich hier trinke. Wißt ihr nicht, wer ich bin?", "What do you mean I have to pay for my drinks? You should be paying 'me' to drink here! Do you have any idea who I am?"
 cycletext "#me ist ein Mann in feiner, aber weingetränkten Kleidung. Sein glattgeschorener Kopf glänzt durch ein wohlriechendes Öl.", "#me is a man in expensive, albeit wine-stained clothes. His shaven head gleams with fine-smelling oil."
 cycletext "Ich arbeite im königlichen Palast. Nichts geschieht dort, ohne das ich davon erfahre.", "I work in the Royal Palace. Nothing happens here without my knowledge."
-cycletext "#me knurrt beim Anblick seines leeren Glases: 'Warum erfreu ich euch Bauern mit meiner Anwesenheit? Ich, der Liebling der Königin! Sie hat mich gestern sogar angesehen.'", "#me frowns at the empty glass of wine 'Why do I bless you peasants with my presence? I, who am the Queen's favorite! She even looked at me two days ago!'"
+cycletext "#me knurrt beim Anblick seines leeren Glases: 'Warum erfreu ich euch Bauern mit meiner Anwesenheit? Ich, der Liebling der Königin! Sie hat mich gestern sogar angesehen.'", "#me frowns at the empty glass of wine 'Why do I bless you peasants with my presence? I, who am the Queen's favourite! She even looked at me two days ago!'"
 cycletext "Ich fächere der Königin Luft, damit sie einen ruhigen Kopf bewahren kann. Das nenn' ich eine wichtige Tätigkeit.", "I wave my fan over the Queen, keeping her blue blood cool in this dessert heat. Now 'that' is an important duty!"
 cycletext "Wein ist fein.", "Wine is divine."
