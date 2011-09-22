@@ -20,7 +20,7 @@ User:inform("beginng drinkPotion")
 		ListSkillID = {}
 		firsttime = 1
 	end
-	ListCodecs={45942235,62483256,65545555,15751754,82897532,63296636,93538334}
+	ListCodecs={45942235,62483256,65554555,15751754,82897532,63296636,93538334}
 	ListLanguages={"human language","dwarf language","elf language","lizard language","orc language","halfling language","fairy language","gnome language","goblin language","ancient language"}
 	ListSkillID = {1,2,3,4,5,6,10}
 	ListSkillGroup={1,1,1,1,1,1,1}
