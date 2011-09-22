@@ -26,7 +26,7 @@ User:inform("beginng drinkPotion")
 	ListSkillGroup={1,1,1,1,1,1,1}
 
     potionData = tonumber(SourceItem:getData("potionData")); 
-    User:inform("potionData bestimmt")
+    User:inform("potionData bestimmt: "..potionData)
   for i=1,table.getn(ListCodecs) do
     User:inform("nach for")
 	if potionData == ListCodecs[i] then
