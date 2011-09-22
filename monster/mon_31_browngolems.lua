@@ -5,7 +5,7 @@ require("base.messages");
 require("monster.specialattacks.mgolem_spells");
 require("monster.specialattacks.demon_spells");
 require("monster.specialattacks.beholder_spells");
-module("monster.mon_31_stonegolems", package.seeall)
+module("monster.mon_31_browngolems", package.seeall)
 
 
 
