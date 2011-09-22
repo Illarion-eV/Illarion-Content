@@ -22,7 +22,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   
 	   -- is the char a druid?
 	   if User:getMagicType() ~= 3 then
-	      base.common.InformNLS( User,
+	      base.common.TempInformNLS( User,
                 "Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
                 "Only those who have been introduced to the art of alchemy are able to work here."
 			                );
@@ -34,7 +34,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	  if AlchemyPlant then
             -- if there is the data "potionType", it is a completed potion   
             if (cauldron:getData("potionID") ~= "") then 
-		     base.common.InformNLS( User,
+		     base.common.TempInformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
                        );
@@ -42,20 +42,15 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end	
 			
 		    if ( ltstate == Action.abort ) then
-                if (User:increaseAttrib("sex",0) == 0) then
-                   gText = "seine";
-                   eText = "his";
-              else
-                  gText = "ihre";
-                  eText = "her";
-               end
-                  User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-                  User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-                  return
+                base.common.TempInformNLS( User,
+                "Du brichst Deine Arbeit ab.",
+                "You abort your work."
+                       );
+		        return;
             end
 			
 			if (ltstate == Action.none) then
-			   User:startAction(20,21,25,0,0);
+			   User:startAction(20,21,5,0,0);
 			   return
 			end
 			
@@ -102,8 +97,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			world:makeSound(10,cauldron.pos);
 		    User:increaseAtPos(SourceItem.itempos,-1);
 			
-			-- the new data value is being created
+			-- learn!
+			User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0));
 			
+			-- the new data value is being created
 			local newData = druid.base.alchemy.PasteCauldronData(User,dataZList);
 			cauldron:setData("cauldronData",""..newData);
             world:changeItem(cauldron)
@@ -115,7 +112,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	  if GemDust then
              
             if (cauldron:getData("potionID") ~= "") then 
-		     base.common.InformNLS( User,
+		     base.common.TempInformNLS( User,
                 "Einem fertigen Trank kannst Du nichts mehr beifügen.",
                 "You cannot add something to a completed potion."
                        );
@@ -123,7 +120,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end
 			-- no stock, no potion!	
 		    if (cauldron:getData("cauldronData") == "") then
-			   base.common.InformNLS( User,
+			   base.common.TempInformNLS( User,
                 "Im Kessel muss sich ein Sud befinden, um diesen zu verazaubern.",
                 "There has to be a stock in the cauldron so that you can enchant it."
                        );
@@ -131,20 +128,15 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end
 			
 			if ( ltstate == Action.abort ) then
-                if (User:increaseAttrib("sex",0) == 0) then
-                   gText = "seine";
-                   eText = "his";
-              else
-                  gText = "ihre";
-                  eText = "her";
-               end
-                  User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-                  User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-                  return
+                base.common.TempInformNLS( User,
+                "Du brichst Deine Arbeit ab.",
+                "You abort your work."
+                       );
+		        return;
             end
 			
 			if (ltstate == Action.none) then
-			   User:startAction(20,21,25,0,0);
+			   User:startAction(20,21,5,0,0);
 			   return
 			end
 			
@@ -171,8 +163,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			cauldron.quality = 999; -- !!!!!!!!!!!!!!!!!!!!!! note to myself (merung): replace it with a proper calculation  !!!!!!!!!!!!!!!!!!
 			world:changeItem(cauldron);
 		    
-		    
-			User:increaseAtPos(SourceItem.itempos,-1); -- delete gemdust
-		    
+		    User:increaseAtPos(SourceItem.itempos,-1); -- delete gemdust
+		    -- learn!
+			User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0));
 		end
 	end	   	

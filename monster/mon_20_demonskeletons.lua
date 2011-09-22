@@ -182,27 +182,27 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
 
         --Category 1: Armor
 
-        local done=monster.base.drop.AddDropItem(357,1,20,(100*math.random(6,7)+math.random(66,77)),0,1); --blue wizard hat
-        if not done then done=monster.base.drop.AddDropItem(371,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --expensive wizard hat
-        if not done then done=monster.base.drop.AddDropItem(547,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --novice mage robe
-        if not done then done=monster.base.drop.AddDropItem(548,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --mage robe
-        if not done then done=monster.base.drop.AddDropItem(558,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --master mage robe
+        local done=monster.base.drop.AddDropItem(357,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --blue wizard hat
+        if not done then done=monster.base.drop.AddDropItem(371,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --expensive wizard hat
+        if not done then done=monster.base.drop.AddDropItem(547,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --novice mage robe
+        if not done then done=monster.base.drop.AddDropItem(548,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --mage robe
+        if not done then done=monster.base.drop.AddDropItem(558,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --master mage robe
 
         --Category 2: Special loot
 
-        local done=monster.base.drop.AddDropItem(68,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --ruby ring
-        if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --blackstone ring
-        if not done then done=monster.base.drop.AddDropItem(336,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --mirror
-        if not done then done=monster.base.drop.AddDropItem(334,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --charm of the icebird
-        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --ruby
+        local done=monster.base.drop.AddDropItem(68,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --ruby ring
+        if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --blackstone ring
+        if not done then done=monster.base.drop.AddDropItem(336,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --mirror
+        if not done then done=monster.base.drop.AddDropItem(334,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --charm of the icebird
+        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --ruby
 
         --Category 3: Weapon
 
-        local done=monster.base.drop.AddDropItem(76,1,20,(100*math.random(6,7)+math.random(66,77)),0,3); --mage's staff
-        if not done then done=monster.base.drop.AddDropItem(208,1,10,(100*math.random(6,7)+math.random(66,77)),0,3); end --ornate mage's staff
-        if not done then done=monster.base.drop.AddDropItem(323,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --wand
-        if not done then done=monster.base.drop.AddDropItem(207,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --battle staff
-        if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --skull staff
+        local done=monster.base.drop.AddDropItem(76,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --mage's staff
+        if not done then done=monster.base.drop.AddDropItem(208,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --ornate mage's staff
+        if not done then done=monster.base.drop.AddDropItem(323,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --wand
+        if not done then done=monster.base.drop.AddDropItem(207,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --battle staff
+        if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --skull staff
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins

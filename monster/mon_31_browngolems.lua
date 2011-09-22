@@ -5,7 +5,7 @@ require("base.messages");
 require("monster.specialattacks.mgolem_spells");
 require("monster.specialattacks.demon_spells");
 require("monster.specialattacks.beholder_spells");
-module("monster.mon_31_stonegolems", package.seeall)
+module("monster.mon_31_browngolems", package.seeall)
 
 
 
@@ -136,27 +136,27 @@ if (MonID==311) then --Clay Golem, Level: 3, Armourtype: medium, Weapontype: con
 
         --Category 1: Raw gems
 
-        local done=monster.base.drop.AddDropItem(26,1,20,(100*math.random(6,7)+math.random(66,77)),0,1); --clay
-        if not done then done=monster.base.drop.AddDropItem(255,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw ruby
-        if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw bluestone
-        if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw topaz
-        if not done then done=monster.base.drop.AddDropItem(252,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --raw blackstone
+        local done=monster.base.drop.AddDropItem(26,1,20,(100*math.random(2,3)+math.random(22,33)),0,1); --clay
+        if not done then done=monster.base.drop.AddDropItem(255,1,10,(100*math.random(2,3)+math.random(22,33)),0,1); end --raw ruby
+        if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --raw bluestone
+        if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --raw topaz
+        if not done then done=monster.base.drop.AddDropItem(252,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --raw blackstone
 
         --Category 2: Gems
 
-        local done=monster.base.drop.AddDropItem(256,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --raw emerald
-        if not done then done=monster.base.drop.AddDropItem(46,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --ruby
-        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --bluestone
-        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --topaz
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --blackstone
+        local done=monster.base.drop.AddDropItem(256,1,20,(100*math.random(2,3)+math.random(22,33)),0,2); --raw emerald
+        if not done then done=monster.base.drop.AddDropItem(46,1,10,(100*math.random(2,3)+math.random(22,33)),0,2); end --ruby
+        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --bluestone
+        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --topaz
+        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --blackstone
 
         --Category 3: Special Loot
 
-        local done=monster.base.drop.AddDropItem(45,1,20,(100*math.random(6,7)+math.random(66,77)),0,3); --emerald
-        if not done then done=monster.base.drop.AddDropItem(22,1,10,(100*math.random(6,7)+math.random(66,77)),0,3); end --iron ore
-        if not done then done=monster.base.drop.AddDropItem(2536,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --copper ore
-        if not done then done=monster.base.drop.AddDropItem(1266,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --stone
-        if not done then done=monster.base.drop.AddDropItem(735,10,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --raw stone
+        local done=monster.base.drop.AddDropItem(45,1,20,(100*math.random(2,3)+math.random(22,33)),0,3); --emerald
+        if not done then done=monster.base.drop.AddDropItem(22,1,10,(100*math.random(2,3)+math.random(22,33)),0,3); end --iron ore
+        if not done then done=monster.base.drop.AddDropItem(2536,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --copper ore
+        if not done then done=monster.base.drop.AddDropItem(1266,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --stone
+        if not done then done=monster.base.drop.AddDropItem(735,10,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --raw stone
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(2,6),100,333,0,4); --copper coins

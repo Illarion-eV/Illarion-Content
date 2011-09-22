@@ -9,12 +9,7 @@ module("druid.item.id_330_white_bottle", package.seeall(druid.base.alchemy))
 
 -- UPDATE common SET com_script='druid.item.id_330_white_bottle' WHERE com_itemid = 330;
 
-function DoDruidism(Character,SourceItem)
-
-	if (druid.base.alchemy.checkPotionSpam(Character)) then
-		base.common.InformNLS(Character, "Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass Tränke vorrübergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
-		return;
-	end
+function DoDruidism(User,SourceItem)
 
 -- Grundwerte, Listen einlesen:
 -- Sprachverständnis (man kann eine Zeitlang fremde Sprachen verstehen/lesen)
@@ -25,25 +20,25 @@ function DoDruidism(Character,SourceItem)
 		ListSkillID = {}
 		firsttime = 1
 	end
-	ListCodecs={45942235,62483256,32529515,15751754,82897532,63296636,93538334}
+	ListCodecs={45942235,62483256,65545555,15751754,82897532,63296636,93538334}
 	ListLanguages={"human language","dwarf language","elf language","lizard language","orc language","halfling language","fairy language","gnome language","goblin language","ancient language"}
 	ListSkillID = {1,2,3,4,5,6,10}
 	ListSkillGroup={1,1,1,1,1,1,1}
 
-
+    potionData = tonumber(SourceItem:getData("potionData")); 
   for i=1,table.getn(ListCodecs) do
-    if SourceItem.data == ListCodecs[i] then
+    if potionData == ListCodecs[i] then
 
-      find, myEffect = Character.effects:find(330);
+      find, myEffect = User.effects:find(330);
       if not find then
 
-      	oldSkill = Character:getSkill(ListLanguages[i])
+      	oldSkill = User:getSkill(ListLanguages[i])
 
       	if oldSkill == nil then
       	   oldSkill = 0
       	end
 
-      	newSkill = Character:getSkill("library research")
+      	newSkill = 100
 
         myEffect=LongTimeEffect(330,1);
 
@@ -60,188 +55,185 @@ function DoDruidism(Character,SourceItem)
         myEffect:addValue( "skillGroup",ListSkillGroup[i])
 
 --      Laufzeit nach Quality berechnen
-        myEffect:addValue("zaehler",Sourceitem.id_quality)
+        myEffect:addValue("counterWhite",10)
 
- 			--Character:inform(ListCodecs[i].." / "..ListLanguages[i].." / "..oldSkill)
-      	Character:increaseSkill(ListSkillGroup[i],ListLanguages[i],newSkill)
+ 		-- cooldown 	
+		myEffect:addValue("cooldownWhite",15)	
+			
+			--Character:inform(ListCodecs[i].." / "..ListLanguages[i].." / "..oldSkill)
+      	User:increaseSkill(ListSkillGroup[i],ListLanguages[i],newSkill)
  			--Character:inform(ListCodecs[i].." / "..ListLanguages[i].." / "..Character:getSkill(ListLanguages[i]))
 
 --      Verwandlung ausführen
-        world:gfx(5,Character.pos)
+        world:gfx(5,User.pos)
 
 --      Effekt an Char binden
-        Character.effects:addEffect(myEffect);
+        User.effects:addEffect(myEffect);
       end
     end
   end
     
-  --Weitere Einzelwirkungen
-  if SourceItem.data == 55555551 then
-    --Ende des LTE 1 / alcohol
-    if Character.effects:find(1) then 
-		  Character.effects:removeEffect(1)
-    end
-  elseif SourceItem.data == 55555552 then
-    --Ende des LTE 2 /char_reg
-    if Character.effects:find(2) then 
-		  Character.effects:removeEffect(2)
-    end
-  elseif  SourceItem.data == 55555553 then
-    --Ende des LTE 3 /cold
-    if Character.effects:find(3) then 
-		  Character.effects:removeEffect(3)
-    end 
-  elseif  SourceItem.data == 55555515 then
-    --Ende des LTE 15 /illnes1
-    if Character.effects:find(15) then 
-		  Character.effects:removeEffect(15)
-    end 
-  elseif  SourceItem.data == 55555518 then
-    --Ende des LTE 18 /smell
-    if Character.effects:find(18) then 
-		  Character.effects:removeEffect(18)
-    end 
-  elseif  Sourceitem.id_data == 55555528 then
-    --Ende des LTE 28 / drachenpocken
-    if Character.effects:find(28) then 
-		  Character.effects:removeEffect(28)
-    end 
-  elseif  SourceItem.data == 55555529 then
-    --Ende des LTE 29 / gnomwahn 
-    if Character.effects:find(29) then 
-		  Character.effects:removeEffect(29)
-    end                 
-  end
-  
 end
 
-function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
-  if SourceItem.data == 0 then
+function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+-- if not milk then	  
+  if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
+	   local cauldron = base.common.GetFrontItem( User );
+	
+	   if (cauldron:getData("cauldronData") ~= "") then 
+	      base.common.InformNLS( User,
+					"In dem Kessel befindet sich bereits etwas. Du kannst nichts mehr hinzutun.",
+					"There is already something in the cauldron. You cannot add something else to it."
+						   );
+	       return;
+      
+	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
+	      
+		  if ( ltstate == Action.abort ) then
+                base.common.TempInformNLS( User,
+                "Du brichst Deine Arbeit ab.",
+                "You abort your work."
+                       );
+		        return;
+            end
+			
+			if (ltstate == Action.none) then
+			   User:startAction(20,21,5,0,0);
+			   return
+			end
+		  
+		  local ID_potion = SourceItem.id			 
+		  cauldron:setData("potionID", ""..ID_potion);
+		  cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
+	      cauldron.quality = SourceItem.quality
+		  world:changeItem(cauldron)
+		  User:inform(""..ID_potion)
+		  User:talkLanguage(Character.say, Player.german, "#me kippt einen Trank in den Kessel.");
+          User:talkLanguage(Character.say, Player.english, "#me pours a potion into the cauldron.");
+		  world:makeSound(10,User.pos);
+		  world:erase(SourceItem,1);
+		  User:createItem(164, 1, 333, 0);
+	      return;
+	   end  
+	end
+	
+	-- not infront of a cauldron: let's drink the potion!
+    if User.attackmode then
+        base.common.TempInformNLS(User,
+			"Du kannst den Trank nicht benutzen, während Du kämpfst.",
+			"You can't use the potion while you are fighting.");
+		return;
+	end
+	
+	if User.effects:find(330) then
+	   base.common.TempInformNLS( User,
+                "Der Trank hätte jetzt keine Wirkung.",
+                "The potion wouldn't have any effect now."
+                       );  
+	   return;
+	end	
+	
+	base.character.ChangeFightingpoints(User, -20);
+	world:makeSound(12,User.pos);
 	world:erase(SourceItem,1);
-	world:makeSound(12,Character.pos);
-	return;
+	   if(math.random(20) == 1) then
+           base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
+        else
+            User:createItem(164, 1, 333, 0);
+        end
+	
+	DrinkPotion(User, SourceItem);
+-- end (milk)
+  
+  ----------- MILK ; has to be reworked sometime --------
+  --if SourceItem.data == 0 then
+	--world:erase(SourceItem,1);
+	--world:makeSound(12,Character.pos);
+	--return;
     -- Sheep Milk
-  elseif SourceItem.data == 1 then     -- special Cow Milk
-	User = getCharForId(Character.id);  --create a save copy of the char struct
-	world:erase(SourceItem,1);
-	world:makeSound(12,Character.pos);
+ -- elseif SourceItem.data == 1 then     -- special Cow Milk
+	--User = getCharForId(Character.id);  --create a save copy of the char struct
+	--world:erase(SourceItem,1);
+	--world:makeSound(12,Character.pos);
 
     
         -- ALTE FASSUNG ALS HEILTRANK
-        if (ltstate == Action.abort) then
+       -- if (ltstate == Action.abort) then
 
-            User:talkLanguage(Character.say, Player.german, "#me verschüttet die Milch.");
-            User:talkLanguage(Character.say, Player.english, "#me spills the milk.");
+        --    User:talkLanguage(Character.say, Player.german, "#me verschüttet die Milch.");
+        --    User:talkLanguage(Character.say, Player.english, "#me spills the milk.");
 
-            world:erase( SourceItem, 1 );
+        --    world:erase( SourceItem, 1 );
 
-            if (math.random( 20 ) == 1) then
-                base.common.TempInformNLS( User,
-                "Die Flasche zerbricht.",
-                "The bottle breaks.");
-            else
-                User:createItem( 164, 1, 333, 0 );
-            end
+        --    if (math.random( 20 ) == 1) then
+        --        base.common.TempInformNLS( User,
+        --        "Die Flasche zerbricht.",
+         --       "The bottle breaks.");
+         --   else
+         --       User:createItem( 164, 1, 333, 0 );
+        --    end
 
-            return
-        end
+        --    return
+       -- end
 
-        if User.attackmode then
-            base.common.InformNLS( User,
-            "Du kannst nichts trinken während du kämpfst.",
-            "You can't drink something while fighting." );
-            return
-        end
+        --if User.attackmode then
+        --    base.common.InformNLS( User,
+        --    "Du kannst nichts trinken während du kämpfst.",
+        --    "You can't drink something while fighting." );
+        --    return
+        --end
 
-        if (ltstate == Action.none) then
+        --if (ltstate == Action.none) then
 
             --User:startAction( 20, 0, 0, 12, 25 );
 
-            User:talkLanguage(Character.say, Player.german, "#me beginnt eine Milch zu trinken.");
-            User:talkLanguage(Character.say, Player.english, "#me starts to drink a milk.");
+         --   User:talkLanguage(Character.say, Player.german, "#me beginnt eine Milch zu trinken.");
+         --   User:talkLanguage(Character.say, Player.english, "#me starts to drink a milk.");
 
-        end
+        --end
 
 
-        if( math.random( 20 ) == 1 ) then
-            base.common.InformNLS( User,
-            "Die Flasche zerbricht.",
-            "The bottle breaks.");
-        else
-            User:createItem( 164, 1, 333,0);
-        end
+        --if( math.random( 20 ) == 1 ) then
+        --    base.common.InformNLS( User,
+        --    "Die Flasche zerbricht.",
+        --    "The bottle breaks.");
+       -- else
+        --    User:createItem( 164, 1, 333,0);
+        --end
 
-        User:LTIncreaseHP(333,3,1); --1000HP+
-        User:LTIncreaseMana(333,3,1); --1000Mana+
-        User:increaseAttrib("foodlevel",1000);
-        User.movepoints = User.movepoints - 16;
+        --User:LTIncreaseHP(333,3,1); --1000HP+
+        --User:LTIncreaseMana(333,3,1); --1000Mana+
+        --User:increaseAttrib("foodlevel",1000);
+       -- User.movepoints = User.movepoints - 16;
         
-        local Poisonvalue = User:getPoisonValue();                -- Poisonvalue einlesen  ( 0 - 10000 )
-        if Poisonvalue>1000 then
-        	Poisonvalue = Poisonvalue -1000; --remove 1000 Poison points
-        end
-        User:setPoisonValue( Poisonvalue );
+        --local Poisonvalue = User:getPoisonValue();                -- Poisonvalue einlesen  ( 0 - 10000 )
+        --if Poisonvalue>1000 then
+        --	Poisonvalue = Poisonvalue -1000; --remove 1000 Poison points
+        --end
+        --User:setPoisonValue( Poisonvalue );
 			
-        if (User:increaseAttrib("foodlevel",0) > 60000) then
-            base.common.InformNLS( User,
-            "Du bekommst kaum noch was runter und dir wird schlecht.",
-            "You hardly manage to eat something more and get sick!");
+        --if (User:increaseAttrib("foodlevel",0) > 60000) then
+        --    base.common.InformNLS( User,
+        --    "Du bekommst kaum noch was runter und dir wird schlecht.",
+        --    "You hardly manage to eat something more and get sick!");
 
-            User:increaseAttrib("hitpoints",-1000);
-        elseif  (User:increaseAttrib("foodlevel",0) > 40000) then
-            base.common.InformNLS( User,
-            "Du bist satt.",
-            "You are stuffed.");
-        else
-            base.common.InformNLS( User,
-            "Du trinkst die Flasche aus und fühlst wie neue Stärke dich durchströmt.",
-            "You drink up the bottle, and you feel the new strength that flows through your body.");
-        end
+        --    User:increaseAttrib("hitpoints",-1000);
+        --elseif  (User:increaseAttrib("foodlevel",0) > 40000) then
+       --     base.common.InformNLS( User,
+        --    "Du bist satt.",
+        --    "You are stuffed.");
+        --else
+        --    base.common.InformNLS( User,
+        --    "Du trinkst die Flasche aus und fühlst wie neue Stärke dich durchströmt.",
+        --    "You drink up the bottle, and you feel the new strength that flows through your body.");
+        --end
 
-        return
+        --return
         -- Old style potion done
-    
-  else
-		if (ltstate == Action.abort) then
-			Character:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
-			Character:talkLanguage(Character.say, Player.english, "#me spills the potion.");
-			world:erase(SourceItem,1);
-			-- Chance for a new bottle 19/20
-			if(math.random(20) == 1) then
-				base.common.InformNLS(Character, "Die Flasche zerbricht.", "The bottle breaks.");
-			else
-				Character:createItem(164, 1, 333, 0);
-			end
-			return
-		end
-
-		if Character.attackmode then
-			base.common.InformNLS(Character, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
-		end
-		
-		if (ltstate == Action.none) then
-			User:startAction(20,0,0,12,25);
-			User:talkLanguage(Character.say, Player.german, "#me beginnt einen Trank zu trinken.");
-			User:talkLanguage(Character.say, Player.english, "#me starts to drink a potion.");
-			return
-		end
-		
-	    -- Hier verweisen wir auf die Wirkung
-	    DoDruidism(Character,SourceItem)
-
-	    world:erase(SourceItem,1);
-	    world:makeSound(12,Character.pos);
-	    world:gfx(5,Character.pos)
-
-	    if( math.random( 20 ) <= 1 ) then
-			base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
-	    else
-			Character:createItem( 164, 1, 333,0);
-	    end
-
-	    Character.movepoints=Character.movepoints-50;
-  end
+   --end
+	------------------------ MILKD END -------------------	
 end
+
 
 function LookAtItem(User,Item)
 

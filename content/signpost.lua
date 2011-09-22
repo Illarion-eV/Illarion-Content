@@ -100,7 +100,7 @@ function InitWegweiser()
     AddWeg({427,247,0},"Hafen; Dunkellochmine; Gasthof zur Hanfschlinge; Cadomyr; Runewick","Harbour; Dark Hole Mine; The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
     AddWeg({485,248,0},"Hafen; Dunkellochmine; Gasthof zur Hanfschlinge; Cadomyr; Runewick","Harbour; Dark Hole Mine; The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
     AddWeg({397,253,0},"Malachitmine","Malachite Mine",4,0);
-    AddWeg({392,249,0},"Büro der Wache","Guardoffice",0,0);
+    AddWeg({392,249,0},"Wachstube","Guardroom",0,0);
 
     --SE/Runewick-map
     AddWeg({525,782,0},"Cadomyr","Cadomyr",6,0);

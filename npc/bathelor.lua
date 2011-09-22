@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 27, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: September 22, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,15 +31,8 @@ mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(113, ">", 7));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Error] Something went wrong, please inform a developer."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Bathelor the highpriest of Brágon. Keyphrases: Hello, Brágon, Quest, Priest, Temple."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Bathelor the high priest of Brágon. Keyphrases: Hello, Brágon, Quest, Priest, Temple."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -127,8 +120,8 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("May Brágon speed you into the flames");
-talkEntry:addResponse("May the fire in you never be extinguished!");
+talkEntry:addResponse("Go with Brágonspeed.");
+talkEntry:addResponse("And may the fire in you never faint!");
 talkEntry:addResponse("Go with Brágon's blessing.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -165,7 +158,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am Bathelor, high<space>priest of Brágon. Praise Brágon!");
+talkEntry:addResponse("I am Bathelor, high priest of Brágon. Praise Brágon!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -225,7 +218,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five candles."));
-talkEntry:addResponse("Praise the Five, hail Brágon! Here, take these candles, <remove - for> they will guide you through the darkest nights.");
+talkEntry:addResponse("Praise the Five, hail Brágon! Here, take these candles, for they will guide you through the darkest nights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(43, 5, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -246,7 +239,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I said you should prove your honour to the Five at their shrines. Go!");
+talkEntry:addResponse("I told you to honour the five at their shrines. Move!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -262,7 +255,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 1));
-talkEntry:addResponse("I said you should prove your honour to the Five at their shrines. Go!");
+talkEntry:addResponse("I told you to honour the five at their shrines. Move!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -446,7 +439,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You hesitate to sacrifice your worldly possessions to Brágon? It will go up in flames one day anyway, trust me!");
+talkEntry:addResponse("You hesitate to sacrifice your mudane wealth Brágon? It will go up in flames one day anyway, trust me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,7 +455,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 6));
-talkEntry:addResponse("You hesitate to sacrifice your worldly possessions to Brágon? It will go up in flames one day anyway, trust me!");
+talkEntry:addResponse("You hesitate to sacrifice your mudane wealth to Brágon? It will go up in flames one day anyway, trust me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -549,26 +542,26 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am the high priest of Brágon in these lands. Any gifts or sacrifices to Brágon should be given to me.");
+talkEntry:addResponse("I am the high priest of Brágon in these lands. Any donations or sacrifices to Brágon should be given to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin der Hohepriester Brágons in diesen Ländereien. Jedweder Spenden oder Opfer an Brágon solltet ihr mir geben.");
+talkEntry:addResponse("Ich bin der Hohepriester Brágons in diesen Ländereien. Jedwede Spenden oder Opfer an Brágon solltet ihr mir geben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I am the high priest of Brágon in these lands. Any gifts or sacrifices to Brágon should be given to me.");
+talkEntry:addResponse("I am the high priest of Brágon in these lands. Any donations or sacrifices to Brágon should be given to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin der Hohepriester Brágons in diesen Ländereien. Jedweder Spenden oder Opfer an Brágon solltet ihr mir geben.");
+talkEntry:addResponse("Ich bin der Hohepriester Brágons in diesen Ländereien. Jedwede Spenden oder Opfer an Brágon solltet ihr mir geben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -615,20 +608,20 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("five");
 talkEntry:addTrigger("old");
-talkEntry:addResponse("Eldan is the spirit, Ushara is the body, Tanora is the blood and Findari is the breath, but Brágon is the heart!");
+talkEntry:addResponse("Eldan is the mind, Ushara is the body, Tanora is the blood and Findari is the breath, but Brágon is the heart!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("eleven");
 talkEntry:addTrigger("young");
-talkEntry:addResponse("Imposters! they are all frauds! Call themselves gods, they are nothing but servants and serfs!");
+talkEntry:addResponse("Imposters! All of them! Calling themselves gods, they do. They are nothing but minions, serfs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("fire");
-talkEntry:addResponse("Blazing flames will consume everything that is not just when the days end approaches. Ask the refugees of Gobaith how this looks!");
+talkEntry:addResponse("Blazing flames will consume all that is not just when the end of days has come. Ask the refugees of Gobaith if you want to know what that looks like!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -708,7 +701,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Runewick, Runewick, Runewick. You mean to be wise, but instead of being a crusader in the spirit of Eldan, you half heartedly idolise Elara.");
+talkEntry:addResponse("Runewick, Runewick, Runewick. They claim to be wise, but instead of being crusaders in Eldan's way, the half heartely idolise Elara.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -723,7 +716,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The unbelievers will burn!");
+talkEntry:addResponse("The infidel should burn!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -738,7 +731,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair is a godless place. The gods do not give a damn about this cesspool of sin.");
+talkEntry:addResponse("Galmair is a place without gods. Because the gods give a smile about this pool of sins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -750,7 +743,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("I must admit I do not quite understand the ways of 'her majesty'. On the one hand, it is no secret that she revered Brágon with all her heart, but on the other hand she preaches faith in Malachín.");
+talkEntry:addResponse("I must admit I do not quite understand the ways of 'her majesty'. On the one hand, she is known to worship Brágon with all of her heart, but all she spreads is faith in Malachín.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -764,7 +757,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I must admit I do not quite understand the ways of 'her majesty'. On the one hand, it is no secret that she revered Brágon with all her heart, but on the other hand she preaches faith in Malachín.");
+talkEntry:addResponse("I must admit I do not quite understand the ways of 'her majesty'. On the one hand, she is known to worship Brágon with all of her heart, but all she spreads is faith in Malachín.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -778,7 +771,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Brágon is well respected in Cadomyr, so I respect Cadomyr. The scorching sun shines each day to remind them of the omnipresence of Brágon.");
+talkEntry:addResponse("Brágon is well respected in Cadomyr, so I respect Cadomyr. The presence of the scorching sun might convince them of the omnipresence of Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -791,7 +784,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ah, we talk now about a far away country? One can think what they want about the Albarians: At least they are religious!");
+talkEntry:addResponse("Ah, let us talk about Farfarawayland now? One can say whatever one wants about the Albarians: At least they honour the gods!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -805,7 +798,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("One day, Gynk will go up in flames, whether it be through an experiment with white gnomish liquids or be it the wrath of Brágon.");
+talkEntry:addResponse("One day, Gynk will burn. Be it due to a gnomish experiment with white liquids or be it the wrath of Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -819,7 +812,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Never trust nor believe a Salkamaerian. Respect them for what they do but put no faith in them repeating those deeds.");
+talkEntry:addResponse("Never trust nor believe a Salkamaerian. Respect them and their deeds, but do not have faith in them repeating what they did once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -831,7 +824,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("There are five Gods: Brágon, Eldan, Findari, Tanora and Ushara. If you did not know that before, please fall to your death now.");
+talkEntry:addResponse("There are five gods: Brágon, Eldan, Findari, Tanora and Ushara. If you didn't know before, drop dead now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -846,21 +839,21 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Brágon is the heart; whatever we do, we do it because he commands our heart. Be it good, be it evil, Brágon is in all we do. He is the spark that makes our life worth living.");
+talkEntry:addResponse("Brágon is the heart; whatever we do, we do it because our heart tells us to. Be it good, be it bad, Brágon is in all we do. He is the esteem that makes our life worthy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Brágon ist das Herz; was auch immer wir tun, er tun es, weil es unser Herz gebietet. Sei es gut, sei es böse, Brágon ist in allem, was wir tun. Er ist Funke, der unser Leben lebenswert macht.");
+talkEntry:addResponse("Brágon ist das Herz; was auch immer wir tun, wir tun es, weil es unser Herz gebietet. Sei es gut, sei es böse, Brágon ist in allem, was wir tun. Er ist Funke, der unser Leben lebenswert macht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Eldan is the spirit.");
+talkEntry:addResponse("Eldan is the mind.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -916,7 +909,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Burn you!");
+talkEntry:addResponse("Get the flame out of here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -957,6 +950,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Hail Brágon!");
 talkEntry:addResponse("Blessed be Brágon!");
 talkEntry:addResponse("Praise Brágon!");
 talkEntry:addResponse("Honour Brágon!");
@@ -973,6 +967,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
+talkEntry:addResponse("Hail Brágon!");
 talkEntry:addResponse("Blessed be Brágon!");
 talkEntry:addResponse("Praise Brágon!");
 talkEntry:addResponse("Honour Brágon!");
@@ -988,15 +983,15 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Ich bin Bathelor!", "I am Bathelor!");
 talkingNPC:addCycleText("Lobet Brágon!", "Praise Brágon!");
-talkingNPC:addCycleText("Wir brauchen hier kein Wasser, lasst das Feuer brennen.", "We need no water, let the fire burn.");
-talkingNPC:addCycleText("Wir haben das Feuer nicht entfacht, es hat schon immer gebrannt, seitdem sich die Welt bewegt.", "We have not sparked the fire, it has always burned, since then the world has turned.");
-talkingNPC:addCycleText("Ihr hattet genug Zeit zu rasten, diese ist nun abgelaufen.", "You<remove - 've> had enough time to rest, this has now expired.");
+talkingNPC:addCycleText("Wir brauchen hier kein Wasser, lasst das Feuer brennen.", "We don't need no water let the fire burn. Burn, fire, burn!");
+talkingNPC:addCycleText("Wir haben das Feuer nicht entfacht, es hat schon immer gebrannt, seitdem sich die Welt bewegt.", "We didn't start the fire, it was always burning, since the world's been turning .");
+talkingNPC:addCycleText("Ihr hattet genug Zeit zu rasten, diese ist nun abgelaufen.", "You've had the time to rest, which is coming to an end.");
 talkingNPC:addCycleText("Feuer!", "Fire!");
-talkingNPC:addCycleText("Es brennt!", "It burns!");
-talkingNPC:addCycleText("Gelobt sei Brágon!", "Blessed be Brágon!");
-talkingNPC:addCycleText("Träume ich oder ist dieses Feuer die ewige Flamme?", "Am I only dreaming or is this fire, the eternal flame?");
-talkingNPC:addCycleText("Vollbringt Taten im Namen Brágons.", "Complete ambitious actions in the name of Brágon.");
-talkingNPC:addCycleText("Ich diene dem Gott des Feuers. Und er bringt euch... Feuer!", "I serve the God of Fire. And he will bring you... fire!");
+talkingNPC:addCycleText("Es brennt!", "It's burning!");
+talkingNPC:addCycleText("Gelobt sei Brágon!", "Hail Brágon!");
+talkingNPC:addCycleText("Träume ich oder ist dieses Feuer die ewige Flamme?", "Am I only dreaming or is this burning an eternal flame?");
+talkingNPC:addCycleText("Vollbringt Taten im Namen Brágons.", "Do deeds to honour Brágon.");
+talkingNPC:addCycleText("Ich diene dem Gott des Feuers. Und er bringt euch... Feuer!", "I serve the god of fire. And he brings you... fire!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);

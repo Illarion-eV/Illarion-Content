@@ -20,6 +20,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	-- function end
 	
+	-- again, only for testing
+	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
+	   local cauldron = base.common.GetFrontItem( User );
+	   cauldron:setData("potionID","")
+	   return
+	end
+	-- function end
+	
 	content.gathering.InitGathering();
 	InitHerblore();
 	

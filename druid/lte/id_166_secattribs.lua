@@ -20,7 +20,7 @@ function callEffect(Effect,User)
     findFoodlevel,foodlevelIncrease = Effect:findValue("foodlevelIncrease")
     findPoisonvalue,poisonvalueIncrease = Effect:findValue("poisonvalueIncrease")
     
-	
+	Effect.nextCalled = 50
 	if findCooldown then 
        if counterPink > 0 then
        
@@ -48,12 +48,11 @@ function callEffect(Effect,User)
    
        if findCooldown then
           if cooldownPink < 1 then
-	         User:inform("cooldown reduziert")
-			 return false
+	         return false
 	      else 
              cooldownPink = cooldownPink - 1;
-             Effect:addValue("cooldownPink",cooldownPink)
-			 Effect.nextCalled = 50
+             User:inform("cooldown reduziert")
+			 Effect:addValue("cooldownPink",cooldownPink)
 			 return true
 	       end
        end

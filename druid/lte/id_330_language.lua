@@ -21,29 +21,52 @@ function addEffect(Effect, Character)
 end
 
 function callEffect(Effect,Character)                  			
---Effect wird ausgeführt
---Character:inform("debug func callEffect")
---Erst einmal kommt der Rundezähler  
+	findCounter,counterWhite = Effect:findValue("counterWhite")
+    findCooldown,cooldownWhite = Effect:findValue("cooldownWhite")
+	
+	if findCooldown then
+	    if counterWhite > 0 then
+		
+		   if findCounter then
+		      counterWhite = counterWhite - 1;
+	          Effect:addValue("counterWhite",counterWhite)
+	       end
+		
+		   if counterWhite == 0 then
+		        --SkillID laden 
+				find,skillID = Effect:findValue("skillID")
+				skillName = ListLanguages[skillID]
+					   
+				--Alten SkillWert laden           
+				find,oldSkill = Effect:findValue( "oldSkill")          
 
-  find,zaehler = Effect:findValue("zaehler")
-  if find then
-     zaehler = zaehler -1
-     if zaehler <0 then zaehler=0 end     
-     Effect:addValue("zaehler", zaehler)
+				--Neuen Skillwert laden
+				find,newSkill = Effect:findValue( "newSkill")
+			  
+				--SkillGroup laden
+				find,skillGroup = Effect:findValue( "skillGroup")
 
-     Effect.nextCalled = 10 
-     --nächster Aufruf in 1 Sekunde 
-     --Hier jetzt die Aktionen, die pro Runde passieren sollen
-
-     getAction(Character,Effect,zaehler)
-     -- Ende der Aktionen, es folgt noch etwas Verwaltung       
-     if zaehler == 0 then
-     -- das war die letzte Runde        
-        return false
-     else
-        return true
-     end
-  end
+				--Wiederherstellung des alten Zustand
+				Character:increaseSkill(skillGroup,skillName,(-(newSkill-oldSkill))) -- ergibt wahrscheinlich noch falsche Werte
+     
+	            world:gfx(45,Character.pos) 
+		    end
+	   end
+		   if findCooldown then
+                if cooldownWhite < 1 then
+	               User:inform("return false")
+				   return false
+	           else 
+                   cooldownWhite = cooldownWhite - 1;
+                   User:inform("cooldown - 1 = "..cooldownWhite)
+				   Effect:addValue("cooldownBlack",cooldownWhite)
+			       Effect.nextCalled = 50
+			       User:inform("return true")
+				   return true
+	           end
+		   end
+       
+	end
 end
 
 function removeEffect(Effect,Character)
@@ -63,7 +86,7 @@ function removeEffect(Effect,Character)
 	find,skillGroup = Effect:findValue( "skillGroup")
 
 	--Wiederherstellung des alten Zustand
-	Character:increaseSkill(skillGroup,skillName,(-newSkill+oldSkill)) -- ergibt wahrscheinlich noch falsche Werte
+	Character:increaseSkill(skillGroup,skillName,(-(newSkill-oldSkill))) -- ergibt wahrscheinlich noch falsche Werte
      
 	world:gfx(45,Character.pos)
   

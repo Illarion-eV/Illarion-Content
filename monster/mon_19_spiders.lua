@@ -102,27 +102,27 @@ function onDeath(Monster)
 
         --Category 1: Raw gems
 
-        local done=monster.base.drop.AddDropItem(251,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --raw amethyst
-        if not done then done=monster.base.drop.AddDropItem(256,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --raw emerald
-        if not done then done=monster.base.drop.AddDropItem(255,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --raw ruby
-        if not done then done=monster.base.drop.AddDropItem(254,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --raw diamond
-        if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --raw topaz
+        local done=monster.base.drop.AddDropItem(251,1,20,(100*math.random(4,5)+math.random(44,55)),0,1); --raw amethyst
+        if not done then done=monster.base.drop.AddDropItem(256,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --raw emerald
+        if not done then done=monster.base.drop.AddDropItem(255,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --raw ruby
+        if not done then done=monster.base.drop.AddDropItem(254,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --raw diamond
+        if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --raw topaz
 
         --Category 2: Gems
 
-        local done=monster.base.drop.AddDropItem(197,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --amethyst
-        if not done then done=monster.base.drop.AddDropItem(45,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --emerald
-        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --ruby
-        if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --diamond
-        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --topaz
+        local done=monster.base.drop.AddDropItem(197,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --amethyst
+        if not done then done=monster.base.drop.AddDropItem(45,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --emerald
+        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --ruby
+        if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --diamond
+        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --topaz
 
         --Category 3: Rings
 
-        local done=monster.base.drop.AddDropItem(277,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --amethyst ring
-        if not done then done=monster.base.drop.AddDropItem(281,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --emerald ring
-        if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --ruby ring
-        if not done then done=monster.base.drop.AddDropItem(280,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --diamond ring
-        if not done then done=monster.base.drop.AddDropItem(282,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --topaz ring
+        local done=monster.base.drop.AddDropItem(277,1,20,(100*math.random(4,5)+math.random(44,55)),0,3); --amethyst ring
+        if not done then done=monster.base.drop.AddDropItem(281,1,10,(100*math.random(4,5)+math.random(44,55)),0,3); end --emerald ring
+        if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --ruby ring
+        if not done then done=monster.base.drop.AddDropItem(280,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --diamond ring
+        if not done then done=monster.base.drop.AddDropItem(282,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --topaz ring
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
@@ -222,27 +222,27 @@ function onDeath(Monster)
 
         --Category 1: Raw gems
 
-        local done=monster.base.drop.AddDropItem(257,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --raw topaz
-        if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --raw bluestone
-        if not done then done=monster.base.drop.AddDropItem(251,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --raw amethyst
-        if not done then done=monster.base.drop.AddDropItem(256,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --raw emerald
-        if not done then done=monster.base.drop.AddDropItem(255,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --raw ruby
+        local done=monster.base.drop.AddDropItem(257,1,20,(100*math.random(1,2)+math.random(11,22)),0,1); --raw topaz
+        if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(1,2)+math.random(11,22)),0,1); end --raw bluestone
+        if not done then done=monster.base.drop.AddDropItem(251,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --raw amethyst
+        if not done then done=monster.base.drop.AddDropItem(256,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --raw emerald
+        if not done then done=monster.base.drop.AddDropItem(255,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --raw ruby
 
         --Category 2: Gems
 
-        local done=monster.base.drop.AddDropItem(285,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --diamond
-        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --bluestone
-        if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --amethyst
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --blackstone
-        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --ruby
+        local done=monster.base.drop.AddDropItem(285,1,20,(100*math.random(1,2)+math.random(11,22)),0,2); --diamond
+        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(1,2)+math.random(11,22)),0,2); end --bluestone
+        if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(1,2)+math.random(11,22)),0,2); end --amethyst
+        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(1,2)+math.random(11,22)),0,2); end --blackstone
+        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(1,2)+math.random(11,22)),0,2); end --ruby
 
         --Category 3: Rings
 
-        local done=monster.base.drop.AddDropItem(282,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --emerald ring
-        if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --blackstone ring
-        if not done then done=monster.base.drop.AddDropItem(277,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --bluestone ring
-        if not done then done=monster.base.drop.AddDropItem(280,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --diamond ring
-        if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --ruby ring
+        local done=monster.base.drop.AddDropItem(282,1,20,(100*math.random(1,2)+math.random(11,22)),0,3); --emerald ring
+        if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(1,2)+math.random(11,22)),0,3); end --blackstone ring
+        if not done then done=monster.base.drop.AddDropItem(277,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --bluestone ring
+        if not done then done=monster.base.drop.AddDropItem(280,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --diamond ring
+        if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --ruby ring
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(1,3),100,333,0,4); --copper coins

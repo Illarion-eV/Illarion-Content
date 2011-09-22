@@ -32,10 +32,14 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
         world:makeSound(Counter,TargetPos);
     elseif (SourceItem.data==5) then --Avatar change
 		User:setAttrib("racetyp",Counter);
-
+    elseif (SourceItem.data==6) then
+	    User:setHair(Counter);
+	elseif (SourceItem.data==7) then
+        User:setBeard(Counter);	
+	
 	--Additions for the destruction of Gobaith
 
-	elseif (SourceItem.data==6) then --flood
+	elseif (SourceItem.data==8) then --flood
 
 		world:makeSound(27,TargetPos); --SFX 27 (wind)
 
@@ -77,7 +81,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 		end --all tiles affected
 		world:sendMapUpdate(TargetPos,30);
 		
-	elseif (SourceItem.data==7) then --earthquake
+	elseif (SourceItem.data==8) then --earthquake
 
 		world:makeSound(5,TargetPos); --SFX 5 (BOOOM)
 
@@ -111,7 +115,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 
 		end --all tiles affected
 
-	elseif (SourceItem.data==8) then --thunderstorm
+	elseif (SourceItem.data==10) then --thunderstorm
 
 		world:makeSound(4,TargetPos); --SFX 4 (Thunder)
 
@@ -142,7 +146,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 			end
 		end --all tiles affected
 
-	elseif (SourceItem.data==9) then --meteor shower
+	elseif (SourceItem.data==11) then --meteor shower
 
 		world:makeSound(5,TargetPos); --SFX 5 (BOOOM)
 		world:gfx(9,TargetPos);
@@ -215,9 +219,9 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 	--Additions end
 
 	else
-        User:inform("Data 0;1;2 : Monsters - Data 3 : GFX - Data 4: SFX - Data 5: Race change - Data 6-9: Disasters");
+        User:inform("Data 0;1;2 : Monsters - Data 3 : GFX - Data 4: SFX - Data 5: Race change - Data 6: hair change - Data 7: beard change - Data 8-11: Disasters");
     end
-end
+end 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User),Counter,Param);

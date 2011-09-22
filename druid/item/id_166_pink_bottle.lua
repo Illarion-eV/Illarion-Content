@@ -2,6 +2,7 @@
 
 require("base.common")
 require("druid.base.alchemy")
+require("base.character")
 
 module("druid.item.id_166_pink_bottle", package.seeall)
 
@@ -16,12 +17,6 @@ attribList ={"hitpointsOT","foodlevel","poisonvalueOT","mana","manaOT","poisonva
 
 function DrinkPotion(User,SourceItem)
      
-	if User.effects:find(166) then
-	   User:inform("lte noch aktiv");   
-	   return;
-	end	
-	
-	
 	local potionData = tonumber(SourceItem:getData("potionData"));
 	local dataZList = druid.base.alchemy.SplitBottleData(User,potionData);
 	druid.base.alchemy.generateTasteMessage(User,dataZList);
@@ -47,13 +42,9 @@ function DrinkPotion(User,SourceItem)
 			    User:increaseAttrib(attribList[i],Val);
 	            User:inform("tata!")
 			end
-	      end  
+	    end  
 	 	
-          
-		
-	    world:makeSound(12,User.pos);
-	
-	    find, myEffect = User.effects:find(166)
+        find, myEffect = User.effects:find(166)
 
         if not find then
 	       myEffect=LongTimeEffect(166,1); 
@@ -87,12 +78,26 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 	       return;
       
 	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
-	      local ID_potion = SourceItem:getData("potionID")			 
+	      
+		  if ( ltstate == Action.abort ) then
+                base.common.TempInformNLS( User,
+                "Du brichst Deine Arbeit ab.",
+                "You abort your work."
+                       );
+		        return;
+            end
+			
+			if (ltstate == Action.none) then
+			   User:startAction(20,21,5,0,0);
+			   return
+			end
 		  
+		  local ID_potion = SourceItem.id			 
 		  cauldron:setData("potionID", ""..ID_potion);
 		  cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
 	      cauldron.quality = SourceItem.quality
 		  world:changeItem(cauldron)
+		  User:inform(""..ID_potion)
 		  User:talkLanguage(Character.say, Player.german, "#me kippt einen Trank in den Kessel.");
           User:talkLanguage(Character.say, Player.english, "#me pours a potion into the cauldron.");
 		  world:makeSound(10,User.pos);
@@ -102,43 +107,31 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 	   end  
 	end
 	
-	if (ltstate == Action.abort) then
-       User:talkLanguage(User.say, Player.german, "#me verschüttet den Trank.");
-        User:talkLanguage(User.say, Player.english, "#me spills the potion.");
-        world:erase(SourceItem,1);
-        -- Chance for a new bottle 19/20
-        if(math.random(20) == 1) then
-           base.common.TempInformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
-        else
-            User:createItem(164, 1, 333, 0);
-        end
-        return;
-    end
-
-    if User.attackmode then
+	-- not infront of a cauldron: let's drink the potion!
+	if User.attackmode then
         base.common.TempInformNLS(User,
-			"Du kannst den Trank nicht benutzen während du kämpfst.",
+			"Du kannst den Trank nicht benutzen, während Du kämpfst.",
 			"You can't use the potion while you are fighting.");
 		return;
 	end
 	
+	if User.effects:find(166) then
+	   base.common.TempInformNLS( User,
+                "Der Trank hätte jetzt keine Wirkung.",
+                "The potion wouldn't have any effect now."
+                       );  
+	   return;
+	end	
 	
-	
-    if (ltstate == Action.none) then
-		
-			User:startAction(20,0,0,12,25);
-			--User:talkLanguage(User.say, Player.german, "#me beginnt einen Trank zu trinken.");
-			--User:talkLanguage(User.say, Player.english, "#me starts to drink a potion.");
-			DrinkPotion(User, SourceItem);
-	end
-	
+	base.character.ChangeFightingpoints(User, -20);
+	world:makeSound(12,User.pos);
 	world:erase(SourceItem,1);
-
-    if( math.random( 20 ) <= 1 ) then
-        base.common.TempInformNLS( User, "Die Flasche zerbricht.", "The bottle breaks.");
-    else
-        User:createItem( 164, 1, 333,0);
-    end
+	   if(math.random(20) == 1) then
+           base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
+        else
+            User:createItem(164, 1, 333, 0);
+        end
+	DrinkPotion(User, SourceItem);
 end
 
 function LookAtItem(User,Item)

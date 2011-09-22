@@ -83,27 +83,27 @@ if (MonID==524) then --Fireraptor, Level: 6, Armourtype: medium, Weapontype: pun
 
         --Category 1: Plants
 
-        local done=monster.base.drop.AddDropItem(133,1,20,(100*math.random(3,4)+math.random(33,44)),0,1); --sun herb
-        if not done then done=monster.base.drop.AddDropItem(144,1,10,(100*math.random(3,4)+math.random(33,44)),0,1); end --virgins weed
-        if not done then done=monster.base.drop.AddDropItem(157,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --rotten tree bark
-        if not done then done=monster.base.drop.AddDropItem(159,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --toadstool
-        if not done then done=monster.base.drop.AddDropItem(145,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --heath flower
+        local done=monster.base.drop.AddDropItem(133,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --sun herb
+        if not done then done=monster.base.drop.AddDropItem(144,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --virgins weed
+        if not done then done=monster.base.drop.AddDropItem(157,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --rotten tree bark
+        if not done then done=monster.base.drop.AddDropItem(159,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --toadstool
+        if not done then done=monster.base.drop.AddDropItem(145,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --heath flower
 
         --Category 2: Plants
 
-        local done=monster.base.drop.AddDropItem(145,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --heath flower
-        if not done then done=monster.base.drop.AddDropItem(157,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --bulbsponge mushroom
-        if not done then done=monster.base.drop.AddDropItem(158,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --red head
-        if not done then done=monster.base.drop.AddDropItem(160,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --herder's mushroom
-        if not done then done=monster.base.drop.AddDropItem(161,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --black thistle
+        local done=monster.base.drop.AddDropItem(145,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --heath flower
+        if not done then done=monster.base.drop.AddDropItem(157,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --bulbsponge mushroom
+        if not done then done=monster.base.drop.AddDropItem(158,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --red head
+        if not done then done=monster.base.drop.AddDropItem(160,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --herder's mushroom
+        if not done then done=monster.base.drop.AddDropItem(161,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --black thistle
 
         --Category 3: More plants
 
-        local done=monster.base.drop.AddDropItem(134,1,20,(100*math.random(3,4)+math.random(33,44)),0,3); --fourleafed oneberry
-        if not done then done=monster.base.drop.AddDropItem(135,1,10,(100*math.random(3,4)+math.random(33,44)),0,3); end --yellow weed
-        if not done then done=monster.base.drop.AddDropItem(152,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --life root
-        if not done then done=monster.base.drop.AddDropItem(758,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --liveblood
-        if not done then done=monster.base.drop.AddDropItem(764,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --daydevil
+        local done=monster.base.drop.AddDropItem(134,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --fourleafed oneberry
+        if not done then done=monster.base.drop.AddDropItem(135,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --yellow weed
+        if not done then done=monster.base.drop.AddDropItem(152,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --life root
+        if not done then done=monster.base.drop.AddDropItem(758,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --liveblood
+        if not done then done=monster.base.drop.AddDropItem(764,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --daydevil
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(63,math.random(1,1),100,333,0,4); --entrails
