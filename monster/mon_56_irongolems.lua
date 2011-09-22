@@ -109,7 +109,7 @@ if (MonID==561) then -- Iron Golem, Level: 6, Armourtype: medium, Weapontype: co
         monster.base.drop.AddDropItem(3076,math.random(18,54),100,773,0,4); --copper coins
 
 
-    elseif (MonID==552) then --Steelgolem, Level: 7, Armourtype: medium, Weapontype: slashing
+    elseif (MonID==562) then --Steelgolem, Level: 7, Armourtype: medium, Weapontype: slashing
 
         --Category 1: Raw gems
 

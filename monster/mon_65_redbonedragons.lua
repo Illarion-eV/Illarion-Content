@@ -148,7 +148,7 @@ function onDeath(Monster)
 
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
-    if (MonID==641) then --Undead Firedragon, Level: 7, Armourtype: heavy, Weapontype: slashing
+    if (MonID==651) then --Undead Firedragon, Level: 7, Armourtype: heavy, Weapontype: slashing
 
         --Category 1: Special Loot
 
