@@ -9,7 +9,7 @@ module("druid.item.id_330_white_bottle",package.seeall); --, package.seeall(drui
 
 -- UPDATE common SET com_script='druid.item.id_330_white_bottle' WHERE com_itemid = 330;
 
-function DoDruidism(User,SourceItem)
+function DrinkPotion(User,SourceItem)
 
 -- Grundwerte, Listen einlesen:
 -- Sprachverständnis (man kann eine Zeitlang fremde Sprachen verstehen/lesen)
