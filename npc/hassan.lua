@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: September 22, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -438,7 +438,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favor."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favour."));
 talkEntry:addResponse("#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
@@ -516,7 +516,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("hono[u]+r");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("We value honor above all in Cadomyr. If you have no honor, then you have nothing and will be nothing.");
+talkEntry:addResponse("We value honour above all in Cadomyr. If you have no honour, then you have nothing and will be nothing.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -717,7 +717,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me sighs. 'Cadomyr, oh Cadomyr! We are the most honorable and magnificent nation in all the land, held back only by the treachery of our cursed neighbors.'");
+talkEntry:addResponse("#me sighs. 'Cadomyr, oh Cadomyr! We are the most honourable and magnificent nation in all the land, held back only by the treachery of our cursed neighbors.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -840,7 +840,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Did you ever realize Albar reads Rabla, spelled backwards?");
+talkEntry:addResponse("Did you ever realise Albar reads Rabla, spelled backwards?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -856,7 +856,7 @@ talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Blasted Gynk-people! They have no honor and no enchanting queen either.");
+talkEntry:addResponse("Blasted Gynk-people! They have no honour and no enchanting queen either.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -886,7 +886,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gods");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("#me nods eagerly, spilling some wine on the table. 'We are proper, honorable, and Gods-fearing people in Cadomyr, unlike our wretched neighbors!'");
+talkEntry:addResponse("#me nods eagerly, spilling some wine on the table. 'We are proper, honourable, and Gods-fearing people in Cadomyr, unlike our wretched neighbors!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1257,7 +1257,7 @@ talkingNPC:addCycleText("#me tippt sich mit seinem Zeigefinger auf die Brust: 'I
 talkingNPC:addCycleText("Wie, ich soll für meine Getränke zahlen? Ihr solltet mich dafür bezahlen, dass ich hier trinke. Wißt ihr nicht, wer ich bin?", "What do you mean I have to pay for my drinks? You should be paying 'me' to drink here! Do you have any idea who I am?");
 talkingNPC:addCycleText("#me ist ein Mann in feiner, aber weingetränkten Kleidung. Sein glattgeschorener Kopf glänzt durch ein wohlriechendes Öl.", "#me is a man in expensive, albeit wine-stained clothes. His shaven head gleams with fine-smelling oil.");
 talkingNPC:addCycleText("Ich arbeite im königlichen Palast. Nichts geschieht dort, ohne das ich davon erfahre.", "I work in the Royal Palace. Nothing happens here without my knowledge.");
-talkingNPC:addCycleText("#me knurrt beim Anblick seines leeren Glases: 'Warum erfreu ich euch Bauern mit meiner Anwesenheit? Ich, der Liebling der Königin! Sie hat mich gestern sogar angesehen.'", "#me frowns at the empty glass of wine 'Why do I bless you peasants with my presence? I, who am the Queen's favorite! She even looked at me two days ago!'");
+talkingNPC:addCycleText("#me knurrt beim Anblick seines leeren Glases: 'Warum erfreu ich euch Bauern mit meiner Anwesenheit? Ich, der Liebling der Königin! Sie hat mich gestern sogar angesehen.'", "#me frowns at the empty glass of wine 'Why do I bless you peasants with my presence? I, who am the Queen's favourite! She even looked at me two days ago!'");
 talkingNPC:addCycleText("Ich fächere der Königin Luft, damit sie einen ruhigen Kopf bewahren kann. Das nenn' ich eine wichtige Tätigkeit.", "I wave my fan over the Queen, keeping her blue blood cool in this dessert heat. Now 'that' is an important duty!");
 talkingNPC:addCycleText("Wein ist fein.", "Wine is divine.");
 mainNPC:addLanguage(0);
