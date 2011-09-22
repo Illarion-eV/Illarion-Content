@@ -35,7 +35,7 @@ User:inform("beginng drinkPotion")
       if not find then
 
       	oldSkill = User:getSkill(ListLanguages[i])
-
+        end
       	if oldSkill == nil then
       	   oldSkill = 0
       	end
@@ -72,7 +72,7 @@ User:inform("beginng drinkPotion")
 --      Effekt an Char binden
         User.effects:addEffect(myEffect);
         User:inform("ende drinPotion, effekt hinzufügen")
-	  end
+	  
     end
   end
     
