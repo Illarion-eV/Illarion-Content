@@ -20,7 +20,7 @@ function addEffect(Effect, User)
 --User:inform("debug func addEffect") 	
 end
 
-function callEffect(Effect,user)                  			
+function callEffect(Effect,User)                  			
 	findCounter,counterWhite = Effect:findValue("counterWhite")
     findCooldown,cooldownWhite = Effect:findValue("cooldownWhite")
 	
