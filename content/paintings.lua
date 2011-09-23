@@ -47,7 +47,7 @@ function InitPaintings()
     AddPicture({96,600,1},"","The pictures shows a small group of red-white dressed knights chasing fearless hundreds of bandits over a big river in a desert. At the bottom right is a date: 22 AS.", 4,5); --building
     AddPicture({96,599,1},"","A knight with a raised blade and a red-white shield watches workers building a harbor while blue-grey ships disappearing at the horizon. At the bottom right is a date: 10 AS. ", 4,5); --building
     AddPicture({96,602,0},"","The picture shows proud knights watching ordinary folk building a palace at the periphery of a desert close at a mountain. One of the knights has a long beard and wears a crown. He holds also a red-white banner. At the bottom right is a date: 16 AS.", 4,5); --building
-    AddPicture({100,611,1},"","The picture shows a man with a crown at his head holding a sleeping little baby, covered in red-white clothes. At the bottom right is a date: 3 AS.", 3,5); --building
+    AddPicture({100,611,1},"","The picture shows a man with a crown at his head holding a sleeping little baby, covered with red-white clothes. At the bottom right is a date: 3 AS.", 3,5); --building
     --[[--Eastland
     AddPicture({894,540,0},"","", 2,5); --Paddock Farm  ]]--
     --Galmair
