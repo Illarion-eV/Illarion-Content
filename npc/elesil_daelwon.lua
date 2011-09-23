@@ -2,17 +2,17 @@
 -- NPC Name: Elesil Daelwon                                          Runewick --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  862, 814, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: elf                        NPC Position:  855, 810, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 23, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 24, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 862, 814, 0, 4, 'Elesil Daelwon', 'npc.elesil_daelwon', 1, 5, 2, 25, 25, 112, 230, 230, 250);
+VALUES (3, 855, 810, 0, 6, 'Elesil Daelwon', 'npc.elesil_daelwon', 1, 5, 2, 25, 25, 112, 230, 230, 250);
 ---]]
 
 require("npc.base.basic")
@@ -358,13 +358,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("market");
-talkEntry:addResponse("Through the portal here and you are there.");
+talkEntry:addResponse("Through the portal abround the corner and you are there *points southeast*.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Markt");
-talkEntry:addResponse("Durch das Portal hier und du bist dort.");
+talkEntry:addResponse("Durch das Portal hier um das Eck und ihr seid dort. *zeigt in dne Südosten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -383,13 +383,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("teleport");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Behind me around the corner is an opportunity to teleport yourself at Cadomyr, Galmair or to the Hemp Necktie Inn.");
+talkEntry:addResponse("This teleporter here can lead you to Cadomyr, Galmair or to the Hemp Necktie Inn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("teleport");
-talkEntry:addResponse("Da hinter mir gleich um's Eck gibt es eine Möglichkeit sich auf schnellen Weg nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren.");
+talkEntry:addResponse("Dieser Teleporter hier vermag euch nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge zu bringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -408,14 +408,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Donkey stable");
 talkEntry:addTrigger("stable");
-talkEntry:addResponse("Over there. *points southwest*");
+talkEntry:addResponse("Over there. *points south*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eselstall");
 talkEntry:addTrigger("Stall");
-talkEntry:addResponse("Dort drüben *zeigt in den Südwesten*");
+talkEntry:addResponse("Dort drüben *zeigt in den Süden*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,7 +444,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Garden.Eldan");
+talkEntry:addTrigger("Garden Eldan");
 talkEntry:addResponse("TEST");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

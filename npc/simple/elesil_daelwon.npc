@@ -2,8 +2,8 @@
 -- NPC Name: Elesil Daelwon                                             None --
 -- NPC Job:  Informant                                           --
 --                                                                            --
--- NPC Race: elf                      NPC Position:  862, 814, 0                  --
--- NPC Sex:  female                       NPC Direction: south                --
+-- NPC Race: elf                      NPC Position:  855, 810, 0              --
+-- NPC Sex:  female                       NPC Direction: west                 --
 --                                                                            --
 -- Author:   envi                                     					      --
 --                                                                            --
@@ -13,8 +13,8 @@
 name = "Elesil Daelwon"
 race = elf
 sex = female
-position = 862, 814, 0
-direction = south
+position = 855, 810, 0
+direction = west
 affiliation = "Runewick"
 job = "Informant"
 
@@ -111,16 +111,16 @@ itemShoes = 369
 "ruler" -> "Our highest advisor is Archmage Elvaine Morgan. He has founded this place of wisedom and might be found either in his champer - the Archmage champer - or in the Hall of Elara."
 "Herrscher" -> "Unser höchster Ratgeber ist Erzmagier Elvaine Morgan. Er hat diesen Platz der Weisheit erschaffen und entweder in seiner Kammer - der Erzmagier Kammer - oder in den Hallen der Elara gefunden werden."
 
-"market" -> "Through the portal here and you are there."
-"Markt" -> "Durch das Portal hier und du bist dort."
+"market" -> "Through the portal abround the corner and you are there *points southeast*."
+"Markt" -> "Durch das Portal hier um das Eck und ihr seid dort. *zeigt in dne Südosten*"
 "temple" -> "Let me think... You can find three here: Garden of Eldan, Shrine of Elara and Shrine of Bragon."
 "Tempel" -> "Lasst mich nachdenken... Ihr findet hier drei: Garten des Eldan, Schrein der Elara und Schrein des Bragon."
-"teleport", english -> "Behind me around the corner is an opportunity to teleport yourself at Cadomyr, Galmair or to the Hemp Necktie Inn."
-"teleport" -> "Da hinter mir gleich um's Eck gibt es eine Möglichkeit sich auf schnellen Weg nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren."
+"teleport", english -> "This teleporter here can lead you to Cadomyr, Galmair or to the Hemp Necktie Inn."
+"teleport" -> "Dieser Teleporter hier vermag euch nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge zu bringen."
 "Census office" -> "You are not the first person who asks for the the census office. But again, I cannot remember where it is."
 "Zensusbüro" -> "Du bist nicht die erste Person die mich nach dem Zensusbüro fragt. Aber das ändert nichts, ich kann mich nicht erinnern wo es liegt."
-"Donkey stable","stable" -> "Over there. *points southwest*"
-"Eselstall","Stall" -> "Dort drüben *zeigt in den Südwesten*"
+"Donkey stable","stable" -> "Over there. *points south*"
+"Eselstall","Stall" -> "Dort drüben *zeigt in den Süden*"
 "Donkey" -> "You can rent them at the donkey stable."
 "Esel" -> "Du kannst diese im Eselstall ausleihen."
 --"Rooms" -> "" --placeholder for rooms if they can be rent
@@ -128,7 +128,7 @@ itemShoes = 369
 "Librar" -> "Libraries actually! We have four of them: Library of Fire, Library of Earth, Library of Air and Library of Water."
 "Bibliothek" -> "Bibliotheken um genau zu sein. Wir haven vier von denen: Bibliothek des Feuers, Bibliothek der Erde, Bibliothek der Luft und Bibliothek des Wasser."
 
-"Garden.Eldan" -> "TEST"
+"Garden Eldan" -> "TEST"
 "???" -> ""
 "Slums" -> ""
 "???" -> ""
