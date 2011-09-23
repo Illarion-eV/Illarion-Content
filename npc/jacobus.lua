@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 31, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: September 23, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -480,7 +480,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oh, Ronagan! Well, he may just like precious stones as much as I do and he guarantees that people will buy new ones... still, I cannot honour a god who promotes crimes.");
+talkEntry:addResponse("Oh, Ronagan! Well, he may just like gems as much as I do and he guarantees that people will buy new ones... still, I cannot honour a god who promotes crimes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -509,7 +509,7 @@ talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("I sell any kind of jewellery.");
-talkEntry:addResponse("Things made of gold, of copper, of precious stones... What do you need?");
+talkEntry:addResponse("Things made of gold, of copper, of gems... What do you need?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
