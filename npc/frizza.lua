@@ -2,7 +2,7 @@
 -- NPC Name: Frizza                                                   Cadomyr --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  123, 629, 0            --
+-- NPC Race: lizardman                  NPC Position:  124, 646, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (5, 123, 629, 0, 4, 'Frizza', 'npc.frizza', 1, 3, 5, 34, 139, 34, 154, 205, 50);
+VALUES (5, 124, 646, 0, 4, 'Frizza', 'npc.frizza', 1, 3, 5, 34, 139, 34, 154, 205, 50);
 ---]]
 
 require("npc.base.basic")
@@ -267,39 +267,39 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("place");
-talkEntry:addResponse("If you like to know anything about placesss outssside, just asssk Ruzusss over there. *points the lizard at the other side at the corridor.*");
+talkEntry:addResponse("If you like to know anything about placesss outssside, just asssk Ruzusss behind the towngate.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Platz");
 talkEntry:addTrigger("Plätz");
-talkEntry:addResponse("Wenn du etwas über die Plätze außerhalb wisssen möchtessst, dann frage Ruzusss dort drüben. *zeigt auf die Echse auf der anderen Seite des Ganges.*");
+talkEntry:addResponse("Wenn du etwas über die Plätze außerhalb wisssen möchtessst, dann frage Ruzusss hinter dem Stadttor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ruzusss");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You are looking for Ruzusss? Well, Ruzusss staysss their. *points the lizard at the other side at the corridor.*");
+talkEntry:addResponse("You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ruzusss");
-talkEntry:addResponse("Ruzusss wird gesucht? Nun, Ruzuss steht dort. *zeigt auf die Echse auf der anderen Seite des Ganges.*");
+talkEntry:addResponse("Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("people");
-talkEntry:addResponse("Many people leaving here. Many people from different placesss. Most are jussst passsing me when the walk in or outssside and sssay nothing at all. It ssseemsss they are in thoughtsss of a god.");
+talkEntry:addResponse("Many people leaving here. Many people from different placesss. Most are jussst passsing me when the travel. It ssseemsss they are in thoughtsss of a god.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Leute");
-talkEntry:addResponse("Viele Leute wohnen hier. Viele Leute von verssschiedenen Plätzen. Viele gehen wortlosss an mir vorbei wenn die rein oder rausss gehen. Esss ssscheint die sssind in Gedanken an irgendwelche Götter. ");
+talkEntry:addResponse("Viele Leute wohnen hier. Viele Leute von verssschiedenen Plätzen. Viele gehen wortlosss an mir vorbei wenn herumreisen. Esss ssscheint die sssind in Gedanken an irgendwelche Götter. ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -354,13 +354,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("market");
-talkEntry:addResponse("The market isss behind thisss town wall. Jussst passs the Quartermaster's Store to my left. You can buy a lot of thingsss there.");
+talkEntry:addResponse("The market isss behind thisss town wall. Jussst passs the towngate and the Quartermaster's store. You can buy a lot of thingsss there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Markt");
-talkEntry:addResponse("Der Markt ist hinter dieser Ssstadtmauer hier. Einfach das Quartiermeister Laden zu meiner Linken durchqueren. Du kannst dort viele Dinge kaufen.");
+talkEntry:addResponse("Der Markt ist hinter dieser Ssstadtmauer hier. Einfach das Stadttor und den Quartiermeister Laden durchqueren. Du kannst dort viele Dinge kaufen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -379,13 +379,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("teleport");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("A possiblity to teleport to Runewick, Galmair or the Hemp Necktie Inn is outssside. Just go through the town gate here. *points the gate*");
+talkEntry:addResponse("A possiblity to teleport to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points the teleporter*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("teleport");
-talkEntry:addResponse("Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man draußen. Einfach durch das Stadttor gehen. *Zeigt auf das Tor*");
+talkEntry:addResponse("Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man hier wie du sssehen sssolltessst. *Zeigt auf den Teleporter*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -404,14 +404,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Donkey stable");
 talkEntry:addTrigger("stable");
-talkEntry:addResponse("Our donkey stable is the Milkhouse outside.");
+talkEntry:addResponse("Our donkey stable isss the Milkhouse. Jussst follow to the ssstreet to the Katanbi river.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eselstall");
 talkEntry:addTrigger("Stall");
-talkEntry:addResponse("Unser Essselssstall ist das Milchhausss draußen.");
+talkEntry:addResponse("Unser Essselssstall ist das Milchhausss. Folge einfach der Ssstraße zum Katanbi Fluß.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -501,13 +501,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Townwall");
-talkEntry:addResponse("In the townwall *points the walls around her* can be find me *blinks*, the guardroom and the civic hall.");
+talkEntry:addResponse("In the townwall *points at the North behind her* can be found the guardroom and the civic hall.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Stadtmauer");
-talkEntry:addResponse("In der Stadtmauer *zeigt auf Wände rund herum* kann man mich finden *zwinkert*, die Wachstube und den Stadtsaal.");
+talkEntry:addResponse("In der Stadtmauer *zeigt in den Norden hinter ihr* kann man die Wachstube und den Stadtsaal finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -538,13 +538,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Villa");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Which villa you mean? We have three of them: Villa Edward, Villa Runbold and Villa Reginald.");
+talkEntry:addResponse("Which villa you mean? We have three of them: Villa Edward, Villa Rosaline and Villa Reginald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Villa");
-talkEntry:addResponse("Welche issst gemeint? Wir haben drei von ihnen: Villa Edward, Villa Runbold und Villa Reginald.");
+talkEntry:addResponse("Welche issst gemeint? Wir haben drei von ihnen: Villa Edward, Villa Rosaline und Villa Reginald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -562,14 +562,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Villa Runbold");
+talkEntry:addTrigger("Villa Rosaline");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Villa Runbold");
+talkEntry:addTrigger("Villa Rosaline");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1403,7 +1403,7 @@ talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Many follow the honourable Malachín. Soldiers and knights pray for protection in battles, hunters for a good hunt and protection while hunting, paladins for protection and a powerful fist against the evil.");
-talkEntry:addResponse("You can find a Temple of him outside the town in the South. Just go through the town gate to the mine 'Cornerstone of Candour', and you will find the temple above. Just follow the signposts.");
+talkEntry:addResponse("You can find a Temple of him in the South. Just go to the mine 'Cornerstone of Candour', and you will find the temple above. Just follow the signposts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1411,7 +1411,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addResponse("Viele folgen dem ehrenwerten Malachin. Soldaten und Ritter beten zu ihm, um Schutz in schweren Kämpfen zu erhalten; Jäger, um den erfolgreichen Ausgang einer Jagd; Paladine allgemein für den Schutz im Kampf gegen das Böse.");
-talkEntry:addResponse("Du kannst den Tempel von ihm außerhalb der Stadt im Süden. Gehe einfach durch das Stadttor zur Mine 'Grundstein der Aufrichtigkeit', und du wirst den Tempel darüber finden. Folge einfach den Wegschildern.");
+talkEntry:addResponse("Du kannst den Tempel im Süden. Gehe einfach zur Mine 'Grundstein der Aufrichtigkeit', und du wirst den Tempel darüber finden. Folge einfach den Wegschildern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1477,14 +1477,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Many young females pray to her for advice in love or simple beauty tips. Most Sirani priests are good healers. Her followers believe in peace and harmony, and most of them don't like weapons or violence.");
-talkEntry:addResponse("You can find a Temple of her outside the town in the Southeast. Just go through the town gate, then east, and go south after you cross the Katanbi-river. Just follow the signposts, but be careful!");
+talkEntry:addResponse("You can find a Temple of her in the Southeast. Just go east first, and then south after you cross the Katanbi-river. Just follow the signposts, but be careful!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addResponse("Viele junge Frauen beten zu Ihr, der Liebe wegen oder um Schönheit zu erlangen. Die meisten Priester Siranis sind gute Heiler und glauben wie alle Ihre Anhänger an ein Leben in Friede und Harmonie. Sie verabscheuen Gewalt und Waffen.");
-talkEntry:addResponse("Du kannst den Tempel von ihr außerhalb der Stadt im Südosten. Gehe einfach durch das Stadttor, dann in den Osten, und nachdem du den Katanbi-Fluss überquert hast. Folge einfach den Wegschildern, aber sei vorsichtig!");
+talkEntry:addResponse("Du kannst den Tempel von ihr im Südosten finden. Gehe einfach in den Osten, und dann in den Süden nachdem du den Katanbi-Fluss überquert hast. Folge einfach den Wegschildern, aber sei vorsichtig!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1537,14 +1537,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("The followers of Zhambra are righteous and loyal ones who believe in honor and law. They often try to rescue others, and fight against the evil. Zhambra is worshipped by nobles and knights, paladins, and many soldiers.");
-talkEntry:addResponse("You can find a Temple of him behind this wall. Just go through the next two doors to my left, pass the marketplace and then you will find it on the right after the workshop.");
+talkEntry:addResponse("You can find a Temple of him in our town. Just go through the townwall, pass the marketplace and then you will find it on the right after the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
 talkEntry:addResponse("Die Anhänger Zhambras sind geradlinig und ergebene Gefolgsleute, die an Ehre und Recht glauben. Sie versuchen häufig, Andere zu retten und stehen im Kampf gegen das Böse. Zhambra wird gehuldigt von Adligen, Rittern, Höflingen und von vielen Kriegern.");
-talkEntry:addResponse("Du kannst den Tempel von ihm hinter dieser Mauer hier finden. Gehe einfach durch die beiden Tore zu meiner Linken, überquere den Marktplatz und dann findest du ihn auch schon an der rechten Seite hinter der Werkstatt.");
+talkEntry:addResponse("Du kannst den Tempel von in unserer Stadt finden. Gehe einfach durch die Stadtmauer, überquere den Marktplatz und dann findest du ihn auch schon an der rechten Seite hinter der Werkstatt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1627,6 +1627,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("Huh, über wasss wünssscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+talkingNPC:addCycleText("Willkommen in Cadomyr!", "Welcome in Cadomyr!");
 talkingNPC:addCycleText("Ich bin die Auskunftsgeberin von Cadomyr. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Cadomyr. Ask me if for informations if you want some.");
 talkingNPC:addCycleText("Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places.");
 talkingNPC:addCycleText("Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If someone wants to know something about the buildings here, just ask me for these buildings.");

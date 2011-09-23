@@ -2,8 +2,8 @@
 -- NPC Name: Iradona Goldschein                                       Galmair --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  409, 247, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: dwarf                      NPC Position:  424, 248, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 409, 247, 0, 4, 'Iradona Goldschein', 'npc.iradona_goldschein', 1, 9, 0, 255, 215, 0, 238, 203, 173);
+VALUES (1, 424, 248, 0, 6, 'Iradona Goldschein', 'npc.iradona_goldschein', 1, 9, 0, 255, 215, 0, 238, 203, 173);
 ---]]
 
 require("npc.base.basic")
@@ -357,13 +357,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("market");
-talkEntry:addResponse("Argh, everything has to be explained to you. Just run through the Well of Dreams and you will see it. You cannot miss it.");
+talkEntry:addResponse("Argh, everything has to be explained to you. Just run through the town to the Well of Dreams and you will see it. You cannot miss it. *points the towngate*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Markt");
-talkEntry:addResponse("Argh, alles muss man dir erklären. Lauf einfach zur Quelle der Träume und du wirst ihn sehen. Du kannst ihn nicht verfehlen. ");
+talkEntry:addResponse("Argh, alles muss man dir erklären. Lauf einfach durch die Stadt zur Quelle der Träume und du wirst ihn sehen. Du kannst ihn nicht verfehlen. *zeigt auf das Stadttor*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -382,27 +382,27 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("teleport");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Outside is our teleport posibility. You can use it to travel save and quick to Runewick, Cadomyr or the Hemp Necktie Inn.");
+talkEntry:addResponse("With this teleporter here you can travel save and quick to Runewick, Cadomyr or the Hemp Necktie Inn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("teleport");
-talkEntry:addResponse("Draußen vor dem Tor ist eine Möglichkeit sich sicher und schnell nach Runewick, Cadomyr oder zum Gasthof zur Hanfschlinge zu teleportieren.");
+talkEntry:addResponse("Mit diesen Teleporter hier kannst du sicher und schnell nach Runewick, Cadomyr oder zum Gasthof zur Hanfschlinge reisen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Donkey stable");
 talkEntry:addTrigger("stable");
-talkEntry:addResponse("Blind? *nods to her right then*");
+talkEntry:addResponse("Through the towngate and right then. *nods*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eselstall");
 talkEntry:addTrigger("Stall");
-talkEntry:addResponse("Blind? *deutet zu ihrer rechten dann*");
+talkEntry:addResponse("Auf der rechten Seite nach dem Stadtor. *nickt*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -684,13 +684,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Census office");
-talkEntry:addResponse("The Census office can be found outside on the way to the Malachite Mine close to the Sleepy Bujhaar Inn. You can register there to increase the treasury of the Don. *smirks*");
+talkEntry:addResponse("The Census office can be found south on the way to the Malachite Mine close to the Sleepy Bujhaar Inn. You can register there to increase the treasury of the Don. *smirks*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zensusbüro");
-talkEntry:addResponse("Das Zensusbüro kann draußen auf den Weg zu Malachitmine gefunden werden, nahe dem Gasthof zum schläfrigen Bujhaar. Du kannst dich dort anmelden und somit helfen die Schatzkammer des Don bereichern *kichert*");
+talkEntry:addResponse("Das Zensusbüro kann südlich auf den Weg zu Malachitmine gefunden werden, nahe dem Gasthof zum schläfrigen Bujhaar. Du kannst dich dort anmelden und somit helfen die Schatzkammer des Don bereichern *kichert*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1065,7 +1065,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Our ruler. You can find him at his residence in the Galmair's Crest. Just follow the road to the Well of Dreams.");
+talkEntry:addResponse("Our ruler. You can find him at his residence in the Galmair's Crest. Just follow the road to the Well of Dreams. *points the towngate*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1073,7 +1073,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Unser Herrscher. Du findest ihn in seiner Residenz in Galmairs Krone. Folge einfach der Straße zur Quelle der Träume.");
+talkEntry:addResponse("Unser Herrscher. Du findest ihn in seiner Residenz in Galmairs Krone. Folge einfach der Straße zur Quelle der Träume. *deutet auf das Stadttor");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1174,7 +1174,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Bevorzugt betten wir drei Götter in Galmair an. Die wären Adron, Oldra und natürlich Elara, meine bevorzugte Gottheit.");
+talkEntry:addResponse("Bevorzugt betten wir drei Götter in Galmair an. Die wären Ronagan, Nargun und Irmorom, meine bevorzugte Gottheit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1483,6 +1483,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("Huh, über was wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+talkingNPC:addCycleText("Willkommen in Galmair!", "Welcome in Galmair!");
 talkingNPC:addCycleText("Ich bin die Auskunftsgeberin von Galmair. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Galmair. Ask me if for informations if you want some.");
 talkingNPC:addCycleText("Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places.");
 talkingNPC:addCycleText("Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If someone wants to know something about the buildings here, just ask me for these buildings.");

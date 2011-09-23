@@ -354,6 +354,7 @@ itemShoes = 369
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
+cycletext "Willkommen in Runewick!", "Welcome in Runewick!"
 cycletext "Ich bin die Auskunftsgeberin von Runewick. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Runewick. Ask me if for informations if you want some."
 cycletext "Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places."
 cycletext "Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If someone wants to know something about the buildings here, just ask me for these buildings."

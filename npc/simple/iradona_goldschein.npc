@@ -2,8 +2,8 @@
 -- NPC Name: Iradona Goldschein                                          None --
 -- NPC Job:  Informant                                           --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  409, 247, 0            --
--- NPC Sex:  female                       NPC Direction: south                --
+-- NPC Race: dwarf                      NPC Position:  424, 248, 0            --
+-- NPC Sex:  female                       NPC Direction: west                --
 --                                                                            --
 -- Author:   envi                                     					      --
 --                                                                            --
@@ -13,8 +13,8 @@
 name = "Iradona Goldschein"
 race = dwarf
 sex = female
-position = 409, 247, 0
-direction = south
+position = 424, 248, 0
+direction = west
 affiliation = "Galmair"
 job = "Informant"
 
@@ -111,14 +111,14 @@ itemShoes = 369
 "ruler" -> "We have had only tow rulers so far. Our Don Valerio Guilianni and his father Tommaso Guilianni. You can find more information about the latter in the notes of the Don, our new history book. Information "
 "Herrscher" -> "Wir hatten lediglich zwei Herrscher bisher. Unseren Don Valerio Guilianni und seinen Vater Tommaso Guilianni. Informationen über letzteren findest du in den Aufzeichnungen des Don, unserem neuem Geschichtsbuch."
 
-"market" -> "Argh, everything has to be explained to you. Just run through the Well of Dreams and you will see it. You cannot miss it."
-"Markt" -> "Argh, alles muss man dir erklären. Lauf einfach zur Quelle der Träume und du wirst ihn sehen. Du kannst ihn nicht verfehlen. "
+"market" -> "Argh, everything has to be explained to you. Just run through the town to the Well of Dreams and you will see it. You cannot miss it. *points the towngate*"
+"Markt" -> "Argh, alles muss man dir erklären. Lauf einfach durch die Stadt zur Quelle der Träume und du wirst ihn sehen. Du kannst ihn nicht verfehlen. *zeigt auf das Stadttor*"
 "temple" -> "We have temples for each of our three gods here: Tempel of Irmorom, Tempel of Ronagan and Temple of Nagrun."
 "Tempel" -> "Wir haben je einen Tempel für unsere drei Götter hier. Irmoromtempel, Ronagantempel und Nagruntempel."
-"teleport", english -> "Outside is our teleport posibility. You can use it to travel save and quick to Runewick, Cadomyr or the Hemp Necktie Inn."
-"teleport" -> "Draußen vor dem Tor ist eine Möglichkeit sich sicher und schnell nach Runewick, Cadomyr oder zum Gasthof zur Hanfschlinge zu teleportieren."
-"Donkey stable","stable" -> "Blind? *nods to her right then*"
-"Eselstall","Stall" -> "Blind? *deutet zu ihrer rechten dann*"
+"teleport", english -> "With this teleporter here you can travel save and quick to Runewick, Cadomyr or the Hemp Necktie Inn."
+"teleport" -> "Mit diesen Teleporter hier kannst du sicher und schnell nach Runewick, Cadomyr oder zum Gasthof zur Hanfschlinge reisen."
+"Donkey stable","stable" -> "Through the towngate and right then. *nods*"
+"Eselstall","Stall" -> "Auf der rechten Seite nach dem Stadtor. *nickt*"
 "Donkey" -> "Weak people must and reach people can rent one at the donkey stable here."
 "Esel" -> "Schwache müssen und reiche Leute können sich einen hier im Eselstall ausleihen."
 --"Rooms" -> "" --placeholder for rooms if they can be rent
@@ -171,8 +171,8 @@ itemShoes = 369
 "???" -> ""
 "Sleepy Bujhaar Inn" -> ""
 "???" -> ""
-"Census office" -> "The Census office can be found outside on the way to the Malachite Mine close to the Sleepy Bujhaar Inn. You can register there to increase the treasury of the Don. *smirks*"
-"Zensusbüro" -> "Das Zensusbüro kann draußen auf den Weg zu Malachitmine gefunden werden, nahe dem Gasthof zum schläfrigen Bujhaar. Du kannst dich dort anmelden und somit helfen die Schatzkammer des Don bereichern *kichert*"
+"Census office" -> "The Census office can be found south on the way to the Malachite Mine close to the Sleepy Bujhaar Inn. You can register there to increase the treasury of the Don. *smirks*"
+"Zensusbüro" -> "Das Zensusbüro kann südlich auf den Weg zu Malachitmine gefunden werden, nahe dem Gasthof zum schläfrigen Bujhaar. Du kannst dich dort anmelden und somit helfen die Schatzkammer des Don bereichern *kichert*"
 "Sport Hole" -> ""
 "???" -> ""
 "Malachite Mine" -> ""
@@ -239,8 +239,8 @@ itemShoes = 369
 "Elvaine", "Morgan" -> "Arrgh! Der Herrscher von Runewick und der interessiert mich auch nicht. Bring einfach seinen Kopf dem Don."
 "Runewick", english -> "That's is the Southeast. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southeast. Look for signposts. But be careful. Dangerous way, use better the teleporter outside the town.","Don't waste your time there, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find some there."
 "Runewick" -> "Das liegt im Südosten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.","Verschwende deine Zeit dort nicht, aber wenn du Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst du dort welche finden."
-"Valerio", "Guilianni", "Don", english -> "Our ruler. You can find him at his residence in the Galmair's Crest. Just follow the road to the Well of Dreams."
-"Valerio", "Guilianni", "Don" -> "Unser Herrscher. Du findest ihn in seiner Residenz in Galmairs Krone. Folge einfach der Straße zur Quelle der Träume."
+"Valerio", "Guilianni", "Don", english -> "Our ruler. You can find him at his residence in the Galmair's Crest. Just follow the road to the Well of Dreams. *points the towngate*"
+"Valerio", "Guilianni", "Don" -> "Unser Herrscher. Du findest ihn in seiner Residenz in Galmairs Krone. Folge einfach der Straße zur Quelle der Träume. *deutet auf das Stadttor"
 "Galmair", english -> "That is here and if you want to know more about it ask me for further information.","Here at Galmair, we are interested in Blacksmiths, Brick makers, Masons, Miners, and Brewers."
 "Galmair" -> "Das ist hier und wenn du mehr darüber wissen möchtest, dann frag mich nach weiterer Information.","Hier in Galmair suchen wir immer nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
 "Queen" -> "#me shudders 'This ugly face is rules Cadomyr. If you bring her hair to the Don he will probably like that.'"
@@ -258,7 +258,7 @@ itemShoes = 369
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Primarly, we pray to three gods in Galmair. They are Ronagan, Nargun and Irmorom of course, my favorite god."
-"Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Galmair an. Die wären Adron, Oldra und natürlich Elara, meine bevorzugte Gottheit."
+"Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Galmair an. Die wären Ronagan, Nargun und Irmorom, meine bevorzugte Gottheit."
 "Adron", english -> "One of the weak younger gods. You can find fellows in Runewick."
 "Adron" -> "Einer der schwachen, jüngeren Götter. Du kann Anhänger in Runewick finden."
 "Bragon", "Brágon", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
@@ -323,6 +323,7 @@ itemShoes = 369
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
+cycletext "Willkommen in Galmair!", "Welcome in Galmair!"
 cycletext "Ich bin die Auskunftsgeberin von Galmair. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Galmair. Ask me if for informations if you want some."
 cycletext "Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places."
 cycletext "Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If someone wants to know something about the buildings here, just ask me for these buildings."

@@ -1656,6 +1656,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("Huh, über was wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+talkingNPC:addCycleText("Willkommen in Runewick!", "Welcome in Runewick!");
 talkingNPC:addCycleText("Ich bin die Auskunftsgeberin von Runewick. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Runewick. Ask me if for informations if you want some.");
 talkingNPC:addCycleText("Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places.");
 talkingNPC:addCycleText("Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If someone wants to know something about the buildings here, just ask me for these buildings.");
