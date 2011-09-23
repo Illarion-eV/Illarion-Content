@@ -8,7 +8,7 @@
 -- Authors:  Estralis & Ardian                                                --
 --           Rincewind                                                        --
 --                                                                            --
--- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: September 23, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -478,7 +478,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("jingles");
-talkEntry:addResponse("Wenn ich diese verdammte Maus erwische... zwerquetsch ich sie!");
+talkEntry:addResponse("Wenn ich diese verdammte Maus erwische... zerquetsch ich sie!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
