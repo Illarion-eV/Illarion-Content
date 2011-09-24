@@ -943,12 +943,12 @@ end;
 -- calculates the gem bonus and returns it in %
 function getGemBonus(item)
     gemStrength={};
-    gemStrength[1]=tonumber(item:getData("magicalEmerald"));
-    gemStrength[2]=tonumber(item:getData("magicalRuby"));
-    gemStrength[3]=tonumber(item:getData("magicalTopaz"));
-    gemStrength[4]=tonumber(item:getData("magicalAmethyst"));
-    gemStrength[5]=tonumber(item:getData("magicalBluestone"));
-    gemStrength[6]=tonumber(item:getData("magicalBlackstone"));
+    gemStrength[1]=extractNum(item:getData("magicalEmerald"));
+    gemStrength[2]=extractNum(item:getData("magicalRuby"));
+    gemStrength[3]=extractNum(item:getData("magicalTopaz"));
+    gemStrength[4]=extractNum(item:getData("magicalAmethyst"));
+    gemStrength[5]=extractNum(item:getData("magicalBluestone"));
+    gemStrength[6]=extractNum(item:getData("magicalBlackstone"));
     
     gemSum=0;
     gemMin=1000;   -- arbitrarily high number
@@ -960,6 +960,14 @@ function getGemBonus(item)
     
     return gemSum+gemMin*6*2;
     
+end
+
+
+function extractNum(text)
+    if text=="" then 
+        return 0
+    end
+    return tonumber(text)
 end
 
 
