@@ -186,6 +186,7 @@ end
 
 function changeWeather()
     return; -- FOR SAVETY REASONS!
+end
     actWeather=world.weather;
     
     month=world:getTime("month");
@@ -225,4 +226,4 @@ function changeWeather()
     m_Weather.temperature=newTemp;
     logWeather(m_Weather);
     world:setWeather(m_Weather);
-end
+--end
