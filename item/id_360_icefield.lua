@@ -6,8 +6,8 @@ module("item.id_360_icefield", package.seeall)
 
 function IniFireField()
     --Human, Dwarf, Halfling, Elf, Orc, Lizard, Drow, Troll, Mummy, Skeleton, Beholder, Blackbeholder, Transparentbeholder, Brownmummy, Bluemummy, Sheep, Spider, Redskeleton, Redspider, Greenspider, Bluespider, Pig, Brownpig, Transparentspider, Wesp, Redwesp, Stonegolem, Brownstonegolem, Redstonegolem, Silverstonegolem, Transparentstonegolem, Cow, Browncow, Wolf, Transparentwolf, Blackwolf, Greywolf, Redwolf, Redraptor, Silverbear, Blackbear, Bear, Raptor, Zombie, Hellhound, Imp, Irongolem, Ratman, Dog, Beetle, Fox, Slime, Chicken, Bonedragon, Blackbonedragon, Redbonedragon, Transparentbonedragon, Greenbonedragon, Bluebonedragon, Goldbonedragon, Redmummy, Greymummy, Blackmummy, Goldmummy, Transparentskeleton, Blueskeleton, Greenskeleton, Goldirongolem, Goldskeleton, Bluetroll, Blacktroll, Redtroll, Blackzombie, Transparentzombie, Redzombie, Blackhellhound, Transparenthellhound, Greenhellhound, Redhellhound, Redimp, Blackimp, Blueirongolem, Redratman, Greenratman, Blueratman, Reddog, Greydog, Blackdog, Greenbeetle, Copperbeetle, Redbeetle, Goldbeetle, Greyfox, Redslime, Blackslime, Transparentslime, Brownchicken, Redchicken, Blackchicken
-    AffectedRaces={  0, 1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 14, 15, 17, 19, 20, 21, 22, 23, 26, 27, 29, 30, 31, 32, 33, 34, 39, 40, 41, 42, 43, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108};
-    AffectedStren={100,120,100,100,100, 90,100,100,100,100, 90,110,100,100,100,100,100,150, 20,120, 30,100,130,100,100,100,100,110,100, 50, 20,100,100, 90,100,100, 80};
+    AffectedRaces={  0,  1,  2,  3,  4,  5,  6,  9, 10, 11, 12, 13, 14, 15, 17, 19, 20, 21, 22, 23, 26, 27, 29, 30, 31, 32, 33, 34, 39, 40, 41, 42, 43, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108};
+    AffectedStren={100,120,100,100,100, 90,100,100,100,100, 90,110,100,100,100,100,100,150, 20,120, 30,100,130,100,100,100,100,110,100, 50, 20,100,100, 90,100,100, 80,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100, 100, 100, 100, 100, 100, 100, 100, 100, 100};
 end
 
 function CharacterOnField(User)
@@ -30,6 +30,8 @@ function CharacterOnField(User)
             if UserRace==theRace then              -- User Rasse finden
                 resist=SpellResistence(User);      -- Magieresistenz prüfen
                 if resist<FieldItem.quality then   -- Qualität des Items --> Stärke mit Magie Resistenz vergleichen
+					if AffectedStren[i]==nil then AffectedStren[i]=100 end;
+				
                     damageDealt=base.common.NormalRnd((7/100)*math.floor((FieldItem.quality-resist)*AffectedStren[i]),(9/100)*math.floor((FieldItem.quality-resist)*AffectedStren[i]));--AffectedStren[i]
                     User:increaseAttrib("hitpoints",-damageDealt); -- Schaden berechnen und bewirken
                 end

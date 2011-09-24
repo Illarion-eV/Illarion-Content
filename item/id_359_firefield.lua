@@ -1,13 +1,17 @@
 -- UPDATE common SET com_script='item.id_359_firefield' where com_itemid=359;
 
+-- How it works: AffectedRaces holds a list of all races that have non-standard effect (thus, consuming more than or less than 100% of damage from a field).
+-- AffectedStren holds a list of damage-percentages, 100 (which would be default anyway) means 100% and so on. The first entry in the Races-list corresponds
+-- to the first entry in the Stren-list, thus, these lists have to have EQUAL LENGTH!!!!!!!!!!!!!!
+
 require("base.common")
 
 module("item.id_359_firefield", package.seeall)
 
 function IniFireField()
     --Human, Dwarf, Halfling, Elf, Orc, Lizard, Drow, Troll, Mummy, Skeleton, Beholder, Blackbeholder, Transparentbeholder, Brownmummy, Bluemummy, Sheep, Spider, Redskeleton, Redspider, Greenspider, Bluespider, Pig, Brownpig, Transparentspider, Wesp, Redwesp, Stonegolem, Brownstonegolem, Redstonegolem, Silverstonegolem, Transparentstonegolem, Cow, Browncow, Wolf, Transparentwolf, Blackwolf, Greywolf, Redwolf, Redraptor, Silverbear, Blackbear, Bear, Raptor, Zombie, Hellhound, Imp, Irongolem, Ratman, Dog, Beetle, Fox, Slime, Chicken, Bonedragon, Blackbonedragon, Redbonedragon, Transparentbonedragon, Greenbonedragon, Bluebonedragon, Goldbonedragon, Redmummy, Greymummy, Blackmummy, Goldmummy, Transparentskeleton, Blueskeleton, Greenskeleton, Goldirongolem, Goldskeleton, Bluetroll, Blacktroll, Redtroll, Blackzombie, Transparentzombie, Redzombie, Blackhellhound, Transparenthellhound, Greenhellhound, Redhellhound, Redimp, Blackimp, Blueirongolem, Redratman, Greenratman, Blueratman, Reddog, Greydog, Blackdog, Greenbeetle, Copperbeetle, Redbeetle, Goldbeetle, Greyfox, Redslime, Blackslime, Transparentslime, Brownchicken, Redchicken, Blackchicken
-    AffectedRaces={  0, 1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 14, 15, 17, 19, 20, 21, 22, 23, 26, 27, 29, 30, 31, 32, 33, 34, 39, 40, 41, 42, 43, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108};
-    AffectedStren={100, 80,100,100, 70,110,100,100,100,100,120, 40,100,100,100,100,100,200,130,110, 20,100, 10,100,100,100, 40,150,100, 30, 20,100,100,  0,100,100, 20};
+    AffectedRaces={  0,  1,  2,  3,  4,  5,  6,  9, 10, 11, 12, 13, 14, 15, 17, 19, 20, 21, 22, 23, 26, 27, 29, 30, 31, 32, 33, 34, 39, 40, 41, 42, 43, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108};
+    AffectedStren={100, 80,100,100, 70,110,100,100,100,100,120, 40,100,100,100,100,100,200,130,110, 20,100, 10,100,100,100, 40,150,100, 30, 20,100,100,  0,100,100, 20,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100, 100, 100, 100, 100, 100, 100, 100, 100, 100};
 end
 
 function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
@@ -35,7 +39,7 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
                 RaceStrenght=AffectedStren[i];
             end
         end
-        if not found then
+        if not found or RaceStrenght==nil then
             RaceStrenght=100;
         end
         resist=SpellResistence(User);      -- Magie Resistenz prüfen
