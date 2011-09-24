@@ -1,15 +1,3 @@
-------------------------------------------------------------------------------AC
--- NPC Name: Borgate Northoff                                            None --
--- NPC Job:  Bar-keeper                                                       --
---                                                                            --
--- NPC Race: dwarf                      NPC Position:  710, 313, 0            --
--- NPC Sex:  male                       NPC Direction: southwest              --
---                                                                            --
--- Author:   Rincewind                                                        --
---                                                                            --
--- Last parsing: May 14, 2011                            easyNPC Parser v1.02 --
---------------------------------------------------------------------------------
-
 name = "Borgate Northoff"
 race = dwarf
 sex = male
@@ -24,6 +12,7 @@ defaultLanguage = common
 autointroduce = on
 
 author = "Rincewind"
+author = "& Someone"
 
 lookatDE = "Ein breit lächelnder Zwergenwirt, dessen prächtiger Bart und Kleidung von Bierflecken übersät ist."
 lookatUS = "A broadly smiling dwarfen barkeeper whose proud beard and clothes are covered with beer stains."
@@ -49,75 +38,68 @@ itemShoes = 53
 --Stock: 1908 (beer mug - empty),1909 (beer mug),518 (bottle wine - empty),517 (bottle wine),2278 (cabbage stew),2935 (bowl)
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Borgate Northoff the innkeeper of The Hemp Necktie Inn . Keyphrases: Gods, Bragon, Adron")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Borgate Northoff der Wirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Götter, Bragon, Adron")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What do I have to make you?", "ENGLISH3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What do I have to make you?", "G'day, wanna beer?"
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?.", "Guten Tag. Was soll ich Dir machen?", "Tach, was darf's sein?"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What do I have to make you?", "G'day, wanna beer?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?.", "Guten Tag. Was soll ich Dir machen?", "Tach, was darf's sein?"
-"Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "Aye. Come back whenever you are thirsty.", "Good day!"
+"Farewell", "Bye", "Fare well", "See you" -> "Have a nice day.", "Aye. Come back whenever you are thirsty.", "Good day!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schönen Tag noch.", "Bis bald.", "Aye. Komm wieder, wann immer du durstig bist."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have a nice day.", "Aye. Come back whenever you are thirsty.", "Good day!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Schönen Tag noch.", "Bis bald.", "Aye. Komm wieder, wann immer du durstig bist."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "Great. I am Borgate Northoff, the barkeeper. Do you want something to drink?", "ENGLISH2.", "ENGLISH3."
+"How are you", "How feel", "How do you do" -> "Good - 'nd you?", "It's allrigth. Like allways."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Gut - 'nd Euch?", "Alles gut - wie immer."
+"your name", "who are you", "who art thou" -> "Great. I am Borgate Northoff, the barkeeper. Do you want something to drink?", "I'm Borgate Northoff. Need a drink?"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Borgate Northoff und das ist mein Tresen. Ich schenke Bier aus. Willst du eines?", "Ich bin Borgate Northoff. Willst du was trinken?"
 
 -- Catching quest triggers
-"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission", english -> "Nope, I didn't got a job for you."
 "quest", "mission" -> "Nee, ich habe keine Arbeit für dich."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"task", "adventure" -> "Nope, I didn't got a job for you."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Nee, ich habe keine Arbeit für dich."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "What do you think I have to do here? What a stupid question. Aaarh! Drink or eat something or leave!"
-"beruf" -> "Ich bin Schankwirt. Und ausschenken tue ich Bier. - Meistens..."
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"job" -> "Ich bin Schankwirt. Und ausschenken tue ich Bier. - Meistens..."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"profession" -> "I'm bartender. Tendering beer. - Mostly", "What do you think I have to do here? What a stupid question. Aaarh! Drink or eat something or leave!"
+"beruf" -> "Ich bin Schankwirt. Und ausschenken tue ich Bier. - Meistens...","Was denkste was ich hier mache? So ne dumme Frage. Aaarh! Bestell was zu trinken oder verschwinde!"
+"job", english ->  "I'm bartender. Tendering beer. - Mostly", "What do you think I have to do here? What a stupid question. Aaarh! Drink or eat something or leave!"
+"job" -> "Ich bin Schankwirt. Und ausschenken tue ich Bier. - Meistens...","Was denkste was ich hier mache? So ne dumme Frage. Aaarh! Bestell was zu trinken oder verschwinde!"
+"Gobaith", "Gobiath", english -> "A dwarf shouldn't live in the past. - I allways looked forward. Also back in times with the Fluffy Sheep Tavern.", "Gobaith was nice. But now, since I'm here I honestly don't know why I didn't come sooner.", "Back on Gobaith everyone was used to say: 'Whatever happens, Borgate will do his own thing.' - and that's exactly what happened when everybody left the isle."
 "Gobaith", "Gobiath" -> "Wenn du mich fragst finde ich, dass ein Zwerg nicht in der Vergangenheit leben sollte. - Ich jedenfalls habe immer nach vorn geblickt. Auch schon damals als ich noch im Fluffy Sheep gearbeitet habe.", "Auf Gobaith war's schön. Aber jetzt wo ich hier bin, weiß ich nicht warum ich so lange dort geblieben bin.", "Auf Gobaith hieß es immer - 'Egal was passiert, Borgate macht sein Ding.' - und das habe ich dann auch gemacht als alle von der Insel weg sind. Aye."
-"I am", "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"I am", "my name" ->  "Aha..?", "Arr!", "Aha..."
 "Ich bin", "mein Name" -> "Aha..?", "Arr!", "Aha..."
 
 -- More small talk; add at least five triggers
-"Borgate", "barkeeper", "innkeeper", "Northoff", english -> "ENGLISH3.", "ENGLISH3.", "ENGLISH3."
-"Fluffy", "Sheep", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Sil[vb]erbran[dt]", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gowan", "Sam", "brute", "Booze", "hook", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"half-hung", "bryan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Borgate", "wirt", "Northoff" -> "Genau, ich bin hier der Wirt. Was willst Du trinken?"
+
+"Fluffy", "Sheep", english -> "Fluffy Sheep was the name of an Inn. I worked there long time ago for the king of Silverbrand.", "The Fluffy Sheep Tavern was named after a sheep named Fluffy. And one day, they just ate it."
+"Sil[vb]erbran[dt]", english -> "Silverbrand got many kings, but I think King Tiladin is the most important", "Ailverbrand - The dwarven town under the throne of Irmorom, in the middle of the coppermountains. Let us hold up the keepsake.", "Silverbrand took each dwarf as citizen those days. Even at night the sound of smithing hammers was hearable they say."
+"Gowan", "Sam", "brute", "Booze", "hook", english -> "When I came here, they didn't ask me a single question. So I did.", "Actually I know everything... but I don't tell."
+"half-hung", "bryan", english -> "Bryan is the owner of the Hemp Necktie Inn. So it's his law we live with. You do better ask him about the law, eh?", "Actually I know everything... but I don't tell."
 "Fluffy", "Sheep", "schaf", "flausch", "flauschige" -> "Das Fluffy Sheep war eine Taverne. Dort habe ich früher, für den König Silberbrands gearbeitet. Aber das ist schon lange her...", "Als ich noch ein Zwerg im besten Alter war, arbeitete ich in der Fluffy Sheep Taverne. Aye?", "Die Fluffy Sheep Taverne hat man nach einem Schaf benannt das sie Fluffy nannten. Und irgendwann - dann haben sie's einfach gegessen."
 "Sil[vb]erbran[dt]" -> "In Silberbrand gabs eine Menge Könige, aber ich will meinen, König Tialdin von Silberbrand ist der Bedeutendste.", "Silberbrand - Die Zwergenstadt unter dem Thron Irmoroms, im Herzen des Kupfergebierges. Mögen wir ihr Andenken in Ehren halten.", "Silberbrand nahm damals jeden Zwerg auf. Und sogar des Nachts soll der Hammerklang der Schmiede hörbar gewesen sein. Eine wirklich mächtige Stadt."
 "Gowan", "Sam", "brute", "Booze", "hook" -> "Als ich hier her kam, stellte keiner Fragen, und ich fragte auch nichts. Der Eine oder Andere spricht trozdem manchmal über sich. Aber es ist Half-hung Bryans Gesetz. 'Es werden keine Fragen gestellt.'", "Eigentlich weiß ich alles, aber ich erzähl nichts davon..."
 "half-hung", "bryan" -> "Bryan ist der Besitzer vom Gasthof zur Hanfschlinge. Und hier zählt nur sein Gesetz. Am Besten fragt ihr ihn selbst dannach.", "Eigentlich weiß ich alles, aber ich erzähl nichts davon..."
 
 -- Faction stuff
-"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"archmage" -> "Old Borgate knows things you couldn't sleep anymore. But I can hold my tougne. What's about yours?"
 "Erzmagier" -> "Der alte Borgate weis Sachen, da würdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
-"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan", english -> "Old Borgate knows things you couldn't sleep anymore. But I can hold my tougne. What's about yours?"
 "Elvaine", "Morgan" -> "Der alte Borgate weis Sachen, da würdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick", english -> "Cadomyr, Runewick... even Galmair! They aggrandise themself - At the Hemp Necktie Inn they are equal and their law is declared as nonsene.","Cadomyr, Runewick... even Galmair! - Here in the middle of wilderness a dwarf stays as dwarf and everyone fights for his own good.","Cadomyr, Runewick... even Galmair! - Those factions interrest an old dwarf like Borgate just peripheral."
 "Runewick" -> "Ob Cadomyr, Galmair oder auch Runewick... die nehmen sich alle viel zu wichtig. Hier im Gasthof zu Hanfschlinge behandeln wir alle gleich.", "Ob Cadomyr, Galmair oder auch Runewick... hier in der Mitte der Wildniss ist ein Zwerg einfach nur ein Zwerg. Jeder ist sich selbst der Nächste.", "Ob Cadomyr, Galmair oder auch Runewick... die bekümmern einen alten Zwerg wie ich einer bin nur noch peripher."
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don", english -> "Old Borgate knows things you couldn't sleep anymore. But I can hold my tougne. What's about yours?"
 "Valerio", "Guilianni", "Don" -> "Der alte Borgate weis Sachen, da würdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair", english -> "Cadomyr, Runewick... even Galmair! They aggrandise themself - At the Hemp Necktie Inn they are equal and their law is declared as nonsene.","Cadomyr, Runewick... even Galmair! - Here in the middle of wilderness a dwarf stays as dwarf and everyone fights for his own good.","Cadomyr, Runewick... even Galmair! - Those factions interrest an old dwarf like Borgate just peripheral."
 "Galmair" -> "Ob Cadomyr, Galmair oder auch Runewick... die nehmen sich alle viel zu wichtig. Hier im Gasthof zu Hanfschlinge behandeln wir alle gleich.", "Ob Cadomyr, Galmair oder auch Runewick... hier in der Mitte der Wildniss ist ein Zwerg einfach nur ein Zwerg. Jeder ist sich selbst der Nächste.", "Ob Cadomyr, Galmair oder auch Runewick... die bekümmern einen alten Zwerg wie ich einer bin nur noch peripher."
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Queen" -> "Old Borgate knows things you couldn't sleep anymore. But I can hold my tougne. What's about yours?"
 "Königin" -> "Der alte Borgate weis Sachen, da würdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
-"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards", english -> "Old Borgate knows things you couldn't sleep anymore. But I can hold my tougne. What's about yours?"
 "rosaline", "edwards" -> "Der alte Borgate weis Sachen, da würdest du kein Auge mehr zu tun. Aber ich kann meinen Mund halten. Kannst du das auch? Ich denke nicht."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr", english -> "Cadomyr, Runewick... even Galmair! They aggrandise themself - At the Hemp Necktie Inn they are equal and their law is declared as nonsene.","Cadomyr, Runewick... even Galmair! - Here in the middle of wilderness a dwarf stays as dwarf and everyone fights for his own good.","Cadomyr, Runewick... even Galmair! - Those factions interrest an old dwarf like Borgate just peripheral."
 "Cadomyr" -> "Ob Cadomyr, Galmair oder auch Runewick... die nehmen sich alle viel zu wichtig. Hier im Gasthof zu Hanfschlinge behandeln wir alle gleich.", "Ob Cadomyr, Galmair oder auch Runewick... hier in der Mitte der Wildniss ist ein Zwerg einfach nur ein Zwerg. Jeder ist sich selbst der Nächste.", "Ob Cadomyr, Galmair oder auch Runewick... die bekümmern einen alten Zwerg wie ich einer bin nur noch peripher."
 
 -- Main land factions
@@ -159,6 +141,8 @@ itemShoes = 53
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger /  Response is only given 1/5 of the time
+"Borgate", "bar", "Northoff" -> "Indeed, I'm the bartender here. What's your order?
+"Borgate", "wirt", "Northoff" -> "Genau, ich bin hier der Wirt. Was willst Du trinken?"
 ".*", english, chance(50) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 ".*", german, chance(50) -> "#me nickt langsam. 'Aha...?'", "#me legt den Kopf schief. 'Hmpf.'", "#me greift sich mit den Fingern in den langen Bart und zieht sie hindurch. 'Ist das so?'", "#me rümpft seine große felischige Nase. 'So etwas dachte ich mir schon.'", "#me nimmt einen Schluck von seinem Bierkrug. '... unglaublich!'", "Aye, so etwas ähnliches hab ich schonmal gehört. Das würde dich wundern.", "Tatsächlich!? Ich bin erstaunt.", "#me verschränkt die Hände im Nacken. 'Hm-hm.'", "Sodar es Irmoroms Wille ist...", "#me zupft mit zwei Fingern an seinem Bart. 'Das ist seltsam. Findest du das nicht auch?'"
 
