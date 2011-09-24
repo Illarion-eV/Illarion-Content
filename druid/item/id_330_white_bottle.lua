@@ -9,8 +9,8 @@ module("druid.item.id_330_white_bottle",package.seeall); --, package.seeall(drui
 
 -- UPDATE common SET com_script='druid.item.id_330_white_bottle' WHERE com_itemid = 330;
 
-function DoDruidism(User,SourceItem)
-
+function DrinkPotion(User,SourceItem)
+User:inform("beginng drinkPotion")
 -- Grundwerte, Listen einlesen:
 -- Sprachverständnis (man kann eine Zeitlang fremde Sprachen verstehen/lesen)
 	if firsttime == nil then
@@ -20,20 +20,22 @@ function DoDruidism(User,SourceItem)
 		ListSkillID = {}
 		firsttime = 1
 	end
-	ListCodecs={45942235,62483256,65545555,15751754,82897532,63296636,93538334}
+	ListCodecs={45942235,62483256,65554555,15751754,82897532,63296636,93538334}
 	ListLanguages={"human language","dwarf language","elf language","lizard language","orc language","halfling language","fairy language","gnome language","goblin language","ancient language"}
 	ListSkillID = {1,2,3,4,5,6,10}
 	ListSkillGroup={1,1,1,1,1,1,1}
 
     potionData = tonumber(SourceItem:getData("potionData")); 
+    User:inform("potionData bestimmt: "..potionData)
   for i=1,table.getn(ListCodecs) do
-    if potionData == ListCodecs[i] then
+    User:inform("nach for")
+	if potionData == ListCodecs[i] then
 
       find, myEffect = User.effects:find(330);
       if not find then
 
       	oldSkill = User:getSkill(ListLanguages[i])
-
+        end
       	if oldSkill == nil then
       	   oldSkill = 0
       	end
@@ -69,7 +71,8 @@ function DoDruidism(User,SourceItem)
 
 --      Effekt an Char binden
         User.effects:addEffect(myEffect);
-      end
+        User:inform("ende drinPotion, effekt hinzufügen")
+	  
     end
   end
     
@@ -118,8 +121,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	
 	-- not infront of a cauldron: let's drink the potion!
-    if User.attackmode then
-        base.common.TempInformNLS(User,
+    if User.effects:find(330) then
+	   User.effects:removeEffect(330);
+	end
+	if User.attackmode then
+	   base.common.TempInformNLS(User,
 			"Du kannst den Trank nicht benutzen, während Du kämpfst.",
 			"You can't use the potion while you are fighting.");
 		return;
@@ -141,7 +147,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         else
             User:createItem(164, 1, 333, 0);
         end
-	
+	User:inform("ende von useitem")
 	DrinkPotion(User, SourceItem);
 -- end (milk)
   

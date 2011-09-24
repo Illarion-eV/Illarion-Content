@@ -8,7 +8,7 @@
 -- Authors:  Estralis & Ardian                                                --
 --           Rincewind                                                        --
 --                                                                            --
--- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: September 23, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Percy Dryless"
@@ -132,7 +132,7 @@ itemShoes = 53
 
 -- Easter egg
 "jingles", english -> "If I catch this stupid mouse, I will trample it!"
-"jingles" -> "Wenn ich diese verdammte Maus erwische... zwerquetsch ich sie!"
+"jingles" -> "Wenn ich diese verdammte Maus erwische... zerquetsch ich sie!"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "innocent" -> "One word: No.", "You innocent? That's about as likely as my whip missing your sorry ass.", "Wake up! You aren't dreaming anymore."

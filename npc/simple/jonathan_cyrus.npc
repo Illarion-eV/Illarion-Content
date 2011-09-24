@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 27, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: September 23, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Jonathan Cyrus"
@@ -99,7 +99,7 @@ itemShoes = 770
 "mein Name" -> "Sehr erfreut. Wollen wir vielleicht über Glaswaren reden?"
 
 -- More small talk; add at least five triggers
-"Rutrus", english -> "I know Rutrus, he lives at theOasis of Stars.", "Rutrus, well, I think his head was exposed too long to the scorching sun.", "I used quartz sand from time to time purchased from Rutrus, until he started talking to his shovel."
+"Rutrus", english -> "I know Rutrus, he lives at the Oasis of Stars.", "Rutrus, well, I think his head was exposed too long to the scorching sun.", "I used quartz sand from time to time purchased from Rutrus, until he started talking to his shovel."
 "Rutrus" -> "Ich kenne Rutrus, er lebt bei der Sternenoase.", "Rutrus, nun, ich glaube, sein Kopf war zulange der brennenden Sonne ausgesetzt.", "Früher habe ich von Zeit zu Zeit Quarzsand von Rutrus gekauft, bis er angefangen hat, mit seiner Schaufel zu reden."
 "Oase" -> "Die Sternenoase ist außerhalb der Stadtmauern. Schützt euer Gesicht vor Flugsand, wenn ihr durch die Wüste wandert."
 "Oasis" -> "The Oasis of Stars is outside the city walls. Protect your face from blowing sand when you walk through the desert."
@@ -111,9 +111,9 @@ itemShoes = 770
 "händler", "kollege", "höker", "markt" -> "Braucht ihr Schmiedewaren? Kleidung? Ihr findet alles hier auf dem Marktplatz von Cadomyr."
 
 -- Faction stuff
-"archmage" -> "Oh, please, spare with me with any news from the archmage. It is always lies anyway.", "Elvaine Morgan, you could too easily have said 'The Lying Baron' instead."
+"archmage" -> "Oh, please, spare with me with any news from the archmage. He always lies anyway.", "Elvaine Morgan, you could too easily have said 'The Lying Baron' instead."
 "Erzmagier" -> "Oh bitte, erspart mir irgendwelche Neuigkeiten vom Erzmagier. Der lügt wie gedruckt.", "Elvaine Morgan, ihr hättet auch einfach sagen können, 'Der Lügenbaron'."
-"Elvaine", "Morgan", english -> "Oh, please, spare with me with any news from the archmage. It is always lies anyway.", "Elvaine Morgan, you could too easily have said 'The Lying Baron' instead."
+"Elvaine", "Morgan", english -> "Oh, please, spare with me with any news from the archmage. He always lies anyway.", "Elvaine Morgan, you could too easily have said 'The Lying Baron' instead."
 "Elvaine", "Morgan" -> "Oh bitte, erspart mir irgendwelche Neuigkeiten vom Erzmagier. Der lügt wie gedruckt.", "Elvaine Morgan, ihr hättet auch einfach sagen können, 'Der Lügenbaron'."
 "Runewick", english -> "Runewick is a place of books, boredom and laziness.", "If you ever get to Runewick, will you sell the people there some of my vials please?"
 "Runewick" -> "Runewick ist ein Ort der Bücher, der Langeweile und der Faulheit.", "Wenn ihr jemals nach Runewick kommt, verkauft ihr den Leuten dort ein paar meiner Phiolen, bitte?"
@@ -171,5 +171,5 @@ cycletext "#me wischt einen Glaskelch mit einem seidenen Tuch ab.", "#me polishe
 cycletext "Glitzernde Glaswaren, nur heute, nur für euch!", "Sparkling glassware, just today, just for you!"
 cycletext "#me schnüffelt an einer Kerze: 'Bestes Bienenwachs!'.", "#me sniffs a candle: 'Best bees wax!'."
 cycletext "Ich habe beste Kerzen im Angebot. Mögen sie euch ein Leuchtfeuer in der Dunkelheit sein.", "I have the best candles on sale. May they be a beacon of light in the darkest night."
-cycletext "Bierkrüge für Zwergenbier, feinste Kelche für Elfenwein - aus meinen Gütern schmeckt jedes Gebräu.", "Beer mugs for dwarven beer, fine gobletsfor elven wine - out of my goods any brew is tastier."
+cycletext "Bierkrüge für Zwergenbier, feinste Kelche für Elfenwein - aus meinen Gütern schmeckt jedes Gebräu.", "Beer mugs for dwarven beer, fine goblets for elven wine - out of my goods any brew is tastier."
 cycletext "Das transparente Gold Cadomyrs: Glas!", "The transparent gold of Cadomyr: Glass!"

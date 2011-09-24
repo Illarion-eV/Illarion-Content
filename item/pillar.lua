@@ -53,36 +53,13 @@ function Init()
     messageG1={};
 	messageE1[0]="This monument shows young Queen Rosaline. A register of the rulers of Cadomyr is engraved upon a brass plate at the bottom of the pedestal."
 	messageG1[0]="Dieses Monument zeigt die junge Königin Rosaline. Eine Auflistung der Herrscher von Cadomyr ist auf einer Messingtafel am Sockel den Monuments zu lesen.";
-	messageE1[1]="1. Sir Edward I. 137 BS"
-	messageG1[1]="1. Sir Edward I. 137 BS";
-	messageE1[2]="2. Sir Edward II. 132 BS"
-	messageG1[2]="2. Sir Edward II. 132 BS";
-    messageE1[3]="3. Sir Amalroch I. 118 BS"
-	messageG1[3]="3. Sir Amalroch I. 118 BS";
-    messageE1[4]="4. Sir Adufrin 103 BS"
-	messageG1[4]="4. Sir Adufrin 103 BS";
-    messageE1[5]="5. Sir Adefror 101 BS"
-	messageG1[5]="5. Sir Adefror 101 BS";
-	messageE1[6]="6. Sir Luvwick 91 BS"
-	messageG1[6]="6. Sir Luvwick 91 BS";
-	messageE1[7]="7. Sir Raufwill 85 BS"
-	messageG1[7]="7. Sir Raufwill 85 BS";
-	messageE1[8]="8. Sir Edward III. 72 BS"
-	messageG1[8]="8. Sir Edward III. 72 BS";
-	messageE1[9]="9. Sir Linolf 60 BS"
-	messageG1[9]="9. Sir Linolf 60 BS";
-	messageE1[10]="10. Sir Runbold I. 51 BS"
-	messageG1[10]="10. Sir Runbold I. 51 BS";
-	messageE1[11]="11. Sir Runbold II. 24 BS"
-	messageG1[11]="11. Sir Runbold II. 24 BS";
-	messageE1[12]="12. Sir Amalroch II. 19 BS"
-	messageG1[12]="12. Sir Amalroch II. 19 BS";
-	messageE1[13]="13. Sir Edward IV. 14 BS"
-	messageG1[13]="13. Sir Edward IV. 14 BS";
-	messageE1[14]="14. Sir Reginald 0 AS"
-	messageG1[14]="14. Sir Reginald 0 AS";
-	messageE1[15]="15. Queen Rosaline Edwards 22 AS"
-	messageG1[15]="15. QueenRosaline Edwards 22 AS";
+	messageE1[1]="1. Sir Edward - 16 BS"
+	messageG1[1]="1. König Edward - 16 BS";
+	messageE1[2]="2. Sir Reginald - 0 AS"
+	messageG1[2]="2. König Reginald - 0 AS";
+    messageE1[3]="3. Queen Rosaline Edwards - 22 AS"
+	messageG1[3]="3. Königin Rosaline Edwards - 22 AS";
+
    
    InitDone=true; --Script wants to read all that crap only once
 end
@@ -119,7 +96,7 @@ function LookAtItem(User,Item)
           	base.common.InformNLS(User,"[Fehler] Fehler im Queststatus 110, bitte einem Entwickler melden!","[Error] Error in queststatus 110, please report to a developer!"); --sending the message
     	end
    
-        	if queststatus<15 then 
+        	if queststatus<3 then 
            		User:setQuestProgress(610,queststatus+1); --the player read a text
        		else
         		User:setQuestProgress(610,0); --start from the beginning

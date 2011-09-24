@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 31, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: September 23, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Jacobus"
@@ -135,13 +135,13 @@ itemShoes = 771
 -- Gods; each NPC should at react on at least one god, being a follower of said god
 "god" -> "Why don't you ask me about Zhambra? Might result in a special offer for you!"
 "Gott", "Götter" -> "Warum fragt ihr mich nicht nach Zhambra? Ich hätte da vielleicht ein Sonderangebot für euch."
-"Ronagan", english -> "Oh, Ronagan! Well, he may just like precious stones as much as I do and he guarantees that people will buy new ones... still, I cannot honour a god who promotes crimes."
+"Ronagan", english -> "Oh, Ronagan! Well, he may just like gems as much as I do and he guarantees that people will buy new ones... still, I cannot honour a god who promotes crimes."
 "Ronagan" -> "Oh, Ronagan! Nun, er mag Edelsteine genauso gerne wie ich und er sorgt dafür, dass die Leute auch immerwieder neue kaufen... dennoch kann ich keinem Gott huldigen, der Diebstahl fördert."
 "Zhambra", english -> "Zhambra is the god of friendship, and what token is more suitable to seal a friendship than a ring. I have a special offer for you..."
 "Zhambra" -> "Zhambra ist der Gott der Freundschaft. Und was ist besser geeignet, um Freundschaft zu besiegeln, als ein Ring? Ich hätte da gerade einen im Angebot..."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I sell any kind of jewellery.", "Things made of gold, of copper, of precious stones... What do you need?"
+"what sell", "what buy", "list wares", "price of" -> "I sell any kind of jewellery.", "Things made of gold, of copper, of gems... What do you need?"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich handele mit allerlei Juwelen.", "Dinge aus Gold, aus Kupfer, aus Edelsteinen... was braucht ihr?"
 "tell something" -> "I cannot tell you any interesting stories, sorry."
 "erzähl was", "erzähl etwas" -> "Ich habe keine interessanten Geschichten zu erzählen."

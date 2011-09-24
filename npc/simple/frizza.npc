@@ -2,18 +2,18 @@
 -- NPC Name: Frizza                                                   Cadomyr --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  123, 629, 0            --
+-- NPC Race: lizardman                  NPC Position:  121, 643, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 15, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 24, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Frizza"
 race = lizardman
 sex = female
-position = 123, 629, 0
+position = 121, 643, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Informant"
@@ -33,16 +33,16 @@ wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 3
-beardID = 5
+beardID = 0
 colorHair = 34, 139, 34
 colorSkin = 154, 205, 50
 itemHead = 0
-itemChest = 818
+itemChest = 180
 itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 2295
-itemTrousers = 843
+itemTrousers = 827
 itemShoes = 369
 
 -- Template Version 1.04, 07/12/2011 by Estralis Seborian
@@ -70,7 +70,7 @@ itemShoes = 369
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Wir sssehen unsss wenn mehr Information benötigt wird."
 "How are you", "How feel", "How do you do" -> "Very good, jussst won another game."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sssehr gut, gerade wieder ein Ssspiel gewonnen."
-"your name", "who are you", "who art thou" -> "Frizza, the informant of Cadomyr"
+"your name", "who are you", "who art thou" -> "Frizza, the informant of Cadomyr."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Frizza, die Informantin von Cadomyr."
 
 -- OPTIONAL TRIGGERS
@@ -94,103 +94,161 @@ itemShoes = 369
 "inform" -> "Ich habe Informationen über Gebäude, Plätze, Ereignissse, Leute, Geschichte, Gesetze und Götter von Cadomyr geben. Frag einfach!"
 "question" -> "I have information about buildings, placesss, eventsss, people, hissstory and godsss of Cadomyr. Just asssk me!"
 "Frage", "Auskunft" -> "Ich habe Informationen über Gebäude, Plätze, Ereignissse, Leute, Geschichte und Götter von Cadomyr geben. Frag einfach!"
-"building" -> "We have following buildingsss: Palace, Tavern Unicorn Lion, Inn Lakeshore, Town wall, Villa, Quartermaster's Store, Flat quarter and Sir Reginald Tomb. We have alssso a market, library, temple, census office, teleport and donkey place."
-"Gebäude" -> "Wir haben folgende Gebäude: Palast, Taverne Einhörniger Löwe, Gasthaus Seeufer, Stadtmauer, Villa, Quartiermeister Laden, Wohnungsquartier und Sir Reginald Gruft, sowie Markt, Bibliothek, Tempel, Zensusbüro, Teleporter und Eselplatz."
-"place" -> ""
-"Platz", "Plätz" -> ""
-"people" -> ""
-"Leute" -> ""
+"building" -> "We have following buildingsss: Palace, Tavern Unicorn Lion, Inn Lakeshore, Town wall, Villa, Quartermaster's Store, Flat quarter and Sir Reginald Tomb. We have alssso a market, library, temple, census office, teleport and donkey stable."
+"Gebäude" -> "Wir haben folgende Gebäude: Palast, Taverne Einhörniger Löwe, Gasthaus Seeufer, Stadtmauer, Villa, Quartiermeister Laden, Wohnungsquartier und Sir Reginald Gruft, sowie Markt, Bibliothek, Tempel, Zensusbüro, Teleporter und Eselstall."
+"place" -> "If you like to know anything about placesss outssside, just asssk Ruzusss behind the towngate."
+"Platz", "Plätz" -> "Wenn du etwas über die Plätze außerhalb wisssen möchtessst, dann frage Ruzusss hinter dem Stadttor."
+"Ruzusss", english -> "You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*"
+"Ruzusss" -> "Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*"
+"people" -> "Many people leaving here. Many people from different placesss. Most are jussst passsing me when the travel. It ssseemsss they are in thoughtsss of a god."
+"Leute" -> "Viele Leute wohnen hier. Viele Leute von verssschiedenen Plätzen. Viele gehen wortlosss an mir vorbei wenn herumreisen. Esss ssscheint die sssind in Gedanken an irgendwelche Götter. "
 "history" -> "We have a glory hissstory here and you can find more information about it at ssseveral picturesss here in our town. There you can find illustrationsss of the actionsss of our rulersss."
 "Geschichte" -> "Wir haben eine glorreiche Gessschichte hier und man kann Information darüber an verssschiedenen Bildern hier finden. Dort findet man Illustrationen der Handlungen unserer Herrscher."
-"events" -> ""
-"Ereignis", "Geschehnis" -> ""
+"events" -> "Many eventsss have happened sssince the foundation of your town. You can more information about them at ssseveral picturesss here in our town. There you can find illustrationsss of the actionsss of our rulersss. "
+"Ereignis", "Geschehnis" -> "Viele Ereignisse haben hier standgefunden ssseit der Gründung. Man kann Information darüber an verssschiedenen Bildern hier finden. Dort findet man Illustrationen der Handlungen unserer Herrscher."
 "law" -> "We do not have realy lawsss. We have rather a codex which can be found at a rider-ssstatue in front of the palace."
 "Gesetz" -> "Wir haben nicht wirklich Gesetze hier. Wir haben eher einen Kodex der an einer Reiterssstatue vor dem Palast gefunden werden kann."
 "ruler" -> "Our current ruler isss our wonderful queen Rosaline Edwards. You find her in our palace. The namesss of our former rulesss can be found at a rider-ssstatue in front of the palace."
 "Herrscher" -> "Unsere aktuelle Herrscherin ist unsssere wunderbare Königin Rosaline Edwards. Man findet sssie in unserem Palast. Die Namen unserer früheren Herrscher können auf einer Reiterssstatue vor dem Palast gefunden werden."
-
-"market" -> "The market isss behind thisss town wall. Jussst passs the Quartermaster's Store to my left. You can buy a lot of thingsss there."
-"Markt" -> "Der Markt ist hinter dieser Ssstadtmauer hier. Einfach das Quartiermeister Laden zu meiner Linken durchqueren. Du kannst dort viele Dinge kaufen."
+"market" -> "The market isss behind thisss town wall. Jussst passs the towngate and the Quartermaster's store. You can buy a lot of thingsss there."
+"Markt" -> "Der Markt ist hinter dieser Ssstadtmauer hier. Einfach das Stadttor und den Quartiermeister Laden durchqueren. Du kannst dort viele Dinge kaufen."
 "temple" -> "We have one temple here. The temple of Zambra. Other temples are outside of Cadomyr, but I have no idea where. However, the temple of Zambra is on the right ssside between palace and market."
-"Tempel" -> "Wir haben einen Tempel hier. Den Temple von Zambra. Andere Tempeln sssind außerhalb von Cadomyr, aber ich weiß nicht wo. Egal auch, den Temple von Zambra findessst du auf der rechten Ssseite zwischen Palassst und Markt."
-"teleport", english -> "A possiblity to teleport to Runewick, Galmair or the Hemp Necktie Inn is outssside. Just go through the town gate here. *points the gate*"
-"teleport" -> "Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man draußen. Einfach durch das Stadttor gehen. *Zeigt auf das Tor*"
+"Tempel" -> "Wir haben einen Tempel hier und dasss issst der Zambratempel. Andere Tempeln sssind außerhalb von Cadomyr, aber ich weiß nicht wo. Egal auch, den Zambratempel findessst du auf der rechten Ssseite zwischen Palassst und Markt."
+"teleport", english -> "A possiblity to teleport to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points the teleporter*"
+"teleport" -> "Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man hier wie du sssehen sssolltessst. *Zeigt auf den Teleporter*"
 "Census office" -> "The Census office can be found in front of the palace on the left ssside. There you register yourssself and become one of usss "
 "Zensusbüro" -> "Dasss Zensusbüro kann vor dem Palassst auf der linken Ssseite gefunden werden. Dort kann man sssich registrieren lasssen und einer von unsss werden."
+"Donkey stable", "stable" -> "Our donkey stable isss the Milkhouse. Jussst follow to the ssstreet to the Katanbi river."
+"Eselstall", "Stall" -> "Unser Essselssstall ist das Milchhausss. Folge einfach der Ssstraße zum Katanbi Fluß."
 "Donkey" -> "A donkey can be rent at the Milkhouse. In Galmair and Runewick are running ssseveral around and they are free for hunt. Sss!"
 "Esel" -> "Ein Esssel kann im Milchhausss geliehen werden. In Galmair und Runewick laufen viele herum und die sssind auch zur Jagd frei gegeben. Sss!"
-"Room" -> ""
-"Guild" -> ""
 
-"Palace" -> "Our palace isss on the other ssside of the town. Just go inssside and run through. You can find there our wonderful queen, the Royal Champer, the Treasureroom and the library."
-"Palast" -> "Unssser Palassst issst auf der anderen Ssseite der Ssstadt. Geh einfach rein und lauf durch die Ssstadt. Dort findet man unsssere wunderbare Königin, die Königliche Kammer, den Schatzraum und die Bibliothek."
+-- "Rooms" -> "" --placeholder for rooms if they can be rent
+-- "Guild" -> ""
+"Palace" -> "Our palace isss on the other ssside of the town. Just go inssside and run through. You can find there our wonderful queen, the Royal Champer, her Treasureroom and the library."
+"Palast" -> "Unssser Palassst issst auf der anderen Ssseite der Ssstadt. Geh einfach rein und lauf durch die Ssstadt. Dort findet man unsssere wunderbare Königin, die Königliche Kammer, ihren Schatzraum und die Bibliothek."
 "Royal Champer" -> ""
+"Königliche Kammer" -> ""
 "Treasureroom" -> ""
+"Schatzraum" -> ""
 "Library" -> ""
-
+"Bibliothek" -> ""
 "Tavern Unicorn Lion" -> ""
+"Taverne Einhörniger Löwe" -> ""
 "Inn Lakeshore" -> ""
-"Townwall" -> "In the townwall *points the walls around her* can be find me *blinks*, the guardroom and the civic hall."
+"Gasthaus Seeufer" -> ""
+"Townwall" -> "In the townwall *points at the North behind her* can be found the guardroom and the civic hall."
+"Stadtmauer" -> "In der Stadtmauer *zeigt in den Norden hinter ihr* kann man die Wachstube und den Stadtsaal finden."
 "Guardroom" -> ""
+"Wachstube" -> ""
 "Civic Hall" -> ""
-"Villa", english -> "Which villa you mean? We have three of them: Villa Edward, Villa Runbold and Villa Reginald."
-"Villa" -> "Welche issst gemeint? Wir haben drei von ihnen: Villa Edward, Villa Runbold und Villa Reginald."
+"Stadtsaal" -> ""
+"Villa", english -> "Which villa you mean? We have three of them: Villa Edward, Villa Rosaline and Villa Reginald."
+"Villa" -> "Welche issst gemeint? Wir haben drei von ihnen: Villa Edward, Villa Rosaline und Villa Reginald."
+"Villa Edward", english -> ""
 "Villa Edward" -> ""
-"Villa Runbold" -> ""
+"Villa Rosaline", english -> ""
+"Villa Rosaline" -> ""
+"Villa Reginald", english -> ""
 "Villa Reginald" -> ""
 "Quartermaster's Store" -> ""
+
+-- "Quartiermeister Laden" -> ""
 "Flat quarter" -> ""
+"Wohnungsquartier" -> ""
 "Sir Reginald Tomb" -> ""
-
+"Sir Reginald Gruft" -> ""
 "Western Katanbi Desert" -> ""
+"Westliche Katanbi Wüste" -> ""
 "Mount Siba" -> ""
-"Milkhouse" -> ""
+"Berg Siba" -> ""
+"Milkhouse" -> "That isss the name of our donkey stable. It isss in the eassst from here."
+"Milchhaus" -> "Dasss issst der Name unssseresss Eselstalls. Er kann im Osssten von hier gefunden werden."
 "Cornerstone of Candour" -> ""
+"Grundstein der Aufrichtigkeit" -> ""
 "Rosaline Cube" -> ""
+"Rosaline Würfel" -> ""
 "Cube Camp" -> ""
+"Würfel Lager" -> ""
 "Faber's Guardhouse" -> ""
+"Faber's Wachhaus" -> ""
 "Remote Dwelling" -> ""
+"???" -> ""
 "Pirate cove" -> ""
+"???" -> ""
 "Cape Farewell" -> ""
-
+"???" -> ""
 "Katanbi River" -> ""
+"???" -> ""
 "Liberty Quarry" -> ""
+"???" -> ""
 "Grugmutz's cave" -> ""
+"???" -> ""
 "Creek Settlement" -> ""
+"???" -> ""
 "Envy Creek" -> ""
+"???" -> ""
 "Weary Inn" -> ""
-
+"???" -> ""
 "Katanbi Desert" -> ""
+"???" -> ""
 "Prison" -> ""
+"???" -> ""
 "The Druid's Tear" -> ""
+"???" -> ""
 "The Royal Academy of Gladiators" -> ""
+"???" -> ""
 "The Blood Circle Arena" -> ""
+"???" -> ""
 "Desert Hole" -> ""
+"???" -> ""
 "Royal Slave Market" -> ""
+"???" -> ""
 "Pyramide of Discord" -> ""
+"???" -> ""
 "Pearl of Sirani" -> ""
+"???" -> ""
 "Frontus Farm" -> ""
+"???" -> ""
 "Shadowland" -> ""
+"???" -> ""
 "Queens Corner" -> ""
+"???" -> ""
 "Zumbrass Tomb" -> ""
+"???" -> ""
 "Mount Zotmore" -> ""
-
+"???" -> ""
 "Katanbi Delta" -> ""
+"???" -> ""
 "Merchants' Folly" -> ""
+"???" -> ""
 "Cadomyr Harbour" -> ""
+"???" -> ""
 "Harp of Pain" -> ""
+"???" -> ""
 "Lost Harbour" -> ""
+"???" -> ""
 "Tear of Sirani" -> ""
+"???" -> ""
 "Kata Island" -> ""
+"???" -> ""
 "Mount Letma" -> ""
-
+"???" -> ""
 "Draganfod" -> ""
+"???" -> ""
 "Lonely Mountains" -> ""
+"???" -> ""
 "Great Ocean" -> ""
+"???" -> ""
 "Border Mountains" -> ""
+"???" -> ""
 "Spider's Mouth" -> ""
-"Hemp Necktie Inn" -> ""
+"???" -> ""
+
+-- "Hemp Necktie Inn" -> ""
+-- "Gasthof zur Hanfschlinge" -> ""
 "The Insurmountable Limes" -> ""
+"???" -> ""
 
 -- Faction stuff
 "archmage" -> "Morgan? Zzzz. That isss an evil sorcerer in Runewick and rulesss there."
@@ -233,8 +291,8 @@ itemShoes = 369
 "Findari" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 "Irmorom", english -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
 "Irmorom" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Galmair finden."
-"Malachin", "Malachín", english -> "Many follow the honourable Malachín. Soldiers and knights pray for protection in battles, hunters for a good hunt and protection while hunting, paladins for protection and a powerful fist against the evil.", "You can find a Temple of him outside the town in the South. Just go through the town gate to the mine 'Candour Foundation', and you will find the temple above. Just follow the signposts."
-"Malachin", "Malachín" -> "Viele folgen dem ehrenwerten Malachin. Soldaten und Ritter beten zu ihm, um Schutz in schweren Kämpfen zu erhalten; Jäger, um den erfolgreichen Ausgang einer Jagd; Paladine allgemein für den Schutz im Kampf gegen das Böse.", "Du kannst den Tempel von ihm außerhalb der Stadt im Süden. Gehe einfach durch das Stadttor zur Mine 'Grundstein der Aufrichtigkeit', und du wirst den Tempel darüber finden. Folge einfach den Wegschildern."
+"Malachin", "Malachín", english -> "Many follow the honourable Malachín. Soldiers and knights pray for protection in battles, hunters for a good hunt and protection while hunting, paladins for protection and a powerful fist against the evil."
+"Malachin", "Malachín" -> "Viele folgen dem ehrenwerten Malachin. Soldaten und Ritter beten zu ihm, um Schutz in schweren Kämpfen zu erhalten; Jäger, um den erfolgreichen Ausgang einer Jagd; Paladine allgemein für den Schutz im Kampf gegen das Böse."
 "Moshran", english -> "Sssss, I do not like thisss God. Yoo better avoid thisss name. People should kill you for usssing thisss name!", "#s Helpsss! We have potential fellow of the bloodgod here! Head up!"
 "Moshran" -> "Sssss, I do not like thisss God. Yoo better avoid thisss name. People should kill you for usssing thisss name!", "#s Hilfe! Wir haben einen potentiellen Anhänger desss Blutgott hier! Kopf ab!"
 "Nargun", "Nargún", "Nargùn", english -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
@@ -243,16 +301,16 @@ itemShoes = 369
 "Oldra" -> "Eine der unwichtigen, jüngeren Götter. Du kann Anhänger in Runewick finden."
 "Ronagan", english -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
 "Ronagan" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Galmair finden."
-"Sirani", english -> "Many young females pray to her for advice in love or simple beauty tips. Most Sirani priests are good healers. Her followers believe in peace and harmony, and most of them don't like weapons or violence.", "You can find a Temple of her outside the town in the Southeast. Just go through the town gate, then east, and go south after you cross the Katanbi-river. Just follow the signposts, but be careful!"
-"Sirani" -> "Viele junge Frauen beten zu Ihr, der Liebe wegen oder um Schönheit zu erlangen. Die meisten Priester Siranis sind gute Heiler und glauben wie alle Ihre Anhänger an ein Leben in Friede und Harmonie. Sie verabscheuen Gewalt und Waffen.", "Du kannst den Tempel von ihr außerhalb der Stadt im Südosten. Gehe einfach durch das Stadttor, dann in den Osten, und nachdem du den Katanbi-Fluss überquert hast. Folge einfach den Wegschildern, aber sei vorsichtig!"
+"Sirani", english -> "Many young females pray to her for advice in love or simple beauty tips. Most Sirani priests are good healers. Her followers believe in peace and harmony, and most of them don't like weapons or violence."
+"Sirani" -> "Viele junge Frauen beten zu Ihr, der Liebe wegen oder um Schönheit zu erlangen. Die meisten Priester Siranis sind gute Heiler und glauben wie alle Ihre Anhänger an ein Leben in Friede und Harmonie. Sie verabscheuen Gewalt und Waffen."
 "Tanora", "Zelphia", race = lizardman, english -> "One of the elder gods, but except of our race noone cares about this god here. You can find a temple at the Temple of the five, far in the North."
 "Tanora", "Zelphia", race = lizardman -> "Eine der alten Götter, aber ausgenohmen von unserer Rasse niemand kümmert sich hier nicht um diese Gottheit. Du kannst einen Tempel hoch im Norden bei den Tempel der Fünf finden.."
 "Tanora", "Zelphia", english -> "One of the elder gods, but except of me and my race noone cares about this god here. So, better do not waste your time with this god."
 "Tanora", "Zelphia" -> "Eine der alten Götter, aber ausgenohmen von mir und meiner Rasse niemand kümmert sich hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 "Ushara", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
 "Ushara" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
-"Zhambra", english -> "The followers of Zhambra are righteous and loyal ones who believe in honor and law. They often try to rescue others, and fight against the evil. Zhambra is worshipped by nobles and knights, paladins, and many soldiers.", "You can find a Temple of him behind this wall. Just go through the next two doors to my left, pass the marketplace and then you will find it on the right after the workshop."
-"Zhambra" -> "Die Anhänger Zhambras sind geradlinig und ergebene Gefolgsleute, die an Ehre und Recht glauben. Sie versuchen häufig, Andere zu retten und stehen im Kampf gegen das Böse. Zhambra wird gehuldigt von Adligen, Rittern, Höflingen und von vielen Kriegern.", "Du kannst den Tempel von ihm hinter dieser Mauer hier finden. Gehe einfach durch die beiden Tore zu meiner Linken, überquere den Marktplatz und dann findest du ihn auch schon an der rechten Seite hinter der Werkstatt."
+"Zhambra", english -> "The followers of Zhambra are righteous and loyal ones who believe in honor and law. They often try to rescue others, and fight against the evil. Zhambra is worshipped by nobles and knights, paladins, and many soldiers."
+"Zhambra" -> "Die Anhänger Zhambras sind geradlinig und ergebene Gefolgsleute, die an Ehre und Recht glauben. Sie versuchen häufig, Andere zu retten und stehen im Kampf gegen das Böse. Zhambra wird gehuldigt von Adligen, Rittern, Höflingen und von vielen Kriegern."
 
 -- Optional: Main land factions
 -- "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -285,6 +343,7 @@ itemShoes = 369
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
+cycletext "Willkommen in Cadomyr!", "Welcome in Cadomyr!"
 cycletext "Ich bin die Auskunftsgeberin von Cadomyr. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Cadomyr. Ask me if for informations if you want some."
 cycletext "Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places."
 cycletext "Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If someone wants to know something about the buildings here, just ask me for these buildings."

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 27, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: September 23, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -260,7 +260,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rutrus");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I know Rutrus, he lives at theOasis of Stars.");
+talkEntry:addResponse("I know Rutrus, he lives at the Oasis of Stars.");
 talkEntry:addResponse("Rutrus, well, I think his head was exposed too long to the scorching sun.");
 talkEntry:addResponse("I used quartz sand from time to time purchased from Rutrus, until he started talking to his shovel.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -339,7 +339,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Oh, please, spare with me with any news from the archmage. It is always lies anyway.");
+talkEntry:addResponse("Oh, please, spare with me with any news from the archmage. He always lies anyway.");
 talkEntry:addResponse("Elvaine Morgan, you could too easily have said 'The Lying Baron' instead.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -355,7 +355,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oh, please, spare with me with any news from the archmage. It is always lies anyway.");
+talkEntry:addResponse("Oh, please, spare with me with any news from the archmage. He always lies anyway.");
 talkEntry:addResponse("Elvaine Morgan, you could too easily have said 'The Lying Baron' instead.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -646,7 +646,7 @@ talkingNPC:addCycleText("#me wischt einen Glaskelch mit einem seidenen Tuch ab."
 talkingNPC:addCycleText("Glitzernde Glaswaren, nur heute, nur für euch!", "Sparkling glassware, just today, just for you!");
 talkingNPC:addCycleText("#me schnüffelt an einer Kerze: 'Bestes Bienenwachs!'.", "#me sniffs a candle: 'Best bees wax!'.");
 talkingNPC:addCycleText("Ich habe beste Kerzen im Angebot. Mögen sie euch ein Leuchtfeuer in der Dunkelheit sein.", "I have the best candles on sale. May they be a beacon of light in the darkest night.");
-talkingNPC:addCycleText("Bierkrüge für Zwergenbier, feinste Kelche für Elfenwein - aus meinen Gütern schmeckt jedes Gebräu.", "Beer mugs for dwarven beer, fine gobletsfor elven wine - out of my goods any brew is tastier.");
+talkingNPC:addCycleText("Bierkrüge für Zwergenbier, feinste Kelche für Elfenwein - aus meinen Gütern schmeckt jedes Gebräu.", "Beer mugs for dwarven beer, fine goblets for elven wine - out of my goods any brew is tastier.");
 talkingNPC:addCycleText("Das transparente Gold Cadomyrs: Glas!", "The transparent gold of Cadomyr: Glass!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);

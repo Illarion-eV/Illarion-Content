@@ -66,7 +66,7 @@ end
 
 function onDeath(Monster)
 
-    if killer[Monster.id] ~= nil then
+	if killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
     
@@ -78,7 +78,7 @@ function onDeath(Monster)
 
         end
     end
-
+	
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 

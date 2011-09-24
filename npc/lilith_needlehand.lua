@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 27, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: September 23, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -54,7 +54,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addResponse("Hiho! You must have come to help me!");
 talkEntry:addResponse("Oh my, hello there! You are here to assist me, I assume?");
-talkEntry:addResponse("#me gives a charming smile, 'Are you here to help me?'");
+talkEntry:addResponse("#me gives a charming smile: 'Are you here to help me?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -80,7 +80,7 @@ talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hiho! You must have come to help me!");
 talkEntry:addResponse("Oh my, hello there! You are here to assist me, I assume?");
-talkEntry:addResponse("#me gives a charming smile, 'Are you here to help me?");
+talkEntry:addResponse("#me gives a charming smile: 'Are you here to help me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -962,7 +962,7 @@ talkingNPC:addCycleText("Oh, ist schon wieder Essenszeit?", "Oh, is it nearly ti
 talkingNPC:addCycleText("Hallo da drüben!", "Hello over there!");
 talkingNPC:addCycleText("#me kichert freudig.", "#me giggles.");
 talkingNPC:addCycleText("Ohje, ich muss fertig werden.", "Oh, I have to get things done.");
-talkingNPC:addCycleText("#me gähnt: 'So viel zu tun und so wenig Süßes zu essen!'.", "#me yawns, 'So much work and so little sweets!'");
+talkingNPC:addCycleText("#me gähnt: 'So viel zu tun und so wenig Süßes zu essen!'.", "#me yawns: 'So much work and so little sweets!'");
 talkingNPC:addCycleText("Ich bin hungrig!", "I feel hungry!");
 talkingNPC:addCycleText("Bestellungen, Bestellungen, Bestellungen. Warum kauft nicht einfach immer jemand das, was ich gerade fertig habe?", "Order, orders, orders. Why won't they buy what I complete instead?");
 mainNPC:addLanguage(0);
