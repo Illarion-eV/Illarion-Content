@@ -208,7 +208,7 @@ function CalculateDamage(Attacker, Globals)
     DexterityBonus = (Attacker.dexterity - 6) * 1;
     SkillBonus = (Attacker.skill - 20) * 1;
     TacticsBonus = (Attacker.tactics - 20) * 0.5;
-    GemBonus = getGemBonus(Attacker.Weapon);
+    GemBonus = getGemBonus(Attacker.WeaponItem);
 
     Globals["Damage"] = BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + TacticsBonus + GemBonus)/100;
     
