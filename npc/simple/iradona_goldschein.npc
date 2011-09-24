@@ -1,19 +1,19 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Iradona Goldschein                                          None --
--- NPC Job:  Informant                                           --
+-- NPC Name: Iradona Goldschein                                       Galmair --
+-- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  424, 248, 0            --
--- NPC Sex:  female                       NPC Direction: west                --
+-- NPC Race: dwarf                      NPC Position:  425, 248, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
--- Author:   envi                                     					      --
+-- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 22, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 24, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Iradona Goldschein"
 race = dwarf
 sex = female
-position = 424, 248, 0
+position = 425, 248, 0
 direction = west
 affiliation = "Galmair"
 job = "Informant"
@@ -97,9 +97,9 @@ itemShoes = 369
 "building" -> "Argh, be more precisely! Market, temple, teleport, donkey stable, library, Well of Dreams, Villa Goldvein, workshop, guardroom, Dark Ally, Galmair's Crest or the Scoria Mine?"
 "Gebäude" -> "Argh, etwas genauer! Markt, Tempel, Teleport, Eselstall, Bibliothek, Quelle der Träume, Villa Goldader, Werkstatt, Wachstube, Dunkle Gasse, Galmairs Krone oder die Schlackengrube?"
 "place" -> "I suggest you look for Lotta Medborgar. She is hunter and has explored several places. Better to ask her. You can find her down at the Winged Sow Tavern."
-"Platz","Plätz" -> "Ich empfehle du suchst nach Lotta Medborgar. Sie ist Jägerin und hat etliche Plätze erkundet. Frag sie daher besser. Du kannst sie unten in der Taverne zur Geflügelten Sau."
-"Lotta","Medborgar",english -> "Is a hunter that has explored several places. You can find her down at the Winged Sow Tavern. "
-"Lotta","Medborgar" -> "Ist ne Jägerin und hat etliche Plätze erkundet. Du kannst sie unten in der Taverne zur Geflügelten Sau."
+"Platz", "Plätz" -> "Ich empfehle du suchst nach Lotta Medborgar. Sie ist Jägerin und hat etliche Plätze erkundet. Frag sie daher besser. Du kannst sie unten in der Taverne zur Geflügelten Sau."
+"Lotta", "Medborgar", english -> "Is a hunter that has explored several places. You can find her down at the Winged Sow Tavern. "
+"Lotta", "Medborgar" -> "Ist ne Jägerin und hat etliche Plätze erkundet. Du kannst sie unten in der Taverne zur Geflügelten Sau."
 "people" -> "Argh, there were only dwarves here in the past. But nowadays we have all kind of folks here. Even orcs, which you can find in the Flicker Swale... Or do you like to meet Lotta? *grins*"
 "Leute" -> "Argh, früher waren wir nur Zwerge, aber heutzutage haben wir alle möglichen Leute hier. Selbst Orks, welche du unten in der Schimmersenke finden kannst... Oder willst du Lotta treffen? *grinst*"
 "history" -> "The history of our faction can be read in our library. Unfortunately, we lost our actual history book. But our Don so kindly to provide his personal notes."
@@ -110,20 +110,19 @@ itemShoes = 369
 "Gesetz" -> "Wir haben eigentlich keine Gesetze. Du musst nur wissen, der Don herrscht und du hast zu befolgen. Aber du kannst mehr Hinweise unten in der Schlackengrube bei den Schweinebaue und dem Gemmenschacht finden."
 "ruler" -> "We have had only tow rulers so far. Our Don Valerio Guilianni and his father Tommaso Guilianni. You can find more information about the latter in the notes of the Don, our new history book. Information "
 "Herrscher" -> "Wir hatten lediglich zwei Herrscher bisher. Unseren Don Valerio Guilianni und seinen Vater Tommaso Guilianni. Informationen über letzteren findest du in den Aufzeichnungen des Don, unserem neuem Geschichtsbuch."
-
 "market" -> "Argh, everything has to be explained to you. Just run through the town to the Well of Dreams and you will see it. You cannot miss it. *points the towngate*"
 "Markt" -> "Argh, alles muss man dir erklären. Lauf einfach durch die Stadt zur Quelle der Träume und du wirst ihn sehen. Du kannst ihn nicht verfehlen. *zeigt auf das Stadttor*"
 "temple" -> "We have temples for each of our three gods here: Tempel of Irmorom, Tempel of Ronagan and Temple of Nagrun."
 "Tempel" -> "Wir haben je einen Tempel für unsere drei Götter hier. Irmoromtempel, Ronagantempel und Nagruntempel."
 "teleport", english -> "With this teleporter here you can travel save and quick to Runewick, Cadomyr or the Hemp Necktie Inn."
 "teleport" -> "Mit diesen Teleporter hier kannst du sicher und schnell nach Runewick, Cadomyr oder zum Gasthof zur Hanfschlinge reisen."
-"Donkey stable","stable" -> "Through the towngate and right then. *nods*"
-"Eselstall","Stall" -> "Auf der rechten Seite nach dem Stadtor. *nickt*"
+"Donkey stable", "stable" -> "Through the towngate and right then. *nods*"
+"Eselstall", "Stall" -> "Auf der rechten Seite nach dem Stadtor. *nickt*"
 "Donkey" -> "Weak people must and reach people can rent one at the donkey stable here."
 "Esel" -> "Schwache müssen und reiche Leute können sich einen hier im Eselstall ausleihen."
---"Rooms" -> "" --placeholder for rooms if they can be rent
---"Guild" -> ""
 
+-- "Rooms" -> "" --placeholder for rooms if they can be rent
+-- "Guild" -> ""
 "Well of Dreams" -> ""
 "???" -> ""
 "Villa Goldvein" -> ""
@@ -136,7 +135,6 @@ itemShoes = 369
 "???" -> ""
 "Library" -> ""
 "???" -> ""
-
 "Galmair's Crest" -> ""
 "???" -> ""
 "residence" -> ""
@@ -153,7 +151,6 @@ itemShoes = 369
 "???" -> ""
 "Pokerroom" -> ""
 "???" -> ""
-
 "Scoria Mine" -> ""
 "???" -> ""
 "The Winged Sow Tavern" -> ""
@@ -166,7 +163,6 @@ itemShoes = 369
 "???" -> ""
 "Sewers" -> ""
 "???" -> ""
-
 "Hinterlands" -> ""
 "???" -> ""
 "Sleepy Bujhaar Inn" -> ""
@@ -195,7 +191,6 @@ itemShoes = 369
 "???" -> ""
 "Blackbridge" -> ""
 "???" -> ""
-
 "Draganfod" -> ""
 "???" -> ""
 "Galmair Plateau" -> ""
@@ -216,15 +211,15 @@ itemShoes = 369
 "???" -> ""
 "Northern Woods" -> ""
 "???" -> ""
-
 "Golden Rumil" -> ""
 "???" -> ""
 "Fort Schnellbeil" -> ""
 "???" -> ""
 "Shadowland" -> ""
 "???" -> ""
---"Hemp Necktie Inn" -> ""
---"Gasthof zur Hanfschlinge" -> ""
+
+-- "Hemp Necktie Inn" -> ""
+-- "Gasthof zur Hanfschlinge" -> ""
 "The Temple of the Five" -> ""
 "???" -> ""
 "Hammerfall" -> ""
@@ -237,18 +232,18 @@ itemShoes = 369
 "Erzmagier" -> "Arrgh! Der Herrscher von Runewick und der interessiert mich auch nicht. Bring einfach seinen Kopf dem Don."
 "Elvaine", "Morgan", english -> "Arrgh! The ruler of Runewick and I do not care about him! Just bring his head to the Don."
 "Elvaine", "Morgan" -> "Arrgh! Der Herrscher von Runewick und der interessiert mich auch nicht. Bring einfach seinen Kopf dem Don."
-"Runewick", english -> "That's is the Southeast. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southeast. Look for signposts. But be careful. Dangerous way, use better the teleporter outside the town.","Don't waste your time there, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find some there."
-"Runewick" -> "Das liegt im Südosten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.","Verschwende deine Zeit dort nicht, aber wenn du Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst du dort welche finden."
+"Runewick", english -> "That's is the Southeast. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southeast. Look for signposts. But be careful. Dangerous way, use better the teleporter outside the town.", "Don't waste your time there, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find some there."
+"Runewick" -> "Das liegt im Südosten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.", "Verschwende deine Zeit dort nicht, aber wenn du Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst du dort welche finden."
 "Valerio", "Guilianni", "Don", english -> "Our ruler. You can find him at his residence in the Galmair's Crest. Just follow the road to the Well of Dreams. *points the towngate*"
 "Valerio", "Guilianni", "Don" -> "Unser Herrscher. Du findest ihn in seiner Residenz in Galmairs Krone. Folge einfach der Straße zur Quelle der Träume. *deutet auf das Stadttor"
-"Galmair", english -> "That is here and if you want to know more about it ask me for further information.","Here at Galmair, we are interested in Blacksmiths, Brick makers, Masons, Miners, and Brewers."
-"Galmair" -> "Das ist hier und wenn du mehr darüber wissen möchtest, dann frag mich nach weiterer Information.","Hier in Galmair suchen wir immer nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
+"Galmair", english -> "That is here and if you want to know more about it ask me for further information.", "Here at Galmair, we are interested in Blacksmiths, Brick makers, Masons, Miners, and Brewers."
+"Galmair" -> "Das ist hier und wenn du mehr darüber wissen möchtest, dann frag mich nach weiterer Information.", "Hier in Galmair suchen wir immer nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
 "Queen" -> "#me shudders 'This ugly face is rules Cadomyr. If you bring her hair to the Don he will probably like that.'"
 "Königin" -> "#me schaudert 'Dieses hässliche Gesicht regiert Cadomyr. Wenn du ihr Haar dem Don bringst wird er das viellecht mögen.'"
 "rosaline", "edwards", english -> "#me shudders 'This ugly face is rules Cadomyr. If you bring her hair to the Don he will probably like that.'"
 "rosaline", "edwards" -> "#me schaudert 'Dieses hässliche Gesicht regiert Cadomyr. Wenn du ihr Haar dem Don bringst wird er das viellecht mögen.'"
-"Cadomyr", english -> "That's is the Southwest. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southwest. Look for signposts. But be careful. Dangerous way, use better Or use the teleporter outside the town.","Don't waste your time there, but if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders you will find some there."
-"Cadomyr" -> "Das liegt im Südwesten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.","Verschwende deine Zeit dort nicht, aber wenn du Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer suchst, kannst du dort welche finden."
+"Cadomyr", english -> "That's is the Southwest. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southwest. Look for signposts. But be careful. Dangerous way, use better Or use the teleporter outside the town.", "Don't waste your time there, but if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders you will find some there."
+"Cadomyr" -> "Das liegt im Südwesten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.", "Verschwende deine Zeit dort nicht, aber wenn du Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer suchst, kannst du dort welche finden."
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I don't sell or buy anything. But we have a marketplace. You can try your luck there."
@@ -293,12 +288,12 @@ itemShoes = 369
 "Zhambra" -> "Einer der schwachen, jüngeren Götter. Du kann Anhänger in Cadomyr finden"
 
 -- Optional: Main land factions
---"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
---"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
---"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gobaith
 "Gobaith", "Gobiath", english -> "Arrr, what shall that be?"
