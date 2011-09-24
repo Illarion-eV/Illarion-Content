@@ -5,9 +5,10 @@
 -- NPC Race: dwarf                      NPC Position:  710, 313, 0            --
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
--- Author:   Rincewind                                                        --
+-- Authors:  Rincewind                                                        --
+--           & Someone                                                        --
 --                                                                            --
--- Last parsing: May 14, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: September 24, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -47,7 +48,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addResponse("Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?");
 talkEntry:addResponse("Hello. What do I have to make you?");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("G'day, wanna beer?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -71,9 +72,9 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?");
+talkEntry:addResponse("Hello. What do I have to make you?");
+talkEntry:addResponse("G'day, wanna beer?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -93,7 +94,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("Have a nice day.");
 talkEntry:addResponse("Aye. Come back whenever you are thirsty.");
 talkEntry:addResponse("Good day!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -116,9 +117,9 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Have a nice day.");
+talkEntry:addResponse("Aye. Come back whenever you are thirsty.");
+talkEntry:addResponse("Good day!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -137,9 +138,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Good - 'nd you?");
+talkEntry:addResponse("It's allrigth. Like allways.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -148,9 +148,8 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befinden");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Gut - 'nd Euch?");
+talkEntry:addResponse("Alles gut - wie immer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -159,8 +158,7 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("Great. I am Borgate Northoff, the barkeeper. Do you want something to drink?");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I'm Borgate Northoff. Need a drink?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -178,9 +176,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Nope, I didn't got a job for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -194,9 +190,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Nope, I didn't got a job for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -210,7 +204,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("I'm bartender. Tendering beer. - Mostly");
 talkEntry:addResponse("What do you think I have to do here? What a stupid question. Aaarh! Drink or eat something or leave!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -218,21 +212,22 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
 talkEntry:addResponse("Ich bin Schankwirt. Und ausschenken tue ich Bier. - Meistens...");
+talkEntry:addResponse("Was denkste was ich hier mache? So ne dumme Frage. Aaarh! Bestell was zu trinken oder verschwinde!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I'm bartender. Tendering beer. - Mostly");
+talkEntry:addResponse("What do you think I have to do here? What a stupid question. Aaarh! Drink or eat something or leave!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addResponse("Ich bin Schankwirt. Und ausschenken tue ich Bier. - Meistens...");
+talkEntry:addResponse("Was denkste was ich hier mache? So ne dumme Frage. Aaarh! Bestell was zu trinken oder verschwinde!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -240,9 +235,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("A dwarf shouldn't live in the past. - I allways looked forward. Also back in times with the Fluffy Sheep Tavern.");
+talkEntry:addResponse("Gobaith was nice. But now, since I'm here I honestly don't know why I didn't come sooner.");
+talkEntry:addResponse("Back on Gobaith everyone was used to say: 'Whatever happens, Borgate will do his own thing.' - and that's exactly what happened when everybody left the isle.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -258,9 +253,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("I am");
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Aha..?");
+talkEntry:addResponse("Arr!");
+talkEntry:addResponse("Aha...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -274,33 +269,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Borgate");
-talkEntry:addTrigger("barkeeper");
-talkEntry:addTrigger("innkeeper");
-talkEntry:addTrigger("Northoff");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH3.");
-talkEntry:addResponse("ENGLISH3.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fluffy");
 talkEntry:addTrigger("Sheep");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Fluffy Sheep was the name of an Inn. I worked there long time ago for the king of Silverbrand.");
+talkEntry:addResponse("The Fluffy Sheep Tavern was named after a sheep named Fluffy. And one day, they just ate it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sil[vb]erbran[dt]");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Silverbrand got many kings, but I think King Tiladin is the most important");
+talkEntry:addResponse("Ailverbrand - The dwarven town under the throne of Irmorom, in the middle of the coppermountains. Let us hold up the keepsake.");
+talkEntry:addResponse("Silverbrand took each dwarf as citizen those days. Even at night the sound of smithing hammers was hearable they say.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -311,9 +293,8 @@ talkEntry:addTrigger("brute");
 talkEntry:addTrigger("Booze");
 talkEntry:addTrigger("hook");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("When I came here, they didn't ask me a single question. So I did.");
+talkEntry:addResponse("Actually I know everything... but I don't tell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,17 +302,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("half-hung");
 talkEntry:addTrigger("bryan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Borgate");
-talkEntry:addTrigger("wirt");
-talkEntry:addTrigger("Northoff");
-talkEntry:addResponse("Genau, ich bin hier der Wirt. Was willst Du trinken?");
+talkEntry:addResponse("Bryan is the owner of the Hemp Necktie Inn. So it's his law we live with. You do better ask him about the law, eh?");
+talkEntry:addResponse("Actually I know everything... but I don't tell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -376,9 +348,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Old Borgate knows things you couldn't sleep anymore. But I can hold my tougne. What's about yours?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -392,9 +362,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Old Borgate knows things you couldn't sleep anymore. But I can hold my tougne. What's about yours?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -408,9 +376,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Cadomyr, Runewick... even Galmair! They aggrandise themself - At the Hemp Necktie Inn they are equal and their law is declared as nonsene.");
+talkEntry:addResponse("Cadomyr, Runewick... even Galmair! - Here in the middle of wilderness a dwarf stays as dwarf and everyone fights for his own good.");
+talkEntry:addResponse("Cadomyr, Runewick... even Galmair! - Those factions interrest an old dwarf like Borgate just peripheral.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -427,9 +395,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Old Borgate knows things you couldn't sleep anymore. But I can hold my tougne. What's about yours?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,9 +410,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Cadomyr, Runewick... even Galmair! They aggrandise themself - At the Hemp Necktie Inn they are equal and their law is declared as nonsene.");
+talkEntry:addResponse("Cadomyr, Runewick... even Galmair! - Here in the middle of wilderness a dwarf stays as dwarf and everyone fights for his own good.");
+talkEntry:addResponse("Cadomyr, Runewick... even Galmair! - Those factions interrest an old dwarf like Borgate just peripheral.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -460,9 +426,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Old Borgate knows things you couldn't sleep anymore. But I can hold my tougne. What's about yours?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,9 +440,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Old Borgate knows things you couldn't sleep anymore. But I can hold my tougne. What's about yours?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,9 +454,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Cadomyr, Runewick... even Galmair! They aggrandise themself - At the Hemp Necktie Inn they are equal and their law is declared as nonsene.");
+talkEntry:addResponse("Cadomyr, Runewick... even Galmair! - Here in the middle of wilderness a dwarf stays as dwarf and everyone fights for his own good.");
+talkEntry:addResponse("Cadomyr, Runewick... even Galmair! - Those factions interrest an old dwarf like Borgate just peripheral.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -509,9 +471,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("During my life people told me many tales. Most of them by drunk who mostly speak the truth. Are you really interrested in the opinion of an old washy dwarf?");
+talkEntry:addResponse("When people start talking about their homeland or start talking anyway, I tend to nod slowly and say 'Aha..?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -526,9 +487,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("During my life people told me many tales. Most of them by drunk who mostly speak the truth. Are you really interrested in the opinion of an old washy dwarf?");
+talkEntry:addResponse("When people start talking about their homeland or start talking anyway, I tend to nod slowly and say 'Aha..?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -543,9 +503,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("During my life people told me many tales. Most of them by drunk who mostly speak the truth. Are you really interrested in the opinion of an old washy dwarf?");
+talkEntry:addResponse("When people start talking about their homeland or start talking anyway, I tend to nod slowly and say 'Aha..?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -558,9 +517,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I'm a honorful dwarf and Irmorom created my kin ages ago. His will leads and protects my folk since begin of time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -574,9 +531,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("A bartender is able to tell you many things about Adron, for sure! He's the god of wine and festival. Also halfings say, he got a big wine jug wich never gets emmpty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -590,9 +545,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Some mudheads under the dwarven folk praise Bragon. He's god of fire, strong and prudent and handsome... But all in all dwarves should praise Irmorom - he's our father.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,9 +559,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("IRMOROM! Father of the dwarven folk! My kin will be bound to you for ever, wich fills my heart with gladness and pride! for sure he is the most gorgeous under the gods and similar to us dwarves in so many views!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -622,9 +573,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Malachín is god of the knights and warriors. Better ask there for better informations.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -638,9 +587,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I don't know much about Ronagan, only that I'll become insane when people mug my mugs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -685,29 +632,26 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC first name>");
-talkEntry:addTrigger("<NPC last name>");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addTrigger("Borgate");
+talkEntry:addTrigger("bar");
+talkEntry:addTrigger("Northoff");
+talkEntry:addResponse("Indeed, I'm the bartender here. What's your order?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Borgate");
+talkEntry:addTrigger("wirt");
+talkEntry:addTrigger("Northoff");
+talkEntry:addResponse("Genau, ich bin hier der Wirt. Was willst Du trinken?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Arr-h!");
+talkEntry:addResponse("That's the way it's supposed to be!");
+talkEntry:addResponse("Well then!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -722,9 +666,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Arr-h?.");
+talkEntry:addResponse("Nevermind.");
+talkEntry:addResponse("Anything else?.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -739,18 +683,27 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(50));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addCondition(npc.base.condition.chance.chance(65));
+talkEntry:addResponse("#me nods slowly. 'Aha..?'");
+talkEntry:addResponse("#me slowy shakes his head. 'Hmpf.'");
+talkEntry:addResponse("#me starts to comb his long beard with his figners. 'Is that true?'");
+talkEntry:addResponse("#me wrinkles his big chubby nose. 'Ye-h. I just came to same conclusion.'");
+talkEntry:addResponse("#me takes a sip out of his beer mug. '... incrediple!'");
+talkEntry:addResponse("#me rises a brow. 'Honestly?'");
+talkEntry:addResponse("Aye, heared something similar once before. You wouldn't belive it.");
+talkEntry:addResponse("Honsetly? I'm amazed!");
+talkEntry:addResponse("#me crosses his hands behind the neck. 'Hm-hm.'");
+talkEntry:addResponse("If it's Irmoroms will...");
+talkEntry:addResponse("#me picks the hair of his beard with two fingers. 'That sounds kind of curious. Don't think so?'");
+talkEntry:addResponse("#me scratches his chin. 'Interesting, isn't it?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(50));
-talkEntry:addResponse("#me nickt langsam. 'Aha...?'");
+talkEntry:addCondition(npc.base.condition.chance.chance(65));
+talkEntry:addResponse("#me nickt langsam. 'Aha..?'");
 talkEntry:addResponse("#me legt den Kopf schief. 'Hmpf.'");
 talkEntry:addResponse("#me greift sich mit den Fingern in den langen Bart und zieht sie hindurch. 'Ist das so?'");
 talkEntry:addResponse("#me rümpft seine große felischige Nase. 'So etwas dachte ich mir schon.'");
@@ -760,6 +713,8 @@ talkEntry:addResponse("Tatsächlich!? Ich bin erstaunt.");
 talkEntry:addResponse("#me verschränkt die Hände im Nacken. 'Hm-hm.'");
 talkEntry:addResponse("Sodar es Irmoroms Wille ist...");
 talkEntry:addResponse("#me zupft mit zwei Fingern an seinem Bart. 'Das ist seltsam. Findest du das nicht auch?'");
+talkEntry:addResponse("#me hebt eine Augenbraue. 'Wirklich?'");
+talkEntry:addResponse("#me kratzt sich nachdenklich am Kinn. 'Was Ihr nicht sagt..?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Arrr...", "Arrr...");
@@ -770,8 +725,8 @@ talkingNPC:addCycleText("#me sieht sich gelangweilt um", "#me looks around bored
 talkingNPC:addCycleText("#me spielt mit einer Kupfermünze", "#me plays with a copper coin");
 talkingNPC:addCycleText("#me wischt über die Theke", "#me wipes over the bar");
 talkingNPC:addCycleText("#me trinkt ein Bier", "#me gulps down a beer");
-talkingNPC:addCycleText("#me wischt seine Hände in die Hosen.", "ENGLISH.");
-talkingNPC:addCycleText("#me brummt eine langsame Meldoie.", "ENGLISH.");
+talkingNPC:addCycleText("#me wischt seine Hände in die Hosen.", "#me cleans his hands, by rubbing them agains his trousers.");
+talkingNPC:addCycleText("#me brummt eine langsame Meldoie.", "#me grumbles a slow melody.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
