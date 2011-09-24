@@ -1,6 +1,7 @@
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
+require("monster.base.kills")
 require("base.messages");
 module("monster.mon_10_mummies", package.seeall)
 
