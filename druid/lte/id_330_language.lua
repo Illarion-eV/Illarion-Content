@@ -62,7 +62,7 @@ function callEffect(Effect,User)
 				   Effect:addValue("cooldownWhite",cooldownWhite)
 			       Effect.nextCalled = 50
 			       User:inform("return true")
-				   User:inform("Skillhöhe: "..User:increaseSkill(skillGroup,skillName,0))
+				   User:inform("Skillhöhe: "..User:increaseSkill(1,"elf language",0))
 				   return true
 	           end
 		   end
@@ -71,7 +71,7 @@ function callEffect(Effect,User)
 end
 
 function removeEffect(Effect,User)
-User:inform("Skillhöhe: "..User:increaseSkill(skillGroup,skillName,0))
+User:inform("Skillhöhe: "..User:increaseSkill(1,"elf language",0))
 end
 
 function loadEffect(Effect,User)                  			
