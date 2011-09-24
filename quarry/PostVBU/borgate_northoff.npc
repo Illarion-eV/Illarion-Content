@@ -103,25 +103,25 @@ itemShoes = 53
 "Cadomyr" -> "Ob Cadomyr, Galmair oder auch Runewick... die nehmen sich alle viel zu wichtig. Hier im Gasthof zu Hanfschlinge behandeln wir alle gleich.", "Ob Cadomyr, Galmair oder auch Runewick... hier in der Mitte der Wildniss ist ein Zwerg einfach nur ein Zwerg. Jeder ist sich selbst der Nächste.", "Ob Cadomyr, Galmair oder auch Runewick... die bekümmern einen alten Zwerg wie ich einer bin nur noch peripher."
 
 -- Main land factions
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"albar", english -> "During my life people told me many tales. Most of them by drunk who mostly speak the truth. Are you really interrested in the opinion of an old washy dwarf?", "When people start talking about their homeland or start talking anyway, I tend to nod slowly and say 'Aha..?'"
 "albar" -> "Im Laufe meines Lebens wurde mir viel Erzählt. Das Meißte, von Betrunkenen und die sagen eher die Wahrheit. Aber wollt ihr wirklich die verwaschene Meinung eines alten Zwerges Hören?", "Wenn mir die Leute anfangen über ihre Heimat, oder sonst etwas zu erzählen nicke ich eigentlich immer nur uns sage 'Aha..?'"
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"gynk", "gync", english -> "During my life people told me many tales. Most of them by drunk who mostly speak the truth. Are you really interrested in the opinion of an old washy dwarf?", "When people start talking about their homeland or start talking anyway, I tend to nod slowly and say 'Aha..?'"
 "gync", "gynk" -> "Im Laufe meines Lebens wurde mir viel Erzählt. Das Meißte, von Betrunkenen und die sagen eher die Wahrheit. Aber wollt ihr wirklich die verwaschene Meinung eines alten Zwerges Hören?", "Wenn mir die Leute anfangen über ihre Heimat, oder sonst etwas zu erzählen nicke ich eigentlich immer nur uns sage 'Aha..?'"
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"salkama", english -> "During my life people told me many tales. Most of them by drunk who mostly speak the truth. Are you really interrested in the opinion of an old washy dwarf?", "When people start talking about their homeland or start talking anyway, I tend to nod slowly and say 'Aha..?'"
 "salkama" -> "Im Laufe meines Lebens wurde mir viel Erzählt. Das Meißte, von Betrunkenen und die sagen eher die Wahrheit. Aber wollt ihr wirklich die verwaschene Meinung eines alten Zwerges Hören?", "Wenn mir die Leute anfangen über ihre Heimat, oder sonst etwas zu erzählen nicke ich eigentlich immer nur uns sage 'Aha..?'"
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"god" -> "I'm a honorful dwarf and Irmorom created my kin ages ago. His will leads and protects my folk since begin of time."
 "Gott", "Götter" -> "Ich bin ein aufrichtiger Zwerg und Irmorom hat einst vor vielen Jahren meine Sippe erschaffen. Sein Wille leitet und schützt mein Volk von Anbeginn her."
-"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron", english -> "A bartender is able to tell you many things about Adron, for sure! He's the god of wine and festival. Also halfings say, he got a big wine jug wich never gets emmpty."
 "Adron" -> "Als Schankwirt, kann ich dir natürlich viel über Adron erzählen. Er ist der Gott des Weines und der Feste. Und man erzählt sich, insbesondere bei den Halblingen, er trägt immerzu einen großen Weinkrug bei sich, der niemals leer wird."
-"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Bragon", "Brágon", english -> "Some mudheads under the dwarven folk praise Bragon. He's god of fire, strong and prudent and handsome... But all in all dwarves should praise Irmorom - he's our father."
 "Bragon", "Brágon" -> "Ein paar weniger Querköpfe unter den Zwergen huldigen auch Bragon. Er ist der Gott des Feuers, ist sehr weise, stark, gebieterisch, edel, und stattlich. Aber im Grunde Sollten Zwerge zu Irmorom beten, denn er ist unser Schöpfer."
-"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Irmorom", english -> "IRMOROM! Father of the dwarven folk! My kin will be bound to you for ever, wich fills my heart with gladness and pride! for sure he is the most gorgeous under the gods and similar to us dwarves in so many views!"
 "Irmorom" -> "IRMOROM! Der vater des Zwergenvolkes. Auf ewig wird mein Volk an ihn gebunden sein, und das erfüllt unser Herz mit Freude und Stolz. Er ist wahrlich der prächtigste und uns Zwergen in so vielfältiger Weise ähnlich."
-"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Malachin", "Malachín", english -> "Malachín is god of the knights and warriors. Better ask there for better informations."
 "Malachin", "Malachín" -> "Der Gott der Ritter und Kriegerkaste. Fragt die nach ihm."
-"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ronagan", english -> "I don't know much about Ronagan, only that I'll become insane when people mug my mugs!"
 "Ronagan" -> "Über Ronagan weiß ich nicht viel, nur das ich Fuchs-wild werde wenn die Leute die Bierkrüge nicht zurückbringen.", "Hm-h... Fragt doch Gowan. Hat ja wohl nicht umsonst einen Haken als Hand."
 
 -- Catching typical NPC phrases
@@ -131,20 +131,19 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Ich höre viel und weiss eigentlich fast alles. Ich erzähl' dir aber nichts davon, das geht dich nunmal nichts an."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Borgate", "bar", "Northoff" -> "Indeed, I'm the bartender here. What's your order?
+"Borgate", "wirt", "Northoff" -> "Genau, ich bin hier der Wirt. Was willst Du trinken?"
+"Yes" -> "Arr-h!", "That's the way it's supposed to be!", "Well then!"
 "Ja" -> "Arr-h!", "So soll's sein!", "Aye, das hab ich gern.", "Wenn's unbedingt notwenig ist."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"No" -> "Arr-h?.", "Nevermind.", "Anything else?."
 "Nein" -> "Arr-h?", "Dann eben nicht.", "Was wollt ihr dann von mir?"
 
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger /  Response is only given 1/5 of the time
-"Borgate", "bar", "Northoff" -> "Indeed, I'm the bartender here. What's your order?
-"Borgate", "wirt", "Northoff" -> "Genau, ich bin hier der Wirt. Was willst Du trinken?"
-".*", english, chance(50) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-".*", german, chance(50) -> "#me nickt langsam. 'Aha...?'", "#me legt den Kopf schief. 'Hmpf.'", "#me greift sich mit den Fingern in den langen Bart und zieht sie hindurch. 'Ist das so?'", "#me rümpft seine große felischige Nase. 'So etwas dachte ich mir schon.'", "#me nimmt einen Schluck von seinem Bierkrug. '... unglaublich!'", "Aye, so etwas ähnliches hab ich schonmal gehört. Das würde dich wundern.", "Tatsächlich!? Ich bin erstaunt.", "#me verschränkt die Hände im Nacken. 'Hm-hm.'", "Sodar es Irmoroms Wille ist...", "#me zupft mit zwei Fingern an seinem Bart. 'Das ist seltsam. Findest du das nicht auch?'"
+
+".*", english, chance(65) -> "#me nods slowly. 'Aha..?'", "#me slowy shakes his head. 'Hmpf.'", "#me starts to comb his long beard with his figners. 'Is that true?'","#me wrinkles his big chubby nose. 'Ye-h. I just came to same conclusion.'","#me takes a sip out of his beer mug. '... incrediple!'","#me rises a brow. 'Honestly?'","Aye, heared something similar once before. You wouldn't belive it.","Honsetly? I'm amazed!","#me crosses his hands behind the neck. 'Hm-hm.'","If it's Irmoroms will...","#me picks the hair of his beard with two fingers. 'That sounds kind of curious. Don't think so?'","#me scratches his chin. 'Interesting, isn't it?'"
+".*", german, chance(65) -> "#me nickt langsam. 'Aha..?'", "#me legt den Kopf schief. 'Hmpf.'", "#me greift sich mit den Fingern in den langen Bart und zieht sie hindurch. 'Ist das so?'", "#me rümpft seine große felischige Nase. 'So etwas dachte ich mir schon.'", "#me nimmt einen Schluck von seinem Bierkrug. '... unglaublich!'","Aye, so etwas ähnliches hab ich schonmal gehört. Das würde dich wundern.", "Tatsächlich!? Ich bin erstaunt.", "#me verschränkt die Hände im Nacken. 'Hm-hm.'", "Sodar es Irmoroms Wille ist...", "#me zupft mit zwei Fingern an seinem Bart. 'Das ist seltsam. Findest du das nicht auch?'","#me hebt eine Augenbraue. 'Wirklich?'","#me kratzt sich nachdenklich am Kinn. 'Was Ihr nicht sagt..?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -159,5 +158,5 @@ cycletext "#me sieht sich gelangweilt um", "#me looks around bored"
 cycletext "#me spielt mit einer Kupfermünze", "#me plays with a copper coin"
 cycletext "#me wischt über die Theke", "#me wipes over the bar"
 cycletext "#me trinkt ein Bier", "#me gulps down a beer"
-cycletext "#me wischt seine Hände in die Hosen.", "ENGLISH."
-cycletext "#me brummt eine langsame Meldoie.", "ENGLISH."
+cycletext "#me wischt seine Hände in die Hosen.", "#me cleans his hands, by rubbing them agains his trousers."
+cycletext "#me brummt eine langsame Meldoie.", "#me grumbles a slow melody."
