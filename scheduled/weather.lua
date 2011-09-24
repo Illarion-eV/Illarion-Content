@@ -185,7 +185,7 @@ end
 -- winter: 13-16: kalt, 
 
 function changeWeather()
-    
+    return; -- FOR SAVETY REASONS!
     actWeather=world.weather;
     
     month=world:getTime("month");
