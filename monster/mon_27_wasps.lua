@@ -95,7 +95,7 @@ function onDeath(Monster)
         CreateCircle(44,1000,Monster.pos,1,true);
         world:gfx(36,Monster.pos);
         world:makeSound(5,Monster.pos);
-        HitChar(SourceItem.pos,3000,Monster.pos);
+        --HitChar(SourceItem.pos,3000,Monster.pos);
 
     end
     monster.base.drop.Dropping(Monster);
