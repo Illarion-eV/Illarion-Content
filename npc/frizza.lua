@@ -1641,12 +1641,12 @@ mainNPC:setLookat("Dieser NPC ist Frizza die Auskunftgeberin.", "This NPC is Fri
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 818);
+mainNPC:setEquipment(3, 180);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 2295);
-mainNPC:setEquipment(9, 843);
+mainNPC:setEquipment(9, 827);
 mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
 

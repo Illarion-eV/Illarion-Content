@@ -37,12 +37,12 @@ beardID = 0
 colorHair = 34, 139, 34
 colorSkin = 154, 205, 50
 itemHead = 0
-itemChest = 818
+itemChest = 180
 itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 2295
-itemTrousers = 843
+itemTrousers = 827
 itemShoes = 369
 
 -- Template Version 1.04, 07/12/2011 by Estralis Seborian
