@@ -2,18 +2,18 @@
 -- NPC Name: Frizza                                                   Cadomyr --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  124, 646, 0            --
+-- NPC Race: lizardman                  NPC Position:  121, 643, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 22, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 24, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Frizza"
 race = lizardman
 sex = female
-position = 124, 646, 0
+position = 121, 643, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Informant"
@@ -33,7 +33,7 @@ wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 3
-beardID = 5
+beardID = 0
 colorHair = 34, 139, 34
 colorSkin = 154, 205, 50
 itemHead = 0
@@ -110,7 +110,6 @@ itemShoes = 369
 "Gesetz" -> "Wir haben nicht wirklich Gesetze hier. Wir haben eher einen Kodex der an einer Reiterssstatue vor dem Palast gefunden werden kann."
 "ruler" -> "Our current ruler isss our wonderful queen Rosaline Edwards. You find her in our palace. The namesss of our former rulesss can be found at a rider-ssstatue in front of the palace."
 "Herrscher" -> "Unsere aktuelle Herrscherin ist unsssere wunderbare Königin Rosaline Edwards. Man findet sssie in unserem Palast. Die Namen unserer früheren Herrscher können auf einer Reiterssstatue vor dem Palast gefunden werden."
-
 "market" -> "The market isss behind thisss town wall. Jussst passs the towngate and the Quartermaster's store. You can buy a lot of thingsss there."
 "Markt" -> "Der Markt ist hinter dieser Ssstadtmauer hier. Einfach das Stadttor und den Quartiermeister Laden durchqueren. Du kannst dort viele Dinge kaufen."
 "temple" -> "We have one temple here. The temple of Zambra. Other temples are outside of Cadomyr, but I have no idea where. However, the temple of Zambra is on the right ssside between palace and market."
@@ -119,13 +118,13 @@ itemShoes = 369
 "teleport" -> "Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man hier wie du sssehen sssolltessst. *Zeigt auf den Teleporter*"
 "Census office" -> "The Census office can be found in front of the palace on the left ssside. There you register yourssself and become one of usss "
 "Zensusbüro" -> "Dasss Zensusbüro kann vor dem Palassst auf der linken Ssseite gefunden werden. Dort kann man sssich registrieren lasssen und einer von unsss werden."
-"Donkey stable","stable" -> "Our donkey stable isss the Milkhouse. Jussst follow to the ssstreet to the Katanbi river."
-"Eselstall","Stall" -> "Unser Essselssstall ist das Milchhausss. Folge einfach der Ssstraße zum Katanbi Fluß."
+"Donkey stable", "stable" -> "Our donkey stable isss the Milkhouse. Jussst follow to the ssstreet to the Katanbi river."
+"Eselstall", "Stall" -> "Unser Essselssstall ist das Milchhausss. Folge einfach der Ssstraße zum Katanbi Fluß."
 "Donkey" -> "A donkey can be rent at the Milkhouse. In Galmair and Runewick are running ssseveral around and they are free for hunt. Sss!"
 "Esel" -> "Ein Esssel kann im Milchhausss geliehen werden. In Galmair und Runewick laufen viele herum und die sssind auch zur Jagd frei gegeben. Sss!"
---"Rooms" -> "" --placeholder for rooms if they can be rent
---"Guild" -> ""
 
+-- "Rooms" -> "" --placeholder for rooms if they can be rent
+-- "Guild" -> ""
 "Palace" -> "Our palace isss on the other ssside of the town. Just go inssside and run through. You can find there our wonderful queen, the Royal Champer, her Treasureroom and the library."
 "Palast" -> "Unssser Palassst issst auf der anderen Ssseite der Ssstadt. Geh einfach rein und lauf durch die Ssstadt. Dort findet man unsssere wunderbare Königin, die Königliche Kammer, ihren Schatzraum und die Bibliothek."
 "Royal Champer" -> ""
@@ -134,7 +133,6 @@ itemShoes = 369
 "Schatzraum" -> ""
 "Library" -> ""
 "Bibliothek" -> ""
-
 "Tavern Unicorn Lion" -> ""
 "Taverne Einhörniger Löwe" -> ""
 "Inn Lakeshore" -> ""
@@ -154,12 +152,12 @@ itemShoes = 369
 "Villa Reginald", english -> ""
 "Villa Reginald" -> ""
 "Quartermaster's Store" -> ""
---"Quartiermeister Laden" -> ""
+
+-- "Quartiermeister Laden" -> ""
 "Flat quarter" -> ""
 "Wohnungsquartier" -> ""
 "Sir Reginald Tomb" -> ""
 "Sir Reginald Gruft" -> ""
-
 "Western Katanbi Desert" -> ""
 "Westliche Katanbi Wüste" -> ""
 "Mount Siba" -> ""
@@ -180,7 +178,6 @@ itemShoes = 369
 "???" -> ""
 "Cape Farewell" -> ""
 "???" -> ""
-
 "Katanbi River" -> ""
 "???" -> ""
 "Liberty Quarry" -> ""
@@ -193,7 +190,6 @@ itemShoes = 369
 "???" -> ""
 "Weary Inn" -> ""
 "???" -> ""
-
 "Katanbi Desert" -> ""
 "???" -> ""
 "Prison" -> ""
@@ -222,7 +218,6 @@ itemShoes = 369
 "???" -> ""
 "Mount Zotmore" -> ""
 "???" -> ""
-
 "Katanbi Delta" -> ""
 "???" -> ""
 "Merchants' Folly" -> ""
@@ -239,7 +234,6 @@ itemShoes = 369
 "???" -> ""
 "Mount Letma" -> ""
 "???" -> ""
-
 "Draganfod" -> ""
 "???" -> ""
 "Lonely Mountains" -> ""
@@ -250,8 +244,9 @@ itemShoes = 369
 "???" -> ""
 "Spider's Mouth" -> ""
 "???" -> ""
---"Hemp Necktie Inn" -> ""
---"Gasthof zur Hanfschlinge" -> ""
+
+-- "Hemp Necktie Inn" -> ""
+-- "Gasthof zur Hanfschlinge" -> ""
 "The Insurmountable Limes" -> ""
 "???" -> ""
 
