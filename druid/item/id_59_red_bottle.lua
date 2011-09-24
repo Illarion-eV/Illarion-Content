@@ -6,7 +6,7 @@
 require("base.common")
 require("druid.base.alchemy")
 
-module("druid.item.id_59_red_bottle", package.seeall(druid.base.alchemy))
+module("druid.item.id_59_red_bottle",package.seeall); --, package.seeall(druid.base.alchemy))
 
 -- UPDATE common SET com_script='druid.item.id_59_red_bottle' WHERE com_itemid = 59;
 
@@ -19,18 +19,8 @@ taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","acidly"      ,"
 
 function DoDruidism(Character,SourceItem)
 
-	if (druid.base.alchemy.checkPotionSpam(Character)) then
-		base.common.InformNLS(Character, "Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass Tränke vorrübergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
-		return;
-	end
-
-    -- if there is already a push of attributs by a potion, it will be removed by the new potion
-	if Character.effects:find(59) then
-	   Character.effects:removeEffect(59);
-	   base.common.InformNLS(Character, "alte Trankwirkung weg", "alte Trankwirkung weg");
-	end
 	
-	local dataZList = SplitBottleData(Character,Sourceitem.id_data);
+    local dataZList = SplitBottleData(Character,Sourceitem.id_data);
 
 --    for i=1,8 do
 --      Character:inform("PIN "..i..": "..dataZList[i])
