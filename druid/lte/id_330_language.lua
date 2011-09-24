@@ -48,6 +48,10 @@ function callEffect(Effect,User)
 				find,skillGroup = Effect:findValue( "skillGroup")
 
 				--Wiederherstellung des alten Zustand
+				User:inform("skillGroup: "..skillGroup)
+				User:inform("skillName: "..skillName)
+				User:inform("newSkill: "..newSkill)
+				User:inform("oldSkill: "..oldSkill)
 				User:increaseSkill(skillGroup,skillName,(-(newSkill-oldSkill))) -- ergibt wahrscheinlich noch falsche Werte
      
 	            world:gfx(45,User.pos) 
