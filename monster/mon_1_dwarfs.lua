@@ -7,11 +7,11 @@ module("monster.mon_1_dwarfs", package.seeall)
 
 
 function ini(Monster)
-    debug("INI MONSTER START")
+    --debug("INI MONSTER START")
     init=true;
     monster.base.quests.iniQuests();
     killer={}; --A list that keeps track of who attacked the monster last
-    debug("INI QUEETS MID")
+    --debug("INI QUEETS MID")
     --Random Messages
     
     msgs = base.messages.Messages();
@@ -44,7 +44,7 @@ end
 function enemyNear(Monster,Enemy)
 
     if init==nil then
-        debug ("now initializing monsters!!!")
+        --debug ("now initializing monsters!!!")
         ini(Monster);
     end
 
@@ -63,7 +63,7 @@ end
 function enemyOnSight(Monster,Enemy)
 
     if init==nil then
-        debug ("now initializing monsters!!!")
+        --debug ("now initializing monsters!!!")
         ini(Monster);
     end
 
@@ -80,9 +80,9 @@ function enemyOnSight(Monster,Enemy)
 end
 
 function onAttacked(Monster,Enemy)
-debug ("in onattacked (original)")
+--debug ("in onattacked (original)")
     if init==nil then
-    debug ("now initializing monsters!!!")
+    --debug ("now initializing monsters!!!")
         ini(Monster);
     end
     monster.base.kills.setLastAttacker(Monster,Enemy)
@@ -92,7 +92,7 @@ end
 function onCasted(Monster,Enemy)
 
     if init==nil then
-    debug ("now initializing monsters!!!")
+    --debug ("now initializing monsters!!!")
         ini(Monster);
     end
     monster.base.kills.setLastAttacker(Monster,Enemy)
