@@ -218,7 +218,8 @@ function changeWeather()
     m_Weather.fog_density=newFog;
     m_Weather.wind_dir=newWindDir;
     m_Weather.gust_strength=newGust
-    m_Weather.percipitation_strength=newRain;
+    m_Weather.percipitation_strength=0;
+   -- m_Weather.percipitation_strength=newRain;
     m_Weather.percipitation_type=newPerTyp;
     m_Weather.thunderstorm=newThunder;
     m_Weather.temperature=newTemp;
