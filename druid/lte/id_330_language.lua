@@ -30,7 +30,8 @@ function callEffect(Effect,User)
 		   if findCounter then
 		      counterWhite = counterWhite - 1;
 	          Effect:addValue("counterWhite",counterWhite)
-	       end
+	          User:inform("counterWhite - 1 = "..counterWhite)
+		   end
 		
 		   if counterWhite == 0 then
 		        --SkillID laden 
