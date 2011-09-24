@@ -953,7 +953,7 @@ function getGemBonus(item)
     gemSum=0;
     gemMin=1000;   -- arbitrarily high number
     
-    for _, gStrength in pais(gemStrength) do
+    for _, gStrength in pairs(gemStrength) do
         gemSum=gemSum+gStrength;
         if gStrength<gemMin then gemMin=gStrength end;
     end
