@@ -46,7 +46,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Hail Oldra. *Closes her eyes*");
+talkEntry:addResponse("Hail Elara. *Closes her eyes*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -58,7 +58,7 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("Heil Oldra. *Schließt ihre Augen*");
+talkEntry:addResponse("Heil Elara. *Schließt ihre Augen*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -68,7 +68,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hail Oldra. *Closes her eyes*");
+talkEntry:addResponse("Hail Elara. *Closes her eyes*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -77,7 +77,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Heil Oldra. *Schließt ihre Augen*");
+talkEntry:addResponse("Heil Elara. *Schließt ihre Augen*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -232,26 +232,26 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("inform");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I have information about buildings, places, events, people, history and gods of Galmair for you if you want to know them.");
+talkEntry:addResponse("I have information about buildings, places, events, people, history and gods of Runewick for you if you want to know them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("inform");
-talkEntry:addResponse("Ich habe Informationen über Gebäude, Plätze, Ereignisse, Leute, Geschichte und Götter von Galmair für euch wenn ihr wünscht.");
+talkEntry:addResponse("Ich habe Informationen über Gebäude, Plätze, Ereignisse, Leute, Geschichte und Götter von Runewick für euch wenn ihr wünscht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("question");
-talkEntry:addResponse("I have information about buildings, places, events, people, history and gods of Galmair for you if you want to know them.");
+talkEntry:addResponse("I have information about buildings, places, events, people, history and gods of Runewick for you if you want to know them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Frage");
 talkEntry:addTrigger("Auskunft");
-talkEntry:addResponse("Ich habe Informationen über Gebäude, Plätze, Ereignisse, Leute, Geschichte und Götter von Galmair für euch wenn ihr wünscht.");
+talkEntry:addResponse("Ich habe Informationen über Gebäude, Plätze, Ereignisse, Leute, Geschichte und Götter von Runewick für euch wenn ihr wünscht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -445,97 +445,113 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Garden Eldan");
-talkEntry:addResponse("TEST");
+talkEntry:addTrigger("Eldan Garden");
+talkEntry:addResponse("Garden of Eldan is a place which inspires us with wisdom. You can find it if you walk through the portal around the corner into the town and take the other, red one then. There you find also a shrine of Eldan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Garten Eldan");
+talkEntry:addTrigger("Eldan Garten");
+talkEntry:addResponse("Der Garten des Eldan ist ein Platz der uns mit Weisheit inspiriert. Ihr findet ihn wenn ihr in die Stadt durch das Portal um die Ecke reist und dann durch das nächste , rote, Portal tretet. Dort findet ihr auch einen Schrein für Eldan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Slums");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Slum");
+talkEntry:addResponse("The slums are under the market. A Ladder will lead you there. I assume I do not have to explain who lives there. Those who lack on knowledge or have spent to much time on praising Adron.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Slum");
+talkEntry:addResponse("Die Slums können unter dem Markt gefunden werden. Eine Leiter wird euch dort hinführen. Ich nehme an, ich muss euch nicht erklären wer dort lebt. Jene, denen es an Weisheit mangelt und jene, die zuviel Zeit mit Huldigungen für Adron verbringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tomb");
-talkEntry:addResponse("");
+talkEntry:addResponse("To reach the tomb you have to pass the market first and then the slums. The tomb is devided in three rooms: Room of Light, Room of Darkness, Room of  Twilight.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Gruft");
+talkEntry:addResponse("Um die Gruft zu erreichen müsst erst zum Markt und dann zu den Slums. Die Gruft ist unterteilt in drei Räume: Raum des Lichts, Raum der Finsterniss, und Raum des Zwielichts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Room of Light");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Room Light");
+talkEntry:addResponse("The Room of Light is reservated for those who have reached the top of the god given hierarchy. Eldan as well as Elara had a reason to set it this way. Our Archmage knows that and therefore rules according to this divine law.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Raum Lichts");
+talkEntry:addResponse("Der Raum des Lichts ist für jene an der Spitze der gottgewollten Hierarchie bestimmt. Eldan wie auch Elara hatten ihre Gründe dafür. Unser Erzmagier ist sich dem durchaus bewusst und regiert deswegen auch entsprechend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Room of Darkness");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Room Darkness");
+talkEntry:addResponse("The Room of Darkness is the place for those corpse who lived at the bottom of the god given hierarchy before. Gregor, a human whom you sould find on your way to the tomb, will tell you more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Raum Finsternis");
+talkEntry:addResponse("Der Raum der Finsternis ist jener Platz an denen die Leichen jener aufgehoben werden, welche zuvor an der Sohle der Gesellschaft gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Room of Twilight");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Room Twilight");
+talkEntry:addResponse("The Room of Twilight is the place who were neither at the top nor on the bottom of the god given hierarchy. Gregor, a human whom you sould find on your way to the tomb, will tell you more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Raum Zwielicht");
+talkEntry:addResponse("Der Raum des Zwielichts ist der Platz für jene welche weder an der Spitze noch am unteren Ende der Hierarchie gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Library");
-talkEntry:addResponse("");
+talkEntry:addResponse("Actually, we have four of them in each of our four towers: Library of Air, Library of Fire, Library of Earth and Library of Water. About which one do you like to know more?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Bibliothek");
+talkEntry:addResponse("Eigentlich haben wir hier vier Stück. Jeweils eine in unseren vier Türmen: Bibliothek der Luft, Bibliothek des Feuers, Bibliothek der Erde und Bibliothek des Wassers. Zu welcher wollt ihr mehr wissen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tower of Air");
-talkEntry:addResponse("Mainly made for priests");
+talkEntry:addTrigger("Tower");
+talkEntry:addResponse("There are four towers: Tower of Air, Tower of Fire, Tower of Earth and Tower of Water. You can all leave and enter them at the top as well as at the bottom, after you entered the town through the portal over there. *points southeast*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Turm");
+talkEntry:addResponse("Es gibt vier Türme: Turm der Luft, Turm des Feuers, Turm der Erde und Turm des Wassers. Ihr könnt jeden Turm am Dach oder Erdgeschoss betretten oder verlassen, nachdem ihr über das Portal dort drüben die Stadt betreten habt. *zeigt südöstlich*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tower Air");
+talkEntry:addTrigger("Air Tower");
+talkEntry:addResponse("This tower is mainly made for priests. You can find there following rooms: Treekitchen, Library of Air, House of Gods, and Shrine of Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Turm Luft");
+talkEntry:addTrigger("Luft turm");
+talkEntry:addResponse("Dieser Turm ist hauptsächlich für Priester. Ihr findet folgende Räume dort: Baumküche, Bibliothek der Luft, Haus der Götter, und Schrein der Elara.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -546,68 +562,64 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Baumküche");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Library of Air");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Library Air");
 talkEntry:addTrigger("Air Library");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Bibliothek Luft");
+talkEntry:addTrigger("Luft Biblothek");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("House of Gods");
+talkEntry:addTrigger("House God");
+talkEntry:addTrigger("God House");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Haus Götter");
+talkEntry:addTrigger("Götter Haus");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Shrine.Elara");
+talkEntry:addTrigger("Shrine Elara");
+talkEntry:addTrigger("Elara Shrine");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Schrein Elara");
+talkEntry:addTrigger("Elara Schrein");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tower of Fire");
-talkEntry:addResponse("Mainly made for mages");
+talkEntry:addTrigger("Tower Fire");
+talkEntry:addTrigger("Fire Tower");
+talkEntry:addResponse("This tower is mainly made for mages. You can find there following rooms: Workshop, Library of Fire, Archmage Champer, Hall of Elara, Bragon Stronghold and Shrine of Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Turm Feuer");
+talkEntry:addTrigger("Feuer Turm");
+talkEntry:addResponse("Dieser Turm ist hauptsächlich für Magier. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Hall der Elara, Bragon Bollwerk und Schrein des Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -618,211 +630,212 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Werkstatt");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Library of Fire");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Library Fire");
 talkEntry:addTrigger("Fire Library");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Bibliothek Feuer");
+talkEntry:addTrigger("Feuer Bibliothek");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Archmage Champer");
+talkEntry:addTrigger("Champer Archmage");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Erzmagier Kammer");
+talkEntry:addTrigger("Kammer Erzmagier");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hall of Elara");
+talkEntry:addTrigger("Hall Elara");
+talkEntry:addTrigger("Elara Hall");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Hall Elara");
+talkEntry:addTrigger("Elara Hall");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon Stronghold");
+talkEntry:addTrigger("Stronghold Bragon");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Bragon Bollwerk");
+talkEntry:addTrigger("Bollwerk Bragon");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Shrine.Bragon");
+talkEntry:addTrigger("Shrine Bragon");
+talkEntry:addTrigger("Bragon Shrine");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Schrein Bragon");
+talkEntry:addTrigger("Bragon Schrein");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tower of Water");
-talkEntry:addResponse("Mainly made for bards");
+talkEntry:addTrigger("Tower Water");
+talkEntry:addTrigger("Water Tower");
+talkEntry:addResponse("This tower is mainly made for bards. You can find there following rooms: Library of Water, Adron's Swill and Hubbub Champer. Unfortunately, this tower is closed due to an incident as you can read in our history book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Turm Wasser");
+talkEntry:addTrigger("Wasser Turm");
+talkEntry:addResponse("Dieser Turm ist hauptsächlich für Barden. Ihr findet folgende Räume dort: Bibliothek des Wassers, Adrons Gesöff und Lärmkammer. Unglücklicherweis ist dieser Turm gesperrt, wie ihr unserem Geschichtsbuch entnehmen könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Library of Water");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Library Water");
 talkEntry:addTrigger("Water Library");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Bibliothek Wasser");
+talkEntry:addTrigger("Wasser Bibliothek");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron's Swill");
+talkEntry:addTrigger("Adron Swill");
+talkEntry:addTrigger("Swill Adron");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Adron Gesöff");
+talkEntry:addTrigger("Gesöff Adron");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hubbub Champer");
+talkEntry:addTrigger("Champer Hubbub");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Lärm Kammer");
+talkEntry:addTrigger("Kammer Lärm");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tower of Earth");
-talkEntry:addResponse("Mianly made for druids");
+talkEntry:addTrigger("Tower Earth");
+talkEntry:addTrigger("Earth Tower");
+talkEntry:addResponse("This tower is mainly made for druids. You can find there following rooms: Library of Earth, Kettle Champer, Root Chamber, and Test Champer");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Turm Erd");
+talkEntry:addTrigger("Erd Turm");
+talkEntry:addResponse("Dieser Turm ist hauptsächlich für Druiden. Ihr findet folgende Räume dort: Bibliothek der Erde, Kesselkammer, Wurzelkammer, und Versuchkammer ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Library of Earth");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Library Earth");
 talkEntry:addTrigger("Earth Library");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Bibliothek Erd");
+talkEntry:addTrigger("Erd Bibliothek");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kettle Champer");
+talkEntry:addTrigger("Champer Kettle");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Kessel Kammer");
+talkEntry:addTrigger("Kammer Kessel");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Root Champer");
+talkEntry:addTrigger("Champer Root");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Wurzel Kammer");
+talkEntry:addTrigger("Kammer Wurzel");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Test Champer");
+talkEntry:addTrigger("Champer Test");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Test Champer");
+talkEntry:addTrigger("Kammer Test");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Versuch Kammer");
+talkEntry:addTrigger("Kammer Verscuh");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1351,14 +1364,12 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Adron's followers are mostly tavern keepers or wine growers. Some bards too. They believe that when they die, there will be an orgy that lasts forever, and the really bad or evil ones will be condemned to be servants until they are enlightened.");
-talkEntry:addResponse("You may find a Temple of him in the North at the behind the Hemp Necktie Inn. You can either use a teleporter or you walk there according the signposts. But you will need companions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addResponse("Seine Anhänger sind meistens Gastwirte oder Weinbauern. Auch einigen Barden. Sie glauben, wenn sie sterben, wird es eine Orgie zu ihren Ehren geben, die niemals enden wird. Solche, die in Sünde gelebt haben, werden verurteilt, als Diener zu leben.");
-talkEntry:addResponse("Ihr möget den Tempel von ihm im Norden hinter dem Gasthof zur Hanfschlinge finden. Hierzu könnt ihr entweder einen Teleporter verwenden oder entlang der Wegweiser wandern. Ohne Begleitung werdet ihr ihn aber nicht erlangen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1394,14 +1405,12 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Her followers believe in the power of wisdom. Some of these people are praying to be told great secrets, or even the sense of life - as legend tells, one holy man has been told it after long prayers and discussions with the Goddess.");
-talkEntry:addResponse("You may find a Temple of her in the Tower of Air at the third floor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addResponse("Ihre Anhänger glauben an die Macht der Weisheit. Einige dieser Anhänger beten, um geheimes und altes Wissen zu erlangen oder um den Sinn des Leben zu erfahren. Eine Legende erzählt von einem Mann, der so lange betete, bis sich ihm dies offenbarte.");
-talkEntry:addResponse("Ihr möget den Tempel von ihr im zweiten Stock Luftturm finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1497,14 +1506,12 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Most of her priests are female, who serve the Goddess into high age. They think that when they die, they will be brought to a big garden gate. If they have been good, they can enjoy the wonders of the never ending garden.");
-talkEntry:addResponse("You may find a Temple of her on the other side of the Snakehead Bay in the Northeast of the Sentry Forrest. This place is also known as Oldra?s Corner. Follow the signposts, but keep in mind a dangerous journey is waiting for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben.");
-talkEntry:addResponse("Ihr möget den Tempel von ihr auf der anderen Seite der Schlagenkopfbucht im Nordosten des Wachewald finden. Der Platz ist auch als Oldra?s Eck bekannt. Folgt den Wegweisern, aber beachtet, dass Gefahren auf euch warten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

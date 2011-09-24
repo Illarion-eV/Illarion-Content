@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 23, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 24, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1262,14 +1262,12 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Most dwarves, businessmen and crafters, i.e. blacksmiths, pray to Irmorom. They believe that in life, they will be rewarded for their doings with wealth, and they pray for enchantment of crafted things, for a good trade, riches, and things like this.");
-talkEntry:addResponse("You can find a Temple of him at the other side of Galmair. Just go through Galmair to the Well of Dreams and shortly before Villa Goldvein you will find it in the North. You will find a signpost there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Die meisten seiner Anhänger sind Zwerge, Händler, Handwerker und Schmiede. Sie glauben, wenn sie Irmoron anbeten, gelangen sie zu Wohlstand und Reichtum. Angeblich gewährt er auch Kräfte, um Waffen und Gegenstände zu verzaubern.");
-talkEntry:addResponse("Du kannst den Tempel von ihm auf der anderen Seite von Galmair finden. Gehe einfach durch Galmair zur Quelle der Träume und kurz vor der Villa Goldader findest du ihn im Norden. Du wirst es am Wegschild sehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1307,7 +1305,6 @@ talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("His followers are few, and most people simply do not mention his name not to attract his attention. They believe that everything happens accidentally, and to make a fortune, one must play with high risk to have fun.");
-talkEntry:addResponse("You can find a Temple of him down at the Scoria Mine. There you walk through the Flicker Swale and the very end you will find a room with a ladder, climb up and there you are. You will find also signposts to your orientation. And be careful!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1316,7 +1313,6 @@ talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addResponse("Seine Gefolgsleute sind nur gering an der Zahl und die meisten Leute sprechen seinen Namen nicht aus, um nicht seine Aufmerksamkeit zu erregen. Sie glauben, dass alles zufällig geschieht, und dass das Glück nur Jenen winkt, die mit Risiko spielen.");
-talkEntry:addResponse("Du kannst den Tempel von ihm unten in der Schlackengrube finden. Dort gehst du einfach durch die Schimmersenke zu einem Raum am bitteren Ende, die Leiter dort hoch und schon bist du da. Wegschilder sollten zu sehen sein. Und vorsichtig sein!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1337,14 +1333,12 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Ronagan's followers are mostly poor people who grow up on the streets, and most become thieves, spies or assassins. They believe that perhaps Ronagan will help them to steal and to protect them from the protectors of the rich, the authorities.");
-talkEntry:addResponse("You can find a Temple of him down at the Scoria Mine. Usually, just follow the signpost there, but unfortunately the corridor is flooded. ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("Ronagan's Anhänger sind zumeist arme Leute aus denen häufig Diebe, Spione oder gedungene Mörder werden. Sie glauben daran, dass Ronagan ihnen bei der Ausführung ihrer Taten helfen wird oder sie vor dem Zugriff der Justiz bewahrt.");
-talkEntry:addResponse("Du kannst den Tempel von ihm unten in der Schlackengrube finden. Im Prinzip einfach dem Wegschild dort nach. Nur leider ist der Gang gerade geflutet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
