@@ -30,7 +30,8 @@ function callEffect(Effect,User)
 		   if findCounter then
 		      counterWhite = counterWhite - 1;
 	          Effect:addValue("counterWhite",counterWhite)
-	       end
+	          User:inform("counterWhite - 1 = "..counterWhite)
+		   end
 		
 		   if counterWhite == 0 then
 		        --SkillID laden 
@@ -47,6 +48,10 @@ function callEffect(Effect,User)
 				find,skillGroup = Effect:findValue( "skillGroup")
 
 				--Wiederherstellung des alten Zustand
+				User:inform("skillGroup: "..skillGroup)
+				User:inform("skillName: "..skillName)
+				User:inform("newSkill: "..newSkill)
+				User:inform("oldSkill: "..oldSkill)
 				User:increaseSkill(skillGroup,skillName,(-(newSkill-oldSkill))) -- ergibt wahrscheinlich noch falsche Werte
      
 	            world:gfx(45,User.pos) 
@@ -62,7 +67,7 @@ function callEffect(Effect,User)
 				   Effect:addValue("cooldownWhite",cooldownWhite)
 			       Effect.nextCalled = 50
 			       User:inform("return true")
-				   User:inform("Skillhöhe: "..User:increaseSkill(skillGroup,skillName,0))
+				   User:inform("Skillhöhe: "..User:increaseSkill(1,"elf language",0))
 				   return true
 	           end
 		   end
@@ -71,7 +76,7 @@ function callEffect(Effect,User)
 end
 
 function removeEffect(Effect,User)
-User:inform("Skillhöhe: "..User:increaseSkill(skillGroup,skillName,0))
+User:inform("Skillhöhe: "..User:increaseSkill(1,"elf language",0))
 end
 
 function loadEffect(Effect,User)                  			

@@ -80,6 +80,8 @@ end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 -- if not milk then	  
+  User:increaseSkill(skillGroup,skillName,(-(newSkill-oldSkill)))
+  User:inform("Elfensprachskill am Anfang weg")
   if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	
