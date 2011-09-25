@@ -1,23 +1,23 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Borgate Northoff                                            None --
--- NPC Job:  Bar-keeper                                                       --
+-- NPC Job:  Barkeeper                                                        --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  710, 313, 0            --
--- NPC Sex:  male                       NPC Direction: southwest              --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Rincewind                                                        --
 --           & Someone                                                        --
 --                                                                            --
--- Last parsing: September 24, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 25, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Borgate Northoff"
 race = dwarf
 sex = male
 position = 710, 313, 0
-direction = southwest
+direction = west
 affiliation = "None"
-job = "Bar-keeper"
+job = "Barkeeper"
 
 language = common
 language = dwarf
@@ -64,7 +64,7 @@ itemShoes = 53
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schönen Tag noch.", "Bis bald.", "Aye. Komm wieder, wann immer du durstig bist."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have a nice day.", "Aye. Come back whenever you are thirsty.", "Good day!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Schönen Tag noch.", "Bis bald.", "Aye. Komm wieder, wann immer du durstig bist."
-"How are you", "How feel", "How do you do" -> "Good - 'nd you?", "It's allrigth. Like allways."
+"How are you", "How feel", "How do you do" -> "Good - 'nd you?", "It's allright. Like allways."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Gut - 'nd Euch?", "Alles gut - wie immer."
 "your name", "who are you", "who art thou" -> "Great. I am Borgate Northoff, the barkeeper. Do you want something to drink?", "I'm Borgate Northoff. Need a drink?"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Borgate Northoff und das ist mein Tresen. Ich schenke Bier aus. Willst du eines?", "Ich bin Borgate Northoff. Willst du was trinken?"
@@ -163,10 +163,10 @@ itemShoes = 53
 cycletext "Arrr...", "Arrr..."
 cycletext "Arrr!", "Arrr!"
 cycletext "Arrr...?", "Arrr...?"
-cycletext "#me trocknet einen Bierkrug ab", "#me wipes a beer mug clean"
-cycletext "#me sieht sich gelangweilt um", "#me looks around bored"
-cycletext "#me spielt mit einer Kupfermünze", "#me plays with a copper coin"
-cycletext "#me wischt über die Theke", "#me wipes over the bar"
-cycletext "#me trinkt ein Bier", "#me gulps down a beer"
-cycletext "#me wischt seine Hände in die Hosen.", "#me cleans his hands, by rubbing them agains his trousers."
+cycletext "#me trocknet einen Bierkrug ab.", "#me cleans a beer mug."
+cycletext "#me sieht sich gelangweilt um.", "#me looks around bored."
+cycletext "#me spielt mit einer Kupfermünze.", "#me plays with a copper coin."
+cycletext "#me wischt über die Theke.", "#me wipes the counter."
+cycletext "#me trinkt ein Bier", "#me gulps down a beer."
+cycletext "#me wischt seine Hände in die Hosen.", "#me cleans his hands by rubbing them against his trousers."
 cycletext "#me brummt eine langsame Meldoie.", "#me grumbles a slow melody."
