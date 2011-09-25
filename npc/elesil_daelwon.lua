@@ -513,7 +513,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower Air");
 talkEntry:addTrigger("Air Tower");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Treekitchen, Library of Air, House of Gods, Shrine of Elara, Shrine of Findari"));
-talkEntry:addResponse("This tower is mainly made for priests. You can find there following rooms: Treekitchen, Library of Air, House of Gods, Shrine of Findari, and Shrine of Elara.");
+talkEntry:addResponse("This is the first southern tower and is mainly made for priests. You can find there following rooms: Treekitchen, Library of Air, House of Gods, Shrine of Findari, and Shrine of Elara.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -521,7 +521,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Luft");
 talkEntry:addTrigger("Luft turm");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Elara, Schrein der Findari"));
-talkEntry:addResponse("Dieser Turm ist hauptsächlich für Priester. Ihr findet folgende Räume dort: Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Findari, und Schrein der Elara.");
+talkEntry:addResponse("Dieser Turm ist der erste südliche Turm und hauptsächlich für Priester. Ihr findet folgende Räume dort: Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Findari, und Schrein der Elara.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -597,7 +597,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower Fire");
 talkEntry:addTrigger("Fire Tower");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Workshop, Library of Fire, Archmage Champer, Hall of Elara, Bragon Stronghold, Shrine of Bragon"));
-talkEntry:addResponse("This tower is mainly made for mages. You can find there following rooms: Workshop, Library of Fire, Archmage Champer, Hall of Elara, Bragon Stronghold and Shrine of Bragon.");
+talkEntry:addResponse("This is the first northern tower and it is tower is mainly made for mages. You can find there following rooms: Workshop, Library of Fire, Archmage Champer, Hall of Elara, Bragon Stronghold and Shrine of Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -605,7 +605,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Feuer");
 talkEntry:addTrigger("Feuer Turm");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Hall der Elara, Bragon Bollwerk, Schrein des Bragon"));
-talkEntry:addResponse("Dieser Turm ist hauptsächlich für Magier. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Hall der Elara, Bragon Bollwerk und Schrein des Bragon.");
+talkEntry:addResponse("Dieser Turm ist der erste nördliche Turm und hauptsächlich für Magier. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Hall der Elara, Bragon Bollwerk und Schrein des Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -696,7 +696,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower Water");
 talkEntry:addTrigger("Water Tower");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Library of Water, Adron's Swill, Hubbub Champer"));
-talkEntry:addResponse("This tower is mainly made for bards. You can find there following rooms: Library of Water, Adron's Swill and Hubbub Champer. Unfortunately, this tower is closed due to an incident as you can read in our history book.");
+talkEntry:addResponse("This is the second southern tower and is mainly made for bards. You can find there following rooms: Library of Water, Adron's Swill and Hubbub Champer. Unfortunately, this tower is closed due to an incident as you can read in our history book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,7 +704,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Wasser");
 talkEntry:addTrigger("Wasser Turm");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Bibliothek des Wassers, Adrons Gesöff, Lärmkammer"));
-talkEntry:addResponse("Dieser Turm ist hauptsächlich für Barden. Ihr findet folgende Räume dort: Bibliothek des Wassers, Adrons Gesöff und Lärmkammer. Unglücklicherweis ist dieser Turm gesperrt, wie ihr unserem Geschichtsbuch entnehmen könnt.");
+talkEntry:addResponse("Dieser Turm ist der zweite südliche Turm und hauptsächlich für Barden. Ihr findet folgende Räume dort: Bibliothek des Wassers, Adrons Gesöff und Lärmkammer. Unglücklicherweis ist dieser Turm gesperrt, wie ihr unserem Geschichtsbuch entnehmen könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -754,7 +754,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower Earth");
 talkEntry:addTrigger("Earth Tower");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Library of Earth, Kettle Champer, Root Chamber, Test Champer"));
-talkEntry:addResponse("This tower is mainly made for druids. You can find there following rooms: Library of Earth, Kettle Champer, Root Chamber, and Test Champer.");
+talkEntry:addResponse("This is the second northern tower and is mainly made for druids. You can find there following rooms: Library of Earth, Kettle Champer, Root Chamber, and Test Champer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -762,7 +762,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Erd");
 talkEntry:addTrigger("Erd Turm");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Bibliothek der Erde, Kesselkammer, Wurzelkammer, Versuchkammer"));
-talkEntry:addResponse("Dieser Turm ist hauptsächlich für Druiden. Ihr findet folgende Räume dort: Bibliothek der Erde, Kesselkammer, Wurzelkammer, und Versuchkammer.");
+talkEntry:addResponse("Dieser Turm ist der zweite nördliche Turm und hauptsächlich für Druiden. Ihr findet folgende Räume dort: Bibliothek der Erde, Kesselkammer, Wurzelkammer, und Versuchkammer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
