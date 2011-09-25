@@ -3,6 +3,22 @@
 -- Written by martin, Nitram and Xandrina
 -- $Id$
 
+
+--[[
+Call: Character:learn(skill,skillGroup,movePoints,opponent,leadAttribute);
+skill: Name of the skill as string, e.g. "mining"
+skillGroup: Group of the skill as integer (e.g. 2 for crafting).  
+movePoints: The amount of movePoints or time (1/10s), required by the action, as integer. Do NOT fill in 0, every action relevant for skillgain HAS TO take some time.
+opponent: In case the action requires a minimum skill, fill it in here as integer. If the action should only yield skillgain up to a certain level, fill in this level-20. Otherwise, fill in 100.
+leadAttribute: The value of the lead attribute as integer. You find the mandatory(!) definition of lead attributes here: http://illarion.org/community/forums/viewtopic.php?p=643700#p643700
+Example: Character:learn("mining",2,20,100,Character:increaseAttrib("constitution",0));
+
+jeweils nur 1/n der movepoints/FP, weil ja n skills gesteigert werden.
+
+]]
+
+
+
 -- Hang in base.common - Some functions of the collection are needed
 require("base.common")
 
