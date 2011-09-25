@@ -76,12 +76,12 @@ itemShoes = 369
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"game" -> ""
-"spiel" -> ""
+"quest", "mission", english -> "IN PROGRESS."
+"quest", "mission" -> "IN ARBEIT."
+"task", "adventure", "order" -> "IN PROGRESS."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+"game" -> "IN PROGRESS"
+"spiel" -> "IN ARBEIT"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "If necessary I'm an informant. In this case I will inform you about Runewick, its buildings, places, events, people, history or gods. If you require even more, at least one task is alos pending."
@@ -112,8 +112,8 @@ itemShoes = 369
 "Herrscher" -> "Unser höchster Ratgeber ist Erzmagier Elvaine Morgan. Er hat diesen Platz der Weisheit erschaffen und entweder in seiner Kammer - der Erzmagier Kammer - oder in den Hallen der Elara gefunden werden."
 "market" -> "Through the portal abround the corner and you are there *points southeast*."
 "Markt" -> "Durch das Portal hier um das Eck und ihr seid dort. *zeigt in dne Südosten*"
-"temple" -> "Let me think... You can find three here: Garden of Eldan, Shrine of Elara and Shrine of Bragon."
-"Tempel" -> "Lasst mich nachdenken... Ihr findet hier drei: Garten des Eldan, Schrein der Elara und Schrein des Bragon."
+"temple" -> "Let me think... You can find four here: Garden of Eldan, Shrine of Elara, Shrine of Findari and Shrine of Bragon.", inform("[Keywords] Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Bragon")
+"Tempel" -> "Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldan, Schrein der Elara, Schrein der Findari und Schrein des Bragon.",inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein des Bragon")
 "teleport", english -> "This teleporter here can lead you to Cadomyr, Galmair or to the Hemp Necktie Inn."
 "teleport" -> "Dieser Teleporter hier vermag euch nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge zu bringen."
 "Census office" -> "You are not the first person who asks for the the census office. But again, I cannot remember where it is."
@@ -123,8 +123,6 @@ itemShoes = 369
 "Donkey" -> "You can rent them at the donkey stable."
 "Esel" -> "Du kannst diese im Eselstall ausleihen."
 
--- "Rooms" -> "" --placeholder for rooms if they can be rent
--- "Guild" -> ""
 "Garden Eldan", "Eldan Garden" -> "Garden of Eldan is a place which inspires us with wisdom. You can find it if you walk through the portal around the corner into the town and take the other, red one then. There you find also a shrine of Eldan."
 "Garten Eldan", "Eldan Garten" -> "Der Garten des Eldan ist ein Platz der uns mit Weisheit inspiriert. Ihr findet ihn wenn ihr in die Stadt durch das Portal um die Ecke reist und dann durch das nächste, rote, Portal tretet. Dort findet ihr auch einen Schrein für Eldan."
 "Slum" -> "The slums are under the market. A Ladder will lead you there. I assume I do not have to explain who lives there. Those who lack on knowledge or have spent to much time on praising Adron."
@@ -137,10 +135,6 @@ itemShoes = 369
 "Raum Finsternis" -> "Der Raum der Finsternis ist jener Platz an denen die Leichen jener aufgehoben werden, welche zuvor an der Sohle der Gesellschaft gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen."
 "Room Twilight" -> "The Room of Twilight is the place who were neither at the top nor on the bottom of the god given hierarchy. Gregor, a human whom you sould find on your way to the tomb, will tell you more."
 "Raum Zwielicht" -> "Der Raum des Zwielichts ist der Platz für jene welche weder an der Spitze noch am unteren Ende der Hierarchie gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen."
-"Library" -> "Actually, we have four of them in each of our four towers: Library of Air, Library of Fire, Library of Earth and Library of Water. Each of them is based in the second floor of their tower. About which one do you like to know more?", inform("[Keywords] Library of Air, Library of Fire, Library of Earth, Library of Water")
-"Bibliothek" -> "Eigentlich haben wir hier vier Stück. Jeweils eine in unseren vier Türmen: Bibliothek der Luft, Bibliothek des Feuer, Bibliothek der Erde und Bibliothek des Wasser. Jede von ihnen ist im ersten Stock ihres Turm zu finden. Zu welcher wollt ihr mehr wissen?", inform("[Schlüsselwörter] Bibliothek der Luft, Bibliothek des Feuer, Bibliothek der Erde, Bibliothek des Wasser")
-"Tower" -> "There are four towers: Tower of Air, Tower of Fire, Tower of Earth and Tower of Water. You can all leave and enter them at the top as well as at the bottom, after you entered the town through the portal over there. *points southeast*", inform("[Keywords] Tower of Air, Tower of Fire, Tower of Earth, Tower of Water")
-"Turm","Türme" -> "Es gibt vier Türme: Turm der Luft, Turm des Feuer, Turm der Erde und Turm des Wasser. Ihr könnt jeden Turm am Dach oder Erdgeschoss betretten oder verlassen, nachdem ihr über das Portal dort drüben die Stadt betreten habt. *zeigt südöstlich*", inform("[Schlüsselwörter] Turm der Luft, Turm des Feuer, Turm der Erde, Turm des Wasser")
 "Tower Air", "Air Tower" -> "This tower is mainly made for priests. You can find there following rooms: Treekitchen, Library of Air, House of Gods, Shrine of Findari, and Shrine of Elara.", inform("[Keywords] Treekitchen, Library of Air, House of Gods, Shrine of Elara, Shrine of Findari")
 "Turm Luft", "Luft turm" -> "Dieser Turm ist hauptsächlich für Priester. Ihr findet folgende Räume dort: Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Findari, und Schrein der Elara.", inform("[Schlüsselwörter] Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Elara, Schrein der Findari")
 "Treekitchen" -> "The Treekitchen is based in the basement of the Tower of Air. You can find their cooks or the possiblity to cook or carpentering."
@@ -186,6 +180,12 @@ itemShoes = 369
 "Test Champer", "Champer Test", english -> "In the Test Champer in the fist floor of the Tower of Earth, alchemists can work and try their potion."
 "Test Champer", "Kammer Test" -> "In der Testkammer im Grundgeschoß des Turm der Erde können Alchemisten an ihren Tränken arbeiten und testen."
 "Versuch Kammer", "Kammer Versuch" -> "In der Testkammer im Grundgeschoß des Turm der Erde können Alchemisten an ihren Tränken arbeiten und testen."
+"Tower" -> "There are four towers: Tower of Air, Tower of Fire, Tower of Earth and Tower of Water. You can all leave and enter them at the top as well as at the bottom, after you entered the town through the portal over there. *points southeast*", inform("[Keywords] Tower of Air, Tower of Fire, Tower of Earth, Tower of Water")
+"Turm","Türme" -> "Es gibt vier Türme: Turm der Luft, Turm des Feuer, Turm der Erde und Turm des Wasser. Ihr könnt jeden Turm am Dach oder Erdgeschoss betretten oder verlassen, nachdem ihr über das Portal dort drüben die Stadt betreten habt. *zeigt südöstlich*", inform("[Schlüsselwörter] Turm der Luft, Turm des Feuer, Turm der Erde, Turm des Wasser")
+"Library" -> "Actually, we have four of them in each of our four towers: Library of Air, Library of Fire, Library of Earth and Library of Water. Each of them is based in the second floor of their tower. About which one do you like to know more?", inform("[Keywords] Library of Air, Library of Fire, Library of Earth, Library of Water")
+"Bibliothek" -> "Eigentlich haben wir hier vier Stück. Jeweils eine in unseren vier Türmen: Bibliothek der Luft, Bibliothek des Feuer, Bibliothek der Erde und Bibliothek des Wasser. Jede von ihnen ist im ersten Stock ihres Turm zu finden. Zu welcher wollt ihr mehr wissen?", inform("[Schlüsselwörter] Bibliothek der Luft, Bibliothek des Feuer, Bibliothek der Erde, Bibliothek des Wasser")
+-- "Rooms" -> "" --placeholder for rooms if they can be rent
+-- "Guild" -> ""
 
 "Hinterland",english -> "The Hinterland of Runewick contains following places: Fire of Triumph, Holy Oak, Woodcutter's Hut, Twin Eyes Island, Oldra's Column, Lurnord bridge and Mermaid", inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Hut, Twin Eyes Island, Oldra Column, Mermaid, Lurnord bridge")
 "HInterland" -> "Das Hinterland von Runewick enthält folgende Plätze: Feuer des Triumph, Heilige Eiche, Holzfäller Hütte, Zwillingsaugen Inseln, Oldras Säule, Lurnord Brücke und Meerjungfrau", inform("[Schlüsselwörter] Feuer des Triumph, Heilige Eiche, Holzfäller Hütte, Zwillingsaugen Insel, Oldras Säule, Meerjungfrau, Lurnord Brücke")
@@ -197,60 +197,12 @@ itemShoes = 369
 "Holzfäller Hütte" -> "Dieser Platz kann im Süden von hier aus gefunden werden und ist ein Lager für Holzfäller."
 "Twin Eyes Islands" -> "This place is the very south of here. Two islands, which... uhh... I forgot, but you will find there what you want to know."
 "Zwillingsaugen Inseln" -> "Dieser Platz ist ganz im Süden. Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht."
-"Oldra Column" -> "This place can be found in the south of here. Some information about Oldra are waiting for you. Look for the column and trees over there."
-"Oldra Säule" -> "Dieser Platz kann im Süden von hier aus gefunden werden. Einige Informationen über Oldra warten dort auf euch. Haltet Ausschau nach der Säule und den Bäumen dort."
+"Oldra Column" -> "This place can be found in the south of here. Some information about Oldra and what she likes are waiting for you. Look for the column and trees over there."
+"Oldra Säule" -> "Dieser Platz kann im Süden von hier aus gefunden werden. Einige Informationen über Oldra und Dinge die sie mag warten dort auf euch. Haltet Ausschau nach der Säule und den Bäumen dort."
 "Mermaid" -> "Just follow the westcost to the south and you will find this place with a statue of a beautiful woman. This place is also used by fishers who are waiting to get in touch with the mermaid."
 "Meerjungfrau" -> "Folget der Westküste in den Süden und ihr werdet diesen Platz mit einer Statue einer schönen Frau finden. Dieser Platz ist auch von vielen Fischern verwendet, die auf die Meerjungfrau warten."
 "Lurnord bridge" ->"This is the bridge between here and Yewdale. *points west* It was destroyed years ago after a war with Galmair and rebuild by a friend of mine who left afterwards. Lunord was his name."
 "Lurnord Brücke" ->"Das ist die Brücke zwischen hier und Eibental. *zeigt in den Westen* Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord."
-
-"Dragon's Lair" -> ""
-"???" -> ""
-"Dewy Swamps" -> ""
-"???" -> ""
-"Darter's Shop" -> ""
-"???" -> ""
-"Shwadow Gate" -> ""
-"???" -> ""
-"Bear cave" -> ""
-"???" -> ""
-"Merryglade" -> ""
-"???" -> ""
-"Oldra's Tower" -> ""
-"???" -> ""
-"Coward's last stand" -> ""
-"???" -> ""
-"Northern Outpost" -> ""
-"???" -> ""
-"Anthil Brook" -> ""
-"???" -> ""
-"Adron's Covert" -> ""
-"???" -> ""
-"Shadowland" -> ""
-"???" -> ""
-"Spider's Mouth" -> ""
-"???" -> ""
-
--- "Hemp Necktie Inn" -> ""
--- "Gasthof zur Hanfschlinge" -> ""
-"Draganfod" -> ""
-"???" -> ""
-"Great Ocean" -> ""
-"???" -> ""
-"Snakehead Bay" -> ""
-"???" -> ""
-"Bounding Stream" -> ""
-"???" -> ""
-"Glowing River" -> ""
-"???" -> ""
-"Lonely Mountains" -> ""
-"???" -> ""
-"Bounding Stream" -> ""
-"???" -> ""
-"Northern Woods" -> ""
-"???" -> ""
-"The Insurmountable Limes" -> ""
-"???" -> ""
 
 -- Faction stuff
 "archmage" -> "Our leader can be found in the Hall of Elara in the Fire Tower if you want to talk with him."

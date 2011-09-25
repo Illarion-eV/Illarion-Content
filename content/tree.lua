@@ -43,6 +43,8 @@ function InitTree()
 	--AddTree({853,778,0},"","", 6,5); --Holy Oak
     AddTree({842,850,0},"","A very old looking tree which carries all kind of fruits and leaves and reaches almost the sun with its branches.", 6,0); --Oldra's Column
     AddTree({840,842,0},"","The tree bears an engraving which shows a stout and elder woman walking through a garden and followed by several animals of different kind.", 6,5); --Oldra's Column
+	AddTree({834,843,0},"","The tree bears an engraving ~When we die, we will be brought to a big garden gate. Oldra stands at this gate, welcomes us, and if we have been good, we can enjoy the wonders of the never ending garden, and meet old and new friends in it.~", 2,5); --Oldra's Column
+	AddTree({839,850,0},"","The tree bears an engraving ~When we die, we will be brought to a big garden gate. Oldra stands at this gate, welcomes us, and if we have failed, we are allowed a rest, and send back to be reborn with a new name to make a good sense of our life.~", 7,5); --Oldra's Column
 	--Snakehead Coast
 	AddTree({653,465,0},"Zwischen uns führt der Weg zur Finsternis.","The way to the Darkness starts between us.", 6,5);
 	AddTree({647,465,0},"Zwischen uns führt der Weg zur Finsternis.","The way to the Darkness starts between us.", 6,5);
