@@ -406,10 +406,10 @@ function InitPillar()
 	AddPillar({742,798,2},"","", 8,5); --Lighttower
 	--Runewick Hinterland
 	AddPillar({920,929,0},"","", 2,5); --Twin Eyes Islands
-	AddPillar({860,931,0},"","", 1,5); --Twin Eyes Islands
-	AddPillar({833,864,0},"","", 2,5); --Mermaid
-	AddPillar({839,845,0},"","", 1,5); --Oldra's Column
-	AddPillar({866,847,0},"","", 2,5); --Woodcutter's Hut
+	AddPillar({860,931,0},"","", 1,5); --Twin Eyes Islands        ]]
+	AddPillar({833,864,0},"","A young and very attractive woman dances in her long white dress. His hair shines in the surrounding light and water.", 2,0); --Mermaid
+	AddPillar({839,845,0},"","~Oldra - Goddess of Life and Fertility; blesses our gardens, fields and domestic animals, newborn children, bearing mothers and birth itself.~", 1,5); --Oldra's Column
+	--[[AddPillar({866,847,0},"","", 2,5); --Woodcutter's Hut
 	AddPillar({866,848,0},"","", 2,5); --Woodcutter's Hut
 	AddPillar({864,813,0},"","", 1,5); --Entrance
 	AddPillar({864,821,0},"","", 1,5); --Entrance
