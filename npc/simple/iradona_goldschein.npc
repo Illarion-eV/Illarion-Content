@@ -134,16 +134,16 @@ itemShoes = 369
 "Temple Irmorom","Irmorom Temple" -> "The Temple of Irmorom is close to Villa Goldvein. You can pray to Irmorom there and hope that you become a rich person."
 "Tempel Irmorom","Irmorom Tempel" -> "Der Tempel des Irmorom ist nahe der Villa Goldader. Du kannst dort zu Irmorom beten und hoffen, dass du reich wirst."
 
-"Galmair's Crest" -> "Galmair's Crest is the heart of Galmair and the residence of our Don. It is close to the market and you find there: Guilianni Residence, Don's Council Chamber, Don's room, Treasury and Library.",inform("[Keywords] Guilianni Residence, Don Council Chamber, Don room, Treasury, Library")
-"Galmairs Krone" -> "Galmairs Krone ist das Herz von Galmair und die Residenz unseres Don. Es ist nahe dem Markt und findest dort: Guilianni Residenz, Don's Konzil Kammer, Dons Raum, Schatzkammer, Bibliothek.",inform("[Schlüsselwörter] Guilianni Residenz, Don Konzil Kammer, Don Raum, Schatzkammer, Bibliothek")
+"Galmair's Crest","Galmair Crest" -> "Galmair's Crest is the heart of Galmair and the residence of our Don. It is close to the market and you find there: Guilianni Residence, Don's Council Chamber, Golden Dreams, Treasury and Library.",inform("[Keywords] Guilianni Residence, Council Chamber, Golden Dreams, Treasury, Library")
+"Galmair Krone" -> "Galmairs Krone ist das Herz von Galmair und die Residenz unseres Don. Es ist nahe dem Markt und findest dort: Guilianni Residenz, Don's Konzil Kammer, Goldträume, Schatzkammer, Bibliothek.",inform("[Schlüsselwörter] Guilianni Residenz, Konzil Kammer, Goldträume, Schatzkammer, Bibliothek")
 "Library" -> "Our library in Galmair's Crest contains all our books. Among those are our history book, books about places, gods, factions and so on. Just take a look there."
 "Bibliothek" -> "Unsere Bibliothek in Galmairs Krone enthällt all unsere Bücher. Unter diesen findest du unser Geschichtebuch, Bücher über Plätze, Götter, Fraktionen und so weiter. Sieh einfach nach."
 "Guilianni Residence" -> "In this place in Galmair's Crest you will find and meet our Don."
 "Guilianni Residenz" -> "An diesem Ort in Galmairs Krone findest und triffst du unseren Don."
-"Don Council Chamber" -> "This is a conference room in Galmair's Crest to discuss how to improve our treasury for example."
-"Don Konzil Kammer" -> "Dies ist ein Konferenezraum in Galmairs Krone zum diskutieren wie man die Schatzkammer verbessern könnte zum Beispiel."
-"Don Room" -> "This room in Galmair's Crest is the private room of the Don."
-"Don Raum" -> "Dieser Raum in Galmairs Krone ist der private Raum des Don."
+"Council Chamber" -> "This is a conference room in Galmair's Crest to discuss how to improve our treasury for example."
+"Konzil Kammer" -> "Dies ist ein Konferenezraum in Galmairs Krone zum diskutieren wie man die Schatzkammer verbessern könnte zum Beispiel."
+"Golden Dreams" -> "The room Golden dreams in Galmair's Crest is the private room of the Don."
+"Goldträume" -> "Der Raum Goldträume in Galmairs Krone ist der private Raum des Don."
 "Treasury" -> "Ha, ha... of course you like to know more about this room in Galmair's Crest. Stop dreaming! I do not think that you will ever be in this room. *smirks*"
 "Schatzkammer" -> "Ha, ha... klar würdest du gerne mehr über diesen Raum in Galmairs Krone wissen. Denkste! Ich glaub kaum, dass du den je von innen sehen wirst. *kichert*"
 

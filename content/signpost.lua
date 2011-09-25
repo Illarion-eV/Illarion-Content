@@ -107,7 +107,7 @@ function InitWegweiser()
     AddWeg({386,346,0},"Fort Schnellbeil, Goldener Rumil","Fort Schnellbeil,Golden Rumil",6,0);
     AddWeg({417,357,0},"Schürfer Club","Miners Club",0,0);
     AddWeg({418,357,0},"Malachitmine","Malachite Mine",2,0);
-    AddWeg({464,253,0},"The Plattform","Die Platform",0,0);
+    AddWeg({464,253,0},"Die Plattform","The Platform",0,0);
 
     --SE/Runewick-map
     AddWeg({525,782,0},"Cadomyr","Cadomyr",6,0);

@@ -496,15 +496,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair's Crest");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Guilianni Residence, Don Council Chamber, Don room, Treasury, Library"));
-talkEntry:addResponse("Galmair's Crest is the heart of Galmair and the residence of our Don. It is close to the market and you find there: Guilianni Residence, Don's Council Chamber, Don's room, Treasury and Library.");
+talkEntry:addTrigger("Galmair Crest");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Guilianni Residence, Council Chamber, Golden Dreams, Treasury, Library"));
+talkEntry:addResponse("Galmair's Crest is the heart of Galmair and the residence of our Don. It is close to the market and you find there: Guilianni Residence, Don's Council Chamber, Golden Dreams, Treasury and Library.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmairs Krone");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Guilianni Residenz, Don Konzil Kammer, Don Raum, Schatzkammer, Bibliothek"));
-talkEntry:addResponse("Galmairs Krone ist das Herz von Galmair und die Residenz unseres Don. Es ist nahe dem Markt und findest dort: Guilianni Residenz, Don's Konzil Kammer, Dons Raum, Schatzkammer, Bibliothek.");
+talkEntry:addTrigger("Galmair Krone");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Guilianni Residenz, Konzil Kammer, Goldträume, Schatzkammer, Bibliothek"));
+talkEntry:addResponse("Galmairs Krone ist das Herz von Galmair und die Residenz unseres Don. Es ist nahe dem Markt und findest dort: Guilianni Residenz, Don's Konzil Kammer, Goldträume, Schatzkammer, Bibliothek.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -533,26 +534,26 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Don Council Chamber");
+talkEntry:addTrigger("Council Chamber");
 talkEntry:addResponse("This is a conference room in Galmair's Crest to discuss how to improve our treasury for example.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Don Konzil Kammer");
+talkEntry:addTrigger("Konzil Kammer");
 talkEntry:addResponse("Dies ist ein Konferenezraum in Galmairs Krone zum diskutieren wie man die Schatzkammer verbessern könnte zum Beispiel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Don Room");
-talkEntry:addResponse("This room in Galmair's Crest is the private room of the Don.");
+talkEntry:addTrigger("Golden Dreams");
+talkEntry:addResponse("The room Golden dreams in Galmair's Crest is the private room of the Don.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Don Raum");
-talkEntry:addResponse("Dieser Raum in Galmairs Krone ist der private Raum des Don.");
+talkEntry:addTrigger("Goldträume");
+talkEntry:addResponse("Der Raum Goldträume in Galmairs Krone ist der private Raum des Don.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
