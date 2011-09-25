@@ -74,7 +74,6 @@ function InitWegweiser()
     AddWeg({365,247,0},"Guilianni-Residenz oder Galmairs Krone","Guilianni Residence or Galmair's Crest",0,0); -- Don's palace
     AddWeg({376,259,0},"Werkstatt","Workshop",2,0);-- <Name hier> Werkstatt -- <name here> workshop
     AddWeg({401,293,0},"Gasthof zum schläfrigen Bujhaar","Sleepy Bujhaar Inn",2,0);-- <Name hier> Gasthaus -- <name here> Inn
-    AddWeg({418,357,0},"Malachitmine","Malachite Mine",2,0);
     AddWeg({421,251,0},"Galmair","Galmair",6,0);
     AddWeg({421,247,0},"Galmair","Galmair",6,0);
     AddWeg({343,259,0},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",0,0);-- <Name hier> Taverne -- <name here> tavern
@@ -99,8 +98,16 @@ function InitWegweiser()
     AddWeg({501,218,0},"Galmair","Galmair",4,0);
     AddWeg({427,247,0},"Hafen; Dunkellochmine; Gasthof zur Hanfschlinge; Cadomyr; Runewick","Harbour; Dark Hole Mine; The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
     AddWeg({485,248,0},"Hafen; Dunkellochmine; Gasthof zur Hanfschlinge; Cadomyr; Runewick","Harbour; Dark Hole Mine; The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
-    AddWeg({397,253,0},"Malachitmine","Malachite Mine",4,0);
+    AddWeg({397,253,0},"Zensusbüro, Gasthof zum schläfrigen Bujhaar, Tollloch, Schürfer Club, Malachitmine","Census office, Sleepy Bujhaar Inn, Sporthole, Miners Club, Malachite Mine",4,0);
     AddWeg({392,249,0},"Wachstube","Guardroom",0,0);
+    AddWeg({394,272,0},"Zensusbüro","Census office",2,0);
+    AddWeg({399,302,0},"Tollloch","Sporthole",2,0);
+    AddWeg({387,346,0},"Galmair","Galmair",0,0);
+    AddWeg({387,347,0},"Schürfer Club, Malachitmine","Miners Club, Malachite Mine",2,0);
+    AddWeg({386,346,0},"Fort Schnellbeil, Goldener Rumil","Fort Schnellbeil,Golden Rumil",6,0);
+    AddWeg({417,357,0},"Schürfer Club","Miners Club",0,0);
+    AddWeg({418,357,0},"Malachitmine","Malachite Mine",2,0);
+    AddWeg({464,253,0},"The Plattform","Die Platform",0,0);
 
     --SE/Runewick-map
     AddWeg({525,782,0},"Cadomyr","Cadomyr",6,0);
