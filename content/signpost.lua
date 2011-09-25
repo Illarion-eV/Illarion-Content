@@ -87,7 +87,7 @@ function InitWegweiser()
     AddWeg({409,148,0},"Dunkellochmine","Dark Hole Mine",6,0);
     AddWeg({409,143,0},"Dunkellochmine","Dark Hole Mine",6,0);
     AddWeg({193,430,0},"Festung Hammerfall","Fortress Hammerfall",0,0);-- <Name hier> Zwergenfort -- <name here> dwarfen fortress
-    AddWeg({417,385,0},"Cadomyr","Cadomyr",4,0);
+    AddWeg({417,385,0},"Cadomyr; Schattenland - Gefahr!","Cadomyr; Shadowland - Danger!",4,0);
     AddWeg({338,238,-6},"Schweinebaue","Hog Dens",2,0);-- <Name hier> Orkshöhle - <name here> orccave
     AddWeg({342,243,-6},"Gemmenschacht","Cameo Pit",2,0);-- <Name hier> Wohnviertel
     AddWeg({343,247,-6},"Ronagans Tempel - Achtung, überflutet!","Temple of Ronagan - Attention, flooded!",4,0);-- <Name hier> überflutetes Viertels(ronagan schrein)
@@ -104,7 +104,7 @@ function InitWegweiser()
     AddWeg({399,302,0},"Tollloch","Sporthole",2,0);
     AddWeg({387,346,0},"Galmair","Galmair",0,0);
     AddWeg({387,347,0},"Schürfer Club, Malachitmine","Miners Club, Malachite Mine",2,0);
-    AddWeg({386,346,0},"Fort Schnellbeil, Goldener Rumil","Fort Schnellbeil,Golden Rumil",6,0);
+    AddWeg({386,346,0},"Fort Schnellbeil, Goldener Rumil","Fort Schnellbeil, Golden Rumil",6,0);
     AddWeg({417,357,0},"Schürfer Club","Miners Club",0,0);
     AddWeg({418,357,0},"Malachitmine","Malachite Mine",2,0);
     AddWeg({464,253,0},"Die Plattform","The Platform",0,0);
