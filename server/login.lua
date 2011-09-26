@@ -62,6 +62,12 @@ function onLogin( player )
 	if not find then
 		player.effects:addEffect( LongTimeEffect(2,10) );
 	end
+	
+	--Checking longterm cooldown
+	find, reg_effect = player.effects:find(33);
+	if not find then
+		player.effects:addEffect( LongTimeEffect(33,10) );
+	end
 
 	-- Smell effect removed for the time being (annoying!!!)
 	find, stinkEffekt = player.effects:find(18);
