@@ -18,13 +18,6 @@ Example: Character:learn("mining",2,20,100,Character:increaseAttrib("constitutio
 
 function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 
-    --TEMPORARY SOLUTION TO CATCH NEW PLAYERS
-	if user:getMentalCapacity() < 1999 then --Mental Capacity CANNOT drop below 1999 -> New player. However, new players should start with a higher value
-	    user:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
-		base.common.TempInformNLS(user,"[Skillsystem] Mental Capacity zwangsangepasst!","[Skill system] Adjustment of mental capacity enforced.");
-	end
-	--TEMPORARY SOLUTION END
-
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
 	scalingFactor=1000; --Here, you can mod the learning speed. Higher value=faster ;-)
 	

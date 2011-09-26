@@ -8,6 +8,10 @@ function onLogin( player )
 
     world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
 
+	--General welcome message
+    players=world:getPlayersOnline(); --Reading all players online so we can count them
+	base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
+
 	--Messages of the day
     
 	--Default message of the day; more messages would be cool
@@ -16,6 +20,13 @@ function onLogin( player )
         "[Login] We play with, not against each other. Have fun playing!"
     );
 
+	--TEMPORARY SOLUTION TO CATCH NEW PLAYERS
+	if player:getMentalCapacity() < 1999 or player:getQuestProgress(122) == 0 then --Mental Capacity CANNOT drop below 1999 -> New player or cheater. However, new players should start with a higher value
+	    player:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
+		base.common.TempInformNLS(player,"[Skillsystem] Mental Capacity zwangsangepasst!","[Skill system] Adjustment of mental capacity enforced."); --Debuggin'
+		player:setQuestProgress(122,1);
+	end
+	--TEMPORARY SOLUTION END
 	
 	player:increaseAttrib("foodlevel",-1);
 	-- Abhandlung von Transporttieren
@@ -50,6 +61,12 @@ function onLogin( player )
 	find, reg_effect = player.effects:find(2);
 	if not find then
 		player.effects:addEffect( LongTimeEffect(2,10) );
+	end
+	
+	--Checking longterm cooldown
+	find, reg_effect = player.effects:find(33);
+	if not find then
+		player.effects:addEffect( LongTimeEffect(33,10) );
 	end
 
 	-- Smell effect removed for the time being (annoying!!!)
