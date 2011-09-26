@@ -16,6 +16,13 @@ function onLogin( player )
         "[Login] We play with, not against each other. Have fun playing!"
     );
 
+	    --TEMPORARY SOLUTION TO CATCH NEW PLAYERS
+	if player:getMentalCapacity() < 1999 or player:getQuestProgress(122) = 0 then --Mental Capacity CANNOT drop below 1999 -> New player or cheater. However, new players should start with a higher value
+	    player:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
+		base.common.TempInformNLS(player,"[Skillsystem] Mental Capacity zwangsangepasst!","[Skill system] Adjustment of mental capacity enforced."); --Debuggin'
+		player:setQuestProgress(122,1);
+	end
+	--TEMPORARY SOLUTION END
 	
 	player:increaseAttrib("foodlevel",-1);
 	-- Abhandlung von Transporttieren
