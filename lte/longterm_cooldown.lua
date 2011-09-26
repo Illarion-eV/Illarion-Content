@@ -29,7 +29,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
 end --all above is only conducted for players that aren't afk for more than five minutes
 
     base.common.InformNLS( Char,"LTE 33 called.","LTE 33 called."); --Debugging
-	Effect.nextCalled = 3000; --Effect gets called each 5 minutes
+	Effect.nextCalled = 10; --Effect gets called each 5 minutes
 
 	return true; --No idea why!
 	
