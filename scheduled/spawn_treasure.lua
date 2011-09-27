@@ -7,7 +7,7 @@ module("scheduled.spawn_treasure", package.seeall)
 
 function spawnTreasure()
 
-	treasurePos=position(703,416,-3); --Salavesh dungeon
+	treasurePos=position(703,422,-3); --Salavesh dungeon
 	
     if table.getn(world:getPlayersInRangeOf(treasurePos,20)) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around and there is no item on the tile
 	
