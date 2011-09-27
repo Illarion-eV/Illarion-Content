@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 05, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: September 26, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -368,7 +368,7 @@ talkEntry:addResponse("Very good. I am authorised to grant you a small reward. T
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(151, 5));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 3600));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -383,7 +383,7 @@ talkEntry:addResponse("Sehr gut. Ich bin berechtigt, euch eine kleine Belohnung 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(151, 5));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 3600));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -440,7 +440,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(5));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Cadomyr's economy is based on sand. Very funny, I know - but take a look at the treasurey and you won't laugh anymore. A shipment of quartz sand to abroad lacks twenty piles. Please provide them anytime soon.");
+talkEntry:addResponse("Cadomyr's economy is based on sand. Very funny, I know - but take a look at the treasury and you won't laugh anymore. A shipment of quartz sand to abroad lacks twenty piles. Please provide them anytime soon.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -466,7 +466,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 0));
 talkEntry:addCondition(npc.base.condition.chance.chance(5));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Cadomyr's economy is based on sand. Very funny, I know - but take a look at the treasurey and you won't laugh anymore. A shipment of quartz sand to abroad lacks twenty piles. Please provide them anytime soon.");
+talkEntry:addResponse("Cadomyr's economy is based on sand. Very funny, I know - but take a look at the treasury and you won't laugh anymore. A shipment of quartz sand to abroad lacks twenty piles. Please provide them anytime soon.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -496,7 +496,7 @@ talkEntry:addResponse("Very good! The shipment can leave Cadomyr in time. Next t
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 20));
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2160));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -511,7 +511,7 @@ talkEntry:addResponse("Sehr gut! Die Lieferung kann Cadomyr pünktlich verlassen.
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 20));
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2160));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -624,7 +624,7 @@ talkEntry:addResponse("I thank you. The diadem, albeit not the first present thi
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(46, 3));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 1440));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -639,7 +639,7 @@ talkEntry:addResponse("Ich danke euch. Das Diadem, auch wenn es nicht das erste 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(46, 3));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 1440));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -752,7 +752,7 @@ talkEntry:addResponse("With that cherry wood, the artisans can fix the ceiling. 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(545, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2880));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -767,7 +767,7 @@ talkEntry:addResponse("Mit diesem Kirschholz können die Artisanen die Decke ausb
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(545, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2880));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -880,7 +880,7 @@ talkEntry:addResponse("Excellent, that dress even has the right size. This ring 
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(852, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2160));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -895,7 +895,7 @@ talkEntry:addResponse("Exzellent, das Kleid hat sogar die richtige Größe. Dieser
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(852, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2160));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1008,7 +1008,7 @@ talkEntry:addResponse("The masons will immediatly start fixing the wall with you
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 20));
 talkEntry:addConsequence(npc.base.consequence.item.item(97, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 1440));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1023,7 +1023,7 @@ talkEntry:addResponse("Die Maurer werden sofort damit beginnen, die Mauer mit eu
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 20));
 talkEntry:addConsequence(npc.base.consequence.item.item(97, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 1440));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1136,7 +1136,7 @@ talkEntry:addResponse("Ah, a new long sword for the armoury. I guess we'll never
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2701, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 3600));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1151,7 +1151,7 @@ talkEntry:addResponse("Ah, ein neues Langschwert für die Waffenkammer. Ich nehme
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2701, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 3600));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1264,7 +1264,7 @@ talkEntry:addResponse("Ah, firnis blossoms, that'll be a great surprise for her 
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(148, 15));
 talkEntry:addConsequence(npc.base.consequence.item.item(2456, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 3600));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1279,7 +1279,7 @@ talkEntry:addResponse("Ah, Firnisblüten, das wird eine schöne Überraschung für i
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(148, 15));
 talkEntry:addConsequence(npc.base.consequence.item.item(2456, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 3600));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1392,7 +1392,7 @@ talkEntry:addResponse("Here is a small reward for the carrots you brought. Certa
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2160));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1407,7 +1407,7 @@ talkEntry:addResponse("Hier ist eine kleine Belohnung für die Karotten, die ihr 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2160));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1520,7 +1520,7 @@ talkEntry:addResponse("Now I can spend even more time for serving the queen. Tha
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(429, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2880));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1535,7 +1535,7 @@ talkEntry:addResponse("Jetzt kann ich endlich noch mehr Zeit damit zubringen, de
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(429, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2880));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1648,7 +1648,7 @@ talkEntry:addResponse("#me inspects the soup bowls and nods: 'You did not dissap
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2935, 20));
 talkEntry:addConsequence(npc.base.consequence.item.item(297, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 1440));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1663,7 +1663,7 @@ talkEntry:addResponse("#me begutachtet die Suppenschüsseln und nickt: 'Ihr habt 
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2935, 20));
 talkEntry:addConsequence(npc.base.consequence.item.item(297, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 1440));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1776,7 +1776,7 @@ talkEntry:addResponse("The queen's new mirror, very good. Always keep in mind th
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 70));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(336, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 3600));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1791,7 +1791,7 @@ talkEntry:addResponse("Der Königin neuer Spiegel, sehr gut. Denkt nun immer dara
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 70));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(336, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 3600));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1904,7 +1904,7 @@ talkEntry:addResponse("Ha! That comb will suit those bearded gnomes. Here, you s
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2719, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(2744, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2880));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1919,7 +1919,7 @@ talkEntry:addResponse("Ha! Dieser Kamm ist genau das richtige für diese bärtigen
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2719, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(2744, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2880));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2032,7 +2032,7 @@ talkEntry:addResponse("This bow will protect Cadomyr from this day on. Arrows sh
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 80));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2708, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2160));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2047,7 +2047,7 @@ talkEntry:addResponse("Dieser Bogen wird von nun an Cadomyr beschützen. Mit ihm 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 80));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2708, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2160));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2160,7 +2160,7 @@ talkEntry:addResponse("Crossbow bolts that will pierce the armour of our enemies
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(237, 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(2780, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 1440));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2175,7 +2175,7 @@ talkEntry:addResponse("Armbrustbolzen, die die Rüstungen unserer Feinde durchboh
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(237, 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(2780, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 1440));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2288,7 +2288,7 @@ talkEntry:addResponse("#me sniffes: 'Delicious! I'll forward your dishes to the 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 220));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(554, 5));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 3600));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2303,7 +2303,7 @@ talkEntry:addResponse("#me schnüffelt: 'Schmackhaft! Ich werde diese Gerichte gl
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 220));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(554, 5));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 3600));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2416,7 +2416,7 @@ talkEntry:addResponse("A perfect skirt for a walk in the desert. You realise whi
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(843, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2880));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2431,7 +2431,7 @@ talkEntry:addResponse("Ein perfekter Rock für einen Ausflug in die Wüste. Ihr se
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(843, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2880));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2544,7 +2544,7 @@ talkEntry:addResponse("Very well, you deserve a reward. Coal has stored much mor
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 15));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2160));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2559,7 +2559,7 @@ talkEntry:addResponse("Sehr gut, ihr habt euch eure Belohnung verdient. Kohle en
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 15));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2160));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2672,7 +2672,7 @@ talkEntry:addResponse("With a fully equipped guard, Baron Hastings' men won't da
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(94, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(236, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 1440));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2687,7 +2687,7 @@ talkEntry:addResponse("Eine voll ausgerüstete Wache wir die Männer von Baron Has
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(94, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(236, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 1440));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2800,7 +2800,7 @@ talkEntry:addResponse("I thank you very much. I shall start to forge the golden 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2880));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2815,7 +2815,7 @@ talkEntry:addResponse("Ich danke euch vielmals. Ich sollte mit dem Schmieden des
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 2880));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
