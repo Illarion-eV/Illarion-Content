@@ -2,7 +2,7 @@
 -- Skeleton Spawn Script
 
 function ForestSkells()
-    local Charakters = world:getPlayersInRangeOf(position(-54,72,0),35);
+    local Charakters = world:getPlayersInRangeOf(position(780,50,0),30);
     for i, Char in Charakters do
         RndTry = math.random(0,15)
         if (RndTry == 1) then
