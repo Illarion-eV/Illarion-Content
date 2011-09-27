@@ -7,7 +7,7 @@ module("scheduled.scs_skeleton_forest", package.seeall)
 
 function ForestSkells()
     local Charakters = world:getPlayersInRangeOf(position(780,50,0),30);
-	for i,char in pairs(Charakters) do    
+	for i,Char in pairs(Charakters) do    
         RndTry = math.random(1,2)
         if (RndTry == 1) then
             if SpawnSkeleton(Char) then
