@@ -8,16 +8,16 @@ module("scheduled.scs_skeleton_forest", package.seeall)
 function ForestSkells()
     local Charakters = world:getPlayersInRangeOf(position(780,50,0),30);
 	for i,char in pairs(Charakters) do    
-        RndTry = math.random(0,10)
+        RndTry = math.random(1,2)
         if (RndTry == 1) then
             if SpawnSkeleton(Char) then
                 return
             end
         elseif (RndTry == 2) then
             if (Char:getPlayerLanguage() == 0) then
-                Char:inform("Du hörst ein leises Knacken im Unterholz und vielleicht ein leises Murmeln.");
+                Char:inform("#w Du hörst ein leises Knacken im Unterholz und vielleicht ein leises Murmeln.");
             else
-                Char:inform("You hear a quiet cracking in the forest and maybe a muttering.");
+                Char:inform("#w You hear a quiet cracking in the forest and maybe a muttering.");
             end
         end
     end
@@ -36,9 +36,9 @@ function SpawnSkeleton(Charakter)
     end  
     
     if (Charakter:getPlayerLanguage() == 0) then
-        Charakter:inform("Um dich herum raschelt der Wald und du hört das Klappern von Knochen.");
+        Charakter:inform("#w Um dich herum raschelt der Wald und du hört das Klappern von Knochen.");
     else
-        Charakter:inform("Around you the forest rustles and you hear the clacking of bones.");
+        Charakter:inform("#w Around you the forest rustles and you hear the clacking of bones.");
     end
     SpawnSkeletonCycle(Charakter.pos,6,math.random(3,8));
     return true;
