@@ -1,6 +1,10 @@
 -- Skeleton Forest
 -- Skeleton Spawn Script
 
+require("base.common")
+
+module("scheduled.scs_skeleton_forest", package.seeall)
+
 function ForestSkells()
     local Charakters = world:getPlayersInRangeOf(position(780,50,0),30);
     for i, Char in Charakters do
