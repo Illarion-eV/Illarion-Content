@@ -41,6 +41,11 @@ function onLogin( player )
 	messageG[25]="[Tipp] Runewick ist das Reich der Weisheit.";		
 	messageG[26]="[Tipp] Galmair ist das Reich des Reichtums.";
 	messageG[27]="[Tipp] Manchen Monstern sollte man lieber nicht alleine begegnen.";
+	messageG[28]="[Tipp] Gegenstände von geringer Haltbarkeit drohen zu zerbrechen. Ein Fachmann kann sie ausbessern.";
+	messageG[29]="[Tipp] Fernwaffen werden nicht umsonst so genannt: stark auf Distanz; nutzlos im Nahkampf.";
+	messageG[30]="[Tipp] Hiebwaffen sind gut gegen leichte Rüstungen.";
+	messageG[31]="[Tipp] Stichwaffen sind gut gegen mittlere Rüstungen.";
+	messageG[32]="[Tipp] Stumpfe Waffen sind gute gegen schwere Rüstungen.";
 	
     messageE={};
     messageE[1]="[Tip] Light armour like leather armour protects good against blunt weapons but bad against slashing weapons.";
@@ -70,6 +75,11 @@ function onLogin( player )
 	messageE[25]="[Tip] Runewick is the realm of wisdom.";
 	messageE[26]="[Tip] Galmair is the realm of wealth.";
 	messageE[27]="[Tip] Some monsters you should avoid all alone.";
+	messageE[28]="[Tip] Items of low durability might break any time. A specialist can repair them.";
+	messageE[29]="[Tip] Distance weapons have their name for a reason; useful for distant targets, useless in melee.";
+	messageE[30]="[Tip] Slashing weapons are good against light armour.";
+	messageE[31]="[Tip] Puncture weapons are good against medium armour.";
+	messageE[32]="[Tip] Blunt weapons are good against heavy armour.";
 	
 	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
