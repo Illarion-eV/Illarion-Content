@@ -47,6 +47,23 @@ function onLogin( player )
 	messageG[31]="[Tipp] Stichwaffen sind gut gegen mittlere Rüstungen.";
 	messageG[32]="[Tipp] Stumpfe Waffen sind gute gegen schwere Rüstungen.";
 	messageG[33]="[Tipp] Ein Silberstück entspricht einhundert Kupferstücken. Einhundert Silberstücke entsprechen einem Goldstück.";
+	messageG[34]="[Tipp] Die besten Alchemisten	leben in Runewick.";
+	messageG[35]="[Tipp] Die besten Kerzenzieher leben in Runewick.";
+	messageG[36]="[Tipp] Die besten Schreiner leben in Runewick.";
+	messageG[37]="[Tipp] Die besten Köche leben in Runewick.";
+	messageG[38]="[Tipp] Die besten Bauern leben in Runewick.";
+	messageG[39]="[Tipp] Die besten Kräuterkundigen leben in Runewick.";
+	messageG[40]="[Tipp] Die besten Schneider leben in Runewick.";
+	messageG[41]="[Tipp] Die besten Schmiede leben in Galmair.";
+	messageG[42]="[Tipp] Die besten Ziegelbrenner leben in Galmair.";
+	messageG[43]="[Tipp] Die besten Steinmetze leben in Galmair.";
+	messageG[44]="[Tipp] Die besten Bergarbeiter leben in Galmair.";
+	messageG[45]="[Tipp] Die besten Brauer leben in Galmair.";
+	messageG[46]="[Tipp] Die besten Fischer leben in Cadomyr.";
+	messageG[47]="[Tipp] Die besten Glasbläser leben in Cadomyr.";
+	messageG[48]="[Tipp] Die besten Gräber leben in Cadomyr.";
+	messageG[49]="[Tipp] Die besten Kunstschmiede leben in Cadomyr.";
+	messageG[50]="[Tipp] Die besten Edelsteinschleifer leben in Cadomyr.";
 	
     messageE={};
     messageE[1]="[Tip] Light armour like leather armour protects good against blunt weapons but bad against slashing weapons.";
@@ -81,7 +98,24 @@ function onLogin( player )
 	messageE[30]="[Tip] Slashing weapons are good against light armour.";
 	messageE[31]="[Tip] Puncture weapons are good against medium armour.";
 	messageE[32]="[Tip] Blunt weapons are good against heavy armour.";
-	messageE[33]="[Tip] A silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin.";	
+	messageE[33]="[Tip] A silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin.";
+	messageE[34]="[Tip] The best alchemists are living in Runewick.";
+	messageE[35]="[Tip] The best candle makers are living in Runewick.";
+	messageE[36]="[Tip] The best carpenters are living in Runewick.";
+	messageE[37]="[Tip] The best cooks are living in Runewick.";
+	messageE[38]="[Tip] The best peasants are living in Runewick.";
+	messageE[39]="[Tip] The best herbalists are living in Runewick.";
+	messageE[40]="[Tip] The best tailors are living in Runewick.";
+	messageE[41]="[Tip] The best blacksmiths are living in Galmair.";
+	messageE[42]="[Tip] The best brick makers are living in Galmair.";
+	messageE[43]="[Tip] The best masons are living in Galmair.";
+	messageE[44]="[Tip] The best miners are living in Galmair.";
+	messageE[45]="[Tip] The best brewers are living in Galmair.";
+	messageE[46]="[Tip] The best fishers are living in Cadomyr.";
+	messageE[47]="[Tip] The best glass blowers are living in Cadomyr.";
+	messageE[48]="[Tip] The best diggers are living in Cadomyr.";
+	messageE[49]="[Tip] The best finesmiths are living in Cadomyr.";
+	messageE[50]="[Tip] The best gem grinders are living in Cadomyr.";	
 	
 	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
