@@ -14,18 +14,20 @@ function onLogin( player )
 
 	--Messages of the day
     messageG={};
-    messageG[1]="[Login] Leichte Rüstungen wie Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.";
-    messageG[2]="[Login] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stichwaffen.";
-    messageG[3]="[Login] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stichwaffen aber schlecht gegen stumpfe Waffen.";
-	messageG[4]="[Login] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!";	
-	messageG[5]="[Login] Bitte besuche uns im IRC-Chat: #illarion auf Quakenet.";
+    messageG[1]="[Tipp] Leichte Rüstungen wie Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.";
+    messageG[2]="[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stichwaffen.";
+    messageG[3]="[Tipp] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stichwaffen aber schlecht gegen stumpfe Waffen.";
+	messageG[4]="[Tipp] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!";	
+	messageG[5]="[Tipp] Bitte besuche uns im IRC-Chat: #illarion auf Quakenet.";
+	messageG[6]="[Tipp] Im Forum sind viele interessante Diskussion und Informationen zu finden. Meld dich gleich an!";
 	
     messageE={};
-    messageE[1]="[Login] Light armour like leather armour protects good against blunt weapons but bad against slashing weapons.";
-    messageE[2]="[Login] Medium armour like chain mail protects good against slashing weapons but bad against puncture weapons.";
-    messageE[3]="[Login] Heavy armour like plate armour protects good against puncture weapons but bad against blunt weapons.";
-    messageE[4]="[Login] We play with, not against each other. Have fun playing!";
-	messageE[5]="[Login] Please join our IRC chat: #illarion on Quakenet.";
+    messageE[1]="[Tip] Light armour like leather armour protects good against blunt weapons but bad against slashing weapons.";
+    messageE[2]="[Tip] Medium armour like chain mail protects good against slashing weapons but bad against puncture weapons.";
+    messageE[3]="[Tip] Heavy armour like plate armour protects good against puncture weapons but bad against blunt weapons.";
+    messageE[4]="[Tip] We play with, not against each other. Have fun playing!";
+	messageE[5]="[Tip] Please join our IRC chat: #illarion on Quakenet.";
+	messageE[6]="[Tip] The forum contains many interesting discussions and information. Register today!";	
 	
 	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
