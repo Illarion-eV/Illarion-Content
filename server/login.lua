@@ -20,7 +20,24 @@ function onLogin( player )
 	messageG[4]="[Tipp] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!";	
 	messageG[5]="[Tipp] Bitte besuche uns im IRC-Chat: #illarion auf Quakenet.";
 	messageG[6]="[Tipp] Im Forum sind viele interessante Diskussion und Informationen zu finden. Meld dich gleich an!";
-	
+	messageG[7]="[Tipp] Wenn du einen Gamemaster erreichen möchtest, schreibe !gm <Deine Nachricht> im Chatfenster.";
+	messageG[8]="Brágon ist der Gott des Feuers.";
+	messageG[9]="Eldan ist der Gott des Geistes.";
+	messageG[10]="Findari ist die Göttin der Luft.";
+	messageG[11]="Tanora/Zelphia ist die Göttin des Wassers.";
+	messageG[12]="Ushara ist die Göttin der Erde .";
+	messageG[13]="Adron ist der Gott des Weines und der Feste.";
+	messageG[14]="Cherga ist die Göttin der Geister und der Unterwelt.";
+	messageG[15]="Elara ist die Göttin des Wissens und der Weisheit.";
+	messageG[16]="Irmorom ist der Gott des Handels und des Handwerks.";
+	messageG[17]="Malachín ist der Gott der Jagd und der Schlachten.";
+	messageG[18]="Moshran ist der Gott des Blutes und der Gebeine.";
+	messageG[19]="Nargùn ist der Gott des Chaos.";
+	messageG[20]="Oldra ist die Göttin der Fruchtbarkeit und des Lebens.";
+	messageG[21]="Ronagan ist der Gott der Diebe und der Schatten.";
+	messageG[22]="Sirani ist die Göttin der Liebe und der Freude.";
+	messageG[23]="Zhambra ist der Gott der Freundschaft und Treue.";
+
     messageE={};
     messageE[1]="[Tip] Light armour like leather armour protects good against blunt weapons but bad against slashing weapons.";
     messageE[2]="[Tip] Medium armour like chain mail protects good against slashing weapons but bad against puncture weapons.";
@@ -28,6 +45,24 @@ function onLogin( player )
     messageE[4]="[Tip] We play with, not against each other. Have fun playing!";
 	messageE[5]="[Tip] Please join our IRC chat: #illarion on Quakenet.";
 	messageE[6]="[Tip] The forum contains many interesting discussions and information. Register today!";	
+	messageE[7]="[Tip] If you want to contact a gamemaster, type !gm <Your message> in the chat box.";
+	messageE[8]="Brágon is the God of fire.";
+	messageE[9]="Eldan is the God of spirit.";
+	messageE[10]="Findari is the Goddess of air.";
+	messageE[11]="Tanora/Zelphia is the Goddess of water.";
+	messageE[12]="Ushara is the Goddess of earth.";
+	messageE[13]="Adron is the God of festivities and wine.";
+	messageE[14]="Cherga is the Goddess of spirits and the underworld.";
+	messageE[15]="Elara is the Goddess of wisdom and knowledge.";
+	messageE[16]="Irmorom is the God of trade and craftsmanship.";
+	messageE[17]="Malachín is the God of battle and hunting.";
+	messageE[18]="Moshran is the God of blood and bones.";
+	messageE[19]="Nargùn is the God of chaos.";
+	messageE[20]="Oldra is the Goddess of life and fertility.";
+	messageE[21]="Ronagan is the God of thieves and shadows.";
+	messageE[22]="Sirani is the Goddess of love and pleasure.";
+	messageE[23]="Zhambra is the God of friendship and loyalty.";
+
 	
 	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
