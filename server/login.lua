@@ -41,6 +41,7 @@ function onLogin( player )
 	messageG[25]="[Tipp] Runewick ist das Reich der Weisheit.";		
 	messageG[26]="[Tipp] Galmair ist das Reich des Reichtums.";
 	messageG[27]="[Tipp] Manchen Monstern sollte man lieber nicht alleine begegnen.";
+	messageG[28]="[Tipp] Gegenstände von geringer Haltbarkeit drohen zu zerbrechen. Ein Fachmann kann sie ausbessern.";
 	
     messageE={};
     messageE[1]="[Tip] Light armour like leather armour protects good against blunt weapons but bad against slashing weapons.";
@@ -70,6 +71,7 @@ function onLogin( player )
 	messageE[25]="[Tip] Runewick is the realm of wisdom.";
 	messageE[26]="[Tip] Galmair is the realm of wealth.";
 	messageE[27]="[Tip] Some monsters you should avoid all alone.";
+	messageE[28]="[Tip] Items of low durability might break any time. A specialist can repair them.";
 	
 	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
