@@ -56,8 +56,8 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keyphrases: Question, information, Runewick, building, game.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Spiel.")
+"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keyphrases: Question, information, Runewick, building, mission.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Auftrag.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hail Elara. *Closes her eyes*"
@@ -80,8 +80,6 @@ itemShoes = 369
 "quest", "mission" -> "IN ARBEIT."
 "task", "adventure", "order" -> "IN PROGRESS."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
-"game" -> "IN PROGRESS"
-"spiel" -> "IN ARBEIT"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "If necessary I'm an informant. In this case I will inform you about Runewick, its buildings, places, events, people, history or gods. If you require even more, at least one task is alos pending."
@@ -98,8 +96,8 @@ itemShoes = 369
 "Gebäude" -> "Welches Gebäude meint ihr? Markt, Tempel, Teleport, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, oder unsere Türme, sprich Turm der Luft, Turm des Feuer, Turm des Wasser, Turm der Erde?", inform("[Schlüsselwörter] Markt, Tempel, Teleport, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, Türme, Turm der Luft, Turm des Feuer, Turm des Wasser, Turm der Erde")
 "place" -> "Places? Which places of the hinterland to you mean? I recommend also to talk with a geographer about them. The one I can recommend can be found in the Library of Earth and is called Numila Irunnleh.",inform("[Keywords] Hinterland, Numila Irunnleh")
 "Platz", "Plätz" -> "Plätze? Welche Plätze des Hinterland meint ihr? Ich empfehle auch mit einen Geograph darüber zu sprechen. Ich kann euch eine in der Bibliothek der Erde empfehlen. Sie wird Numila Irunnleh genannt.",inform("[Schlüsselwörter] Hinterland, Numila Irunnleh")
-"Numila", "Irunnleh", english -> "She is geographer and can be found in the Library of Earth. She will tell you information about places outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Tir Draganfod, Shadowland and other places you like to know."
-"Numila", "Irunnleh" -> "Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Plätze wie Eibental, Bärenhöhle, Schlangekopfbucht, Tir Draganfod, Schattenland und andere Plätze die du gerne wissen möchtest."
+"Numila", "Irunnleh", english -> "She is geographer and can be found in the Library of Earth. She will tell you information about places outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Tir Draganfod, Shadowland and other places you like to know.", queststatus (620)=1, inform (Try to find Numila Irunnleh and get your reward.)
+"Numila", "Irunnleh" -> "Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Plätze wie Eibental, Bärenhöhle, Schlangekopfbucht, Tir Draganfod, Schattenland und andere Plätze die du gerne wissen möchtest.", queststatus (620)=1, inform (Finde Numila Irunnleh und erhalte deine Belohnung.)
 "people" -> "People? Whom else do you desire to talk with than our Archmage? I do not think anyone else has more wisedom, therefore do not waste your time witho other and more important: Do not bother me with questions about them."
 "Leute" -> "Leute? Mit wem ausser dem Erzmagier möchtet ihr ansonsten sprechen? Ich kenne niemanden der größere Weisheit als er besitzt. Daher verschwendet nicht eure Zeit und ärgert mich nicht mit Fragen über andere Leute."
 "history" -> "I do not think that you have time to listen to all my knowledge about our history. Therefore, I recommend our history book in our libraries."

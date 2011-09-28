@@ -1,0 +1,289 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Ruzusss                                                   Cadomyr --
+-- NPC Job:  hunter                                                        --
+--                                                                            --
+-- NPC Race: lizardman                  NPC Position:  126, 630, 0            --
+-- NPC Sex:  male                     NPC Direction: south                  --
+--                                                                            --
+-- Author:   envi                                                             --
+--                                                                            --
+-- Last parsing: September 15, 2011                      easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Ruzusss"
+race = lizardman
+sex = male
+position = 126, 630, 0
+direction = south
+affiliation = "Cadomyr"
+job = "hunter"
+
+language = common
+language = lizard
+defaultLanguage = common
+autointroduce = on
+
+author = "envi"
+
+lookatDE = "Dieser NPC ist Ruzusss der Jäger."
+lookatUS = "This NPC is Ruzusss the hunter."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 3
+beardID = 5
+colorHair = 34, 139, 34
+colorSkin = 154, 205, 50
+itemHead = 2287
+itemChest = 364
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 366
+itemShoes = 369
+
+-- Template Version 1.04, 07/12/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Ruzusss the hunter. Keyphrases: Question, information, Cadomyr, places.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Ruzusss der Jäger. Schlüsselwörter: Auskunft, Information, Cadomyr, Plätze.")
+
+-- Mandatory: General speech
+".*", queststatus (640)=1, english -> "Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have a sssilvercoin for that you found me.",queststatus (640)=2
+".*", queststatus (640)=1 -> "Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdiente Münze.",queststatus (640)=2
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetingsss, can I help you?"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüsssse, kann ich helfen?"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Greetingsss, can I help you?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüsssse, kann ich helfen?"
+"Farewell", "Bye", "Fare well", "See you" -> "Sssee you again if you need more information."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Wir sssehen unsss wenn mehr Information benötigt wird."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Sssee you again if you need more information."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Wir sssehen unsss wenn mehr Information benötigt wird."
+"How are you", "How feel", "How do you do" -> "Very good, jussst won another game."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sssehr gut, gerade wieder ein Ssspiel gewonnen."
+"your name", "who are you", "who art thou" -> "Ruzusss the hunter."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ruzusss der Jäger."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "IN PROGRESS."
+"quest", "mission" -> "IN ARBEIT."
+"task", "adventure", "order" -> "IN PROGRESS."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+--"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"inform", english -> "I have information about placesss clossse to Cadomyr. Just asssk me!", inform("[Keywords] ")
+"inform" -> "Ich habe Informationen über Plätze in der Nähe von Cadomyr geben. Frag einfach!", inform("[Schlüsselwörter] ")
+"question" -> "I have information about placesss clossse to Cadomyr. Just asssk me!", inform("[Keywords] ")
+"Frage", "Auskunft" -> "Ich habe Informationen über Plätze in der Nähe von Cadomyr geben. Frag einfach!", inform("[Schlüsselwörter] ")
+"place" -> "Places? Which places to you mean? These could be...", inform("[Keywords] ")
+"Platz", "Plätz" -> "Plätze? Welche Plätze meint ihr? Diese könnten sein...", inform("[Schlüsselwörter] ")
+"Frizza", english -> "You can find her outssside of the town clossse to the teleporter. Sssshe hasss a lot of information and sssome tasksss for you."
+"Frizza" -> "Du findest sssie drausen vor der Stadt, nahe am Teleporter. Sssie hat eine Menge Informationen und Aufträge für dich."
+
+"Western Katanbi Desert" -> ""
+"Westliche Katanbi Wüste" -> ""
+"Mount Siba" -> ""
+"Berg Siba" -> ""
+"Milkhouse" -> "That isss the name of our donkey stable. It isss in the eassst from here."
+"Milchhaus" -> "Dasss issst der Name unssseresss Eselstalls. Er kann im Osssten von hier gefunden werden."
+"Cornerstone of Candour" -> ""
+"Grundstein der Aufrichtigkeit" -> ""
+"Rosaline Cube" -> ""
+"Rosaline Würfel" -> ""
+"Cube Camp" -> ""
+"Würfel Lager" -> ""
+"Faber's Guardhouse" -> ""
+"Faber's Wachhaus" -> ""
+"Remote Dwelling" -> ""
+"???" -> ""
+"Pirate cove" -> ""
+"???" -> ""
+"Cape Farewell" -> ""
+"???" -> ""
+"Katanbi River" -> ""
+"???" -> ""
+"Liberty Quarry" -> ""
+"???" -> ""
+"Grugmutz's cave" -> ""
+"???" -> ""
+"Creek Settlement" -> ""
+"???" -> ""
+"Envy Creek" -> ""
+"???" -> ""
+"Weary Inn" -> ""
+"???" -> ""
+"Katanbi Desert" -> ""
+"???" -> ""
+"Prison" -> ""
+"???" -> ""
+"The Druid's Tear" -> ""
+"???" -> ""
+"The Royal Academy of Gladiators" -> ""
+"???" -> ""
+"The Blood Circle Arena" -> ""
+"???" -> ""
+"Desert Hole" -> ""
+"???" -> ""
+"Royal Slave Market" -> ""
+"???" -> ""
+"Pyramide of Discord" -> ""
+"???" -> ""
+"Pearl of Sirani" -> ""
+"???" -> ""
+"Frontus Farm" -> ""
+"???" -> ""
+"Shadowland" -> ""
+"???" -> ""
+"Queens Corner" -> ""
+"???" -> ""
+"Zumbrass Tomb" -> ""
+"???" -> ""
+"Mount Zotmore" -> ""
+"???" -> ""
+"Katanbi Delta" -> ""
+"???" -> ""
+"Merchants' Folly" -> ""
+"???" -> ""
+"Cadomyr Harbour" -> ""
+"???" -> ""
+"Harp of Pain" -> ""
+"???" -> ""
+"Lost Harbour" -> ""
+"???" -> ""
+"Tear of Sirani" -> ""
+"???" -> ""
+"Kata Island" -> ""
+"???" -> ""
+"Mount Letma" -> ""
+"???" -> ""
+"Draganfod" -> ""
+"???" -> ""
+"Lonely Mountains" -> ""
+"???" -> ""
+"Great Ocean" -> ""
+"???" -> ""
+"Border Mountains" -> ""
+"???" -> ""
+"Spider's Mouth" -> ""
+"???" -> ""
+
+-- "Hemp Necktie Inn" -> ""
+-- "Gasthof zur Hanfschlinge" -> ""
+"The Insurmountable Limes" -> ""
+"???" -> ""
+
+-- Faction stuff
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Catching typical NPC phrases
+--"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Primarly, we pray to three godsss in Cadomyr. They are Sirani, Zhambra and Malachin. But I pray to Zelphia, mother of my race"
+"Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Cadomyr an. Die wären Sirani, Zhambra und Malachin. Aber ich bette zu Zelphia, der Mutter meiner Rassse."
+"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín", english -> "You can find a Temple of him in the South. Just go to the mine 'Cornerstone of Candour', and you will find the temple above. Just follow the signposts."
+"Malachin", "Malachín" -> "Du kannst den Tempel im Süden. Gehe einfach zur Mine 'Grundstein der Aufrichtigkeit', und du wirst den Tempel darüber finden. Folge einfach den Wegschildern."
+"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "You can find a Temple of her in the Sssoutheast. Just go east first, and then south after you cross the Katanbi-river. Just follow the signposts, but be careful!"
+"Sirani" -> "Du kannst den Tempel von ihr im Sssüdosten finden. Gehe einfach in den Osssten, und dann in den Sssüden nachdem du den Katanbi-Fluss überquert hast. Folge einfach den Wegschildern, aber sei vorsichtig!"
+"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "You can find a Temple of him in our town. Jussst go through the townwall, passs the marketplace and then you will find it on the right after the workshop."
+"Zhambra" -> "Du kannst den Tempel von in unserer Ssstadt finden. Gehe einfach durch die Ssstadtmauer, überquere den Marktplatz und dann findest du ihn auch schon an der rechten Ssseite hinter der Werkstatt."
+-- Optional: Main land factions
+-- "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gobaith
+--"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+"my name" -> "Nice to meet you. How can I help you?"
+"mein Name" -> "Ssschön dich zu kennenzulernen. Wie kann ich dir helfen?"
+"Ruzusss", english -> "Yes, that isss my name. About what placesss do you want information?"
+"Ruzusss" -> "Ja, dasss ist mein Name. Über welche Plätze wollt ihr Information?"
+"Yes" -> "A bit more concrete, pleassse!"
+"Ja" -> "Etwas konkreter wenn ich bitten darf!"
+"No" -> "A bit more concrete, pleassse!"
+"Nein" -> "Etwas konkreter wenn ich bitten darf!"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "Huh, about what placesss ssshall I give you information? Do you mind just to asssk for help asss a firssst ssstep?"
+".*", german, chance(20) -> "Huh, über welche Plätze wünssscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places."
+cycletext "#me wedelt mit ihrem Schwanz.", "#me wages her tail."
+cycletext "#me blickt herum mit ihren weit geöffneten Augen.", "#me looks around with wide opened eyes."
+cycletext "#me untersucht ihr Kleid.", "#me examines her dress."
+cycletext "#me streichelt ihren Schwanz.", "#me pets her tail."
+cycletext "#me isst einen Fisch.", "#me eats a fish."

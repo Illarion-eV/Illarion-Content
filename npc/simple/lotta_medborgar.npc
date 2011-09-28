@@ -1,0 +1,239 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Lotta Medborgar                                          None --
+-- NPC Job:  hunter                                           --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  393, 325, -5           --
+-- NPC Sex:  female                       NPC Direction: south                --
+--                                                                            --
+-- Author:   envi                                     					      --
+--                                                                            --
+-- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Lotta Medborgar"
+race = dwarf
+sex = female
+position = 393, 325, -5
+direction = south
+affiliation = "Galmair"
+job = "hunter"
+
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "envi"
+
+lookatDE = "Dieser NPC ist Lotta Medborgar die Jägerin."
+lookatUS = "This NPC is Lotta Medborgar the hunter."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 0
+beardID = 9
+colorHair = 255, 215, 0
+colorSkin = 238, 203, 173
+itemHead = 2302
+itemChest = 364
+itemCoat = 0
+itemMainHand = 2727
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 826
+itemShoes = 369
+
+-- Template Version 1.04, 07/12/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Lotta Medborgar the hunter. Keyphrases: Question, information, Galmair, places.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lotta Medborgar die Jägerin. Schlüsselwörter: Auskunft, Information, Galmair, Plätze.")
+
+-- Mandatory: General speech
+".*", queststatus (630)=1, english -> "Good day. Finally you found me! Iradona has already informed me about your visit. There you have a silvercoin for that you found me.", queststatus (630)=2
+".*", queststatus (630)=1 -> "Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.", queststatus (630)=2
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day, my dear. Can I help you with some information?"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day, my dear. Can I help you with some information?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
+"Farewell", "Bye", "Fare well", "See you" -> "See ya soon."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Und servus, bis bald."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "See ya soon."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Und servus, bis bald."
+"How are you", "How feel", "How do you do" -> "My head hurts, because of these thousand of questions of the people of Galmair here."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mein Kopf schmerzt von der vielen Fragerei der Leute von Galmair hier."
+"your name", "who are you", "who art thou" -> "Lotta Medborgar the hunter."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Lotta Medborgar die Jägerin"
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "IN PROGRESS."
+"quest", "mission" -> "IN ARBEIT."
+"task", "adventure", "order" -> "IN PROGRESS."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+--"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"inform", english -> "I can give you information about places near of Galmair. Just ask me!", inform("[Keywords] ")
+"inform" -> "Ich kann dir Informationen über Plätze in der Nähe von Galmair geben. Frag einfach!", inform("[Schlüsselwörter] ")
+"question" -> "I can give you information about places near of Galmair. Just ask me!", inform("[Keywords] ")
+"Frage", "Auskunft" -> "Ich kann dir Informationen über Plätze in der Nähe von Galmair geben. Frag einfach!", inform("[Schlüsselwörter] ")
+"place" -> "Places? Which places to you mean? These could be...", inform("[Keywords] ")
+"Platz","Plätz" -> "Plätze? Welche Plätze meint ihr? Diese könnten sein...", inform("[Schlüsselwörter] ")
+"Iradona", "Goldschein",english -> "You can find her outside of the town close to the teleporter. She has a lot of information and some tasks for you."
+"Iradona", "Goldschein" -> "Du findest sie drausen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für dich."
+
+"Draganfod" -> ""
+"???" -> ""
+"Bounding Stream" -> ""
+"Grenzstrom" -> ""
+"Malachite creek" -> ""
+"Malachit Bach" -> ""
+"Malachite Island" -> ""
+"Malachit Insel" -> ""
+"Galmair Plateau" -> ""
+"???" -> ""
+"Lonely Mountains" -> ""
+"???" -> ""
+"Lake Syrita" -> ""
+"???" -> ""
+"Nagrun's Plain" -> ""
+"???" -> ""
+"Spider's Mouth" -> ""
+"???" -> ""
+"The Swamp" -> ""
+"???" -> ""
+"Plains of Silence" -> ""
+"???" -> ""
+"Bounding Stream" -> ""
+"???" -> ""
+"Northern Woods" -> ""
+"???" -> ""
+
+"Golden Rumil" -> ""
+"???" -> ""
+"Fort Schnellbeil" -> ""
+"???" -> ""
+"Shadowland" -> ""
+"???" -> ""
+--"Hemp Necktie Inn" -> ""
+--"Gasthof zur Hanfschlinge" -> ""
+"The Temple of the Five" -> ""
+"???" -> ""
+"Hammerfall" -> ""
+"???" -> ""
+"The Insurmountable Limes" -> ""
+"???" -> ""
+
+-- Faction stuff
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Catching typical NPC phrases
+--"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Primarly, we pray to three gods in Galmair. They are Irmorom, Nargun and Ronagan of course, my favorite god."
+"Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Galmair an. Die wären Irmorom, Nargun und natürlich Ronagan, meine bevorzugte Gottheit."
+"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "You can find a Temple of him at the west side of Galmair. Just go through Galmair to the Well of Dreams and shortly before Villa Goldvein you will find it in the North. You will find a signpost there."
+"Irmorom" -> "Du kannst den Tempel von ihm auf der Westseite von Galmair finden. Gehe einfach durch Galmair zur Quelle der Träume und kurz vor der Villa Goldader findest du ihn im Norden. Du wirst es am Wegschild sehen."
+"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "You can find a Temple of him down here at the Scoria Mine. You have to walk through the Flicker Swale and the very end you will find a room with a ladder, climb up and there you are. You will find also signposts to your orientation. And be careful!"
+"Nargun", "Nargún", "Nargùn" -> "Du kannst den Tempel von ihm hier unten in der Schlackengrube finden. Du gehst einfach durch die Schimmersenke zu einem Raum am bitteren Ende, die Leiter dort hoch und schon bist du da. Wegschilder sollten zu sehen sein. Und vorsichtig sein!"
+"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "You can find a Temple of him down here at the Scoria Mine. Usually, just follow the signpost there, but unfortunately the corridor is flooded."
+"Ronagan" -> "Du kannst den Tempel von ihm hier unten in der Schlackengrube finden. Im Prinzip einfach dem Wegschild dort nach. Nur leider ist der Gang gerade geflutet."
+"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- Optional: Main land factions
+--"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gobaith
+--"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+"my name" -> "My name sounds better! I hope your questions sound better!"
+"mein Name" -> "Mein Name klingt besser! Ich hoffe deine Fragen klingen besser!"
+"Lotta", "Medborgar", english -> "Yes, that is my name. About welche Plätze places do you want information?"
+"Lotta", "Medborgar" -> "Ja, das ist mein Name. Über was wollt ihr Information?"
+"Yes" -> "As I see, you can say one word, but what about a whole sentence?"
+"Ja" -> "Wie ich merke, kannst du schon ein Wort sagen. Aber wie sieht es mit einem ganzen Satz aus?"
+"No" -> "As I see, you can say one word, but what about a whole sentence?"
+"Nein" -> "Wie ich merke, kannst du schon ein Wort sagen. Aber wie sieht es mit einem ganzen Satz aus?"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "Huh, about what places shall I give you information? Do you mind just to ask for help as a first step?"
+".*", german, chance(20) -> "Huh, über welche Plätze wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places."
+cycletext "#me kratzt sich im Gesicht.", "#me paddles her face."
+cycletext "#me blickt herum mit ihren weit geöffneten Augen.", "#me looks around with wide opened eyes."
+cycletext "#me untersucht ihr Kleid.", "#me examines her dress."
+cycletext "#me streichelt ihren Bauch.", "#me pets her belly."
+cycletext "#me isst eine Wurst.", "#me eats a sausage."

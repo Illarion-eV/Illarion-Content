@@ -1,0 +1,246 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Numila Irunnleh                                             None --
+-- NPC Job:  Scholar                                           --
+--                                                                            --
+-- NPC Race: elf                      NPC Position:  942, 765, 1              --
+-- NPC Sex:  female                       NPC Direction: east                 --
+--                                                                            --
+-- Author:   envi                                     					      --
+--                                                                            --
+-- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Numila Irunnleh"
+race = elf
+sex = female
+position = 942, 765, 1
+direction = east
+affiliation = "Runewick"
+job = "scholar"
+
+language = common
+language = elf
+defaultLanguage = common
+autointroduce = on
+
+author = "envi"
+
+lookatDE = "Dieser NPC ist Numila Irunnleh die Wissenschaftlerin."
+lookatUS = "This NPC is Numila Irunnleh the scholar."
+useMsgDE = "Ihr seid gut damit beraten mich nicht anzufassen."
+useMsgUS = "I recommend do not touch me."
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 5
+beardID = 2
+colorHair = 25, 25, 112
+colorSkin = 230, 230, 250
+itemHead = 0
+itemChest = 846
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 826
+itemShoes = 369
+
+-- Template Version 1.04, 07/12/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Numila Irunnleh the scholar. Keyphrases: Question, information, Runewick, Places.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Numila Irunnleh die Wissenschaftlerin. Schlüsselwörter: Auskunft, Information, Runewick, Plätze.")
+
+-- Mandatory: General speech
+".*", queststatus (620)=1, english -> "Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers a silvercoin and turns back to her book*",queststatus (620)=2
+".*", queststatus (620)=1 -> "Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht eine Silbermünze und wendet sich wieder ihrem Buch zu*",queststatus (620)=2
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hail Oldra. *Turns back to her book*"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Hail Oldra. *Turns back to her book*"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
+"Farewell", "Bye", "Fare well", "See you" -> "Au revoir. *Turns back to her book*"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Au revoir. *Wendet sich wieder ihrem Buch zu*"
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Au revoir. *Turns back to her book*"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Wendet sich wieder ihrem Buch zu*"
+"How are you", "How feel", "How do you do" -> "Fine, fine. *Turns back to her book*"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Fein, fein. *Wendet sich wieder ihrem Buch zu*"
+"your name", "who are you", "who art thou" -> "Numila Irunnleh the scholar. *Turns back to her book*"
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Numila Irunnleh die Wissenschaftlerin. *Wendet sich wieder ihrem Buch zu*"
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "IN PROGRESS."
+"quest", "mission" -> "IN ARBEIT."
+"task", "adventure", "order" -> "IN PROGRESS."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+--"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"inform", english -> "I have information about places close to Runewick for you if you want to know them.", inform("[Keywords] ")
+"inform" -> "Ich habe Informationen über Plätze in der Nähe von Runewick für euch wenn ihr wünscht.", inform("[Schlüsselwörter] ")
+"question" -> "I have information about places close to Runewick for you if you want to know them.", inform("[Keywords] ")
+"Frage", "Auskunft" -> "Ich habe Informationen über Plätze in der Nähe von Runewick für euch wenn ihr wünscht.", inform("[Schlüsselwörter] ")
+"place" -> "Places? Which places to you mean? These could be...", inform("[Keywords] ")
+"Platz","Plätz" -> "Plätze? Welche Plätze meint ihr? Diese könnten sein...", inform("[Schlüsselwörter] ")
+"Elesil", "Daelwon", english -> "You can find her outside of the town close to the teleporter. She has a lot of information and some tasks for you."
+"Elesil", "Daelwon" -> "Ihr findet sie drausen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für euch."
+
+"Dragon's Lair" -> ""
+"???" -> ""
+"Dewy Swamps" -> ""
+"???" -> ""
+"Darter's Shop" -> ""
+"???" -> ""
+"Shwadow Gate" -> ""
+"???" -> ""
+"Bear cave" -> ""
+"???" -> ""
+"Merryglade" -> ""
+"???" -> ""
+"Oldra's Tower" -> ""
+"???" -> ""
+"Coward's last stand" -> ""
+"???" -> ""
+"Northern Outpost" -> ""
+"???" -> ""
+"Anthil Brook" -> ""
+"???" -> ""
+"Adron's Covert" -> ""
+"???" -> ""
+"Shadowland" -> ""
+"???" -> ""
+"Spider's Mouth" -> ""
+"???" -> ""
+
+-- "Hemp Necktie Inn" -> ""
+-- "Gasthof zur Hanfschlinge" -> ""
+"Draganfod" -> ""
+"???" -> ""
+"Great Ocean" -> ""
+"???" -> ""
+"Snakehead Bay" -> ""
+"???" -> ""
+"Bounding Stream" -> ""
+"???" -> ""
+"Glowing River" -> ""
+"???" -> ""
+"Lonely Mountains" -> ""
+"???" -> ""
+"Bounding Stream" -> ""
+"???" -> ""
+"Northern Woods" -> ""
+"???" -> ""
+"The Insurmountable Limes" -> ""
+"???" -> ""
+
+-- Faction stuff
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Catching typical NPC phrases
+--"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Primarly, we pray to three gods in Runewick. They are Adron, Elara and Oldra of course, my favorite god."
+"Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Runewick an. Die wären Adron, Elara und natürlich Oldra, meine bevorzugte Gottheit."
+"Adron", english -> "You may find a Temple of him in the North at the behind the Hemp Necktie Inn. You can either use a teleporter or you walk there according the signposts. But you will need companions."
+"Adron" -> "Ihr möget den Tempel von ihm im Norden hinter dem Gasthof zur Hanfschlinge finden. Hierzu könnt ihr entweder einen Teleporter verwenden oder entlang der Wegweiser wandern. Ohne Begleitung werdet ihr ihn aber nicht erlangen."
+"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "You may find a Temple of her in the Tower of Air. But better ask Elesil Daelwon regarding the Tower of Air and the Shrine of Elara."
+"Elara" -> "Ihr möget den Tempel von ihr im Luftturm finden. Aber fragt besser Elesil Daelwon bezüglich des Luftturms und dem Schrein der E"
+"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "You may find a Temple of her on the other side of the Snakehead Bay in the Northeast of the Sentry Forrest. This place is also known as Oldra’s Corner. Follow the signposts, but keep in mind a dangerous journey is waiting for you."
+"Oldra" -> "Ihr möget den Tempel von ihr auf der anderen Seite der Schlagenkopfbucht im Nordosten des Wachewald finden. Der Platz ist auch als Oldra’s Eck bekannt. Folgt den Wegweisern, aber beachtet, dass Gefahren auf euch warten."
+"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Main land factions
+--"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gobaith
+--"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+"my name" -> "Hmm...you want some information? But about what?"
+"mein Name" -> "Hmm...und ihr wünscht nach Information? Aber welche?"
+"Numila", "Irunnleh", english -> "Yes, that is my name. About which places do you want information?"
+"Numila", "Irunnleh" -> "Ja, das ist mein Name. Über welche Plätze wollt ihr Information?"
+"Yes" -> "A bit more concrete, please!"
+"Ja" -> "Etwas konkreter wenn ich bitten darf!"
+"No" -> "A bit more concrete, please!"
+"Nein" -> "Etwas konkreter wenn ich bitten darf!"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "Huh, about what places shall I give you information? Do you mind just to ask for help as a first step?"
+".*", german, chance(20) -> "Huh, über welche Plätze wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places."
+cycletext "#me gähnt.", "#me yawns."
+cycletext "#me blickt herum mit ihren geschlossenen Augen.", "#me looks around with closed eyes."
+cycletext "#me untersucht ihr Kleid.", "#me examines her dress."
+cycletext "#me kämmt ihr Haar.", "#me combs her hair."
+cycletext "#me isst einen Apfel.", "#me eats an apple."

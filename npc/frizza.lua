@@ -20,6 +20,7 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.condition.race")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
 module("npc.frizza", package.seeall)
 
@@ -273,28 +274,33 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("place");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords]"));
-talkEntry:addResponse("If you like to know anything about placesss outssside, just asssk Ruzusss behind the towngate.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Ruzusss"));
+talkEntry:addResponse("If you like to know anything about placesss outssside, like Katanbi Desert, Western Katanbi Desert, Katanbi Delta, Tir Draganfod or Shadowland just asssk Ruzusss behind the towngate.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Platz");
 talkEntry:addTrigger("Plätz");
-talkEntry:addResponse("Wenn du etwas über die Plätze außerhalb wisssen möchtessst, dann frage Ruzusss hinter dem Stadttor.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwort] Ruzusss"));
+talkEntry:addResponse("Wenn du etwas über die Plätze außerhalb wie Katanbi Wüste, Westliche Katanbi Wüste, Katanbi Delta, Tir Draganfod oder Schattenland wisssen möchtessst, dann frage Ruzusss hinter dem Stadttor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ruzusss");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Try to find Ruzusss and get your reward."));
 talkEntry:addResponse("You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ruzusss");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Finde Ruzusss und erhalte deine Belohnung."));
 talkEntry:addResponse("Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

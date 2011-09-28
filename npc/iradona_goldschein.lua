@@ -19,6 +19,7 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
 module("npc.iradona_goldschein", package.seeall)
 
@@ -184,18 +185,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("game");
-talkEntry:addResponse("IN PROGRESS.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("spiel");
-talkEntry:addResponse("IN ARBEIT.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("Informant. I can tell you many things about Galmair. Just ask me about buildings, places, events, people, history or gods of Galmair. Additionaly, I have a little task.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -283,14 +272,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Is a hunter that has explored several places. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek and many others. You can find her down at the Winged Sow Tavern.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Try to find Lotta Medborgar and get your reward."));
+talkEntry:addResponse("Is a hunter that has explored several places. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Tir Draganfod and many others. You can find her down at the Winged Sow Tavern.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
-talkEntry:addResponse("Ist ne Jägerin und hat etliche Plätze erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Finde Lotta Medborgar und erhalte deine Belohnung."));
+talkEntry:addResponse("Ist ne Jägerin und hat etliche Plätze erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Tir Draganfod, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
