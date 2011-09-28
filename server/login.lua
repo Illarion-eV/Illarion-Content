@@ -13,14 +13,21 @@ function onLogin( player )
 	base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
 
 	--Messages of the day
-    
-	--Default message of the day; more messages would be cool
-	base.common.TempInformNLS( player,
-        "[Login] Wir spielen miteinander, nicht gegeneinander. Viel Spaﬂ beim Spielen!",
-        "[Login] We play with, not against each other. Have fun playing!"
-    );
+    messageG={};
+    messageG[1]="[Login] 1";
+    messageG[2]="[Login] 2";
+    messageG[3]="[Login] 3";
+	messageG[4]="[Login] Wir spielen miteinander, nicht gegeneinander. Viel Spaﬂ beim Spielen!"
+    messageE={};
+    messageE[1]="[Login] 1";
+    messageE[2]="[Login] 2";
+    messageE[3]="[Login] 3";
+    messageE[4]="[Login] We play with, not against each other. Have fun playing!"
+	
+	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
+	base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
 
-	--TEMPORARY SOLUTION TO CATCH NEW PLAYERS
+		--TEMPORARY SOLUTION TO CATCH NEW PLAYERS
 	if player:getMentalCapacity() < 1999 or player:getQuestProgress(122) == 0 then --Mental Capacity CANNOT drop below 1999 -> New player or cheater. However, new players should start with a higher value
 	    player:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
 		base.common.TempInformNLS(player,"[Skillsystem] Mental Capacity zwangsangepasst!","[Skill system] Adjustment of mental capacity enforced."); --Debuggin'
