@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 22, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 28, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -215,7 +215,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("silver");
-talkEntry:addResponse("A silver coins equals a hundred copper coins. One hundred silver coins equal one gold coin.");
+talkEntry:addResponse("A silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -240,7 +240,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Silber");
-talkEntry:addResponse("Ein Silberstück entspricht einhundert Kupfermünzen. Einhundert Silbermünzen entsprechen einem Goldstück.");
+talkEntry:addResponse("Ein Silberstück entspricht einhundert Kupferstücken. Einhundert Silberstücke entsprechen einem Goldstück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

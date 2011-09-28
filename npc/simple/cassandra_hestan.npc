@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 22, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 28, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Cassandra Hestan"
@@ -89,11 +89,11 @@ itemShoes = 369
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "money" -> "In Cadomyr, we know three types of coins: Copper, silver and gold."
-"silver" -> "A silver coins equals a hundred copper coins. One hundred silver coins equal one gold coin."
+"silver" -> "A silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin."
 "copper" -> "One hundred copper coins equal a silver coin."
 "gold", english -> "A gold coin equals a hundred silver coins."
 "Geld" -> "In Cadomyr kennt man drei Sorten Münzen: Kupfer, Silber und Gold."
-"Silber" -> "Ein Silberstück entspricht einhundert Kupfermünzen. Einhundert Silbermünzen entsprechen einem Goldstück."
+"Silber" -> "Ein Silberstück entspricht einhundert Kupferstücken. Einhundert Silberstücke entsprechen einem Goldstück."
 "Kupfer" -> "Einhundert Kupferstücke entsprechen einem Silberstück."
 "Gold" -> "Ein Goldstück entspricht einhundert Silberstücken."
 

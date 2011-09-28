@@ -46,6 +46,7 @@ function onLogin( player )
 	messageG[30]="[Tipp] Hiebwaffen sind gut gegen leichte Rüstungen.";
 	messageG[31]="[Tipp] Stichwaffen sind gut gegen mittlere Rüstungen.";
 	messageG[32]="[Tipp] Stumpfe Waffen sind gute gegen schwere Rüstungen.";
+	messageG[33]="[Tipp] Ein Silberstück entspricht einhundert Kupferstücken. Einhundert Silberstücke entsprechen einem Goldstück.";
 	
     messageE={};
     messageE[1]="[Tip] Light armour like leather armour protects good against blunt weapons but bad against slashing weapons.";
@@ -80,6 +81,7 @@ function onLogin( player )
 	messageE[30]="[Tip] Slashing weapons are good against light armour.";
 	messageE[31]="[Tip] Puncture weapons are good against medium armour.";
 	messageE[32]="[Tip] Blunt weapons are good against heavy armour.";
+	messageE[33]="[Tip] A silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin.";	
 	
 	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
