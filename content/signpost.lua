@@ -101,7 +101,7 @@ function InitWegweiser()
     AddWeg({397,253,0},"Zensusbüro, Gasthof zum schläfrigen Bujhaar, Tollloch, Schürfer Club, Malachitmine","Census office, Sleepy Bujhaar Inn, Sporthole, Miners Club, Malachite Mine",4,0);
     AddWeg({392,249,0},"Wachstube","Guardroom",0,0);
     AddWeg({394,273,0},"Zensusbüro","Census office",2,0);
-    AddWeg({399,302,0},"Tollloch","Sporthole",2,0);
+    AddWeg({398,305,0},"Tollloch","Sporthole",2,0);
     AddWeg({387,346,0},"Galmair","Galmair",0,0);
     AddWeg({387,347,0},"Schürfer Club, Malachitmine","Miners Club, Malachite Mine",2,0);
     AddWeg({386,346,0},"Fort Schnellbeil, Goldener Rumil","Fort Schnellbeil, Golden Rumil",6,0);
