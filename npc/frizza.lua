@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 25, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 28, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -411,26 +411,26 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Donkey stable");
 talkEntry:addTrigger("stable");
-talkEntry:addResponse("Our donkey stable isss the Milkhouse. Jussst follow to the ssstreet to the Katanbi river.");
+talkEntry:addResponse("Our donkey stable isss close to the Quartermaster's Store. Jussst go inssside town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eselstall");
 talkEntry:addTrigger("Stall");
-talkEntry:addResponse("Unser Essselssstall ist das Milchhausss. Folge einfach der Ssstraße zum Katanbi Fluß.");
+talkEntry:addResponse("Unser Essselssstall ist den Quartiermeister Laden. Geh einfach in die Ssstad rein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Donkey");
-talkEntry:addResponse("A donkey can be rent at the Milkhouse. In Galmair and Runewick are running ssseveral around and they are free for hunt. Sss!");
+talkEntry:addResponse("A donkey can be rent at the Donkey stable. In Galmair and Runewick are running ssseveral around and they are free for hunt. Sss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Esel");
-talkEntry:addResponse("Ein Esssel kann im Milchhausss geliehen werden. In Galmair und Runewick laufen viele herum und die sssind auch zur Jagd frei gegeben. Sss!");
+talkEntry:addResponse("Ein Esssel kann im Eselstall geliehen werden. In Galmair und Runewick laufen viele herum und die sssind auch zur Jagd frei gegeben. Sss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -450,61 +450,61 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Royal Champer");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Royal Champer in the palace isss the private room of our queen Rosaline.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königliche Kammer");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Königliche Kammer im Palast issst der private Raum unsssserer Königin Rosaline.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Treasureroom");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Treasureroom in the palace isss the place where all our wealth isss sssaved. We have to protect againssst any threat, in particular from Runewick and Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schatzraum");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Schatzraum in unserem Palast issst jener Platz in welchem wir unssser Reichtum lagern. Wir müsssen ihn ssschützen gegen jede Bedrohung. Insssbesssondere vor Runewick und Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Library");
-talkEntry:addResponse("");
+talkEntry:addResponse("Our library with all our booksss can be found in the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bibliothek");
-talkEntry:addResponse("");
+talkEntry:addResponse("Unsssere Bibliothek mit all unssseren Büchern kann im Palast gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tavern Unicorn Lion");
-talkEntry:addResponse("");
+talkEntry:addResponse("Our Taverne Uniconr Lion isss right after the market on the left side. You cannot missss it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Taverne Einhörniger Löwe");
-talkEntry:addResponse("");
+talkEntry:addResponse("Unsssere Taverne Einhörniger Löwe issst genau hinter dem Markt. Du kannssst sssie nicht versssäumen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Inn Lakeshore");
-talkEntry:addResponse("");
+talkEntry:addResponse("Our Inn Lakeshore isss in the northwest of our town, left from our tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gasthaus Seeufer");
-talkEntry:addResponse("");
+talkEntry:addResponse("Unssser Gasthaus Seeufer issst im Nordwesten unssserer Ssstadt, linksss von unssserer Taverne.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -522,25 +522,25 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Guardroom");
-talkEntry:addResponse("");
+talkEntry:addResponse("Our Guardroom isss on the left side of the townwall. Ssso, enter the townwall and go left.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wachstube");
-talkEntry:addResponse("");
+talkEntry:addResponse("Unsssere Wachstube issst an linken Ssseite unssserer Ssstadtmauer. Ssso, geh in die Ssstadtmauer und dann linksss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Civic Hall");
-talkEntry:addResponse("");
+talkEntry:addResponse("Our Civic Hall is above the Quartermaster's Store. Enter the town and climb up the firssst ladder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Stadtsaal");
-talkEntry:addResponse("");
+talkEntry:addResponse("Unssser Stadtsaal issst über Quartiermeister Laden. Rein in die Ssstadt und die erssste Leiter hoch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -562,69 +562,75 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Villa Edward");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("The Villa Edward isss the sssecond building left to the market. It isss behind Villa Rosaline. It isss an object for honourable memberss of our sssociety.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Villa Edward");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Villa Edward issst dasss zweite Gebäude linksss vom Markt. Esss issst hinter der Villa Rosaline. Esss issst gedacht für die ehrenhaften in unssserer Gesssellssschaft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Villa Rosaline");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("The Villa Rosaline isss the firssst buidling left to the market. It isss infront of Villa Edward. It isss an object for honourable memberss of our sssociety.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Villa Rosaline");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Villa Rosaline issst dasss erssste Gebäude linksss vom Markt. Esss issst vor der Villa Edward. Esss issst gedacht für die ehrenhaften in unssserer Gesssellssschaft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Villa Reginald");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("The Villa Reginald isss the building next to the census office. It isss an object for honourable memberss of our sssociety.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Villa Reginald");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Villa Reginald issst dasss Gebäude neben dem Zensusbüro. Esss issst gedacht für die ehrenhaften in unssserer Gesssellssschaft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Quartermaster's Store");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Quartermaster's Store isss right of the town entrance and you can asssk for sssome misssions there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Quartiermeister Laden");
+talkEntry:addResponse("Der Quartiermeister Laden issst rechtsss vom Ssstadteingang und du kannssst dort nach Befehlen fragen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Flat quarter");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Flat quarter isss the part eassst of our town. These are they placesss for thossse on the bottom of the hierarchy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wohnungsquartier");
-talkEntry:addResponse("");
+talkEntry:addResponse("Das Wohnungsquartier issst im Osssten unssserer Ssstadt. Sssie ssstellen das Heim der ssschlechter gessstelteren unter unsss dar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sir Reginald Tomb");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Sir Reginald Tomb issss right in front of the entrance to the townwall to honour one of our former kingsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sir Reginald Gruft");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Sir Regniald Gruft issst rechtsss vor dem Eingang zur Ssstadtmauer zu Ehren einesss unssserer früheren Könige.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
