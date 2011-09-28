@@ -10,19 +10,22 @@ function onLogin( player )
 
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
-	base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
+	base.common.TempInformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
 
 	--Messages of the day
     messageG={};
-    messageG[1]="[Login] 1";
-    messageG[2]="[Login] 2";
-    messageG[3]="[Login] 3";
-	messageG[4]="[Login] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!"
+    messageG[1]="[Login] Leichte Rüstungen wie Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.";
+    messageG[2]="[Login] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stichwaffen.";
+    messageG[3]="[Login] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stichwaffen aber schlecht gegen stumpfe Waffen.";
+	messageG[4]="[Login] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!";	
+	messageG[5]="[Login] Bitte besuche uns im IRC-Chat: #illarion auf Quakenet.";
+	
     messageE={};
-    messageE[1]="[Login] 1";
-    messageE[2]="[Login] 2";
-    messageE[3]="[Login] 3";
-    messageE[4]="[Login] We play with, not against each other. Have fun playing!"
+    messageE[1]="[Login] Light armour like leather armour protects good against blunt weapons but bad against slashing weapons.";
+    messageE[2]="[Login] Medium armour like chain mail protects good against slashing weapons but bad against puncture weapons.";
+    messageE[3]="[Login] Heavy armour like plate armour protects good against puncture weapons but bad against blunt weapons.";
+    messageE[4]="[Login] We play with, not against each other. Have fun playing!";
+	messageE[5]="[Login] Please join our IRC chat: #illarion on Quakenet.";
 	
 	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
