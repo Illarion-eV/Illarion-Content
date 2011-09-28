@@ -285,6 +285,11 @@ function CastParalyze( Caster, Enemy, rndTry, APPunishment, Range, Effect, AP ,C
 end
 
 function Stealing(Monster,Enemy)
+
+--The code below sucks balls. It is simply... bullshit that thieves steal all your gold while you hack on 'em with a warhammer of doom. 
+--Estralis
+
+--[[
     if not FirstThief then
         StealAmmG={};
         StealAmmS={};
@@ -325,6 +330,7 @@ function Stealing(Monster,Enemy)
 	        end
 	    end
 	end
+	]]
     return false;
 end
 
