@@ -77,12 +77,6 @@ itemShoes = 369
 
 -- OPTIONAL TRIGGERS
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "IN PROGRESS."
-"quest", "mission" -> "IN ARBEIT."
-"task", "adventure", "order" -> "IN PROGRESS."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
-
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 --"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 --"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -99,6 +93,13 @@ itemShoes = 369
 "Frizza", english -> "You can find her outssside of the town clossse to the teleporter. Sssshe hasss a lot of information and sssome tasksss for you."
 "Frizza" -> "Du findest sssie drausen vor der Stadt, nahe am Teleporter. Sssie hat eine Menge Informationen und Aufträge für dich."
 
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "IN PROGRESS."
+"quest", "mission" -> "IN ARBEIT."
+"task", "adventure", "order" -> "IN PROGRESS."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+
+-- Places
 "Western Katanbi Desert" -> ""
 "Westliche Katanbi Wüste" -> ""
 "Mount Siba" -> ""

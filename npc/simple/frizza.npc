@@ -75,14 +75,6 @@ itemShoes = 369
 
 -- OPTIONAL TRIGGERS
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "I have no task for you, but we can play a game!"
-"quest", "mission" -> "Ich habe keine Aufgabe für dich, aber wir können ein Ssspiel ssspielen!"
-"task", "adventure", "order" -> "I have no task for you, but we can play a game!"
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für dich, aber wir können ein Ssspiel ssspielen!"
-"game" -> "You like to play my quiz-game with me? Sss, let me think...((quest in progress))"
-"spiel" -> "Du willssst mein Quiz-Ssspiel mit mir ssspielen? Sss, lasss mich denken...(()quest in arbeit))"
-
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "what sell", "what buy", "list wares", "price of" -> "I don't sssell or buy anything. But we have a marketplace. You can try your luck there."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe oder kaufe gar nichtsss. Aber wir haben einen Marktplatz. Versuch dein Glück doch dort."
@@ -157,6 +149,14 @@ itemShoes = 369
 "Sir Reginald Gruft" -> "Die Sir Regniald Gruft issst rechtsss vor dem Eingang zur Ssstadtmauer zu Ehren einesss unssserer früheren Könige."
 -- "Rooms" -> "" --placeholder for rooms if they can be rent
 -- "Guild" -> ""
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "I have no task for you, but we can play a game!"
+"quest", "mission" -> "Ich habe keine Aufgabe für dich, aber wir können ein Ssspiel ssspielen!"
+"task", "adventure", "order" -> "I have no task for you, but we can play a game!"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für dich, aber wir können ein Ssspiel ssspielen!"
+"game" -> "You like to play my quiz-game with me? Sss, let me think...((quest in progress))"
+"spiel" -> "Du willssst mein Quiz-Ssspiel mit mir ssspielen? Sss, lasss mich denken...(()quest in arbeit))"
 
 -- Faction stuff
 "archmage" -> "Morgan? Zzzz. That isss an evil sorcerer in Runewick and rulesss there."
