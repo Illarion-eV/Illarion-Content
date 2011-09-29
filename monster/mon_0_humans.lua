@@ -54,8 +54,6 @@ function enemyNear(Monster,Enemy)
         return ( monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,7,{1000,2000},{{4,5},{9,5},{51,5}},{},40,1,{35,50}) );
     elseif (MonID==4) then
         return ( monster.base.drop.CastMonster(Monster,Enemy,10,{101,111},40) == true );
-    elseif (MonID==5) then
-        return ( monster.base.drop.Stealing(Monster,Enemy) == true );
     else
         return false;
     end
