@@ -18,6 +18,7 @@ VALUES (3, 856, 810, 0, 6, 'Elesil Daelwon', 'npc.elesil_daelwon', 1, 7, 0, 25, 
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
@@ -240,6 +241,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
+talkEntry:addCondition(npc.base.condition.quest.quest(620, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Numila Irunnleh and get your reward."));
 talkEntry:addResponse("She is geographer and can be found in the Library of Earth. She will tell you information about places outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Tir Draganfod, Shadowland and other places you like to know.");
@@ -250,9 +252,25 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
+talkEntry:addCondition(npc.base.condition.quest.quest(620, "<", 1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Numila Irunnleh und erhalte deine Belohnung."));
 talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Plätze wie Eibental, Bärenhöhle, Schlangekopfbucht, Tir Draganfod, Schattenland und andere Plätze die du gerne wissen möchtest.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Numila");
+talkEntry:addTrigger("Irunnleh");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("She is geographer and can be found in the Library of Earth. She will tell you information about places outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Tir Draganfod, Shadowland and other places you like to know.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Numila");
+talkEntry:addTrigger("Irunnleh");
+talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Plätze wie Eibental, Bärenhöhle, Schlangekopfbucht, Tir Draganfod, Schattenland und andere Plätze die du gerne wissen möchtest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

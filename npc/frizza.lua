@@ -18,6 +18,7 @@ VALUES (5, 121, 643, 0, 4, 'Frizza', 'npc.frizza', 1, 3, 0, 34, 139, 34, 154, 20
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.condition.race")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
@@ -245,6 +246,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ruzusss");
+talkEntry:addCondition(npc.base.condition.quest.quest(640, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Ruzusss and get your reward."));
 talkEntry:addResponse("You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*");
@@ -254,9 +256,23 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ruzusss");
+talkEntry:addCondition(npc.base.condition.quest.quest(640, "<", 1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Ruzusss und erhalte deine Belohnung."));
 talkEntry:addResponse("Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ruzusss");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ruzusss");
+talkEntry:addResponse("Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
