@@ -22,6 +22,7 @@ require("npc.base.condition.quest")
 require("npc.base.condition.state")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
 require("npc.base.talk")
@@ -48,6 +49,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(630, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Good day. Finally you found me! Iradona has already informed me about your visit. There you have a silvercoin for that you found me.");
+talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 0, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -56,6 +58,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(630, "=", 1));
 talkEntry:addResponse("Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.");
+talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 0, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;

@@ -246,7 +246,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ruzusss");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Try to find Ruzusss and get your reward."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Ruzusss and get your reward."));
 talkEntry:addResponse("You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -254,7 +254,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ruzusss");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Finde Ruzusss und erhalte deine Belohnung."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Ruzusss und erhalte deine Belohnung."));
 talkEntry:addResponse("Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);

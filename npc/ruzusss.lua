@@ -23,6 +23,7 @@ require("npc.base.condition.race")
 require("npc.base.condition.state")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
 require("npc.base.talk")
@@ -49,6 +50,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(640, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have a sssilvercoin for that you found me.");
+talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 0, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -57,6 +59,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(640, "=", 1));
 talkEntry:addResponse("Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdiente Münze.");
+talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 0, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
