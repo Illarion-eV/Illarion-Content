@@ -2,17 +2,17 @@
 -- NPC Name: Ehrom Goldhammer                                            Free --
 -- NPC Job:  smuggler                                                         --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  721, 171, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: dwarf                      NPC Position:  628, 288, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: September 29, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 721, 171, 0, 4, 'Ehrom Goldhammer', 'npc.ehrom_goldhammer', 0, 3, 4, 242, 182, 0, 207, 158, 116);
+VALUES (1, 628, 288, 0, 6, 'Ehrom Goldhammer', 'npc.ehrom_goldhammer', 0, 3, 4, 242, 182, 0, 207, 158, 116);
 ---]]
 
 require("npc.base.basic")
