@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 29, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 30, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -806,17 +806,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("The archmage ownsss two ssstonesss of power. Thessse are an Emerald and a Ruby. They protect Runewick to get beaten by our forcesss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Der Erzmagier besssitzt zwei Sssteine der Macht. Einen Smaragd und einen Rubin. Die bessschützen Runewick vor der Übernahme durch unsssere Streitkräfte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -824,35 +820,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("The archmage ownsss two ssstonesss of power. Thessse are an Emerald and a Ruby. They protect them to get beaten by our forcesss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Der Erzmagier besssitzt zwei Sssteine der Macht. Einen Smaragd und einen Rubin. Die bessschützen Runewick vor der Übernahme durch unsssere Streitkräfte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Runewick? It isss in the Eassst. Crosss Katanbi Dessert, get behind Border Mountainsss to the other ssside of the Snakehead Bay. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Runewick? Dasss issst im Osssten. Durchquäre die Katanbi Wüste, gehe hinter dasss Grenzberge zu der anderen Ssseite der Ssschlangenkopf Bucht. Ssschau nach Wegssschildern. Issst aber ein gefährlicher Weg. Verwende bessser den Teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -861,9 +849,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("The Don ownsss two ssstonesss of power. These are a Topaz and an Amethyst. They protect Galmair to get beaten by our forcesss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -871,42 +857,32 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Der Don besssitzt zwei Sssteine der Macht. Einen Topaz und einen Amethyst. Die bessschützen Galmair vor der Übernahme durch unsere Ssstreitkräfte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Galmair? It isss in the North. Crosss Katanbi Dessert, get behind Border Mountainsss, and then walk to the North. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Galmair? Dasss issst im Norden. Durchquäre die Katanbi Wüste, gehe hinter dasss Grenzberge und dann in den Norden. Ssschau nach Wegssschildern. Issst aber ein gefährlicher Weg. Verwende bessser den Teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("The Queen ownsss two ssstonesss of power. These are a Bluestond and a Blackstone. They protect usss againssst Runewick and Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Der Königin besitzt zwei Sssteine der Macht. Einen Blaustein und einen Schwarzstein. Die beschützen unsss vor Runewick und Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -914,35 +890,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("The Queen owns two stones of power. These are a Bluestond and a Blackstone. They protect us against Runewick and Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Der Königin besitzt zwei Steine der Macht. Einen Blaustein und einen Schwarzstein. Die beschützen uns vor Runewick und Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("That isss here and if you want to know more about it asssk Frizza for further information.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Das issst hier und wenn du mehr darüber wisssen möchtest, dann frag Frizza nach weiterer Information.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

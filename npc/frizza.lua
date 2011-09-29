@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 29, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 30, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -670,14 +670,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Runewick? It isss in the Eassst. Crosss Katanbi Dessert, get behind Border Mountainsss to the other ssside of the Snakehead Bay. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.");
 talkEntry:addResponse("That isss a wired place, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find sssome there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick? Dasss issst im Osssten. Durchquäre die Katanbi Wüste, gehe hinter dasss Grenzberge zu der anderen Ssseite der Ssschlangenkopf Bucht. Ssschau nach Wegssschildern. Issst aber ein gefährlicher Weg. Verwende bessser den Teleporter.");
 talkEntry:addResponse("Dasss issst ein verrückter Platz, aber wenn man Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst man dort welche finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -702,14 +700,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair? It isss in the North. Crosss Katanbi Dessert, get behind Border Mountainsss, and then walk to the North. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.");
 talkEntry:addResponse("That isss a sssneaky place, but if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers you will find sssome there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair? Dasss issst im Norden. Durchquäre die Katanbi Wüste, gehe hinter dasss Grenzberge und dann in den Norden. Ssschau nach Wegssschildern. Issst aber ein gefährlicher Weg. Verwende bessser den Teleporter.");
 talkEntry:addResponse("Dasss issst ein hinterhältiger Platz, aber wenn man einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer sssuchst, findessst man den dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -744,14 +740,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That isss here and if you want to know more about it asssk me for further information.");
 talkEntry:addResponse("Here at Cadomyr, we are interesssted in Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Das issst hier und wenn du mehr darüber wisssen möchtest, dann frag mich nach weiterer Information.");
 talkEntry:addResponse("Hier in Cadomyr sssuchen wir immer nach Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

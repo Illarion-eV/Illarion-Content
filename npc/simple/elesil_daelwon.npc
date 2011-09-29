@@ -211,14 +211,14 @@ itemShoes = 369
 "Runewick" -> "Das ist hier und wenn du mehr darüber wissen möchtest, dann frag mich nach weiterer Information.", "Hier in Runewick suchen wir immer nach Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber."
 "Valerio", "Guilianni", "Don", english -> "I do not want to talk about him but you will find him in Galmair."
 "Valerio", "Guilianni", "Don" -> "Ich will nicht über ihn sprechen, aber er kann in Galmair gefunden werden."
-"Galmair", english -> "Galmair is in the Northwest. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway.", "There are not many reasons to travel there. Exceptions are if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers."
-"Galmair" -> "Galmair ist im Nordwesten zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen.", "Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
+"Galmair", english -> "There are not many reasons to travel there. Exceptions are if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers."
+"Galmair" ->  "Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
 "Queen" -> "I do not want to talk about her but you will find her in Cadomyr."
 "Königin" -> "Ich will nicht über ihn sprechen, aber er kann in Galmair gefunden werden."
 "rosaline", "edwards", english -> "I do not want to talk about her but you will find her in Cadomyr."
 "rosaline", "edwards" -> "Ich will nicht über ihn sprechen, aber er kann in Galmair gefunden werden."
-"Cadomyr", english -> "Cadomyr is in the West. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway.", "There are not many reasons to travel there. Exceptions are if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders."
-"Cadomyr" -> "Cadomyr ist im Westen zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen.", "Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer."
+"Cadomyr", english -> "There are not many reasons to travel there. Exceptions are if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders."
+"Cadomyr" -> "Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer."
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "You better try your luck at our marketplace here."

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 29, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 30, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1015,14 +1015,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair is in the Northwest. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway.");
 talkEntry:addResponse("There are not many reasons to travel there. Exceptions are if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair ist im Nordwesten zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen.");
 talkEntry:addResponse("Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1057,14 +1055,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Cadomyr is in the West. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway.");
 talkEntry:addResponse("There are not many reasons to travel there. Exceptions are if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr ist im Westen zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen.");
 talkEntry:addResponse("Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

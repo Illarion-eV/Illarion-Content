@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 29, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 30, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -908,14 +908,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That's is the Southeast. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southeast. Look for signposts. But be careful. Dangerous way, use better the teleporter outside the town.");
 talkEntry:addResponse("Don't waste your time there, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find some there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Das liegt im Südosten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.");
 talkEntry:addResponse("Verschwende deine Zeit dort nicht, aber wenn du Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst du dort welche finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -940,14 +938,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That is here and if you want to know more about it ask me for further information.");
 talkEntry:addResponse("Here at Galmair, we are interested in Blacksmiths, Brick makers, Masons, Miners, and Brewers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Das ist hier und wenn du mehr darüber wissen möchtest, dann frag mich nach weiterer Information.");
 talkEntry:addResponse("Hier in Galmair suchen wir immer nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -982,14 +978,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That's is the Southwest. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southwest. Look for signposts. But be careful. Dangerous way, use better Or use the teleporter outside the town.");
 talkEntry:addResponse("Don't waste your time there, but if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders you will find some there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Das liegt im Südwesten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.");
 talkEntry:addResponse("Verschwende deine Zeit dort nicht, aber wenn du Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer suchst, kannst du dort welche finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
