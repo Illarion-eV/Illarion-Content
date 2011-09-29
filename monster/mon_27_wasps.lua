@@ -90,11 +90,16 @@ function onDeath(Monster)
 
     if (MonID==278) then -- wasp of Fire!!!
 
-        CreateCircle( 1, 250,Monster.pos,3,false);
-        CreateCircle( 9, 750,Monster.pos,2,true);
-        CreateCircle(44,1000,Monster.pos,1,true);
-        world:gfx(36,Monster.pos);
-        world:makeSound(5,Monster.pos);
+        -- VILARION: monster cannot suffer damage on death
+        -- which it will be Create Circle calls and subsequent
+        -- HitChar calls. This creates an infinite loop, since
+        -- onDeath is called by the damage routine
+
+        --CreateCircle( 1, 250,Monster.pos,3,false);
+        --CreateCircle( 9, 750,Monster.pos,2,true);
+        --CreateCircle(44,1000,Monster.pos,1,true);
+        --world:gfx(36,Monster.pos);
+        --world:makeSound(5,Monster.pos);
         --HitChar(SourceItem.pos,3000,Monster.pos);
 
     end
