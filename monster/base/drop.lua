@@ -46,20 +46,6 @@ function Dropping(Char)
                 end
             end
         end
-        if FirstThief then
-            if (StealAmmG[Char.id]~=nil and StealAmmG[Char.id]>0) then
-                world:createItemFromId(61,StealAmmG[Char.id],Char.pos,true,333,0);
-                StealAmmG[Char.id]=nil;
-            end;
-            if (StealAmmS[Char.id]~=nil and StealAmmS[Char.id]>0) then
-                world:createItemFromId(3077,StealAmmS[Char.id],Char.pos,true,333,0);
-                StealAmmS[Monster.id]=nil;
-            end
-            if (StealAmmK[Char.id]~=nil and StealAmmK[Char.id]>0) then
-                world:createItemFromId(3076,StealAmmK[Char.id],Char.pos,true,333,0);
-                StealAmmK[Char.id]=nil;
-            end
-        end
         local checkItems = {61,293,294,64,549,322,237,1266,3076,3077};
         for i,CheckItemItemid in pairs(checkItems) do
             ItemCnt = Char:countItem(CheckItemItemid);
@@ -281,56 +267,6 @@ function CastParalyze( Caster, Enemy, rndTry, APPunishment, Range, Effect, AP ,C
         end
         return true;
     end
-    return false;
-end
-
-function Stealing(Monster,Enemy)
-
---The code below sucks balls. It is simply... bullshit that thieves steal all your gold while you hack on 'em with a warhammer of doom. 
---Estralis
-
---[[
-    if not FirstThief then
-        StealAmmG={};
-        StealAmmS={};
-        StealAmmK={};
-        FirstThief=true;
-    end
-    if (math.random(1,20)==1) then
-	    if (true) then
-	        local StealSomething=false;
-	        local kcoins=Enemy:countItem(3076);
-	        local scoins=Enemy:countItem(3077);
-	        local gcoins=Enemy:countItem(61);
-	        if (StealAmmG[Monster.id]==nil) then StealAmmG[Monster.id]=0 end
-	        if (StealAmmS[Monster.id]==nil) then StealAmmS[Monster.id]=0 end
-	        if (StealAmmK[Monster.id]==nil) then StealAmmK[Monster.id]=0 end
-	        if (gcoins>0) then
-	            StealSomething=true;
-	            Steal=math.random(1,gcoins);
-	            StealAmmG[Monster.id]=StealAmmG[Monster.id]+Steal;
-	            Enemy:eraseItem(61,Steal);
-	        elseif (scoins>0) then
-	            StealSomething=true;
-	            Steal=math.random(1,scoins);
-	            StealAmmS[Monster.id]=StealAmmS[Monster.id]+Steal;
-	            Enemy:eraseItem(3077,Steal);
-	        elseif (kcoins>0) then
-	            StealSomething=true;
-	            Steal=math.random(1,kcoins);
-	            StealAmmK[Monster.id]=StealAmmK[Monster.id]+Steal;
-	            Enemy:eraseItem(3076,Steal);
-	        end
-	        if StealSomething then
-	            base.common.InformNLS( Enemy,
-	                "Der Bandit greift mit einem schnellen Griff nach deinem Geld und schnappt sich ein paar Münzen",
-	                "The bandit makes a quick grab at your money and takes some coins." );
-	            Monster.movepoints=Monster.movepoints-10;
-	            return true;
-	        end
-	    end
-	end
-	]]
     return false;
 end
 
