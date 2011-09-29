@@ -2,7 +2,7 @@
 -- NPC Name: Lotta Medborgar                                          None --
 -- NPC Job:  hunter                                           --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  393, 325, -5           --
+-- NPC Race: dwarf                      NPC Position:  393, 326, -5           --
 -- NPC Sex:  female                       NPC Direction: south                --
 --                                                                            --
 -- Author:   envi                                     					      --
@@ -13,7 +13,7 @@
 name = "Lotta Medborgar"
 race = dwarf
 sex = female
-position = 393, 325, -5
+position = 393, 326, -5
 direction = south
 affiliation = "Galmair"
 job = "hunter"
@@ -77,12 +77,6 @@ itemShoes = 369
 
 -- OPTIONAL TRIGGERS
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "IN PROGRESS."
-"quest", "mission" -> "IN ARBEIT."
-"task", "adventure", "order" -> "IN PROGRESS."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
-
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 --"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 --"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -99,6 +93,13 @@ itemShoes = 369
 "Iradona", "Goldschein",english -> "You can find her outside of the town close to the teleporter. She has a lot of information and some tasks for you."
 "Iradona", "Goldschein" -> "Du findest sie drausen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für dich."
 
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "IN PROGRESS."
+"quest", "mission" -> "IN ARBEIT."
+"task", "adventure", "order" -> "IN PROGRESS."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+
+-- Places
 "Draganfod" -> ""
 "???" -> ""
 "Bounding Stream" -> ""

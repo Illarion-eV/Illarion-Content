@@ -3,7 +3,7 @@
 -- NPC Job:  Scholar                                           --
 --                                                                            --
 -- NPC Race: elf                      NPC Position:  942, 765, 1              --
--- NPC Sex:  female                       NPC Direction: east                 --
+-- NPC Sex:  female                       NPC Direction: north                 --
 --                                                                            --
 -- Author:   envi                                     					      --
 --                                                                            --
@@ -14,7 +14,7 @@ name = "Numila Irunnleh"
 race = elf
 sex = female
 position = 942, 765, 1
-direction = east
+direction = north
 affiliation = "Runewick"
 job = "scholar"
 
@@ -32,9 +32,9 @@ useMsgUS = "I recommend do not touch me."
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
-hairID = 5
+hairID = 7
 beardID = 0
-colorHair = 25, 25, 112
+colorHair = 139, 137, 112
 colorSkin = 230, 230, 250
 itemHead = 0
 itemChest = 846
@@ -77,12 +77,6 @@ itemShoes = 369
 
 -- OPTIONAL TRIGGERS
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "IN PROGRESS."
-"quest", "mission" -> "IN ARBEIT."
-"task", "adventure", "order" -> "IN PROGRESS."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
-
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 --"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 --"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -99,6 +93,13 @@ itemShoes = 369
 "Elesil", "Daelwon", english -> "You can find her outside of the town close to the teleporter. She has a lot of information and some tasks for you."
 "Elesil", "Daelwon" -> "Ihr findet sie drausen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für euch."
 
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "IN PROGRESS."
+"quest", "mission" -> "IN ARBEIT."
+"task", "adventure", "order" -> "IN PROGRESS."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+
+-- Places
 "Dragon's Lair" -> ""
 "???" -> ""
 "Dewy Swamps" -> ""
