@@ -18,7 +18,7 @@ function onReload()
         if (Char:getQuestProgress(8) ~= 0) then
             PosOfCow = createCow( Char );
             if not PosOfCow then
-                Char:inform("Fehler beim erstellen des Lasttieres");
+                Char:inform("Fehler beim Erstellen des Lasttieres.");
             else
                 Transporter = world:getCharacterOnField(PosOfCow);
                 transport_effect = LongTimeEffect( 10, 500000 );
