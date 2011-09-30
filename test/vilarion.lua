@@ -5,6 +5,14 @@ require("handler.sendmessage")
 module("test.vilarion", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
+    local a, b, quest
+    a,b,quest = string.find(User.lastSpokenText,"reset (%d+)")
+    if a ~= nil then
+        User:setQuestProgress(quest, 0)
+        User:inform("#w Quest " .. quest .. " has been reset!")
+        return
+    end
+
     if User.id ~= 64 then
         User:inform("e-Vil says: You are not allowed to use this!");
         return;
