@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: October 01, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -536,6 +536,31 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 21));
 talkEntry:addResponse("Nix mehr helfn kannst. Getan genug, hast du! Jetz mirr zeigen Klan Weg zu Höhle. Dancke.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Salavesh");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Mes nub know anyding about cult. Dere be sum oomies, hab walk in cave, nub come out again!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Salavesh");
+talkEntry:addResponse("Mirr nix wiss über Kult. Da sein Oomies, in Höhle gegangt, nix mehr rauskommen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cult");
+talkEntry:addResponse("Mes nub know anyding about cult. Dere be sum oomies, hab walk in cave, nub come out again!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Kult");
+talkEntry:addResponse("Mirr nix wiss über Kult. Da sein Oomies, in Höhle gegangt, nix mehr rauskommen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
