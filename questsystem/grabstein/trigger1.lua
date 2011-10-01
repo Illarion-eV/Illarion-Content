@@ -5,7 +5,7 @@ local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 27
 
-local POSITION = position(604, 344, 0)
+local POSITION = position(605, 344, 0)
 local RADIUS = 10
 local LOOKAT_TEXT_DE = "Du siehst einen alten schmutzigen Grabstein. Mit einem Tuch könntest du den Schmutz abwischen und die Inschrift lesen. lesen."
 local LOOKAT_TEXT_EN = "You see an old tombstone. With a cloth you could clean the dirt away and read the inscription."

@@ -5,7 +5,7 @@ local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 9
 local POSTCONDITION_QUESTSTATE = 54
 
-local POSITION = position(604, 344, 0)
+local POSITION = position(605, 344, 0)
 local RADIUS = 0
 local LOOKAT_TEXT_DE = "Die Inschrieft lautet. reiH thur yraM euS. In ewiger Liebe William Daloir."
 local LOOKAT_TEXT_EN = "The inscription says. ereH stser yraM euS. In eternal love William Daloir."
