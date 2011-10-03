@@ -88,8 +88,8 @@ itemShoes = 369
 "inform" -> "Ich kann dir Informationen über Plätze in der Nähe von Galmair geben. Frag einfach!", inform("[Schlüsselwörter] ")
 "question" -> "I can give you information about places near of Galmair. Just ask me!", inform("[Keywords] ")
 "Frage", "Auskunft" -> "Ich kann dir Informationen über Plätze in der Nähe von Galmair geben. Frag einfach!", inform("[Schlüsselwörter] ")
-"place" -> "Places? Which places to you mean? These could be...", inform("[Keywords] ")
-"Platz","Plätz" -> "Plätze? Welche Plätze meint ihr? Diese könnten sein...", inform("[Schlüsselwörter] ")
+"place" -> "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Tir Draganfod?", inform("[Keywords] Tir Draganfod, northeast, northwest, southwest, southeast")
+"Platz","Plätz" -> "Plätze? Welche Plätze meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Tir Draganfod?", inform("[Schlüsselwörter] Tir Draganfod, Nordosten, Nordwesten, Südwesten, Südosten")
 "Iradona", "Goldschein",english -> "You can find her outside of the town close to the teleporter. She has a lot of information and some tasks for you."
 "Iradona", "Goldschein" -> "Du findest sie drausen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für dich."
 
@@ -100,46 +100,103 @@ itemShoes = 369
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
 
 -- Places
-"Draganfod" -> ""
+"Tir","Draganfod",english -> "This region is called Tir Draganfod and I devide it in northeast, northwest, southwest and southeast. Tir Draganfod is furthermore in the east from the Sevenhill Mountains.", inform("[Keywords] Sevenhill Mountains, northeast, northwest, southwest, southeast")
+"Tir","Draganfod" -> "Diese Region wird Tir Draganfod genannt und ich unterteile sie in in Nordost, Nordwest, Südwest und Südost. Tir Draganfod liegt außerdem im Osten von den Siebenhügel Bergen.", inform("[Schlüsselwörter] Siebenhügel Berge, Nordosten, Nordwesten, Südwesten, Südosten")
+"northeast" -> "I know following places: Elstree Forest, Elstree Plain, Eastland, Paldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock.", inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Paldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock")
+"Nordost" -> "Ich weiß folgende Plätze: Elstree Wald, Elstree Ebene, Ostland, Paldron Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen.", inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Paldron Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen")
+"northwest" -> "I know following places: Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau, Malachite creek, Malachite Island, Galmair Plateau, Golden Rumil, Fort Schnellbeil, Fortress Hammerfall.", inform("[Keywords] Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau, Malachite creek, Malachite Island, Galmair Plateau, Golden Rumil, Fort Schnellbeil, Fortress Hammerfall")
+"Nordwest" -> "Ich weiß folgende Plätze: See Srita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Galmair Plateau, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall.", inform("[Schlüsselwörter] See Srita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Galmair Plateau, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall")
+"southwest" -> "I know following places: Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert.", inform("[Keywords] Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert")
+"Südwest" -> "Ich weiß folgende Plätze: Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste", inform("[Schlüsselwörter] Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste")
+"souteast" -> "I know following places: Snakehead Bay, Lonely Islands, Death’s Stench, Dragon's Lair, Dewy Swamps, Yewdale.", inform("[Keywords] Snakehead Bay, Lonely Islands, Death’s Stench, Dragon's Lair, Dewy Swamps Yewdale")
+"Südost" -> "Ich weiß folgende Plätze: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental.", inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental")
+"Sevenhill" -> "The Sevenhill Mountains are at the eastside of Illarion, our world, as you should know."
+"Siebenhügel" -> "Die Siebenhügel Berge sind an der Ostseite von Illarion, unsere Welt, wie ihr wissen solltet."
+
+--northeast
+"Elstree Forest" -> ""
 "???" -> ""
+"Elstree Plain" -> ""
+"???" -> ""
+"Eastland" -> ""
+"???" -> ""
+"Paldron Isle" -> ""
+"???" -> ""
+"The Dead Marsh" -> ""
+"???" -> ""
+"Spider's Mouth" -> ""
+"???" -> ""
+"Hemp Necktie Inn" -> ""
+"Gasthof zur Hanfschlinge" -> ""
 "Bounding Stream" -> ""
-"Grenzstrom" -> ""
+"???" -> ""
+"Glowing River" -> ""
+"???" -> ""
+"Plains of Silence" -> ""
+"???" -> ""
+"Northern Woods" -> ""
+"???" -> ""
+"The Insurmountable Limes" -> ""
+"???" -> ""
+"Evilrock" -> ""
+"???" -> ""
+"Three Fingertips" -> ""
+"???" -> ""
+--northwest
+"Lake Syrita" -> ""
+"???" -> ""
+"Nagrun's Plain" -> ""
+"???" -> ""
+"The Swamp" -> ""
+"???" -> ""
+"Temple of the five" -> ""
+"???" -> ""
+"Lonely Mountains" -> ""
+"???" -> ""
+"Galmair Plateau" -> ""
+"???" -> ""
+
 "Malachite creek" -> ""
 "Malachit Bach" -> ""
 "Malachite Island" -> ""
 "Malachit Insel" -> ""
 "Galmair Plateau" -> ""
 "???" -> ""
-"Lonely Mountains" -> ""
-"???" -> ""
-"Lake Syrita" -> ""
-"???" -> ""
-"Nagrun's Plain" -> ""
-"???" -> ""
-"Spider's Mouth" -> ""
-"???" -> ""
-"The Swamp" -> ""
-"???" -> ""
-"Plains of Silence" -> ""
-"???" -> ""
-"Bounding Stream" -> ""
-"???" -> ""
-"Northern Woods" -> ""
-"???" -> ""
-
 "Golden Rumil" -> ""
 "???" -> ""
 "Fort Schnellbeil" -> ""
 "???" -> ""
-"Shadowland" -> ""
-"???" -> ""
---"Hemp Necktie Inn" -> ""
---"Gasthof zur Hanfschlinge" -> ""
-"The Temple of the Five" -> ""
-"???" -> ""
 "Hammerfall" -> ""
 "???" -> ""
-"The Insurmountable Limes" -> ""
+--southwest
+"Shadowland" -> ""
+"???" -> ""
+"The Wight Canal" -> ""
+"???" -> ""
+"Sentry Forest" -> ""
+"???" -> ""
+"Great Ocean" -> ""
+"???" -> ""
+"Border Mountains" -> ""
+"???" -> ""
+"Katanbi Desert" -> ""
+"???" -> ""
+"Katanbi Delta" -> ""
+"???" -> ""
+"Western Katanbi Desert" -> ""
+"???" -> ""
+--southeast
+"Snakehead Bay" -> ""
+"???" -> ""
+"Lonely Islands" -> ""
+"???" -> ""
+"Death’s Stench" -> ""
+"???" -> ""
+"Dragon's Lair" -> ""
+"???" -> ""
+"Dewy Swamps" -> ""
+"???" -> ""
+"Yewdale" -> ""
 "???" -> ""
 
 -- Faction stuff
