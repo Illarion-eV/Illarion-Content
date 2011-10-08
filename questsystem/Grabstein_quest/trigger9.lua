@@ -1,6 +1,6 @@
 require("handler.createeffect")
 require("questsystem.base")
-module("questsystem.Grabstein_quest.trigger9", package.seeall)
+module("questsystem.Grave_quest.trigger9", package.seeall)
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 54
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createeffect.createEffect(position(604, 344, 0), 32):execute()
+    handler.createeffect.createEffect(position(605, 344, 0), 32):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

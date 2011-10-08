@@ -1,5 +1,5 @@
 require("questsystem.base")
-module("questsystem.Grabstein_quest.trigger1", package.seeall)
+module("questsystem.Grave_quest.trigger1", package.seeall)
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 0
