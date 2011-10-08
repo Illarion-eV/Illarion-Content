@@ -1,6 +1,6 @@
 require("handler.createeffect")
 require("questsystem.base")
-module("questsystem.Grave_quest.trigger9", package.seeall)
+module("questsystem.Grabstein_quest.trigger9", package.seeall)
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 54
