@@ -1,14 +1,15 @@
+require("handler.createeffect")
 require("questsystem.base")
-module("questsystem.gravestone_quest.trigger11", package.seeall)
+module("questsystem.Gravestone.trigger9", package.seeall)
 
 local QUEST_NUMBER = 10000
-local PRECONDITION_QUESTSTATE = 69
-local POSTCONDITION_QUESTSTATE = 72
+local PRECONDITION_QUESTSTATE = 54
+local POSTCONDITION_QUESTSTATE = 58
 
-local NPC_TRIGGER_DE = "[Ff]ertig, [Ii]ch habe eine Firnisblüte ans Grab gelegt, [Ii]ch habe euren Wunsch erfüllt"
-local NPC_TRIGGER_EN = "[Dd]one, [Ii] have placed a firnis blossom on the grave, [Ii] have made your wish come true"
-local NPC_REPLY_DE = "Ich danke euch vielmals. Ich schenke Euch einen Ring. Ein roter Rubin, rot wie die Liebe. Ein Geschenkt für eure wahre Liebe ."
-local NPC_REPLY_EN = "I thank you so much. I give you a ring. A red ruby, red like  the colour of Love. Save it  for your true love one day. "
+local NPC_TRIGGER_DE = "[Mm]ary [Ss]ue"
+local NPC_TRIGGER_EN = "[Mm]ary [Ss]ue"
+local NPC_REPLY_DE = "Ahhh Mary Sue, meine einzige und wahre Liebe. Ich wünschte ich könnte noch einemal ihr Grab besuchen, doch bin ich zu alt für so eine lange Reise. Würdet ihr so nett sein und ihr eine Firnisblüte ans Grab legen? Ich würde mich erkenntlich zeigen.  Ahhh ich vermisse sie ja so sehr. "
+local NPC_REPLY_EN = "Ahh Mary Sue, my one and only true love. I wish I could see her grave one last time unfortunately I´m to old to take such a long journey. Would you be so nice and bring her a firnis blossom? Ahhh I miss her so much."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -52,6 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.createeffect.createEffect(position(605, 344, 0), 32):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

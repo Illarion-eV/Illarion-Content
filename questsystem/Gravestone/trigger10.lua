@@ -1,10 +1,10 @@
-require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.gravestone_quest.trigger2", package.seeall)
+module("questsystem.Gravestone.trigger10", package.seeall)
 
 local QUEST_NUMBER = 10000
-local PRECONDITION_QUESTSTATE = 27
-local POSTCONDITION_QUESTSTATE = 9
+local PRECONDITION_QUESTSTATE = 58
+local POSTCONDITION_QUESTSTATE = 69
 
 local POSITION = position(605, 344, 0)
 local RADIUS = 1
@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du wischt den Schmutz vom Grabstein und erblickst eine Inschrift.", "You clean off the dirt from the tombstone and an inscription appears."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 68, 990, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -1,14 +1,14 @@
 require("questsystem.base")
-module("questsystem.gravestone_quest.trigger1", package.seeall)
+module("questsystem.Gravestone.trigger8", package.seeall)
 
 local QUEST_NUMBER = 10000
-local PRECONDITION_QUESTSTATE = 0
-local POSTCONDITION_QUESTSTATE = 27
+local PRECONDITION_QUESTSTATE = 9
+local POSTCONDITION_QUESTSTATE = 54
 
 local POSITION = position(605, 344, 0)
-local RADIUS = 10
-local LOOKAT_TEXT_DE = "Du siehst einen alten schmutzigen Grabstein. Mit einem Tuch könntest du den Schmutz abwischen und die Inschrift lesen."
-local LOOKAT_TEXT_EN = "You see an old tombstone. With a cloth you could clean the dirt away and read the inscription."
+local RADIUS = 1
+local LOOKAT_TEXT_DE = "Die Inschrieft lautet. reiH thur yraM euS. In ewiger Liebe William Daloir."
+local LOOKAT_TEXT_EN = "The inscription says. ereH stser yraM euS. In eternal love William Daloir."
 
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
