@@ -40,11 +40,9 @@ function enemyNear(Monster,Enemy)
     end
 	
     local MonID=Monster:getMonsterType();
-    if (MonID==23) then
-        return ( monster.base.drop.Stealing(Monster,Enemy) == true );
-    else
-        return false;
-    end
+
+    return false;
+
 end
 
 function enemyOnSight(Monster,Enemy)

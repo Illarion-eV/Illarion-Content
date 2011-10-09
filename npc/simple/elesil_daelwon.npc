@@ -56,8 +56,8 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keyphrases: Question, information, Runewick, building, game.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Spiel.")
+"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keyphrases: Question, information, Runewick, building, mission.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Auftrag.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hail Elara. *Closes her eyes*"
@@ -75,14 +75,6 @@ itemShoes = 369
 
 -- OPTIONAL TRIGGERS
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "IN PROGRESS."
-"quest", "mission" -> "IN ARBEIT."
-"task", "adventure", "order" -> "IN PROGRESS."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
-"game" -> "IN PROGRESS"
-"spiel" -> "IN ARBEIT"
-
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "If necessary I'm an informant. In this case I will inform you about Runewick, its buildings, places, events, people, history or gods. If you require even more, at least one task is alos pending."
 "beruf" -> "Wenn notwendig diene ich als Auskunftsgeberin. In diesem Fall würde ich euch über Runewick informieren, seine Gebäude, Plätze, Ereignisse, Leute, Geschichte oder Götter. Und wenn erwünscht, wären auch mindestens eine Aufgabe zu lösen."
@@ -98,6 +90,8 @@ itemShoes = 369
 "Gebäude" -> "Welches Gebäude meint ihr? Markt, Tempel, Teleport, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, oder unsere Türme, sprich Turm der Luft, Turm des Feuer, Turm des Wasser, Turm der Erde?", inform("[Schlüsselwörter] Markt, Tempel, Teleport, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, Türme, Turm der Luft, Turm des Feuer, Turm des Wasser, Turm der Erde")
 "place" -> "Places? Which places of the hinterland to you mean? I recommend also to talk with a geographer about them. The one I can recommend can be found in the Library of Earth and is called Numila Irunnleh.",inform("[Keywords] Hinterland, Numila Irunnleh")
 "Platz", "Plätz" -> "Plätze? Welche Plätze des Hinterland meint ihr? Ich empfehle auch mit einen Geograph darüber zu sprechen. Ich kann euch eine in der Bibliothek der Erde empfehlen. Sie wird Numila Irunnleh genannt.",inform("[Schlüsselwörter] Hinterland, Numila Irunnleh")
+"Numila", "Irunnleh", queststatus (620)<1, english -> "She is geographer and can be found in the Library of Earth. She will tell you information about places outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Tir Draganfod, Shadowland and other places you like to know.", queststatus (620)=1, inform ([New Quest] Try to find Numila Irunnleh and get your reward.)
+"Numila", "Irunnleh", queststatus (620)<1 -> "Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Plätze wie Eibental, Bärenhöhle, Schlangekopfbucht, Tir Draganfod, Schattenland und andere Plätze die du gerne wissen möchtest.", queststatus (620)=1, inform ([Neues Quest] Finde Numila Irunnleh und erhalte deine Belohnung.)
 "Numila", "Irunnleh", english -> "She is geographer and can be found in the Library of Earth. She will tell you information about places outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Tir Draganfod, Shadowland and other places you like to know."
 "Numila", "Irunnleh" -> "Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Plätze wie Eibental, Bärenhöhle, Schlangekopfbucht, Tir Draganfod, Schattenland und andere Plätze die du gerne wissen möchtest."
 "people" -> "People? Whom else do you desire to talk with than our Archmage? I do not think anyone else has more wisedom, therefore do not waste your time witho other and more important: Do not bother me with questions about them."
@@ -204,6 +198,12 @@ itemShoes = 369
 "Lurnord bridge" ->"This is the bridge between here and Yewdale. *points west* It was destroyed years ago after a war with Galmair and rebuild by a friend of mine who left afterwards. Lunord was his name."
 "Lurnord Brücke" ->"Das ist die Brücke zwischen hier und Eibental. *zeigt in den Westen* Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord."
 
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "IN PROGRESS."
+"quest", "mission" -> "IN ARBEIT."
+"task", "adventure", "order" -> "IN PROGRESS."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+
 -- Faction stuff
 "archmage" -> "Our leader can be found in the Hall of Elara in the Fire Tower if you want to talk with him."
 "Erzmagier" -> "Unser Herrscher kann in der Halle der Elara im Feuerturm gefunden werden, wenn ihr ihn zu sprechen wünscht."
@@ -213,14 +213,14 @@ itemShoes = 369
 "Runewick" -> "Das ist hier und wenn du mehr darüber wissen möchtest, dann frag mich nach weiterer Information.", "Hier in Runewick suchen wir immer nach Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber."
 "Valerio", "Guilianni", "Don", english -> "I do not want to talk about him but you will find him in Galmair."
 "Valerio", "Guilianni", "Don" -> "Ich will nicht über ihn sprechen, aber er kann in Galmair gefunden werden."
-"Galmair", english -> "Galmair is in the Northwest. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway.", "There are not many reasons to travel there. Exceptions are if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers."
-"Galmair" -> "Galmair ist im Nordwesten zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen.", "Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
+"Galmair", english -> "There are not many reasons to travel there. Exceptions are if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers."
+"Galmair" ->  "Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
 "Queen" -> "I do not want to talk about her but you will find her in Cadomyr."
 "Königin" -> "Ich will nicht über ihn sprechen, aber er kann in Galmair gefunden werden."
 "rosaline", "edwards", english -> "I do not want to talk about her but you will find her in Cadomyr."
 "rosaline", "edwards" -> "Ich will nicht über ihn sprechen, aber er kann in Galmair gefunden werden."
-"Cadomyr", english -> "Cadomyr is in the West. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway.", "There are not many reasons to travel there. Exceptions are if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders."
-"Cadomyr" -> "Cadomyr ist im Westen zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen.", "Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer."
+"Cadomyr", english -> "There are not many reasons to travel there. Exceptions are if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders."
+"Cadomyr" -> "Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer."
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "You better try your luck at our marketplace here."

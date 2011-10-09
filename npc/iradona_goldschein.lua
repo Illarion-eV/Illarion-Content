@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 25, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 30, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -18,7 +18,9 @@ VALUES (1, 428, 248, 0, 6, 'Iradona Goldschein', 'npc.iradona_goldschein', 1, 9,
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
 module("npc.iradona_goldschein", package.seeall)
 
@@ -152,50 +154,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("IN PROGRESS.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("IN ARBEIT.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
-talkEntry:addResponse("IN PROGRESS.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("IN ARBEIT.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("game");
-talkEntry:addResponse("IN PROGRESS.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("spiel");
-talkEntry:addResponse("IN ARBEIT.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("Informant. I can tell you many things about Galmair. Just ask me about buildings, places, events, people, history or gods of Galmair. Additionaly, I have a little task.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -282,15 +240,36 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
+talkEntry:addCondition(npc.base.condition.quest.quest(630, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Is a hunter that has explored several places. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek and many others. You can find her down at the Winged Sow Tavern.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Lotta Medborgar and get your reward."));
+talkEntry:addResponse("Is a hunter that has explored several places. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Tir Draganfod and many others. You can find her down at the Winged Sow Tavern.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
-talkEntry:addResponse("Ist ne Jägerin und hat etliche Plätze erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau.");
+talkEntry:addCondition(npc.base.condition.quest.quest(630, "<", 1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Lotta Medborgar und erhalte deine Belohnung."));
+talkEntry:addResponse("Ist ne Jägerin und hat etliche Plätze erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Tir Draganfod, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lotta");
+talkEntry:addTrigger("Medborgar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Is a hunter that has explored several places. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Tir Draganfod and many others. You can find her down at the Winged Sow Tavern.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lotta");
+talkEntry:addTrigger("Medborgar");
+talkEntry:addResponse("Ist ne Jägerin und hat etliche Plätze erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Tir Draganfod, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -787,13 +766,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Miner spring");
-talkEntry:addResponse("The Miner's spring is next to the Miner's Club, and rumors tell that people who drink from the spring become better miners.");
+talkEntry:addResponse("The Miner's spring is next to the Miner's Club, and rumors tell that people who rest there become better miners.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schürfer Quelle");
-talkEntry:addResponse("Die Schürfer Quelle ist neben dem Schürfer Club, und Gerüchten zufolge werden Leute die daraus trinken bessere Schürfer.");
+talkEntry:addResponse("Die Schürfer Quelle ist neben dem Schürfer Club, und Gerüchten zufolge werden Leute die dort rasten bessere Schürfer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -886,6 +865,38 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("IN PROGRESS.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("IN ARBEIT.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("IN PROGRESS.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("IN ARBEIT.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addResponse("Arrgh! The ruler of Runewick and I do not care about him! Just bring his head to the Don.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -915,14 +926,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That's is the Southeast. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southeast. Look for signposts. But be careful. Dangerous way, use better the teleporter outside the town.");
 talkEntry:addResponse("Don't waste your time there, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find some there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Das liegt im Südosten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.");
 talkEntry:addResponse("Verschwende deine Zeit dort nicht, aber wenn du Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst du dort welche finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -947,14 +956,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That is here and if you want to know more about it ask me for further information.");
 talkEntry:addResponse("Here at Galmair, we are interested in Blacksmiths, Brick makers, Masons, Miners, and Brewers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Das ist hier und wenn du mehr darüber wissen möchtest, dann frag mich nach weiterer Information.");
 talkEntry:addResponse("Hier in Galmair suchen wir immer nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -989,14 +996,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That's is the Southwest. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southwest. Look for signposts. But be careful. Dangerous way, use better Or use the teleporter outside the town.");
 talkEntry:addResponse("Don't waste your time there, but if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders you will find some there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Das liegt im Südwesten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.");
 talkEntry:addResponse("Verschwende deine Zeit dort nicht, aber wenn du Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer suchst, kannst du dort welche finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

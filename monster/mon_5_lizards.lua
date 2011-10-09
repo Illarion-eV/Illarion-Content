@@ -44,8 +44,6 @@ function enemyNear(Monster,Enemy)
         return ( monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,6,{1200,2400},{{4,5}},{},40,1,{25,60}) );
     elseif (MonID==54) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{16,0},{37,0}},{{360,320,500,0,0}},40,0) == true );
-    elseif (MonID==55) then
-        return ( monster.base.drop.Stealing(Monster,Enemy) == true );
     else
         return false;
     end
@@ -255,14 +253,6 @@ function onDeath(Monster)
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(3,9),100,333,0,4); --copper coins
 
-        if not FirstThief then
-            monster.base.drop.AddDropItem(61,StealAmmG[Monster.id],100,333,0,5);
-            StealAmmG[Monster.id]=nil;
-            monster.base.drop.AddDropItem(3077,StealAmmS[Monster.id],100,333,0,6);
-            StealAmmS[Monster.id]=nil;
-            monster.base.drop.AddDropItem(3076,StealAmmK[Monster.id],100,333,0,7);
-            StealAmmK[Monster.id]=nil;
-        end
     elseif (MonID==56) then
         -- Drops
     elseif (MonID==57) then

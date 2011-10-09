@@ -45,8 +45,6 @@ function enemyNear(Monster,Enemy)
     local MonID=Monster:getMonsterType();
     if (MonID==45) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,6,{1500,2000},{{51,5}},{},40,1,{50,60}) or monster.base.drop.CastHealing( Monster, 6, {2000,3500}, 8, {16, 13}, 40 ) );
-    elseif (MonID==43) then
-        return ( monster.base.drop.Stealing(Monster,Enemy) == true );
     else
         return false
     end

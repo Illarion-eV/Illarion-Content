@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 25, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: September 30, 2011                      easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -18,8 +18,10 @@ VALUES (3, 856, 810, 0, 6, 'Elesil Daelwon', 'npc.elesil_daelwon', 1, 7, 0, 25, 
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
 module("npc.elesil_daelwon", package.seeall)
 
@@ -29,13 +31,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Elesil Daelwon the informant. Keyphrases: Question, information, Runewick, building, game."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Elesil Daelwon the informant. Keyphrases: Question, information, Runewick, building, mission."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Spiel."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Auftrag."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -153,50 +155,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("IN PROGRESS.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("IN ARBEIT.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
-talkEntry:addResponse("IN PROGRESS.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("IN ARBEIT.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("game");
-talkEntry:addResponse("IN PROGRESS");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("spiel");
-talkEntry:addResponse("IN ARBEIT");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("If necessary I'm an informant. In this case I will inform you about Runewick, its buildings, places, events, people, history or gods. If you require even more, at least one task is alos pending.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -277,6 +235,27 @@ talkEntry:addTrigger("Platz");
 talkEntry:addTrigger("Plätz");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Hinterland, Numila Irunnleh"));
 talkEntry:addResponse("Plätze? Welche Plätze des Hinterland meint ihr? Ich empfehle auch mit einen Geograph darüber zu sprechen. Ich kann euch eine in der Bibliothek der Erde empfehlen. Sie wird Numila Irunnleh genannt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Numila");
+talkEntry:addTrigger("Irunnleh");
+talkEntry:addCondition(npc.base.condition.quest.quest(620, "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Numila Irunnleh and get your reward."));
+talkEntry:addResponse("She is geographer and can be found in the Library of Earth. She will tell you information about places outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Tir Draganfod, Shadowland and other places you like to know.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Numila");
+talkEntry:addTrigger("Irunnleh");
+talkEntry:addCondition(npc.base.condition.quest.quest(620, "<", 1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Numila Irunnleh und erhalte deine Belohnung."));
+talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Plätze wie Eibental, Bärenhöhle, Schlangekopfbucht, Tir Draganfod, Schattenland und andere Plätze die du gerne wissen möchtest.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -961,6 +940,38 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("IN PROGRESS.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("IN ARBEIT.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("IN PROGRESS.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("IN ARBEIT.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addResponse("Our leader can be found in the Hall of Elara in the Fire Tower if you want to talk with him.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1022,14 +1033,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair is in the Northwest. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway.");
 talkEntry:addResponse("There are not many reasons to travel there. Exceptions are if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair ist im Nordwesten zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen.");
 talkEntry:addResponse("Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1064,14 +1073,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Cadomyr is in the West. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway.");
 talkEntry:addResponse("There are not many reasons to travel there. Exceptions are if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr ist im Westen zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen.");
 talkEntry:addResponse("Es gibt nicht viele Gründe dorthin zu reisen. Es sei den ihr sucht nach einen Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

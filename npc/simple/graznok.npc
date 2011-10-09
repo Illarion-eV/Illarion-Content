@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: October 01, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Graznok"
@@ -152,6 +152,12 @@ itemShoes = 697
 "quest", "mission", queststatus(3) = 21 -> "Nix mehr helfn kannst. Getan genug, hast du! Jetz mirr zeigen Klan Weg zu Höhle. Dancke."
 "task", "adventure", queststatus(3) = 21 -> "Nub can help mes, yoos. Hab done enuff. Mes gonna bring clan to cave, danks."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(3) = 21 -> "Nix mehr helfn kannst. Getan genug, hast du! Jetz mirr zeigen Klan Weg zu Höhle. Dancke."
+
+-- Link to Salavesh quest
+"Salavesh", english -> "Mes nub know anyding about cult. Dere be sum oomies, hab walk in cave, nub come out again!"
+"Salavesh" -> "Mirr nix wiss über Kult. Da sein Oomies, in Höhle gegangt, nix mehr rauskommen!"
+"Cult" -> "Mes nub know anyding about cult. Dere be sum oomies, hab walk in cave, nub come out again!"
+"Kult" -> "Mirr nix wiss über Kult. Da sein Oomies, in Höhle gegangt, nix mehr rauskommen!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "orc" -> "Dem orcis be chief op all dings. Bedda predator den wolf, smarter den leafeater and more mighty den red stomper."

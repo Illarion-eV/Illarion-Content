@@ -75,14 +75,6 @@ itemShoes = 369
 
 -- OPTIONAL TRIGGERS
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "IN PROGRESS."
-"quest", "mission" -> "IN ARBEIT."
-"task", "adventure", "order" -> "IN PROGRESS."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
-"game" -> "IN PROGRESS."
-"spiel" -> "IN ARBEIT."
-
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Informant. I can tell you many things about Galmair. Just ask me about buildings, places, events, people, history or gods of Galmair. Additionaly, I have a little task."
 "beruf" -> "Auskunftgeberin. Ich kann dir viele Dinge über Galmair erzählen. Frag nur nach Gebäude, Plätze, Ereignisse, Leute, Geschichte oder Götter von Galmair. Zusätzlich hätte ich noch eine kleine Aufgabe."
@@ -98,8 +90,10 @@ itemShoes = 369
 "Gebäude" -> "Argh, etwas genauer! Markt, Tempel, Teleport, Eselstall, Bibliothek, Quelle der Träume, Villa Goldader, Werkstatt, Wachstube, Dunkle Gasse, Galmairs Krone oder die Schlackengrube?",inform("[Schlüsselwörter] Markt, Tempel, Teleport, Eselstall, Bibliothek, Quelle der Träume, Villa Goldader, Werkstatt, Wachstube, Dunkle Gasse, Galmairs Krone, Schlackengrube")
 "place" -> "I suggest you look for Lotta Medborgar if you want to know more than the Hinterlands. She is hunter and has explored several places. Better to ask her. You can find her down at the Winged Sow Tavern.",inform("[Keywords] Hinterland, Lotta Medborgar")
 "Platz", "Plätz" -> "Ich empfehle du suchst nach Lotta Medborgar, wenn du mehr als die Hinterlande kennen lernen möchtest. Sie ist Jägerin und hat etliche Plätze erkundet. Frag sie daher besser. Du kannst sie unten in der Taverne zur Geflügelten Sau.",inform("[Schlüsselwörter] Hinterland, Lotta Medborgar")
-"Lotta", "Medborgar", english -> "Is a hunter that has explored several places. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek and many others. You can find her down at the Winged Sow Tavern."
-"Lotta", "Medborgar" -> "Ist ne Jägerin und hat etliche Plätze erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau."
+"Lotta", "Medborgar", queststatus (630)<1, english -> "Is a hunter that has explored several places. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Tir Draganfod and many others. You can find her down at the Winged Sow Tavern.", queststatus (630)=1, inform ([New Quest] Try to find Lotta Medborgar and get your reward.)
+"Lotta", "Medborgar", queststatus (630)<1 -> "Ist ne Jägerin und hat etliche Plätze erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Tir Draganfod, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau.", queststatus (630)=1, inform ([Neues Quest] Finde Lotta Medborgar und erhalte deine Belohnung.)
+"Lotta", "Medborgar", english -> "Is a hunter that has explored several places. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Tir Draganfod and many others. You can find her down at the Winged Sow Tavern."
+"Lotta", "Medborgar" -> "Ist ne Jägerin und hat etliche Plätze erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Tir Draganfod, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau."
 "people" -> "Argh, there were only dwarves here in the past. But nowadays we have all kind of folks here. Even orcs, which you can find in the Flicker Swale... Or do you like to meet Lotta? *grins*"
 "Leute" -> "Argh, früher waren wir nur Zwerge, aber heutzutage haben wir alle möglichen Leute hier. Selbst Orks, welche du unten in der Schimmersenke finden kannst... Oder willst du Lotta treffen? *grinst*"
 "history" -> "The history of our faction can be read in our library. Unfortunately, we lost our actual history book. But our Don so kindly to provide his personal notes."
@@ -184,8 +178,8 @@ itemShoes = 369
 "Malachitmine" -> "Die Malachitmine ist im Süden von Galmair. Gehe in die Stadt und folge den Wegweisern in den Süden. Du wirst dort Eisen, Kupfer und Gold finden."
 "Miner Club" -> "The Miner's Club is a place to rest for the miners in the Malachite mine, which is very close. The club was founded by the Father of the Don, Don Tommaso Guilianni and he spent a lot of time there."
 "Schürfer Club" -> "Der Schürfer Club ist ein Platz zum Rasten für die Schürfer in der Malachitmine, welche sehr nahe ist. Der Club wurde errichtet vom Vater des Don, Don Tommaso Guilianni und er hat dort viel Zeit verbracht."
-"Miner spring" -> "The Miner's spring is next to the Miner's Club, and rumors tell that people who drink from the spring become better miners."
-"Schürfer Quelle" -> "Die Schürfer Quelle ist neben dem Schürfer Club, und Gerüchten zufolge werden Leute die daraus trinken bessere Schürfer."
+"Miner spring" -> "The Miner's spring is next to the Miner's Club, and rumors tell that people who rest there become better miners."
+"Schürfer Quelle" -> "Die Schürfer Quelle ist neben dem Schürfer Club, und Gerüchten zufolge werden Leute die dort rasten bessere Schürfer."
 "Woodcorner" -> "That is a camp for lumberjacks and it is very close. Just behind the teleporter *points northe*"
 "Waldeck" -> "Das ist ein Lager für Holzfäller und es ist sehr nahe. Gleich hinter dem Teleporter *zeigt in den Norden"
 "Stinky Fisherman" -> "The Stinky Fisherman is a place for fisher and it is south from here at the north bank of the Malachite creek."
@@ -201,23 +195,29 @@ itemShoes = 369
 "Blackbridge" -> "The Blackbridge in the northeast leads you over the Bounding Stream to the Swamp and Northern Woods, if you like to go to this places.",inform("[Keyword] place")
 "Schwarzbrücke" -> "Die Schwarzbrücke im NOrdosten von hier führt dich über den Grenzstrom zum Sumpf und den Nördlichen Wäldern, falls du zu diesen Plätzen gehen möchtest.",inform("[Schlüsselwort] Platz")
 
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "IN PROGRESS."
+"quest", "mission" -> "IN ARBEIT."
+"task", "adventure", "order" -> "IN PROGRESS."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+
 -- Faction stuff
 "archmage" -> "Arrgh! The ruler of Runewick and I do not care about him! Just bring his head to the Don."
 "Erzmagier" -> "Arrgh! Der Herrscher von Runewick und der interessiert mich auch nicht. Bring einfach seinen Kopf dem Don."
 "Elvaine", "Morgan", english -> "Arrgh! The ruler of Runewick and I do not care about him! Just bring his head to the Don."
 "Elvaine", "Morgan" -> "Arrgh! Der Herrscher von Runewick und der interessiert mich auch nicht. Bring einfach seinen Kopf dem Don."
-"Runewick", english -> "That's is the Southeast. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southeast. Look for signposts. But be careful. Dangerous way, use better the teleporter outside the town.", "Don't waste your time there, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find some there."
-"Runewick" -> "Das liegt im Südosten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.", "Verschwende deine Zeit dort nicht, aber wenn du Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst du dort welche finden."
+"Runewick", english -> "Don't waste your time there, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find some there."
+"Runewick" -> "Verschwende deine Zeit dort nicht, aber wenn du Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst du dort welche finden."
 "Valerio", "Guilianni", "Don", english -> "Our ruler. You can find him at his residence in the Galmair's Crest. Just follow the road to the Well of Dreams. *points the towngate*"
 "Valerio", "Guilianni", "Don" -> "Unser Herrscher. Du findest ihn in seiner Residenz in Galmairs Krone. Folge einfach der Straße zur Quelle der Träume. *deutet auf das Stadttor"
-"Galmair", english -> "That is here and if you want to know more about it ask me for further information.", "Here at Galmair, we are interested in Blacksmiths, Brick makers, Masons, Miners, and Brewers."
-"Galmair" -> "Das ist hier und wenn du mehr darüber wissen möchtest, dann frag mich nach weiterer Information.", "Hier in Galmair suchen wir immer nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
+"Galmair", english -> "Here at Galmair, we are interested in Blacksmiths, Brick makers, Masons, Miners, and Brewers."
+"Galmair" -> "Hier in Galmair suchen wir immer nach einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
 "Queen" -> "#me shudders 'This ugly face is rules Cadomyr. If you bring her hair to the Don he will probably like that.'"
 "Königin" -> "#me schaudert 'Dieses hässliche Gesicht regiert Cadomyr. Wenn du ihr Haar dem Don bringst wird er das viellecht mögen.'"
 "rosaline", "edwards", english -> "#me shudders 'This ugly face is rules Cadomyr. If you bring her hair to the Don he will probably like that.'"
 "rosaline", "edwards" -> "#me schaudert 'Dieses hässliche Gesicht regiert Cadomyr. Wenn du ihr Haar dem Don bringst wird er das viellecht mögen.'"
-"Cadomyr", english -> "That's is the Southwest. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further Southwest. Look for signposts. But be careful. Dangerous way, use better Or use the teleporter outside the town.", "Don't waste your time there, but if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders you will find some there."
-"Cadomyr" -> "Das liegt im Südwesten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.", "Verschwende deine Zeit dort nicht, aber wenn du Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer suchst, kannst du dort welche finden."
+"Cadomyr", english -> "Don't waste your time there, but if you look for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders you will find some there."
+"Cadomyr" -> "Verschwende deine Zeit dort nicht, aber wenn du Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer suchst, kannst du dort welche finden."
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I don't sell or buy anything. But we have a marketplace. You can try your luck there."

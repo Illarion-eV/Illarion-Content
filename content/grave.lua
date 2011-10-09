@@ -116,9 +116,9 @@ function InitGrave()
     AddGrave({333,273,-6},"","", 3,0);--Sewers
     AddGrave({338,282,-6},"","", 1,0);--Sewers
     AddGrave({327,295,-6},"","", 3,0);--Sewers
-    AddGrave({298,331,-6},"","", 3,0);--Sewers
+    AddGrave({298,331,-6},"","", 3,0);--Sewers ]]--
     --Galmair hinterlands
-    AddGrave({545,501,0},"","", 3,0);--Sport Hole]]--
+    AddGrave({408,308,0},"Folgende Zeilen sind mit roter Farbe geschrieben: '10 Peitschenschläge für den Don belügen; 100 Peitschenschläge für den Don betrügen; 1000 Peitschenschläge für den Don bestehlen!'","With red colour following words are written: '10 wipe lashes for lying to the Don; 100 wipe lashes for betraying the Don; 1000 wipe lashes for stealing from the Don!'", 3,5);--Sport Hole
     --Glittering Cave
     AddGrave({564,382,0},"Hier hat es sich ausgefunkelt!","Glittering is over now!", 3,0);
     --[[--Glowing Forest
