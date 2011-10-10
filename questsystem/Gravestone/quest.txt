@@ -9,4 +9,3 @@ item,519,LookAtItem,trigger8
 npc,217,receiveText,trigger9
 item,148,UseItem,trigger10
 npc,217,receiveText,trigger11
-npc,217,receiveText,trigger12

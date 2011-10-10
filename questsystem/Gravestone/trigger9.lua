@@ -7,8 +7,8 @@ local POSTCONDITION_QUESTSTATE = 76
 
 local NPC_TRIGGER_DE = "[Mm]ary [Ss]ue"
 local NPC_TRIGGER_EN = "[Mm]ary [Ss]ue"
-local NPC_REPLY_DE = "Ahhh Mary Sue, meine einzige und wahre Liebe. Ich wünschte ich könnte noch einemal ihr Grab besuchen, doch bin ich zu alt für so eine lange Reise. Würdet ihr so nett sein und ihr eine Firnisblüte ans Grab legen? Ich würde mich erkenntlich zeigen.  Ahhh ich vermisse sie ja so sehr. "
-local NPC_REPLY_EN = "Ahh Mary Sue, my one and only true love. I wish I could see her grave one last time unfortunately I´m to old to take such a long journey. Would you be so nice and bring her a firnis blossom? Ahhh I miss her so much."
+local NPC_REPLY_DE = "Ahhh Mary Sue, meine einzige und wahre Liebe. Ich wünschte ich könnte noch einemal ihr Grab besuchen, doch bin ich zu alt für so eine lange Reise. Würdet ihr so nett sein und ihr eine Firnisblüte ans Grab legen? Ich würde mich erkenntlich zeigen. "
+local NPC_REPLY_EN = "Ahh Mary Sue, my one and only true love. I wish I could see her grave one last time unfortunately I´m to old to take such a long journey. Would you be so nice and bring her a firnis blossom? I would appreciate it."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

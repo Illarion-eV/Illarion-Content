@@ -6,9 +6,9 @@ local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 80
 local POSTCONDITION_QUESTSTATE = 81
 
-local NPC_TRIGGER_DE = "[Ff]ertig, [Ff]irnisblüte, [Gg[rab"
+local NPC_TRIGGER_DE = "[Ff]ertig, [Ff]irnisblüte, [Gg]rab"
 local NPC_TRIGGER_EN = "[Dd]one, [Ff]irnis blossom, [Gg]rave"
-local NPC_REPLY_DE = "Ich danke euch vielmals. Ich schenke Euch einen Ring. Ein roter Rubin, rot wie die Liebe. Ein Geschenkt für eure wahre Liebe ."
+local NPC_REPLY_DE = "Ich danke euch vielmals. Ich schenke Euch einen Ring. Ein roter Rubin, rot wie die Liebe. Ein Geschenk für eure wahre Liebe ."
 local NPC_REPLY_EN = "I thank you so much. I give you a ring. A red ruby, red like  the colour of Love. Save it  for your true love one day. "
 
 function receiveText(type, text, PLAYER)
