@@ -1,6 +1,6 @@
 require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.questsystem.trigger11", package.seeall)
+module("questsystem.Gravestone.trigger11", package.seeall)
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 80
