@@ -24,7 +24,7 @@ module("monster.base.quests", package.seeall)
 --Quest 3: To accept quest 3, set queststatus to 20 with the NPC. Use queststatus 20->21 to count 1 monster. If the quest is finished, set queststatus to 22 with the NPC.
 
 function iniQuests()
-debug("INI QUEETS START")
+-- --debug("INI QUEETS START")
     --Initilisation
     
     statusId={};
@@ -295,7 +295,7 @@ debug("INI QUEETS START")
     questList[1071]={}; --Crazy Chicken
     questList[1081]={}; --Black Chicken
     questList[2000]={}; --Guards
-debug("INI QUEETS MID 1")
+--debug("INI QUEETS MID 1")
     --Quest 1: Galmair Sewers I (77)
     
     local id=1;
@@ -314,7 +314,7 @@ debug("INI QUEETS MID 1")
     maximumQueststatus[id]=11; 
     questLocation[id]=position(298,352,-6); 
     radius[id]=50;
-debug("INI QUEETS MID 2")
+--debug("INI QUEETS MID 2")
     --Quest 2: Galmair Sewers II (77)
 
     local id=2;
@@ -390,7 +390,7 @@ debug("INI QUEETS MID 2")
     maximumQueststatus[id]=18;
     questLocation[id]=position(135,655,-4); 
     radius[id]=50; 
-debug("INI QUEETS MID 3")
+--debug("INI QUEETS MID 3")
     --Quest 6: Sir Reginald's Tomb III (78)
 
     local id=6;
@@ -496,7 +496,7 @@ debug("INI QUEETS MID 3")
     maximumQueststatus[id]=21; 
     questLocation[id]=position(775,475,0); 
     radius[id]=75; 
-debug("INI QUEETS MID 4")
+--debug("INI QUEETS MID 4")
     --Quest 12: The Poacher III (4)
 
     local id=12;
@@ -591,7 +591,7 @@ debug("INI QUEETS MID 4")
     maximumQueststatus[id]=9; 
     questLocation[id]=position(705,410,-3); 
     radius[id]=75; 
-debug("INI QUEETS MID 5")
+--debug("INI QUEETS MID 5")
     --Quest 17: The Errant Crusade III
 
     local id=17;
@@ -670,7 +670,7 @@ debug("INI QUEETS MID 5")
     maximumQueststatus[id]=10; 
     questLocation[id]=position(501,107,0); 
     radius[id]=15;
-debug("INI QUEETS END")
+--debug("INI QUEETS END")
 end
 
 
@@ -700,9 +700,9 @@ function checkQuest(User,Monster)
 
                 end
 
-            else --debugging
+            else ----debugging
 
-                --base.common.TempInformNLS(User,"[Queststatus] Debugging: Bedingungen für Kill nicht erfüllt.","[Quest status] Debugging: Conditions for kill not fulfilled."); 
+                --base.common.TempInformNLS(User,"[Queststatus] --debugging: Bedingungen für Kill nicht erfüllt.","[Quest status] --debugging: Conditions for kill not fulfilled."); 
 
             end
         end
