@@ -1,12 +1,13 @@
+require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.Gravestone.trigger11", package.seeall)
+module("questsystem.questsystem.trigger11", package.seeall)
 
 local QUEST_NUMBER = 10000
-local PRECONDITION_QUESTSTATE = 69
-local POSTCONDITION_QUESTSTATE = 72
+local PRECONDITION_QUESTSTATE = 80
+local POSTCONDITION_QUESTSTATE = 81
 
-local NPC_TRIGGER_DE = "[Ff]ertig, [Ii]ch habe eine Firnisblüte ans Grab gelegt, [Ii]ch habe euren Wunsch erfüllt"
-local NPC_TRIGGER_EN = "[Dd]one, [Ii] have placed a firnis blossom on the grave, [Ii] have made your wish come true"
+local NPC_TRIGGER_DE = "[Ff]ertig, [Ff]irnisblüte, [Gg[rab"
+local NPC_TRIGGER_EN = "[Dd]one, [Ff]irnis blossom, [Gg]rave"
 local NPC_REPLY_DE = "Ich danke euch vielmals. Ich schenke Euch einen Ring. Ein roter Rubin, rot wie die Liebe. Ein Geschenkt für eure wahre Liebe ."
 local NPC_REPLY_EN = "I thank you so much. I give you a ring. A red ruby, red like  the colour of Love. Save it  for your true love one day. "
 
@@ -52,6 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.createplayeritem.createPlayerItem(PLAYER, 68, 990, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

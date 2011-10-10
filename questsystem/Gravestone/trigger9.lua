@@ -1,10 +1,9 @@
-require("handler.createeffect")
 require("questsystem.base")
-module("questsystem.Gravestone.trigger9", package.seeall)
+module("questsystem.questsystem.trigger9", package.seeall)
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 54
-local POSTCONDITION_QUESTSTATE = 58
+local POSTCONDITION_QUESTSTATE = 76
 
 local NPC_TRIGGER_DE = "[Mm]ary [Ss]ue"
 local NPC_TRIGGER_EN = "[Mm]ary [Ss]ue"
@@ -53,7 +52,6 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createeffect.createEffect(position(605, 344, 0), 32):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -1,6 +1,6 @@
 require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.Gravestone.trigger7", package.seeall)
+module("questsystem.questsystem.trigger7", package.seeall)
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 27

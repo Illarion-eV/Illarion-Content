@@ -1,10 +1,10 @@
-require("handler.createplayeritem")
+require("handler.createeffect")
 require("questsystem.base")
-module("questsystem.Gravestone.trigger10", package.seeall)
+module("questsystem.questsystem.trigger10", package.seeall)
 
 local QUEST_NUMBER = 10000
-local PRECONDITION_QUESTSTATE = 58
-local POSTCONDITION_QUESTSTATE = 69
+local PRECONDITION_QUESTSTATE = 76
+local POSTCONDITION_QUESTSTATE = 80
 
 local POSITION = position(605, 344, 0)
 local RADIUS = 1
@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 68, 990, 1):execute()
+    handler.createeffect.createEffect(position(605, 344, 0), 32):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

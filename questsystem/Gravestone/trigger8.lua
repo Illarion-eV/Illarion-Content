@@ -1,5 +1,5 @@
 require("questsystem.base")
-module("questsystem.Gravestone.trigger8", package.seeall)
+module("questsystem.questsystem.trigger8", package.seeall)
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 9
