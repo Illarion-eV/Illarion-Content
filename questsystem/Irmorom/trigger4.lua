@@ -7,7 +7,7 @@ local PRECONDITION_QUESTSTATE = 4
 local POSTCONDITION_QUESTSTATE = 7
 
 local POSITION = position(312, 232, 1)
-local RADIUS = 0
+local RADIUS = 1
 local LOOKAT_TEXT_DE = "Aus dem Nichts erreicht dich ein Geschenk von Irmorom."
 local LOOKAT_TEXT_EN = "Out from nowhere a gift from Irmorom reaches you."
 

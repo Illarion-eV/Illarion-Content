@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createeffect.createEffect(position(312, 232, 1), 51):execute()
+    handler.createeffect.createEffect(position(312, 232, 1), 32):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

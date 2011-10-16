@@ -7,7 +7,7 @@ local PRECONDITION_QUESTSTATE = 3
 local POSTCONDITION_QUESTSTATE = 9
 
 local POSITION = position(312, 232, 1)
-local RADIUS = 0
+local RADIUS = 1
 local LOOKAT_TEXT_DE = "Du neigst deinen Kopf vor dem Altar."
 local LOOKAT_TEXT_EN = "You lower your head in front of the altar."
 
