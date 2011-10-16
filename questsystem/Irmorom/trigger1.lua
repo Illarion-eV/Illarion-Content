@@ -1,13 +1,13 @@
-require("handler.sendmessagetoplayer")
+require("handler.createeffect")
 require("questsystem.base")
 module("questsystem.Irmorom.trigger1", package.seeall)
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 0
-local POSTCONDITION_QUESTSTATE = 3
+local POSTCONDITION_QUESTSTATE = 16
 
 local POSITION = position(312, 232, 1)
-local RADIUS = 1
+local RADIUS = 2
 local LOOKAT_TEXT_DE = "Du erblickst einen Gebetstext. Eingemeißelt in Stein, vorne am Altar."
 local LOOKAT_TEXT_EN = "You see a prayer written in stone in front of the altar. "
 
@@ -37,8 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Hail Irmorom. Ehre dem Gott des Handels und Handwerks. Geheiligt sei dein Name und dein Reich. Unseren Handel schütze und unser Bier segne.", "Hail Irmorom. Honor to the god of trading and  crafting. Hollowed be Thy name and Thy kingdom. Guard our trade and bless our beer."):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Führe uns in ein goldenes und ruhmreiches Zeitalter. Dein ist der Hammer und die Kraft. Hail Irmorom", "Lead us to a golden and glory age. Thy is the hammer and the strength. Hail Irmorom "):execute()
+    handler.createeffect.createEffect(position(312, 232, 1), 51):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

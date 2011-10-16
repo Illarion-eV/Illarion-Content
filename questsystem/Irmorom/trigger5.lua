@@ -1,15 +1,15 @@
 require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.Irmorom.trigger2", package.seeall)
+module("questsystem.Irmorom.trigger5", package.seeall)
 
 local QUEST_NUMBER = 10000
-local PRECONDITION_QUESTSTATE = 3
-local POSTCONDITION_QUESTSTATE = 9
+local PRECONDITION_QUESTSTATE = 16
+local POSTCONDITION_QUESTSTATE = 3
 
 local POSITION = position(312, 232, 1)
-local RADIUS = 0
-local LOOKAT_TEXT_DE = "Du neigst deinen Kopf vor dem Altar."
-local LOOKAT_TEXT_EN = "You lower your head in front of the altar."
+local RADIUS = 1
+local LOOKAT_TEXT_DE = "Du liest:"
+local LOOKAT_TEXT_EN = "You read:"
 
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
@@ -37,7 +37,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du fühlst Irmoroms Präsenz.", "You feel Irmoroms presence."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Hail Irmorom. Ehre dem Gott des Handels und Handwerks. Geheiligt sei dein Name und dein Reich. Unseren Handel schütze und unser Bier segne.", "Hail Irmorom. Honor to the god of trading and  crafting. Hollowed be Thy name and Thy kingdom. Guard our trade and bless our beer."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Führe uns in ein goldenes und ruhmreiches Zeitalter. Dein ist der Hammer und die Kraft. Hail Irmorom", "Lead us to a golden and glory age. Thy is the hammer and the strength. Hail Irmorom "):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
