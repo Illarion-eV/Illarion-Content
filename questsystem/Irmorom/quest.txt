@@ -1,0 +1,4 @@
+item,361,LookAtItem,trigger1
+item,361,LookAtItem,trigger2
+item,316,LookAtItem,trigger3
+item,316,LookAtItem,trigger4
