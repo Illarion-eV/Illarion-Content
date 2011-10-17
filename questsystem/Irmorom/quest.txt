@@ -8,3 +8,4 @@ item,236,UseItem,trigger7
 item,383,UseItem,trigger8
 item,361,LookAtItem,trigger9
 item,188,UseItem,trigger10
+item,316,LookAtItem,trigger11

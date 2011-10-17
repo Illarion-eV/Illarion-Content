@@ -1,14 +1,16 @@
+require("handler.createitem")
+require("handler.createeffect")
 require("questsystem.base")
-module("questsystem.Irmorom.trigger9", package.seeall)
+module("questsystem.Irmorom.trigger11", package.seeall)
 
 local QUEST_NUMBER = 10000
-local PRECONDITION_QUESTSTATE = 17
-local POSTCONDITION_QUESTSTATE = 35
+local PRECONDITION_QUESTSTATE = 35
+local POSTCONDITION_QUESTSTATE = 30
 
 local POSITION = position(312, 232, 1)
-local RADIUS = 1
-local LOOKAT_TEXT_DE = "Deine Opfergabe wurde von Irmorom angenommen. Eine wohlige Wärme breitet sich in dir aus während du Irmorom`s Segen empfängst. "
-local LOOKAT_TEXT_EN = "Your oblation is accepted by Irmorom. You feel a comforting warmth coming up as you receive his blessing."
+local RADIUS = 2
+local LOOKAT_TEXT_DE = "Voller Ehrfurcht blickst du auf den Altar und erblickst ein Geschenk."
+local LOOKAT_TEXT_EN = "With awe you look at the altar and you notice a gift."
 
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
@@ -36,6 +38,8 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.createitem.createItem(position(312, 232, 1), 310, 990, 1):execute()
+    handler.createeffect.createEffect(position(312, 232, 1), 53):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
