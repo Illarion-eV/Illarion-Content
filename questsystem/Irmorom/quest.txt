@@ -1,0 +1,10 @@
+item,361,LookAtItem,trigger1
+item,234,UseItem,trigger2
+item,23,UseItem,trigger3
+item,112,UseItem,trigger4
+item,224,UseItem,trigger5
+item,205,UseItem,trigger6
+item,236,UseItem,trigger7
+item,383,UseItem,trigger8
+item,361,LookAtItem,trigger9
+item,188,UseItem,trigger10
