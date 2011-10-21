@@ -19,6 +19,10 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
+    pos = User.pos
+    pos.x = pos.x + 1
+    world:createDynamicNPC("Lasttier",50,pos,0,"npc_lasttier.lua")
+
     --local callback = function(dialog)
     --    User:inform("Input: "..dialog:getInput())
     --    a()
