@@ -142,7 +142,7 @@ function onLogin( player )
 				npcRace=30;
 			end
 
-		    if not world:createDynamicNPC("Lasttier",npcRace,newPos,0,"npc_lasttier.lua") then
+		    if not world:createDynamicNPC("Lasttier",npcRace,newPos,0,"npc.lasttier") then
 		        newPos = false;
 		    end
 		end
