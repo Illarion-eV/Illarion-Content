@@ -32,7 +32,7 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 	minorSkill=user:getMinorSkill(skill); --made that one up, dunno how to access the minor skill from lua
 	MCvalue=math.max(lowerBorder,user:getMentalCapacity()); --below 0.5% of time spent online, no additional bonus is granted
 
-    if skillValue<opponent+20 then --you only learn when your skill is lower than the skill of the opponent +20
+    if skillValue<opponent+20 and skillValue<100 then --you only learn when your skill is lower than the skill of the opponent +20 and your skill is <100
 
         chanceForSkillGain=(100-skillValue);
 	
