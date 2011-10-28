@@ -55,7 +55,7 @@ end
 
 function addEffect( e, c )
     c:inform("--- effect added ---");
-    e:addValue("n",10);
+    e:addValue("n",100);
 end
 
 function callEffect( e, c )
