@@ -19,9 +19,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    effect = LongTimeEffect(777, 30)
-    effect:addValue("n",100);
-    User.effects:addEffect(effect);
+    User.effects:addEffect(LongTimeEffect(777, 30))
 
     --pos = User.pos
     --pos.x = pos.x + 1
@@ -57,7 +55,7 @@ end
 
 function addEffect( e, c )
     c:inform("--- effect added ---");
-    e:addValue("n",9);
+    e:addValue("n",10);
 end
 
 function callEffect( e, c )
