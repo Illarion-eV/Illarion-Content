@@ -19,10 +19,14 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    pos = User.pos
-    pos.x = pos.x + 1
-    world:createDynamicNPC("Lasttier",50,pos,0,"npc.lasttier")
-    User:setQuestProgress(8, 1)
+    effect = LongTimeEffect(777, 30)
+    effect:addValue("n",100);
+    User.effects:addEffect(effect);
+
+    --pos = User.pos
+    --pos.x = pos.x + 1
+    --world:createDynamicNPC("Lasttier",50,pos,0,"npc.lasttier")
+    --User:setQuestProgress(8, 1)
 
     --local callback = function(dialog)
     --    User:inform("Input: "..dialog:getInput())
