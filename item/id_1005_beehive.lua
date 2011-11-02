@@ -39,11 +39,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	if (ltstate == Action.none) then -- Untätig: Starte Honig Sammeln!
         honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
+		debug("worktime: " .. honeygathering.SavedWorkTime[User.id]);
 		User:startAction(honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
         User:talkLanguage(Character.say, Player.german, "#me beginnt nach Honig zu suchen.");
         User:talkLanguage(Character.say, Player.english, "#me starts to search for honey.");
         return
     end
+	debug("waiting done");
 	
 	if not honeygathering:FindRandomItem(User, SourceItem) then
 		return

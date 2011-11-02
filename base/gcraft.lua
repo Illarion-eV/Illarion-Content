@@ -173,38 +173,87 @@ end
 
 -- Arbeitszeit Generieren
 function GCraft:GenWorkTime(User, toolItem)
-    local Skill  = User:getSkill(self.LeadSkill);
-    local Attrib = User:increaseAttrib(self.LeadAttrib, 0);
+    local skill  = User:getSkill(self.LeadSkill);
+    local attrib = User:increaseAttrib(self.LeadAttrib, 0);
+	-- new algorithm
+	local skillBonus=0;
+	local timeBonus=0;
 	if(toolItem ~= nil) then
-		gem1, str1, gem2, str2=base.common.GetBonusFromTool(toolItem);
-		step=0;
+		local gem1, str1, gem2, str2=base.common.GetBonusFromTool(toolItem);
 		if gem1==3 then     -- ruby modifies skill!
-			step=str1;
+			skillBonus=str1;
 		end
 		if gem2==3 then
-			step=step+str2;
+			skillBonus=skillBonus+str2;
 		end
-		Skill=Skill+step;
-		step=0;
 		if gem1==6 then     -- amethyst modifies time needed
-			step=str1;
+			timeBonus=str1;
 		end
 		if gem2==6 then
-			step=step+str2;
+			timeBonus=timeBonus+str2;
 		end
-		step=step*1.75;
-		return math.floor( (( -0.2 * ((Skill * 1.2)+Attrib) + 50) + math.random(0,40))*(100-step)/100);
-	else
-		return math.floor( -0.4 * ((Skill * 1.2)+Attrib) + 70);
-	end 
+	end
+	-- gem boni should range in [0,1]
+	-- currently: linear distribution
+	-- current max (2 gems, lvl 10): 20
+	skillBonus = skillBonus / 20;
+	timeBonus = timeBonus / 20;
+	
+	-- time (1/10s):
+	--- with random & gem bonus: [5,100]
+	local maxAll = 100;
+	local minAll = 5;
+	--- without random and any bonus: [10,95]
+	local maxNormal = 95;
+	local minNormal = 10;
+	--- random change: +- [1,5]
+	local randomChange = 5;
+	--- max attrib bonus (will be subtracted)
+	local maxAttribBonus = 20;
+	--- => best time at 100 skill, 0 attrib: 30
+	--- => best time at 100 skill, 30 attrib: 10
+	local bestAttrib = 30;
+	--- max time bonus from amethyst (will be subtracted)
+	local maxTimeBonus = 50;
+	--- max skill bonus from ruby (will be added)
+	local maxSkillBonus = 50;
+	
+	-- calculate skill considering gem bonus
+	skill = math.max(0, math.min(100, skill + maxSkillBonus*skillBonus));
+	-- calculate time only considering skill
+	local retVal = minNormal + (maxNormal - minNormal + maxAttribBonus) * (100 - skill ) / 100;
+	-- add attrib bonus
+	retVal = retVal - maxAttribBonus * attrib / bestAttrib;
+	-- add time bonus from gem
+	retVal = retVal - maxTimeBonus*timeBonus;
+	-- limit to normal boundaries and add random change
+	retVal = math.max(minNormal, math.min(maxNormal, retVal)) + math.random(1,randomChange*2) - randomChange;
+	-- limit to overall boundaries
+	retVal = math.floor(math.max(minAll, math.min(maxAll, retVal)));
+	
+	return retVal;
+	
+	-- -- old algorithm
+	-- if(toolItem ~= nil) then
+		-- gem1, str1, gem2, str2=base.common.GetBonusFromTool(toolItem);
+		-- local step=0;
+		-- if gem1==3 then     -- ruby modifies skill!
+			-- step=str1;
+		-- end
+		-- if gem2==3 then
+			-- step=step+str2;
+		-- end
+		-- Skill=Skill+step;
+		-- step=0;
+		-- if gem1==6 then     -- amethyst modifies time needed
+			-- step=str1;
+		-- end
+		-- if gem2==6 then
+			-- step=step+str2;
+		-- end
+		-- step=step*1.75;
+		-- return math.floor( (( -0.2 * ((skill * 1.2)+attrib) + 50) + math.random(0,40))*(100-step)/100);
+	-- else
+		-- return math.floor( -0.4 * ((skill * 1.2)+attrib) + 70);
+	-- end 
 end
-
-
-
-
-
-
-
-
-
-
