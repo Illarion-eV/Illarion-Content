@@ -48,7 +48,7 @@ function InitGrave()
 	AddGrave({573,318,0},"","", 4,0);
 	AddGrave({581,315,0},"","", 1,0);
 	AddGrave({605,327,0},"","", 1,0);
-	AddGrave({605,344,0},"","", 1,0);
+	AddGrave({605,344,0},"","", 1,0);  --used by victoria for quest: /questsystem/Gravestone
 	AddGrave({592,355,0},"","", 3,0);
 	AddGrave({585,323,0},"","", 2,0);
 	AddGrave({588,326,0},"","", 3,0);
