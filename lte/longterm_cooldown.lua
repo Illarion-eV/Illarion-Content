@@ -17,14 +17,21 @@ function callEffect( Effect, Char ) -- Effect is called
     if Char:idleTime() < 300 then --absolutely no regeneration effect if the player is afk for more than five minutes
 
 		--Addition by Estralis: Quest 119/120 (Cadomyr daily missions)
-	
-		theQuestStatus=Char:getQuestProgress(120);
+	    theQuestStatus=Char:getQuestProgress(120);
 	
 		if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
 			Char:setQuestProgress(120,theQuestStatus-1); --cooling!
 		end
+	    --Addition end
 	
-		--Addition end
+	    --Addition by Rincewind: Quest XXX (???)
+	    theQuestStatus=Char:getQuestProgress(X);
+	    
+		if theQuestStatus > 0 then
+			Char:setQuestProgress(X,theQuestStatus-1); --cooling!
+		end
+		-- Addition end
+
 	
 	end --all above is only conducted for players that aren't afk for more than five minutes
 
