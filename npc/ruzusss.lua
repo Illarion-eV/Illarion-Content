@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: October 06, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: November 27, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -180,21 +180,21 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("inform");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords]"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] place"));
 talkEntry:addResponse("I have information about placesss clossse to Cadomyr. Just asssk me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("inform");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter]"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Platz"));
 talkEntry:addResponse("Ich habe Informationen über Plätze in der Nähe von Cadomyr geben. Frag einfach!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("question");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords]"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] place"));
 talkEntry:addResponse("I have information about placesss clossse to Cadomyr. Just asssk me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -202,7 +202,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Frage");
 talkEntry:addTrigger("Auskunft");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter]"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Platz"));
 talkEntry:addResponse("Ich habe Informationen über Plätze in der Nähe von Cadomyr geben. Frag einfach!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -628,99 +628,99 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Shadowland");
-talkEntry:addResponse("");
+talkEntry:addResponse("It has two entrances. One at the Malachite mine, one at the southwest of the Border Mountains. No one has ever passed it. It is very dangerous there. The gate, therefore, is looked and only the faction leaders know how to enter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schattenland");
-talkEntry:addResponse("");
+talkEntry:addResponse("Es hat zwei Eingänge. Einen bei der Malachit Mine, einen südwestlich der Grenzberge. Niemand hat es je durchquert. Viel zu gefährlich! Die Tore sind daher verschlossen und nur die Fraktionsführer wissen wie man sie öffnet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("The Wight Canal");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Wight Canal can be found at the eastside of the Border Mountains, where it connects these Mountains with the Snakehead Bay.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Der Wichtkanal");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Wichtkanal kann an der Ostseite der Grenzberge gefunden werden, wo er diese Berge mit der Schlangenkopf Bucht verbindet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sentry Forest");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Sentry Forest can be found at the southeast of the Border Mountains.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wachwald");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Wachwald kann im südosten der Grenzberge gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Great Ocean");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Great Ocean is the water in south, which is ruled by our ships. The Katanbi River flows into this Ocean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Großer Ozean");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Große Ozean ist das Gewässer im Süden, welches von unseren Schiffen beherrscht wird. Der Katanbi Fluss mündet in diesen Ozean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Border Mountains");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Border Mountain are the east border of the Katanbi Desert and the southeast part of the Lonly Mountains.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grenzberge");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Grenzberge sind die östliche Grenze der Katanbi Wüste und der südöstliche Teil der Einsamen Berge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Western Katanbi Desert");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords]"));
-talkEntry:addResponse("");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Mount Siba, Milkhouse, Cornerstone Candour, Rosaline Cube, Cube Camp, Faber Guardhouse, Remote Dwelling, Pirate cove, Cape Farewell, Katanbi River, Liberty Quarry, Grugmutz cave, Creek Settlement"));
+talkEntry:addResponse("Which place there do you mean: Mount Siba, Milkhouse, Cornerstone of Candour, Rosaline Cube, Cube Camp, Faber's Guardhouse, Remote Dwelling, Pirate cove, Cape Farewell, Katanbi River, Liberty Quarry, Grugmutz's cave, Creek Settlement.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Westliche Katanbi Wüste");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter]"));
-talkEntry:addResponse("");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Berg Siba, Milchhaus, Grundstein Aufrechtigkeit, Rosaline Wüfel, Würfel Lager, Faber Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutz Höhle, Bach Siedlung."));
+talkEntry:addResponse("Welchen Platz meinst du? Berg Siba, Milchhaus, Grundstein der Aufrechtigkeit, Rosaline Wüfel, Würfel Lager, Fabers Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mount Siba");
-talkEntry:addResponse("");
+talkEntry:addResponse("A mountain in the south of Cadomyr. It is very close to the town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Berg Siba");
-talkEntry:addResponse("");
+talkEntry:addResponse("Ein Berg im Süden von Cadomyr. Er ist sehr nahe an der Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Milkhouse");
-talkEntry:addResponse("That isss the name of our donkey stable. It isss in the eassst from here.");
+talkEntry:addResponse("That isss the name of a ssshop for foreign tradersss. It isss in the eassst from here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Milchhaus");
-talkEntry:addResponse("Dasss issst der Name unssseresss Eselstalls. Er kann im Osssten von hier gefunden werden.");
+talkEntry:addResponse("Dasss issst der Name einesss Laden der von fremden Händlern verwendet wird. Er kann im Osssten von hier gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -779,7 +779,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Entfernte Wohnstätte");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -791,7 +791,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Piraten Bucht");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -803,7 +803,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Kap Lebwohl");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -815,7 +815,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Katanbi Fluss");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -827,7 +827,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Freiheitsbruch");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -839,7 +839,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Grugmutzs Höhle");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -851,46 +851,22 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Envy Creek");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Weary Inn");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Bach Siedlung");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Desert");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords]"));
-talkEntry:addResponse("");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Prison, Druid Tear, Royal places, Desert Hole, Pyramide Discord, Pearl Sirani, Frontus Farm, Shadowland, Queens Corner, Zumbrass Tomb, Mount Zotmore, Chapel Five, Envy Creek, Weary Inn"));
+talkEntry:addResponse("Which place there do you mean: Prison, Druid's Tear, Royal places, Desert Hole, Pyramide of Discord, Pearl of Sirani, Frontus Farm, Shadowland, Queens Corner, Zumbrass Tomb, Mount Zotmore, Chapel of the Five, Envy Creek, Weary Inn?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Wüste");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter]"));
-talkEntry:addResponse("");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide Zwietracht, Perle Sirani, Frontus Hof, Schattenland, Königin Eck, Zumbrass Grab, Berg Zotmore, Kapelle Fünf, Neidbach, Matter Gasthof"));
+talkEntry:addResponse("Welchen Platz meinst du? Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide der Zwietracht, Perle der Sirani, Frontus Hof, Schattenland, Königin Eck, Zumbrass Grab, Berg Zotmore, Kapelle der Fünf, Neidbach, Matter Gasthof?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -901,55 +877,59 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Gefängnis");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("The Druid's Tear");
+talkEntry:addTrigger("Druid Tear");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Druiden Träne");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("The Royal Academy of Gladiators");
+talkEntry:addTrigger("Royal places");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Royal Academy, Academy Gladiators,Blood Circle Arena, Royal Slave Market"));
+talkEntry:addResponse("There are Royal Academy of Gladiators, Blood Circle Arena, Royal Slave Market.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königliche Orte");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Königliche Akademie, Akademie Gladiatoren, Blurtkreisarena, Königlicher Sklaven Markt"));
+talkEntry:addResponse("Königliche Akademie der Gladiatoren, Blurtkreisarena, Königlicher Sklaven Markt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Royal Academy");
+talkEntry:addTrigger("Academy Gladiators");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Königliche Akademie");
+talkEntry:addTrigger("Akademie Gladiatoren");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("The Blood Circle Arena");
+talkEntry:addTrigger("Blood Circle Arena");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Desert Hole");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Blurtkreisarena");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -961,31 +941,43 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Königlicher Sklaven Markt");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Pyramide of Discord");
+talkEntry:addTrigger("Desert Hole");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Wüstenloch");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Pearl of Sirani");
+talkEntry:addTrigger("Pyramide Discord");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Pyramide Zwietracht");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Pearl Sirani");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Perle Sirani");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -997,7 +989,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Frontus Hof");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1009,7 +1001,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Schattenland");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1021,7 +1013,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Königin Eck");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1033,7 +1025,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Zumbrass Grab");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1045,34 +1037,58 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Berg Zotmore");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Chapel of the Five");
+talkEntry:addTrigger("Chapel Five");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Kapelle Fünf");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Envy Creek");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Neidbach");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Weary Inn");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Matter Gasthof");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Delta");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords]"));
-talkEntry:addResponse("");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Merchant Folly, Cadomyr Harbour, Harp Pain, Lost Harbour, Tear Sirani, Kata Island, Mount Letma"));
+talkEntry:addResponse("Which place there do you mean: Merchants' Folly, Cadomyr Harbour, Harp of Pain, Lost Harbour, Tear of Sirani, Kata Island, Mount Letma");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Delta");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter]"));
-talkEntry:addResponse("");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Händler Unsinn, Cadomyr, Hafen, Schmerzvolle Harfe, Verlorener Hafen, Träne Sirani, Kata Insel, Berg Letma"));
+talkEntry:addResponse("Welchen Platz dort meinst du? Händler Unsinn, Cadomyr, Hafen, Schmerzvolle Harfe, Verlorener Hafen, Träne der Sirani, Kata Insel, Berg Letma?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1083,7 +1099,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Händler Unsinn");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1095,7 +1111,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Cadomyr Hafen");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1107,7 +1123,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Schmerzvolle Harfe");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1119,7 +1135,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Verlorener Hafen");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1131,7 +1147,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Träne Sirani");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1143,7 +1159,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Kata Insel");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1155,7 +1171,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("???");
+talkEntry:addTrigger("Berg Letma");
 talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

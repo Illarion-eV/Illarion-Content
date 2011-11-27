@@ -84,10 +84,10 @@ itemShoes = 369
 --"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"inform", english -> "I have information about places close to Runewick for you if you want to know them.", inform("[Keywords] ")
-"inform" -> "Ich habe Informationen über Plätze in der Nähe von Runewick für euch wenn ihr wünscht.", inform("[Schlüsselwörter] ")
-"question" -> "I have information about places close to Runewick for you if you want to know them.", inform("[Keywords] ")
-"Frage", "Auskunft" -> "Ich habe Informationen über Plätze in der Nähe von Runewick für euch wenn ihr wünscht.", inform("[Schlüsselwörter] ")
+"inform", english -> "I have information about places close to Runewick for you if you want to know them.", inform("[Keywords] place")
+"inform" -> "Ich habe Informationen über Plätze in der Nähe von Runewick für euch wenn ihr wünscht.", inform("[Schlüsselwörter] Platz")
+"question" -> "I have information about places close to Runewick for you if you want to know them.", inform("[Keywords] place")
+"Frage", "Auskunft" -> "Ich habe Informationen über Plätze in der Nähe von Runewick für euch wenn ihr wünscht.", inform("[Schlüsselwörter] Platz")
 "place" -> "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Tir Draganfod?", inform("[Keywords] Tir Draganfod, northeast, northwest, southwest, southeast")
 "Platz","Plätz" -> "Plätze? Welche Plätze meint ihr? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Tir Draganfod?", inform("[Schlüsselwörter] Tir Draganfod, Nordosten, Nordwesten, Südwesten, Südosten")
 "Elesil", "Daelwon", english -> "You can find her outside of the town close to the teleporter. She has a lot of information and some tasks for you."
@@ -180,36 +180,36 @@ itemShoes = 369
 "Westliche Katanbi Wüste" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 
 --southeast
-"Snakehead Bay" -> ""
-"Schlangenkopfbucht" -> ""
-"Lonely Islands" -> ""
-"Einsame Inseln" -> ""
-"Death’s Stench" -> ""
-"Todes Gestank" -> ""
-"Dragon's Lair" -> ""
-"Drachenhöhle" -> ""
-"Dewy Swamps" -> "", inform("[Keywords] ")
-"Frische Sümpfe" -> "", inform("[Schlüsselwörter] ")
---"Darter's Shop" -> ""
---"Darters Laden" -> ""
---"Shadow Gate" -> ""
---"Schattentor" -> ""
-"Merryglade" -> ""
-"Fröhliche Lichtung" -> ""
-"Oldra's Tower" -> ""
-"Oldras Turm" -> ""
-"Coward's last stand" -> ""
-"Feiglings letztes Gefecht" -> ""
-"Northern Outpost" -> ""
-"Nördlicher Außenposten" -> ""
-"Anthil Brook" -> ""
-"Ameisenhügelbach" -> ""
-"Bear cave" -> ""
-"Bärenhöhle" -> ""
-"Adron's Covert" -> ""
-"Adrons Versteck" -> ""
-"Yewdale" -> ""
-"Eibental" -> ""
+"Snakehead Bay" -> "The bay westwards from Runewick is called Snakehead Bay."
+"Schlangenkopfbucht" -> "Die Bucht westlich von Runewick heißt Schlangenkopfbucht."
+"Lonely Islands" -> "These two islands southwest from Runewick. You will have to take a ferry to get there. But be careful, it is said, that noone has ever returned from there."
+"Einsame Inseln" -> "Diese zwei Inseln liegen südwestlich von Runewick. Ihr werdet eine Fähre nehmen müssen. Aber seid vorsicht! Es wird gesagt, dass noch nie jemand von dort zurückkam."
+"Death’s Stench" -> "These area north of the Dragon's Lair has been turned into a swamp by dragons years ago."
+"Todes Gestank" -> "Dieser Bereich nördlich der Drachenhöhle wurde von Drachen in einen Sumpf verwandelt vor einigen Jahren."
+"Dragon's Lair" -> "The Dragon's Lair is north of the Bear Cave. Don't go there alone!"
+"Drachenhöhle" -> "Die Drachenhöhle ist nördlich der Bärenhöhle. Geht dort nicht alleine hin!"
+"Dewy Swamps" -> "The Dewy Swamps are north from Runewick. Walk to Yewdale, then northeast, pass Merryglade and you are there. You find there Darter's Shop and the Shadow Gate.", inform("[Keywords] Darter's Shop, Shadow Gate")
+"Frische Sümpfe" -> "Die Frischen Sümpfe ligen nördlich von Runwick. Geht nach Eibental, von dort nordöstlich, passiert die Fröhliche Lichtung und schon seid ihr dort. Ihr findet dort Darters Laden und das Schattentor.", inform("[Schlüsselwörter] Darters Laden, Schattentor")
+"Darter Shop" -> "That is a part of Dewy Swamps. This shop belongs to the Darter family, but it collapsed years ago. I think you can still find a member there."
+"Darter Laden" -> "Das ist ein Teil der Frischen Sümpfe. Dieser Laden gehört der Darter Familie, welcher aber vor Jahren zugrunde ging. Ich denke man findet immer noch ein Mitglieder der Familie dort."
+"Shadow Gate" -> "That is a part of Dewy Swamps. It was once a place for experiments. We tried to open a large permanent portal to distant lands there. But it failed and thus it is a ruin now."
+"Schattentor" -> "Das ist ein Teil der Frischen Sümpfe. Es war einst ein Platz für Experimente. Wir versuchten ein permanentes Portal zu fernen Ländern zu öffnen. Aber wir scheiterten und so ist dort lediglich eine Ruine nun zu finden."
+"Merryglade" -> "It was once the home of a stable hand who disappeared to Galmair after he failed to protect his animals. It is northeast from Yewdale."
+"Fröhliche Lichtung" -> "Es war einst das Haus eines Stalljungen, welcher nach Galmair verschwand nachdem es ihm nicht gelungen ist seine Tiere zu behüten. Es liegt nordöstlich von Eibental."
+"Oldra's Tower" -> "It is northeast from Yewdale close at Merryglade. Druids and Alchemists are often traveling there. Ask them for further information."
+"Oldras Turm" -> "Der liegt nordöstlich von Eibental in der Nähe der Fröhlichen Lichtung. Druiden und Alchemisten reisen oft dorthin. Fragt die wenn ihr weitere Information wünscht."
+"Coward's last stand" -> "It is northeast from Yewdale on the way to Merryclade. The coward is noone else than Sir Luvwick from Cadomyr. There is rumour that he ran faster than an arrow of Malachin when he was attacked by Galmair supporters."
+"Feiglings letztes Gefecht" -> "Dieser Ort liegt nordöstlich von Eibental am Weg zur Fröhlichen Lichtung. Der angesprochene Feigling ist Sir Luvwick von Cadomyr. Es heißt, er lief schneller als ein Pfeil von Malachin als er dort von Galmair Anhängern angegriffen wurde."
+"Northern Outpost" -> "This outpost is northeast from Yewdale at a bridge. We used it in the past to protect ourselves."
+"Nördlicher Außenposten" -> "Dieser Außernposten liegt nordöstlich von Yewdale an einer Brücke. Wir verwendeten ihn in der Vergangenheit um uns zu schützen."
+"Anthil Brook" -> "Anthil Brook is north of Yewdale. You will find there some sign of our glorious victory during the Halfling-war against Galmair years ago."
+"Ameisenhügelbach" -> "Der Ameisenhügelbach liegt nördlich von Eibental. Du findest dort Hinweise über unseren glorreichen Sieg im Halblingkrieg über Glamair vor einigen Jahren."
+"Bear cave" -> "The Bear cave is north of Anthil Brook. The cave was used by bears until warriors from Galmair killed them. Nowadays you can find some wolfs and other animals there. A good place to practice some combat-skills for unexperienced warriors."
+"Bärenhöhle" -> "Die Bärenhöhle ist nördlich vom Ameisenhügelbach. Die Höhle wurde einst von Bären bewohnt bis sie alle von Kriegern aus Galmair getötet wurden. Nun leben dort Wölfe und andere Tiere. Ein guter Platz für unerfahrene Krieger um sich an ihre Waffe zu gewöhnen."
+"Adron's Covert" -> "This place is west of Anthil Brook. A blind and coward person will have troubles to find it."
+"Adrons Versteck" -> "Dieser Platz liegt westlich vom Ameisenhügelbach. Eine blinde und feige Person wird Probleme haben ihn zu finden."
+"Yewdale" -> "This place west of Runewick beyond the Lurnord-bridge is a place that offers an opportunity for farmers and to use the ferry."
+"Eibental" -> "Dieser Platz westlich von Runewick am anderen Ende der Lurnord-Brücke ist ein Platz für unsere Bauern und bietet Zugang zu den Fähren."
 
 -- Faction stuff
 "archmage" -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect us against Galmair and Cadomyr."

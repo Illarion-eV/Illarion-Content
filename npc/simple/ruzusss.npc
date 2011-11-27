@@ -84,10 +84,10 @@ itemShoes = 369
 --"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"inform", english -> "I have information about placesss clossse to Cadomyr. Just asssk me!", inform("[Keywords] ")
-"inform" -> "Ich habe Informationen über Plätze in der Nähe von Cadomyr geben. Frag einfach!", inform("[Schlüsselwörter] ")
-"question" -> "I have information about placesss clossse to Cadomyr. Just asssk me!", inform("[Keywords] ")
-"Frage", "Auskunft" -> "Ich habe Informationen über Plätze in der Nähe von Cadomyr geben. Frag einfach!", inform("[Schlüsselwörter] ")
+"inform", english -> "I have information about placesss clossse to Cadomyr. Just asssk me!", inform("[Keywords] place")
+"inform" -> "Ich habe Informationen über Plätze in der Nähe von Cadomyr geben. Frag einfach!", inform("[Schlüsselwörter] Platz")
+"question" -> "I have information about placesss clossse to Cadomyr. Just asssk me!", inform("[Keywords] place")
+"Frage", "Auskunft" -> "Ich habe Informationen über Plätze in der Nähe von Cadomyr geben. Frag einfach!", inform("[Schlüsselwörter] Platz")
 "place" -> "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Tir Draganfod?", inform("[Keywords] Tir Draganfod, northeast, northwest, southwest, southeast")
 "Platz","Plätz" -> "Plätze? Welche Plätze meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Tir Draganfod?", inform("[Schlüsselwörter] Tir Draganfod, Nordosten, Nordwesten, Südwesten, Südosten")
 "Frizza", english -> "You can find her outssside of the town clossse to the teleporter. Sssshe hasss a lot of information and sssome tasksss for you."
@@ -162,23 +162,23 @@ itemShoes = 369
 "Galmair Hochebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
 
 --southwest
-"Shadowland" -> ""
-"Schattenland" -> ""
-"The Wight Canal" -> ""
-"Der Wichtkanal" -> ""
-"Sentry Forest" -> ""
-"Wachwald" -> ""
-"Great Ocean" -> ""
-"Großer Ozean" -> ""
-"Border Mountains" -> ""
-"Grenzberge" -> ""
+"Shadowland" -> "It has two entrances. One at the Malachite mine, one at the southwest of the Border Mountains. No one has ever passed it. It is very dangerous there. The gate, therefore, is looked and only the faction leaders know how to enter."
+"Schattenland" -> "Es hat zwei Eingänge. Einen bei der Malachit Mine, einen südwestlich der Grenzberge. Niemand hat es je durchquert. Viel zu gefährlich! Die Tore sind daher verschlossen und nur die Fraktionsführer wissen wie man sie öffnet."
+"The Wight Canal" -> "The Wight Canal can be found at the eastside of the Border Mountains, where it connects these Mountains with the Snakehead Bay."
+"Der Wichtkanal" -> "Der Wichtkanal kann an der Ostseite der Grenzberge gefunden werden, wo er diese Berge mit der Schlangenkopf Bucht verbindet."
+"Sentry Forest" -> "The Sentry Forest can be found at the southeast of the Border Mountains."
+"Wachwald" -> "Der Wachwald kann im südosten der Grenzberge gefunden werden."
+"Great Ocean" -> "The Great Ocean is the water in south, which is ruled by our ships. The Katanbi River flows into this Ocean."
+"Großer Ozean" -> "Der Große Ozean ist das Gewässer im Süden, welches von unseren Schiffen beherrscht wird. Der Katanbi Fluss mündet in diesen Ozean."
+"Border Mountains" -> "The Border Mountain are the east border of the Katanbi Desert and the southeast part of the Lonly Mountains."
+"Grenzberge" -> "Die Grenzberge sind die östliche Grenze der Katanbi Wüste und der südöstliche Teil der Einsamen Berge."
 -- Western Katanbi Desert
-"Western Katanbi Desert" -> "", inform("[Keywords] ")
-"Westliche Katanbi Wüste" -> "", inform("[Schlüsselwörter] ")
-"Mount Siba" -> ""
-"Berg Siba" -> ""
-"Milkhouse" -> "That isss the name of our donkey stable. It isss in the eassst from here."
-"Milchhaus" -> "Dasss issst der Name unssseresss Eselstalls. Er kann im Osssten von hier gefunden werden."
+"Western Katanbi Desert" -> "Which place there do you mean: Mount Siba, Milkhouse, Cornerstone of Candour, Rosaline Cube, Cube Camp, Faber's Guardhouse, Remote Dwelling, Pirate cove, Cape Farewell, Katanbi River, Liberty Quarry, Grugmutz's cave, Creek Settlement.", inform("[Keywords] Mount Siba, Milkhouse, Cornerstone Candour, Rosaline Cube, Cube Camp, Faber Guardhouse, Remote Dwelling, Pirate cove, Cape Farewell, Katanbi River, Liberty Quarry, Grugmutz cave, Creek Settlement")
+"Westliche Katanbi Wüste" -> "Welchen Platz meinst du? Berg Siba, Milchhaus, Grundstein der Aufrechtigkeit, Rosaline Wüfel, Würfel Lager, Fabers Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung.", inform("[Schlüsselwörter] Berg Siba, Milchhaus, Grundstein Aufrechtigkeit, Rosaline Wüfel, Würfel Lager, Faber Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutz Höhle, Bach Siedlung.")
+"Mount Siba" -> "A mountain in the south of Cadomyr. It is very close to the town."
+"Berg Siba" -> "Ein Berg im Süden von Cadomyr. Er ist sehr nahe an der Stadt."
+"Milkhouse" -> "That isss the name of a ssshop for foreign tradersss. It isss in the eassst from here."
+"Milchhaus" -> "Dasss issst der Name einesss Laden der von fremden Händlern verwendet wird. Er kann im Osssten von hier gefunden werden."
 "Cornerstone of Candour" -> ""
 "Grundstein der Aufrichtigkeit" -> ""
 "Rosaline Cube" -> ""
@@ -188,71 +188,74 @@ itemShoes = 369
 "Faber's Guardhouse" -> ""
 "Faber's Wachhaus" -> ""
 "Remote Dwelling" -> ""
-"???" -> ""
+"Entfernte Wohnstätte" -> ""
 "Pirate cove" -> ""
-"???" -> ""
+"Piraten Bucht" -> ""
 "Cape Farewell" -> ""
-"???" -> ""
+"Kap Lebwohl" -> ""
 "Katanbi River" -> ""
-"???" -> ""
+"Katanbi Fluss" -> ""
 "Liberty Quarry" -> ""
-"???" -> ""
+"Freiheitsbruch" -> ""
 "Grugmutz's cave" -> ""
-"???" -> ""
+"Grugmutzs Höhle" -> ""
 "Creek Settlement" -> ""
-"???" -> ""
-"Envy Creek" -> ""
-"???" -> ""
-"Weary Inn" -> ""
-"???" -> ""
+"Bach Siedlung" -> ""
+
 --Katanbi Desert
-"Katanbi Desert" -> "", inform("[Keywords] ")
-"Katanbi Wüste" -> "", inform("[Schlüsselwörter] ")
+"Katanbi Desert" -> "Which place there do you mean: Prison, Druid's Tear, Royal places, Desert Hole, Pyramide of Discord, Pearl of Sirani, Frontus Farm, Shadowland, Queens Corner, Zumbrass Tomb, Mount Zotmore, Chapel of the Five, Envy Creek, Weary Inn?", inform("[Keywords] Prison, Druid Tear, Royal places, Desert Hole, Pyramide Discord, Pearl Sirani, Frontus Farm, Shadowland, Queens Corner, Zumbrass Tomb, Mount Zotmore, Chapel Five, Envy Creek, Weary Inn")
+"Katanbi Wüste" -> "Welchen Platz meinst du? Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide der Zwietracht, Perle der Sirani, Frontus Hof, Schattenland, Königin Eck, Zumbrass Grab, Berg Zotmore, Kapelle der Fünf, Neidbach, Matter Gasthof?", inform("[Schlüsselwörter] Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide Zwietracht, Perle Sirani, Frontus Hof, Schattenland, Königin Eck, Zumbrass Grab, Berg Zotmore, Kapelle Fünf, Neidbach, Matter Gasthof")
 "Prison" -> ""
-"???" -> ""
-"The Druid's Tear" -> ""
-"???" -> ""
-"The Royal Academy of Gladiators" -> ""
-"???" -> ""
-"The Blood Circle Arena" -> ""
-"???" -> ""
-"Desert Hole" -> ""
-"???" -> ""
+"Gefängnis" -> ""
+"Druid Tear" -> ""
+"Druiden Träne" -> ""
+"Royal places" -> "There are Royal Academy of Gladiators, Blood Circle Arena, Royal Slave Market.", inform("[Keywords] Royal Academy, Academy Gladiators,Blood Circle Arena, Royal Slave Market")
+"Königliche Orte" -> "Königliche Akademie der Gladiatoren, Blurtkreisarena, Königlicher Sklaven Markt.", inform("[Schlüsselwörter] Königliche Akademie, Akademie Gladiatoren, Blurtkreisarena, Königlicher Sklaven Markt")
+"Royal Academy", "Academy Gladiators" -> ""
+"Königliche Akademie", "Akademie Gladiatoren" -> ""
+"Blood Circle Arena" -> ""
+"Blurtkreisarena" -> ""
 "Royal Slave Market" -> ""
-"???" -> ""
-"Pyramide of Discord" -> ""
-"???" -> ""
-"Pearl of Sirani" -> ""
-"???" -> ""
+"Königlicher Sklaven Markt" -> ""
+"Desert Hole" -> ""
+"Wüstenloch" -> ""
+"Pyramide Discord" -> ""
+"Pyramide Zwietracht" -> ""
+"Pearl Sirani" -> ""
+"Perle Sirani" -> ""
 "Frontus Farm" -> ""
-"???" -> ""
+"Frontus Hof" -> ""
 "Shadowland" -> ""
-"???" -> ""
+"Schattenland" -> ""
 "Queens Corner" -> ""
-"???" -> ""
+"Königin Eck" -> ""
 "Zumbrass Tomb" -> ""
-"???" -> ""
+"Zumbrass Grab" -> ""
 "Mount Zotmore" -> ""
-"???" -> ""
-"Chapel of the Five" -> ""
-"???" -> ""
+"Berg Zotmore" -> ""
+"Chapel Five" -> ""
+"Kapelle Fünf" -> ""
+"Envy Creek" -> ""
+"Neidbach" -> ""
+"Weary Inn" -> ""
+"Matter Gasthof" -> ""
 --Katanbi Delta
-"Katanbi Delta" -> "", inform("[Keywords] ")
-"Katanbi Delta" -> "", inform("[Schlüsselwörter] ")
+"Katanbi Delta" -> "Which place there do you mean: Merchants' Folly, Cadomyr Harbour, Harp of Pain, Lost Harbour, Tear of Sirani, Kata Island, Mount Letma", inform("[Keywords] Merchant Folly, Cadomyr Harbour, Harp Pain, Lost Harbour, Tear Sirani, Kata Island, Mount Letma")
+"Katanbi Delta" -> "Welchen Platz dort meinst du? Händler Unsinn, Cadomyr, Hafen, Schmerzvolle Harfe, Verlorener Hafen, Träne der Sirani, Kata Insel, Berg Letma?", inform("[Schlüsselwörter] Händler Unsinn, Cadomyr, Hafen, Schmerzvolle Harfe, Verlorener Hafen, Träne Sirani, Kata Insel, Berg Letma")
 "Merchants' Folly" -> ""
-"???" -> ""
+"Händler Unsinn" -> ""
 "Cadomyr Harbour" -> ""
-"???" -> ""
+"Cadomyr Hafen" -> ""
 "Harp of Pain" -> ""
-"???" -> ""
+"Schmerzvolle Harfe" -> ""
 "Lost Harbour" -> ""
-"???" -> ""
+"Verlorener Hafen" -> ""
 "Tear of Sirani" -> ""
-"???" -> ""
+"Träne Sirani" -> ""
 "Kata Island" -> ""
-"???" -> ""
+"Kata Insel" -> ""
 "Mount Letma" -> ""
-"???" -> ""
+"Berg Letma" -> ""
 
 --southeast
 "Snakehead Bay" -> "Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick."

@@ -21,7 +21,7 @@ function InitWegweiser()
 	--SW/Cadomyr map
     AddWeg({42,634,0},"Piratenbucht","Pirate Cove",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
     AddWeg({50,640,0},"Fabers Wache","Faber's Guardhouse",6,0); -- <Name hier> Zerstörter Außenposten -- <name here> ruin of a outpost
-    AddWeg({110,659,0},"Cape Farewell; Fabers Wache","Cape Farewell; Faber's Guardhouse",6,0);
+    AddWeg({110,659,0},"Kap des Abschieds; Fabers Wache","Cape Farewell; Faber's Guardhouse",6,0);
 	AddWeg({112,659,0},"Grundstein der Aufrichtigkeit; Malachíntempel; Rosaline-Kubus; Hafen","Cornerstone of Candour; Temple of Malachín; Rosaline Cube; Harbour",4,0);
 	AddWeg({114,659,0},"Katanbi Desert; Freiheitsbruch; Arena; Gladiatoren; Sklavenmarkt; Galmair; Runewick","Katanbi Desert; Liberty Quarry; Arena; Gladiatoren; Slave Market; Galmair; Runewick",2,0);
 	AddWeg({87,642,0},"Cadomyr","Cadomyr",0,0);
@@ -39,7 +39,7 @@ function InitWegweiser()
 	AddWeg({209,552,0},"Grugmutzs Höhle","Grugmutz's cave",6,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
     AddWeg({145,694,1},"Malachíntempel","Temple of Malachín",0,0);
     AddWeg({90,690,0},"Rosaline-Kubus","Rosaline Cube",4,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
-    AddWeg({76,689,0},"Cape Farewell","Cape Farewell",6,0);
+    AddWeg({76,689,0},"Kap des Abschieds","Cape Farewell",6,0);
     AddWeg({109,771,0},"Königlicher Hafen","Royal Harbour",4,0);
     AddWeg({219,646,0},"Katanbi Brücke; dahinter Cadomyr","Katanbi Bridge; behind Cadomyr",6,0);
     AddWeg({245,685,0},"Die Blutkreisarena","The Blood Circle Arena",0,0); -- <Name hier> Arena -- <name here> arena

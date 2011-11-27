@@ -84,10 +84,10 @@ itemShoes = 369
 --"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"inform", english -> "I have information about places here in the northeast for you if you want to know them.", inform("[Keywords] ")
-"inform" -> "Ich habe Informationen über Plätze hier im Nordosten für dich wenn du wünscht.", inform("[Schlüsselwörter] ")
-"question" -> "I have information about places here in the northeast for you if you want to know them.", inform("[Keywords] ")
-"Frage", "Auskunft" -> "Ich habe Informationen über Plätze hier im Nordosten für dich wenn du wünscht.", inform("[Schlüsselwörter] ")
+"inform", english -> "I have information about places here in the northeast for you if you want to know them.", inform("[Keywords] place")
+"inform" -> "Ich habe Informationen über Plätze hier im Nordosten für dich wenn du wünscht.", inform("[Schlüsselwörter] Platz")
+"question" -> "I have information about places here in the northeast for you if you want to know them.", inform("[Keywords] place")
+"Frage", "Auskunft" -> "Ich habe Informationen über Plätze hier im Nordosten für dich wenn du wünscht.", inform("[Schlüsselwörter] Platz")
 "place" -> "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Tir Draganfod?", inform("[Keywords] Tir Draganfod, northeast, northwest, southwest, southeast")
 "Platz","Plätz" -> "Plätze? Welche Plätze meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Tir Draganfod?", inform("[Schlüsselwörter] Tir Draganfod, Nordosten, Nordwesten, Südwesten, Südosten")
 
