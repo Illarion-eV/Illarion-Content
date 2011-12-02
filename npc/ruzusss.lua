@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: November 27, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: December 02, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -702,13 +702,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mount Siba");
-talkEntry:addResponse("A mountain in the south of Cadomyr. It is very close to the town.");
+talkEntry:addResponse("A mountain in the south of Cadomyr. It is very close to the town. It is more or less next to the Cornerstone of Candour.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Berg Siba");
-talkEntry:addResponse("Ein Berg im Süden von Cadomyr. Er ist sehr nahe an der Stadt.");
+talkEntry:addResponse("Ein Berg im Süden von Cadomyr. Er ist sehr nahe an der Stadt. Er liegt mehr oder weniger neben dem Grundstein der Aufrichtigkeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -725,172 +725,172 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cornerstone of Candour");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Cornerstone Candour");
+talkEntry:addResponse("This coal mine is south of us. Just walk south, cross the street which leeds to either east or west, and you will find it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grundstein der Aufrichtigkeit");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Grundstein Aufrichtigkeit");
+talkEntry:addResponse("Diese Kohlemine ist südlich von uns. Geh einfach in den Süden, überquere die Straße welche dich entweder in den Westen oder Osten führt, und schon bist du dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rosaline Cube");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Rosaline Cube will become our queens grave in the futher. We are building it right now and Robertus is responsible for it. The cube is south of Mount Siba.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rosaline Würfel");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Rosaline Würfel wird das Grab unserer Königin irgendwann mal werden. Wir bauen es gerade und Robertus ist veranwortlich dafür. Der Würfel ist südlich von Berg Siba.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cube Camp");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Cube Camp is a place to rest for those who are working on the Rosaline Cube and therefore it is close to that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Würfel Lager");
-talkEntry:addResponse("");
+talkEntry:addResponse("Das Würfel Lager ist ein Rastplatz für jene die am Rosaline Würfel arbeiten und ist daher nahe diesen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Faber's Guardhouse");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Faber Guardhouse");
+talkEntry:addResponse("Faber's Guardhouse ist on the westcoast and was destroyed when pirates attacked us in 23 and Faber was able to stop them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Faber's Wachhaus");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Faber Wachhaus");
+talkEntry:addResponse("Faber's Wachhaus ist an der Westküste und wurde zerstört als Piraten uns attackierten in 23 und Faber war es möglich sie aufzuhalten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Remote Dwelling");
-talkEntry:addResponse("");
+talkEntry:addResponse("This building is the last before you might enter the pirate cove in the northwest and contains some riddels to solve.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Entfernte Wohnstätte");
-talkEntry:addResponse("");
+talkEntry:addResponse("Dieses Gebäude ist das letzte bevor du die Piraten Bucht im nordwesten betreten wirst und beinhaltet einige Rätseln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Pirate cove");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Pirate cove in the northwest a place of potential threat. We have had several conflicts with them so far.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Piraten Bucht");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Piraten Bucht im Nordwesten ist ein Platz mit potentialer Gefahr. Wir hatten immer wieder Konflikte mit den soweit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cape Farewell");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Cape Farewell can be found at the westcose close to Faber's Guardhouse.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Kap Lebwohl");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Kap Abschied");
+talkEntry:addResponse("Das Kap des Abschieds kann an der Westküste gefunden werden nahe Faber's Guardhouse.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi River");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Katanbi River in the east from here has its orgin in the Lonely Mountains, seperates Western Katanbi Desert from Katanbi Desert and finds it way to the Great Ocean at Katanbi Delta.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Fluss");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Katanbi Fluss im Osten von hier hat seinen Ursprung in den Einsamen Bergen, trennt die Westliche Katanbi Wüste von der Katanbi Wüste und findet seinen Weg in den Großen Ozean am Katanbi Delta.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Liberty Quarry");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Liberty Quarry is in the northeast on the west shore of the Katanbi River. You might find iron, gold or copper there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Freiheitsbruch");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Freiheitsbruch ist im Nordosten am westlichen Ufer des Katanbi Flusses. Du kannst dort Eisen, Gold oder Kupfer finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grugmutz's cave");
-talkEntry:addResponse("");
+talkEntry:addResponse("Grugmutz's cave is the north of Liberty Quarry. Grugmutz and his oger clan have tried to raid us several times. Be careful!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grugmutzs Höhle");
-talkEntry:addResponse("");
+talkEntry:addResponse("Grugmutzs Höhle ist nördlich des Freiheitsbruch. Grugmutz und sein Oger Klan haben immer wieder versucht uns zu plündern. Sei vorsicht!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Creek Settlement");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Creek Settlement was once on of our rich places. It was at the northern end of the Katanbi River. It was destroyed by either dwarfs from Fortress Hammerfall, Buccaneers or Grugmutz's ogers. We don't know yet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bach Siedlung");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Bach Siedlung war einst einer unserer reichen Orte. Es war am nördlichen Ende des Katanbi Flusses. Es wurde zerstört entweder von den Zwergen der Festung Hammerfall, Seeräubern oder Grugmutzs Ogers zerstört. Wir wissen es nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Desert");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Prison, Druid Tear, Royal places, Desert Hole, Pyramide Discord, Pearl Sirani, Frontus Farm, Shadowland, Queens Corner, Zumbrass Tomb, Mount Zotmore, Chapel Five, Envy Creek, Weary Inn"));
-talkEntry:addResponse("Which place there do you mean: Prison, Druid's Tear, Royal places, Desert Hole, Pyramide of Discord, Pearl of Sirani, Frontus Farm, Shadowland, Queens Corner, Zumbrass Tomb, Mount Zotmore, Chapel of the Five, Envy Creek, Weary Inn?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Prison, Druid Tear, Royal places, Desert Hole, Pyramide Discord, Pearl Sirani, Frontus Farm, Queens Corner, Irundar, Zumbrass Tomb, Mount Zotmore,Buccaneers Lurk, Envy Creek, Weary Inn, eastern parts"));
+talkEntry:addResponse("Which place there do you mean: Prison, Druid's Tear, Royal places, Desert Hole, Pyramide of Discord, Pearl of Sirani, Frontus Farm, Queens Corner, Irundar, Zumbrass Tomb, Mount Zotmore, Buccaneers Lurk, Envy Creek, Weary Inn or its eastern parts?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Wüste");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide Zwietracht, Perle Sirani, Frontus Hof, Schattenland, Königin Eck, Zumbrass Grab, Berg Zotmore, Kapelle Fünf, Neidbach, Matter Gasthof"));
-talkEntry:addResponse("Welchen Platz meinst du? Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide der Zwietracht, Perle der Sirani, Frontus Hof, Schattenland, Königin Eck, Zumbrass Grab, Berg Zotmore, Kapelle der Fünf, Neidbach, Matter Gasthof?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide Zwietracht, Perle Sirani, Frontus Hof, Königin Eck, Irundar, Zumbrass Grab, Berg Zotmore, Seeräuber Lauer, Neidbach, Matter Gasthof, östliche Teile"));
+talkEntry:addResponse("Welchen Platz? Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide der Zwietracht, Perle der Sirani, Frontus Hof, Königin Eck, Irundar, Zumbrass Grab, Berg Zotmore, Seeräuber Lauer, Neidbach, Matter Gasthof oder die östlichen Teile?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Prison");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Prison can be found south of the Royal Academy of Gladiators. You do not want to end there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gefängnis");
-talkEntry:addResponse("");
+talkEntry:addResponse("Das Gefängnis kann südlich der Königlichen Akademie der Gladiatioren gefunden werden. Du möchtest dort nicht enden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Druid Tear");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Druid Tear can be found southeast of the Royal Academy of Gladiators. Ask a druid for further information.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Druiden Träne");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Druiden Träne kann südöstlich der Königlichen Akademie der Gladiatioren gefunden werden. Frage einen Druiden für weitere Information.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -911,170 +911,309 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Royal Academy");
 talkEntry:addTrigger("Academy Gladiators");
-talkEntry:addResponse("");
+talkEntry:addResponse("Our Royal Academy of Gladiators is south on the road to the east. It is a place where participents in the Blood Circle Arena can train.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königliche Akademie");
 talkEntry:addTrigger("Akademie Gladiatoren");
-talkEntry:addResponse("");
+talkEntry:addResponse("Unsere Königliche Akademie der Gladiatoren ist südlich an der Straße in den Osten. Sie dient als Trainingsstätte für jene die sich in der Blurtkreisarena beweisen wollen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Blood Circle Arena");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Blood Circle Arena was built by Sir Reginald in the year 6. It is a place for warriors and it is north on the road to the east");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Blurtkreisarena");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Blurtkreisarena wurde von Sir Reginald im Jahre 6 erbaut. Sie dient als Platz für Krieger und kann nördlich an der Straße in den Osten gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Royal Slave Market");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Royal Slave Market can be found northeast of the Blood Circle Arena. For some coins you will find some productive slaves there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königlicher Sklaven Markt");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Königliche Sklaven Markt kann nordöstlich der Blutkreisarena gefundne werden. Für wenige Münzen findest du dort produktive Sklaven.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Desert Hole");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Desert Hole southeast of the Blood Circle Arena ist a former mine and used by creatures like worms now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wüstenloch");
-talkEntry:addResponse("");
+talkEntry:addResponse("Das Wüstenloch südöstlich der Blutkreisarena war einst eine Mine und wird nun von Kreaturen wie Würmern behaust.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Pyramide Discord");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Pyramide of Discord in the north of the Blood Circle Arena was probably a temple of a former civiliazation. But we are not sure about that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Pyramide Zwietracht");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Pyramide der Zwietracht nördlich der Blutkreisarena war wahrscheinlich ein Templer einer alten Zivilisation. Wir sind uns darüber aber nicht sicher.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Pearl Sirani");
-talkEntry:addResponse("");
+talkEntry:addResponse("This place north of the Pyramide of Discord was used for royal weddings, but also by the aristocracy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Perle Sirani");
-talkEntry:addResponse("");
+talkEntry:addResponse("Dieser Platz nördlich der Pyramide der Zwietracht wurde für Königliche Hochzeiten, aber auch von den Aristokraten verwendet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Frontus Farm");
-talkEntry:addResponse("");
+talkEntry:addResponse("A Farmer called Frontus had a farm north of the Royal Slave Market until it was destroyed by worms.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Frontus Hof");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Shadowland");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Schattenland");
-talkEntry:addResponse("");
+talkEntry:addResponse("Ein Bauer mit den Namen Frontus hatte nördlich vom Königlichen Sklaven Markt einen Hof bis dieser zerstört wurde.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queens Corner");
-talkEntry:addResponse("");
+talkEntry:addResponse("There are sore rumors about this place, I do not want to tell them. But you can find this place close to the Weary Inn in the north.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin Eck");
-talkEntry:addResponse("");
+talkEntry:addResponse("Es gibt dazu einige Gerüchte, die ich nicht mit dir teilen möchte. Aber du kannst diesen Platz beim Matter Gasthof im Norden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zumbrass Tomb");
-talkEntry:addResponse("");
+talkEntry:addResponse("Poor Zumbrass! She died there but I have no idea who killed her. However, you can find her tomb north of Mount Zotmore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zumbrass Grab");
-talkEntry:addResponse("");
+talkEntry:addResponse("Arme Zumbrass! Sie wurde dort getötet aber ich habe keine Ahnung von wem. Wie dem auch sei, du findest ihr Grab nördlich von Berg Zotmore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mount Zotmore");
-talkEntry:addResponse("");
+talkEntry:addResponse("Mount Zotmore is probably the most dangerous place in the Desert. Dont even think to go there. But if you still want, it is in the very north.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Berg Zotmore");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Chapel Five");
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Kapelle Fünf");
-talkEntry:addResponse("");
+talkEntry:addResponse("Berg Zotmore ist wahrscheinlich der gefährlichste Platz in der Wüste. Denk gar nicht daran dort hinzugehen. Wenn du aber denoch willst, du findest ihn ganz im Norden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Envy Creek");
-talkEntry:addResponse("");
+talkEntry:addResponse("You will find the Envy Creek if you follow the eastern shore of the Katanbi River.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Neidbach");
-talkEntry:addResponse("");
+talkEntry:addResponse("Du wirst den Neidbach finden in dem du dem östlichen Ufer des Katanbi Flusses folgst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Buccaneer");
+talkEntry:addTrigger("Lurk");
+talkEntry:addResponse("The Buccaneer Lurk is a dangerous place between Katanbi River and Envy Creek.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Seeräuber");
+talkEntry:addTrigger("Lauer");
+talkEntry:addResponse("Die Seeräuber Lauer ist ein gefährlicher Platz zwischen Katanbi Fluss und Neidbach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Weary Inn");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Weary Inn was once a place for travelers until it got destroyed. You find it east of the Envy Creek.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Matter Gasthof");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Matter Gasthof war einst ein Platz für Reisende bis er zerstört wurde. Du findest ihn östlich des Neidbaches.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irundar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Irundar? Somewhere in the desert, but where?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irundar");
+talkEntry:addResponse("Irundar? Irgendwo in der Wüste, aber wo?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("eastern part");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Chapel Five, Lumpskrump Band, Moshran Brood, Oasis Star, Raptor Hole, Sarakas Home, Khesra, Akaltut Chamber, Cursed Place, Wizard Bane."));
+talkEntry:addResponse("The eastern part of the Katanbi desert contains: Chapel of the Five, Lumpskrump's Band, Moshran's Brood, Oasis of Stars, Raptor Hole, Sarakas Home, Khesra, Akaltut's Chamber, Cursed Place, Wizard Bane.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("östlich teil");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Kapelle Fünf, Lumpskrump Band, Moshran Brut, Oasis Stern, Raptor Loch, Sarakas Heim, Khesra, Akaltut Kammer, Verfluchter Platz, Hexer Fluch."));
+talkEntry:addResponse("Der östliche Teil der Katanbi Wüste beinhaltet: Kapelle der Fünf, Lumpskrumps Bande, Moshrans Brut, Oasis der Sterne, Raptoren Loch, Sarakas Heim, Khesra, Akaltuts Kammer, Verfluchter Platz, Hexer Fluch.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Chapel Five");
+talkEntry:addResponse("The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Kapelle Fünf");
+talkEntry:addResponse("Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lumpskrump Band");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("This place of bandits on the road to the east after the Desert Hole.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lumpskrump Band");
+talkEntry:addResponse("Dieser Platz mit Banditen ist an der Straße in den Osten kurz nach dem Wüstenloch.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Moshran Brood");
+talkEntry:addResponse("The Moshran Brood, an orc-clan, can be found eastwards of Lumpskrump Band.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Moshran Brut");
+talkEntry:addResponse("Die Moshran Brut, ein Orkklan, kann östlich von Lumpskrump Bande gefunden werden");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oasis Star");
+talkEntry:addResponse("The Oasis of Stars is a place eastwards of the Blood Circle Arena. You can dig for sand there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oasis Stern");
+talkEntry:addResponse("Die Oasis der Sterne ist ein Platz östlich der Blutzirkelarena. ");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Raptor Hole");
+talkEntry:addResponse("The Raptor Hole is a cave in the south of the Border Mountains north of Akaltut's Chamber.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Raptor Loch");
+talkEntry:addResponse("Die Raptoren Loch ist eine Höhle im Süden der Grenzberge nördlich von Akaltuts Kammer.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sarakas Home");
+talkEntry:addResponse("The home of this old murder can be found in the Border Mountains between the entrance to the Shadowland and the Raptor Hole.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sarakas Heim");
+talkEntry:addResponse("Das Heim dieses alten Mörder kann in den Grenzbergen zwischen den Eingängen zum Schattenland und des Raptoren Loches gefunden werden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Khesra");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Khesra's Dungeon can be found close to the cursed place. You will not find anything than hate there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Khesra");
+talkEntry:addResponse("Keshras Verlies kann in der Nähe des Verfluchten Platz gefunden werden. Du wirst dort nichts anderes finden als Hass.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cursed Place");
+talkEntry:addResponse("The Cursed Place is east of Frontus Farm. Be careful that you don't get poisoned.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Verflucht Platz");
+talkEntry:addResponse("Der Verfluchte Platz ist östlich von Frontus Hof. Sei vorsichtig, dass du dort nicht vergiftet wirst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Akaltut Chamber");
+talkEntry:addResponse("Akaltut's Chamber can be found on the very south end of the Border Mountains. I hope you can run fast if you dare to show up there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Akaltut Kammer");
+talkEntry:addResponse("Akaltuts Kammer kann ganz am südlichen Ende der Grenzberge gefunden werden. Ich hoffe du kannst schnell laufen falls du tatsächlich dort hingehen möchtest.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wizard Bane");
+talkEntry:addResponse("This place can be found in the very northeast of the desert.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hexer Fluch");
+talkEntry:addResponse("Dieser Platz kann ganz im Nordosten der Wüste gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1094,85 +1233,86 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Merchants' Folly");
-talkEntry:addResponse("");
+talkEntry:addResponse("It can be found close to the Cadomyr Harbour.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Händler Unsinn");
-talkEntry:addResponse("");
+talkEntry:addResponse("Es kann nahe des Cadomyr Hafen gefundne werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr Harbour");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Cadomyr Harbor");
+talkEntry:addResponse("Our harbour is on the very south at the Great Ocean after you passed Western Katanbi Desert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr Hafen");
-talkEntry:addResponse("");
+talkEntry:addResponse("Unser Hafen ist ganz im Süden am Großen Ozean nachdem du die Westliche Katanbi Wüste durchquerrt hast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Harp of Pain");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Harp of Pain can be found at one of the island in the Katanbi Delta. You better don't play it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schmerzvolle Harfe");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Schmerzvolle Harfe kann auf einer der Inseln im Katanbi Delta gefunden werden. Du spielst sie besser nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lost Harbour");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Lost Harbour has been destroyed by an attack of Runewick forces once in the year 10. Some ruins are left at the southern point of Katanbi Delta.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Verlorener Hafen");
-talkEntry:addResponse("");
+talkEntry:addTrigger("Verloren Hafen");
+talkEntry:addResponse("Der Verlorene Hafen wurde durch einen Angriff von Runewick Streitkräften im Jahre 10 zerstört. Einige Ruinen können am südlichsten Punkt im Katanbi Delta gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tear of Sirani");
-talkEntry:addResponse("");
+talkEntry:addResponse("This place is used for weddings for common or lower ranked people. It is at the northern part of the Katanbi Delta and accessible at the eastern shore of the Katanbi River.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Träne Sirani");
-talkEntry:addResponse("");
+talkEntry:addResponse("Dieser Platz wird für Hochzeiten für gewöhnliche und unangesehnere Leute verwendet. Er ist am nördlichen Teil im Katanbi Delta zu finden und über das Ostufer des Katanbi Fluss erreichbar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kata Island");
-talkEntry:addResponse("");
+talkEntry:addResponse("This island is in the southern part of the Katanbi Delta and used by Pirates.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kata Insel");
-talkEntry:addResponse("");
+talkEntry:addResponse("Diese Insel ist im südlichen Teil vom Katanbi Delta und wird von Piraten verwendet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mount Letma");
-talkEntry:addResponse("");
+talkEntry:addResponse("This place in the east of the Katanbi Delta can be accessed over the eastern shore of the Katanbi River. But be careful, it is occupied by thousands of Golems. ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Berg Letma");
-talkEntry:addResponse("");
+talkEntry:addResponse("Dieser Platz im Osten vom Katanbi Delta kann über das östliche Ufer des Katanbi Fluss erreicht werden. Aber sei vorsichtig, er ist überfüllt mit Golems!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
