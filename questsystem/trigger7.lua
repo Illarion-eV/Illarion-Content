@@ -1,16 +1,16 @@
 require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger8", package.seeall)
+module("questsystem.questsystem.trigger7", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 25
-local POSTCONDITION_QUESTSTATE = 26
+local PRECONDITION_QUESTSTATE = 10
+local POSTCONDITION_QUESTSTATE = 25
 
-local NPC_TRIGGER_DE = "Erde"
-local NPC_TRIGGER_EN = "Earth"
-local NPC_REPLY_DE = "Geht doch! Nächste Frage, und wieder der doppelte Preis: Welcher von diesen drei magischen Steinen gehört zu uns: Smaragd, Topaz oder Blaustein?"
-local NPC_REPLY_EN = "Fine! Next question, and again double reward: Which of these three magical stones does belong to us: Emerald, Topaz or Bluestone?"
+local NPC_TRIGGER_DE = "Runewick"
+local NPC_TRIGGER_EN = "Runewick"
+local NPC_REPLY_DE = "Sehr gut, hier nun die nächste Aufgabe, zum doppelten Preis. Welchen Turm betritt man nach dem man den Turm des Feuer ostwärts verlassen hat?"
+local NPC_REPLY_EN = "Very good, now your next task with the double reward. Which tower do you enter if you leave the Tower of Fire eastwards?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 20):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten.", "Answer the question to get more money and further questions."):execute()
 end
 

@@ -1,16 +1,16 @@
 require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger11", package.seeall)
+module("questsystem.questsystem.trigger10", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 31
-local POSTCONDITION_QUESTSTATE = 34
+local PRECONDITION_QUESTSTATE = 29
+local POSTCONDITION_QUESTSTATE = 31
 
-local NPC_TRIGGER_DE = ""
-local NPC_TRIGGER_EN = ""
-local NPC_REPLY_DE = ""
-local NPC_REPLY_EN = ""
+local NPC_TRIGGER_DE = "Rubin"
+local NPC_TRIGGER_EN = "Rubin"
+local NPC_REPLY_DE = "Wieder richtig und deshalb noch mehr Münzen! Und nun, wem darfen man hier sein Gehör schenken?"
+local NPC_REPLY_EN = "Right again and therefore more coins for you! And now, who do you have to obey here?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 160):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, ", "Answer the question to get more money and further questions. Hint: "):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 80):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, es betrifft den Herrscher dieser Fraktion.", "Answer the question to get more money and further questions. Hint: It is about the leader of this faction."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

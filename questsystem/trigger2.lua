@@ -1,15 +1,15 @@
 require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger6", package.seeall)
+module("questsystem.questsystem.trigger2", package.seeall)
 
 local QUEST_NUMBER = 621
 local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 10
 
-local NPC_TRIGGER_DE = "Befehl"
-local NPC_TRIGGER_EN = ""
+local NPC_TRIGGER_DE = "mission"
+local NPC_TRIGGER_EN = "mission"
 local NPC_REPLY_DE = "Ich habe die eine oder andere Aufgabe zu vergeben. Dafür muss man aber erst einen kleinen Test bestehen. In welcher Fraktion befindest wir uns?"
-local NPC_REPLY_EN = ""
+local NPC_REPLY_EN = "I have one or more task, but first you have to manage a little test. In which factio are we?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
