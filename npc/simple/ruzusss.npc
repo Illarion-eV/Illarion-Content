@@ -203,7 +203,7 @@ itemShoes = 369
 "Bach Siedlung" -> "Die Bach Siedlung war einst einer unserer reichen Orte. Es war am nördlichen Ende des Katanbi Flusses. Es wurde zerstört entweder von den Zwergen der Festung Hammerfall, Seeräubern oder Grugmutzs Ogers zerstört. Wir wissen es nicht."
 
 --Katanbi Desert
-"Katanbi Desert" -> "Which place there do you mean: Prison, Druid's Tear, Royal places, Desert Hole, Pyramide of Discord, Pearl of Sirani, Frontus Farm, Queens Corner, Irundar, Zumbrass Tomb, Mount Zotmore, Buccaneers Lurk, Envy Creek, Weary Inn or its eastern parts?", inform("[Keywords] Prison, Druid Tear, Royal places, Desert Hole, Pyramide Discord, Pearl Sirani, Frontus Farm, Queens Corner, Irundar, Zumbrass Tomb, Mount Zotmore,Buccaneers Lurk, Envy Creek, Weary Inn, eastern parts")
+"Katanbi Desert" -> "Which place there do you mean: Prison, Druid's Tear, Royal places, Desert Hole, Pyramide of Discord, Pearl of Sirani, Frontus Farm, Queens Corner, Irundar, Zumbrass Tomb, Mount Zotmore, Buccaneers Lurk, Envy Creek, Weary Inn or its eastern parts?", inform("[Keywords] Prison, Druid Tear, Royal places, Desert Hole, Pyramide Discord, Pearl Sirani, Frontus Farm, Queens Corner, Irundar, Zumbrass Tomb, Mount Zotmore, Buccaneers Lurk, Envy Creek, Weary Inn, eastern parts")
 "Katanbi Wüste" -> "Welchen Platz? Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide der Zwietracht, Perle der Sirani, Frontus Hof, Königin Eck, Irundar, Zumbrass Grab, Berg Zotmore, Seeräuber Lauer, Neidbach, Matter Gasthof oder die östlichen Teile?", inform("[Schlüsselwörter] Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide Zwietracht, Perle Sirani, Frontus Hof, Königin Eck, Irundar, Zumbrass Grab, Berg Zotmore, Seeräuber Lauer, Neidbach, Matter Gasthof, östliche Teile")
 "Prison" -> "The Prison can be found south of the Royal Academy of Gladiators. You do not want to end there."
 "Gefängnis" -> "Das Gefängnis kann südlich der Königlichen Akademie der Gladiatioren gefunden werden. Du möchtest dort nicht enden."
@@ -229,7 +229,7 @@ itemShoes = 369
 "Königin Eck" -> "Es gibt dazu einige Gerüchte, die ich nicht mit dir teilen möchte. Aber du kannst diesen Platz beim Matter Gasthof im Norden finden."
 "Zumbrass Tomb" -> "Poor Zumbrass! She died there but I have no idea who killed her. However, you can find her tomb north of Mount Zotmore."
 "Zumbrass Grab" -> "Arme Zumbrass! Sie wurde dort getötet aber ich habe keine Ahnung von wem. Wie dem auch sei, du findest ihr Grab nördlich von Berg Zotmore."
-"Mount Zotmore" -> "Mount Zotmore is probably the most dangerous place in the Desert. Dont even think to go there. But if you still want, it is in the very north."
+"Mount Zotmore" -> "Mount Zotmore is probably the most dangerous place in the desert. Dont even think to go there. But if you still want, it is in the very north."
 "Berg Zotmore" -> "Berg Zotmore ist wahrscheinlich der gefährlichste Platz in der Wüste. Denk gar nicht daran dort hinzugehen. Wenn du aber denoch willst, du findest ihn ganz im Norden."
 "Envy Creek" -> "You will find the Envy Creek if you follow the eastern shore of the Katanbi River."
 "Neidbach" -> "Du wirst den Neidbach finden in dem du dem östlichen Ufer des Katanbi Flusses folgst."
@@ -240,7 +240,7 @@ itemShoes = 369
 "Irundar", english->"Irundar? Somewhere in the desert, but where?"
 "Irundar"->"Irundar? Irgendwo in der Wüste, aber wo?"
 --Eastern parts
-"eastern part"->"The eastern part of the Katanbi desert contains: Chapel of the Five, Lumpskrump's Band, Moshran's Brood, Oasis of Stars, Raptor Hole, Sarakas Home, Khesra, Akaltut's Chamber, Cursed Place, Wizard Bane.", inform("[Keywords] Chapel Five, Lumpskrump Band, Moshran Brood, Oasis Star, Raptor Hole, Sarakas Home, Khesra, Akaltut Chamber, Cursed Place, Wizard Bane.")
+"eastern part"->"The eastern part of the Katanbi Desert contains: Chapel of the Five, Lumpskrump's Band, Moshran's Brood, Oasis of Stars, Raptor Hole, Sarakas Home, Khesra, Akaltut's Chamber, Cursed Place, Wizard Bane.", inform("[Keywords] Chapel Five, Lumpskrump Band, Moshran Brood, Oasis Star, Raptor Hole, Sarakas Home, Khesra, Akaltut Chamber, Cursed Place, Wizard Bane.")
 "östlich teil"->"Der östliche Teil der Katanbi Wüste beinhaltet: Kapelle der Fünf, Lumpskrumps Bande, Moshrans Brut, Oasis der Sterne, Raptoren Loch, Sarakas Heim, Khesra, Akaltuts Kammer, Verfluchter Platz, Hexer Fluch.", inform("[Schlüsselwörter] Kapelle Fünf, Lumpskrump Band, Moshran Brut, Oasis Stern, Raptor Loch, Sarakas Heim, Khesra, Akaltut Kammer, Verfluchter Platz, Hexer Fluch.")
 "Chapel Five" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert."
 "Kapelle Fünf" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste."
@@ -300,11 +300,11 @@ itemShoes = 369
 "Erzmagier" -> "Der Erzmagier besssitzt zwei Sssteine der Macht. Einen Smaragd und einen Rubin. Die bessschützen Runewick vor der Übernahme durch unsssere Streitkräfte."
 "Elvaine", "Morgan", english -> "The archmage ownsss two ssstonesss of power. Thessse are an Emerald and a Ruby. They protect them to get beaten by our forcesss."
 "Elvaine", "Morgan" -> "Der Erzmagier besssitzt zwei Sssteine der Macht. Einen Smaragd und einen Rubin. Die bessschützen Runewick vor der Übernahme durch unsssere Streitkräfte."
-"Runewick", english -> "Runewick? It isss in the eassst. Crosss Katanbi Dessert, get behind Border Mountainsss to the other ssside of the Snakehead Bay. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town."
+"Runewick", english -> "Runewick? It isss in the eassst. Crosss Katanbi Desert, get behind Border Mountainsss to the other ssside of the Snakehead Bay. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town."
 "Runewick" -> "Runewick? Dasss issst im Osssten. Durchquäre die Katanbi Wüste, gehe hinter dasss Grenzberge zu der anderen Ssseite der Ssschlangenkopf Bucht. Ssschau nach Wegssschildern. Issst aber ein gefährlicher Weg. Verwende bessser den Teleporter."
 "Valerio", "Guilianni", "Don", english -> "The Don ownsss two ssstonesss of power. These are a Topaz and an Amethyst. They protect Galmair to get beaten by our forcesss."
 "Valerio", "Guilianni", "Don" -> "Der Don besssitzt zwei Sssteine der Macht. Einen Topaz und einen Amethyst. Die bessschützen Galmair vor der Übernahme durch unsere Ssstreitkräfte."
-"Galmair", english -> "Galmair? It isss in the north. Crosss Katanbi Dessert, get behind Border Mountainsss, and then walk to the north. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town."
+"Galmair", english -> "Galmair? It isss in the north. Crosss Katanbi Desert, get behind Border Mountainsss, and then walk to the north. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town."
 "Galmair" -> "Galmair? Dasss issst im Norden. Durchquäre die Katanbi Wüste, gehe hinter dasss Grenzberge und dann in den Norden. Ssschau nach Wegssschildern. Issst aber ein gefährlicher Weg. Verwende bessser den Teleporter."
 "Queen" -> "The Queen ownsss two ssstonesss of power. These are a Bluestond and a Blackstone. They protect usss againssst Runewick and Galmair."
 "Königin" -> "Der Königin besitzt zwei Sssteine der Macht. Einen Blaustein und einen Schwarzstein. Die beschützen unsss vor Runewick und Galmair."

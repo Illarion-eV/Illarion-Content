@@ -224,7 +224,7 @@ itemShoes = 369
 "Galmair" -> "Galmair ist im Nordwesten zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen."
 "Queen" -> "The Queen owns two stones of power. These are a Bluestond and a Blackstone. They protect Cadomyr to get beaten by our forces."
 "Königin" -> "Der Königin besitzt zwei Steine der Macht. Einen Blaustein und einen Schwarzstein. Die beschützen Cadomyr vor der Übernahme durch unsere Streitkräfte."
-"rosaline", "edwards", english -> "The Queen owns two stones of power. These are a Bluestond and a Blackstone. They protect Cadomyr to get beaten by our forces."
+"rosaline", "edwards", english -> "The Queen owns two stones of power. These are a Bluestone and a Blackstone. They protect Cadomyr to get beaten by our forces."
 "rosaline", "edwards" -> "Der Königin besitzt zwei Steine der Macht. Einen Blaustein und einen Schwarzstein. Die beschützen Cadomyr vor der Übernahme durch unsere Streitkräfte."
 "Cadomyr", english -> "Cadomyr is in the west. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway."
 "Cadomyr" -> "Cadomyr ist im Westen zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen."

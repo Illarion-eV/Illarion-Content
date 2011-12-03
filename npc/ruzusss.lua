@@ -858,7 +858,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Desert");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Prison, Druid Tear, Royal places, Desert Hole, Pyramide Discord, Pearl Sirani, Frontus Farm, Queens Corner, Irundar, Zumbrass Tomb, Mount Zotmore,Buccaneers Lurk, Envy Creek, Weary Inn, eastern parts"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Prison, Druid Tear, Royal places, Desert Hole, Pyramide Discord, Pearl Sirani, Frontus Farm, Queens Corner, Irundar, Zumbrass Tomb, Mount Zotmore, Buccaneers Lurk, Envy Creek, Weary Inn, eastern parts"));
 talkEntry:addResponse("Which place there do you mean: Prison, Druid's Tear, Royal places, Desert Hole, Pyramide of Discord, Pearl of Sirani, Frontus Farm, Queens Corner, Irundar, Zumbrass Tomb, Mount Zotmore, Buccaneers Lurk, Envy Creek, Weary Inn or its eastern parts?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1020,7 +1020,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mount Zotmore");
-talkEntry:addResponse("Mount Zotmore is probably the most dangerous place in the Desert. Dont even think to go there. But if you still want, it is in the very north.");
+talkEntry:addResponse("Mount Zotmore is probably the most dangerous place in the desert. Dont even think to go there. But if you still want, it is in the very north.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1084,7 +1084,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("eastern part");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Chapel Five, Lumpskrump Band, Moshran Brood, Oasis Star, Raptor Hole, Sarakas Home, Khesra, Akaltut Chamber, Cursed Place, Wizard Bane."));
-talkEntry:addResponse("The eastern part of the Katanbi desert contains: Chapel of the Five, Lumpskrump's Band, Moshran's Brood, Oasis of Stars, Raptor Hole, Sarakas Home, Khesra, Akaltut's Chamber, Cursed Place, Wizard Bane.");
+talkEntry:addResponse("The eastern part of the Katanbi Desert contains: Chapel of the Five, Lumpskrump's Band, Moshran's Brood, Oasis of Stars, Raptor Hole, Sarakas Home, Khesra, Akaltut's Chamber, Cursed Place, Wizard Bane.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1418,7 +1418,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Runewick? It isss in the eassst. Crosss Katanbi Dessert, get behind Border Mountainsss to the other ssside of the Snakehead Bay. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.");
+talkEntry:addResponse("Runewick? It isss in the eassst. Crosss Katanbi Desert, get behind Border Mountainsss to the other ssside of the Snakehead Bay. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1448,7 +1448,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair? It isss in the north. Crosss Katanbi Dessert, get behind Border Mountainsss, and then walk to the north. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.");
+talkEntry:addResponse("Galmair? It isss in the north. Crosss Katanbi Desert, get behind Border Mountainsss, and then walk to the north. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

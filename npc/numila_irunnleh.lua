@@ -991,7 +991,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The Queen owns two stones of power. These are a Bluestond and a Blackstone. They protect Cadomyr to get beaten by our forces.");
+talkEntry:addResponse("The Queen owns two stones of power. These are a Bluestone and a Blackstone. They protect Cadomyr to get beaten by our forces.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
