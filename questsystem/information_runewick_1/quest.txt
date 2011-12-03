@@ -1,0 +1,9 @@
+npc,340,receiveText,trigger1
+npc,340,receiveText,trigger2
+npc,340,receiveText,trigger3
+npc,340,receiveText,trigger4
+npc,340,receiveText,trigger5
+npc,340,receiveText,trigger6
+npc,340,receiveText,trigger7
+npc,340,receiveText,trigger8
+npc,340,receiveText,trigger9
