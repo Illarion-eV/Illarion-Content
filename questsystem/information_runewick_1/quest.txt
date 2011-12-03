@@ -7,3 +7,5 @@ npc,340,receiveText,trigger6
 npc,340,receiveText,trigger7
 npc,340,receiveText,trigger8
 npc,340,receiveText,trigger9
+npc,340,receiveText,trigger10
+npc,0,receiveText,trigger11

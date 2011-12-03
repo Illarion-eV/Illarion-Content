@@ -1,7 +1,7 @@
 require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.quest.trigger8", package.seeall)
+module("questsystem.information_runewick_1.trigger8", package.seeall)
 
 local QUEST_NUMBER = 621
 local PRECONDITION_QUESTSTATE = 25
