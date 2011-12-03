@@ -174,8 +174,8 @@ itemShoes = 369
 "Zensusbüro" -> "Das Zensusbüro kann südlich auf den Weg zu Malachitmine gefunden werden, nahe dem Gasthof zum schläfrigen Bujhaar. Du kannst dich dort anmelden und somit helfen die Schatzkammer des Don bereichern *kichert*"
 "Sport Hole" -> "The Sport Hole is used for those people who think they can betray the Don. It is on the road to the Malachite mine close to the bridge over the Malachite creek there."
 "Tollloch" -> "Das Tolloch wird für jene Leute verwendet, die der Meinung sind den Don betrügen zu können. Es ist an der Straße zur Malachitmine kurz vor der Brücke über den Malachit Bach dort."
-"Malachite Mine" -> "The Malachite mine is in the south of Galmair. Just enter the town and walk south while you follow the signposts. You can get iron, copper and gold there."
-"Malachitmine" -> "Die Malachitmine ist im Süden von Galmair. Gehe in die Stadt und folge den Wegweisern in den Süden. Du wirst dort Eisen, Kupfer und Gold finden."
+"Malachite Mine" -> "The Malachite mine is in the south of Galmair. Just enter the town and walk south while you follow the signposts. You can get iron, copper and gold there. It has also an entrance to the Shadowland."
+"Malachitmine" -> "Die Malachitmine ist im Süden von Galmair. Gehe in die Stadt und folge den Wegweisern in den Süden. Du wirst dort Eisen, Kupfer und Gold finden. Es hat auch einen Eingang zum Schattenland."
 "Miner Club" -> "The Miner's Club is a place to rest for the miners in the Malachite mine, which is very close. The club was founded by the Father of the Don, Don Tommaso Guilianni and he spent a lot of time there."
 "Schürfer Club" -> "Der Schürfer Club ist ein Platz zum Rasten für die Schürfer in der Malachitmine, welche sehr nahe ist. Der Club wurde errichtet vom Vater des Don, Don Tommaso Guilianni und er hat dort viel Zeit verbracht."
 "Miner spring" -> "The Miner's spring is next to the Miner's Club, and rumors tell that people who rest there become better miners."
@@ -194,6 +194,8 @@ itemShoes = 369
 "Kupferbrücke" -> "Die Kupferbrücke im Osten führt dich über den Malachit Bach zur Nagrun Ebene zuerst und dann zum Gasthof zur Hanfschlinge, falls du zu diesen Platz gehen möchtest.",inform("[Schlüsselwort] Platz")
 "Blackbridge" -> "The Blackbridge in the northeast leads you over the Bounding Stream to the Swamp and Northern Woods, if you like to go to this places.",inform("[Keyword] place")
 "Schwarzbrücke" -> "Die Schwarzbrücke im NOrdosten von hier führt dich über den Grenzstrom zum Sumpf und den Nördlichen Wäldern, falls du zu diesen Plätzen gehen möchtest.",inform("[Schlüsselwort] Platz")
+"Shadowland" -> "A dangerous place at the south end of the Malachite mine. Do not go alone there. For more information ask someone else."
+"Schattenland" -> "Ein gefährlicher Platz am südlichen Ende der Malachit Mine. Geh nicht alleine dort hin. Für mehr Information frage jemanden anderen."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 "quest", "mission", english -> "IN PROGRESS."

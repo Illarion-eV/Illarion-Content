@@ -84,10 +84,10 @@ itemShoes = 369
 --"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"inform", english -> "I can give you information about places near of Galmair. Just ask me!", inform("[Keywords] ")
-"inform" -> "Ich kann dir Informationen über Plätze in der Nähe von Galmair geben. Frag einfach!", inform("[Schlüsselwörter] ")
-"question" -> "I can give you information about places near of Galmair. Just ask me!", inform("[Keywords] ")
-"Frage", "Auskunft" -> "Ich kann dir Informationen über Plätze in der Nähe von Galmair geben. Frag einfach!", inform("[Schlüsselwörter] ")
+"inform", english -> "I can give you information about places near of Galmair. Just ask me!", inform("[Keywords] place")
+"inform" -> "Ich kann dir Informationen über Plätze in der Nähe von Galmair geben. Frag einfach!", inform("[Schlüsselwörter] Platz")
+"question" -> "I can give you information about places near of Galmair. Just ask me!", inform("[Keywords] place")
+"Frage", "Auskunft" -> "Ich kann dir Informationen über Plätze in der Nähe von Galmair geben. Frag einfach!", inform("[Schlüsselwörter] Platz")
 "place" -> "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Tir Draganfod?", inform("[Keywords] Tir Draganfod, northeast, northwest, southwest, southeast")
 "Platz","Plätz" -> "Plätze? Welche Plätze meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Tir Draganfod?", inform("[Schlüsselwörter] Tir Draganfod, Nordosten, Nordwesten, Südwesten, Südosten")
 "Iradona", "Goldschein",english -> "You can find her outside of the town close to the teleporter. She has a lot of information and some tasks for you."
@@ -103,12 +103,12 @@ itemShoes = 369
 "Tir","Draganfod",english -> "This region is called Tir Draganfod and I devide it in northeast, northwest, southwest and southeast. Tir Draganfod is furthermore in the east from the Sevenhill Mountains.", inform("[Keywords] Sevenhill Mountains, northeast, northwest, southwest, southeast")
 "Tir","Draganfod" -> "Diese Region wird Tir Draganfod genannt und ich unterteile sie in in Nordost, Nordwest, Südwest und Südost. Tir Draganfod liegt außerdem im Osten von den Siebenhügel Bergen.", inform("[Schlüsselwörter] Siebenhügel Berge, Nordosten, Nordwesten, Südwesten, Südosten")
 "northeast" -> "I know following places: Elstree Forest, Elstree Plain, Eastland, Paldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock.", inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Paldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock")
-"Nordost" -> "Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterstück Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen.", inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterstück Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen")
+"Nordost" -> "Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen.", inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen")
 "northwest" -> "I know following places: Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau, Malachite creek, Malachite Island, Galmair Plateau, Golden Rumil, Fort Schnellbeil, Fortress Hammerfall.", inform("[Keywords] Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau, Malachite creek, Malachite Island, Galmair Plateau, Golden Rumil, Fort Schnellbeil, Fortress Hammerfall")
 "Nordwest" -> "Ich weiß folgende Plätze: See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Galmair Plateau, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall.", inform("[Schlüsselwörter] See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Galmair Plateau, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall")
-"southwest" -> "I know following places: Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert.", inform("[Keywords] Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert")
-"Südwest" -> "Ich weiß folgende Plätze: Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste", inform("[Schlüsselwörter] Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste")
-"souteast" -> "I know following places: Snakehead Bay, Lonely Islands, Death’s Stench, Dragon's Lair, Dewy Swamps, Yewdale.", inform("[Keywords] Snakehead Bay, Lonely Islands, Death’s Stench, Dragon's Lair, Dewy Swamps Yewdale")
+"southwest" -> "I know following places: Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert.", inform("[Keywords] Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert")
+"Südwest" -> "Ich weiß folgende Plätze: Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste", inform("[Schlüsselwörter] Schattenland, Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste")
+"southeast" -> "I know following places: Snakehead Bay, Lonely Islands, Death’s Stench, Dragon's Lair, Dewy Swamps, Yewdale.", inform("[Keywords] Snakehead Bay, Lonely Islands, Death’s Stench, Dragon's Lair, Dewy Swamps Yewdale")
 "Südost" -> "Ich weiß folgende Plätze: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental.", inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental")
 "Sevenhill" -> "The Sevenhill Mountains are at the eastside of Illarion, our world, as you should know."
 "Siebenhügel" -> "Die Siebenhügel Berge sind an der Ostseite von Illarion, unsere Welt, wie ihr wissen solltet."
@@ -121,13 +121,13 @@ itemShoes = 369
 "Eastland" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
 "Ostland" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Pauldron Isle" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
-"Schulterstück Insel" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
-"The Dead Marsh" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Schulterplatten Insel" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Dead Marsh" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
 "Todes Sumpf" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
-"Spider's Mouth" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Spider Mouth" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
 "Spinnen Mund" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Hemp Necktie Inn" -> "The Hemp Necktie Inn is a neutral taverne in the Spider's Mouth and many adventurer are resting there. Among others Wulfgorda. You can use the teleporter to get there."
-"Gasthof zur Hanfschlinge" -> "Der Gasthof zur Hanfschlinge ist eine neutrale Taverne im Spinnen Mund und viele Abenteuerer rasten dort. Unteranderem Wulfgorda. Du kannst den Teleporter verwenden um dort hinzukommen."
+"Gasthof Hanfschlinge" -> "Der Gasthof zur Hanfschlinge ist eine neutrale Taverne im Spinnen Mund und viele Abenteuerer rasten dort. Unteranderem Wulfgorda. Du kannst den Teleporter verwenden um dort hinzukommen."
 "Wulfgorda", queststatus (650)<1,english -> "Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn. Furthermore, you should bring her these leafs here. *hands some sibanac leafs*", queststatus (650)=1, item(155, 10, 333, 0), inform ([New Quest] Try to find Wulfgorda and bring her the sibanac leafs to get your reward.)
 "Wulfgorda", queststatus (650)<1 -> "Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*", queststatus (650)=1, item(155, 10, 333, 0), inform ([Neues Quest] Finde Wulfgorda und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten.)
 "Wulfgorda",english -> "Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn."
@@ -148,37 +148,35 @@ itemShoes = 369
 "Dreifingerspitzen" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 
 --northwest
-"Lake Syrita" -> ""
-"See Syrita" -> ""
-"Nagrun's Plain" -> ""
-"Nagrun Ebene" -> ""
-"The Swamp" -> ""
-"Der Sumpf" -> ""
-"Temple of the five" -> ""
-"Tempel der Fünf" -> ""
-"Lonely Mountains" -> ""
-"Einsame Berge" -> ""
-"Galmair Plateau" -> ""
-"Galmair Hochebene" -> ""
+"Lake Syrita" -> "Lake Syrita is north from here where you can find the harbour of Galmair."
+"See Syrita" -> "See Syrita ist im Norden von hier, wo du den Hafen von Galmair finden kannst."
+"Nagrun Plain" -> "This is the area east after the Copperbridge over the Malachite Creek between Galmair and Spider's Mouth."
+"Nagrun Ebene" -> "Das ist das Gebiet östlich der Kupferbrücke über den Malachit Bach zwischen Galmair und dem Spinnen Mund."
+"Swamp" -> "This is the area north from here after the Blackbridge over the Bounding Stream, where you can also find the harbour of Galmair."
+"Sumpf" -> "Das ist das Gebiet nördlich der Schwarzbrücke über den Grenzstrom, wo du auch den Hafen von Galmair finden kannst."
+"Temple five" -> "The Temple of the Five is east of the Swamp."
+"Tempel Fünf" -> "Der Tempel der Fünf ist östlich vom Sumpf"
+"Lonely Mountains" -> "These are the mountains around us."
+"Einsame Berge" -> "Das sind die Berge um uns."
+"Galmair Plateau" -> "The Galmair Plateau is south from Galmair and west from the Malachite Mine. You will find the bandits from Fort Schnellbeil there."
+"Galmair Hochebene" -> "Die Galmair Hochebene ist südlich von Galmair und westlich der Malachit Mine. Du findest dort die Banditen vom Fort Schnellbeil."
 
-"Malachite creek" -> ""
-"Malachit Bach" -> ""
-"Malachite Island" -> ""
-"Malachit Insel" -> ""
-"Galmair Plateau" -> ""
-"Galmair Hochebene" -> ""
-"Golden Rumil" -> ""
-"Goldener Rumil" -> ""
-"Fort Schnellbeil" -> ""
-"Fort Schnellbeil" -> ""
-"Hammerfall" -> ""
-"Festung Hammerfall" -> ""
+"Malachite creek" -> "The Malachite creek is the water between Galmair and Nagrun's Plain. The Copperbridge will help you to cross it."
+"Malachit Bach" -> "Der Malachit Bach ist das Gewässer zwischen Galmair und der Nagrun Ebene. Die Kupferbrücke wird dir helfen es zu überqueren."
+"Malachite Island" -> "This island is in the south in the middle of the Mlachite creek."
+"Malachit Insel" -> "Diese Insel is südlich von hier in der Mitte des Malachit Bach."
+"Golden Rumil" -> "The Golden Rumil found a bad end once. The bandits of Fort Schnellbeil throw the good old Rumil into liquid gold. You can find him on the way to Fort Schnellbeil."
+"Goldener Rumil" -> "Der Goldene Rumil fand einst ein böses Ende. Die Banditen vom Fort Schnellbeil warfen den guten alten Rumil in flüssiges Gold. Du kannst ihn an deinem Weg zum Fort Schnellbeil finden."
+"Fort Schnellbeil", english -> "The home of bandits at the Galmair Plateau, leaded by Uri Schnellbeil. They are interupting our business at the Malachite mine now and then."
+"Fort Schnellbeil" -> "Das Heim von Banditen auf der Glamair Hochebene, geführt von Uri Schnellbeil. Sie behindern unsere Geschäfte in der Malachit Mine von Zeit zu Zeit."
+"Fortress Hammerfall" -> "This fortress has been build by the betrayer Dwyn Axtblatt. You can find it at the north of the Katanbi Desert."
+"Festung Hammerfall" -> "Diese Festung wurde erbaut von dem Veräter Dwyn Axtblatt. Du kannst sie im Norden der Katanbi Wüste finden."
 
 --southwest
 "Shadowland" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
 "Schattenland" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
-"The Wight Canal" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
-"Der Wichtkanal" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Wight Canal" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
+"Wichtkanal" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 "Sentry Forest" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
 "Wachwald" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 "Great Ocean" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
@@ -197,9 +195,9 @@ itemShoes = 369
 "Schlangenkopfbucht" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
 "Lonely Islands" -> "Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick."
 "Einsame Inseln" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
-"Death’s Stench" -> "Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick."
+"Death Stench" -> "Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick."
 "Todes Gestank" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
-"Dragon's Lair" -> "Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick."
+"Dragon Lair" -> "Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick."
 "Drachenhöhle" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
 "Dewy Swamps" -> "Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick."
 "Frische Sümpfe" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
