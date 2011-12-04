@@ -3,41 +3,57 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger60", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 111
-local POSTCONDITION_QUESTSTATE = 111
+local PRECONDITION_QUESTSTATE = 0
+local POSTCONDITION_QUESTSTATE = 79
 
-local POSITION = position(907, 803, -3)
-local RADIUS = 5
-local LOOKAT_TEXT_DE = "18"
-local LOOKAT_TEXT_EN = "18"
+local NPC_TRIGGER_DE = "cheat"
+local NPC_TRIGGER_EN = "cheat"
+local NPC_REPLY_DE = "lalal"
+local NPC_REPLY_EN = "lalalla"
 
-function LookAtItem(PLAYER, item)
-  if PLAYER:isInRangeToPosition(POSITION,RADIUS)
-      and ADDITIONALCONDITIONS(PLAYER)
-      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+function receiveText(type, text, PLAYER)
+    if ADDITIONALCONDITIONS(PLAYER)
+    and PLAYER:getType() == Character.player
+    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+        if PLAYER:getPlayerLanguage() == Player.german then
+            NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
+        else
+            NPC_TRIGGER=string.gsub(NPC_TRIGGER_EN,'([ ]+)',' .*');
+        end
 
-    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
-    
-    HANDLER(PLAYER)
-    
-    questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
-    return true
-  end
+        foundTrig=false
+        
+        for word in string.gmatch(NPC_TRIGGER, "[^|]+") do 
+            if string.find(text,word)~=nil then
+                foundTrig=true
+            end
+        end
 
-  return false
+        if foundTrig then
+      
+            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            
+            HANDLER(PLAYER)
+            
+            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+        
+            return true
+        end
+    end
+    return false
 end
 
-function itemInformNLS(player, item, textDe, textEn)
+function getNLS(player, textDe, textEn)
   if player:getPlayerLanguage() == Player.german then
-    world:itemInform(player, item, textDe)
+    return textDe
   else
-    world:itemInform(player, item, textEn)
+    return textEn
   end
 end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nun gehe zurück zu Elesil und berichte ihr die Nummer.", "Go back to Elesil and tell her the number."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Garten nun - das rote Portal in der Stadt. Am hinteren Ende findest du die Säulen, die du ansehen musst.", "Go to the garden now - the red portal in the town. You find the columns at the end of the garden. You have to look at them then."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

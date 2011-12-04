@@ -3,8 +3,8 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger61", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 0
-local POSTCONDITION_QUESTSTATE = 79
+local PRECONDITION_QUESTSTATE = 79
+local POSTCONDITION_QUESTSTATE = 84
 
 local NPC_TRIGGER_DE = "cheat"
 local NPC_TRIGGER_EN = "cheat"
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Garten nun - das rote Portal in der Stadt. Am hinteren Ende findest du die Säulen, die du ansehen musst.", "Go to the garden now - the red portal in the town. You find the columns at the end of the garden. You have to look at them then."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit welches Element du gefunden hast.", "Go to Elesil and tell her the kind of element you found."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

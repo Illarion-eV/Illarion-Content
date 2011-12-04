@@ -1,15 +1,15 @@
 require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger54", package.seeall)
+module("questsystem.information_runewick_1.trigger67", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 90
-local POSTCONDITION_QUESTSTATE = 90
+local PRECONDITION_QUESTSTATE = 95
+local POSTCONDITION_QUESTSTATE = 95
 
 local NPC_TRIGGER_DE = "quest"
 local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Wie alt könnte man die Frau die die Statue am Schrein der Elara sympolisiert schätzen?"
-local NPC_REPLY_EN = "How old would you guess is the woman that is symoblized by this statue at Elara's shrine?"
+local NPC_REPLY_DE = "Findet das Fraktionsbuch über Runewick and liest darin."
+local NPC_REPLY_EN = "Find the faction book about Runewick and read it."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit wie alt die Frau die die Statue symbolisiert wirkt.", "Go to Elesil and tell her the age of the woman, symbolised by the statue."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, und nun finde das Buch über unsere Fraktion. Elesil'.", "While you are reading the book you see a note: 'Good, and now find the book about our faction. Elesil'."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

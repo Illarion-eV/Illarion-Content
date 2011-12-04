@@ -1,15 +1,15 @@
 require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger54", package.seeall)
+module("questsystem.information_runewick_1.trigger66", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 90
-local POSTCONDITION_QUESTSTATE = 90
+local PRECONDITION_QUESTSTATE = 111
+local POSTCONDITION_QUESTSTATE = 111
 
 local NPC_TRIGGER_DE = "quest"
 local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Wie alt könnte man die Frau die die Statue am Schrein der Elara sympolisiert schätzen?"
-local NPC_REPLY_EN = "How old would you guess is the woman that is symoblized by this statue at Elara's shrine?"
+local NPC_REPLY_DE = "Diese Lampe sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Raum der Zwielicht! Sucht nach einer Zahl dort!"
+local NPC_REPLY_EN = "Let us test a lamp. Somewhere where it is dark. Room of Twilight! Look for a number there!"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit wie alt die Frau die die Statue symbolisiert wirkt.", "Go to Elesil and tell her the age of the woman, symbolised by the statue."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nun gehe zurück zu Elesil und berichte ihr die Nummer.", "Go back to Elesil and tell her the number."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

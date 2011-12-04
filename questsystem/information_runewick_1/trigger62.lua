@@ -1,10 +1,9 @@
-require("handler.sendmessagetoplayer")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger62", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 79
-local POSTCONDITION_QUESTSTATE = 84
+local PRECONDITION_QUESTSTATE = 86
+local POSTCONDITION_QUESTSTATE = 94
 
 local NPC_TRIGGER_DE = "cheat"
 local NPC_TRIGGER_EN = "cheat"
@@ -53,7 +52,6 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit welches Element du gefunden hast.", "Go to Elesil and tell her the kind of element you found."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -1,15 +1,14 @@
-require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger54", package.seeall)
+module("questsystem.information_runewick_1.trigger65", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 90
-local POSTCONDITION_QUESTSTATE = 90
+local PRECONDITION_QUESTSTATE = 100
+local POSTCONDITION_QUESTSTATE = 100
 
 local NPC_TRIGGER_DE = "quest"
 local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Wie alt könnte man die Frau die die Statue am Schrein der Elara sympolisiert schätzen?"
-local NPC_REPLY_EN = "How old would you guess is the woman that is symoblized by this statue at Elara's shrine?"
+local NPC_REPLY_DE = "Für die nächste Aufgabe geht es zu den Grabsteinen beim Feuer des Triumph. Gefragt ist die Jahreszahl der angesprochenen Kampagne."
+local NPC_REPLY_EN = "For your next task you have to go north to the tombstones at the Fire of Triumph and tell me the year of the compaign noted there."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +52,6 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit wie alt die Frau die die Statue symbolisiert wirkt.", "Go to Elesil and tell her the age of the woman, symbolised by the statue."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
