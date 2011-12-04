@@ -7,7 +7,7 @@ local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 10
 
 local NPC_TRIGGER_DE = "Befehl [Ss]au"
-local NPC_TRIGGER_EN = ""
+local NPC_TRIGGER_EN = "[Ss]au"
 local NPC_REPLY_DE = "Ich habe die eine oder andere Aufgabe zu vergeben. Dafür muss man aber erst einen kleinen Test bestehen. In welcher Fraktion befindest wir uns?"
 local NPC_REPLY_EN = "I have one or more task, but first you have to manage a little test. In which faction are we?"
 
