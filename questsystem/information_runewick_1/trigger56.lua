@@ -1,16 +1,16 @@
 require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger49", package.seeall)
+module("questsystem.information_runewick_1.trigger56", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 66
-local POSTCONDITION_QUESTSTATE = 66
+local PRECONDITION_QUESTSTATE = 97
+local POSTCONDITION_QUESTSTATE = 97
 
 local NPC_TRIGGER_DE = "quest"
 local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Die nächste Aufgabe findet ihr unter einen der Stühle am Dach des Turm der Erde."
-local NPC_REPLY_EN = "You can find your next task under one of the chairs on the top of the Tower of Earth."
+local NPC_REPLY_DE = "Für die nächste Aufgabe geht es zu den Grabsteinen beim Feuer des Triumph. Gefragt ist die Jahreszahl der angesprochenen Kampagne."
+local NPC_REPLY_EN = "For your next task you have to go north to the tombstones at the Fire of Triumph and tell me the year of the compaign noted there."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 281, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe auf das Dach des Turm der Erde und untersuche die Stühle dort.", "Go the top of the Tower of Earth and examine the chairs there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh in den Norden zu der Stelle wo du vier Lagerfeuer siehst. Dort untersuche die Grabsteine.", "Go to the north where you can find four campfires. Examine the tombstones there."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 336, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

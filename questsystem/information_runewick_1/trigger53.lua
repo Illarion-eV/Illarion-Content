@@ -1,14 +1,15 @@
+require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger28", package.seeall)
+module("questsystem.information_runewick_1.trigger53", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 86
-local POSTCONDITION_QUESTSTATE = 94
+local PRECONDITION_QUESTSTATE = 84
+local POSTCONDITION_QUESTSTATE = 84
 
-local POSITION = position(860, 865, 0)
+local POSITION = position(958, 788, 0)
 local RADIUS = 5
-local LOOKAT_TEXT_DE = "Schön, das Feuer brennt. Geh nun zurück zu Elesil um deine Belohnung zu erhalten."
-local LOOKAT_TEXT_EN = "Well, the fire burns. Go back to Elesil now to get your reward.."
+local LOOKAT_TEXT_DE = "Die linke Säule trägt offensichtlich ein Feuerelement."
+local LOOKAT_TEXT_EN = "The left column bears an element of fire obviously."
 
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
@@ -36,6 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit welches Element du gefunden hast.", "Go to Elesil and tell her the kind of element you found."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

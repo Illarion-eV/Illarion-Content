@@ -1,16 +1,16 @@
 require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger49", package.seeall)
+module("questsystem.information_runewick_1.trigger54", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 66
-local POSTCONDITION_QUESTSTATE = 66
+local PRECONDITION_QUESTSTATE = 86
+local POSTCONDITION_QUESTSTATE = 86
 
 local NPC_TRIGGER_DE = "quest"
 local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Die nächste Aufgabe findet ihr unter einen der Stühle am Dach des Turm der Erde."
-local NPC_REPLY_EN = "You can find your next task under one of the chairs on the top of the Tower of Earth."
+local NPC_REPLY_DE = "Macht ein Lagerfeuer. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei der Holzfäller Hütte."
+local NPC_REPLY_EN = "Make a campfire. A good place for one is at the firespot at the Woodcutter Hut."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 281, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe auf das Dach des Turm der Erde und untersuche die Stühle dort.", "Go the top of the Tower of Earth and examine the chairs there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zur Holzfäller Hütte im Süden. Dort findest du eine Feuerstelle bei einem Teich. Dort mache ein Lagerfeuer und blicke das Feuer dann an.", "Go to the Woodcutter Hut. You will find a firespot close at a little lake. Make a fire there and look at the fire then."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 74, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -1,14 +1,15 @@
+require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger28", package.seeall)
+module("questsystem.information_runewick_1.trigger50", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 86
-local POSTCONDITION_QUESTSTATE = 94
+local PRECONDITION_QUESTSTATE = 73
+local POSTCONDITION_QUESTSTATE = 73
 
-local POSITION = position(860, 865, 0)
-local RADIUS = 5
-local LOOKAT_TEXT_DE = "Schön, das Feuer brennt. Geh nun zurück zu Elesil um deine Belohnung zu erhalten."
-local LOOKAT_TEXT_EN = "Well, the fire burns. Go back to Elesil now to get your reward.."
+local POSITION = position(954, 762, 5)
+local RADIUS = 1
+local LOOKAT_TEXT_DE = "Du findest eine Notiz 'Gefunden, gut! Bringe mir nun einen Apfel. Elesil'"
+local LOOKAT_TEXT_EN = "You find a note 'Found, good! Bring me an apple now. Elesil'"
 
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
@@ -36,6 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zu einem Apfelbaum deiner Wahl, pflucke einen Apfel und bringe diesen Elesil.", "Go to the appletree of your choice, pick an apple and bring it Elesil."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

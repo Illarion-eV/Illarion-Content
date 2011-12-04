@@ -22,7 +22,7 @@ npc,213,receiveText,trigger21
 npc,340,receiveText,trigger22
 item,219,LookAtItem,trigger23
 npc,340,receiveText,trigger24
-item,340,LookAtItem,trigger25
+item,2553,LookAtItem,trigger25
 npc,340,receiveText,trigger26
 npc,340,receiveText,trigger27
 item,298,LookAtItem,trigger28
@@ -47,3 +47,14 @@ npc,340,receiveText,trigger46
 npc,340,receiveText,trigger47
 npc,340,receiveText,trigger48
 npc,340,receiveText,trigger49
+item,219,LookAtItem,trigger50
+npc,340,receiveText,trigger51
+npc,340,receiveText,trigger52
+item,2553,LookAtItem,trigger53
+npc,340,receiveText,trigger54
+npc,340,receiveText,trigger55
+npc,340,receiveText,trigger56
+npc,340,receiveText,trigger57
+npc,340,receiveText,trigger58
+npc,340,receiveText,trigger59
+item,337,LookAtItem,trigger60

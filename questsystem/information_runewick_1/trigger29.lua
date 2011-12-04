@@ -6,7 +6,7 @@ local PRECONDITION_QUESTSTATE = 97
 local POSTCONDITION_QUESTSTATE = 100
 
 local POSITION = position(879, 759, 0)
-local RADIUS = 0
+local RADIUS = 5
 local LOOKAT_TEXT_DE = "Geh nun zurück zu Elesil und teile ihr mit die Jahreszahl der Kampagne."
 local LOOKAT_TEXT_EN = "Go back to Elesil and tell her the year of the compaign."
 
