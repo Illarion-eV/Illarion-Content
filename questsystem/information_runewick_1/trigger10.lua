@@ -8,7 +8,7 @@ local PRECONDITION_QUESTSTATE = 29
 local POSTCONDITION_QUESTSTATE = 31
 
 local NPC_TRIGGER_DE = "Rubin"
-local NPC_TRIGGER_EN = "Rubin"
+local NPC_TRIGGER_EN = "Ruby"
 local NPC_REPLY_DE = "Wieder richtig und deshalb noch mehr Münzen! Und nun, wem darfen man hier sein Gehör schenken?"
 local NPC_REPLY_EN = "Right again and therefore more coins for you! And now, who do you have to obey here?"
 

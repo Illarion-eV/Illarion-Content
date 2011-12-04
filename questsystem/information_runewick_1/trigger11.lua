@@ -8,7 +8,7 @@ local PRECONDITION_QUESTSTATE = 31
 local POSTCONDITION_QUESTSTATE = 34
 
 local NPC_TRIGGER_DE = "Erzmagier"
-local NPC_TRIGGER_EN = "archmage"
+local NPC_TRIGGER_EN = "Archmage"
 local NPC_REPLY_DE = "Richtig! Und wie heiﬂt die ÷rtlichkeit an der man ihn findet?"
 local NPC_REPLY_EN = "Right! And what is the name of the place where you can find him?"
 
