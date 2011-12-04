@@ -7,8 +7,8 @@ local QUEST_NUMBER = 621
 local PRECONDITION_QUESTSTATE = 25
 local POSTCONDITION_QUESTSTATE = 25
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
+local NPC_TRIGGER_DE = "quest task"
+local NPC_TRIGGER_EN = "quest task"
 local NPC_REPLY_DE = "Welchen Turm betritt man nach dem man den Turm des Feuer ostwärts verlassen hat?"
 local NPC_REPLY_EN = "Which tower do you enter if you leave the Tower of Fire eastwards?"
 
