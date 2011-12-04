@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 10
 local NPC_TRIGGER_DE = "Auftrag"
 local NPC_TRIGGER_EN = "task"
 local NPC_REPLY_DE = "Ich habe die eine oder andere Aufgabe zu vergeben. Dafür muss man aber erst einen kleinen Test bestehen. In welcher Fraktion befindest wir uns?"
-local NPC_REPLY_EN = "I have one or more task, but first you have to manage a little test. In which factio are we?"
+local NPC_REPLY_EN = "I have one or more task, but first you have to manage a little test. In which faction are we?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

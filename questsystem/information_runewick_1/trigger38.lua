@@ -1,13 +1,13 @@
 require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger4", package.seeall)
+module("questsystem.information_runewick_1.trigger38", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 0
+local PRECONDITION_QUESTSTATE = 10
 local POSTCONDITION_QUESTSTATE = 10
 
-local NPC_TRIGGER_DE = "Aufgabe"
-local NPC_TRIGGER_EN = "adventure"
+local NPC_TRIGGER_DE = "quest"
+local NPC_TRIGGER_EN = "quest"
 local NPC_REPLY_DE = "Ich habe die eine oder andere Aufgabe zu vergeben. Dafür muss man aber erst einen kleinen Test bestehen. In welcher Fraktion befindest wir uns?"
 local NPC_REPLY_EN = "I have one or more task, but first you have to manage a little test. In which faction are we?"
 

@@ -34,3 +34,6 @@ item,0,UseItem,trigger33
 npc,340,receiveText,trigger34
 item,337,LookAtItem,trigger35
 npc,340,receiveText,trigger36
+npc,340,receiveText,trigger37
+npc,340,receiveText,trigger38
+npc,340,receiveText,trigger39

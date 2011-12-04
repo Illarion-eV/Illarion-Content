@@ -1,13 +1,14 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger4", package.seeall)
+module("questsystem.information_runewick_1.trigger39", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 0
-local POSTCONDITION_QUESTSTATE = 10
+local PRECONDITION_QUESTSTATE = 26
+local POSTCONDITION_QUESTSTATE = 26
 
-local NPC_TRIGGER_DE = "Aufgabe"
-local NPC_TRIGGER_EN = "adventure"
+local NPC_TRIGGER_DE = "quest"
+local NPC_TRIGGER_EN = "quest"
 local NPC_REPLY_DE = "Ich habe die eine oder andere Aufgabe zu vergeben. Dafür muss man aber erst einen kleinen Test bestehen. In welcher Fraktion befindest wir uns?"
 local NPC_REPLY_EN = "I have one or more task, but first you have to manage a little test. In which faction are we?"
 
@@ -53,7 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nenne nun den Namen der Fraktion in der du dich befindest.", "Say the name of the faction you are now"):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten.", "Answer the question to get more money and further questions."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
