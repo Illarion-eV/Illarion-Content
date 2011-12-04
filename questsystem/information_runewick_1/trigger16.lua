@@ -10,7 +10,7 @@ local POSTCONDITION_QUESTSTATE = 48
 local NPC_TRIGGER_DE = "Cadomyr"
 local NPC_TRIGGER_EN = "Cadomyr"
 local NPC_REPLY_DE = "Gut, und welche von Don Valerio Guilianni?"
-local NPC_REPLY_EN = "Good, and which one from Don Valerio Guilianni?"
+local NPC_REPLY_EN = "Good, and which one by Don Valerio Guilianni?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

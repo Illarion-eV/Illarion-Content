@@ -1,16 +1,16 @@
 require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger10", package.seeall)
+module("questsystem.information_runewick_1.trigger41", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 29
+local PRECONDITION_QUESTSTATE = 31
 local POSTCONDITION_QUESTSTATE = 31
 
-local NPC_TRIGGER_DE = "Rubin"
-local NPC_TRIGGER_EN = "Ruby"
-local NPC_REPLY_DE = "Wieder richtig und deshalb noch mehr Münzen! Und nun, wem darfen man hier sein Gehör schenken?"
-local NPC_REPLY_EN = "Right again and therefore more coins for you! And now, whom do you have to obey here?"
+local NPC_TRIGGER_DE = "quest"
+local NPC_TRIGGER_EN = "quest"
+local NPC_REPLY_DE = "Wem darfen man hier sein Gehör schenken?"
+local NPC_REPLY_EN = "Whom do you have to obey here?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

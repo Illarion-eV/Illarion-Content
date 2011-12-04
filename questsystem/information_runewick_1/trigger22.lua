@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 66
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ich hoffe du hast die Audienz genossen. Hier ein Ring zur Erinnerung an diese Begegnung mit ihm. Deine Nächste Aufgabe findest unter einen der Stühle am Dach des Turm der Erde."
+local NPC_REPLY_DE = "Ich hoffe ihr habt die Audienz genossen. Hier ein Ring zur Erinnerung an diese Begegnung mit ihm. Die ächste Aufgabe findet ihr unter einen der Stühle am Dach des Turm der Erde."
 local NPC_REPLY_EN = "I hope you enjoyed the audience. Here a ring in memory of this meeting with him. You can find your next task under one of the chairs on the top of the Tower of Earth."
 
 function receiveText(type, text, PLAYER)

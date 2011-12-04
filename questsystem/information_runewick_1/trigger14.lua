@@ -10,7 +10,7 @@ local POSTCONDITION_QUESTSTATE = 41
 local NPC_TRIGGER_DE = "Elara"
 local NPC_TRIGGER_EN = "Elara"
 local NPC_REPLY_DE = "Sehr gut. Bevor wir mit dem praktischen Teil beginnen, noch ein paar mehr Fragen: Welchen dieser drei Götter beten wir hier an? Irmorom, Malachin oder Elara?"
-local NPC_REPLY_EN = "Very good. Bevor we start with the practical part, some more questions: Do whom of these gods to we pray?  Irmorom, Malachin or Elara?"
+local NPC_REPLY_EN = "Very good. Bevor we start with the practical part, some more questions: To whom of these gods do we pray?  Irmorom, Malachin or Elara?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

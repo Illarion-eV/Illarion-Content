@@ -9,8 +9,8 @@ local POSTCONDITION_QUESTSTATE = 26
 
 local NPC_TRIGGER_DE = "quest"
 local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Ich habe die eine oder andere Aufgabe zu vergeben. Dafür muss man aber erst einen kleinen Test bestehen. In welcher Fraktion befindest wir uns?"
-local NPC_REPLY_EN = "I have one or more task, but first you have to manage a little test. In which faction are we?"
+local NPC_REPLY_DE = "Welcher von diesen drei magischen Steinen gehört zu uns: Smaragd, Topaz oder Blaustein?"
+local NPC_REPLY_EN = "Which of these three magical stones does belong to us: Emerald, Topaz or Bluestone?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

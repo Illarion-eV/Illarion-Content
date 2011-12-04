@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 61
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
 local NPC_REPLY_DE = "Schön, dass ihr euren Weg nach Runewick gefunden habt. Möge euer Wissen hier gedeien und uns allen dienen."
-local NPC_REPLY_EN = "Wonderul, you found your way to Runewick. Your widsom may grow and serve each of us."
+local NPC_REPLY_EN = "Wonderful, you found your way to Runewick. Your widsom may grow and serve each of us."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

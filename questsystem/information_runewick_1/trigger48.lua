@@ -1,16 +1,16 @@
 require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger10", package.seeall)
+module("questsystem.information_runewick_1.trigger48", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 29
-local POSTCONDITION_QUESTSTATE = 31
+local PRECONDITION_QUESTSTATE = 55
+local POSTCONDITION_QUESTSTATE = 55
 
-local NPC_TRIGGER_DE = "Rubin"
-local NPC_TRIGGER_EN = "Ruby"
-local NPC_REPLY_DE = "Wieder richtig und deshalb noch mehr Münzen! Und nun, wem darfen man hier sein Gehör schenken?"
-local NPC_REPLY_EN = "Right again and therefore more coins for you! And now, whom do you have to obey here?"
+local NPC_TRIGGER_DE = "quest"
+local NPC_TRIGGER_EN = "quest"
+local NPC_REPLY_DE = "Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zurück wenn du dies getan hast."
+local NPC_REPLY_EN = "Look for the Archmage to introduce yourself. Come back if you have done that."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, es betrifft den Herrscher dieser Fraktion.", "Answer the question to get more money and further questions. Hint: It is about the leader of this faction."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Erzmagier, rede mit ihm und komme wieder zurück.", "Find the Archmage, speak with him and come back"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

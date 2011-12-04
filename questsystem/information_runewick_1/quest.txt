@@ -37,3 +37,13 @@ npc,340,receiveText,trigger36
 npc,340,receiveText,trigger37
 npc,340,receiveText,trigger38
 npc,340,receiveText,trigger39
+npc,340,receiveText,trigger40
+npc,340,receiveText,trigger41
+npc,340,receiveText,trigger42
+npc,340,receiveText,trigger43
+npc,340,receiveText,trigger44
+npc,340,receiveText,trigger45
+npc,340,receiveText,trigger46
+npc,340,receiveText,trigger47
+npc,340,receiveText,trigger48
+npc,340,receiveText,trigger49

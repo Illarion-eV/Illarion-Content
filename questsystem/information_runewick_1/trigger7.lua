@@ -9,8 +9,8 @@ local POSTCONDITION_QUESTSTATE = 25
 
 local NPC_TRIGGER_DE = "Runewick"
 local NPC_TRIGGER_EN = "Runewick"
-local NPC_REPLY_DE = "Sehr gut, hier nun die nächste Aufgabe, zum doppelten Preis. Welchen Turm betritt man nach dem man den Turm des Feuer ostwärts verlassen hat?"
-local NPC_REPLY_EN = "Very good, now your next task with the double reward. Which tower do you enter if you leave the Tower of Fire eastwards?"
+local NPC_REPLY_DE = "Sehr gut, hier nun die nächste Aufgabe. Welchen Turm betritt man nach dem man den Turm des Feuer ostwärts verlassen hat?"
+local NPC_REPLY_EN = "Very good, now your next task. Which tower do you enter if you leave the Tower of Fire eastwards?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
