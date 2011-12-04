@@ -68,3 +68,9 @@ npc,340,receiveText,trigger67
 npc,340,receiveText,trigger68
 item,272,LookAtItem,trigger69
 item,74,UseItem,trigger70
+npc,340,receiveText,trigger71
+item,12,LookAtItem,trigger72
+item,74,UseItem,trigger73
+npc,340,receiveText,trigger74
+item,219,LookAtItem,trigger75
+npc,340,receiveText,trigger76

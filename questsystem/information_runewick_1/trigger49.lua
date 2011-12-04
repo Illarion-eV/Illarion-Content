@@ -1,11 +1,10 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger49", package.seeall)
 
 local QUEST_NUMBER = 621
 local PRECONDITION_QUESTSTATE = 66
-local POSTCONDITION_QUESTSTATE = 66
+local POSTCONDITION_QUESTSTATE = 169
 
 local NPC_TRIGGER_DE = "quest"
 local NPC_TRIGGER_EN = "quest"
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 281, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe auf das Dach des Turm der Erde und untersuche die Stühle dort.", "Go the top of the Tower of Earth and examine the chairs there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe auf das Dach des Turm der Erde und untersuche die Stühle dort.", "You can find your next task under one of the chairs on the top of the Tower of Earth."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
