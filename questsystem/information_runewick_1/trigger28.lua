@@ -6,7 +6,7 @@ local PRECONDITION_QUESTSTATE = 86
 local POSTCONDITION_QUESTSTATE = 94
 
 local POSITION = position(860, 865, 0)
-local RADIUS = 5
+local RADIUS = 1
 local LOOKAT_TEXT_DE = "Schön, das Feuer brennt. Geh nun zurück zu Elesil um deine Belohnung zu erhalten."
 local LOOKAT_TEXT_EN = "Well, the fire burns. Go back to Elesil now to get your reward.."
 

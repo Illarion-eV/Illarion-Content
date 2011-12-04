@@ -25,7 +25,7 @@ npc,340,receiveText,trigger24
 item,2553,LookAtItem,trigger25
 npc,340,receiveText,trigger26
 npc,340,receiveText,trigger27
-item,298,LookAtItem,trigger28
+item,12,LookAtItem,trigger28
 item,519,LookAtItem,trigger29
 npc,340,receiveText,trigger30
 item,0,UseItem,trigger31
