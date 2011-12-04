@@ -58,4 +58,5 @@ npc,340,receiveText,trigger57
 npc,340,receiveText,trigger58
 npc,340,receiveText,trigger59
 item,337,LookAtItem,trigger60
-npc,0,receiveText,trigger61
+npc,340,receiveText,trigger61
+npc,340,receiveText,trigger62
