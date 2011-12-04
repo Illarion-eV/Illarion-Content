@@ -173,7 +173,7 @@ function InitGrave()
 	AddGrave({892,799,0},"","", 1,5); --slums graveyard
 	AddGrave({908,803,-3},"","", 4,5); --tomb
 	AddGrave({908,805,-3},"","", 4,5); --tomb	]]--
-	AddGrave({907,803,-3},"18","18", 4,0); --tomb
+	--AddGrave({907,803,-3},"18","18", 4,0); --tomb
 	--[[AddGrave({907,805,-3},"","", 4,5); --tomb
 	--Runewick Hinterland
 	AddGrave({925,940,0},"","", 1,5); --Twin Eyes Islands
