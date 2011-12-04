@@ -1,3 +1,5 @@
+require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger27", package.seeall)
 
@@ -52,6 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.createplayeritem.createPlayerItem(PLAYER, 68, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Schrein der Elara und finde das erwünschte Alter heraus in dem du die Statuen dort betrachtest.", "Go to the shrine of Elara and figure out the required age through looking at statues there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
