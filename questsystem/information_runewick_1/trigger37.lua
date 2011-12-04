@@ -6,8 +6,8 @@ local QUEST_NUMBER = 621
 local PRECONDITION_QUESTSTATE = 10
 local POSTCONDITION_QUESTSTATE = 10
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
+local NPC_TRIGGER_DE = "[Qq]uest [Mm]ission [Tt]ask [Aa]dventure [Oo]rder [Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest [Mm]ission [Aa]uftrag [Aa]benteuer [Bb]efehl"
 local NPC_REPLY_DE = "In welcher Fraktion befindest wir uns?"
 local NPC_REPLY_EN = "In which faction are we?"
 
