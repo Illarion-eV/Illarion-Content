@@ -25,11 +25,11 @@ function callEffect( Effect, Char ) -- Effect is called
 	    --Addition end
 	
 	    --Addition by Rincewind: Quest XXX (???)
-	    theQuestStatus=Char:getQuestProgress(X);
+	    --theQuestStatus=Char:getQuestProgress(X);
 	    
-		if theQuestStatus > 0 then
-			Char:setQuestProgress(X,theQuestStatus-1); --cooling!
-		end
+		--if theQuestStatus > 0 then
+		--	Char:setQuestProgress(X,theQuestStatus-1); --cooling!
+		--end
 		-- Addition end
 
 	
