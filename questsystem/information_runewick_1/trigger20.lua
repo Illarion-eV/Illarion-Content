@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Frage nach Plätzen.", "Answer the question to get more money and further questions. Hint: Ask for places."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Erzmagier, rede mit ihm und komme wieder zurück.", "Find the Archmage, speak with him and come back"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

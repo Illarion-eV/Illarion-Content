@@ -1,16 +1,16 @@
 require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger19", package.seeall)
+module("questsystem.information_runewick_1.trigger26", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 53
-local POSTCONDITION_QUESTSTATE = 55
+local PRECONDITION_QUESTSTATE = 84
+local POSTCONDITION_QUESTSTATE = 86
 
-local NPC_TRIGGER_DE = "Irunnleh"
-local NPC_TRIGGER_EN = "Irunnleh"
-local NPC_REPLY_DE = "Gut, sie zu besuchen wird nicht von Schaden sein. Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zurück wenn du dies getan hast."
-local NPC_REPLY_EN = "Fine, it will be to your advance if you visit her. But now look for the Archmage to introduce yourself. Come back if you have done that."
+local NPC_TRIGGER_DE = "Feuer"
+local NPC_TRIGGER_EN = "Fire"
+local NPC_REPLY_DE = "Feuer ist die richtige Antwort und hier gibt es ein Beil um eines zu machen. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei der Holzfäller Hütte."
+local NPC_REPLY_EN = "Fire is the right answer and here do have a hutchet to make one. A good place for one is at the firespot at the Woodcutter Hut."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Erzmagier, rede mit ihm und komme wieder zurück.", "Find the Archmage, speak with him and come back"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zur Holzfäller Hütte im Süden. Dort findest du eine Feuerstelle bei einem Teich. Dort mache ein Lagerfeuer und blicke das Feuer dann an.", "Go to the Woodcutter Hut. You will find a firespot close at a little lake. Make a fire there and look at the fire then."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 74, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger19", package.seeall)
+module("questsystem.information_runewick_1.trigger34", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 53
-local POSTCONDITION_QUESTSTATE = 55
+local PRECONDITION_QUESTSTATE = 107
+local POSTCONDITION_QUESTSTATE = 109
 
-local NPC_TRIGGER_DE = "Irunnleh"
-local NPC_TRIGGER_EN = "Irunnleh"
-local NPC_REPLY_DE = "Gut, sie zu besuchen wird nicht von Schaden sein. Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zurück wenn du dies getan hast."
-local NPC_REPLY_EN = "Fine, it will be to your advance if you visit her. But now look for the Archmage to introduce yourself. Come back if you have done that."
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "So, hier eine Lampe um auch im Dunklen lesen zu können. Dies sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Raum der Zwielicht! Sucht nach einer Zahl dort!"
+local NPC_REPLY_EN = "So, here a lamp that you can also read in the darkness. Let us test this. Somewhere where it is dark. Room of Twilight! Look for a number there!"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Erzmagier, rede mit ihm und komme wieder zurück.", "Find the Archmage, speak with him and come back"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Raum des Zwielicht und suche nach einer Nummer dort. Vergiß nicht die Lampe dort zu verwenden.", "Go to the Room of Twilight and look for a number there. Don't forget to use the lamp there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

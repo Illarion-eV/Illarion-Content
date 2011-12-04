@@ -1,16 +1,16 @@
 require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger19", package.seeall)
+module("questsystem.information_runewick_1.trigger30", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 53
-local POSTCONDITION_QUESTSTATE = 55
+local PRECONDITION_QUESTSTATE = 90
+local POSTCONDITION_QUESTSTATE = 97
 
-local NPC_TRIGGER_DE = "Irunnleh"
-local NPC_TRIGGER_EN = "Irunnleh"
-local NPC_REPLY_DE = "Gut, sie zu besuchen wird nicht von Schaden sein. Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zurück wenn du dies getan hast."
-local NPC_REPLY_EN = "Fine, it will be to your advance if you visit her. But now look for the Archmage to introduce yourself. Come back if you have done that."
+local NPC_TRIGGER_DE = "alterlos"
+local NPC_TRIGGER_EN = "ageless"
+local NPC_REPLY_DE = "Genau, Elara erscheint oft als eine alterlose Frau und hier ein Spiegel als Belohnung. Für die nächste Aufgabe geht es zu den Grabsteinen beim Feuer des Triumph. Gefragt ist die Jahreszahl der angesprochenen Kampagne."
+local NPC_REPLY_EN = "Exactly, Elara appears often as an ageless woman and here is a mirror as your reward. For your next task you have to go north to the tombstones at the Fire of Triumph and tell me the year of the compaign noted there."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Erzmagier, rede mit ihm und komme wieder zurück.", "Find the Archmage, speak with him and come back"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh in den Norden zu der Stelle wo du vier Lagerfeuer siehst. Dort untersuche die Grabsteine.", "Go to the north where you can find four campfires. Examine the tombstones there."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 336, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger19", package.seeall)
+module("questsystem.information_runewick_1.trigger21", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 53
-local POSTCONDITION_QUESTSTATE = 55
+local PRECONDITION_QUESTSTATE = 55
+local POSTCONDITION_QUESTSTATE = 61
 
-local NPC_TRIGGER_DE = "Irunnleh"
-local NPC_TRIGGER_EN = "Irunnleh"
-local NPC_REPLY_DE = "Gut, sie zu besuchen wird nicht von Schaden sein. Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zurück wenn du dies getan hast."
-local NPC_REPLY_EN = "Fine, it will be to your advance if you visit her. But now look for the Archmage to introduce yourself. Come back if you have done that."
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Schön, dass ihr euren Weg nach Runewick gefunden habt. Möge euer Wissen hier gedeien und uns allen dienen."
+local NPC_REPLY_EN = "Wonderul, you found your way to Runewick. Your widsom may grow and serve each of us."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Erzmagier, rede mit ihm und komme wieder zurück.", "Find the Archmage, speak with him and come back"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit dem Archmage reden, aber auch zurück zu Elesil gehen.", "You can continue your conversation with the Archmage, or go back to Elesil"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
