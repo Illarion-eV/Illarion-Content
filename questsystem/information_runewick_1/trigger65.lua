@@ -1,3 +1,4 @@
+require("handler.sendmessagetoplayer")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger65", package.seeall)
 
@@ -52,6 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Elesil und teile ihr mit die Jahreszahl der Kampagne.", "Go back to Elesil and tell her the year of the compaign."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

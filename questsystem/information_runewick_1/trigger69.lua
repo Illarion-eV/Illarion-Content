@@ -7,9 +7,9 @@ local PRECONDITION_QUESTSTATE = 158
 local POSTCONDITION_QUESTSTATE = 90
 
 local POSITION = position(905, 824, 2)
-local RADIUS = 1
-local LOOKAT_TEXT_DE = ""
-local LOOKAT_TEXT_EN = ""
+local RADIUS = 8
+local LOOKAT_TEXT_DE = "Eine große, alterlos Frau hebt ihren Finger als gäbe sie einen Rat. In ihrer anderen Hand hält sie einige Bücher und Schriftrollen."
+local LOOKAT_TEXT_EN = "A tall and ageless woman rises one of her fingers as she has to mention her advice. In her other hand she holds some books and scrolls."
 
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)

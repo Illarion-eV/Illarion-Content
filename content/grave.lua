@@ -173,15 +173,15 @@ function InitGrave()
 	AddGrave({892,799,0},"","", 1,5); --slums graveyard
 	AddGrave({908,803,-3},"","", 4,5); --tomb
 	AddGrave({908,805,-3},"","", 4,5); --tomb	]]--
-	--AddGrave({907,803,-3},"18","18", 4,0); --tomb
+	AddGrave({907,803,-3},"Nach längeren Versuchen erkennst du schließlich eine 18.","After several tries you can recognize a 18.", 4,5); --tomb
 	--[[AddGrave({907,805,-3},"","", 4,5); --tomb
 	--Runewick Hinterland
 	AddGrave({925,940,0},"","", 1,5); --Twin Eyes Islands
 	AddGrave({865,846,0},"","", 2,5); --Woodcutter's Hut
 	AddGrave({862,847,0},"","", 3,5); --Woodcutter's Hut]]--
-	AddGrave({879,759,0},"","In remembrance of all victims of the mindless campaign in 30 BS between Cadomyr and Galmair who we could not reanimate, because they hid their bodies. Elara and the Fire of Triumph may help those fools from them to overcome their shortsightedness.", 1,5); --Fire of Triumph
-	AddGrave({871,757,0},"","In remembrance of all those who had been reanimated by our arcane talented unit in 31 BS but were slaughter again afterwards. Oldra and the Fire of Triumph may guide us to their corpses in order to further reanimation and protection against harm.", 1,5); --Fire of Triumph
-	--[[--Snakehead Coast
+	AddGrave({879,759,0},"Zur Erinnerung an all jene Opfer dieser sinnlosen Kampagne in 30 BS zwischen Cadomyr und Galmair, welche nicht wiederbelebt werden konnten, weil ihr Körper versteckt wurden. Elara und das Feuer des Triumphes soll diesen Dummköpfen helfen ihre Kurzsichtigkeit zu überkommen.","In remembrance of all victims of the mindless campaign in 30 BS between Cadomyr and Galmair who we could not reanimate, because they hid their bodies. Elara and the Fire of Triumph may help those fools from them to overcome their shortsightedness.", 1,5); --Fire of Triumph
+	AddGrave({871,757,0},"Zur Erinnerung an all jene die wiederbelebt werden konnten Dank unserer arkanen talentierten Einheiten in 31 BS welche aber nachher niedergemetzelt wurden. Oldra und das Feuer des Triumphes sollen uns führen zu ihren Körpern um sie erneut zu beleben und zu schützen gegen jeden Schaden.","In remembrance of all those who had been reanimated by our arcane talented unit in 31 BS but were slaughter again afterwards. Oldra and the Fire of Triumph may guide us to their corpses in order to further reanimation and protection against harm.", 1,5); --Fire of Triumph
+	--[[--Snakehead Coast 
     AddGrave({621,463,0},"","", 1,0);
     AddGrave({692,483,0},"","", 1,0); --Wilder Island
     AddGrave({714,442,0},"","", 3,0);

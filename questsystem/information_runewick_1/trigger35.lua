@@ -8,8 +8,8 @@ local POSTCONDITION_QUESTSTATE = 111
 
 local POSITION = position(907, 803, -3)
 local RADIUS = 1
-local LOOKAT_TEXT_DE = "18"
-local LOOKAT_TEXT_EN = "18"
+local LOOKAT_TEXT_DE = "Nach l‰ngeren Versuchen erkennst du schlieﬂlich eine 18."
+local LOOKAT_TEXT_EN = "After several tries you can recognize a 18."
 
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
