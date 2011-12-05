@@ -1,5 +1,4 @@
 require("handler.sendmessagetoplayer")
-require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger29", package.seeall)
 
@@ -55,7 +54,6 @@ end
 
 function HANDLER(PLAYER)
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nenne nun den Namen der Fraktion in der du dich befindest.", "Say the name of the faction you are now"):execute()
-    handler.eraseplayeritem.erasePlayerItem(PLAYER, 3076, 5000):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
