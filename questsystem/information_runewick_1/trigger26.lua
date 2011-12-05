@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger26", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 84
-local POSTCONDITION_QUESTSTATE = 86
+local PRECONDITION_QUESTSTATE = 107
+local POSTCONDITION_QUESTSTATE = 109
 
-local NPC_TRIGGER_DE = "Feuer"
-local NPC_TRIGGER_EN = "Fire"
-local NPC_REPLY_DE = "Feuer ist die richtige Antwort und hier gibt es ein Beil um eines zu machen. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei der Holzfäller Hütte."
-local NPC_REPLY_EN = "Fire is the right answer and here do have a hutchet to make one. A good place for one is at the firespot at the Woodcutter Hut."
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "So, hier eine Lampe um auch im Dunklen lesen zu können. Dies sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Raum der Zwielicht! Sucht nach einer Zahl dort!"
+local NPC_REPLY_EN = "So, here a lamp that you can also read in the darkness. Let us test this. Somewhere where it is dark. Room of Twilight! Look for a number there!"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zur Holzfäller Hütte im Süden. Dort findest du eine Feuerstelle bei einem Teich. Dort mache ein Lagerfeuer und blicke das Feuer dann an.", "Go to the Woodcutter Hut. You will find a firespot close at a little lake. Make a fire there and look at the fire then."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 74, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Raum des Zwielicht und suche nach einer Nummer dort. Vergiß nicht die Lampe dort zu verwenden.", "Go to the Room of Twilight and look for a number there. Don't forget to use the lamp there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

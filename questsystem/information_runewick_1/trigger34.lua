@@ -1,15 +1,16 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger34", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 107
-local POSTCONDITION_QUESTSTATE = 109
+local PRECONDITION_QUESTSTATE = 34
+local POSTCONDITION_QUESTSTATE = 34
 
-local NPC_TRIGGER_DE = "."
-local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "So, hier eine Lampe um auch im Dunklen lesen zu können. Dies sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Raum der Zwielicht! Sucht nach einer Zahl dort!"
-local NPC_REPLY_EN = "So, here a lamp that you can also read in the darkness. Let us test this. Somewhere where it is dark. Room of Twilight! Look for a number there!"
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Wie heißt die Örtlichkeit an der man den Herrscher findet?"
+local NPC_REPLY_EN = "What is the name of the place where you can the ruler?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Raum des Zwielicht und suche nach einer Nummer dort. Vergiß nicht die Lampe dort zu verwenden.", "Go to the Room of Twilight and look for a number there. Don't forget to use the lamp there."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, die Halle befindet sich im Turm des Feuers.", "Answer the question to get more money and further questions. Hint: the hall can be found in the Tower of Fire."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

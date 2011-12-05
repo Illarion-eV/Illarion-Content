@@ -3,21 +3,17 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger24", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 73
-local POSTCONDITION_QUESTSTATE = 79
+local PRECONDITION_QUESTSTATE = 100
+local POSTCONDITION_QUESTSTATE = 91
 
-local ITEM_ID = 15
-local ITEM_AMNT = 1
-local NPC_TRIGGER_DE = "."
-local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Wie ich sehe, wurde die Notiz gefunden und auch ein Apfel gebracht. Man darf ihn behalten. Nun ab in den Garten. Dort sind vier Säulen mit Elementen. Welches ist auf der linken Säule."
-local NPC_REPLY_EN = "I see, you found the noice and got an apple. Fine, you can keep the apple. Now go to the garden and tell me name of the element on the left column there."
-local NPC_NOITEM_DE = "Die Notiz scheinst gefunden worden sein, aber befolgt sollte sie auch werden."
-local NPC_NOITEM_EN = "The notice has been found, but the task has not been accomplished!"
+local NPC_TRIGGER_DE = "30|[Dd]reißig"
+local NPC_TRIGGER_EN = "30|[Tt]hirty"
+local NPC_REPLY_DE = "Gut, um mehr über die Geschichte Runewicks zu erfahren, empfiehlt sich unser Geschichtsbuch. Und dieses soll nun auch gelesen werden."
+local NPC_REPLY_EN = "Good, if you want to know more about the history of Runewick look for the histroy book. So, go and find it."
 
 function receiveText(type, text, PLAYER)
-    if PLAYER:getType() == Character.player
-    and ADDITIONALCONDITIONS(PLAYER)
+    if ADDITIONALCONDITIONS(PLAYER)
+    and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
         if PLAYER:getPlayerLanguage() == Player.german then
             NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
@@ -34,38 +30,30 @@ function receiveText(type, text, PLAYER)
         end
 
         if foundTrig then
-            if PLAYER:countItem(ITEM_ID)>=ITEM_AMNT then
-                thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+      
+            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
-                HANDLER(PLAYER)
+            HANDLER(PLAYER)
             
-                questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
         
-                return true
-            elseif (NPC_NOITEM_DE~="") then
-                thisNPC:talk(Character.say, getNLS(PLAYER, NPC_NOITEM_DE, NPC_NOITEM_EN))
-          
-                return true
-            else
-                return false
-            end
+            return true
         end
     end
-
     return false
 end
 
 function getNLS(player, textDe, textEn)
-    if player:getPlayerLanguage() == Player.german then
-        return textDe
-    else
-        return textEn
-    end
+  if player:getPlayerLanguage() == Player.german then
+    return textDe
+  else
+    return textEn
+  end
 end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Garten nun - das rote Portal in der Stadt. Am hinteren Ende findest du die Säulen, die du ansehen musst.", "Go to the garden now - the red portal in the town. You find the columns at the end of the garden. You have to look at them then."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Such nach dem Geschichtsbuch von Runewick in einem der Bücherregalen.", "Find the history book of Runewick in one of the bookshelves."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

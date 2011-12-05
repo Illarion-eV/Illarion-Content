@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger57", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 95
-local POSTCONDITION_QUESTSTATE = 107
+local PRECONDITION_QUESTSTATE = 100
+local POSTCONDITION_QUESTSTATE = 100
 
-local NPC_TRIGGER_DE = "cheat"
-local NPC_TRIGGER_EN = "cheat"
-local NPC_REPLY_DE = "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, auch dieses hast du gefunden. Komm zurück nun. Elesil'."
-local NPC_REPLY_EN = "While you are reading the book you see a note: 'Good, you found that too. Come back now. Elesil'."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Für die nächste Aufgabe geht es zu den Grabsteinen beim Feuer des Triumph. Gefragt ist die Jahreszahl der angesprochenen Kampagne."
+local NPC_REPLY_EN = "For your next task you have to go north to the tombstones at the Fire of Triumph and tell me the year of the compaign noted there."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, auch dieses hast du gefunden. Komm zurück nun. Elesil'.", "While you are reading the book you see a note: 'Good, you found that too. Come back now. Elesil'."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Elesil und teile ihr mit die Jahreszahl der Kampagne.", "Go back to Elesil and tell her the year of the compaign."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

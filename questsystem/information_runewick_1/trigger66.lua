@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger66", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 111
-local POSTCONDITION_QUESTSTATE = 111
+local PRECONDITION_QUESTSTATE = 164
+local POSTCONDITION_QUESTSTATE = 94
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Diese Lampe sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Raum der Zwielicht! Sucht nach einer Zahl dort!"
-local NPC_REPLY_EN = "Let us test a lamp. Somewhere where it is dark. Room of Twilight! Look for a number there!"
+local NPC_TRIGGER_DE = "cheat"
+local NPC_TRIGGER_EN = "cheat"
+local NPC_REPLY_DE = "lalal"
+local NPC_REPLY_EN = "lalalla"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nun gehe zurück zu Elesil und berichte ihr die Nummer.", "Go back to Elesil and tell her the number."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Elesil um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Elesil to get your reward, since the fire is enlighted now."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

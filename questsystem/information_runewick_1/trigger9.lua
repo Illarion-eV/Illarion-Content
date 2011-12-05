@@ -4,13 +4,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger9", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 26
-local POSTCONDITION_QUESTSTATE = 29
+local PRECONDITION_QUESTSTATE = 46
+local POSTCONDITION_QUESTSTATE = 48
 
-local NPC_TRIGGER_DE = "Smaragd"
-local NPC_TRIGGER_EN = "Emerald"
-local NPC_REPLY_DE = "Gut, aber wir haben noch einen zweiten. Ist der auch bekannt? Rubin, Ametyst oder Schwarzstein?"
-local NPC_REPLY_EN = "Good, but we have a second. Do you also know it? Ruby, Amethyst or Blackstone?"
+local NPC_TRIGGER_DE = "[Cc]adomyr"
+local NPC_TRIGGER_EN = "[Cc]adomyr"
+local NPC_REPLY_DE = "Gut, und welche von Don Valerio Guilianni?"
+local NPC_REPLY_EN = "Good, and which one by Don Valerio Guilianni?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

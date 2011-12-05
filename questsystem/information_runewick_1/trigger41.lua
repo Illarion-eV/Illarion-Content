@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger41", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 31
-local POSTCONDITION_QUESTSTATE = 31
+local PRECONDITION_QUESTSTATE = 66
+local POSTCONDITION_QUESTSTATE = 169
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Wem darfen man hier sein Gehör schenken?"
-local NPC_REPLY_EN = "Whom do you have to obey here?"
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Die nächste Aufgabe findet ihr unter einen der Stühle am Dach des Turm der Erde."
+local NPC_REPLY_EN = "You can find your next task under one of the chairs on the top of the Tower of Earth."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, es betrifft den Herrscher dieser Fraktion.", "Answer the question to get more money and further questions. Hint: It is about the leader of this faction."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe auf das Dach des Turm der Erde und untersuche die Stühle dort.", "You can find your next task under one of the chairs on the top of the Tower of Earth."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -4,13 +4,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger38", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 25
-local POSTCONDITION_QUESTSTATE = 25
+local PRECONDITION_QUESTSTATE = 51
+local POSTCONDITION_QUESTSTATE = 51
 
-local NPC_TRIGGER_DE = "quest|task"
-local NPC_TRIGGER_EN = "quest|task"
-local NPC_REPLY_DE = "Welchen Turm betritt man nach dem man den Turm des Feuer ostwärts verlassen hat?"
-local NPC_REPLY_EN = "Which tower do you enter if you leave the Tower of Fire eastwards?"
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Wie heißt die Brücke die Runewick mit Eigental verbindet?"
+local NPC_REPLY_EN = "What is the name of the bridge that connects Runewick with Yewdale?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten.", "Answer the question to get more money and further questions."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Frage nach dem Hinterland", "Answer the question to get more money and further question. Hint: Ask for the hinterland."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

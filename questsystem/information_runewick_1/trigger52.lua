@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger52", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 79
+local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 79
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Ab in den Garten. Dort sind vier Säulen mit Elementen. Welches ist auf der linken Säule."
-local NPC_REPLY_EN = "Go to the garden and tell me name of the element on the left column there."
+local NPC_TRIGGER_DE = "cheat"
+local NPC_TRIGGER_EN = "cheat"
+local NPC_REPLY_DE = "lalal"
+local NPC_REPLY_EN = "lalalla"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

@@ -4,13 +4,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger19", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 53
-local POSTCONDITION_QUESTSTATE = 55
+local PRECONDITION_QUESTSTATE = 94
+local POSTCONDITION_QUESTSTATE = 158
 
-local NPC_TRIGGER_DE = "Irunnleh"
-local NPC_TRIGGER_EN = "Irunnleh"
-local NPC_REPLY_DE = "Gut, sie zu besuchen wird nicht von Schaden sein. Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zurück wenn du dies getan hast."
-local NPC_REPLY_EN = "Fine, it will be to your advance if you visit her. But now look for the Archmage to introduce yourself. Come back if you have done that."
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Ich sehe den Rauch. Dafür gibt es noch einen Ring. Nun, nächste Aufgabe: Wie alt könnte man die Frau die die Statue am Schrein der Elara sympolisiert schätzen?"
+local NPC_REPLY_EN = "I see the smoke, fine. There you have another ring. Now, next task.  How old would you guess is the woman that is symoblized by this statue at Elara's shrine?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Erzmagier, rede mit ihm und komme wieder zurück.", "Find the Archmage, speak with him and come back"):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 68, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Schrein der Elara und finde das erwünschte Alter heraus in dem du die Statuen dort betrachtest.", "Go to the shrine of Elara and figure out the required age through looking at statues there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

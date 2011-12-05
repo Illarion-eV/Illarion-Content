@@ -3,20 +3,17 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger25", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 79
-local POSTCONDITION_QUESTSTATE = 84
+local PRECONDITION_QUESTSTATE = 95
+local POSTCONDITION_QUESTSTATE = 107
 
-local POSITION = position(958, 788, 0)
+local POSITION = position(0, 0, 0)
 local RADIUS = 1
-local LOOKAT_TEXT_DE = "Die linke Säule trägt offensichtlich ein Feuerelement."
-local LOOKAT_TEXT_EN = "The left column bears an element of fire obviously."
 
-function LookAtItem(PLAYER, item)
+function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-
-    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
+    --informNLS(PLAYER, TEXT_DE, TEXT_EN)
     
     HANDLER(PLAYER)
     
@@ -27,17 +24,20 @@ function LookAtItem(PLAYER, item)
   return false
 end
 
-function itemInformNLS(player, item, textDe, textEn)
+function informNLS(player, textDe, textEn)
   if player:getPlayerLanguage() == Player.german then
-    world:itemInform(player, item, textDe)
+    player:inform(player, item, textDe)
   else
-    world:itemInform(player, item, textEn)
+    player:inform(player, item, textEn)
   end
 end
 
+-- local TEXT_DE = TEXT -- German Use Text -- Deutscher Text beim Benutzen
+-- local TEXT_EN = TEXT -- English Use Text -- Englischer Text beim Benutzen
+
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit welches Element du gefunden hast.", "Go to Elesil and tell her the kind of element you found."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, auch dieses hast du gefunden. Komm zurück nun. Elesil'.", "While you are reading the book you see a note: 'Good, you found that too. Come back now. Elesil'."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

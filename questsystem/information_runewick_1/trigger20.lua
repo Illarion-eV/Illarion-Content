@@ -1,61 +1,43 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger20", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 53
-local POSTCONDITION_QUESTSTATE = 55
+local PRECONDITION_QUESTSTATE = 86
+local POSTCONDITION_QUESTSTATE = 94
 
-local NPC_TRIGGER_DE = "Numila"
-local NPC_TRIGGER_EN = "Numila"
-local NPC_REPLY_DE = "Gut, sie zu besuchen wird nicht von Schaden sein. Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zurück wenn du dies getan hast."
-local NPC_REPLY_EN = "Fine, it will be to your advance if you visit her. But now look for the Archmage to introduce yourself. Come back if you have done that."
+local POSITION = position(860, 865, 0)
+local RADIUS = 1
+local LOOKAT_TEXT_DE = "Schön, das Feuer brennt."
+local LOOKAT_TEXT_EN = "Well, the fire is enlighted."
 
-function receiveText(type, text, PLAYER)
-    if ADDITIONALCONDITIONS(PLAYER)
-    and PLAYER:getType() == Character.player
-    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-        if PLAYER:getPlayerLanguage() == Player.german then
-            NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
-        else
-            NPC_TRIGGER=string.gsub(NPC_TRIGGER_EN,'([ ]+)',' .*');
-        end
+function LookAtItem(PLAYER, item)
+  if PLAYER:isInRangeToPosition(POSITION,RADIUS)
+      and ADDITIONALCONDITIONS(PLAYER)
+      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
 
-        foundTrig=false
-        
-        for word in string.gmatch(NPC_TRIGGER, "[^|]+") do 
-            if string.find(text,word)~=nil then
-                foundTrig=true
-            end
-        end
+    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
+    
+    HANDLER(PLAYER)
+    
+    questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+    return true
+  end
 
-        if foundTrig then
-      
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
-            
-            HANDLER(PLAYER)
-            
-            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
-        
-            return true
-        end
-    end
-    return false
+  return false
 end
 
-function getNLS(player, textDe, textEn)
+function itemInformNLS(player, item, textDe, textEn)
   if player:getPlayerLanguage() == Player.german then
-    return textDe
+    world:itemInform(player, item, textDe)
   else
-    return textEn
+    world:itemInform(player, item, textEn)
   end
 end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Erzmagier, rede mit ihm und komme wieder zurück.", "Find the Archmage, speak with him and come back"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Elesil um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Elesil to get your reward, since the fire is enlighted now."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

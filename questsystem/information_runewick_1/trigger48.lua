@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger48", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 55
-local POSTCONDITION_QUESTSTATE = 55
+local PRECONDITION_QUESTSTATE = 91
+local POSTCONDITION_QUESTSTATE = 91
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zurück wenn du dies getan hast."
-local NPC_REPLY_EN = "Look for the Archmage to introduce yourself. Come back if you have done that."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Findet das Geschichtsbuch von Runewick and liest darin."
+local NPC_REPLY_EN = "Find the histroy book of Runewick and read it."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Erzmagier, rede mit ihm und komme wieder zurück.", "Find the Archmage, speak with him and come back"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Such nach dem Geschichtsbuch von Runewick in einem der Bücherregalen.", "Find the history book of Runewick in one of the bookshelves."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

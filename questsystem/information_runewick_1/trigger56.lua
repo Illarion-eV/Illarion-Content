@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger56", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 91
-local POSTCONDITION_QUESTSTATE = 91
+local PRECONDITION_QUESTSTATE = 84
+local POSTCONDITION_QUESTSTATE = 84
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Findet das Geschichtsbuch von Runewick and liest darin."
-local NPC_REPLY_EN = "Find the histroy book of Runewick and read it."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Ab in den Garten. Dort sind vier Säulen mit Elementen. Welches ist auf der linken Säule."
+local NPC_REPLY_EN = "Go to the garden and tell me name of the element on the left column there."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Such nach dem Geschichtsbuch von Runewick in einem der Bücherregalen.", "Find the history book of Runewick in one of the bookshelves."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit welches Element du gefunden hast.", "Go to Elesil and tell her the kind of element you found."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

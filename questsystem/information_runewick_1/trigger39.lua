@@ -4,13 +4,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger39", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 26
-local POSTCONDITION_QUESTSTATE = 26
+local PRECONDITION_QUESTSTATE = 53
+local POSTCONDITION_QUESTSTATE = 53
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Welcher von diesen drei magischen Steinen gehört zu uns: Smaragd, Topaz oder Blaustein?"
-local NPC_REPLY_EN = "Which of these three magical stones does belong to us: Emerald, Topaz or Bluestone?"
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Wer kann dir hier mit Plätzen in der Gegend behilflich sein? "
+local NPC_REPLY_EN = "Whom can you ask if you want to know more about places around Runewick?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten.", "Answer the question to get more money and further questions."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Frage nach Plätzen.", "Answer the question to get more money and further questions. Hint: Ask for places."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

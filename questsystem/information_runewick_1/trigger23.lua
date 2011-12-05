@@ -3,20 +3,17 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger23", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 66
-local POSTCONDITION_QUESTSTATE = 73
+local PRECONDITION_QUESTSTATE = 91
+local POSTCONDITION_QUESTSTATE = 95
 
-local POSITION = position(954, 762, 5)
+local POSITION = position(0, 0, 0)
 local RADIUS = 1
-local LOOKAT_TEXT_DE = "Du findest eine Notiz 'Gefunden, gut! Bringe mir nun einen Apfel. Elesil'"
-local LOOKAT_TEXT_EN = "You find a note 'Found, good! Bring me an apple now. Elesil'"
 
-function LookAtItem(PLAYER, item)
+function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-
-    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
+    --informNLS(PLAYER, TEXT_DE, TEXT_EN)
     
     HANDLER(PLAYER)
     
@@ -27,17 +24,20 @@ function LookAtItem(PLAYER, item)
   return false
 end
 
-function itemInformNLS(player, item, textDe, textEn)
+function informNLS(player, textDe, textEn)
   if player:getPlayerLanguage() == Player.german then
-    world:itemInform(player, item, textDe)
+    player:inform(player, item, textDe)
   else
-    world:itemInform(player, item, textEn)
+    player:inform(player, item, textEn)
   end
 end
 
+-- local TEXT_DE = TEXT -- German Use Text -- Deutscher Text beim Benutzen
+-- local TEXT_EN = TEXT -- English Use Text -- Englischer Text beim Benutzen
+
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zu einem Apfelbaum deiner Wahl, pflucke einen Apfel und bringe diesen Elesil.", "Go to the appletree of your choice, pick an apple and bring it Elesil."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, und nun finde das Buch über unsere Fraktion. Elesil'.", "While you are reading the book you see a note: 'Good, and now find the book about our faction. Elesil'."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

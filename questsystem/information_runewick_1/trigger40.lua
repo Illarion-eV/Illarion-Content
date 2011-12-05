@@ -4,13 +4,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger40", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 29
-local POSTCONDITION_QUESTSTATE = 29
+local PRECONDITION_QUESTSTATE = 55
+local POSTCONDITION_QUESTSTATE = 55
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Welchen Stein haben wir noch? Rubin, Ametyst oder Schwarzstein?"
-local NPC_REPLY_EN = "Which stone do we also have? Ruby, Amethyst or Blackstone?"
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zurück wenn du dies getan hast."
+local NPC_REPLY_EN = "Look for the Archmage to introduce yourself. Come back if you have done that."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten.", "Answer the question to get more money and further questions."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Erzmagier, rede mit ihm und komme wieder zurück.", "Find the Archmage, speak with him and come back"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

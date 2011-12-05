@@ -1,15 +1,16 @@
+require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger36", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 111
-local POSTCONDITION_QUESTSTATE = 113
+local PRECONDITION_QUESTSTATE = 46
+local POSTCONDITION_QUESTSTATE = 46
 
-local NPC_TRIGGER_DE = "18"
-local NPC_TRIGGER_EN = "18"
-local NPC_REPLY_DE = "Gut, 18 BS wurde Runewick gegründet. Hier ein letztes Geschenk. Für weiter Auskunft stehe ich gerne zur Verfügung. Für weitere Aufträge empfiehlt es sich herumzufragen. "
-local NPC_REPLY_EN = "Good, 18 BS is the founding date of Runewick. Here your last gift. If you need more information, you can always ask me. For more tasks ask other folk."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Welche Fraktion wird von Königin Rosaline Edwards beherrscht?"
+local NPC_REPLY_EN = "Which faction is ruled by Queen Rosaline Edwards?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 97, 333, 1):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten.", "Answer the question to get more money and further questions."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -4,13 +4,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger11", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 31
-local POSTCONDITION_QUESTSTATE = 34
+local PRECONDITION_QUESTSTATE = 51
+local POSTCONDITION_QUESTSTATE = 53
 
-local NPC_TRIGGER_DE = "Erzmagier"
-local NPC_TRIGGER_EN = "Archmage"
-local NPC_REPLY_DE = "Richtig! Und wie heiﬂt die ÷rtlichkeit an der man ihn findet?"
-local NPC_REPLY_EN = "Right! And what is the name of the place where you can find him?"
+local NPC_TRIGGER_DE = "[Ll]urnord"
+local NPC_TRIGGER_EN = "[Ll]urnord"
+local NPC_REPLY_DE = "Auch richtig. Und nun die letzte Frage bevor wir mit ein paar Aufgaben beginnen. Wer kann dir hier mit Pl‰tzen in der Gegend behilflich sein? "
+local NPC_REPLY_EN = "Again correct. Now the last question before I give you some task. Whom can you ask if you want to know more about places around Runewick?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, die Halle befindet sich im Turm des Feuers.", "Answer the question to get more money and further questions. Hint: the hall can be found in the Tower of Fire."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Frage nach Pl‰tzen.", "Answer the question to get more money and further questions. Hint: Ask for places."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

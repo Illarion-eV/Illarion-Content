@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger44", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 46
-local POSTCONDITION_QUESTSTATE = 46
+local PRECONDITION_QUESTSTATE = 79
+local POSTCONDITION_QUESTSTATE = 79
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Welche Fraktion wird von Königin Rosaline Edwards beherrscht?"
-local NPC_REPLY_EN = "Which faction is ruled by Queen Rosaline Edwards?"
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Ab in den Garten. Dort sind vier Säulen mit Elementen. Welches ist auf der linken Säule."
+local NPC_REPLY_EN = "Go to the garden and tell me name of the element on the left column there."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten.", "Answer the question to get more money and further questions."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Garten nun - das rote Portal in der Stadt. Am hinteren Ende findest du die Säulen, die du ansehen musst.", "Go to the garden now - the red portal in the town. You find the columns at the end of the garden. You have to look at them then."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

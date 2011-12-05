@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger68", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 158
-local POSTCONDITION_QUESTSTATE = 158
+local PRECONDITION_QUESTSTATE = 169
+local POSTCONDITION_QUESTSTATE = 169
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Wie alt könnte man die Frau die die Statue am Schrein der Elara sympolisiert schätzen?"
-local NPC_REPLY_EN = "How old would you guess is the woman that is symoblized by this statue at Elara's shrine?"
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Die nächste Aufgabe findet ihr unter einen der Stühle am Dach des Turm der Erde."
+local NPC_REPLY_EN = "You can find your next task under one of the chairs on the top of the Tower of Earth."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 68, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Schrein der Elara und finde das erwünschte Alter heraus in dem du die Statuen dort betrachtest.", "Go to the shrine of Elara and figure out the required age through looking at statues there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe auf das Dach des Turm der Erde und untersuche die Stühle dort.", "You can find your next task under one of the chairs on the top of the Tower of Earth."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

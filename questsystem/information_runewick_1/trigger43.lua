@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger43", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 41
-local POSTCONDITION_QUESTSTATE = 41
+local PRECONDITION_QUESTSTATE = 91
+local POSTCONDITION_QUESTSTATE = 107
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Welchen dieser drei Götter beten wir hier an? Irmorom, Malachin oder Elara?"
-local NPC_REPLY_EN = "To whom of these gods do we pray?  Irmorom, Malachin or Elara?"
+local NPC_TRIGGER_DE = "cheat"
+local NPC_TRIGGER_EN = "cheat"
+local NPC_REPLY_DE = "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, auch dieses hast du gefunden. Komm zurück nun. Elesil'."
+local NPC_REPLY_EN = "While you are reading the book you see a note: 'Good, you found that too. Come back now. Elesil'."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten.", "Answer the question to get more money and further questions."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, auch dieses hast du gefunden. Komm zurück nun. Elesil'.", "While you are reading the book you see a note: 'Good, you found that too. Come back now. Elesil'."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

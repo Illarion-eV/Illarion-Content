@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger54", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 90
-local POSTCONDITION_QUESTSTATE = 90
+local PRECONDITION_QUESTSTATE = 86
+local POSTCONDITION_QUESTSTATE = 94
 
-local NPC_TRIGGER_DE = "quest"
-local NPC_TRIGGER_EN = "quest"
-local NPC_REPLY_DE = "Wie alt könnte man die Frau die die Statue am Schrein der Elara sympolisiert schätzen?"
-local NPC_REPLY_EN = "How old would you guess is the woman that is symoblized by this statue at Elara's shrine?"
+local NPC_TRIGGER_DE = "cheat"
+local NPC_TRIGGER_EN = "cheat"
+local NPC_REPLY_DE = "lalal"
+local NPC_REPLY_EN = "lalalla"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit wie alt die Frau die die Statue symbolisiert wirkt.", "Go to Elesil and tell her the age of the woman, symbolised by the statue."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Elesil um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Elesil to get your reward, since the fire is enlighted now."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
