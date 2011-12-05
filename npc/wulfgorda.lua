@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: December 03, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: December 05, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -269,8 +269,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("northeast");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Paldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock"));
-talkEntry:addResponse("I know following places: Elstree Forest, Elstree Plain, Eastland, Paldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock"));
+talkEntry:addResponse("I know following places: Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -372,13 +372,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Pauldron Isle");
+talkEntry:addTrigger("Pauldron");
 talkEntry:addResponse("The Pauldron Isle is east from Eastland. You find Tanora Ruins, Epphurd's Houses, the Graveyard, Skewer Drift and the former Pauldron Settlement there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Schulterplatten Insel");
+talkEntry:addTrigger("Schulterplatten");
 talkEntry:addResponse("Die Schulterplatten Insel ist östlich vom Ostland. Du findest die Tanora Ruinen, Epphurds Häuser, den Friedhof, der Spießstollen und die ehemalige Schulterplattensiedlung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
