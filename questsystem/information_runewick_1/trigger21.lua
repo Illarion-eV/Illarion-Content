@@ -8,8 +8,8 @@ local POSTCONDITION_QUESTSTATE = 100
 
 local POSITION = position(879, 759, 0)
 local RADIUS = 5
-local LOOKAT_TEXT_DE = "Zur Erinnerung an all jene Opfer dieser sinnlosen Kampagne in 30 BS zwischen Cadomyr und Galmair, welche nicht wiederbelebt werden konnten, weil ihr Körper versteckt wurden. Elara und das Feuer des Triumphes soll diesen Dummköpfen helfen ihre Kurzsichtigkeit zu überkommen."
-local LOOKAT_TEXT_EN = "In remembrance of all victims of the mindless campaign in 30 BS between Cadomyr and Galmair who we could not reanimate, because they hid their bodies. Elara and the Fire of Triumph may help those fools from them to overcome their shortsightedness."
+local LOOKAT_TEXT_DE = "Zur Erinnerung an all jene Opfer dieser sinnlosen Kampagne zwischen Cadomyr und Galmair in 30 BS. Elara und das Feuer des Triumphes sollen diesen rot-weißen und schwarz-blauen Dummköpfen helfen ihre Kurzsichtigkeit zu überkommen."
+local LOOKAT_TEXT_EN = " In remembrance of all victims of the mindless campaign between Cadomyr and Galmair in 30 BS. Elara and the Fire of Triumph may help those red-white and black-blue fools to overcome their short sightedness."
 
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
