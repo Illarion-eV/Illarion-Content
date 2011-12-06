@@ -1,13 +1,13 @@
 require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger62", package.seeall)
+module("questsystem.information_runewick_2.trigger6", package.seeall)
 
-local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 86
-local POSTCONDITION_QUESTSTATE = 94
+local QUEST_NUMBER = 10000
+local PRECONDITION_QUESTSTATE = 123
+local POSTCONDITION_QUESTSTATE = 132
 
-local POSITION = position(860, 865, 0)
-local RADIUS = 3
+local POSITION = position(904, 772, 5)
+local RADIUS = 0
 
 function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Elesil um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Elesil to get your reward, since the fire is enlighted now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle ist das Wort 'Eibental' zulesen. Es scheint nun Zeit zurück zu Numila.", "The word 'Yewdale' appears on the pell. It seems to be time to go back to Numila now."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
