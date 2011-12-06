@@ -7,7 +7,7 @@ local PRECONDITION_QUESTSTATE = 123
 local POSTCONDITION_QUESTSTATE = 132
 
 local POSITION = position(904, 773, 5)
-local RADIUS = 5
+local RADIUS = 0
 local LOOKAT_TEXT_DE = "Auf der Pergamentrolle ist das Wort 'Eibental' zulesen."
 local LOOKAT_TEXT_EN = "The word 'Yewdale' appears on the pell. "
 
