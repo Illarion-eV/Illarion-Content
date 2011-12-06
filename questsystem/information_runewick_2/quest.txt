@@ -19,7 +19,4 @@ npc,348,receiveText,trigger18
 item,333,UseItem,trigger19
 triggerfield,0,MoveToField,trigger20
 item,3109,UseItem,trigger21
-item,3109,LookAtItem,trigger22
-item,3109,UseItem,trigger23
-item,3109,UseItem,trigger24
-npc,348,receiveText,trigger25
+npc,348,receiveText,trigger22

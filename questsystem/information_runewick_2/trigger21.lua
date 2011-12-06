@@ -3,10 +3,10 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger21", package.seeall)
 
 local QUEST_NUMBER = 10000
-local PRECONDITION_QUESTSTATE = 158
-local POSTCONDITION_QUESTSTATE = 158
+local PRECONDITION_QUESTSTATE = 123
+local POSTCONDITION_QUESTSTATE = 132
 
-local POSITION = position(904, 772, 5)
+local POSITION = position(904, 773, 5)
 local RADIUS = 0
 
 function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
