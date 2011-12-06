@@ -7,7 +7,7 @@ local PRECONDITION_QUESTSTATE = 97
 local POSTCONDITION_QUESTSTATE = 100
 
 local POSITION = position(879, 759, 0)
-local RADIUS = 5
+local RADIUS = 10
 local LOOKAT_TEXT_DE = "Zur Erinnerung an all jene Opfer dieser sinnlosen Kampagne zwischen Cadomyr und Galmair in 30 BS. Elara und das Feuer des Triumphes sollen diesen rot-weißen und schwarz-blauen Dummköpfen helfen ihre Kurzsichtigkeit zu überkommen."
 local LOOKAT_TEXT_EN = " In remembrance of all victims of the mindless campaign between Cadomyr and Galmair in 30 BS. Elara and the Fire of Triumph may help those red-white and black-blue fools to overcome their short sightedness."
 
