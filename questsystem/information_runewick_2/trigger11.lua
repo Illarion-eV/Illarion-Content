@@ -2,14 +2,14 @@ require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("handler.eraseplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_2.trigger10", package.seeall)
+module("questsystem.information_runewick_2.trigger11", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 132
+local PRECONDITION_QUESTSTATE = 137
 local POSTCONDITION_QUESTSTATE = 137
 
-local NPC_TRIGGER_DE = ""
-local NPC_TRIGGER_EN = ""
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
 local NPC_REPLY_DE = ""
 local NPC_REPLY_EN = ""
 

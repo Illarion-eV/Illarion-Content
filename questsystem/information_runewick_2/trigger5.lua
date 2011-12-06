@@ -6,7 +6,7 @@ local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 118
 local POSTCONDITION_QUESTSTATE = 123
 
-local POSITION = position(904, 773, 5)
+local POSITION = position(904, 772, 5)
 
 function MoveToField( PLAYER )
     if ADDITIONALCONDITIONS(PLAYER)

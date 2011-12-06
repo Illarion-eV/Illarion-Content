@@ -1,10 +1,13 @@
 npc,348,receiveText,trigger1
 npc,348,receiveText,trigger2
 npc,348,receiveText,trigger3
-npc,348,receiveText,trigger4
+triggerfield,348,MoveToField,trigger4
 triggerfield,348,MoveToField,trigger5
-triggerfield,348,MoveToField,trigger6
+item,3109,UseItem,trigger6
 item,3109,UseItem,trigger7
 item,3109,UseItem,trigger8
 item,3109,UseItem,trigger9
-item,3109,UseItem,trigger10
+npc,348,receiveText,trigger10
+npc,348,receiveText,trigger11
+npc,348,receiveText,trigger12
+npc,348,receiveText,trigger13

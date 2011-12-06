@@ -2,16 +2,16 @@ require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
 require("handler.eraseplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_2.trigger10", package.seeall)
+module("questsystem.information_runewick_2.trigger13", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 132
+local PRECONDITION_QUESTSTATE = 118
 local POSTCONDITION_QUESTSTATE = 137
 
-local NPC_TRIGGER_DE = ""
-local NPC_TRIGGER_EN = ""
-local NPC_REPLY_DE = ""
-local NPC_REPLY_EN = ""
+local NPC_TRIGGER_DE = "Cheat"
+local NPC_TRIGGER_EN = "Cheat"
+local NPC_REPLY_DE = "lalal"
+local NPC_REPLY_EN = "allalal"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
