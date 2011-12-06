@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger18", package.seeall)
+module("questsystem.information_runewick_2.trigger10", package.seeall)
 
-local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 84
-local POSTCONDITION_QUESTSTATE = 86
+local QUEST_NUMBER = 10000
+local PRECONDITION_QUESTSTATE = 137
+local POSTCONDITION_QUESTSTATE = 142
 
-local NPC_TRIGGER_DE = "[Ff]euer"
-local NPC_TRIGGER_EN = "[Ff]ire"
-local NPC_REPLY_DE = "Feuer ist die richtige Antwort und hier gibt es ein Beil um eines zu machen. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei der Holzfäller Hütte."
-local NPC_REPLY_EN = "Fire is the right answer and here do have a hutchet to make one. A good place for one is at the firespot at the Woodcutter Hut."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Nach Eibental zum Leuchturm die Reiterstatuen zählen, sollt ihr gehen."
+local NPC_REPLY_EN = "You have to go to Yewdale to count the riderstatues on the top of the lighttower there."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zur Holzfäller Hütte im Süden. Dort findest du eine Feuerstelle bei einem Teich. Dort mache ein Lagerfeuer.", "Go to the Woodcutter Hut. You will find a firespot close at a little lake. Make a fire there."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 74, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

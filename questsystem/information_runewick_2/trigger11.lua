@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger18", package.seeall)
+module("questsystem.information_runewick_2.trigger11", package.seeall)
 
-local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 84
-local POSTCONDITION_QUESTSTATE = 86
+local QUEST_NUMBER = 10000
+local PRECONDITION_QUESTSTATE = 118
+local POSTCONDITION_QUESTSTATE = 118
 
-local NPC_TRIGGER_DE = "[Ff]euer"
-local NPC_TRIGGER_EN = "[Ff]ire"
-local NPC_REPLY_DE = "Feuer ist die richtige Antwort und hier gibt es ein Beil um eines zu machen. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei der Holzfäller Hütte."
-local NPC_REPLY_EN = "Fire is the right answer and here do have a hutchet to make one. A good place for one is at the firespot at the Woodcutter Hut."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Auf das Dach des Turm des Feuers mit euch!"
+local NPC_REPLY_EN = "Go to the top of the Tower of Fire!"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zur Holzfäller Hütte im Süden. Dort findest du eine Feuerstelle bei einem Teich. Dort mache ein Lagerfeuer.", "Go to the Woodcutter Hut. You will find a firespot close at a little lake. Make a fire there."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 74, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle steht geschrieben: \"Geht hoch an die Spitze des Turm des Feuers, stellt euch zwischen Säule des Feuers und Altar, und blickt in die Rolle. Die Rolle wird euch ein Zeichen geben sobald ihr richtig steht.\"", "Following is written on the poll: \"Go to the top of the Tower of Fire, stay between the column of fire and altar, and read the pell. The pell will tell you the right spot as soon as you stay there.\""):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

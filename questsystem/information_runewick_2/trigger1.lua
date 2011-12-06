@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger18", package.seeall)
+module("questsystem.information_runewick_2.trigger1", package.seeall)
 
-local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 84
-local POSTCONDITION_QUESTSTATE = 86
+local QUEST_NUMBER = 10000
+local PRECONDITION_QUESTSTATE = 0
+local POSTCONDITION_QUESTSTATE = 10
 
-local NPC_TRIGGER_DE = "[Ff]euer"
-local NPC_TRIGGER_EN = "[Ff]ire"
-local NPC_REPLY_DE = "Feuer ist die richtige Antwort und hier gibt es ein Beil um eines zu machen. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei der Holzfäller Hütte."
-local NPC_REPLY_EN = "Fire is the right answer and here do have a hutchet to make one. A good place for one is at the firespot at the Woodcutter Hut."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Eine Aufgabe wünscht ihr? Gut, ich halbe welche. Bringt mir doch zuerst eine Pergamentrolle, damit ich sie euch aufschreiben kann."
+local NPC_REPLY_EN = "A Task? Well, I have some. Bring me a pell, that I can write them down for you."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zur Holzfäller Hütte im Süden. Dort findest du eine Feuerstelle bei einem Teich. Dort mache ein Lagerfeuer.", "Go to the Woodcutter Hut. You will find a firespot close at a little lake. Make a fire there."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 74, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Bringe eine Pergamentrolle. Frage deinen Schreiner oder Händler deiner Wahl um Hilfe.", "Bring a pell. Ask a carpenter or trader of choice for help."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
