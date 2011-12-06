@@ -1,13 +1,13 @@
 require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_2.trigger7", package.seeall)
+module("questsystem.information_runewick_2.trigger20", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 132
-local POSTCONDITION_QUESTSTATE = 132
+local PRECONDITION_QUESTSTATE = 154
+local POSTCONDITION_QUESTSTATE = 148
 
-local POSITION = position(904, 773, 5)
-local RADIUS = 2
+local POSITION = position(814, 740, 0)
+local RADIUS = 10
 
 function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle ist das Wort 'Eibental' zulesen. Es scheint nun Zeit zurück zu Numila.", "The word 'Yewdale' appears on the pell. It seems to be time to go back to Numila now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du wirst zwar noch ein wenig üben müssen, aber man konnte dich gut hören. Geh nun zu Numila zurück", "You will have to practice more, but there was some noise at least. Go back to Numila now."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

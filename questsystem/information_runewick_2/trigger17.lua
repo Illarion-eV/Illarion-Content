@@ -1,17 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
-require("handler.eraseplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_2.trigger10", package.seeall)
+module("questsystem.information_runewick_2.trigger17", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 132
-local POSTCONDITION_QUESTSTATE = 137
+local PRECONDITION_QUESTSTATE = 118
+local POSTCONDITION_QUESTSTATE = 123
 
-local NPC_TRIGGER_DE = "Eibental"
-local NPC_TRIGGER_EN = "Yewdale"
-local NPC_REPLY_DE = "Richtig! Und es scheint meine neue Tinte scheint gut zu funktionieren mit Licht der Säule des Feuers. Hier habt ihr eure Belohnung die ihr noch brauchen werdet und eine weitere Aufgabe. Geht eben nach Eibental, klettert auf den Leuchturm, zählt die Reiterstatuen auf dem Dach."
-local NPC_REPLY_EN = "Very good! And it seems as my new ink seems good to work with the light of the Column of Fire. Here your reward that you might need later and a new task. Go to Yewdale, climb up the lighttower and count the riderstatues on the top."
+local NPC_TRIGGER_DE = "Cheat"
+local NPC_TRIGGER_EN = "Cheat"
+local NPC_REPLY_DE = "lalal"
+local NPC_REPLY_EN = "allalal"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -55,9 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 2658, 999, 1):execute()
-    handler.eraseplayeritem.erasePlayerItem(PLAYER, 3109, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du fühlst, wie die Pergamentrolle merklich schwerer wird.", "You feel that the pell becomes heavier."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

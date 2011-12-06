@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: December 05, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: December 06, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -846,13 +846,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Northern Outpost");
+talkEntry:addTrigger("Outpost");
 talkEntry:addResponse("This outpost is northeast from Yewdale at a bridge. We used it in the past to protect ourselves.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nördlicher Außenposten");
+talkEntry:addTrigger("Außenposten");
 talkEntry:addResponse("Dieser Außernposten liegt nordöstlich von Yewdale an einer Brücke. Wir verwendeten ihn in der Vergangenheit um uns zu schützen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

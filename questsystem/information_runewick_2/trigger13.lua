@@ -5,7 +5,7 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger13", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 118
+local PRECONDITION_QUESTSTATE = 123
 local POSTCONDITION_QUESTSTATE = 137
 
 local NPC_TRIGGER_DE = "Cheat"
@@ -55,8 +55,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "", ""):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 0, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 2658, 999, 1):execute()
     handler.eraseplayeritem.erasePlayerItem(PLAYER, 3109, 1):execute()
 end
 
