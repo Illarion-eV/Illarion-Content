@@ -9,6 +9,7 @@ module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(drui
 -- UPDATE common SET com_script='druid.item.id_329_black_bottle' WHERE com_itemid = 329;
 
 function DoDruidism(User,SourceItem)
+   potionData = tonumber(SourceItem:getData("potionData"));
    
    if User.effects:find(329) then
 	   User:inform("lte noch aktiv; wird entfernt");   
@@ -16,52 +17,174 @@ function DoDruidism(User,SourceItem)
 	   --return;
 	end	
 
---   Verwandlungszauber
-  if firsttime == nil then
-     ListCodecs = {}
-     ListRaces  = {}
-     ListRaceId = {}
-     ListCodecs = {77744151,65545555,32699619,54876565,61348438,75535555,58548893,45634355,75529399,44554428,18861363,26562174,47418515,58151138,22551786,72225438,99992352,38114786,95371655,71796337,87611881,31231973,14523375,46852135,37531813,85293266,86659455,51464953,97171535,77577615,11695753,62545579,81519773,95153618,52728756,91986793,19831914}
-     ListRaces  = {"Mensch","Zwerg","Halbling","Elb","Orc","Echse","Gnom","Oger","Mumie","Skelett","Beholder","Fliege","Schaf" ,"Spinne","Rotes Skelett","Rotwurm","Big Demon","Skorpion","Schwein","Unsichtbar","Schï¿½del","Wespe","Waldtroll","Geister-Skelett","SteinGolem","Goblin","Gnoll","Drache", "Drow","Drow-Frau","Kleiner Dämon","Kuh","Hirsch","Wolf","Panther","Hase","Gnom"}
-     ListRaceId = {0,1,2,3,4,5,6,9,10,11,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,44}
-     firsttime = 1
-  end
-  old_race = User:getRace()
-  potionData = tonumber(SourceItem:getData("potionData"));
-  for i=1,table.getn(ListCodecs) do
-     if potionData == ListCodecs[i] then
+   -- old values (so that the char can be changed back later)
+   old_race = User:getRace()
+   old_skincolor = User:getSkinColor()
+   old_haircolor = User:getHairColor()
+   old_sex = User:increaseAttrib("sex",0)
+   old_hair = User:getHair()
+   old_beard = User:getBeard()
+   old_height = User:increaseAttrib("body_height",0)
+   User:inform(""..old_height)
+   
+   -- first, the six races
+   ListCodecs1 = {}
+   ListRaceId1 = {}
+   ListSex1    = {}
+   ListCodecs1 = {15555555,25555555,51555555,52555555,55155555,55255555,55515555,55525555,55551555,55552555,55555155,55555255}
+   ListRaceId1 = {0       ,0       ,1       ,1       ,2       ,2       ,3       ,3       ,4       ,4       ,5       ,5       }
+   ListSex1    = {0       ,1       ,0       ,1       ,0       ,1       ,0       ,1       ,0       ,1       ,0       ,1       }
+   
+   for i=1,table.getn(ListCodecs1) do
+       if potionData == ListCodecs1[i] then
+  
+		   -- we create our lists with the different values for the six races
+		   -- 1 = human; 2 = dwarf; 3 = halfling; 4 = elf; 5 = orc; 6 = lizard
+		   -- note that the list numbers do not match the race ids! They are race Id + 1
+		   ListSkinColor = {}
+		   ListSkinColor[1] = {{248,198,137},{108,64,35},{244,231,139},{39,23,10},{247,207,156}}
+		   ListSkinColor[2] = {{248,198,137},{108,64,35},{244,231,139},{39,23,10},{247,207,156}}
+		   ListSkinColor[3] = {{248,198,137},{108,64,35},{244,231,139},{39,23,10},{247,207,156}}
+		   ListSkinColor[4] = {{250,238,238},{179,138,110},{245,230,139}}
+		   ListSkinColor[5] = {{153,136,67},{80,126,38},{39,39,39}}
+		   ListSkinColor[6] = {{79,98,42},{20,54,92},{242,76,62}}
+		   
+		   ListHairColor = {}
+		   ListHairColor[1] = {{255,204,0}{128,128,128}{162,77,0}{205,51,1}{126,59,14}}
+		   ListHairColor[2] = {{255,204,0}{128,128,128}{162,77,0}{205,51,1}{126,59,14}}
+		   ListHairColor[3] = {{255,204,0}{128,128,128}{162,77,0}{205,51,1}{126,59,14}}
+		   ListHairColor[4] = {{2,19,0},{255,249,7},{205,51,1}}
+		   ListHairColor[5] = {{153,1,0},{222,217,195},{72,36,0}}
+		   ListHairColor[6] = {{103,17,2},{1,1,0},{157,88,197}}
+		   
+		   ListBeard = {}
+		   ListBeard[1] = {0,1,3,4,5,6}
+		   ListBeard[2] = {0,1,1,2,2,4,4} -- 0 means no beard, therefore there is a "double" change for the other possibilities; dwarf without beard?
+      	   ListBeard[3] = {0}
+		   ListBeard[4] = {0}
+		   ListBeard[5] = {0}
+		   ListBeard[6] = {0}
+		   
+		   ListHairMale = {}
+		   ListHairMale[1] = {0,1,2,3}
+		   ListHairMale[2] = {0,1,2,3}
+		   ListHairMale[3] = {0,1,2}
+		   ListHairMale[4] = {1,2}
+		   ListHairMale[5] = {0,1,2,3,4,5}
+		   ListHairMale[6] = {1,2,3,4,5,6}
+		   
+		   ListHairFemale = {}
+		   ListHairFemale[1] = {1,7,8}
+		   ListHairFemale[2] = {1,7,9}
+		   ListHairFemale[3] = {1,2,9}
+		   ListHairFemale[4] = {1,7,8}
+		   ListHairFemale[5] = {1,7,8}
+		   ListHairFemale[6] = {1,2,3,4,5,6}
+	   
+	       --ListHeight = {}
+		   --ListHeight[1] = {math.random(,)}
+		   --ListHeight[2] = {math.random(,)}
+	       --ListHeight[3] = {math.random(,)}
+	       --ListHeight[4] = {math.random(,)}
+	       --ListHeight[5] = {math.random(,)}
+	       --ListHeight[6] = {math.random(,)}
+	   
+	       
+	       -- we put our new values together
+		   new_race = ListRaceId1[i]
+	       new_sex = ListSex1[i]
+	       if (new_race <= 1) and (new_sex == 0) then -- only male humans or dwarves get a beard
+	          new_beard = ListBeard[(new_race)+1][math.random(1,#ListBeard)]
+	       else
+		      new_beard = 0
+	       end
+	       if (new_sex) == 0 then
+		      new_hair = ListHairMale[(new_race)+1][math.random(1,#ListHairMale[(new_race)+1])]
+	       else
+		      new_hair = ListHairFemale[(new_race)+1][math.random(1,#ListHairFemale[(new_race)+1])]
+	          
+		   end
+	       new_haircolor = ListHairColor[(new_race)+1][math.random(1,#ListHairColor[(new_race)+1])]
+	       new_skincolor = ListSkinColor[(new_race)+1][math.random(1,#ListSkinColor[(new_race)+1])]
+		   --new_height = ListHeight[(new_race)+1][1]
+	   
+	       OnlyRace = 0 --this will tell us later that there are more values than just the race which have been changed
+	   end
+   end
+  
+   -- second, all the other monsters
+   ListCodecs2    = {}
+   ListRaceId2    = {}
+   ListCodecs2    = {95555555,59555555,55955555,55595555}
+   ListRaceID2    = {9       ,10      ,11      ,12      }
+   
+   for i=1,table.getn(ListCodecs2) do
+       if potionData == ListCodecs2[i] then
+        
+		  new_race = ListRaceId2[i]
+          OnlyRace = 1 -- this will tell us that there is only the race as a changed value
+       end
+   end
+   
+  
+   -- LTE and transformation
+   find, myEffect = User.effects:find(329)
+   
+   if not find then
+	  
+	  myEffect = LongTimeEffect(329,1)
+	  
+	  -- saving of the old values
+	  if OnlyRace == 0 then -- if there is more to save than new_race
+	     myEffect:addValue("old_sex",old_sex)
+	     myEffect:addValue("old_hair",old_hair)
+	     myEffect:addValue("old_beard",old_beard)
+	     myEffect:addValue("old_skincolor",old_skincolor)
+	     myEffect:addValue("old_haircolor",old_haircolor)
+	  end
+	  myEffect:addValue("old_race",old_race)
+	  --myEffect:addValue("old_height",old_height)
+	  
+	  -- saving the new values
+	  if OnlyRace == 0 then -- if there is more to save than new_race
+	     myEffect:addValue("new_sex",new_sex)
+	     myEffect:addValue("new_hair",new_hair)
+	     myEffect:addValue("new_beard",new_beard)
+	     myEffect:addValue("new_skincolor",new_skincolor)
+	     myEffect:addValue("new_haircolor",new_haircolor)
+	  end
+	  myEffect:addValue("new_race",new_race)
+	  --myEffect:addValue("old_height",old_height)
 
---      Hier kommt die Sache mit dem Langzeiteffekt:
-        find, myEffect = User.effects:find(329);
+	  myEffect:addValue("OnlyRace",OnlyRace)
+	  
+	  -- transformation
+	  if OnlyRace == 0 then
+	     User:setAttrib("sex",new_sex)
+	     User:setHair(new_hair)
+	     User:setBeard(new_beard)
+	     User:setSkinColor(new_skincolor)
+	     User:setHairColor(new_haircolor)
+	  end
+	  User:setAttrib("racetyp",new_race)
+	  --User:setAttrib("body_height",new_height)
+	  
+	  
+	  -- to make the changes visible
+	  old_hp = User:increaseAttrib("hitpoints",0)
+	  User:increaseAttrib("hitpoints",-1000)
+	  User:increaseAttrib("hitpoints",old_hp)
 
-        if not find then
+	  -- duration depends on the potion's quality
+	  durationt = 5 -- to be replaced with a formula with the potion's quality being the changeabale varibale
+	  myEffect:addValue("counterBlack",duration)
+	  
+	  myEffect:addValue("cooldownBlack",20) -- starts after the effect has ended
 
-           myEffect=LongTimeEffect(329,1);
---         Alten Wert sichern
-           myEffect:addValue("old_race",old_race)
-
---         Neuen Wert sichern
-           myEffect:addValue("new_race",ListRaceId[i])
---         Verwandlung ausfï¿½hren
-
-					 world:gfx(5,User.pos)
-           User:setAttrib("racetyp",ListRaceId[i])
-           old_hp = User:increaseAttrib("hitpoints",0)
-           User:increaseAttrib("hitpoints",-1000)
-           User:increaseAttrib("hitpoints",old_hp)
-           User:move(6,true)
-
---         Laufzeit nach Quality berechnen
-           myEffect:addValue("counterBlack",5)
-           myEffect:addValue("cooldownBlack",24)
-
---         Effekt an Char binden
-           User.effects:addEffect(myEffect);
-        end
-     end
-  end
-
+	  User.effects:addEffect(myEffect)
+   end
 end
+
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
 
@@ -124,15 +247,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	base.character.ChangeFightingpoints(User, -20);
 	world:makeSound(12,User.pos);
 	world:erase(SourceItem,1);
-	   if(math.random(20) == 1) then
-           base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
-        else
-            User:createItem(164, 1, 333, 0);
-        end
+	if(math.random(20) == 1) then
+       base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
+    else
+       User:createItem(164, 1, 333, 0);
+    end
 	DrinkPotion(User, SourceItem);
 end
 
---
 function LookAtItem(User,Item)
     
 
@@ -252,11 +374,11 @@ function LookAtItem(User,Item)
     else
 
       if (Item:getData("potionData") == "") then
-        EtikettDe = "Tinte"
-        EtikettEn = "Ink"
+         EtikettDe = "Tinte"
+         EtikettEn = "Ink"
       elseif (Item:getData("potionData") == "1") then
-        EtikettDe = "Janus-Trunk"
-        EtikettEn = "Janus Potion"
+         EtikettDe = "Janus-Trunk"
+         EtikettEn = "Janus Potion"
       end
     end
 
