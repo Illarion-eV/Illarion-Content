@@ -17,7 +17,8 @@ end
 
 function callEffect(Effect,User)                  -- Effect wird ausgeführt
 --User:inform("debug func callEffect")
-    findCounter,counterBlack = Effect:findValue("counterBlack")
+    User:inform("oneA")
+	findCounter,counterBlack = Effect:findValue("counterBlack")
     if findCounter then
 	  User:inform("one")
 	   if counterBlack > 0 then
