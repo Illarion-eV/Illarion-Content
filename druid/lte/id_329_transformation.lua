@@ -121,7 +121,7 @@ function loadEffect(Effect,User)
 		
 			findOnlyRace, OnlyRace = Effect:findValue("OnlyRace")
 			if findOnlyRace then
-			   if OnlyRace = 0 then
+			   if OnlyRace == 0 then
 				  
 				  findNew_sex, new_sex = Effect:findValue("new_sex")
 				  if findNew_sex then
