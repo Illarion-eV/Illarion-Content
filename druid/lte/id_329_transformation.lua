@@ -22,7 +22,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
     if findCounter then
 	  User:inform("one")
 	   User:inform(""..counterBlack)
-	   if counterBlack > 1 then
+	   if counterBlack => 1 then
 		  
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
 		  Effect:addValue("counterBlack",counterBlack)
