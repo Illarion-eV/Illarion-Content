@@ -176,7 +176,7 @@ function DoDruidism(User,SourceItem)
 	  User:increaseAttrib("hitpoints",old_hp)
 
 	  -- duration depends on the potion's quality
-	  durationt = 5 -- to be replaced with a formula with the potion's quality being the changeabale varibale
+	  duration = 5 -- to be replaced with a formula with the potion's quality being the changeabale varibale
 	  myEffect:addValue("counterBlack",duration)
 	  
 	  myEffect:addValue("cooldownBlack",20) -- starts after the effect has ended
