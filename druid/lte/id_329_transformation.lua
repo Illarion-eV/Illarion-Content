@@ -70,16 +70,16 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 					  end    
 				   end
 			
-			        findNew_race, new_race = Effect:findValue("new_race")	
-		            if findNew_race then
-			           User:setAttrib("racetyp",new_race)
+			        findOld_race, new_race = Effect:findValue("old_race")	
+		            if findOld_race then
+			           User:setAttrib("racetyp",old_race)
 		           else
 			           User:inform("LTE-Error 1: please call dev") 
 		           end
                    User:inform("two")
-		           -- findNew_height, new_height = Effect:findValue("new_height")
-		           --if findNew_race then
-			          --User:setAttrib("body_height",new_height) 
+		           -- findOld_height, new_height = Effect:findValue("old_height")
+		           --if findOld_race then
+			          --User:setAttrib("body_height",old_height) 
 		           --else
 			          --User:inform("LTE-Error 1: please call dev") 
 		           --end
