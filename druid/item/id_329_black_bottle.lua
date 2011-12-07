@@ -29,10 +29,10 @@ function DoDruidism(User,SourceItem)
    
    -- first, the six races
    ListCodecs1 = {}
-   ListRaceId1 = {}
+   ListRaceID1 = {}
    ListSex1    = {}
    ListCodecs1 = {15555555,25555555,51555555,52555555,55155555,55255555,55515555,55525555,55551555,55552555,55555155,55555255}
-   ListRaceId1 = {0       ,0       ,1       ,1       ,2       ,2       ,3       ,3       ,4       ,4       ,5       ,5       }
+   ListRaceID1 = {0       ,0       ,1       ,1       ,2       ,2       ,3       ,3       ,4       ,4       ,5       ,5       }
    ListSex1    = {0       ,1       ,0       ,1       ,0       ,1       ,0       ,1       ,0       ,1       ,0       ,1       }
    
    for i=1,table.getn(ListCodecs1) do
@@ -91,7 +91,7 @@ function DoDruidism(User,SourceItem)
 	   
 	       
 	       -- we put our new values together
-		   new_race = ListRaceId1[i]
+		   new_race = ListRaceID1[i]
 	       new_sex = ListSex1[i]
 	       if (new_race <= 1) and (new_sex == 0) then -- only male humans or dwarves get a beard
 	          new_beard = ListBeard[(new_race)+1][math.random(1,#ListBeard)]
@@ -114,14 +114,14 @@ function DoDruidism(User,SourceItem)
   
    -- second, all the other monsters
    ListCodecs2    = {}
-   ListRaceId2    = {}
+   ListRaceID2    = {}
    ListCodecs2    = {95555555,59555555,55955555,55595555}
    ListRaceID2    = {9       ,10      ,11      ,12      }
    
    for i=1,table.getn(ListCodecs2) do
        if potionData == ListCodecs2[i] then
         
-		  new_race = ListRaceId2[i]
+		  new_race = ListRaceID2[i]
           OnlyRace = 1 -- this will tell us that there is only the race as a changed value
        end
    end
