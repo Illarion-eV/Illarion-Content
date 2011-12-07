@@ -85,9 +85,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 			     User:inform("LTE-Error 1: please call dev") 
 			   end
 			end
-	        User:inform("return true")
-			return true
-	   
+	        
 	   else
 		   
 		   findCooldown,cooldownBlack = Effect:findValue("cooldownBlack")
@@ -109,7 +107,8 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
    end
 
    Effect.nextCalled = 50
-   
+   User:inform("return true")
+   return true
 end
 
 function removeEffect(Effect,USer)         
