@@ -25,20 +25,20 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 		  
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
 		  Effect:addValue("counterBlack",counterBlack)
-		   
+		   User:inform("oneB")
 		   if counterBlack == 0 then
 				-- the effect counter is down to zero; we change the char back
 			    findOnlyRace, OnlyRace = Effect:findValue("OnlyRace")
 			    if findOnlyRace then
 				    if OnlyRace == 0 then
-					
+					User:inform("oneBB")
 					  findOld_sex, old_sex = Effect:findValue("old_sex")
 					  if findOld_sex then
 						 User:setAttrib("sex",old_sex)
 					  else
 						 User:inform("LTE-Error 1: please call dev") 
 					  end
-					  
+					  User:inform("oneC")
 					  findOld_hair, old_hair = Effect:findValue("old_hair")
 					  if findOld_hair then
 						 User:setHair(old_hair)
@@ -85,6 +85,9 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 			     User:inform("LTE-Error 1: please call dev") 
 			   end
 			end
+	        User:inform("return true")
+			return true
+	   
 	   else
 		   
 		   findCooldown,cooldownBlack = Effect:findValue("cooldownBlack")
@@ -96,9 +99,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 				   cooldownBlack = cooldownBlack - 1;
 				   User:inform("cooldown - 1 = "..cooldownBlack)
 				   Effect:addValue("cooldownBlack",cooldownBlack)
-				   User:inform("return true")
-				   return true
-			   end
+				end
 		   else
 		      User:inform("LTE-Error 1: please call dev") 
 		   end
