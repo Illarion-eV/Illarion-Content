@@ -25,11 +25,11 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
 		  Effect:addValue("counterBlack",counterBlack)
 		   
-		   if counterBlack = 0 then
+		   if counterBlack == 0 then
 				-- the effect counter is down to zero; we change the char back
 			    findOnlyRace, OnlyRace = Effect:findValue("OnlyRace")
 			    if findOnlyRace then
-				    if OnlyRace = 0 then
+				    if OnlyRace == 0 then
 					
 					  findOld_sex, old_sex = Effect:findValue("old_sex")
 					  if findOld_sex then
