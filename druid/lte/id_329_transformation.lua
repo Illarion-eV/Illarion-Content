@@ -70,7 +70,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 					  end    
 				   end
 			
-			        findOld_race, new_race = Effect:findValue("old_race")	
+			        findOld_race, old_race = Effect:findValue("old_race")	
 		            if findOld_race then
 			           User:setAttrib("racetyp",old_race)
 		           else
