@@ -4,13 +4,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger7", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 10
-local POSTCONDITION_QUESTSTATE = 25
+local PRECONDITION_QUESTSTATE = 34
+local POSTCONDITION_QUESTSTATE = 41
 
-local NPC_TRIGGER_DE = "Runewick"
-local NPC_TRIGGER_EN = "Runewick"
-local NPC_REPLY_DE = "Sehr gut, hier nun die nächste Aufgabe, zum doppelten Preis. Welchen Turm betritt man nach dem man den Turm des Feuer ostwärts verlassen hat?"
-local NPC_REPLY_EN = "Very good, now your next task with the double reward. Which tower do you enter if you leave the Tower of Fire eastwards?"
+local NPC_TRIGGER_DE = "[Ee]lara"
+local NPC_TRIGGER_EN = "[Ee]lara"
+local NPC_REPLY_DE = "Sehr gut. Bevor wir mit dem praktischen Teil beginnen, noch ein paar mehr Fragen: Welchen dieser drei Götter beten wir hier an? Irmorom, Malachin oder Elara?"
+local NPC_REPLY_EN = "Very good. Bevor we start with the practical part, some more questions: To whom of these gods do we pray?  Irmorom, Malachin or Elara?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

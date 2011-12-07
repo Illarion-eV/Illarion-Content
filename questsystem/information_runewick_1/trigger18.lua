@@ -4,13 +4,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger18", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 51
-local POSTCONDITION_QUESTSTATE = 53
+local PRECONDITION_QUESTSTATE = 84
+local POSTCONDITION_QUESTSTATE = 86
 
-local NPC_TRIGGER_DE = "Lurnord"
-local NPC_TRIGGER_EN = "Lurnord"
-local NPC_REPLY_DE = "Auch richtig. Und nun die letzte Frage bevor wir mit ein paar Aufgaben beginnen. Wer kann dir hier mit Plätzen in der Gegend behilflich sein? "
-local NPC_REPLY_EN = "Again correct. Now the last question before I give you some task. Whom can you ask if you want to know more about places around Runewick?"
+local NPC_TRIGGER_DE = "[Ff]euer"
+local NPC_TRIGGER_EN = "[Ff]ire"
+local NPC_REPLY_DE = "Feuer ist die richtige Antwort und hier gibt es ein Beil um eines zu machen. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei der Holzfäller Hütte."
+local NPC_REPLY_EN = "Fire is the right answer and here do have a hutchet to make one. A good place for one is at the firespot at the Woodcutter Hut."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Frage nach Plätzen.", "Answer the question to get more money and further questions. Hint: Ask for places."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zur Holzfäller Hütte im Süden. Dort findest du eine Feuerstelle bei einem Teich. Dort mache ein Lagerfeuer.", "Go to the Woodcutter Hut. You will find a firespot close at a little lake. Make a fire there."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 74, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

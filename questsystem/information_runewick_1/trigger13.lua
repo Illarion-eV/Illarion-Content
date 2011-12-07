@@ -1,16 +1,15 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger13", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 31
-local POSTCONDITION_QUESTSTATE = 34
+local PRECONDITION_QUESTSTATE = 55
+local POSTCONDITION_QUESTSTATE = 61
 
-local NPC_TRIGGER_DE = "Morgan"
-local NPC_TRIGGER_EN = "Morgan"
-local NPC_REPLY_DE = "Richtig! Und wie heißt die Örtlichkeit an der man ihn findet?"
-local NPC_REPLY_EN = "Right! And what is the name of the place where you can find him?"
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Schön, dass ihr euren Weg nach Runewick gefunden habt. Möge euer Wissen hier gedeien und uns allen dienen."
+local NPC_REPLY_EN = "Wonderful, you found your way to Runewick. Your widsom may grow and serve each of us."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, die Halle befindet sich im Turm des Feuers.", "Answer the question to get more money and further questions. Hint: the hall can be found in the Tower of Fire."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit dem Archmage reden, aber auch zurück zu Elesil gehen.", "You can continue your conversation with the Archmage, or go back to Elesil"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

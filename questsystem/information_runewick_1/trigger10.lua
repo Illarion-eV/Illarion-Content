@@ -4,13 +4,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger10", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 29
-local POSTCONDITION_QUESTSTATE = 31
+local PRECONDITION_QUESTSTATE = 48
+local POSTCONDITION_QUESTSTATE = 51
 
-local NPC_TRIGGER_DE = "Rubin"
-local NPC_TRIGGER_EN = "Rubin"
-local NPC_REPLY_DE = "Wieder richtig und deshalb noch mehr Münzen! Und nun, wem darfen man hier sein Gehör schenken?"
-local NPC_REPLY_EN = "Right again and therefore more coins for you! And now, who do you have to obey here?"
+local NPC_TRIGGER_DE = "[Gg]almair"
+local NPC_TRIGGER_EN = "[Gg]almair"
+local NPC_REPLY_DE = "Nun eine Frage zu den Lokalitäten hier. Wie heißt die Brücke die Runewick mit Eigental verbindet?"
+local NPC_REPLY_EN = "Now, a question about locations here. What is the name of the bridge that connects Runewick with Yewdale?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, es betrifft den Herrscher dieser Fraktion.", "Answer the question to get more money and further questions. Hint: It is about the leader of this faction."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Frage nach dem Hinterland", "Answer the question to get more money and further question. Hint: Ask for the hinterland."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

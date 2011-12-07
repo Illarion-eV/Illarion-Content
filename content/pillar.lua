@@ -418,7 +418,7 @@ function InitPillar()
 	AddPillar({901,824,4},"","", 2, 5);
 	AddPillar({910,827,4},"","", 2, 5);
     AddPillar({909,826,3},"","", 2, 5); ]]--
-    AddPillar({905,824,2},"","A tall and ageless woman rises one of her fingers as she has to mention her advice. In her other hand she holds some books and scrolls.", 2, 0); --elara shrine
+    AddPillar({905,824,2},"Eine große, alterlos Frau hebt ihren Finger als gäbe sie einen Rat. In ihrer anderen Hand hält sie einige Bücher und Schriftrollen.","A tall and ageless woman rises one of her fingers as she has to mention her advice. In her other hand she holds some books and scrolls.", 2, 0); --elara shrine
     --[[AddPillar({910,828,2},"","", 1, 5); --elara shrine
     AddPillar({910,830,2},"","", 1, 5); --elara shrine
     AddPillar({910,827,1},"","", 2, 5);

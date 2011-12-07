@@ -4,13 +4,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger14", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 34
-local POSTCONDITION_QUESTSTATE = 41
+local PRECONDITION_QUESTSTATE = 61
+local POSTCONDITION_QUESTSTATE = 66
 
-local NPC_TRIGGER_DE = "Elara"
-local NPC_TRIGGER_EN = "Elara"
-local NPC_REPLY_DE = "Sehr gut. Bevor wir mit dem praktischen Teil beginnen, noch ein paar mehr Fragen: Welchen dieser drei Götter beten wir hier an? Irmorom, Malachin oder Elara?"
-local NPC_REPLY_EN = "Very good. Bevor we start with the practical part, some more questions: Do whom of these gods to we pray?  Irmorom, Malachin or Elara?"
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Ich hoffe ihr habt die Audienz genossen. Hier ein Ring zur Erinnerung an diese Begegnung mit ihm. Die ächste Aufgabe findet ihr unter einen der Stühle am Dach des Turm der Erde."
+local NPC_REPLY_EN = "I hope you enjoyed the audience. Here a ring in memory of this meeting with him. You can find your next task under one of the chairs on the top of the Tower of Earth."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten.", "Answer the question to get more money and further questions."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 281, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe auf das Dach des Turm der Erde und untersuche die Stühle dort.", "Go the top of the Tower of Earth and examine the chairs there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
