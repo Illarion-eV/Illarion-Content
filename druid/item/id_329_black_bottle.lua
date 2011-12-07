@@ -106,10 +106,10 @@ function DoDruidism(User,SourceItem)
 		   end
 	       
 		   Step1HC = ListHairColor[(new_race)+1][math.random(1,#ListHairColor[(new_race)+1])]
-	       new_haircolor = ((Step1HC[1]),(Step1HC[2]),(Step1HC[3]))
+	       new_haircolor = (Step1HC[1],Step1HC[2],Step1HC[3])
 		   
 		   Step1SC = ListSkinColor[(new_race)+1][math.random(1,#ListSkinColor[(new_race)+1])]
-		   new_skincolor = ((Step1SC[1]),(Step1SC[2]),(Step1SC[3]))
+		   new_skincolor = (Step1SC[1],Step1SC[2],Step1SC[3])
 		   
 		   --new_height = ListHeight[(new_race)+1][1]
 	   
