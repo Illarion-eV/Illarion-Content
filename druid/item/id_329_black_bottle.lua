@@ -179,7 +179,7 @@ function DoDruidism(User,SourceItem)
 	  duration = 5 -- to be replaced with a formula with the potion's quality being the changeabale varibale
 	  myEffect:addValue("counterBlack",duration)
 	  
-	  myEffect:addValue("cooldownBlack",20) -- starts after the effect has ended
+	  myEffect:addValue("cooldownBlack",5) -- starts after the effect has ended
 
 	  User.effects:addEffect(myEffect)
    end

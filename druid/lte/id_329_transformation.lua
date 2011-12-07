@@ -21,11 +21,12 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 	findCounter,counterBlack = Effect:findValue("counterBlack")
     if findCounter then
 	  User:inform("one")
-	   User:inform(""..counterBlack)
+	   User:inform("davor: "..counterBlack)
 	   if counterBlack >= 1 then
 		  
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
 		  Effect:addValue("counterBlack",counterBlack)
+		   User:inform("danach: "..counterBlack)
 		   User:inform("oneB")
 		   if counterBlack == 0 then
 				-- the effect counter is down to zero; we change the char back
