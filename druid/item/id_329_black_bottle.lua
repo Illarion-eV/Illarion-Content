@@ -42,7 +42,7 @@ function DoDruidism(User,SourceItem)
 		   -- 1 = human; 2 = dwarf; 3 = halfling; 4 = elf; 5 = orc; 6 = lizard
 		   -- note that the list numbers do not match the race ids! They are race Id + 1
 		   ListSkinColor = {}
-		   ListSkinColor[1] = {(248,198,137),(108,64,35),(244,231,139),(39,23,10),(247,207,156)}
+		   ListSkinColor[1] = {{248,198,137},{108,64,35},{244,231,139},{39,23,10},{247,207,156}}
 		   ListSkinColor[2] = {{248,198,137},{108,64,35},{244,231,139},{39,23,10},{247,207,156}}
 		   ListSkinColor[3] = {{248,198,137},{108,64,35},{244,231,139},{39,23,10},{247,207,156}}
 		   ListSkinColor[4] = {{250,238,238},{179,138,110},{245,230,139}}
@@ -104,8 +104,13 @@ function DoDruidism(User,SourceItem)
 		      new_hair = ListHairFemale[(new_race)+1][math.random(1,#ListHairFemale[(new_race)+1])]
 	          
 		   end
-	       new_haircolor = ListHairColor[(new_race)+1][math.random(1,#ListHairColor[(new_race)+1])]
-	       new_skincolor = ListSkinColor[(new_race)+1][math.random(1,#ListSkinColor[(new_race)+1])]
+	       
+		   Step1HC = ListHairColor[(new_race)+1][math.random(1,#ListHairColor[(new_race)+1])]
+	       new_haircolor = (Step1HC[1],Step1HC[2],Step1HC[3])
+		   
+		   Step1SC = ListSkinColor[(new_race)+1][math.random(1,#ListSkinColor[(new_race)+1])]
+		   new_skincolor = (Step1SC[1],Step1SC[2],Step1SC[3])
+		   
 		   --new_height = ListHeight[(new_race)+1][1]
 	   
 	       OnlyRace = 0 --this will tell us later that there are more values than just the race which have been changed
