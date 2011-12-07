@@ -252,7 +252,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     else
        User:createItem(164, 1, 333, 0);
     end
-	DrinkPotion(User, SourceItem);
+	DoDruidism(User, SourceItem);
 end
 
 function LookAtItem(User,Item)
