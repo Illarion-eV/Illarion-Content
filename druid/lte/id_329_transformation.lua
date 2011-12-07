@@ -19,7 +19,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 --User:inform("debug func callEffect")
     findCounter,counterBlack = Effect:findValue("counterBlack")
     if findCounter then
-	
+	  User:inform("one")
 	   if counterBlack > 0 then
 		  
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
@@ -73,7 +73,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 		           else
 			           User:inform("LTE-Error 1: please call dev") 
 		           end
-
+                   User:inform("two")
 		           -- findNew_height, new_height = Effect:findValue("new_height")
 		           --if findNew_race then
 			          --User:setAttrib("body_height",new_height) 
