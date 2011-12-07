@@ -21,6 +21,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 	findCounter,counterBlack = Effect:findValue("counterBlack")
     if findCounter then
 	  User:inform("one")
+	   User:inform(""..counterBlack)
 	   if counterBlack > 0 then
 		  
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
