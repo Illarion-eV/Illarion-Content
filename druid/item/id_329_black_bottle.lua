@@ -187,7 +187,7 @@ end
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-
+    character:inform("bin ich ein bug?")
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	
