@@ -66,8 +66,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd, Diamant und Rubin nach Galmair und suche die restliche Person.", "Go with the received emerald, diamond and rubin to Galmair and look for the remaining person there."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 46, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd, Diamant und Topas nach Galmair und suche die restliche Person.", "Go with the received emerald, diamond and topaz to Galmair and look for the remaining person there."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 198, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

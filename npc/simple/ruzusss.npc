@@ -160,6 +160,8 @@ itemShoes = 369
 "Einsame Berge" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
 "Galmair Plateau" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
 "Galmair Hochebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+"Lotta","Medborgar",english -> "Die findet man in Galmair und die weiß sämtliche Orte im Nordwesten, sprich um Galmair."
+"Lotta","Medborgar" -> "You can find her in Galmair and he knows several places in the northwest, thus around Galmair."
 
 --southwest
 "Shadowland" -> "It has two entrances. One at the Malachite mine, one at the southwest of the Border Mountains. No one has ever passed it. It is very dangerous there. The gate, therefore, is looked and only the faction leaders know how to enter."
@@ -294,6 +296,8 @@ itemShoes = 369
 "Frische Sümpfe" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
 "Yewdale" -> "Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick."
 "Eibental" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
+"Numila","Irunnleh",english -> "Die findet man in Runewick und die weiß sämtliche Orte im Südosten, sprich um Runewick."
+"Numila","Irunnleh" -> "You can find her in Runewick and he knows several places in the southeast, thus around Runewick."
 
 -- Faction stuff
 "archmage" -> "The archmage ownsss two ssstonesss of power. Thessse are an Emerald and a Ruby. They protect Runewick to get beaten by our forcesss."

@@ -66,8 +66,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd und Rubin nach Galmair und zum Gasthof Hanfschlinge und suche die restlichen Personen. ", "Go with the received emerald and ruby to Galmair and the Hemp Necktie Inn and look for these remaining persons there."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 46, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd und Topas nach Galmair und zum Gasthof Hanfschlinge und suche die restlichen Personen. ", "Go with the received emerald and topaz to Galmair and the Hemp Necktie Inn and look for these remaining persons there."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 198, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

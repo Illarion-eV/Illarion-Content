@@ -67,7 +67,7 @@ end
 
 function HANDLER(PLAYER)
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Da du nun alle Steine zusammen hast, ist an der Zeit zu Numila zurückzukehren.", "Since you have all stones together, it is time to go back to Numila."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 46, 333, 1):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 198, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
