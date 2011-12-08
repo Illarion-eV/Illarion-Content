@@ -2,7 +2,7 @@ require("handler.sendmessagetoplayer")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger6", package.seeall)
 
-local QUEST_NUMBER = 10000
+local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 123
 local POSTCONDITION_QUESTSTATE = 132
 

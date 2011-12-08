@@ -3,7 +3,7 @@ require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger28", package.seeall)
 
-local QUEST_NUMBER = 10000
+local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 148
 local POSTCONDITION_QUESTSTATE = 184
 
