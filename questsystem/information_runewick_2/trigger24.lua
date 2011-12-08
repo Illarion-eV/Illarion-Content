@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zur Feuerstelle am Nördlichen Außenposten und verwende das erhaltene Horn dort.", "Go the campfire at the Northern Outpost and use the horn there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
