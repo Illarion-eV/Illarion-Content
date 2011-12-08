@@ -1,5 +1,5 @@
 require("handler.sendmessagetoplayer")
-require("handler.eraseplayeritem")
+require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger9", package.seeall)
 
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.eraseplayeritem.erasePlayerItem(PLAYER, 3109, 1):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 2658, 999, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
 end
 
