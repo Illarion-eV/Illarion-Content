@@ -33,7 +33,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if CheckBottle == 164 then
 	   
 	   User:inform(""..User.lastSpokenText)
-	   User:setAttrib("racetyp",User.lastSpokenText)
+	   User:setAttrib("racetyp",tonumber(User.lastSpokenText))
 	   old_hp = User:increaseAttrib("hitpoints",0)
 	   User:increaseAttrib("hitpoints",-1000)
 	   User:increaseAttrib("hitpoints",old_hp)
