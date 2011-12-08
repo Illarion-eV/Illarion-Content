@@ -11,6 +11,10 @@ module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(drui
 function DoDruidism(User,SourceItem)
    potionData = tonumber(SourceItem:getData("potionData"));
    
+   ListTest = {}
+   ListTest[1] = {3,4,5}
+   User:inform(""..ListTest[1][2])
+   
    if User.effects:find(329) then
 	   User:inform("lte noch aktiv; wird entfernt");   
 	   User.effects:removeEffect(329)
