@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 142
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Nach Eibental zum Leuchturm die Reiterstatuen zählen, sollt ihr gehen."
+local NPC_REPLY_DE = "Iht sollt nach Eibental zum Leuchturm die Reiterstatuen zählen gehen."
 local NPC_REPLY_EN = "You have to go to Yewdale to count the riderstatues on the top of the lighttower there."
 
 function receiveText(type, text, PLAYER)
