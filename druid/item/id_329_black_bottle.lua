@@ -110,7 +110,9 @@ function DoDruidism(User,SourceItem)
 		   User:inform("haircolor: "..new_haircolor)
 		   
 		   Step1SC = ListSkinColor[(new_race)+1][math.random(1,#ListSkinColor[(new_race)+1])]
-		   new_skincolor = (Step1SC[1],Step1SC[2],Step1SC[3])
+		   new_skincolor = Step1SC[1]
+		   User:inform("skincolor: "..new_skincolor)
+		   return
 		   
 		   --new_height = ListHeight[(new_race)+1][1]
 	   
