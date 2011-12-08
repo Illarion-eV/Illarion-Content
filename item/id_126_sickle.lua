@@ -28,6 +28,17 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	-- function end
 	
+	-- yet another testing thing
+	local CheckBottle = base.common.GetFrontItemID(User)
+	if checkBottle == 164 then
+	   local newRace = User.lastSpokenText
+	   User:setAttrib("racetyp",newRace)
+	   old_hp = User:increaseAttrib("hitpoints",0)
+	   User:increaseAttrib("hitpoints",-1000)
+	   User:increaseAttrib("hitpoints",old_hp)
+	end
+	-- testing end
+	
 	content.gathering.InitGathering();
 	InitHerblore();
 	
