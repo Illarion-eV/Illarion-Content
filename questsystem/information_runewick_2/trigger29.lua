@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 185
 local POSITION = position(924, 940, 0)
 local RADIUS = 1
 
-function MoveItemBeforeMove(PLAYER, item, itemAfter)
+function MoveItemAfterMove(PLAYER, itemBefore, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,8 +32,8 @@ function informNLS(player, textDe, textEn)
   end
 end
 
--- local TEXT_DE = TEXT -- German Text before movement -- Deutscher Text vor Bewegung
--- local TEXT_EN = TEXT -- English Text before movement -- Englischer Text vor Bewegung
+-- local TEXT_DE = TEXT -- German Text after movement -- Deutscher Text nach Bewegung
+-- local TEXT_EN = TEXT -- English Text after movement -- Englischer Text nach Bewegung
 
 
 function HANDLER(PLAYER)
