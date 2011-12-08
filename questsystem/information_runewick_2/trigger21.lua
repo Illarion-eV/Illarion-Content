@@ -2,7 +2,7 @@ require("handler.sendmessagetoplayer")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger21", package.seeall)
 
-local QUEST_NUMBER = 10000
+local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 123
 local POSTCONDITION_QUESTSTATE = 132
 
@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle ist das Wort 'Eibental' zulesen. Es scheint nun Zeit zurück zu Numila.", "The word 'Yewdale' appears on the pell. It seems to be time to go back to Numila now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle ist das Wort 'Eibental' zulesen. Es scheint nun Zeit zurück zu Numila zu gehen und ihr das gesagt Wort zu nennen.", "The word 'Yewdale' appears on the pell. It seems to be time to go back to Numila now and to tell her the noted word."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
