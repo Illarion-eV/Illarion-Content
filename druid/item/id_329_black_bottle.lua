@@ -50,6 +50,7 @@ function DoDruidism(User,SourceItem)
 		   ListSkinColor[6] = {{79,98,42},{20,54,92},{242,76,62}}
 		   
 		   User:inform("SkinColorList: "..ListSkinColor[1][2][2])
+		   return
 		   
 		   ListHairColor = {}
 		   ListHairColor[1] = {{255,204,0},{128,128,128},{162,77,0},{205,51,1},{126,59,14}}
@@ -58,9 +59,6 @@ function DoDruidism(User,SourceItem)
 		   ListHairColor[4] = {{2,19,0},{255,249,7},{205,51,1}}
 		   ListHairColor[5] = {{153,1,0},{222,217,195},{72,36,0}}
 		   ListHairColor[6] = {{103,17,2},{1,1,0},{157,88,197}}
-		   
-		   User:inform("SkinHairList: "..ListHairColor[6][1][3])
-		   return
 		   
 		   ListBeard = {}
 		   ListBeard[1] = {0,1,3,4,5,6}
