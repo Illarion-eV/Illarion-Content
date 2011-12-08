@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: December 05, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: December 08, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -623,6 +623,21 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair Hochebene");
 talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lotta");
+talkEntry:addTrigger("Medborgar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Die findet man in Galmair und die weiß sämtliche Orte im Nordwesten, sprich um Galmair.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lotta");
+talkEntry:addTrigger("Medborgar");
+talkEntry:addResponse("You can find her in Galmair and he knows several places in the northwest, thus around Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1385,6 +1400,21 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eibental");
 talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Numila");
+talkEntry:addTrigger("Irunnleh");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Die findet man in Runewick und die weiß sämtliche Orte im Südosten, sprich um Runewick.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Numila");
+talkEntry:addTrigger("Irunnleh");
+talkEntry:addResponse("You can find her in Runewick and he knows several places in the southeast, thus around Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

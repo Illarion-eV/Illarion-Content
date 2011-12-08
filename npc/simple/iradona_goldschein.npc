@@ -198,10 +198,10 @@ itemShoes = 369
 "Schattenland" -> "Ein gefährlicher Platz am südlichen Ende der Malachit Mine. Geh nicht alleine dort hin. Für mehr Information frage jemanden anderen."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "IN PROGRESS."
-"quest", "mission" -> "IN ARBEIT."
-"task", "adventure", "order" -> "IN PROGRESS."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+--"quest", "mission", english -> "IN PROGRESS."
+--"quest", "mission" -> "IN ARBEIT."
+--"task", "adventure", "order" -> "IN PROGRESS."
+--"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
 
 -- Faction stuff
 "archmage" -> "Arrgh! The ruler of Runewick and I do not care about him! Just bring his head to the Don."
