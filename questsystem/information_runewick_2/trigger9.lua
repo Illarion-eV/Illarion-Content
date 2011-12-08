@@ -1,6 +1,5 @@
 require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
-require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger9", package.seeall)
 
@@ -10,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 137
 
 local NPC_TRIGGER_DE = "Eibental"
 local NPC_TRIGGER_EN = "Yewdale"
-local NPC_REPLY_DE = "Richtig! Und meine neue Tinte scheint gut zu funktionieren mit dem Licht der Säule des Feuers. Hier habt ihr eure Belohnung und eine weitere Aufgabe. Geht eben nach Eibental, klettert auf den Leuchturm, und zählt die Reiterstatuen auf dem Dach."
+local NPC_REPLY_DE = "Richtig! Und meine neue Tinte scheint gut zu funktionieren mit dem Licht der Säule des Feuers. Hier habt ihr eure Belohnung und eine weitere Aufgabe. Geht eben nach Eibental, klettert auf den Leuchtturm, und zählt die Reiterstatuen auf dem Dach."
 local NPC_REPLY_EN = "Very good! Andmy new ink seems good to work with the light of the Column of Fire. Here your reward and a new task. Go to Yewdale, climb up the lighttower and count the riderstatues on the top."
 
 function receiveText(type, text, PLAYER)
@@ -55,7 +54,6 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.eraseplayeritem.erasePlayerItem(PLAYER, 3109, 1):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 2658, 999, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
 end
