@@ -12,7 +12,7 @@ function DoDruidism(User,SourceItem)
    potionData = tonumber(SourceItem:getData("potionData"));
    
    ListTest = {}
-   ListTest[1] = {{3,4,5},{7,8,9}}
+   ListTest[1] = {1={3,4,5},2={7,8,9}}
    User:inform(""..ListTest[1][2][1])
    return
    
