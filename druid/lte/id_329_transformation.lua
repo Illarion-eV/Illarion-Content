@@ -55,19 +55,19 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 						 User:inform("LTE-Error 1: please call dev") 
 					  end
 					  
-					  findOld_skincolor, old_skincolor = Effect:findValue("old_skincolor")
-					  if findOld_skincolor then
-						 User:setSkinColor(old_skincolor)
-					  else
-						 User:inform("LTE-Error 1: please call dev") 
-					  end
+					  --findOld_skincolor, old_skincolor = Effect:findValue("old_skincolor")
+					  --if findOld_skincolor then
+						-- User:setSkinColor(old_skincolor)
+					 -- else
+						-- User:inform("LTE-Error 1: please call dev") 
+					  --end
 					  
-					  findOld_haircolor, old_haircolor = Effect:findValue("old_haircolor")
-					  if findOld_haircolor then
-						 User:setHairColor(old_haircolor)
-					  else
-						 User:inform("LTE-Error 1: please call dev") 
-					  end    
+					  --findOld_haircolor, old_haircolor = Effect:findValue("old_haircolor")
+					  --if findOld_haircolor then
+						-- User:setHairColor(old_haircolor)
+					  --else
+						 --User:inform("LTE-Error 1: please call dev") 
+					 -- end    
 				   end
 			
 			        findOld_race, old_race = Effect:findValue("old_race")	
