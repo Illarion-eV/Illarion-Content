@@ -31,9 +31,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- yet another testing thing
 	local CheckBottle = base.common.GetFrontItemID(User)
 	if CheckBottle == 164 then
-	   local newRace = User.lastSpokenText
-	   User:inform(""..newRace)
-	   User:setAttrib("racetyp",newRace)
+	   
+	   User:inform(""..User.lastSpokenText)
+	   User:setAttrib("racetyp",User.lastSpokenText)
 	   old_hp = User:increaseAttrib("hitpoints",0)
 	   User:increaseAttrib("hitpoints",-1000)
 	   User:increaseAttrib("hitpoints",old_hp)
