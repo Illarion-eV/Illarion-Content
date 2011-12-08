@@ -11,6 +11,14 @@ module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(drui
 function DoDruidism(User,SourceItem)
    potionData = tonumber(SourceItem:getData("potionData"));
    
+   -- testing skin- and haircolor
+     old_skincolor = User:getSkinColor()
+     User:inform("skin color: "..old_skincolor)
+	 old_haircolor = User:getHairColor()
+     User:inform("hair color: "..old_haircolor)
+   -- test end
+   
+   
    if User.effects:find(329) then
 	   User:inform("lte noch aktiv; wird entfernt");   
 	   User.effects:removeEffect(329)
