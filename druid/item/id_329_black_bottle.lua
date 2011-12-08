@@ -16,6 +16,16 @@ function DoDruidism(User,SourceItem)
      User:inform("skin color: "..old_skincolor)
 	 old_haircolor = User:getHairColor()
      User:inform("hair color: "..old_haircolor)
+   
+     User:setSkinColor(0,0,0)
+	 User:inform("new skin: "..User:getSkinColor())
+   
+     User:serHairColor(0,0,0)
+	 User:inform("new hair: "..User:getHairColor())
+      
+	  User:increaseAttrib("hitpoints",-1000)
+	  User:increaseAttrib("hitpoints",800)
+   
    -- test end
    
    
