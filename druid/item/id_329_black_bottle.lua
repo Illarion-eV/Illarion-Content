@@ -102,17 +102,16 @@ function DoDruidism(User,SourceItem)
 		      new_hair = ListHairMale[(new_race)+1][math.random(1,#ListHairMale[(new_race)+1])]
 	       else
 		      new_hair = ListHairFemale[(new_race)+1][math.random(1,#ListHairFemale[(new_race)+1])]
-	          
-		   end
+	       end
 	       
-		   Step1HC = ListHairColor[(new_race)+1][math.random(1,#ListHairColor[(new_race)+1])]
-	       new_haircolor = Step1HC[1]
-		   User:inform("haircolor: "..new_haircolor)
+		   --Step1HC = ListHairColor[(new_race)+1][math.random(1,#ListHairColor[(new_race)+1])]
+	       --new_haircolor = Step1HC[1]
+		   --User:inform("haircolor: "..new_haircolor)
 		   
-		   Step1SC = ListSkinColor[(new_race)+1][math.random(1,#ListSkinColor[(new_race)+1])]
-		   new_skincolor = Step1SC[1]
-		   User:inform("skincolor: "..new_skincolor)
-		   return
+		   --Step1SC = ListSkinColor[(new_race)+1][math.random(1,#ListSkinColor[(new_race)+1])]
+		   --new_skincolor = Step1SC[1]
+		   --User:inform("skincolor: "..new_skincolor)
+		   
 		   
 		   --new_height = ListHeight[(new_race)+1][1]
 	   
@@ -158,8 +157,8 @@ function DoDruidism(User,SourceItem)
 	     myEffect:addValue("new_sex",new_sex)
 	     myEffect:addValue("new_hair",new_hair)
 	     myEffect:addValue("new_beard",new_beard)
-	     myEffect:addValue("new_skincolor",new_skincolor)
-	     myEffect:addValue("new_haircolor",new_haircolor)
+	     --myEffect:addValue("new_skincolor",new_skincolor)
+	     --myEffect:addValue("new_haircolor",new_haircolor)
 	  end
 	  myEffect:addValue("new_race",new_race)
 	  --myEffect:addValue("old_height",old_height)
@@ -171,8 +170,8 @@ function DoDruidism(User,SourceItem)
 	     User:setAttrib("sex",new_sex)
 	     User:setHair(new_hair)
 	     User:setBeard(new_beard)
-	     User:setSkinColor(new_skincolor)
-	     User:setHairColor(new_haircolor)
+	     --User:setSkinColor(new_skincolor)
+	     --User:setHairColor(new_haircolor)
 	  end
 	  User:setAttrib("racetyp",new_race)
 	  --User:setAttrib("body_height",new_height)

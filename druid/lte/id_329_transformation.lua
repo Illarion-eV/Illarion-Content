@@ -147,19 +147,19 @@ function loadEffect(Effect,User)
 					 User:inform("LTE-Error 1: please call dev") 
 				  end
 				  
-				  findNew_skincolor, new_skincolor = Effect:findValue("new_skincolor")
-				  if findNew_skincolor then
-					 User:setSkinColor(new_skincolor)
-				  else
-					 User:inform("LTE-Error 1: please call dev") 
-				  end
+				  --findNew_skincolor, new_skincolor = Effect:findValue("new_skincolor")
+				  --if findNew_skincolor then
+					-- User:setSkinColor(new_skincolor)
+				  --else
+					-- User:inform("LTE-Error 1: please call dev") 
+				  --end
 				  
-				  findNew_haircolor, new_haircolor = Effect:findValue("new_haircolor")
-				  if findNew_haircolor then
-					 User:setHairColor(new_haircolor)
-				  else
-					 User:inform("LTE-Error 1: please call dev") 
-				  end
+				  --findNew_haircolor, new_haircolor = Effect:findValue("new_haircolor")
+				  --if findNew_haircolor then
+					-- User:setHairColor(new_haircolor)
+				  --else
+					-- User:inform("LTE-Error 1: please call dev") 
+				  --end
 			   end  
 		   else
 			  User:inform("LTE-Error 1: please call dev")       
