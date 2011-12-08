@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle ist das Wort 'Eibental' zulesen. Es scheint nun Zeit zurück zu Numila.", "The word 'Yewdale' appears on the pell. It seems to be time to go back to Numila now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle ist das Wort 'Eibental' zulesen. Es scheint nun Zeit zurück zu Numila zu gehen und ihr das gesagt Wort zu nennen.", "The word 'Yewdale' appears on the pell. It seems to be time to go back to Numila now and to tell her the noted word."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

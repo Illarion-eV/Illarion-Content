@@ -10,8 +10,8 @@ local POSTCONDITION_QUESTSTATE = 137
 
 local NPC_TRIGGER_DE = "Eibental"
 local NPC_TRIGGER_EN = "Yewdale"
-local NPC_REPLY_DE = "Richtig! Und es meine neue Tinte scheint gut zu funktionieren mit dem Licht der Säule des Feuers. Hier habt ihr eure Belohnung und eine weitere Aufgabe. Geht eben nach Eibental, klettert auf den Leuchturm, und zählt die Reiterstatuen auf dem Dach."
-local NPC_REPLY_EN = "Very good! And it seems as my new ink seems good to work with the light of the Column of Fire. Here your reward and a new task. Go to Yewdale, climb up the lighttower and count the riderstatues on the top."
+local NPC_REPLY_DE = "Richtig! Und meine neue Tinte scheint gut zu funktionieren mit dem Licht der Säule des Feuers. Hier habt ihr eure Belohnung und eine weitere Aufgabe. Geht eben nach Eibental, klettert auf den Leuchturm, und zählt die Reiterstatuen auf dem Dach."
+local NPC_REPLY_EN = "Very good! Andmy new ink seems good to work with the light of the Column of Fire. Here your reward and a new task. Go to Yewdale, climb up the lighttower and count the riderstatues on the top."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
