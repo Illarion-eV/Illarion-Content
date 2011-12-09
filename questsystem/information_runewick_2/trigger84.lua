@@ -1,14 +1,15 @@
+require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_2.trigger50", package.seeall)
+module("questsystem.information_runewick_2.trigger84", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 224
-local POSTCONDITION_QUESTSTATE = 226
+local PRECONDITION_QUESTSTATE = 251
+local POSTCONDITION_QUESTSTATE = 250
 
-local NPC_TRIGGER_DE = "[Dd]arter"
-local NPC_TRIGGER_EN = "[Dd]arter"
-local NPC_REPLY_DE = "Gut, dann machen wir das halbe Dutzen voll. Welcher Ort liegt zwischen der Fröhlichen Lichtung und dem Schattentor?"
-local NPC_REPLY_EN = "Good, lets finish the half dozen. Which place is between the Marryglade and the Shadow Gate?"
+local NPC_TRIGGER_DE = "Cheat"
+local NPC_TRIGGER_EN = "Cheat"
+local NPC_REPLY_DE = "lalal"
+local NPC_REPLY_EN = "allalal"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -52,6 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Genug gejagt. Geh nun zurück zu Numila", "Enough hunted. Go back to Numila now."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
