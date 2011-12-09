@@ -51,6 +51,8 @@ function DoDruidism(User,SourceItem)
 		   ListSkinColor[5] = {{153,136,67},{80,126,38},{39,39,39}}
 		   ListSkinColor[6] = {{79,98,42},{20,54,92},{242,76,62}}
 		   
+		   User:inform("skincolor "..ListSkinColor[1][1])
+		   
 		   ListHairColor = {}
 		   ListHairColor[1] = {{255,204,0},{128,128,128},{162,77,0},{205,51,1},{126,59,14}}
 		   ListHairColor[2] = {{255,204,0},{128,128,128},{162,77,0},{205,51,1},{126,59,14}}
