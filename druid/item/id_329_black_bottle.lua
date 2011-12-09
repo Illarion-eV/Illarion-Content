@@ -44,14 +44,14 @@ function DoDruidism(User,SourceItem)
 		   -- 1 = human; 2 = dwarf; 3 = halfling; 4 = elf; 5 = orc; 6 = lizard
 		   -- note that the list numbers do not match the race ids! They are race Id + 1
 		   ListSkinColor = {}
-		   ListSkinColor[1] = {248,198,137,108,64,35,244,231,139,39,23,10,247,207,156}
+		   ListSkinColor[1] = {248;198;137,108,64,35,244,231,139,39,23,10,247,207,156}
 		   ListSkinColor[2] = {{248,198,137},{108,64,35},{244,231,139},{39,23,10},{247,207,156}}
 		   ListSkinColor[3] = {{248,198,137},{108,64,35},{244,231,139},{39,23,10},{247,207,156}}
 		   ListSkinColor[4] = {{250,238,238},{179,138,110},{245,230,139}}
 		   ListSkinColor[5] = {{153,136,67},{80,126,38},{39,39,39}}
 		   ListSkinColor[6] = {{79,98,42},{20,54,92},{242,76,62}}
 		   
-		   User:inform("skincolor "..ListSkinColor[1][1])
+		   User:inform("skincolor "..ListSkinColor[1][2])
 		   
 		   ListHairColor = {}
 		   ListHairColor[1] = {{255,204,0},{128,128,128},{162,77,0},{205,51,1},{126,59,14}}
