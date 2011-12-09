@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Numila steckt dir noch ein Papier zu auf welchen du 'Mordak al Kharud' lesen kannst. Sekunden später löst sich das Stück in Staub auf.", "Numila hands you a piece of paper. You read 'Mordak al Kharud' and seconds later the paper turns to dust."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Numila steckt dir noch ein Papier zu auf welchem du 'Mordak al Kharud' lesen kannst. Sekunden später löst sich das Stück in Staub auf.", "Numila hands you a piece of paper. You read 'Mordak al Kharud' and seconds later the paper turns to dust."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
