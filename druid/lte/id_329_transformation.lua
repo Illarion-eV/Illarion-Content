@@ -97,7 +97,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 			           User:inform("LTE-Error 1: please call dev") 
 		           end
                    
-		           findOld_height, new_height = Effect:findValue("old_height")
+		           findOld_height, old_height = Effect:findValue("old_height")
 		           if findOld_race then
 			          User:setAttrib("body_height",old_height) 
 		           else
