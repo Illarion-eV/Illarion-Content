@@ -4,7 +4,7 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger72", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 264
+local PRECONDITION_QUESTSTATE = 266
 local POSTCONDITION_QUESTSTATE = 279
 
 local ITEM_ID = 45
