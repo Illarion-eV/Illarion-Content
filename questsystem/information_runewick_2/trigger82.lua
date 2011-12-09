@@ -1,11 +1,12 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger82", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 196
-local POSTCONDITION_QUESTSTATE = 208
+local PRECONDITION_QUESTSTATE = 207
+local POSTCONDITION_QUESTSTATE = 211
 
 local NPC_TRIGGER_DE = "Cheat"
 local NPC_TRIGGER_EN = "Cheat"
@@ -54,8 +55,9 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh in den anderen Raum wo Lilith zu finden ist.", "Go to the other room where Lilith can be found."):execute()
-    handler.eraseplayeritem.erasePlayerItem(PLAYER, 388, 500):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Numila.", "Go back to Numila now."):execute()
+    handler.eraseplayeritem.erasePlayerItem(PLAYER, 388, 1):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 195, 999, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
