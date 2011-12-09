@@ -88,21 +88,21 @@ function callEffect(Effect,User)
 					   else
 						  User:inform("LTE-Error 9: please call dev")
 					   end     
-					   
+				   end   
 			
-			        findOld_race, old_race = Effect:findValue("old_race")	
-		            if findOld_race then
-			           User:setAttrib("racetyp",old_race)
-		           else
-			           User:inform("LTE-Error 10: please call dev") 
-		           end
-                   
-		           findOld_height, old_height = Effect:findValue("old_height")
-		           if findOld_race then
-			          User:setAttrib("body_height",old_height) 
-		           else
-			          User:inform("LTE-Error 11: please call dev") 
-		           end
+						findOld_race, old_race = Effect:findValue("old_race")	
+						if findOld_race then
+						   User:setAttrib("racetyp",old_race)
+					   else
+						   User:inform("LTE-Error 10: please call dev") 
+					   end
+					   
+					   findOld_height, old_height = Effect:findValue("old_height")
+					   if findOld_race then
+						  User:setAttrib("body_height",old_height) 
+					   else
+						  User:inform("LTE-Error 11: please call dev") 
+					   end
 			   else
 			     User:inform("LTE-Error 12: please call dev") 
 			   end
@@ -131,8 +131,8 @@ function callEffect(Effect,User)
    Effect.nextCalled = 50
    User:inform("return true")
    return true
-   end
 end
+
 
 
 function removeEffect(Effect,USer)         
