@@ -196,7 +196,7 @@ function DoDruidism(User,SourceItem)
 
 	  User.effects:addEffect(myEffect)
    end
-end
+
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
