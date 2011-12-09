@@ -72,13 +72,13 @@ function callEffect(Effect,User)
 						  User:inform("LTE-Error 6: please call dev")
 					   end 
 						 
-					  findOld_skincolor1, old_skincolor1 = Effect:findValue("old_skincolor1")
-					  findOld_skincolor2, old_skincolor2 = Effect:findValue("old_skincolor2")
-					  findOld_skincolor3, old_skincolor3 = Effect:findValue("old_skincolor3")
-					  if findOld_skincolor1 then
-							if findOld_skincolor2 then
-								if findOld_skincolor3 then
-								   User:setSkinColor(old_skincolor1,old_skincolor2,old_skincolor3)
+					  findOld_haircolor1, old_haircolor1 = Effect:findValue("old_skincolor1")
+					  findOld_haircolor2, old_haircolor2 = Effect:findValue("old_skincolor2")
+					  findOld_haircolor3, old_haircolor3 = Effect:findValue("old_skincolor3")
+					  if findOld_haircolor1 then
+							if findOld_haircolor2 then
+								if findOld_haircolor3 then
+								   User:setHairColor(old_haircolor1,old_haircolor2,old_haircolor3)
 							   else
 								  User:inform("LTE-Error 7: please call dev")
 							   end
@@ -186,13 +186,13 @@ function loadEffect(Effect,User)
 					  User:inform("LTE-Error 20: please call dev")
 				   end 
 					 
-				  findNew_skincolor1, new_skincolor1 = Effect:findValue("new_skincolor1")
-				  findNew_skincolor2, new_skincolor2 = Effect:findValue("new_skincolor2")
-				  findNew_skincolor3, new_skincolor3 = Effect:findValue("new_skincolor3")
-				  if findNew_skincolor1 then
-					    if findNew_skincolor2 then
-						    if findNew_skincolor3 then
-							   User:setSkinColor(new_skincolor1,new_skincolor2,new_skincolor3)
+				  findNew_haircolor1, new_haircolor1 = Effect:findValue("new_haircolor1")
+				  findNew_haircolor2, new_haircolor2 = Effect:findValue("new_haircolor2")
+				  findNew_haircolor3, new_haircolor3 = Effect:findValue("new_haircolor3")
+				  if findNew_haircolor1 then
+					    if findNew_haircolor2 then
+						    if findNew_haircolor3 then
+							   User:setSkinColor(new_haircolor1,new_haircolor2,new_haircolor3)
 					       else
 					          User:inform("LTE-Error 21: please call dev")
 					       end
