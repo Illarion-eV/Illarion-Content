@@ -1,11 +1,10 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger81", package.seeall)
 
 local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 0
-local POSTCONDITION_QUESTSTATE = 211
+local POSTCONDITION_QUESTSTATE = 246
 
 local NPC_TRIGGER_DE = "Cheat"
 local NPC_TRIGGER_EN = "Cheat"
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Numila.", "Go back to Numila now."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 195, 999, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur Bärenhöhle. Bedenke, dass dies kein ungefährlicher Ort ist. Sei daher vorbereitet durch etwas Training oder Unterstützung durch Mitspieler.", "Go to the Bear cave now. Keep in mind this is not an undangerous place. You should practice before or look for support from other players."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
