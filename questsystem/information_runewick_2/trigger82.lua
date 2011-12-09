@@ -5,7 +5,7 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger82", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 207
+local PRECONDITION_QUESTSTATE = 202
 local POSTCONDITION_QUESTSTATE = 211
 
 local NPC_TRIGGER_DE = "Cheat"
