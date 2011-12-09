@@ -20,7 +20,7 @@ function DoDruidism(User,SourceItem)
    -- old values (so that the char can be changed back later)
    old_race = User:getRace()
    old_skincolor1,old_skincolor2,old_skincolor3 = User:getSkinColor()
-   old_haircolor = User:getHairColor()
+   old_haircolor1,old_haircolor2,old_haircolor3 = User:getHairColor()
    old_sex = User:increaseAttrib("sex",0)
    old_hair = User:getHair()
    old_beard = User:getBeard()
@@ -121,6 +121,7 @@ function DoDruidism(User,SourceItem)
    for i=1,table.getn(ListCodecs2) do
        if potionData == ListCodecs2[i] then
         
+		  new_height = math.random(80,120)
 		  new_race = ListRaceID2[i]
           OnlyRace = 1 -- this will tell us that there is only the race as a changed value
        end
@@ -139,8 +140,14 @@ function DoDruidism(User,SourceItem)
 	     myEffect:addValue("old_sex",old_sex)
 	     myEffect:addValue("old_hair",old_hair)
 	     myEffect:addValue("old_beard",old_beard)
-	     myEffect:addValue("old_skincolor",old_skincolor)
-	     myEffect:addValue("old_haircolor",old_haircolor)
+	     
+		 myEffect:addValue("old_skincolor1",old_skincolor1)
+	     myEffect:addValue("old_skincolor2",old_skincolor2)
+		 myEffect:addValue("old_skincolor3",old_skincolor3)
+		 
+		 myEffect:addValue("old_haircolor1",old_haircolor1)
+		 myEffect:addValue("old_haircolor2",old_haircolor2)
+		 myEffect:addValue("old_haircolor3",old_haircolor3)
 	  end
 	  myEffect:addValue("old_race",old_race)
 	  myEffect:addValue("old_height",old_height)

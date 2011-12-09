@@ -55,20 +55,40 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 						 User:inform("LTE-Error 1: please call dev") 
 					  end
 					  
-					  --findOld_skincolor, old_skincolor = Effect:findValue("old_skincolor")
-					  --if findOld_skincolor then
-						-- User:setSkinColor(old_skincolor)
-					 -- else
-						-- User:inform("LTE-Error 1: please call dev") 
-					  --end
-					  
-					  --findOld_haircolor, old_haircolor = Effect:findValue("old_haircolor")
-					  --if findOld_haircolor then
-						-- User:setHairColor(old_haircolor)
-					  --else
-						 --User:inform("LTE-Error 1: please call dev") 
-					 -- end    
-				   end
+					  findOld_skincolor1, old_skincolor1 = Effect:findValue("old_skincolor1")
+					  findOld_skincolor2, old_skincolor2 = Effect:findValue("old_skincolor2")
+					  findOld_skincolor3, old_skincolor3 = Effect:findValue("old_skincolor3")
+					  if findOld_skincolor1 then
+							if findOld_skincolor2 then
+								if findOld_skincolor3 then
+								   User:setSkinColor(old_skincolor1,old_skincolor2,old_skincolor3)
+							   else
+								  User:inform("LTE-Error 1: please call dev")
+							   end
+						   else
+							  User:inform("LTE-Error 1: please call dev")
+						   end
+					   else
+						  User:inform("LTE-Error 1: please call dev")
+					   end 
+						 
+					  findOld_skincolor1, old_skincolor1 = Effect:findValue("old_skincolor1")
+					  findOld_skincolor2, old_skincolor2 = Effect:findValue("old_skincolor2")
+					  findOld_skincolor3, old_skincolor3 = Effect:findValue("old_skincolor3")
+					  if findOld_skincolor1 then
+							if findOld_skincolor2 then
+								if findOld_skincolor3 then
+								   User:setSkinColor(old_skincolor1,old_skincolor2,old_skincolor3)
+							   else
+								  User:inform("LTE-Error 1: please call dev")
+							   end
+						   else
+							  User:inform("LTE-Error 1: please call dev")
+						   end
+					   else
+						  User:inform("LTE-Error 1: please call dev")
+					   end     
+					   
 			
 			        findOld_race, old_race = Effect:findValue("old_race")	
 		            if findOld_race then
@@ -164,7 +184,6 @@ function loadEffect(Effect,User)
 					  User:inform("LTE-Error 1: please call dev")
 				   end 
 					 
-					 
 				  findNew_skincolor1, new_skincolor1 = Effect:findValue("new_skincolor1")
 				  findNew_skincolor2, new_skincolor2 = Effect:findValue("new_skincolor2")
 				  findNew_skincolor3, new_skincolor3 = Effect:findValue("new_skincolor3")
@@ -194,12 +213,12 @@ function loadEffect(Effect,User)
 			  User:inform("LTE-Error 1: please call dev") 
 		   end
 
-		   -- findNew_height, new_height = Effect:findValue("new_height")
-		   --if findNew_race then
-			  --User:setAttrib("body_height",new_height) 
-		   --else
-			  --User:inform("LTE-Error 1: please call dev") 
-		   --end
+		   findNew_height, new_height = Effect:findValue("new_height")
+		   if findNew_race then
+			  User:setAttrib("body_height",new_height) 
+		   else
+			  User:inform("LTE-Error 1: please call dev") 
+		   end
        end
    else	   
      User:inform("LTE-Error 1: please call dev")    
