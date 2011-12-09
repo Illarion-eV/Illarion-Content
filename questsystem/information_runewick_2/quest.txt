@@ -82,3 +82,5 @@ npc,348,receiveText,trigger81
 npc,348,receiveText,trigger82
 npc,348,receiveText,trigger83
 npc,348,receiveText,trigger84
+npc,348,receiveText,trigger85
+npc,348,receiveText,trigger86
