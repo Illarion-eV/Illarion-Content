@@ -5,8 +5,8 @@ local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 214
 local POSTCONDITION_QUESTSTATE = 214
 
-local NPC_TRIGGER_DE = "."
-local NPC_TRIGGER_EN = "."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
 local NPC_REPLY_DE = "Meine Frage war:  Wer hat den Todes Gestank zudem verwandelt das er nun ist?"
 local NPC_REPLY_EN = "My question was: Who has turned the Death Stench to the current state?"
 

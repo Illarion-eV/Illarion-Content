@@ -5,8 +5,8 @@ local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 220
 local POSTCONDITION_QUESTSTATE = 220
 
-local NPC_TRIGGER_DE = "."
-local NPC_TRIGGER_EN = "."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
 local NPC_REPLY_DE = "Meine Frage war: Nun, wem haben wir im Halblings-Krieg besiegt?"
 local NPC_REPLY_EN = "My question was: Well, whom did we beat in the Halfling-war?"
 
