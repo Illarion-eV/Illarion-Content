@@ -7,7 +7,7 @@ local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 246
 local POSTCONDITION_QUESTSTATE = 250
 
-local MONSTER_AMNT = 5
+local MONSTER_AMNT = 2
 
 function onDeath(MONSTER)
     debug ("*** IN ONDEATH")

@@ -54,8 +54,8 @@ item,249,LookAtItem,trigger53
 npc,348,receiveText,trigger54
 npc,348,receiveText,trigger55
 npc,348,receiveText,trigger56
-monster,392,onDeath,trigger57
-monster,392,onDeath,trigger58
+monster,391,onDeath,trigger57
+monster,391,onDeath,trigger58
 npc,348,receiveText,trigger59
 npc,347,receiveText,trigger60
 npc,347,receiveText,trigger61
