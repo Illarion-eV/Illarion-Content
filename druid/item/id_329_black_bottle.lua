@@ -16,11 +16,11 @@ function DoDruidism(User,SourceItem)
    User:inform(""..ListTest[1][2])
    return
    
-   if User.effects:find(329) then
-	   User:inform("lte noch aktiv; wird entfernt");   
-	   User.effects:removeEffect(329)
-	   --return;
-	end	
+  -- if User.effects:find(329) then
+	--   User:inform("lte noch aktiv; wird entfernt");   
+	--   User.effects:removeEffect(329)
+	--   --return;
+	--end	
 
    -- old values (so that the char can be changed back later)
    old_race = User:getRace()
