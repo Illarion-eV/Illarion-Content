@@ -11,8 +11,6 @@ module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(drui
 function DoDruidism(User,SourceItem)
    potionData = tonumber(SourceItem:getData("potionData"));
    
-   
-   
   if User.effects:find(329) then
 	   User:inform("lte noch aktiv; wird entfernt");   
 	   User.effects:removeEffect(329)
@@ -21,7 +19,7 @@ function DoDruidism(User,SourceItem)
 
    -- old values (so that the char can be changed back later)
    old_race = User:getRace()
-   old_skincolor = User:getSkinColor()
+   old_skincolor1,old_skincolor2,old_skincolor3 = User:getSkinColor()
    old_haircolor = User:getHairColor()
    old_sex = User:increaseAttrib("sex",0)
    old_hair = User:getHair()
@@ -43,27 +41,27 @@ function DoDruidism(User,SourceItem)
 		   -- we create our lists with the different values for the six races
 		   -- 1 = human; 2 = dwarf; 3 = halfling; 4 = elf; 5 = orc; 6 = lizard
 		   -- note that the list numbers do not match the race ids! They are race Id + 1
-		   ListSkinColor = {}
-		   ListSkinColor[1] = {248;198;137,108,64,35,244,231,139,39,23,10,247,207,156}
-		   ListSkinColor[2] = {{248,198,137},{108,64,35},{244,231,139},{39,23,10},{247,207,156}}
-		   ListSkinColor[3] = {{248,198,137},{108,64,35},{244,231,139},{39,23,10},{247,207,156}}
-		   ListSkinColor[4] = {{250,238,238},{179,138,110},{245,230,139}}
-		   ListSkinColor[5] = {{153,136,67},{80,126,38},{39,39,39}}
-		   ListSkinColor[6] = {{79,98,42},{20,54,92},{242,76,62}}
 		   
-		   User:inform("skincolor "..ListSkinColor[1][2])
+		   -- the color sets are seperated by ; while the three values of each set are seperated by ,
+		   ListSkinColor = {}
+		   ListSkinColor[1] = {248,198,137;108,64,35;244,231,139;39,23,10;247,207,156}
+		   ListSkinColor[2] = {248,198,137;108,64,35;244,231,139;39,23,10;247,207,156}
+		   ListSkinColor[3] = {248,198,137;108,64,35;244,231,139;39,23,10;247,207,156}
+		   ListSkinColor[4] = {250,238,238;179,138,110;245,230,139}
+		   ListSkinColor[5] = {153,136,67;80,126,38;39,39,39}
+		   ListSkinColor[6] = {79,98,42;20,54,92;242,76,62}
 		   
 		   ListHairColor = {}
-		   ListHairColor[1] = {{255,204,0},{128,128,128},{162,77,0},{205,51,1},{126,59,14}}
-		   ListHairColor[2] = {{255,204,0},{128,128,128},{162,77,0},{205,51,1},{126,59,14}}
-		   ListHairColor[3] = {{255,204,0},{128,128,128},{162,77,0},{205,51,1},{126,59,14}}
-		   ListHairColor[4] = {{2,19,0},{255,249,7},{205,51,1}}
-		   ListHairColor[5] = {{153,1,0},{222,217,195},{72,36,0}}
-		   ListHairColor[6] = {{103,17,2},{1,1,0},{157,88,197}}
+		   ListHairColor[1] = {255,204,0;128,128,128;162,77,0;205,51,1;126,59,14}
+		   ListHairColor[2] = {255,204,0;128,128,128;162,77,0;205,51,1;126,59,14}
+		   ListHairColor[3] = {255,204,0;128,128,128;162,77,0;205,51,1;126,59,14}
+		   ListHairColor[4] = {2,19,0;255,249,7;205,51,1}
+		   ListHairColor[5] = {153,1,0;222,217,195;72,36,0}
+		   ListHairColor[6] = {103,17,2;1,1,0;157,88,197}
 		   
 		   ListBeard = {}
 		   ListBeard[1] = {0,1,3,4,5,6}
-		   ListBeard[2] = {0,1,1,2,2,4,4} -- 0 means no beard, therefore there is a "double" change for the other possibilities; dwarf without beard?
+		   ListBeard[2] = {0,1,1,2,2,4,4} -- 0 means no beard, therefore there is a "double" chance for the other possibilities;a dwarf without a beard?
       	   ListBeard[3] = {0}
 		   ListBeard[4] = {0}
 		   ListBeard[5] = {0}
@@ -85,15 +83,6 @@ function DoDruidism(User,SourceItem)
 		   ListHairFemale[5] = {1,7,8}
 		   ListHairFemale[6] = {1,2,3,4,5,6}
 	   
-	       --ListHeight = {}
-		   --ListHeight[1] = {math.random(,)}
-		   --ListHeight[2] = {math.random(,)}
-	       --ListHeight[3] = {math.random(,)}
-	       --ListHeight[4] = {math.random(,)}
-	       --ListHeight[5] = {math.random(,)}
-	       --ListHeight[6] = {math.random(,)}
-	   
-	       
 	       -- we put our new values together
 		   new_race = ListRaceID1[i]
 	       new_sex = ListSex1[i]
@@ -108,16 +97,16 @@ function DoDruidism(User,SourceItem)
 		      new_hair = ListHairFemale[(new_race)+1][math.random(1,#ListHairFemale[(new_race)+1])]
 	       end
 	       
-		   --Step1HC = ListHairColor[(new_race)+1][math.random(1,#ListHairColor[(new_race)+1])]
-	       --new_haircolor = Step1HC[1]
-		   --User:inform("haircolor: "..new_haircolor)
+		   new_haircolor1 = ListHairColor[(new_race)+1][(math.random(1,(#ListHairColor[(new_race)+1])/3)*3)-2]
+		   new_haircolor2 = ListHairColor[(new_race)+1][(math.random(1,(#ListHairColor[(new_race)+1])/3)*3)-1]
+		   new_haircolor3 = ListHairColor[(new_race)+1][(math.random(1,(#ListHairColor[(new_race)+1])/3)*3)]
 		   
-		   --Step1SC = ListSkinColor[(new_race)+1][math.random(1,#ListSkinColor[(new_race)+1])]
-		   --new_skincolor = Step1SC[1]
-		   --User:inform("skincolor: "..new_skincolor)
+		   new_skincolor1 = ListSkinColor[(new_race)+1][(math.random(1,(#ListSkinColor[(new_race)+1])/3)*3)-2]
+		   new_skincolor2 = ListSkinColor[(new_race)+1][(math.random(1,(#ListSkinColor[(new_race)+1])/3)*3)-1]
+		   new_skincolor3 = ListSkinColor[(new_race)+1][(math.random(1,(#ListSkinColor[(new_race)+1])/3)*3)]
 		   
 		   
-		   --new_height = ListHeight[(new_race)+1][1]
+		   new_height = math.random(80,120)
 	   
 	       OnlyRace = 0 --this will tell us later that there are more values than just the race which have been changed
 	   end
@@ -154,18 +143,24 @@ function DoDruidism(User,SourceItem)
 	     myEffect:addValue("old_haircolor",old_haircolor)
 	  end
 	  myEffect:addValue("old_race",old_race)
-	  --myEffect:addValue("old_height",old_height)
+	  myEffect:addValue("old_height",old_height)
 	  
 	  -- saving the new values
 	  if OnlyRace == 0 then -- if there is more to save than new_race
 	     myEffect:addValue("new_sex",new_sex)
 	     myEffect:addValue("new_hair",new_hair)
 	     myEffect:addValue("new_beard",new_beard)
-	     --myEffect:addValue("new_skincolor",new_skincolor)
-	     --myEffect:addValue("new_haircolor",new_haircolor)
+	     
+		 myEffect:addValue("new_skincolor1",new_skincolor1)
+	     myEffect:addValue("new_skincolor2",new_skincolor2)
+		 myEffect:addValue("new_skincolor3",new_skincolor3)
+		 
+		 myEffect:addValue("new_haircolor1",new_haircolor1)
+		 myEffect:addValue("new_haircolor2",new_haircolor2)
+		 myEffect:addValue("new_haircolor3",new_haircolor3)
 	  end
 	  myEffect:addValue("new_race",new_race)
-	  --myEffect:addValue("old_height",old_height)
+	  myEffect:addValue("old_height",old_height)
 
 	  myEffect:addValue("OnlyRace",OnlyRace)
 	  
@@ -174,11 +169,11 @@ function DoDruidism(User,SourceItem)
 	     User:setAttrib("sex",new_sex)
 	     User:setHair(new_hair)
 	     User:setBeard(new_beard)
-	     --User:setSkinColor(new_skincolor)
-	     --User:setHairColor(new_haircolor)
+	     User:setSkinColor(new_skincolor1,new_skincolor2,new_skincolor3)
+	     User:setHairColor(new_haircolor1,new_haircolor2,new_haircolor3)
 	  end
 	  User:setAttrib("racetyp",new_race)
-	  --User:setAttrib("body_height",new_height)
+	  User:setAttrib("body_height",new_height)
 	  
 	  
 	  -- to make the changes visible

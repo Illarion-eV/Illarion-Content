@@ -17,30 +17,30 @@ end
 
 function callEffect(Effect,User)                  -- Effect wird ausgeführt
 --User:inform("debug func callEffect")
-    User:inform("oneA")
+    
 	findCounter,counterBlack = Effect:findValue("counterBlack")
     if findCounter then
-	  User:inform("one")
+	  
 	   User:inform("davor: "..counterBlack)
 	   if counterBlack >= 1 then
 		  
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
 		  Effect:addValue("counterBlack",counterBlack)
 		   User:inform("danach: "..counterBlack)
-		   User:inform("oneB")
+		   
 		   if counterBlack == 0 then
 				-- the effect counter is down to zero; we change the char back
 			    findOnlyRace, OnlyRace = Effect:findValue("OnlyRace")
 			    if findOnlyRace then
 				    if OnlyRace == 0 then
-					User:inform("oneBB")
+					
 					  findOld_sex, old_sex = Effect:findValue("old_sex")
 					  if findOld_sex then
 						 User:setAttrib("sex",old_sex)
 					  else
 						 User:inform("LTE-Error 1: please call dev") 
 					  end
-					  User:inform("oneC")
+					  
 					  findOld_hair, old_hair = Effect:findValue("old_hair")
 					  if findOld_hair then
 						 User:setHair(old_hair)
@@ -76,13 +76,13 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 		           else
 			           User:inform("LTE-Error 1: please call dev") 
 		           end
-                   User:inform("two")
-		           -- findOld_height, new_height = Effect:findValue("old_height")
-		           --if findOld_race then
-			          --User:setAttrib("body_height",old_height) 
-		           --else
-			          --User:inform("LTE-Error 1: please call dev") 
-		           --end
+                   
+		           findOld_height, new_height = Effect:findValue("old_height")
+		           if findOld_race then
+			          User:setAttrib("body_height",old_height) 
+		           else
+			          User:inform("LTE-Error 1: please call dev") 
+		           end
 			   else
 			     User:inform("LTE-Error 1: please call dev") 
 			   end
@@ -147,19 +147,41 @@ function loadEffect(Effect,User)
 					 User:inform("LTE-Error 1: please call dev") 
 				  end
 				  
-				  --findNew_skincolor, new_skincolor = Effect:findValue("new_skincolor")
-				  --if findNew_skincolor then
-					-- User:setSkinColor(new_skincolor)
-				  --else
-					-- User:inform("LTE-Error 1: please call dev") 
-				  --end
-				  
-				  --findNew_haircolor, new_haircolor = Effect:findValue("new_haircolor")
-				  --if findNew_haircolor then
-					-- User:setHairColor(new_haircolor)
-				  --else
-					-- User:inform("LTE-Error 1: please call dev") 
-				  --end
+				  findNew_skincolor1, new_skincolor1 = Effect:findValue("new_skincolor1")
+				  findNew_skincolor2, new_skincolor2 = Effect:findValue("new_skincolor2")
+				  findNew_skincolor3, new_skincolor3 = Effect:findValue("new_skincolor3")
+				  if findNew_skincolor1 then
+					    if findNew_skincolor2 then
+						    if findNew_skincolor3 then
+							   User:setSkinColor(new_skincolor1,new_skincolor2,new_skincolor3)
+					       else
+					          User:inform("LTE-Error 1: please call dev")
+					       end
+					   else
+					      User:inform("LTE-Error 1: please call dev")
+					   end
+				   else
+					  User:inform("LTE-Error 1: please call dev")
+				   end 
+					 
+					 
+				  findNew_skincolor1, new_skincolor1 = Effect:findValue("new_skincolor1")
+				  findNew_skincolor2, new_skincolor2 = Effect:findValue("new_skincolor2")
+				  findNew_skincolor3, new_skincolor3 = Effect:findValue("new_skincolor3")
+				  if findNew_skincolor1 then
+					    if findNew_skincolor2 then
+						    if findNew_skincolor3 then
+							   User:setSkinColor(new_skincolor1,new_skincolor2,new_skincolor3)
+					       else
+					          User:inform("LTE-Error 1: please call dev")
+					       end
+					   else
+					      User:inform("LTE-Error 1: please call dev")
+					   end
+				   else
+					  User:inform("LTE-Error 1: please call dev")
+				   end 
+			   
 			   end  
 		   else
 			  User:inform("LTE-Error 1: please call dev")       
