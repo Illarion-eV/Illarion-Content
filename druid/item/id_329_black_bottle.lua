@@ -9,13 +9,14 @@ module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(drui
 -- UPDATE common SET com_script='druid.item.id_329_black_bottle' WHERE com_itemid = 329;
 
 function DoDruidism(User,SourceItem)
-   potionData = tonumber(SourceItem:getData("potionData"));
+   --potionData = tonumber(SourceItem:getData("potionData"));
+   
    
    ListTest = {}
    ListTest[1] = {{3,4,5},{7,8,9}}
    User:inform(""..ListTest[1][2])
    return
-   
+   end
   -- if User.effects:find(329) then
 	--   User:inform("lte noch aktiv; wird entfernt");   
 	--   User.effects:removeEffect(329)
