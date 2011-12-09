@@ -109,7 +109,7 @@ function callEffect(Effect,User)
 			end
 	        
 	   else
-		   
+		   User:inform("here here")
 		   findCooldown,cooldownBlack = Effect:findValue("cooldownBlack")
 		   if findCooldown then
 				if cooldownBlack <= 0 then
