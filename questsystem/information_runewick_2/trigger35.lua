@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh in den anderen Raum wo Lilith zu finden ist.", "Go to the other room where Lilith can be found."):execute()
-    handler.eraseplayeritem.erasePlayerItem(PLAYER, 388, 1):execute()
+    handler.eraseplayeritem.erasePlayerItem(PLAYER, 388, 500):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

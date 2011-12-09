@@ -1,11 +1,10 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger81", package.seeall)
 
 local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 0
-local POSTCONDITION_QUESTSTATE = 202
+local POSTCONDITION_QUESTSTATE = 207
 
 local NPC_TRIGGER_DE = "Cheat"
 local NPC_TRIGGER_EN = "Cheat"
@@ -54,8 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 916, 999, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun zu Adrons Versteck und bringe ein paar Trauben. Der Eingang befindet sich entlang der Küste nordwestlich von Eibental. Halte Ausschau nach Bäumen.", "Go to Adron's Covert now and bring some grapes. You can find the entrance on the coast northeast from Yewdale. Keep your eyes open for trees."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zu Zaida und bringe ihr die Trauben. Du findest Zaida in der Werkstatt. Wenn du nicht weißt wo dieser ist frage Elesil.", "Go to Zaida and bring her the grapes. You can find her in the workshop. If you do not know where the workshop is, ask Elesil."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
