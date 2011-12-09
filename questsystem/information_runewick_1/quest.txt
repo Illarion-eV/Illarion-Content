@@ -67,3 +67,5 @@ item,219,LookAtItem,trigger66
 npc,340,receiveText,trigger67
 triggerfield,0,MoveToField,trigger68
 triggerfield,0,MoveToField,trigger69
+npc,340,receiveText,trigger70
+npc,340,receiveText,trigger71

@@ -4,8 +4,8 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger64", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 257
-local POSTCONDITION_QUESTSTATE = 259
+local PRECONDITION_QUESTSTATE = 260
+local POSTCONDITION_QUESTSTATE = 266
 
 local ITEM_ID = 45
 local ITEM_AMNT = 1
@@ -66,8 +66,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd und Blaustein nach Cadomyr und zum Gasthof Hanfschlinge und suche die restlichen Personen. ", "Go with the received emerald and blustone to Cadomyr and the Hemp Necktie Inn and look for these remaining persons there."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 284, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd, Diamant und Blaustein nach Cadomyr und suche die restliche Person.", "Go with the received emerald, diamond and blustone to Cadomyr and look for the remaining person there."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 45, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

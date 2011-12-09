@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger52", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 226
+local PRECONDITION_QUESTSTATE = 233
 local POSTCONDITION_QUESTSTATE = 233
 
-local NPC_TRIGGER_DE = "[Tt]urm"
-local NPC_TRIGGER_EN = "[Tt]ower"
-local NPC_REPLY_DE = "Sehr gut! Nun könnt ihr euch eure Belohnung abholen. Ich war so gemein und hab sie für euch verstecken lassen. Geht zur Fröhlichen Lichtung und blickt dort unter einem der Getreidebündel nach. *schmunzelt*"
-local NPC_REPLY_EN = "Very good. Now, you can pick up your reward. I was mean and let it hide for you. Go to Merryglade and look in one of the bundles of grain. *grins*"
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Ihr sollt euch eure Belohnung abholen. Ich war so gemein und hab sie für euch verstecken lassen. Geht zur Fröhlichen Lichtung und blickt dort unter einem der Getreidebündel nach. *schmunzelt*"
+local NPC_REPLY_EN = "You should go for your reward. I was mean and let it hide for you. Go to Merryglade and look in one of the bundles of grain. *grins*"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

@@ -1,15 +1,16 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_2.trigger54", package.seeall)
+module("questsystem.information_runewick_2.trigger82", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 243
-local POSTCONDITION_QUESTSTATE = 246
+local PRECONDITION_QUESTSTATE = 233
+local POSTCONDITION_QUESTSTATE = 243
 
-local NPC_TRIGGER_DE = "."
-local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Nun, seid ihr ausgerüstet. Geht nun zur Bärenhöhle und erlegt einige der Wölfe dort. Vielleicht über ihr euch aber vorher noch in der Kampfkunst oder sucht nach Weggefährten. Kommt anschließend wieder zurück."
-local NPC_REPLY_EN = "Now, you are equipped. Go to the Bear cave now and hunt some of the wolves there. You should maybe practice first or look for support. Come back afterwards."
+local NPC_TRIGGER_DE = "Cheat"
+local NPC_TRIGGER_EN = "Cheat"
+local NPC_REPLY_DE = "lalal"
+local NPC_REPLY_EN = "allalal"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur Bärenhöhle. Bedenke, dass dies kein ungefährlicher Ort ist. Sei daher vorbereitet durch etwas Training oder Unterstützung durch Mitspieler.", "Go to the Bear cave now. Keep in mind this is not an undangerous place. You should practice before or look for support from other players."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 101, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Numila um einen weiteren Auftrag zu erhalten.", "Go back to Numila to get a further task."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

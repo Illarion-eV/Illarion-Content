@@ -2,13 +2,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger48", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 214
-local POSTCONDITION_QUESTSTATE = 222
+local PRECONDITION_QUESTSTATE = 222
+local POSTCONDITION_QUESTSTATE = 220
 
-local NPC_TRIGGER_DE = "[Dd]rache"
-local NPC_TRIGGER_EN = "[Dd]ragon"
-local NPC_REPLY_DE = "Ihr kommt euren Preis näher. Wem zu Ehren wurde die Statue beim 'Feiglings letztes Gefecht' errichtet?"
-local NPC_REPLY_EN = "You are coming your reward closer. To whom refers the statue at 'Cowards last stand'?"
+local NPC_TRIGGER_DE = "[Ll]uvwick"
+local NPC_TRIGGER_EN = "[Ll]uvwick"
+local NPC_REPLY_DE = "Wieder richtig. Nun, wem haben wir im Halblings-Krieg besiegt?"
+local NPC_REPLY_EN = "Again correct. Well, whom did we beat in the Halfling-war?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

@@ -4,8 +4,8 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger68", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 258
-local POSTCONDITION_QUESTSTATE = 264
+local PRECONDITION_QUESTSTATE = 259
+local POSTCONDITION_QUESTSTATE = 267
 
 local ITEM_ID = 45
 local ITEM_AMNT = 1
@@ -66,7 +66,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd, Topas und Diamant nach Galmair und suche die restliche Person.", "Go with the received emerald, topaz and diamond to Galmair and look for these remaining person there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd, Blaustein und Diamant nach Cadomyr und suche die restliche Person.", "Go with the received emerald, bluestone and diamond to Cadomyr and look for the remaining person there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 285, 333, 1):execute()
 end
 

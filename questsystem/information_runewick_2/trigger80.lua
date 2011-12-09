@@ -1,9 +1,9 @@
 require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_2.trigger33", package.seeall)
+module("questsystem.information_runewick_2.trigger80", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 199
+local PRECONDITION_QUESTSTATE = 202
 local POSTCONDITION_QUESTSTATE = 196
 
 local POSITION = position(727, 770, 0)

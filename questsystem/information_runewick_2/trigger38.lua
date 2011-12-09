@@ -1,14 +1,15 @@
+require("handler.sendmessagetoplayer")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger38", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 211
-local POSTCONDITION_QUESTSTATE = 218
+local PRECONDITION_QUESTSTATE = 207
+local POSTCONDITION_QUESTSTATE = 207
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Hübsch, hübsch. *schmunzelt* Nun bevor ich euch euren nächsten Auftrag anvertraue, beantwortet mir erst einmal ein paar Fragen. Erste Frage: Für was haben wir einst das Schattentor verwendet?"
-local NPC_REPLY_EN = "Handsome, handsome. *smiles* Well, answer first some questions before I send you for your next task. First Question: For what purpose did we use the Shadow Gate in the past?"
+local NPC_REPLY_DE = "Wie ich sagte, ich will sie eigentlich gar nicht, daher bringt sie lieber Zaida. Ihr findet sie in der Werktstatt unten."
+local NPC_REPLY_EN = "As I said I do not want them. Please bring them to Zaida. You can find her in the workshop downstairs."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -52,6 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zu Zaida und bringe ihr die Trauben. Du findest Zaida in der Werkstatt. Wenn du nicht weißt wo dieser ist frage Elesil.", "Go to Zaida and bring her the grapes. You can find her in the workshop. If you do not know where the workshop is, ask Elesil."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

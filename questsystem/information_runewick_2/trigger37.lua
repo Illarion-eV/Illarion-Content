@@ -1,17 +1,14 @@
-require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
-require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger37", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 208
-local POSTCONDITION_QUESTSTATE = 211
+local PRECONDITION_QUESTSTATE = 211
+local POSTCONDITION_QUESTSTATE = 218
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ich hab schon gehört was Zaida sagte. Lass mich sehen was du für eine Größe hast. Hmm... die hier sollte passen. *reicht eine gelbe Robe*"
-local NPC_REPLY_EN = "I heared what Zaida said. Let me see what size you have. Hmm...this one should fit. *hands a yellow robe* "
+local NPC_REPLY_DE = "Hübsch, hübsch. *schmunzelt* Nun bevor ich euch euren nächsten Auftrag anvertraue, beantwortet mir erst einmal ein paar Fragen. Erste Frage: Für was haben wir einst das Schattentor verwendet?"
+local NPC_REPLY_EN = "Handsome, handsome. *smiles* Well, answer first some questions before I send you for your next task. First Question: For what purpose did we use the Shadow Gate in the past?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -55,9 +52,6 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Numila.", "Go back to Numila now."):execute()
-    handler.eraseplayeritem.erasePlayerItem(PLAYER, 388, 1):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 195, 999, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

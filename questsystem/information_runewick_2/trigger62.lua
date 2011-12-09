@@ -4,8 +4,8 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger62", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 259
-local POSTCONDITION_QUESTSTATE = 262
+local PRECONDITION_QUESTSTATE = 260
+local POSTCONDITION_QUESTSTATE = 265
 
 local ITEM_ID = 45
 local ITEM_AMNT = 1
@@ -66,7 +66,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd, Blaustein und Topas zum Gasthof Hanfschlinge und suche die restliche Person. ", "Go with the received emerald, bluestone and topaz to the Hemp Necktie Inn and look for the remaining person there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd, Diamant und Topas nach Galmair und suche die restliche Person.", "Go with the received emerald, diamond and topaz to Galmair and look for the remaining person there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 198, 333, 1):execute()
 end
 

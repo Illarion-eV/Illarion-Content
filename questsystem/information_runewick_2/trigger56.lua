@@ -3,11 +3,11 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger56", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 251
+local PRECONDITION_QUESTSTATE = 246
 local POSTCONDITION_QUESTSTATE = 251
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
 local NPC_REPLY_DE = "Geht nun zur Bärenhöhle und erlegt einige der Wölfe dort. Vielleicht über ihr euch aber vorher noch in der Kampfkunst oder sucht nach Weggefährten. Kommt anschließend wieder zurück."
 local NPC_REPLY_EN = "Go to the Bear cave now and hunt some of the wolves there. You should maybe practice first or look for support. Come back afterwards."
 

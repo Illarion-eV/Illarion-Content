@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun zum Adron Versteck und bringe ein paar Trauben. Der Eingang befindet sich entlang der Küste nordwestlich von Eibental. Halte Ausschau nach Bäumen.", "Go to Adron's Covert now and bring some grapes. You can find the entrance on the coast northeast from Yewdale. Keep your eyes open for trees."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun zu Adrons Versteck und bringe ein paar Trauben. Der Eingang befindet sich entlang der Küste nordwestlich von Eibental. Halte Ausschau nach Bäumen.", "Go to Adron's Covert now and bring some grapes. You can find the entrance on the coast northeast from Yewdale. Keep your eyes open for trees."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

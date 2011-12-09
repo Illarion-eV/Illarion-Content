@@ -3,41 +3,57 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger34", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 199
-local POSTCONDITION_QUESTSTATE = 196
+local PRECONDITION_QUESTSTATE = 196
+local POSTCONDITION_QUESTSTATE = 207
 
-local POSITION = position(727, 770, 0)
-local RADIUS = 10
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Gut, aber eigentlich will ich sie gar nicht, daher bringt sie lieber Zaida. Ihr findet sie in der Werktstatt unten."
+local NPC_REPLY_EN = "Good, but actually I do not want them. Please bring them to Zaida. You can find her in the workshop downstairs."
 
-function MoveItemBeforeMove(PLAYER, item, itemAfter)
-  if PLAYER:isInRangeToPosition(POSITION,RADIUS)
-      and ADDITIONALCONDITIONS(PLAYER)
-      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-    -- informNLS(PLAYER, TEXT_DE, TEXT_EN)
-    
-    HANDLER(PLAYER)
-    
-    questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
-    return true
-  end
+function receiveText(type, text, PLAYER)
+    if ADDITIONALCONDITIONS(PLAYER)
+    and PLAYER:getType() == Character.player
+    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+        if PLAYER:getPlayerLanguage() == Player.german then
+            NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
+        else
+            NPC_TRIGGER=string.gsub(NPC_TRIGGER_EN,'([ ]+)',' .*');
+        end
 
-  return false
+        foundTrig=false
+        
+        for word in string.gmatch(NPC_TRIGGER, "[^|]+") do 
+            if string.find(text,word)~=nil then
+                foundTrig=true
+            end
+        end
+
+        if foundTrig then
+      
+            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            
+            HANDLER(PLAYER)
+            
+            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+        
+            return true
+        end
+    end
+    return false
 end
 
-function informNLS(player, textDe, textEn)
+function getNLS(player, textDe, textEn)
   if player:getPlayerLanguage() == Player.german then
-    player:inform(player, item, textDe)
+    return textDe
   else
-    player:inform(player, item, textEn)
+    return textEn
   end
 end
-
--- local TEXT_DE = TEXT -- German Text before movement -- Deutscher Text vor Bewegung
--- local TEXT_EN = TEXT -- English Text before movement -- Englischer Text vor Bewegung
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Bring die Traube zu Numila nun.", "Bring the grapes to Numila now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zu Zaida und bringe ihr die Trauben. Du findest Zaida in der Werkstatt. Wenn du nicht weiﬂt wo dieser ist frage Elesil.", "Go to Zaida and bring her the grapes. You can find her in the workshop. If you do not know where the workshop is, ask Elesil."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -1,15 +1,14 @@
-require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_2.trigger54", package.seeall)
+module("questsystem.information_runewick_2.trigger85", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 243
-local POSTCONDITION_QUESTSTATE = 246
+local PRECONDITION_QUESTSTATE = 287
+local POSTCONDITION_QUESTSTATE = 305
 
-local NPC_TRIGGER_DE = "."
-local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Nun, seid ihr ausgerüstet. Geht nun zur Bärenhöhle und erlegt einige der Wölfe dort. Vielleicht über ihr euch aber vorher noch in der Kampfkunst oder sucht nach Weggefährten. Kommt anschließend wieder zurück."
-local NPC_REPLY_EN = "Now, you are equipped. Go to the Bear cave now and hunt some of the wolves there. You should maybe practice first or look for support. Come back afterwards."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Wie gesagt, ich habe nun keine Aufgaben mehr für euch, aber wenn ihr Informationen bezüglich Plätze benötigt, so stellt eure Fragen."
+local NPC_REPLY_EN = "As I said, I do not have any further rewards for you, but if you want to have more information about places, please ask. "
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +52,6 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur Bärenhöhle. Bedenke, dass dies kein ungefährlicher Ort ist. Sei daher vorbereitet durch etwas Training oder Unterstützung durch Mitspieler.", "Go to the Bear cave now. Keep in mind this is not an undangerous place. You should practice before or look for support from other players."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

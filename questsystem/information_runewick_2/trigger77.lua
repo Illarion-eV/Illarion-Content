@@ -3,7 +3,7 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger77", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 279
+local PRECONDITION_QUESTSTATE = 278
 local POSTCONDITION_QUESTSTATE = 287
 
 local NPC_TRIGGER_DE = "."
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Numila steckt dir noch ein Papier zu auf welchen du 'Mordak al Kharud' lesen kannst. Sekunden später löst sich das Stück in Staub auf.", "Numila hands you a piece of paper. You read 'Mordak al Kharud' and seconds later the paper turns to dust."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Numila steckt dir noch ein Papier zu auf welchem du 'Mordak al Kharud' lesen kannst. Sekunden später löst sich das Stück in Staub auf.", "Numila hands you a piece of paper. You read 'Mordak al Kharud' and seconds later the paper turns to dust."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

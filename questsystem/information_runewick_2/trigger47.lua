@@ -2,13 +2,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger47", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 218
-local POSTCONDITION_QUESTSTATE = 214
+local PRECONDITION_QUESTSTATE = 214
+local POSTCONDITION_QUESTSTATE = 222
 
-local NPC_TRIGGER_DE = "[Ee]xperiment"
-local NPC_TRIGGER_EN = "[Ee]xperiment"
-local NPC_REPLY_DE = "Gut, erste Frage wäre beantwortet. Nächste Frage: Wer hat den Todes Gestank zudem verwandelt das er nun ist?"
-local NPC_REPLY_EN = "Good, first question was answered. Next question: Who has turned the Death Stench to the current state?"
+local NPC_TRIGGER_DE = "[Dd]rache"
+local NPC_TRIGGER_EN = "[Dd]ragon"
+local NPC_REPLY_DE = "Ihr kommt euren Preis näher. Wem zu Ehren wurde die Statue beim 'Feiglings letztes Gefecht' errichtet?"
+local NPC_REPLY_EN = "You are coming your reward closer. To whom refers the statue at 'Cowards last stand'?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

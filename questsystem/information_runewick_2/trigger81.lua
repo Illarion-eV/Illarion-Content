@@ -1,15 +1,15 @@
 require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_2.trigger54", package.seeall)
+module("questsystem.information_runewick_2.trigger81", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 243
+local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 246
 
-local NPC_TRIGGER_DE = "."
-local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Nun, seid ihr ausgerüstet. Geht nun zur Bärenhöhle und erlegt einige der Wölfe dort. Vielleicht über ihr euch aber vorher noch in der Kampfkunst oder sucht nach Weggefährten. Kommt anschließend wieder zurück."
-local NPC_REPLY_EN = "Now, you are equipped. Go to the Bear cave now and hunt some of the wolves there. You should maybe practice first or look for support. Come back afterwards."
+local NPC_TRIGGER_DE = "Cheat"
+local NPC_TRIGGER_EN = "Cheat"
+local NPC_REPLY_DE = "lalal"
+local NPC_REPLY_EN = "allalal"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
