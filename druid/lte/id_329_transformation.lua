@@ -26,7 +26,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 		  
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
 		  Effect:addValue("counterBlack",counterBlack)
-		   User:inform("danach: "..counterBlack)
+		  User:inform("danach: "..counterBlack)
 		   
 		   if counterBlack == 0 then
 				-- the effect counter is down to zero; we change the char back
@@ -131,6 +131,7 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
    Effect.nextCalled = 50
    User:inform("return true")
    return true
+   end 
 end
 
 function removeEffect(Effect,USer)         
@@ -223,4 +224,4 @@ function loadEffect(Effect,User)
    else	   
      User:inform("LTE-Error 1: please call dev")    
    end
-end
+end  
