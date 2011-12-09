@@ -5,7 +5,7 @@ module("questsystem.information_runewick_2.trigger81", package.seeall)
 
 local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 0
-local POSTCONDITION_QUESTSTATE = 202
+local POSTCONDITION_QUESTSTATE = 211
 
 local NPC_TRIGGER_DE = "Cheat"
 local NPC_TRIGGER_EN = "Cheat"
@@ -54,8 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 916, 999, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun zu Adrons Versteck und bringe ein paar Trauben. Der Eingang befindet sich entlang der Küste nordwestlich von Eibental. Halte Ausschau nach Bäumen.", "Go to Adron's Covert now and bring some grapes. You can find the entrance on the coast northeast from Yewdale. Keep your eyes open for trees."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Numila.", "Go back to Numila now."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 195, 999, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

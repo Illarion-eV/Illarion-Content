@@ -1,6 +1,5 @@
 require("handler.sendmessagetoplayer")
 require("handler.createplayeritem")
-require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger36", package.seeall)
 
@@ -56,7 +55,6 @@ end
 
 function HANDLER(PLAYER)
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Numila.", "Go back to Numila now."):execute()
-    handler.eraseplayeritem.erasePlayerItem(PLAYER, 388, 1):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 195, 999, 1):execute()
 end
 

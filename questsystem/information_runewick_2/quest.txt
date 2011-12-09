@@ -79,4 +79,3 @@ npc,348,receiveText,trigger78
 npc,348,receiveText,trigger79
 item,387,UseItem,trigger80
 npc,348,receiveText,trigger81
-npc,348,receiveText,trigger82
