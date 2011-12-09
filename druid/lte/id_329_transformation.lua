@@ -45,14 +45,14 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 					  if findOld_hair then
 						 User:setHair(old_hair)
 					  else
-						 User:inform("LTE-Error 1: please call dev") 
+						 User:inform("LTE-Error 2: please call dev") 
 					  end
 					  
 					  findOld_beard, old_beard = Effect:findValue("old_beard")
 					  if findOld_beard then
 						 User:setBeard(old_beard)
 					  else
-						 User:inform("LTE-Error 1: please call dev") 
+						 User:inform("LTE-Error 3: please call dev") 
 					  end
 					  
 					  findOld_skincolor1, old_skincolor1 = Effect:findValue("old_skincolor1")
@@ -63,13 +63,13 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 								if findOld_skincolor3 then
 								   User:setSkinColor(old_skincolor1,old_skincolor2,old_skincolor3)
 							   else
-								  User:inform("LTE-Error 1: please call dev")
+								  User:inform("LTE-Error 4: please call dev")
 							   end
 						   else
-							  User:inform("LTE-Error 1: please call dev")
+							  User:inform("LTE-Error 5: please call dev")
 						   end
 					   else
-						  User:inform("LTE-Error 1: please call dev")
+						  User:inform("LTE-Error 6: please call dev")
 					   end 
 						 
 					  findOld_skincolor1, old_skincolor1 = Effect:findValue("old_skincolor1")
@@ -80,13 +80,13 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 								if findOld_skincolor3 then
 								   User:setSkinColor(old_skincolor1,old_skincolor2,old_skincolor3)
 							   else
-								  User:inform("LTE-Error 1: please call dev")
+								  User:inform("LTE-Error 7: please call dev")
 							   end
 						   else
-							  User:inform("LTE-Error 1: please call dev")
+							  User:inform("LTE-Error 8: please call dev")
 						   end
 					   else
-						  User:inform("LTE-Error 1: please call dev")
+						  User:inform("LTE-Error 9: please call dev")
 					   end     
 					   
 			
@@ -94,17 +94,17 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 		            if findOld_race then
 			           User:setAttrib("racetyp",old_race)
 		           else
-			           User:inform("LTE-Error 1: please call dev") 
+			           User:inform("LTE-Error 10: please call dev") 
 		           end
                    
 		           findOld_height, old_height = Effect:findValue("old_height")
 		           if findOld_race then
 			          User:setAttrib("body_height",old_height) 
 		           else
-			          User:inform("LTE-Error 1: please call dev") 
+			          User:inform("LTE-Error 11: please call dev") 
 		           end
 			   else
-			     User:inform("LTE-Error 1: please call dev") 
+			     User:inform("LTE-Error 12: please call dev") 
 			   end
 			end
 	        
@@ -121,11 +121,11 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
 				   Effect:addValue("cooldownBlack",cooldownBlack)
 				end
 		   else
-		      User:inform("LTE-Error 1: please call dev") 
+		      User:inform("LTE-Error 13: please call dev") 
 		   end
 	   end   
    else
-     User:inform("LTE-Error 1: please call dev") 
+     User:inform("LTE-Error 14: please call dev") 
    end
 
    Effect.nextCalled = 50
@@ -151,21 +151,21 @@ function loadEffect(Effect,User)
 				  if findNew_sex then
 					 User:setAttrib("sex",new_sex)
 				  else
-					 User:inform("LTE-Error 1: please call dev") 
+					 User:inform("LTE-Error 15: please call dev") 
 				  end
 				  
 				  findNew_hair, new_hair = Effect:findValue("new_hair")
 				  if findNew_hair then
 					 User:setHair(new_hair)
 				  else
-					 User:inform("LTE-Error 1: please call dev") 
+					 User:inform("LTE-Error 16: please call dev") 
 				  end
 				  
 				  findNew_beard, new_beard = Effect:findValue("new_beard")
 				  if findNew_beard then
 					 User:setBeard(new_beard)
 				  else
-					 User:inform("LTE-Error 1: please call dev") 
+					 User:inform("LTE-Error 17: please call dev") 
 				  end
 				  
 				  findNew_skincolor1, new_skincolor1 = Effect:findValue("new_skincolor1")
@@ -176,13 +176,13 @@ function loadEffect(Effect,User)
 						    if findNew_skincolor3 then
 							   User:setSkinColor(new_skincolor1,new_skincolor2,new_skincolor3)
 					       else
-					          User:inform("LTE-Error 1: please call dev")
+					          User:inform("LTE-Error 18: please call dev")
 					       end
 					   else
-					      User:inform("LTE-Error 1: please call dev")
+					      User:inform("LTE-Error 19: please call dev")
 					   end
 				   else
-					  User:inform("LTE-Error 1: please call dev")
+					  User:inform("LTE-Error 20: please call dev")
 				   end 
 					 
 				  findNew_skincolor1, new_skincolor1 = Effect:findValue("new_skincolor1")
@@ -193,35 +193,35 @@ function loadEffect(Effect,User)
 						    if findNew_skincolor3 then
 							   User:setSkinColor(new_skincolor1,new_skincolor2,new_skincolor3)
 					       else
-					          User:inform("LTE-Error 1: please call dev")
+					          User:inform("LTE-Error 21: please call dev")
 					       end
 					   else
-					      User:inform("LTE-Error 1: please call dev")
+					      User:inform("LTE-Error 22: please call dev")
 					   end
 				   else
-					  User:inform("LTE-Error 1: please call dev")
+					  User:inform("LTE-Error 23: please call dev")
 				   end 
 			   
 			   end  
 		   else
-			  User:inform("LTE-Error 1: please call dev")       
+			  User:inform("LTE-Error 24: please call dev")       
 		   end      
 			
 		   findNew_race, new_race = Effect:findValue("new_race")	
 		   if findNew_race then
 			  User:setAttrib("racetyp",new_race)
 		   else
-			  User:inform("LTE-Error 1: please call dev") 
+			  User:inform("LTE-Error 25: please call dev") 
 		   end
 
 		   findNew_height, new_height = Effect:findValue("new_height")
 		   if findNew_race then
 			  User:setAttrib("body_height",new_height) 
 		   else
-			  User:inform("LTE-Error 1: please call dev") 
+			  User:inform("LTE-Error 26: please call dev") 
 		   end
        end
    else	   
-     User:inform("LTE-Error 1: please call dev")    
+     User:inform("LTE-Error 27: please call dev")    
    end
 end  

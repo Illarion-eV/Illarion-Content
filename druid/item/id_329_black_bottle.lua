@@ -11,12 +11,6 @@ module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(drui
 function DoDruidism(User,SourceItem)
    potionData = tonumber(SourceItem:getData("potionData"));
    
-  if User.effects:find(329) then
-	   User:inform("lte noch aktiv; wird entfernt");   
-	   User.effects:removeEffect(329)
-	   --return;
-   end	
-
    -- old values (so that the char can be changed back later)
    old_race = User:getRace()
    old_skincolor1,old_skincolor2,old_skincolor3 = User:getSkinColor()
@@ -200,7 +194,13 @@ end
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-    
+    -- for testing
+	if User.effects:find(329) then
+	   User:inform("lte noch aktiv; wird entfernt");   
+	   User.effects:removeEffect(329)
+	   --return;
+   end	
+	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	
