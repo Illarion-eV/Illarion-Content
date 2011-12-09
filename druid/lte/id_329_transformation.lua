@@ -15,14 +15,14 @@ function addEffect(Effect, User)               -- Nur beim ersten Aufruf
 	--User:inform("debug func addEffect")
 end
 
-function callEffect(Effect,User)                  -- Effect wird ausgeführt
+function callEffect(Effect,User)   
 --User:inform("debug func callEffect")
     
 	findCounter,counterBlack = Effect:findValue("counterBlack")
-    if findCounter then
+    if findCounter then 
 	  
 	   User:inform("davor: "..counterBlack)
-	   if counterBlack >= 1 then
+	   if counterBlack >= 1 then 
 		  
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
 		  Effect:addValue("counterBlack",counterBlack)
@@ -131,8 +131,9 @@ function callEffect(Effect,User)                  -- Effect wird ausgeführt
    Effect.nextCalled = 50
    User:inform("return true")
    return true
-   end 
+   end
 end
+
 
 function removeEffect(Effect,USer)         
 	
@@ -220,8 +221,8 @@ function loadEffect(Effect,User)
 		   else
 			  User:inform("LTE-Error 26: please call dev") 
 		   end
-       end
+       end 
    else	   
      User:inform("LTE-Error 27: please call dev")    
-   end
+   end 
 end  
