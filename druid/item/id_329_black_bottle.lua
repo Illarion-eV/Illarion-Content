@@ -384,10 +384,10 @@ function RenewingEffect(User,SourceItem)
 			  User:inform("LTE-Error 26: please call dev") 
 		   end
 	   
-	       myEffect:addValue("counterBlack",new_duration = 5)
+	       myEffect:addValue("counterBlack",new_duration)
 	   
 	   elseif old_duration < new_duration then
-	        myEffect:addValue("counterBlack",new_duration = 5)
+	        myEffect:addValue("counterBlack",new_duration)
 	   end
 	
 	else
