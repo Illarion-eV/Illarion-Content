@@ -17,7 +17,7 @@ function DoDruidism(User,SourceItem)
 	if find then
 	   findCodecValue, CodecValue = myEffect:findValue("CodecValue")
 	    if findCodecValue then
-	        if CodecValue == tonumber(SourceItem:getData("potionData")) then
+	        if CodecValue == potionData then
 	           druid.item.id_329_black_bottle.RenewingEffect(User,SourceItem)
 	           return
 			end
@@ -396,6 +396,7 @@ function RenewingEffect(User,SourceItem)
 	else
 	  User:inform("Error, please inform dev.")
 	end  
+    return
 end
 
 
