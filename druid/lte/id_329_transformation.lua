@@ -86,7 +86,7 @@ function callEffect(Effect,User)
 					   else
 						  User:inform("LTE-Error 9: please call dev")
 					   end     
-				   end   
+				      
 			
 						findOld_race, old_race = Effect:findValue("old_race")	
 						if findOld_race then
@@ -101,6 +101,7 @@ function callEffect(Effect,User)
 					   else
 						  User:inform("LTE-Error 11: please call dev") 
 					   end
+			       end
 			   else
 			     User:inform("LTE-Error 12: please call dev") 
 			   end
