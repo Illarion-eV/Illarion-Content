@@ -337,7 +337,7 @@ function RenewingEffect(User,SourceItem)
 				  if findNew_skincolor1 then
 					    if findNew_skincolor2 then
 						    if findNew_skincolor3 then
-							   User:setSkinColor(renew_skincolor1,renew_skincolor2,rew_skincolor3)
+							   User:setSkinColor(renew_skincolor1,renew_skincolor2,renew_skincolor3)
 					       else
 					          User:inform("LTE-Error 18: please call dev")
 					       end
