@@ -334,6 +334,9 @@ function RenewingEffect(User,SourceItem)
 				  findNew_skincolor1, renew_skincolor1 = myEffect:findValue("new_skincolor1")
 				  findNew_skincolor2, renew_skincolor2 = myEffect:findValue("new_skincolor2")
 				  findNew_skincolor3, renew_skincolor3 = myEffect:findValue("new_skincolor3")
+				  User:inform(""..renew_skincolor1)
+				  User:inform(""..renew_skincolor2)
+				  User:inform(""..renew_skincolor3)
 				  if findNew_skincolor1 then
 					    if findNew_skincolor2 then
 						    if findNew_skincolor3 then
