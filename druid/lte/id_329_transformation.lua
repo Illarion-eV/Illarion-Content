@@ -17,17 +17,15 @@ end
 
 function callEffect(Effect,User)   
 --User:inform("debug func callEffect")
-    -- test
+    
 	findCounter,counterBlack = Effect:findValue("counterBlack")
     if findCounter then 
 	  
-	   User:inform("davor: "..counterBlack)
 	   if counterBlack >= 1 then 
 		  
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
 		  Effect:addValue("counterBlack",counterBlack)
-		  User:inform("danach: "..counterBlack)
-		   
+		  
 		   if counterBlack == 0 then
 				-- the effect counter is down to zero; we change the char back
 			    findOnlyRace, OnlyRace = Effect:findValue("OnlyRace")
@@ -107,13 +105,11 @@ function callEffect(Effect,User)
 			     User:inform("LTE-Error 12: please call dev") 
 			   end
 			end
-	        
 	   else
-		   User:inform("here here")
+		   
 		   findCooldown,cooldownBlack = Effect:findValue("cooldownBlack")
 		   if findCooldown then
 				if cooldownBlack <= 0 then
-				   User:inform("return false")
 				   return false
 			   else 
 				   cooldownBlack = cooldownBlack - 1;
