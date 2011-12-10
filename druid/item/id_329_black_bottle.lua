@@ -1,6 +1,8 @@
 --I_329_schwarze_flasche
 --Druidensystem in Arbeit
 --Falk
+-- complete rework by merung, 2011
+
 require("base.common")
 require("druid.base.alchemy")
 
@@ -11,6 +13,19 @@ module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(drui
 function DoDruidism(User,SourceItem)
    potionData = tonumber(SourceItem:getData("potionData"));
    
+   find, myEffect = User.effects:find(329)
+	if find then
+	   findCodecValue, CodecValue = myEffect:findValue("CodecValue")
+	    if findCodecValue then
+	        if CodecValue == tonumber(SourceItem:getData("potionData")) then
+	           druid.item.id_329_black_bottle.RenewingEffect(User,SourceItem)
+	           return
+			end
+	   else
+	     User:inform("Error, please inform dev.");
+	   end
+	end	
+	
    -- old values (so that the char can be changed back later)
    old_race = User:getRace()
    old_skincolor1,old_skincolor2,old_skincolor3 = User:getSkinColor()
@@ -34,7 +49,7 @@ function DoDruidism(User,SourceItem)
   
 		   -- we create our lists with the different values for the six races
 		   -- 1 = human; 2 = dwarf; 3 = halfling; 4 = elf; 5 = orc; 6 = lizard
-		   -- note that the list numbers do not match the race ids! They are race Id + 1
+		   -- note that the lists' numbers do not match the race ids! They are race Id + 1
 		   
 		   -- the color sets are seperated by ; while the three values of each set are seperated by ,
 		   ListSkinColor = {}
@@ -55,7 +70,7 @@ function DoDruidism(User,SourceItem)
 		   
 		   ListBeard = {}
 		   ListBeard[1] = {0,1,3,4,5,6}
-		   ListBeard[2] = {0,1,1,2,2,4,4} -- 0 means no beard, therefore there is a "double" chance for the other possibilities;a dwarf without a beard?
+		   ListBeard[2] = {0,1,1,2,2,4,4} -- 0 means no beard, therefore there is a double chance for the other possibilities;a dwarf without a beard?
       	   ListBeard[3] = {0}
 		   ListBeard[4] = {0}
 		   ListBeard[5] = {0}
@@ -98,15 +113,13 @@ function DoDruidism(User,SourceItem)
 		   
 		   SkinColorRandomPosition = ((math.random(1,(#ListSkinColor[(new_race)+1]/3)))*3)
 		   new_skincolor1 = ListSkinColor[(new_race)+1][SkinColorRandomPosition-2]
-		   User:inform(""..new_skincolor1)
 		   new_skincolor2 = ListSkinColor[(new_race)+1][SkinColorRandomPosition-1]
-		   User:inform(""..new_skincolor2)
 		   new_skincolor3 = ListSkinColor[(new_race)+1][SkinColorRandomPosition]
-		   User:inform(""..new_skincolor3)
 		   
 		   new_height = math.random(80,120)
 	   
-	       OnlyRace = 0 --this will tell us later that there are more values than just the race which have been changed
+	       OnlyRace = 0 
+	       CodecValue = ListCodecs1[i]
 	   end
    end
   
@@ -121,8 +134,9 @@ function DoDruidism(User,SourceItem)
         
 		  new_height = math.random(80,120)
 		  new_race = ListRaceID2[i]
-          OnlyRace = 1 -- this will tell us that there is only the race as a changed value
-       end
+          OnlyRace = 1
+          CodecValue = ListCodecs2[i]
+	   end
    end
    
   
@@ -150,6 +164,7 @@ function DoDruidism(User,SourceItem)
 	  myEffect:addValue("old_race",old_race)
 	  myEffect:addValue("old_height",old_height)
 	  
+	  
 	  -- saving the new values
 	  if OnlyRace == 0 then -- if there is more to save than new_race
 	     myEffect:addValue("new_sex",new_sex)
@@ -168,6 +183,7 @@ function DoDruidism(User,SourceItem)
 	  myEffect:addValue("old_height",old_height)
 
 	  myEffect:addValue("OnlyRace",OnlyRace)
+	  myEffect:addValue("CodecValue",CodecValue)
 	  
 	  -- transformation
 	  if OnlyRace == 0 then
@@ -198,13 +214,7 @@ end
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-    -- for testing
-	if User.effects:find(329) then
-	   User:inform("lte noch aktiv; wird entfernt");   
-	   User.effects:removeEffect(329)
-	   --return;
-   end	
-	
+    
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	
@@ -253,12 +263,21 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		return;
 	end
 	
-	if User.effects:find(329) then
-	   base.common.TempInformNLS( User,
+	
+	find, myEffect = User.effects:find(329)
+	if find then
+	   findCodecValue, CodecValue = myEffect:findValue("CodecValue")
+	    if findCodecValue then
+	        if CodecValue ~= tonumber(SourceItem:getData("potionData")) then
+	           base.common.TempInformNLS( User,
                 "Der Trank hätte jetzt keine Wirkung.",
                 "The potion wouldn't have any effect now."
                        );  
-	   return;
+	          return;
+	       end
+	   else
+	     User:inform("Error, please inform dev.");
+	   end
 	end	
 	
 	base.character.ChangeFightingpoints(User, -20);
@@ -271,6 +290,111 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     end
 	DoDruidism(User, SourceItem);
 end
+
+function RenewingEffect(User,SourceItem)
+    
+	find, myEffect = User.effects:find(329)
+	if find then
+	   new_duration = 5 -- to be replaced with a formula with the potion's quality being the changeabale varibale
+	
+	   findCounter,counterBlack = myEffect:findValue("counterBlack")
+	   if findCounter then
+		  old_duration = counterBlack
+	   else
+		 User:inform("Error, please inform dev.")
+	   end
+	
+	   if old_duration == 0 then -- that means that we are within the cooldown -> we have to change the char's apperance
+	      
+		  findOnlyRace, OnlyRace = myEffect:findValue("OnlyRace")
+			if findOnlyRace then
+			   if OnlyRace == 0 then
+				  
+				  findNew_sex, new_sex = myEffect:findValue("new_sex")
+				  if findNew_sex then
+					 User:setAttrib("sex",new_sex)
+				  else
+					 User:inform("LTE-Error 15: please call dev") 
+				  end
+				  
+				  findNew_hair, new_hair = myEffect:findValue("new_hair")
+				  if findNew_hair then
+					 User:setHair(new_hair)
+				  else
+					 User:inform("LTE-Error 16: please call dev") 
+				  end
+				  
+				  findNew_beard, new_beard = myEffect:findValue("new_beard")
+				  if findNew_beard then
+					 User:setBeard(new_beard)
+				  else
+					 User:inform("LTE-Error 17: please call dev") 
+				  end
+				  
+				  findNew_skincolor1, new_skincolor1 = myEffect:findValue("new_skincolor1")
+				  findNew_skincolor2, new_skincolor2 = myEffect:findValue("new_skincolor2")
+				  findNew_skincolor3, new_skincolor3 = myEffect:findValue("new_skincolor3")
+				  if findNew_skincolor1 then
+					    if findNew_skincolor2 then
+						    if findNew_skincolor3 then
+							   User:setSkinColor(new_skincolor1,new_skincolor2,new_skincolor3)
+					       else
+					          User:inform("LTE-Error 18: please call dev")
+					       end
+					   else
+					      User:inform("LTE-Error 19: please call dev")
+					   end
+				   else
+					  User:inform("LTE-Error 20: please call dev")
+				   end 
+					 
+				  findNew_haircolor1, new_haircolor1 = Effect:findValue("new_haircolor1")
+				  findNew_haircolor2, new_haircolor2 = Effect:findValue("new_haircolor2")
+				  findNew_haircolor3, new_haircolor3 = Effect:findValue("new_haircolor3")
+				  if findNew_haircolor1 then
+					    if findNew_haircolor2 then
+						    if findNew_haircolor3 then
+							   User:setSkinColor(new_haircolor1,new_haircolor2,new_haircolor3)
+					       else
+					          User:inform("LTE-Error 21: please call dev")
+					       end
+					   else
+					      User:inform("LTE-Error 22: please call dev")
+					   end
+				   else
+					  User:inform("LTE-Error 23: please call dev")
+				   end 
+			   
+			   end  
+		   else
+			  User:inform("LTE-Error 24: please call dev")       
+		   end      
+			
+		   findNew_race, new_race = myEffect:findValue("new_race")	
+		   if findNew_race then
+			  User:setAttrib("racetyp",new_race)
+		   else
+			  User:inform("LTE-Error 25: please call dev") 
+		   end
+
+		   findNew_height, new_height = myEffect:findValue("new_height")
+		   if findNew_race then
+			  User:setAttrib("body_height",new_height) 
+		   else
+			  User:inform("LTE-Error 26: please call dev") 
+		   end
+	   
+	       myEffect:addValue("counterBlack",new_duration = 5)
+	   
+	   elseif old_duration < new_duration then
+	        myEffect:addValue("counterBlack",new_duration = 5)
+	   end
+	
+	else
+	  User:inform("Error, please inform dev.")
+	end  
+end
+
 
 function LookAtItem(User,Item)
     
