@@ -70,9 +70,9 @@ function callEffect(Effect,User)
 						  User:inform("LTE-Error 6: please call dev")
 					   end 
 						 
-					  findOld_haircolor1, old_haircolor1 = Effect:findValue("old_skincolor1")
-					  findOld_haircolor2, old_haircolor2 = Effect:findValue("old_skincolor2")
-					  findOld_haircolor3, old_haircolor3 = Effect:findValue("old_skincolor3")
+					  findOld_haircolor1, old_haircolor1 = Effect:findValue("old_haircolor1")
+					  findOld_haircolor2, old_haircolor2 = Effect:findValue("old_haircolor2")
+					  findOld_haircolor3, old_haircolor3 = Effect:findValue("old_haircolor3")
 					  if findOld_haircolor1 then
 							if findOld_haircolor2 then
 								if findOld_haircolor3 then
