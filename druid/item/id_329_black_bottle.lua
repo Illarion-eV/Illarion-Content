@@ -310,34 +310,34 @@ function RenewingEffect(User,SourceItem)
 			if findOnlyRace then
 			   if OnlyRace == 0 then
 				  
-				  findNew_sex, new_sex = myEffect:findValue("new_sex")
+				  findNew_sex, renew_sex = myEffect:findValue("new_sex")
 				  if findNew_sex then
-					 User:setAttrib("sex",new_sex)
+					 User:setAttrib("sex",renew_sex)
 				  else
 					 User:inform("LTE-Error 15: please call dev") 
 				  end
 				  
-				  findNew_hair, new_hair = myEffect:findValue("new_hair")
+				  findNew_hair, renew_hair = myEffect:findValue("new_hair")
 				  if findNew_hair then
-					 User:setHair(new_hair)
+					 User:setHair(renew_hair)
 				  else
 					 User:inform("LTE-Error 16: please call dev") 
 				  end
 				  
-				  findNew_beard, new_beard = myEffect:findValue("new_beard")
+				  findNew_beard, renew_beard = myEffect:findValue("new_beard")
 				  if findNew_beard then
-					 User:setBeard(new_beard)
+					 User:setBeard(renew_beard)
 				  else
 					 User:inform("LTE-Error 17: please call dev") 
 				  end
 				  
-				  findNew_skincolor1, new_skincolor1 = myEffect:findValue("new_skincolor1")
-				  findNew_skincolor2, new_skincolor2 = myEffect:findValue("new_skincolor2")
-				  findNew_skincolor3, new_skincolor3 = myEffect:findValue("new_skincolor3")
+				  findNew_skincolor1, renew_skincolor1 = myEffect:findValue("new_skincolor1")
+				  findNew_skincolor2, renew_skincolor2 = myEffect:findValue("new_skincolor2")
+				  findNew_skincolor3, renew_skincolor3 = myEffect:findValue("new_skincolor3")
 				  if findNew_skincolor1 then
 					    if findNew_skincolor2 then
 						    if findNew_skincolor3 then
-							   User:setSkinColor(new_skincolor1,new_skincolor2,new_skincolor3)
+							   User:setSkinColor(renew_skincolor1,renew_skincolor2,rew_skincolor3)
 					       else
 					          User:inform("LTE-Error 18: please call dev")
 					       end
@@ -348,13 +348,13 @@ function RenewingEffect(User,SourceItem)
 					  User:inform("LTE-Error 20: please call dev")
 				   end 
 					 
-				  findNew_haircolor1, new_haircolor1 = myEffect:findValue("new_haircolor1")
-				  findNew_haircolor2, new_haircolor2 = myEffect:findValue("new_haircolor2")
-				  findNew_haircolor3, new_haircolor3 = myEffect:findValue("new_haircolor3")
+				  findNew_haircolor1, renew_haircolor1 = myEffect:findValue("new_haircolor1")
+				  findNew_haircolor2, renew_haircolor2 = myEffect:findValue("new_haircolor2")
+				  findNew_haircolor3, renew_haircolor3 = myEffect:findValue("new_haircolor3")
 				  if findNew_haircolor1 then
 					    if findNew_haircolor2 then
 						    if findNew_haircolor3 then
-							   User:setSkinColor(new_haircolor1,new_haircolor2,new_haircolor3)
+							   User:setSkinColor(renew_haircolor1,renew_haircolor2,renew_haircolor3)
 					       else
 					          User:inform("LTE-Error 21: please call dev")
 					       end
@@ -370,16 +370,16 @@ function RenewingEffect(User,SourceItem)
 			  User:inform("LTE-Error 24: please call dev")       
 		   end      
 			
-		   findNew_race, new_race = myEffect:findValue("new_race")	
+		   findNew_race, renew_race = myEffect:findValue("new_race")	
 		   if findNew_race then
-			  User:setAttrib("racetyp",new_race)
+			  User:setAttrib("racetyp",renew_race)
 		   else
 			  User:inform("LTE-Error 25: please call dev") 
 		   end
 
-		   findNew_height, new_height = myEffect:findValue("new_height")
+		   findNew_height, renew_height = myEffect:findValue("new_height")
 		   if findNew_race then
-			  User:setAttrib("body_height",new_height) 
+			  User:setAttrib("body_height",renew_height) 
 		   else
 			  User:inform("LTE-Error 26: please call dev") 
 		   end
