@@ -348,9 +348,9 @@ function RenewingEffect(User,SourceItem)
 					  User:inform("LTE-Error 20: please call dev")
 				   end 
 					 
-				  findNew_haircolor1, new_haircolor1 = Effect:findValue("new_haircolor1")
-				  findNew_haircolor2, new_haircolor2 = Effect:findValue("new_haircolor2")
-				  findNew_haircolor3, new_haircolor3 = Effect:findValue("new_haircolor3")
+				  findNew_haircolor1, new_haircolor1 = myEffect:findValue("new_haircolor1")
+				  findNew_haircolor2, new_haircolor2 = myEffect:findValue("new_haircolor2")
+				  findNew_haircolor3, new_haircolor3 = myEffect:findValue("new_haircolor3")
 				  if findNew_haircolor1 then
 					    if findNew_haircolor2 then
 						    if findNew_haircolor3 then
