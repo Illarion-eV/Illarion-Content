@@ -91,16 +91,17 @@ function DoDruidism(User,SourceItem)
 		      new_hair = ListHairFemale[(new_race)+1][math.random(1,#ListHairFemale[(new_race)+1])]
 	       end
 	       
-		   new_haircolor1 = ListHairColor[(new_race)+1][((math.random(1,(#ListHairColor[(new_race)+1]/3)))*3)-2]
-		   new_haircolor2 = ListHairColor[(new_race)+1][((math.random(1,(#ListHairColor[(new_race)+1]/3)))*3)-1]
-		   new_haircolor3 = ListHairColor[(new_race)+1][((math.random(1,(#ListHairColor[(new_race)+1]/3)))*3)]
+		   HairColorRandomPosition = ((math.random(1,(#ListHairColor[(new_race)+1]/3)))*3)
+		   new_haircolor1 = ListHairColor[(new_race)+1][HairColorRandomPosition-2]
+		   new_haircolor2 = ListHairColor[(new_race)+1][HairColorRandomPosition-1]
+		   new_haircolor3 = ListHairColor[(new_race)+1][HairColorRandomPosition]
 		   
-		   
-		   new_skincolor1 = ListSkinColor[(new_race)+1][((math.random(1,(#ListSkinColor[(new_race)+1]/3)))*3)-2]
+		   SkinColorRandomPosition = ((math.random(1,(#ListSkinColor[(new_race)+1]/3)))*3)
+		   new_skincolor1 = ListSkinColor[(new_race)+1][SkinColorRandomPosition-2]
 		   User:inform(""..new_skincolor1)
-		   new_skincolor2 = ListSkinColor[(new_race)+1][((math.random(1,(#ListSkinColor[(new_race)+1]/3)))*3)-1]
+		   new_skincolor2 = ListSkinColor[(new_race)+1][SkinColorRandomPosition-1]
 		   User:inform(""..new_skincolor2)
-		   new_skincolor3 = ListSkinColor[(new_race)+1][((math.random(1,(#ListSkinColor[(new_race)+1]/3)))*3)]
+		   new_skincolor3 = ListSkinColor[(new_race)+1][SkinColorRandomPosition]
 		   User:inform(""..new_skincolor3)
 		   
 		   new_height = math.random(80,120)
