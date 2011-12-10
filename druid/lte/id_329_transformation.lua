@@ -111,6 +111,7 @@ function callEffect(Effect,User)
 		   findCooldown,cooldownBlack = Effect:findValue("cooldownBlack")
 		   if findCooldown then
 				if cooldownBlack <= 0 then
+				   User:inform("return false")
 				   return false
 			   else 
 				   cooldownBlack = cooldownBlack - 1;
@@ -126,7 +127,6 @@ function callEffect(Effect,User)
    end
 
    Effect.nextCalled = 50
-   User:inform("return true")
    return true
 end
 
