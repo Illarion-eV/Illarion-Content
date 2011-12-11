@@ -77,8 +77,8 @@ function InitPillar()
 	AddPillar({138,568,0},"","", 8,5); --temple
 	AddPillar({139,568,0},"","", 8,5); --temple
 	AddPillar({140,568,0},"","", 8,5); --temple ]]--
-    AddPillar({143,566,0},"","A young and noble warrior wears a shiny armour covered in blood while he carries fearless a wounded soldier at his shoulders.", 6,0); --temple
-    AddPillar({143,562,0},"","A young and noble warrior wears a shiny armour and seems to gave the order to attack while he raises his fists.", 6,0); --temple
+    AddPillar({143,566,0},"Ein junger, nobler Krieger mit einer glänzenden aber mit Blut befleckter Rüstung trägt furchtlos einen verwundeten Soldaten auf seinen Schultern.","A young and noble warrior wears a shiny armour covered in blood while he carries fearless a wounded soldier at his shoulders.", 6,0); --temple
+    AddPillar({143,562,0},"Ein junger, nobler Krieger mit einer glänzenden Rüstung scheint mit erhobener Faust den Befehl zum Angriff zu geben.","A young and noble warrior wears a shiny armour and seems to gave the order to attack while he raises his fists.", 6,0); --temple
     --[[AddPillar({144,566,0},"","", 11,5); --temple
     AddPillar({144,562,0},"","", 11,5); --temple ]]--
     AddPillar({124,548,0},"","At the column is written: 'In glory and and honour we march.", 11,0); --palace
