@@ -446,20 +446,20 @@ function InitPillar()
 	AddPillar({649,492,0},"","", 8, 5);
 	AddPillar({644,487,0},"","", 7, 5);]]--
 	--Spider's Mouth
-	AddPillar({733,310,0},"","An old and drunken man who wears ragged clothes and seems to beg for some coins while he hides a bottle of wine behind himself.", 2, 0);--Temple of Adron
-	AddPillar({733,314,0},"","A brown dressed young and attractive man sings and dances around with some grapes and a bottle of wine in his hands.", 2, 0); --Temple of Adron
+	AddPillar({733,310,0},"Ein alter, betrunkener Mann der zerlumpte Kleider trägt und scheinbar für ein Münzen bettelt während er eine Flasche Wein hinter sich versteckt.","An old and drunken man who wears ragged clothes and seems to beg for some coins while he hides a bottle of wine behind himself.", 2, 0);--Temple of Adron
+	AddPillar({733,314,0},"Eine in Braun gekleideter junger, attraktiver Mann singt und tanzt mit einigen Weintrauben und einer Flasche Wein in seinen Händen.","A brown dressed young and attractive man sings and dances around with some grapes and a bottle of wine in his hands.", 2, 0); --Temple of Adron
 	--[[AddPillar({696,316,0},"","", 2, 5); --The Hemp Necktie Inn
 	AddPillar({696,320,0},"","", 2, 5); --The Hemp Necktie Inn
 	AddPillar({698,315,1},"","", 2, 5); --The Hemp Necktie Inn
 	AddPillar({698,319,1},"","", 2, 5); --The Hemp Necktie Inn ]]--
 	--Tempel of Malachin
-	AddPillar({140,684,1},"","A brown haired and green clothed tall ranger bends a bow to aim his target. His arrow has engraved words like law, justice and good manners.", 5,0);
-	AddPillar({144,684,1},"","A brown haired and green clothed tall ranger bends a bow to aim his target. His arrow has engraved words like law, justice and good manners.", 5,0);
-	AddPillar({148,675,1},"","A gray haired strong tall knight in shiny armour rises his sword while he covers himself behind a big shield, which has engraved words like law, justice and good manners.", 6,0);
-	AddPillar({148,680,1},"","A gray haired strong tall knight in shiny armour rises his sword while he covers himself behind a big shield, which has engraved words like law, justice and good manners.", 6,0);
+	AddPillar({140,684,1},"Ein braunhaariger, grüngekleideter großer Waldläufer spannt seinen Bogen um sein Ziel anzuvisieren. Sein Pfeil hat Wörter wie Recht, Gerechtigkeit und gute Manieren eingraviert.","A brown haired and green clothed tall ranger bends a bow to aim his target. His arrow has engraved words like law, justice and good manners.", 5,0);
+	AddPillar({144,684,1},"Ein braunhaariger, grüngekleideter großer Waldläufer spannt seinen Bogen um sein Ziel anzuvisieren. Sein Pfeil hat Wörter wie Recht, Gerechtigkeit und gute Manieren eingraviert.","A brown haired and green clothed tall ranger bends a bow to aim his target. His arrow has engraved words like law, justice and good manners.", 5,0);
+	AddPillar({148,675,1},"Ein grauhaariger großer Krieger in scheinender Rüstung erhebt sein Schwert während er sich selbst mit einem großen Schild beschützt. Das Schild ist geziert mit den Wörtern Recht, Gerechtigkeit und gute Manieren.","A gray haired strong tall knight in shiny armour rises his sword while he covers himself behind a big shield, which has engraved words like law, justice and good manners.", 6,0);
+	AddPillar({148,680,1},"Ein grauhaariger großer Krieger in scheinender Rüstung erhebt sein Schwert während er sich selbst mit einem großen Schild beschützt. Das Schild ist geziert mit den Wörtern Recht, Gerechtigkeit und gute Manieren.","A gray haired strong tall knight in shiny armour rises his sword while he covers himself behind a big shield, which has engraved words like law, justice and good manners.", 6,0);
  	--Tempel of Sirani
-    AddPillar({176,759,0},"","A young and very attractive woman dances in her long white dress. His hair shines in the surrounding light.", 2,0);
-    AddPillar({176,764,0},"","A young and very attractive woman seems to be very furious while she looks at parchment with the insulting word 'bitch'.", 2,0);
+    AddPillar({176,759,0},"Eine junge, sehr attraktive Frau tanzt in einem langen weißen Kleid. Ihr Haar scheint im umgebenden Licht.","A young and very attractive woman dances in her long white dress. His hair shines in the surrounding light.", 2,0);
+    AddPillar({176,764,0},"Eine junge, sehr attraktive FRau scheint sehr aufgebracht zu sein als sie auf ein Pergamentstück mit dem Wort 'Zicke'.","A young and very attractive woman seems to be very furious while she looks at parchment with the insulting word 'bitch'.", 2,0);
     --Tempel of Tanora
     --[[AddPillar({621,590,0},"","", 1,5);
     AddPillar({621,599,0},"","", 1,5);
