@@ -281,9 +281,9 @@ function InitPillar()
     AddPillar({332,248,-6},"","", 3, 5); --Scoria Mine
     AddPillar({331,241,-6},"","", 4, 5); --Scoria Mine
     AddPillar({332,242,-6},"","", 3, 5); --Scoria Mine ]]--
-    AddPillar({255,292,-5},"","At the top of the column a huge black raven peers into distance. The raven holds an earring in his beak and the shade of flames appears in the eyes.", 1, 0); --Flicker Swale
-    AddPillar({255,294,-5},"","At the top of the column a huge black raven peers into distance. The raven holds an earring in his beak and the shade of flames appears in the eyes.", 1, 0); --Flicker Swale
-    AddPillar({252,288,-5},"","A black dressed man, wearing noble and tasteful clothing, looks at a picklock in his left hand. He grins sardonic while scratches one of his earrings with his other hand.", 3, 0); --Flicker Swale
+    AddPillar({255,292,-5},"Auf der Spitze der Säule starrt ein großer schwarzer Rabe in die Ferne. Der Rabe hält einen Ohrring in seinem Schnabel und der Schatten von Flammen erscheint in seinen Augen.","At the top of the column a huge black raven peers into distance. The raven holds an earring in his beak and the shade of flames appears in the eyes.", 1, 0); --Flicker Swale
+    AddPillar({255,294,-5},"Auf der Spitze der Säule starrt ein großer schwarzer Rabe in die Ferne. Der Rabe hält einen Ohrring in seinem Schnabel und der Schatten von Flammen erscheint in seinen Augen.","At the top of the column a huge black raven peers into distance. The raven holds an earring in his beak and the shade of flames appears in the eyes.", 1, 0); --Flicker Swale
+    AddPillar({252,288,-5},"Ein schwarz gekleideter Mann, noble, geschmacksvolle Kleider tragend, blickt auf seinen Dietrich in seiner linken Hand. Er grinst hämisch während er einen seiner Ohrring mit der anderen Hand kratzt.","A black dressed man, wearing noble and tasteful clothing, looks at a picklock in his left hand. He grins sardonic while scratches one of his earrings with his other hand.", 3, 0); --Flicker Swale
 	--[[AddPillar({255,292,-6},"","", 4, 5); --Flicker Swale
     AddPillar({255,294,-6},"","", 4, 5); --Flicker Swale
     AddPillar({248,298,-5},"","", 3, 5); --Flicker Swale
@@ -367,8 +367,8 @@ function InitPillar()
 	AddPillar({483,248,0},"","", 6,5);
 	AddPillar({483,251,0},"","", 6,5);]]--
     --Oldra's Corner
-	AddPillar({645,679,0},"","A blue dressed, stout and elder woman is feeding a rabbit while she pets a wolf and two birds are sitting at her shoulders.", 2,0);
-	AddPillar({645,683,0},"","A blue dressed, stout and elder woman holds a basket filled with apples and other fruits in her hands.", 2,0);
+	AddPillar({645,679,0},"Eine blau gekleidete, kräftige, ältere Frau füttert einen ein Hasen während sie einen Wolf streichelt und zwei Vogeln auf ihren Schultern sitzen.","A blue dressed, stout and elder woman is feeding a rabbit while she pets a wolf and two birds are sitting at her shoulders.", 2,0);
+	AddPillar({645,683,0},"Eine blau gekleidete, kräftige, ältere Frau  hält einen Korb gefüllt mit Äpfeln und anderen Früchten in ihren Händen.","A blue dressed, stout and elder woman holds a basket filled with apples and other fruits in her hands.", 2,0);
 	--Pauldron Isle
 	AddPillar({892,387,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Balance'.","The words 'Cherga brings balance' are written with blood at the column.", 1,5); --Temple of Cherga
 	AddPillar({892,389,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Gerechtigkeit'.","The words 'Cherga brings justice' are written with blood at the column.", 1,5); --Temple of Cherga
@@ -407,8 +407,8 @@ function InitPillar()
 	--Runewick Hinterland
 	AddPillar({920,929,0},"","", 2,5); --Twin Eyes Islands
 	AddPillar({860,931,0},"","", 1,5); --Twin Eyes Islands        ]]
-	AddPillar({833,864,0},"","A young and very attractive woman dances in her long white dress. His hair shines in the surrounding light and water.", 2,0); --Mermaid
-	AddPillar({839,845,0},"","~Oldra - Goddess of Life and Fertility; blesses our gardens, fields and domestic animals, newborn children, bearing mothers and birth itself.~", 1,5); --Oldra's Column
+	AddPillar({833,864,0},"Eine junge, sehr attraktive Frau tanzt in einem weißen Kleid. Ihr Haar leuchtet im ihr umgebenden Licht und Wasser.","A young and very attractive woman dances in her long white dress. His hair shines in the surrounding light and water.", 2,0); --Mermaid
+	AddPillar({839,845,0},"},"~Oldra - Göttin des Lebens und der Fruchtbarkeit - segne unsere Gärten, Felder und Zuchttiere; neugeborene Kinder, gebärende Frauen, und der Geburt als solches.~","~Oldra - Goddess of Life and Fertility - blesses our gardens, fields and domestic animals; newborn children, bearing women and birth itself.~", 1,5); --Oldra's Column
 	--[[AddPillar({866,847,0},"","", 2,5); --Woodcutter's Hut
 	AddPillar({866,848,0},"","", 2,5); --Woodcutter's Hut
 	AddPillar({864,813,0},"","", 1,5); --Entrance
