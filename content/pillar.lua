@@ -408,7 +408,7 @@ function InitPillar()
 	AddPillar({920,929,0},"","", 2,5); --Twin Eyes Islands
 	AddPillar({860,931,0},"","", 1,5); --Twin Eyes Islands        ]]
 	AddPillar({833,864,0},"Eine junge, sehr attraktive Frau tanzt in einem weißen Kleid. Ihr Haar leuchtet im ihr umgebenden Licht und Wasser.","A young and very attractive woman dances in her long white dress. His hair shines in the surrounding light and water.", 2,0); --Mermaid
-	AddPillar({839,845,0},"},"~Oldra - Göttin des Lebens und der Fruchtbarkeit - segne unsere Gärten, Felder und Zuchttiere; neugeborene Kinder, gebärende Frauen, und der Geburt als solches.~","~Oldra - Goddess of Life and Fertility - blesses our gardens, fields and domestic animals; newborn children, bearing women and birth itself.~", 1,5); --Oldra's Column
+	AddPillar({839,845,0},"~Oldra - Göttin des Lebens und der Fruchtbarkeit - segne unsere Gärten, Felder und Zuchttiere; neugeborene Kinder, gebärende Frauen, und der Geburt als solches.~","~Oldra - Goddess of Life and Fertility - blesses our gardens, fields and domestic animals; newborn children, bearing women and birth itself.~", 1,5); --Oldra's Column
 	--[[AddPillar({866,847,0},"","", 2,5); --Woodcutter's Hut
 	AddPillar({866,848,0},"","", 2,5); --Woodcutter's Hut
 	AddPillar({864,813,0},"","", 1,5); --Entrance
