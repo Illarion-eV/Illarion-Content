@@ -209,10 +209,10 @@ function InitPillar()
     AddPillar({514,589,0},"","", 1,5);
     AddPillar({514,590,0},"","", 1,5);]]--
     --Galmair
-	AddPillar({311,229,1},"","The statue looks like a rich dressed gray skinned and haired dwarf is wearing an apron is holding a golden hammer and tasteful looking beer.", 4,0); --Irmoroms Temple
-	AddPillar({311,235,1},"","The statue looks like a rich dressed gray skinned and haired dwarf is wearing an apron is holding a golden hammer and tasteful looking beer.", 4,0); --Irmoroms Temple
-    AddPillar({310,255,1},"","The statue looks like a rich dressed gray skinned and haired man who is wearing an apron and swings his big golden hammer at an anvil.", 4,0); --Irmoroms Temple
-    AddPillar({310,256,1},"","The statue looks like a rich dressed gray skinned and haired man who is wearing an apron and swings his big golden hammer at an anvil.", 4,0); --Irmoroms Temple
+	AddPillar({311,229,1},"Die Statue gleicht einem reich gekleideten Zwerg mit grauer Haut und Haar, der eine Schürze trägt und einen goldenen Hammer und ein schmackhaft aussehendes Bier hält. ","The statue looks like a rich dressed gray skinned and haired dwarf, who is wearing an apron and is holding a golden hammer and tasteful looking beer.", 4,0); --Irmoroms Temple
+	AddPillar({311,235,1},"Die Statue gleicht einem reich gekleideten Zwerg mit grauer Haut und Haar, der eine Schürze trägt und einen goldenen Hammer und ein schmackhaft aussehendes Bier hält. ","The statue looks like a rich dressed gray skinned and haired dwarf, who is wearing an apron and is holding a golden hammer and tasteful looking beer.", 4,0); --Irmoroms Temple
+    AddPillar({310,255,1},"Die Statue gleicht einem reich gekleideten Mann mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldenen Hammer gegen einen Ambos schwingt.","The statue looks like a rich dressed gray skinned and haired man who is wearing an apron and swings his big golden hammer at an anvil.", 4,0); --Irmoroms Temple
+    AddPillar({310,256,1},"Die Statue gleicht einem reich gekleideten Mann mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldenen Hammer gegen einen Ambos schwingt.","The statue looks like a rich dressed gray skinned and haired man who is wearing an apron and swings his big golden hammer at an anvil.", 4,0); --Irmoroms Temple
 	--[[AddPillar({340,283,1},"","", 1,5); --Nagrun Temple
     AddPillar({340,281,1},"","", 1,5); --Nagrun Temple
     AddPillar({334,277,0},"","", 1, 5); --Nagrun Temple
