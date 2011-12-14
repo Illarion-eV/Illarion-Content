@@ -5,7 +5,17 @@ require("handler.sendmessage")
 module("test.vilarion", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
-    local a, b, quest
+    
+    -- setting quest status
+    local a, b, quest, status
+    a,b,quest,status = string.find(User.lastSpokenText,"reset (%d+) (%d+)")
+    if a ~= nil then
+        quest = tonumber(quest)
+        status = tonumber(status)
+        User:setQuestProgress(quest, status)
+        User:inform("#w Quest " .. quest .. " has been set to " .. status .. "!")
+        return
+    end
     a,b,quest = string.find(User.lastSpokenText,"reset (%d+)")
     if a ~= nil then
         quest = tonumber(quest)

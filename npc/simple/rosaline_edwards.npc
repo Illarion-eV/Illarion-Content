@@ -83,6 +83,28 @@ itemShoes = 369
 "task", "adventure" -> "Ah, a loyal subject. Very well, ask one of my servants what you can do for me today, I cannot be bothered such details; I have to rule an entire kingdom."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
 
+-- Reward for quest 622
+"Mordak al Kharud", english, queststatus(642) > 0, queststatus(643) = 0, chance(10) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(1)
+"Mordak al Kharud", german, queststatus(642) > 0, queststatus(643) = 0, chance(10) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(1)
+"Mordak al Kharud", english, queststatus(642) > 0, queststatus(643) = 0, chance(11) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(2)
+"Mordak al Kharud", german, queststatus(642) > 0, queststatus(643) = 0, chance(11) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(2)
+"Mordak al Kharud", english, queststatus(642) > 0, queststatus(643) = 0, chance(13) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(3)
+"Mordak al Kharud", german, queststatus(642) > 0, queststatus(643) = 0, chance(13) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(3)
+"Mordak al Kharud", english, queststatus(642) > 0, queststatus(643) = 0, chance(14) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(4)
+"Mordak al Kharud", german, queststatus(642) > 0, queststatus(643) = 0, chance(14) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(4)
+"Mordak al Kharud", english, queststatus(642) > 0, queststatus(643) = 0, chance(17) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(5)
+"Mordak al Kharud", german, queststatus(642) > 0, queststatus(643) = 0, chance(17) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(5)
+"Mordak al Kharud", english, queststatus(642) > 0, queststatus(643) = 0, chance(20) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(6)
+"Mordak al Kharud", german, queststatus(642) > 0, queststatus(643) = 0, chance(20) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(6)
+"Mordak al Kharud", english, queststatus(642) > 0, queststatus(643) = 0, chance(25) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(7)
+"Mordak al Kharud", german, queststatus(642) > 0, queststatus(643) = 0, chance(25) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(7)
+"Mordak al Kharud", english, queststatus(642) > 0, queststatus(643) = 0, chance(34) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(8)
+"Mordak al Kharud", german, queststatus(642) > 0, queststatus(643) = 0, chance(34) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(8)
+"Mordak al Kharud", english, queststatus(642) > 0, queststatus(643) = 0, chance(51) -> "#me nods and hands you an item silently.", queststatus(643) = 1, item(198, 1, 999, 1)
+"Mordak al Kharud", german, queststatus(642) > 0, queststatus(643) = 0, chance(51) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, item(198, 1, 999, 1)
+"Mordak al Kharud", english, queststatus(642) > 0, queststatus(643) = 0, chance(100) -> "#me nods and hands you an item silently.", queststatus(643) = 1, item(197, 1, 999, 1)
+"Mordak al Kharud", german, queststatus(642) > 0, queststatus(643) = 0, chance(100) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, item(197, 1, 999, 1)
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Profession? Foolish traveler, I am the Queen, my profession is to rule this kingdom!"
 "beruf" -> "Lasst mich nachdenken... ich regiere hier, so weit das Auge reicht."

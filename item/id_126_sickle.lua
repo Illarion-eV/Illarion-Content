@@ -28,6 +28,15 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	-- function end
 	
+	-- yet another testing thing
+	local CheckBottle = base.common.GetFrontItemID(User)
+	if CheckBottle == 164 then
+	   
+	   User:setSkinColor(128,255,255)
+	   User:setHairColor(0,64,0)
+	end
+	-- testing end
+	
 	content.gathering.InitGathering();
 	InitHerblore();
 	
