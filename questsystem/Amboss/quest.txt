@@ -1,0 +1,3 @@
+item,18,LookAtItem,trigger1
+item,172,LookAtItem,trigger2
+item,0,LookAtItem,trigger3
