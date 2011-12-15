@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: December 08, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: December 15, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -684,7 +684,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Abwasserschächte");
+talkEntry:addTrigger("Abwassersch");
 talkEntry:addResponse("Die Abwasserschächte kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dort findest du Rattenmänner und andere Kreaturen. Versuchs einfach. *kichert*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
