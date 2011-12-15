@@ -52,7 +52,7 @@ function InitPaintings()
     AddPicture({894,540,0},"","", 2,5); --Paddock Farm  ]]--
     --Galmair
     AddPicture({313,231,1},"Das Bild zeigt einen reich gekleideten Mann mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldenen Hammer gegen einen Ambos schwingt.","The painting shows a rich dressed gray skinned and haired man, who is wearing an apron and swings his big golden hammer at an anvil.", 4,5); --Irmoroms Temple
-    AddPicture({313,233,1},"Das Bild zeigt einen reich gekleideten Zwerg mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldene Axt gegen einen Felsen schwingt.","The painting shows a rich dressed gray skinned and haired man, who is wearing an apron and swings his big golden axe against a rock.", 4,5); --Irmoroms Temple
+    AddPicture({313,233,1},"Das Bild zeigt einen reich gekleideten Zwerg mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldene Axt gegen einen Felsen schwingt.","The painting shows a rich dressed gray skinned and haired dwarf, who is wearing an apron and swings his big golden axe against a rock.", 4,5); --Irmoroms Temple
 	--[[AddPicture({309,270,0},"","", 4,5); --Villa 'Goldvein'
     AddPicture({309,277,0},"","", 4,5); --Villa 'Goldvein'
     AddPicture({372,214,0},"","", 7,5); --Council Chamber
