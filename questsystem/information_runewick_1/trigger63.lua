@@ -8,15 +8,12 @@ local POSTCONDITION_QUESTSTATE = 94
 
 local POSITION = position(860, 865, 0)
 local RADIUS = 1
-local LOOKAT_TEXT_DE = "Schön, das Feuer brennt."
-local LOOKAT_TEXT_EN = "Well, the fire is enlighted."
 
-function LookAtItem(PLAYER, item)
+function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-
-    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
+    --informNLS(PLAYER, TEXT_DE, TEXT_EN)
     
     HANDLER(PLAYER)
     
@@ -27,13 +24,16 @@ function LookAtItem(PLAYER, item)
   return false
 end
 
-function itemInformNLS(player, item, textDe, textEn)
+function informNLS(player, textDe, textEn)
   if player:getPlayerLanguage() == Player.german then
-    world:itemInform(player, item, textDe)
+    player:inform(player, item, textDe)
   else
-    world:itemInform(player, item, textEn)
+    player:inform(player, item, textEn)
   end
 end
+
+-- local TEXT_DE = TEXT -- German Use Text -- Deutscher Text beim Benutzen
+-- local TEXT_EN = TEXT -- English Use Text -- Englischer Text beim Benutzen
 
 
 function HANDLER(PLAYER)
