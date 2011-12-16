@@ -34,7 +34,6 @@ function DoDruidism(User,SourceItem)
    old_hair = User:getHair()
    old_beard = User:getBeard()
    old_height = User:increaseAttrib("body_height",0)
-   User:inform(""..old_height)
    
    -- first, the six races
    ListCodecs1 = {}
@@ -115,6 +114,10 @@ function DoDruidism(User,SourceItem)
 		   new_skincolor1 = ListSkinColor[(new_race)+1][SkinColorRandomPosition-2]
 		   new_skincolor2 = ListSkinColor[(new_race)+1][SkinColorRandomPosition-1]
 		   new_skincolor3 = ListSkinColor[(new_race)+1][SkinColorRandomPosition]
+		   
+		          User:inform(""..new_skincolor1)
+				  User:inform(""..new_skincolor2)
+				  User:inform(""..new_skincolor3)
 		   
 		   new_height = math.random(80,120)
 	   
