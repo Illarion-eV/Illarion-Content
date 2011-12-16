@@ -19,12 +19,15 @@ function DrinkPotion(User,SourceItem)
      
 	local potionData = tonumber(SourceItem:getData("potionData"));
 	local dataZList = druid.base.alchemy.SplitBottleData(User,potionData);
-	druid.base.alchemy.generateTasteMessage(User,dataZList);
-
 	
-	
-		for i=1,8 do
-			--Trankwirkung
+       for i=1,8 do
+			
+			-- effects
+			if (i == 3) or (i == 6) then  -- poison? 
+			    CalculationStep = ((10-dataZList[i])-5) -- we need a slightly different calculation for poison
+			else
+			    CalculationStep = (dataZList[i]-5) -- for everything else
+			end
 			local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
 			User:inform(""..Val)
 			if ( attribList[i] == "hitpointsOT" ) then
@@ -42,7 +45,16 @@ function DrinkPotion(User,SourceItem)
 			    User:increaseAttrib(attribList[i],Val);
 	            User:inform("tata!")
 			end
-	    end  
+	    
+		    -- taste
+			druid.base.alchemy.generateTasteMessage(User,dataZList); 
+		    
+			-- effect message
+		    ListPositiveEffect = {}
+			ListNegativeEffect = {}
+			ListPositiveEffect = {"hitpointsOT positive","foodlevel positive","poisonvalueOT positive","mana positive","manaOT positive","poisonvalue positive","foodlevelOT positive","hitpoints positive"}
+		    ListNegativeEffect = {"hitpointsOT positive","foodlevel positive","poisonvalueOT positive","mana positive","manaOT positive","poisonvalue positive","foodlevelOT positive","hitpoints positive"}
+		end  
 	 	
         find, myEffect = User.effects:find(166)
 
