@@ -4,13 +4,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger59", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 250
+local PRECONDITION_QUESTSTATE = 314
 local POSTCONDITION_QUESTSTATE = 257
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Gut, ihr habt gezeigt, dass ihr ein gewisses Maß an Gefahr bestehen könnt. Damit könnt ihr nun auch folgende Personen aufsuchen: Ruzusss, Lotta Medborgar und Wulfgorda. Ein jeder hat einen Stein für dich, wie ich ihn auch habe."
-local NPC_REPLY_EN = "Well, you have shown that you can manage some danger. You are ready to search for following people:  Ruzusss, Lotta Medborgar und Wulfgorda. Each of them has a stone for you as I do."
+local NPC_REPLY_DE = "Gut, damit könnt ihr nun auch folgende Personen aufsuchen und eure letzte Mission bestreiten: Ruzusss, Lotta Medborgar und Wulfgorda. Ein jeder hat einen Stein für dich, wie ich ihn auch habe."
+local NPC_REPLY_EN = "Good, you are ready to search for following people for your last mission:  Ruzusss, Lotta Medborgar und Wulfgorda. Each of them has a stone for you as I do."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
