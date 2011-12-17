@@ -30,7 +30,7 @@ function callEffect(Effect,User)
               User:increaseAttrib("mana",manaIncrease);
            end
            if findFoodlevel then
-              foodlevelIncrease = base.comon.Limit( (User:increaseAttrib("foodlevel",0) + foodlevelIncrease) , 0 , 60000 );
+              foodlevelIncrease = base.common.Limit( (User:increaseAttrib("foodlevel",0) + foodlevelIncrease) , 0 , 60000 );
 			  User:setAttrib("foodlevel",foodlevelIncrease);
            end
            if findPoisonvalue then    
