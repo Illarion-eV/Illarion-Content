@@ -20,62 +20,89 @@ function DrinkPotion(User,SourceItem)
 	local potionData = tonumber(SourceItem:getData("potionData"));
 	local dataZList = druid.base.alchemy.SplitBottleData(User,potionData);
 	
-       for i=1,8 do
-			
-			-- effects
-			if (i == 3) or (i == 6) then  -- poison? 
-			    CalculationStep = ((10-dataZList[i])-5) -- we need a slightly different calculation for poison
-			else
-			    CalculationStep = (dataZList[i]-5) -- for everything else
-			end
-			local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
-			User:inform(""..Val)
-			if ( attribList[i] == "hitpointsOT" ) then
-			    hitpointsOT = (Val * 1.25) / 5;
-			elseif ( attribList[i] == "poisonvalueOT" ) then
-			       poisonvalueOT = (Val * 1.25) / 5;
-			elseif ( attribList[i] == "manaOT" ) then
-			       manaOT = (Val * 1.25) / 5;
-            elseif ( attribList[i] == "foodlevelOT" ) then     			
-			       foodlevelOT = (Val * 1.25) / 5;
-			elseif ( attribList[i] == "poisonvalue" ) then
-				Val = base.common.Limit( (User:getPoisonValue() + Val) , 0, 10000 ); 
-				User:setPoisonValue( Val );
-			else
-			    User:increaseAttrib(attribList[i],Val);
-	            User:inform("tata!")
-			end
-	    
-		    -- taste
-			druid.base.alchemy.generateTasteMessage(User,dataZList); 
-		    
-			-- effect message
-		    ListPositiveEffect = {}
-			ListNegativeEffect = {}
-			ListPositiveEffect = {"hitpointsOT positive","foodlevel positive","poisonvalueOT positive","mana positive","manaOT positive","poisonvalue positive","foodlevelOT positive","hitpoints positive"}
-		    ListNegativeEffect = {"hitpointsOT positive","foodlevel positive","poisonvalueOT positive","mana positive","manaOT positive","poisonvalue positive","foodlevelOT positive","hitpoints positive"}
-		end  
-	 	
-        find, myEffect = User.effects:find(166)
+   for i=1,8 do
+		
+		-- effects
+		if (i == 3) or (i == 6) then  -- poison? 
+			CalculationStep = ((10-dataZList[i])-5) -- we need a slightly different calculation for poison
+		else
+			CalculationStep = (dataZList[i]-5) -- for everything else
+		end
+		local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
+		User:inform(""..Val)
+		if ( attribList[i] == "hitpointsOT" ) then
+			hitpointsOT = (Val * 1.25) / 5;
+		elseif ( attribList[i] == "poisonvalueOT" ) then
+			   poisonvalueOT = (Val * 1.25) / 5;
+		elseif ( attribList[i] == "manaOT" ) then
+			   manaOT = (Val * 1.25) / 5;
+		elseif ( attribList[i] == "foodlevelOT" ) then     			
+			   foodlevelOT = (Val * 1.25) / 5;
+		elseif ( attribList[i] == "poisonvalue" ) then
+			Val = base.common.Limit( (User:getPoisonValue() + Val) , 0, 10000 ); 
+			User:setPoisonValue( Val );
+		else
+			User:increaseAttrib(attribList[i],Val);
+			User:inform("tata!")
+		end
+	
+	end
+	
+    -- taste
+	druid.base.alchemy.generateTasteMessage(User,dataZList); 
+	
+	-- effect message
+	ListPositiveEffectDE = {}
+	ListNegativeEffectDE = {}
+	ListPositiveEffectEN = {}
+	ListNegativeEffectEN = {}
+	
+	ListPositiveEffectDE = {"hitpointsOT positive. ","foodlevel positive. ","poisonvalueOT positive. ","mana positive. ","manaOT positive. ","poisonvalue positive. ","foodlevelOT positive. ","hitpoints positive. "}
+	ListNegativeEffectDE = {"hitpointsOT negative. ","foodlevel negative. ","poisonvalueOT negative. ","mana negative. ","manaOT negative. ","poisonvalue negative. ","foodlevelOT negative. ","hitpoints negative. "}
+	ListPositiveEffectEN = {"hitpointsOT positive. ","foodlevel positive. ","poisonvalueOT positive. ","mana positive. ","manaOT positive. ","poisonvalue positive. ","foodlevelOT positive. ","hitpoints positive. "}
+	ListNegativeEffectEN = {"hitpointsOT negative. ","foodlevel negative. ","poisonvalueOT negative. ","mana negative. ","manaOT negative. ","poisonvalue negative. ","foodlevelOT negative. ","hitpoints negative. "}
 
-        if not find then
-	       myEffect=LongTimeEffect(166,1); 
-	       User.effects:addEffect(myEffect); -- create the effect
-	   
-	     find, myEffect = User.effects:find(166)
-		 if not find then  -- security check 
-	         User:inform("An error occured, inform a developer.");
-	         return;
-	       end  
+	local effectMessageDE = ""
+	local effectMessageEN = ""
+	
+	for i=1,8 do
+		if (dataZList[i] > 5) then
+		   effectMessageDE = effectMessageDE..ListPositiveEffectDE[i]
+		   effectMessageEN = effectMessageEN..ListPositiveEffectEN[i]
+	   elseif (dataZList[i] < 5) then
+			effectMessageDE = effectMessageDE..ListNegativeEffectDE[i]
+			effectMessageEN = effectMessageEN..ListNegativeEffectEN[i]
 	   end
-        -- now we add the values
-	   myEffect:addValue("hitpointsIncrease",hitpointsOT)
-       myEffect:addValue("manaIncrease",manaOT)
-	   myEffect:addValue("foodlevelIncrease",foodlevelOT)
-	   myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
-	   myEffect:addValue("counterPink",10)	   
-	   myEffect:addValue("cooldownPink",20)
+	end
+	
+	if (effeceMessageDE == "") and (effeceMessageEN == "") then
+	    effectMessageDE = "Du spührst keine Wirkung."
+		effectMessageEN = "You don't feel any effect."
+	end
+	
+	base.common.TempInformNLS(User,effectMessageDE,effectMessageEN);
+	
+	-- LTE is being added for the effects over time 
+	find, myEffect = User.effects:find(166)
+
+	if not find then
+	   myEffect=LongTimeEffect(166,1); 
+	   User.effects:addEffect(myEffect); -- create the effect
+   
+	 find, myEffect = User.effects:find(166)
+	 if not find then  -- security check 
+		 User:inform("An error occured, inform a developer.");
+		 return;
+	   end  
    end
+	-- now we add the values
+   myEffect:addValue("hitpointsIncrease",hitpointsOT)
+   myEffect:addValue("manaIncrease",manaOT)
+   myEffect:addValue("foodlevelIncrease",foodlevelOT)
+   myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
+   myEffect:addValue("counterPink",10)	   
+   myEffect:addValue("cooldownPink",20)
+end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 
