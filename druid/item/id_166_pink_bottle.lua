@@ -23,7 +23,7 @@ function DrinkPotion(User,SourceItem)
    for i=1,8 do
 		
 		-- effects
-		if (i == 3) or (i == 6) then  -- poison? 
+		if (i == 3) or (i == 6) then  -- poison
 			CalculationStep = ((10-dataZList[i])-5) -- we need a slightly different calculation for poison
 		else
 			CalculationStep = (dataZList[i]-5) -- for everything else
@@ -101,7 +101,7 @@ function DrinkPotion(User,SourceItem)
    myEffect:addValue("foodlevelIncrease",foodlevelOT)
    myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
    myEffect:addValue("counterPink",10)	   
-   myEffect:addValue("cooldownPink",20)
+   myEffect:addValue("cooldownPink",5)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)

@@ -21,7 +21,7 @@ function callEffect(Effect,User)
     findPoisonvalue,poisonvalueIncrease = Effect:findValue("poisonvalueIncrease")
     
 	Effect.nextCalled = 50
-	if findCooldown then 
+	if findCounter then 
        if counterPink > 0 then
        
 	       if findHitpoints then
@@ -44,9 +44,8 @@ function callEffect(Effect,User)
 	          Effect:addValue("counterPink",counterPink)
 	       end
 	       User:inform("wirkung ausgefüfhrt")
-	   end
-   
-       if findCooldown then
+	   
+	   elseif findCooldown then
           if cooldownPink < 1 then
 	         return false
 	      else 
@@ -58,6 +57,7 @@ function callEffect(Effect,User)
        end
    end
 end
+
 function loadEffect(Effect, User)
     User:inform("Effekt laden")
 end	
