@@ -36,21 +36,18 @@ function callEffect(Effect,User)
 	          poisonvalueIncrease = base.common.Limit( (User:getPoisonValue() + poisonvalueIncrease) , 0, 10000 ); 
 	          User:setPoisonValue( poisonvalueIncrease );
 	       end
-	       User:inform("runde ausgeführt");
-	   
+	      
 	       if findCounter then
 		      counterPink = counterPink - 1;
 	          Effect:addValue("counterPink",counterPink)
 	       end
-	       User:inform("wirkung ausgefüfhrt")
-	   
+	       
 	   elseif findCooldown then
           if cooldownPink < 1 then
 	         return false
 	      else 
              cooldownPink = cooldownPink - 1;
-             User:inform("cooldown reduziert")
-			 Effect:addValue("cooldownPink",cooldownPink)
+             Effect:addValue("cooldownPink",cooldownPink)
 			end
        end
    end
@@ -59,9 +56,9 @@ function callEffect(Effect,User)
 end
 
 function loadEffect(Effect, User)
-    User:inform("Effekt laden")
+    
 end	
 
 function removeEffect(Effect,User)         
-User:inform("effekt entfernen");
+
 end
