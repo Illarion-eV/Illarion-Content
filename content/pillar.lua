@@ -506,7 +506,7 @@ function AddPillar(Posi,dText,eText,Type,Percept)
     table.insert(signTextDe[tablePos],dText);
     table.insert(signTextEn[tablePos],eText);
     table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Type+50));
+    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID((tonumber(Type))+50));
 end
 
 function CheckAndPlaceItem(Posi,ItemID)
