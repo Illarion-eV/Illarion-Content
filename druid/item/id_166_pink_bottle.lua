@@ -45,8 +45,10 @@ function DrinkPotion(User,SourceItem)
 			User:setPoisonValue( Val );
 		-- instant foodlevel; you cannot overeat on food potion
 		elseif ( attribList[i] == "foodlevel" ) then
-		    Val = base.common.Limit( (User:increaseAttrib("foodlevel",0) + Val) , 0 , 60000 );
-		    User:setAttrib("foodlevel",Val)
+		    User:inform(""..Val)
+			Val = base.common.Limit( (User:increaseAttrib("foodlevel",0) + Val) , 0 , 60000 );
+		    User:inform(""..Val)
+			User:setAttrib("foodlevel",Val)
 		else
 			User:increaseAttrib(attribList[i],Val);
 		end
