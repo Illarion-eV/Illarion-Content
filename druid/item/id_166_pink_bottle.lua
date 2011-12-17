@@ -29,7 +29,8 @@ function DrinkPotion(User,SourceItem)
 			CalculationStep = (dataZList[i]-5) -- for everything else
 		end
 		local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
-		User:inform(""..Val)
+		
+		-- over time effect values
 		if ( attribList[i] == "hitpointsOT" ) then
 			hitpointsOT = (Val * 1.25) / 5;
 		elseif ( attribList[i] == "poisonvalueOT" ) then
@@ -38,12 +39,16 @@ function DrinkPotion(User,SourceItem)
 			   manaOT = (Val * 1.25) / 5;
 		elseif ( attribList[i] == "foodlevelOT" ) then     			
 			   foodlevelOT = (Val * 1.25) / 5;
+		-- instatnt poison value; cannot be < 0
 		elseif ( attribList[i] == "poisonvalue" ) then
 			Val = base.common.Limit( (User:getPoisonValue() + Val) , 0, 10000 ); 
 			User:setPoisonValue( Val );
+		-- instant foodlevel; you cannot overeat on food potion
+		elseif ( attribList[i] == "foodlevel" )
+		    Val = base.common.Limit( (User:increaseAttrib("foodlevel",0) + Val) , 0 , 60000 );
+		    User:setAttrib("foodlevel",Val)
 		else
 			User:increaseAttrib(attribList[i],Val);
-			User:inform("tata!")
 		end
 	
 	end
