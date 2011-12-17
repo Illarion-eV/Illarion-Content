@@ -50,6 +50,7 @@ function DrinkPotion(User,SourceItem)
 			Val = base.common.Limit( (User:increaseAttrib("foodlevel",0) + Val) , 0 , 60000 );
 		    User:inform("limitergebnis: "..Val)
 			User:setAttrib("foodlevel",Val)
+		    User:inform("neue punkte: "..(User:increaseAttrib("foodlevel",0)))
 		else
 			User:increaseAttrib(attribList[i],Val);
 		end
