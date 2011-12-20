@@ -125,7 +125,7 @@ itemShoes = 369
 "Schatzraum" -> "Der Schatzraum in unserem Palast issst jener Platz in welchem wir unssser Reichtum lagern. Wir müsssen ihn ssschützen gegen jede Bedrohung. Insssbesssondere vor Runewick und Galmair."
 "Library" -> "Our library with all our booksss can be found in the palace."
 "Bibliothek" -> "Unsssere Bibliothek mit all unssseren Büchern kann im Palast gefunden werden."
-"Tavern Unicorn Lion" -> "Our Taverne Uniconr Lion isss right after the market on the left side. You cannot missss it."
+"Tavern Unicorn Lion" -> "Our tavern Uniconr Lion isss right after the market on the left side. You cannot missss it."
 "Taverne Einhörniger Löwe" -> "Unsssere Taverne Einhörniger Löwe issst genau hinter dem Markt. Du kannssst sssie nicht versssäumen."
 "Inn Lakeshore" -> "Our Inn Lakeshore isss in the northwest of our town, left from our tavern."
 "Gasthaus Seeufer" -> "Unssser Gasthaus Seeufer issst im Nordwesten unssserer Ssstadt, linksss von unssserer Taverne."
@@ -135,14 +135,14 @@ itemShoes = 369
 "Wachstube" -> "Unsssere Wachstube issst an linken Ssseite unssserer Ssstadtmauer. Ssso, geh in die Ssstadtmauer und dann linksss."
 "Civic Hall" -> "Our Civic Hall is above the Quartermaster's Store. Enter the town and climb up the firssst ladder."
 "Stadtsaal" -> "Unssser Stadtsaal issst über Quartiermeister Laden. Rein in die Ssstadt und die erssste Leiter hoch."
-"Villa", english -> "Which villa you mean? We have three of them: Villa Edward, Villa Rosaline and Villa Reginald.",inform("[Keywords] Villa Edward, Villa Rosaline, Villa Reginald")
-"Villa" -> "Welche issst gemeint? Wir haben drei von ihnen: Villa Edward, Villa Rosaline und Villa Reginald.",inform("[Schlüsselwörter] Villa Edward, Villa Rosaline, Villa Reginald")
 "Villa Edward", english -> "The Villa Edward isss the sssecond building left to the market. It isss behind Villa Rosaline. It isss an object for honourable memberss of our sssociety."
 "Villa Edward" -> "Die Villa Edward issst dasss zweite Gebäude linksss vom Markt. Esss issst hinter der Villa Rosaline. Esss issst gedacht für die ehrenhaften in unssserer Gesssellssschaft."
 "Villa Rosaline", english -> "The Villa Rosaline isss the firssst buidling left to the market. It isss infront of Villa Edward. It isss an object for honourable memberss of our sssociety."
 "Villa Rosaline" -> "Die Villa Rosaline issst dasss erssste Gebäude linksss vom Markt. Esss issst vor der Villa Edward. Esss issst gedacht für die ehrenhaften in unssserer Gesssellssschaft."
 "Villa Reginald", english -> "The Villa Reginald isss the building next to the census office. It isss an object for honourable memberss of our sssociety."
 "Villa Reginald" -> "Die Villa Reginald issst dasss Gebäude neben dem Zensusbüro. Esss issst gedacht für die ehrenhaften in unssserer Gesssellssschaft."
+"Villa", english -> "Which villa you mean? We have three of them: Villa Edward, Villa Rosaline and Villa Reginald.",inform("[Keywords] Villa Edward, Villa Rosaline, Villa Reginald")
+"Villa" -> "Welche issst gemeint? Wir haben drei von ihnen: Villa Edward, Villa Rosaline und Villa Reginald.",inform("[Schlüsselwörter] Villa Edward, Villa Rosaline, Villa Reginald")
 "Quartermaster's Store" -> "The Quartermaster's Store isss right of the town entrance and you can asssk for sssome misssions there."
 "Quartiermeister Laden" -> "Der Quartiermeister Laden issst rechtsss vom Ssstadteingang und du kannssst dort nach Befehlen fragen."
 "Flat quarter" -> "The Flat quarter isss the part eassst of our town. These are they placesss for thossse on the bottom of the hierarchy."

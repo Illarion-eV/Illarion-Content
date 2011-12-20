@@ -8,8 +8,8 @@ local POSTCONDITION_QUESTSTATE = 73
 
 local POSITION = position(251, 291, -6)
 local RADIUS = 1
-local LOOKAT_TEXT_DE = "Du findest eine Notiz 'Gefunden, gut! Bringe mir nun einen Apfel. Elesil'"
-local LOOKAT_TEXT_EN = "You find a note 'Found, good! Bring me an apple now. Elesil'"
+local LOOKAT_TEXT_DE = "Du findest eine Notiz 'Gefunden, gut! Bringe mir nun einen Schinken. Iradona'"
+local LOOKAT_TEXT_EN = "You find a note 'Found, good! Bring me ham now. Iradona'"
 
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
