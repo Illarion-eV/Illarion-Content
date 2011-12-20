@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit dem Archmage reden, aber auch zurück zu Elesil gehen.", "You can continue your conversation with the Archmage, or go back to Elesil"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit dem Archmage reden, aber auch zurück zu Elesil gehen.", "You can continue your conversation with the Archmage, or go back to Elesil."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Don, rede mit ihm und komme wieder zurück.", "Find the Don, speak with him and come back"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Don, rede mit ihm und komme wieder zurück.", "Find the Don, speak with him and come back."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
