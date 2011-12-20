@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, die Halle befindet sich im Turm des Feuers.", "Answer the question to get more money and further questions. Hint: the hall can be found in the Tower of Fire."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Eine Frage bezüglich Gebäude mag dir helfen.", "Answer the question to get more money and further questions. Hint: A question regarding buildings might be helpful."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

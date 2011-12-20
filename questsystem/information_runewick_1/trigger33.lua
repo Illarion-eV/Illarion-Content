@@ -10,7 +10,7 @@ local POSTCONDITION_QUESTSTATE = 34
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
 local NPC_REPLY_DE = "Wie heiﬂt die ÷rtlichkeit an der man den Herrscher findet?"
-local NPC_REPLY_EN = "What is the name of the place where you can the ruler?"
+local NPC_REPLY_EN = "What is the name of the place where you can find the ruler?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
