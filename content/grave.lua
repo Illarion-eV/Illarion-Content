@@ -30,9 +30,9 @@ function InitGrave()
 	AddGrave({106,663,-4},"","", 3,0);
 	AddGrave({107,673,-4},"","", 3,0);
 	AddGrave({113,670,-4},"","", 1,0);
-	AddGrave({108,665,-4},"","", 1,0);
-	AddGrave({157,668,-4},"","", 4,0);
-	AddGrave({158,667,-4},"","", 3,0);
+	AddGrave({108,665,-4},"","", 1,0);]]--
+	AddGrave({157,668,-4},"Nach l‰ngeren Versuchen erkennst du schlieﬂlich eine 18.","After several tries you can recognize a 18.", 4,0);
+	--[[AddGrave({158,667,-4},"","", 3,0);
 	--Cherassë Citadel
 	AddGrave({572,314,0},"","", 2,0);
 	AddGrave({576,314,0},"","", 3,0);
