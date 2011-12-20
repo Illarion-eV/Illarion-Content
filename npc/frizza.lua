@@ -464,7 +464,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tavern Unicorn Lion");
-talkEntry:addResponse("Our Taverne Uniconr Lion isss right after the market on the left side. You cannot missss it.");
+talkEntry:addResponse("Our tavern Uniconr Lion isss right after the market on the left side. You cannot missss it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
