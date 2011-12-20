@@ -2,6 +2,7 @@
 --Druidensystem in Arbeit
 --Temporäre Einzelwirkungen
 --Falk
+-- reworked by Merung
 require("base.common")
 require("druid.base.alchemy")
 
@@ -21,14 +22,14 @@ User:inform("beginng drinkPotion")
 		firsttime = 1
 	end
 	ListCodecs={45942235,62483256,65554555,15751754,82897532,63296636,93538334}
-	ListLanguages={"human language","dwarf language","elf language","lizard language","orc language","halfling language","fairy language","gnome language","goblin language","ancient language"}
-	ListSkillID = {1,2,3,4,5,6,10}
-	ListSkillGroup={1,1,1,1,1,1,1}
+	ListLanguages={"common language","human language","dwarf language","elf language","lizard language","orc language","halfling language","ancient language"}
+	ListSkillID = {0,1,2,3,4,5,6,10}
+	ListSkillGroup={1,1,1,1,1,1,1,1}
 
     potionData = tonumber(SourceItem:getData("potionData")); 
-    User:inform("potionData bestimmt: "..potionData)
+    
   for i=1,table.getn(ListCodecs) do
-    User:inform("nach for")
+    
 	if potionData == ListCodecs[i] then
 
       find, myEffect = User.effects:find(330);
@@ -80,8 +81,6 @@ end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 -- if not milk then	  
-  User:increaseSkill(1,"elf language",-100)
-  User:inform("Elfensprachskill am Anfang weg")
   if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	

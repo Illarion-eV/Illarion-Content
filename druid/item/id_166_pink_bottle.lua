@@ -28,6 +28,7 @@ function DrinkPotion(User,SourceItem)
 		else
 			CalculationStep = (dataZList[i]-5) -- for everything else
 		end
+		User:inform(""..base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 ))
 		local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
 		
 		-- over time effect values

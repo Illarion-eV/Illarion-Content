@@ -1,6 +1,6 @@
 -- LTE für das Druidensystem
 -- by Falk
--- Zeitverlauf und temporäres Sprachverständnis
+-- reworked by Merung
 
 require("base.common")
 
@@ -9,11 +9,6 @@ module("druid.lte.id_330_language", package.seeall)
 -- INSERT INTO longtimeeffects VALUES (330, 'druids_language', 'druid.lte.id_330_language');
 
 ListLanguages={"human language","dwarf language","elf language","lizard language","orc language","halfling language","fairy language","gnome language","goblin language","ancient language"}
-
-function getAction(User,Effect,Runde)
---Hier die eigentlichen Aktionen eintragen  
---Beim temp. Sprachskill besteht der Effekt im Verlauf der Zeit
-end
 
 function addEffect(Effect, User)               				
 --Nur beim ersten Aufruf
