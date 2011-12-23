@@ -38,7 +38,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- testing end
 	
 	-- again, testing stuff
-	if base.common.GetFrontItemID(User) == 755 then -- infront of a cauldron?
+	if base.common.GetFrontItemID(User) == 775 then -- infront of a cauldron?
 	   User:setQuestProgress(305,User.lastSpokenText)
 	   User:inform("queststatus von 305 ist "..User:getQuestProgress(305))
 	   return
