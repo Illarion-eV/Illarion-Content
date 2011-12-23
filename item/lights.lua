@@ -212,14 +212,14 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 			if (3 <= TargetItem.pos.x <= 6) and (565 <= TargetItem.pos.y <= 571) and (TargetItem.pos.z == 0) then -- is it the right plantaion?
 				for i=0, cnt-1 do
 					TheItem=fld:getStackItem(i);
-					if (TheItem.id==755) then -- did the torch landed on a tobacco plant?
+					if (TheItem.id==775) then -- did the torch landed on a tobacco plant?
 						world:erase(TargetItem,1)
 						for j=1,4 do 
 							PositionX = 3 + j - 1
 							for k=1,12 do
 								PositionY = 565 + k - 1
 								TheItem = world:getItemOnField(position(PositionX,PositionY,0))
-								if TheItem.id == 755 then
+								if TheItem.id == 775 then
 									world:erase(TheItem,1)
 								    User:inform("lösche")
 								end
