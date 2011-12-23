@@ -37,6 +37,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	-- testing end
 	
+	-- again, testing stuff
+	if base.common.GetFrontItemID(User) == 755 then -- infront of a cauldron?
+	   User:setQuestProgress(305,User.lastSpokenText)
+	   User:inform("queststatus von 305 ist "..User:getQuestProgress(305))
+	   return
+	end
+	--testing end
+	
 	content.gathering.InitGathering();
 	InitHerblore();
 	
