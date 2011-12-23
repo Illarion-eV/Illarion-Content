@@ -214,7 +214,7 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 	                world:erase(TargetItem,1)
 					for j=1,4 do 
 					    PositionX = 3 + j - 1
-					    for k=12 do
+					    for k=1,12 do
 						    PositionY = 565 + k - 1
 							TheItem = world:getItemOnField(position(PositionX,PositionY,0))
 					        if TheItem.id == 755 then
