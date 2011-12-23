@@ -207,7 +207,7 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
     local fld=world:getField(TargetItem.pos);
 	local cnt=fld:countItems();
 	
-	if (SourceItem.id == 392 then)
+	if (SourceItem.id == 392 ) then
 		if User:getQuestProgress(305) == 2 then
 			if (3 <= TargetItem.pos.x <= 6) and (565 <= TargetItem.pos.y <= 571) and (TargetItem.pos.z == 0) then -- is it the right plantaion?
 				for i=0, cnt-1 do
