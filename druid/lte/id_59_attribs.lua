@@ -28,7 +28,7 @@ function callEffect(Effect,User)               -- Effekt wird ausgeführt
 				    find_i,attrib_i = Effect:findValue(""..attribList[i])
 				    if find_i then
 					    attribValue = attrib_i - 5 
-	                    User:increaseAttrib(attrib,-attribValue);
+	                    User:increaseAttrib(attribList[i],-attribValue);
 	                end
 	            end
 				User:inform("inform 3: "..User:increaseAttrib("strength",0))
