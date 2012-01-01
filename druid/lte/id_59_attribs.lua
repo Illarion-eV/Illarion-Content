@@ -7,11 +7,10 @@ module("druid.lte.id_59_attribs", package.seeall)
 -- INSERT INTO longtimeeffects VALUES (59, 'druids_attribs', 'druid.lte.id_59_attribs');
 
 attribList ={"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"};
-topBorder = 30;
-bottomBorder = 2;
+bottomBorder = 1;
 
 function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
-    return true;
+ 
 end
 
 function callEffect(Effect,Character)               -- Effekt wird ausgeführt

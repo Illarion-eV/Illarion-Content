@@ -23,6 +23,14 @@ function callEffect(Effect,User)
 	  
 	   if counterBlack >= 1 then 
 		  
+		  -- info that the effect will be removed soon
+		   if counterBlack == 2 then 
+		        base.common.TempInformNLS( User,
+                "Du spührst, wie ein Schauer über deinen Körper streicht. Deine Verwandlung wird nicht mehr lange aufrecht gehalten werdeb können.",
+                "Shortly, you feel a chill on your skin. Your transformation won't last a long time anymore."
+                       );
+		   end
+		  
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
 		  Effect:addValue("counterBlack",counterBlack)
 		  

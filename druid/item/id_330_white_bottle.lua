@@ -58,7 +58,8 @@ User:inform("beginng drinkPotion")
         myEffect:addValue( "skillGroup",ListSkillGroup[i])
 
 --      Laufzeit nach Quality berechnen
-        myEffect:addValue("counterWhite",10)
+        -- replance with formula
+		myEffect:addValue("counterWhite",10)
 
  		-- cooldown 	
 		myEffect:addValue("cooldownWhite",15)	
@@ -66,9 +67,6 @@ User:inform("beginng drinkPotion")
 			--Character:inform(ListCodecs[i].." / "..ListLanguages[i].." / "..oldSkill)
       	User:increaseSkill(ListSkillGroup[i],ListLanguages[i],newSkill)
  			--Character:inform(ListCodecs[i].." / "..ListLanguages[i].." / "..Character:getSkill(ListLanguages[i]))
-
---      Verwandlung ausführen
-        world:gfx(5,User.pos)
 
 --      Effekt an Char binden
         User.effects:addEffect(myEffect);

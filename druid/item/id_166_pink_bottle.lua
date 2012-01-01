@@ -28,7 +28,7 @@ function DrinkPotion(User,SourceItem)
 		else
 			CalculationStep = (dataZList[i]-5) -- for everything else
 		end
-		User:inform(""..base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 ))
+		
 		local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
 		
 		-- over time effect values
@@ -40,18 +40,13 @@ function DrinkPotion(User,SourceItem)
 			   manaOT = (Val * 1.25) / 5;
 		elseif ( attribList[i] == "foodlevelOT" ) then     			
 			   foodlevelOT = (Val * 1.25) / 5;
-		-- instatnt poison value; cannot be < 0
+		-- instatnt poison value cannot be < 0
 		elseif ( attribList[i] == "poisonvalue" ) then
 			Val = base.common.Limit( (User:getPoisonValue() + Val) , 0, 10000 ); 
 			User:setPoisonValue( Val );
 		-- instant foodlevel; you cannot overeat on food potion
 		elseif ( attribList[i] == "foodlevel" ) then
-		    User:inform("val: "..Val)
-			User:inform("aktuelle punkte: "..(User:increaseAttrib("foodlevel",0)))
-			Val = base.common.Limit( (User:increaseAttrib("foodlevel",0) + Val) , 0 , 60000 );
-		    User:inform("limitergebnis: "..Val)
-			User:setAttrib("foodlevel",Val)
-		    User:inform("neue punkte: "..(User:increaseAttrib("foodlevel",0)))
+		    Val = base.common.Limit( (User:increaseAttrib("foodlevel",0) + Val) , 0 , 60000 );
 		else
 			User:increaseAttrib(attribList[i],Val);
 		end
@@ -146,7 +141,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 		  cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
 	      cauldron.quality = SourceItem.quality
 		  world:changeItem(cauldron)
-		  User:inform(""..ID_potion)
 		  User:talkLanguage(Character.say, Player.german, "#me kippt einen Trank in den Kessel.");
           User:talkLanguage(Character.say, Player.english, "#me pours a potion into the cauldron.");
 		  world:makeSound(10,User.pos);

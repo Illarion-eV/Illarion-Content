@@ -13,19 +13,23 @@ module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(drui
 function DoDruidism(User,SourceItem)
    potionData = tonumber(SourceItem:getData("potionData"));
    
+   -- if there is an active transformation and the potion belongs to the transformation
+   -- and the counter of the new potion would be higher than raise the counter
    find, myEffect = User.effects:find(329)
 	if find then
 	   findCodecValue, CodecValue = myEffect:findValue("CodecValue")
-	    if findCodecValue then
-	        if CodecValue == potionData then
-	           druid.item.id_329_black_bottle.RenewingEffect(User,SourceItem)
-	           return
+	    findCounter,counterBlack = myEffect:findValue("counterBlack")
+		if findCodecValue then
+	        if CodecValue == potionData and (counterBlack ~= 0) then
+	            local duration = 3 -- to be replaced with a formula with the potion's quality being the changeabale varibale
+                if duration > counterBlack then
+				    myEffect:addValue("counterBlack",duration)
+                end
 			end
-	   else
-	     User:inform("Error, please inform dev.");
-	   end
-	end	
-	
+		end
+      return
+    end	  
+   
    -- old values (so that the char can be changed back later)
    old_race = User:getRace()
    old_skincolor1,old_skincolor2,old_skincolor3 = User:getSkinColor()
@@ -266,21 +270,25 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		return;
 	end
 	
-	
+	-- if the transformation LTE is there
+	-- and it is not the same transformation potion kind OR if the transformation of the first potion is already over
+    -- -> no effect
 	find, myEffect = User.effects:find(329)
 	if find then
 	   findCodecValue, CodecValue = myEffect:findValue("CodecValue")
-	    if findCodecValue then
-	        if CodecValue ~= tonumber(SourceItem:getData("potionData")) then
+	    findCounter,counterBlack = myEffect:findValue("counterBlack")
+		if findCodecValue then
+	        if CodecValue ~= tonumber(SourceItem:getData("potionData")) or (counterBlack == 0) then
 	           base.common.TempInformNLS( User,
                 "Der Trank hätte jetzt keine Wirkung.",
                 "The potion wouldn't have any effect now."
                        );  
-	          return;
-	       end
+	            return
+			end
 	   else
 	     User:inform("Error, please inform dev.");
 	   end
+	  return;
 	end	
 	
 	base.character.ChangeFightingpoints(User, -20);
