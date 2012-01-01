@@ -41,7 +41,7 @@ function callEffect(Effect,User)               -- Effekt wird ausgeführt
 				   return false
 			   else 
 				   cooldownRed = cooldownRed - 1;
-				   Effect:addValue("cooldownBlack",cooldownRed)
+				   Effect:addValue("cooldownRed",cooldownRed)
 				end
 		    end
 		end
