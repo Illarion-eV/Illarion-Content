@@ -15,7 +15,7 @@ end
 
 function callEffect(Effect,User)               -- Effekt wird ausgeführt
     
-	findCounter,counterBlack = Effect:findValue("counterRed")
+	findCounter,counterRed = Effect:findValue("counterRed")
     if findCounter then 
 	   if counterRed >= 1 then
 	        
@@ -31,7 +31,7 @@ function callEffect(Effect,User)               -- Effekt wird ausgeführt
 	                    User:increaseAttrib(attrib,-attribValue);
 	                end
 	            end
-				
+				User:inform("inform 3: "..User:increaseAttrib("strength",0))
 				base.common.InformNLS( User, "Du fühlst, dass der Trank seine Wirkung verliert.", "You feel that the potion looses its effect.");
 	        end
 	    else
@@ -56,7 +56,8 @@ function removeEffect(Effect,Character)
 end
 
 function loadEffect(Effect,Character)
-    findCounter,counterRed = Effect:findValue("counterRed")	
+    User:inform("inform 4: "..User:increaseAttrib("strength",0))
+	findCounter,counterRed = Effect:findValue("counterRed")	
 	if findCounter then	
 	   if counterRed > 0 then -- check if the actual effect is still active
 	
@@ -65,13 +66,8 @@ function loadEffect(Effect,Character)
 				if find_i then
 					User:increaseAttrib(attribList[i],attrib_i - 5)
 				end	
-	            
 	        end
 	    end
 	end
-	
-	find, cntEffects = Effect:findValue("effects");
-    if not find or cntEffects == 0 then
-        return false;
-    end
+	User:inform("inform 5: "..User:increaseAttrib("strength",0))
 end
