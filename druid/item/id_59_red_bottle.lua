@@ -51,10 +51,10 @@ function DrinkPotion(User,SourceItem)
         end
         
 	end
-    return
-    --if not foundEffect then
-    --    User.effects:addEffect( myEffect );
-    --end
+    
+	if not foundEffect then
+       User.effects:addEffect( myEffect );
+    end
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
