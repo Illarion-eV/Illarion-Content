@@ -16,7 +16,7 @@ attribList ={"strength","willpower","perception","intelligence","constitution","
 taste[0]   ={"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"   ,"süß"};
 taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","acidly"      ,"salt"   ,"hot"      ,"sweet"};
 
-function DoDruidism(User,SourceItem)
+function DrinkPotion(User,SourceItem)
 
 	local potionData = tonumber(SourceItem:getData("potionData"));
 	local dataZList = druid.base.alchemy.SplitBottleData(User,potionData);

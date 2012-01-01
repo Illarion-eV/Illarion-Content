@@ -10,7 +10,7 @@ module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(drui
 
 -- UPDATE common SET com_script='druid.item.id_329_black_bottle' WHERE com_itemid = 329;
 
-function DoDruidism(User,SourceItem)
+function DrinkPotion(User,SourceItem)
    potionData = tonumber(SourceItem:getData("potionData"));
    
    -- if there is an active transformation and the potion belongs to the transformation
@@ -299,117 +299,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     else
        User:createItem(164, 1, 333, 0);
     end
-	DoDruidism(User, SourceItem);
+	DrinkPotion(User, SourceItem);
 end
-
-function RenewingEffect(User,SourceItem)
-    
-	find, myEffect = User.effects:find(329)
-	if find then
-	   new_duration = 5 -- to be replaced with a formula with the potion's quality being the changeabale varibale
-	
-	   findCounter,counterBlack = myEffect:findValue("counterBlack")
-	   if findCounter then
-		  old_duration = counterBlack
-	   else
-		 User:inform("Error, please inform dev.")
-	   end
-	
-	   if old_duration == 0 then -- that means that we are within the cooldown -> we have to change the char's apperance
-	      
-		  findOnlyRace, OnlyRace = myEffect:findValue("OnlyRace")
-			if findOnlyRace then
-			   if OnlyRace == 0 then
-				  
-				  findNew_sex, renew_sex = myEffect:findValue("new_sex")
-				  if findNew_sex then
-					 User:setAttrib("sex",renew_sex)
-				  else
-					 User:inform("LTE-Error 15: please call dev") 
-				  end
-				  
-				  findNew_hair, renew_hair = myEffect:findValue("new_hair")
-				  if findNew_hair then
-					 User:setHair(renew_hair)
-				  else
-					 User:inform("LTE-Error 16: please call dev") 
-				  end
-				  
-				  findNew_beard, renew_beard = myEffect:findValue("new_beard")
-				  if findNew_beard then
-					 User:setBeard(renew_beard)
-				  else
-					 User:inform("LTE-Error 17: please call dev") 
-				  end
-				  
-				  findNew_skincolor1, renew_skincolor1 = myEffect:findValue("new_skincolor1")
-				  findNew_skincolor2, renew_skincolor2 = myEffect:findValue("new_skincolor2")
-				  findNew_skincolor3, renew_skincolor3 = myEffect:findValue("new_skincolor3")
-				  User:inform(""..renew_skincolor1)
-				  User:inform(""..renew_skincolor2)
-				  User:inform(""..renew_skincolor3)
-				  if findNew_skincolor1 then
-					    if findNew_skincolor2 then
-						    if findNew_skincolor3 then
-							   User:setSkinColor(renew_skincolor1,renew_skincolor2,renew_skincolor3)
-					       else
-					          User:inform("LTE-Error 18: please call dev")
-					       end
-					   else
-					      User:inform("LTE-Error 19: please call dev")
-					   end
-				   else
-					  User:inform("LTE-Error 20: please call dev")
-				   end 
-					 
-				  findNew_haircolor1, renew_haircolor1 = myEffect:findValue("new_haircolor1")
-				  findNew_haircolor2, renew_haircolor2 = myEffect:findValue("new_haircolor2")
-				  findNew_haircolor3, renew_haircolor3 = myEffect:findValue("new_haircolor3")
-				  if findNew_haircolor1 then
-					    if findNew_haircolor2 then
-						    if findNew_haircolor3 then
-							   User:setSkinColor(renew_haircolor1,renew_haircolor2,renew_haircolor3)
-					       else
-					          User:inform("LTE-Error 21: please call dev")
-					       end
-					   else
-					      User:inform("LTE-Error 22: please call dev")
-					   end
-				   else
-					  User:inform("LTE-Error 23: please call dev")
-				   end 
-			   
-			   end  
-		   else
-			  User:inform("LTE-Error 24: please call dev")       
-		   end      
-			
-		   findNew_race, renew_race = myEffect:findValue("new_race")	
-		   if findNew_race then
-			  User:setAttrib("racetyp",renew_race)
-		   else
-			  User:inform("LTE-Error 25: please call dev") 
-		   end
-
-		   findNew_height, renew_height = myEffect:findValue("new_height")
-		   if findNew_race then
-			  User:setAttrib("body_height",renew_height) 
-		   else
-			  User:inform("LTE-Error 26: please call dev") 
-		   end
-	   
-	       myEffect:addValue("counterBlack",new_duration)
-	   
-	   elseif old_duration < new_duration then
-	        myEffect:addValue("counterBlack",new_duration)
-	   end
-	
-	else
-	  User:inform("Error, please inform dev.")
-	end  
-    return
-end
-
 
 function LookAtItem(User,Item)
     
