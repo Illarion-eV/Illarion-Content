@@ -51,11 +51,11 @@ function callEffect(Effect,User)               -- Effekt wird ausgeführt
 
 end
 
-function removeEffect(Effect,Character)
+function removeEffect(Effect,User)
 
 end
 
-function loadEffect(Effect,Character)
+function loadEffect(Effect,User)
     User:inform("inform 4: "..User:increaseAttrib("strength",0))
 	findCounter,counterRed = Effect:findValue("counterRed")	
 	if findCounter then	
