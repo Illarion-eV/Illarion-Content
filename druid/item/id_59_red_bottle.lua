@@ -45,13 +45,11 @@ function DrinkPotion(User,SourceItem)
             dataZList[i] = (bottomBorder - attribValue) + 5;
         end
 
-        User:inform("old "..i.."_"..User:increaseAttrib(attribList[i],0))
-		if dataZList[i] ~= 5 then
+        if dataZList[i] ~= 5 then
             User:increaseAttrib(attribList[i],dataZList[i]-5);
             myEffect:addValue(""..attribList[i],dataZList[i]);
         end
-        User:inform("old "..i.."_"..User:increaseAttrib(attribList[i],0))
-	
+        
 	end
     return
     --if not foundEffect then

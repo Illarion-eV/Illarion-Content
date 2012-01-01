@@ -26,7 +26,7 @@ function callEffect(Effect,User)
 		  -- info that the effect will be removed soon
 		   if counterBlack == 2 then 
 		        base.common.TempInformNLS( User,
-                "Du spührst, wie ein Schauer über deinen Körper streicht. Deine Verwandlung wird nicht mehr lange aufrecht gehalten werdeb können.",
+                "Du spührst, wie ein Schauer über deinen Körper streicht. Deine Verwandlung wird nicht mehr lange andauern.",
                 "Shortly, you feel a chill on your skin. Your transformation won't last a long time anymore."
                        );
 		   end
@@ -119,11 +119,9 @@ function callEffect(Effect,User)
 		   findCooldown,cooldownBlack = Effect:findValue("cooldownBlack")
 		   if findCooldown then
 				if cooldownBlack <= 0 then
-				   User:inform("return false")
 				   return false
 			   else 
 				   cooldownBlack = cooldownBlack - 1;
-				   User:inform("cooldown - 1 = "..cooldownBlack)
 				   Effect:addValue("cooldownBlack",cooldownBlack)
 				end
 		   else
