@@ -31,10 +31,6 @@ function DrinkPotion(User,SourceItem)
 	    return
 	end
 
-    duration = 5 -- to be replaced with a formula with the potion's quality being the changeabale varibale
-	myEffect:addValue("counterRed",duration);
-    myEffect:addValue("cooldownRed",5);
-
     for i=1,8 do
         --den bisherigen Attributswert laden
         attribValue = User:increaseAttrib(attribList[i],0);
@@ -52,6 +48,10 @@ function DrinkPotion(User,SourceItem)
         
 	end
     
+	duration = 5 -- to be replaced with a formula with the potion's quality being the changeabale varibale
+	myEffect:addValue("counterRed",duration);
+    myEffect:addValue("cooldownRed",5);
+	
 	if not foundEffect then
        User.effects:addEffect( myEffect );
     end
