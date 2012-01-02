@@ -19,8 +19,8 @@ listWK = {12836431, 13245638, 13983419, 16359531, 19123643, 21915579, 24968253, 
           77254231, 79684787, 81876627, 84254555, 84613666, 86656358, 87783632, 88343542, 91357421, 93531588, 95257533,
           96261935, 96566994, 98538617};
 
-function checkMissile(ItemData, lower, upper)
-    User:inform("test 1: "..ItemData)
+function checkMissile(User,SourceItem.data, lower, upper)
+    User:inform("test 1: "..SourceItem.data)
 	if not lower then
         lower = 0;
     end
@@ -33,12 +33,12 @@ function checkMissile(ItemData, lower, upper)
     end;
 
     local margin = math.floor((lower+upper)/2);
-    if listWK[margin] == ItemData then
+    if listWK[margin] == SourceItem.data then
         return true;
-    elseif listWK[margin] < ItemData then
-        return checkMissile( ItemData, margin+1, upper );
+    elseif listWK[margin] < SourceItem.data then
+        return checkMissile( SourceItem.data, margin+1, upper );
     else
-        return checkMissile( ItemData, lower, margin-1 );
+        return checkMissile( SourceItem.data, lower, margin-1 );
     end
 end
 
@@ -249,7 +249,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		if (SourceItem.data == 63321157 and TargetItem) then --Windtrank
 			windtrank(User, SourceItem, TargetItem);
 
-		elseif checkMissile(SourceItem.data) then --das ist ein Wurfkörper
+		elseif checkMissile(User,SourceItem.data) then --das ist ein Wurfkörper
 			if (math.floor(SourceItem.quality/1000)==1) then -- Wurfkörper gesichert (qual: 1xxx) --> entsichern (qual: xxx)
             	base.common.TempInformNLS( User,
             	"Du entsicherst des Wurfkörper. Vorsicht damit.",
