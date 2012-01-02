@@ -210,7 +210,7 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
 	if SourceItem.data == 0 then
 	
 	else	
-    if not checkMissile(User SourceItem) then
+    if not checkMissile(User, SourceItem) then
         return true; -- kein Wurfkörper
     end
 
