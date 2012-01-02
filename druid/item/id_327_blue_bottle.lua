@@ -7,7 +7,7 @@ require("base.common")
 require("druid.base.alchemy")
 require("druid.base.missile")
 
-module("druid.item.id_327_blue_bottle", package.seeall, package.seeall(druid.base.alchemy))
+module("druid.item.id_327_blue_bottle", package.seeall) --, package.seeall(druid.base.alchemy))
 
 -- UPDATE common SET com_script='druid.item.id_327_blue_bottle' WHERE com_itemid = 327;
 
@@ -20,14 +20,7 @@ listWK = {12836431, 13245638, 13983419, 16359531, 19123643, 21915579, 24968253, 
           96261935, 96566994, 98538617};
 
 function checkMissile(User, SourceItem, lower, upper)
-    User:inform("in checkMissile")
-	if SourceItem.data == 12836431 then
-	    return true
-	elseif SourceItem.data ~= 12836431 then
-	    return false
-	end	
-	
-	--[[User:inform("test 1: "..SourceItem.data)
+    User:inform("test 1: "..SourceItem.data)
 	if not lower then
         lower = 0;
     end
@@ -46,7 +39,7 @@ function checkMissile(User, SourceItem, lower, upper)
         return checkMissile( SourceItem.data, margin+1, upper );
     else
         return checkMissile( SourceItem.data, lower, margin-1 );
-    end]]
+    end
 end
 
 function windtrank(User,SourceItem,TargetItem)
@@ -241,14 +234,7 @@ end
 
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
-	if checkMissile(User, SourceItem) then 
-	    User:inform("true")
-	elseif not checkMissile(User, SourceItem) then	
-	    User:inform("false")
-	end
-
-    return	
-	--[[local TargetItem = base.common.GetTargetItem(User, SourceItem);
+	local TargetItem = base.common.GetTargetItem(User, SourceItem);
 	if SourceItem.data == 0 then
 		-- Windtrank alte Art vor DS
 		if ( TargetItem and TargetItem.id == 64 ) and (User:countItem(64)>9) and (User:countItem(327)>0) then
@@ -280,7 +266,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
     	else
         	-- das ist weder ein Wurfkörper, noch eine Potion.
     	end
-	end]]
+	end
 end
 
 function LookAtItem(User,Item)
