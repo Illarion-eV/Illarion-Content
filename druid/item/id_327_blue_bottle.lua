@@ -268,24 +268,24 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 	end
 end
 
-function LookAtItem(Character,Item)
+function LookAtItem(User,Item)
 	if (Item.data == 63321157) then
-		if (Character:getPlayerLanguage()==0) then
-			world:itemInform(Character,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: 'Windtrank'")
+		if (User:getPlayerLanguage()==0) then
+			world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: 'Windtrank'")
 		else
-			world:itemInform(Character,Item,"You look at a sticker telling: 'Wind Potion'")        
+			world:itemInform(User,Item,"You look at a sticker telling: 'Wind Potion'")        
 		end
 	elseif (Item.data == 0) then
-		if (Character:getPlayerLanguage()==0) then
-			world:itemInform(Character,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: 'Windtrank'")
+		if (User:getPlayerLanguage()==0) then
+			world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: 'Windtrank'")
 		else
-			world:itemInform(Character,Item,"You look at a sticker telling: 'Wind Potion'")        
+			world:itemInform(User,Item,"You look at a sticker telling: 'Wind Potion'")        
 		end 
 	else 
-		if (Character:getPlayerLanguage()==0) then
-			world:itemInform(Character,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: 'Wurfkörper'")
+		if (User:getPlayerLanguage()==0) then
+			world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: 'Wurfkörper'")
 		else
-			world:itemInform(Character,Item,"You look at a sticker telling: 'Missile'")        
+			world:itemInform(User,Item,"You look at a sticker telling: 'Missile'")        
 		end
 	end    
 end

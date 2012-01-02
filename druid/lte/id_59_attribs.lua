@@ -39,6 +39,7 @@ function callEffect(Effect,User)               -- Effekt wird ausgeführt
 		   if findCooldown then
 				if cooldownRed <= 0 then
 				   return false
+			       User:inform("false")
 			   else 
 				   cooldownRed = cooldownRed - 1;
 				   Effect:addValue("cooldownRed",cooldownRed)
