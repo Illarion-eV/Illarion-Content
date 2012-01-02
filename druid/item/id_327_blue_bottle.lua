@@ -51,23 +51,7 @@ function checkMissile(User, potionData) --, lower, upper)
     end]]
 end
 
-function windtrank(User,SourceItem,TargetItem)
-    --prï¿½fen, ob 5 Pfeile vorhanden (ID 64)
-	if (User:countItemAt("all",64) < 5) then
-	    base.common.InformNLS( User,
-	    "Du brauchst zumindest 5 Pfeile um daraus Windpfeile zu fertigen.",
-	    "You need at least 5 arrows to create wind arrows." );
-	    return false;
-	end
-	--prï¿½fen, ob sonstige Voraussetzungen erfï¿½llt, zb Skills etc
-
-	--Umwandlung normale Pfeile in Windpfeile
-    world:erase(SourceItem,1)
-    User:erase(Targetitem.id_id,5)
-    User:createItem(322,5,333,0)
-end
-
-function Explode(User,Item)
+--[[function Explode(User,Item)
 
     -- Effektname des Wurfkörpers ermitteln und dorthin verzweigen
     if (Item.data == 12836431) then
@@ -239,7 +223,7 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
     end
 	end
     return true;
-end
+end]]
 
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
