@@ -180,7 +180,7 @@ end;
 function MoveItemAfterMove(User, SourceItem, TargetItem)
 	if Sourceitem.id_data == 0 then	
 	else	
-    if not checkMissile(SourceItem.data) then
+    if not checkMissile(User, SourceItem) then
         return; -- kein Wurfkörper
     end
 
@@ -210,7 +210,7 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
 	if SourceItem.data == 0 then
 	
 	else	
-    if not checkMissile(SourceItem.data) then
+    if not checkMissile(User SourceItem) then
         return true; -- kein Wurfkörper
     end
 
@@ -249,7 +249,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		if (SourceItem.data == 63321157 and TargetItem) then --Windtrank
 			windtrank(User, SourceItem, TargetItem);
 
-		elseif checkMissile(User,SourceItem) then --das ist ein Wurfkörper
+		elseif checkMissile(User, SourceItem) then --das ist ein Wurfkörper
 			if (math.floor(SourceItem.quality/1000)==1) then -- Wurfkörper gesichert (qual: 1xxx) --> entsichern (qual: xxx)
             	base.common.TempInformNLS( User,
             	"Du entsicherst des Wurfkörper. Vorsicht damit.",
