@@ -249,7 +249,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		if (SourceItem.data == 63321157 and TargetItem) then --Windtrank
 			windtrank(User, SourceItem, TargetItem);
 
-		elseif checkMissile(User, SourceItem) then --das ist ein Wurfkörper
+		elseif checkMissile(SourceItem) then --das ist ein Wurfkörper
 			if (math.floor(SourceItem.quality/1000)==1) then -- Wurfkörper gesichert (qual: 1xxx) --> entsichern (qual: xxx)
             	base.common.TempInformNLS( User,
             	"Du entsicherst des Wurfkörper. Vorsicht damit.",
