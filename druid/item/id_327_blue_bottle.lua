@@ -2,6 +2,7 @@
 --Druidensystem
 --Nicht-Temporäre Einzelwirkungen
 --Falk
+-- reworked by Merung
 
 require("base.common")
 require("druid.base.alchemy")
@@ -19,8 +20,16 @@ listWK = {12836431, 13245638, 13983419, 16359531, 19123643, 21915579, 24968253, 
           77254231, 79684787, 81876627, 84254555, 84613666, 86656358, 87783632, 88343542, 91357421, 93531588, 95257533,
           96261935, 96566994, 98538617};
 
-function checkMissile(User, SourceItem, lower, upper)
-    if not lower then
+function checkMissile(User, potionData) --, lower, upper)
+    for i=1,#ListWK do
+        if potionData == ListWK[i] then
+	       checkValue = true
+	       break
+		end
+    end
+    return checkValue
+
+	--[[if not lower then
         lower = 0;
     end
     if not upper then
@@ -38,7 +47,7 @@ function checkMissile(User, SourceItem, lower, upper)
         return checkMissile( SourceItem.data, margin+1, upper );
     else
         return checkMissile( SourceItem.data, lower, margin-1 );
-    end
+    end]]
 end
 
 function windtrank(User,SourceItem,TargetItem)
@@ -233,38 +242,25 @@ end
 
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
-	local TargetItem = base.common.GetTargetItem(User, SourceItem);
-	if SourceItem.data == 0 then
-		-- Windtrank alte Art vor DS
-		if ( TargetItem and TargetItem.id == 64 ) and (User:countItem(64)>9) and (User:countItem(327)>0) then
-			User:eraseItem(64,10)
-			User:eraseItem(327,1)
-	        User:createItem(322,10,333,0);
+	potionData = tonumber(SourceItem:getData("potionData"));
+	missileStatus = (SourceItem:getData("missileStatus"));
+
+	if checkMissile(User, potionData) then -- a missile
+		if (missileStatus == "deactivated") or (missileStatus == "") then -- potion deactivated or status not set --> activate
+			base.common.TempInformNLS( User,
+			"Du entsicherst des Wurfkörper. Vorsicht damit.",
+			"You activate the missle. Careful with it.");
+			SourceItem:setData("missileStatus","activated")
+			world:changeItem( SourceItem );
 		else
-			base.common.InformNLS(User,"Du brauchst 10 Pfeile pro Windtrank und den Windtrank in deiner Tasche","You need 10 arrows per wind potion and the wind potion in your pocket!");
+			base.common.TempInformNLS( User,
+			"Du sicherst den Wurfkörper.",
+			"You deactivate the missile.");
+			SourceItem:setData("missileStatus","deactivated")
+			world:changeItem( SourceItem );
 		end
 	else
-		--Neue Wirkungen nach DS
-		if (SourceItem.data == 63321157 and TargetItem) then --Windtrank
-			windtrank(User, SourceItem, TargetItem);
-
-		elseif checkMissile(SourceItem) then --das ist ein Wurfkörper
-			if (math.floor(SourceItem.quality/1000)==1) then -- Wurfkörper gesichert (qual: 1xxx) --> entsichern (qual: xxx)
-            	base.common.TempInformNLS( User,
-            	"Du entsicherst des Wurfkörper. Vorsicht damit.",
-            	"You activate the missle. Careful with it.");
-            	SourceItem.quality = math.mod( SourceItem.quality, 1000 );
-            	world:changeItem( SourceItem );
-			else -- Wurfkörper entsichert --> sichern
-				base.common.TempInformNLS( User,
-            	"Du sicherst den Wurfkörper.",
-            	"You deactivate the missile.");
-            	SourceItem.quality = math.mod( SourceItem.quality, 1000 ) + 1000;
-            	world:changeItem( SourceItem );
-        	end
-    	else
-        	-- das ist weder ein Wurfkörper, noch eine Potion.
-    	end
+		-- no missile
 	end
 end
 
