@@ -19,7 +19,7 @@ listWK = {12836431, 13245638, 13983419, 16359531, 19123643, 21915579, 24968253, 
           77254231, 79684787, 81876627, 84254555, 84613666, 86656358, 87783632, 88343542, 91357421, 93531588, 95257533,
           96261935, 96566994, 98538617};
 
-function checkMissile(User,SourceItem.data, lower, upper)
+function checkMissile(User, SourceItem.data, lower, upper)
     User:inform("test 1: "..SourceItem.data)
 	if not lower then
         lower = 0;
