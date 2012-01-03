@@ -188,7 +188,7 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
         return true; -- not thrown at the map
     end
 
-    User:inform(""..SorceItem.pos)
+    User:inform(""..SourceItem.pos)
 	if ((not SourceItem.pos==5) and (not SourceItem.pos==6)) and (SourceItem:getData("missileStatus") == "activated") then
         base.common.TempInformNLS( User,
         "Du musst den Wurfkörper aus der Hand werfen.",
