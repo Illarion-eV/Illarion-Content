@@ -29,30 +29,10 @@ function checkMissile(User, potionData) --, lower, upper)
 		end
     end
     return checkValue
-
-	--[[if not lower then
-        lower = 0;
-    end
-    if not upper then
-        upper = table.getn( listWK );
-    end
-
-    if lower > upper then
-        return false;
-    end;
-
-    local margin = math.floor((lower+upper)/2);
-    if listWK[margin] == SourceItem.data then
-        return true;
-    elseif listWK[margin] < SourceItem.data then
-        return checkMissile( SourceItem.data, margin+1, upper );
-    else
-        return checkMissile( SourceItem.data, lower, margin-1 );
-    end]]
 end
 
---[[function Explode(User,Item)
-
+function Explode(User,TargetItem)
+--[[
     -- Effektname des Wurfkörpers ermitteln und dorthin verzweigen
     if (Item.data == 12836431) then
         effect_12836431( User, Item );
@@ -155,13 +135,13 @@ end
     -- Deko-Effekte
     world:gfx(36,item.pos);
     world:makeSound(5,item.pos);
-    world:erase(Item,1);
-
+    world:erase(Item,1);]]
+User:inform("explosion!")
 end;
 
-function Drop(User,Item)
+function Drop(User,TargetItem)
     if (math.random(1,User:increaseAttrib("dexterity",0)+7)==1) then
-        Explode(User,Item);
+        Explode(User,TargetItem);
         User:talkLanguage(Character.say,Player.german,"#me lässt eine Flasche fallen, welche explodiert.");
         User:talkLanguage(Character.say,Player.english,"#me drops a bottle and it explodes.");
         base.common.InformNLS( User,
@@ -171,59 +151,55 @@ function Drop(User,Item)
 end;
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
-	if Sourceitem.id_data == 0 then	
-	else	
+	
     if not checkMissile(User, SourceItem) then
-        return; -- kein Wurfkörper
+        return true; -- no missile
     end
 
-    if (math.floor(SourceItem.quality/1000)==1) then
-        return; -- Wurfkörper gesichert
+    if (missileStatus == "deactivated") or (missileStatus == "") then
+        return true; -- missile is deactivated
     end
 
     if (SourceItem:getType()~=4 or (SourceItem.pos~=5 and SourceItem.pos~=6)) then
         Drop(User,TargetItem);
-        return; -- Nicht in der Hand
+        return true; -- not in the hand
     end
 
     if (TargetItem:getType()~=3) then
         Drop(User,TargetItem);
-        return; -- Wird nicht auf die Karte geworfen
+        return true; -- not thrown at the map
     end
 
-    -- Alles okay, werfen und explodieren
+    -- everything allright: explosion!
     Explode(User,TargetItem);
     User:talkLanguage(Character.say,Player.german,"#me wirft eine Flasche, die zerplatzt.");
     User:talkLanguage(Character.say,Player.english,"#me throws a bottle that splits.");
     User.movepoints=User.movepoints-30;
-	end    
+	   
 end;
 
 function MoveItemBeforeMove( User, SourceItem, TargetItem )
-	if SourceItem.data == 0 then
 	
-	else	
     if not checkMissile(User, SourceItem) then
-        return true; -- kein Wurfkörper
+        return true; -- no missile
     end
 
-    if (math.floor(SourceItem.quality/1000)==1) then
-        return true; -- Wurfkörper gesichert
+    if (missileStatus == "deactivated") or (missileStatus == "") then
+        return true; -- missile is deactivated
     end
 
     if (TargetItem:getType()~=3) then
-        return true; -- Wird nicht auf die Karte geworfen
+        return true; -- not thrown at the map
     end
 
     if (SourceItem:getType()~=4 or (SourceItem.pos~=5 and SourceItem.pos~=6)) then
         base.common.TempInformNLS( User,
         "Du musst den Wurfkörper aus der Hand werfen.",
         "You have to throw the missle out of your hand.");
-        return false; -- Nicht in der Hand
-    end
+        return false; -- not in the hand
 	end
     return true;
-end]]
+end
 
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
