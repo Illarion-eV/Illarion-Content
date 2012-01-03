@@ -184,19 +184,16 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
         return true; -- no missile
     end
 
-    if (missileStatus == "deactivated") or (missileStatus == "") then
-        return true; -- missile is deactivated
-    end
-
     if (TargetItem:getType()~=3) then
         return true; -- not thrown at the map
     end
 
-    if (SourceItem:getType()~=4 or (SourceItem.pos~=5 and SourceItem.pos~=6)) then
+    if (SourceItem:getType()~=4 or (SourceItem.pos~=5 and SourceItem.pos~=6)) and (SourceItem:getData("missileStatus") == "activated") then
         base.common.TempInformNLS( User,
         "Du musst den Wurfkörper aus der Hand werfen.",
         "You have to throw the missle out of your hand.");
-        return false; -- not in the hand
+        User:inform(""..(SourceItem:getData("missileStatus")))
+		return false; -- not in the hand; only for activated missile
 	end
     return true;
 end
