@@ -189,7 +189,7 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
     end
 
     User:inform(""..SourceItem:getType())
-	if ((not SourceItem.pos==5) and (not SourceItem.pos==6)) and (SourceItem:getData("missileStatus") == "activated") then
+	if (SourceItem:getType()~=4) and (SourceItem:getData("missileStatus") == "activated") then
         base.common.TempInformNLS( User,
         "Du musst den Wurfkörper aus der Hand werfen.",
         "You have to throw the missle out of your hand.");
