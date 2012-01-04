@@ -171,7 +171,8 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
     end
 
     -- everything allright: explosion!
-    Explode(User,TargetItem);
+    User:inform("check 1")
+	Explode(User,TargetItem);
     User:talkLanguage(Character.say,Player.german,"#me wirft eine Flasche, die zerplatzt.");
     User:talkLanguage(Character.say,Player.english,"#me throws a bottle that splits.");
     User.movepoints=User.movepoints-30;
