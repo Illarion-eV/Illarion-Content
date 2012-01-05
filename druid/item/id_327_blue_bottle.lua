@@ -117,10 +117,11 @@ function Explode(User,TargetItem)
     elseif (Item.data == 88343542) then
         effect_88343542( User, Item );
     elseif (item.id_data == 91357421) then
-        effect_91357421( User, Item );
-    elseif (Item.data == 93531588) then
-        effect_93531588( User, Item );
-    elseif (Item.data == 95257533) then
+        effect_91357421( User, Item );]]
+    if (Item.data == 93531588) then
+        druid.base.missile.effect_93531588( User, Item );
+    end
+	--[[elseif (Item.data == 95257533) then
         effect_95257533( User, Item );
     elseif (Item.data == 96261935) then
         effect_96261935( User, Item );
@@ -136,7 +137,6 @@ function Explode(User,TargetItem)
     world:gfx(36,item.pos);
     world:makeSound(5,item.pos);
     world:erase(Item,1);]]
-User:inform("explosion!")
 end;
 
 function Drop(User,TargetItem)
