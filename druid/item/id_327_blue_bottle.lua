@@ -119,9 +119,10 @@ Item = TargetItem
         effect_88343542( User, Item );
     elseif (item.id_data == 91357421) then
         effect_91357421( User, Item );]]
-    User:inform(""..(Item:getData("potionData")))
+    
 	if ((Item:getData("potionData")) == 93531588) then
-        druid.base.missile.effect_93531588( User, Item );
+        User:inform(""..(Item:getData("potionData")))
+		druid.base.missile.effect_93531588( User, Item );
     end
 	--[[elseif (Item.data == 95257533) then
         effect_95257533( User, Item );
