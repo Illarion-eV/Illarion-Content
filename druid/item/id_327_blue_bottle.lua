@@ -50,10 +50,12 @@ Item = TargetItem
     elseif (Item.data == 24968253) then
         effect_24968253( User, Item );
     elseif (item.id_data == 26372612) then
-        effect_26372612( User, Item );
-    elseif (Item.data == 29732752) then
-        effect_29732752( User, Item );
-    elseif (Item.data == 32185872) then
+        effect_26372612( User, Item );]]
+    if ((tonumber(Item:getData("potionData"))) == 29732752) then
+        User:inform(""..(Item:getData("potionData")))
+		druid.base.missile.effect_29732752( User, Item );
+    end
+	--[[elseif (Item.data == 32185872) then
         effect_32185872( User, Item );
     elseif (Item.data == 32484266) then
         effect_32484266( User, Item );
@@ -119,8 +121,7 @@ Item = TargetItem
         effect_88343542( User, Item );
     elseif (item.id_data == 91357421) then
         effect_91357421( User, Item );]]
-    User:inform(""..(Item:getData("potionData")))
-	if ((tonumber(Item:getData("potionData"))) == 93531588) then
+    if ((tonumber(Item:getData("potionData"))) == 93531588) then
         User:inform(""..(Item:getData("potionData")))
 		druid.base.missile.effect_93531588( User, Item );
     end
