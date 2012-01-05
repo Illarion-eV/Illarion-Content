@@ -151,8 +151,9 @@ function Drop(User,TargetItem)
 end;
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
-	
-    if not checkMissile(User, SourceItem) then
+	local missileStatus = (SourceItem:getData("missileStatus"));
+    
+	if not checkMissile(User, SourceItem) then
         return true; -- no missile
     end
  User:inform("check 1")
@@ -181,8 +182,9 @@ User:inform("check 4")
 end;
 
 function MoveItemBeforeMove( User, SourceItem, TargetItem )
-	
-    if not checkMissile(User, SourceItem) then
+	local missileStatus = (SourceItem:getData("missileStatus"));
+    
+	if not checkMissile(User, SourceItem) then
         return true; -- no missile
     end
     User:inform("check 6")
@@ -203,7 +205,7 @@ end
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
 	potionData = tonumber(SourceItem:getData("potionData"));
-	missileStatus = (SourceItem:getData("missileStatus"));
+	local missileStatus = (SourceItem:getData("missileStatus"));
 
 	if checkMissile(User, potionData) then -- a missile
 		if (missileStatus == "deactivated") or (missileStatus == "") then -- potion deactivated or status not set --> activate
