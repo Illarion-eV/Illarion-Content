@@ -36,7 +36,7 @@ function fieldOfRadius2( posi )
 	return actionfield;
 end
 
-function createRabbits( targetArea )
+function createRabbits(Item, targetArea )
     local rabbit;
     -- Bestimme lebenszeit der Hasen. Vernichtung Hasen erfolgt über die initiale Verwendung von Gift.
     -- Vergebene Giftpunkte werden Skaliert von 1000 (bei quality 100) bis 50 (bei quality 999)
@@ -385,12 +385,12 @@ end
 
 --Hasenbarriere auf 9er-Feld
 function effect_84613666(User,Item)
-    createRabbits( fieldOfRadius1( checkHit( User, Item ) ) );
+    createRabbits(Item, fieldOfRadius1( checkHit( User, Item ) ) );
 end
 
 --Hasenbarriere auf 21er-Feld
 function effect_29732752(User,Item)
-    createRabbits( fieldOfRadius2( checkHit( User, Item ) ) );
+    createRabbits(Item, fieldOfRadius2( checkHit( User, Item ) ) );
 end
 
 ---- SCHADEN AUF RüSTUNGEN - HALTBARKEIT ----
