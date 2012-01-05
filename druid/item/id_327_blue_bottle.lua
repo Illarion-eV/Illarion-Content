@@ -156,7 +156,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
         return true; -- no missile
     end
  User:inform("check 1")
- User:inform(""..missileStatus))
+ User:inform(""..missileStatus)
 	if (missileStatus == "deactivated") or (missileStatus == "") then
         return true; -- missile is deactivated
     end
