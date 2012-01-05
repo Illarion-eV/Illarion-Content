@@ -162,7 +162,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
         return true; -- missile is deactivated
     end
 User:inform("check 2")
-    if (SourceItem:getType()~=4 or (SourceItem.pos~=5 and SourceItem.pos~=6)) then
+    if (SourceItem:getType()~=4) then
         Drop(User,TargetItem);
         return true; -- not in the hand
     end
