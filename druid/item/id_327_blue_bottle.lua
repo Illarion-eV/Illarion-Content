@@ -155,23 +155,23 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
     if not checkMissile(User, SourceItem) then
         return true; -- no missile
     end
-
+ User:inform("check 1")
     if (missileStatus == "deactivated") or (missileStatus == "") then
         return true; -- missile is deactivated
     end
-
+User:inform("check 2")
     if (SourceItem:getType()~=4 or (SourceItem.pos~=5 and SourceItem.pos~=6)) then
         Drop(User,TargetItem);
         return true; -- not in the hand
     end
-
+User:inform("check 3")
     if (TargetItem:getType()~=3) then
         Drop(User,TargetItem);
         return true; -- not thrown at the map
     end
-
+User:inform("check 4")
     -- everything allright: explosion!
-    User:inform("check 1")
+    User:inform("check 5")
 	Explode(User,TargetItem);
     User:talkLanguage(Character.say,Player.german,"#me wirft eine Flasche, die zerplatzt.");
     User:talkLanguage(Character.say,Player.english,"#me throws a bottle that splits.");
@@ -184,11 +184,11 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
     if not checkMissile(User, SourceItem) then
         return true; -- no missile
     end
-
+    User:inform("check 6")
     if (TargetItem:getType()~=3) then
         return true; -- not thrown at the map
     end
-
+    User:inform("check 7")
     User:inform(""..SourceItem:getType())
 	if (SourceItem:getType()~=4) and (SourceItem:getData("missileStatus") == "activated") then
         base.common.TempInformNLS( User,
