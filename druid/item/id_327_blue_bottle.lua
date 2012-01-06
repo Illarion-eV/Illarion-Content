@@ -137,7 +137,7 @@ local potionData = (tonumber(Item:getData("potionData")))
     -- Deko-Effekte
     world:gfx(36,item.pos);
     world:makeSound(5,item.pos);
-    world:erase(Item,1);]]
+    world:erase(Item,1);
 end;
 
 function Drop(User,TargetItem)
