@@ -33,106 +33,103 @@ end
 
 function Explode(User,TargetItem)
 Item = TargetItem
---[[
+local potionData = (tonumber(Item:getData("potionData")))
+
     -- Effektname des Wurfkörpers ermitteln und dorthin verzweigen
-    if (Item.data == 12836431) then
-        effect_12836431( User, Item );
-    elseif (Item.data == 13245638) then
-        effect_13245638( User, Item );
-    elseif (Item.data == 13983419) then
-        effect_13983419( User, Item );
-    elseif (Item.data == 16359531) then
-        effect_16359531( User, Item );
-    elseif (item.id_data == 19123643) then
-        effect_19123643( User, Item );
-    elseif (Item.data == 21915579) then
-        effect_21915579( User, Item );
-    elseif (Item.data == 24968253) then
-        effect_24968253( User, Item );
-    elseif (item.id_data == 26372612) then
-        effect_26372612( User, Item );]]
-    if ((tonumber(Item:getData("potionData"))) == 29732752) then
-        User:inform(""..(Item:getData("potionData")))
-		druid.base.missile.effect_29732752( User, Item );
-    end
-	--[[elseif (Item.data == 32185872) then
-        effect_32185872( User, Item );
-    elseif (Item.data == 32484266) then
-        effect_32484266( User, Item );
-    elseif (Item.data == 32812622) then
-        effect_32812622( User, Item );
-    elseif (Item.data == 33421656) then
-        effect_33421656( User, Item );
-    elseif (item.id_data == 35471525) then
-        effect_35471525( User, Item );
-    elseif (item.id_data == 36557188) then
-        effect_36557188( User, Item );
-    elseif (Item.data == 36835636) then
-        effect_36835636( User, Item );
-    elseif (Item.data == 42218944) then
-        effect_42218944( User, Item );
-    elseif (Item.data == 43185342) then
-        effect_43185342( User, Item );
-    elseif (item.id_data == 43245354) then
-        effect_43245354( User, Item );
-    elseif (Item.data == 47564545) then
-        effect_47564545( User, Item );
-    elseif (Item.data == 52761593) then
-        effect_52761593( User, Item );
-    elseif (Item.data == 55938556) then
-        effect_55938556( User, Item );
-    elseif (Item.data == 56548394) then
-        effect_56548394( User, Item );
-    elseif (Item.data == 57771997) then
-        effect_57771997( User, Item );
-    elseif (Item.data == 59159412) then
-        effect_59159412( User, Item );
-    elseif (item.id_data == 62358491) then
-        effect_62358491( User, Item );
-    elseif (Item.data == 63155452) then
-        effect_63155452( User, Item );
-    elseif (Item.data == 64312656) then
-        effect_64312656( User, Item );
-    elseif (Item.data == 66475155) then
-        effect_66475155( User, Item );
-    elseif (Item.data == 67589591) then
-        effect_67589591( User, Item );
-    elseif (Item.data == 69657293) then
-        effect_69657293( User, Item );
-    elseif (Item.data == 71943574) then
-        effect_71943574( User, Item );
-    elseif (Item.data == 75568356) then
-        effect_75568356( User, Item );
-    elseif (Item.data == 77254231) then
-        effect_77254231( User, Item );
-    elseif (Item.data == 79684787) then
-        effect_79684787( User, Item );
-    elseif (item.id_data == 81876627) then
-        effect_81876627( User, Item );
-    elseif (Item.data == 84254555) then
-        effect_84254555( User, Item );
-    elseif (Item.data == 84613666) then
-        effect_84613666( User, Item );
-    elseif (Item.data == 86656358) then
-        effect_86656358( User, Item );
-    elseif (Item.data == 87783632) then
-        effect_87783632( User, Item );
-    elseif (Item.data == 88343542) then
-        effect_88343542( User, Item );
-    elseif (item.id_data == 91357421) then
-        effect_91357421( User, Item );]]
-    if ((tonumber(Item:getData("potionData"))) == 93531588) then
-        User:inform(""..(Item:getData("potionData")))
-		druid.base.missile.effect_93531588( User, Item );
-    end
-	--[[elseif (Item.data == 95257533) then
-        effect_95257533( User, Item );
-    elseif (Item.data == 96261935) then
-        effect_96261935( User, Item );
-    elseif (Item.data == 96566994) then
-        effect_96566994( User, Item );
-    elseif (Item.data == 98538617) then
-        effect_98538617( User, Item );
+    if (potionData == 12836431) then
+        druid.base.missile.effect_12836431( User, Item );
+    elseif (potionData == 13245638) then
+        druid.base.missile.effect_13245638( User, Item );
+    elseif (potionData == 13983419) then
+        druid.base.missile.effect_13983419( User, Item );
+    elseif (potionData == 16359531) then
+        druid.base.missile.effect_16359531( User, Item );
+    elseif (potionData == 19123643) then
+        druid.base.missile.effect_19123643( User, Item );
+    elseif (potionData == 21915579) then
+        druid.base.missile.effect_21915579( User, Item );
+    elseif (potionData == 24968253) then
+        druid.base.missile.effect_24968253( User, Item );
+    elseif (potionData == 26372612) then
+        druid.base.missile.effect_26372612( User, Item );
+    elseif (potionData == 29732752) then
+        druid.base.missile.effect_29732752( User, Item );
+    elseif (potionData == 32185872) then
+        druid.base.missile.effect_32185872( User, Item );
+    elseif (potionData == 32484266) then
+        druid.base.missile.effect_32484266( User, Item );
+    elseif (potionData == 32812622) then
+        druid.base.missile.effect_32812622( User, Item );
+    elseif (potionData == 33421656) then
+        druid.base.missile.effect_33421656( User, Item );
+    elseif (potionData == 35471525) then
+        druid.base.missile.effect_35471525( User, Item );
+    elseif (potionData == 36557188) then
+        druid.base.missile.effect_36557188( User, Item );
+    elseif (potionData == 36835636) then
+        druid.base.missile.effect_36835636( User, Item );
+    elseif (potionData == 42218944) then
+        druid.base.missile.effect_42218944( User, Item );
+    elseif (potionData == 43185342) then
+        druid.base.missile.effect_43185342( User, Item );
+    elseif (potionData == 43245354) then
+        druid.base.missile.effect_43245354( User, Item );
+    elseif (potionData == 47564545) then
+        druid.base.missile.effect_47564545( User, Item );
+    elseif (potionData == 52761593) then
+        druid.base.missile.effect_52761593( User, Item );
+    elseif (potionData == 55938556) then
+        druid.base.missile.effect_55938556( User, Item );
+    elseif (potionData == 56548394) then
+        druid.base.missile.effect_56548394( User, Item );
+    elseif (potionData == 57771997) then
+        druid.base.missile.effect_57771997( User, Item );
+    elseif (potionData == 59159412) then
+        druid.base.missile.effect_59159412( User, Item );
+    elseif (potionData == 62358491) then
+        druid.base.missile.effect_62358491( User, Item );
+    elseif (potionData == 63155452) then
+        druid.base.missile.effect_63155452( User, Item );
+    elseif (potionData == 64312656) then
+        druid.base.missile.effect_64312656( User, Item );
+    elseif (potionData == 66475155) then
+        druid.base.missile.effect_66475155( User, Item );
+    elseif (potionData == 67589591) then
+        druid.base.missile.effect_67589591( User, Item );
+    elseif (potionData == 69657293) then
+        druid.base.missile.effect_69657293( User, Item );
+    elseif (potionData == 71943574) then
+        druid.base.missile.effect_71943574( User, Item );
+    elseif (potionData == 75568356) then
+        druid.base.missile.effect_75568356( User, Item );
+    elseif (potionData == 77254231) then
+        druid.base.missile.effect_77254231( User, Item );
+    elseif (potionData == 79684787) then
+        druid.base.missile.effect_79684787( User, Item );
+    elseif (potionData == 81876627) then
+        druid.base.missile.effect_81876627( User, Item );
+    elseif (potionData == 84254555) then
+        druid.base.missile.effect_84254555( User, Item );
+    elseif (potionData == 84613666) then
+        druid.base.missile.effect_84613666( User, Item );
+    elseif (potionData == 86656358) then
+        druid.base.missile.effect_86656358( User, Item );
+    elseif (potionData == 87783632) then
+        druid.base.missile.effect_87783632( User, Item );
+    elseif (potionData == 88343542) then
+        druid.base.missile.effect_88343542( User, Item );
+    elseif (potionData == 91357421) then
+        druid.base.missile.effect_91357421( User, Item );
+    elseif (potionData == 93531588) then
+        druid.base.missile.effect_93531588( User, Item );
+    elseif (potionData == 95257533) then
+        druid.base.missile.effect_95257533( User, Item );
+    elseif (potionData == 96261935) then
+        druid.base.missile.effect_96261935( User, Item );
+    elseif (potionData == 96566994) then
+        druid.base.missile.effect_96566994( User, Item );
+    elseif (potionData == 98538617) then
+        druid.base.missile.effect_98538617( User, Item );
     else
         -- unbekannter Trank
     end
