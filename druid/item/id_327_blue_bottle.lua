@@ -135,8 +135,8 @@ local potionData = (tonumber(Item:getData("potionData")))
     end
 
     -- Deko-Effekte
-    world:gfx(36,item.pos);
-    world:makeSound(5,item.pos);
+    world:gfx(36,Item.pos);
+    world:makeSound(5,Item.pos);
     world:erase(Item,1);
 end;
 
