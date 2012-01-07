@@ -92,7 +92,7 @@ local potionData = (tonumber(Item:getData("potionData")))
         druid.base.missile.effect_63155452( User, Item );
     elseif (potionData == 64312656) then
         druid.base.missile.effect_64312656( User, Item );
-    elseif (potionData == 66475155) then
+    elseif (potionData == 66475155) then -- checked!
         druid.base.missile.effect_66475155( User, Item );
     elseif (potionData == 67589591) then
         druid.base.missile.effect_67589591( User, Item );
