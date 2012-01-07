@@ -67,7 +67,11 @@ function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sf
         modifier = 1;
     end
 
-    for i, posi in pairs(DamagedArea) do
+    if (DamagedArea == false) then
+	    return
+    end		
+	
+	for i, posi in pairs(DamagedArea) do
         if world:isCharacterOnField( posi ) then
             Person = world:getCharacterOnField( posi );
 
