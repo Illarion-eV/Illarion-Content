@@ -67,11 +67,7 @@ function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sf
         modifier = 1;
     end
 
-    if (DamagedArea == false) then
-	    return
-    end		
-	
-	for i, posi in pairs(DamagedArea) do
+    for i, posi in pairs(DamagedArea) do
         if world:isCharacterOnField( posi ) then
             Person = world:getCharacterOnField( posi );
 
@@ -296,7 +292,7 @@ function selectCharacter( targetPosis )
     end
 
     if table.getn( finePosis ) == 0 then
-        return false;
+        return;
     end
 
     return finePosis[ math.random( 1, table.getn( finePosis ) ) ];
