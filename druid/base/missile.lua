@@ -12,8 +12,9 @@ module("druid.base.missile", package.seeall);
 
 ListeObjHolz = {39,40,56,57,76,207,208,209,293,323,2782,2783,2784,2785,2786};
 
-function fieldOfRadius1( posi )
-    local actionfield = { };
+function fieldOfRadius1( Item )
+    local posi = Item.pos
+	local actionfield = { };
 
     for x=-1,1 do
         for y=-1,1 do
@@ -237,7 +238,11 @@ function checkWoody( id, lower, upper )
     end
 end
 
-function checkHit( User, Item )
+-- the function checkHit leads to a strange looking result: it can happen that the center of the explosion is not the position of the bottle
+-- it looks strange and would confuse players
+-- if it is wanted (I don't like the idea in general, though), MoveItemBeforeMove in id_327_blue_bottle can be used to get the same result (that the the bottle does not hit the exact field the player aimed at)
+-- Merung
+--[[function checkHit( User, Item )
     local wetter     = world.weather.fog_density + world.weather.thunderstorm; -- 0 - 200
     local dexterity  = User:increaseAttrib( "dexterity", 0 ); -- 3 - 20
     local perception = User:increaseAttrib( "perception", 0 ); -- 3 - 20
@@ -263,7 +268,7 @@ function checkHit( User, Item )
     local modY = maxPosiModify * math.cos( phi );
 
     return position( Item.pos.x + math.floor( modX ), Item.pos.y + math.floor( modY ), Item.pos.z );
-end
+end]]
 
 -- Zähle alle Charakter auf einem bestimmten Gebiet
 function countCharacters( targetPosis )
@@ -301,7 +306,7 @@ end
 
 -- Voller Hitpoint-Schaden auf 9er-Feld
 function effect_93531588(User,Item)
-    causeDamage( Item, fieldOfRadius1( checkHit( User, Item ) ), "hitpoints", { "strength", "constitution" }, 12, 5 );
+    causeDamage( Item, fieldOfRadius1( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Aufgeteilter Hitpoint-Schaden auf 9er Feld
