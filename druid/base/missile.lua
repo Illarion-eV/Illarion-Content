@@ -332,7 +332,7 @@ end
 
 -- Voller Mana-Schaden auf 1er-Feld
 function effect_24968253(User,Item)
-    causeDamage(( Item, { selectCharacter( fieldOfRadius1( Item ) ) ) }, "mana", { "willpower", "essence" }, 4, 5 );
+    causeDamage( Item, { selectCharacter( fieldOfRadius1( Item ) )  }, "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Voller Mana-Schaden auf 9er-Feld
@@ -362,7 +362,7 @@ end
 
 -- Voller Sattmacher-Schaden auf 1er-Feld
 function effect_63155452(User,Item)
-    causeDamage(( Item, { selectCharacter( fieldOfRadius1( Item ) ) ) }, "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
+    causeDamage( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
 end
 
 -- Voller Sattmacher-Schaden auf 9er-Feld
@@ -403,7 +403,7 @@ end
 
 -- Voller Haltbarkeits-Schaden auf Rüstungen auf 1er Feld
 function effect_55938556(User,Item)
-    damageItemDura(( Item, { selectCharacter( fieldOfRadius1( Item ) ) ) }, 4, 5, 1, "armor" );
+    damageItemDura( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, 4, 5, 1, "armor" );
 end
 
 --Voller Haltbarkeits-Schaden auf Rüstungen auf 9er Feld
@@ -432,7 +432,7 @@ end
 
 --Voller Qualitäts-Schaden auf Rüstungen auf 1er Feld
 function effect_98538617(User,Item)
-    damageItemQual(( Item, { selectCharacter( fieldOfRadius1( Item ) ) ) }, 4, 5, 1, "armor" );
+    damageItemQual( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, 4, 5, 1, "armor" );
 end
 
 --Voller Qualitäts-Schaden auf Rüstungen auf 9er Feld
@@ -462,28 +462,28 @@ end
 
 --Voller Haltbarkeits-Schaden auf Waffen auf 1er Feld
 function effect_56548394(User,Item)
-    damageItemDura( Item, { selectCharacter( fieldOfRadius1( Item ) ) ) }, 4, 5, 1, "weapon" );
+    damageItemDura( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, 4, 5, 1, "weapon" );
 end
 
 --Voller Haltbarkeits-Schaden auf Waffen auf 9er Feld
 function effect_81876627(User,Item)
-    damageItemDura( Item, fieldOfRadius1( Item ) ), 4, 5, 1, "weapon" );
+    damageItemDura( Item,( fieldOfRadius1( Item ) ), 4, 5, 1, "weapon" );
 end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Waffen auf 9er Feld
 function effect_86656358(User,Item)
-    local hitArea = fieldOfRadius1( Item ) );
+    local hitArea = (fieldOfRadius1( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
 end
 
 --Voller Haltbarkeits-Schaden auf Waffen auf 21er Feld
 function effect_77254231(User,Item)
-    damageItemDura( Item, fieldOfRadius1( Item ) ), 4, 5, 1, "weapon" );
+    damageItemDura( Item, (fieldOfRadius1( Item ) ), 4, 5, 1, "weapon" );
 end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Waffen auf 21er Feld
 function effect_32185872(User,Item)
-    local hitArea = fieldOfRadius2( Item ) );
+    local hitArea = (fieldOfRadius2( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
 end
 
@@ -491,28 +491,28 @@ end
 
 --Voller Qualitäts-Schaden auf Waffen auf 1er Feld
 function effect_91357421(User,Item)
-    damageItemQual( Item, { selectCharacter( fieldOfRadius1( Item ) ) ) }, 4, 5, 1, "weapon" );
+    damageItemQual( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, 4, 5, 1, "weapon" );
 end
 
 --Voller Qualitäts-Schaden auf Waffen auf 9er Feld
 function effect_52761593(User,Item)
-    damageItemQual( Item, fieldOfRadius1( Item ) ), 4, 5, 1, "weapon" );
+    damageItemQual( Item, (fieldOfRadius1( Item ) ), 4, 5, 1, "weapon" );
 end
 
 --Aufgeteilter Qualitäts-Schaden auf Waffen auf 9er Feld
 function effect_19123643(User,Item)
-    local hitArea = fieldOfRadius1( Item ) );
+    local hitArea = (fieldOfRadius1( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
 end
 
 --Voller Qualitäts-Schaden auf Waffen auf 21er Feld
 function effect_35471525(User,Item)
-    damageItemQual( Item, fieldOfRadius1( Item ) ), 4, 5, 1, "weapon" );
+    damageItemQual( Item, (fieldOfRadius1( Item ) ), 4, 5, 1, "weapon" );
 end
 
 --Aufgeteilter Qualitäts-Schaden auf Waffen auf 21er Feld
 function effect_32812622(User,Item)
-    local hitArea = fieldOfRadius2( Item ) );
+    local hitArea = ( fieldOfRadius2( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
 end
 
@@ -520,28 +520,28 @@ end
 
 --Voller Haltbarkeits-Schaden auf Holzitems auf 1er Feld
 function effect_12836431(User,Item)
-    damageItemDura( Item, { selectCharacter( fieldOfRadius1( Item ) ) ) }, 4, 5, 1, "wood" );
+    damageItemDura( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, 4, 5, 1, "wood" );
 end
 
 --Voller Haltbarkeits-Schaden auf Holzitems auf 9er Feld
 function effect_43185342(User,Item)
-    damageItemDura( Item, fieldOfRadius1( Item ) ), 4, 5, 1, "wood" );
+    damageItemDura( Item, ( fieldOfRadius1( Item ) ), 4, 5, 1, "wood" );
 end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Holzitems auf 9er Feld
 function effect_57771997(User,Item)
-    local hitArea = fieldOfRadius1( Item ) );
+    local hitArea = (fieldOfRadius1( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
 end
 
 --Voller Haltbarkeits-Schaden auf Holzitems auf 21er Feld
 function effect_13245638(User,Item)
-    damageItemDura( Item, fieldOfRadius1( Item ) ), 4, 5, 1, "wood" );
+    damageItemDura( Item, ( fieldOfRadius1( Item ) ), 4, 5, 1, "wood" );
 end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Holzitems auf 21er Feld
 function effect_88343542(User,Item)
-    local hitArea = fieldOfRadius2( Item ) );
+    local hitArea =  ( fieldOfRadius2( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
 end
 
@@ -549,28 +549,28 @@ end
 
 --Voller Qualitäts-Schaden auf Holzitems auf 1er Feld
 function effect_67589591(User,Item)
-    damageItemQual( Item, { selectCharacter( fieldOfRadius1( Item ) ) ) }, 4, 5, 1, "wood" );
+    damageItemQual( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, 4, 5, 1, "wood" );
 end
 
 --Voller Qualitäts-Schaden auf Holzitems auf 9er Feld
 function effect_96566994(User,Item)
-    damageItemQual( Item, fieldOfRadius1( Item ) ), 4, 5, 1, "wood" );
+    damageItemQual( Item, ( fieldOfRadius1( Item ) ), 4, 5, 1, "wood" );
 end
 
 --Aufgeteilter Qualitäts-Schaden auf Holzitems auf 9er Feld
 function effect_13983419(User,Item)
-    local hitArea = fieldOfRadius1( Item ) );
+    local hitArea =  ( fieldOfRadius1( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
 end
 
 --Voller Qualitäts-Schaden auf Holzitems auf 21er Feld
 function effect_42218944(User,Item)
-    damageItemQual( Item, fieldOfRadius1( Item ) ), 4, 5, 1, "wood" );
+    damageItemQual( Item, ( fieldOfRadius1( Item ) ), 4, 5, 1, "wood" );
 end
 
 --Aufgeteilter Qualitäts-Schaden auf Holzitems auf 21er Feld
 function effect_69657293(User,Item)
-    local hitArea = fieldOfRadius2( Item ) );
+    local hitArea = ( fieldOfRadius2( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
 end
 
