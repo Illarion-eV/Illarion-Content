@@ -46,7 +46,7 @@ function createRabbits(Item, targetArea )
 
     for i, posi in pairs(targetArea) do
         if not world:isCharacterOnField( posi ) then
-            slime = world:createMonster(61,posi,-20);
+            slime = world:createMonster(18,posi,-20);
             if isValidChar(slime) then
 		        slime:setPoisonValue( lifeTime );
 		    end
