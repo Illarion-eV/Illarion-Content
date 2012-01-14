@@ -64,8 +64,7 @@ end
 -- added setTarget to be able to create a friendly version of this slime
 -- by Merung
 function setTarget(Monster, candList)
-    User:inform(""..Monster:getQuestProgress(175))
-	-- this is our friendliness queststatus; if the monster has it we return 0 and he will attack no one
+    -- this is our friendliness queststatus; if the monster has it we return 0 and he will attack no one
 	if (Monster:getQuestProgress(175) == 1) then
 		return 0
 	else

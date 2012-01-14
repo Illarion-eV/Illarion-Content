@@ -50,7 +50,8 @@ function createSlime(Item, targetArea )
             if isValidChar(slime) then
 		        slime:setQuestProgress(175,1) -- a friendly slime!
 				slime:setPoisonValue( lifeTime );
-		    end
+		        User:inform(""..slime:getQuestProgress(175)
+			end
         end
     end
 
