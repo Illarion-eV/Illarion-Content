@@ -38,7 +38,7 @@ function fieldOfRadius2( Item )
 	return actionfield;
 end
 
-function createRabbits(Item, targetArea )
+function createSlime(Item, targetArea )
     local rabbit;
     -- Bestimme lebenszeit der Hasen. Vernichtung Hasen erfolgt über die initiale Verwendung von Gift.
     -- Vergebene Giftpunkte werden Skaliert von 1000 (bei quality 100) bis 50 (bei quality 999)
@@ -46,11 +46,10 @@ function createRabbits(Item, targetArea )
 
     for i, posi in pairs(targetArea) do
         if not world:isCharacterOnField( posi ) then
-            slime = world:createMonster(104,posi,-20);
+            slime = world:createMonster(1051,posi,-20);
             if isValidChar(slime) then
 		        slime:setPoisonValue( lifeTime );
 		    end
-            --rabbit:increasePoisonValue( lifeTime );
         end
     end
 
