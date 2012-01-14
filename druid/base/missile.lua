@@ -38,7 +38,7 @@ function fieldOfRadius2( Item )
 	return actionfield;
 end
 
-function createSlime(Item, targetArea )
+function createSlime(User, Item, targetArea )
     local rabbit;
     -- Bestimme lebenszeit der Hasen. Vernichtung Hasen erfolgt über die initiale Verwendung von Gift.
     -- Vergebene Giftpunkte werden Skaliert von 1000 (bei quality 100) bis 50 (bei quality 999)
@@ -392,7 +392,7 @@ end
 
 --Schleimbarriere auf 9er-Feld
 function effect_84613666(User,Item)
-    createSlime(Item, (fieldOfRadius1( Item ) ) );
+    createSlime(User, Item, (fieldOfRadius1( Item ) ) );
 end
 
 --Schleimbarriere auf 21er-Feld
