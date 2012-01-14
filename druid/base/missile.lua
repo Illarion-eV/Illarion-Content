@@ -389,14 +389,14 @@ end
 
 ---- MONSTER UM DEN WEG ZU BLOCKIEREN ----
 
---Hasenbarriere auf 9er-Feld
+--Schleimbarriere auf 9er-Feld
 function effect_84613666(User,Item)
-    createRabbits(Item, (fieldOfRadius1( Item ) ) );
+    createSlime(Item, (fieldOfRadius1( Item ) ) );
 end
 
---Hasenbarriere auf 21er-Feld
+--Schleimbarriere auf 21er-Feld
 function effect_29732752(User,Item)
-    createRabbits(Item, (fieldOfRadius2( Item ) ) );
+    createSlime(Item, (fieldOfRadius2( Item ) ) );
 end
 
 ---- SCHADEN AUF RüSTUNGEN - HALTBARKEIT ----
