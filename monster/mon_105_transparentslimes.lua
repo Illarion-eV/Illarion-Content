@@ -73,10 +73,10 @@ function setTarget(Monster, candList)
 			PossibleTarget = candList[i]
 			PossibleTargetHealth = PossibleTarget:increaseAttrib("hitpoints",0)
 			
-			if SetTarget ~= nil then 
-			   SetTargetHealth = SetTarget:increaseAttrib("hitpoints",0)
-					if (PossibleTargetHealth > SetTargetHealth) then 
-						SetTarget = PossibleTarget
+			if OurTarget ~= nil then 
+			   OurTargetHealth = OurTarget:increaseAttrib("hitpoints",0)
+					if (PossibleTargetHealth > OurTargetHealth) then 
+						OurTarget = PossibleTarget
 					end	
 			else
 			   SetTarget = PossibleTarget
