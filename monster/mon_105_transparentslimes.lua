@@ -61,32 +61,6 @@ function onCasted(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
--- added setTarget to be able to create a friendly version of this slime
--- by Merung
-function setTarget(Monster, candList)
-    -- this is our friendliness queststatus; if the monster has it we return 0 and he will attack no one
-	if (Monster:getQuestProgress(175) == 1) then
-		return 0
-	else
-		for i=1,#candList do -- if it is a hostile version we need to select a target; the following check selects the target with the lowest hp; this would be the default setting, normally
-			
-			PossibleTarget = candList[i]
-			PossibleTargetHealth = PossibleTarget:increaseAttrib("hitpoints",0)
-			
-			if OurTarget ~= nil then 
-			   OurTargetHealth = OurTarget:increaseAttrib("hitpoints",0)
-					if (PossibleTargetHealth > OurTargetHealth) then 
-						OurTarget = PossibleTarget
-					end	
-			else
-			   SetTarget = PossibleTarget
-			end
-        end
-	    return SetTarget
-	end
-
-end
-
 function onDeath(Monster)
 
     if killer[Monster.id] ~= nil then
@@ -102,11 +76,6 @@ function onDeath(Monster)
         end
     end
     
-	-- the friendly version doesn't drop anything
-    if (Monster:getQuestProgress(175) == 1) then
-	    return
-	end	
-	
 	monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
