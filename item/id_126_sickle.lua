@@ -47,7 +47,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	--testing
 	if base.common.GetFrontItemID(User) == 36 then
-	   User:setAttrib("body_height",User.lastSpokenText)
+	   User:setAttrib("body_height",tonumber(User.lastSpokenText))
 	   return
 	end
     -- testing end	
