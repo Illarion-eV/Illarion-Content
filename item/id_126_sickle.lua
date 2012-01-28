@@ -45,6 +45,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	--testing end
 	
+	--testing
+	if base.common.GetFrontItemID(User) == 36 then
+	   User:setAttrib("body_height",User.lastSpokenText)
+	   return
+	end
+    -- testing end	
+	
 	content.gathering.InitGathering();
 	InitHerblore();
 	
