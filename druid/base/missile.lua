@@ -46,7 +46,7 @@ function createSlime(User, Item, targetArea )
 
     for i, posi in pairs(targetArea) do
         if not world:isCharacterOnField( posi ) then
-            slime = world:createMonster(1051,posi,-20);
+            slime = world:createMonster(1054,posi,-20);
             if isValidChar(slime) then
 		        slime:setQuestProgress(175,1) -- a friendly slime!
 				slime:setPoisonValue( lifeTime );
