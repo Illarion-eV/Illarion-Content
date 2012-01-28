@@ -58,13 +58,15 @@ function createSlime(User, Item, targetArea )
     -- Sollte sich die Verwendung von Gift bei diesem Effekt als nicht verwertbar herausstellen kann auch ein LTE auf die einzelnen Hasen gelegt werden.
 end
 
-function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sfxid, modifier )
+function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sfxid, modifier )
     local Person;
     local AttribEffect;
     local Schaden;
     local Stiffness;
 
-    if modifier == nil then
+    User:inform(""..modifier)
+	
+	if modifier == nil then
         modifier = 1;
     end
 
@@ -103,10 +105,14 @@ function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sf
             -- Der dreifache Wert der Rüstungssteifheit wird vom Schaden abgezogen ( max. -1080 )
             Schaden = Schaden - Stiffness * 3;
 
-            -- Modifier für Attribute mit mehr als 10000 Punkten
+            User:inform("schaden vor modifier: "..Schaden)
+			
+			-- Modifier für Attribute mit mehr als 10000 Punkten
             Schaden = math.ceil(Schaden * modifier);
 
-            if ( Schaden > 0 ) then
+            User:inform("schaden nach modifier: "..Schaden)
+			
+			if ( Schaden > 0 ) then
                 Person:increaseAttrib( DamagedAttrib, -Schaden );
             end
         end
@@ -243,8 +249,9 @@ end
 -- the function checkHit leads to a strange looking result: it can happen that the center of the explosion is not the position of the bottle
 -- it looks strange and would confuse players
 -- if it is wanted (I don't like the idea in general, though), MoveItemBeforeMove in id_327_blue_bottle can be used to get the same result (that the the bottle does not hit the exact field the player aimed at)
+-- therefore, I don't use it
 -- Merung
---[[function checkHit( User, Item )
+function checkHit( User, Item )
     local wetter     = world.weather.fog_density + world.weather.thunderstorm; -- 0 - 200
     local dexterity  = User:increaseAttrib( "dexterity", 0 ); -- 3 - 20
     local perception = User:increaseAttrib( "perception", 0 ); -- 3 - 20
@@ -270,7 +277,7 @@ end
     local modY = maxPosiModify * math.cos( phi );
 
     return position( Item.pos.x + math.floor( modX ), Item.pos.y + math.floor( modY ), Item.pos.z );
-end]]
+end
 
 -- Zähle alle Charakter auf einem bestimmten Gebiet
 function countCharacters( targetPosis )
@@ -303,29 +310,29 @@ end
 
 -- Voller Hitpoint-Schaden auf 1er-Feld
 function effect_66475155(User,Item)
-    causeDamage( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, "hitpoints", { "strength", "constitution" }, 12, 5 );
+    causeDamage(User, Item, { selectCharacter( fieldOfRadius1( Item ) ) }, "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Voller Hitpoint-Schaden auf 9er-Feld
 function effect_93531588(User,Item)
-    causeDamage( Item, fieldOfRadius1( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
+    causeDamage(User, Item, fieldOfRadius1( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Aufgeteilter Hitpoint-Schaden auf 9er Feld
 function effect_84254555(User,Item)
     local hitArea = fieldOfRadius1( Item );
-    causeDamage( Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
+    causeDamage(User, Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
 end
 
 -- Voller Hitpoint-Schaden auf 21er-Feld
 function effect_75568356(User,Item)
-    causeDamage( Item, fieldOfRadius2( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
+    causeDamage(User, Item, fieldOfRadius2( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Aufgeteilter Hitpoint-Schaden auf 21er Feld
 function effect_36835636(User,Item)
     local hitArea = fieldOfRadius2( Item );
-    causeDamage( Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
+    causeDamage(User, Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
 end
 
 
