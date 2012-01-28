@@ -64,13 +64,13 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
     local Schaden;
     local Stiffness;
 
-    User:inform(""..modifier)
-	
-	if modifier == nil then
+    if modifier == nil then
         modifier = 1;
     end
 
-    for i, posi in pairs(DamagedArea) do
+    User:inform(""..modifier)
+	
+	for i, posi in pairs(DamagedArea) do
         if world:isCharacterOnField( posi ) then
             Person = world:getCharacterOnField( posi );
 
