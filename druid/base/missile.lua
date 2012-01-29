@@ -6,6 +6,10 @@
 -- Liste der IDs mit Objekten aus Holz
 -- WICHTIG: Liste MUSS aufsteigend geordnet sein
 
+-- few changes by Merung: 
+-- took checkHit out; replaced rabbits with slime; took out damage on item quality or duration 
+
+
 require("base.common")
 
 module("druid.base.missile", package.seeall);
@@ -48,10 +52,8 @@ function createSlime(User, Item, targetArea )
         if not world:isCharacterOnField( posi ) then
             slime = world:createMonster(1054,posi,-20);
             if isValidChar(slime) then
-		        slime:setQuestProgress(175,1) -- a friendly slime!
-				slime:setPoisonValue( lifeTime );
-		        User:inform(""..slime:getQuestProgress(175))
-			end
+		        slime:setPoisonValue( lifeTime );
+		    end
         end
     end
 
@@ -407,6 +409,10 @@ function effect_29732752(User,Item)
     createSlime(Item, (fieldOfRadius2( Item ) ) );
 end
 
+
+-- the folling effect are NOT in use ancymore. They are no good fir fighting, just for annoying players. 
+-- Therefore, we decided to take them out
+--[[
 ---- SCHADEN AUF RüSTUNGEN - HALTBARKEIT ----
 
 -- Voller Haltbarkeits-Schaden auf Rüstungen auf 1er Feld
@@ -580,7 +586,7 @@ end
 function effect_69657293(User,Item)
     local hitArea = ( fieldOfRadius2( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
-end
+end]]
 
 
 --[[
