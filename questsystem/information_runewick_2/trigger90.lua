@@ -1,3 +1,5 @@
+require("handler.sendmessagetoplayer")
+require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger90", package.seeall)
 
@@ -9,8 +11,8 @@ local ITEM_ID = 155
 local ITEM_AMNT = 10
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Gut, und nun noch das Sibanac."
-local NPC_REPLY_EN = "Alright, and now the sibanac."
+local NPC_REPLY_DE = "Sehr gut! *stopft das Sibanac in die Pfeife und nimmt einen Zug* Bereit? "
+local NPC_REPLY_EN = "Alright! *puts some sibanac into the pipe and takes a drag* Ready?"
 local NPC_NOITEM_DE = "Ohne Pfeife braucht ihr gar nicht mehr zu kommen."
 local NPC_NOITEM_EN = "You do not have to show up without a pipe the next time."
 
@@ -64,6 +66,8 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.eraseplayeritem.erasePlayerItem(PLAYER, 155, 10):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Sag \"Bereit\" wenn du für die letzte Aufgabe bereit bist.", "Say \"ready\" if you are ready for your last task."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

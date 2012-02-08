@@ -1,4 +1,5 @@
 require("handler.sendmessagetoplayer")
+require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger89", package.seeall)
 
@@ -66,6 +67,7 @@ end
 
 function HANDLER(PLAYER)
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Und nun beliefere sie mit zehn Sibanac Blättern.", "And now supply her with ten sibanac leaves."):execute()
+    handler.eraseplayeritem.erasePlayerItem(PLAYER, 2744, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

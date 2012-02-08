@@ -7,8 +7,8 @@ local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 314
 local POSTCONDITION_QUESTSTATE = 257
 
-local NPC_TRIGGER_DE = "."
-local NPC_TRIGGER_EN = "."
+local NPC_TRIGGER_DE = "[Bb]ereit"
+local NPC_TRIGGER_EN = "[Rr]eady"
 local NPC_REPLY_DE = "Gut, damit könnt ihr nun auch folgende Personen aufsuchen und eure letzte Mission bestreiten: Ruzusss, Lotta Medborgar und Wulfgorda. Ein jeder hat einen Stein für dich, wie ich ihn auch habe."
 local NPC_REPLY_EN = "Good, you are ready to search for following people for your last mission:  Ruzusss, Lotta Medborgar und Wulfgorda. Each of them has a stone for you as I do."
 
