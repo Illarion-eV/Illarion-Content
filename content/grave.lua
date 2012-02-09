@@ -179,7 +179,7 @@ function InitGrave()
 	AddGrave({925,940,0},"","", 1,5); --Twin Eyes Islands
 	AddGrave({865,846,0},"","", 2,5); --Woodcutter's Hut
 	AddGrave({862,847,0},"","", 3,5); --Woodcutter's Hut]]--
-	AddGrave({879,759,0},"Zur Erinnerung an all jene Opfer dieser sinnlosen Kampagne zwischen Cadomyr und Galmair in 30 BS. Elara und das Feuer des Triumphes sollen diesen rot-weißen und schwarz-blauen Dummköpfen helfen ihre Kurzsichtigkeit zu überkommen."," In remembrance of all victims of the mindless campaign between Cadomyr and Galmair in 30 BS. Elara and the Fire of Triumph may help those red-white and black-blue fools to overcome their short sightedness.", 1,5); --Fire of Triumph
+	AddGrave({879,759,0},"Zur Erinnerung an all jene Opfer dieser sinnlosen Kampagne zwischen Cadomyr und Galmair in 30 BS. Elara und das Feuer des Triumphes sollen diesen rot-weißen und schwarz-gelben Dummköpfen helfen ihre Kurzsichtigkeit zu überkommen."," In remembrance of all victims of the mindless campaign between Cadomyr and Galmair in 30 BS. Elara and the Fire of Triumph may help those red-white and black-yellow fools to overcome their short sightedness.", 1,5); --Fire of Triumph
 	AddGrave({871,757,0},"Zur Erinnerung an all jene die wiederbelebt werden konnten dank unserer in der arkanen Kunst talentierten Einheiten in 31 BS, welche aber nachher wieder niedergemetzelt wurden. Oldra und das Feuer des Triumphes sollen sie behüten.","In remembrance of all those who had been reanimated by our in arcane art talented units in 31 BS but who were slaughtered again afterwards. Oldra and the Fire of Triumph may protect them.", 1,5); --Fire of Triumph
 	--[[--Snakehead Coast 
     AddGrave({621,463,0},"","", 1,0);
