@@ -136,8 +136,6 @@ function callEffect(Effect,User)
    return true
 end
 
-
-
 function removeEffect(Effect,USer)         
 	
 end

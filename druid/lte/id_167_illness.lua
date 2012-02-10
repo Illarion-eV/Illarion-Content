@@ -3,10 +3,223 @@
 require("base.common")
 require("druid.base.outfit")
 
-module("druid.lte.id_167_illness", package.seeall(druid.base.outfit))
+module("druid.lte.id_167_illness", package.seeall) --(druid.base.outfit))
 
 -- INSERT INTO longtimeeffects VALUES (167, 'druids_illness', 'druid.lte.id_167_illness');
 
+-- function for Effect_1
+function CreateManaCloud(event_position)
+world:gfx(4,event_position)
+end
+
+function Effect_1(Effect,User)
+    findIllnessStatus,illness_status = Effect:findValue("illness_status");
+    findHealing,healing_status = Effect:findValue("healing_status"); -- == 1 -> char is getting better :-)  ~= 1 -> char is ill and getting worse :-(
+	
+	FieldFrontOfChar = base.common.GetFrontPosition(User);
+	
+	if (User:increaseAttrib("sex",0) == 1) then 
+	    pronoun_DE = "ihr"
+		pronoun_EN = "her"
+	else 
+	    pronoun_DE = "sein"
+		pronoun_EN = "his"
+	end	
+        	
+	if findIllnessStatus then
+	    
+		if (illnes_status =< 9) then -- first phase of the illness; so actually effect, just an inform
+            
+			if not (healing_status == 1) and (illnes_status == 3) then -- this inform is only given if you become sick and only once; not while getting better
+               base.common.InformNLS( User,
+               "Dir scheint als fühlst Du etwas Pelziges auf Deiner Zunge. Plötzlich spürst Du einen kurzen Stich in Deiner Brust, der schnell wieder nachlässt.",
+               "It seems to you as if you feel something furry on your tongue. Suddenly, you feel briefly a stitch in your chest, which fades away, fastly.");
+	        end
+	        if (healing_status == 1) and (illnes_status == 7) -- this inform is if you are sick, but you become better! Only one time.
+	            base.common.InformNLS( User,
+               "Der Husten scheint gänzlich abgeklungen zu sein. Nur das penetrante Gefühl von etwas Pelzigem ruht noch auf Deiner Zunge.",
+               "The coughs has faded away finally, it seems. Only the penetrative feeling of something flurry stays on your tongue.");
+	        end
+	
+	    end 
+		
+		if (illnes_status => 10) and (illness_status =< 19) then -- second phase of the illness; a new inform and the first real effects
+		    
+			if not (healing_status == 1) and (illnes_status == 10) then -- this inform is only given if you become sick and only once; not while getting better
+               base.common.InformNLS( User,
+               "Das pelzige Gefühl auf Deiner Zunge nimmt zu und irgendwas fühlt sich in Deinem Körper komisch an. Nach einem Kratzen im Hals musst Du husten und ein Teil Deines Manas verlässt Dich.",
+               "The furry feeling on yout tongue intensiefies and something feels strange in your body. After a having a short sore throat you have to cough and some of your mana leavse you.");
+	           User:talkLanguage(Character.say,Player.german,"#me hustet eine blaue Wolke aus.");
+               User:talkLanguage(Character.say,Player.english,"#me coughs a blue cloud out.");
+			   world:gfx(4,FieldFrontOfChar)
+			   User:increaseAttrib("mana",-250);
+			end
+	        if (healing_status == 1) and (illnes_status == 19) -- this inform is if you are sick, but you become better! Only one time.
+	            base.common.InformNLS( User,
+               "Der Husten wird schwächer und auch Deinem Hals geht es langsam besser, obwohl er noch etwas kratzt. Außerdem scheint Dein Körper wieder die gewohnte Menge an Mana aufnehmen zu können.",
+               "The coughs is getting weaker and also your throat feels better, even if it is still a bit sore. Also, your body seems to be able to hold the usual amount of mana.");
+	        end
+	        
+			-- and here is the effect which can happen every round
+			if not (illness_status == 10) then	
+				local random_effect = math.random(1,8)
+				if (random_effect == 1) then 
+					User:talkLanguage(Character.say,Player.german,"#me hustet eine blaue Wolke aus.");
+					User:talkLanguage(Character.say,Player.english,"#me coughs a blue cloud out.");
+					world:gfx(4,FieldFrontOfChar)
+					User:increaseAttrib("mana",-250);
+				end
+		    end
+		
+		end
+
+        if (illnes_status => 20) and (illness_status =< 29)	then -- third phase of the illness	
+		    
+			-- mana reducing to a determined value; check every round
+			if ( User:increaseAttrib("mana",0) > 7500 ) then
+			    User:setAttrib("mana",7500)
+			end	
+			
+			if not (healing_status == 1) and (illnes_status == 20) then -- this inform is only given if you become sick and only once; not while getting better
+               base.common.InformNLS( User,
+               "Der Husten wird stärker. Das Kratzen im Hals ist nun dauerhaft da und Deine Brust schmerzt. Dein Körper scheint nicht mehr in der Lage, die gewohnte Menge an Mana dauerhaft halten zukönnen.",
+               "The cough is getting stronger. Your throat is now permanently sore and your chest hurts. Your body seems no longer to able to hold lastingly the usualy amount of mana.");
+	           User:talkLanguage(Character.say,Player.german,"#me hustet lautstark eine große, blaue Wolke aus, die sich um "..pronoun_DE.."en Kopf herum verteilt.");
+               User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.");
+			   base.common.CreateCircle(CenterPos, Radius, CreateManaCloud)
+			   User:increaseAttrib("mana",-500);
+			end
+	        if (healing_status == 1) and (illnes_status == 29) -- this inform is if you are sick, but you become better! Only one time.
+	            base.common.InformNLS( User,
+               "Schnupfen und Niesen scheinen verschwunden. Brust und Hals schmerzen noch immer, doch Dein Körper scheint wieder etwas mehr - wenn auch immer noch weniger als gewöhnlich - Mana aufnehmen zu können.",
+               "Snuffle and sneezing seem to be gone. Chest and thorat still ache, but your body seems to be able to hold more - even if still not the usual amount - mana.");
+	        end
+	        
+			-- and here is the effect which can happen every round
+			if not (illnes_status == 20) then	
+				local random_effect = math.random(1,10)
+				if (random_effect == 1) then 
+					User:talkLanguage(Character.say,Player.german,"#me hustet eine blaue Wolke aus.");
+					User:talkLanguage(Character.say,Player.english,"#me coughs a blue cloud out.");
+					world:gfx(4,FieldFrontOfChar)
+					User:increaseAttrib("mana",-250);
+				elseif (random_effect == 2) then 
+					User:talkLanguage(Character.say,Player.german,"#me hustet lautstark eine große, blaue Wolke aus, die sich um "..pronoun_DE.."en Kopf herum verteilt.");
+					User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.");
+					base.common.CreateCircle(CenterPos, Radius, CreateManaCloud)
+					User:increaseAttrib("mana",-500);   
+				end
+		    end
+		
+		end
+		
+		if (illnes_status => 30) and (illness_status =< 39)	then -- fourth phase of the illness	
+	
+	        -- mana reducing to a determined value; check every round
+			if ( User:increaseAttrib("mana",0) > 5000 ) then
+			    User:setAttrib("mana",5000)
+			end	
+			
+			if not (healing_status == 1) and (illnes_status == 30) then -- this inform is only given if you become sick and only once; not while getting better
+               base.common.InformNLS( User,
+               "Schnupfen und Niesen gesellen sich zu Deinem Husten. Die maixmale Manakonzentration in Deinem Körper sinkt nunmehr auf die Hälfte.",
+               "Snuffels and sneezing join the coughing. The maximal mana concentration of your body falls henceforth to the half.");
+	           User:talkLanguage(Character.say,Player.german,"#me niest und eine Strahl von Manawolken entfleucht sein"..pronoun_DE.." Nase.");
+               User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.");
+			   base.common.CreateLine(StartPos, TargetPos, CreateManaCloud)
+			   User:increaseAttrib("mana",-500);
+			end
+	        
+			-- and here is the effect which can happen every round
+			if not (illnes_status == 20) then	
+				local random_effect = math.random(1,20)
+				if (random_effect =< 2) then 
+					User:talkLanguage(Character.say,Player.german,"#me hustet eine blaue Wolke aus.");
+					User:talkLanguage(Character.say,Player.english,"#me coughs a blue cloud out.");
+					world:gfx(4,FieldFrontOfChar)
+					User:increaseAttrib("mana",-250);
+				elseif (random_effect == 3) then 
+					User:talkLanguage(Character.say,Player.german,"#me hustet lautstark eine große, blaue Wolke aus, die sich um "..pronoun_DE.."en Kopf herum verteilt.");
+					User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.");
+					base.common.CreateCircle(CenterPos, Radius, CreateManaCloud)
+					User:increaseAttrib("mana",-500);   
+				elseif (random_effect == 4) then
+				    User:talkLanguage(Character.say,Player.german,"#me niest und eine Strahl von Manawolken entfleucht sein"..pronoun_DE.." Nase.");
+				    User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.");
+				    base.common.CreateLine(StartPos, TargetPos, CreateManaCloud)
+				    User:increaseAttrib("mana",-500);
+		        elseif (random_effect => 5 and random_effect =< 7 ) then
+			        User:talkLanguage(Character.say,Player.german,"#mes Nase entkommt ein bläulicher Faden Schleim und tropft auf den Boden.");
+				    User:talkLanguage(Character.say,Player.english,"#me's nose looses a blusih strand of snot which drops to the ground.");
+			        world:gfx(11,FieldFrontOfChar)
+			        User:increaseAttrib("mana",-100);
+			    end
+			end
+		end
+		
+    else User:inform("LTE error: Lte 167, Error 1, inform a dev, please.");
+		 return;
+	end
+end	
+	    
+
+function getAction(User,Effect,Runde) -- here, we check what illness the char has and we call the fitting effect
+	findEffectValue,effect_value = Effect:findValue("effect_value");   
+	
+	if findEffectValue then
+	    if (effect_value == 1) then
+		    Effect_1(Effect,User);
+			return true;
+	    elseif (effect_value == 2) then
+		    Effect_2(Effect,User);
+			return true;
+	    elseif (effect_value == 3) then
+		    Effect_3(Effect,User);
+			return true;
+		elseif (effect_value == 4) then
+		    Effect_2(Effect,User);
+			return true;
+	    elseif (effect_value == 5) then
+		    Effect_3(Effect,User);
+			return true;	
+	    end
+	else
+	    User:inform("LTE error: Lte 167, Error 2, inform a dev, please.");
+		return false;
+	end	
+end
+  
+function addEffect(Effect, User)              
+	
+end
+
+function callEffect(Effect,User)  
+
+    if not getAction(User,Effect,Runde) then
+	    return false;
+	else
+        findHealing,healing_status = Effect:findValue("healing_status") -- the time of healing will take half of time of you being ill; therefore nextCalled is just the half
+		if (healing_status == 1) then
+		    Effect.nextCalled = 50;
+		else
+            Effect.nextCalled = 100;		
+		    return true;
+	    end
+	end		
+end
+
+function removeEffect(Effect,User)         
+	
+end
+
+function loadEffect(Effect,User)
+
+end
+
+
+
+----------------OLD-----------------------
+--[[ 
 function DoInfection(Character,Runde,Diag)
 -- Ansteckung:
 -- Feststellen ob jemand in Kontaktweite steht
@@ -520,4 +733,5 @@ function loadEffect(Effect,Character)                  -- wenn der Charakter ern
 			Character:setAttrib(attrib,value);
 		end
   	end
-end
+end]]
+--------------OLD END---------------------
