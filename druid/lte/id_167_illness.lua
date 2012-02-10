@@ -28,14 +28,14 @@ function Effect_1(Effect,User)
         	
 	if findIllnessStatus then
 	    
-		if (illnes_status =< 9) then -- first phase of the illness; so actually effect, just an inform
+		if illnes_status <= 9 then -- first phase of the illness; so actually effect, just an inform
             
 			if not (healing_status == 1) and (illnes_status == 3) then -- this inform is only given if you become sick and only once; not while getting better
                base.common.InformNLS( User,
                "Dir scheint als fühlst Du etwas Pelziges auf Deiner Zunge. Plötzlich spürst Du einen kurzen Stich in Deiner Brust, der schnell wieder nachlässt.",
                "It seems to you as if you feel something furry on your tongue. Suddenly, you feel briefly a stitch in your chest, which fades away, fastly.");
 	        end
-	        if (healing_status == 1) and (illnes_status == 7) -- this inform is if you are sick, but you become better! Only one time.
+	        if (healing_status == 1) and (illnes_status == 7) then -- this inform is if you are sick, but you become better! Only one time.
 	            base.common.InformNLS( User,
                "Der Husten scheint gänzlich abgeklungen zu sein. Nur das penetrante Gefühl von etwas Pelzigem ruht noch auf Deiner Zunge.",
                "The coughs has faded away finally, it seems. Only the penetrative feeling of something flurry stays on your tongue.");
@@ -54,7 +54,7 @@ function Effect_1(Effect,User)
 			   world:gfx(4,FieldFrontOfChar)
 			   User:increaseAttrib("mana",-250);
 			end
-	        if (healing_status == 1) and (illnes_status == 19) -- this inform is if you are sick, but you become better! Only one time.
+	        if (healing_status == 1) and (illnes_status == 19) then -- this inform is if you are sick, but you become better! Only one time.
 	            base.common.InformNLS( User,
                "Der Husten wird schwächer und auch Deinem Hals geht es langsam besser, obwohl er noch etwas kratzt. Außerdem scheint Dein Körper wieder die gewohnte Menge an Mana aufnehmen zu können.",
                "The coughs is getting weaker and also your throat feels better, even if it is still a bit sore. Also, your body seems to be able to hold the usual amount of mana.");
@@ -89,7 +89,7 @@ function Effect_1(Effect,User)
 			   base.common.CreateCircle(CenterPos, Radius, CreateManaCloud)
 			   User:increaseAttrib("mana",-500);
 			end
-	        if (healing_status == 1) and (illnes_status == 29) -- this inform is if you are sick, but you become better! Only one time.
+	        if (healing_status == 1) and (illnes_status == 29) then -- this inform is if you are sick, but you become better! Only one time.
 	            base.common.InformNLS( User,
                "Schnupfen und Niesen scheinen verschwunden. Brust und Hals schmerzen noch immer, doch Dein Körper scheint wieder etwas mehr - wenn auch immer noch weniger als gewöhnlich - Mana aufnehmen zu können.",
                "Snuffle and sneezing seem to be gone. Chest and thorat still ache, but your body seems to be able to hold more - even if still not the usual amount - mana.");
