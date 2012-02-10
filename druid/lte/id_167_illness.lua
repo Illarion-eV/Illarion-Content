@@ -43,7 +43,7 @@ function Effect_1(Effect,User)
 	
 	    end 
 		
-		if (illnes_status => 10) and (illness_status =< 19) then -- second phase of the illness; a new inform and the first real effects
+		if (illnes_status >= 10) and (illness_status <= 19) then -- second phase of the illness; a new inform and the first real effects
 		    
 			if not (healing_status == 1) and (illnes_status == 10) then -- this inform is only given if you become sick and only once; not while getting better
                base.common.InformNLS( User,
@@ -73,7 +73,7 @@ function Effect_1(Effect,User)
 		
 		end
 
-        if (illnes_status => 20) and (illness_status =< 29)	then -- third phase of the illness	
+        if (illnes_status >= 20) and (illness_status <= 29)	then -- third phase of the illness	
 		    
 			-- mana reducing to a determined value; check every round
 			if ( User:increaseAttrib("mana",0) > 7500 ) then
@@ -113,7 +113,7 @@ function Effect_1(Effect,User)
 		
 		end
 		
-		if (illnes_status => 30) and (illness_status =< 39)	then -- fourth phase of the illness	
+		if (illnes_status >= 30) and (illness_status <= 39)	then -- fourth phase of the illness	
 	
 	        -- mana reducing to a determined value; check every round
 			if ( User:increaseAttrib("mana",0) > 5000 ) then
@@ -133,7 +133,7 @@ function Effect_1(Effect,User)
 			-- and here is the effect which can happen every round
 			if not (illnes_status == 20) then	
 				local random_effect = math.random(1,20)
-				if (random_effect =< 2) then 
+				if (random_effect <= 2) then 
 					User:talkLanguage(Character.say,Player.german,"#me hustet eine blaue Wolke aus.");
 					User:talkLanguage(Character.say,Player.english,"#me coughs a blue cloud out.");
 					world:gfx(4,FieldFrontOfChar)
@@ -148,7 +148,7 @@ function Effect_1(Effect,User)
 				    User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.");
 				    base.common.CreateLine(StartPos, TargetPos, CreateManaCloud)
 				    User:increaseAttrib("mana",-500);
-		        elseif (random_effect => 5 and random_effect =< 7 ) then
+		        elseif (random_effect >= 5 and random_effect <= 7 ) then
 			        User:talkLanguage(Character.say,Player.german,"#mes Nase entkommt ein bläulicher Faden Schleim und tropft auf den Boden.");
 				    User:talkLanguage(Character.say,Player.english,"#me's nose looses a blusih strand of snot which drops to the ground.");
 			        world:gfx(11,FieldFrontOfChar)
