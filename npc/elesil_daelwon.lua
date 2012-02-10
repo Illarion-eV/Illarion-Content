@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: December 08, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 08, 2012                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -584,7 +584,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Feuer");
 talkEntry:addTrigger("Feuer Turm");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Hall der Elara, Bragon Bollwerk, Schrein des Bragon"));
-talkEntry:addResponse("Dieser Turm ist der erste nördliche Turm und hauptsächlich für Magier. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Hall der Elara, Bragon Bollwerk und Schrein des Bragon.");
+talkEntry:addResponse("Dieser Turm ist der erste nördliche Turm und hauptsächlich für Magier. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Halle der Elara, Bragon Bollwerk und Schrein des Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -637,8 +637,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hall Elara");
-talkEntry:addTrigger("Elara Hall");
+talkEntry:addTrigger("Halle Elara");
+talkEntry:addTrigger("Elara Halle");
 talkEntry:addResponse("Die Halle der Elara kann im zweiten Stock des Turm des Feuer gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum zum hören und treffen unseres Erzmagier Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

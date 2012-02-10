@@ -1,4 +1,5 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger25", package.seeall)
 
@@ -54,6 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Raum des Zwielicht und suche nach einer Nummer dort. Vergiﬂ nicht die Lampe dort zu verwenden.", "Go to the Room of Twilight and look for a number there. Don't forget to use the lamp there."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 92, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

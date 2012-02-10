@@ -1,16 +1,16 @@
 require("handler.sendmessagetoplayer")
-require("handler.eraseplayeritem")
+require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_2.trigger91", package.seeall)
+module("questsystem.information_runewick_2.trigger92", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 310
-local POSTCONDITION_QUESTSTATE = 310
+local PRECONDITION_QUESTSTATE = 307
+local POSTCONDITION_QUESTSTATE = 257
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Bitte bringt mir zehn Sibanac Blätter!"
-local NPC_REPLY_EN = "Please, bring me ten sibanac leaves."
+local NPC_TRIGGER_DE = "Cheat"
+local NPC_TRIGGER_EN = "Cheat"
+local NPC_REPLY_DE = "lalal"
+local NPC_REPLY_EN = "allalal"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Und nun beliefere sie mit zehn Sibanac Blättern.", "And now supply her with ten sibanac leaves."):execute()
-    handler.eraseplayeritem.erasePlayerItem(PLAYER, 2744, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit dem erhaltenen Smaragd nach Galmair, Cadomyr und zum Gasthof Hanfschlinge und suche die genannten Personen. ", "Go with the received emerald to Galmair, Cadomyr and the Hemp Necktie Inn and look for these mentioned persons there."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 45, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -7,7 +7,7 @@ local PRECONDITION_QUESTSTATE = 109
 local POSTCONDITION_QUESTSTATE = 111
 
 local POSITION = position(327, 295, -6)
-local RADIUS = 1
+local RADIUS = 5
 local LOOKAT_TEXT_DE = "Nach l‰ngeren Versuchen erkennst du schlieﬂlich eine 17."
 local LOOKAT_TEXT_EN = "After several tries you can recognize a 17."
 
