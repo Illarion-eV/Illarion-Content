@@ -2,7 +2,7 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger69", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 113
+local PRECONDITION_QUESTSTATE = 178
 local POSTCONDITION_QUESTSTATE = 178
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]amechtzehn"

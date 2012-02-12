@@ -3,7 +3,7 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger15", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 66
+local PRECONDITION_QUESTSTATE = 319
 local POSTCONDITION_QUESTSTATE = 73
 
 local POSITION = position(954, 762, 5)
