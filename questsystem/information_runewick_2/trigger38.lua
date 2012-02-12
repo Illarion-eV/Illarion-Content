@@ -6,8 +6,8 @@ local QUEST_NUMBER = 622
 local PRECONDITION_QUESTSTATE = 207
 local POSTCONDITION_QUESTSTATE = 207
 
-local NPC_TRIGGER_DE = "."
-local NPC_TRIGGER_EN = "."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
 local NPC_REPLY_DE = "Wie ich sagte, ich will sie eigentlich gar nicht, daher bringt sie lieber Zaida. Ihr findet sie in der Werktstatt unten."
 local NPC_REPLY_EN = "As I said I do not want them. Please bring them to Zaida. You can find her in the workshop downstairs."
 
