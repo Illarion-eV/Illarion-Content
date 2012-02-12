@@ -90,3 +90,4 @@ npc,348,receiveText,trigger89
 npc,348,receiveText,trigger90
 npc,348,receiveText,trigger91
 npc,348,receiveText,trigger92
+npc,348,receiveText,trigger93

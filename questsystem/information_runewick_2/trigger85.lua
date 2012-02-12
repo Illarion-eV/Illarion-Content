@@ -1,4 +1,3 @@
-require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger85", package.seeall)
 
@@ -53,7 +52,6 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.eraseplayeritem.erasePlayerItem(PLAYER, 3076, 1000):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

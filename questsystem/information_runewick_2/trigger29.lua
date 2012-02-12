@@ -7,7 +7,7 @@ local PRECONDITION_QUESTSTATE = 184
 local POSTCONDITION_QUESTSTATE = 185
 
 local POSITION = position(924, 940, 0)
-local RADIUS = 1
+local RADIUS = 2
 
 function MoveItemAfterMove(PLAYER, itemBefore, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)

@@ -4,7 +4,7 @@ module("questsystem.information_runewick_1.trigger51", package.seeall)
 
 local QUEST_NUMBER = 621
 local PRECONDITION_QUESTSTATE = 0
-local POSTCONDITION_QUESTSTATE = 79
+local POSTCONDITION_QUESTSTATE = 61
 
 local NPC_TRIGGER_DE = "cheat"
 local NPC_TRIGGER_EN = "cheat"
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Garten nun - nehmt das rote Portal in der Stadt. Am hinteren Ende findest du die Säulen, die du ansehen musst.", "Go to the garden now - use the red portal in the town. You find the columns at the end of the garden. You have to look at them then."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit dem Archmage reden, aber auch zurück zu Elesil gehen.", "You can continue your conversation with the Archmage, or go back to Elesil."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

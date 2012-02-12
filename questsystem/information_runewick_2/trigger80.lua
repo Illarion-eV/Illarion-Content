@@ -1,4 +1,5 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger80", package.seeall)
 
@@ -38,6 +39,7 @@ end
 
 function HANDLER(PLAYER)
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Bring die Traube zu Numila nun.", "Bring the grapes to Numila now."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 388, 999, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

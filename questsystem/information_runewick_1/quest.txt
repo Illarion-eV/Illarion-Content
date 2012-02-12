@@ -68,3 +68,4 @@ triggerfield,0,MoveToField,trigger67
 triggerfield,0,MoveToField,trigger68
 npc,340,receiveText,trigger69
 npc,340,receiveText,trigger70
+npc,340,receiveText,trigger71

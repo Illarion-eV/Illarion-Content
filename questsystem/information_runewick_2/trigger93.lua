@@ -1,14 +1,16 @@
+require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
-module("questsystem.information_runewick_2.trigger86", package.seeall)
+module("questsystem.information_runewick_2.trigger93", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 305
-local POSTCONDITION_QUESTSTATE = 305
+local PRECONDITION_QUESTSTATE = 0
+local POSTCONDITION_QUESTSTATE = 184
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Wie gesagt, ich habe nun keine Aufgaben mehr für euch, aber wenn ihr Informationen bezüglich Plätze benötigt, so stellt eure Fragen."
-local NPC_REPLY_EN = "As I said, I do not have any further rewards for you, but if you want to have more information about places, please ask. "
+local NPC_TRIGGER_DE = "Test"
+local NPC_TRIGGER_EN = "Test"
+local NPC_REPLY_DE = "Dann lass uns testen."
+local NPC_REPLY_EN = "Then let test us."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -52,6 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
+    handler.createplayeritem.createPlayerItem(PLAYER, 148, 999, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun zur zweiten Zwillingaugen Insel und lege die erhaltene Blume dort auf das Blumenfeld vor dem Grabstein im Süden ab.", "Go to the second Twin Eyes Island now and lay down the flower on the flower field in front of the grave in the south then."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
