@@ -4,7 +4,7 @@ module("questsystem.information_cadomyr_1.trigger51", package.seeall)
 
 local QUEST_NUMBER = 641
 local PRECONDITION_QUESTSTATE = 0
-local POSTCONDITION_QUESTSTATE = 79
+local POSTCONDITION_QUESTSTATE = 61
 
 local NPC_TRIGGER_DE = "cheat"
 local NPC_TRIGGER_EN = "cheat"
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zur Taverne nun und betrachte das Bild dort.", "Go to the garden now and look at the picture there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit der Könign reden, aber auch zurück zu Frizza gehen.", "You can continue your conversation with the Queen, or go back to Frizza."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

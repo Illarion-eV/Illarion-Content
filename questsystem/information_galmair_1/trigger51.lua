@@ -4,7 +4,7 @@ module("questsystem.information_galmair_1.trigger51", package.seeall)
 
 local QUEST_NUMBER = 631
 local PRECONDITION_QUESTSTATE = 0
-local POSTCONDITION_QUESTSTATE = 79
+local POSTCONDITION_QUESTSTATE = 61
 
 local NPC_TRIGGER_DE = "cheat"
 local NPC_TRIGGER_EN = "cheat"
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun in den Tempel von Irmorom und betrachte die Bilder dort.", "Go to the temple of Irmorom and lock at the pictures there"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit dem Don reden, aber auch zurück zu Iradona gehen.", "You can continue your conversation with the Don, or go back to Iradona."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
