@@ -78,3 +78,5 @@ triggerfield,0,MoveToField,trigger77
 triggerfield,0,MoveToField,trigger78
 triggerfield,0,MoveToField,trigger79
 triggerfield,0,MoveToField,trigger80
+npc,340,receiveText,trigger81
+npc,340,receiveText,trigger82
