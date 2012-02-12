@@ -1,5 +1,4 @@
 require("handler.sendmessagetoplayer")
-require("handler.createitem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger61", package.seeall)
 
@@ -39,7 +38,6 @@ end
 
 function HANDLER(PLAYER)
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Elesil um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Elesil to get your reward, since the fire is enlighted now."):execute()
-    handler.createitem.createItem(position(860, 865, 0), 298, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
