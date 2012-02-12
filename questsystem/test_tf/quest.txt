@@ -1,1 +1,1 @@
-triggerfield,4,4,0,MoveToField,trigger1
+triggerfield,4,5,0,MoveToField,trigger1

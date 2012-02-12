@@ -4,7 +4,7 @@ module("questsystem.test_tf.trigger1", package.seeall)
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 0
-local POSTCONDITION_QUESTSTATE = 2
+local POSTCONDITION_QUESTSTATE = 0
 
 
 function MoveToField( PLAYER )
@@ -22,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Buh", "Buh"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Buh", "Boo"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
