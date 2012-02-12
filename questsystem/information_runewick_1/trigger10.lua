@@ -9,8 +9,8 @@ local POSTCONDITION_QUESTSTATE = 51
 
 local NPC_TRIGGER_DE = "[Gg]almair"
 local NPC_TRIGGER_EN = "[Gg]almair"
-local NPC_REPLY_DE = "Nun eine Frage zu den Lokalitäten hier. Wie heißt die Brücke die Runewick mit Eibental verbindet?"
-local NPC_REPLY_EN = "Now, a question about locations here. What is the name of the bridge that connects Runewick with Yewdale?"
+local NPC_REPLY_DE = "Nun eine Frage zu den Lokalitäten hier, insbesondere dem Hinterland. Wie heißt die Brücke die Runewick mit Eibental verbindet?"
+local NPC_REPLY_EN = "Now, a question about locations here. In particular the hinterland. What is the name of the bridge that connects Runewick with Yewdale?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
