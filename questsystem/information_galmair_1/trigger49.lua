@@ -9,8 +9,8 @@ local POSTCONDITION_QUESTSTATE = 109
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Diese Lampe sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Abwasserschacht! Sucht nach einer Zahl dort!"
-local NPC_REPLY_EN = "Let us test a lamp. Somewhere where it is dark. The Sewers! Look for a number there!"
+local NPC_REPLY_DE = "Diese Lampe sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Abwasserschacht! Sucht nach einer Zahl an einem Grabstein dort!"
+local NPC_REPLY_EN = "Let us test a lamp. Somewhere where it is dark. The Sewers! Look for a number at a tomb stone there!"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Abwasserschacht und suche nach einer Nummer dort. Vergiﬂ nicht die Lampe dort zu verwenden.", "Go to the Sewers and look for a number there. Don't forget to use the lamp there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Abwasserschacht und suche nach einer Nummer an einem Grabstein dort. Vergiﬂ nicht die Lampe dort zu verwenden.", "Go to the Sewers and look for a number at a tomb stone there. Don't forget to use the lamp there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 92, 333, 1):execute()
 end
 
