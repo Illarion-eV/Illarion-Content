@@ -12,12 +12,8 @@ function CreateManaCloud(event_position)
 world:gfx(4,event_position)
 end
 
-function Effect_1(Effect,User)
-    findIllnessStatus,illness_status = Effect:findValue("illness_status");
-    findHealing,healing_status = Effect:findValue("healing_status"); -- == 1 -> char is getting better :-)  ~= 1 -> char is ill and getting worse :-(
-	
-	FieldFrontOfChar = base.common.GetFrontPosition(User);
-	
+function ManaIllnessEffects(User, coughProb, strongCoughProb, sneezProb, snotProb)
+    -- coughing, sneezing, snot fot Effect_1
 	if (User:increaseAttrib("sex",0) == 1) then 
 	    pronoun_DE = "ihr"
 		pronoun_EN = "her"
@@ -25,7 +21,41 @@ function Effect_1(Effect,User)
 	    pronoun_DE = "sein"
 		pronoun_EN = "his"
 	end	
-        	
+	local probRandom = math.random(1,100) 
+	local FieldFrontOfChar = base.commom.GetFrontPosition(User)
+	
+	if (probRandom <= coughProb) and (coughProb ~= 0) then
+	    User:talkLanguage(Character.say,Player.german,"#me hustet eine blaue Wolke aus.")
+		User:talkLanguage(Character.say,Player.english,"#me coughs a blue cloud out.")
+		world:gfx(4,FieldFrontOfChar)
+		User:increaseAttrib("mana",-250)
+    elseif (probRandom > coughProb) and (probRandom <= (coughProb + strongCoughProb)) and (strongCoughProb ~= 0) then
+	    User:talkLanguage(Character.say,Player.german,"#me hustet lautstark eine große, blaue Wolke aus, die sich um "..pronoun_DE.."en Kopf herum verteilt.")
+		User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.")
+		base.common.CreateCircle(User.pos, 1, CreateManaCloud)
+		User:increaseAttrib("mana",-500)   
+    elseif (probRandom > (coughProb + strongCoughProb)) and (probRandom <= (coughProb + strongCoughProb + sneezProb)) and (sneezProb ~= 0) then
+	    User:talkLanguage(Character.say,Player.german,"#me niest und eine Strahl von Manawolken entfleucht sein"..pronoun_DE.." Nase.")
+		User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.")
+		base.common.CreateLine(FieldFrontOfChar, TargetPos, CreateManaCloud)
+		User:increaseAttrib("mana",-500)
+    elseif (probRandom > (coughProb + strongCoughProb + sneezProb)) and (probRandom <= (coughProb + strongCoughProb + sneezProb + snotProb)) and (snotProb ~= 0) then
+	    User:talkLanguage(Character.say,Player.german,"#mes Nase entkommt ein bläulicher Faden Schleim und tropft auf den Boden.")
+		User:talkLanguage(Character.say,Player.english,"#me's nose looses a blusih strand of snot which drops to the ground.")
+		world:gfx(11,FieldFrontOfChar)
+		User:increaseAttrib("mana",-100)
+	end
+	
+end
+
+function Effect_1(Effect,User)
+    -- mana illness 
+	-- cough/snot/sneezing which reduces mana
+	-- maixmum mana capacity is lowered
+	
+	findIllnessStatus,illness_status = Effect:findValue("illness_status");
+    findHealing,healing_status = Effect:findValue("healing_status"); -- == 1 -> char is getting better :-)  ~= 1 -> char is ill and getting worse :-(
+	
 	if findIllnessStatus then
 	    
 		if illnes_status <= 9 then -- first phase of the illness; so actually effect, just an inform
@@ -49,10 +79,7 @@ function Effect_1(Effect,User)
                base.common.InformNLS( User,
                "Das pelzige Gefühl auf Deiner Zunge nimmt zu und irgendwas fühlt sich in Deinem Körper komisch an. Nach einem Kratzen im Hals musst Du husten und ein Teil Deines Manas verlässt Dich.",
                "The furry feeling on yout tongue intensiefies and something feels strange in your body. After a having a short sore throat you have to cough and some of your mana leavse you.");
-	           User:talkLanguage(Character.say,Player.german,"#me hustet eine blaue Wolke aus.");
-               User:talkLanguage(Character.say,Player.english,"#me coughs a blue cloud out.");
-			   world:gfx(4,FieldFrontOfChar)
-			   User:increaseAttrib("mana",-250);
+	           ManaIllnessEffects(User, 100, 0, 0, 0)
 			end
 	        if (healing_status == 1) and (illnes_status == 19) then -- this inform is if you are sick, but you become better! Only one time.
 	            base.common.InformNLS( User,
@@ -62,13 +89,7 @@ function Effect_1(Effect,User)
 	        
 			-- and here is the effect which can happen every round
 			if not (illness_status == 10) then	
-				local random_effect = math.random(1,8)
-				if (random_effect == 1) then 
-					User:talkLanguage(Character.say,Player.german,"#me hustet eine blaue Wolke aus.");
-					User:talkLanguage(Character.say,Player.english,"#me coughs a blue cloud out.");
-					world:gfx(4,FieldFrontOfChar)
-					User:increaseAttrib("mana",-250);
-				end
+				ManaIllnessEffects(User, 10, 0, 0, 0)
 		    end
 		
 		end
@@ -84,10 +105,7 @@ function Effect_1(Effect,User)
                base.common.InformNLS( User,
                "Der Husten wird stärker. Das Kratzen im Hals ist nun dauerhaft da und Deine Brust schmerzt. Dein Körper scheint nicht mehr in der Lage, die gewohnte Menge an Mana dauerhaft halten zukönnen.",
                "The cough is getting stronger. Your throat is now permanently sore and your chest hurts. Your body seems no longer to able to hold lastingly the usualy amount of mana.");
-	           User:talkLanguage(Character.say,Player.german,"#me hustet lautstark eine große, blaue Wolke aus, die sich um "..pronoun_DE.."en Kopf herum verteilt.");
-               User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.");
-			   base.common.CreateCircle(CenterPos, Radius, CreateManaCloud)
-			   User:increaseAttrib("mana",-500);
+	           ManaIllnessEffects(User, 0, 100, 0, 0)
 			end
 	        if (healing_status == 1) and (illnes_status == 29) then -- this inform is if you are sick, but you become better! Only one time.
 	            base.common.InformNLS( User,
@@ -97,18 +115,7 @@ function Effect_1(Effect,User)
 	        
 			-- and here is the effect which can happen every round
 			if not (illnes_status == 20) then	
-				local random_effect = math.random(1,10)
-				if (random_effect == 1) then 
-					User:talkLanguage(Character.say,Player.german,"#me hustet eine blaue Wolke aus.");
-					User:talkLanguage(Character.say,Player.english,"#me coughs a blue cloud out.");
-					world:gfx(4,FieldFrontOfChar)
-					User:increaseAttrib("mana",-250);
-				elseif (random_effect == 2) then 
-					User:talkLanguage(Character.say,Player.german,"#me hustet lautstark eine große, blaue Wolke aus, die sich um "..pronoun_DE.."en Kopf herum verteilt.");
-					User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.");
-					base.common.CreateCircle(CenterPos, Radius, CreateManaCloud)
-					User:increaseAttrib("mana",-500);   
-				end
+				ManaIllnessEffects(User, 10, 5, 0, 0)
 		    end
 		
 		end
@@ -124,36 +131,12 @@ function Effect_1(Effect,User)
                base.common.InformNLS( User,
                "Schnupfen und Niesen gesellen sich zu Deinem Husten. Die maixmale Manakonzentration in Deinem Körper sinkt nunmehr auf die Hälfte.",
                "Snuffels and sneezing join the coughing. The maximal mana concentration of your body falls henceforth to the half.");
-	           User:talkLanguage(Character.say,Player.german,"#me niest und eine Strahl von Manawolken entfleucht sein"..pronoun_DE.." Nase.");
-               User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.");
-			   base.common.CreateLine(StartPos, TargetPos, CreateManaCloud)
-			   User:increaseAttrib("mana",-500);
+	           ManaIllnessEffects(User, 0, 0, 100, 0)
 			end
 	        
 			-- and here is the effect which can happen every round
 			if not (illnes_status == 20) then	
-				local random_effect = math.random(1,20)
-				if (random_effect <= 2) then 
-					User:talkLanguage(Character.say,Player.german,"#me hustet eine blaue Wolke aus.");
-					User:talkLanguage(Character.say,Player.english,"#me coughs a blue cloud out.");
-					world:gfx(4,FieldFrontOfChar)
-					User:increaseAttrib("mana",-250);
-				elseif (random_effect == 3) then 
-					User:talkLanguage(Character.say,Player.german,"#me hustet lautstark eine große, blaue Wolke aus, die sich um "..pronoun_DE.."en Kopf herum verteilt.");
-					User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.");
-					base.common.CreateCircle(CenterPos, Radius, CreateManaCloud)
-					User:increaseAttrib("mana",-500);   
-				elseif (random_effect == 4) then
-				    User:talkLanguage(Character.say,Player.german,"#me niest und eine Strahl von Manawolken entfleucht sein"..pronoun_DE.." Nase.");
-				    User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.");
-				    base.common.CreateLine(StartPos, TargetPos, CreateManaCloud)
-				    User:increaseAttrib("mana",-500);
-		        elseif (random_effect >= 5 and random_effect <= 7 ) then
-			        User:talkLanguage(Character.say,Player.german,"#mes Nase entkommt ein bläulicher Faden Schleim und tropft auf den Boden.");
-				    User:talkLanguage(Character.say,Player.english,"#me's nose looses a blusih strand of snot which drops to the ground.");
-			        world:gfx(11,FieldFrontOfChar)
-			        User:increaseAttrib("mana",-100);
-			    end
+				ManaIllnessEffects(User, 10, 5, 5, 15)
 			end
 		end
 		

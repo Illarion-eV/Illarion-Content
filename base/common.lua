@@ -197,25 +197,26 @@ end;
 --- Get the position right in front of a character in looking direction
 -- @param User The character the front position is wanted
 -- @return The position in front of the character
-function GetFrontPosition(User)
+function GetFrontPosition(User, distance)
     local direct = User:getFaceTo();
-
+    local d = distance or 1;
+	
     if (direct == Character.north) then
-        return position(User.pos.x, User.pos.y - 1, User.pos.z);
+        return position(User.pos.x, User.pos.y - d, User.pos.z);
     elseif (direct == Character.northeast) then
-        return position(User.pos.x + 1, User.pos.y - 1, User.pos.z);
+        return position(User.pos.x + d, User.pos.y - d, User.pos.z);
     elseif (direct == Character.east) then
-        return position(User.pos.x + 1, User.pos.y, User.pos.z);
+        return position(User.pos.x + d, User.pos.y, User.pos.z);
     elseif (direct == Character.southeast) then
-        return position(User.pos.x + 1, User.pos.y + 1, User.pos.z);
+        return position(User.pos.x + d, User.pos.y + d, User.pos.z);
     elseif (direct == Character.south) then
-        return position(User.pos.x, User.pos.y + 1, User.pos.z);
+        return position(User.pos.x, User.pos.y + d, User.pos.z);
     elseif (direct == Character.southwest) then
-        return position(User.pos.x - 1, User.pos.y + 1, User.pos.z);
+        return position(User.pos.x - d, User.pos.y + d, User.pos.z);
     elseif (direct == Character.west) then
-        return position(User.pos.x - 1, User.pos.y, User.pos.z);
+        return position(User.pos.x - d, User.pos.y, User.pos.z);
     elseif (direct == Character.northwest) then
-        return position(User.pos.x - 1, User.pos.y - 1, User.pos.z);
+        return position(User.pos.x - d, User.pos.y - d, User.pos.z);
     end;
 
     return User.pos;
