@@ -12,7 +12,7 @@ local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
 local NPC_REPLY_DE = "Wie ich sehe, wurde die Notiz gefunden und auch ein Apfel gebracht. Man darf ihn behalten. Nun ab in den Garten. Dort sind vier Säulen mit Elementen. Welches ist auf der linken Säule."
 local NPC_REPLY_EN = "I see, you found the noice and got an apple. Fine, you can keep the apple. Now go to the garden and tell me name of the element on the left column there."
-local NPC_NOITEM_DE = "Die Notiz scheinst gefunden worden sein, aber befolgt sollte sie auch werden."
+local NPC_NOITEM_DE = "Die Notiz scheint gefunden worden sein, aber befolgt sollte sie auch werden."
 local NPC_NOITEM_EN = "The notice has been found, but the task has not been accomplished!"
 
 function receiveText(type, text, PLAYER)
