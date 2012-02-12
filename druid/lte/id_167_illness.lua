@@ -22,7 +22,8 @@ function ManaIllnessEffects(User, coughProb, strongCoughProb, sneezProb, snotPro
 		pronoun_EN = "his"
 	end	
 	local probRandom = math.random(1,100) 
-	local FieldFrontOfChar = base.commom.GetFrontPosition(User)
+	local FieldFrontOfChar = base.commom.GetFrontPosition(User, 1)
+	local Field5FieldsOfChar = base.commom.GetFrontPosition(User, 5)
 	
 	if (probRandom <= coughProb) and (coughProb ~= 0) then
 	    User:talkLanguage(Character.say,Player.german,"#me hustet eine blaue Wolke aus.")
@@ -37,7 +38,7 @@ function ManaIllnessEffects(User, coughProb, strongCoughProb, sneezProb, snotPro
     elseif (probRandom > (coughProb + strongCoughProb)) and (probRandom <= (coughProb + strongCoughProb + sneezProb)) and (sneezProb ~= 0) then
 	    User:talkLanguage(Character.say,Player.german,"#me niest und eine Strahl von Manawolken entfleucht sein"..pronoun_DE.." Nase.")
 		User:talkLanguage(Character.say,Player.english,"#me coughs vociferously a big, blue cloud out which disperses around "..pronoun_EN.." head.")
-		base.common.CreateLine(FieldFrontOfChar, TargetPos, CreateManaCloud)
+		base.common.CreateLine(FieldFrontOfChar, Field5FieldsOfChar, CreateManaCloud)
 		User:increaseAttrib("mana",-500)
     elseif (probRandom > (coughProb + strongCoughProb + sneezProb)) and (probRandom <= (coughProb + strongCoughProb + sneezProb + snotProb)) and (snotProb ~= 0) then
 	    User:talkLanguage(Character.say,Player.german,"#mes Nase entkommt ein bläulicher Faden Schleim und tropft auf den Boden.")
@@ -54,18 +55,18 @@ function Effect_1(Effect,User)
 	-- maixmum mana capacity is lowered
 	
 	findIllnessStatus,illness_status = Effect:findValue("illness_status");
-    findHealing,healing_status = Effect:findValue("healing_status"); -- == 1 -> char is getting better :-)  ~= 1 -> char is ill and getting worse :-(
+    findPersistence,persistence = Effect:findValue("persistence"); -- == 1 -> char is getting better :-)  ~= 1 -> char is ill and getting worse :-(
 	
 	if findIllnessStatus then
 	    
 		if illnes_status <= 9 then -- first phase of the illness; so actually effect, just an inform
             
-			if not (healing_status == 1) and (illnes_status == 3) then -- this inform is only given if you become sick and only once; not while getting better
+			if not (persistence == 0) and (illnes_status == 3) then -- this inform is only given if you become sick and only once; not while getting better
                base.common.InformNLS( User,
                "Dir scheint als fühlst Du etwas Pelziges auf Deiner Zunge. Plötzlich spürst Du einen kurzen Stich in Deiner Brust, der schnell wieder nachlässt.",
                "It seems to you as if you feel something furry on your tongue. Suddenly, you feel briefly a stitch in your chest, which fades away, fastly.");
 	        end
-	        if (healing_status == 1) and (illnes_status == 7) then -- this inform is if you are sick, but you become better! Only one time.
+	        if (persistence == 0) and (illnes_status == 7) then -- this inform is if you are sick, but you become better! Only one time.
 	            base.common.InformNLS( User,
                "Der Husten scheint gänzlich abgeklungen zu sein. Nur das penetrante Gefühl von etwas Pelzigem ruht noch auf Deiner Zunge.",
                "The coughs has faded away finally, it seems. Only the penetrative feeling of something flurry stays on your tongue.");
@@ -75,13 +76,13 @@ function Effect_1(Effect,User)
 		
 		if (illnes_status >= 10) and (illness_status <= 19) then -- second phase of the illness; a new inform and the first real effects
 		    
-			if not (healing_status == 1) and (illnes_status == 10) then -- this inform is only given if you become sick and only once; not while getting better
+			if not (persistence == 0) and (illnes_status == 10) then -- this inform is only given if you become sick and only once; not while getting better
                base.common.InformNLS( User,
                "Das pelzige Gefühl auf Deiner Zunge nimmt zu und irgendwas fühlt sich in Deinem Körper komisch an. Nach einem Kratzen im Hals musst Du husten und ein Teil Deines Manas verlässt Dich.",
                "The furry feeling on yout tongue intensiefies and something feels strange in your body. After a having a short sore throat you have to cough and some of your mana leavse you.");
 	           ManaIllnessEffects(User, 100, 0, 0, 0)
 			end
-	        if (healing_status == 1) and (illnes_status == 19) then -- this inform is if you are sick, but you become better! Only one time.
+	        if (persistence == 0) and (illnes_status == 19) then -- this inform is if you are sick, but you become better! Only one time.
 	            base.common.InformNLS( User,
                "Der Husten wird schwächer und auch Deinem Hals geht es langsam besser, obwohl er noch etwas kratzt. Außerdem scheint Dein Körper wieder die gewohnte Menge an Mana aufnehmen zu können.",
                "The coughs is getting weaker and also your throat feels better, even if it is still a bit sore. Also, your body seems to be able to hold the usual amount of mana.");
@@ -101,13 +102,13 @@ function Effect_1(Effect,User)
 			    User:setAttrib("mana",7500)
 			end	
 			
-			if not (healing_status == 1) and (illnes_status == 20) then -- this inform is only given if you become sick and only once; not while getting better
+			if not (persistence == 0) and (illnes_status == 20) then -- this inform is only given if you become sick and only once; not while getting better
                base.common.InformNLS( User,
                "Der Husten wird stärker. Das Kratzen im Hals ist nun dauerhaft da und Deine Brust schmerzt. Dein Körper scheint nicht mehr in der Lage, die gewohnte Menge an Mana dauerhaft halten zukönnen.",
                "The cough is getting stronger. Your throat is now permanently sore and your chest hurts. Your body seems no longer to able to hold lastingly the usualy amount of mana.");
 	           ManaIllnessEffects(User, 0, 100, 0, 0)
 			end
-	        if (healing_status == 1) and (illnes_status == 29) then -- this inform is if you are sick, but you become better! Only one time.
+	        if (persistence == 0) and (illnes_status == 29) then -- this inform is if you are sick, but you become better! Only one time.
 	            base.common.InformNLS( User,
                "Schnupfen und Niesen scheinen verschwunden. Brust und Hals schmerzen noch immer, doch Dein Körper scheint wieder etwas mehr - wenn auch immer noch weniger als gewöhnlich - Mana aufnehmen zu können.",
                "Snuffle and sneezing seem to be gone. Chest and thorat still ache, but your body seems to be able to hold more - even if still not the usual amount - mana.");
@@ -127,7 +128,7 @@ function Effect_1(Effect,User)
 			    User:setAttrib("mana",5000)
 			end	
 			
-			if not (healing_status == 1) and (illnes_status == 30) then -- this inform is only given if you become sick and only once; not while getting better
+			if not (persistence == 0) and (illnes_status == 30) then -- this inform is only given if you become sick and only once; not while getting better
                base.common.InformNLS( User,
                "Schnupfen und Niesen gesellen sich zu Deinem Husten. Die maixmale Manakonzentration in Deinem Körper sinkt nunmehr auf die Hälfte.",
                "Snuffels and sneezing join the coughing. The maximal mana concentration of your body falls henceforth to the half.");
@@ -140,7 +141,12 @@ function Effect_1(Effect,User)
 			end
 		end
 		
-    else User:inform("LTE error: Lte 167, Error 1, inform a dev, please.");
+		if not (persistence == 0) then
+		
+    
+	
+	
+	else User:inform("LTE error: Lte 167, Error 1, inform a dev, please.");
 		 return;
 	end
 end	
