@@ -9,8 +9,8 @@ local POSTCONDITION_QUESTSTATE = 109
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "So, hier eine Lampe um auch im Dunklen lesen zu können. Dies sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Raum der Zwielicht! Sucht nach einer Zahl dort!"
-local NPC_REPLY_EN = "So, here a lamp that you can also read in the darkness. Let us test this. Somewhere where it is dark. Room of Twilight! Look for a number there!"
+local NPC_REPLY_DE = "So, hier eine Lampe um auch im Dunklen lesen zu können. Dies sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Raum der Zwielicht! Sucht an einen der Särge nach einer Zahl dort!"
+local NPC_REPLY_EN = "So, here a lamp that you can also read in the darkness. Let us test this. Somewhere where it is dark. Room of Twilight! Look for a number at one of the coffins there!"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Raum des Zwielicht und suche nach einer Nummer dort. Vergiß nicht die Lampe dort zu verwenden.", "Go to the Room of Twilight and look for a number there. Don't forget to use the lamp there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Raum des Zwielicht und suche nach einer Nummer auf einen Sarg dort. Vergiß nicht die Lampe dort zu verwenden.", "Go to the Room of Twilight and look for a number at one of the coffins there. Don't forget to use the lamp there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 92, 333, 1):execute()
 end
 
