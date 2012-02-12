@@ -1,4 +1,5 @@
 require("handler.sendmessagetoplayer")
+require("handler.createitem")
 require("questsystem.base")
 module("questsystem.information_galmair_1.trigger61", package.seeall)
 
@@ -7,7 +8,7 @@ local PRECONDITION_QUESTSTATE = 86
 local POSTCONDITION_QUESTSTATE = 94
 
 local POSITION = position(437, 232, 0)
-local RADIUS = 3
+local RADIUS = 1
 
 function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
@@ -38,6 +39,7 @@ end
 
 function HANDLER(PLAYER)
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Iradona um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Iradona to get your reward, since the fire is enlighted now."):execute()
+    handler.createitem.createItem(position(437, 232, 0), 298, 999, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

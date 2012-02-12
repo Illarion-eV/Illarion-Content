@@ -1,4 +1,5 @@
 require("handler.sendmessagetoplayer")
+require("handler.createitem")
 require("questsystem.base")
 module("questsystem.information_cadomyr_1.trigger63", package.seeall)
 
@@ -53,7 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Elesil um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Elesil to get your reward, since the fire is enlighted now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Frizza um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Frizza to get your reward, since the fire is enlighted now."):execute()
+    handler.createitem.createItem(position(0, 0, 0), 298, 999, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

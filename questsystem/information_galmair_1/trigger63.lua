@@ -1,4 +1,5 @@
 require("handler.sendmessagetoplayer")
+require("handler.createitem")
 require("questsystem.base")
 module("questsystem.information_galmair_1.trigger63", package.seeall)
 
@@ -54,6 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Iradona um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Iradona to get your reward, since the fire is enlighted now."):execute()
+    handler.createitem.createItem(position(437, 232, 0), 298, 999, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
