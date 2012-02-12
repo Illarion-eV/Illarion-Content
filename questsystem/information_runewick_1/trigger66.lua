@@ -6,11 +6,10 @@ local QUEST_NUMBER = 621
 local PRECONDITION_QUESTSTATE = 79
 local POSTCONDITION_QUESTSTATE = 84
 
-local POSITION = position(951, 791, 0)
 
 function MoveToField( PLAYER )
     if ADDITIONALCONDITIONS(PLAYER)
-    and uestsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
     
         HANDLER(PLAYER)
     
