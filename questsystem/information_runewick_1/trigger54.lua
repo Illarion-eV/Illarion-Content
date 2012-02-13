@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger54", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 111
-local POSTCONDITION_QUESTSTATE = 111
+local PRECONDITION_QUESTSTATE = 95
+local POSTCONDITION_QUESTSTATE = 95
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Diese Lampe sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Raum der Zwielicht! Sucht nach einer Zahl dort!"
-local NPC_REPLY_EN = "Let us test a lamp. Somewhere where it is dark. Room of Twilight! Look for a number there!"
+local NPC_REPLY_DE = "Findet das Fraktionsbuch über Runewick and liest darin."
+local NPC_REPLY_EN = "Find the faction book about Runewick and read it."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nun gehe zurück zu Elesil und berichte ihr die Nummer.", "Go back to Elesil and tell her the number."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, und nun finde das Buch über unsere Fraktion. Elesil'.", "While you are reading the book you see a note: 'Good, and now find the book about our faction. Elesil'."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

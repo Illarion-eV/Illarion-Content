@@ -1,22 +1,20 @@
 require("handler.sendmessagetoplayer")
+require("handler.createitem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger57", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 158
-local POSTCONDITION_QUESTSTATE = 90
+local PRECONDITION_QUESTSTATE = 86
+local POSTCONDITION_QUESTSTATE = 94
 
-local POSITION = position(905, 824, 2)
-local RADIUS = 8
-local LOOKAT_TEXT_DE = "Eine große, alterslose Frau hebt ihren Finger als gäbe sie einen Rat. In ihrer anderen Hand hält sie einige Bücher und Schriftrollen."
-local LOOKAT_TEXT_EN = "A tall and ageless woman rises one of her fingers as she has to mention her advice. In her other hand she holds some books and scrolls."
+local POSITION = position(860, 865, 0)
+local RADIUS = 1
 
-function LookAtItem(PLAYER, item)
+function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-
-    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
+    --informNLS(PLAYER, TEXT_DE, TEXT_EN)
     
     HANDLER(PLAYER)
     
@@ -27,17 +25,21 @@ function LookAtItem(PLAYER, item)
   return false
 end
 
-function itemInformNLS(player, item, textDe, textEn)
+function informNLS(player, textDe, textEn)
   if player:getPlayerLanguage() == Player.german then
-    world:itemInform(player, item, textDe)
+    player:inform(player, item, textDe)
   else
-    world:itemInform(player, item, textEn)
+    player:inform(player, item, textEn)
   end
 end
 
+-- local TEXT_DE = TEXT -- German Use Text -- Deutscher Text beim Benutzen
+-- local TEXT_EN = TEXT -- English Use Text -- Englischer Text beim Benutzen
+
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit wie alt die Frau die die Statue symbolisiert wirkt.", "Go to Elesil and tell her the age of the woman, symbolised by the statue."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Elesil um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Elesil to get your reward, since the fire is enlighted now."):execute()
+    handler.createitem.createItem(position(860, 865, 0), 298, 999, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

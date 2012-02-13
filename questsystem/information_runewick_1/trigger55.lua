@@ -1,15 +1,16 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger55", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 95
-local POSTCONDITION_QUESTSTATE = 95
+local PRECONDITION_QUESTSTATE = 158
+local POSTCONDITION_QUESTSTATE = 158
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Findet das Fraktionsbuch über Runewick and liest darin."
-local NPC_REPLY_EN = "Find the faction book about Runewick and read it."
+local NPC_REPLY_DE = "Wie alt könnte man die Frau die die Statue am Schrein der Elara sympolisiert schätzen?"
+local NPC_REPLY_EN = "How old would you guess is the woman that is symoblized by this statue at Elara's shrine?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, und nun finde das Buch über unsere Fraktion. Elesil'.", "While you are reading the book you see a note: 'Good, and now find the book about our faction. Elesil'."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 68, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Schrein der Elara und finde das erwünschte Alter heraus in dem du die Statuen dort betrachtest.", "Go to the shrine of Elara and figure out the required age through looking at statues there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
