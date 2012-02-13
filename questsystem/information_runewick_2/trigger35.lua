@@ -4,21 +4,17 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger35", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 207
+local PRECONDITION_QUESTSTATE = 208
 local POSTCONDITION_QUESTSTATE = 208
 
-local ITEM_ID = 388
-local ITEM_AMNT = 1
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Bist du das Traubenkind? Schön, gib sie mir. Zur Belohnung bekommst du eine gelbe Robe. Geh nach hinten zu Lilith. Sie soll dich ordentlich einkleiden."
-local NPC_REPLY_EN = "Are you the grapes-child? Nice, give them to me. You shall have a yellow robe as reward. Go behind to Lilith. She shall help you to get proper dressed."
-local NPC_NOITEM_DE = "Bist du das Traubenkind? Wie dem auch sei, ohne Trauben gibt es keine Belohnung."
-local NPC_NOITEM_EN = "Are you the grapes-child? Anyway, if you do not have the grapes you do not get your reward."
+local NPC_REPLY_DE = "Ab zu Lilith erstmals!"
+local NPC_REPLY_EN = "Go to Lilith now!"
 
 function receiveText(type, text, PLAYER)
-    if PLAYER:getType() == Character.player
-    and ADDITIONALCONDITIONS(PLAYER)
+    if ADDITIONALCONDITIONS(PLAYER)
+    and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
         if PLAYER:getPlayerLanguage() == Player.german then
             NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
@@ -35,33 +31,25 @@ function receiveText(type, text, PLAYER)
         end
 
         if foundTrig then
-            if PLAYER:countItem(ITEM_ID)>=ITEM_AMNT then
-                thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+      
+            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
-                HANDLER(PLAYER)
+            HANDLER(PLAYER)
             
-                questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
         
-                return true
-            elseif (NPC_NOITEM_DE~="") then
-                thisNPC:talk(Character.say, getNLS(PLAYER, NPC_NOITEM_DE, NPC_NOITEM_EN))
-          
-                return true
-            else
-                return false
-            end
+            return true
         end
     end
-
     return false
 end
 
 function getNLS(player, textDe, textEn)
-    if player:getPlayerLanguage() == Player.german then
-        return textDe
-    else
-        return textEn
-    end
+  if player:getPlayerLanguage() == Player.german then
+    return textDe
+  else
+    return textEn
+  end
 end
 
 

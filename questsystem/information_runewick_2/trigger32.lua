@@ -1,15 +1,16 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger32", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 199
-local POSTCONDITION_QUESTSTATE = 199
+local PRECONDITION_QUESTSTATE = 208
+local POSTCONDITION_QUESTSTATE = 211
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Ich sagte ich würde gerne ein paar Trauben haben. In Adrons Versteck gibt es traumhafte. Wenn ihr mir welche bitte bringt. Haltet Ausschau nach Bäumen, sie werden euch den Weg weisen."
-local NPC_REPLY_EN = "I said I would like to have some some grapes. There are some very delicious grapes at Adron's Covert. Please, bring me some from there. Keep your eyes open for trees, they will guide you there."
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Ich hab schon gehört was Zaida sagte. Lass mich sehen was du für eine Größe hast. Hmm... die hier sollte passen. *reicht eine gelbe Robe*"
+local NPC_REPLY_EN = "I heared what Zaida said. Let me see what size you have. Hmm...this one should fit. *hands a yellow robe* "
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun zu Adrons Versteck und bringe ein paar Trauben. Der Eingang befindet sich entlang der Küste nordwestlich von Eibental. Halte Ausschau nach Bäumen.", "Go to Adron's Covert now and bring some grapes. You can find the entrance on the coast northeast from Yewdale. Keep your eyes open for trees."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Numila.", "Go back to Numila now."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 195, 999, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

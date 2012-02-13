@@ -1,19 +1,20 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger29", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 184
-local POSTCONDITION_QUESTSTATE = 185
+local PRECONDITION_QUESTSTATE = 199
+local POSTCONDITION_QUESTSTATE = 196
 
-local POSITION = position(924, 940, 0)
-local RADIUS = 2
+local POSITION = position(727, 770, 0)
+local RADIUS = 10
 
-function MoveItemAfterMove(PLAYER, itemBefore, item)
+function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-    -- informNLS(PLAYER, TEXT_DE, TEXT_EN)
+    --informNLS(PLAYER, TEXT_DE, TEXT_EN)
     
     HANDLER(PLAYER)
     
@@ -32,12 +33,13 @@ function informNLS(player, textDe, textEn)
   end
 end
 
--- local TEXT_DE = TEXT -- German Text after movement -- Deutscher Text nach Bewegung
--- local TEXT_EN = TEXT -- English Text after movement -- Englischer Text nach Bewegung
+-- local TEXT_DE = TEXT -- German Use Text -- Deutscher Text beim Benutzen
+-- local TEXT_EN = TEXT -- English Use Text -- Englischer Text beim Benutzen
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Numila wird dir dankbar für diesen Akt sein. Geh nun zurück zu ihr.", "Numila will be thankful for this act. Go back to her now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Bring die Traube zu Numila nun.", "Bring the grapes to Numila now."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 388, 999, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

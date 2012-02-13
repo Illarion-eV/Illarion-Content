@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger52", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 233
-local POSTCONDITION_QUESTSTATE = 233
+local PRECONDITION_QUESTSTATE = 246
+local POSTCONDITION_QUESTSTATE = 251
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Ihr sollt euch eure Belohnung abholen. Ich war so gemein und hab sie für euch verstecken lassen. Geht zur Fröhlichen Lichtung und blickt dort unter einem der Getreidebündel nach. *schmunzelt*"
-local NPC_REPLY_EN = "You should go for your reward. I was mean and let it hide for you. Go to Merryglade and look in one of the bundles of grain. *grins*"
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Geht nun zur Bärenhöhle und erlegt einige der Wölfe dort. Vielleicht über ihr euch aber vorher noch in der Kampfkunst oder sucht nach Weggefährten. Kommt anschließend wieder zurück."
+local NPC_REPLY_EN = "Go to the Bear cave now and hunt some of the wolves there. You should maybe practice first or look for support. Come back afterwards."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur Fröhlichen Lichtung und suche in den Getreidebündeln in der Scheune nach deiner Belohung.", "Go to Merryglade and search in one of the bundles of grain in the barn there for your reward."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur Bärenhöhle. Bedenke, dass dies kein ungefährlicher Ort ist. Sei daher vorbereitet durch etwas Training oder Unterstützung durch Mitspieler.", "Go to the Bear cave now. Keep in mind this is not an undangerous place. You should practice before or look for support from other players."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

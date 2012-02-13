@@ -1,15 +1,14 @@
-require("handler.sendmessagetoplayer")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger38", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 207
-local POSTCONDITION_QUESTSTATE = 207
+local PRECONDITION_QUESTSTATE = 220
+local POSTCONDITION_QUESTSTATE = 220
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Wie ich sagte, ich will sie eigentlich gar nicht, daher bringt sie lieber Zaida. Ihr findet sie in der Werktstatt unten."
-local NPC_REPLY_EN = "As I said I do not want them. Please bring them to Zaida. You can find her in the workshop downstairs."
+local NPC_REPLY_DE = "Meine Frage war: Nun, wem haben wir im Halblings-Krieg besiegt?"
+local NPC_REPLY_EN = "My question was: Well, whom did we beat in the Halfling-war?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +52,6 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zu Zaida und bringe ihr die Trauben. Du findest Zaida in der Werkstatt. Wenn du nicht weiﬂt wo dieser ist frage Elesil.", "Go to Zaida and bring her the grapes. You can find her in the workshop. If you do not know where the workshop is, ask Elesil."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

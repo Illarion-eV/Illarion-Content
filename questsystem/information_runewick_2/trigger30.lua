@@ -3,17 +3,21 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger30", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 202
-local POSTCONDITION_QUESTSTATE = 199
+local PRECONDITION_QUESTSTATE = 196
+local POSTCONDITION_QUESTSTATE = 207
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Ich sagte ich würde gerne ein paar Trauben haben. In Adrons Versteck gibt es traumhafte. Wenn ihr mir welche bitte bringt. Haltet Ausschau nach Bäumen, sie werden euch den Weg weisen."
-local NPC_REPLY_EN = "I said I would like to have some some grapes. There are some very delicious grapes at Adron's Covert. Please, bring me some from there. Keep your eyes open for trees, they will guide you there."
+local ITEM_ID = 388
+local ITEM_AMNT = 1
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Gut, aber eigentlich will ich sie gar nicht, daher bringt sie lieber Zaida. Ihr findet sie in der Werktstatt unten."
+local NPC_REPLY_EN = "Good, but actually I do not want them. Please bring them to Zaida. You can find her in the workshop downstairs."
+local NPC_NOITEM_DE = "Wo sind die Trauben? Ohne Trauben gibt es keine Belohung!"
+local NPC_NOITEM_EN = "Where are the grapes? You do not get your reward without them!"
 
 function receiveText(type, text, PLAYER)
-    if ADDITIONALCONDITIONS(PLAYER)
-    and PLAYER:getType() == Character.player
+    if PLAYER:getType() == Character.player
+    and ADDITIONALCONDITIONS(PLAYER)
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
         if PLAYER:getPlayerLanguage() == Player.german then
             NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
@@ -30,30 +34,38 @@ function receiveText(type, text, PLAYER)
         end
 
         if foundTrig then
-      
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            if PLAYER:countItem(ITEM_ID)>=ITEM_AMNT then
+                thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
-            HANDLER(PLAYER)
+                HANDLER(PLAYER)
             
-            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+                questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
         
-            return true
+                return true
+            elseif (NPC_NOITEM_DE~="") then
+                thisNPC:talk(Character.say, getNLS(PLAYER, NPC_NOITEM_DE, NPC_NOITEM_EN))
+          
+                return true
+            else
+                return false
+            end
         end
     end
+
     return false
 end
 
 function getNLS(player, textDe, textEn)
-  if player:getPlayerLanguage() == Player.german then
-    return textDe
-  else
-    return textEn
-  end
+    if player:getPlayerLanguage() == Player.german then
+        return textDe
+    else
+        return textEn
+    end
 end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun zu Adrons Versteck und bringe ein paar Trauben. Der Eingang befindet sich entlang der Küste nordwestlich von Eibental. Halte Ausschau nach Bäumen.", "Go to Adron's Covert now and bring some grapes. You can find the entrance on the coast northeast from Yewdale. Keep your eyes open for trees."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zu Zaida und bringe ihr die Trauben. Du findest Zaida in der Werkstatt. Wenn du nicht weißt wo dieser ist frage Elesil.", "Go to Zaida and bring her the grapes. You can find her in the workshop. If you do not know where the workshop is, ask Elesil."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
