@@ -7,7 +7,7 @@ local PRECONDITION_QUESTSTATE = 84
 local POSTCONDITION_QUESTSTATE = 84
 
 local POSITION = position(958, 788, 0)
-local RADIUS = 10
+local RADIUS = 15
 local LOOKAT_TEXT_DE = "Die linke Säule trägt offensichtlich ein Feuerelement."
 local LOOKAT_TEXT_EN = "The left column bears an element of fire obviously."
 
