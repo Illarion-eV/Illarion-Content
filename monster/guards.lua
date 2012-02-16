@@ -1,4 +1,5 @@
 -- Attackable guards (who can fight back!)
+-- monsterID 2000
 
 module("monster.guards", package.seeall)
 
@@ -22,7 +23,7 @@ function initGuard(Guard)
     Guard:createAtPos(Character.legs,461,1);
     Guard:createAtPos(Character.right_tool,2723,1);
    
-	-- Cloud of points in the patroling area:
+	-- Cloud of points in the patroling area (Cadomyr, inside town):
 	cloud={position(107,559,0),
 		position(93,561,0),
 		position(99,576,0),
@@ -86,9 +87,7 @@ end
 function onSpawn(Guard)
     initGuard(Guard);
 	
-	
-	
-	Guard.waypoints:addFromList(WPList);
+	Guard.waypoints:addWaypoint(getNextPoint(Guard.pos,cloud,20));
     Guard:setOnRoute(true);
 end
 
@@ -113,7 +112,6 @@ function setTarget(Guard, candList)
         end
     end    
     -- no targets any longer: go back on route:
-    
     if Guard:getOnRoute()==false then
         Guard:setOnRoute(true);
     end
@@ -170,19 +168,13 @@ function abortRoute(Guard)
     restList=Guard.waypoints:getWaypoints();
     if (# restList==0) then
         Guard:talk(Character.say,"no more WP!");
-        WPList={position(6,9,0), 
-            position(16,14,0),
-            position(27,3,0),
-            position(30,13,0),
-            position(20,15,0),
-            position(10,10,0)};
-        Guard.waypoints:addFromList(WPList);
+        Guard.waypoints:addWaypoint(getNextPoint(Guard.pos,cloud,20));
         Guard:setOnRoute(true);
     elseif (# restList > 0) then  -- aborted route we because can't reach WP
         Guard:talk(Character.say,"Ignoring this WP now.");
         table.remove(restList,1);   -- remove this waypoint from list
         Guard.waypoints:clear();
-        Guard.waypoints:addFromList(restList);
+        Guard.waypoints:addWaypoint(getNextPoint(Guard.pos,cloud,20));
         Guard:setOnRoute(true);
     end
     --Guard:talk(Character.say,"my list has now this number of entries: "..# Guard.waypoints:getWaypoints());
