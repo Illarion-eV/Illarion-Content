@@ -86,8 +86,9 @@ end
 -- Set clothes, weapons, hair/beard, colors, waypoints + set on this route, talking-skills
 function onSpawn(Guard)
     initGuard(Guard);
-	
-	Guard.waypoints:addWaypoint(getNextPoint(Guard.pos,cloud,20));
+	newPt=getNextPoint(Guard.pos,cloud,20)
+	Guard.waypoints:addWaypoint(newPt);
+	Guard.waypoints:addWaypoint(getNextPoint(newPt,cloud,20)
     Guard:setOnRoute(true);
 end
 
