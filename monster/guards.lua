@@ -88,7 +88,7 @@ function onSpawn(Guard)
     initGuard(Guard);
 	newPt=getNextPoint(Guard.pos,cloud,20)
 	Guard.waypoints:addWaypoint(newPt);
-	Guard.waypoints:addWaypoint(getNextPoint(newPt,cloud,20)
+	Guard.waypoints:addWaypoint(getNextPoint(newPt,cloud,20));
     Guard:setOnRoute(true);
 end
 
