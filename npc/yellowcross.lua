@@ -10,6 +10,12 @@ function nextCycle()
 
     -- Suche nach Monstern
     local monsters = world:getMonstersInRangeOf(thisNPC.pos,EffectArea+2) -- Suche Nach Monstern zum Wegschleudern
+	for posi,monst in pairs(monsters) do
+		if monst:getMonType()==2000 then
+			table.remove(monsters,posi);
+		end
+	end
+	
     if (table.getn(monsters)>0) then -- Monster gefunden
         CreateCircle(46,thisNPC.pos,EffectArea+2); -- Lustiger Leuchtkreis
         for i, monster in pairs(monsters) do
