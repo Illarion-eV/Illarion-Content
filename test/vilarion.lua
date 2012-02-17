@@ -29,7 +29,12 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    User.effects:addEffect(LongTimeEffect(777, 30))
+    ScriptVariables:set("xq10", "something")
+    found, value = ScriptVariables:find("xq10")
+    User:inform("Value: " .. value)
+    ScriptVariables:save()
+
+    --User.effects:addEffect(LongTimeEffect(777, 30))
 
     --pos = User.pos
     --pos.x = pos.x + 1
