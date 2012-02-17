@@ -29,10 +29,10 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    ScriptVariables:set("xq10", "something")
-    found, value = ScriptVariables:find("xq10")
+    ScriptVars:set("xq10", "something")
+    found, value = ScriptVars:find("xq10")
     User:inform("Value: " .. value)
-    ScriptVariables:save()
+    ScriptVars:save()
 
     --User.effects:addEffect(LongTimeEffect(777, 30))
 
