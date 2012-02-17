@@ -29,7 +29,6 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    ScriptVars:set("xq10", "something")
     found, value = ScriptVars:find("xq10")
     User:inform("Value: " .. value)
     ScriptVars:save()
