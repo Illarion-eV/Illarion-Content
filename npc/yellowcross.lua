@@ -11,7 +11,7 @@ function nextCycle()
     -- Suche nach Monstern
     local monsters = world:getMonstersInRangeOf(thisNPC.pos,EffectArea+2) -- Suche Nach Monstern zum Wegschleudern
 	for posi,monst in pairs(monsters) do
-		if monst:getMonType()==2000 then
+		if monst:getMonsterType()==2000 then
 			table.remove(monsters,posi);
 		end
 	end
