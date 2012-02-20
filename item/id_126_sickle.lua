@@ -78,23 +78,23 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             local selectMessage = math.random(1,5);
             if ( selectMessage == 1 ) then
                         base.common.InformNLS( User,
-                        "Du wischst dir den Schweiï¿½ von der Stirn.",
+                        "Du wischst dir den Schweiß von der Stirn.",
                         "You wipe sweat off your forehead.");
                     elseif ( selectMessage == 2 ) then
                         base.common.InformNLS( User,
-                        "Ein kleines pelziges Tier springt aus dem Gebï¿½sch und rennt davon. Fï¿½r einen Moment bist du fï¿½rchterlich erschrocken.",
+                        "Ein kleines pelziges Tier springt aus dem Gebüsch und rennt davon. Für einen Moment bist du fürchterlich erschrocken.",
                         "A small, furry critter jumps out of a bush and darts off. That really surprised you.");
                     elseif ( selectMessage == 3 ) then
                         base.common.InformNLS( User,
-                        "Du greifst mit der Hand in eine Blattlauskolonie. Verï¿½rgert wischt du dir die Hand an der Hose ab.",
+                        "Du greifst mit der Hand in eine Blattlauskolonie. Verärgert wischt du dir die Hand an der Hose ab.",
                         "The plant is crowded with lice. Annoyed, you wipe your hand clean on your trousers.");
                     elseif ( selectMessage == 4 ) then
                         base.common.InformNLS( User,
-                        "Wï¿½hrend du nach Krï¿½utern suchst, verhakt sich deine Sichel und rutscht dir fast aus der Hand.",
+                        "Während du nach Kräutern suchst, verhakt sich deine Sichel und rutscht dir fast aus der Hand.",
             			"While searching for herbs your sickle gets stuck and it nearly slides out of your hand.");
 					else
                         base.common.InformNLS( User,
-                        "Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlï¿½gst mit der Hand danach und versuchst es zu vertreiben.",
+                        "Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlägst mit der Hand danach und versuchst es zu vertreiben.",
                         "An annoying bug buzzes around your head. You strike at it in order to drive it away.");
             end
             return
@@ -103,7 +103,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
     if base.common.Encumbrence(User) then    -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rï¿½stung behindert dabei Krï¿½uter zu sammeln.",
+        "Deine Rüstung behindert dabei Kräuter zu sammeln.",
         "Your armour disturbes you collecting herbs." );
         return
     end
@@ -167,7 +167,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         end
         if groundok then
 
-            if base.common.ToolBreaks( User, SourceItem ) then -- Werkzeug beschï¿½digen
+            if base.common.ToolBreaks( User, SourceItem ) then -- Werkzeug beschädigen
                 base.common.InformNLS( User,
                 "Die Sichel zerbricht.",
                 "The sickle breaks." );
@@ -185,7 +185,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 success = false;
 			skilluse=1;
 	        base.common.InformNLS( User,
-                      "Deine Kenntnisse in der Krï¿½uterkunde sind nicht ausreichend, um hier etwas Brauchbares zu sammeln.",
+                      "Deine Kenntnisse in der Kräuterkunde sind nicht ausreichend, um hier etwas Brauchbares zu sammeln.",
                       "Your knowlege in herblore is not sufficient to collect herbs here.");
             elseif ( harvest[ 4 ] ~= 0 ) then
                 if( math.random( 100 ) < 80 ) then
@@ -194,7 +194,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             elseif ( harvest[ 4 ] == 0 ) then
                 if ( ltstate == Action.none ) then -- Arbeit nicht gestartet -> Starten
                     User:startAction(content.gathering.herbgathering:GenWorkTime(User,SourceItem), 0, 0, 0, 0 );
-                    User:talkLanguage( Character.say, Player.german, "#me beginnt nach Krï¿½utern zu suchen.");
+                    User:talkLanguage( Character.say, Player.german, "#me beginnt nach Kräutern zu suchen.");
                     User:talkLanguage( Character.say, Player.english, "#me starts to search for herbs.");
                     return
                 end
@@ -203,19 +203,19 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     local selectMessage = math.random(1,4);
                     if ( selectMessage == 1 ) then
                         base.common.InformNLS(User,
-                        "Du wischst dir den Schweiï¿½ von der Stirn.",
+                        "Du wischst dir den Schweiß von der Stirn.",
                         "You wipe sweat off your forehead.");
                     elseif ( selectMessage == 2 ) then
                         base.common.InformNLS(User,
-                        "Ein kleines pelziges Tier springt aus dem Gebï¿½sch und rennt davon. Fï¿½r einen Moment bist du fï¿½rchterlich erschrocken.",
+                        "Ein kleines pelziges Tier springt aus dem Gebüsch und rennt davon. Für einen Moment bist du fürchterlich erschrocken.",
                         "A small, furry critter jumps out of a bush and darts off. That really surprised you.");
                     elseif ( selectMessage == 3 ) then
                         base.common.InformNLS(User,
-                        "Du greifst mit der Hand in eine Blattlauskolonie. Verï¿½rgert wischt du dir die Hand an der Hose ab.",
+                        "Du greifst mit der Hand in eine Blattlauskolonie. Verärgert wischt du dir die Hand an der Hose ab.",
                         "The plant is crowded with lice. Annoyed, you wipe your hand clean on your trousers.");
                     else
                         base.common.base.common.InformNLS(User,
-                        "Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlï¿½gst mit der Hand danach und versuchst es zu vertreiben.",
+                        "Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlägst mit der Hand danach und versuchst es zu vertreiben.",
                         "An annoying bug buzzes around your head. You strike at it in order to drive it away.");
                     end
                     return
@@ -289,7 +289,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             if( (not success ) and (skilluse~=1) ) and math.random(1,30) == 10 then --spam protection: 1/30 chance for message
                 if( boden == 1 ) then
                     base.common.InformNLS( User,
-                    "Deine Hï¿½nde graben durch die Erde, aber Du findest nichts.",
+                    "Deine Hände graben durch die Erde, aber Du findest nichts.",
                     "Your hands muckrake through the dirt, but you do not find anything." );
                 elseif( boden == 2 ) then
                     base.common.InformNLS( User,
@@ -297,27 +297,27 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     "Dry leaves are all you find." );
                 elseif( boden == 3 ) then
                     base.common.InformNLS( User,
-                    "Du findest nichts auï¿½er trockenem Sand.",
+                    "Du findest nichts außer trockenem Sand.",
                     "You find nothing but dry sand" );
                 elseif( boden == 4 ) then
                     base.common.InformNLS( User,
-                    "Du findest nichts auï¿½er Unkraut und Gras.",
+                    "Du findest nichts außer Unkraut und Gras.",
                     "You find nothing but weed and grass." );
                 elseif( boden == 5 ) then
                     base.common.InformNLS( User,
-                    "Du findest nichts auï¿½er Gerï¿½ll.",
+                    "Du findest nichts außer Geröll.",
                     "You find nothing but boulders." );
                 elseif( boden == 6 ) then
                     base.common.InformNLS( User,
-                    "Du findest nichts auï¿½er ein paar unnï¿½tzen dï¿½rren Stï¿½ngeln im Wasser.",
+                    "Du findest nichts außer ein paar unnützen dürren Stängeln im Wasser.",
                     "You find nothing except of some useless meagre stipes in the water." );
                 elseif( boden == 7 ) then
                     base.common.InformNLS( User,
-                    "Du findest nichts auï¿½er ein paar modrigen Pflanzenresten.",
+                    "Du findest nichts außer ein paar modrigen Pflanzenresten.",
                     "You find nothing but some musty plant remains." );
                 elseif( boden == 8 ) then
                     base.common.InformNLS( User,
-                    "Du findest nichts auï¿½er Eis und Schnee.",
+                    "Du findest nichts außer Eis und Schnee.",
                     "You find nothing but ice and snow." );
 				else
                     base.common.InformNLS( User,
@@ -344,17 +344,17 @@ function InitHerblore()
         
         harvestItem[ 273 ] = {                       -- Blume
         { 2, 5, 144, 0, {10, 1,10,16}, 37 },             -- Wald: 	Jungfernkraut
-        { 3, 5, 137, 0, {10, 1,10,16}, 25 },             -- Sand: 	Flammkelchblï¿½te
+        { 3, 5, 137, 0, {10, 1,10,16}, 25 },             -- Sand: 	Flammkelchblüte
         { 4, 7, 135, 0, {16,10, 1,10}, 17 },             -- Wiese:	Gelbkraut
-        { 5, 0, 148, 0, {10,16,10, 1}, 47 },             -- Fels: 	Firnisblï¿½te
+        { 5, 0, 148, 0, {10,16,10, 1}, 47 },             -- Fels: 	Firnisblüte
         { 6, 0, 763, 0, {10,16,10, 1}, 47 },             -- Wasser:	Sumpfblume
-        { 7,50, 138, 0, { 1,10,16,10}, 26 },             -- Dreck:	Nachengelsblï¿½te
+        { 7,50, 138, 0, { 1,10,16,10}, 26 },             -- Dreck:	Nachengelsblüte
         { 8,50, 757, 0, {10,16,10, 1}, 26 } };           -- Schnee:  Gottesblume
         
         harvestItem[ 274 ] = {                       -- Farn
         { 2,30, 140, 0, {10,16,10, 1}, 27 },               	-- Wald: 	Donfblatt
         { 3, 0, 156, 0, {10, 1,10,16}, 61 },               	-- Sand: 	Steppenfarn
-        { 4,10, 153, 0, {16,10, 1,10}, 52 },               	-- Wiese:	Fuï¿½blatt
+        { 4,10, 153, 0, {16,10, 1,10}, 52 },               	-- Wiese:	Fußblatt
         { 5,20, 768, 0, {10,16,10, 1}, 52 },               	-- Fels: 	Wolfsfarn
 		{ 6, 0, 754, 0, {10,16,10, 1}, 52 },            	-- Wasser:  Wasserfarn
 		{ 7,50, 752, 0, { 1,10,16,10}, 26 },             	-- Dreck:	Alraune
@@ -368,22 +368,22 @@ function InitHerblore()
         { 7,50, 136, 0, { 1,10,16,10}, 18 } };            -- Dreck: Wutbeere
         
         harvestItem[ 338 ] = {                       -- Schilf
-        { 4, 5, 134, 0, {10, 1,10,16}, 16 },              -- Wiese:	 Vierblï¿½ttrige Einbeere
+        { 4, 5, 134, 0, {10, 1,10,16}, 16 },              -- Wiese:	 Vierblättrige Einbeere
         { 6,30, 155, 0, {10,16,10, 1}, 54 } };            -- Wasser: Sibanac Blatt
         
         harvestItem[ 1782 ] = {                      -- Gras
         { 2, 0, 151, 0, {10,16,10, 1}, 48 },             -- Wald: 	Erdbeere
-        { 3, 5, 146, 0, { 1,10,16,10}, 28 },             -- Sand: 	Wï¿½stenhimmelskapsel
+        { 3, 5, 146, 0, { 1,10,16,10}, 28 },             -- Sand: 	Wüstenhimmelskapsel
         { 4,20, 141, 0, { 1,10,16,10}, 38 },             -- Wiese:	Schwarze Distel
-        { 5,20, 145, 0, {16,10, 1,10}, 38 },             -- Stein:	Heideblï¿½te
+        { 5,20, 145, 0, {16,10, 1,10}, 38 },             -- Stein:	Heideblüte
         { 6, 0, 761, 0, { 1,10,16,10}, 52 },             -- Wasser:  Regenkraut
         { 7,50, 762, 0, {10, 1,10,16}, 18 } };           -- Dreck:   Schwefelgras
 
         harvestItem[ 1783 ] = {                      -- Gras
         { 2, 0, 151, 0, {10,16,10, 1}, 48 },             -- Wald: 	Erdbeere
-        { 3, 5, 146, 0, { 1,10,16,10}, 28 },             -- Sand: 	Wï¿½stenhimmelskapsel
+        { 3, 5, 146, 0, { 1,10,16,10}, 28 },             -- Sand: 	Wüstenhimmelskapsel
         { 4,20, 141, 0, { 1,10,16,10}, 38 },             -- Wiese:	Schwarze Distel
-        { 5,20, 145, 0, {16,10, 1,10}, 38 },             -- Stein:	Heideblï¿½te
+        { 5,20, 145, 0, {16,10, 1,10}, 38 },             -- Stein:	Heideblüte
         { 6, 0, 761, 0, { 1,10,16,10}, 52 },             -- Wasser:  Regenkraut
         { 7,50, 762, 0, {10, 1,10,16}, 18 } };           -- Dreck:   Schwefelgras
         
