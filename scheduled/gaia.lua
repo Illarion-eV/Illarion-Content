@@ -101,7 +101,14 @@ function plantdrop()
             if ((bodenart == check) or (check == 0)) then
 
                 world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
-				world:sendMonitoringMessage("..newpos..", "..plnt[auswahl]..");
+				
+				if (world:isCharacterOnField(position(648,486,0))) then
+				user = world:getCharacterOnField( position(648,486,0) );
+				
+				user:inform("Pos: "..newpos);
+				user:inform("Herb: " ..plnt[auswahl]);
+				user:inform("Ground: " ..bodenart);
+				end	
             end
         end
     end
