@@ -101,7 +101,7 @@ function plantdrop()
             if ((bodenart == check) or (check == 0)) then
 
                 world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
-				world:sendMonitoringMessage(..newpos..", "..plnt[auswahl]..);
+				world:sendMonitoringMessage("..newpos..", "..plnt[auswahl]..");
             end
         end
     end
