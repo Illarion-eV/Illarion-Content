@@ -94,13 +94,14 @@ function plantdrop()
             check = grnd[auswahl][math.random(1,table.getn(grnd[auswahl]))];
             pflwert = dataval[auswahl];
             ---- Standortbestimmung
-            newpos = position( math.random(0,1000), math.random(0,1000), 0 );
+            newpos = position( math.random(0,1024), math.random(0,1024), 0 );
             ---- bodentile feststellen
 			theTile=world:getField(newpos);
             local bodenart = base.common.GetGroundType( theTile.tile );
             if ((bodenart == check) or (check == 0)) then
 
                 world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
+				user:inform("pflanze gesetzt");
             end
         end
     end
