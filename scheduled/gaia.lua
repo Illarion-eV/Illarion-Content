@@ -104,7 +104,7 @@ function plantdrop()
             if ((bodenart == check) or (check == 0)) then
 
                 world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
-				user:inform("Setze Pflanze");
+				user:inform("Setze Pflanze " ..theItemID);
             end
         end
     end
