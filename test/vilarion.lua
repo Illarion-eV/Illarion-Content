@@ -29,9 +29,9 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    found, value = ScriptVars:find("xq10")
-    User:inform("Value: " .. value)
-    ScriptVars:save()
+
+    SourceItem:setData("test", "value")
+
 
     --User.effects:addEffect(LongTimeEffect(777, 30))
 
