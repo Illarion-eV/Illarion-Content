@@ -31,7 +31,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
 
     SourceItem:setData("test", "value")
-
+    world:changeItem(SourceItem)
 
     --User.effects:addEffect(LongTimeEffect(777, 30))
 
