@@ -33,7 +33,7 @@ function plantdrop()
         Init();
     end
 	if (world:isCharacterOnField(position(0,15,0))) then
-					user = world:getCharacterOnField( position(0,15,0) );
+			user = world:getCharacterOnField( position(0,15,0) );
 		end
 
     local season=math.ceil( world:getTime("month") / 4 );
@@ -65,7 +65,7 @@ function plantdrop()
             newpos = position( math.random(0,100), math.random(0,100), 0 );
             ---- bodentile feststellen
 			theTile=world:getField(newpos);
-            local bodenart = base.common.GetGroundType( theTile );
+            local bodenart = base.common.GetGroundType( theTile:tile() );
             if ((bodenart == check) or (check == 0)) then
 
                 world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
