@@ -32,8 +32,8 @@ function plantdrop()
     if ( plnt==nil ) then
         Init();
     end
-	if (world:isCharacterOnField(position(648,486,0))) then
-					user = world:getCharacterOnField( position(648,486,0) );
+	if (world:isCharacterOnField(position(600,200,0))) then
+					user = world:getCharacterOnField( position(600,200,0) );
 		end
 
     local season=math.ceil( world:getTime("month") / 4 );
@@ -63,14 +63,16 @@ function plantdrop()
             check = grnd[auswahl][math.random(1,table.getn(grnd[auswahl]))];
             pflwert = dataval[auswahl];
             ---- Standortbestimmung
-            newpos = position( math.random(0,1024), math.random(0,1024), 0 );
+            newpos = position( math.random(600,700), math.random(200,300), 0 );
             ---- bodentile feststellen
 			theTile=world:getField(newpos);
             local bodenart = base.common.GetGroundType( theTile );
             if ((bodenart == check) or (check == 0)) then
 
                 world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
-				user:inform("Setze Pflanze " ..plnt[auswahl].. " auf Boden " ..bodenart);
+				user:inform("Setze Pflanze " ..plnt[auswahl]);
+				user:inform("Auf Boden " ..bodenart);
+				
             end
         end
     end
