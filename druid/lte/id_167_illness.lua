@@ -1,5 +1,6 @@
 -- LTE für das Druidensystem
 -- by Falk
+-- started to redo - Merung
 require("base.common")
 require("druid.base.outfit")
 
@@ -7,7 +8,8 @@ module("druid.lte.id_167_illness", package.seeall) --(druid.base.outfit))
 
 -- INSERT INTO longtimeeffects VALUES (167, 'druids_illness', 'druid.lte.id_167_illness');
 
--- function for Effect_1
+---- will probably a postVBU project
+-- functions for Effect_1
 function CreateManaCloud(event_position)
 world:gfx(4,event_position)
 end
@@ -141,10 +143,27 @@ function Effect_1(Effect,User)
 			end
 		end
 		
-		if not (persistence == 0) then
-		
-    
+		if (persistence > 0) then
+		    illnes_status = illness_status + 1 
+			if illness_status > 50 then 
+			    illness_status = 50
+			end
+		    
+			pesistence = persistence + 1
+			if persistence > 9 then
+			    persistence = 9
+			end	
+		elseif (persistence == 0) then
+		    illness_status - 1
+		end
+        Effect:addValue("illness_status",illness_status)		
+        Effect:addValue("persistence",persistence)
 	
+        if (persistence == 0) and (illness_status = 0) then -- no persistence left and last round of the healign phase; inform!
+            base.common.InformNLS( User,
+               "Das seltsame Gefühl von etwas Pelzigem auf deiner Zunge ist nun auch verschwunden. Du fühlst Dich wieder vollkommen gesund.",
+               "The strange feeling of haveing something furry on your tnogue is also gone now. You feel completely healed.");
+	    end
 	
 	else User:inform("LTE error: Lte 167, Error 1, inform a dev, please.");
 		 return;
