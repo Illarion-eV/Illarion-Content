@@ -90,7 +90,7 @@ function plantdrop()
             success = false;
         end
 		if (world:isCharacterOnField(position(648,486,0))) then
-					--user = world:getCharacterOnField( position(648,486,0) );
+					user = world:getCharacterOnField( position(648,486,0) );
 		end
 
         if success then
