@@ -18,14 +18,14 @@ function Init()
     freq = {};
     seas = {};
     dataval= {};
-    --AddPlant(132,{4},1,{10,10,10,10},0);  -- Kirschsetzling
-    --AddPlant(139,{4},1,{10,10,10,10},0);  -- Apfelsetzling
-	--AddPlant(150,{2},1,{10,10,10,10},0);  -- Tannensetzling
+    AddPlant(132,{4},1,{10,10,10,10},0);  -- Kirschsetzling
+    AddPlant(139,{4},1,{10,10,10,10},0);  -- Apfelsetzling
+	AddPlant(150,{2},1,{10,10,10,10},0);  -- Tannensetzling
 	AddPlant(152,{4},1,{10,10,10,10},0);  -- Lebenswurzel
-	--AddPlant(588,{4},1,{10,10,10,10},0);  -- Cachdernsetzling
-	--AddPlant(589,{2,4},1,{10,10,10,10},0);  -- Eldan-Eichensetzling
-	--AddPlant(590,{2},1,{10,10,10,10},0);  -- Scandrel-Setzling
-	--AddPlant(591,{2,4},1,{10,10,10,10},0);  -- Naldorbaumsetzling
+	AddPlant(588,{4},1,{10,10,10,10},0);  -- Cachdernsetzling
+	AddPlant(589,{2,4},1,{10,10,10,10},0);  -- Eldan-Eichensetzling
+	AddPlant(590,{2},1,{10,10,10,10},0);  -- Scandrel-Setzling
+	AddPlant(591,{2,4},1,{10,10,10,10},0);  -- Naldorbaumsetzling
 	AddPlant(752,{3},1,{10,10,10,10},0);  -- Alraune
 	AddPlant(756,{2},1,{10,10,10,10},0);  -- Frommbeere
 	AddPlant(757,{2},1,{10,10,10,10},0);  -- Gottesblume
