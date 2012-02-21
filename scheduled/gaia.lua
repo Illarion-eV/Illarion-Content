@@ -18,8 +18,22 @@ function Init()
     freq = {};
     seas = {};
     dataval= {};
-    AddPlant(133,{1,2,3},1,{10,10,10,10},0);  -- Sonnenkraut
-    AddPlant(134,{4,5,7},1,{10,10,10,10},0);          -- Vierblättrige Einbeere
+    --AddPlant(132,{4},1,{10,10,10,10},0);  -- Kirschsetzling
+    --AddPlant(139,{4},1,{10,10,10,10},0);  -- Apfelsetzling
+	--AddPlant(150,{2},1,{10,10,10,10},0);  -- Tannensetzling
+	AddPlant(152,{4},1,{10,10,10,10},0);  -- Lebenswurzel
+	--AddPlant(588,{4},1,{10,10,10,10},0);  -- Cachdernsetzling
+	--AddPlant(589,{2,4},1,{10,10,10,10},0);  -- Eldan-Eichensetzling
+	--AddPlant(590,{2},1,{10,10,10,10},0);  -- Scandrel-Setzling
+	--AddPlant(591,{2,4},1,{10,10,10,10},0);  -- Naldorbaumsetzling
+	AddPlant(752,{3},1,{10,10,10,10},0);  -- Alraune
+	AddPlant(756,{2},1,{10,10,10,10},0);  -- Frommbeere
+	AddPlant(757,{2},1,{10,10,10,10},0);  -- Gottesblume
+	AddPlant(758,{2},1,{10,10,10,10},0);  -- Herzblut
+	AddPlant(764,{3},1,{10,10,10,10},0);  -- Tagteufel
+	AddPlant(765,{2},1,{10,10,10,10},0);  -- Tagtraum
+	AddPlant(766,{4,7},1,{10,10,10,10},0);  -- Trugblüte
+	AddPlant(769,{3},1,{10,10,10,10},0);  -- Wüstenbeere
     
        	
     -- 0 alle / 1 Acker / 2 Wald / 3 Sand / 4 Wiese / 5 Fels / 6 Wasser / 7 Dreck
@@ -32,9 +46,9 @@ function plantdrop()
     if ( plnt==nil ) then
         Init();
     end
-	if (world:isCharacterOnField(position(0,15,0))) then
-			user = world:getCharacterOnField( position(0,15,0) );
-		end
+	--if (world:isCharacterOnField(position(0,15,0))) then
+			--user = world:getCharacterOnField( position(0,15,0) );
+		--end
 
     local season=math.ceil( world:getTime("month") / 4 );
     season = base.common.Limit( season, 1, 4 );
@@ -69,8 +83,7 @@ function plantdrop()
             if ((bodenart == check) or (check == 0)) then
 
                 world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
-				user:inform("Setze Pflanze " ..plnt[auswahl]);
-				user:inform("Auf Boden " ..bodenart);
+				--user:inform("Setze Pflanze " ..plnt[auswahl.. " Auf Boden " ..bodenart);
 				
             end
         end
