@@ -57,7 +57,7 @@ function plantdrop()
             success = true;
         else
             success = false;
-			user:inform("Setze Nichts " ..plnt[auswahl]);
+			user:inform("Setze Nichts");
         end
         if success then
             check = grnd[auswahl][math.random(1,table.getn(grnd[auswahl]))];
