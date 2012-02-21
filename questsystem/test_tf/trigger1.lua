@@ -1,10 +1,10 @@
 require("handler.sendmessagetoplayer")
 require("questsystem.base")
-module("questsystem.information_runewick_1.trigger71", package.seeall)
+module("questsystem.test_tf.trigger1", package.seeall)
 
-local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 169
-local POSTCONDITION_QUESTSTATE = 319
+local QUEST_NUMBER = 10000
+local PRECONDITION_QUESTSTATE = 0
+local POSTCONDITION_QUESTSTATE = 0
 
 
 function MoveToField( PLAYER )
@@ -22,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Der Stuhl am anderen Ende sieht auffällig auf. Vielleicht solltest du dir den mal genauer aus der Nähe ansehen.", "The chair on the other side looks suspicious. You should probably take a look from a close position at this chair."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Buh", "Boo"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

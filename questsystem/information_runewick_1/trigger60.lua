@@ -3,41 +3,57 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger60", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 158
-local POSTCONDITION_QUESTSTATE = 90
+local PRECONDITION_QUESTSTATE = 169
+local POSTCONDITION_QUESTSTATE = 169
 
-local POSITION = position(905, 824, 2)
-local RADIUS = 8
-local LOOKAT_TEXT_DE = "Eine große, alterslose Frau hebt ihren Finger als gäbe sie einen Rat. In ihrer anderen Hand hält sie einige Bücher und Schriftrollen."
-local LOOKAT_TEXT_EN = "A tall and ageless woman rises one of her fingers as she has to mention her advice. In her other hand she holds some books and scrolls."
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Die nächste Aufgabe findet ihr unter einem der Stühle am Dach des Turm der Erde."
+local NPC_REPLY_EN = "You can find your next task under one of the chairs on the top of the Tower of Earth."
 
-function LookAtItem(PLAYER, item)
-  if PLAYER:isInRangeToPosition(POSITION,RADIUS)
-      and ADDITIONALCONDITIONS(PLAYER)
-      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+function receiveText(type, text, PLAYER)
+    if ADDITIONALCONDITIONS(PLAYER)
+    and PLAYER:getType() == Character.player
+    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+        if PLAYER:getPlayerLanguage() == Player.german then
+            NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
+        else
+            NPC_TRIGGER=string.gsub(NPC_TRIGGER_EN,'([ ]+)',' .*');
+        end
 
-    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
-    
-    HANDLER(PLAYER)
-    
-    questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
-    return true
-  end
+        foundTrig=false
+        
+        for word in string.gmatch(NPC_TRIGGER, "[^|]+") do 
+            if string.find(text,word)~=nil then
+                foundTrig=true
+            end
+        end
 
-  return false
+        if foundTrig then
+      
+            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            
+            HANDLER(PLAYER)
+            
+            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+        
+            return true
+        end
+    end
+    return false
 end
 
-function itemInformNLS(player, item, textDe, textEn)
+function getNLS(player, textDe, textEn)
   if player:getPlayerLanguage() == Player.german then
-    world:itemInform(player, item, textDe)
+    return textDe
   else
-    world:itemInform(player, item, textEn)
+    return textEn
   end
 end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit wie alt die Frau die die Statue symbolisiert wirkt.", "Go to Elesil and tell her the age of the woman, symbolised by the statue."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe auf das Dach des Turm der Erde und untersuche die Stühle dort.", "You can find your next task under one of the chairs on the top of the Tower of Earth."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

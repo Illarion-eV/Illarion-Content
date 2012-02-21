@@ -2,13 +2,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger42", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 220
-local POSTCONDITION_QUESTSTATE = 220
+local PRECONDITION_QUESTSTATE = 218
+local POSTCONDITION_QUESTSTATE = 214
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Meine Frage war: Nun, wem haben wir im Halblings-Krieg besiegt?"
-local NPC_REPLY_EN = "My question was: Well, whom did we beat in the Halfling-war?"
+local NPC_TRIGGER_DE = "[Ee]xperiment"
+local NPC_TRIGGER_EN = "[Ee]xperiment"
+local NPC_REPLY_DE = "Gut, erste Frage wäre beantwortet. Nächste Frage: Wer hat den Todes Gestank zudem verwandelt das er nun ist?"
+local NPC_REPLY_EN = "Good, first question was answered. Next question: Who has turned the Death Stench to the current state?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

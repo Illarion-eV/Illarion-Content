@@ -112,7 +112,7 @@ function init()
     --testlever:bind(0,createBridge(position(113,636,0),1,4)); -- geht
     --testlever:bind(0,createBridge(position(118,635,0),2,4)); -- geht
     --testlever:bind(0,createBridge(position(117,640,0),3,4)); -- geht
-    testlever:bind(0,handler.createitem.createItem(position(118,639,0),2,333,0,1));
+    testlever:bind(0,handler.createitem.createItem(position(118,639,0),2,333,1));
     AddToLevers(testlever);
     AddToLevers(testlever2);
     AddToLevers(myLev1);

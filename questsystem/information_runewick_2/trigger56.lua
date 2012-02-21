@@ -1,19 +1,24 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger56", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 246
-local POSTCONDITION_QUESTSTATE = 251
+local PRECONDITION_QUESTSTATE = 257
+local POSTCONDITION_QUESTSTATE = 258
 
+local ITEM_ID = 45
+local ITEM_AMNT = 1
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Geht nun zur Bärenhöhle und erlegt einige der Wölfe dort. Vielleicht über ihr euch aber vorher noch in der Kampfkunst oder sucht nach Weggefährten. Kommt anschließend wieder zurück."
-local NPC_REPLY_EN = "Go to the Bear cave now and hunt some of the wolves there. You should maybe practice first or look for support. Come back afterwards."
+local NPC_REPLY_DE = "#me lächelt und reicht dir wortlos einen Stein."
+local NPC_REPLY_EN = "#me smiles and hands you a stone."
+local NPC_NOITEM_DE = "#me zieht zwei Messer und zeigt zu dem Tor."
+local NPC_NOITEM_EN = "#me draws two knives and points to the door."
 
 function receiveText(type, text, PLAYER)
-    if ADDITIONALCONDITIONS(PLAYER)
-    and PLAYER:getType() == Character.player
+    if PLAYER:getType() == Character.player
+    and ADDITIONALCONDITIONS(PLAYER)
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
         if PLAYER:getPlayerLanguage() == Player.german then
             NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
@@ -30,30 +35,39 @@ function receiveText(type, text, PLAYER)
         end
 
         if foundTrig then
-      
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            if PLAYER:countItem(ITEM_ID)>=ITEM_AMNT then
+                thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
-            HANDLER(PLAYER)
+                HANDLER(PLAYER)
             
-            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+                questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
         
-            return true
+                return true
+            elseif (NPC_NOITEM_DE~="") then
+                thisNPC:talk(Character.say, getNLS(PLAYER, NPC_NOITEM_DE, NPC_NOITEM_EN))
+          
+                return true
+            else
+                return false
+            end
         end
     end
+
     return false
 end
 
 function getNLS(player, textDe, textEn)
-  if player:getPlayerLanguage() == Player.german then
-    return textDe
-  else
-    return textEn
-  end
+    if player:getPlayerLanguage() == Player.german then
+        return textDe
+    else
+        return textEn
+    end
 end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur Bärenhöhle. Bedenke, dass dies kein ungefährlicher Ort ist. Sei daher vorbereitet durch etwas Training oder Unterstützung durch Mitspieler.", "Go to the Bear cave now. Keep in mind this is not an undangerous place. You should practice before or look for support from other players."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd und Topas nach Galmair und zum Gasthof Hanfschlinge und suche die restlichen Personen. ", "Go with the received emerald and topaz to Galmair and the Hemp Necktie Inn and look for these remaining persons there."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 198, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

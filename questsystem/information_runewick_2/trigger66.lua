@@ -4,8 +4,8 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger66", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 257
-local POSTCONDITION_QUESTSTATE = 260
+local PRECONDITION_QUESTSTATE = 265
+local POSTCONDITION_QUESTSTATE = 278
 
 local ITEM_ID = 45
 local ITEM_AMNT = 1
@@ -14,7 +14,7 @@ local NPC_TRIGGER_EN = "."
 local NPC_REPLY_DE = "#me lächelt und reicht dir wortlos einen Stein."
 local NPC_REPLY_EN = "#me smiles and hands you a stone."
 local NPC_NOITEM_DE = "#me spannt ihren Bogen und zeigt zu dem Tor."
-local NPC_NOITEM_EN = "#me draws her bow and points to the door."
+local NPC_NOITEM_EN = "#me draws a bow and points to the door."
 
 function receiveText(type, text, PLAYER)
     if PLAYER:getType() == Character.player
@@ -66,8 +66,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd und Diamant nach Galmair and Cadomyr und suche die restlichen Personen. ", "Go with the received emerald and diamond to Galmair and Cadomyr and look for these remaining persons there."):execute()
-    handler.createplayeritem.createPlayerItem(PLAYER, 285, 333, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Da du nun alle Steine zusammen hast, ist an der Zeit zu Numila zurückzukehren.", "Since you have all stones together, it is time to go back to Numila."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 284, 333, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

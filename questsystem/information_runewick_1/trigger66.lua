@@ -3,14 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger66", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 79
-local POSTCONDITION_QUESTSTATE = 84
+local PRECONDITION_QUESTSTATE = 66
+local POSTCONDITION_QUESTSTATE = 319
 
-local POSITION = position(951, 791, 0)
 
 function MoveToField( PLAYER )
     if ADDITIONALCONDITIONS(PLAYER)
-    and uestsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
     
         HANDLER(PLAYER)
     
@@ -23,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit welches Element du gefunden hast.", "Go to Elesil and tell her the kind of element you found."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Der Stuhl am anderen Ende sieht auffällig auf. Vielleicht solltest du dir den mal genauer aus der Nähe ansehen.", "The chair on the other side looks suspicious. You should probably take a look from a close position at this chair."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -2,13 +2,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger45", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 226
-local POSTCONDITION_QUESTSTATE = 226
+local PRECONDITION_QUESTSTATE = 220
+local POSTCONDITION_QUESTSTATE = 224
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Meine Frage war: Welcher Ort liegt zwischen der Fröhlichen Lichtung und dem Schattentor?"
-local NPC_REPLY_EN = "My question was: Which place is between the Marryglade and the Shadow Gate?"
+local NPC_TRIGGER_DE = "[Gg]almair"
+local NPC_TRIGGER_EN = "[Gg]almair"
+local NPC_REPLY_DE = "War schon schwerer, oder? Vorletzte Frage: Welcher Laden kann in den Frischen Sümpfen gefunden werden?"
+local NPC_REPLY_EN = "It was a little bit more difficult, wasn't it? Second last question: Which shop can be found in the Dewy Swamps?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

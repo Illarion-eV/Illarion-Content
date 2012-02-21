@@ -101,7 +101,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         end
     end
     
-    if base.common.Encumbrence(User) then    -- Sehr streife Rüstung?
+    if base.common.Encumbrence(User) then    -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
         "Deine Rüstung behindert dabei Kräuter zu sammeln.",
         "Your armour disturbes you collecting herbs." );
@@ -281,7 +281,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
                 if base.common.ToolBreaks( User, SourceItem ) then
                     base.common.InformNLS(User,
-                    "Die alte und abgenutzte Sichel in deinen Händen zerbricht.",
+                    "Die alte und abgenutzte Sichel in deinen Hï¿½nden zerbricht.",
                     "The old and used sickle in your hands breaks.");
                 end
             end
@@ -340,7 +340,7 @@ function InitHerblore()
         -- Ground(field=1,forest=2,sand=3,grass=4,rocks=5,water=6,dirt=7,snow=8)
         
         
-        -- Druidenkräuter
+        -- Druidenkrï¿½uter
         
         harvestItem[ 273 ] = {                       -- Blume
         { 2, 5, 144, 0, {10, 1,10,16}, 37 },             -- Wald: 	Jungfernkraut
@@ -495,9 +495,9 @@ function InitHerblore()
     end
 end
 
-function GetAreaHerbs(TargetPosi)
-    local AreaFieldX=math.floor((TargetPosi.x+500))+1;
-    local AreaFieldY=math.floor((TargetPosi.y+500))+1;
+function GetAreaHerbs(TargetPosi) -- 2024 to compensate the lowest coordinate of New Illarion: -2024 -2024 0
+    local AreaFieldX=math.floor((TargetPosi.x+2024))+1;
+    local AreaFieldY=math.floor((TargetPosi.y+2024))+1;
     if (AreaHerbs[AreaFieldX]==nil) then
         AreaHerbs[AreaFieldX] = { };
     end
@@ -505,7 +505,7 @@ function GetAreaHerbs(TargetPosi)
         AreaTime[AreaFieldX] = { };
     end
     if (AreaHerbs[AreaFieldX][AreaFieldY]==nil) then
-        AreaHerbs[AreaFieldX][AreaFieldY] = 20;
+        AreaHerbs[AreaFieldX][AreaFieldY] = 10;
     end
     if (AreaTime[AreaFieldX][AreaFieldY]==nil) then
         AreaTime[AreaFieldX][AreaFieldY] = GetServerSeconds();
@@ -515,20 +515,20 @@ function GetAreaHerbs(TargetPosi)
 end
 
 function DecreaseAreaHerbs(TargetPosi,Amount)
-    local AreaFieldX=math.floor((TargetPosi.x+500))+1;
-    local AreaFieldY=math.floor((TargetPosi.y+500))+1;
+    local AreaFieldX=math.floor((TargetPosi.x+2024))+1;
+    local AreaFieldY=math.floor((TargetPosi.y+2024))+1;
     AreaHerbs[AreaFieldX][AreaFieldY]=AreaHerbs[AreaFieldX][AreaFieldY]-Amount;
     AreaTime[AreaFieldX][AreaFieldY]=GetServerSeconds();
     return
 end
 
 function IncreaseAreaHerbs(TargetPosi)
-    local AreaFieldX=math.floor((TargetPosi.x+500))+1;
-    local AreaFieldY=math.floor((TargetPosi.y+500))+1;
+    local AreaFieldX=math.floor((TargetPosi.x+2024))+1;
+    local AreaFieldY=math.floor((TargetPosi.y+2024))+1;
     if (AreaHerbs[AreaFieldX][AreaFieldY]<20) then
         local TimeDiff=GetServerSeconds()-AreaTime[AreaFieldX][AreaFieldY];
         if (TimeDiff>600) then
-            AreaHerbs[AreaFieldX][AreaFieldY]=AreaHerbs[AreaFieldX][AreaFieldY]+math.min(20,math.floor(TimeDiff/600));
+            AreaHerbs[AreaFieldX][AreaFieldY]=AreaHerbs[AreaFieldX][AreaFieldY]+math.min(10,math.floor(TimeDiff/600));
             AreaTime[AreaFieldX][AreaFieldY]=GetServerSeconds();
         end
     end

@@ -3,14 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger77", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 169
-local POSTCONDITION_QUESTSTATE = 319
+local PRECONDITION_QUESTSTATE = 109
+local POSTCONDITION_QUESTSTATE = 331
 
-local POSITION = position(951, 760, 5)
 
 function MoveToField( PLAYER )
     if ADDITIONALCONDITIONS(PLAYER)
-    and uestsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
     
         HANDLER(PLAYER)
     
@@ -23,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Der Stuhl am anderen Ende sieht auffällig auf. Vielleicht solltest du dir den mal genauer aus der Nähe ansehen.", "The chair on the other side looks suspicious. You should probably take a look from a close position at this chair."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Vielleicht einer der vier Särge da hinten? Gehe näher und untersuche sie!", "Maybe one of these four coffins over there? Go closer and examine them!"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

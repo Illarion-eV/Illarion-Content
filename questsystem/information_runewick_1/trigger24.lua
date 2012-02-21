@@ -6,7 +6,7 @@ local QUEST_NUMBER = 621
 local PRECONDITION_QUESTSTATE = 95
 local POSTCONDITION_QUESTSTATE = 107
 
-local POSITION = position(0, 0, 0)
+local POSITION = position(1, 1, 1)
 local RADIUS = 1
 
 function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )

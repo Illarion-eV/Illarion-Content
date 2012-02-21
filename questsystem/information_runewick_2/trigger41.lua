@@ -2,13 +2,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger41", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 218
-local POSTCONDITION_QUESTSTATE = 218
+local PRECONDITION_QUESTSTATE = 226
+local POSTCONDITION_QUESTSTATE = 226
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Meine Frage war: Für was haben wir einst das Schattentor verwendet?"
-local NPC_REPLY_EN = "My question was: For what purpose did we use the Shadow Gate in the past?"
+local NPC_REPLY_DE = "Meine Frage war: Welcher Ort liegt zwischen der Fröhlichen Lichtung und dem Schattentor?"
+local NPC_REPLY_EN = "My question was: Which place is between the Marryglade and the Shadow Gate?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

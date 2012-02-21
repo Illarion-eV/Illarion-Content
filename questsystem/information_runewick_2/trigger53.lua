@@ -1,45 +1,41 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
 require("questsystem.base")
+require("monster.base.kills")
 module("questsystem.information_runewick_2.trigger53", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 233
-local POSTCONDITION_QUESTSTATE = 243
+local PRECONDITION_QUESTSTATE = 251
+local POSTCONDITION_QUESTSTATE = 250
 
-local POSITION = position(848, 705, 0)
-local RADIUS = 1
-local LOOKAT_TEXT_DE = "Hier scheint etwas versteckt zu sein. Nach einer kurzen Suche entdeckst du eine Rüstung die nun dir gehört."
-local LOOKAT_TEXT_EN = "There seems something hidden. After a short search you find an armour which belongs to you now."
+local MONSTER_AMNT = 2
 
-function LookAtItem(PLAYER, item)
-  if PLAYER:isInRangeToPosition(POSITION,RADIUS)
-      and ADDITIONALCONDITIONS(PLAYER)
-      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-
-    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
-    
-    HANDLER(PLAYER)
-    
-    questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
-    return true
-  end
-
-  return false
-end
-
-function itemInformNLS(player, item, textDe, textEn)
-  if player:getPlayerLanguage() == Player.german then
-    world:itemInform(player, item, textDe)
-  else
-    world:itemInform(player, item, textEn)
-  end
+function onDeath(MONSTER)
+    debug ("*** IN ONDEATH")
+    if monster.base.kills.lastAttacker[MONSTER.id]~=nil then
+        PLAYER = monster.base.kills.lastAttacker[MONSTER.id]  -- get killer
+        if ADDITIONALCONDITIONS(PLAYER)
+        and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then     -- this one is really doing our quest
+            if killList == nil then
+                killList = {};
+            end
+            if killList[PLAYER.id] == nil then
+                killList[PLAYER.id] = {};
+                killList[PLAYER.id][MONSTER:getMonsterType()]=0;
+            end
+            killList[PLAYER.id][MONSTER:getMonsterType()]=killList[PLAYER.id][MONSTER:getMonsterType()]+1;
+            if killList[PLAYER.id][MONSTER:getMonsterType()] == MONSTER_AMNT then
+                HANDLER(PLAYER)
+                killList[PLAYER.id][MONSTER:getMonsterType()] = 0;
+                questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+            end
+        end
+    end
+    return false
 end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 101, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Numila um einen weiteren Auftrag zu erhalten.", "Go back to Numila to get a further task."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Genug gejagt. Geh nun zurück zu Numila", "Enough hunted. Go back to Numila now."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

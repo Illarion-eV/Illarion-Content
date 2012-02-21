@@ -29,7 +29,11 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    User.effects:addEffect(LongTimeEffect(777, 30))
+
+    SourceItem:setData("test", "value")
+    world:changeItem(SourceItem)
+
+    --User.effects:addEffect(LongTimeEffect(777, 30))
 
     --pos = User.pos
     --pos.x = pos.x + 1

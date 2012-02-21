@@ -2,13 +2,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger44", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 224
-local POSTCONDITION_QUESTSTATE = 224
+local PRECONDITION_QUESTSTATE = 222
+local POSTCONDITION_QUESTSTATE = 220
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Meine Frage war: Welcher Laden kann in den Frischen Sümpfen gefunden werden?"
-local NPC_REPLY_EN = "My question was: Which shop can be found in the Dewy Swamps?"
+local NPC_TRIGGER_DE = "[Ll]uvwick"
+local NPC_TRIGGER_EN = "[Ll]uvwick"
+local NPC_REPLY_DE = "Wieder richtig. Nun, wem haben wir im Halblings-Krieg besiegt?"
+local NPC_REPLY_EN = "Again correct. Well, whom did we beat in the Halfling-war?"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

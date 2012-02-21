@@ -1,16 +1,14 @@
-require("handler.sendmessagetoplayer")
-require("handler.createitem")
 require("questsystem.base")
 module("questsystem.information_runewick_1.trigger64", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 164
-local POSTCONDITION_QUESTSTATE = 94
+local PRECONDITION_QUESTSTATE = 178
+local POSTCONDITION_QUESTSTATE = 178
 
-local NPC_TRIGGER_DE = "cheat"
-local NPC_TRIGGER_EN = "cheat"
-local NPC_REPLY_DE = "lalal"
-local NPC_REPLY_EN = "lalalla"
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]amechtzehn"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Ich habe keine Aufträge mehr zu vergeben. Für weitere Aufträge empfiehlt es sich herumzufragen. Aber mit Informationen kann ich immer dienen."
+local NPC_REPLY_EN = "I do not have any tasks for you left. For more tasks ask other folk. But if you need more information, you can always ask me."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +52,6 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Elesil um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Elesil to get your reward, since the fire is enlighted now."):execute()
-    handler.createitem.createItem(position(860, 865, 0), 298, 999, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

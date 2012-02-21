@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger23", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 142
-local POSTCONDITION_QUESTSTATE = 142
+local PRECONDITION_QUESTSTATE = 189
+local POSTCONDITION_QUESTSTATE = 189
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Ihr sollt nach Eibental zum Leuchturm die Reiterstatuen zählen gehen."
-local NPC_REPLY_EN = "You have to go to Yewdale to count the riderstatues on the top of the lighttower there."
+local NPC_REPLY_DE = "Eure momentante Aufgabe ist eine Firnisblüte an dem Grab auf der zweiten der  beiden Zwillingsaugen Inseln für mich ablegen."
+local NPC_REPLY_EN = "Your current task is to bring a firnis blossom to a grave on the second of the two Twin Eyes Islands for me."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nach Eibental und zähle die Reiterstatuen an der Spitze des Leuchturms am Hafen.", "Go to Yewdale and count the riderstatues on the top of the lighttower at the harbour."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur zweiten Zwillingaugen Insel und lege die erhaltene Blume dort auf das Blumenfeld vor dem Grabstein im Süden ab.", "Go to the second Twin Eyes Island now and lay down the flower on the flower field in front of the grave in the south then."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

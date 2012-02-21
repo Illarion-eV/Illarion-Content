@@ -1,16 +1,16 @@
 require("handler.sendmessagetoplayer")
-require("handler.createplayeritem")
+require("handler.eraseplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger82", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 233
-local POSTCONDITION_QUESTSTATE = 243
+local PRECONDITION_QUESTSTATE = 310
+local POSTCONDITION_QUESTSTATE = 310
 
-local NPC_TRIGGER_DE = "Cheat"
-local NPC_TRIGGER_EN = "Cheat"
-local NPC_REPLY_DE = "lalal"
-local NPC_REPLY_EN = "allalal"
+local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
+local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
+local NPC_REPLY_DE = "Bitte bringt mir zehn Sibanac Blätter!"
+local NPC_REPLY_EN = "Please, bring me ten sibanac leaves."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -54,8 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 101, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Numila um einen weiteren Auftrag zu erhalten.", "Go back to Numila to get a further task."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Und nun beliefere sie mit zehn Sibanac Blättern.", "And now supply her with ten sibanac leaves."):execute()
+    handler.eraseplayeritem.erasePlayerItem(PLAYER, 2744, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

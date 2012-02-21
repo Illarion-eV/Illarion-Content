@@ -1,15 +1,16 @@
 require("handler.sendmessagetoplayer")
+require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.information_runewick_2.trigger27", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 189
-local POSTCONDITION_QUESTSTATE = 189
+local PRECONDITION_QUESTSTATE = 185
+local POSTCONDITION_QUESTSTATE = 202
 
-local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
-local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Eure momentante Aufgabe ist eine Firnisblüte an dem Grab auf der zweiten der  beiden Zwillingsaugen Inseln für mich ablegen."
-local NPC_REPLY_EN = "Your current task is to bring a firnis blossom to a grave on the second of the two Twin Eyes Islands for me."
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Ihr habt die Blume hingebracht? Danke, hier dein Lohn! Nun würde ich euch gerne um ein paar Trauben bitten. In Adrons Versteck gibt es traumhafte. Wenn ihr mir bitte welche bringt. Haltet Ausschau nach Bäumen, sie werden euch den Weg weisen."
+local NPC_REPLY_EN = "Did you bring the flowers there? Thank you, here your reward! Now, I would like to have some some grapes. There are some very delicious grapes at Adron's Covert. Please, bring me some from there. Keep your eyes open for trees, they will guide you there."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +54,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur zweiten Zwillingaugen Insel und lege die erhaltene Blume dort auf das Blumenfeld vor dem Grabstein im Süden ab.", "Go to the second Twin Eyes Island now and lay down the flower on the flower field in front of the grave in the south then."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 916, 999, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun zu Adrons Versteck und bringe ein paar Trauben. Der Eingang befindet sich entlang der Küste nordwestlich von Eibental. Halte Ausschau nach Bäumen.", "Go to Adron's Covert now and bring some grapes. You can find the entrance on the coast northeast from Yewdale. Keep your eyes open for trees."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

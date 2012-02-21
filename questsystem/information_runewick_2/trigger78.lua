@@ -3,13 +3,13 @@ require("questsystem.base")
 module("questsystem.information_runewick_2.trigger78", package.seeall)
 
 local QUEST_NUMBER = 622
-local PRECONDITION_QUESTSTATE = 184
-local POSTCONDITION_QUESTSTATE = 185
+local PRECONDITION_QUESTSTATE = 250
+local POSTCONDITION_QUESTSTATE = 307
 
-local NPC_TRIGGER_DE = "Cheat"
-local NPC_TRIGGER_EN = "Cheat"
-local NPC_REPLY_DE = "lalal"
-local NPC_REPLY_EN = "allalal"
+local NPC_TRIGGER_DE = "."
+local NPC_TRIGGER_EN = "."
+local NPC_REPLY_DE = "Gut, ihr habt gezeigt, dass ihr ein gewisses Maß an Gefahr bestehen könnt. Bevor die letzte Mission begonnen werden kann, habe ich noch eine Bitte. Und zwar eine Pfeife und zehn Sibanac Blätter!"
+local NPC_REPLY_EN = "Well, you have shown that you can manage some danger. But before you can start your final misison, I have a request. Please, bring me a pipe and ten sibanac leaves."
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Numila wird dir dankbar für diesen Akt sein. Geh nun zurück zu ihr.", "Numila will be thankful for this act. Go back to her now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde einen Schreiner oder Händler über die du die gewünschten Dinge besorgen kannst, wenn du sie nicht selber erzeugen kannst.", "Look for a carpenter or merchant who can supply you with the requested goods, if you cannot produce them by yourself."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
