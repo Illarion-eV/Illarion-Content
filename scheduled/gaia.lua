@@ -18,8 +18,8 @@ function Init()
     freq = {};
     seas = {};
     dataval= {};
-    AddPlant(133,{4},1,{10,10,10,10},0);  -- Sonnenkraut
-    AddPlant(134,{2},1,{10,10,10,10},0);          -- Vierblättrige Einbeere
+    AddPlant(133,{1,2,3},1,{10,10,10,10},0);  -- Sonnenkraut
+    AddPlant(134,{4,5,7},1,{10,10,10,10},0);          -- Vierblättrige Einbeere
     
        	
     -- 0 alle / 1 Acker / 2 Wald / 3 Sand / 4 Wiese / 5 Fels / 6 Wasser / 7 Dreck
