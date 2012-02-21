@@ -10,7 +10,7 @@ module("druid.lte.id_167_illness", package.seeall) --(druid.base.outfit))
 
 ---- will probably a postVBU project
 -- functions for Effect_1
-function CreateManaCloud(event_position)
+--[[function CreateManaCloud(event_position)
 world:gfx(4,event_position)
 end
 
@@ -168,7 +168,7 @@ function Effect_1(Effect,User)
 	else User:inform("LTE error: Lte 167, Error 1, inform a dev, please.");
 		 return;
 	end
-end	
+end	]]
 	    
 
 function getAction(User,Effect,Runde) -- here, we check what illness the char has and we call the fitting effect
