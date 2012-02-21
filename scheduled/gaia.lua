@@ -89,9 +89,9 @@ function plantdrop()
         else
             success = false;
         end
-		--if (world:isCharacterOnField(position(648,486,0))) then
+		if (world:isCharacterOnField(position(648,486,0))) then
 					--user = world:getCharacterOnField( position(648,486,0) );
-		--end
+		end
 
         if success then
             check = grnd[auswahl][math.random(1,table.getn(grnd[auswahl]))];
@@ -104,7 +104,8 @@ function plantdrop()
             if ((bodenart == check) or (check == 0)) then
 
                 world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
-				--user:inform("Setze Pflanze " ..plnt[auswahl]);
+				user:inform("Setze Pflanze " ..plnt[auswahl]);
+				user:inform("Setze Pflanze " ..theTile.tile);
             end
         end
     end
