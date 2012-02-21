@@ -105,7 +105,7 @@ function plantdrop()
 
                 world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
 				user:inform("Setze Pflanze " ..plnt[auswahl]);
-				user:inform("Setze Pflanze " ..theTile.tile);
+				user:inform("Setze Pflanze " ..bodenart);
             end
         end
     end
