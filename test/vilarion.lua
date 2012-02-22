@@ -31,7 +31,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     end;
 
 
-    local item = base.common.getFrontItem(User)
+    local item = base.common.GetFrontItem(User)
     User:inform("Front Item Wear: " .. item.wear);
 
     --User.effects:addEffect(LongTimeEffect(777, 30))
