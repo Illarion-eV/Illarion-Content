@@ -47,7 +47,7 @@ function plantdrop()
         Init();
     end
 	if (world:isCharacterOnField(position(0,15,0))) then
-			--user = world:getCharacterOnField( position(0,15,0) );
+			user = world:getCharacterOnField( position(0,15,0) );
 		end
 
     local season=math.ceil( world:getTime("month") / 4 );
