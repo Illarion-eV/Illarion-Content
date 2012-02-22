@@ -117,7 +117,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         end
         -- Abhandlung Foodlevel fertig
        
-	    --[[LTE 1 crasht den Server -> raus damit
+	    -- LTE 1 crasht den Server -> raus damit
         -- Alkohol Effekt
         -- Arbeitet mit LTE ID 1 - "alcohol"
         foundalc,alcEffect = User.effects:find(1); -- LTE 1 "alcohol" suchen
@@ -132,7 +132,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         alcEffect:addValue("alcohol",oldAlcValue + math.floor(food[1]*(food[3]/100))); -- neuen Alkoholwert hinzufuegen
         User.effects:addEffect(alcEffect); -- Effekt an User senden
         -- Alkoholabhandlung fertig
-		]]
+		
     end
     if ( User:increaseAttrib("foodlevel",0) ~= foodLevel ) then -- Prüfen ob Nahrungspunkte geändert wurden
         User:increaseAttrib("foodlevel",-(User:increaseAttrib("foodlevel",0)-foodLevel)); -- Änderung durchführen
