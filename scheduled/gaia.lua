@@ -46,9 +46,9 @@ function plantdrop()
     if ( plnt==nil ) then
         Init();
     end
-	--if (world:isCharacterOnField(position(0,15,0))) then
+	if (world:isCharacterOnField(position(0,15,0))) then
 			--user = world:getCharacterOnField( position(0,15,0) );
-		--end
+		end
 
     local season=math.ceil( world:getTime("month") / 4 );
     season = base.common.Limit( season, 1, 4 );
@@ -83,7 +83,7 @@ function plantdrop()
             if ((bodenart == check) or (check == 0)) then
 
                 world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
-				--user:inform("Setze Pflanze " ..plnt[auswahl.. " Auf Boden " ..bodenart);
+				user:inform("Setze Pflanze " ..plnt[auswahl.. " Auf Boden " ..bodenart);
 				
             end
         end
