@@ -7,7 +7,7 @@ module("scheduled.gaia", package.seeall)
 function AddPlant(ItemID,Ground,Frequenz,Season,Datawert)
     table.insert(plnt,ItemID);
     table.insert(grnd,Ground);
-    table.insert(freq,Frequenz);
+    table.insert(reg,Region);
     table.insert(seas,Season);
     table.insert(dataval,Datawert);
 end
@@ -15,31 +15,42 @@ end
 function Init()
     plnt = {};
     grnd = {};
-    freq = {};
+    reg = {}; -- 0 = global, 1,2,... = region
     seas = {};
     dataval= {};
-    AddPlant(132,{4},1,{10,10,10,10},0);  -- Kirschsetzling
+    AddPlant(132,{4},0,{10,10,10,10},0);  -- Kirschsetzling
     AddPlant(139,{4},1,{10,10,10,10},0);  -- Apfelsetzling
-	AddPlant(150,{2},1,{10,10,10,10},0);  -- Tannensetzling
-	AddPlant(152,{4},1,{10,10,10,10},0);  -- Lebenswurzel
-	AddPlant(588,{4},1,{10,10,10,10},0);  -- Cachdernsetzling
-	AddPlant(589,{2,4},1,{10,10,10,10},0);  -- Eldan-Eichensetzling
-	AddPlant(590,{2},1,{10,10,10,10},0);  -- Scandrel-Setzling
-	AddPlant(591,{2,4},1,{10,10,10,10},0);  -- Naldorbaumsetzling
-	AddPlant(752,{3},1,{10,10,10,10},0);  -- Alraune
-	AddPlant(756,{2},1,{10,10,10,10},0);  -- Frommbeere
-	AddPlant(757,{2},1,{10,10,10,10},0);  -- Gottesblume
-	AddPlant(758,{2},1,{10,10,10,10},0);  -- Herzblut
-	AddPlant(764,{3},1,{10,10,10,10},0);  -- Tagteufel
-	AddPlant(765,{2},1,{10,10,10,10},0);  -- Tagtraum
-	AddPlant(766,{4,7},1,{10,10,10,10},0);  -- Trugblüte
-	AddPlant(769,{3},1,{10,10,10,10},0);  -- Wüstenbeere
+	AddPlant(150,{2},2,{10,10,10,10},0);  -- Tannensetzling
+	--AddPlant(152,{4},1,{10,10,10,10},0);  -- Lebenswurzel
+	--AddPlant(588,{4},1,{10,10,10,10},0);  -- Cachdernsetzling
+	--AddPlant(589,{2,4},1,{10,10,10,10},0);  -- Eldan-Eichensetzling
+	--AddPlant(590,{2},1,{10,10,10,10},0);  -- Scandrel-Setzling
+	--AddPlant(591,{2,4},1,{10,10,10,10},0);  -- Naldorbaumsetzling
+	--AddPlant(752,{3},1,{10,10,10,10},0);  -- Alraune
+	--AddPlant(756,{2},1,{10,10,10,10},0);  -- Frommbeere
+	--AddPlant(757,{2},1,{10,10,10,10},0);  -- Gottesblume
+	--AddPlant(758,{2},1,{10,10,10,10},0);  -- Herzblut
+	--AddPlant(764,{3},1,{10,10,10,10},0);  -- Tagteufel
+	--AddPlant(765,{2},1,{10,10,10,10},0);  -- Tagtraum
+	--AddPlant(766,{4,7},1,{10,10,10,10},0);  -- Trugblüte
+	--AddPlant(769,{3},1,{10,10,10,10},0);  -- Wüstenbeere
     
        	
     -- 0 alle / 1 Acker / 2 Wald / 3 Sand / 4 Wiese / 5 Fels / 6 Wasser / 7 Dreck
 
     anz_pflanzen = table.getn(plnt);
     anz_voraussetzungen = table.getn(grnd);
+	anz_region =table.getn(reg);
+end
+
+function initRegions()
+	-- id
+	-- x-Koord: {From, To} 2 Values!, smaller value must be named first. Take care by neg. values!
+	-- y-Koord: {From, To} 2 Values!, smaller value must be named first. Take care by neg. values!
+	-- z-Koord: {From, To} 2 Values! Use p.E. {0,0} if you want just area 0. smaller value must be named first. Take care by neg. values!
+	addRegion(1,{0,500},{0,1024},{0,0});
+	addRegion(2,{501,1024},{0,1024},{0,0});
+	--addRegion(146,{120,150},{640,650},{0,0}, {30, 60, 40, 50});
 end
 
 function plantdrop()
@@ -74,16 +85,19 @@ function plantdrop()
         end
         if success then
             check = grnd[auswahl][math.random(1,table.getn(grnd[auswahl]))];
+			checkreg = reg[auswahl];
             pflwert = dataval[auswahl];
             ---- Standortbestimmung
             newpos = position( math.random(0,1024), math.random(0,1024), 0 );
+			-- region feststellen
+			user:inform("Regionaliät:" ..reg[auswahl])
             ---- bodentile feststellen
 			theTile=world:getField(newpos);
             local bodenart = base.common.GetGroundType( theTile:tile() );
             if ((bodenart == check) or (check == 0)) then
 
                 world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
-				user:inform("Setze Pflanze " ..plnt[auswahl].. " Auf Boden " ..bodenart.. "Position: "..newpos.x.." / " ..newpos.y.." / "..newpos.z);
+				user:inform("Setze Pflanze " ..plnt[auswahl].. " Auf Boden " ..bodenart.. " Position: "..newpos.x.." / " ..newpos.y.." / "..newpos.z);
 				
             end
         end
