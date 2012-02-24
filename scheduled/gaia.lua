@@ -114,7 +114,7 @@ function plantdrop()
 					--user:inform("Pflanze: " ..plnt[auswahl].. " Boden: " ..bodenart.. " Position: "..newpos.x.." : " ..newpos.y.." : "..newpos.z.. " Pflreg: " ..reg[auswahl].. "; Region: " ..regID[checkreg] );
 				end
 			else
-			user:inform("falsche Pos");
+			--user:inform("falsche Pos");
 			end
 
         end
