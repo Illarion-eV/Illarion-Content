@@ -90,18 +90,17 @@ function plantdrop()
             ---- Standortbestimmung
             newpos = position( math.random(0,1024), math.random(0,1024), 0 );
 			---- region feststellen
-			if (checkreg == 0) then
-				---- bodentile feststellen
-				theTile=world:getField(newpos);
-				local bodenart = base.common.GetGroundType( theTile:tile() );
-				if ((bodenart == check) or (check == 0)) then
-
-					world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
-					user:inform("Setze Pflanze " ..plnt[auswahl].. " Auf Boden " ..bodenart.. " Position: "..newpos.x.." / " ..newpos.y.." / "..newpos.z);
-				end
-			else
-			user:inform("Pflanze ist Regional!");	
+			if (checkreg ~= 0) then
+				user:inform("Region: " ..Region[checkreg]);
+			end			
+			---- bodentile feststellen
+			theTile=world:getField(newpos);
+			local bodenart = base.common.GetGroundType( theTile:tile() );
+			if ((bodenart == check) or (check == 0)) then
+				world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
+				user:inform("Setze Pflanze " ..plnt[auswahl].. " Auf Boden " ..bodenart.. " Position: "..newpos.x.." / " ..newpos.y.." / "..newpos.z);
 			end
+
         end
     end
 end
