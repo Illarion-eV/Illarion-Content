@@ -57,6 +57,7 @@ function Init()
 	-- x-Koord: {From, To} 2 Values!, smaller value must be named first. Take care by neg. values!
 	-- y-Koord: {From, To} 2 Values!, smaller value must be named first. Take care by neg. values!
 	-- z-Koord: {From, To} 2 Values! Use p.E. {0,0} if you want just area 0. smaller value must be named first. Take care by neg. values!
+	AddRegion(0,{0,1024},{0,1024},{0,0}); <-- Globale region
 	AddRegion(1,{0,500},{0,1024},{0,0});
 	AddRegion(2,{501,1024},{0,1024},{0,0});
 	--addRegion(146,{120,150},{640,650},{0,0}, {30, 60, 40, 50});
@@ -99,15 +100,12 @@ function plantdrop()
             ---- Standortbestimmung
             newpos = position( math.random(0,1024), math.random(0,1024), 0 );
 			---- region feststellen
-			if (checkreg ~= 0) then
-				user:inform("Region: " ..regID[checkreg]);
-				---- liegt newpos in der region?
-				if ( regX[checkreg][1] <= newpos.x <= regX[checkreg][2]) and ( regY[checkreg][1] <= newpos.y <= regY[checkreg][2] ) then
-					user:inform("Pos in " ..regID[checkreg]);
-				else
-				user:inform("Pos nicht in " ..regID[checkreg]);
-				end
-			end			
+			---- liegt newpos in der region?
+			if ( regX[checkreg][1] <= newpos.x <= regX[checkreg][2]) and ( regY[checkreg][1] <= newpos.y <= regY[checkreg][2] ) then
+				user:inform("Pos in " ..regID[checkreg]);
+			else
+			user:inform("Pos nicht in " ..regID[checkreg]);
+			end		
 			---- bodentile feststellen
 			theTile=world:getField(newpos);
 			local bodenart = base.common.GetGroundType( theTile:tile() );
