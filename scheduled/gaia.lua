@@ -45,8 +45,6 @@ function Init()
     -- 0 alle / 1 Acker / 2 Wald / 3 Sand / 4 Wiese / 5 Fels / 6 Wasser / 7 Dreck
 
     anz_pflanzen = table.getn(plnt);
-    anz_voraussetzungen = table.getn(grnd);
-	anz_region =table.getn(reg);
 	
 	regID = {};
     regX = {};
@@ -58,8 +56,15 @@ function Init()
 	-- y-Koord: {From, To} 2 Values!, smaller value must be named first. Take care by neg. values!
 	-- z-Koord: {From, To} 2 Values! Use p.E. {0,0} if you want just area 0. smaller value must be named first. Take care by neg. values!
 	AddRegion(0,{0,1024},{0,1024},{0,0}); -- 0 = global region
-	AddRegion(1,{0,500},{0,1024},{0,0});
-	AddRegion(2,{501,1024},{0,1024},{0,0});
+	AddRegion(1,{0,500},{0,1024},{0,0}); -- 1 = Katanbi Delta
+	AddRegion(2,{501,1024},{0,1024},{0,0}); -- 2 = Sentri Forest
+	AddRegion(3,{501,1024},{0,1024},{0,0}); -- 3 = Narguns Plain
+	AddRegion(4,{501,1024},{0,1024},{0,0}); -- 4 = Plain of Silence
+	AddRegion(5,{501,1024},{0,1024},{0,0}); -- 5 = Northern Wood
+	AddRegion(6,{501,1024},{0,1024},{0,0}); -- 6 = Evil Rock
+	AddRegion(7,{501,1024},{0,1024},{0,0}); -- 7 = Pauldron Isle
+	AddRegion(8,{501,1024},{0,1024},{0,0}); -- 8 = Elstree Plain
+	AddRegion(9,{501,1024},{0,1024},{0,0}); -- 9 = Dewy Swamps
 	--addRegion(146,{120,150},{640,650},{0,0}, {30, 60, 40, 50});
 end
 
@@ -99,19 +104,18 @@ function plantdrop()
             pflwert = dataval[auswahl];
             ---- Standortbestimmung
             newpos = position( math.random(0,1024), math.random(0,1024), 0 );
-			---- region feststellen
 			---- liegt newpos in der region?
 			if ( regX[checkreg][1] <= newpos.x <= regX[checkreg][2]) and ( regY[checkreg][1] <= newpos.y <= regY[checkreg][2] ) then
-				user:inform("Pos in " ..regID[checkreg]);
-			else
-			user:inform("Pos nicht in " ..regID[checkreg]);
-			end		
-			---- bodentile feststellen
-			theTile=world:getField(newpos);
-			local bodenart = base.common.GetGroundType( theTile:tile() );
-			if ((bodenart == check) or (check == 0)) then
-				world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
-				user:inform("Setze Pflanze " ..plnt[auswahl].. " Auf Boden " ..bodenart.. " Position: "..newpos.x.." / " ..newpos.y.." / "..newpos.z);
+				user:inform("Pos in " ..regID[checkreg]);	
+				---- bodentile feststellen
+				theTile=world:getField(newpos);
+				local bodenart = base.common.GetGroundType( theTile:tile() );
+				if ((bodenart == check) or (check == 0)) then
+					-- Kraut setzen
+					world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
+					user:inform("Setze Pflanze " ..plnt[auswahl].. "; Auf Boden " ..bodenart.. "; Position: "..newpos.x.." / " ..newpos.y.." / "..newpos.z);
+					user:inform("Pflanzenregion: " ..reg[auswahl].. "; Region: " ..regID[checkreg]);
+				end
 			end
 
         end
