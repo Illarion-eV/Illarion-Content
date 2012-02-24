@@ -4,7 +4,7 @@ module("scheduled.gaia", package.seeall)
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.gaia', 10, 10, 'plantdrop');
 
-function AddPlant(ItemID,Ground,Frequenz,Season,Datawert)
+function AddPlant(ItemID,Ground,Region,Season,Datawert)
     table.insert(plnt,ItemID);
     table.insert(grnd,Ground);
     table.insert(reg,Region);
