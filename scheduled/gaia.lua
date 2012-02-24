@@ -90,7 +90,7 @@ function plantdrop()
             ---- Standortbestimmung
             newpos = position( math.random(0,1024), math.random(0,1024), 0 );
 			-- region feststellen
-			user:inform("Regionaliät:" ..reg[auswahl])
+			user:inform("Regionaliät:" ..reg[auswahl]);
             ---- bodentile feststellen
 			theTile=world:getField(newpos);
             local bodenart = base.common.GetGroundType( theTile:tile() );
