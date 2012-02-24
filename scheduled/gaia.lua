@@ -102,7 +102,7 @@ function plantdrop()
 			if (checkreg ~= 0) then
 				user:inform("Region: " ..regID[checkreg]);
 				---- liegt newpos in der region?
-				if ( regX[checkreg][1] =< newpos.x =< regX[checkreg][2]) and ( regY[checkreg][1] =< newpos.y =< regY[checkreg][2] ) then
+				if ( regX[checkreg][1] <= newpos.x <= regX[checkreg][2]) and ( regY[checkreg][1] <= newpos.y <= regY[checkreg][2] ) then
 					user:inform("Pos in " ..regID[checkreg]);
 				else
 				user:inform("Pos nicht in " ..regID[checkreg]);
