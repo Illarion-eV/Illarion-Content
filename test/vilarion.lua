@@ -1,4 +1,5 @@
 require("handler.sendmessage")
+require("base.common")
 
 -- UPDATE common SET com_script = 'test.vilarion' WHERE com_itemid = 9;
 
@@ -30,8 +31,8 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     end;
 
 
-    SourceItem:setData("test", "value")
-    world:changeItem(SourceItem)
+    local item = base.common.GetFrontItem(User)
+    User:inform("Front Item Wear: " .. item.wear);
 
     --User.effects:addEffect(LongTimeEffect(777, 30))
 
