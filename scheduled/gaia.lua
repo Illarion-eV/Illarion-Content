@@ -91,7 +91,7 @@ function plantdrop()
             newpos = position( math.random(0,1024), math.random(0,1024), 0 );
 			---- region feststellen
 			if (checkreg ~= 0) then
-				user:inform("Region: " ..Region[checkreg]);
+				user:inform("Region: " ..Region[1][checkreg]);
 			end			
 			---- bodentile feststellen
 			theTile=world:getField(newpos);
