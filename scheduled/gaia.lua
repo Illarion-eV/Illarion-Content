@@ -101,6 +101,7 @@ function plantdrop()
 				end
 			else
 			user:inform("Pflanze ist Regional!");	
+			end
         end
     end
 end
