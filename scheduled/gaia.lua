@@ -12,6 +12,13 @@ function AddPlant(ItemID,Ground,Region,Season,Datawert)
     table.insert(dataval,Datawert);
 end
 
+function AddRegion(RegionID,X,Y,Z)
+    table.insert(regID,RegionID);
+    table.insert(regX,X);
+    table.insert(regY,Y);
+    table.insert(regZ,Z);
+end
+
 function Init()
     plnt = {};
     grnd = {};
@@ -36,18 +43,11 @@ function Init()
 	--AddPlant(769,{3},1,{10,10,10,10},0);  -- Wüstenbeere
  	
     -- 0 alle / 1 Acker / 2 Wald / 3 Sand / 4 Wiese / 5 Fels / 6 Wasser / 7 Dreck
-	anz_pflanzen = table.getn(plnt);
+
+    anz_pflanzen = table.getn(plnt);
     anz_voraussetzungen = table.getn(grnd);
 	anz_region =table.getn(reg);
-end
-function AddRegion(RegionID,X,Y,Z)
-    table.insert(regID,RegionID);
-    table.insert(regX,X);
-    table.insert(regY,Y);
-    table.insert(regZ,Z);
-end
-
- function Init()	
+	
 	regID = {};
     regX = {};
     regY = {};
