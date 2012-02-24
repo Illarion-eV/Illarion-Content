@@ -104,7 +104,7 @@ function plantdrop()
             ---- Standortbestimmung
             newpos = position( math.random(0,1024), math.random(0,1024), 0 );
 			---- liegt newpos in der region?
-			if ( regX[checkreg][1] <= newpos.x <= regX[checkreg][2]) and ( regY[checkreg][1] <= newpos.y <= regY[checkreg][2] ) then
+			if ( regX[checkreg][1] <= newpos.x ) and ( newpos.x <= regX[checkreg][2]) and ( regY[checkreg][1] <= newpos.y ) and ( newpos.y <= regY[checkreg][2] ) then
 				user:inform("Pos in " ..regID[checkreg]);	
 				---- bodentile feststellen
 				theTile=world:getField(newpos);
