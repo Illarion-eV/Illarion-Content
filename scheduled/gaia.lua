@@ -26,21 +26,21 @@ function Init()
     seas = {};
     dataval= {};
     AddPlant(132,{4},0,{10,10,10,10},0);  -- Kirschsetzling
-    AddPlant(139,{4},1,{10,10,10,10},0);  -- Apfelsetzling
-	AddPlant(150,{2},2,{10,10,10,10},0);  -- Tannensetzling
-	--AddPlant(152,{4},1,{10,10,10,10},0);  -- Lebenswurzel
-	--AddPlant(588,{4},1,{10,10,10,10},0);  -- Cachdernsetzling
-	--AddPlant(589,{2,4},1,{10,10,10,10},0);  -- Eldan-Eichensetzling
-	--AddPlant(590,{2},1,{10,10,10,10},0);  -- Scandrel-Setzling
-	--AddPlant(591,{2,4},1,{10,10,10,10},0);  -- Naldorbaumsetzling
-	--AddPlant(752,{3},1,{10,10,10,10},0);  -- Alraune
-	--AddPlant(756,{2},1,{10,10,10,10},0);  -- Frommbeere
-	--AddPlant(757,{2},1,{10,10,10,10},0);  -- Gottesblume
-	--AddPlant(758,{2},1,{10,10,10,10},0);  -- Herzblut
-	--AddPlant(764,{3},1,{10,10,10,10},0);  -- Tagteufel
-	--AddPlant(765,{2},1,{10,10,10,10},0);  -- Tagtraum
-	--AddPlant(766,{4,7},1,{10,10,10,10},0);  -- Trugblüte
-	--AddPlant(769,{3},1,{10,10,10,10},0);  -- Wüstenbeere
+    AddPlant(139,{4},0,{10,10,10,10},0);  -- Apfelsetzling
+	AddPlant(150,{2},0,{10,10,10,10},0);  -- Tannensetzling
+	AddPlant(152,{4},0,{10,10,10,10},0);  -- Lebenswurzel
+	AddPlant(588,{4},1,{10,10,10,10},0);  -- Cachdernsetzling
+	AddPlant(589,{2},5,{10,10,10,10},0);  -- Eldan-Eichensetzling
+	AddPlant(590,{2},0,{10,10,10,10},0);  -- Scandrel-Setzling
+	AddPlant(591,{4},0,{10,10,10,10},0);  -- Naldorbaumsetzling
+	AddPlant(752,{3,4},1,{10,10,10,10},0);  -- Alraune
+	AddPlant(756,{2},0,{10,10,10,10},0);  -- Frommbeere
+	AddPlant(757,{2},2,{10,10,10,10},0);  -- Gottesblume
+	AddPlant(758,{2},0,{10,10,10,10},0);  -- Herzblut
+	AddPlant(764,{3},7,{10,10,10,10},0);  -- Tagteufel
+	AddPlant(765,{2},2,{10,10,10,10},0);  -- Tagtraum
+	AddPlant(766,{7},3,{10,10,10,10},0);  -- Trugblüte
+	AddPlant(769,{3},0,{10,10,10,10},0);  -- Wüstenbeere
  	
     -- 0 alle / 1 Acker / 2 Wald / 3 Sand / 4 Wiese / 5 Fels / 6 Wasser / 7 Dreck
 
@@ -55,17 +55,16 @@ function Init()
 	-- x-Koord: {From, To} 2 Values!, smaller value must be named first. Take care by neg. values!
 	-- y-Koord: {From, To} 2 Values!, smaller value must be named first. Take care by neg. values!
 	-- z-Koord: {From, To} 2 Values! Use p.E. {0,0} if you want just area 0. smaller value must be named first. Take care by neg. values!
-	AddRegion(0,{0,1024},{0,1024},{0,0}); -- 0 = global region
-	AddRegion(1,{0,500},{0,1024},{0,0}); -- 1 = Katanbi Delta
-	AddRegion(2,{501,1024},{0,1024},{0,0}); -- 2 = Sentri Forest
-	AddRegion(3,{501,1024},{0,1024},{0,0}); -- 3 = Narguns Plain
-	AddRegion(4,{501,1024},{0,1024},{0,0}); -- 4 = Plain of Silence
-	AddRegion(5,{501,1024},{0,1024},{0,0}); -- 5 = Northern Wood
-	AddRegion(6,{501,1024},{0,1024},{0,0}); -- 6 = Evil Rock
-	AddRegion(7,{501,1024},{0,1024},{0,0}); -- 7 = Pauldron Isle
-	AddRegion(8,{501,1024},{0,1024},{0,0}); -- 8 = Elstree Plain
-	AddRegion(9,{501,1024},{0,1024},{0,0}); -- 9 = Dewy Swamps
-	--addRegion(146,{120,150},{640,650},{0,0}, {30, 60, 40, 50});
+	AddRegion(0,{  0,1024},{  0,1024},{0,0}); -- 0 = global region
+	AddRegion(1,{ 93, 191},{727, 834},{0,0}); -- 1 = Katanbi Delta
+	AddRegion(2,{520, 672},{664, 800},{0,0}); -- 2 = Sentri Forest
+	AddRegion(3,{648, 825},{243, 374},{0,0}); -- 3 = Bounding Stream - The Dead Mash
+	AddRegion(4,{518, 770},{ 95, 251},{0,0}); -- 4 = Plain of Silence
+	AddRegion(5,{625,1024},{0,237},{0,0}); -- 5 = Northern Wood
+	--AddRegion(6,{501,1024},{0,1024},{0,0}); -- 6 = Evil Rock
+	AddRegion(7,{847,996},{331,484},{0,0}); -- 7 = Pauldron Isle
+	--AddRegion(8,{501,1024},{0,1024},{0,0}); -- 8 = Elstree Plain
+	--AddRegion(9,{501,1024},{0,1024},{0,0}); -- 9 = Dewy Swamps
 end
 
 function plantdrop()
