@@ -61,10 +61,10 @@ function Init()
 	AddRegion(3,{648, 825},{243, 374},{0,0}); -- 3 = Bounding Stream - The Dead Mash
 	AddRegion(4,{518, 770},{ 95, 251},{0,0}); -- 4 = Plain of Silence
 	AddRegion(5,{625,1024},{0,237},{0,0}); -- 5 = Northern Wood
-	--AddRegion(6,{501,1024},{0,1024},{0,0}); -- 6 = Evil Rock
+	AddRegion(6,{501,1024},{0,1024},{0,0}); -- 6 = Evil Rock
 	AddRegion(7,{847,996},{331,484},{0,0}); -- 7 = Pauldron Isle
-	--AddRegion(8,{501,1024},{0,1024},{0,0}); -- 8 = Elstree Plain
-	--AddRegion(9,{501,1024},{0,1024},{0,0}); -- 9 = Dewy Swamps
+	AddRegion(8,{501,1024},{0,1024},{0,0}); -- 8 = Elstree Plain
+	AddRegion(9,{501,1024},{0,1024},{0,0}); -- 9 = Dewy Swamps
 end
 
 function plantdrop()
@@ -99,7 +99,7 @@ function plantdrop()
         end
         if success then
             check = grnd[auswahl][math.random(1,table.getn(grnd[auswahl]))];
-			checkreg = reg[auswahl];
+			checkreg = reg[auswahl]+1;
             pflwert = dataval[auswahl];
             ---- Standortbestimmung
             newpos = position( math.random(0,1024), math.random(0,1024), 0 );
@@ -111,9 +111,10 @@ function plantdrop()
 				if ((bodenart == check) or (check == 0)) then
 					-- Kraut setzen
 					world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
-					user:inform("Setze Pflanze " ..plnt[auswahl].. "; Auf Boden " ..bodenart.. "; Position: "..newpos.x.." / " ..newpos.y.." / "..newpos.z);
-					user:inform("Pflanzenregion: " ..reg[auswahl].. "; Region: " ..regID[checkreg]);
+					user:inform("Pflanze: " ..plnt[auswahl].. " Boden: " ..bodenart.. " Position: "..newpos.x.." : " ..newpos.y.." : "..newpos.z.. " Pflreg: " ..reg[auswahl].. "; Region: " ..regID[checkreg] );
 				end
+			else
+			user:inform("falsche Pos");
 			end
 
         end
