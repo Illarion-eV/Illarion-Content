@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: February 08, 2012                       easyNPC Parser v1.02 --
+-- Last parsing: February 25, 2012                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -376,13 +376,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Census office");
-talkEntry:addResponse("You are not the first person who asks for the the census office. But again, I cannot remember where it is.");
+talkEntry:addResponse("The census office can be found in the Tower of Fire next the Library of Fire. You will find Reret Odohir there. He will help you further.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zensusbüro");
-talkEntry:addResponse("Du bist nicht die erste Person die mich nach dem Zensusbüro fragt. Aber das ändert nichts, ich kann mich nicht erinnern wo es liegt.");
+talkEntry:addResponse("Das Zensusbüro kann im Turm des Feuer neben der Bibliothek des Feuers gefunden werden werden. Man findet dort Reret Odohir. Er wird einem weiterhelfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

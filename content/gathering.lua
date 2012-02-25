@@ -1,20 +1,20 @@
-require("base.gcraft")
+require("base.gatheringcraft")
 
 module("content.gathering", package.seeall)
 
 function InitGathering()
    if(Init == nil) then
-      woodchopping = base.gcraft.GCraft:new{LeadAttrib = "strength", LeadSkill = "lumberjacking", LeadSkillGroup = 2};
-      honeygathering = base.gcraft.GCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- id_1005_beehive
-      farming = base.gcraft.GCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- id_271_scythe, id_258_flail, seeds
-      fruitgathering = base.gcraft.GCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- harvest
-      mining = base.gcraft.GCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2};
-      sanddigging = base.gcraft.GCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_24_shovel
-      claydigging = base.gcraft.GCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_24_shovel
-      herbgathering = base.gcraft.GCraft:new{LeadAttrib = "perception", LeadSkill = "herb lore", LeadSkillGroup = 2};
-      fishing = base.gcraft.GCraft:new{LeadAttrib = "perception", LeadSkill = "fishing", LeadSkillGroup = 2}; -- id_72_fishingrod
-      woolcutting = base.gcraft.GCraft:new{LeadAttrib = "dexterity", LeadSkill = "peasantry", LeadSkillGroup = 2};
-      potashproducing = base.gcraft.GCraft:new{LeadAttrib = "dexterity", LeadSkill = "woodchopping", LeadSkillGroup = 2}; -- item.id_12_campfire
+      woodchopping = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "lumberjacking", LeadSkillGroup = 2};
+      honeygathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- id_1005_beehive
+      farming = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- id_271_scythe, id_258_flail, seeds
+      fruitgathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- harvest
+      mining = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2};
+      sanddigging = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_24_shovel
+      claydigging = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_24_shovel
+      herbgathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "perception", LeadSkill = "herb lore", LeadSkillGroup = 2};
+      fishing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "perception", LeadSkill = "fishing", LeadSkillGroup = 2}; -- id_72_fishingrod
+      woolcutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "peasantry", LeadSkillGroup = 2};
+      potashproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "woodchopping", LeadSkillGroup = 2}; -- item.id_12_campfire
       
       
       --woodchopping

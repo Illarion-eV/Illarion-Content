@@ -27,7 +27,7 @@ require("item.general.metal")
 require("base.common")
 require("base.treasure")
 require("content.gathering")
-require("base.gcraft")
+require("base.gatheringcraft")
 
 module("item.id_2763_pickaxe", package.seeall, package.seeall(item.general.metal))
 
@@ -367,7 +367,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if (ltstate == Action.none) then
         User:talkLanguage( Character.say, Player.german, "#me beginnt mit der Spitzhacke auf den Stein zu schlagen.");
         User:talkLanguage( Character.say, Player.english, "#me starts to hit the stone with a pick axe.");
-		User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
+		User:startAction( base.gatheringcraft.GenWorkTime(User), 0, 0, 8, 15);
         return
     end
 
@@ -387,12 +387,12 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     Skill = GetModifiedSkill(User);
 	
 
-	if not base.gcraft.mining:FindRandomItem(User) then
+	if not base.gatheringcraft.mining:FindRandomItem(User) then
 		return
 	end
 	
     if not checkSucc(Skill) then
-        User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
+        User:startAction( base.gatheringcraft.GenWorkTime(User), 0, 0, 8, 15);
         --User:learn(2,"mining",1,100);
 		--Replace with new learn function, see learn.lua 
         return
@@ -414,7 +414,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if Ressource == 0 then     -- set resource to raw stone and continue script
         Ressource = 735
     elseif Ressource < 0 then  -- find nothing
-        User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
+        User:startAction( base.gatheringcraft.GenWorkTime(User), 0, 0, 8, 15);
 		base.common.GetHungry( User, 300 );
         return
     end
@@ -432,7 +432,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         "Du kannst nicht noch mehr halten.",
         "You can't carry any more.");
     else
-        User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
+        User:startAction( base.gatheringcraft.GenWorkTime(User), 0, 0, 8, 15);
     end
 end
 

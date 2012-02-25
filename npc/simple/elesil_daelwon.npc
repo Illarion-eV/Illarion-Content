@@ -110,8 +110,8 @@ itemShoes = 369
 "Tempel" -> "Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldan, Schrein der Elara, Schrein der Findari und Schrein des Bragon.",inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein des Bragon")
 "teleport", english -> "This teleporter here can lead you to Cadomyr, Galmair or to the Hemp Necktie Inn."
 "teleport" -> "Dieser Teleporter hier vermag euch nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge zu bringen."
-"Census office" -> "You are not the first person who asks for the the census office. But again, I cannot remember where it is."
-"Zensusbüro" -> "Du bist nicht die erste Person die mich nach dem Zensusbüro fragt. Aber das ändert nichts, ich kann mich nicht erinnern wo es liegt."
+"Census office" -> "The census office can be found in the Tower of Fire next the Library of Fire. You will find Reret Odohir there. He will help you further."
+"Zensusbüro" -> "Das Zensusbüro kann im Turm des Feuer neben der Bibliothek des Feuers gefunden werden werden. Man findet dort Reret Odohir. Er wird einem weiterhelfen."
 "Donkey stable", "stable" -> "Over there. *points south*"
 "Eselstall", "Stall" -> "Dort drüben *zeigt in den Süden*"
 "Donkey" -> "You can rent them at the donkey stable."

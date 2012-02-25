@@ -1,7 +1,7 @@
 require("base.common")
 require("base.treasure")
 
-module("base.gcraft", package.seeall)
+module("base.gatheringcraft", package.seeall)
 
 RandomItem = {
 	ID = 0,
@@ -14,7 +14,7 @@ RandomItem = {
 	MessageEN = nil,
 };
 
-GCraft = {
+GatheringCraft = {
 	RandomItems = { },
 	InterruptMsg = { },
 	Monsters = { },
@@ -36,7 +36,7 @@ Monster = {
 	GFX = {}
 };
 
-function GCraft:new(gc)
+function GatheringCraft:new(gc)
     gc = gc or {};
     setmetatable(gc, self);
     self.__index = self;
@@ -61,17 +61,17 @@ function Monster:new(m)
 	return m;
 end
 
-function GCraft:SetFoodLevel(FoodLevel)
+function GatheringCraft:SetFoodLevel(FoodLevel)
 	self.FoodLevel = FoodLevel;
 end
 
-function GCraft:SetTreasureMap(Probability, MessageDE, MessageEN)
+function GatheringCraft:SetTreasureMap(Probability, MessageDE, MessageEN)
 	self.Treasure = Probability * 1000;
 	self.TreasureMsg[1] = MessageDE;
 	self.TreasureMsg[2] = MessageEN;
 end
 
-function GCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability)
+function GatheringCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability)
 	local minr;
 	local maxr;
 	if(table.maxn(self.RandomItems) > 0) then
@@ -85,17 +85,17 @@ function GCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability)
 	return;
 end
 
-function GCraft:AddInterruptMessage(MessageDE, MessageEN)
+function GatheringCraft:AddInterruptMessage(MessageDE, MessageEN)
 	table.insert(self.InterruptMsg, { MessageDE, MessageEN });
 	return;
 end
 
-function GCraft:AddMonster(MonsterID, Probability, MessageDE, MessageEN, Sound, GFX)
+function GatheringCraft:AddMonster(MonsterID, Probability, MessageDE, MessageEN, Sound, GFX)
 	table.insert(self.Monsters, Monster:new{["MonsterID"] = MonsterID, ["Probability"] = (Probability * 100), ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN, ["Sound"] = Sound, ["GFX"] = GFX});
 	return;
 end
 
-function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN)
+function GatheringCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN)
 	local minr;
 	local maxr;
 	if(table.maxn(self.RandomItems) > 0) then
@@ -109,7 +109,7 @@ function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probabilit
 	return;
 end
 
-function GCraft:FindRandomItem(User)
+function GatheringCraft:FindRandomItem(User)
     if base.common.IsInterrupted(User) then
 		if(table.maxn(self.InterruptMsg) > 0) then
 			local m = math.random(table.maxn(self.InterruptMsg));
@@ -172,7 +172,7 @@ function GCraft:FindRandomItem(User)
 end
 
 -- Arbeitszeit Generieren
-function GCraft:GenWorkTime(User, toolItem)
+function GatheringCraft:GenWorkTime(User, toolItem)
     local skill  = User:getSkill(self.LeadSkill);
     local attrib = User:increaseAttrib(self.LeadAttrib, 0);
 	-- new algorithm
