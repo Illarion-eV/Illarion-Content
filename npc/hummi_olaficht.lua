@@ -1165,13 +1165,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Diamond");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Diamond is missing. Noone knows where it is but rumors say that it must be somewhere here. If you can find it for your choosen faction you will definitely be highly rewarded.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Diamant");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Diamant wird vermisst. Niemand weiß wo er ist aber Gerüchten zufolge muss er irgendwo hier sein. Wenn du ihn für die Fraktion deiner Wahl finden kannst wirst du bestimmt hoch belohnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
