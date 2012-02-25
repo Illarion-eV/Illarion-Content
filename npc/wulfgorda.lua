@@ -848,7 +848,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Der Don besitzt zwei Steine der Macht. Einen Topaz und einen Amethyst. Die beschützen Galmair vor Runewick und Cadomyr.");
+talkEntry:addResponse("Der Don besitzt zwei Steine der Macht. Einen Topas und einen Amethyst. Die beschützen Galmair vor Runewick und Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
