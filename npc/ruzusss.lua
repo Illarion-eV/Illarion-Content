@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: December 20, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 25, 2012                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1490,7 +1490,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The Queen ownsss two ssstonesss of power. These are a Bluestond and a Blackstone. They protect usss againssst Runewick and Galmair.");
+talkEntry:addResponse("The Queen ownsss two ssstonesss of power. These are a Bluestone and a Blackstone. They protect usss againssst Runewick and Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
