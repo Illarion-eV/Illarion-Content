@@ -1092,74 +1092,74 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Emerald");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Emerald belongs to Runewick and is part of the collection of archmage Elvaine Morgan. You can find further information about it in each of the factions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Smaragd");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Smaragd gehört zu Runewick und ist Teil der Sammlung von Erzmagier Elvaine Morgan. Du findest weitere Informationen über den Stein in jeder Fraktion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ruby");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Ruby belongs to Runewick and is part of the collection of archmage Elvaine Morgan. You can find further information about it in each of the factions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rubin");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Rubin gehört zu Runewick und ist Teil der Sammlung von Erzmagier Elvaine Morgan. Du findest weitere Informationen über den Stein in jeder Fraktion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Topaz");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Topaz belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the factions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Topas");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Topas gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Fraktion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Amethyst");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("The Amethyst belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the factions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Amethyst");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Amethyst gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Fraktion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bluestone");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Bluestone belongs to Cadomyr and is part of the collection of Queen Rosaline Edwards. You can find further information about it in each of the factions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Blaustein");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Blaustein gehört zu Cadomyr und ist Teil der Sammlung von Königin Rosaline Edwards. Du findest weitere Informationen über den Stein in jeder Fraktion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Blackstone");
-talkEntry:addResponse("");
+talkEntry:addResponse("The Blackstone belongs to Cadomyr and is part of the collection of Queen Rosaline Edwards. You can find further information about it in each of the factions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schwarzstein");
-talkEntry:addResponse("");
+talkEntry:addResponse("Der Schwarzstein gehört zu Cadomyr und ist Teil der Sammlung von Königin Rosaline Edwards. Du findest weitere Informationen über den Stein in jeder Fraktion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
