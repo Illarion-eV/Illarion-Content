@@ -222,6 +222,24 @@ itemShoes = 53
 "Cadomyr", english -> "Cadomyr can be found nestled behind its formidable town walls in the midst of the desert to the southwest of this peninsula. They believe in honor and follow their queen's orders without hesitation or fear. However, use the word 'Cadomyr' in the teleporter and you will be there.", "Cadomyr is the desert town to the southwest, just look for the high town walls. If you should venture there be prepared to follow the Queen's social order. *Giggles* In Runewick and Galmair they just call it the town of wannabe heroes! However, use the word 'Cadomyr' in the teleporter and you will be there.", "Cadomyr, the desert bastion for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders alike lies to the southwest behind massive stone walls! However, use the word 'Cadomyr' in the teleporter and you will be there."
 "Cadomyr" -> "Cadomyr kann hinter einen großen Stadtmauer in der Wüste im südwestlichen Bereich der Halbinsel gefunden werden. Sie glauben dort an Ehre und ihre Königin, und sie sind ein sehr stolzen und furchtloses Volk. Wie dem auch sei, verwende das Wort 'Cadomyr' im Teleporter und du bist dort.", "Ihre Gegner aus Runewick und Galmair denken, dass Cadomyr ein Platz von möchte gern Helden sei, welche einem verrückten Kode der Ehre folgen und wo jeder weiß, welchen gottgegebenen 'Rang' er einnimmt. Wie dem auch sei, verwende das Wort 'Cadomyr' im Teleporter und du bist dort.", "Insbesondere folgende Handwerke können in Cadomyr gefunden werden: Fischer, Glasblässer, Gräber, Goldschmied, Edelsteinschleifer. Wie dem auch sei, verwende das Wort 'Cadomyr' im Teleporter und du bist dort."
 
+-- Stones of Power
+"stones","power" -> ""
+"Steine","Macht" -> ""
+"Emerald" -> ""
+"Smaragd" -> ""
+"Ruby" -> ""
+"Rubin" -> ""
+"Topaz" -> ""
+"Amethyst",english -> ""
+"Topas" -> ""
+"Amethyst" -> ""
+"Bluestone" -> ""
+"Blackstone" -> ""
+"Blaustein" -> ""
+"Schwarzstein" -> ""
+"Diamond" -> ""
+"Diamant" -> ""
+
 -- Main land factions
 "albar", english -> "Albar is a very old empire with a hierarchical social order. The society of Cadomyr is to some extent similar to it, but you can't fully compare the two. It is well known that the queen's family is originally from there."
 "albar" -> "Ein sehr altes Reich mit einer sehr hierarchischen gesellschaftlichen Ordnung ihrer Gesellschaft. Die Gesellschaft von Cadomyr ähnelt ihr, kann aber nicht wirklich damit verglichen werden. Die Familie der Königin hat ihre Wurzeln von dort."
