@@ -30,10 +30,6 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-
-    local item = base.common.GetFrontItem(User)
-    User:inform("Front Item Wear: " .. item.wear);
-
     --User.effects:addEffect(LongTimeEffect(777, 30))
 
     --pos = User.pos
@@ -41,12 +37,11 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     --world:createDynamicNPC("Lasttier",50,pos,0,"npc.lasttier")
     --User:setQuestProgress(8, 1)
 
-    --local callback = function(dialog)
-    --    User:inform("Input: "..dialog:getInput())
-    --    a()
-    --end
-    --local inputDialog = InputDialog("Enter something cool!", true, 0, callback)
-    --User:requestInputDialog(inputDialog)
+    local callback = function(dialog)
+        User:inform("Input: "..dialog:getInput())
+    end
+    local inputDialog = InputDialog("Enter something cool!", true, 0, callback)
+    User:requestInputDialog(inputDialog)
 end
 
 function useNPC(User,counter,param)
