@@ -1586,7 +1586,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addResponse("Duddli, do-da, ask me for help.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1594,7 +1594,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addResponse("Duddli, duddla, frag mich nach Hilfe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
