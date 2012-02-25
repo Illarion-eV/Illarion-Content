@@ -205,6 +205,49 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elesil");
+talkEntry:addTrigger("Daelwon");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You can find her at the teleporter in Runewick.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elesil");
+talkEntry:addTrigger("Daelwon");
+talkEntry:addResponse("Du findest sie beim Teleporter in Runewick.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Frizza");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You can find her at the teleporter in Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Frizza");
+talkEntry:addResponse("Du findest sie beim Teleporter in Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Iradona");
+talkEntry:addTrigger("Goldschein");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You can find her at the teleporter in Galmair.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Iradona");
+talkEntry:addTrigger("Goldschein");
+talkEntry:addResponse("Du findest sie beim Teleporter in Galmair.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I don't have a specific profession.");
 talkEntry:addResponse("I only pass along information, but I don't have profession, per say.");

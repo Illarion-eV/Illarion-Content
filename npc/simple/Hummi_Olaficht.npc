@@ -79,6 +79,12 @@ itemShoes = 53
 "quest", "mission" -> "Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Fraktionen immer nach Abenteuerer und Arbeitern suchen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen."
 "task", "adventure" -> "Ahh, gotta case of idle hands I see. Be assured traveler if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions! For example Elesil Daelwon in Runewick, Frizza in Cadomyr and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen."
+"Elesil", "Daelwon", english -> "You can find her at the teleporter in Runewick."
+"Elesil", "Daelwon" -> "Du findest sie beim Teleporter in Runewick."
+"Frizza", english -> "You can find her at the teleporter in Cadomyr."
+"Frizza" -> "Du findest sie beim Teleporter in Cadomyr."
+"Iradona", "Goldschein", english -> "You can find her at the teleporter in Galmair."
+"Iradona", "Goldschein" -> "Du findest sie beim Teleporter in Galmair."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I don't have a specific profession.", "I only pass along information, but I don't have profession, per say."
