@@ -97,7 +97,7 @@ itemShoes = 53
 "Gobaith", "Gobiath" -> "Das ist eine alte Insel, welche nicht mehr existiert. Viele die du hier finden kann sind von dort. Wenn du mehr darüber wissen möchtest, frag sie.", "Ich war noch nie dort, daher weiß ich auch nichts über sie, außer dass es sie nicht mehr gibt und dass du andere Leute über sie fragen kannst."
 
 -- More small talk; add at least five triggers
-"faction" -> "We have three factions here: Runewick, Cadomyr and Galmair. Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word."
+"faction" -> "We have three factions here: Runewick, Cadomyr and Galmair. You will have to choose one. Otherwise you will have quite low chances to survive. *Giggles* Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word."
 "race" -> "In every faction there are particular races you will find. In Runewick, you'll mainly find Elves and Halflings; in Galmair, Dwarves; and in Cadomyr, Lizards and Orcs. As far as humans, well just about anywhere really."
 "craft" -> "Which one do you mean? Alchemist, Candle maker, Carpenter, Lumberjack, Cook, Baker, Farmer, Herb gatherer, Tailor, Tanner, Dyer, Blacksmith, Brick maker, Mason, Miner, Brewer, Fisher, Glass blower, Digger, Finesmith or Gem grinder?", "Every faction has specialists depending on the craft. Mention a specific craft and I will tell you in which faction you will find it.", "The main crafts you'll find in Runewick are Alchemists, Candle makers, Carpenters/Lumberjacks, Cooks/Bakers, Farmers, Herb gatherers, and Tailors/Tanners/Dyers. In Galmair you'll find Blacksmiths, Masons, Miners, and Brewers. Finally, in Cadomyr you'll get Fishers, Glass blowers, Diggers, Finesmiths, and Gem grinders."
 "motive", english -> "The leading motive in Runewick is wisdom, in Cadomyr it's honor, and in Galmair it's wealth."
@@ -108,7 +108,7 @@ itemShoes = 53
 "sevenhill" -> "That is to the south of the Sinking Mountains, just north of the Mountains of Khenserra, and generally speaking west of us. *Giggles*"
 "sinking" -> "Sinking Mountains? They lie somewhere in the north."
 "Khenserra", english -> "Mountains of Khenserra? They are somewhere to the south."
-"Fraktion" -> "Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen."
+"Fraktion" -> "Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Du wirst eine für dich wählen müssen. Ansonsten wirst du nur geringe Überlebenschancen haben. *Kichert* Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen."
 "Rasse" -> "In jeder Fraktion kannst du spezifische Rassen finden. In Runewick vorallem Elfen und Halblinge; in Galmair Zwerge; und in Cadomyr Orks und Echsenmenschen. Menschen sind überall zufinden."
 "Handwerk" -> "Welches meinst du? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer?", "Jede Fraktion ist auf bestimmte Handwerke spezialisiert. Nenn mir dein Handwerk und ich sag in welcher Fraktion du es finden wirst.", ""
 "Motive" -> "Das leitende Motive in Runewick ist Weisheit, in Galmair ist es Reichtum, und in Cadomyr ist es `Ehre."
@@ -326,3 +326,5 @@ cycletext "Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, f
 cycletext "Ich bin Hummi und weiß viele Sachen", "I'm Hummi and I know many things."
 cycletext "Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, ich weiß für jeden den richtigen Platz.", "Whether your an elf, dwarf, human, orc, lizardman, or halfling I know the right place for everyone!"
 cycletext "Lebwohl Gobaith, willkommen östlich des Siebenhügel Gebirge.", "Farewell to Gobaith and welcome to the east known as Sevenhill Mountains!"
+cycletext "Wähle eine der Fraktionen: Runewick, Galmair, Cadomyr. Sag ihren Name während du im Teleporter stehst um dorthin zu gelangen.", "Choose one of the three factions: Runewick, Galmair, Cadomyr. Say its name while you stay in the teleporter to get there."
+cycletext "Ich kann nur empfehlen: Sobald du in Runewick, Galmair oder Cadomyr ankommen bist, dich im Zensusbüro anzumelden. Die Überlebenschancen steigen gewaltig! *kichert*", "I highly recommend: As soon as you got to Runewick, Galmair or Cadomyr to register there in the respective census office. *giggles*"

@@ -307,7 +307,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faction");
-talkEntry:addResponse("We have three factions here: Runewick, Cadomyr and Galmair. Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word.");
+talkEntry:addResponse("We have three factions here: Runewick, Cadomyr and Galmair. You will have to choose one. Otherwise you will have quite low chances to survive. *Giggles* Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -377,7 +377,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fraktion");
-talkEntry:addResponse("Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen.");
+talkEntry:addResponse("Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Du wirst eine für dich wählen müssen. Ansonsten wirst du nur geringe Überlebenschancen haben. *Kichert* Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1609,6 +1609,8 @@ talkingNPC:addCycleText("Wenn du wissen möchtest wo du und dein Glaube gut aufge
 talkingNPC:addCycleText("Ich bin Hummi und weiß viele Sachen", "I'm Hummi and I know many things.");
 talkingNPC:addCycleText("Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, ich weiß für jeden den richtigen Platz.", "Whether your an elf, dwarf, human, orc, lizardman, or halfling I know the right place for everyone!");
 talkingNPC:addCycleText("Lebwohl Gobaith, willkommen östlich des Siebenhügel Gebirge.", "Farewell to Gobaith and welcome to the east known as Sevenhill Mountains!");
+talkingNPC:addCycleText("Wähle eine der Fraktionen: Runewick, Galmair, Cadomyr. Sag ihren Name während du im Teleporter stehst um dorthin zu gelangen.", "Choose one of the three factions: Runewick, Galmair, Cadomyr. Say its name while you stay in the teleporter to get there.");
+talkingNPC:addCycleText("Ich kann nur empfehlen: Sobald du in Runewick, Galmair oder Cadomyr ankommen bist, dich im Zensusbüro anzumelden. Die Überlebenschancen steigen gewaltig! *kichert*", "I highly recommend: As soon as you got to Runewick, Galmair or Cadomyr to register there in the respective census office. *giggles*");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
