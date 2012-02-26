@@ -42,7 +42,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         --no_func()
     end
     local c = 42
-    local inputDialog = InputDialog("Enter something cool!", true, 0, c)
+    local inputDialog = InputDialog("Enter something cool!", true, 0, callback)
     User:requestInputDialog(inputDialog)
 end
 
