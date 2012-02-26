@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 09, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: February 25, 2012                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -178,21 +178,21 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The factions are always on the look out for adventurers and workers alike! Another option would be the Explorer-guild. Just look for them.");
+talkEntry:addResponse("Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The factions are always on the look out for adventurers and workers alike! For example Elesil Daelwon in Runewick, Frizza in Cadomyr and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Fraktionen immer nach Abenteuerer und Arbeitern suchen! Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
+talkEntry:addResponse("Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Fraktionen immer nach Abenteuerer und Arbeitern suchen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Ahh, gotta case of idle hands I see. Be assured traveler if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions! Another option would be the Explorer-guild. Just look for them.");
+talkEntry:addResponse("Ahh, gotta case of idle hands I see. Be assured traveler if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions! For example Elesil Daelwon in Runewick, Frizza in Cadomyr and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -200,7 +200,50 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen!  Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
+talkEntry:addResponse("Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elesil");
+talkEntry:addTrigger("Daelwon");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You can find her at the teleporter in Runewick.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elesil");
+talkEntry:addTrigger("Daelwon");
+talkEntry:addResponse("Du findest sie beim Teleporter in Runewick.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Frizza");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You can find her at the teleporter in Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Frizza");
+talkEntry:addResponse("Du findest sie beim Teleporter in Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Iradona");
+talkEntry:addTrigger("Goldschein");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You can find her at the teleporter in Galmair.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Iradona");
+talkEntry:addTrigger("Goldschein");
+talkEntry:addResponse("Du findest sie beim Teleporter in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -264,7 +307,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faction");
-talkEntry:addResponse("We have three factions here: Runewick, Cadomyr and Galmair. Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word.");
+talkEntry:addResponse("We have three factions here: Runewick, Cadomyr and Galmair. You will have to choose one. Otherwise you will have quite low chances to survive. *Giggles* Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -334,7 +377,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fraktion");
-talkEntry:addResponse("Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen.");
+talkEntry:addResponse("Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Du wirst eine für dich wählen müssen. Ansonsten wirst du nur geringe Überlebenschancen haben. *Kichert* Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -829,27 +872,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("orc");
 talkEntry:addCondition(npc.base.condition.race.race(4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Follow the path toward Cadomyr if your looking for orcs.");
+talkEntry:addResponse("Follow the path toward Cadomyr and Galmair if your looking for other orcs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ork");
 talkEntry:addCondition(npc.base.condition.race.race(4));
-talkEntry:addResponse("Orks können vorallem in Cadomyr gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Orks können vorallem in Cadomyr und Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("orc");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Orcs are mainly found in Cadomyr traveler.");
+talkEntry:addResponse("Orcs are mainly found in Cadomyr and Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ork");
-talkEntry:addResponse("Orks können vorallem in Cadomyr gefunden werden.");
+talkEntry:addResponse("Orks können vorallem in Cadomyr and Galmair gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -914,13 +957,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("He is a wise elf that rules over Runewick. In fact, I hear he was an Archmage in Lor-Angur; he is very good with magic. *Claps his hands* Nice fireworks! He is very wise and gives good advice; I recommend you speak with him and listen closely!");
+talkEntry:addResponse("He is a wise elf that rules over Runewick. In fact, I hear he was an Archmage in Lor-Angur; he is very good with magic. *Claps his hands* Nice fireworks! He is very wise and gives good advice; I recommend you speak with him and listen closely! And if you are smart enough, he probably shows you Runewick's two stones of power. An Emerald and a Ruby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Er ist der Herrscher über Runewick. Da er Erzmagier und ein Elf aus Lor-Angur ist, ist er sehr gut in Magie. *klatscht in die Hände* Hübsche Feuerwerke! Er ist sehr weise und gibt gute Ratschläge und ich kann dir empfehlen diese auch zu befolgen.");
+talkEntry:addResponse("Er ist der Herrscher über Runewick. Da er Erzmagier und ein Elf aus Lor-Angur ist, ist er sehr gut in Magie. *klatscht in die Hände* Hübsche Feuerwerke! Er ist sehr weise und gibt gute Ratschläge und ich kann dir empfehlen diese auch zu befolgen. Und wenn du schlau genug bist, dann zeigt er dir vielleicht Runewicks Steine der Macht. Einen Smaragd und einen Rubin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -928,31 +971,31 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He is a wise elf that rules over Runewick. In fact, I hear he was an Archmage in Lor-Angur; he is very good with magic. *Claps his hands* Nice fireworks! He is very wise and gives good advice; I recommend you speak with him and listen closely!");
+talkEntry:addResponse("He is a wise elf that rules over Runewick. In fact, I hear he was an Archmage in Lor-Angur; he is very good with magic. *Claps his hands* Nice fireworks! He is very wise and gives good advice; I recommend you speak with him and listen closely! And if you are smart enough, he probably shows you Runewick's two stones of power. An Emerald and a Ruby.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Er ist der Herrscher über Runewick. Da er Erzmagier und ein Elf aus Lor-Angur ist, ist er sehr gut in Magie. *klatscht in die Hände* Hübsche Feuerwerke! Er ist sehr weise und gibt gute Ratschläge und ich kann dir empfehlen diese auch zu befolgen.");
+talkEntry:addResponse("Er ist der Herrscher über Runewick. Da er Erzmagier und ein Elf aus Lor-Angur ist, ist er sehr gut in Magie. *klatscht in die Hände* Hübsche Feuerwerke! Er ist sehr weise und gibt gute Ratschläge und ich kann dir empfehlen diese auch zu befolgen. Und wenn du schlau genug bist, dann zeigt er dir vielleicht Runewicks Steine der Macht. Einen Smaragd und einen Rubin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Runewick has four towers that loom over the land in the southeast. If you follow the path correctly you will have to cross a long narrow bridge and from there you should see the towers easily. They believe in wisdom and above all the advice of their Archmage, Elvaine Morgan.");
-talkEntry:addResponse("Their rivals from Cadomyr and Galmair call them arrogant smartasses who claim to know it all and try to keep a self-defined 'balance'. Don't ask me what all that means. *Giggles*");
-talkEntry:addResponse("Ah, Runewick, you should expect to find many types of craftsmen in that wondrous place: Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, Tailors, Tanners and Dyers.");
+talkEntry:addResponse("Runewick has four towers that loom over the land in the southeast. If you follow the path correctly you will have to cross a long narrow bridge and from there you should see the towers easily. They believe in wisdom and above all the advice of their Archmage, Elvaine Morgan. Use the word 'Runewick' in the teleporter and you will be there.");
+talkEntry:addResponse("Their rivals from Cadomyr and Galmair call them arrogant smartasses who claim to know it all and try to keep a self-defined 'balance'. Don't ask me what all that means. *Giggles* However, use the word 'Runewick' in the teleporter and you will be there.");
+talkEntry:addResponse("Ah, Runewick, you should expect to find many types of craftsmen in that wondrous place: Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, Tailors, Tanners and Dyers. However, use the word 'Runewick' in the teleporter and you will be there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick hat vier Türme und kann im Südosten gefunden werden. Du musst eine lange schmalle Brücke zudem überqueren. Sie glauben zudem an Weisheit und den Rat ihres Erzmagier Elvaine Morgan.");
-talkEntry:addResponse("Ihre Gegner aus Cadomyr und Galmair nennen sie arrogante Klugscheißer, welche behaupten alles zu wissen und versuchen eine selbst definierte 'Balance' zu halten. Frag mich nicht, was das ist.");
-talkEntry:addResponse("Insbesondere folgende Handwerke können in Runewick gefunden werden: Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber und Färber.");
+talkEntry:addResponse("Runewick hat vier Türme und kann im Südosten gefunden werden. Du musst eine lange schmalle Brücke zudem überqueren. Sie glauben zudem an Weisheit und den Rat ihres Erzmagier Elvaine Morgan. Wie dem auch sei, verwende das Wort 'Runewick' im Teleporter und du bist dort.");
+talkEntry:addResponse("Ihre Gegner aus Cadomyr und Galmair nennen sie arrogante Klugscheißer, welche behaupten alles zu wissen und versuchen eine selbst definierte 'Balance' zu halten. Frag mich nicht, was das ist. Wie dem auch sei, verwende das Wort 'Runewick' im Teleporter und du bist dort.");
+talkEntry:addResponse("Insbesondere folgende Handwerke können in Runewick gefunden werden: Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber und Färber. Wie dem auch sei, verwende das Wort 'Runewick' im Teleporter und du bist dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -961,8 +1004,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He is the son of Don Tommaso, and since his father's death Valerio has ruled over Galmair. He is a very strong dwarf with considerable wealth. I have heard rumors that he is easily offended, and on more than one occasion has sent armored guards to settle his scores. *Shudders*");
-talkEntry:addResponse("Galmair has always been known for its working class: Blacksmiths, Brick makers, Masons, Miners, and Brewers.");
+talkEntry:addResponse("He is the son of Don Tommaso, and since his father's death Valerio has ruled over Galmair. He is a very strong dwarf with considerable wealth. I have heard rumors that he is easily offended, and on more than one occasion has sent armored guards to settle his scores. *Shudders* And if you pay him enough, he probably shows you Galmair's two stones of power. A Topaz and an Amethyst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -970,35 +1012,36 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Er ist der Herrscher von Galamair und Nachfolger von seinem Vater. Er ist ein sehr starker Zwerg und ist auch sehr reich. Es ist besser ihn nicht zu verärgern, da er sonst speziell für dich Kopfgeldjäger anheuern wird. *kichert*.");
-talkEntry:addResponse("Insbesondere folgende Handwerke können in Galmair gefunden werden: Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer.");
+talkEntry:addResponse("Er ist der Herrscher von Galamair und Nachfolger von seinem Vater. Er ist ein sehr starker Zwerg und ist auch sehr reich. Es ist besser ihn nicht zu verärgern, da er sonst speziell für dich Kopfgeldjäger anheuern wird. *kichert*. Und wenn du schlau genug bist, dann zeigt er dir vielleicht Galmairs Steine der Macht. Einen Topaz und einen Amethyst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair is located in the northwest and it consists of several halls and caves- very deep and amazing caves! With enough wealth you can become anything! ");
-talkEntry:addResponse("Their rivals from Runewick and Cadomyr call them greedy and chaotic. They assume that people from Galmair would do anything to earn a coin.");
+talkEntry:addResponse("Galmair is located in the northwest and it consists of several halls and caves- very deep and amazing caves! With enough wealth you can become anything! However, use the word 'Galmair' in the teleporter and you will be there.");
+talkEntry:addResponse("Their rivals from Runewick and Cadomyr call them greedy and chaotic. They assume that people from Galmair would do anything to earn a coin. However, use the word 'Galmair' in the teleporter and you will be there.");
+talkEntry:addResponse("Galmair has always been known for its working class: Blacksmiths, Brick makers, Masons, Miners, and Brewers. However, use the word 'Galmair' in the teleporter and you will be there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair ist irgendwo im Nordwesten und es besteht aus mehreren Hallen und Höhlen. Sehr tiefe und beeindruckende Höhlen. Wie dem auch sei, du kannst dort alles bekommen was du möchtest, solange du genügend Geld hast.");
-talkEntry:addResponse("Bei ihren Gegner aus Runewick und Cadomyr sind sie als gierig und chaotisch verschrien. Die nehmen an, dass Leute aus Galmair würden alles für einige zusätzliche Münzen tun.");
+talkEntry:addResponse("Galmair ist irgendwo im Nordwesten und es besteht aus mehreren Hallen und Höhlen. Sehr tiefe und beeindruckende Höhlen. Wie dem auch sei, du kannst dort alles bekommen was du möchtest, solange du genügend Geld hast. Wie dem auch sei, verwende das Wort 'Galmair' im Teleporter und du bist dort.");
+talkEntry:addResponse("Bei ihren Gegner aus Runewick und Cadomyr sind sie als gierig und chaotisch verschrien. Die nehmen an, dass Leute aus Galmair würden alles für einige zusätzliche Münzen tun. Wie dem auch sei, verwende das Wort 'Galmair' im Teleporter und du bist dort.");
+talkEntry:addResponse("Insbesondere folgende Handwerke können in Galmair gefunden werden: Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer. Wie dem auch sei, verwende das Wort 'Galmair' im Teleporter und du bist dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("queen");
-talkEntry:addResponse("The Queen of Cadomyr? Her name is Rosaline Edwards, but don't let her beauty fool you she is a proud and noble ruler. It's well known that she is Albarian, but be prepared she doesn't govern in quite the same manner. She is, however, a devout follower of Malachín and is always on the lookout for valiant warriors and hunters!");
+talkEntry:addResponse("The Queen of Cadomyr? Her name is Rosaline Edwards, but don't let her beauty fool you she is a proud and noble ruler. It's well known that she is Albarian, but be prepared she doesn't govern in quite the same manner. She is, however, a devout follower of Malachín and is always on the lookout for valiant warriors and hunters! And if you are brave enough, she probably shows you Cadomyr's two stones of power. A Bluestone and a Blackstone.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("königin");
-talkEntry:addResponse("Diese durchaus sehr schöne Frau ist die Königin von Cadomyr. Sie ist sehr stolz und nobel. Außerdem mag sie solche die tapfer agieren und ihren Mut in Schlachten zeigen. Ihre alabarische Wurzeln sind wahrscheinlich der Grund für ihre Vorliebe.");
+talkEntry:addResponse("Diese durchaus sehr schöne Frau ist die Königin von Cadomyr. Sie ist sehr stolz und nobel. Außerdem mag sie solche die tapfer agieren und ihren Mut in Schlachten zeigen. Ihre alabarische Wurzeln sind wahrscheinlich der Grund für ihre Vorliebe. Und wenn du schlau genug bist, dann zeigt sie dir vielleicht Cadomyrs Steine der Macht. Einen Blaustein und einen Schwarzstein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1006,30 +1049,144 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ah, Rosaline Edwards, she is the fair Queen of Cadomyr. It's well known that she is Albarian, but be prepared she doesn't govern in quite the same manner. She is, however, a devout follower of Malachín and is always on the lookout for valiant warriors and hunters!");
+talkEntry:addResponse("Ah, Rosaline Edwards, she is the fair Queen of Cadomyr. It's well known that she is Albarian, but be prepared she doesn't govern in quite the same manner. She is, however, a devout follower of Malachín and is always on the lookout for valiant warriors and hunters! And if you are brave enough, she probably shows you Cadomyr's two stones of power. A Bluestone and a Blackstone.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addResponse("Diese durchaus sehr schöne Frau ist die Königin von Cadomyr. Sie ist sehr stolz und nobel. Außerdem mag sie solche die tapfer agieren und ihren Mut in Schlachten zeigen. Ihre alabarische Wurzeln sind wahrscheinlich der Grund für ihre Vorliebe.");
+talkEntry:addResponse("Diese durchaus sehr schöne Frau ist die Königin von Cadomyr. Sie ist sehr stolz und nobel. Außerdem mag sie solche die tapfer agieren und ihren Mut in Schlachten zeigen. Ihre alabarische Wurzeln sind wahrscheinlich der Grund für ihre Vorliebe. Und wenn du schlau genug bist, dann zeigt sie dir vielleicht Cadomyrs Steine der Macht. Einen Blaustein und einen Schwarzstein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Cadomyr can be found nestled behind its formidable town walls in the midst of the desert to the southwest of this peninsula. They believe in honor and follow their queen's orders without hesitation or fear.");
-talkEntry:addResponse("Cadomyr is the desert town to the southwest, just look for the high town walls. If you should venture there be prepared to follow the Queen's social order. *Giggles* In Runewick we just call it the town of wannabe heroes!");
-talkEntry:addResponse("Cadomyr, the desert bastion for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders alike lies to the southwest behind massive stone walls!");
+talkEntry:addResponse("Cadomyr can be found nestled behind its formidable town walls in the midst of the desert to the southwest of this peninsula. They believe in honor and follow their queen's orders without hesitation or fear. However, use the word 'Cadomyr' in the teleporter and you will be there.");
+talkEntry:addResponse("Cadomyr is the desert town to the southwest, just look for the high town walls. If you should venture there be prepared to follow the Queen's social order. *Giggles* In Runewick and Galmair they just call it the town of wannabe heroes! However, use the word 'Cadomyr' in the teleporter and you will be there.");
+talkEntry:addResponse("Cadomyr, the desert bastion for Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders alike lies to the southwest behind massive stone walls! However, use the word 'Cadomyr' in the teleporter and you will be there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr kann hinter einen großen Stadtmauer in der Wüste im südwestlichen Bereich der Halbinsel gefunden werden. Sie glauben dort an Ehre und ihre Königin, und sie sind ein sehr stolzen und furchtloses Volk .");
-talkEntry:addResponse("Ihre Gegner aus Runewick und Galmair denken, dass Cadomyr ein Platz von möchte gern Helden sei, welche einem verrückten Kode der Ehre folgen und wo jeder weiß, welchen gottgegebenen 'Rang' er einnimmt.");
-talkEntry:addResponse("Insbesondere folgende Handwerke können in Cadomyr gefunden werden: Fischer, Glasblässer, Gräber, Goldschmied, Edelsteinschleifer.");
+talkEntry:addResponse("Cadomyr kann hinter einen großen Stadtmauer in der Wüste im südwestlichen Bereich der Halbinsel gefunden werden. Sie glauben dort an Ehre und ihre Königin, und sie sind ein sehr stolzen und furchtloses Volk. Wie dem auch sei, verwende das Wort 'Cadomyr' im Teleporter und du bist dort.");
+talkEntry:addResponse("Ihre Gegner aus Runewick und Galmair denken, dass Cadomyr ein Platz von möchte gern Helden sei, welche einem verrückten Kode der Ehre folgen und wo jeder weiß, welchen gottgegebenen 'Rang' er einnimmt. Wie dem auch sei, verwende das Wort 'Cadomyr' im Teleporter und du bist dort.");
+talkEntry:addResponse("Insbesondere folgende Handwerke können in Cadomyr gefunden werden: Fischer, Glasblässer, Gräber, Goldschmied, Edelsteinschleifer. Wie dem auch sei, verwende das Wort 'Cadomyr' im Teleporter und du bist dort.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("stones");
+talkEntry:addTrigger("power");
+talkEntry:addResponse("The stones of power offer their owns tremendous power. The sorcerer Mordak al Kharud owned once three of them and could thus conquer almost whole Illarion. But this was some decades ago. Nowadays the faction leaders own them. Since each faction leader has two of them, the balance between them is guaranteed. There, however, exist seven stones. These are Emerald, Ruby, Topaz, Amethyst, Bluestone, Blackstone and Diamond.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Steine");
+talkEntry:addTrigger("Macht");
+talkEntry:addResponse("Die Steine der Macht verleihen ihren Besitzern enorme Macht. Der Zauberer Mordak al Kharud besaß einst drei von ihnen und konnte deshalb beinahe ganz Illarion erobern. Aber das ist einge Jahrzehnte her. Nun besitzen die Herrscher der Fraktionen diese. Dadurch dass jeder zwei besitzt ist das Gleichgewicht zwischen ihnen garantiert. Wie dem auch sei, es gibt sieben Steine. Diese sind Smaragd, Rubin, Topas, Amethyst, Blaustein, Schwarzstein und Diamant.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Emerald");
+talkEntry:addResponse("The Emerald belongs to Runewick and is part of the collection of archmage Elvaine Morgan. You can find further information about it in each of the factions.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Smaragd");
+talkEntry:addResponse("Der Smaragd gehört zu Runewick und ist Teil der Sammlung von Erzmagier Elvaine Morgan. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ruby");
+talkEntry:addResponse("The Ruby belongs to Runewick and is part of the collection of archmage Elvaine Morgan. You can find further information about it in each of the factions.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rubin");
+talkEntry:addResponse("Der Rubin gehört zu Runewick und ist Teil der Sammlung von Erzmagier Elvaine Morgan. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Topaz");
+talkEntry:addResponse("The Topaz belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the factions.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Topas");
+talkEntry:addResponse("Der Topas gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Amethyst");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The Amethyst belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the factions.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Amethyst");
+talkEntry:addResponse("Der Amethyst gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bluestone");
+talkEntry:addResponse("The Bluestone belongs to Cadomyr and is part of the collection of Queen Rosaline Edwards. You can find further information about it in each of the factions.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Blaustein");
+talkEntry:addResponse("Der Blaustein gehört zu Cadomyr und ist Teil der Sammlung von Königin Rosaline Edwards. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Blackstone");
+talkEntry:addResponse("The Blackstone belongs to Cadomyr and is part of the collection of Queen Rosaline Edwards. You can find further information about it in each of the factions.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Schwarzstein");
+talkEntry:addResponse("Der Schwarzstein gehört zu Cadomyr und ist Teil der Sammlung von Königin Rosaline Edwards. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Diamond");
+talkEntry:addResponse("The Diamond is missing. Noone knows where it is but rumors say that it must be somewhere here. If you can find it for your choosen faction you will definitely be highly rewarded.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Diamant");
+talkEntry:addResponse("Der Diamant wird vermisst. Niemand weiß wo er ist aber Gerüchten zufolge muss er irgendwo hier sein. Wenn du ihn für die Fraktion deiner Wahl finden kannst wirst du bestimmt hoch belohnt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Mordak");
+talkEntry:addTrigger("Kharud");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Mordak al Kharud was once a powerful mage who wanted to have everything. He was beaten with the help of the rulers of the factions. You can find more information in each of the factions.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Mordak");
+talkEntry:addTrigger("Kharud");
+talkEntry:addResponse("Mordak al Kharud war einst ein mächtiger Zauberer der alles an sich reißen wollte. Er wurde mit Hilfe der Herrscher der Fraktionen besiegt. Mehr Informationen über ihn findest du in den Fraktionen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1429,7 +1586,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addResponse("Duddli, do-da, ask me for help.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1437,7 +1594,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addResponse("Duddli, duddla, frag mich nach Hilfe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1452,6 +1609,8 @@ talkingNPC:addCycleText("Wenn du wissen möchtest wo du und dein Glaube gut aufge
 talkingNPC:addCycleText("Ich bin Hummi und weiß viele Sachen", "I'm Hummi and I know many things.");
 talkingNPC:addCycleText("Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, ich weiß für jeden den richtigen Platz.", "Whether your an elf, dwarf, human, orc, lizardman, or halfling I know the right place for everyone!");
 talkingNPC:addCycleText("Lebwohl Gobaith, willkommen östlich des Siebenhügel Gebirge.", "Farewell to Gobaith and welcome to the east known as Sevenhill Mountains!");
+talkingNPC:addCycleText("Wähle eine der Fraktionen: Runewick, Galmair, Cadomyr. Sag ihren Name während du im Teleporter stehst um dorthin zu gelangen.", "Choose one of the three factions: Runewick, Galmair, Cadomyr. Say its name while you stay in the teleporter to get there.");
+talkingNPC:addCycleText("Ich kann nur empfehlen: Sobald du in Runewick, Galmair oder Cadomyr ankommen bist, dich im Zensusbüro anzumelden. Die Überlebenschancen steigen gewaltig! *kichert*", "I highly recommend: As soon as you got to Runewick, Galmair or Cadomyr to register there in the respective census office. *giggles*");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);

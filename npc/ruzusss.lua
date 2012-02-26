@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: December 20, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 25, 2012                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1471,7 +1471,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Der Don besssitzt zwei Sssteine der Macht. Einen Topaz und einen Amethyst. Die bessschützen Galmair vor der Übernahme durch unsere Ssstreitkräfte.");
+talkEntry:addResponse("Der Don besssitzt zwei Sssteine der Macht. Einen Topas und einen Amethyst. Die bessschützen Galmair vor der Übernahme durch unsere Ssstreitkräfte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1490,7 +1490,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The Queen ownsss two ssstonesss of power. These are a Bluestond and a Blackstone. They protect usss againssst Runewick and Galmair.");
+talkEntry:addResponse("The Queen ownsss two ssstonesss of power. These are a Bluestone and a Blackstone. They protect usss againssst Runewick and Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

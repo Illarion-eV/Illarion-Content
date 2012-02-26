@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: December 08, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 25, 2012                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -954,7 +954,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Der Don besitzt zwei Steine der Macht. Einen Topaz und einen Amethyst. Die beschützen Galmair vor der Übernahme durch unsere Streitkräfte.");
+talkEntry:addResponse("Der Don besitzt zwei Steine der Macht. Einen Topas und einen Amethyst. Die beschützen Galmair vor der Übernahme durch unsere Streitkräfte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -973,7 +973,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The Queen owns two stones of power. These are a Bluestond and a Blackstone. They protect Cadomyr to get beaten by our forces.");
+talkEntry:addResponse("The Queen owns two stones of power. These are a Bluestone and a Blackstone. They protect Cadomyr to get beaten by our forces.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
