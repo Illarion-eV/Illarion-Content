@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: February 27, 2012                       easyNPC Parser v1.02 --
+-- Last parsing: February 28, 2012                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -29,13 +29,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: quest, faction, gods, race, craft, motive, landscape, leader, law, chest, explorer"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: quest, faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, stones of power."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Quest, Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Quest, Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder, Steine der Macht."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -83,6 +83,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'factions' if you want to know more."));
 talkEntry:addResponse("Hiho to you, if you'd like to know something about the factions here, just ask me.");
 talkEntry:addResponse("Hiya, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the factions!");
 talkEntry:addResponse("Good day, if you'd like to know something about the factions here, let me know!");
@@ -94,6 +95,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Fraktionen' wenn du mehr wissen möchtest."));
 talkEntry:addResponse("Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
 talkEntry:addResponse("Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
 talkEntry:addResponse("Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
