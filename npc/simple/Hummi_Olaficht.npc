@@ -75,8 +75,8 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Hummi und weiß alle wichtigen Dinge über diesen Platz hier. So, frag mich was!", "Ich bin Hummi und du? Möchtest du etwas wissen?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The factions are always on the look out for adventurers and workers alike! For example Elesil Daelwon in Runewick, Frizza in Cadomyr and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them."
-"quest", "mission" -> "Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Fraktionen immer nach Abenteuerer und Arbeitern suchen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen."
+"quest", "mission", english -> "Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The factions are always on the look out for adventurers and workers alike! For example Elesil Daelwon in Runewick, Frizza in Cadomyr and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them.", inform("Ask the NPC for 'Elesil', 'Frizza', 'Iradona' or 'Explorer' if you want to know more.")
+"quest", "mission" -> "Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Fraktionen immer nach Abenteuerer und Arbeitern suchen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.", inform("Frage den NPC nach 'Elesil', 'Frizza', 'Iradona' oder 'Erkunder' wenn du mehr wissen möchtest.")
 "task", "adventure" -> "Ahh, gotta case of idle hands I see. Be assured traveler if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions! For example Elesil Daelwon in Runewick, Frizza in Cadomyr and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen."
 "Elesil", "Daelwon", english -> "You can find her at the teleporter in Runewick."
@@ -241,6 +241,10 @@ itemShoes = 53
 "Diamant" -> "Der Diamant wird vermisst. Niemand weiß wo er ist aber Gerüchten zufolge muss er irgendwo hier sein. Wenn du ihn für die Fraktion deiner Wahl finden kannst wirst du bestimmt hoch belohnt."
 "Mordak","Kharud", english -> "Mordak al Kharud was once a powerful mage who wanted to have everything. He was beaten with the help of the rulers of the factions. You can find more information in each of the factions."
 "Mordak","Kharud" -> "Mordak al Kharud war einst ein mächtiger Zauberer der alles an sich reißen wollte. Er wurde mit Hilfe der Herrscher der Fraktionen besiegt. Mehr Informationen über ihn findest du in den Fraktionen."
+
+--Explorer-Guilde
+"explorer" -> "Damit, I forgot it what I had to say about them!"
+"Erkunder" -> "Verdammt, ich vergeßen was ich dazu sagen wollte!"
 
 -- Main land factions
 "albar", english -> "Albar is a very old empire with a hierarchical social order. The society of Cadomyr is to some extent similar to it, but you can't fully compare the two. It is well known that the queen's family is originally from there."

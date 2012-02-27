@@ -191,6 +191,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Elesil', 'Frizza', 'Iradona' or 'Explorer' if you want to know more."));
 talkEntry:addResponse("Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The factions are always on the look out for adventurers and workers alike! For example Elesil Daelwon in Runewick, Frizza in Cadomyr and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -198,6 +199,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Elesil', 'Frizza', 'Iradona' oder 'Erkunder' wenn du mehr wissen möchtest."));
 talkEntry:addResponse("Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Fraktionen immer nach Abenteuerer und Arbeitern suchen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1200,6 +1202,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
 talkEntry:addResponse("Mordak al Kharud war einst ein mächtiger Zauberer der alles an sich reißen wollte. Er wurde mit Hilfe der Herrscher der Fraktionen besiegt. Mehr Informationen über ihn findest du in den Fraktionen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("explorer");
+talkEntry:addResponse("Damit, I forgot it what I had to say about them!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erkunder");
+talkEntry:addResponse("Verdammt, ich vergeßen was ich dazu sagen wollte!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
