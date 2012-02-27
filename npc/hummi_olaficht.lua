@@ -1096,6 +1096,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("stones");
 talkEntry:addTrigger("power");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for Emerald, Ruby, Topaz, Amethyst, Bluestone, Blackstone or Diamond if you want to know more."));
 talkEntry:addResponse("The stones of power offer their owns tremendous power. The sorcerer Mordak al Kharud owned once three of them and could thus conquer almost whole Illarion. But this was some decades ago. Nowadays the faction leaders own them. Since each faction leader has two of them, the balance between them is guaranteed. There, however, exist seven stones. These are Emerald, Ruby, Topaz, Amethyst, Bluestone, Blackstone and Diamond.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1276,6 +1277,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for the 'elder' Brágon, Eldan, Findari, Tanora, and Ushara like or the 'younger' like Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan, and Moshran if you want to know more."));
 talkEntry:addResponse("Inhabitants of every faction prefer specific younger gods for the most part. In Runewick they pray to Elara, Oldra, and Adron; in Galmair they pray to Irmorom, Ronagan, and Nargun; and in Cadomyr they honor Malachin, Zhambra and Sirani.");
 talkEntry:addResponse("Most inhabitants vary between the younger and elder gods. You will find that most everyone worships one of the younger gods within their preferred faction, but rarely does anyone still worship the elder gods. I can't understand why anyone would worship someone who has left us. Where would your prayers go? *Giggles*");
 talkingNPC:addTalkingEntry(talkEntry);
