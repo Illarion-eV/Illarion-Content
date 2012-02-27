@@ -59,7 +59,7 @@ itemShoes = 53
 -- Help
 "Help" -> inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: quest, faction, gods, race, craft, motive, landscape, leader, law, chest, explorer")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Quest, Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder.")
-
+"test" -> "A","B","C", inform("test works")
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, if you'd like to know something about the factions here, just ask me!", "Hiya, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the factions!", "Good day, if you'd like to know something about the factions here, let me know!", inform("Ask the NPC for 'factions' if you want to know more.")
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", inform("Frage den NPC nach 'Fraktionen' wenn du mehr wissen möchtest.")

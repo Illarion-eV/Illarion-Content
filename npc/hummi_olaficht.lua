@@ -40,6 +40,15 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("test works"));
+talkEntry:addResponse("A");
+talkEntry:addResponse("B");
+talkEntry:addResponse("C");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
