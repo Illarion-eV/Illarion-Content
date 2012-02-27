@@ -343,6 +343,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("motive");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'wisdom', 'honor' or 'wealth' if you want to know more."));
 talkEntry:addResponse("The leading motive in Runewick is wisdom, in Cadomyr it's honor, and in Galmair it's wealth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -412,6 +413,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Motive");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Weisheit', 'Reichtum' oder 'Ehre' wenn du mehr wissen möchtest."));
 talkEntry:addResponse("Das leitende Motive in Runewick ist Weisheit, in Galmair ist es Reichtum, und in Cadomyr ist es `Ehre.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1101,6 +1103,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Steine");
 talkEntry:addTrigger("Macht");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach Smaragd, Rubin, Topas, Amethyst, Blaustein, Schwarzstein oder Diamant wenn du mehr wissen möchtest."));
 talkEntry:addResponse("Die Steine der Macht verleihen ihren Besitzern enorme Macht. Der Zauberer Mordak al Kharud besaß einst drei von ihnen und konnte deshalb beinahe ganz Illarion erobern. Aber das ist einge Jahrzehnte her. Nun besitzen die Herrscher der Fraktionen diese. Dadurch dass jeder zwei besitzt ist das Gleichgewicht zwischen ihnen garantiert. Wie dem auch sei, es gibt sieben Steine. Diese sind Smaragd, Rubin, Topas, Amethyst, Blaustein, Schwarzstein und Diamant.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1281,6 +1284,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach den 'älteren' wie Bragon, Eldan, Findari, Tanora und Ushara oder den 'jüngeren' wie Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan und Moshran wenn du mehr wissen möchtest."));
 talkEntry:addResponse("Die Einwohner jeder Fraktion bevorzugen spezifische junge Götter. In Runewick beten sie zu Elara, Oldra und Adron; in Galmair zu Irmorom, Ronagan und Nargun; und in Cadomyr zu Malachin, Zhambra and Sirani.");
 talkEntry:addResponse("Wir unterscheiden zwischen jungen und alten Göttern. Du wirst für beinahe jeden der jungen einen Gleichgesinnten in einer der Fraktionen finden, aber niemanden für die älteren. Aber wer ist so dumm und dient denen noch? Die sind weg!");
 talkingNPC:addTalkingEntry(talkEntry);
