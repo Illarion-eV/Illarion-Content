@@ -29,13 +29,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, stones of power, quest. You will find more of these keyphrases during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, empire, stones of power, quest. You will find more of these keyphrases during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder, Reiche, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
