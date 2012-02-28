@@ -382,9 +382,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sevenhill");
-talkEntry:addConsequence(npc.base.consequence.inform.inform(""There are two more hints included. You will find more of them during the game. Just keep your eyes open! ;"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("There are two more hints included. You will find more of them during the game. Just keep your eyes open! ;)"));
 talkEntry:addResponse("That is to the south of the 'Sinking Mountains', just north of the 'Mountains of Khenserra', and generally speaking west of us. *Giggles*");
-talkEntry:addResponse(")");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

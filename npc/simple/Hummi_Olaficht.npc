@@ -105,7 +105,7 @@ itemShoes = 53
 "leader" -> "Archmage Elvaine Morgan is the leader of Runewick, Don Valerio Guilianni rules in Galmair, and Queen Rosaline Edwards reigns over Cadomyr.", inform("Ask the NPC for Archmage Elvaine Morgan, Don Valerio Guilianni or Queen Rosaline Edwards if you want to know more. You can also ask about 'Runewick', 'Galmair' or 'Cadomyr'.")
 "law" -> "Runewick is the only community with posted laws to rely on; Galmair doesn't have any real laws - except obeying the Don; and there are customs in Cadomyr which are of albarian origin, but to an Albarian they will look shockingly innovative. More information can be found in the town of your choice.", inform("Ask the NPC for 'Runewick', 'Galmair' or 'Cadomyr' if you want to know more.")
 "Father" -> "The father of Queen Rosaline Edwards was King Sir Reginald, and the father of Don Valerio Guilianni was Don Tommaso Guilianni. Both Reginald and Tommaso are dead. The father of Archmage Elvaine Morgan is presumed dead as well, but that's just the rumors I have heard. *Giggles*"
-"sevenhill" -> "That is to the south of the 'Sinking Mountains', just north of the 'Mountains of Khenserra', and generally speaking west of us. *Giggles*", inform("There are two more hints included. You will find more of them during the game. Just keep your eyes open! ;)")"
+"sevenhill" -> "That is to the south of the 'Sinking Mountains', just north of the 'Mountains of Khenserra', and generally speaking west of us. *Giggles*", inform("There are two more hints included. You will find more of them during the game. Just keep your eyes open! ;)")
 "sinking" -> "Sinking Mountains? They lie somewhere in the north."
 "Khenserra", english -> "Mountains of Khenserra? They are somewhere to the south."
 
