@@ -324,18 +324,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faction");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Runewick', 'Galmair' or 'Cadomyr' if you want to know more."));
 talkEntry:addResponse("We have three factions here: Runewick, Cadomyr and Galmair. You will have to choose one. Otherwise you will have quite low chances to survive. *Giggles* Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("race");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'elf', 'human', 'dwarf', 'orc', 'lizard' or 'halbling' if you want to know more. You can also ask about 'Runewick', 'Galmair' or 'Cadomyr'."));
 talkEntry:addResponse("In every faction there are particular races you will find. In Runewick, you'll mainly find Elves and Halflings; in Galmair, Dwarves; and in Cadomyr, Lizards and Orcs. As far as humans, well just about anywhere really.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("craft");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for Alchemist, Candle maker, Carpenter, Lumberjack, Cook, Baker, Farmer, Herb gatherer, Tailor, Tanner, Dyer, Blacksmith, Brick maker, Mason, Miner, Brewer, Fisher, Glass blower, Digger, Finesmith or Gem grinder if you want to know more. You can also ask about 'Runewick', 'Galmair' or 'Cadomyr'."));
 talkEntry:addResponse("Which one do you mean? Alchemist, Candle maker, Carpenter, Lumberjack, Cook, Baker, Farmer, Herb gatherer, Tailor, Tanner, Dyer, Blacksmith, Brick maker, Mason, Miner, Brewer, Fisher, Glass blower, Digger, Finesmith or Gem grinder?");
 talkEntry:addResponse("Every faction has specialists depending on the craft. Mention a specific craft and I will tell you in which faction you will find it.");
 talkEntry:addResponse("The main crafts you'll find in Runewick are Alchemists, Candle makers, Carpenters/Lumberjacks, Cooks/Bakers, Farmers, Herb gatherers, and Tailors/Tanners/Dyers. In Galmair you'll find Blacksmiths, Masons, Miners, and Brewers. Finally, in Cadomyr you'll get Fishers, Glass blowers, Diggers, Finesmiths, and Gem grinders.");
@@ -345,25 +348,28 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("motive");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'wisdom', 'honor' or 'wealth' if you want to know more."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'wisdom', 'honor' or 'wealth' if you want to know more. You can also ask about 'Runewick', 'Galmair' or 'Cadomyr'."));
 talkEntry:addResponse("The leading motive in Runewick is wisdom, in Cadomyr it's honor, and in Galmair it's wealth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("landscape");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Runewick', 'Galmair' or 'Cadomyr' if you want to know more."));
 talkEntry:addResponse("The four towers of Runewick are somewhere in the southeast between the meadow and the forest; the halls and caves of Galmair are to the northwest between the mountains and the forest; and the houses of Cadomyr lie to the west between the desert and the mountains.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("leader");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for Archmage Elvaine Morgan, Don Valerio Guilianni or Queen Rosaline Edwards if you want to know more. You can also ask about 'Runewick', 'Galmair' or 'Cadomyr'."));
 talkEntry:addResponse("Archmage Elvaine Morgan is the leader of Runewick, Don Valerio Guilianni rules in Galmair, and Queen Rosaline Edwards reigns over Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("law");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Runewick', 'Galmair' or 'Cadomyr' if you want to know more."));
 talkEntry:addResponse("Runewick is the only community with posted laws to rely on; Galmair doesn't have any real laws - except obeying the Don; and there are customs in Cadomyr which are of albarian origin, but to an Albarian they will look shockingly innovative. More information can be found in the town of your choice.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -395,45 +401,51 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fraktion");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Runewick', 'Galmair' oder 'Cadomyr' wenn du mehr wissen möchtest."));
 talkEntry:addResponse("Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Du wirst eine für dich wählen müssen. Ansonsten wirst du nur geringe Überlebenschancen haben. *Kichert* Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rasse");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Elf', 'Mensch', 'Zwerg', 'Ork', 'Echse' oder 'Halbling' wenn du mehr wissen möchtest. Du kannst aber auch nach 'Runewick', 'Galmair' oder 'Cadomyr' fragen."));
 talkEntry:addResponse("In jeder Fraktion kannst du spezifische Rassen finden. In Runewick vorallem Elfen und Halblinge; in Galmair Zwerge; und in Cadomyr Orks und Echsenmenschen. Menschen sind überall zufinden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Handwerk");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer wenn du mehr wissen möchtest. Du kannst aber auch nach 'Runewick', 'Galmair' oder 'Cadomyr' fragen."));
 talkEntry:addResponse("Welches meinst du? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer?");
 talkEntry:addResponse("Jede Fraktion ist auf bestimmte Handwerke spezialisiert. Nenn mir dein Handwerk und ich sag in welcher Fraktion du es finden wirst.");
-talkEntry:addResponse("");
+talkEntry:addResponse("Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber können vorallem in Runewick gefundne werden. Schmied, Ziegelmacher, Steinmetz, Schürfer und Brauer vora allem in Galmair. Und Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Motive");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Weisheit', 'Reichtum' oder 'Ehre' wenn du mehr wissen möchtest."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Weisheit', 'Reichtum' oder 'Ehre' wenn du mehr wissen möchtest. Du kannst aber auch nach 'Runewick', 'Galmair' oder 'Cadomyr' fragen."));
 talkEntry:addResponse("Das leitende Motive in Runewick ist Weisheit, in Galmair ist es Reichtum, und in Cadomyr ist es `Ehre.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Landschaft");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Runewick', 'Galmair' oder 'Cadomyr' wenn du mehr wissen möchtest."));
 talkEntry:addResponse("Die vier Türme von Runewick wirst du irgendwo im Südosten zwischen Sümpfen und Wäldern finden; die Hallen und Höhlen von Galmair inmitten von Bergen und Wäldern; und die Häuser von Cadomyr zwischen einer Wüste und Bergen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Anführer");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach Erzmagier Elvaine Morgan, Don Valerio Guilianni oder Königin Rosaline Edwards wenn du mehr wissen möchtest. Du kannst aber auch nach 'Runewick', 'Galmair' oder 'Cadomyr' fragen."));
 talkEntry:addResponse("Erzmagier Elvaine Morgan der Herrscher in Runewick, Don Valerio Guilianni herrscht in Galmair, und Königin Rosaline Edwards in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gesetz");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Runewick', 'Galmair' oder 'Cadomyr' wenn du mehr wissen möchtest."));
 talkEntry:addResponse("Runewick ist die einzige Gemeinde mit exakten Gesetzen an denen du dich orientieren kannst; Galmair hat keine wirklichen Gesetzte - du musst nur dem Don gehorchen; und dann sind noch die Bräuche von Cadomyr welche ihren Ursprung in Albar haben, aber für einen Albarianer sind diese schockierend innovative.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
