@@ -38,12 +38,11 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     --User:setQuestProgress(8, 1)
 
     local callback = function(dialog)
-        User:inform("Input: "..dialog:getInput())
+        User:inform("Shitty called back!")
         --no_func()
     end
-    local c = 42
-    local inputDialog = InputDialog("Enter something cool!", true, 0, nil)
-    User:requestInputDialog(inputDialog)
+    local dialog = MessageDialog("Cool Title", "Cool Text", callback)
+    User:requestMessageDialog(dialog)
 end
 
 function useNPC(User,counter,param)
