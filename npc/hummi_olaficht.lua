@@ -355,8 +355,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("landscape");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Runewick', 'Galmair' or 'Cadomyr' if you want to know more."));
-talkEntry:addResponse("The four towers of Runewick are somewhere in the southeast between the meadow and the forest; the halls and caves of Galmair are to the northwest between the mountains and the forest; and the houses of Cadomyr lie to the west between the desert and the mountains.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for 'Runewick', 'Galmair' or 'Cadomyr' if you want to know more. You may also like to ask for 'Sevenhill Mountains'."));
+talkEntry:addResponse("The four towers of Runewick are somewhere in the southeast between the meadow and the forest; the halls and caves of Galmair are to the northwest between the mountains and the forest; and the houses of Cadomyr lie to the west between the desert and the mountains. And each of them lies east of the Sevenhill Mountains.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -382,7 +382,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sevenhill");
-talkEntry:addResponse("That is to the south of the Sinking Mountains, just north of the Mountains of Khenserra, and generally speaking west of us. *Giggles*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform(""There are two more hints included. You will find more of them during the game. Just keep your eyes open! ;"));
+talkEntry:addResponse("That is to the south of the 'Sinking Mountains', just north of the 'Mountains of Khenserra', and generally speaking west of us. *Giggles*");
+talkEntry:addResponse(")");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -431,8 +433,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Landschaft");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Runewick', 'Galmair' oder 'Cadomyr' wenn du mehr wissen möchtest."));
-talkEntry:addResponse("Die vier Türme von Runewick wirst du irgendwo im Südosten zwischen Sümpfen und Wäldern finden; die Hallen und Höhlen von Galmair inmitten von Bergen und Wäldern; und die Häuser von Cadomyr zwischen einer Wüste und Bergen.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach 'Runewick', 'Galmair' oder 'Cadomyr' wenn du mehr wissen möchtest. Oder auch Siebenhügelberge."));
+talkEntry:addResponse("Die vier Türme von Runewick wirst du irgendwo im Südosten zwischen Sümpfen und Wäldern finden; die Hallen und Höhlen von Galmair inmitten von Bergen und Wäldern; und die Häuser von Cadomyr zwischen einer Wüste und Bergen. Und alle zusammen östlich der Siebenhügelberge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -458,7 +460,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("siebenhügel");
-talkEntry:addResponse("Das ist südlich von den Sinkenden Berge, nördlich der Berge von Khenserra und westlich von uns hier. *kichert*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Hier sind zwei zusätzliche Hinweise untergebracht. Du wist im weiteren Spiel immer wieder auf solche stoßen. Halte deine Augen offen. ;)"));
+talkEntry:addResponse("Das ist südlich von den 'Sinkenden Berge', nördlich der 'Berge von Khenserra' und westlich von uns hier. *kichert*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
