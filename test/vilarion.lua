@@ -25,10 +25,10 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return
     end
 
-    if User.id ~= 64 then
-        User:inform("e-Vil says: You are not allowed to use this!");
-        return;
-    end;
+    --if User.id ~= 64 then
+    --    User:inform("e-Vil says: You are not allowed to use this!");
+    --    return;
+    --end;
 
     --User.effects:addEffect(LongTimeEffect(777, 30))
 
