@@ -29,13 +29,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, stones of power, quest."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, stones of power, quest. You will find more of these keyphrases during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder, Steine der Macht, Quest."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1219,6 +1219,20 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erkunder");
 talkEntry:addResponse("Verdammt, ich vergeßen was ich dazu sagen wollte!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("empire");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for Albar, Gynk, Salkamar and Lor-Angur if you want to know more."));
+talkEntry:addResponse("As you probably know there are four main land empires worth to mention. These are Albar, Gynk, Salkamar and Lor-Angur.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Reich");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach Albar, Gynk, Salkamar and Lor-Angur wenn du mehr wissen möchtest."));
+talkEntry:addResponse("Wie du wahrscheinlich wissen wirst gibt es vier nennenswerte Reiche am Festland. Diese sind Albar, Gynk, Salkamar und Lor-Angur");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

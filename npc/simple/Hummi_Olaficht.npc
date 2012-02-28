@@ -57,8 +57,8 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, stones of power, quest.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder, Steine der Macht, Quest.")
+"Help" -> inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, stones of power, quest. You will find more of these keyphrases during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)")
 "test" -> "A","B","C", inform("test works")
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, if you'd like to know something about the factions here, just ask me!", "Hiya, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the factions!", "Good day, if you'd like to know something about the factions here, let me know!", inform("Ask the NPC for 'factions' if you want to know more. You can also ask for 'help' to get other hints for questions.")
@@ -247,6 +247,8 @@ itemShoes = 53
 "Erkunder" -> "Verdammt, ich vergeßen was ich dazu sagen wollte!"
 
 -- Main land factions
+"empire" -> "As you probably know there are four main land empires worth to mention. These are Albar, Gynk, Salkamar and Lor-Angur.", inform ("Ask the NPC for Albar, Gynk, Salkamar and Lor-Angur if you want to know more.")
+"Reich" -> "Wie du wahrscheinlich wissen wirst gibt es vier nennenswerte Reiche am Festland. Diese sind Albar, Gynk, Salkamar und Lor-Angur", inform ("Frage den NPC nach Albar, Gynk, Salkamar and Lor-Angur wenn du mehr wissen möchtest.")
 "albar", english -> "Albar is a very old empire with a hierarchical social order. The society of Cadomyr is to some extent similar to it, but you can't fully compare the two. It is well known that the queen's family is originally from there."
 "albar" -> "Ein sehr altes Reich mit einer sehr hierarchischen gesellschaftlichen Ordnung ihrer Gesellschaft. Die Gesellschaft von Cadomyr ähnelt ihr, kann aber nicht wirklich damit verglichen werden. Die Familie der Königin hat ihre Wurzeln von dort."
 "gynk", "gync", english -> "Gynk is a chaotic place, where almost anything is possible as long as you can manage to survive. Galmair is very similar, probably due to the fact that the Don's father is from Gynk."
