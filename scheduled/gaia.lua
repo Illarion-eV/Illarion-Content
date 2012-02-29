@@ -107,8 +107,10 @@ function plantdrop()
 			if ( regX[checkreg][1] <= newpos.x ) and ( newpos.x <= regX[checkreg][2]) and ( regY[checkreg][1] <= newpos.y ) and ( newpos.y <= regY[checkreg][2] ) then	
 				---- bodentile feststellen
 				theTile=world:getField(newpos);
-				local bodenart = base.common.GetGroundType( theTile:tile() );
-				if ((bodenart == check) or (check == 0)) then
+				-- DO NOT SPAM THE ERROR LOG WITH THIS SHIT
+                -- local bodenart = base.common.GetGroundType( theTile:tile() );
+				local bodenart = 0
+                if ((bodenart == check) or (check == 0)) then
 					-- Kraut setzen
 					world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
 					--user:inform("Pflanze: " ..plnt[auswahl].. " Boden: " ..bodenart.. " Position: "..newpos.x.." : " ..newpos.y.." : "..newpos.z.. " Pflreg: " ..reg[auswahl].. "; Region: " ..regID[checkreg] );
