@@ -213,19 +213,13 @@ function GCraft:GenWorkTime(User, toolItem)
 	--- => best time at 100 skill, 0 attrib: 30
 	--- => best time at 100 skill, 30 attrib: 10
 	local bestAttrib = 30;
-	--- max time bonus from amethyst (will be subtracted)
-	local maxTimeBonus = 50;
-	--- max skill bonus from ruby (will be added)
-	local maxSkillBonus = 50;
 	
-	-- calculate skill considering gem bonus
-	skill = math.max(0, math.min(100, skill + maxSkillBonus*skillBonus));
+	-- clamp skill
+	skill = math.max(0, math.min(100, skill));
 	-- calculate time only considering skill
 	local retVal = minNormal + (maxNormal - minNormal + maxAttribBonus) * (100 - skill ) / 100;
 	-- add attrib bonus
 	retVal = retVal - maxAttribBonus * attrib / bestAttrib;
-	-- add time bonus from gem
-	retVal = retVal - maxTimeBonus*timeBonus;
 	-- limit to normal boundaries and add random change
 	retVal = math.max(minNormal, math.min(maxNormal, retVal)) + math.random(1,randomChange*2) - randomChange;
 	-- limit to overall boundaries
