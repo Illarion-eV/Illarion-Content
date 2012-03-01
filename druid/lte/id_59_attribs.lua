@@ -7,107 +7,68 @@ module("druid.lte.id_59_attribs", package.seeall)
 -- INSERT INTO longtimeeffects VALUES (59, 'druids_attribs', 'druid.lte.id_59_attribs');
 
 attribList ={"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"};
-topBorder = 30;
-bottomBorder = 2;
+bottomBorder = 1;
 
-function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
-    return true;
+function addEffect(Effect, User)               -- Nur beim ersten Aufruf
+ 
 end
 
-function callEffect(Effect,Character)               -- Effekt wird ausgeführt
-    find, cntEffects = Effect:findValue("effects");
-    if not find or cntEffects == 0 then
-        return false;
+function callEffect(Effect,User)               -- Effekt wird ausgeführt
+    
+	findCounter,counterRed = Effect:findValue("counterRed")
+    if findCounter then 
+	   if counterRed >= 1 then
+	        
+			counterRed = counterRed - 1; -- reduce of the effect counter
+		    Effect:addValue("counterRed",counterRed)
+	        
+           	if counterRed == 0 then	--
+			    -- the effect counter is down to zero; remove effect
+			    for i=1,8 do
+				    find_i,attrib_i = Effect:findValue(""..attribList[i])
+				    if find_i then
+					    attribValue = attrib_i - 5 
+	                    User:increaseAttrib(attribList[i],-attribValue);
+	                end
+	            end
+				User:inform("inform 3: "..User:increaseAttrib("strength",0))
+				base.common.InformNLS( User, "Du fühlst, dass der Trank seine Wirkung verliert.", "You feel that the potion looses its effect.");
+	        end
+	    else
+		   findCooldown,cooldownRed = Effect:findValue("cooldownRed")
+		   if findCooldown then
+				if cooldownRed <= 0 then
+				   User:inform("false")
+				   return false
+			   else 
+				   cooldownRed = cooldownRed - 1;
+				   Effect:addValue("cooldownRed",cooldownRed)
+				end
+		    end
+		end
     end
+   Effect.nextCalled = 50
+   return true
 
-    local foundanything = false;
-    local MessageSend = false;
-    for i=1,cntEffects do
-        find,zaehler = Effect:findValue("zaehler_"..i);
-        if find then
-            if zaehler == Effect.numberCalled then
-                for index, attrib in pairs(attribList) do
-                    find, attribValue = Effect:findValue(attrib.."_"..i);
-                    if find and attribValue ~= 5 then
-                        attribValue = attribValue - 5;
-                        Character:increaseAttrib(attrib,-attribValue);
-                    end
-                    if find then
-                        Effect:removeValue(attrib.."_"..i);
-                    end
-                end
-                Effect:removeValue("zaehler_"..i);
-                if not MessageSend then
-                    MessageSend = true;
-                    base.common.InformNLS( Character, "Du fühlst, dass der Trank seine Wirkung verliert.", "You feel that the potion looses its effect.");
-                end
-            else
-                Effect:addValue("zaehler_"..i,zaehler);
-                foundanything = true;
-            end
-        end
-    end
-    if foundanything then
-        Effect.nextCalled = 1000;
-        return true;
-    else
-        return false;
-    end
 end
 
-function removeEffect(Effect,Character)
-    find, cntEffects = Effect:findValue("effects");
-    if not find or cntEffects == 0 then
-        return false;
-    end
+function removeEffect(Effect,User)
 
-    for i=1,cntEffects do
-        find,zaehler = Effect:findValue("zaehler_"..i);
-        if find then
-            for index, attrib in pairs(attribList) do
-                find, attribValue = Effect:findValue(attrib.."_"..i);
-                if find and attribValue ~= 5 then
-                    attribValue = attribValue - 5;
-                    Character:increaseAttrib(attrib,-attribValue);
-                end
-                Effect:removeValue(attrib.."_"..i);
-            end
-            Effect:removeValue("zaehler_"..i);
-            if not MessageSend then
-                MessageSend = true;
-                base.common.InformNLS( Character, "Du fühlst, dass der Trank seine Wirkung verliert.", "You feel that the potion looses its effect.");
-            end
-        end
-    end
-    return true;
 end
 
-function loadEffect(Effect,Character)
-    find, cntEffects = Effect:findValue("effects");
-    if not find or cntEffects == 0 then
-        return false;
-    end
-
-    for i=1,cntEffects do
-        find,zaehler = Effect:findValue("zaehler_"..i);
-        if find then
-            for index, attrib in pairs(attribList) do
-                find, attribValue = Effect:findValue(attrib.."_"..i);
-                if find and attribValue ~= 5 then
-                    oldvalue = Character:increaseAttrib(attrib,0);
-                    attribValue = attribValue - 5;
-
-                    if (oldvalue + attribValue) > topBorder then
-                        attribValue = topBorder - oldvalue + 5;
-                        Effect:addValue(attrib.."_"..i,attribValue);
-                    elseif (oldvalue + attribValue) < bottomBorder then
-                        attribValue = bottomBorder - oldvalue + 5;
-                        Effect:addValue(attrib.."_"..i,attribValue);
-                    end
-                    Character:increaseAttrib(attrib,attribValue);
-                end
-            end
-        end
-    end
-    return true;
+function loadEffect(Effect,User)
+    User:inform("inform 4: "..User:increaseAttrib("strength",0))
+	findCounter,counterRed = Effect:findValue("counterRed")	
+	if findCounter then	
+	   if counterRed > 0 then -- check if the actual effect is still active
+	
+	        for i=1,8 do
+			    find_i,attrib_i = Effect:findValue(""..attribList[i])
+				if find_i then
+					User:increaseAttrib(attribList[i],attrib_i - 5)
+				end	
+	        end
+	    end
+	end
+	User:inform("inform 5: "..User:increaseAttrib("strength",0))
 end

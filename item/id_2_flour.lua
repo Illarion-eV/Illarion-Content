@@ -51,20 +51,10 @@ end;
 
 
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
-    -- nop
-    stri="first|secüßond|third fourth"
-    stri=string.gsub(stri,'([ ]+)',' .*');
-    triggerlist={};
-    for word in string.gmatch(stri, "[^|]+") do 
-        table.insert(triggerlist,word)
+    ScriptVars:set("MTest",43);
+    there,hans=ScriptVars:find("MTest");
+    if there then
+        User:inform("TESTVAR: "..hans);
     end
-    
-    for key, trigger in pairs(triggerlist) do
-        User:inform("trigger is "..trigger);
-    end
-    
-    str="what sell";
-    str2=string.gsub(str,'([ ]+)',' .*');
-    User:inform("got: "..str2);
-    sendmsg=handler.sendmessage.sendMessage(User.pos,"TEST MESSAGE DE","TEST MESSAGE EN",2):execute();
+    ScriptVars:save();
 end

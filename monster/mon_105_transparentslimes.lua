@@ -76,7 +76,7 @@ function onDeath(Monster)
         end
     end
     
-    monster.base.drop.ClearDropping();
+	monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
 if (MonID==1051) then --Ectoplasm, Level: 1, Armourtype: cloth, Weapontype: wrestling

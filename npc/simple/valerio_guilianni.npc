@@ -79,6 +79,28 @@ itemShoes = 697
 "task", "adventure" -> "You know, the Don likes you for some reason, ya gotta look about ya. Maybe I gotta task for ya; go and ask Miggs how you can earn the Don's favor."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Weißt du, der Don mag dich. Und der Don wird dir auch eine Arbeit verschaffen. Frage Miggs, wie du in der Gunst des Don steigen kannst."
 
+-- Reward for quest 622
+"Mordak al Kharud", english, queststatus(632) > 0, queststatus(633) = 0, chance(10) -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(1)
+"Mordak al Kharud", german, queststatus(632) > 0, queststatus(633) = 0, chance(10) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(1)
+"Mordak al Kharud", english, queststatus(632) > 0, queststatus(633) = 0, chance(11) -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(2)
+"Mordak al Kharud", german, queststatus(632) > 0, queststatus(633) = 0, chance(11) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(2)
+"Mordak al Kharud", english, queststatus(632) > 0, queststatus(633) = 0, chance(13) -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(3)
+"Mordak al Kharud", german, queststatus(632) > 0, queststatus(633) = 0, chance(13) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(3)
+"Mordak al Kharud", english, queststatus(632) > 0, queststatus(633) = 0, chance(14) -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(4)
+"Mordak al Kharud", german, queststatus(632) > 0, queststatus(633) = 0, chance(14) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(4)
+"Mordak al Kharud", english, queststatus(632) > 0, queststatus(633) = 0, chance(17) -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(5)
+"Mordak al Kharud", german, queststatus(632) > 0, queststatus(633) = 0, chance(17) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(5)
+"Mordak al Kharud", english, queststatus(632) > 0, queststatus(633) = 0, chance(20) -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(6)
+"Mordak al Kharud", german, queststatus(632) > 0, queststatus(633) = 0, chance(20) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(6)
+"Mordak al Kharud", english, queststatus(632) > 0, queststatus(633) = 0, chance(25) -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(7)
+"Mordak al Kharud", german, queststatus(632) > 0, queststatus(633) = 0, chance(25) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(7)
+"Mordak al Kharud", english, queststatus(632) > 0, queststatus(633) = 0, chance(34) -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(8)
+"Mordak al Kharud", german, queststatus(632) > 0, queststatus(633) = 0, chance(34) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(8)
+"Mordak al Kharud", english, queststatus(632) > 0, queststatus(633) = 0, chance(51) -> "#me nods and hands you an item silently.", queststatus(633) = 1, item(45, 1, 999, 1)
+"Mordak al Kharud", german, queststatus(632) > 0, queststatus(633) = 0, chance(51) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, item(45, 1, 999, 1)
+"Mordak al Kharud", english, queststatus(632) > 0, queststatus(633) = 0, chance(100) -> "#me nods and hands you an item silently.", queststatus(633) = 1, item(46, 1, 999, 1)
+"Mordak al Kharud", german, queststatus(632) > 0, queststatus(633) = 0, chance(100) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, item(46, 1, 999, 1)
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Well, I provide for myself and my family. Ah and I rule Galmair of course."
 "beruf" -> "Nun, ich sorge für mich, meine Familie und meine Freunde. Ach und Galmair beherrsche ich natürlich."

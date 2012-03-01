@@ -78,6 +78,28 @@ itemShoes = 53
 "task", "adventure" -> "Regretfully, at the moment I don't feel like committing any tasks to you.", "For sure there are many things to be done, altough I won't assign any to you right now.", "Understand that there are many tasks to perform, but without any doubt you will fail at each single one of them. I have to take handle them in person."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Ich bedaure, zur Zeit möchte ich keine meiner Aufgaben Euch anvertrauen.", "Gewiss muss viel erledigt werden, aber an Euch werde ich im Moment nichts delegieren.", "Selbstverständlich habe ich eine Reihe an Aufgaben zu vergeben, aber zweifellos würdet Ihr an jeder einzellnen scheitern. Also muss ich mich persönlich damit befassen."
 
+-- Reward for quest 622
+"Mordak al Kharud", english, queststatus(622) > 0, queststatus(623) = 0, chance(10) -> "#me nods and hands you an item silently.", queststatus(623) = 1, treasure(1)
+"Mordak al Kharud", german, queststatus(622) > 0, queststatus(623) = 0, chance(10) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(623) = 1, treasure(1)
+"Mordak al Kharud", english, queststatus(622) > 0, queststatus(623) = 0, chance(11) -> "#me nods and hands you an item silently.", queststatus(623) = 1, treasure(2)
+"Mordak al Kharud", german, queststatus(622) > 0, queststatus(623) = 0, chance(11) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(623) = 1, treasure(2)
+"Mordak al Kharud", english, queststatus(622) > 0, queststatus(623) = 0, chance(13) -> "#me nods and hands you an item silently.", queststatus(623) = 1, treasure(3)
+"Mordak al Kharud", german, queststatus(622) > 0, queststatus(623) = 0, chance(13) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(623) = 1, treasure(3)
+"Mordak al Kharud", english, queststatus(622) > 0, queststatus(623) = 0, chance(14) -> "#me nods and hands you an item silently.", queststatus(623) = 1, treasure(4)
+"Mordak al Kharud", german, queststatus(622) > 0, queststatus(623) = 0, chance(14) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(623) = 1, treasure(4)
+"Mordak al Kharud", english, queststatus(622) > 0, queststatus(623) = 0, chance(17) -> "#me nods and hands you an item silently.", queststatus(623) = 1, treasure(5)
+"Mordak al Kharud", german, queststatus(622) > 0, queststatus(623) = 0, chance(17) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(623) = 1, treasure(5)
+"Mordak al Kharud", english, queststatus(622) > 0, queststatus(623) = 0, chance(20) -> "#me nods and hands you an item silently.", queststatus(623) = 1, treasure(6)
+"Mordak al Kharud", german, queststatus(622) > 0, queststatus(623) = 0, chance(20) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(623) = 1, treasure(6)
+"Mordak al Kharud", english, queststatus(622) > 0, queststatus(623) = 0, chance(25) -> "#me nods and hands you an item silently.", queststatus(623) = 1, treasure(7)
+"Mordak al Kharud", german, queststatus(622) > 0, queststatus(623) = 0, chance(25) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(623) = 1, treasure(7)
+"Mordak al Kharud", english, queststatus(622) > 0, queststatus(623) = 0, chance(34) -> "#me nods and hands you an item silently.", queststatus(623) = 1, treasure(8)
+"Mordak al Kharud", german, queststatus(622) > 0, queststatus(623) = 0, chance(34) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(623) = 1, treasure(8)
+"Mordak al Kharud", english, queststatus(622) > 0, queststatus(623) = 0, chance(51) -> "#me nods and hands you an item silently.", queststatus(623) = 1, item(45, 1, 999, 1)
+"Mordak al Kharud", german, queststatus(622) > 0, queststatus(623) = 0, chance(51) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(623) = 1, item(45, 1, 999, 1)
+"Mordak al Kharud", english, queststatus(622) > 0, queststatus(623) = 0, chance(100) -> "#me nods and hands you an item silently.", queststatus(623) = 1, item(46, 1, 999, 1)
+"Mordak al Kharud", german, queststatus(622) > 0, queststatus(623) = 0, chance(100) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(623) = 1, item(46, 1, 999, 1)
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the archmage. My person bears the responsibility for the four towers of Runewick and their properties", "It's my duty to advise Runewick with my most prudent advice. - Now and again with concrete deeds.", "I'm the archmage, therefore I'm very busy. I advise you to ask a novice for details of my position."
 "beruf" -> "Ich bin der Erzmagier. Also obliegt mir die Verantwortung über die Türme Runewicks und deren Wirken. Nicht mehr, aber auch nicht weniger.", "Es ist meine selbst auferlegte Pflicht, Runwick mit meinem bestem Rat und der einen oder anderen Tat zur Seite zu stehen.", "Ich bin der Erzmagier hier, demnach sehr sehr beschäftigt. Am Besten lasst ihr Euch das von einem Novizen erklären."

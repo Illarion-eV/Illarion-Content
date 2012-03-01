@@ -1,11 +1,22 @@
 require("handler.sendmessage")
+require("base.common")
 
 -- UPDATE common SET com_script = 'test.vilarion' WHERE com_itemid = 9;
 
 module("test.vilarion", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
-    local a, b, quest
+    
+    -- setting quest status
+    local a, b, quest, status
+    a,b,quest,status = string.find(User.lastSpokenText,"reset (%d+) (%d+)")
+    if a ~= nil then
+        quest = tonumber(quest)
+        status = tonumber(status)
+        User:setQuestProgress(quest, status)
+        User:inform("#w Quest " .. quest .. " has been set to " .. status .. "!")
+        return
+    end
     a,b,quest = string.find(User.lastSpokenText,"reset (%d+)")
     if a ~= nil then
         quest = tonumber(quest)
@@ -14,24 +25,24 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return
     end
 
-    if User.id ~= 64 then
-        User:inform("e-Vil says: You are not allowed to use this!");
-        return;
-    end;
+    --if User.id ~= 64 then
+    --    User:inform("e-Vil says: You are not allowed to use this!");
+    --    return;
+    --end;
 
-    User.effects:addEffect(LongTimeEffect(777, 30))
+    --User.effects:addEffect(LongTimeEffect(777, 30))
 
     --pos = User.pos
     --pos.x = pos.x + 1
     --world:createDynamicNPC("Lasttier",50,pos,0,"npc.lasttier")
     --User:setQuestProgress(8, 1)
 
-    --local callback = function(dialog)
-    --    User:inform("Input: "..dialog:getInput())
-    --    a()
-    --end
-    --local inputDialog = InputDialog("Enter something cool!", true, 0, callback)
-    --User:requestInputDialog(inputDialog)
+    local callback = function(dialog)
+        User:inform("Shitty called back!")
+        --no_func()
+    end
+    local dialog = MessageDialog("Cool Title", "Cool Text", callback)
+    User:requestMessageDialog(dialog)
 end
 
 function useNPC(User,counter,param)

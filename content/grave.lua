@@ -30,9 +30,9 @@ function InitGrave()
 	AddGrave({106,663,-4},"","", 3,0);
 	AddGrave({107,673,-4},"","", 3,0);
 	AddGrave({113,670,-4},"","", 1,0);
-	AddGrave({108,665,-4},"","", 1,0);
-	AddGrave({157,668,-4},"","", 4,0);
-	AddGrave({158,667,-4},"","", 3,0);
+	AddGrave({108,665,-4},"","", 1,0);]]--
+	AddGrave({157,668,-4},"Nach etwas Zeit erkennst du schließlich eine 18.","After some time you can recognize a 18.", 4,0);
+	--[[AddGrave({158,667,-4},"","", 3,0);
 	--Cherass‘ Citadel
 	AddGrave({572,314,0},"","", 2,0);
 	AddGrave({576,314,0},"","", 3,0);
@@ -48,7 +48,7 @@ function InitGrave()
 	AddGrave({573,318,0},"","", 4,0);
 	AddGrave({581,315,0},"","", 1,0);
 	AddGrave({605,327,0},"","", 1,0);
-	AddGrave({605,344,0},"","", 1,0);
+	AddGrave({605,344,0},"","", 1,0);  --used by victoria for quest: /questsystem/Gravestone
 	AddGrave({592,355,0},"","", 3,0);
 	AddGrave({585,323,0},"","", 2,0);
 	AddGrave({588,326,0},"","", 3,0);
@@ -172,16 +172,16 @@ function InitGrave()
 	AddGrave({894,801,0},"","", 1,5); --slums graveyard
 	AddGrave({892,799,0},"","", 1,5); --slums graveyard
 	AddGrave({908,803,-3},"","", 4,5); --tomb
-	AddGrave({908,805,-3},"","", 4,5); --tomb
-	AddGrave({907,803,-3},"","", 4,5); --tomb
-	AddGrave({907,805,-3},"","", 4,5); --tomb
+	AddGrave({908,805,-3},"","", 4,5); --tomb	]]--
+	AddGrave({907,803,-3},"Nach längeren Versuchen erkennst du schließlich eine 18.","After several tries you can recognize a 18.", 4,5); --tomb
+	--[[AddGrave({907,805,-3},"","", 4,5); --tomb
 	--Runewick Hinterland
 	AddGrave({925,940,0},"","", 1,5); --Twin Eyes Islands
 	AddGrave({865,846,0},"","", 2,5); --Woodcutter's Hut
 	AddGrave({862,847,0},"","", 3,5); --Woodcutter's Hut]]--
-	AddGrave({879,759,0},"","In remembrance of all victims of the mindless campaign in 30 BS between Cadomyr and Galmair who we could not reanimate, because they hid their bodies. Elara and the Fire of Triumph may help those fools from them to overcome their shortsightedness.", 1,5); --Fire of Triumph
-	AddGrave({871,757,0},"","In remembrance of all those who had been reanimated by our arcane talented unite in 31 BS but were slaughter again afterwards. Oldra and the Fire of Triumph may guide us to their corpses in order to further reanimation and protection against harm.", 1,5); --Fire of Triumph
-	--[[--Snakehead Coast
+	AddGrave({879,759,0},"Zur Erinnerung an all jene Opfer dieser sinnlosen Kampagne zwischen Cadomyr und Galmair in 30 BS. Elara und das Feuer des Triumphes sollen diesen rot-weißen und schwarz-gelben Dummköpfen helfen ihre Kurzsichtigkeit zu überkommen."," In remembrance of all victims of the mindless campaign between Cadomyr and Galmair in 30 BS. Elara and the Fire of Triumph may help those red-white and black-yellow fools to overcome their short sightedness.", 1,5); --Fire of Triumph
+	AddGrave({871,757,0},"Zur Erinnerung an all jene die wiederbelebt werden konnten dank unserer in der arkanen Kunst talentierten Einheiten in 31 BS, welche aber nachher wieder niedergemetzelt wurden. Oldra und das Feuer des Triumphes sollen sie behüten.","In remembrance of all those who had been reanimated by our in arcane art talented units in 31 BS but who were slaughtered again afterwards. Oldra and the Fire of Triumph may protect them.", 1,5); --Fire of Triumph
+	--[[--Snakehead Coast 
     AddGrave({621,463,0},"","", 1,0);
     AddGrave({692,483,0},"","", 1,0); --Wilder Island
     AddGrave({714,442,0},"","", 3,0);

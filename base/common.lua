@@ -197,25 +197,26 @@ end;
 --- Get the position right in front of a character in looking direction
 -- @param User The character the front position is wanted
 -- @return The position in front of the character
-function GetFrontPosition(User)
+function GetFrontPosition(User, distance)
     local direct = User:getFaceTo();
-
+    local d = distance or 1;
+	
     if (direct == Character.north) then
-        return position(User.pos.x, User.pos.y - 1, User.pos.z);
+        return position(User.pos.x, User.pos.y - d, User.pos.z);
     elseif (direct == Character.northeast) then
-        return position(User.pos.x + 1, User.pos.y - 1, User.pos.z);
+        return position(User.pos.x + d, User.pos.y - d, User.pos.z);
     elseif (direct == Character.east) then
-        return position(User.pos.x + 1, User.pos.y, User.pos.z);
+        return position(User.pos.x + d, User.pos.y, User.pos.z);
     elseif (direct == Character.southeast) then
-        return position(User.pos.x + 1, User.pos.y + 1, User.pos.z);
+        return position(User.pos.x + d, User.pos.y + d, User.pos.z);
     elseif (direct == Character.south) then
-        return position(User.pos.x, User.pos.y + 1, User.pos.z);
+        return position(User.pos.x, User.pos.y + d, User.pos.z);
     elseif (direct == Character.southwest) then
-        return position(User.pos.x - 1, User.pos.y + 1, User.pos.z);
+        return position(User.pos.x - d, User.pos.y + d, User.pos.z);
     elseif (direct == Character.west) then
-        return position(User.pos.x - 1, User.pos.y, User.pos.z);
+        return position(User.pos.x - d, User.pos.y, User.pos.z);
     elseif (direct == Character.northwest) then
-        return position(User.pos.x - 1, User.pos.y - 1, User.pos.z);
+        return position(User.pos.x - d, User.pos.y - d, User.pos.z);
     end;
 
     return User.pos;
@@ -607,13 +608,13 @@ function GetGroundType(TileID)
         return GroundType.water;
     elseif (TileID == 9) then -- forest
         return GroundType.forest;
-    elseif (TileID == 3) then -- sand
+    elseif (TileID == 3 or TileID == 12) then -- sand
         return GroundType.sand;
     elseif (TileID == 11) then -- gras
         return GroundType.gras;
     elseif (TileID == 2 or TileID == 15) then -- rocks
         return GroundType.rocks;
-    elseif (TileID == 8) then -- dirt
+    elseif (TileID == 8 or TileID == 16) then -- dirt
         return GroundType.dirt;
     elseif (TileID == 10) then -- snow
         return GroundType.snow;

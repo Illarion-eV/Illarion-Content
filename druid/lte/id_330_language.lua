@@ -1,6 +1,6 @@
 -- LTE für das Druidensystem
 -- by Falk
--- Zeitverlauf und temporäres Sprachverständnis
+-- reworked by Merung
 
 require("base.common")
 
@@ -9,11 +9,6 @@ module("druid.lte.id_330_language", package.seeall)
 -- INSERT INTO longtimeeffects VALUES (330, 'druids_language', 'druid.lte.id_330_language');
 
 ListLanguages={"human language","dwarf language","elf language","lizard language","orc language","halfling language","fairy language","gnome language","goblin language","ancient language"}
-
-function getAction(User,Effect,Runde)
---Hier die eigentlichen Aktionen eintragen  
---Beim temp. Sprachskill besteht der Effekt im Verlauf der Zeit
-end
 
 function addEffect(Effect, User)               				
 --Nur beim ersten Aufruf
@@ -24,8 +19,8 @@ function callEffect(Effect,User)
 	findCounter,counterWhite = Effect:findValue("counterWhite")
     findCooldown,cooldownWhite = Effect:findValue("cooldownWhite")
 	
-	if findCooldown then
-	    if counterWhite > 0 then
+	if findCounter then
+	    if counterWhite >= 1 then
 		
 		   if findCounter then
 		      counterWhite = counterWhite - 1;
@@ -54,9 +49,8 @@ function callEffect(Effect,User)
 				User:inform("oldSkill: "..oldSkill)
 				User:increaseSkill(skillGroup,skillName,(-(newSkill-oldSkill))) -- ergibt wahrscheinlich noch falsche Werte
      
-	            world:gfx(45,User.pos) 
-		    end
-	   end
+	        end
+	   else
 		   if findCooldown then
                 if cooldownWhite < 1 then
 	               User:inform("return false")
@@ -65,18 +59,16 @@ function callEffect(Effect,User)
                    cooldownWhite = cooldownWhite - 1;
                    User:inform("cooldown - 1 = "..cooldownWhite)
 				   Effect:addValue("cooldownWhite",cooldownWhite)
-			       Effect.nextCalled = 50
-			       User:inform("return true")
-				   User:inform("Skillhöhe: "..User:increaseSkill(1,"elf language",0))
-				   return true
-	           end
+			    end
 		   end
-       
+       end
 	end
+    Effect.nextCalled = 50
+	return true
 end
 
 function removeEffect(Effect,User)
-User:inform("Skillhöhe: "..User:increaseSkill(1,"elf language",0))
+
 end
 
 function loadEffect(Effect,User)                  			

@@ -6,14 +6,19 @@
 -- Liste der IDs mit Objekten aus Holz
 -- WICHTIG: Liste MUSS aufsteigend geordnet sein
 
+-- few changes by Merung: 
+-- took checkHit out; replaced rabbits with slime; took out damage on item quality or duration 
+
+
 require("base.common")
 
 module("druid.base.missile", package.seeall);
 
 ListeObjHolz = {39,40,56,57,76,207,208,209,293,323,2782,2783,2784,2785,2786};
 
-function fieldOfRadius1( posi )
-    local actionfield = { };
+function fieldOfRadius1( Item )
+    local posi = Item.pos
+	local actionfield = { };
 
     for x=-1,1 do
         for y=-1,1 do
@@ -23,8 +28,9 @@ function fieldOfRadius1( posi )
 	return actionfield;
 end
 
-function fieldOfRadius2( posi )
-    local actionfield = { };
+function fieldOfRadius2( Item )
+    local posi = Item.pos
+	local actionfield = { };
 
     for x=-2,2 do
         for y=-2,2 do
@@ -36,7 +42,7 @@ function fieldOfRadius2( posi )
 	return actionfield;
 end
 
-function createRabbits( targetArea )
+function createSlime(User, Item, targetArea )
     local rabbit;
     -- Bestimme lebenszeit der Hasen. Vernichtung Hasen erfolgt über die initiale Verwendung von Gift.
     -- Vergebene Giftpunkte werden Skaliert von 1000 (bei quality 100) bis 50 (bei quality 999)
@@ -44,18 +50,17 @@ function createRabbits( targetArea )
 
     for i, posi in pairs(targetArea) do
         if not world:isCharacterOnField( posi ) then
-            rabbit = world:createMonster(295,posi,-20);
-            if isValidChar(rabbit) then
-		        rabbit:setPoisonValue( lifeTime );
+            slime = world:createMonster(1054,posi,-20);
+            if isValidChar(slime) then
+		        slime:setPoisonValue( lifeTime );
 		    end
-            --rabbit:increasePoisonValue( lifeTime );
         end
     end
 
     -- Sollte sich die Verwendung von Gift bei diesem Effekt als nicht verwertbar herausstellen kann auch ein LTE auf die einzelnen Hasen gelegt werden.
 end
 
-function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sfxid, modifier )
+function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sfxid, modifier )
     local Person;
     local AttribEffect;
     local Schaden;
@@ -65,7 +70,9 @@ function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sf
         modifier = 1;
     end
 
-    for i, posi in pairs(DamagedArea) do
+    User:inform(""..modifier)
+	
+	for i, posi in pairs(DamagedArea) do
         if world:isCharacterOnField( posi ) then
             Person = world:getCharacterOnField( posi );
 
@@ -100,10 +107,14 @@ function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sf
             -- Der dreifache Wert der Rüstungssteifheit wird vom Schaden abgezogen ( max. -1080 )
             Schaden = Schaden - Stiffness * 3;
 
-            -- Modifier für Attribute mit mehr als 10000 Punkten
+            User:inform("schaden vor modifier: "..Schaden)
+			
+			-- Modifier für Attribute mit mehr als 10000 Punkten
             Schaden = math.ceil(Schaden * modifier);
 
-            if ( Schaden > 0 ) then
+            User:inform("schaden nach modifier: "..Schaden)
+			
+			if ( Schaden > 0 ) then
                 Person:increaseAttrib( DamagedAttrib, -Schaden );
             end
         end
@@ -237,6 +248,11 @@ function checkWoody( id, lower, upper )
     end
 end
 
+-- the function checkHit leads to a strange looking result: it can happen that the center of the explosion is not the position of the bottle
+-- it looks strange and would confuse players
+-- if it is wanted (I don't like the idea in general, though), MoveItemBeforeMove in id_327_blue_bottle can be used to get the same result (that the the bottle does not hit the exact field the player aimed at)
+-- therefore, I don't use it
+-- Merung
 function checkHit( User, Item )
     local wetter     = world.weather.fog_density + world.weather.thunderstorm; -- 0 - 200
     local dexterity  = User:increaseAttrib( "dexterity", 0 ); -- 3 - 20
@@ -286,7 +302,7 @@ function selectCharacter( targetPosis )
     end
 
     if table.getn( finePosis ) == 0 then
-        return false;
+        return;
     end
 
     return finePosis[ math.random( 1, table.getn( finePosis ) ) ];
@@ -296,29 +312,29 @@ end
 
 -- Voller Hitpoint-Schaden auf 1er-Feld
 function effect_66475155(User,Item)
-    causeDamage( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, "hitpoints", { "strength", "constitution" }, 12, 5 );
+    causeDamage(User, Item, { selectCharacter( fieldOfRadius1( Item ) ) }, "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Voller Hitpoint-Schaden auf 9er-Feld
 function effect_93531588(User,Item)
-    causeDamage( Item, fieldOfRadius1( checkHit( User, Item ) ), "hitpoints", { "strength", "constitution" }, 12, 5 );
+    causeDamage(User, Item, fieldOfRadius1( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Aufgeteilter Hitpoint-Schaden auf 9er Feld
 function effect_84254555(User,Item)
-    local hitArea = fieldOfRadius1( checkHit( User, Item ) );
-    causeDamage( Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
+    local hitArea = fieldOfRadius1( Item );
+    causeDamage(User, Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
 end
 
 -- Voller Hitpoint-Schaden auf 21er-Feld
 function effect_75568356(User,Item)
-    causeDamage( Item, fieldOfRadius2( checkHit( User, Item ) ), "hitpoints", { "strength", "constitution" }, 12, 5 );
+    causeDamage(User, Item, fieldOfRadius2( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Aufgeteilter Hitpoint-Schaden auf 21er Feld
 function effect_36835636(User,Item)
-    local hitArea = fieldOfRadius2( checkHit( User, Item ) );
-    causeDamage( Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
+    local hitArea = fieldOfRadius2( Item );
+    causeDamage(User, Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
 end
 
 
@@ -326,28 +342,28 @@ end
 
 -- Voller Mana-Schaden auf 1er-Feld
 function effect_24968253(User,Item)
-    causeDamage( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, "mana", { "willpower", "essence" }, 4, 5 );
+    causeDamage( Item, { selectCharacter( fieldOfRadius1( Item ) )  }, "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Voller Mana-Schaden auf 9er-Feld
 function effect_16359531(User,Item)
-    causeDamage( Item, fieldOfRadius1( checkHit( User, Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
+    causeDamage( Item, (fieldOfRadius1( Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Aufgeteilter Mana-Schaden auf 9er Feld
 function effect_71943574(User,Item)
-    local hitArea = fieldOfRadius1( checkHit( User, Item ) );
+    local hitArea = (fieldOfRadius1( Item ) );
     causeDamage( Item, hitArea, "mana", { "willpower", "essence" }, 4, 5, 1/countCharacters( hitArea ) );
 end
 
 -- Voller Mana-Schaden auf 21er-Feld
 function effect_47564545(User,Item)
-    causeDamage( Item, fieldOfRadius2( checkHit( User, Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
+    causeDamage( Item, (fieldOfRadius2( Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Aufgeteilter Mana-Schaden auf 21er Feld
 function effect_33421656(User,Item)
-    local hitArea = fieldOfRadius2( checkHit( User, Item ) );
+    local hitArea = (fieldOfRadius2( Item ) );
     causeDamage( Item, hitArea, "mana", { "willpower", "essence" }, 4, 5, 1/countCharacters( hitArea ) );
 end
 
@@ -356,69 +372,73 @@ end
 
 -- Voller Sattmacher-Schaden auf 1er-Feld
 function effect_63155452(User,Item)
-    causeDamage( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
+    causeDamage( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
 end
 
 -- Voller Sattmacher-Schaden auf 9er-Feld
 function effect_21915579(User,Item)
-    causeDamage( Item, fieldOfRadius1( checkHit( User, Item ) ), "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
+    causeDamage( Item, (fieldOfRadius1( Item ) ), "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
 end
 
 -- Aufgeteilter Sattmacher-Schaden auf 9er Feld
 function effect_64312656(User,Item)
-    local hitArea = fieldOfRadius1( checkHit( User, Item ) );
+    local hitArea = (fieldOfRadius1( Item ) );
     causeDamage( Item, hitArea, "foodlevel", { "constitution", "agility" }, 4, 5, 6/countCharacters( hitArea ) );
 end
 
 -- Voller Sattmacher-Schaden auf 21er-Feld
 function effect_87783632(User,Item)
-    causeDamage( Item, fieldOfRadius2( checkHit( User, Item ) ), "foodlevel", { "constitution", "agility" }, 4, 5, 6 );
+    causeDamage( Item, (fieldOfRadius2( Item ) ), "foodlevel", { "constitution", "agility" }, 4, 5, 6 );
 end
 
 -- Aufgeteilter Sattmacher-Schaden auf 21er Feld
 function effect_62358491(User,Item)
-    local hitArea = fieldOfRadius2( checkHit( User, Item ) );
+    local hitArea = (fieldOfRadius2( Item ) );
     causeDamage( Item, hitArea, "foodlevel", { "constitution", "agility" }, 4, 5, 6/countCharacters( hitArea ) );
 end
 
 ---- MONSTER UM DEN WEG ZU BLOCKIEREN ----
 
---Hasenbarriere auf 9er-Feld
+--Schleimbarriere auf 9er-Feld
 function effect_84613666(User,Item)
-    createRabbits( fieldOfRadius1( checkHit( User, Item ) ) );
+    createSlime(User, Item, (fieldOfRadius1( Item ) ) );
 end
 
---Hasenbarriere auf 21er-Feld
+--Schleimbarriere auf 21er-Feld
 function effect_29732752(User,Item)
-    createRabbits( fieldOfRadius2( checkHit( User, Item ) ) );
+    createSlime(Item, (fieldOfRadius2( Item ) ) );
 end
 
+
+-- the folling effect are NOT in use ancymore. They are no good fir fighting, just for annoying players. 
+-- Therefore, we decided to take them out
+--[[
 ---- SCHADEN AUF RüSTUNGEN - HALTBARKEIT ----
 
 -- Voller Haltbarkeits-Schaden auf Rüstungen auf 1er Feld
 function effect_55938556(User,Item)
-    damageItemDura( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, 4, 5, 1, "armor" );
+    damageItemDura( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, 4, 5, 1, "armor" );
 end
 
 --Voller Haltbarkeits-Schaden auf Rüstungen auf 9er Feld
 function effect_43245354(User,Item)
-    damageItemDura( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "armor" );
+    damageItemDura( Item, (fieldOfRadius1( Item ) ), 4, 5, 1, "armor" );
 end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Rüstungen auf 9er Feld
 function effect_95257533(User,Item)
-    local hitArea = fieldOfRadius1( checkHit( User, Item ) );
+    local hitArea = (fieldOfRadius1( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
 end
 
 --Voller Haltbarkeits-Schaden auf Rüstungen auf 21er Feld
 function effect_59159412(User,Item)
-    damageItemDura( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "armor" );
+    damageItemDura( Item, (fieldOfRadius1( Item ) ), 4, 5, 1, "armor" );
 end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Rüstungen auf 21er Feld
 function effect_36557188(User,Item)
-    local hitArea = fieldOfRadius2( checkHit( User, Item ) );
+    local hitArea = (fieldOfRadius2( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
 end
 
@@ -426,28 +446,28 @@ end
 
 --Voller Qualitäts-Schaden auf Rüstungen auf 1er Feld
 function effect_98538617(User,Item)
-    damageItemQual( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, 4, 5, 1, "armor" );
+    damageItemQual( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, 4, 5, 1, "armor" );
 end
 
 --Voller Qualitäts-Schaden auf Rüstungen auf 9er Feld
 function effect_79684787(User,Item)
-    damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "armor" );
+    damageItemQual( Item, (fieldOfRadius1( Item ) ), 4, 5, 1, "armor" );
 end
 
 --Aufgeteilter Qualitäts-Schaden auf Rüstungen auf 9er Feld
 function effect_32484266(User,Item)
-    local hitArea = fieldOfRadius1( checkHit( User, Item ) );
+    local hitArea = (fieldOfRadius1( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
 end
 
 --Voller Qualitäts-Schaden auf Rüstungen auf 21er Feld
 function effect_96261935(User,Item)
-    damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "armor" );
+    damageItemQual( Item, (fieldOfRadius1( Item ) ), 4, 5, 1, "armor" );
 end
 
 --Aufgeteilter Qualitäts-Schaden auf Rüstungen auf 21er Feld
 function effect_26372612(User,Item)
-    local hitArea = fieldOfRadius2( checkHit( User, Item ) );
+    local hitArea = (fieldOfRadius2( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
 end
 
@@ -456,28 +476,28 @@ end
 
 --Voller Haltbarkeits-Schaden auf Waffen auf 1er Feld
 function effect_56548394(User,Item)
-    damageItemDura( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, 4, 5, 1, "weapon" );
+    damageItemDura( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, 4, 5, 1, "weapon" );
 end
 
 --Voller Haltbarkeits-Schaden auf Waffen auf 9er Feld
 function effect_81876627(User,Item)
-    damageItemDura( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "weapon" );
+    damageItemDura( Item,( fieldOfRadius1( Item ) ), 4, 5, 1, "weapon" );
 end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Waffen auf 9er Feld
 function effect_86656358(User,Item)
-    local hitArea = fieldOfRadius1( checkHit( User, Item ) );
+    local hitArea = (fieldOfRadius1( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
 end
 
 --Voller Haltbarkeits-Schaden auf Waffen auf 21er Feld
 function effect_77254231(User,Item)
-    damageItemDura( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "weapon" );
+    damageItemDura( Item, (fieldOfRadius1( Item ) ), 4, 5, 1, "weapon" );
 end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Waffen auf 21er Feld
 function effect_32185872(User,Item)
-    local hitArea = fieldOfRadius2( checkHit( User, Item ) );
+    local hitArea = (fieldOfRadius2( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
 end
 
@@ -485,28 +505,28 @@ end
 
 --Voller Qualitäts-Schaden auf Waffen auf 1er Feld
 function effect_91357421(User,Item)
-    damageItemQual( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, 4, 5, 1, "weapon" );
+    damageItemQual( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, 4, 5, 1, "weapon" );
 end
 
 --Voller Qualitäts-Schaden auf Waffen auf 9er Feld
 function effect_52761593(User,Item)
-    damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "weapon" );
+    damageItemQual( Item, (fieldOfRadius1( Item ) ), 4, 5, 1, "weapon" );
 end
 
 --Aufgeteilter Qualitäts-Schaden auf Waffen auf 9er Feld
 function effect_19123643(User,Item)
-    local hitArea = fieldOfRadius1( checkHit( User, Item ) );
+    local hitArea = (fieldOfRadius1( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
 end
 
 --Voller Qualitäts-Schaden auf Waffen auf 21er Feld
 function effect_35471525(User,Item)
-    damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "weapon" );
+    damageItemQual( Item, (fieldOfRadius1( Item ) ), 4, 5, 1, "weapon" );
 end
 
 --Aufgeteilter Qualitäts-Schaden auf Waffen auf 21er Feld
 function effect_32812622(User,Item)
-    local hitArea = fieldOfRadius2( checkHit( User, Item ) );
+    local hitArea = ( fieldOfRadius2( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
 end
 
@@ -514,28 +534,28 @@ end
 
 --Voller Haltbarkeits-Schaden auf Holzitems auf 1er Feld
 function effect_12836431(User,Item)
-    damageItemDura( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, 4, 5, 1, "wood" );
+    damageItemDura( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, 4, 5, 1, "wood" );
 end
 
 --Voller Haltbarkeits-Schaden auf Holzitems auf 9er Feld
 function effect_43185342(User,Item)
-    damageItemDura( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "wood" );
+    damageItemDura( Item, ( fieldOfRadius1( Item ) ), 4, 5, 1, "wood" );
 end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Holzitems auf 9er Feld
 function effect_57771997(User,Item)
-    local hitArea = fieldOfRadius1( checkHit( User, Item ) );
+    local hitArea = (fieldOfRadius1( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
 end
 
 --Voller Haltbarkeits-Schaden auf Holzitems auf 21er Feld
 function effect_13245638(User,Item)
-    damageItemDura( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "wood" );
+    damageItemDura( Item, ( fieldOfRadius1( Item ) ), 4, 5, 1, "wood" );
 end
 
 --Aufgeteilter Haltbarkeits-Schaden auf Holzitems auf 21er Feld
 function effect_88343542(User,Item)
-    local hitArea = fieldOfRadius2( checkHit( User, Item ) );
+    local hitArea =  ( fieldOfRadius2( Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
 end
 
@@ -543,30 +563,30 @@ end
 
 --Voller Qualitäts-Schaden auf Holzitems auf 1er Feld
 function effect_67589591(User,Item)
-    damageItemQual( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, 4, 5, 1, "wood" );
+    damageItemQual( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, 4, 5, 1, "wood" );
 end
 
 --Voller Qualitäts-Schaden auf Holzitems auf 9er Feld
 function effect_96566994(User,Item)
-    damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "wood" );
+    damageItemQual( Item, ( fieldOfRadius1( Item ) ), 4, 5, 1, "wood" );
 end
 
 --Aufgeteilter Qualitäts-Schaden auf Holzitems auf 9er Feld
 function effect_13983419(User,Item)
-    local hitArea = fieldOfRadius1( checkHit( User, Item ) );
+    local hitArea =  ( fieldOfRadius1( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
 end
 
 --Voller Qualitäts-Schaden auf Holzitems auf 21er Feld
 function effect_42218944(User,Item)
-    damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "wood" );
+    damageItemQual( Item, ( fieldOfRadius1( Item ) ), 4, 5, 1, "wood" );
 end
 
 --Aufgeteilter Qualitäts-Schaden auf Holzitems auf 21er Feld
 function effect_69657293(User,Item)
-    local hitArea = fieldOfRadius2( checkHit( User, Item ) );
+    local hitArea = ( fieldOfRadius2( Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
-end
+end]]
 
 
 --[[

@@ -565,3 +565,17 @@ for i,checkId in pairs(gemList) do
 end	
 return retVal
 end
+
+function StockExplosion(User, SourceItem, cauldron)
+    world:makeSound(10,cauldron.pos);
+    User:increaseAtPos(SourceItem.itempos,-1);
+    world:makeSound(5,cauldron.pos);
+    world:gfx(9,cauldron.pos);
+    base.common.InformNLS( User,
+	    "Deine letzte Handlung scheint den Sud zerstört und zu einer Explosion geführt zu haben.",
+	    "Your last doing seems to have destroyed the stock and caused an explosion."
+				);
+    cauldron:setData("cauldronData","");
+    world:changeItem(cauldron)
+    User:increaseAttrib("hitpoints", -3000);
+end	

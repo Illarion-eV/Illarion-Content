@@ -670,6 +670,21 @@ function iniQuests()
     maximumQueststatus[id]=10; 
     questLocation[id]=position(501,107,0); 
     radius[id]=15;
+	
+	--Quest 22: Tutorial
+
+    local id=22;
+    germanTitle[id]="Tutorial"; 
+    englishTitle[id]="Tutorial";
+    NPCName[id]="Maurince"; 
+    statusId[id]=311;
+    germanRace[id]="Schwein"; 
+    englishRace[id]="Pig";
+    table.insert(questList[241],id); 
+    minimumQueststatus[id]=2; 
+    maximumQueststatus[id]=4; 
+    questLocation[id]=position(32,47,100); 
+    radius[id]=25;
 --debug("INI QUEETS END")
 end
 

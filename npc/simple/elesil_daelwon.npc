@@ -110,8 +110,8 @@ itemShoes = 369
 "Tempel" -> "Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldan, Schrein der Elara, Schrein der Findari und Schrein des Bragon.",inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein des Bragon")
 "teleport", english -> "This teleporter here can lead you to Cadomyr, Galmair or to the Hemp Necktie Inn."
 "teleport" -> "Dieser Teleporter hier vermag euch nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge zu bringen."
-"Census office" -> "You are not the first person who asks for the the census office. But again, I cannot remember where it is."
-"Zensusbüro" -> "Du bist nicht die erste Person die mich nach dem Zensusbüro fragt. Aber das ändert nichts, ich kann mich nicht erinnern wo es liegt."
+"Census office" -> "The census office can be found in the Tower of Fire next the Library of Fire. You will find Reret Odohir there. He will help you further."
+"Zensusbüro" -> "Das Zensusbüro kann im Turm des Feuer neben der Bibliothek des Feuers gefunden werden werden. Man findet dort Reret Odohir. Er wird einem weiterhelfen."
 "Donkey stable", "stable" -> "Over there. *points south*"
 "Eselstall", "Stall" -> "Dort drüben *zeigt in den Süden*"
 "Donkey" -> "You can rent them at the donkey stable."
@@ -142,7 +142,7 @@ itemShoes = 369
 "Shrine Findari", "Findari Shrine" -> "The Shrine of Findari can be found in the sixth floor or rather at the top of the Tower of Air."
 "Schrein Findari", "Findari Shrine" -> "Der Schrein der Findari kann im fünften Stock beziehungsweise auf der Spitze des Turm der Luft gefunden werden."
 "Tower Fire", "Fire Tower" -> "This is the first northern tower and it is tower is mainly made for mages. You can find there following rooms: Workshop, Library of Fire, Archmage Champer, Hall of Elara, Bragon Stronghold and Shrine of Bragon.", inform("[Keywords] Workshop, Library of Fire, Archmage Champer, Hall of Elara, Bragon Stronghold, Shrine of Bragon")
-"Turm Feuer", "Feuer Turm" -> "Dieser Turm ist der erste nördliche Turm und hauptsächlich für Magier. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Hall der Elara, Bragon Bollwerk und Schrein des Bragon.", inform("[Schlüsselwörter] Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Hall der Elara, Bragon Bollwerk, Schrein des Bragon")
+"Turm Feuer", "Feuer Turm" -> "Dieser Turm ist der erste nördliche Turm und hauptsächlich für Magier. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Halle der Elara, Bragon Bollwerk und Schrein des Bragon.", inform("[Schlüsselwörter] Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Hall der Elara, Bragon Bollwerk, Schrein des Bragon")
 "Workshop" -> "The workshop in the basement of the Tower of Fire offers possibilities for tailors, cooks, glasblowers, and so on. Furthermore, due to Adron's Swill is closed currently, our taverne is also located there."
 "Werkstatt" -> "Die Werkstatt im Erdgeschoß des Turm des Feuers ermöglicht Schneidern, Köchen, Glasbläsern und so weiter eine Möglichkeit ihrer Tätigkeit nachzugehen. Zusätzlich ist auch unsere Taverne dort zu finden, da Adrons Gesöff momentan geschlossen ist."
 "Library Fire", "Fire Library" -> "The Library of Fire can be found in the second floor of the Tower of Fire. Do I have to explain what you can do their? I hope not."
@@ -150,7 +150,7 @@ itemShoes = 369
 "Archmage Champer", "Champer Archmage" -> "The Archmage Champer can be found in the third floor of the Tower of Fire. It is the private room of our Archmage Elvaine Morgan."
 "Erzmagier Kammer", "Kammer Erzmagier" -> "Die Erzmagier Kammer kann im zweiten Stock des Turm des Feuer gefunden werden. Es ist der private Raum unserers Erzmagier Elvaine Morgan."
 "Hall Elara", "Elara Hall", english -> "The Hall of Elara can be found in the third floor of the Tower of Fire. It serves an audience champer or conference room to listen and meet our Archmage Elvaine Morgan."
-"Hall Elara", "Elara Hall" -> "Die Halle der Elara kann im zweiten Stock des Turm des Feuer gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum zum hören und treffen unseres Erzmagier Elvaine Morgan."
+"Halle Elara", "Elara Halle" -> "Die Halle der Elara kann im zweiten Stock des Turm des Feuer gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum zum hören und treffen unseres Erzmagier Elvaine Morgan."
 "Bragon Stronghold", "Stronghold Bragon" -> "Bragon's Stronghold is in the fourth floor of the Tower of Fire and offers a posibility to improve one's combat skills."
 "Bragon Bollwerk", "Bollwerk Bragon" -> "Bragon's Bollwerk ist im dritten Stock des Turm des Feuer und ermöglicht jeder Person seine Kampffähigkeiten zu verbessern."
 "Shrine Bragon", "Bragon Shrine" -> "The Shrine of Bragon can be found in the sixth floor or rather at the top of the Tower of Fire."
@@ -182,7 +182,7 @@ itemShoes = 369
 -- "Guild" -> ""
 
 "Hinterland",english -> "The Hinterland of Runewick contains following places: Fire of Triumph, Holy Oak, Woodcutter's Hut, Twin Eyes Island, Oldra's Column, Lurnord bridge and Mermaid", inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Hut, Twin Eyes Island, Oldra Column, Mermaid, Lurnord bridge")
-"HInterland" -> "Das Hinterland von Runewick enthält folgende Plätze: Feuer des Triumph, Heilige Eiche, Holzfäller Hütte, Zwillingsaugen Inseln, Oldras Säule, Lurnord Brücke und Meerjungfrau", inform("[Schlüsselwörter] Feuer des Triumph, Heilige Eiche, Holzfäller Hütte, Zwillingsaugen Insel, Oldras Säule, Meerjungfrau, Lurnord Brücke")
+"Hinterland" -> "Das Hinterland von Runewick enthält folgende Plätze: Feuer des Triumph, Heilige Eiche, Holzfäller Hütte, Zwillingsaugen Inseln, Oldras Säule, Lurnord Brücke und Meerjungfrau", inform("[Schlüsselwörter] Feuer des Triumph, Heilige Eiche, Holzfäller Hütte, Zwillingsaugen Insel, Oldras Säule, Meerjungfrau, Lurnord Brücke")
 "Fire Triumph","Triumph Fire" -> "It can be found north of here, after the Holy Oak. This place reminds on our involvement and victory in a compain between Cadomyr and Galmair. Unfortunately, some actions went wrong."
 "Feuer Triumph","Triumph Feuer" -> "Dieser Platz kann nördlich von hier, nach der Heiligen Eiche gefunden werden und erinnert an unsere Einflussnahme und unseren Sieg in einer Auseinandersetzung zwichen Cadomyr und Galmair. Leider ging einiges schief."
 "Holy Oak" -> "This is a holy and very old tree in the north of here. You will find more information there."
@@ -199,10 +199,10 @@ itemShoes = 369
 "Lurnord Brücke" ->"Das ist die Brücke zwischen hier und Eibental. *zeigt in den Westen* Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "IN PROGRESS."
-"quest", "mission" -> "IN ARBEIT."
-"task", "adventure", "order" -> "IN PROGRESS."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+--"quest", "mission", english -> "IN PROGRESS."
+--"quest", "mission" -> "IN ARBEIT."
+--"task", "adventure", "order" -> "IN PROGRESS."
+--"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
 
 -- Faction stuff
 "archmage" -> "Our leader can be found in the Hall of Elara in the Fire Tower if you want to talk with him."

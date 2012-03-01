@@ -4,68 +4,76 @@ module("scheduled.gaia", package.seeall)
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.gaia', 10, 10, 'plantdrop');
 
-function AddPlant(ItemID,Ground,Frequenz,Season,Datawert)
+function AddPlant(ItemID,Ground,Region,Season,Datawert)
     table.insert(plnt,ItemID);
     table.insert(grnd,Ground);
-    table.insert(freq,Frequenz);
+    table.insert(reg,Region);
     table.insert(seas,Season);
     table.insert(dataval,Datawert);
+end
+
+function AddRegion(RegionID,X,Y,Z)
+    table.insert(regID,RegionID);
+    table.insert(regX,X);
+    table.insert(regY,Y);
+    table.insert(regZ,Z);
 end
 
 function Init()
     plnt = {};
     grnd = {};
-    freq = {};
+    reg = {}; -- 0 = global, 1,2,... = region
     seas = {};
     dataval= {};
-    AddPlant(133,{1,1,1,1,4},1,{8,10,2,0},0);  -- Sonnenkraut
-    AddPlant(134,{4},1,{6,1,5,10},0);          -- Vierblättrige Einbeere
-    AddPlant(135,{1},1,{10,6,3,0},0);          -- Gelbkraut
-    AddPlant(136,{5},1,{4,3,10,7},0);          -- Wutbeere
-    AddPlant(137,{3},1,{3,1,4,10},0);          -- Flammkelchblüte
-    AddPlant(138,{2,7},1,{2,2,9,5},0);         -- Nachtengelsblüte
-    AddPlant(140,{2},1,{10,2,7,3},0);          -- Donfblatt
-    AddPlant(141,{4},1,{3,10,5,0},0);          -- Schwarze Distel
-    AddPlant(142,{3},1,{2,3,10,6},0);          -- Sandbeere
-    AddPlant(143,{4},1,{0,5,10,5},0);          -- Roter Holunder
-    AddPlant(144,{5},1,{5,0,2,10},0);          -- Jungfernkraut
-    AddPlant(145,{4},1,{10,6,3,0},0);          -- Heideblüte
-    AddPlant(146,{3},1,{6,5,10,5},0);          -- Wüstenhimmelkapsel
-    AddPlant(148,{5},1,{2,10,3,0},0);          -- Firnisblüte
-    AddPlant(152,{2,3,5,6},1,{4,4,4,4},0);     -- Lebenswurz
-    AddPlant(153,{5},1,{10,4,1,0},0);          -- Fussblatt
-    AddPlant(155,{7},1,{4,10,5,1},0);          -- Sibanac Blatt
-    AddPlant(156,{3},1,{10,1,2,4},0);          -- Steppenfarn
-	AddPlant(2696,{2,4,5},1,{6,4,8,1},80);	   -- Federn
-	
-	-- Pflanzen des DS-Systems mit SonderID in data
-    AddPlant(133,{4},1,{8,10,6,0},9001); -- "Einblättrige Vierbeere" / "oneleaved fourberry" 
-	AddPlant(134,{4},1,{6,0,6,10},9002); -- "Blaue Vogelbeere" / "blue birdsberry"
-    AddPlant(135,{5},1,{10,6,0,8},9003); -- "Schwefelkraut" / "sulfur weed"
-    AddPlant(136,{5},1,{0,6,10,7},9004); -- "Frommbeere" / "pious berry"
-    AddPlant(137,{4},1,{6,0,6,10},9005); -- "Wasserblüte" / "water blossom"
-    AddPlant(138,{2},1,{0,6,10,6},9006); -- "Tagteufel" / "daydevil"
-    AddPlant(140,{2},1,{10,6,0,6},9007); -- "Rauchblatt" / "reek leave"
-    AddPlant(141,{5},1,{6,10,6,0},9008); -- "Graue Distel" / "grey thistle"
-    AddPlant(142,{3},1,{0,6,10,6},9009); -- "Wüstenbeere" / "desert berry"
-    AddPlant(152,{4},1,{4,4, 4,4},9013); -- "Feuerwurz" / "fire root"
-    AddPlant(144,{2},1,{6,0,6,10},9010); -- "Altweiberkraut" / "gossamer weed"
-    AddPlant(145,{4},1,{10,6,0,6},9011); -- "Regenkraut" / "rain weed"
-    AddPlant(146,{3},1,{6,10,6,0},9012); -- "Gottesblume" / "godsflower"
-    AddPlant(148,{2},1,{6,10,6,0},9014); -- "Trugblüte" / "con blossom" 
-    AddPlant(156,{2},1,{0,6,10,6},9015); -- "Wolfsfarn" / "wolverine fern"
-    AddPlant(153,{4},1,{6,10,6,0},9016); -- "Wiesen-Rhabarber" / "meadow rhabarb"
-       	
+    AddPlant(132,{4},0,{10,10,10,10},0);  -- Kirschsetzling
+    AddPlant(139,{4},0,{10,10,10,10},0);  -- Apfelsetzling
+	AddPlant(150,{2},0,{10,10,10,10},0);  -- Tannensetzling
+	AddPlant(152,{4},0,{10,10,10,10},0);  -- Lebenswurzel
+	AddPlant(588,{4},1,{10,10,10,10},0);  -- Cachdernsetzling
+	AddPlant(589,{2},5,{10,10,10,10},0);  -- Eldan-Eichensetzling
+	AddPlant(590,{2},0,{10,10,10,10},0);  -- Scandrel-Setzling
+	AddPlant(591,{4},0,{10,10,10,10},0);  -- Naldorbaumsetzling
+	AddPlant(752,{3,4},1,{10,10,10,10},0);  -- Alraune
+	AddPlant(756,{2},0,{10,10,10,10},0);  -- Frommbeere
+	AddPlant(757,{2},2,{10,10,10,10},0);  -- Gottesblume
+	AddPlant(758,{2},0,{10,10,10,10},0);  -- Herzblut
+	AddPlant(764,{3},7,{10,10,10,10},0);  -- Tagteufel
+	AddPlant(765,{2},2,{10,10,10,10},0);  -- Tagtraum
+	AddPlant(766,{7},3,{10,10,10,10},0);  -- Trugblüte
+	AddPlant(769,{3},0,{10,10,10,10},0);  -- Wüstenbeere
+ 	
     -- 0 alle / 1 Acker / 2 Wald / 3 Sand / 4 Wiese / 5 Fels / 6 Wasser / 7 Dreck
 
     anz_pflanzen = table.getn(plnt);
-    anz_voraussetzungen = table.getn(grnd);
+	
+	regID = {};
+    regX = {};
+    regY = {};
+	regZ = {};
+	
+	-- id
+	-- x-Koord: {From, To} 2 Values!, smaller value must be named first. Take care by neg. values!
+	-- y-Koord: {From, To} 2 Values!, smaller value must be named first. Take care by neg. values!
+	-- z-Koord: {From, To} 2 Values! Use p.E. {0,0} if you want just area 0. smaller value must be named first. Take care by neg. values!
+	AddRegion(0,{  0,1024},{  0,1024},{0,0}); -- 0 = global region
+	AddRegion(1,{ 93, 191},{727, 834},{0,0}); -- 1 = Katanbi Delta
+	AddRegion(2,{520, 672},{664, 800},{0,0}); -- 2 = Sentri Forest
+	AddRegion(3,{648, 825},{243, 374},{0,0}); -- 3 = Bounding Stream - The Dead Mash
+	AddRegion(4,{518, 770},{ 95, 251},{0,0}); -- 4 = Plain of Silence
+	AddRegion(5,{625,1024},{0,237},{0,0}); -- 5 = Northern Wood
+	AddRegion(6,{501,1024},{0,1024},{0,0}); -- 6 = Evil Rock
+	AddRegion(7,{847,996},{331,484},{0,0}); -- 7 = Pauldron Isle
+	AddRegion(8,{501,1024},{0,1024},{0,0}); -- 8 = Elstree Plain
+	AddRegion(9,{501,1024},{0,1024},{0,0}); -- 9 = Dewy Swamps
 end
 
 function plantdrop()
     if ( plnt==nil ) then
         Init();
     end
+	--if (world:isCharacterOnField(position(0,15,0))) then
+			--user = world:getCharacterOnField( position(0,15,0) );
+		--end
 
     local season=math.ceil( world:getTime("month") / 4 );
     season = base.common.Limit( season, 1, 4 );
@@ -89,19 +97,28 @@ function plantdrop()
         else
             success = false;
         end
-
         if success then
             check = grnd[auswahl][math.random(1,table.getn(grnd[auswahl]))];
+			checkreg = reg[auswahl]+1;
             pflwert = dataval[auswahl];
             ---- Standortbestimmung
-            newpos = position( math.random(0,1000), math.random(0,1000), 0 );
-            ---- bodentile feststellen
-			theTile=world:getField(newpos);
-            local bodenart = base.common.GetGroundType( theTile.tile );
-            if ((bodenart == check) or (check == 0)) then
+            newpos = position( math.random(0,1024), math.random(0,1024), 0 );
+			---- liegt newpos in der region?
+			if ( regX[checkreg][1] <= newpos.x ) and ( newpos.x <= regX[checkreg][2]) and ( regY[checkreg][1] <= newpos.y ) and ( newpos.y <= regY[checkreg][2] ) then	
+				---- bodentile feststellen
+				theTile=world:getField(newpos);
+				-- DO NOT SPAM THE ERROR LOG WITH THIS SHIT
+                -- local bodenart = base.common.GetGroundType( theTile:tile() );
+				local bodenart = 0
+                if ((bodenart == check) or (check == 0)) then
+					-- Kraut setzen
+					world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
+					--user:inform("Pflanze: " ..plnt[auswahl].. " Boden: " ..bodenart.. " Position: "..newpos.x.." : " ..newpos.y.." : "..newpos.z.. " Pflreg: " ..reg[auswahl].. "; Region: " ..regID[checkreg] );
+				end
+			else
+			--user:inform("falsche Pos");
+			end
 
-                world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
-            end
         end
     end
 end
