@@ -62,5 +62,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	User:learn( honeygathering.LeadSkill, honeygathering.LeadSkillGroup, honeygathering.SavedWorkTime[User.id], 100, User:increaseAttrib(honeygathering.LeadAttribute,0) );
 	honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
+    debug("worktime: " .. honeygathering.SavedWorkTime[User.id]);
 	User:startAction(honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
 end
