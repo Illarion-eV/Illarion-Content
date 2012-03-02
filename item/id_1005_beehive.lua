@@ -45,7 +45,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         User:talkLanguage(Character.say, Player.english, "#me starts to search for honey.");
         return
     end
-	debug("waiting done");
+	debug("waiting done; saved worktime: " .. honeygathering.SavedWorkTime[User.id]);
 	
 	if not honeygathering:FindRandomItem(User, SourceItem) then
 		return

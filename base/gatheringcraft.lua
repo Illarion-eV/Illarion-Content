@@ -200,31 +200,40 @@ function GatheringCraft:GenWorkTime(User, toolItem)
 	timeBonus = timeBonus / 20;
 	
 	-- time (1/10s):
-	--- with random & gem bonus: [5,100]
-	local maxAll = 100;
-	local minAll = 5;
-	--- without random and any bonus: [10,95]
-	local maxNormal = 95;
-	local minNormal = 10;
-	--- random change: +- [1,5]
-	local randomChange = 5;
-	--- max attrib bonus (will be subtracted)
-	local maxAttribBonus = 20;
-	--- => best time at 100 skill, 0 attrib: 30
-	--- => best time at 100 skill, 30 attrib: 10
-	local bestAttrib = 30;
-	
-	-- clamp skill
+    local maxSkillTime = 100;
+    local maxAttribTime = 30;
+    
+    local randomChange = 5;
+    
+    local minAll = 5;
+    local maxAll = minAll + maxSkillTime + maxAttribTime + 2*randomChange;
+    
+    local maxSkillBonus = 50;
+    local maxTimeBonus = (maxSkillTime + maxAttribTime)/2;
+    
+    -- add skill bonus from gem
+    skill = skill + maxSkillBonus*skillBonus;
+    -- clamp skill
 	skill = math.max(0, math.min(100, skill));
-	-- calculate time only considering skill
-	local retVal = minNormal + (maxNormal - minNormal + maxAttribBonus) * (100 - skill ) / 100;
-	-- add attrib bonus
-	retVal = retVal - maxAttribBonus * attrib / bestAttrib;
-	-- limit to normal boundaries and add random change
-	retVal = math.max(minNormal, math.min(maxNormal, retVal)) + math.random(1,randomChange*2) - randomChange;
-	-- limit to overall boundaries
-	retVal = math.floor(math.max(minAll, math.min(maxAll, retVal)));
-	
+    -- clamp attrib
+    local bestAttrib = 30;
+    attrib = math.max(0, math.min(bestAttrib, attrib));
+    
+    -- init with min value
+    local retVal = minAll + randomChange;
+    -- add skill time
+    retVal = retVal + maxSkillTime*(100-skill)/100;
+    -- add attrib time
+    retVal = retVal + maxAttribTime*(bestAttrib-attrib)/bestAttrib;
+    -- subtract time bonus from gem
+    retVal = retVal - maxTimeBonus*timeBonus;
+    -- limit to overall boundaries without random change
+    retVal = math.max(minAll+randomChange, math.min(retVal, maxAll-randomChange));
+    -- add random change
+    retVal = retVal + math.random(0,randomChange*2) - randomChange;
+    -- limit to overall boundaries
+    retVal = math.floor(math.max(minAll, math.min(maxAll, retVal)));
+
 	return retVal;
 	
 	-- -- old algorithm
