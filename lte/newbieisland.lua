@@ -1,19 +1,35 @@
 -- Long Time Effect Script: Newbie Island
 -- Effect ID: 13
 -- Values: newbiePosX, newbiePosY, newbiePosZ, itemid_1, itemnumber_1, itemdata_1, itemquality_1 (1-18)
+-- reworked by Merung for Rincewinds new-noobia
 
 require("base.common")
 module("lte.newbieisland", package.seeall)
 
 function addEffect(newbieEffect, Character)
-
-	newbieEffect.nextCalled=100;
-	setNewbiePos(newbieEffect, Character);
+    -- newbie LTE has been added; we greet our new player
+	base.common.InformNLS(Character,
+	  "@Rince: text 1 DE",
+	  "@Rince: text 1 EN");
+	newbieEffect.nextCalled=20; -- time til the second hello-message (in 1/10) seconds
 end
 
 function callEffect(newbieEffect,Character)
 
-	if Character:getQuestProgress(2) == 2 then
+	foundSecMes,SecMesValue = Effect:findValue("SecMes")
+	if not foundSecMes then -- there was no second message yet; therefore: second message!
+	    base.common.InformNLS(Character,
+	    "@Rince: text 2 DE",
+	    "@Rince: text 2 EN");
+	    Effect:addValue("SecMes",1) -- that we remember nex time that we already gave the message out (the value 1 as such is unimportant; just that it is there)
+	    newbieEffect.nextCalled=250 -- time between the recuring messages
+	end
+	
+	return true
+	    
+	
+	
+	--[[if Character:getQuestProgress(2) == 2 then
 		foundPos,newbiePos=loadNewbiePos(newbieEffect);
 		if foundPos then
 			if equapos(Character.pos,newbiePos) then
@@ -26,7 +42,7 @@ function callEffect(newbieEffect,Character)
 		end
 	end
 	newbieEffect.nextCalled=32000;
-	return true;
+	return true;]]
 end
 
 function removeEffect(newbieEffect, Character)
