@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: February 25, 2012                       easyNPC Parser v1.02 --
+-- Last parsing: March 10, 2012                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -637,8 +637,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Halle Elara");
-talkEntry:addTrigger("Elara Halle");
+talkEntry:addTrigger("Hall Elara");
+talkEntry:addTrigger("Elara Hall");
 talkEntry:addResponse("Die Halle der Elara kann im zweiten Stock des Turm des Feuer gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum zum hören und treffen unseres Erzmagier Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
