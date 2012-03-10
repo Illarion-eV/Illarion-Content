@@ -16,17 +16,33 @@ end
 
 function callEffect(newbieEffect,Character)
 
-	foundSecMes,SecMesValue = Effect:findValue("SecMes")
+	foundSecMes,secMesValue = Effect:findValue("secMes")
 	if not foundSecMes then -- there was no second message yet; therefore: second message!
 	    base.common.InformNLS(Character,
 	    "@Rince: text 2 DE",
 	    "@Rince: text 2 EN");
-	    Effect:addValue("SecMes",1) -- that we remember nex time that we already gave the message out (the value 1 as such is unimportant; just that it is there)
-	    newbieEffect.nextCalled=250 -- time between the recuring messages
-	end
-	
-	return true
-	    
+	    Effect:addValue("secMes",1) -- that we remember nex time that we already gave the message out (the value 1 as such is unimportant; just that it is there)
+	    newbieEffect.nextCalled=40
+        return true	
+	else
+	    foundNoobiaLight,noobiaLightValue = Effect:findValue("noobiaLight")
+		if not foundNoobiaLight then -- the char should walk to a specific postion (see: triggerfield/noobia_light)
+		    base.common.InformNLS(Character,
+	        "@Rince: text 3 DE",
+	        "@Rince: text 4 EN");
+	    end 
+		
+		if (Charcater:getQuestProgess(13) == 2) or (Charcater:getQuestProgess(13) == 3) then
+		    base.common.InformNLS(Character,
+	        "@Rince: text Schweine töten DE",
+	        "@Rince: text Schweine töten EN");
+	    end
+		
+		if (Charcater:getQuestProgess(12) == 2) then
+		    base.common.InformNLS(Character,
+	        "@Rince: text Kohle Erz DE",
+	        "@Rince: text Kohle Erz EN");
+	    end
 	
 	
 	--[[if Character:getQuestProgress(2) == 2 then
