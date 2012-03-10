@@ -7,7 +7,7 @@ local QUEST_NUMBER = 621
 local PRECONDITION_QUESTSTATE = 34
 local POSTCONDITION_QUESTSTATE = 41
 
-local NPC_TRIGGER_DE = "[Hh]alle [Ee]lara"
+local NPC_TRIGGER_DE = "[Hh]all [Ee]lara"
 local NPC_TRIGGER_EN = "[Hh]all [Ee]lara"
 local NPC_REPLY_DE = "Sehr gut. Bevor wir mit dem praktischen Teil beginnen, noch ein paar mehr Fragen: Welchen dieser drei Götter beten wir hier an? Irmorom, Malachin oder Elara?"
 local NPC_REPLY_EN = "Very good. Bevor we start with the practical part, some more questions: To whom of these gods do we pray?  Irmorom, Malachin or Elara?"
