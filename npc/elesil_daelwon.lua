@@ -637,8 +637,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hall Elara");
-talkEntry:addTrigger("Elara Hall");
+talkEntry:addTrigger("Halle Elara");
+talkEntry:addTrigger("Elara Halle");
 talkEntry:addResponse("Die Halle der Elara kann im zweiten Stock des Turm des Feuer gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum zum hören und treffen unseres Erzmagier Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
