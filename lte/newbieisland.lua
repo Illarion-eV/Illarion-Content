@@ -44,7 +44,7 @@ function callEffect(newbieEffect,Character)
 	        "@Rince: text Kohle Erz EN");
 	    end
 	
-	
+	end
 	--[[if Character:getQuestProgress(2) == 2 then
 		foundPos,newbiePos=loadNewbiePos(newbieEffect);
 		if foundPos then
