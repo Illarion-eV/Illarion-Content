@@ -70,6 +70,13 @@ talkEntry:addResponse("Ihr wagt es, mich zu stören. Fein, ich kann etwas Abwechs
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
+talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Galmair");
+talkEntry:addCondition(npc.base.condition.money.money(">", 199));
+talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
+talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 1));
+end;
+if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
@@ -1472,16 +1479,4 @@ function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
 initNpc();
 initNpc = nil;
-
-function initNpc()
-mainNPC = npc.base.basic.baseNPC();
-local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Galmair");
-talkEntry:addCondition(npc.base.condition.money.money(">", 199));
-talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
-talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;-- END
+-- END
