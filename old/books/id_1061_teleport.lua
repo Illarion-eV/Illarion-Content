@@ -8,22 +8,23 @@ function InitializeBook(  )
     if TargetName == nil then
 
         TargetName={  };
-        TargetName[ 101 ]="Troll's Bane";
+        TargetName[ 101 ]="Galmair";
 
-        TargetName[ 102 ]="Lighthouse";
+        TargetName[ 102 ]="Cadomyr";
 
-        TargetName[ 103 ]="Eldan monastary";
+        TargetName[ 103 ]="Runewick";
 
-        TargetName[ 104 ]="Harbor";
+        TargetName[ 104 ]="Wilderland";
 
-        TargetName[ 105 ]="Greenbriar";
+        TargetName[ 105 ]="Safepoint 1";
 
-        TargetName[ 106 ]="Tol Vanima";
+        TargetName[ 106 ]="Safepoint 2";
 
-        TargetName[ 107 ]="Varshikar";
+        TargetName[ 107 ]="Safepoint 3";
 
-        TargetName[ 108 ]="Silverbrand";
+        TargetName[ 108 ]="Safepoint 4";
 
+		TargetName[ 108 ]="Safepoint 5";
     end
 
 end
@@ -52,13 +53,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
                 -- never create it on people
                 -- never create it on items
-                if not world:isCharacterOnField( loc ) and not world:isItemOnField( loc ) and (world:getField( loc ):tile()~=6)
+                if not world:isCharacterOnField( loc ) and not world:isItemOnField( loc ) and (world:getField( loc ):tile()~=6) then
                 -- not in GR Cell, protected by ritual
-                and (( (loc.x < -72) or (loc.x > -67) ) or ( (loc.y < -220) or (loc.y > -216) ))
+                --and (( (loc.x < -72) or (loc.x > -67) ) or ( (loc.y < -220) or (loc.y > -216) ))
                 -- not on Vanima Garden Island...same as above
-                and (( (loc.x < 404) or (loc.x > 410) ) or ( (loc.y < 203) or (loc.y > 209) ))
+                --and (( (loc.x < 404) or (loc.x > 410) ) or ( (loc.y < 203) or (loc.y > 209) ))
                 -- not in secret underground cell...same as above
-                and ((( (loc.x < -72) or (loc.x > -55) ) or ( (loc.y < -74) or (loc.y > -60) )) or loc.z~=-3) then
+                --and ((( (loc.x < -72) or (loc.x > -55) ) or ( (loc.y < -74) or (loc.y > -60) )) or loc.z~=-3) then
                     -- create a gate to the destination
                     --User:inform( "creating" )
                     world:createItemFromId( 10, 1, loc, true, 933 ,(SourceItem.quality-100));
