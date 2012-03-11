@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 424, 245, 0, 0, 'Teleporter (Galmair)', 'npc.teleporter_(Galmair)', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (0, 424, 245, 0, 0, 'Teleporter (galmair)', 'npc.teleporter_(galmair)', 0, 0, 0, 255, 255, 255, 255, 255, 255);
 ---]]
 
 require("npc.base.basic")
@@ -22,7 +22,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.money")
 require("npc.base.consequence.warp")
 require("npc.base.talk")
-module("npc.teleporter_(Galmair)", package.seeall)
+module("npc.teleporter_(galmair)", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
