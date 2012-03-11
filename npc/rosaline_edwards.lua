@@ -1484,6 +1484,4 @@ talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
 talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 1));
 talkingNPC:addTalkingEntry(talkEntry);
-end;
-
--- END
+end;-- END
