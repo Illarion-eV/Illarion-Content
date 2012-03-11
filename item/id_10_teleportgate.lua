@@ -184,23 +184,23 @@ end;
 
 
 if (Item.data==5) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 1"; "Magical gate to Safepoint 1" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 1", "Magical gate to Safepoint 1" ) );
 end;
 
 if (Item.data==6) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 2"; "Magical gate to Safepoint 2" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 2", "Magical gate to Safepoint 2" ) );
 end;
 
 if (Item.data==7) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 3"; "Magical gate to Safepoint 3" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 3", "Magical gate to Safepoint 3" ) );
 end;
 
 if (Item.data==8) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 4"; "Magical gate to Safepoint 4" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 4", "Magical gate to Safepoint 4" ) );
 end;
 
 if (Item.data==9) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 5"; "Magical gate to Safepoint 5" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 5", "Magical gate to Safepoint 5" ) );
 end;
 
 if (Item.data>9) or (Item.data==0) then
