@@ -126,7 +126,7 @@ end
 function GetCow(message, originator)
     message = string.lower( message );
     if (string.find(message,"wolf.+leihen")~=nil)
-	if (string.find(message,"bär.+leihen")~=nil)
+	or (string.find(message,"bär.+leihen")~=nil)
     or (string.find(message,"leihe.+wolf")~=nil)
 	or (string.find(message,"leihe.+bär")~=nil)
     or (string.find(message,"lasttier.+leihen")~=nil)
