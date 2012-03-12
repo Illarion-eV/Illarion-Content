@@ -139,7 +139,7 @@ function GetCow(message, originator)
     or (string.find(message,"lend.+wolf"  )~=nil)
     or (string.find(message,"hire.+pack.+animal")~=nil)
     or (string.find(message,"hire.+wolf" )~=nil)
-    or (string.find(message,"hire.+bear"  )~=nil)
+    or (string.find(message,"hire.+bear"  )~=nil) then
         
     
     
@@ -147,14 +147,14 @@ function GetCow(message, originator)
             GCoins,SCoins,CCoins = CalcSilverCopper(PreisProKuh + Kaution);
             if CheckMoney(originator,GCoins,SCoins,CCoins) then
                 if false then
-                      thisNPC:talkLanguage( Character.say, Player.german, "Ich darf dir im Augenblick keinen Bär oder Wolf verkaufen." );
+                    thisNPC:talkLanguage( Character.say, Player.german, "Ich darf dir im Augenblick keinen Bär oder Wolf verkaufen." );
                     thisNPC:talkLanguage( Character.say, Player.english,"I'm not allowed to sell you a bear or a wolf currently, sorry." );
                     return true;
                 end
                 posOfCow = createCow(originator);
                 if not posOfCow then
                     thisNPC:talkLanguage( Character.say, Player.german, "Leider kein Bär und Wolf mehr da. Kommt später wieder." );
-                    thisNPC:talkLanguage( Character.say, Player.english,"There are no more bears and wolfs in the stable. Please come back later." );
+                    thisNPC:talkLanguage( Character.say, Player.english,"There are no more bears and wolfs in the stable. Please come back later.");
                     return true
                 else
                     Transporter = world:getCharacterOnField(posOfCow);
