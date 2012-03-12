@@ -123,7 +123,7 @@ function createCow( player )
     return false;
 end
 
-function GetCow(message, originator)
+function GetCow(message, originator)end
     message = string.lower( message );
     if (string.find(message,"wolf.+leihen")~=nil)
 	or (string.find(message,"bär.+leihen")~=nil)
@@ -139,8 +139,7 @@ function GetCow(message, originator)
     or (string.find(message,"lend.+wolf"  )~=nil)
     or (string.find(message,"hire.+pack.+animal")~=nil)
     or (string.find(message,"hire.+wolf" )~=nil)
-    or (string.find(message,"hire.+bear"  )~=nil) then
-        
+    or (string.find(message,"hire.+bear"  )~=nil) then     
     
     
         if (originator:getQuestProgress(8) == 0) then
