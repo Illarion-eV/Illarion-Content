@@ -38,6 +38,15 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Runewick");
+talkEntry:addCondition(npc.base.condition.money.money(">", 199));
+talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
+talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Königin Rosaline Edwards von Cadomyr. Schlüsselwörter: Es lebe die Königin, Cadomyr, Feinde, Sir Reginald, Gruft, Grab."));
 talkingNPC:addTalkingEntry(talkEntry);
