@@ -29,15 +29,6 @@ mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Runewick");
-talkEntry:addCondition(npc.base.condition.money.money(">", 199));
-talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
-talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This is the teleporter of Cadomyr. A journey costs a silver coin. Destinations: Runewick, Galmair, Wilderland."));
 talkingNPC:addTalkingEntry(talkEntry);
