@@ -2,7 +2,7 @@
 --Race:        Dwarf
 --Town:        In einem Stall
 --Function:    Lastentiere verkaufen
---Position:    x=2 y=7 z=0
+--Position:    x=7 y=7 z=0
 --Facing:      South
 --Last Update: 12/09/2008
 --Update by:   Lennier
