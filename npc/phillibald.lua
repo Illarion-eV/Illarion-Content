@@ -255,7 +255,7 @@ talkEntry:addTrigger("family");
 talkEntry:addTrigger("siblings");
 talkEntry:addTrigger("sister");
 talkEntry:addTrigger("brother");
-talkEntry:addResponse("Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!");
+talkEntry:addResponse("Me and my family like to hike and explore, I bet you can find my other siblings at other places if you just look closely!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -265,7 +265,7 @@ talkEntry:addTrigger("Geschwister");
 talkEntry:addTrigger("Schwester");
 talkEntry:addTrigger("Bruder");
 talkEntry:addTrigger("Brüder");
-talkEntry:addResponse("Me and my family like to hike and explore, I bet you can find my other siblings at other places if you just look closely!");
+talkEntry:addResponse("Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
