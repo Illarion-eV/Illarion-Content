@@ -7,7 +7,7 @@ local PRECONDITION_QUESTSTATE = 2
 local POSTCONDITION_QUESTSTATE = 2
 
 local POSITION = position(682, 319, 0)
-local RADIUS = 1
+local RADIUS = 2
 local LOOKAT_TEXT_DE = "Ganz unten auf dem Boden des Fasses siehst du eine Notiz liegen, die besagt: \"Das Geld liegt wie immer im Versteck in der Hecke!\""
 local LOOKAT_TEXT_EN = "On the very bottom of the barrel is a note hidden. It says: \"The money lies as always in the hedge!\""
 

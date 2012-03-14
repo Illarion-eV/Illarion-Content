@@ -7,8 +7,8 @@ local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 2
 local POSTCONDITION_QUESTSTATE = 5
 
-local POSITION = position(685, 310, 0)
-local RADIUS = 1
+local POSITION = position(675, 329, 0)
+local RADIUS = 2
 local LOOKAT_TEXT_DE = ""
 local LOOKAT_TEXT_EN = ""
 
