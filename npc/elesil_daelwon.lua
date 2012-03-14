@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: February 25, 2012                       easyNPC Parser v1.02 --
+-- Last parsing: March 10, 2012                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -841,15 +841,15 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hinterland");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Hut, Twin Eyes Island, Oldra Column, Mermaid, Lurnord bridge"));
-talkEntry:addResponse("The Hinterland of Runewick contains following places: Fire of Triumph, Holy Oak, Woodcutter's Hut, Twin Eyes Island, Oldra's Column, Lurnord bridge and Mermaid");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Camp, Twin Eyes Island, Oldra Column, Mermaid, Lurnord bridge"));
+talkEntry:addResponse("The Hinterland of Runewick contains following places: Fire of Triumph, Holy Oak, Woodcutter's Camp, Twin Eyes Island, Oldra's Column, Lurnord bridge and Mermaid");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hinterland");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Feuer des Triumph, Heilige Eiche, Holzfäller Hütte, Zwillingsaugen Insel, Oldras Säule, Meerjungfrau, Lurnord Brücke"));
-talkEntry:addResponse("Das Hinterland von Runewick enthält folgende Plätze: Feuer des Triumph, Heilige Eiche, Holzfäller Hütte, Zwillingsaugen Inseln, Oldras Säule, Lurnord Brücke und Meerjungfrau");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugen Insel, Oldras Säule, Meerjungfrau, Lurnord Brücke"));
+talkEntry:addResponse("Das Hinterland von Runewick enthält folgende Plätze: Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugen Inseln, Oldras Säule, Lurnord Brücke und Meerjungfrau");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -880,13 +880,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Woodcutter Hut");
+talkEntry:addTrigger("Woodcutter Camp");
 talkEntry:addResponse("This place can be found in the south of here and is a champ for lumberjacks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Holzfäller Hütte");
+talkEntry:addTrigger("Holzfäller Lager");
 talkEntry:addResponse("Dieser Platz kann im Süden von hier aus gefunden werden und ist ein Lager für Holzfäller.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
