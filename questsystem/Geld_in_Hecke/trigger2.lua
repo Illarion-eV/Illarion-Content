@@ -39,7 +39,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 0, 250):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du findest an einem Zweig ein kleines Beutelchen das einige Kupfermünzen enthält!", "Attached to a Twig you find a small bag containing some coppercoins."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du findest an einem Zweig ein kleines Beutelchen das einige Kupfermünzen enthält!", "Attached to a twig you find a small bag containing some coppercoins."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -22,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Irgendetwas ist an dem Fass auffällig. Vielleicht schaust du es dir mal genauer an?", "Somthing is diffrent with this barrle. Maybe you should take a look?"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Irgendetwas ist an dem Fass bei dem Wagen auffällig. Vielleicht schaust du es dir mal genauer an?", "Something is diffrent with this barrle at the wagon. Maybe you should take a look?"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
