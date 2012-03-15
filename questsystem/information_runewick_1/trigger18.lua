@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zur Holzfäller Hütte im Süden. Dort findest du eine Feuerstelle bei einem Teich. Dort mache ein Lagerfeuer.", "Go to the Woodcutter Hut in the south. You will find a firespot close at a little lake. Make a fire there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zum Holzfäller Lager im Süden. Dort findest du eine Feuerstelle bei einem Teich. Dort mache ein Lagerfeuer.", "Go to the Woodcutter Camp in the south. You will find a firespot close at a little lake. Make a fire there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 74, 333, 1):execute()
 end
 

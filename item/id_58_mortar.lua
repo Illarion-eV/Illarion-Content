@@ -68,7 +68,14 @@ end --function
 
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
-    Mortar = InitCraftingTool( );
+    -- for the alchemy system
+	if (base.common.GetFrontItemID(User) == 550) or (base.common.GetFrontItemID(User) == 551) then
+	    CreateHerbalGemDust(User, SourceItem)
+	    return
+	end
+	-- end
+	
+	Mortar = InitCraftingTool( );
     base.common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then
         if (User:increaseAttrib("sex",0) == 0) then
@@ -131,4 +138,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     else
         Mortar:ToolCreateItem( User, Param, nil, ltstate, SourceItem );
     end
-end --function
+end 
+
+function CreateHerbalGemDust(User, SourceItem)
+User:inform("lalala")
+end   

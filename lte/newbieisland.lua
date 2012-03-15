@@ -1,19 +1,51 @@
 -- Long Time Effect Script: Newbie Island
 -- Effect ID: 13
 -- Values: newbiePosX, newbiePosY, newbiePosZ, itemid_1, itemnumber_1, itemdata_1, itemquality_1 (1-18)
+-- reworked by Merung for Rincewinds new-noobia
 
 require("base.common")
 module("lte.newbieisland", package.seeall)
 
 function addEffect(newbieEffect, Character)
-
-	newbieEffect.nextCalled=100;
-	setNewbiePos(newbieEffect, Character);
+    -- newbie LTE has been added; we greet our new player
+	base.common.InformNLS(Character,
+	  "@Rince: text 1 DE",
+	  "@Rince: text 1 EN");
+	newbieEffect.nextCalled=20; -- time til the second hello-message (in 1/10) seconds
 end
 
 function callEffect(newbieEffect,Character)
 
-	if Character:getQuestProgress(2) == 2 then
+	foundSecMes,secMesValue = Effect:findValue("secMes")
+	if not foundSecMes then -- there was no second message yet; therefore: second message!
+	    base.common.InformNLS(Character,
+	    "@Rince: text 2 DE",
+	    "@Rince: text 2 EN");
+	    Effect:addValue("secMes",1) -- that we remember nex time that we already gave the message out (the value 1 as such is unimportant; just that it is there)
+	    newbieEffect.nextCalled=40
+        return true	
+	else
+	    foundNoobiaLight,noobiaLightValue = Effect:findValue("noobiaLight")
+		if not foundNoobiaLight then -- the char should walk to a specific postion (see: triggerfield/noobia_light)
+		    base.common.InformNLS(Character,
+	        "@Rince: text 3 DE",
+	        "@Rince: text 4 EN");
+	    end 
+		
+		if (Charcater:getQuestProgess(13) == 2) or (Charcater:getQuestProgess(13) == 3) then
+		    base.common.InformNLS(Character,
+	        "@Rince: text Schweine töten DE",
+	        "@Rince: text Schweine töten EN");
+	    end
+		
+		if (Charcater:getQuestProgess(12) == 2) then
+		    base.common.InformNLS(Character,
+	        "@Rince: text Kohle Erz DE",
+	        "@Rince: text Kohle Erz EN");
+	    end
+	
+	end
+	--[[if Character:getQuestProgress(2) == 2 then
 		foundPos,newbiePos=loadNewbiePos(newbieEffect);
 		if foundPos then
 			if equapos(Character.pos,newbiePos) then
@@ -26,7 +58,7 @@ function callEffect(newbieEffect,Character)
 		end
 	end
 	newbieEffect.nextCalled=32000;
-	return true;
+	return true;]]
 end
 
 function removeEffect(newbieEffect, Character)

@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 424, 245, 0, 0, 'Teleporter (Galmair)', 'npc.teleporter_(galmair)', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (0, 424, 245, 0, 0, 'Teleporter (galmair)', 'npc.teleporter_(galmair)', 0, 0, 0, 255, 255, 255, 255, 255, 255);
 ---]]
 
 require("npc.base.basic")
@@ -126,13 +126,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Wilderland."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 mainNPC:addLanguage(0);
@@ -143,9 +143,9 @@ mainNPC:addLanguage(4);
 mainNPC:addLanguage(5);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland.");
-mainNPC:setUseMessage("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland.");
-mainNPC:setConfusedMessage("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland.");
+mainNPC:setLookat("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland.");
+mainNPC:setUseMessage("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland.");
+mainNPC:setConfusedMessage("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
