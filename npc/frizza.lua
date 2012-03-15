@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: February 08, 2012                       easyNPC Parser v1.02 --
+-- Last parsing: March 15, 2012                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -174,44 +174,44 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I can tell you many things about Cadomyr. Just asssk me about buildingsss, placesss, eventsss, people, history or gods of Cadomyr. Additionaly, I have a little tasssk.");
+talkEntry:addResponse("I can tell you many things about Cadomyr. Just asssk me about buildingsss, locationsss, eventsss, people, history or gods of Cadomyr. Additionaly, I have a little tasssk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Ich kann dir viele Dinge über Cadomyr erzählen. Frag nur nach Gebäude, Plätze, Ereignissse, Leute, Gessschichte oder Götter von Cadomyr. Zusssätzlich hätte ich noch eine kleine Aufgabe.");
+talkEntry:addResponse("Ich kann dir viele Dinge über Cadomyr erzählen. Frag nur nach Gebäude, Orte, Ereignissse, Leute, Gessschichte oder Götter von Cadomyr. Zusssätzlich hätte ich noch eine kleine Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("inform");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, places, event, people, history, god"));
-talkEntry:addResponse("I have information about buildingsss, placesss, eventsss, people, hissstory, lawsss and godsss of Cadomyr. Just asssk me!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, locations, event, people, history, god"));
+talkEntry:addResponse("I have information about buildingsss, locationsss, eventsss, people, hissstory, lawsss and godsss of Cadomyr. Just asssk me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("inform");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Plätze, Ereignisse, Leute, Geschichte, Götter"));
-talkEntry:addResponse("Ich habe Informationen über Gebäude, Plätze, Ereignissse, Leute, Geschichte, Gesetze und Götter von Cadomyr geben. Frag einfach!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter"));
+talkEntry:addResponse("Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte, Gesetze und Götter von Cadomyr geben. Frag einfach!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("question");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, places, event, people, history, god"));
-talkEntry:addResponse("I have information about buildings, placesss, eventsss, people, hissstory and godsss of Cadomyr. Just asssk me!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, locations, event, people, history, god"));
+talkEntry:addResponse("I have information about buildings, locationsss, eventsss, people, hissstory and godsss of Cadomyr. Just asssk me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Frage");
 talkEntry:addTrigger("Auskunft");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Plätze, Ereignisse, Leute, Geschichte, Götter"));
-talkEntry:addResponse("Ich habe Informationen über Gebäude, Plätze, Ereignissse, Leute, Geschichte und Götter von Cadomyr geben. Frag einfach!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter"));
+talkEntry:addResponse("Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte und Götter von Cadomyr geben. Frag einfach!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -230,17 +230,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("place");
+talkEntry:addTrigger("location");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Ruzusss"));
-talkEntry:addResponse("If you like to know anything about placesss outssside, like Katanbi Desert, Western Katanbi Desert, Katanbi Delta, Tir Draganfod or Shadowland just asssk Ruzusss behind the towngate.");
+talkEntry:addResponse("If you like to know anything about locationsss outssside, like Katanbi Desert, Western Katanbi Desert, Katanbi Delta, Tir Draganfod or Shadowland just asssk Ruzusss behind the towngate.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Platz");
-talkEntry:addTrigger("Plätz");
+talkEntry:addTrigger("Ort");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwort] Ruzusss"));
-talkEntry:addResponse("Wenn du etwas über die Plätze außerhalb wie Katanbi Wüste, Westliche Katanbi Wüste, Katanbi Delta, Tir Draganfod oder Schattenland wisssen möchtessst, dann frage Ruzusss hinter dem Stadttor.");
+talkEntry:addResponse("Wenn du etwas über die Orte außerhalb wie Katanbi Wüste, Westliche Katanbi Wüste, Katanbi Delta, Tir Draganfod oder Schattenland wisssen möchtessst, dann frage Ruzusss hinter dem Stadttor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -284,7 +283,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Leute");
-talkEntry:addResponse("Viele Leute wohnen hier. Viele Leute von verssschiedenen Plätzen. Viele gehen wortlosss an mir vorbei wenn herumreisen. Esss ssscheint die sssind in Gedanken an irgendwelche Götter. ");
+talkEntry:addResponse("Viele Leute wohnen hier. Viele Leute von verssschiedenen Orten. Viele gehen wortlosss an mir vorbei wenn herumreisen. Esss ssscheint die sssind in Gedanken an irgendwelche Götter. ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -446,7 +445,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schatzraum");
-talkEntry:addResponse("Der Schatzraum in unserem Palast issst jener Platz in welchem wir unssser Reichtum lagern. Wir müsssen ihn ssschützen gegen jede Bedrohung. Insssbesssondere vor Runewick und Galmair.");
+talkEntry:addResponse("Der Schatzraum in unserem Palast issst jener Ort in welchem wir unssser Reichtum lagern. Wir müsssen ihn ssschützen gegen jede Bedrohung. Insssbesssondere vor Runewick und Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -648,7 +647,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Dasss issst ein verrückter Platz, aber wenn man Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst man dort welche finden.");
+talkEntry:addResponse("Dasss issst ein verrückter Ort, aber wenn man Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst man dort welche finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -678,7 +677,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Dasss issst ein hinterhältiger Platz, aber wenn man einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer sssuchst, findessst man den dort.");
+talkEntry:addResponse("Dasss issst ein hinterhältiger Ort, aber wenn man einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer sssuchst, findessst man den dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -742,14 +741,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I can tell you many things about Galmair. Just ask me about buildingsss, placesss, eventsss, people, hissstory or godsss of Cadomyr. Additionaly, I have a little tasssk.");
+talkEntry:addResponse("I can tell you many things about Galmair. Just ask me about buildingsss, locationsss, eventsss, people, hissstory or godsss of Cadomyr. Additionaly, I have a little tasssk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Ich kann dir viele Dinge über Galmair erzählen. Frag nur nach Gebäude, Plätze, Ereignissse, Leute, Geschichte oder Götter von Cadomyr. Zusssätzlich hätte ich noch eine kleine Aufgabe.");
+talkEntry:addResponse("Ich kann dir viele Dinge über Galmair erzählen. Frag nur nach Gebäude, Orte, Ereignissse, Leute, Geschichte oder Götter von Cadomyr. Zusssätzlich hätte ich noch eine kleine Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1084,7 +1083,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen in Cadomyr!", "Welcome in Cadomyr!");
 talkingNPC:addCycleText("Ich bin die Auskunftsgeberin von Cadomyr. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Cadomyr. Ask me for informations if you want some.");
-talkingNPC:addCycleText("Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places.");
+talkingNPC:addCycleText("Wer etwas über die Orte hier wissen will, soll mich nur nach diesen Orten fragen.", "If someone wants to know something about the locationsss here, just ask me for these locationsss.");
 talkingNPC:addCycleText("Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If someone wants to know something about the buildings here, just ask me for these buildings.");
 talkingNPC:addCycleText("Wer etwas über die Geschichte hier wissen will, soll mich nur nach die Geschichte fragen.", "If someone wants to know something about the history of Cadomyr, just ask me for the history.");
 talkingNPC:addCycleText("Wer etwas über die Leute hier wissen will, soll mich nur nach diesen Leuten fragen.", "If someone wants to know something about the people here, just ask me for these people.");

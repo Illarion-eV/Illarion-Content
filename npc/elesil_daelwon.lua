@@ -226,7 +226,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("location");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Hinterland, Numila Irunnleh"));
-talkEntry:addResponse("Places? Which places of the hinterland to you mean? I recommend also to talk with a geographer about them. The one I can recommend can be found in the Library of Earth and is called Numila Irunnleh.");
+talkEntry:addResponse("Locations? Which locations of the hinterland to you mean? I recommend also to talk with a geographer about them. The one I can recommend can be found in the Library of Earth and is called Numila Irunnleh.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -253,7 +253,7 @@ talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
 talkEntry:addCondition(npc.base.condition.quest.quest(620, "<", 1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Numila Irunnleh und erhalte deine Belohnung."));
-talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Tir Draganfod, Schattenland und andere Plätze die du gerne wissen möchtest.");
+talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Tir Draganfod, Schattenland und andere Orte die du gerne wissen möchtest.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -269,7 +269,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
-talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Tir Draganfod, Schattenland und andere Plätze die du gerne wissen möchtest.");
+talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Tir Draganfod, Schattenland und andere Orte die du gerne wissen möchtest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -330,7 +330,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Herrscher");
-talkEntry:addResponse("Unser höchster Ratgeber ist Erzmagier Elvaine Morgan. Er hat diesen Platz der Weisheit erschaffen und entweder in seiner Kammer - der Erzmagier Kammer - oder in den Hallen der Elara gefunden werden.");
+talkEntry:addResponse("Unser höchster Ratgeber ist Erzmagier Elvaine Morgan. Er hat diesen Ort der Weisheit erschaffen und entweder in seiner Kammer - der Erzmagier Kammer - oder in den Hallen der Elara gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -421,7 +421,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Garten Eldan");
 talkEntry:addTrigger("Eldan Garten");
-talkEntry:addResponse("Der Garten des Eldan ist ein Platz der uns mit Weisheit inspiriert. Ihr findet ihn wenn ihr in die Stadt durch das Portal um die Ecke reist und dann durch das nächste, rote, Portal tretet. Dort findet ihr auch einen Schrein für Eldan.");
+talkEntry:addResponse("Der Garten des Eldan ist ein Ort der uns mit Weisheit inspiriert. Ihr findet ihn wenn ihr in die Stadt durch das Portal um die Ecke reist und dann durch das nächste, rote, Portal tretet. Dort findet ihr auch einen Schrein für Eldan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -471,7 +471,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Raum Finsternis");
-talkEntry:addResponse("Der Raum der Finsternis ist jener Platz an denen die Leichen jener aufgehoben werden, welche zuvor an der Sohle der Gesellschaft gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
+talkEntry:addResponse("Der Raum der Finsternis ist jener Ort an denen die Leichen jener aufgehoben werden, welche zuvor an der Sohle der Gesellschaft gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -483,7 +483,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Raum Zwielicht");
-talkEntry:addResponse("Der Raum des Zwielichts ist der Platz für jene welche weder an der Spitze noch am unteren Ende der Hierarchie gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
+talkEntry:addResponse("Der Raum des Zwielichts ist der Ort für jene welche weder an der Spitze noch am unteren Ende der Hierarchie gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -841,14 +841,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hinterland");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Camp, Twin Eyes Island, Oldra Column, Mermaid, Lurnord bridge"));
-talkEntry:addResponse("The Hinterland of Runewick contains following places: Fire of Triumph, Holy Oak, Woodcutter's Camp, Twin Eyes Island, Oldra's Column, Lurnord bridge and Mermaid");
+talkEntry:addResponse("The Hinterland of Runewick contains following locations: Fire of Triumph, Holy Oak, Woodcutter's Camp, Twin Eyes Island, Oldra's Column, Lurnord bridge and Mermaid");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hinterland");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugen Insel, Oldras Säule, Meerjungfrau, Lurnord Brücke"));
-talkEntry:addResponse("Das Hinterland von Runewick enthält folgende Plätze: Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugen Inseln, Oldras Säule, Lurnord Brücke und Meerjungfrau");
+talkEntry:addResponse("Das Hinterland von Runewick enthält folgende Orte: Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugen Inseln, Oldras Säule, Lurnord Brücke und Meerjungfrau");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -862,7 +862,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Feuer Triumph");
 talkEntry:addTrigger("Triumph Feuer");
-talkEntry:addResponse("Dieser Platz kann nördlich von hier, nach der Heiligen Eiche gefunden werden und erinnert an unsere Einflussnahme und unseren Sieg in einer Auseinandersetzung zwichen Cadomyr und Galmair. Leider ging einiges schief.");
+talkEntry:addResponse("Dieser Ort kann nördlich von hier, nach der Heiligen Eiche gefunden werden und erinnert an unsere Einflussnahme und unseren Sieg in einer Auseinandersetzung zwichen Cadomyr und Galmair. Leider ging einiges schief.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -886,7 +886,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Holzfäller Lager");
-talkEntry:addResponse("Dieser Platz kann im Süden von hier aus gefunden werden und ist ein Lager für Holzfäller.");
+talkEntry:addResponse("Dieser Ort kann im Süden von hier aus gefunden werden und ist ein Lager für Holzfäller.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -898,7 +898,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zwillingsaugen Inseln");
-talkEntry:addResponse("Dieser Platz ist ganz im Süden. Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht.");
+talkEntry:addResponse("Dieser Ort ist ganz im Süden. Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -910,7 +910,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra Säule");
-talkEntry:addResponse("Dieser Platz kann im Süden von hier aus gefunden werden. Einige Informationen über Oldra und Dinge die sie mag warten dort auf euch. Haltet Ausschau nach der Säule und den Bäumen dort.");
+talkEntry:addResponse("Dieser Ort kann im Süden von hier aus gefunden werden. Einige Informationen über Oldra und Dinge die sie mag warten dort auf euch. Haltet Ausschau nach der Säule und den Bäumen dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -922,7 +922,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Meerjungfrau");
-talkEntry:addResponse("Folget der Westküste in den Süden und ihr werdet diesen Platz mit einer Statue einer schönen Frau finden. Dieser Platz ist auch von vielen Fischern verwendet, die auf die Meerjungfrau warten.");
+talkEntry:addResponse("Folget der Westküste in den Süden und ihr werdet diesen Ort mit einer Statue einer schönen Frau finden. Dieser Ort ist auch von vielen Fischern verwendet, die auf die Meerjungfrau warten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1077,7 +1077,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Falls notwendig würde ich euch über Runewick informieren, seine Gebäude, Plätze, Ereignisse, Leute, Geschichte oder Götter. Und wenn erwünscht, wären auch mindestens eine Aufgabe zu lösen.");
+talkEntry:addResponse("Falls notwendig würde ich euch über Runewick informieren, seine Gebäude, Orte, Ereignisse, Leute, Geschichte oder Götter. Und wenn erwünscht, wären auch mindestens eine Aufgabe zu lösen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1399,7 +1399,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen in Runewick!", "Welcome in Runewick!");
 talkingNPC:addCycleText("Ich bin die Auskunftsgeberin von Runewick. Fragt mich nach Informationen wenn ihr welche wissen wollt.", "I am the informant of Runewick. Ask me for informations if you want some.");
-talkingNPC:addCycleText("Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places.");
+talkingNPC:addCycleText("Wer etwas über die Orten hier wissen will, soll mich nur nach diesen Orten fragen.", "If someone wants to know something about the locations here, just ask me for these locations.");
 talkingNPC:addCycleText("Wer etwas über die Gebäude hier wissen will, soll mich nur nach diesen Gebäuden fragen.", "If someone wants to know something about the buildings here, just ask me for these buildings.");
 talkingNPC:addCycleText("Wer etwas über die Geschichte von Runewick wissen will, soll mich nur nach der Geschichte fragen.", "If someone wants to know something about the history of Runewick, just ask me for the history.");
 talkingNPC:addCycleText("Wer etwas über die Leute hier wissen will, soll mich nur nach diesen Leuten fragen.", "If someone wants to know something about the people here, just ask me for these people.");
