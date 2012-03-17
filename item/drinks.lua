@@ -35,6 +35,7 @@ function InitDrinks()
         drinkList[2187] = {  800, 2185,  15}; -- mug with wine
         drinkList[2188] = { 1000, 2185,  10}; -- mug with mead
         drinkList[2189] = {  800, 2185,  20}; -- mug with cider
+		drinkList[1319] = {  800, 1317,  30}; -- bottle of rum
     end
 end
 
