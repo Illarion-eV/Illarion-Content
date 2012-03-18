@@ -4,7 +4,7 @@ require("base.common")
 module("item.drinks", package.seeall)
 -- uses items of the new client - don't put this on the RS yet!
 
--- UPDATE common SET com_script='item.drinks' WHERE com_itemid IN (2189, 2188, 2187, 2186, 2059, 2058, 2057, 2056, 1910, 1909, 1907, 1906, 1861, 2502, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1859, 1860);
+-- UPDATE common SET com_script='item.drinks' WHERE com_itemid IN (2189, 2188, 2187, 2186, 2059, 2058, 2057, 2056, 1910, 1909, 1907, 1906, 1861, 2502, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1859, 1860, 517, 1315, 1316, 1318,1319);
 
 function InitDrinks()
     if ( drinkList == nil) then
@@ -35,7 +35,12 @@ function InitDrinks()
         drinkList[2187] = {  800, 2185,  15}; -- mug with wine
         drinkList[2188] = { 1000, 2185,  10}; -- mug with mead
         drinkList[2189] = {  800, 2185,  20}; -- mug with cider
-		drinkList[1319] = {  800, 1317,  30}; -- bottle of rum
+		drinkList[517] = {  400, 518,  35}; -- bottle of rum
+		drinkList[1315] = {  400, 1317,  35}; -- bottle of berry booze
+		drinkList[1316] = {  400, 1317,  35}; -- bottle of bear slayer
+		drinkList[1318] = {  400, 1317,  35}; -- bottle of elven wine
+		drinkList[1319] = {  400, 1317,  35}; -- bottle of cherry schnapps
+			
     end
 end
 
