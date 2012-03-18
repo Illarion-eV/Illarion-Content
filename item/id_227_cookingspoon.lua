@@ -258,7 +258,7 @@ function InitCraftingTool( )
 		------------------- FLASCHE MIT ELBENWEIN - FERTIG ---------------------------
 		
 		------------------- FLASCHE MIT KIRSCHSCHNAPS - 1319 ---------------------------
-		product = brewing:AddProduct( CurrentCatID, 1319, (77, 95 }, 1, { 48, 96 } );
+		product = brewing:AddProduct( CurrentCatID, 1319, {77, 95 }, 1, { 48, 96 } );
 		product:AddProductionSteps( { 1317, 1, "all" }, 1, nil, { 1317, 1, 70 }  ); -- Schritt 6: leere Flasche(1317) 1x
 		product:AddProductionSteps( {  302, 2, "all" }, 4 ); -- Schritt 1 - 4: Kirschen(302) 2x
 		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
