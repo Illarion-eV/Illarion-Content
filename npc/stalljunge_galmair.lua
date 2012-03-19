@@ -191,9 +191,6 @@ function GetCow(message, originator)end
             thisNPC:talkLanguage( Character.say, Player.english, "I don't sell my bears. You can just rent them." );
         end
     end
-    return false
-end
-
 function returnCow(message, originator)
     message = string.lower( message );
 	if (string.find(message,"bär.+verkaufen")~=nil)
