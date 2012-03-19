@@ -4,7 +4,7 @@
 require("base.common")
 module("item.id_1266_stone", package.seeall)
 
-function SkipStone
+function SkipStone(Item)
 	User:talkLanguage(Character.say,Player.german,"#me wirft ein Steinchen ins Wasser.");
     User:talkLanguage(Character.say,Player.english,"#me throws a pebble into the water.");
     world:gfx(1,Item.pos);
