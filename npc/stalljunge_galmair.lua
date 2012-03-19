@@ -8,7 +8,7 @@
 --Update by:   Lennier
 
 require("npc.base.functions")
-module("npc.stalljunge_tb", package.seeall)
+module("npc.stalljunge_galmair", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
@@ -32,14 +32,14 @@ function initializeNpc()
     npc.base.functions.AddTraderTrigger("[Ww]er ","Ich bin "..thisNPC.name..".");
     npc.base.functions.AddTraderTrigger("[Ff]arewell","Farewell!");
     npc.base.functions.AddTraderTrigger("[Bb]ye ","Be well");
-    npc.base.functions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nicht! Ich verleihe Bären und Wölfe als Transport- und Lastentiere.");
-    npc.base.functions.AddTraderTrigger("[Ww]hat.+sell","I don't sell! But you can lend a bear or wolf as pack animal.");
+    npc.base.functions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nicht! Ich verleihe Bären als Transport- und Lastentiere.");
+    npc.base.functions.AddTraderTrigger("[Ww]hat.+sell","I don't sell! But you can lend a bear as pack animal.");
     npc.base.functions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
     npc.base.functions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    npc.base.functions.AddTraderTrigger("[Kk]uh","Ich habe keine Kühe, ich habe nur Esel hier.");
-	npc.base.functions.AddTraderTrigger("[Ee]sel","Ich habe keine Esel, ich habe nur Wölfe oder Bären hier.");
-    npc.base.functions.AddTraderTrigger("cow","I have no cows, I have just bears or wolves.")
-	npc.base.functions.AddTraderTrigger("mule","I have no mules, I have just bears or wolves.")
+    npc.base.functions.AddTraderTrigger("[Kk]uh","Ich habe keine Kühe, ich habe nur Bären hier.");
+	npc.base.functions.AddTraderTrigger("[Ee]sel","Ich habe keine Esel, ich habe nur Bären hier.");
+    npc.base.functions.AddTraderTrigger("cow","I have no cows, I have just bears.")
+	npc.base.functions.AddTraderTrigger("mule","I have no mules, I have just bears.")
     npc.base.functions.AddCycleText("#me schaut sich um","#me looks around");
     npc.base.functions.AddCycleText("#me niest","#me sneezes");
 
@@ -97,8 +97,8 @@ end
 
 function SayPrice(message, originator)
     if (string.find(message,"koste")~=nil) or (string.find(message,"costs")~=nil) then
-        thisNPC:talkLanguage( Character.say, Player.german, "Ein Bär oder ein Wolf kostet "..PreisProKuh.." Kupferstücke. Außerdem müsst ihr "..(Kaution/100).." Silberstücke als Kaution hinterlegen die ihr aber wieder bekommt, wenn ihr den Bären oder den Wolf sicher wieder hier her bringt.");
-        thisNPC:talkLanguage( Character.say, Player.english, "A bear or a wolf costs "..PreisProKuh.." coppercoins. Furthermore you have to pay "..(Kaution/100).." silvercoins as surety, but you get these coins back in case you bring the bear or wolf safely back to me.");
+        thisNPC:talkLanguage( Character.say, Player.german, "Ein Bär kostet "..PreisProKuh.." Kupferstücke. Außerdem müsst ihr "..(Kaution/100).." Silberstücke als Kaution hinterlegen die ihr aber wieder bekommt, wenn ihr den Bären sicher wieder hier her bringt.");
+        thisNPC:talkLanguage( Character.say, Player.english, "A bear costs "..PreisProKuh.." coppercoins. Furthermore you have to pay "..(Kaution/100).." silvercoins as surety, but you get these coins back in case you bring the bear safely back to me.");
         return true
     end
     return false
@@ -125,20 +125,15 @@ end
 
 function GetCow(message, originator)end
     message = string.lower( message );
-    if (string.find(message,"wolf.+leihen")~=nil)
-	or (string.find(message,"bär.+leihen")~=nil)
-    or (string.find(message,"leihe.+wolf")~=nil)
+	if (string.find(message,"bär.+leihen")~=nil)
 	or (string.find(message,"leihe.+bär")~=nil)
     or (string.find(message,"lasttier.+leihen")~=nil)
     or (string.find(message,"leihe.+lasttier")~=nil)
     or (string.find(message,"rent.+pack.+animal")~=nil)
-    or (string.find(message,"rent.+wolf"  )~=nil)
     or (string.find(message,"rent.+bear"  )~=nil)
     or (string.find(message,"lend.+pack.+animal")~=nil)
     or (string.find(message,"lend.+bear"  )~=nil)
-    or (string.find(message,"lend.+wolf"  )~=nil)
-    or (string.find(message,"hire.+pack.+animal")~=nil)
-    or (string.find(message,"hire.+wolf" )~=nil)
+    or (string.find(message,"hire.+pack.+animal")~=nil)   
     or (string.find(message,"hire.+bear"  )~=nil) then     
     
     
@@ -146,14 +141,14 @@ function GetCow(message, originator)end
             GCoins,SCoins,CCoins = CalcSilverCopper(PreisProKuh + Kaution);
             if CheckMoney(originator,GCoins,SCoins,CCoins) then
                 if false then
-                    thisNPC:talkLanguage( Character.say, Player.german, "Ich darf dir im Augenblick keinen Bär oder Wolf verkaufen." );
-                    thisNPC:talkLanguage( Character.say, Player.english,"I'm not allowed to sell you a bear or a wolf currently, sorry." );
+                    thisNPC:talkLanguage( Character.say, Player.german, "Ich darf dir im Augenblick keinen Bär verkaufen." );
+                    thisNPC:talkLanguage( Character.say, Player.english,"I'm not allowed to sell you a bear currently, sorry." );
                     return true;
                 end
                 posOfCow = createCow(originator);
                 if not posOfCow then
-                    thisNPC:talkLanguage( Character.say, Player.german, "Leider kein Bär und Wolf mehr da. Kommt später wieder." );
-                    thisNPC:talkLanguage( Character.say, Player.english,"There are no more bears and wolfs in the stable. Please come back later.");
+                    thisNPC:talkLanguage( Character.say, Player.german, "Leider kein Bär mehr da. Kommt später wieder." );
+                    thisNPC:talkLanguage( Character.say, Player.english,"There are no more bears in the stable. Please come back later.");
                     return true
                 else
                     Transporter = world:getCharacterOnField(posOfCow);
@@ -163,11 +158,9 @@ function GetCow(message, originator)end
                     
                     Pay(originator,GCoins,SCoins,CCoins);
                     thisNPC:talkLanguage( Character.say, Player.german, "Hier habt ihr den Bären. Bringt ihn sicher wieder dann bekommt ihr die "..(Kaution/100).." Silberstücke Kaution wieder.");
-					                    thisNPC:talkLanguage( Character.say, Player.german, "Hier habt ihr den Wolf. Bringt ihn sicher wieder dann bekommt ihr die "..(Kaution/100).." Silberstücke Kaution wieder.");
                     thisNPC:talkLanguage( Character.say, Player.english, "There you have your bear. Bring him back safely then you get your "..(Kaution/100).." silvercoins surety back.");
-					                    thisNPC:talkLanguage( Character.say, Player.english, "There you have your wolf. Bring him back safely then you get your "..(Kaution/100).." silvercoins surety back.");
-                    thisNPC:talkLanguage( Character.say, Player.german, "Wenn du \"bleib stehen\" sagst, bleibt der Bär oder der Wolf stehen und du kannst ihn be- und entladen. Sagst du \"weiter\" folgt er dir wieder. Pass auf dass er dich nicht aus den Augen verliert." );
-                    thisNPC:talkLanguage( Character.say, Player.english, "If you say \"stay\", the bear or wolf will stay where it is and you can put your things on the bear or wolf or take your things from it. If you say \"follow me\" the bear or wolf follows you again. Make sure you do not lose the bear or wolf." );
+                    thisNPC:talkLanguage( Character.say, Player.german, "Wenn du \"bleib stehen\" sagst, bleibt der Bär stehen und du kannst ihn be- und entladen. Sagst du \"weiter\" folgt er dir wieder. Pass auf dass er dich nicht aus den Augen verliert." );
+                    thisNPC:talkLanguage( Character.say, Player.english, "If you say \"stay\", the bear will stay where it is and you can put your things on the bear or take your things from it. If you say \"follow me\" the bear follows you again. Make sure you do not lose the bear." );
                     originator:setQuestProgress(8,1);
                     
                     Depot = originator:getDepot( originator.id );    
@@ -176,30 +169,26 @@ function GetCow(message, originator)end
                     
                 end
             else
-                thisNPC:talkLanguage( Character.say, Player.german, "Du hast nicht genug Geld. Ein Bär oder Wolf kostet "..PreisProKuh.." Kupferstücke und "..(Kaution/100).." Silberstücke müsst ihr als Kaution hinterlegen." );
-                thisNPC:talkLanguage( Character.say, Player.english,"You don't have enough money. A bear or wolf costs "..PreisProKuh.." coppercoins and you have to pay "..(Kaution/100).." silvercoins as surety." );
+                thisNPC:talkLanguage( Character.say, Player.german, "Du hast nicht genug Geld. Ein Bär kostet "..PreisProKuh.." Kupferstücke und "..(Kaution/100).." Silberstücke müsst ihr als Kaution hinterlegen." );
+                thisNPC:talkLanguage( Character.say, Player.english,"You don't have enough money. A bear costs "..PreisProKuh.." coppercoins and you have to pay "..(Kaution/100).." silvercoins as surety." );
             end
             return true
         else
-            thisNPC:talkLanguage( Character.say, Player.german, "Du hast schon einen Bären oder Wolf. Mehr als einer geht nicht." );
-            thisNPC:talkLanguage( Character.say, Player.english, "You have allready a bear or wolf. More then one is not possible." );
+            thisNPC:talkLanguage( Character.say, Player.german, "Du hast schon einen Bären. Mehr als einer geht nicht." );
+            thisNPC:talkLanguage( Character.say, Player.english, "You have allready a bear. More then one is not possible." );
         end
         return true
     elseif ((string.find(message,"bär.+kaufen")~=nil) and not (string.find(message,"bär.+verkaufen")~=nil))
-	or ((string.find(message,"wolf.+kaufen")~=nil) and not (string.find(message,"bär.+verkaufen")~=nil))
     or ((string.find(message,"lasttier.+kaufen")~=nil) and not (string.find(message,"lasttier.+verkaufen")~=nil))
     or ((string.find(message,"kaufe.+lasttier")~=nil) and not (string.find(message,"verkaufe.+lasttier")~=nil))
     or (string.find(message,"buy.+pack.+animal")~=nil)
-    or (string.find(message,"buy.+wolf")~=nil)
-    or (string.find(message,"buy.+bear")~=nil)
-    or (string.find(message,"buy.+donkey"   )~=nil) then
+    or (string.find(message,"buy.+bear")~=nil)then
         if (string.find(message,"[Bb]är")~=nil) or (string.find(message,"bear")~=nil) then
-		if (string.find(message,"[Ww]olf")~=nil) or (string.find(message,"wolf")~=nil) then
-            thisNPC:talkLanguage( Character.say, Player.german, "Ich verkaufe keine Bären und Wölfe. Ihr könnt sie euch von mir höchstens leihen." );
-            thisNPC:talkLanguage( Character.say, Player.english, "I don't sell bears and wolves. You can just rent them." );
+            thisNPC:talkLanguage( Character.say, Player.german, "Ich verkaufe keine Bären. Ihr könnt sie euch von mir höchstens leihen." );
+            thisNPC:talkLanguage( Character.say, Player.english, "I don't sell bears. You can just rent them." );
         else
-            thisNPC:talkLanguage( Character.say, Player.german, "Ich verkaufe meine Bären und Wölfe nicht. Ihr könnt sie euch von mir höchstens leihen." );
-            thisNPC:talkLanguage( Character.say, Player.english, "I don't sell my bears and wolves. You can just rent them." );
+            thisNPC:talkLanguage( Character.say, Player.german, "Ich verkaufe meine Bären. Ihr könnt sie euch von mir höchstens leihen." );
+            thisNPC:talkLanguage( Character.say, Player.english, "I don't sell my bears. You can just rent them." );
         end
     end
     return false
@@ -207,24 +196,19 @@ end
 
 function returnCow(message, originator)
     message = string.lower( message );
-    if (string.find(message,"wolf.+zurück")~=nil)
-    or (string.find(message,"wolf.+verkaufen")~=nil)
-    or (string.find(message,"verkaufe.+wolf")~=nil)
-	or (string.find(message,"bär.+verkaufen")~=nil)
+	if (string.find(message,"bär.+verkaufen")~=nil)
 	or (string.find(message,"verkaufe.+bär")~=nil)
     or (string.find(message,"bär.+zurück")~=nil)
     or (string.find(message,"lasttier.+verkaufen")~=nil)
     or (string.find(message,"verkaufe.+lasttier")~=nil)
     or (string.find(message,"lasttier.+zurück")~=nil)
     or (string.find(message,"sell.+bear")~=nil)
-    or (string.find(message,"sell.+wolf")~=nil)
     or (string.find(message,"sell.+pack.+animal")~=nil)
     or (string.find(message,"return.+pack.+animal")~=nil)
-    or (string.find(message,"return.+wolf")~=nil)
     or (string.find(message,"return.+bear")~=nil)then
         if (originator:getQuestProgress(8) == 0) then
-            thisNPC:talkLanguage( Character.say, Player.german, "Du hast gar keinen Bären oder Esel." );
-            thisNPC:talkLanguage( Character.say, Player.english, "You do not even have a bear or wolf." );
+            thisNPC:talkLanguage( Character.say, Player.german, "Du hast gar keinen Bären." );
+            thisNPC:talkLanguage( Character.say, Player.english, "You do not even have a bear." );
         else
               npcs = world:getNPCSInRangeOf(thisNPC.pos,8);
             for i, npc in pairs(npcs) do
@@ -234,9 +218,7 @@ function returnCow(message, originator)
                     if find_owner then
                         if (value_owner == originator.id) then
                             if world:deleteNPC( npc.id ) then
-                                thisNPC:talkLanguage( Character.say, Player.german, "Danke für den Wolf." );
 								thisNPC:talkLanguage( Character.say, Player.german, "Danke für den Bären." );
-                                thisNPC:talkLanguage( Character.say, Player.english, "Thanks for the wolf." );
 								thisNPC:talkLanguage( Character.say, Player.english, "Thanks for the bear." );
                                 originator:createItem(3077,math.floor(Kaution/100),333,0);
                                 originator:setQuestProgress(8,0);
@@ -247,9 +229,7 @@ function returnCow(message, originator)
                 end
             end
             thisNPC:talkLanguage( Character.say, Player.german, "Wo ist der Bär denn?" );
-			thisNPC:talkLanguage( Character.say, Player.german, "Wo ist der Wolf denn?" );
             thisNPC:talkLanguage( Character.say, Player.english, "Where is the bear?" );
-			thisNPC:talkLanguage( Character.say, Player.english, "Where is the wolf?" );
         end
         return true;
     end
