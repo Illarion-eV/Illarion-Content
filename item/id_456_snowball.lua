@@ -1,5 +1,6 @@
 -- UPDATE common SET com_script='item.id_456_snowball' WHERE com_itemid IN (456);
 
+require("base.common")
 module("item.id_456_snowball", package.seeall)
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
