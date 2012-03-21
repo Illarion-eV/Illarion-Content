@@ -25,7 +25,7 @@ function InitializeBook(  )
 
         TargetName[ 308 ]="Safepoint 4";
 
-		TargetName[ 308 ]="Safepoint 5";
+		TargetName[ 309 ]="Safepoint 5";
     end
 
 end
