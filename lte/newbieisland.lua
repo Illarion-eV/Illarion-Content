@@ -6,6 +6,31 @@
 require("base.common")
 module("lte.newbieisland", package.seeall)
 
+ListCycleMessageGerman = {}
+ListCycleMessageGerman = {
+"@Rince: zyklusnachricht 1 deutsch",
+"@Rince: zyklusnachricht 2 deutsch",
+"@Rince: zyklusnachricht 3 deutsch",
+"@Rince: zyklusnachricht 4 deutsch",
+"@Rince: zyklusnachricht 5 deutsch",
+"@Rince: zyklusnachricht 6 deutsch",
+"@Rince: zyklusnachricht 7 deutsch",
+"@Rince: zyklusnachricht 8 deutsch",
+"@Rince: zyklusnachricht 9 deutsch"}
+
+ListCycleMessageEnglish = {}
+ListCycleMessageEnglish = {
+"@Rince: zyklusnachricht 1 englisch",
+"@Rince: zyklusnachricht 2 englisch",
+"@Rince: zyklusnachricht 3 englisch",
+"@Rince: zyklusnachricht 4 englisch",
+"@Rince: zyklusnachricht 5 englisch",
+"@Rince: zyklusnachricht 6 englisch",
+"@Rince: zyklusnachricht 7 englisch",
+"@Rince: zyklusnachricht 8 englisch",
+"@Rince: zyklusnachricht 9 englisch"}
+
+
 function addEffect(newbieEffect, Character)
     -- newbie LTE has been added; we greet our new player
 	base.common.InformNLS(Character,
@@ -22,9 +47,8 @@ function callEffect(newbieEffect,Character)
 	    "@Rince: text 2 DE",
 	    "@Rince: text 2 EN");
 	    Effect:addValue("secMes",1) -- that we remember nex time that we already gave the message out (the value 1 as such is unimportant; just that it is there)
-	    newbieEffect.nextCalled=40
-        return true	
-	else
+	    newbieEffect.nextCalled=30
+    else
 	    foundNoobiaLight,noobiaLightValue = Effect:findValue("noobiaLight")
 		if not foundNoobiaLight then -- the char should walk to a specific postion (see: triggerfield/noobia_light)
 		    base.common.InformNLS(Character,
@@ -44,7 +68,21 @@ function callEffect(newbieEffect,Character)
 	        "@Rince: text Kohle Erz EN");
 	    end
 	
+	    foundRoundCount, roundCount = Effect:findValue("roundCount")
+	    if foundRoundCount then
+		    if (roundCount/2) == math.floor(roundCount/2) then -- every second call the cycle message is given out
+		
+		
+		
+		
+		if not foundRoundCount then
+		   roundCount = 1
+		else 
+            roundCounte = roundCount + 1 		
+	    end
 	end
+	
+	
 	--[[if Character:getQuestProgress(2) == 2 then
 		foundPos,newbiePos=loadNewbiePos(newbieEffect);
 		if foundPos then
