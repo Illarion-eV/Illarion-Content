@@ -9,23 +9,23 @@ function InitializeBook(  )
     if TargetName == nil then
 
         TargetName={  };
-        TargetName[ 101 ]="Galmair";
+        TargetName[ 301 ]="Galmair";
 
-        TargetName[ 102 ]="Cadomyr";
+        TargetName[ 302 ]="Cadomyr";
 
-        TargetName[ 103 ]="Runewick";
+        TargetName[ 303 ]="Runewick";
 
-        TargetName[ 104 ]="Wilderland";
+        TargetName[ 304 ]="Wilderland";
 
-        TargetName[ 105 ]="Safepoint 1";
+        TargetName[ 305 ]="Safepoint 1";
 
-        TargetName[ 106 ]="Safepoint 2";
+        TargetName[ 306 ]="Safepoint 2";
+		
+        TargetName[ 307 ]="Safepoint 3";
 
-        TargetName[ 107 ]="Safepoint 3";
+        TargetName[ 308 ]="Safepoint 4";
 
-        TargetName[ 108 ]="Safepoint 4";
-
-		TargetName[ 108 ]="Safepoint 5";
+		TargetName[ 309 ]="Safepoint 5";
     end
 
 end

@@ -36,12 +36,20 @@ function InitCraftingTool( )
         "Du hältst einen Moment inne und überlegst eine Gravur anzubringen, entscheidest dich aber dagegen.",
         "You interrupt to apply a gravure, but you reconsider.");
         
-        --Small Empty Bottle
+--Small Empty Bottle
 product = glassblowing:AddProduct( 0, 1317, { 0, 40}, 1, { 10, 20 } );
 product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
 
 --Empty Bottle
 product = glassblowing:AddProduct( 0, 164, { 10, 50}, 1, { 15, 30 } );
+product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
+
+--Empty Bottle (790) (Smoothies :p)
+product = glassblowing:AddProduct( 0, 790, { 15, 50}, 1, { 15, 30 } );
+product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
+
+--Empty Bottle(518) (Rum)
+product = glassblowing:AddProduct( 0, 518, { 20, 50}, 1, { 15, 30 } );
 product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
 
 --Large Empty Bottle

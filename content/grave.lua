@@ -24,15 +24,15 @@ function InitGrave()
     AddGrave({134,640,0},"","", 2,0);
 	AddGrave({130,637,0},"","", 3,0);
 	AddGrave({133,637,0},"","", 3,0);
-	AddGrave({105,632,-4},"","", 4,0);
-	AddGrave({106,632,-4},"","", 4,0);
-	AddGrave({111,666,-4},"","", 3,0);
+	AddGrave({105,632,-4},"","", 4,0);]]--
+	AddGrave({106,632,-4},"Nach etwas Zeit erkennst du schließlich eine 18.","After some time you can recognize a 18.", 4,0);
+	--[[AddGrave({111,666,-4},"","", 3,0);
 	AddGrave({106,663,-4},"","", 3,0);
 	AddGrave({107,673,-4},"","", 3,0);
 	AddGrave({113,670,-4},"","", 1,0);
-	AddGrave({108,665,-4},"","", 1,0);]]--
-	AddGrave({157,668,-4},"Nach etwas Zeit erkennst du schließlich eine 18.","After some time you can recognize a 18.", 4,0);
-	--[[AddGrave({158,667,-4},"","", 3,0);
+	AddGrave({108,665,-4},"","", 1,0);
+	AddGrave({157,668,-4},"","", 4,0);
+	AddGrave({158,667,-4},"","", 3,0);
 	--Cherass‘ Citadel
 	AddGrave({572,314,0},"","", 2,0);
 	AddGrave({576,314,0},"","", 3,0);
@@ -114,9 +114,9 @@ function InitGrave()
     AddGrave({331,271,-6},"","", 1,0);--Sewers
     AddGrave({331,270,-6},"","", 1,0);--Sewers
     AddGrave({333,273,-6},"","", 3,0);--Sewers
-    AddGrave({338,282,-6},"","", 1,0);--Sewers
-    AddGrave({327,295,-6},"","", 3,0);--Sewers
-    AddGrave({298,331,-6},"","", 3,0);--Sewers ]]--
+    AddGrave({338,282,-6},"","", 1,0);--Sewers]]--
+    AddGrave({327,295,-6},"Nach etwas Zeit erkennst du schließlich eine 17.","After some time you can recognize a 17.", 3,0);--Sewers
+    --AddGrave({298,331,-6},"","", 3,0);--Sewers 
     --Galmair hinterlands
     AddGrave({408,308,0},"Folgende Zeilen sind mit roter Farbe geschrieben: '10 Peitschenschläge für den Don belügen; 100 Peitschenschläge für den Don betrügen; 1000 Peitschenschläge für den Don bestehlen!'","With red colour following words are written: '10 wipe lashes for lying to the Don; 100 wipe lashes for betraying the Don; 1000 wipe lashes for stealing from the Don!'", 3,5);--Sport Hole
     --Glittering Cave
@@ -173,7 +173,7 @@ function InitGrave()
 	AddGrave({892,799,0},"","", 1,5); --slums graveyard
 	AddGrave({908,803,-3},"","", 4,5); --tomb
 	AddGrave({908,805,-3},"","", 4,5); --tomb	]]--
-	AddGrave({907,803,-3},"Nach längeren Versuchen erkennst du schließlich eine 18.","After several tries you can recognize a 18.", 4,5); --tomb
+	AddGrave({907,803,-3},"Nach etwas Zeit erkennst du schließlich eine 18.","After some time you can recognize a 18.", 4,5); --tomb
 	--[[AddGrave({907,805,-3},"","", 4,5); --tomb
 	--Runewick Hinterland
 	AddGrave({925,940,0},"","", 1,5); --Twin Eyes Islands

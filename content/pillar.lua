@@ -260,9 +260,9 @@ function InitPillar()
     AddPillar({387,246,-6},"4. Komm zum Don wenn du Hilfe benötigst. Er ist dein Pate.","4. Come to the Don if you need help. He is your godfather.", 1, 5); --Ronagans Altar
 	AddPillar({387,247,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 0); --Ronagans Altar
     AddPillar({387,248,-6},"4. Komm zum Don wenn du Hilfe benötigst. Er ist dein Pate.","4. Come to the Don if you need help. He is your godfather.", 1, 5); --Ronagans Altar
-    AddPillar({385,246,-6},"5. Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.","5. A deal with the Don is a deal with your fate.", 1, 5); --Ronagans Altar
-	AddPillar({386,247,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 0); --Ronagans Altar
-    AddPillar({387,248,-6},"5. Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.","5. A deal with the Don is a deal with your fate.", 1, 5); --Ronagans Altar
+    AddPillar({385,254,-6},"5. Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.","5. A deal with the Don is a deal with your fate.", 1, 5); --Ronagans Altar
+	AddPillar({385,255,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 0); --Ronagans Altar
+    AddPillar({385,256,-6},"5. Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.","5. A deal with the Don is a deal with your fate.", 1, 5); --Ronagans Altar
     AddPillar({387,284,-6},"6. Hast du Schaden angerichtet, so kompensiere ihn großzügig mit der zweifachen Menge des Schadens.","6. If you did harm, compensate generously, twice the damage.", 1, 5); --Ronagans Altar
 	AddPillar({387,285,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 0); --Ronagans Altar
     AddPillar({387,286,-6},"6. Hast du Schaden angerichtet, so kompensiere ihn großzügig mit der zweifachen Menge des Schadens.","6. If you did harm, compensate generously, twice the damage.", 1, 5); --Ronagans Altar

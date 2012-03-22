@@ -25,6 +25,8 @@ function InitDrinks()  -- initialisiert die coolen softdrinks in da hood.
 
         drinkList[2499] = {  "Ciderflasche", "bottle of cider", 2498,
         { {1858, 1859}, {224, 1861},{2055, 2059},{1840, 1844}, {2185, 2189} } };
+		
+		drinkList[1319] = {  "Rumflasche", "bottle of rum", 1317, nil};
 
         -- init descriptions
         BottleQualDe={"randvolle ","volle ","halbvolle ","fast leere "};
