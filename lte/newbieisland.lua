@@ -40,16 +40,19 @@ function addEffect(newbieEffect, Character)
 end
 
 function callEffect(newbieEffect,Character)
-
-	foundSecMes,secMesValue = Effect:findValue("secMes")
+    if (not Character.pos.z == 100) and (not Character.pos.z == 101) then -- not on the noobia map
+	    return false
+	end	
+	
+	foundSecMes,secMesValue = newbieEffect:findValue("secMes")
 	if not foundSecMes then -- there was no second message yet; therefore: second message!
 	    base.common.InformNLS(Character,
 	    "@Rince: text 2 DE",
 	    "@Rince: text 2 EN");
-	    Effect:addValue("secMes",1) -- that we remember nex time that we already gave the message out (the value 1 as such is unimportant; just that it is there)
-	    newbieEffect.nextCalled=30
+	    newbieEffect:addValue("secMes",1) -- that we remember nex time that we already gave the message out (the value 1 as such is unimportant; just that it is there)
+	    newbieEffect.nextCalled=150
     else
-	    foundNoobiaLight,noobiaLightValue = Effect:findValue("noobiaLight")
+	    foundNoobiaLight,noobiaLightValue = newbieEffect:findValue("noobiaLight")
 		if not foundNoobiaLight then -- the char should walk to a specific postion (see: triggerfield/noobia_light)
 		    base.common.InformNLS(Character,
 	        "@Rince: text 3 DE",
@@ -68,40 +71,35 @@ function callEffect(newbieEffect,Character)
 	        "@Rince: text Kohle Erz EN");
 	    end
 	
-	    foundRoundCount, roundCount = Effect:findValue("roundCount")
+	    foundRoundCount, roundCount = newbieEffect:findValue("roundCount")
 	    if foundRoundCount then
 		    if (roundCount/2) == math.floor(roundCount/2) then -- every second call the cycle message is given out
-		
-		
-		
-		
-		if not foundRoundCount then
-		   roundCount = 1
-		else 
-            roundCounte = roundCount + 1 		
-	    end
-	end
-	
-	
-	--[[if Character:getQuestProgress(2) == 2 then
-		foundPos,newbiePos=loadNewbiePos(newbieEffect);
-		if foundPos then
-			if equapos(Character.pos,newbiePos) then
+		        foundMessageCount, messageCount = newbieEffect:findValue("messageCount")
+				if not foundMessageCount then
+				    messageCount = 1
+				end	
 				base.common.InformNLS(Character,
-		        "Du kannst dich mit den Pfeiltasten bewegen.",
-				"You can move by using the arrow keys.");
+	            ""..ListCycleMessageGerman[messageCount],
+	            ""..ListCycleMessageEnglish[messageCount]);   
+		        if foundMessageCount then
+				    messageCount = messageCount + 1
+				end
+			    newbieEffect:addValue("messageCount",messageCount)
 			end
+		    
+			roundCount = roundCount + 1
 		else
-		    Character:inform("Error: newbiePos not found. Please report bug.");
+		   roundCount = 1
 		end
+	    
+		newbieEffect:addValue("roundCount",roundCount) 
 	end
-	newbieEffect.nextCalled=32000;
-	return true;]]
+	
 end
 
 function removeEffect(newbieEffect, Character)
 
-	if Character:isAdmin() then
+	--[[if Character:isAdmin() then
 		base.common.TempInformNLS(Character,
 			"*** überspringe remove-Routine ***",
 			"*** skip remove-routine ***");
@@ -244,26 +242,5 @@ function removeEffect(newbieEffect, Character)
 	end
 end
 
-function loadEffect(newbieEffect,Character)
+function loadEffect(newbieEffect,Character)]]
 end
-
-function loadNewbiePos(newbieEffect)
-    foundPosX,newbiePosX=newbieEffect:findValue("newbiePosX");
- 	foundPosY,newbiePosY=newbieEffect:findValue("newbiePosY");
- 	foundPosZ,newbiePosZ=newbieEffect:findValue("newbiePosZ");
-	if (foundPosX and foundPosY and foundPosZ) then
-		newbiePos=position(newbiePosX,newbiePosY,newbiePosZ);
- 		return true,newbiePos;
-	else
-	    return false
-	end
-end
-
-function setNewbiePos(newbieEffect,Character)
-
-	newbieEffect:addValue("newbiePosX",Character.pos.x);
-	newbieEffect:addValue("newbiePosY",Character.pos.y);
-	newbieEffect:addValue("newbiePosZ",Character.pos.z);
-end
-
-

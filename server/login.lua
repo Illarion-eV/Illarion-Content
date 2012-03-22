@@ -252,56 +252,14 @@ function onLogin( player )
 	    player:inform("Effekt gefunden.");
 	end
 ]]
-	-- Überprüfung auf Newbie-Status
-	NewbieState = player:getQuestProgress(2);
-	if NewbieState == 2 then
-		-- player logged out before moving the first time, let's offer another chance
-		NewbieState=0;
+	-- newbie lte is being added if the char log in at the newbie map
+	if (player.pos.z == 100) or (player.pos.z == 101) then 
+	    find, newbieEffect = player.effects:find(13)
+		if not find then
+		    player.effects:addEffect(13,10)
+        end
 	end
-	if NewbieState == 0 and player.pos.z == 100 then
-		-- first login
-		local atNewbieSpawn = true;
-		-- commented out, useless?
-		--[[ for x=31,32 do
-			for y=19,24 do
-				if player.pos.x == x and player.pos.y == y then
-					atNewbieSpawn = true;
-				end
-			end
-		end ]]
-		if atNewbieSpawn then
-			player:setQuestProgress(2,1); -- player seems to be a newbie, so start "Quest"
-			outText=base.common.GetNLS(player,"#w Du verläßt das Schiff, welches dich in das geheimnisvolle Land Illarion gebracht hat. Endlich wieder festen Boden unter den Füßen!","#w You leave the ship that brought you to the mysterious land Illarion. Finally standing again on firm ground again!");
-			player:inform(outText);
-			outText2=base.common.GetNLS(player,"#w Hilfe erhältst du jederzeit im Illarion-Chat oder auf dem Illarion-Forum, welche auf der Homepage verlinkt sind.","#w You can get help of any kind in the Illarion chat or the Illarion forum. You can find a link to both on the homepage.");
-			player:inform(outText2);
-
-			foundEffect,newbieEffect = player.effects:find(13);
-			if not foundEffect then
-				newbieEffect=LongTimeEffect(13,1);
-				player.effects:addEffect(newbieEffect);
-			else
-				newbieEffect.nextCalled=100;
-				setNewbiePos(newbieEffect, player);
-			end
-		end
-	elseif (NewbieState == 36 or NewbieState == 322) then  --player logged out on Noobia during fighting,lets warp him back to the npc
-		player:warp(position(63,41,100));
-		if (world:isCharacterOnField(position(41,50,100))==true) then
-			if (world:isCharacterOnField(position(43,50,100))==true) then
-				player:warp(position(41,48,100));
-				player:talk(Character.say, "Arghh!");
-			else
-				player:warp(position(43,50,100));
-				player:talk(Character.say, "Arghh!");
-			end
-		else
-			player:warp(position(41,50,100));
-			player:talk(Character.say, "Arghh!"); --needed phrase for the Npc(npc_nargon_hammerfaust.lua) to react
-		end
-	end
-	-- Überprüfung von Newbie-Status fertig
-
+	
 	return true;
 end
 
