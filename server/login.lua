@@ -256,7 +256,7 @@ function onLogin( player )
 	if (player.pos.z == 100) or (player.pos.z == 101) then 
 	    find, newbieEffect = player.effects:find(13)
 		if not find then
-		    player.effects:addEffect(13)
+		    player.effects:addEffect(13,10)
         end
 	end
 	

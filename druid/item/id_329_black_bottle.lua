@@ -215,7 +215,7 @@ function DrinkPotion(User,SourceItem)
 	  
 	  myEffect:addValue("cooldownBlack",5) -- starts after the effect has ended
 
-	  User.effects:addEffect(myEffect)
+	  User.effects:addEffect(myEffect,10)
    end
 end
 
