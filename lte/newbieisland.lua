@@ -95,6 +95,7 @@ function callEffect(newbieEffect,Character)
 		newbieEffect:addValue("roundCount",roundCount) 
 	end
 	
+	return true
 end
 
 function removeEffect(newbieEffect, Character)
