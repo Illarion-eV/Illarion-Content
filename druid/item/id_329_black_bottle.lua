@@ -303,9 +303,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 end
 
 function LookAtItem(User,Item)
-    
+    world:itemInform(User,Item,"test name")
 
-	local potionData = tonumber(Item:getData("potionData"));
+	--[[local potionData = tonumber(Item:getData("potionData"));
 
 	if Item.data == 77744151 then
         EtikettDe = "Gestaltenwandler Mensch"
@@ -433,6 +433,6 @@ function LookAtItem(User,Item)
      world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: "..EtikettDe)
   else
      world:itemInform(User,Item,"You look at a sticker telling: "..EtikettEn)
-  end
+  end]]
 
 end

@@ -31,15 +31,15 @@ function InitializeBook(  )
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-    --User:inform( "reading teleport book" )
+    User:inform( "reading teleport book" )
 
     InitializeBook(  );
 
-    --User:inform( "target id "..SourceItem.quality )
+    User:inform( "target id "..SourceItem.quality )
     local gate = TargetName[ SourceItem.quality ]
 
     if gate ~= nil then
-        --User:inform( "gate found" )
+        User:inform( "gate found" )
 
         if ( User:countItemAt( "body", 1061 ) > 0 ) then
 
@@ -48,9 +48,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             local radius = 4;
 
             for i = 1, 10 do
-                --User:inform( "placing" )
+                User:inform( "placing" )
                 loc = position( User.pos.x - radius + math.random( 2*radius ), User.pos.y - radius + math.random( 2*radius ), User.pos.z )
-                --User:inform( "trying pos "..loc.x..", "..loc.y )
+                User:inform( "trying pos "..loc.x..", "..loc.y )
 
                 -- never create it on people
                 -- never create it on items
@@ -62,7 +62,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 -- not in secret underground cell...same as above
                 --and ((( (loc.x < -72) or (loc.x > -55) ) or ( (loc.y < -74) or (loc.y > -60) )) or loc.z~=-3) then
                     -- create a gate to the destination
-                    --User:inform( "creating" )
+                    User:inform( "creating" )
                     world:createItemFromId( 10, 1, loc, true, 933 ,(SourceItem.quality-100));
                     world:makeSound( 4, loc )
 
@@ -96,7 +96,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 end
 
 function LookAtItem( User, Item )
-    --User:inform( "lookat book" )
+    User:inform( "lookat book" )
 
     InitializeBook(  );
 
