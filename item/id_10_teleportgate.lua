@@ -146,7 +146,7 @@ function CharacterOnField( User )
                 if ( SourceItem.wear ~= 255 ) then
                     if ( SourceItem.quality < 900 ) then
                         if ( SourceItem.quality > 200 ) then
-                            SourceItem.quality = SourceItem.quality - 100;
+                            SourceItem.quality = SourceItem.quality - 0;
                             world:changeItem( SourceItem );
                         else
                             world:erase( SourceItem, SourceItem.number );
