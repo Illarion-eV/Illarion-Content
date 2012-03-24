@@ -157,7 +157,7 @@ AmbientList:add( position(352,217,-6),nil,"Höhlenmalerei: Ein schlaksiger alter 
 AmbientList:add( position(389,176,-6),nil,"Eine krummbeinige Ork, einen schweren Bogen spannend. Ihre Augen schimmern voll Habgier, sie wirkt niederträchtig und verschlagen. 'We will beat up the people who say orcs would beat up people!'","A bandy-legged orcess drawing a heavy bow. Her devious eyes seem to be filled with greed and baseness. 'We will beat up the people who say orcs would beat up people!'",nil,nil,65); --Galmair Underground (Orc chambers)
 
 -- Tutorial by Rincewind
-AmbientList:add( position(37,94,100 ),nil,"~ Dies ist das Ende des Tutorials. ~","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(37,94,100 ),nil,"~ Dies ist das Ende des Tutorials. Mache dich nun auf den Weg in die Stadt, die deinem Charakter am besten gefallen würde.~","ENGLISH",nil,nil,100); --Tutorial
 AmbientList:add( position(40,107,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
 AmbientList:add( position(40,108,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
 AmbientList:add( position(39,108,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
