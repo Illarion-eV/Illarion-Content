@@ -100,7 +100,7 @@ function LookAtItem( User, Item )
 
     InitializeBook(  );
 
-    local gate = TargetName[ Item.quality ]
+    local gate = TargetName[ Item.data ]
 
     if gate == nil then
         world:itemInform( User, Item, base.common.GetNLS( User, "Zauberbuch", "Magical book" ) );
