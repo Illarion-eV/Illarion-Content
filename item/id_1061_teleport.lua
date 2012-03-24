@@ -9,25 +9,25 @@ function InitializeBook(  )
     if TargetName == nil then
 
         TargetName={  };
-        TargetName[ 301 ]="Galmair";
+        TargetName[ 1 ]="Galmair";
 
-        TargetName[ 302 ]="Cadomyr";
+        TargetName[ 2 ]="Cadomyr";
 
-        TargetName[ 303 ]="Runewick";
+        TargetName[ 3 ]="Runewick";
 
-        TargetName[ 304 ]="Wilderland";
+        TargetName[ 4 ]="Wilderland";
 
-        TargetName[ 305 ]="Safepoint 1";
+        TargetName[ 5 ]="Safepoint 1";
 
-        TargetName[ 306 ]="Safepoint 2";
+        TargetName[ 6 ]="Safepoint 2";
 		
-        TargetName[ 307 ]="Safepoint 3";
+        TargetName[ 7 ]="Safepoint 3";
 
-        TargetName[ 308 ]="Safepoint 4";
+        TargetName[ 8 ]="Safepoint 4";
 
-		TargetName[ 309 ]="Safepoint 5";
+		TargetName[ 9 ]="Safepoint 5";
     end
-
+local gate = TargetName[ SourceItem.data ]
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
