@@ -18,8 +18,8 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
 	Round=2 
 	else 
 	Round=nil;	
-	return true
+	return false
 	end
 	end
-return false
+return true
 end
