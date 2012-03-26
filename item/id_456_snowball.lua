@@ -2,24 +2,15 @@
 
 module("item.id_456_snowball", package.seeall)
 
-function MoveItemBeforeMove(User, SourceItem, TargetItem)
+function MoveItemAfterMove(User, SourceItem, TargetItem)
 	if Round==nil then
-	MyTile=world:getField(TargetItem.pos)
-	TileID = MyTile.tile
-	Round=1;
+		Round=1;
 	end
 	if Round==1 then
-		if (TileID==6) then 
-		User:talkLanguage(Character.say,Player.german,"#me wirft ein Steinchen ins Wasser.");
-		User:talkLanguage(Character.say,Player.english,"#me throws a pebble into the water.");
-		world:gfx(1,TargetItem.pos);
-		world:makeSound(9,TargetItem.pos);
-		world:erase(Item,1);
-	Round=2 
-	else 
-	Round=nil;	
-	return false
+        User:talkLanguage(Character.say,Player.german,"#me wirft einen Schneeball.");
+        User:talkLanguage(Character.say,Player.english,"#me throws a snowball.");
+		Round=2;
+	else
+		Round=nil;
 	end
-	end
-return true
 end
