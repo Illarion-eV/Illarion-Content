@@ -19,3 +19,4 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
 	else 
 	Round=nil;	
 	end
+	end
