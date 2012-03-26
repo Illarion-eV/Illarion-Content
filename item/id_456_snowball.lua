@@ -15,6 +15,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
 		world:gfx(1,TargetItem.pos);
 		world:makeSound(9,TargetItem.pos);
 		world:erase(Item,1);
+	Round=2 
 	else 
 	Round=nil;	
 	end
