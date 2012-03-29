@@ -148,25 +148,29 @@ product:AddProductionSteps( { 284, 1, "all" }, 2 ); -- Bluestone: 2x1
 CurrentCatID = carpentry:AddCategory( 90 ) --instruments
 
 --Horn
-product = carpentry:AddProduct( CurrentCatID, 333, { 10, 30}, 1, { 15, 30 } );
+product = carpentry:AddProduct( CurrentCatID, 333, { 10, 20}, 1, { 15, 30 } );
 product:AddProductionSteps( { 545, 1, "all" }, 2 ); -- Cherry Wooden Boards: 2x1
 
 --Flute
-product = carpentry:AddProduct( CurrentCatID, 90, { 20, 40}, 1, { 20, 40 } );
+product = carpentry:AddProduct( CurrentCatID, 90, { 20, 30}, 1, { 20, 40 } );
+product:AddProductionSteps( { 545, 1, "all" }, 3 ); -- Cherry Wooden Boards: 3x1
+
+--Panpipe
+product = carpentry:AddProduct( CurrentCatID, 532, { 30, 40}, 1, { 20, 40 } );
 product:AddProductionSteps( { 545, 1, "all" }, 3 ); -- Cherry Wooden Boards: 3x1
 
 --Drum
-product = carpentry:AddProduct( CurrentCatID, 533, { 30, 50}, 1, { 25, 50 } );
+product = carpentry:AddProduct( CurrentCatID, 533, { 40, 50}, 1, { 25, 50 } );
 product:AddProductionSteps( { 2543, 1, "all" }, 2 ); -- Conifer Wooden Boards: 2x1
 product:AddProductionSteps( { 2547, 1, "all" }, 2 ); -- Leather: 2x1
 
 --Lute
-product = carpentry:AddProduct( CurrentCatID, 335, { 40, 60}, 1, { 30, 60 } );
+product = carpentry:AddProduct( CurrentCatID, 335, { 50, 60}, 1, { 30, 60 } );
 product:AddProductionSteps( { 545, 1, "all" }, 2 ); -- Cherry Wooden Boards: 2x1
 product:AddProductionSteps( { 50, 1, "all" }, 2 ); -- Thread: 2x1
 
 --Harp
-product = carpentry:AddProduct( CurrentCatID, 332, { 50, 70}, 1, { 35, 70 } );
+product = carpentry:AddProduct( CurrentCatID, 332, { 60, 70}, 1, { 35, 70 } );
 product:AddProductionSteps( { 545, 1, "all" }, 5 ); -- Cherry Wooden Boards: 5x1
 product:AddProductionSteps( { 51, 1, "all" }, 3 ); -- Thread: 3x1
 

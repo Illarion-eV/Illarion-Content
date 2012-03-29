@@ -193,22 +193,24 @@ function InitCraftingTool( )
         --#################################################################################################--
         -----------------------------------------------------------------------------------------------------
         
+		local CurrentCatID = brewing:AddCategory( 2501 ) -- Bierflasche(2501), Leichte Alkoholika 
+		
         ------------------- FLASCHE MIT CIDER - 2499 -------------------------- 
-        product = brewing:AddProduct( 0, 2499, { 0, 30 }, 1, { 10, 20 } );
+        product = brewing:AddProduct( CurrentCatID, 2499, { 0, 20 }, 1, { 10, 20 } );
         product:AddProductionSteps( { 2498, 1, "all" }, 1, nil, { 2498, 1, 70 }  ); -- Schritt 4: leere Flasche(2498) 1x
         product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 3: Eimer mit Wasser(52) 1x
         product:AddProductionSteps( {   15, 1, "all" }, 3 ); -- Schritte 1 - 2: Apfel(15) 2x
         ------------------ FLASCHE MIT CIDER - FERTIG ------------------------- 
         
         -------------------- FLASCHE MIT MET - 2497 ---------------------------
-        product = brewing:AddProduct( 0, 2497, { 25, 55 }, 1, { 23, 46 } );
+        product = brewing:AddProduct( CurrentCatID, 2497, { 15, 30 }, 1, { 18, 36 } );
         product:AddProductionSteps( { 2498, 1, "all" }, 1, nil, { 2498, 1, 70 }  ); -- Schritt 5: leere Flasche(2498) 1x
         product:AddProductionSteps( { 2529, 1, "all" }, 3 ); -- Schritte 1 - 3: Honigwaben(2529) 2x
         product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 4: Eimer mit Wasser(52) 1x
         ------------------- FLASCHE MIT MET - FERTIG --------------------------
         
         ------------------- FLASCHE MIT BIER - 2501 ---------------------------
-        product = brewing:AddProduct( 0, 2501, { 50, 80 }, 1, { 35, 70 } );
+        product = brewing:AddProduct( CurrentCatID, 2501, {32, 50 }, 1, { 25, 50 } );
         product:AddProductionSteps( { 2498, 1, "all" }, 1, nil, { 2498, 1, 70 }  ); -- Schritt 7: leere Flasche(2498) 1x
         product:AddProductionSteps( {  259, 1, "all" }, 2 ); -- Schritte 1 - 2: Getreide(259) 1x
         product:AddProductionSteps( {  154, 1, "all" }, 1 ); -- Schritte 3 - 4: Hopfen(154) 1x
@@ -216,13 +218,119 @@ function InitCraftingTool( )
         ------------------ FLASCHE MIT BIER - FERTIG --------------------------
         
         ------------------- FLASCHE MIT WEIN - 2500 ---------------------------
-        product = brewing:AddProduct( 0, 2500, { 75, 100 }, 1, { 48, 96 } );
+        product = brewing:AddProduct( CurrentCatID, 2500, {47, 65 }, 2, { 33, 66 } );
         product:AddProductionSteps( { 2498, 1, "all" }, 1, nil, { 2498, 1, 70 }  ); -- Schritt 5: leere Flasche(2498) 1x
         product:AddProductionSteps( {  388, 1, "all" }, 3 ); -- Schritte 1 - 3: Weinbeeren(388) 2x
         product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 4: Eimer mit Wasser(52) 1x
         ------------------ FLASCHE MIT WEIN - FERTIG --------------------------       
         
-        InitDone = true;
+		local CurrentCatID = brewing:AddCategory( 517 ) -- Das harte Zeug 
+		
+		------------------- FLASCHE MIT RUM - 517 ---------------------------
+		product = brewing:AddProduct( CurrentCatID, 517, {52, 70 }, 1, { 35, 70 } );
+		product:AddProductionSteps( { 518, 1, "all" }, 1, nil, { 518, 1, 70 }  ); -- Schritt 6: leere Flasche(1317) 1x
+		product:AddProductionSteps( {  778, 1, "all" }, 4 ); -- Schritte 1 - 4: Zuckerrohr(778) 1x
+		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
+		------------------- FLASCHE MIT RUM - FERTIG ---------------------------
+		
+		------------------- FLASCHE MIT BEERENSCHNAPS - 1315 ---------------------------
+		product = brewing:AddProduct( CurrentCatID, 1315, {54, 75 }, 1, { 38, 76 } );
+		product:AddProductionSteps( { 1317, 1, "all" }, 1, nil, { 1317, 1, 70 }  ); -- Schritt 6: leere Flasche(1317) 1x
+		product:AddProductionSteps( {  81, 2, "all" }, 2 ); -- Schritt 1 - 2: Beeren(81) 2x
+		product:AddProductionSteps( {  147, 2, "all" }, 2 ); -- Schritt 3 - 4: Brombeeren(147) 2x
+		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
+		------------------- FLASCHE MIT BEERENSCHNAPS - FERTIG ---------------------------
+		
+		------------------- FLASCHE MIT BÄRENTÖTER - 1316 ---------------------------
+		product = brewing:AddProduct( CurrentCatID, 1316, {56, 75 }, 1, { 38, 76 } );
+		product:AddProductionSteps( { 1317, 1, "all" }, 1, nil, { 1317, 1, 70 }  ); -- Schritt 6: leere Flasche(1317) 1x
+		product:AddProductionSteps( {  158, 2, "all" }, 2 ); -- Schritt 1 - 2: Knollenschwamm Pilz(158) 2x
+		product:AddProductionSteps( {  159, 2, "all" }, 2 ); -- Schritt 2 - 4: Fliegenpilz(159) 2x
+		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
+        ------------------- FLASCHE MIT BÄRENTÖTER - FERTIG ---------------------------
+		
+		------------------- FLASCHE MIT ELBENWEIN - 1318 ---------------------------
+		product = brewing:AddProduct( CurrentCatID, 1318, {87, 100 }, 1, { 55, 110 } );
+		product:AddProductionSteps( { 1317, 1, "all" }, 1, nil, { 1317, 1, 70 }  ); -- Schritt 6: leere Flasche(1317) 1x
+		product:AddProductionSteps( {  759, 1, "all" }, 2 ); -- Schritt 1 - 2: Nüsse(759) x1
+		product:AddProductionSteps( {  80, 1, "all" }, 1 ); -- Schritt 3: Banane(80) x1
+		product:AddProductionSteps( {  2529, 2, "all" }, 1 ); -- Schritt 4: Honig(2529) x2
+		------------------- FLASCHE MIT ELBENWEIN - FERTIG ---------------------------
+		
+		------------------- FLASCHE MIT KIRSCHSCHNAPS - 1319 ---------------------------
+		product = brewing:AddProduct( CurrentCatID, 1319, {77, 95 }, 1, { 48, 96 } );
+		product:AddProductionSteps( { 1317, 1, "all" }, 1, nil, { 1317, 1, 70 }  ); -- Schritt 6: leere Flasche(1317) 1x
+		product:AddProductionSteps( {  302, 2, "all" }, 4 ); -- Schritt 1 - 4: Kirschen(302) 2x
+		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
+        ------------------- FLASCHE MIT KIRSCHSCHNAPS - FERTIG ---------------------------
+		
+		local CurrentCatID = brewing:AddCategory( 787 ) -- Tee, Smoothies, Saft :p
+		
+		------------------- FLASCHE MIT BROMBEERSAFT - 783 Dunkelblau ---------------------------
+		product = brewing:AddProduct( CurrentCatID, 783, {63, 85 }, 1, { 43, 86 } );
+		product:AddProductionSteps( { 790, 1, "all" }, 1, nil, { 790, 1, 70 }  ); -- Schritt 6: leere Flasche(790) 1x
+		product:AddProductionSteps( {  157, 2, "all" }, 3 ); -- Schritt 1 - 3: Brombeeren(157) 2x
+		product:AddProductionSteps( {  778, 1, "all" }, 1 ); -- Schritt 4: Zuckerrohr(778) 1x
+		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
+		------------------- FLASCHE MIT BROMBEERSAFT - FERTIG ---------------------------
+		
+		------------------- FLASCHE MIT MANDARINENSAFT - 784 ---------------------------
+		product = brewing:AddProduct( CurrentCatID, 784, {68, 90 }, 1, { 45, 90 } );
+		product:AddProductionSteps( { 790, 1, "all" }, 1, nil, { 790, 1, 70 }  ); -- Schritt 6: leere Flasche(790) 1x
+		product:AddProductionSteps( {  199, 2, "all" }, 3 ); -- Schritt 1 - 3: Mandarinen(199) 2x
+		product:AddProductionSteps( {  778, 1, "all" }, 1 ); -- Schritt 4: Zuckerrohr(778) 1x
+		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
+		------------------- FLASCHE MIT MANDARINENSAFT - FERTIG ---------------------------
+
+		------------------- FLASCHE MIT BANANENSAFT - 785 ---------------------------
+		product = brewing:AddProduct( CurrentCatID, 785, {78, 100 }, 1, { 50, 100 } );
+		product:AddProductionSteps( { 790, 1, "all" }, 1, nil, { 790, 1, 70 }  ); -- Schritt 6: leere Flasche(790) 1x
+		product:AddProductionSteps( {  80, 2, "all" }, 3 ); -- Schritt 1 - 3: Bananen(80) 2x
+		product:AddProductionSteps( {  778, 1, "all" }, 1 ); -- Schritt 4: Zuckerrohr(778) 1x
+		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
+		------------------- FLASCHE MIT BANANENSAFT - FERTIG ---------------------------
+		
+		------------------- FLASCHE MIT KOHLSAFT - 786 ---------------------------
+		product = brewing:AddProduct( CurrentCatID, 786, {33, 50 }, 1, { 25, 50 } );
+		product:AddProductionSteps( { 790, 1, "all" }, 1, nil, { 790, 1, 70 }  ); -- Schritt 6: leere Flasche(790) 1x
+		product:AddProductionSteps( { 155, 2, "all" }, 4 ); -- Schritt 1 - 4: Kohl(290) 2x
+		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
+		------------------- FLASCHE MIT KOHLSAFT - FERTIG ---------------------------
+		
+		------------------- FLASCHE MIT TEE - 787 --------------------------- 
+		product = brewing:AddProduct( CurrentCatID, 787, {29, 45 }, 1, { 23, 46 } );
+		product:AddProductionSteps( { 790, 1, "all" }, 1, nil, { 790, 1, 70 }  ); -- Schritt 6: leere Flasche(790) 1x
+		product:AddProductionSteps( { 155, 2, "all" }, 4 ); -- Schritt 1 - 2: Sibanac(155) 2x
+		product:AddProductionSteps( { 143, 2, "all" }, 4 ); -- Schritt 2 - 4: Roter Hollunder(143) 2x
+		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
+		------------------- FLASCHE MIT TEE - FERTIG --------------------------- 
+		
+		------------------- FLASCHE MIT KAROTTENSAFT - 788 ---------------------------
+		product = brewing:AddProduct( CurrentCatID, 788, {57, 75 }, 1, { 38, 76 } );
+		product:AddProductionSteps( { 790, 1, "all" }, 1, nil, { 790, 1, 70 }  ); -- Schritt 6: leere Flasche(790) 1x
+		product:AddProductionSteps( {  2493, 2, "all" }, 3 ); -- Schritt 1 - 3: Karotten(2493) 2x
+		product:AddProductionSteps( {  778, 1, "all" }, 1 ); -- Schritt 4: Zuckerrohr(778) 1x
+		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 7: Eimer mit Wasser(52) 1x
+		------------------- FLASCHE MIT KAROTTENSAFT - FERTIG ---------------------------
+		
+		------------------- FLASCHE MIT ERDBEERSAFT - 789 ---------------------------
+		product = brewing:AddProduct( CurrentCatID, 789, {73, 95 }, 1, { 48, 96 } );
+		product:AddProductionSteps( { 790, 1, "all" }, 1, nil, { 790, 1, 70 }  ); -- Schritt 6: leere Flasche(790) 1x
+		product:AddProductionSteps( {  151, 2, "all" }, 3 ); -- Schritt 1 - 3: Erdbeeren(151) 2x
+		product:AddProductionSteps( {  778, 1, "all" }, 1 ); -- Schritt 4: Zuckerrohr(778) 1x
+		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
+		------------------- FLASCHE MIT ERDBEERSAFT - FERTIG ---------------------------
+		
+		------------------- FLASCHE MIT TRAUBENSAFT - 791 ---------------------------
+		product = brewing:AddProduct( CurrentCatID, 791, {83, 100 }, 1, { 50, 100 } );
+		product:AddProductionSteps( { 790, 1, "all" }, 1, nil, { 790, 1, 70 }  ); -- Schritt 6: leere Flasche(790) 1x
+		product:AddProductionSteps( {  388, 2, "all" }, 3 ); -- Schritt 1 - 3: Trauben(388) 2x
+		product:AddProductionSteps( {  778, 1, "all" }, 1 ); -- Schritt 4: Zuckerrohr(778) 1x
+		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
+		------------------- FLASCHE MIT TRAUBENSAFT - FERTIG ---------------------------
+		
+		
+		InitDone = true;
     end
     return cooking,brewing;
 end

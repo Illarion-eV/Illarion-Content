@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: February 25, 2012                       easyNPC Parser v1.02 --
+-- Last parsing: March 22, 2012                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1463,7 +1463,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The Don ownsss two ssstonesss of power. These are a Topaz and an Amethyst. They protect Galmair to get beaten by our forcesss.");
+talkEntry:addResponse("The Don ownsss two ssstonesss of power. These are a Bluestone and a Blackstone. They protect Galmair to get beaten by our forcesss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1471,7 +1471,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Der Don besssitzt zwei Sssteine der Macht. Einen Topas und einen Amethyst. Die bessschützen Galmair vor der Übernahme durch unsere Ssstreitkräfte.");
+talkEntry:addResponse("Der Don besssitzt zwei Sssteine der Macht. Einen Blaustein und einen Schwarzstein. Die bessschützen Galmair vor der Übernahme durch unsere Ssstreitkräfte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1490,13 +1490,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The Queen ownsss two ssstonesss of power. These are a Bluestone and a Blackstone. They protect usss againssst Runewick and Galmair.");
+talkEntry:addResponse("The Queen ownsss two ssstonesss of power. These are a Topaz and an Amethyst. They protect usss againssst Runewick and Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("Der Königin besitzt zwei Sssteine der Macht. Einen Blaustein und einen Schwarzstein. Die beschützen unsss vor Runewick und Galmair.");
+talkEntry:addResponse("Der Königin besitzt zwei Sssteine der Macht. Einen Topas und einen Amethyst. Die beschützen unsss vor Runewick und Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1504,14 +1504,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The Queen owns two stones of power. These are a Bluestond and a Blackstone. They protect us against Runewick and Galmair.");
+talkEntry:addResponse("The Queen owns two stones of power. These are a Topaz and an Amethyst. They protect us against Runewick and Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Der Königin besitzt zwei Steine der Macht. Einen Blaustein und einen Schwarzstein. Die beschützen uns vor Runewick und Galmair.");
+talkEntry:addResponse("Der Königin besitzt zwei Steine der Macht. Einen Topas und einen Amethyst. Die beschützen uns vor Runewick und Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

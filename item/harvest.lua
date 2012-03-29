@@ -4,7 +4,7 @@ require("content.gathering")
 
 module("item.harvest", package.seeall)
 
--- UPDATE common SET com_script='item.harvest' WHERE com_itemid IN (14,300,387);
+-- UPDATE common SET com_script='item.harvest' WHERE com_itemid IN (14,300,387, 1809);
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
@@ -35,6 +35,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
         harvestItem[ 300 ] = {                       -- Kirschbaum
         { 0, 0, 302, 299, {6,10,9,0}, 83, 20 } };           -- Alle: Kirsche
+		
+		harvestItem[ 1809 ] = {                        -- Eldan-Eiche
+        { 0, 0, 759, 0, {5,0,10,10}, 83, 20 } };             -- Alle: Nüsse
 
         harvestItem[ 387 ] = {                       -- Strauch
         { 2, 0, 81,  386, {5,8,10,0}, 11,  5 },             -- Wald: Beeren

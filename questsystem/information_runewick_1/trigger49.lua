@@ -9,8 +9,8 @@ local POSTCONDITION_QUESTSTATE = 109
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Diese Lampe sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Raum der Zwielicht! Sucht nach einer Zahl an einen der Särge dort!"
-local NPC_REPLY_EN = "Let us test a lamp. Somewhere where it is dark. Room of Twilight! Look for a number at one of the coffins there!"
+local NPC_REPLY_DE = "Gehe in den Raum der Zwielicht! Sucht nach einer Zahl an einen der Särge dort!"
+local NPC_REPLY_EN = "Go into the Room of Twilight! Look for a number at one of the coffins there!"
 
 function receiveText(type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
