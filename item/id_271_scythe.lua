@@ -88,7 +88,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         "You can't carry any more.");
     end
     User:learn( farming.LeadSkill, farming.LeadSkillGroup, farming.SavedWorkTime[User.id], 100, User:increaseAttrib(farming.LeadAttribute,0) );
-    
+    base.common.GetHungry( User, 100 );
     if base.common.ToolBreaks( User, SourceItem, true ) then -- Sense beschädigen
         base.common.InformNLS( User, 
         "Die rostige Sense zerbricht.", 

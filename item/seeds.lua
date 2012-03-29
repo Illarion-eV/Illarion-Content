@@ -37,7 +37,24 @@ module("item.seeds", package.seeall)
 -- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 732 WHERE com_itemid = 731;
 -- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 732 WHERE com_itemid = 732;
 
-function SetSeeds( User, SourceItem, TargetPos )
+function SetSeeds( User, SourceItem, TargetPos, ltstate )
+    content.gathering.InitGathering();
+	local farming = content.gathering.farming;
+    
+    base.common.ResetInterruption(User, ltstate);
+	if (ltstate == Action.abort) then -- Arbeit unterbrochen
+        if (User:increaseAttrib("sex", 0) == 0) then
+            gText = "seine";
+            eText = "his";
+        else
+            gText = "ihre";
+            eText = "her";
+        end
+        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+        return
+    end
+    
     if seedList == nil then
         seedList = {  };
 		
@@ -156,7 +173,22 @@ function SetSeeds( User, SourceItem, TargetPos )
         base.common.TurnTo( User, TargetPos );
     end
     
-    local skillwert = User:getSkill( "peasantry" );
+    if (ltstate == Action.none) then -- user does nothing
+        farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil,true);
+		User:startAction(farming.SavedWorkTime[User.id], 0, 0, 0, 0);
+        if farming.SavedWorkTime[User.id] > 10 then
+            base.common.TempInformNLS(User, -- TODO
+                "Du säst Samen aus.",
+                "You sow seeds.");
+        end
+        return
+    end
+    
+	if not farming:FindRandomItem(User) then
+		return
+	end
+    
+    local skillwert = User:getSkill( farming.LeadSkill );
     local chance = math.random( 100 );
       
     if( chance  < ( skillwert+seed[4] ) ) then
@@ -167,28 +199,27 @@ function SetSeeds( User, SourceItem, TargetPos )
         world:createItemFromId( seed[1], 1, TargetPos, false, 233 ,1);
     end
     
-    --User:learn( 2, "peasantry", 2, 100 );
-	--Replace with new learn function, see learn.lua 
+    User:learn( farming.LeadSkill, farming.LeadSkillGroup, farming.SavedWorkTime[User.id], 100, User:increaseAttrib(farming.LeadAttribute,0) );
     world:erase( SourceItem, 1 );
 
     base.common.GetHungry( User, 100 );
 end
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param)
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate)
     if ((TargetItem ~= nil) and (TargetItem.id ~= 0)) then
         if (TargetItem:getType() == 3) then
             if ((TargetItem.id == 2862) or (TargetItem.id == 2863)) then
-                SetSeeds( User, SourceItem, base.common.GetFrontPosition(User) );
+                SetSeeds( User, SourceItem, base.common.GetFrontPosition(User), ltstate );
             end
         end
     else
         local TestItem = base.common.GetFrontItem( User );
         if ((TestItem ~= nil) and (TestItem.id ~= 0)) then
             if ((TestItem.id == 2862) or (TestItem.id == 2863)) then
-                SetSeeds( User, SourceItem, base.common.GetFrontPosition(User) );
+                SetSeeds( User, SourceItem, base.common.GetFrontPosition(User), ltstate );
             end
         else
-            SetSeeds( User, SourceItem, base.common.GetFrontPosition(User) );
+            SetSeeds( User, SourceItem, base.common.GetFrontPosition(User), ltstate );
         end
     end
 end
