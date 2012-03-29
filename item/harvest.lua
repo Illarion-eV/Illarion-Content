@@ -8,6 +8,7 @@ module("item.harvest", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
+    local fruitgathering = content.gathering.fruitgathering;
 
     --User:inform( "harvesting" );
     SourceItem = world:getItemOnField( SourceItem.pos );
@@ -84,6 +85,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             groundok=false;
         end
         if groundok then
+            
             if ( harvest[ 4 ] == 0 ) then
                 if( harvest[ 5 ][ season ] >= math.random(10) ) then
                     success = true;
@@ -97,13 +99,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             	return
             end
             if (ltstate==Action.none) then
+                fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User,nil,true);
 				User:talkLanguage(Character.say, Player.german, "#me fängt an Früchte zu sammeln.");
                 User:talkLanguage(Character.say, Player.english,"#me starts to collect fruits.");
-                User:startAction(7,0,0,0,0);
+                User:startAction(fruitgathering.SavedWorkTime[User.id],0,0,0,0);
         		return
         	end
 			
-			if not content.gathering.fruitgathering:FindRandomItem(User) then
+			if not fruitgathering:FindRandomItem(User) then
 				return
 			end
 			
@@ -149,13 +152,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                         world:erase( SourceItem, 1 );
                     end
                 end
+                
+                User:learn( fruitgathering.LeadSkill, fruitgathering.LeadSkillGroup, fruitgathering.SavedWorkTime[User.id], 30, User:increaseAttrib(fruitgathering.LeadAttribute,0) );
             end
             if (SourceItem.data > 0) then
-            	User:startAction(7,0,0,0,0);
+                fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User,nil,true);
+            	User:startAction(fruitgathering.SavedWorkTime[User.id],0,0,0,0);
             end
-            User.movepoints=User.movepoints-4;
-            -- learn only from difficult tasks
-            --User:inform( "learning" );
 
             if( not success )then
                 if( boden == 1 ) then

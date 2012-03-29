@@ -172,7 +172,7 @@ function GatheringCraft:FindRandomItem(User)
 end
 
 -- Arbeitszeit Generieren
-function GatheringCraft:GenWorkTime(User, toolItem)
+function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
     local skill  = User:getSkill(self.LeadSkill);
     local attrib = User:increaseAttrib(self.LeadAttrib, 0);
 	-- new algorithm
@@ -233,7 +233,10 @@ function GatheringCraft:GenWorkTime(User, toolItem)
     retVal = retVal + math.random(0,randomChange*2) - randomChange;
     -- limit to overall boundaries
     retVal = math.floor(math.max(minAll, math.min(maxAll, retVal)));
-
+    
+    if fastAction then
+        retVal = math.ceil(retVal/3);
+    end
 	return retVal;
 	
 	-- -- old algorithm
