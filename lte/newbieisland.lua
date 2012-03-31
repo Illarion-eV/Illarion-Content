@@ -59,13 +59,13 @@ function callEffect(newbieEffect,Character)
 	        "@Rince: text 4 EN");
 	    end 
 		
-		if (Charcater:getQuestProgess(13) == 2) or (Charcater:getQuestProgess(13) == 3) then
+		if (Character:getQuestProgess(13) == 2) or (Charcater:getQuestProgess(13) == 3) then
 		    base.common.InformNLS(Character,
 	        "@Rince: text Schweine töten DE",
 	        "@Rince: text Schweine töten EN");
 	    end
 		
-		if (Charcater:getQuestProgess(12) == 2) then
+		if (Character:getQuestProgess(12) == 2) then
 		    base.common.InformNLS(Character,
 	        "@Rince: text Kohle Erz DE",
 	        "@Rince: text Kohle Erz EN");
