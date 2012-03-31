@@ -8,6 +8,14 @@ require("base.common")
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	-- function to remove noobia lte (for testing)
+	find, myEffect = Character.effects:find(13)
+	if find then
+	    User.effects:removeEffect(13)
+	    return
+    end
+    -- function end    
+	
 	-- function changes potion Data; only for testing
 	local potionA = base.common.GetFrontItemID(User);
 	if potionA == 166 or potionA == 329 or potionA == 165 or potionA == 330 or potionA == 59 or potionA == 327 or potionA == 328 or potionA == 167 then
