@@ -9,7 +9,7 @@ module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- function to remove noobia lte (for testing)
-	find, myEffect = Character.effects:find(13)
+	find, myEffect = User.effects:find(13)
 	if find then
 	    User.effects:removeEffect(13)
 	    User:inform("noobia wurde entfernt")
