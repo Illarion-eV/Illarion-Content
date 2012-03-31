@@ -12,7 +12,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	find, myEffect = Character.effects:find(13)
 	if find then
 	    User.effects:removeEffect(13)
-	    return
+	    User:inform("noobia wurde entfernt")
+		return
     end
     -- function end    
 	
