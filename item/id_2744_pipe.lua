@@ -36,7 +36,7 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 		Character:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe.");
     
 		Character:eraseItem( 155, 1 );
-		end
+		
 	
 	elseif (Character:countItemAt("belt",772)~=0) then
 		Character:talkLanguage(Character.say,Player.german ,"#me bläst einen Rauchkringel in die Luft.");
