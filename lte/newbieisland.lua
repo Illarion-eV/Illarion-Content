@@ -84,6 +84,9 @@ function callEffect(newbieEffect,Character)
 	            ""..ListCycleMessageEnglish[messageCount]);   
 		        if foundMessageCount then
 				    messageCount = messageCount + 1
+				    if messageCount > 9 then 
+					    messageCount = 1
+					end	
 				end
 			    newbieEffect:addValue("messageCount",messageCount)
 			end
