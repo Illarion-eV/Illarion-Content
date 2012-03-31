@@ -18,8 +18,7 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
         base.common.InformNLS( Character,
         "2.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
         "2.You need sibanac-leafs or tobacco to smoke a pipe." );
-        return	
-	end
+        return
 	if (Character:countItemAt("belt",155)~=0) then
     -- Effekt setzen falls noch nicht vorhanden
 		find, stonedEffect = Character.effects:find(19);
