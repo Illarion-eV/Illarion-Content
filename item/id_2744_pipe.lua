@@ -12,15 +12,15 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 		base.common.InformNLS( Character,
         "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
         "1.You need sibanac-leafs or tobacco to smoke a pipe." );
-        return
+		return
+	
 	elseif (Character:countItemAt("belt",155)==0) then -- kein Sibanac???
         base.common.InformNLS( Character,
         "2.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
         "2.You need sibanac-leafs or tobacco to smoke a pipe." );
-        return
-    end
-	
-	if (Character:countItemAt("belt",155)=~0) then
+        return	
+	end
+	if (Character:countItemAt("belt",155)~=0) then
     -- Effekt setzen falls noch nicht vorhanden
 		find, stonedEffect = Character.effects:find(19);
 		if find then
@@ -39,13 +39,14 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 		Character:eraseItem( 155, 1 );
 		end
 	
-	elseif (Character:countItemAt("belt",772)=~0) then
+	elseif (Character:countItemAt("belt",772)~=0) then
 		Character:talkLanguage(Character.say,Player.german ,"#me bläst einen Rauchkringel in die Luft.");
 		Character:talkLanguage(Character.say,Player.english,"#me puffs a ring of smoke into the air.");
     
 		Character:eraseItem( 772, 1 );
-		end
+		
 	end
+end
 	
 function LookAtItem(User, Item)
 	
