@@ -13,7 +13,6 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
         "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
         "1.You need sibanac-leafs or tobacco to smoke a pipe." );
 		return
-		end
 	elseif (Character:countItemAt("belt",155)==0) then -- kein Sibanac???
         base.common.InformNLS( Character,
         "2.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
