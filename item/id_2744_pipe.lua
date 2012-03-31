@@ -8,7 +8,7 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 -- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
 
 function UseItem( Character, SourceItem, TargetItem, Counter, Param)
-	if (Character:countItemAt("belt",772)==0) then
+	--[[if (Character:countItemAt("belt",772)==0) then
 		base.common.InformNLS( Character,
         "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
         "1.You need sibanac-leafs or tobacco to smoke a pipe." );
@@ -43,7 +43,7 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
     
 		Character:eraseItem( 772, 1 );
 		
-	end
+	end]]--
 end
 	
 function LookAtItem(User, Item)
