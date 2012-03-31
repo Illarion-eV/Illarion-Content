@@ -6,31 +6,6 @@
 require("base.common")
 module("lte.newbieisland", package.seeall)
 
-ListCycleMessageGerman = {}
-ListCycleMessageGerman = {
-"@Rince: zyklusnachricht 1 deutsch",
-"@Rince: zyklusnachricht 2 deutsch",
-"@Rince: zyklusnachricht 3 deutsch",
-"@Rince: zyklusnachricht 4 deutsch",
-"@Rince: zyklusnachricht 5 deutsch",
-"@Rince: zyklusnachricht 6 deutsch",
-"@Rince: zyklusnachricht 7 deutsch",
-"@Rince: zyklusnachricht 8 deutsch",
-"@Rince: zyklusnachricht 9 deutsch"}
-
-ListCycleMessageEnglish = {}
-ListCycleMessageEnglish = {
-"@Rince: zyklusnachricht 1 englisch",
-"@Rince: zyklusnachricht 2 englisch",
-"@Rince: zyklusnachricht 3 englisch",
-"@Rince: zyklusnachricht 4 englisch",
-"@Rince: zyklusnachricht 5 englisch",
-"@Rince: zyklusnachricht 6 englisch",
-"@Rince: zyklusnachricht 7 englisch",
-"@Rince: zyklusnachricht 8 englisch",
-"@Rince: zyklusnachricht 9 englisch"}
-
-
 function addEffect(newbieEffect, Character)
     -- newbie LTE has been added; we greet our new player
 	base.common.InformNLS(Character,
@@ -40,7 +15,33 @@ function addEffect(newbieEffect, Character)
 end
 
 function callEffect(newbieEffect,Character)
-    if (not Character.pos.z == 100) and (not Character.pos.z == 101) then -- not on the noobia map
+    -- cycle messages 
+	ListCycleMessageGerman = {}
+	ListCycleMessageGerman = {
+	"@Rince: zyklusnachricht 1 deutsch",
+	"@Rince: zyklusnachricht 2 deutsch",
+	"@Rince: zyklusnachricht 3 deutsch",
+	"@Rince: zyklusnachricht 4 deutsch",
+	"@Rince: zyklusnachricht 5 deutsch",
+	"@Rince: zyklusnachricht 6 deutsch",
+	"@Rince: zyklusnachricht 7 deutsch",
+	"@Rince: zyklusnachricht 8 deutsch",
+	"@Rince: zyklusnachricht 9 deutsch"}
+
+	ListCycleMessageEnglish = {}
+	ListCycleMessageEnglish = {
+	"@Rince: zyklusnachricht 1 englisch",
+	"@Rince: zyklusnachricht 2 englisch",
+	"@Rince: zyklusnachricht 3 englisch",
+	"@Rince: zyklusnachricht 4 englisch",
+	"@Rince: zyklusnachricht 5 englisch",
+	"@Rince: zyklusnachricht 6 englisch",
+	"@Rince: zyklusnachricht 7 englisch",
+	"@Rince: zyklusnachricht 8 englisch",
+	"@Rince: zyklusnachricht 9 englisch"}
+	-- cycle messages end
+	
+	if (not Character.pos.z == 100) and (not Character.pos.z == 101) then -- not on the noobia map
 	    return false
 	end	
 	
