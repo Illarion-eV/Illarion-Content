@@ -60,7 +60,7 @@ function CharacterOnField( User )
     if( SourceItem.id == 10 ) then
 
 		--User:inform( "target id "..SourceItem.quality )
-        local gate = TargetCoor[ SourceItem.data ]
+        local gate = TargetName[ SourceItem:getData("Destination")]
 
         --Vanima Magic Trap
         vanTrap = false;

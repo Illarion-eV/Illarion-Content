@@ -8,9 +8,20 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 -- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
 
 function UseItem( Character, SourceItem, TargetItem, Counter, Param)
+	local AmmountSib = Character:countItemAt("belt",155)
+	local AmmountTob = Character:countItemAt("belt",772)
 	
-	if (Character:countItemAt("belt",155)~=0) then
-    -- Effekt setzen falls noch nicht vorhanden
+	if (AmountTab == 0 and AmountSib == 0) then NoSmoke
+	
+	
+	function NoSmoke
+	base.common.InformNLS( Character,
+        "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
+        "1.You need sibanac-leafs or tobacco to smoke a pipe." );
+	end
+	
+	if AmmountSib ~= 0 then
+	-- Effekt setzen falls noch nicht vorhanden
 		find, stonedEffect = Character.effects:find(19);
 		if find then
 		found, stonedIndex = stonedEffect:findValue("stonedIndex");
@@ -28,7 +39,7 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 		Character:eraseItem( 155, 1 );
 		
 	
-	elseif (Character:countItemAt("belt",772)~=0) then
+	elseif AmmountTob ~= 0 then
 		Character:talkLanguage(Character.say,Player.german ,"#me bläst einen Rauchkringel in die Luft.");
 		Character:talkLanguage(Character.say,Player.english,"#me puffs a ring of smoke into the air.");
     
@@ -36,11 +47,6 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 		
 	end
 	
-	if (Character:countItemAt("belt",772)==0) or (Character:countItemAt("belt",155)==0) then
-		base.common.InformNLS( Character,
-        "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
-        "1.You need sibanac-leafs or tobacco to smoke a pipe." );
-		return;
 	 --[[then -- kein Sibanac???
         base.common.InformNLS( Character,
         "2.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",

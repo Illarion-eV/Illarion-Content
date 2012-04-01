@@ -27,7 +27,7 @@ function InitializeBook(  )
 
 		TargetName[ 9 ]="Safepoint 5";
     end
-local gate = TargetName[ SourceItem.data ]
+local gate = TargetName[ SourceItem:getData("Destination")]
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
@@ -100,7 +100,7 @@ function LookAtItem( User, Item )
 
     InitializeBook(  );
 
-    local gate = TargetName[ Item.data ]
+    local gate = TargetName[ Item:getData("Destination")]
 
     if gate == nil then
         world:itemInform( User, Item, base.common.GetNLS( User, "Zauberbuch", "Magical book" ) );
