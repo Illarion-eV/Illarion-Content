@@ -82,12 +82,12 @@ function callEffect(newbieEffect,Character)
 				base.common.InformNLS(Character,
 	            ""..ListCycleMessageGerman[messageCount],
 	            ""..ListCycleMessageEnglish[messageCount]);   
-		        if foundMessageCount then
-				    messageCount = messageCount + 1
-				    if messageCount > 9 then 
-					    messageCount = 1
-					end	
-				end
+		        
+				messageCount = messageCount + 1
+				if messageCount > 9 then 
+					messageCount = 1
+				end	
+				
 			    newbieEffect:addValue("messageCount",messageCount)
 			end
 		    
