@@ -10,8 +10,7 @@ module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	--testing stuff
 	if (User.lastSpokenText == "textbox") then
-		if ((User.pos.z == 100) or (User.pos.z == 101)) and User:getQuestProgress(2)==0 then 
-			User:inform("debug 1")
+		    User:inform("debug 1")
 			local callbackNewbie = function(dialogNewbie)
 			   User:inform("debug 2")
 			   User:setQuestProgress(2,1)
@@ -26,8 +25,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				local dialogNewbie = MessageDialog("Welcome!", "fancy welcome text - in English!", callbackNewbie)
 			end	
 			User:requestMessageDialog(dialogNewbie)
-		end
-	    return
+		return
 	end
 	
 	-- function to remove noobia lte (for testing)
