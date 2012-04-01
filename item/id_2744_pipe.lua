@@ -11,7 +11,6 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 	
 	local ammountSib = Character:countItemAt("belt",155);
 	local ammountTob = Character:countItemAt("belt",772);
-	
 	if (amountTab == 0 and AmountSib == 0) then
 		base.common.InformNLS( Character,
         "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
