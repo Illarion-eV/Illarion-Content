@@ -252,13 +252,20 @@ function onLogin( player )
 	    player:inform("Effekt gefunden.");
 	end
 ]]
-	-- newbie lte is being added if the char log in at the newbie map
-	if (player.pos.z == 100) or (player.pos.z == 101) then 
-	    find, newbieEffect = player.effects:find(13)
-		if not find then
-		    newbie_effect = LongTimeEffect(13,1)
-			player.effects:addEffect(newbie_effect)
-        end
+	-- player logs in on noobia map and has no neewbie status yet
+	if ((player.pos.z == 100) or (player.pos.z == 101)) and player:getQuestProgress(2)==0 then 
+	    local callbackNewbie = function(dialogNewbie)
+           player:setQuestProgress(2,1)
+           newbieEffect = LongTimeEffect(13,1)
+		   player.effects:addEffect(newbieEffect)
+		end 
+		
+		if player:getPlayerLanguage() == 0 then
+			local dialogNewbie = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!", callbackNewbie)
+		else	
+			local dialogNewbie = MessageDialog("Welcome!", "fancy welcome text - in English!", callbackNewbie)
+		end	
+		player:requestMessageDialog(dialogNewbie)
 	end
 	
 	return true;
