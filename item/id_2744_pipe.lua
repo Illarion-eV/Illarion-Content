@@ -42,7 +42,7 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
     
 		Character:eraseItem( 772, 1 );
 	end
-end
+
 	
 
 	
