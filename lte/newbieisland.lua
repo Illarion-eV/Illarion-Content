@@ -37,52 +37,55 @@ end
 
 function callEffect(newbieEffect,Character)
     
-	foundNoobiaLight,noobiaLightValue = newbieEffect:findValue("noobiaLight")
-		if not foundNoobiaLight then -- the char should walk to a specific postion (see: triggerfield/noobia_light)
-		    base.common.InformNLS(Character,
-	        "@Rince: text gehe zu DE",
-	        "@Rince: text gehe zu EN");
-	    end 
-		
-		if (Character:getQuestProgress(13) == 2) or (Character:getQuestProgress(13) == 3) then
-		    base.common.InformNLS(Character,
-	        "@Rince: text Schweine töten DE",
-	        "@Rince: text Schweine töten EN");
-	    end
-		
-		if (Character:getQuestProgress(12) == 2) then
-		    base.common.InformNLS(Character,
-	        "@Rince: text Kohle Erz DE",
-	        "@Rince: text Kohle Erz EN");
-	    end
+	if (not player.pos.z == 100) and (not player.pos.z == 101) then
+	    return false
+	end	
 	
-	    foundRoundCount, roundCount = newbieEffect:findValue("roundCount")
-	    if foundRoundCount then
-		    if (roundCount/2) == math.floor(roundCount/2) then -- every second call the cycle message is given out
-		        foundMessageCount, messageCount = newbieEffect:findValue("messageCount")
-				if not foundMessageCount then
-				    messageCount = 1
-				end	
-				base.common.InformNLS(Character,
-	            ""..ListCycleMessageGerman[messageCount],
-	            ""..ListCycleMessageEnglish[messageCount]);   
-		        
-				messageCount = messageCount + 1
-				if messageCount > 9 then 
-					messageCount = 1
-				end	
-				
-			    newbieEffect:addValue("messageCount",messageCount)
-			end
-		    
-			roundCount = roundCount + 1
-		else
-		   roundCount = 1
-		end
-	    
-		newbieEffect:addValue("roundCount",roundCount) 
-	    newbieEffect.nextCalled=100
+	foundNoobiaLight,noobiaLightValue = newbieEffect:findValue("noobiaLight")
+	if not foundNoobiaLight then -- the char should walk to a specific postion (see: triggerfield/noobia_light)
+		base.common.InformNLS(Character,
+		"@Rince: text gehe zu DE",
+		"@Rince: text gehe zu EN");
+	end 
+	
+	if (Character:getQuestProgress(13) == 2) or (Character:getQuestProgress(13) == 3) then
+		base.common.InformNLS(Character,
+		"@Rince: text Schweine töten DE",
+		"@Rince: text Schweine töten EN");
 	end
+	
+	if (Character:getQuestProgress(12) == 2) then
+		base.common.InformNLS(Character,
+		"@Rince: text Kohle Erz DE",
+		"@Rince: text Kohle Erz EN");
+	end
+
+	foundRoundCount, roundCount = newbieEffect:findValue("roundCount")
+	if foundRoundCount then
+		if (roundCount/2) == math.floor(roundCount/2) then -- every second call the cycle message is given out
+			foundMessageCount, messageCount = newbieEffect:findValue("messageCount")
+			if not foundMessageCount then
+				messageCount = 1
+			end	
+			base.common.InformNLS(Character,
+			""..ListCycleMessageGerman[messageCount],
+			""..ListCycleMessageEnglish[messageCount]);   
+			
+			messageCount = messageCount + 1
+			if messageCount > 9 then 
+				messageCount = 1
+			end	
+			
+			newbieEffect:addValue("messageCount",messageCount)
+		end
+		
+		roundCount = roundCount + 1
+	else
+	   roundCount = 1
+	end
+	
+	newbieEffect:addValue("roundCount",roundCount) 
+	newbieEffect.nextCalled=100
 	
 	return true
 end
