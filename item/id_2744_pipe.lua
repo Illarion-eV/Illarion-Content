@@ -13,7 +13,7 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 	
 	if (AmountTab == 0 and AmountSib == 0) then NoSmoke
 	
-	if (AmmountSib ~= 0) then
+	elseif (AmmountSib ~= 0) then
 	-- Effekt setzen falls noch nicht vorhanden
 		find, stonedEffect = Character.effects:find(19);
 		if find then
