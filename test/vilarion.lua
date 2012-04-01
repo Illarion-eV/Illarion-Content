@@ -24,6 +24,19 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         User:inform("#w Quest " .. quest .. " has been reset!")
         return
     end
+	
+	if (User.lastSpokenText == "input") then
+		local callback = function(dialog)
+			if not dialog.getSuccess() then
+				User:inform("You canceled! How dare you?");
+			else
+				User:inform("You wrote: " .. dialog.getInput());
+			end;
+		end
+		local dialog = InputDialog("Insert some text!", false, 255, callback);
+		User:requestInputDialog(dialog)
+		return;
+	end;
 
     --if User.id ~= 64 then
     --    User:inform("e-Vil says: You are not allowed to use this!");
