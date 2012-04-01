@@ -6,16 +6,7 @@
 require("base.common")
 module("lte.newbieisland", package.seeall)
 
-function addEffect(newbieEffect, Character)
-    -- newbie LTE has been added; we greet our new player
-	base.common.InformNLS(Character,
-	  "@Rince: text 1 DE",
-	  "@Rince: text 1 EN");
-	newbieEffect.nextCalled=20; -- time til the second hello-message (in 1/10) seconds
-end
-
-function callEffect(newbieEffect,Character)
-    -- cycle messages 
+-- cycle messages 
 	ListCycleMessageGerman = {}
 	ListCycleMessageGerman = {
 	"@Rince: zyklusnachricht 1 deutsch",
@@ -40,24 +31,17 @@ function callEffect(newbieEffect,Character)
 	"@Rince: zyklusnachricht 8 englisch",
 	"@Rince: zyklusnachricht 9 englisch"}
 	-- cycle messages end
-	
-	if (not Character.pos.z == 100) and (not Character.pos.z == 101) then -- not on the noobia map
-	    return false
-	end	
-	
-	foundSecMes,secMesValue = newbieEffect:findValue("secMes")
-	if not foundSecMes then -- there was no second message yet; therefore: second message!
-	    base.common.InformNLS(Character,
-	    "@Rince: text 2 DE",
-	    "@Rince: text 2 EN");
-	    newbieEffect:addValue("secMes",1) -- that we remember nex time that we already gave the message out (the value 1 as such is unimportant; just that it is there)
-	    newbieEffect.nextCalled=150
-    else
-	    foundNoobiaLight,noobiaLightValue = newbieEffect:findValue("noobiaLight")
+
+function addEffect(newbieEffect, Character)
+end
+
+function callEffect(newbieEffect,Character)
+    
+	foundNoobiaLight,noobiaLightValue = newbieEffect:findValue("noobiaLight")
 		if not foundNoobiaLight then -- the char should walk to a specific postion (see: triggerfield/noobia_light)
 		    base.common.InformNLS(Character,
-	        "@Rince: text 3 DE",
-	        "@Rince: text 4 EN");
+	        "@Rince: text gehe zu DE",
+	        "@Rince: text gehe zu EN");
 	    end 
 		
 		if (Character:getQuestProgress(13) == 2) or (Character:getQuestProgress(13) == 3) then

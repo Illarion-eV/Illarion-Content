@@ -13,6 +13,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if find then
 	    User.effects:removeEffect(13)
 	    User:inform("noobia wurde entfernt")
+		User:setQuestProgress(2,0)
 		return
     end
     -- function end    
