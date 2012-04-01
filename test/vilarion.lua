@@ -33,7 +33,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 				User:inform("You wrote: " .. dialog.getInput());
 			end;
 		end
-		local dialog = MessageDialog("Insert some text!", false, 255, callback);
+		local dialog = InputDialog("Insert some text!", false, 255, callback);
 		User:requestInputDialog(dialog)
 		return;
 	end;
