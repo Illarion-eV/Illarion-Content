@@ -97,6 +97,7 @@ function callEffect(newbieEffect,Character)
 		end
 	    
 		newbieEffect:addValue("roundCount",roundCount) 
+	    newbieEffect.nextCalled=100
 	end
 	
 	return true
