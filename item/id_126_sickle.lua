@@ -31,14 +31,17 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	-- function to remove noobia lte (for testing)
-	find, myEffect = User.effects:find(13)
-	if find then
-	    User.effects:removeEffect(13)
-	    User:inform("noobia wurde entfernt")
+	if (User.lastSpokenText == "remove") then	
+		find, myEffect = User.effects:find(13)
+		if find then
+			User.effects:removeEffect(13)
+			User:inform("noobia wurde entfernt")
+			return
+		end
 		User:setQuestProgress(2,0)
-		return
-    end
-    -- function end    
+        User:inform(""..User:getQuestProgress(2))
+	end
+	-- function end    
 	
 	-- function changes potion Data; only for testing
 	local potionA = base.common.GetFrontItemID(User);
