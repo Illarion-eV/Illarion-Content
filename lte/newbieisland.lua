@@ -6,31 +6,6 @@
 require("base.common")
 module("lte.newbieisland", package.seeall)
 
-ListCycleMessageGerman = {}
-ListCycleMessageGerman = {
-"@Rince: zyklusnachricht 1 deutsch",
-"@Rince: zyklusnachricht 2 deutsch",
-"@Rince: zyklusnachricht 3 deutsch",
-"@Rince: zyklusnachricht 4 deutsch",
-"@Rince: zyklusnachricht 5 deutsch",
-"@Rince: zyklusnachricht 6 deutsch",
-"@Rince: zyklusnachricht 7 deutsch",
-"@Rince: zyklusnachricht 8 deutsch",
-"@Rince: zyklusnachricht 9 deutsch"}
-
-ListCycleMessageEnglish = {}
-ListCycleMessageEnglish = {
-"@Rince: zyklusnachricht 1 englisch",
-"@Rince: zyklusnachricht 2 englisch",
-"@Rince: zyklusnachricht 3 englisch",
-"@Rince: zyklusnachricht 4 englisch",
-"@Rince: zyklusnachricht 5 englisch",
-"@Rince: zyklusnachricht 6 englisch",
-"@Rince: zyklusnachricht 7 englisch",
-"@Rince: zyklusnachricht 8 englisch",
-"@Rince: zyklusnachricht 9 englisch"}
-
-
 function addEffect(newbieEffect, Character)
     -- newbie LTE has been added; we greet our new player
 	base.common.InformNLS(Character,
@@ -40,7 +15,33 @@ function addEffect(newbieEffect, Character)
 end
 
 function callEffect(newbieEffect,Character)
-    if (not Character.pos.z == 100) and (not Character.pos.z == 101) then -- not on the noobia map
+    -- cycle messages 
+	ListCycleMessageGerman = {}
+	ListCycleMessageGerman = {
+	"@Rince: zyklusnachricht 1 deutsch",
+	"@Rince: zyklusnachricht 2 deutsch",
+	"@Rince: zyklusnachricht 3 deutsch",
+	"@Rince: zyklusnachricht 4 deutsch",
+	"@Rince: zyklusnachricht 5 deutsch",
+	"@Rince: zyklusnachricht 6 deutsch",
+	"@Rince: zyklusnachricht 7 deutsch",
+	"@Rince: zyklusnachricht 8 deutsch",
+	"@Rince: zyklusnachricht 9 deutsch"}
+
+	ListCycleMessageEnglish = {}
+	ListCycleMessageEnglish = {
+	"@Rince: zyklusnachricht 1 englisch",
+	"@Rince: zyklusnachricht 2 englisch",
+	"@Rince: zyklusnachricht 3 englisch",
+	"@Rince: zyklusnachricht 4 englisch",
+	"@Rince: zyklusnachricht 5 englisch",
+	"@Rince: zyklusnachricht 6 englisch",
+	"@Rince: zyklusnachricht 7 englisch",
+	"@Rince: zyklusnachricht 8 englisch",
+	"@Rince: zyklusnachricht 9 englisch"}
+	-- cycle messages end
+	
+	if (not Character.pos.z == 100) and (not Character.pos.z == 101) then -- not on the noobia map
 	    return false
 	end	
 	
@@ -59,13 +60,13 @@ function callEffect(newbieEffect,Character)
 	        "@Rince: text 4 EN");
 	    end 
 		
-		if (Charcater:getQuestProgess(13) == 2) or (Charcater:getQuestProgess(13) == 3) then
+		if (Character:getQuestProgress(13) == 2) or (Character:getQuestProgress(13) == 3) then
 		    base.common.InformNLS(Character,
 	        "@Rince: text Schweine töten DE",
 	        "@Rince: text Schweine töten EN");
 	    end
 		
-		if (Charcater:getQuestProgess(12) == 2) then
+		if (Character:getQuestProgress(12) == 2) then
 		    base.common.InformNLS(Character,
 	        "@Rince: text Kohle Erz DE",
 	        "@Rince: text Kohle Erz EN");
@@ -83,6 +84,9 @@ function callEffect(newbieEffect,Character)
 	            ""..ListCycleMessageEnglish[messageCount]);   
 		        if foundMessageCount then
 				    messageCount = messageCount + 1
+				    if messageCount > 9 then 
+					    messageCount = 1
+					end	
 				end
 			    newbieEffect:addValue("messageCount",messageCount)
 			end

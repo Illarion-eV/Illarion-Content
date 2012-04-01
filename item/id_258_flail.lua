@@ -2,8 +2,6 @@
 
 -- Getreidebündel  --> Getreidekörner
 
--- Arbeitscyclus: 0.5s - 4s
-
 -- UPDATE common SET com_script='item.id_258_flail' WHERE com_itemid IN (258);
 
 require("item.general.wood")
@@ -14,6 +12,7 @@ module("item.id_258_flail", package.seeall, package.seeall(item.general.wood))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     content.gathering.InitGathering();
+    local farming = content.gathering.farming;
 	
 	base.common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- Arbeit unterbrochen
@@ -54,9 +53,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if not base.common.IsLookingAt( User, TargetItem.pos ) then -- Blickrichtung prüfen
         base.common.TurnTo( User, TargetItem.pos ); -- notfalls drehen
     end
-	
-	local farming = content.gathering.farming;
-	
     
     if ( ltstate == Action.none ) then -- Arbeit noch nicht begonnen -> Los gehts
         if (User:countItemAt("all",249)==0) then -- Getreidebündel im Gürtel
@@ -65,7 +61,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				"What do you want to flail? Yourself?" );
 			return;
 		end
-		User:startAction( GenWorkTime(User), 0, 0, 0, 0);
+        farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil,true);
+		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
         User:talkLanguage( Character.say, Player.german, "#me beginnt Getreide zu dreschen");
         User:talkLanguage( Character.say, Player.english, "#me starts to flail grain"); 
         return
@@ -101,13 +98,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return
     end
     
-    if base.common.ToolBreaks( User, SourceItem, true ) then -- Dreschflegen beschädigen
-        base.common.InformNLS(User,
-        "Dein alter Dreschflegel zerbricht.",
-        "Your old flail breaks.");
-        return
-    end
-                 
+    User:learn( farming.LeadSkill, farming.LeadSkillGroup, farming.SavedWorkTime[User.id], 100, User:increaseAttrib(farming.LeadAttribute,0) );
     User:eraseItem( 249, 1 ); -- Getreidebündel wegnehmen
     amount = GenAmount(User);                
     local notCreated = User:createItem( 259, amount, 333 ,0); -- Getreidekörner erstellen
@@ -122,18 +113,23 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         		"Du kannst nichts mehr halten.",
         		"You can't carry any more.");
     		else -- Nicht überladen -> Neue aktion Starten
-        		User:startAction( GenWorkTime(User), 0, 0, 0, 0);
+        		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil,true);
+                User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
     		end      
     end              
-    --User:learn( 2, "peasantry", 2, 100 ); -- Lernen
-	--Replace with new learn function, see learn.lua 
     base.common.GetHungry( User, 200 ); -- Hungrig werden
+    if base.common.ToolBreaks( User, SourceItem, true ) then -- Dreschflegen beschädigen
+        base.common.InformNLS(User,
+        "Dein alter Dreschflegel zerbricht.",
+        "Your old flail breaks.");
+        return
+    end
 end
 
 -- Menge der Items die erstellt werden festlegen
 function GenAmount(User)
-    local Skill  = User:getSkill( "peasantry" );
-    local Attrib = User:increaseAttrib( "dexterity", 0 );
+    local Skill  = User:getSkill( content.gathering.farming.LeadSkill );
+    local Attrib = User:increaseAttrib( content.gathering.farming.LeadAttribute, 0 );
     
     local chance = math.random( 100 );
     
@@ -142,12 +138,4 @@ function GenAmount(User)
     elseif ( chance < (Skill+Attrib) + 25 ) then return 2;
     elseif ( chance < (Skill+Attrib) + 50 ) then return 1;
     end
-end
-
--- Arbeitszeit Generieren
-function GenWorkTime(User)
-    local Skill  = User:getSkill( "peasantry" );
-    local Attrib = User:increaseAttrib( "dexterity", 0 );
-    
-    return math.floor( -0.3 * (Skill+Attrib) + 40);
 end

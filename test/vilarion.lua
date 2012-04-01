@@ -55,6 +55,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         --no_func()
     end
     local dialog = MessageDialog("Cool Title", "Cool Text", callback)
+    User:inform("start dialog")
     User:requestMessageDialog(dialog)
 end
 
