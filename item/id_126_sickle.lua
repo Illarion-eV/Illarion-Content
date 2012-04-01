@@ -8,6 +8,39 @@ require("base.common")
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	--testing stuff
+	if (User.lastSpokenText == "textbox") then
+		    User:inform("debug 1")
+			local callbackNewbie = function(dialogNewbie)
+			   User:inform("debug 2")
+			   User:setQuestProgress(2,1)
+			   newbieEffect = LongTimeEffect(13,1)
+			   User.effects:addEffect(newbieEffect)
+			end 
+			
+			if User:getPlayerLanguage() == 0 then
+				User:inform("debug 3")
+				local dialogNewbie = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!", callbackNewbie)
+			else	
+				local dialogNewbie = MessageDialog("Welcome!", "fancy welcome text - in English!", callbackNewbie)
+			end	
+			User:requestMessageDialog(dialogNewbie)
+		return
+	end
+	
+	-- function to remove noobia lte (for testing)
+	if (User.lastSpokenText == "remove") then	
+		find, myEffect = User.effects:find(13)
+		if find then
+			User.effects:removeEffect(13)
+			User:inform("noobia wurde entfernt")
+			return
+		end
+		User:setQuestProgress(2,0)
+        User:inform(""..User:getQuestProgress(2))
+	end
+	-- function end    
+	
 	-- function changes potion Data; only for testing
 	local potionA = base.common.GetFrontItemID(User);
 	if potionA == 166 or potionA == 329 or potionA == 165 or potionA == 330 or potionA == 59 or potionA == 327 or potionA == 328 or potionA == 167 then
