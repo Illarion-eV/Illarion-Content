@@ -35,7 +35,7 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 			Character:eraseItem( 155, 1 );
 			
 	
-	elseif (AmmountTob ~= 0) then
+	elseif (ammountTob ~= 0) then
 		Character:talkLanguage(Character.say,Player.german ,"#me bläst einen Rauchkringel in die Luft.");
 		Character:talkLanguage(Character.say,Player.english,"#me puffs a ring of smoke into the air.");
     
