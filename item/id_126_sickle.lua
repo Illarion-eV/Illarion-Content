@@ -10,23 +10,24 @@ module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	--testing stuff
 	if (User.lastSpokenText == "textbox") then
-		if ((player.pos.z == 100) or (player.pos.z == 101)) and player:getQuestProgress(2)==0 then 
-			player:inform("debug 1")
+		if ((User.pos.z == 100) or (User.pos.z == 101)) and User:getQuestProgress(2)==0 then 
+			User:inform("debug 1")
 			local callbackNewbie = function(dialogNewbie)
-			   player:inform("debug 2")
-			   player:setQuestProgress(2,1)
+			   User:inform("debug 2")
+			   User:setQuestProgress(2,1)
 			   newbieEffect = LongTimeEffect(13,1)
-			   player.effects:addEffect(newbieEffect)
+			   User.effects:addEffect(newbieEffect)
 			end 
 			
-			if player:getPlayerLanguage() == 0 then
-				player:inform("debug 3")
+			if User:getPlayerLanguage() == 0 then
+				User:inform("debug 3")
 				local dialogNewbie = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!", callbackNewbie)
 			else	
 				local dialogNewbie = MessageDialog("Welcome!", "fancy welcome text - in English!", callbackNewbie)
 			end	
-			player:requestMessageDialog(dialogNewbie)
+			User:requestMessageDialog(dialogNewbie)
 		end
+	    return
 	end
 	
 	-- function to remove noobia lte (for testing)
