@@ -13,13 +13,6 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 	
 	if (AmountTab == 0 and AmountSib == 0) then NoSmoke
 	
-	
-	function NoSmoke
-	base.common.InformNLS( Character,
-        "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
-        "1.You need sibanac-leafs or tobacco to smoke a pipe." );
-	end
-	
 	if AmmountSib ~= 0 then
 	-- Effekt setzen falls noch nicht vorhanden
 		find, stonedEffect = Character.effects:find(19);
@@ -54,6 +47,13 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
         return;]]
 	end
 end
+	
+function NoSmoke
+	base.common.InformNLS( Character,
+        "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
+        "1.You need sibanac-leafs or tobacco to smoke a pipe." );
+	end
+	
 	
 function LookAtItem(User, Item)
 	
