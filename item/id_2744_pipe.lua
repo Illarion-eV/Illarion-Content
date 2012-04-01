@@ -13,8 +13,9 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 	
 	if (AmountTab == 0 and AmountSib == 0) then NoSmoke
 	
-	elseif (AmmountSib ~= 0) then
+	elseif (AmmountSib ~= 0) then SibSmoke
 	-- Effekt setzen falls noch nicht vorhanden
+		function SibSmoke
 		find, stonedEffect = Character.effects:find(19);
 		if find then
 		found, stonedIndex = stonedEffect:findValue("stonedIndex");
@@ -30,7 +31,7 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 		Character:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe.");
     
 		Character:eraseItem( 155, 1 );
-		
+		end
 	
 	elseif AmmountTob ~= 0 then
 		Character:talkLanguage(Character.say,Player.german ,"#me bläst einen Rauchkringel in die Luft.");
