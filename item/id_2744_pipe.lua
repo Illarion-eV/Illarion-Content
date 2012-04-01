@@ -8,9 +8,9 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 -- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
 
 function UseItem( Character, SourceItem, TargetItem, Counter, Param)
+	
 	local ammountSib = Character:countItemAt("belt",155)
 	local ammountTob = Character:countItemAt("belt",772)
-	
 	
 	if (amountTab == 0 and AmountSib == 0) then
 	base.common.InformNLS( Character,
