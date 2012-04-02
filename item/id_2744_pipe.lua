@@ -10,15 +10,15 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 	base.common.TalkNLS(Character.say, "#me nimmt einen tiefen Zug von der Pfeife.", "#me takes a deep drag from the pipe." );
 	--[[local ammountSib = Character:countItemAt("belt",155);
-	local ammountTob = Character:countItemAt("belt",772);]]
-	--[[if (Character:countItemAt("belt",155) == 0 and Character:countItemAt("belt",772) == 0) then
+	local ammountTob = Character:countItemAt("belt",772);
+	if (Character:countItemAt("belt",155) == 0 and Character:countItemAt("belt",772) == 0) then
 		base.common.InformNLS( Character,
         "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
         "1.You need sibanac-leafs or tobacco to smoke a pipe." );
 		end
 		
 	if (Character:countItemAt("belt",155) ~= 0) then 
-	--[[ Effekt setzen falls noch nicht vorhanden
+	 Effekt setzen falls noch nicht vorhanden
 			find, stonedEffect = Character.effects:find(19);
 			if find then
 			found, stonedIndex = stonedEffect:findValue("stonedIndex");
@@ -28,7 +28,7 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 			else
 
 			Character.effects:addEffect( LongTimeEffect(19,10) );
-			end]]
+			end
 
 			User:talkLanguage(Character.say,Player.german ,"#me nimmt einen tiefen Zug von der Pfeife.");
 			User:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe.");
