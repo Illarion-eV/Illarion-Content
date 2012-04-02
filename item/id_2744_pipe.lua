@@ -12,21 +12,21 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	
 	--local ammountSib = Character:countItemAt("belt",155);
 	--local ammountTob = Character:countItemAt("belt",772);
-	if (Character:countItemAt("belt",155) == 0 and Character:countItemAt("belt",772) == 0) then
+	if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
 		base.common.InformNLS( Character,
         "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
         "1.You need sibanac-leafs or tobacco to smoke a pipe." );
 		
 		
-	elseif (Character:countItemAt("belt",155) ~= 0) then 
+	elseif (User:countItemAt("belt",155) ~= 0) then 
 		User:talkLanguage(Character.say,Player.german ,"#me nimmt einen tiefen Zug von der Pfeife.");
 		User:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe. 'I smoke weed'");
-		Character:eraseItem( 155, 1 );
+		User:eraseItem( 155, 1 );
 			
-	elseif (Character:countItemAt("belt",772) ~= 0) then
+	elseif (User:countItemAt("belt",772) ~= 0) then
 		User:talkLanguage(Character.say,Player.german ,"#me bläst einen Rauchkringel in die Luft.");
 		User:talkLanguage(Character.say,Player.english,"#me puffs a ring of smoke into the air.");
-		Character:eraseItem( 772, 1 );
+		User:eraseItem( 772, 1 );
 	--[[Effekt setzen falls noch nicht vorhanden
 			find, stonedEffect = Character.effects:find(19);
 			if find then
