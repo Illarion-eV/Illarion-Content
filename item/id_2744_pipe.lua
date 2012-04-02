@@ -15,7 +15,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
 		base.common.InformNLS( User,
         "Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
-        "You need sibanac-leafs or tobacco to smoke a pipe." );
+        "You need sibanac-leaves or tobacco to smoke a pipe." );
 		
 		
 	elseif (User:countItemAt("belt",155) ~= 0) then 
