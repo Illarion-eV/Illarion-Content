@@ -10,17 +10,17 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	
 	
-	--local ammountSib = Character:countItemAt("belt",155);
-	--local ammountTob = Character:countItemAt("belt",772);
+	--local ammountSib = User:countItemAt("belt",155);
+	--local ammountTob = User:countItemAt("belt",772);
 	if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
 		base.common.InformNLS( User,
-        "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
-        "1.You need sibanac-leafs or tobacco to smoke a pipe." );
+        "Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
+        "You need sibanac-leafs or tobacco to smoke a pipe." );
 		
 		
 	elseif (User:countItemAt("belt",155) ~= 0) then 
 		User:talkLanguage(Character.say,Player.german ,"#me nimmt einen tiefen Zug von der Pfeife.");
-		User:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe. 'I smoke weed'");
+		User:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe.");
 		User:eraseItem( 155, 1 );
 			
 	elseif (User:countItemAt("belt",772) ~= 0) then
@@ -28,6 +28,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 		User:talkLanguage(Character.say,Player.english,"#me puffs a ring of smoke into the air.");
 		User:eraseItem( 772, 1 );
 	--[[Effekt setzen falls noch nicht vorhanden
+	-- LTE to get High, currently not working
 			find, stonedEffect = Character.effects:find(19);
 			if find then
 			found, stonedIndex = stonedEffect:findValue("stonedIndex");
@@ -37,20 +38,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 			else
 
 			Character.effects:addEffect( LongTimeEffect(19,10) );
-			end
+			end]]
 
-			User:talkLanguage(Character.say,Player.german ,"#me nimmt einen tiefen Zug von der Pfeife.");
-			User:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe.");
-    
-			Character:eraseItem( 155, 1 );
-			
-	
-	elseif (Character:countItemAt("belt",772) ~= 0) then
-		User:talkLanguage(Character.say,Player.german ,"#me bläst einen Rauchkringel in die Luft.");
-		User:talkLanguage(Character.say,Player.english,"#me puffs a ring of smoke into the air.");
-    
-		Character:eraseItem( 772, 1 );
-	end]]
 	end
 end
 	
