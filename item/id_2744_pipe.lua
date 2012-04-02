@@ -30,15 +30,15 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 			Character.effects:addEffect( LongTimeEffect(19,10) );
 			end]]
 
-			Character:talkLanguage(Character.say,Player.german ,"#me nimmt einen tiefen Zug von der Pfeife.");
-			Character:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe.");
+			User:talkLanguage(Character.say,Player.german ,"#me nimmt einen tiefen Zug von der Pfeife.");
+			User:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe.");
     
 			Character:eraseItem( 155, 1 );
 			
 	
 	elseif (Character:countItemAt("belt",772) ~= 0) then
-		Character:talkLanguage(Character.say,Player.german ,"#me bläst einen Rauchkringel in die Luft.");
-		Character:talkLanguage(Character.say,Player.english,"#me puffs a ring of smoke into the air.");
+		User:talkLanguage(Character.say,Player.german ,"#me bläst einen Rauchkringel in die Luft.");
+		User:talkLanguage(Character.say,Player.english,"#me puffs a ring of smoke into the air.");
     
 		Character:eraseItem( 772, 1 );
 	end
