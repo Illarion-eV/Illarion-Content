@@ -8,10 +8,10 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 -- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
 
 function UseItem( Character, SourceItem, TargetItem, Counter, Param)
-	
+	base.common.TalkNLS(Character.say, "#me nimmt einen tiefen Zug von der Pfeife.", "#me takes a deep drag from the pipe." );
 	--[[local ammountSib = Character:countItemAt("belt",155);
 	local ammountTob = Character:countItemAt("belt",772);]]
-	if (Character:countItemAt("belt",155) == 0 and Character:countItemAt("belt",772) == 0) then
+	--[[if (Character:countItemAt("belt",155) == 0 and Character:countItemAt("belt",772) == 0) then
 		base.common.InformNLS( Character,
         "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
         "1.You need sibanac-leafs or tobacco to smoke a pipe." );
@@ -41,7 +41,7 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 		User:talkLanguage(Character.say,Player.english,"#me puffs a ring of smoke into the air.");
     
 		Character:eraseItem( 772, 1 );
-	end
+	end]]
 end
 	
 
