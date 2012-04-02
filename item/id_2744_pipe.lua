@@ -13,7 +13,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	--local ammountSib = Character:countItemAt("belt",155);
 	--local ammountTob = Character:countItemAt("belt",772);
 	if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
-		base.common.InformNLS( Character,
+		base.common.InformNLS( User,
         "1.Du benötigst Sibanac-Blätter oder Tabak um Pfeife rauchen zu können.",
         "1.You need sibanac-leafs or tobacco to smoke a pipe." );
 		
