@@ -253,7 +253,7 @@ function onLogin( player )
 	end
 ]]
 	-- player logs in on noobia map and has no neewbie status yet
-	if ((player.pos.z == 100) or (player.pos.z == 101)) and player:getQuestProgress(2)==0 then 
+	--[[if ((player.pos.z == 100) or (player.pos.z == 101)) and player:getQuestProgress(2)==0 then 
 	    player:inform("debug 1")
 		local callbackNewbie = function(dialogNewbie)
            player:inform("debug 2")
@@ -269,7 +269,7 @@ function onLogin( player )
 			local dialogNewbie = MessageDialog("Welcome!", "fancy welcome text - in English!", callbackNewbie)
 		end	
 		player:requestMessageDialog(dialogNewbie)
-	end
+	end]]
 	
 	return true;
 end
