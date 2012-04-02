@@ -11,7 +11,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	--testing stuff
 	if (User.lastSpokenText == "textbox") then
 		    User:inform("debug 1")
-			local callbackNewbie = function(dialogNewbie)
+			local callbackNewbie = function(dialog)
 			   User:inform("debug 2")
 			   User:setQuestProgress(2,1)
 			   newbieEffect = LongTimeEffect(13,1)
@@ -20,11 +20,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			
 			if User:getPlayerLanguage() == 0 then
 				User:inform("debug 3")
-				local dialogNewbie = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!", callbackNewbie)
+				local dialog = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!", callback)
 			else	
-				local dialogNewbie = MessageDialog("Welcome!", "fancy welcome text - in English!", callbackNewbie)
+				local dialog = MessageDialog("Welcome!", "fancy welcome text - in English!", callback)
 			end	
-			User:requestMessageDialog(dialogNewbie)
+			User:requestMessageDialog(dialog)
 		return
 	end
 	
