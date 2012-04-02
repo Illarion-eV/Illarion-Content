@@ -8,7 +8,9 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 -- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
-	base.common.TalkNLS(User.say, "#me nimmt einen tiefen Zug von der Pfeife.", "#me takes a deep drag from the pipe." );
+	User:talkLanguage(Character.say,Player.german ,"#me nimmt einen tiefen Zug von der Pfeife.");
+	User:talkLanguage(Character.say,Player.english,"#me takes a deep drag from the pipe.");
+	
 	--[[local ammountSib = Character:countItemAt("belt",155);
 	local ammountTob = Character:countItemAt("belt",772);
 	if (Character:countItemAt("belt",155) == 0 and Character:countItemAt("belt",772) == 0) then
