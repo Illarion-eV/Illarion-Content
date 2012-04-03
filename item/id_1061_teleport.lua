@@ -33,10 +33,6 @@ end
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     User:inform( "reading teleport book" )
 	
-	SourceItem.setData("destination",1)
-	world:changeItem(SourceItem)
-	User:inform( "Data changed!" )
-	
     InitializeBook(  );
 
     User:inform( "target id "..SourceItem:getData("destination") )
