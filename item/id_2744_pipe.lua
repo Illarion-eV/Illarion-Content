@@ -8,8 +8,9 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 -- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
-	local Blablu = User:createItem(1061, 1, 333, 0)
-	Blablu:setData("destination","1")
+	Blablu = User:createItem(1061, 1, 333, 0)
+	Blablu = User:getItemAt(New.itempos)
+	setData("destination","1")
 	world:changeItem(Blablu)
 	
 	--local ammountSib = User:countItemAt("belt",155);
