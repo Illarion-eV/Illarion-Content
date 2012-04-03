@@ -8,7 +8,7 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 -- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
-	New = User:createItem (1061, 1, 333, destination.1)
+	New = User:createItem (1061, 1, 333, (destination.1))
 	
 	
 	--local ammountSib = User:countItemAt("belt",155);
