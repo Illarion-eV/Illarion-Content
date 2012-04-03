@@ -4,7 +4,7 @@ require("base.common")
 
 module("item.id_1061_teleport", package.seeall)
 
-function InitializeBook(  )
+function InitializeBook( )
 
     if TargetName == nil then
 
@@ -27,7 +27,7 @@ function InitializeBook(  )
 
 		TargetName[ 9 ]="Safepoint 5";
     end
-local gate = TargetName[ SourceItem:getData("Destination")]
+--local gate = TargetName[ SourceItem:getData("destination")]
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
@@ -36,7 +36,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     InitializeBook(  );
 
     User:inform( "target id "..SourceItem:getData("Destination") )
-    local gate = TargetName[ SourceItem:getData("Destination")]
+    local gate = TargetName[ SourceItem:getData("destination")]
 
     if gate ~= nil then
         User:inform( "gate found" )
@@ -63,7 +63,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 --and ((( (loc.x < -72) or (loc.x > -55) ) or ( (loc.y < -74) or (loc.y > -60) )) or loc.z~=-3) then
                     -- create a gate to the destination
                     User:inform( "creating" )
-                    world:createItemFromId( 10, 1, loc, true, 933 ,(SourceItem.quality-100));
+                    AportalIsBorn = world:createItemFromId( 10, 1, loc, true, 933 ,0);
+					AportalIsBorn:setData("Destination",(SourceItem:getData("destination")))
+					world:changeItem(AportalIsBorn)
                     world:makeSound( 4, loc )
 
                     success = true;
