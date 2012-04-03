@@ -9,7 +9,7 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	New = User:createItem (1061, 1, 333, 0)
-	New.setData("destination","1")
+	New:setData("destination","1")
 	world:changeItem(New)
 	
 	--local ammountSib = User:countItemAt("belt",155);
