@@ -35,7 +35,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
     InitializeBook(  );
 
-    User:inform( "target id "..SourceItem:getData("Destination") )
+    User:inform( "target id "..SourceItem:getData("destination") )
     local gate = TargetName[ SourceItem:getData("destination")]
 
     if gate ~= nil then
