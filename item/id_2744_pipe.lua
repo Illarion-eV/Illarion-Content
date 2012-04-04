@@ -8,9 +8,25 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 -- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
-	TheHeight = User:increaseAttrib("body_height",0);
-	base.common.InformNLS( User, "Test"..TheHeight, "Test"..TheHeight);
-	
+
+   theWeight = User:increaseAttrib("weight",0);
+
+   if      (theWeight < 2000) -- really thin
+   --do something
+   then base.common.InformNLS( User,
+        "You so skinny!",
+        "You so skinny!" );
+   else if (theWeight >= 2000 and theWeight<4000) -- thin
+   --do something
+   then base.common.InformNLS( User,
+        "You so thin!",
+        "You so thin!" );
+   elseif (theWeight>=5000)  --middle
+   --do something
+   then base.common.InformNLS( User,
+        "You so normal!",
+        "You so normal!" );
+   end
 	
 	--local ammountSib = User:countItemAt("belt",155);
 	--local ammountTob = User:countItemAt("belt",772);
