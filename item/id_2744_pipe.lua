@@ -8,26 +8,31 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 -- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
+		
+	if ( SourceItem.number == 1 ) then  --works only with 1 coin
 
-   theWeight = User:increaseAttrib("body_height",0);
+    	if TimeList[User.id]~=nil then
+			if  ( (math.abs(world:getTime("second") - TimeList[User.id]) ) <=3) then  --1 Rl. second delay
+				return;
+			end
+		end
 
-	if      (theWeight < 2000) -- really thin
-   --do something
-	then base.common.InformNLS( User,
-        "You so skinny!"..(tostring:theWeight),
-        "You so skinny!"..(tostring:theWeight) );
-	else if (theWeight >= 2000 and theWeight<4000) -- thin
-   --do something
-	then base.common.InformNLS( User,
-        "You so thin!",
-        "You so thin!" );
-	elseif (theWeight>=5000)  --middle
-   --do something
-	then base.common.InformNLS( User,
-        "You so normal!",
-        "You so normal!" );
+		
+		if math.random(6) == 1 then	gValue = "ein Auge"; eValue = "one eye";
+		elseif math.random(6) == 1 then	gValue = "ein Augen"; eValue = "one eye"; 
+		elseif math.random(6) == 2 then	gValue = "zwei Augen"; eValue = "two eyes";
+		elseif math.random(6) == 3 then	gValue = "drei Augen"; eValue = "three eyes";
+		elseif math.random(6) == 4 then	gValue = "vier Augen"; eValue = "four eyes";
+		elseif math.random(6) == 5 then	gValue = "fünf Augen"; eValue = "five eyes";
+		else
+		gValue = "sechs Augen"; eValue = "six eyes"; end    
+		
+		User:talkLanguage(Character.say, Player.german, "#me rollt einen Würfel. Er zeigt "..gValue.."oben.");
+		User:talkLanguage(Character.say, Player.english, "#me throws a coin in the air and catches it again. It shows "..eValue.."on top.");
+      	TimeList[User.id] = world:getTime("second");
 	end
-	end
+end
+   
 	--local ammountSib = User:countItemAt("belt",155);
 	--local ammountTob = User:countItemAt("belt",772);
 	if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
