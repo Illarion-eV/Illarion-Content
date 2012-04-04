@@ -8,8 +8,8 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 -- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
-	User:increaseAttrib("body_height",0);
-	base.common.InformNLS( User, "Test"::body_height, "Test"::body_height);
+	TheHeight = User:increaseAttrib("body_height",0);
+	base.common.InformNLS( User, "Test"..TheHeight, "Test"..TheHeight);
 	
 	
 	--local ammountSib = User:countItemAt("belt",155);
