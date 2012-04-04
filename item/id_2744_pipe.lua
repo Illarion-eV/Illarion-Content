@@ -9,7 +9,7 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
 
-   theWeight = User:increaseAttrib("weight",0);
+   theWeight = User:increaseAttrib("body_height",0);
 
 	if      (theWeight < 2000) -- really thin
    --do something
