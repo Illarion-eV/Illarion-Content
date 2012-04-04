@@ -11,7 +11,7 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 	It will do anything and everything with the exception of what should be expected from it]]
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
 		
-	 if ( SourceItem.number == 1 ) then  --1 Würfel
+	--[[ if ( SourceItem.number == 1 ) then  --1 Würfel
 
 		WurfEins = (math.random(6))
 		if WurfEins == 1 then	gValue = "ein Auge"; eValue = "one eye";
@@ -25,9 +25,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 		
 		User:talkLanguage(Character.say, Player.german, "#me rollt einen Würfel. Er zeigt "..gValue.." oben.");
 		User:talkLanguage(Character.say, Player.english, "#me rolls a dice. It shows "..eValue.." on top.");
-      	
 		
-	--[[elseif ( SourceItem.number >= 10) then --2 Würfel
+		
+	--elseif ( SourceItem.number >= 10) then --2 Würfel
 		WurfEins = (math.random(6))
 		if WurfEins == 1 then	gValue = "ein Auge"; eValue = "one eye";
 		elseif WurfEins == 1 then	gValue = "ein Augen"; eValue = "one eye"; 
@@ -49,11 +49,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 		
 		User:talkLanguage(Character.say, Player.german, "#me rollt 2 Würfel. Sie zeigen "..gValue.." und"..gValue2.." oben.");
 		User:talkLanguage(Character.say, Player.english, "#me rolls 2 dice. They show "..eValue.." and"..gValue2.." on top.");
-		]]
+		
 	end
-end
+end]]
    
-	--[[local ammountSib = User:countItemAt("belt",155);
+	--local ammountSib = User:countItemAt("belt",155);
 	--local ammountTob = User:countItemAt("belt",772);
 	if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
 		base.common.InformNLS( User,
@@ -70,7 +70,7 @@ end
 		User:talkLanguage(Character.say,Player.german ,"#me bläst einen Rauchkringel in die Luft.");
 		User:talkLanguage(Character.say,Player.english,"#me puffs a ring of smoke into the air.");
 		User:eraseItem( 772, 1 );
-	--Effekt setzen falls noch nicht vorhanden
+	--[[Effekt setzen falls noch nicht vorhanden
 	-- LTE to get High, currently not working
 			find, stonedEffect = Character.effects:find(19);
 			if find then
@@ -81,10 +81,10 @@ end
 			else
 
 			Character.effects:addEffect( LongTimeEffect(19,10) );
-			end
+			end]]
 
 	end
-end]]
+end
 	
 
 	
