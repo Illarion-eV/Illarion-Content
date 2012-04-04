@@ -33,7 +33,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	end
 end
    
-	--local ammountSib = User:countItemAt("belt",155);
+	--[[local ammountSib = User:countItemAt("belt",155);
 	--local ammountTob = User:countItemAt("belt",772);
 	if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
 		base.common.InformNLS( User,
@@ -64,7 +64,7 @@ end
 			end]]
 
 	end
-end
+end]]
 	
 
 	
