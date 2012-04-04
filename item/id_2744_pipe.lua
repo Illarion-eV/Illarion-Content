@@ -14,8 +14,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	if      (theWeight < 2000) -- really thin
    --do something
 	then base.common.InformNLS( User,
-        "You so skinny!",
-        "You so skinny!" );
+        "You so skinny!"..(tostring:theWeight),
+        "You so skinny!"..(tostring:theWeight) );
 	else if (theWeight >= 2000 and theWeight<4000) -- thin
    --do something
 	then base.common.InformNLS( User,
