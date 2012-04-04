@@ -9,7 +9,7 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	User:increaseAttrib("body_height",0);
-	base.common.InformNLS( User, body_height, body_height);
+	base.common.InformNLS( User, "Test"::body_height, "Test"::body_height);
 	
 	
 	--local ammountSib = User:countItemAt("belt",155);
