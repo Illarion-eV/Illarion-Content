@@ -11,12 +11,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 		
 	if ( SourceItem.number == 1 ) then  --works only with 1 coin
 
-    	if TimeList[User.id]~=nil then
-			if  ( (math.abs(world:getTime("second") - TimeList[User.id]) ) <=3) then  --1 Rl. second delay
-				return;
-			end
-		end
-
 		
 		if math.random(6) == 1 then	gValue = "ein Auge"; eValue = "one eye";
 		elseif math.random(6) == 1 then	gValue = "ein Augen"; eValue = "one eye"; 
