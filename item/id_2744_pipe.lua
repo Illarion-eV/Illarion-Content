@@ -21,8 +21,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 		else
 		gValue = "sechs Augen"; eValue = "six eyes"; end    
 		
-		User:talkLanguage(Character.say, Player.german, "#me rollt einen Würfel. Er zeigt "..gValue.."oben.");
-		User:talkLanguage(Character.say, Player.english, "#me throws a coin in the air and catches it again. It shows "..eValue.."on top.");
+		User:talkLanguage(Character.say, Player.german, "#me rollt einen Würfel. Er zeigt "..gValue.." oben.");
+		User:talkLanguage(Character.say, Player.english, "#me rolls a dice. It shows "..eValue.." on top.");
       	TimeList[User.id] = world:getTime("second");
 	end
 end
