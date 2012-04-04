@@ -11,23 +11,23 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 
    theWeight = User:increaseAttrib("weight",0);
 
-   if      (theWeight < 2000) -- really thin
+	if      (theWeight < 2000) -- really thin
    --do something
-   then base.common.InformNLS( User,
+	then base.common.InformNLS( User,
         "You so skinny!",
         "You so skinny!" );
-   else if (theWeight >= 2000 and theWeight<4000) -- thin
+	else if (theWeight >= 2000 and theWeight<4000) -- thin
    --do something
-   then base.common.InformNLS( User,
+	then base.common.InformNLS( User,
         "You so thin!",
         "You so thin!" );
-   elseif (theWeight>=5000)  --middle
+	elseif (theWeight>=5000)  --middle
    --do something
-   then base.common.InformNLS( User,
+	then base.common.InformNLS( User,
         "You so normal!",
         "You so normal!" );
-   end
-	
+	end
+	end
 	--local ammountSib = User:countItemAt("belt",155);
 	--local ammountTob = User:countItemAt("belt",772);
 	if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
