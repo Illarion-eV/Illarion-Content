@@ -50,7 +50,7 @@ end
 		User:talkLanguage(Character.say,Player.german ,"#me bläst einen Rauchkringel in die Luft.");
 		User:talkLanguage(Character.say,Player.english,"#me puffs a ring of smoke into the air.");
 		User:eraseItem( 772, 1 );
-	--[[Effekt setzen falls noch nicht vorhanden
+	--Effekt setzen falls noch nicht vorhanden
 	-- LTE to get High, currently not working
 			find, stonedEffect = Character.effects:find(19);
 			if find then
@@ -61,7 +61,7 @@ end
 			else
 
 			Character.effects:addEffect( LongTimeEffect(19,10) );
-			end]]
+			end
 
 	end
 end]]
