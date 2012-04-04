@@ -11,7 +11,7 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 	It will do anything and everything with the exception of what should be expected from it]]
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
 		
-	 ( SourceItem.number == 1 ) then  --1 Würfel
+	 if ( SourceItem.number == 1 ) then  --1 Würfel
 
 		WurfEins = (math.random(6))
 		if WurfEins == 1 then	gValue = "ein Auge"; eValue = "one eye";
