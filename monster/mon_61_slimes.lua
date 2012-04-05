@@ -19,7 +19,7 @@ function enemyNear(Monster,Enemy)
 
 function onlychangeonce();
 	if Wandlung == 0
-	then wandling();
+	then wandling()
 	Wandlung = 1
 	end
 end
@@ -29,8 +29,11 @@ local MonID=Monster:getMonsterType();
 	if(MonID == 611) then
 	Monster:setAttrib("racetyp",61)
 	Monster:increaseAttrib("hitpoints",0)
-	return true;		
+	return true;
+	else 
+	return false
 	end
+end
 	
 
 
