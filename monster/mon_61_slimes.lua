@@ -24,7 +24,8 @@ function enemyNear(Monster,Enemy)
 			return true;
 			end
 		else
-		return false;		
+		return false;
+		end
 	end
 	
     if init==nil then
