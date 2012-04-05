@@ -17,7 +17,7 @@ end
 
 function enemyNear(Monster,Enemy)
 
-function onlychangeonce();
+function onlychangeonce()
 	if Wandlung == 0
 	then wandling()
 	Wandlung = 1
