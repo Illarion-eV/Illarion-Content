@@ -173,7 +173,8 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
                 world:gfx( LineOfFlight, targetPos );
                 return true;
             end );
-				if ((Effect[1]) = 15) then
+			if (table.getn(Effect)[1]) = 15) then
+			
 				base.common.TalkNLS( Monster, Character.say,
 				"#me wirft etwas nach"..Enemy.name,
 				"#me throws something after"..Enemy.name);
@@ -181,7 +182,7 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
 				base.common.TalkNLS( Monster, Character.say,
 				"#me murmelt eine mystische Formel.",
 				"#me mumbles a mystical formula.");
-				end
+			end
             Monster.movepoints=Monster.movepoints-AP;
             return true;
         else
