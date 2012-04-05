@@ -19,7 +19,7 @@ function enemyNear(Monster,Enemy)
 local MonID=Monster:getMonsterType();
 	if(MonID == 611) then
 	Monster:getRace();
-	Monster:setRace=61
+	Monster:setRace=61(),
 	Monster:increaseAttrib("hitpoints",0)
 	return true;		
 	end
