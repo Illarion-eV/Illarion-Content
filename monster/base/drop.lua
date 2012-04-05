@@ -173,7 +173,8 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
                 world:gfx( LineOfFlight, targetPos );
                 return true;
             end );
-			if table.getn(Effect)[1] == 15 then
+			ThrowStuff = table.getn(Effect)[1]
+			if ThrowStuff == 15 then
 			
 				base.common.TalkNLS( Monster, Character.say,
 				"#me wirft etwas nach"..Enemy.name,
