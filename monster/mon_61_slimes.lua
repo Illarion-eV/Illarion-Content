@@ -44,7 +44,17 @@ function enemyOnSight(Monster,Enemy)
 end
 
 function onAttacked(Monster,Enemy)
-
+	local MonID=Monster:getMonsterType();
+	if(MonID == 611) then
+		Wandling = world:getRace
+		Wandling = 55
+		world:increaseAttrib("hitpoints",0)
+		return true;
+		end
+	else
+		return false;		
+	end
+	
     if init==nil then
         ini(Monster);
     end
