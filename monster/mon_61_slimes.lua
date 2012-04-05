@@ -25,7 +25,7 @@ local MonID=Monster:getMonsterType();
 	end
 else
 return false;		
-end
+
 
 	
     if init==nil then
