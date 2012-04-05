@@ -140,6 +140,16 @@ function CastLargeAreaMagic( monster, rndTry, LoadupRounds, LoadupEffect, Damage
     return true;
 end
 
+--[[ function CastMonMagic(
+	Monster = The Monster casting
+	Enemy = The Target 
+	rndTry = 1 : rndTry (number) chance of spell being casted
+	DamageRange = { min Dmg, max Dmg}
+	Effect = { { EffectGfx, EffectSound} { Effect2} etc. }
+	Item = { ID, min qualy,max qualy, data, wear }, {Item2} etc... 
+	AP = Action Points, reduction of movepoints because of casting
+	LineOfFlight = no idea, set 1 always
+	CastingTry = {minSkill, maxSkill} Skillbounds for Monster Casting, influence Damage Output, Sucess against Mag Resi of player etc.]]
 function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlight,CastingTry)
     if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then
         local EffectTry=math.random(1,table.getn(Effect)+table.getn(Item));
