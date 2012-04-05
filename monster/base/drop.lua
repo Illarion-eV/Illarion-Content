@@ -173,9 +173,15 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
                 world:gfx( LineOfFlight, targetPos );
                 return true;
             end );
-            base.common.TalkNLS( Monster, Character.say,
-            "#me murmelt eine mystische Formel.",
-            "#me mumbles a mystical formula.");
+				if Effect[1] = 15 then
+				base.common.TalkNLS( Monster, Character.say,
+				"#me wirft etwas nach"..Enemy.name,
+				"#me throws something after"..Enemy.name);
+				else
+				base.common.TalkNLS( Monster, Character.say,
+				"#me murmelt eine mystische Formel.",
+				"#me mumbles a mystical formula.");
+				end
             Monster.movepoints=Monster.movepoints-AP;
             return true;
         else
@@ -356,7 +362,7 @@ function MonsterRandomTalk(Monster,msgs)
 
 end
 
---Added by Faladrion: Preserving the GynkFire as a throwable monster weapons
+--Added by Faladrion: Preserving the GynkFire as a throwable monster weapon
 
 function ThrowMolotov(Monster,Enemy,rndTry,AP)
     if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then --does not throw very often, half the frequency of casting monsters
