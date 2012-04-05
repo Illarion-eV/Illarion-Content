@@ -358,7 +358,7 @@ end
 
 --Added by Faladrion: Preserving the GynkFire as a throwable monster weapons
 
-function throwMolotov(Monster,Enemy, rndTry, AP)
+function ThrowMolotov(Monster,Enemy,rndTry,AP)
     if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then --does not throw very often, half the frequency of casting monsters
         local hitPos=position( Enemy.pos.x+math.random(-2,2), Enemy.pos.y+math.random(-2,2), Enemy.pos.z );
         local distance = Monster:distanceMetricToPosition( hitPos );
