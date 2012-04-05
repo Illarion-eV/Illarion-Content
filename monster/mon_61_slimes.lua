@@ -16,7 +16,7 @@ killer={}; --A list that keeps track of who attacked the monster last
 end
 
 function enemyNear(Monster,Enemy)
-	local MonID=Monster:getMonsterType();
+local MonID=Monster:getMonsterType();
 	if(MonID == 611) then
 		local Wandling = world:getRace(Monster);
 		Wandling = 55
