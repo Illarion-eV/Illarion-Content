@@ -21,12 +21,14 @@ local MonID=Monster:getMonsterType();
 		local Wandling = world:getRace(Monster);
 		Wandling = 55
 		world:increaseAttrib("hitpoints",0)
-		return true;
-		end
+		return true;		
 	else
 	return false;
 	end
-	end
+else
+return false;		
+end
+
 	
     if init==nil then
         ini(Monster);
