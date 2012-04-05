@@ -20,7 +20,7 @@ local MonID=Monster:getMonsterType();
 	if(MonID == 611) then
 	Wandling = Monster:getRace();
 	Wandling = 55
-	world:increaseAttrib("hitpoints",0)
+	Monster:increaseAttrib("hitpoints",0)
 	return true;		
 	end
 	
