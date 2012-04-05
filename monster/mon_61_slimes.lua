@@ -24,7 +24,7 @@ function onlychangeonce()
 	end
 end
 
-function wandling();
+function wandling()
 local MonID=Monster:getMonsterType();
 	if(MonID == 611) then
 	Monster:setAttrib("racetyp",61)
