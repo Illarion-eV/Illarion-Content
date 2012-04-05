@@ -16,27 +16,6 @@ killer={}; --A list that keeps track of who attacked the monster last
 end
 
 function enemyNear(Monster,Enemy)
-
-function onlychangeonce()
-	if Wandlung == 0
-	then wandling()
-	Wandlung = 1
-	end
-end
-
-function wandling()
-local MonID=Monster:getMonsterType();
-	if(MonID == 611) then
-	Monster:setAttrib("racetyp",61)
-	Monster:increaseAttrib("hitpoints",0)
-	return true;
-	else 
-	return false
-	end
-end
-	
-
-
 	
     if init==nil then
         ini(Monster);
