@@ -23,8 +23,7 @@ local MonID=Monster:getMonsterType();
 	world:increaseAttrib("hitpoints",0)
 	return true;		
 	end
-else
-return false;		
+	
 
 
 	
