@@ -20,7 +20,6 @@ local MonID=Monster:getMonsterType();
 	if(MonID == 611) then
 	Wandlung = Monster:getRace();
 	Wandlung = 61
-	world:setRace(Monster.pos);
 	Monster:increaseAttrib("hitpoints",0)
 	return true;		
 	end
