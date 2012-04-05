@@ -146,10 +146,11 @@ end
 	rndTry = 1 : rndTry (number) chance of spell being casted
 	DamageRange = { min Dmg, max Dmg}
 	Effect = { { EffectGfx, EffectSound} { Effect2} etc. }
-	Item = { ID, min qualy,max qualy, data, wear }, {Item2} etc... 
+	Item = { ID, min qualy,max qualy, data, wear }, {Item2} etc... Creates an item on EnemyPosition (Flamewall, etc.)
 	AP = Action Points, reduction of movepoints because of casting
 	LineOfFlight = no idea, set 1 always
 	CastingTry = {minSkill, maxSkill} Skillbounds for Monster Casting, influence Damage Output, Sucess against Mag Resi of player etc.]]
+	
 function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlight,CastingTry)
     if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then
         local EffectTry=math.random(1,table.getn(Effect)+table.getn(Item));
@@ -354,3 +355,52 @@ function MonsterRandomTalk(Monster,msgs)
     end
 
 end
+
+--Added by Faladrion: Preserving the GynkFire as a throwable monster weapons
+
+function throwMolotov(Monster,Enemy, rndTry, AP)
+    if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then --does not throw very often, half the frequency of casting monsters
+        local hitPos=position( Enemy.pos.x+math.random(-2,2), Enemy.pos.y+math.random(-2,2), Enemy.pos.z );
+        local distance = Monster:distanceMetricToPosition( hitPos );
+        if ( distance < 3 ) then
+            if( math.random(1,2) == 1 ) then
+                hitPos.x = ( hitPos.x > 0 and hitPos.x + 3 - distance or hitPos.x - 3 + distance );
+            else
+                hitPos.y = ( hitPos.y > 0 and hitPos.y + 3 - distance or hitPos.y - 3 + distance );
+            end
+        end
+
+        local Strength=math.random(55,88);
+        local hitpoints;
+
+        world:gfx(36,hitPos);
+        HitChar(hitPos,base.common.Scale(3000,6000,Strength));
+        world:makeSound(5,hitPos);
+        hitpoints = base.common.Scale( 1000, 3000, Strength );
+        base.common.CreateCircle( hitPos, 1, function( targetPos )
+            world:gfx( 44, targetPos );
+            HitChar( targetPos, hitpoints );
+        end );
+        hitpoints = base.common.Scale( 100, 500, Strength );
+        base.common.CreateCircle( hitPos, 2, function( targetPos )
+            world:gfx( 9, targetPos );
+            HitChar( targetPos, hitpoints );
+        end );
+        hitpoints = base.common.Scale( 20, 100, Strength );
+        base.common.CreateCircle( hitPos, 3, function( targetPos )
+            world:gfx( 1, targetPos );
+            HitChar( targetPos, hitpoints );
+        end );
+
+        Monster.movepoints=Monster.movepoints - AP;
+        Monster:talkLanguage( Character.say, Player.german, "#me schmeiﬂt eine weiﬂe Flasche nach "..Enemy.name..".");
+        Monster:talkLanguage( Character.say, Player.english, "#me tosses a white bottle at "..Enemy.name..".");
+		return false;
+    end
+    return true;
+end
+
+function HitChar(Posi,Hitpoints)
+		if world:isCharacterOnField(Posi) then world:getCharacterOnField(Posi):increaseAttrib("hitpoints",-Hitpoints) end;
+		end;
+        

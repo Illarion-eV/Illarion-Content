@@ -54,7 +54,7 @@ function enemyNear(Monster,Enemy)
 
     local MonID=Monster:getMonsterType();
     if (MonID==13) then
-        return ( monster.base.drop.CastLargeAreaMagic(Monster,15,3,{36,0},{3500,5000},8,{36,5},60,{60,65}) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,7,{1000,2000},{{36,5}},{},40,1,{35,50}) );
+        return ( monster.base.drop.CastLargeAreaMagic(Monster,15,3,{37,0},{1000, 2000},8,{36,5},60,{35,50}) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,7,{1000,2000},{{36,5}},{},40,1,{35,50}) );
     else
         return false
     end
@@ -73,7 +73,8 @@ function enemyOnSight(Monster,Enemy)
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true;
     elseif (MonID==13) then
-        return ( monster.base.drop.CastLargeAreaMagic(Monster,10,3,{36,0},{3500,5000},8,{36,5},60,{60,65}) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1500,2000},{{36,5}},{},40,1,{50,60}) or monster.base.drop.CastHealing( Monster, 4, {2000,3500}, 8, {16, 13}, 40 ) );
+        return ( monster.base.drop.throwMolotov(Monster,Enemy, 1, 50)
+		--return ( monster.base.drop.CastLargeAreaMagic(Monster,10,3,{37,0},{1000, 2000},8,{36,5},60,{35,50}) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1000,2000},{{37,5}},{},40,1,{35,50}) or monster.base.drop.CastHealing( Monster, 4, {1000,2000}, 8, {16, 13}, 40 ) );
     else
         return false
     end
