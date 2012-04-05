@@ -73,9 +73,7 @@ function enemyOnSight(Monster,Enemy)
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true;
     elseif (MonID==13) then
-		return monster.base.drop.CastMonMagic(Monster,Enemy,2,{100,150},{15, 5 },{{ 23, 150,200, 0, 7 },{ 1908, 150,200, 0, 7 },{ 2550, 150,200, 0, 7 }},50,53,{50,70})
-        --return ( monster.base.drop.ThrowMolotov(Monster,Enemy,2,50) and monster.base.drop.HitChar(Posi,Hitpoints) );
-		--return ( monster.base.drop.CastLargeAreaMagic(Monster,10,3,{37,0},{1000, 2000},8,{36,5},60,{35,50}) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1000,2000},{{37,5}},{},40,1,{35,50}) or monster.base.drop.CastHealing( Monster, 4, {1000,2000}, 8, {16, 13}, 40 ) );
+		return ( monster.base.drop.CastLargeAreaMagic(Monster,10,3,{37,0},{1000, 2000},8,{36,5},60,{35,50}) or monster.base.drop.CastMonMagic(Monster,Enemy,4,{1000,2000},{{37,5}},{},40,1,{35,50}) or monster.base.drop.CastHealing( Monster, 4, {1000,2000}, 8, {16, 13}, 40 ) );
     else
         return false
     end

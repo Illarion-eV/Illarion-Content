@@ -38,10 +38,10 @@ function enemyNear(Monster,Enemy)
     end
 	
     local MonID=Monster:getMonsterType();
-    if (MonID==33) then
-        return ( monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,6,{1000,2000},{{4,5},{9,5},{51,5}},{},40,1,{25,60}) );
+	if (MonID==33) then
+        return ( monster.base.drop.CastMonster(Monster,Enemy,10,{252,582,622},30) );
     elseif (MonID==34) then
-        return ( monster.base.drop.CastMonster(Monster,Enemy,10,{121,121,121,121,121,121,121,81,81,81,81,225,222,222},30) );
+        return ( monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,6,{1000,2000},{{4,5},{9,5},{51,5}},{},40,1,{25,60}) );
     else
         return false;
     end
@@ -60,10 +60,10 @@ function enemyOnSight(Monster,Enemy)
     local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
-    elseif (MonID==33) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,3,{1200,2500},{{4,5},{9,5},{51,5}},{},40,1,{25,60}) );
+	elseif (MonID==33) then
+        return ( monster.base.drop.CastMonster(Monster,Enemy,5,{252,582,622},30) );
     elseif (MonID==34) then
-        return ( monster.base.drop.CastMonster(Monster,Enemy,5,{121,121,121,121,121,121,121,81,81,81,81,225,222,222},30) );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,3,{1200,2500},{{4,5},{9,5},{51,5}},{},40,1,{25,60}) );
     else
         return false
     end
@@ -195,7 +195,7 @@ function onDeath(Monster)
         monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
 
 
-    elseif (MonID==34) then --Elven Necromancer, Level: 5, Armourtype: cloth, Weapontype: concussion
+    elseif (MonID==34) then --Elven Mage, Level: 5, Armourtype: cloth, Weapontype: concussion
 
         --Category 1: Armor
 

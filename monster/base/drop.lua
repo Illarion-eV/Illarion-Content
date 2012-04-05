@@ -148,7 +148,7 @@ end
 	Effect = { { EffectGfx, EffectSound} { Effect2} etc. }
 	Item = { ID, min qualy,max qualy, data, wear }, {Item2} etc... Creates an item on EnemyPosition (Flamewall, etc.)
 	AP = Action Points, reduction of movepoints because of casting
-	LineOfFlight = no idea, set 1 always
+	LineOfFlight = Gfx that is shown on the Line between Monster and Target 1= puff of smoke all the way
 	CastingTry = {minSkill, maxSkill} Skillbounds for Monster Casting, influence Damage Output, Sucess against Mag Resi of player etc.]]
 	
 function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlight,CastingTry)
@@ -356,7 +356,7 @@ function MonsterRandomTalk(Monster,msgs)
 
 end
 
---Added by Faladrion: Preserving the GynkFire as a throwable monster weapon
+--Added by Faladrion: Preserving the GynkFire as a throwable monster weapon needs fixing :o
 
 function ThrowMolotov(Monster,Enemy,rndTry,AP)
     if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then --does not throw very often, half the frequency of casting monsters
