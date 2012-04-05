@@ -18,12 +18,14 @@ end
 function enemyNear(Monster,Enemy)
 local MonID=Monster:getMonsterType();
 	if(MonID == 611) then
-	Wandling = Monster:getRace();
-	Wandling = 55
+	Monster:getRace();
+	Monster:setRace=61
 	Monster:increaseAttrib("hitpoints",0)
 	return true;		
 	end
-	
+	else
+	return false
+	end
 
 
 	
