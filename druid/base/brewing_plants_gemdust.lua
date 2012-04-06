@@ -34,15 +34,18 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		    return;
 	    end
 	
-		-- check if the SourceItem is a herb used for alchemy
-	    local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem);
-	    if AlchemyPlant or SourceItem.id == 157 then
-		    BrewingPlant(User,SourceItem,cauldron)
-	    end
-		
-	    -- check if it is gem dust
+		local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem);
 	    local GemDust = druid.base.alchemy.CheckIfGemDust(User,SourceItem);
-	    if GemDust then
+		-- check if the SourceItem is a herb used for alchemy
+		if AlchemyPlant or SourceItem.id == 157 then
+		    BrewingPlant(User,SourceItem,cauldron)
+	        
+			-- check if it is a mineral which can be used for prefixing
+		elseif SourceItem.id == 316 then
+		    BrewingPrefix(User,SourceItem,cauldron)
+		
+		    -- check if it is gem dust
+	    elseif GemDust then
 		   BrewingGemDust(User,SourceItem,cauldron)
 	    end
     end
@@ -66,11 +69,11 @@ function BrewingPlant(User,SourceItem,cauldron)
 	local dataZList = druid.base.alchemy.SplitCauldronData(User,cauldronData);
 	if SourceItem.id == 157 then -- rotten treebark
 		-- try to neutralize a already neutral stock -> boom!
-		if (cauldron:getData("cauldronData") == "55555555") then
+		if (cauldron:getData("stockData") == "55555555") then
 			druid.base.alchemy.StockExplosion(User, SourceItem, cauldron);
 			return;
 		-- no stock; let's tell the char!
-		elseif (cauldron:getData("cauldronData") == "") then
+		elseif (cauldron:getData("stockData") == "") then
 			base.common.TempInformNLS( User,
 			"Es befindet sich nichts zum Filtern im Kessel.",
 			"There is nothing to filter in the cauldron."
@@ -88,11 +91,11 @@ function BrewingPlant(User,SourceItem,cauldron)
 	end
 	
 	-- if there is no cauldronData, we will create one    
-	if (cauldron:getData("cauldronData") == "") then
-	   cauldron:setData("cauldronData","55555555");
+	if (cauldron:getData("stockData") == "") then
+	   cauldron:setData("stockData","55555555");
 	end
 	
-	local cauldronData = tonumber(cauldron:getData("cauldronData"));
+	local cauldronData = tonumber(cauldron:getData("stockData"));
 	
 	if SourceItem.id ~= 157 then -- not a rotten tree bark; a normal alchemy herb
 		
@@ -122,15 +125,15 @@ function BrewingPlant(User,SourceItem,cauldron)
 	User:learn("alchemy",6,10,100,User:increaseAttrib("perception",0))
 	
 	-- the new data value is being created
-	local newData = druid.base.alchemy.PasteCauldronData(User,dataZList);
-	cauldron:setData("cauldronData",""..newData);
+	local newStockData = druid.base.alchemy.PasteCauldronData(User,dataZList);
+	cauldron:setData("stockData",""..newStockData);
 	world:changeItem(cauldron)
 end
 
 function BrewingGemDust(User,SourceItem,cauldron)
 	
 	-- no stock, no potion!	
-	if (cauldron:getData("cauldronData") == "") then
+	if (cauldron:getData("stockData") == "") then
 	   base.common.TempInformNLS( User,
 		"Im Kessel muss sich ein Sud befinden, um diesen zu verazaubern.",
 		"There has to be a stock in the cauldron so that you can enchant it."
