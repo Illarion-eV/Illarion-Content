@@ -85,7 +85,7 @@ function enemyOnSight(Monster,Enemy)
     elseif (MonID==63) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,3,{2000,3000},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1) );
     elseif (MonID==64) then
-        return ( monster.base.drop.CastMonster(Monster,Enemy,8,{101,111},40)  );
+        return ( monster.base.drop.CastMonster(Monster,Enemy,8000,{101,111},40)  );
     else
         return false;
     end
