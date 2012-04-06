@@ -286,7 +286,7 @@ function CastMonster(Monster,Enemy,rndTry,monsters,AP)
     --    return false;
     --end
 
-    world:createMonster(1,position(Monster.pos.x,Monster.pos.y+1,Monster.pos.z),20);
+    world:createMonster(1,position(Monster.pos.x,Monster.pos.y+1,Monster.pos.z),20000);
 --[[
     local XPos=math.random(-2,2);
     local YPos=math.random(-2,2);
