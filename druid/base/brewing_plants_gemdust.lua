@@ -130,6 +130,11 @@ function BrewingPlant(User,SourceItem,cauldron)
 	world:changeItem(cauldron)
 end
 
+function BrewingPrefix(User,SourceItem,cauldron)
+
+
+end
+
 function BrewingGemDust(User,SourceItem,cauldron)
 	
 	-- no stock, no potion!	
