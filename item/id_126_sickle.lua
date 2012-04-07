@@ -20,9 +20,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			
 			if User:getPlayerLanguage() == 0 then
 				User:inform("debug 3")
-				dialog = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!", callback)
+				dialog = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!", callbackNewbie)
 			else	
-				dialog = MessageDialog("Welcome!", "fancy welcome text - in English!", callback)
+				dialog = MessageDialog("Welcome!", "fancy welcome text - in English!", callbackNewbie)
 			end	
 			User:requestMessageDialog(dialog)
 		return
