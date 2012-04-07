@@ -12,8 +12,10 @@ function MoveToField(Character)
 	find, myEffect = Character.effects:find(13)
 	if find then
 	    base.common.InformNLS(Character,
-	    "Um mit dem Echsenmann zu sprechen, öffne die Sprechkonsole mit Enter, schreibe etwas und drücke wieder Enter. Alle NPCs (NonPlayerCharacters) reagiern auf bestimmte Signal Wörter wenn du in ihrer Nähe stehst. Versuche den Echsenmann um 'Hilfe' zu bitten. Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen.",
+	    "test",
 	    "@Rince: ziel erreicht 1 EN");
         myEffect:addValue("noobiaLight",1)
 	end
 end
+
+-- in zeile 15 einfügen: "Um mit dem Echsenmann zu sprechen, öffne die Sprechkonsole mit Enter, schreibe etwas und drücke wieder Enter. Alle NPCs (NonPlayerCharacters) reagiern auf bestimmte Signal Wörter wenn du in ihrer Nähe stehst. Versuche den Echsenmann um 'Hilfe' zu bitten. Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."
