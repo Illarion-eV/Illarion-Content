@@ -300,19 +300,18 @@ function CastMonster(Monster,Enemy,rndTry,monsters,AP)
 
 		world:createMonster(selectedMonsterId,SpawnPos,-15);
 
-		if (world:isCharacterOnField(SpawnPos)) then
-			SpawnMonster = world:getCharacterOnField(SpawnPos);
-			world:gfx(41,SpawnMonster.pos);
-		end
+		--if (world:isCharacterOnField(SpawnPos)) then
+		--	SpawnMonster = world:getCharacterOnField(SpawnPos);
+		--	world:gfx(41,SpawnMonster.pos);
+		--end
 
-		world:gfx(41,SpawnMonster.pos);
+		world:gfx(41,SpawnPos);
 		Monster.movepoints=Monster.movepoints-AP;
 		base.common.TalkNLS( Monster, Character.say,
 		"#me murmelt eine mystische Formel.",
 		"#me mumbles a mystical formula.");
-		--]]
-		return true;
 		
+		return true;	
 	else
 	return false;
 	end
