@@ -284,7 +284,7 @@ end
 function CastMonster(Monster,Enemy,rndTry,monsters,AP)
     if (math.random(1,rndTry)~=1) then
 		return false
-		end
+	else
 	
     local XPos=math.random(-2,2);
     local YPos=math.random(-2,2);
