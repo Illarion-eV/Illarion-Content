@@ -30,7 +30,7 @@ function enemyNear(Monster,Enemy)
     end
 	
 	local MonID=Monster:getMonsterType();
-    if (MonID==132 then
+    if (MonID==132) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2500,4500},{{2,4},{32,5},{51,5}},{},40,1) == true );
     else
         return false;

@@ -56,7 +56,7 @@ function enemyOnSight(Monster,Enemy)
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true;
     elseif (MonID==792) then
-        return ( monster.base.drop.CastHealing( Monster, 4, {1000,2000}, 8, {16, 13}, 40 ) or return ( monster.base.drop.CastMonMagic(Monster,Enemy,6,{1000,2000},{{3,5},{6,5}},{{560,320,500,0,7}},40,1,{30,60}) );
+        return ( monster.base.drop.CastHealing( Monster, 4, {1000,2000}, 8, {16, 13}, 40  or return  monster.base.drop.CastMonMagic(Monster,Enemy,6,{1000,2000},{{3,5},{6,5}},{{560,320,500,0,7}},40,1,{30,60} );
     else
         return false;
     end
