@@ -24,7 +24,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     User:inform("lte 13 wurde NICHT geadded")			   
 		        end 
 		    end
-		end
+		
 			if User:getPlayerLanguage() == 0 then
 				User:inform("debug 3")
 				dialog = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!", callbackNewbie)
