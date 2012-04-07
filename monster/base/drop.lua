@@ -313,7 +313,7 @@ function CastMonster(Monster,Enemy,rndTry,monsters,AP)
 		--]]
 			return true;
 		end
-	else
+	
 	return false;
 	end
 end
