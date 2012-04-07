@@ -14,10 +14,17 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			local callbackNewbie = function(dialog)
 			   User:inform("debug 2")
 			   User:setQuestProgress(2,1)
+			   User:inform(""..User:getQuestProgress(2))
 			   newbieEffect = LongTimeEffect(13,1)
 			   User.effects:addEffect(newbieEffect)
-			end 
-			
+			   find, myEffect = User.effects:find(13)
+		       if find then
+			        User:inform("lte 13 wurde geadded")
+	           else 
+                    User:inform("lte 13 wurde NICHT geadded")			   
+		        end 
+		    end
+		
 			if User:getPlayerLanguage() == 0 then
 				User:inform("debug 3")
 				dialog = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!", callbackNewbie)

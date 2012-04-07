@@ -37,7 +37,7 @@ end
 
 function callEffect(newbieEffect,Character)
     
-	if (not player.pos.z == 100) and (not player.pos.z == 101) then
+	if (not Character.pos.z == 100) and (not Character.pos.z == 101) then
 	    return false
 	end	
 	
