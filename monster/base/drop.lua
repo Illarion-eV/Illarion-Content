@@ -313,10 +313,9 @@ function CastMonster(Monster,Enemy,rndTry,monsters,AP)
 		--]]
 			return true;
 		end
-	
 	return false;
-	end
 end
+
 
 function SuddenWarp(Monster,Enemy,showGFX)
     if (math.random(10) == 1) then
