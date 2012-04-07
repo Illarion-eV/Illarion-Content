@@ -282,12 +282,10 @@ function CastParalyze( Caster, Enemy, rndTry, APPunishment, Range, Effect, AP ,C
 end
 
 function CastMonster(Monster,Enemy,rndTry,monsters,AP)
-    --if (math.random(1,rndTry)~=1) then
-    --    return false;
-    --end
-
-    world:createMonster(1,position(Monster.pos.x,Monster.pos.y+1,Monster.pos.z),20000);
---[[
+    if (math.random(1,rndTry)~=1) then
+		return false
+	end
+	
     local XPos=math.random(-2,2);
     local YPos=math.random(-2,2);
 
@@ -314,7 +312,9 @@ function CastMonster(Monster,Enemy,rndTry,monsters,AP)
     "#me murmelt eine mystische Formel.",
     "#me mumbles a mystical formula.");
     --]]
-    return true;
+		return true;
+	end
+	return false;
 end
 
 function SuddenWarp(Monster,Enemy,showGFX)
