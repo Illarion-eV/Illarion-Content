@@ -282,40 +282,42 @@ function CastParalyze( Caster, Enemy, rndTry, APPunishment, Range, Effect, AP ,C
 end
 
 function CastMonster(Monster,Enemy,rndTry,monsters,AP)
-    if (math.random(1,rndTry)~=1) then
-		return false
-	else
+    if (math.random(1,rndTry)==1) then
+		
 	
-    local XPos=math.random(-2,2);
-    local YPos=math.random(-2,2);
+		local XPos=math.random(-2,2);
+		local YPos=math.random(-2,2);
 
-    if (XPos==0 and YPos==0) then YPos=-1 end
-    local SpawnPos=position(Monster.pos.x+XPos,Monster.pos.y+YPos,Monster.pos.z);
+		if (XPos==0 and YPos==0) then YPos=-1 end
+		local SpawnPos=position(Monster.pos.x+XPos,Monster.pos.y+YPos,Monster.pos.z);
 
-    if (world:isCharacterOnField(SpawnPos)) then
-        return false;
-    end
+		if (world:isCharacterOnField(SpawnPos)) then
+			return false;
+		end
 
-    local selectedMonsterIndex = math.random(1,table.getn(monsters));
-    local selectedMonsterId = monsters[selectedMonsterIndex];
+		local selectedMonsterIndex = math.random(1,table.getn(monsters));
+		local selectedMonsterId = monsters[selectedMonsterIndex];
 
-    world:createMonster(selectedMonsterId,SpawnPos,-15);
+		world:createMonster(selectedMonsterId,SpawnPos,-15);
 
-    if (world:isCharacterOnField(SpawnPos)) then
-        local SpawnMonster = world:getCharacterOnField(SpawnPos);
-        world:gfx(41,SpawnMonster.pos);
-    end
+		if (world:isCharacterOnField(SpawnPos)) then
+			SpawnMonster = world:getCharacterOnField(SpawnPos);
+			world:gfx(41,SpawnMonster.pos);
+		end
 
-    world:gfx(41,SpawnMonster.pos);
-    Monster.movepoints=Monster.movepoints-AP;
-    base.common.TalkNLS( Monster, Character.say,
-    "#me murmelt eine mystische Formel.",
-    "#me mumbles a mystical formula.");
-    --]]
+		world:gfx(41,SpawnMonster.pos);
+		Monster.movepoints=Monster.movepoints-AP;
+		base.common.TalkNLS( Monster, Character.say,
+		"#me murmelt eine mystische Formel.",
+		"#me mumbles a mystical formula.");
+		--]]
 		return true;
-	end
+		
+	else
 	return false;
+	end
 end
+
 
 function SuddenWarp(Monster,Enemy,showGFX)
     if (math.random(10) == 1) then
