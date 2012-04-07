@@ -39,7 +39,7 @@ function enemyNear(Monster,Enemy)
 	
     local MonID=Monster:getMonsterType();
 	if (MonID==33) then
-        return ( monster.base.drop.CastMonster(Monster,Enemy,10,{252,582,622},30) );
+        return ( monster.base.drop.CastMonster(Monster,Enemy,15,{252,582,622},30) );
     elseif (MonID==34) then
         return ( monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,6,{1000,2000},{{4,5},{9,5},{51,5}},{},40,1,{25,60}) );
     else
@@ -61,7 +61,7 @@ function enemyOnSight(Monster,Enemy)
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
 	elseif (MonID==33) then
-        return ( monster.base.drop.CastMonster(Monster,Enemy,5,{252,582,622},30) );
+        return ( monster.base.drop.CastMonster(Monster,Enemy,15,{252,582,622},30) );
     elseif (MonID==34) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,3,{1200,2500},{{4,5},{9,5},{51,5}},{},40,1,{25,60}) );
     else

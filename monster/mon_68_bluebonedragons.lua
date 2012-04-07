@@ -26,7 +26,7 @@ function FireBreath(Monster,Enemy)
         firstBreath=true;
     end
     local retVal=false;
-    BreathTry=math.random(1,12);
+    BreathTry=math.random(1,120);
     if (BreathTry==1) and (Monster.pos.z==Enemy.pos.z) then
         retVal=true;
         Monster.fightpoints=Monster.fightpoints-40;
@@ -55,7 +55,7 @@ function FireBreath(Monster,Enemy)
                     if (BreathShape[i][k]~=0) then
                         world:gfx(BreathShape[i][k],BreathPos);
                         if (math.random(1,5)==1) then
-                            world:createItemFromId(360,1,BreathPos,true,math.random(200,600),0);
+                            world:createItemFromId(560,1,BreathPos,true,math.random(200,600),0);
                             world:makeSound(5,BreathPos);
                         end
                         if world:isCharacterOnField(BreathPos) then
@@ -66,7 +66,7 @@ function FireBreath(Monster,Enemy)
                 end
             end
         else
-            monster.base.drop.CastMonMagic(Monster,Enemy,1,{2500,2500},{{9,5}},{},0,1)
+            monster.base.drop.CastMonMagic(Monster,Enemy,1,{2500,2500},{{6,5}},{},0,1)
         end
     end
     growltry=math.random(1,8);

@@ -25,13 +25,25 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    return false
+	local MonID=Monster:getMonsterType();
+    
+	if (MonID==553) then
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,7,{500,1500},{{4,5},{2,4}},{},40,1,{35,50}) );
+    else
+        return false;
+    end
 end
 
 function enemyOnSight(Monster,Enemy)
-
+	local MonID=Monster:getMonsterType();
     if init==nil then
         ini(Monster);
+    end
+    
+	if (MonID==553) then
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,7,{500,1500},{{4,5},{2,4}},{},40,1,{35,50}) );
+    else
+        return false;
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while

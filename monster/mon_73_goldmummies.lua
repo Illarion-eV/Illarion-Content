@@ -32,7 +32,9 @@ msgs:addMessage("#me stöhnt schwer und beugt sich vornüber, eine schwarze Flüssi
 end
 
 function enemyNear(Monster,Enemy)
-
+	
+	local MonID=Monster:getMonsterType();
+	
     if init==nil then
         ini(Monster);
     end
@@ -41,16 +43,30 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    return false
+	if (MonID==731) then
+        return ( monster.base.drop.CastMonster(Monster,Enemy,15,{103,593,822},40) );
+    else
+        return false;
+    end
 end
 
 function enemyOnSight(Monster,Enemy)
+	
+	local MonID=Monster:getMonsterType();
 
     if init==nil then
         ini(Monster);
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+	
+	
+
+	if (MonID==731) then
+        return ( monster.base.drop.CastMonster(Monster,Enemy,15,{103,593,822},40) );
+    else
+        return false;
+    end
 
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
