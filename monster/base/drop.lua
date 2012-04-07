@@ -315,6 +315,7 @@ function CastMonster(Monster,Enemy,rndTry,monsters,AP)
 		end
 	else
 	return false;
+	end
 end
 
 function SuddenWarp(Monster,Enemy,showGFX)
