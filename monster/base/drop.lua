@@ -311,8 +311,9 @@ function CastMonster(Monster,Enemy,rndTry,monsters,AP)
 		"#me murmelt eine mystische Formel.",
 		"#me mumbles a mystical formula.");
 		--]]
-			return true;
-		end
+		return true;
+	end
+	else
 	return false;
 end
 
