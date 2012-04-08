@@ -38,9 +38,9 @@ function init()
 	elevator2:bind(1, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil )); 
 	elevator2:bind(0, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil )); 
 	
-	DronrulLever1 = base.lever.Lever(position(446,753,-3),false);
+	DronrulLever1 = base.lever.Lever(position(446,753,-3),true);
 	DronrulLever1:bind(1, handler.deleteitem.deleteItem(position(442, 754, -3),613));
-	DronrulLever1:bind(2, handler.createitem.createItem(position(442, 754, -3),613, 333, 1, true));
+	DronrulLever1:bind(0, handler.createitem.createItem(position(442, 754, -3),613, 333, 1, true));
 
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
