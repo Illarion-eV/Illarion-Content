@@ -15,4 +15,5 @@ function createItem:execute()
 	if (wear ~= nil) then
 	itemCr.wear=255;
     world:changeItem(itemCr)
+	end
 end
