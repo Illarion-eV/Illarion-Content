@@ -16,6 +16,7 @@ killer={}; --A list that keeps track of who attacked the monster last
 end
 
 function enemyNear(Monster,Enemy)
+	local MonID=Monster:getMonsterType();
 
     if init==nil then
         ini(Monster);
@@ -25,11 +26,16 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    return false
+	if (MonID==842) then
+	return ( monster.base.drop.CastMonster(Monster,Enemy,15,{611, 1031},40) );
+	else 
+		return false
+	end
 end
 
 function enemyOnSight(Monster,Enemy)
-
+	local MonID=Monster:getMonsterType();
+	
     if init==nil then
         ini(Monster);
     end
@@ -41,6 +47,12 @@ function enemyOnSight(Monster,Enemy)
     else
         return false
     end
+	
+	if (MonID==842) then
+	return ( monster.base.drop.CastMonster(Monster,Enemy,15,{611, 1031},40) );
+	else 
+		return false
+	end
 end
 
 function onAttacked(Monster,Enemy)
