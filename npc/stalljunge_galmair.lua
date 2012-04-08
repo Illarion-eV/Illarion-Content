@@ -8,6 +8,8 @@
 --Update by:   Lennier
 
 require("npc.base.functions")
+require("lte.lasttier")
+require("npc.lasttier")
 module("npc.stalljunge_galmair", package.seeall)
 
 function useNPC(user,counter,param)
@@ -57,8 +59,8 @@ function initializeNpc()
     --goblin language=9
     --ancient language=10
     
-    PreisProKuh = 50;
-    Kaution = 200;
+    PreisProKuh = 1;
+    Kaution = 2;
 end
 
 function nextCycle()  -- ~10 times per second
@@ -97,8 +99,8 @@ end
 
 function SayPrice(message, originator)
     if (string.find(message,"koste")~=nil) or (string.find(message,"costs")~=nil) then
-        thisNPC:talkLanguage( Character.say, Player.german, "Ein Bär kostet "..PreisProKuh.." Kupferstücke. Außerdem müsst ihr "..(Kaution/100).." Silberstücke als Kaution hinterlegen die ihr aber wieder bekommt, wenn ihr den Bären sicher wieder hier her bringt.");
-        thisNPC:talkLanguage( Character.say, Player.english, "A bear costs "..PreisProKuh.." coppercoins. Furthermore you have to pay "..(Kaution/100).." silvercoins as surety, but you get these coins back in case you bring the bear safely back to me.");
+        thisNPC:talkLanguage( Character.say, Player.german, "Ein Bär kostet "..PreisProKuh.." Kupferstücke. Außerdem müsst ihr "..(Kaution).." Silberstücke als Kaution hinterlegen die ihr aber wieder bekommt, wenn ihr den Bären sicher wieder hier her bringt.");
+        thisNPC:talkLanguage( Character.say, Player.english, "A bear costs "..PreisProKuh.." coppercoins. Furthermore you have to pay "..(Kaution).." silvercoins as surety, but you get these coins back in case you bring the bear safely back to me.");
         return true
     end
     return false
