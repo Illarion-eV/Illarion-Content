@@ -232,7 +232,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	    User:inform("wear of front item is "..frontItem.wear)
 	    return
 	elseif (cutString == "setwear") then
-            newWear = tonumber(string.sub(mystring,9,lengthString))
+            newWear = tonumber(string.sub(myString,9,lengthString))
 			frontItem.wear = newWear
 			world:changeItem(frontItem)
 	        User:inform("set wear of front item to "..newWear)
