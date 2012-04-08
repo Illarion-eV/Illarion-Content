@@ -40,7 +40,7 @@ function init()
 	
 	dronrul1 = base.lever.Lever(position(446,754,-3),true);
 	dronrul1:bind(0, handler.deleteitem.deleteItem(position(442,754,-3),613));
-	dronrul1:bind(1, handler.createitem.createItem(position(442,754,-3),613, 333, 1, 255));
+	dronrul1:bind(1, handler.createitem.createItem(position(442,754,-3),613, 333, 1, 123));
 
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
