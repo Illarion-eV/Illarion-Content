@@ -7,6 +7,10 @@
 --Last Update: 12/09/2008
 --Update by:   Lennier
 
+require("npc.base.basic")
+require("npc.base.condition.language")
+require("npc.base.consequence.inform")
+require("npc.base.talk")
 require("npc.base.functions")
 require("lte.lasttier")
 require("npc.lasttier")
@@ -189,7 +193,7 @@ function GetCow(message, originator)end
             thisNPC:talkLanguage( Character.say, Player.german, "Ich verkaufe keine Bären. Ihr könnt sie euch von mir höchstens leihen." );
             thisNPC:talkLanguage( Character.say, Player.english, "I don't sell bears. You can just rent them." );
         else
-            thisNPC:talkLanguage( Character.say, Player.german, "Ich verkaufe meine Bären. Ihr könnt sie euch von mir höchstens leihen." );
+            thisNPC:talkLanguage( Character.say, Player.german, "Ich verkaufe keine Bären. Ihr könnt sie euch von mir höchstens leihen." );
             thisNPC:talkLanguage( Character.say, Player.english, "I don't sell my bears. You can just rent them." );
         end
     end
