@@ -12,7 +12,7 @@ createItem = base.class.class(function(creitem, posi, ID, qual, amnt, wear)
     creitem.itemId=ID;
     creitem.quality=qual;
     creitem.amount=amnt;
-	
+	creitem.wear=wear;
 end);
 
 function createItem:execute()
