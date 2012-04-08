@@ -227,7 +227,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     frontItem = base.common.GetFrontItem( User );
 	myString = User.lastSpokenText
 	lengthString = string.len(myString)
-	cutString= string.sub (mystring, 1, 7)
+	cutString= string.sub (myString, 1, 7)
 	if (cutString == "getwear") then
 	    User:inform("wear of front item is "..frontItem.wear)
 	elseif (cutString == "setwear") then
