@@ -2,9 +2,6 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
-require("monster.specialattacks.mgolem_spells");
-require("monster.specialattacks.demon_spells");
-require("monster.specialattacks.beholder_spells");
 module("monster.mon_34_transparentgolems", package.seeall)
 
 
@@ -32,24 +29,6 @@ msgs:addMessage("#me hebt seine imposanten Fäuste und stößt einen donnernden Kri
 end
 
 function enemyNear(Monster,Enemy)
-local MonID=Monster:getMonsterType();
-	if(MonID == 301) then
-	
-		if monster.specialattacks.mgolem_spells.MGolem_PowerFist (Monster, Enemy, 10) then
-			return true;
-		elseif monster.specialattacks.mgolem_spells.MGolem_Slam (Monster, Enemy,10) then
-			return true;
-		elseif monster.specialattacks.beholder_spells.Death_Gaze (Monster,Enemy) then
-			return true;
-		elseif monster.specialattacks.beholder_spells.Energy_Beam (Monster, Enemy, 10) then
-			return true;
-
-		else
-			return false;
-		end
-	else
-		return false;		
-	end
 	
     if init==nil then
         ini(Monster);
@@ -63,18 +42,6 @@ local MonID=Monster:getMonsterType();
 end
 
 function enemyOnSight(Monster,Enemy)
-local MonID=Monster:getMonsterType();
-	if(MonID == 301) then
-		if monster.specialattacks.demon_spells.Demon_Pull (Monster, Enemy) then
-			return true;
-		elseif monster.specialattacks.beholder_spells.Mana_Burn (Monster, Enemy) then
-			return true;
-		else			
-			return false;
-		end
-	else
-		return false;
-	end
 
     if init==nil then
         ini(Monster);
@@ -99,14 +66,6 @@ function onAttacked(Monster,Enemy)
 end
 
 function onCasted(Monster,Enemy)
-local MonID=Monster:getMonsterType();
-	if(MonID == 301) then
-		if monster.specialattacks.mgolem_spells.MGolem_Shield (monster,char) then
-			return true;
-		else 
-			return false;
-		end
-	end
 	
     if init==nil then
         ini(Monster);

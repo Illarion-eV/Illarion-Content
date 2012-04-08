@@ -17,7 +17,7 @@ msgs = base.messages.Messages();
 msgs:addMessage("#me bleibt steifbeinig und aufgerichtet stehen.", "#me stands stiff legged and tall.");
 msgs:addMessage("#me duckt sich, bereit anzugreifen.", "#me crouches, ready to strike.");
 msgs:addMessage("#me hat Schaum vor dem Mund.", "#me foams at the mouth.");
-msgs:addMessage("#mes Fell sträubt sich.", "#me's fur bristles");
+msgs:addMessage("#mes Fell sträubt sich.", "#me's fur bristles.");
 
 end
 

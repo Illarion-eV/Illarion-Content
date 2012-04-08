@@ -4,6 +4,7 @@ require("monster.base.quests")
 require("base.messages");
 module("monster.mon_12_beholders", package.seeall)
 
+--To do: Random Messages
 
 function ini(Monster)
 
@@ -29,8 +30,8 @@ function enemyNear(Monster,Enemy)
     end
 	
     local MonID=Monster:getMonsterType();
-    if (MonID==144) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{4000,5000},{{44,5},{46,5},{51,5}},{},40,1) == true );
+    if (MonID==124) then
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{44,5},{4,5},{51,5}},{},40,1) == true );
     else
         return false;
     end
@@ -48,8 +49,8 @@ function enemyOnSight(Monster,Enemy)
     local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
-    elseif (MonID==144) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{4000,5000},{{44,5},{46,5},{51,5}},{},40,1) == true );
+    elseif (MonID==124) then
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{44,5},{4,5},{51,5}},{},40,1) == true );
     else
         return false
     end

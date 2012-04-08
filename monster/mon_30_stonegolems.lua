@@ -33,17 +33,10 @@ end
 
 function enemyNear(Monster,Enemy)
 local MonID=Monster:getMonsterType();
-	if(MonID == 301) then
+	if(MonID == 302) then
 	
 		if monster.specialattacks.mgolem_spells.MGolem_PowerFist (Monster, Enemy, 10) then
 			return true;
-		elseif monster.specialattacks.mgolem_spells.MGolem_Slam (Monster, Enemy,10) then
-			return true;
-		elseif monster.specialattacks.beholder_spells.Death_Gaze (Monster,Enemy) then
-			return true;
-		elseif monster.specialattacks.beholder_spells.Energy_Beam (Monster, Enemy, 10) then
-			return true;
-
 		else
 			return false;
 		end
@@ -63,8 +56,8 @@ local MonID=Monster:getMonsterType();
 end
 
 function enemyOnSight(Monster,Enemy)
-local MonID=Monster:getMonsterType();
-	if(MonID == 301) then
+--[[local MonID=Monster:getMonsterType();
+	if(MonID == 302) then
 		if monster.specialattacks.demon_spells.Demon_Pull (Monster, Enemy) then
 			return true;
 		elseif monster.specialattacks.beholder_spells.Mana_Burn (Monster, Enemy) then
@@ -78,7 +71,7 @@ local MonID=Monster:getMonsterType();
 
     if init==nil then
         ini(Monster);
-    end
+    end]]
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
@@ -100,7 +93,7 @@ end
 
 function onCasted(Monster,Enemy)
 local MonID=Monster:getMonsterType();
-	if(MonID == 301) then
+	if(MonID == 302) then
 		if monster.specialattacks.mgolem_spells.MGolem_Shield (monster,char) then
 			return true;
 		else 

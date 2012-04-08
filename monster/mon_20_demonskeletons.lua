@@ -54,18 +54,11 @@ function enemyNear(Monster,Enemy)
 	
     local MonID=Monster:getMonsterType();
     if (MonID==202) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{4,5},{9,5},{51,5}},{},40,1) == true );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{1500,3500},{{36,5},{9,5}},{},40,1) == true );
+	elseif (MonID==204) then
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{3,5},{6,5}},{},40,1) == true );
     elseif (MonID==205) then
-        if monster.base.drop.SuddenWarp(Monster,Enemy,true) then
-            return true
-        end
-        if monster.base.drop.CastMonster(Monster,Enemy,10,{111,115},40) then
-            return true
-        end
-        if monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{4,5},{9,5},{51,5}},{},40,1) then
-            return true
-        end
-        return false
+        return ( monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonster(Monster,Enemy,10,{103,763},40) );
     else
         return false;
     end
@@ -83,15 +76,11 @@ function enemyOnSight(Monster,Enemy)
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
     elseif (MonID==202) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{4,5},{9,5},{51,5}},{},40,1) == true );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{1500,3500},{{36,5},{9,5}},{},40,1) == true );
+	elseif (MonID==204) then
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{3,5},{6,5}},{},40,1) == true );
     elseif (MonID==205) then
-        if monster.base.drop.CastMonster(Monster,Enemy,10,{111,115},40) then
-            return true
-        end
-        if monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,3000},{{4,5},{9,5},{51,5}},{},40,1) then
-            return true
-        end
-        return false
+        return ( monster.base.drop.CastMonster(Monster,Enemy,10,{103,763},40) );
     else
         return false;
     end

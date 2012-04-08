@@ -72,14 +72,14 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     end
     local dummy_1, task = quest.aquest28.split_questdata(User);
     
-    if equapos(TargetItem.pos,position(-73,-108,0)) then
+	if equapos(TargetItem.pos,position(-73,-108,0)) then
         User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         User:warp(position(-73,-108,-3));
-    elseif equapos(TargetItem.pos,position(-131,-123,0)) then
-        User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
-        User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
-        User:warp(position(-131,-123,-3));
+   -- elseif equapos(TargetItem.pos,position(-131,-123,0)) then
+   --     User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
+   --     User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
+   --     User:warp(position(-131,-123,-3));
 	--elseif equapos(TargetItem.pos,position(787,801,0)) then
     --    User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
     --    User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
@@ -88,6 +88,10 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         User:warp(position(518,559, -3));
+	elseif equapos(TargetItem.pos,position(367, 253, 0)) then
+        User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
+        User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
+        User:warp(position(292, 377, -6));
     elseif ( equapos(TargetItem.pos,position(787,801,0)) and (task == 4 or true)) then --FARMER WELL POSITION TO PUT HERE
         User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");

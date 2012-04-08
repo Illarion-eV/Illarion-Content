@@ -4,6 +4,7 @@ require("monster.base.quests")
 require("base.messages");
 module("monster.mon_14_transparentbeholders", package.seeall)
 
+--To do: Random Messages
 
 function ini(Monster)
 
@@ -27,6 +28,14 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
+	
+	local MonID=Monster:getMonsterType();
+    if (MonID==143) then
+        return ( monster.base.drop.CastMonster(Monster,Enemy,15,{611,1031,1051},40) );
+    else
+        return false;
+	end
+	
 end
 
 
@@ -36,8 +45,13 @@ function enemyOnSight(Monster,Enemy)
         ini(Monster);
         firstWP={};
     end
-
-    return false
+	
+	local MonID=Monster:getMonsterType();
+    if (MonID==143) then
+        return ( monster.base.drop.CastMonster(Monster,Enemy,15,{611,1031,1051},40) );
+    else
+        return false;
+	end
 end
 
 

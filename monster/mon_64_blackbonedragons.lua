@@ -15,7 +15,7 @@ killer={}; --A list that keeps track of who attacked the monster last
 
 end
 
-function FireBreath(Monster,Enemy)
+--[[function FireBreath(Monster,Enemy)
     if (firstBreath==nil) then
         NearBreathShape={};
         NearBreathShape[1]={9,9,9,9,9};
@@ -82,7 +82,7 @@ function ShapeDrehen(Shape)
         retShape[i]={Shape[5][i],Shape[4][i],Shape[3][i],Shape[2][i],Shape[1][i]};
     end
     return retShape
-end
+end]]
 
 function enemyNear(Monster,Enemy)
 
@@ -94,7 +94,7 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    return ( FireBreath(Monster,Enemy) == true );
+    --return ( FireBreath(Monster,Enemy) == true );
 end
 
 function enemyOnSight(Monster,Enemy)
@@ -108,8 +108,8 @@ function enemyOnSight(Monster,Enemy)
 
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
-    else
-        return ( FireBreath(Monster,Enemy) == true );
+    --else
+      --  return ( FireBreath(Monster,Enemy) == true );
     end
 end
 

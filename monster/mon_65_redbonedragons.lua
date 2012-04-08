@@ -26,7 +26,7 @@ function FireBreath(Monster,Enemy)
         firstBreath=true;
     end
     local retVal=false;
-    BreathTry=math.random(1,12);
+    BreathTry=math.random(1,120);
     if (BreathTry==1) and (Monster.pos.z==Enemy.pos.z) then
         retVal=true;
         Monster.fightpoints=Monster.fightpoints-40;
