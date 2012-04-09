@@ -12,8 +12,7 @@ createMonster = base.class.class(function(cremonst, posi, ID, mvpoints, amnt)
 end);
 	
 function createMonster:execute()
-	Amnt=self.amnt
-	for i, amnt in pairs(Amnt) do 
+	for i, amnt in pairs() do 
 	world:createMonster(self.monsterID, self.pos, self.movepoints);
 	end
 end
