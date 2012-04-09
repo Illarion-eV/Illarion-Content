@@ -15,6 +15,7 @@ require("handler.sendmessage")
 require("handler.movelever")
 require("handler.warpplayer");
 require("handler.warpgroup");
+require("handler.createmonster");
 require("quest.leverRiddleA")       -- controlls the behaviour of the levers
 require("quest.leverquest")         -- main class for the whole quest
 
@@ -46,10 +47,14 @@ function init()
 	dronrul1:bind(1, handler.createsound.createSound(position(442,754,-3),22));
 	--dronrul1.bind(1, handler.sendmessage.sendMessage(position(442,754,-3), "Der Hebel bewegt sich und das Loch in der Wand gegenüber schließt sich.", "The lever moves and the hole in the wall on the opposite side closes.", 4));
 	
+	killerhuhn = base.lever.Lever(position(54,602,0),true);
+	killerhuhn:bind(0, handler.createmonster.createMonster(position(50,604,0),3,40));
+	killerhuhn:bind(1, handler.createmonster.createMonster(position(50,604,0),3,40));
 	
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
 	AddToLevers(dronrul1);
+	AddToLevers(killerhuhn);
 	----------------------------------------------------------------------------
 
 
