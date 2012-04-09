@@ -11,5 +11,8 @@ createMonster = base.class.class(function(cremonst, posi, ID, mvpoints, amnt)
 end);
 	
 function createMonster:execute()
+	i = 1
+	while i  <= amnt do
 	world:createMonster(self.monsterID, self.pos, self.movepoints);
+	i = i + 1
 end
