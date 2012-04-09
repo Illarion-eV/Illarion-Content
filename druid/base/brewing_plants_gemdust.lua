@@ -140,7 +140,7 @@ function WaterCauldron(User,SourceItem,cauldron)
 		"The cauldron is already filled with something - more and it will spill over."
 			   );
 		return;
-    elseif (SourceItem.id == 51) and (cauldron:getData("cauldronFilledWith") ~= "water")
+    elseif (SourceItem.id == 51) and (cauldron:getData("cauldronFilledWith") ~= "water") then
 	    base.common.TempInformNLS( User,
 		"Hier ist kein Wasser im Kessel, dass Du abschöpfen könntest.",
 		"There is no water in the cauldon for you to scoop out."
