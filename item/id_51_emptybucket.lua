@@ -12,11 +12,17 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
 	local Field = world:getField(pos);
 	local boden = base.common.GetGroundType(Field:tile());
 	local frontItem = base.common.GetFrontItem( User );
-	if(frontItem.id == 2207) then -- Am Brunnen fuellen
+	if frontItem == nil then
+	    IdFrontItem = 0
+	else
+        IdfrontItem = frontItem.id	
+	end
+	
+	if(IdfrontItem == 2207) then -- Am Brunnen fuellen
 		FillBucket(User, SourceItem);
 	elseif (boden == 6) then -- Am Wasser fuellen
 		FillBucket(User, SourceItem);
-	elseif(frontItem.id == 1008) and (frontItem:getData("cauldronFilledWith") == "water") then -- cauldron with water
+	elseif(IdfrontItem == 1008) and (frontItem:getData("cauldronFilledWith") == "water") then -- cauldron with water
 	    FillBucket(User, SourceItem);
 	else
 		base.common.InformNLS(User, "Du musst am Brunnen stehen, um Wasser zu schöpfen.", "You need to stand in front of the well to scoop water.");
