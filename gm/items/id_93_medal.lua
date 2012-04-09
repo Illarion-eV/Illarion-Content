@@ -224,19 +224,5 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 end 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-    frontItem = base.common.GetFrontItem( User );
-	myString = User.lastSpokenText
-	lengthString = string.len(myString)
-	cutString= string.sub (myString, 1, 7)
-	if (cutString == "getwear") then
-	    User:inform("wear of front item is "..frontItem.wear)
-	    return
-	elseif (cutString == "setwear") then
-            newWear = tonumber(string.sub(myString,9,lengthString))
-			frontItem.wear = newWear
-			world:changeItem(frontItem)
-	        User:inform("set wear of front item to "..newWear)
-	        return
-	end		
-	UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User),Counter,Param);
+    UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User),Counter,Param);
 end
