@@ -42,7 +42,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	        
 		    -- bucket with water
 		elseif (SourceItem.id == 52) then
-		    WaterIntoCauldron(User,SourceItem,cauldron)   
+		    WaterCauldron(User,SourceItem,cauldron)   
 			
 			-- check if it is gem dust
 	    elseif GemDust then
@@ -132,7 +132,7 @@ function BrewingPlant(User,SourceItem,cauldron)
 	world:changeItem(cauldron)
 end
 
-function WaterIntoCauldron(User,SourceItem,cauldron) 
+function WaterCauldron(User,SourceItem,cauldron) 
     -- check if water has been filled into the cauldron already
 	if (SourceItem:getData("cauldronFilledWith") ~= "") then
         base.common.TempInformNLS( User,
