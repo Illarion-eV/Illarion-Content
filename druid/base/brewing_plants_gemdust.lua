@@ -40,8 +40,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		if AlchemyPlant or SourceItem.id == 157 then
 		    BrewingPlant(User,SourceItem,cauldron)
 	        
-		    -- bucket with water
-		elseif (SourceItem.id == 52) then
+		    -- bucket
+		elseif (SourceItem.id == 51) or (SourceItem.id == 52) then
 		    WaterCauldron(User,SourceItem,cauldron)   
 			
 			-- check if it is gem dust
@@ -133,15 +133,31 @@ function BrewingPlant(User,SourceItem,cauldron)
 end
 
 function WaterCauldron(User,SourceItem,cauldron) 
-    -- check if water has been filled into the cauldron already
-	if (SourceItem:getData("cauldronFilledWith") ~= "") then
+    
+	if (SourceItem.id == 52) and (cauldron:getData("cauldronFilledWith") ~= "") then
         base.common.TempInformNLS( User,
 		"Der Kessel ist bereits mit etwas gefüllt - noch mehr und er würde überlaufen.",
 		"The cauldron is already filled with something - more and it will spill over."
 			   );
 		return;
-    else
-	    if ( ltstate == Action.abort ) then
+    elseif (SourceItem.id == 51) and (cauldron:getData("cauldronFilledWith") ~= "water") then
+	    base.common.TempInformNLS( User,
+		"Hier ist kein Wasser im Kessel, dass Du abschöpfen könntest.",
+		"There is no water in the cauldon for you to scoop out."
+			   );
+		return;
+	
+	else	
+		
+		if (SourceItem.id == 51) then
+		    newFilled = ""
+			newBucketId = 52
+		else
+		    newFilled = "water"
+			newBucketId = 51
+		end	
+		
+		if ( ltstate == Action.abort ) then
 			base.common.TempInformNLS( User,
 			"Du brichst Deine Arbeit ab.",
 			"You abort your work."
@@ -154,10 +170,10 @@ function WaterCauldron(User,SourceItem,cauldron)
 	        return
 	    end
 		
-		cauldron:setData("cauldronFilledWith","water");
+		cauldron:setData("cauldronFilledWith",newFilled);
 	    world:changeItem(cauldron)
 		
-		SourceItem.id = 51;
+		SourceItem.id = newBucketId;
 	    SourceItem.data = 0;
 	    world:changeItem(SourceItem);
     end
