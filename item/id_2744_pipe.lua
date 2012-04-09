@@ -10,7 +10,7 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 --[[This item has been claimed by faladron to do his biding and sate his scripting curiosity.
 	It will do anything and everything with the exception of what should be expected from it]]
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
-		New = New
+		local New = 123
 		New.ItemID = 1061
 		New.position = User.position
 		New.quality = 333
