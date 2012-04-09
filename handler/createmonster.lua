@@ -9,5 +9,5 @@ createMonsters = base.class.class(function(cremonst, posi, ID, mvpoints)
 end);
 	
 function createMonsters:execute()
-	world:createMonster(self.monsterID, self.pos, self.movepoints);
+	
 end
