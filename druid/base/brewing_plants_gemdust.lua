@@ -40,11 +40,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		if AlchemyPlant or SourceItem.id == 157 then
 		    BrewingPlant(User,SourceItem,cauldron)
 	        
-			-- check if it is a mineral which can be used for prefixing
-		elseif SourceItem.id == 316 then
-		    BrewingPrefix(User,SourceItem,cauldron)
-		
-		    -- check if it is gem dust
+		    -- bucket with water
+		elseif (SourceItem.id == 52) then
+		    WaterIntoCauldron(User,SourceItem,cauldron)   
+			
+			-- check if it is gem dust
 	    elseif GemDust then
 		   BrewingGemDust(User,SourceItem,cauldron)
 	    end
@@ -52,6 +52,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 end
 
 function BrewingPlant(User,SourceItem,cauldron)
+	-- no stock and char tries to filter it
+	if (cauldron:getData("stockData") == "") (and SourceItem.id == 157) then
+			base.common.TempInformNLS( User,
+			"Es befindet sich nichts zum Filtern im Kessel.",
+			"There is nothing to filter in the cauldron."
+			   );
+			return
+	end
 	
 	if ( ltstate == Action.abort ) then
 		base.common.TempInformNLS( User,
@@ -72,14 +80,8 @@ function BrewingPlant(User,SourceItem,cauldron)
 		if (cauldron:getData("stockData") == "55555555") then
 			druid.base.alchemy.StockExplosion(User, SourceItem, cauldron);
 			return;
-		-- no stock; let's tell the char!
-		elseif (cauldron:getData("stockData") == "") then
-			base.common.TempInformNLS( User,
-			"Es befindet sich nichts zum Filtern im Kessel.",
-			"There is nothing to filter in the cauldron."
-			   );
-			return
 		end
+		
 		-- there is a not neutral stock
 		for i=1,8 do
 			if dataZList < 5 then 
@@ -130,9 +132,35 @@ function BrewingPlant(User,SourceItem,cauldron)
 	world:changeItem(cauldron)
 end
 
-function BrewingPrefix(User,SourceItem,cauldron)
-
-
+function WaterIntoCauldron(User,SourceItem,cauldron) 
+    -- check if water has been filled into the cauldron already
+	if (SourceItem:getData("cauldronFilledWith") ~= "") then
+        base.common.TempInformNLS( User,
+		"Der Kessel ist bereits mit etwas gefüllt - noch mehr und er würde überlaufen.",
+		"The cauldron is already filled with something - more and it will spill over."
+			   );
+		return;
+    else
+	    if ( ltstate == Action.abort ) then
+			base.common.TempInformNLS( User,
+			"Du brichst Deine Arbeit ab.",
+			"You abort your work."
+				   );
+			return;
+	    end
+        
+		if (ltstate == Action.none) then
+	        User:startAction(20,21,5,0,0);
+	        return
+	    end
+		
+		cauldron:setData("cauldronFilledWith","water");
+	    world:changeItem(cauldron)
+		
+		SourceItem.id = 51;
+	    SourceItem.data = 0;
+	    world:changeItem(SourceItem);
+    end
 end
 
 function BrewingGemDust(User,SourceItem,cauldron)

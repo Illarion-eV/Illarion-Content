@@ -3,6 +3,7 @@
 -- UPDATE common SET com_script='item.id_52_filledbucket' WHERE com_itemid IN (52);
 
 require("base.common")
+require("druid.base.brewing_plants_gemdust")
 
 module("item.id_52_filledbucket", package.seeall)
 
@@ -24,7 +25,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
 		return;
 	end
 	
-    -- Wasserflasche auffüllen
+    -- infront of a cauldron -> alchemy
+	if (TargetItem.id == 1008) then
+	    druid.base.brewing_plants_gemdust.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+		return
+	end
+	
+	-- Wasserflasche auffüllen
 	if( TargetItem.id == 2498 ) then
 		if(TargetItem.number > 1) then
 			base.common.InformNLS(User, "#w Du kannst nur eine Flasche befüllen!", "#w You can only fill one bottle.");
