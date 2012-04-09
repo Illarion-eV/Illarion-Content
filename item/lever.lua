@@ -41,10 +41,10 @@ function init()
 	dronrul1 = base.lever.Lever(position(446,754,-3),true);
 	dronrul1:bind(0, handler.deleteitem.deleteItem(position(442,754,-3),613));
 	dronrul1:bind(0, handler.createsound.createSound(position(442,754,-3),22));
-	dronrul1.bind(0, handler.sendmessage.sendMessage(position(442,754,-3),"Der Hebel bewegt sich und die Wand gegenüber senkt sich in den Boden.","The lever moves and the wall on the opposite side sinks down into the floor.", 4));
+	dronrul1.bind(0, handler.sendmessage.sendMessage(position(442,754,-3), "Der Hebel bewegt sich und die Wand gegenüber senkt sich in den Boden.", "The lever moves and the wall on the opposite side sinks down into the floor.", 4));
 	dronrul1:bind(1, handler.createitem.createItem(position(442,754,-3),613, 333, 1));
 	dronrul1:bind(1, handler.createsound.createSound(position(442,754,-3),22));
-	dronrul1.bind(1, handler.sendmessage.sendMessage(position(442,754,-3),"Der Hebel bewegt sich und das Loch in der Wand gegenüber schließt sich.","The lever moves and the hole in the wall on the opposite side closes.", 4));
+	dronrul1.bind(1, handler.sendmessage.sendMessage(position(442,754,-3), "Der Hebel bewegt sich und das Loch in der Wand gegenüber schließt sich.", "The lever moves and the hole in the wall on the opposite side closes.", 4));
 	
 	
 	AddToLevers(elevator1);
