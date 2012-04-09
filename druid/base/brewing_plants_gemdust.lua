@@ -51,7 +51,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
 end
 
-function BrewingPlant(User,SourceItem,cauldron)
+function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	-- no stock and char tries to filter it
 	if (cauldron:getData("stockData") == "") and (SourceItem.id == 157) then
 			base.common.TempInformNLS( User,
@@ -132,7 +132,7 @@ function BrewingPlant(User,SourceItem,cauldron)
 	world:changeItem(cauldron)
 end
 
-function WaterCauldron(User,SourceItem,cauldron) 
+function WaterCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
 	if (SourceItem.id == 52) and (cauldron:getData("cauldronFilledWith") ~= "") then
         base.common.TempInformNLS( User,
@@ -164,7 +164,7 @@ function WaterCauldron(User,SourceItem,cauldron)
 				   );
 			return;
 	    end
-        
+		
 		if (ltstate == Action.none) then
 	        User:startAction(20,21,5,0,0);
 	        return
@@ -179,7 +179,7 @@ function WaterCauldron(User,SourceItem,cauldron)
     end
 end
 
-function BrewingGemDust(User,SourceItem,cauldron)
+function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- no stock, no potion!	
 	if (cauldron:getData("stockData") == "") then
