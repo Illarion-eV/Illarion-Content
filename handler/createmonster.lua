@@ -15,4 +15,5 @@ function createMonster:execute()
 	Amnt=self.amnt
 	for i, amnt in pairs(Amnt) do 
 	world:createMonster(self.monsterID, self.pos, self.movepoints);
+	end
 end
