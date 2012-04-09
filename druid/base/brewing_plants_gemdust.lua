@@ -53,7 +53,7 @@ end
 
 function BrewingPlant(User,SourceItem,cauldron)
 	-- no stock and char tries to filter it
-	if (cauldron:getData("stockData") == "") (and SourceItem.id == 157) then
+	if (cauldron:getData("stockData") == "") and (SourceItem.id == 157) then
 			base.common.TempInformNLS( User,
 			"Es befindet sich nichts zum Filtern im Kessel.",
 			"There is nothing to filter in the cauldron."
