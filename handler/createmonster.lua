@@ -1,13 +1,14 @@
 require("base.class")
+require("base.common")
 
 module("handler.createmonster", package.seeall)
 
-createMonsters = base.class.class(function(cremonst, posi, ID, mvpoints)
+createMonster = base.class.class(function(cremonst, posi, ID, mvpoints)
 	cremonst.pos=posi;
 	cremonst.monsterID=ID;
 	cremonst.movepoints=mvpoints;
 end);
 	
-function createMonsters:execute()
-	
+function createMonster:execute()
+	world:createMonster(self.monsterID, self.pos, self.movepoints);
 end
