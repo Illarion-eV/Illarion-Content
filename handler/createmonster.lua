@@ -1,5 +1,4 @@
 require("base.class")
-require("base.common")
 
 module("handler.createmonster", package.seeall)
 
@@ -11,4 +10,6 @@ end);
 	
 function createMonster:execute()
 	world:createMonster(self.monsterID, self.pos, self.movepoints);
+	return
 end
+
