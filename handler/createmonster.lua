@@ -10,6 +10,5 @@ end);
 	
 function createMonster:execute()
 	world:createMonster(self.monsterID, self.pos, self.movepoints);
-	return
 end
 
