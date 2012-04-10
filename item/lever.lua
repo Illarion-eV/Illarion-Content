@@ -58,7 +58,7 @@ function init()
 	ki1:bind(1, handler.settile.setTile(position(49,604,0), 6));
 	
 	ki2 = base.lever.Lever(position(54,604,0),false);
-	ki2:bind(0, handler.sendmessagetoplayer.sendMessageToPlayer(User, "TestGerman","TestEnglish"));
+	ki2:bind(0, handler.sendmessagetoplayer.sendMessageToPlayer(Char, "TestGerman","TestEnglish"));
 	ki2:bind(1, handler.sendmessage.sendMessage(position(54,604,0), "TesinGerman","TesinEnglish", 10));
 	
 	ki3 = base.lever.Lever(position(54,605,0),false);
