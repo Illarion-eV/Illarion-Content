@@ -76,7 +76,7 @@ function init()
 	AddToLevers(ki1);
 	AddToLevers(ki2);
 	AddToLevers(ki3);
-	AddToLevers(killerhuhn4);
+	AddToLevers(ki4);
 	----------------------------------------------------------------------------
 
 
