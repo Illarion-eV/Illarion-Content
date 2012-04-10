@@ -96,8 +96,8 @@ function init()
 	AddToLevers(ki3);
 	AddToLevers(ki4);
 	
-	AddToLevers(opendoor);
-	AddToLevers(opendoor1);
+	AddToLevers(openDoor);
+	AddToLevers(openDoor1);
 	----------------------------------------------------------------------------
 
 
