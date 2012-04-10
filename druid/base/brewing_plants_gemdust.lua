@@ -176,7 +176,8 @@ function WaterCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		SourceItem.id = newBucketId;
 	    SourceItem.data = 0;
 	    world:changeItem(SourceItem);
-    end
+        world:makeSound(10,TargetItem.pos);
+	end
 end
 
 function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
