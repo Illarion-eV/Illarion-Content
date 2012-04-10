@@ -8,7 +8,7 @@ require("druid.base.brewing_plants_gemdust")
 module("item.id_51_emptybucket", package.seeall)
 
 -- Wassereimer fuellen
-function UseItem( User, SourceItem, TargetItem, Counter, Param )
+function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	local pos = base.common.GetFrontPosition(User);
 	local Field = world:getField(pos);
 	local boden = base.common.GetGroundType(Field:tile());
