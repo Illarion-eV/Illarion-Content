@@ -26,7 +26,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
 	   
 	    -- there is a complete potions; we cannot add anything to it
-		if (cauldron:getData("potionID") ~= "") then 
+		if (TargetItem:getData("potionID") ~= "") then 
 	        base.common.TempInformNLS( User,
 		    "Einem fertigen Trank kannst Du nichts mehr beifügen.",
 		    "You cannot add something to a completed potion."
