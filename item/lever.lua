@@ -62,8 +62,8 @@ function init()
 	ki2:bind(1, handler.sendmessage.sendMessage(position(54,604,0), "TesinGerman","TesinEnglish", 10));
 	
 	ki3 = base.lever.Lever(position(54,605,0),false);
-	ki3:bind(0, handler.eraseplayeritem.erasePlayerItem(User, 3076,1));
-	ki3:bind(1, handler.createplayeritem.createPlayerItem(User, 3076,1));
+	ki3:bind(0, handler.eraseplayeritem.erasePlayerItem(Char, 3076,1));
+	ki3:bind(1, handler.createplayeritem.createPlayerItem(Char, 3076,1));
 	
 	ki4 = base.lever.Lever(position(54,606,0),false);
 	ki4:bind(0, handler.createbridge.createBridge(position(58,599,0),0,3));
