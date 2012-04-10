@@ -47,7 +47,7 @@ function init()
 	dronrul1:bind(1, handler.createsound.createSound(position(442,754,-3),22));
 	--dronrul1.bind(1, handler.sendmessage.sendMessage(position(442,754,-3), "Der Hebel bewegt sich und das Loch in der Wand gegenüber schließt sich.", "The lever moves and the hole in the wall on the opposite side closes.", 4));
 	
-	killerhuhn = base.lever.Lever(position(54,602,0),true);
+	killerhuhn = base.lever.Lever(position(54,602,0),false);
 	killerhuhn:bind(0, handler.createmonster.createMonster(position(50,604,0),5,40));
 	killerhuhn:bind(1, handler.createmonster.createMonster(position(50,604,0),12,40));
 	
