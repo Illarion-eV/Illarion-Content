@@ -13,8 +13,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
    -- infront of a cauldron?
    if base.common.GetFrontItemID(User) == 1008 then
 	  
-       -- if there is a cauldron, it will become our object of changes; let's save it
-	   local cauldron = base.common.GetFrontItem( User );
+       -- the cauldron becomce our TargetItem
+	   local TargetItem = base.common.GetFrontItem( User );
 	   
 	   -- is the char an alchemist?
 	    if User:getMagicType() ~= 3 then
@@ -26,7 +26,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
 	   
 	    -- there is a complete potions; we cannot add anything to it
-		if (cauldron:getData("potionID") ~= "") then 
+		if (TargetItem:getData("potionID") ~= "") then 
 	        base.common.TempInformNLS( User,
 		    "Einem fertigen Trank kannst Du nichts mehr beifügen.",
 		    "You cannot add something to a completed potion."
@@ -38,22 +38,22 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    local GemDust = druid.base.alchemy.CheckIfGemDust(User,SourceItem);
 		-- check if the SourceItem is a herb used for alchemy
 		if AlchemyPlant or SourceItem.id == 157 then
-		    BrewingPlant(User,SourceItem,cauldron)
+		    BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	        
 		    -- bucket
 		elseif (SourceItem.id == 51) or (SourceItem.id == 52) then
-		    WaterCauldron(User,SourceItem,cauldron)   
+		    WaterCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate) 
 			
 			-- check if it is gem dust
 	    elseif GemDust then
-		   BrewingGemDust(User,SourceItem,cauldron)
+		   BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
     end
 end
 
 function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	-- no stock and char tries to filter it
-	if (cauldron:getData("stockData") == "") and (SourceItem.id == 157) then
+	if (TargetItem:getData("stockData") == "") and (SourceItem.id == 157) then
 			base.common.TempInformNLS( User,
 			"Es befindet sich nichts zum Filtern im Kessel.",
 			"There is nothing to filter in the cauldron."
@@ -77,8 +77,8 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	local dataZList = druid.base.alchemy.SplitCauldronData(User,cauldronData);
 	if SourceItem.id == 157 then -- rotten treebark
 		-- try to neutralize a already neutral stock -> boom!
-		if (cauldron:getData("stockData") == "55555555") then
-			druid.base.alchemy.StockExplosion(User, SourceItem, cauldron);
+		if (TargetItem:getData("stockData") == "55555555") then
+			druid.base.alchemy.StockExplosion(User, SourceItem, TargetItem);
 			return;
 		end
 		
@@ -93,11 +93,11 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	
 	-- if there is no cauldronData, we will create one    
-	if (cauldron:getData("stockData") == "") then
-	   cauldron:setData("stockData","55555555");
+	if (TargetItem:getData("stockData") == "") then
+	   TargetItem:setData("stockData","55555555");
 	end
 	
-	local cauldronData = tonumber(cauldron:getData("stockData"));
+	local cauldronData = tonumber(TargetItem:getData("stockData"));
 	
 	if SourceItem.id ~= 157 then -- not a rotten tree bark; a normal alchemy herb
 		
@@ -105,7 +105,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		local plusWertPos,minusWertPos = druid.base.alchemy.SplitPlantData(Plant);
 		-- "overflow" leads to explosion of the stock
 		if dataZList[plusWertPos] == 9 or dataZList[minusWertPos] == 1 then
-		  druid.base.alchemy.StockExplosion(User, SourceItem, cauldron);
+		  druid.base.alchemy.StockExplosion(User, SourceItem, TargetItem);
 		  return;
 		end 
 
@@ -120,7 +120,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	
 	-- delete the plant
-	world:makeSound(10,cauldron.pos);
+	world:makeSound(10,TargetItem.pos);
 	User:increaseAtPos(SourceItem.itempos,-1);
 	
 	-- learn!
@@ -128,19 +128,19 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- the new data value is being created
 	local newStockData = druid.base.alchemy.PasteCauldronData(User,dataZList);
-	cauldron:setData("stockData",""..newStockData);
-	world:changeItem(cauldron)
+	TargetItem:setData("stockData",""..newStockData);
+	world:changeItem(TargetItem)
 end
 
 function WaterCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
-	if (SourceItem.id == 52) and (cauldron:getData("cauldronFilledWith") ~= "") then
+	if (SourceItem.id == 52) and (TargetItem:getData("cauldronFilledWith") ~= "") then
         base.common.TempInformNLS( User,
 		"Der Kessel ist bereits mit etwas gefüllt - noch mehr und er würde überlaufen.",
 		"The cauldron is already filled with something - more and it will spill over."
 			   );
 		return;
-    elseif (SourceItem.id == 51) and (cauldron:getData("cauldronFilledWith") ~= "water") then
+    elseif (SourceItem.id == 51) and (TargetItem:getData("cauldronFilledWith") ~= "water") then
 	    base.common.TempInformNLS( User,
 		"Hier ist kein Wasser im Kessel, dass Du abschöpfen könntest.",
 		"There is no water in the cauldon for you to scoop out."
@@ -170,8 +170,8 @@ function WaterCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	        return
 	    end
 		
-		cauldron:setData("cauldronFilledWith",newFilled);
-	    world:changeItem(cauldron)
+		TargetItem:setData("cauldronFilledWith",newFilled);
+	    world:changeItem(TargetItem)
 		
 		SourceItem.id = newBucketId;
 	    SourceItem.data = 0;
@@ -182,7 +182,7 @@ end
 function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- no stock, no potion!	
-	if (cauldron:getData("stockData") == "") then
+	if (TargetItem:getData("stockData") == "") then
 	   base.common.TempInformNLS( User,
 		"Im Kessel muss sich ein Sud befinden, um diesen zu verazaubern.",
 		"There has to be a stock in the cauldron so that you can enchant it."
@@ -220,11 +220,11 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end 
 	
 	-- change cauldron's data and quality
-	world:makeSound(13,cauldron.pos);
-	world:gfx(52,cauldron.pos);
-	cauldron:setData("potionID", ""..ID_potion);
-	cauldron.quality = 999; -- !!!!!!!!!!!!!!!!!!!!!! note to myself (merung): replace it with a proper calculation  !!!!!!!!!!!!!!!!!!
-	world:changeItem(cauldron);
+	world:makeSound(13,TargetItem.pos);
+	world:gfx(52,TargetItem.pos);
+	TargetItem:setData("potionID", ""..ID_potion);
+	TargetItem.quality = 999; -- !!!!!!!!!!!!!!!!!!!!!! note to myself (merung): replace it with a proper calculation  !!!!!!!!!!!!!!!!!!
+	world:changeItem(TargetItem);
 	
 	User:increaseAtPos(SourceItem.itempos,-1); -- delete gemdust
 	-- learn!
