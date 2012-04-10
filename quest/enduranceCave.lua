@@ -15,17 +15,17 @@ end
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
 if not GlobalsInitialized then
 	GlobalsInitialized = true;
-			   -- magic portal coordinates
-	magPortal   = {position (240,732,0), position (240,722,0),
-					   position (250,732,0), position (250,722,0)};
+			   -- magic portal coordinates 
+	magPortal   = {position (20,3,-5), position (30, 3, -5),
+					   position (38,5,-15), position (38,10,-15), position(38,15,-15};
 
 	StepAmount  = 8; 		   -- the amount of steps the player has to go
 						   	   --to reach the end boss
 
 	bosspos    	= {0,0,0}; 	   --warp position of the boss room
-	anteroompos = {246,727,0}; --warp position of the anterroom
+	anteroompos = {7,8,-15}; --warp position of the anterroom
 	
-	CenterPositionOfPortalRoom = position (246,727,0); -- the center of the room
+	CenterPositionOfPortalRoom = position (25,11,-15); -- the center of the room
 	
 	searchRadius 		   = 100;			   		   -- 25 tiles search radius when
 													   --looking if there are any monsters around
