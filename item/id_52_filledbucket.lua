@@ -7,7 +7,7 @@ require("druid.base.brewing_plants_gemdust")
 
 module("item.id_52_filledbucket", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param )
+function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
 	local TargetItem = base.common.GetTargetItem(User, SourceItem); -- item in hands
 	
