@@ -66,8 +66,8 @@ function init()
 	ki3:bind(1, handler.createplayeritem.createPlayerItem(User, 3076,1));
 	
 	ki4 = base.lever.Lever(position(54,606,0),false);
-	ki4:bind(0, handler.createbridge.createBridge(position(49,604,0),0,2));
-	ki4:bind(1, handler.deletebridge.deleteBridge(position(49,604,0),0,2));
+	ki4:bind(0, handler.createbridge.createBridge(position(59,599,0),0,2));
+	ki4:bind(1, handler.deletebridge.deleteBridge(position(59,599,0),0,2));
 	
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
