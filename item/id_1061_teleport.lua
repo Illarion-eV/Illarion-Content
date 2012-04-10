@@ -4,39 +4,39 @@ require("base.common")
 
 module("item.id_1061_teleport", package.seeall)
 
-function InitializeBook( )
+function InitializeBook(  )
 
     if TargetName == nil then
 
         TargetName={  };
-        TargetName[ 1 ]="Galmair";
+        TargetName[ 301 ]="Galmair";
 
-        TargetName[ 2 ]="Cadomyr";
+        TargetName[ 302 ]="Cadomyr";
 
-        TargetName[ 3 ]="Runewick";
+        TargetName[ 303 ]="Runewick";
 
-        TargetName[ 4 ]="Wilderland";
+        TargetName[ 304 ]="Wilderland";
 
-        TargetName[ 5 ]="Safepoint 1";
+        TargetName[ 305 ]="Safepoint 1";
 
-        TargetName[ 6 ]="Safepoint 2";
+        TargetName[ 306 ]="Safepoint 2";
 		
-        TargetName[ 7 ]="Safepoint 3";
+        TargetName[ 307 ]="Safepoint 3";
 
-        TargetName[ 8 ]="Safepoint 4";
+        TargetName[ 308 ]="Safepoint 4";
 
-		TargetName[ 9 ]="Safepoint 5";
+		TargetName[ 309 ]="Safepoint 5";
     end
---local gate = TargetName[ SourceItem:getData("destination")]
+
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     User:inform( "reading teleport book" )
-	
+
     InitializeBook(  );
 
-    User:inform( "target id "..SourceItem:getData("destination") )
-    local gate = TargetName[ SourceItem:getData("destination")]
+    User:inform( "target id "..SourceItem.quality )
+    local gate = TargetName[ SourceItem.quality ]
 
     if gate ~= nil then
         User:inform( "gate found" )
@@ -63,9 +63,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 --and ((( (loc.x < -72) or (loc.x > -55) ) or ( (loc.y < -74) or (loc.y > -60) )) or loc.z~=-3) then
                     -- create a gate to the destination
                     User:inform( "creating" )
-                    AportalIsBorn = world:createItemFromId( 10, 1, loc, true, 933 ,0);
-					AportalIsBorn:setData("Destination",(SourceItem:getData("destination")))
-					world:changeItem(AportalIsBorn)
+                    world:createItemFromId( 10, 1, loc, true, 933 ,(SourceItem.quality-100));
                     world:makeSound( 4, loc )
 
                     success = true;
@@ -102,7 +100,7 @@ function LookAtItem( User, Item )
 
     InitializeBook(  );
 
-    local gate = TargetName[ Item:getData("destination")]
+    local gate = TargetName[ Item.quality ]
 
     if gate == nil then
         world:itemInform( User, Item, base.common.GetNLS( User, "Zauberbuch", "Magical book" ) );
