@@ -49,7 +49,9 @@ function init()
 	
 	killerhuhn = base.lever.Lever(position(54,602,0),false);
 	killerhuhn:bind(0, handler.createmonster.createMonster(position(50,604,0),5,40));
+	killerhuhn:bind(0, handler.createitem.createItem(position(49,604,0),613, 2, 1));
 	killerhuhn:bind(1, handler.createmonster.createMonster(position(50,604,0),12,40));
+	
 	
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
