@@ -134,6 +134,14 @@ end
 
 function WaterCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
+	if ( ltstate == Action.abort ) then
+			base.common.TempInformNLS( User,
+			"Du brichst Deine Arbeit ab.",
+			"You abort your work."
+				   );
+			return;
+	end
+	
 	if (SourceItem.id == 52) and (TargetItem:getData("cauldronFilledWith") ~= "") then
         base.common.TempInformNLS( User,
 		"Der Kessel ist bereits mit etwas gefüllt - noch mehr und er würde überlaufen.",
@@ -156,14 +164,6 @@ function WaterCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		    newFilled = "water"
 			newBucketId = 51
 		end	
-		
-		if ( ltstate == Action.abort ) then
-			base.common.TempInformNLS( User,
-			"Du brichst Deine Arbeit ab.",
-			"You abort your work."
-				   );
-			return;
-	    end
 		
 		if (ltstate == Action.none) then
 	        User:startAction(20,21,5,0,0);
