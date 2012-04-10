@@ -19,9 +19,8 @@ function CharacterOnField( User )
 	
 	if( SourceItem.id == 795 ) then
 	
-	local gate = TargetCoor[ SourceItem:getData("destination")]
-	
 	local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
+	local gate = t_dest;
 	if (PlayerInCave) then
 			gate = t_dest;
 	end
