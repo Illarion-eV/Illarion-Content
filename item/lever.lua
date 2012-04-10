@@ -53,11 +53,30 @@ function init()
 	killerhuhn:bind(1, handler.createmonster.createMonster(position(50,604,0),12,40));
 	killerhuhn:bind(1, handler.deleteitem.deleteItem(position(49,604,0),613));
 	
+	ki1 = base.lever.Lever(position(54,603,0),false);
+	ki1:bind(0, handler.settile.setTile(position(49,604,0), 4));
+	ki1:bind(1, handler.settile.setTile(position(49,604,0), 6));
+	
+	ki2 = base.lever.Lever(position(54,604,0),false);
+	ki2:bind(0, handler.sendmessagetoplayer.sendMessageToPlayer(User, "TestGerman","TestEnglish"));
+	ki2:bind(1, handler.sendmessage.sendMessage(position(54,604,0), "TesinGerman","TesinEnglish", 10));
+	
+	ki3 = base.lever.Lever(position(54,605,0),false);
+	ki3:bind(0, handler.eraseplayeritem.erasePlayerItem(User, 3076,1));
+	ki3:bind(1, handler.createplayeritem.createPlayerItem(User, 3076,1));
+	
+	ki4 = base.lever.Lever(position(54,606,0),false);
+	ki4:bind(0, handler.createbridge.createBridge(position(49,604,0),0,2));
+	ki4:bind(1, handler.deletebridge.deleteBridge(position(49,604,0),0,2));
 	
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
 	AddToLevers(dronrul1);
 	AddToLevers(killerhuhn);
+	AddToLevers(ki1);
+	AddToLevers(ki2);
+	AddToLevers(ki3);
+	AddToLevers(killerhuhn4);
 	----------------------------------------------------------------------------
 
 
