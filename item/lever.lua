@@ -69,6 +69,19 @@ function init()
 	ki4:bind(0, handler.createbridge.createBridge(position(58,599,0),0,3));
 	ki4:bind(1, handler.deletebridge.deleteBridge(position(58,599,0),0,3));
 	
+
+	OpenDoor = base.lever.Lever(position(558,520,-3),false);
+	OpenDoor:bind(0, handler.opendoor.openDoor(position(559,557,-6)));
+	OpenDoor:bind(0, handler.opendoor.openDoor(position(558,557,-6)));
+	OpenDoor:bind(1, handler.closedoor.closeDoor(position(559,557,-6)));
+	OpenDoor:bind(1, handler.closedoor.closeDoor(position(558,557,-6)));
+	
+	OpenDoor1 = base.lever.Lever(position(538,557,-3),false);
+	OpenDoor1:bind(0, handler.unlockdoor.base.keys.UnlockDoor(position(559,556,-6)));
+	OpenDoor1:bind(0, handler.unlockdoor.base.keys.UnlockDoor(position(558,556,-6)));
+	OpenDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(559,556,-6)));
+	OpenDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(558,556,-6)));
+	
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
 	AddToLevers(dronrul1);
@@ -77,6 +90,9 @@ function init()
 	AddToLevers(ki2);
 	AddToLevers(ki3);
 	AddToLevers(ki4);
+	
+	AddToLevers(Opendoor);
+	AddToLevers(Opendoor1);
 	----------------------------------------------------------------------------
 
 
