@@ -70,21 +70,21 @@ function init()
 	ki4:bind(1, handler.deletebridge.deleteBridge(position(58,599,0),0,3));
 	
 
-	OpenDoor = base.lever.Lever(position(558,520,-3),false);
-	OpenDoor:bind(0, handler.opendoor.openDoor(position(559,557,-6)));
-	OpenDoor:bind(0, handler.opendoor.openDoor(position(558,557,-6)));
-	OpenDoor:bind(0, handler.sendmessage.sendMessage(position(558,520,-3), "Ich öffne die Türe!","I open the door!", 10));
-	OpenDoor:bind(1, handler.closedoor.closeDoor(position(559,557,-6)));
-	OpenDoor:bind(1, handler.closedoor.closeDoor(position(558,557,-6)));
-	OpenDoor:bind(1, handler.sendmessage.sendMessage(position(558,520,-3), "Ich schließe die Türe!","I close the door!", 10));
+	openDoor = base.lever.Lever(position(558,520,-3),false);
+	openDoor:bind(0, handler.opendoor.openDoor(position(559,557,-6)));
+	openDoor:bind(0, handler.opendoor.openDoor(position(558,557,-6)));
+	openDoor:bind(0, handler.sendmessage.sendMessage(position(558,520,-3), "Ich öffne die Türe!","I open the door!", 10));
+	openDoor:bind(1, handler.closedoor.closeDoor(position(559,557,-6)));
+	openDoor:bind(1, handler.closedoor.closeDoor(position(558,557,-6)));
+	openDoor:bind(1, handler.sendmessage.sendMessage(position(558,520,-3), "Ich schließe die Türe!","I close the door!", 10));
 	
-	OpenDoor1 = base.lever.Lever(position(538,557,-3),false);
-	OpenDoor1:bind(0, handler.unlockdoor.base.keys.UnlockDoor(position(559,556,-6)));
-	OpenDoor1:bind(0, handler.unlockdoor.base.keys.UnlockDoor(position(558,556,-6)));
-	OpenDoor1:bind(0, handler.sendmessage.sendMessage(position(538,557,-3), "Ich schließe die Türe auf!","I unlock the door!", 10));
-	OpenDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(559,556,-6)));
-	OpenDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(558,556,-6)));
-	OpenDoor1:bind(1, handler.sendmessage.sendMessage(position(538,557,-3), "Ich sperre die Türe zu!","I lock the door!", 10));
+	openDoor1 = base.lever.Lever(position(538,557,-3),false);
+	openDoor1:bind(0, handler.unlockdoor.base.keys.UnlockDoor(position(559,556,-6)));
+	openDoor1:bind(0, handler.unlockdoor.base.keys.UnlockDoor(position(558,556,-6)));
+	openDoor1:bind(0, handler.sendmessage.sendMessage(position(538,557,-3), "Ich schließe die Türe auf!","I unlock the door!", 10));
+	openDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(559,556,-6)));
+	openDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(558,556,-6)));
+	openDoor1:bind(1, handler.sendmessage.sendMessage(position(538,557,-3), "Ich sperre die Türe zu!","I lock the door!", 10));
 	
 	
 	AddToLevers(elevator1);
@@ -96,8 +96,8 @@ function init()
 	AddToLevers(ki3);
 	AddToLevers(ki4);
 	
-	AddToLevers(Opendoor);
-	AddToLevers(Opendoor1);
+	AddToLevers(opendoor);
+	AddToLevers(opendoor1);
 	----------------------------------------------------------------------------
 
 
