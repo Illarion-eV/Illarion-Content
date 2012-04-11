@@ -28,10 +28,7 @@ function MoveToField(User)
 				or User.pos == (position  (38,10,-15)) 
 				or User.pos == (position (38,15,-15))
 		then
-		PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
-		if (PlayerInCave) then
-		gate = t_dest;
-		end
+		
 			if gate ~= nil then
 	
 			local dest = position( gate[ 1 ], gate[ 2 ], gate[ 3 ] );
