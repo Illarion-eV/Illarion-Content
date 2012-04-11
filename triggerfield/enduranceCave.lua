@@ -15,7 +15,7 @@ function MoveToField(User)
 	User:forceWarp(position(7,8,-15));
 	end
 	
-	if User.pos == (position(10,11,-15)) then
+	if User.pos == (position(20,3,-15)) then
 	PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
 		if (PlayerInCave) then
 		gate = t_dest;
