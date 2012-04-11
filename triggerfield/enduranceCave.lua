@@ -18,12 +18,11 @@ function MoveToField(character)
 		gate = t_dest;
 		end
 	
-		if equapos(character.pos,
-				position (20,3,-15) 
-				or position (30, 3, -15),
-				or position (38,5,-15), 
-				or position (38,10,-15), 
-				or position(38,15,-15))
+		if equapos(character.pos,position (20,3,-15)) 
+				or equapos(character.pos,position (30, 3, -15))
+				or equapos(character.pos,position (38,5,-15)) 
+				or equapos(character.pos,position (38,10,-15)) 
+				or equapos(character.pos,position(38,15,-15))
 		then
 			if gate ~= nil then
 	
