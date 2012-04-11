@@ -72,15 +72,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			"There is nothing to filter in the cauldron."
 			   );
 			return
-	elseif (TargetItem:getData("cauldronFilledWith") == "water") and (SourceItem.id == 157) then
-	        base.common.TempInformNLS( User,
-			"Du filterst das Wasser im Kessel. Es scheint allerdings ziemlich nutzlos zu sein.",
-			"You filter the water in the cauldron. It seems rather useless, though."
-			   );
-			world:makeSound(10,TargetItem.pos);
-	        User:increaseAtPos(SourceItem.itempos,-1);
-			return
-	end
+    end
 	
 	-- if there is no cauldronData, we will create one    
 	if (TargetItem:getData("stockData") == "") then
@@ -90,12 +82,6 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	local dataZList = druid.base.alchemy.SplitCauldronData(User,cauldronData);
 	
 	if SourceItem.id == 157 then -- rotten treebark
-		-- try to neutralize a already neutral stock -> boom!
-		if (TargetItem:getData("stockData") == "55555555") then
-			druid.base.alchemy.StockExplosion(User, SourceItem, TargetItem);
-			return;
-		end
-		
 		-- there is a not neutral stock
 		for i=1,8 do
 			if dataZList < 5 then 
@@ -104,11 +90,6 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				dataZList[i] = dataZList[i] - 1
 			end	
 		end
-	end
-	
-	-- if there is no cauldronData, we will create one    
-	if (TargetItem:getData("stockData") == "") then
-	   TargetItem:setData("stockData","55555555");
 	end
 	
 	if SourceItem.id ~= 157 then -- not a rotten tree bark; a normal alchemy herb
