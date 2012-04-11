@@ -19,10 +19,10 @@ if not GlobalsInitialized then
 	magPortal   = {position (20,3,-15), position (30, 3, -15),
 					   position (38,5,-15), position (38,10,-15), position(38,15,-15)};
 
-	StepAmount  = 8; 		   -- the amount of steps the player has to go
+	StepAmount  = 2; 		   -- the amount of steps the player has to go
 						   	   --to reach the end boss
 
-	bosspos    	= {0,0,0}; 	   --warp position of the boss room
+	bosspos    	= {542, 681, 2}; 	   --warp position of the boss room
 	anteroompos = {7,8,-15}; --warp position of the anterroom
 	
 	CenterPositionOfPortalRoom = position (25,11,-15); -- the center of the room
@@ -30,7 +30,7 @@ if not GlobalsInitialized then
 	searchRadius 		   = 100;			   		   -- 25 tiles search radius when
 													   --looking if there are any monsters around
 	
-	InfoItemPosition       = position (1,33,7);        --the position of the Info Item
+	InfoItemPosition       = position (7,11,-15);        --the position of the Info Item
 	
 	StatusInfo    = {gText, eText};   -- create new List which shall hold the status informations
 	for i=1, StepAmount do --every step gets an own list where index 0 represents german and 1 english
