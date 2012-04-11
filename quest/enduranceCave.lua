@@ -61,7 +61,11 @@ function InCave (User)
 	-- just for debugging
 	
 	if string.find(player.lastSpokenText, "reset") then
+		player:setQuestProgress(204,1);
 		GivePlayerNewSequence(player);
+		player:inform("Resetting Quest!");
+		player:inform("Your next step would be the "..mystep.."th step.");
+		player:inform("your sequence is: " ..myseq);
 		return;
 	elseif string.find(player.lastSpokenText, "status") then
 		mystep = player:getQuestProgress(204);
