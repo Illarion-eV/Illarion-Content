@@ -12,7 +12,7 @@ require("quest.enduranceCave")
 function MoveToField(User)
 	
 	if equapos(User.pos,position(1,1,0)) then
-	User:warp(7,8,-15);
+	User:forceWarp(7,8,-15);
 	PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
 		if (PlayerInCave) then
 		gate = t_dest;
