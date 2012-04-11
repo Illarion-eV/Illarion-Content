@@ -11,18 +11,18 @@ require("quest.enduranceCave")
 
 function MoveToField(User)
 	
-	if equapos(User.pos,position(1,1,0)) then
+	if User.pos == (position(1,1,0)) then
 	User:forceWarp(7,8,-15);
 	PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
 		if (PlayerInCave) then
 		gate = t_dest;
 		end
 	
-		if equapos(User.pos,position (20,3,-15)) 
-				or equapos(User.pos,position (30, 3, -15))
-				or equapos(User.pos,position (38,5,-15)) 
-				or equapos(User.pos,position (38,10,-15)) 
-				or equapos(User.pos,position(38,15,-15))
+		if User.pos == (position (20,3,-15)) 
+				or User.pos == (position  (30, 3, -15))
+				or User.pos == (position  (38,5,-15)) 
+				or User.pos == (position  (38,10,-15)) 
+				or User.pos == (position (38,15,-15))
 		then
 			if gate ~= nil then
 	
