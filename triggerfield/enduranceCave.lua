@@ -26,7 +26,6 @@ function MoveToField(User)
 	if (PlayerInCave) then
 	gate = t_dest;
 	end
-	end
 	
 		
 	if gate ~= nil then
