@@ -6,7 +6,7 @@ module("quest.enduranceCave", package.seeall)
 
 function AddStageInfo(stage, german, english)
     StatusInfo[stage][0] = german;
-    StatusInfo[stage][1] = german;
+    StatusInfo[stage][1] = english;
 end
 
 
@@ -174,6 +174,7 @@ function CreateMonster(stage)
 	
 	for i = 1, table.maxn(monsterlist[stage]) do
     	world:createMonster(monsterlist[stage][i] , CenterPositionOfPortalRoom ,20); --create monster
+		player:inform("You failed at stage" ..stage);
     end
 end
 
