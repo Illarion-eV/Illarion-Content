@@ -155,8 +155,8 @@ function CreateMonster(stage)
 		                 
 		monsterlist[1] = {6}; --stage 1 : 1 Friendly Human
 		monsterlist[2] = {16,16} -- stage 2: 1 Friendly Dwarf
-		monsterlist[3] = {116,116,116} -- stage 3: 1 Skeleton
-		monsterlist[4] = {226,226,226,226} -- stage 4: 1 Friendly Forest Troll
+		monsterlist[3] = {6,6,6} -- stage 3: 1 Skeleton
+		monsterlist[4] = {16,16,16,16} -- stage 4: 1 Friendly Forest Troll
 		monsterlist[5] = {292,292,292,292,292} -- stage 5: 1 Pig
 		monsterlist[6] = {293,293,293,293,293,293} -- stage 6: 1 Cow
 		monsterlist[7] = {294,294,294,294,294,294,294} -- stage 7: 1 Deer
