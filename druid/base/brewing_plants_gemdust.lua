@@ -21,6 +21,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			return;
 	   end
 	   
+	   if (ltstate == Action.none) then
+	        User:startAction(20,21,5,0,0);
+	        return
+	    end
+	   
 	   -- the cauldron becomce our TargetItem
 	   local TargetItem = base.common.GetFrontItem( User );
 	   
@@ -56,11 +61,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    elseif GemDust then
 		   BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
-        if (ltstate == Action.none) then
-	        User:startAction(20,21,5,0,0);
-	        return
-	    end
-	end
+    end
 end
 
 function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
