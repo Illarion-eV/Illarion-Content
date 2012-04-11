@@ -23,19 +23,20 @@ function MoveToField(User)
 				
 	local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
 	local gate = t_dest;
-	if (PlayerInCave) then
-	gate = t_dest;
-	end
+		if (PlayerInCave) then
+		gate = t_dest;
+	
 	
 		
-	if gate ~= nil then
+			if gate ~= nil then
 	
-		local dest = position( gate[ 1 ], gate[ 2 ], gate[ 3 ] );
-			world:makeSound( 4, dest )
+			local dest = position( gate[ 1 ], gate[ 2 ], gate[ 3 ] );
+				world:makeSound( 4, dest )
                 
-			world:gfx( 41, User.pos )
-			User:warp( dest );
-			world:gfx( 41, User.pos )
+				world:gfx( 41, User.pos )
+				User:warp( dest );
+				world:gfx( 41, User.pos )
+			end
+		end
 	end
-end
 end
