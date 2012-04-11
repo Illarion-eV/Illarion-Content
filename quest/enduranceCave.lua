@@ -141,7 +141,7 @@ function DecodePlayerPath(player)
 	
 	player:setQuestProgress(204,solvedsteps+1); -- step counter increased
 	
-	return solvedsteps, steppath, nextstepindex;
+	return solvedsteps, steppath;
 
 	
 end
