@@ -38,3 +38,4 @@ function MoveToField(User)
 			world:gfx( 41, User.pos )
 	end
 end
+end
