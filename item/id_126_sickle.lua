@@ -63,7 +63,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- again, only for testing
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
-	   cauldron:setData("potionID","")
+	   cauldron:setData("stockData","")
+	   cauldron:setData("cauldronFilledWith","")
 	   return
 	end
 	-- function end

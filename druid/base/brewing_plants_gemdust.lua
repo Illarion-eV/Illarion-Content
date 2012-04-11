@@ -13,7 +13,15 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
    -- infront of a cauldron?
    if base.common.GetFrontItemID(User) == 1008 then
 	  
-       -- the cauldron becomce our TargetItem
+       if ( ltstate == Action.abort ) then
+			base.common.TempInformNLS( User,
+			"Du brichst Deine Arbeit ab.",
+			"You abort your work."
+				   );
+			return;
+	   end
+	   
+	   -- the cauldron becomce our TargetItem
 	   local TargetItem = base.common.GetFrontItem( User );
 	   
 	   -- is the char an alchemist?
@@ -26,7 +34,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
 	   
 	    -- there is a complete potions; we cannot add anything to it
-		if (TargetItem:getData("potionID") ~= "") then 
+		if string.sub((TargetItem:getData("cauldronFilledWith")),1,6) == "potion" then 
 	        base.common.TempInformNLS( User,
 		    "Einem fertigen Trank kannst Du nichts mehr beifügen.",
 		    "You cannot add something to a completed potion."
@@ -48,7 +56,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    elseif GemDust then
 		   BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
-    end
+        if (ltstate == Action.none) then
+	        User:startAction(20,21,5,0,0);
+	        return
+	    end
+	end
 end
 
 function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
@@ -59,22 +71,23 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			"There is nothing to filter in the cauldron."
 			   );
 			return
-	end
-	
-	if ( ltstate == Action.abort ) then
-		base.common.TempInformNLS( User,
-		"Du brichst Deine Arbeit ab.",
-		"You abort your work."
+	elseif (TargetItem:getData("cauldronFilledWith") == "water") and (SourceItem.id == 157) then
+	        base.common.TempInformNLS( User,
+			"Du filterst das Wasser im Kessel. Es scheint allerdings ziemlich nutzlos zu sein.",
+			"You filter the water in the cauldron. It seems rather useless, though."
 			   );
-		return;
+			world:makeSound(10,TargetItem.pos);
+	        User:increaseAtPos(SourceItem.itempos,-1);
+			return
 	end
 	
-	if (ltstate == Action.none) then
-	   User:startAction(20,21,5,0,0);
-	   return
+	-- if there is no cauldronData, we will create one    
+	if (TargetItem:getData("stockData") == "") then
+	   TargetItem:setData("stockData","55555555");
 	end
-	
+	local cauldronData = tonumber(TargetItem:getData("stockData"));
 	local dataZList = druid.base.alchemy.SplitCauldronData(User,cauldronData);
+	
 	if SourceItem.id == 157 then -- rotten treebark
 		-- try to neutralize a already neutral stock -> boom!
 		if (TargetItem:getData("stockData") == "55555555") then
@@ -96,8 +109,6 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if (TargetItem:getData("stockData") == "") then
 	   TargetItem:setData("stockData","55555555");
 	end
-	
-	local cauldronData = tonumber(TargetItem:getData("stockData"));
 	
 	if SourceItem.id ~= 157 then -- not a rotten tree bark; a normal alchemy herb
 		
@@ -129,19 +140,12 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	-- the new data value is being created
 	local newStockData = druid.base.alchemy.PasteCauldronData(User,dataZList);
 	TargetItem:setData("stockData",""..newStockData);
+	User:inform(""..newStockData)
 	world:changeItem(TargetItem)
 end
 
 function WaterCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
-	if ( ltstate == Action.abort ) then
-			base.common.TempInformNLS( User,
-			"Du brichst Deine Arbeit ab.",
-			"You abort your work."
-				   );
-			return;
-	end
-	
 	if (SourceItem.id == 52) and (TargetItem:getData("cauldronFilledWith") ~= "") then
         base.common.TempInformNLS( User,
 		"Der Kessel ist bereits mit etwas gefüllt - noch mehr und er würde überlaufen.",
@@ -165,11 +169,6 @@ function WaterCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			newBucketId = 51
 		end	
 		
-		if (ltstate == Action.none) then
-	        User:startAction(20,21,5,0,0);
-	        return
-	    end
-		
 		TargetItem:setData("cauldronFilledWith",newFilled);
 	    world:changeItem(TargetItem)
 		
@@ -189,19 +188,6 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		"There has to be a stock in the cauldron so that you can enchant it."
 			   );
 		return;
-	end
-	
-	if ( ltstate == Action.abort ) then
-		base.common.TempInformNLS( User,
-		"Du brichst Deine Arbeit ab.",
-		"You abort your work."
-			   );
-		return;
-	end
-	
-	if (ltstate == Action.none) then
-	   User:startAction(20,21,5,0,0);
-	   return
 	end
 	
 	if SourceItem.id == 446 then --bluestone
