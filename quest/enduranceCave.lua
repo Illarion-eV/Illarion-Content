@@ -16,7 +16,7 @@ end
 if not GlobalsInitialized then
 	GlobalsInitialized = true;
 			   -- magic portal coordinates 
-	magPortal   = {position (20,3,-5), position (30, 3, -5),
+	magPortal   = {position (20,3,-15), position (30, 3, -15),
 					   position (38,5,-15), position (38,10,-15), position(38,15,-15)};
 
 	StepAmount  = 8; 		   -- the amount of steps the player has to go
