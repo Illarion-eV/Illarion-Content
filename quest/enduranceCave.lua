@@ -174,7 +174,6 @@ function CreateMonster(stage)
 	
 	for i = 1, table.maxn(monsterlist[stage]) do
     	world:createMonster(monsterlist[stage][i] , CenterPositionOfPortalRoom ,20); --create monster
-		player:inform("You failed at stage" ..stage);
     end
 end
 
@@ -196,7 +195,8 @@ end
 --next stage the player reaches
 
 function StatusInfoOnLookAt(player, Item)
-
+	InfoItemPosition       = position (7,11,-15);
+	
 	if not (equapos(Item.pos, InfoItemPosition))  then
 	    return;
 	end
