@@ -60,7 +60,7 @@ function CharacterOnField( User )
     if( SourceItem.id == 10 ) then
 
 		--User:inform( "target id "..SourceItem.quality )
-        local gate = TargetCoor[ SourceItem:getData("destination")]
+        local gate = TargetCoor[ SourceItem.data ]
 
         --Vanima Magic Trap
         vanTrap = false;
@@ -165,45 +165,45 @@ end
 
 function LookAtItem( User, Item )
 
-	if (Item:getData("destination")== 1) then
+	if (Item.data==1) then
 	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Galmair", "Magical gate to Galmair" ) );
 end;
 
-if (Item:getData("destination")== 2) then
+if (Item.data==2) then
 	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Cadomyr", "Magical gate to Cadomyr" ) );
 end;
 
-if (Item:getData("destination")== 3) then
+if (Item.data==3) then
 	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Runewick", "Magical gate to Runewick" ) );
 end;
 
 
-if (Item:getData("destination")== 4) then
+if (Item.data==4) then
 	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Wilderland", "Magical gate to Wilderland" ) );
 end;
 
 
-if (Item:getData("destination")== 5) then
+if (Item.data==5) then
 	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 1", "Magical gate to Safepoint 1" ) );
 end;
 
-if (Item:getData("destination")== 6) then
+if (Item.data==6) then
 	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 2", "Magical gate to Safepoint 2" ) );
 end;
 
-if (Item:getData("destination")== 7) then
+if (Item.data==7) then
 	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 3", "Magical gate to Safepoint 3" ) );
 end;
 
-if (Item:getData("destination")== 8) then
+if (Item.data==8) then
 	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 4", "Magical gate to Safepoint 4" ) );
 end;
 
-if (Item:getData("destination")== 9) then
+if (Item.data==9) then
 	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 5", "Magical gate to Safepoint 5" ) );
 end;
 
-if (Item:getData("destination") >9) or (Item:getData("destination") ==0) then
+if (Item.data>9) or (Item.data==0) then
 
 world:itemInform( User,Item,base.common.GetNLS( User, "Magisches Portal", "Magical gate") );
 end;	

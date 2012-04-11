@@ -49,14 +49,55 @@ function init()
 	
 	killerhuhn = base.lever.Lever(position(54,602,0),false);
 	killerhuhn:bind(0, handler.createmonster.createMonster(position(50,604,0),5,40));
-	killerhuhn:bind(0, handler.createitem.createItem(position(49,604,0),613, 2, 1));
+	killerhuhn:bind(0, handler.createitem.createItem(position(49,604,0),5, 123, 1));
 	killerhuhn:bind(1, handler.createmonster.createMonster(position(50,604,0),12,40));
+	killerhuhn:bind(1, handler.deleteitem.deleteItem(position(49,604,0),613));
+	
+	ki1 = base.lever.Lever(position(54,603,0),false);
+	ki1:bind(0, handler.settile.setTile(position(49,604,0), 4));
+	ki1:bind(1, handler.settile.setTile(position(49,604,0), 6));
+	
+	ki2 = base.lever.Lever(position(54,604,0),false);
+	ki2:bind(0, handler.sendmessagetoplayer.sendMessageToPlayer(Char, "TestGerman","TestEnglish"));
+	ki2:bind(1, handler.sendmessage.sendMessage(position(54,604,0), "TesinGerman","TesinEnglish", 10));
+	
+	ki3 = base.lever.Lever(position(54,605,0),false);
+	ki3:bind(0, handler.eraseplayeritem.erasePlayerItem(Char, 3076,1));
+	ki3:bind(1, handler.createplayeritem.createPlayerItem(Char, 3076,1));
+	
+	ki4 = base.lever.Lever(position(54,606,0),false);
+	ki4:bind(0, handler.createbridge.createBridge(position(58,599,0),0,3));
+	ki4:bind(1, handler.deletebridge.deleteBridge(position(58,599,0),0,3));
+	
+
+	openDoor = base.lever.Lever(position(558,520,-3),false);
+	openDoor:bind(0, handler.opendoor.openDoor(position(559,557,-6)));
+	openDoor:bind(0, handler.opendoor.openDoor(position(558,557,-6)));
+	openDoor:bind(0, handler.sendmessage.sendMessage(position(558,520,-3), "Ich öffne die Türe!","I open the door!", 10));
+	openDoor:bind(1, handler.closedoor.closeDoor(position(559,557,-6)));
+	openDoor:bind(1, handler.closedoor.closeDoor(position(558,557,-6)));
+	openDoor:bind(1, handler.sendmessage.sendMessage(position(558,520,-3), "Ich schließe die Türe!","I close the door!", 10));
+	
+	openDoor1 = base.lever.Lever(position(538,557,-3),false);
+	openDoor1:bind(0, handler.unlockdoor.base.keys.UnlockDoor(position(559,556,-6)));
+	openDoor1:bind(0, handler.unlockdoor.base.keys.UnlockDoor(position(558,556,-6)));
+	openDoor1:bind(0, handler.sendmessage.sendMessage(position(538,557,-3), "Ich schließe die Türe auf!","I unlock the door!", 10));
+	openDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(559,556,-6)));
+	openDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(558,556,-6)));
+	openDoor1:bind(1, handler.sendmessage.sendMessage(position(538,557,-3), "Ich sperre die Türe zu!","I lock the door!", 10));
 	
 	
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
 	AddToLevers(dronrul1);
 	AddToLevers(killerhuhn);
+	AddToLevers(ki1);
+	AddToLevers(ki2);
+	AddToLevers(ki3);
+	AddToLevers(ki4);
+	
+	AddToLevers(openDoor);
+	AddToLevers(openDoor1);
 	----------------------------------------------------------------------------
 
 
