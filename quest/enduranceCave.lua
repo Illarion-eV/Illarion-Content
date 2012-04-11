@@ -194,15 +194,15 @@ end
 --gives the player an inform about his progress of the current quest, returns the
 --next stage the player reaches
 
-function LookAtItem( User, Item )
-	
+function StatusInfoOnLookAt(player, Item)
+
 	if not (equapos(Item.pos, InfoItemPosition))  then
 	    return;
 	end
 	
-	local stage = User:getQuestProgress(204);
-	local lang = User:getPlayerLanguage(); --returns 0 for german, 1=english
+	local stage = player:getQuestProgress(204);
+	local lang = player:getPlayerLanguage(); --returns 0 for german, 1=english
 
-	User:inform(StatusInfo[stage][lang]); -- send an crypted inform about current
+	player:inform(StatusInfo[stage][lang]); -- send an crypted inform about current
 										    --stage to the player
 end
