@@ -53,7 +53,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   
 	   elseif (TargetItem:getData("cauldronFilledWith") == "essenceBrew") then -- essence Brew
 	        SourceItem.id = tonumber(TargetItem:getData("potionId"))
-	        SourceItem:setData("essenceHerb1",TargetItem:getData("essenceHerb1"))
+	        SourceItem:setData("essenceBrew","true")
+			SourceItem:setData("essenceHerb1",TargetItem:getData("essenceHerb1"))
 	        SourceItem:setData("essenceHerb2",TargetItem:getData("essenceHerb2"))
 	        SourceItem:setData("essenceHerb3",TargetItem:getData("essenceHerb3"))
 	        SourceItem:setData("essenceHerb4",TargetItem:getData("essenceHerb4"))
@@ -64,7 +65,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	        world:changeItem(SourceItem) -- our essence brew
 			
 			TargetItem:setData("potionId","")
-	        TargetItem:setData("essenceHerb1","")
+	        TargetItem:setData("cauldronFilledWith","")
+			TargetItem:setData("essenceHerb1","")
 	        TargetItem:setData("essenceHerb2","")
 	        TargetItem:setData("essenceHerb3","")
 	        TargetItem:setData("essenceHerb4","")
