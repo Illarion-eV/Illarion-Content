@@ -196,7 +196,7 @@ end
 
 function StatusInfoOnLookAt(player, Item)
 
-	if not (equapos(Item.pos, InfoItemPosition))  then
+	if not Item.pos == (InfoItemPosition)  then
 	    return;
 	end
 	
