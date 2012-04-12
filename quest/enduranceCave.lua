@@ -196,9 +196,7 @@ end
 
 function StatusInfoOnLookAt(player, Item)
 
-	if not Item.pos == InfoItemPosition  then
-	    return;
-	else
+	if Item.pos == InfoItemPosition  then
 	
 	local stage = player:getQuestProgress(204);
 	local lang = player:getPlayerLanguage(); --returns 0 for german, 1=english
