@@ -194,9 +194,9 @@ end
 --gives the player an inform about his progress of the current quest, returns the
 --next stage the player reaches
 
-function MoveToField(User)
+function LookAtItem(User,Item)
 
-	if User.pos == InfoItemPosition  then
+	if Item.pos == InfoItemPosition  then
 	
 	local stage = User:getQuestProgress(204);
 	local lang = User:getPlayerLanguage(); --returns 0 for german, 1=english
