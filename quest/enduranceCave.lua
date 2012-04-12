@@ -90,6 +90,7 @@ function InCave (User)
 		player:inform("The Portal does not work with those monsters still around.");
 		else
 		player:inform("Das Portal funktioniert nicht. Wohl wegen den Monstern die noch im Raum sind.");
+		end
 		return;              	  -- warp till all monsters are dead!
 	end
 
