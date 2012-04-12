@@ -228,9 +228,9 @@ function LookAtItem(User,Item)
 	
 	if stage >= 9 then 
 		if language == 1 then
-		User:inform("Die Frau sieht dich diesmal mit stechendem irren Blick an, ihre Augen blutunterlaufen. Ihr Haar zu roten Flammen gewandelt."); 
-		else
 		User:inform("This time the woman leers at you with madness in her bloodshot eyes. Her hair has turned to crimson flames.");
+		else
+		User:inform("Die Frau sieht dich diesmal mit stechendem irren Blick an, ihre Augen blutunterlaufen. Ihr Haar zu roten Flammen gewandelt."); 
 		return;
 		end
 	end
