@@ -48,7 +48,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	        world:changeItem(SourceItem) -- got the stock
 
             TargetItem:setData("stockData","")
-            world:changeItem("TargetItem") -- clean cauldron
+            world:changeItem(TargetItem) -- clean cauldron
             world:makeSound(10,TargetItem.pos);		
 	   
 	   elseif (TargetItem:getData("cauldronFilledWith") == "essenceBrew") then -- essence Brew
