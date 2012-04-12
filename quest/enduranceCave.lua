@@ -226,11 +226,13 @@ function LookAtItem(User,Item)
 	local stage = User:getQuestProgress(204);
 	local lang = User:getPlayerLanguage(); --returns 0 for german, 1=english
 	
-	if stage >= 9 then if language = 1
-	User:inform("Die Frau sieht dich diesmal mit stechendem irren Blick an, ihre Augen blutunterlaufen. Ihr Haar zu roten Flammen gewandelt."); 
-	else
-	User:inform("This time the woman leers at you with madness in her bloodshot eyes. Her hair has turned to crimson flames.");
-	return;
+	if stage >= 9 then 
+		if language = 1
+		User:inform("Die Frau sieht dich diesmal mit stechendem irren Blick an, ihre Augen blutunterlaufen. Ihr Haar zu roten Flammen gewandelt."); 
+		else
+		User:inform("This time the woman leers at you with madness in her bloodshot eyes. Her hair has turned to crimson flames.");
+		return;
+		end
 	end
 	
 	User:inform(StatusInfo[stage][lang]); -- send an crypted inform about current
