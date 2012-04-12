@@ -51,7 +51,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             world:changeItem("TargetItem") -- clean cauldron
             world:makeSound(10,TargetItem.pos);		
 	   
-	   elseif (TargetItem:getData("cauldronFilledWith") == "essenceBrew") -- essence Brew
+	   elseif (TargetItem:getData("cauldronFilledWith") == "essenceBrew") then -- essence Brew
 	        SourceItem.id = tonumber(TargetItem:getData("potionId"))
 	        SourceItem:setData("essenceHerb1",TargetItem:getData("essenceHerb1"))
 	        SourceItem:setData("essenceHerb2",TargetItem:getData("essenceHerb2"))
@@ -87,12 +87,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			world:changeItem(TargetItem) -- we clean our cauldron
 	        world:makeSound(10,TargetItem.pos);
 	   
-	   else
+	   end
 	end
     
-
-	
-	-- bottle in hand?
+    -- bottle in hand?
 	if SourceItem:getType() == 4 and (SourceItem.itempos == 5 or SourceItem.itempos == 6) then
 
 		-- check for sheep
