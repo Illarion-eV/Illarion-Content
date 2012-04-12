@@ -112,6 +112,7 @@ function InCave (User)
 		player:inform("You feel a stinging pain in your head. As you look around you notice you're in a different room now...");
 		else
 		player:inform("Du spürst einen stechenden Schmerz im Kopf. Als du dich umsiehst befindest du dich in einem anderen Raum...");
+		end
 		return true, bosspos;
 	end
 	
