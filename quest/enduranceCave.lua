@@ -114,11 +114,6 @@ function InCave (User)
 		else
 		player:inform("Du spürst einen stechenden Schmerz im Kopf. Als du dich umsiehst befindest du dich in einem anderen Raum...");
 		end
-		
-		if nextstepindex == 9 or => 11 then -- In case the Bossmonster was not killed yet, make sure Questprogress remains at 9
-		player:setQuestProgress(204,9); 
-		end
-		
 		return true, bosspos;
 	end
 	
@@ -168,7 +163,11 @@ function DecodePlayerPath(player)
 	
 	-- increase the counter of solved quests now, will get reseted in the InCave function
 	-- if the player does a wrong step
-	
+
+		if nextstepindex >= 9 then -- In case the Bossmonster was not killed yet / killed already , make sure Questprogress is not raised further
+			return solvedsteps, steppath; 
+		end
+		
 	player:setQuestProgress(204,solvedsteps+1); -- step counter increased
 	
 	return solvedsteps, steppath;
