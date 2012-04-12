@@ -79,8 +79,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   User:inform(""..cauldron:getData("essenceHerb4"))
 	   User:inform(""..cauldron:getData("essenceHerb5"))
 	   User:inform(""..cauldron:getData("essenceHerb6"))
-	   User:inform(""..cauldron:getData("essenceHerb7"))
-	   User:inform(""..cauldron:getData("essenceHerb8"))
 	end
 	-- function end
 	
