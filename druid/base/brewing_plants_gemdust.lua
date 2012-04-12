@@ -202,7 +202,7 @@ end
 function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- no stock, no water
-	if (TargetItem:getData("stockData") == "") or (TargetItem:getData("cauldronFilledWith") ~= "water") then
+	if (TargetItem:getData("stockData") == "") and (TargetItem:getData("cauldronFilledWith") ~= "water") then
 	   base.common.TempInformNLS( User,
 		"Im Kessel muss sich ein Sud oder Wasser befinden.",
 		"There has to be a stock or water in the cauldron."
