@@ -6,7 +6,7 @@ module("quest.enduranceCave", package.seeall)
 
 function AddStageInfo(stage, german, english)
     StatusInfo[stage][0] = german;
-    StatusInfo[stage][1] = german;
+    StatusInfo[stage][1] = english;
 end
 
 
@@ -16,13 +16,13 @@ end
 if not GlobalsInitialized then
 	GlobalsInitialized = true;
 			   -- magic portal coordinates 
-	magPortal   = {position (20,3,-5), position (30, 3, -5),
+	magPortal   = {position (20,3,-15), position (30, 3, -15),
 					   position (38,5,-15), position (38,10,-15), position(38,15,-15)};
 
 	StepAmount  = 8; 		   -- the amount of steps the player has to go
 						   	   --to reach the end boss
 
-	bosspos    	= {0,0,0}; 	   --warp position of the boss room
+	bosspos    	= {542,681,2}; 	   --warp position of the boss room
 	anteroompos = {7,8,-15}; --warp position of the anterroom
 	
 	CenterPositionOfPortalRoom = position (25,11,-15); -- the center of the room
@@ -30,7 +30,7 @@ if not GlobalsInitialized then
 	searchRadius 		   = 100;			   		   -- 25 tiles search radius when
 													   --looking if there are any monsters around
 	
-	InfoItemPosition       = position (1,33,7);        --the position of the Info Item
+	InfoItemPosition       = position (7,11,-15);        --the position of the Info Item
 	
 	StatusInfo    = {gText, eText};   -- create new List which shall hold the status informations
 	for i=1, StepAmount do --every step gets an own list where index 0 represents german and 1 english
@@ -61,7 +61,11 @@ function InCave (User)
 	-- just for debugging
 	
 	if string.find(player.lastSpokenText, "reset") then
+		player:setQuestProgress(204,1);
 		GivePlayerNewSequence(player);
+		player:inform("Resetting Quest!");
+		player:inform("Your next step would be the "..mystep.."th step.");
+		player:inform("your sequence is: " ..myseq);
 		return;
 	elseif string.find(player.lastSpokenText, "status") then
 		mystep = player:getQuestProgress(204);
@@ -142,6 +146,7 @@ function DecodePlayerPath(player)
 	player:setQuestProgress(204,solvedsteps+1); -- step counter increased
 	
 	return solvedsteps, steppath;
+
 	
 end
 
@@ -154,8 +159,8 @@ function CreateMonster(stage)
 		                 
 		monsterlist[1] = {6}; --stage 1 : 1 Friendly Human
 		monsterlist[2] = {16,16} -- stage 2: 1 Friendly Dwarf
-		monsterlist[3] = {116,116,116} -- stage 3: 1 Skeleton
-		monsterlist[4] = {226,226,226,226} -- stage 4: 1 Friendly Forest Troll
+		monsterlist[3] = {6,6,6} -- stage 3: 1 Skeleton
+		monsterlist[4] = {16,16,16,16} -- stage 4: 1 Friendly Forest Troll
 		monsterlist[5] = {292,292,292,292,292} -- stage 5: 1 Pig
 		monsterlist[6] = {293,293,293,293,293,293} -- stage 6: 1 Cow
 		monsterlist[7] = {294,294,294,294,294,294,294} -- stage 7: 1 Deer
