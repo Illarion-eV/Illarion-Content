@@ -219,7 +219,8 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
         end			
 	    TargetItem:setData("potionEffectId",potionEffectId)
 	    TargetItem:setData("stockData","")
-		TargetItem.quality = 999
+		potionQuality = 999
+	    TargetItem:setData("potionQuality",""..potionQuality)
 	end
 	
 	if (TargetItem:getData("cauldronFilledWith") == "water") then -- water -> we create essence brew
@@ -241,11 +242,11 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	elseif SourceItem.id == 452 then -- diamond
 		   Id_potion = 330
 	end 
+	TargetItem:setData("potionId", ""..Id_potion);
 	
 	-- change cauldron's data and quality
 	world:makeSound(13,TargetItem.pos);
 	world:gfx(52,TargetItem.pos);
-	TargetItem:setData("potionId", ""..Id_potion);
 	world:changeItem(TargetItem);
 	
 	User:increaseAtPos(SourceItem.itempos,-1); -- delete gemdust

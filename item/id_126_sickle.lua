@@ -67,6 +67,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   User:inform("potionEffectId: "..cauldron:getData("potionEffectId"))
 	   User:inform("cauldronFilledWith: "..cauldron:getData("cauldronFilledWith"))
 	   User:inform("potionId: "..cauldron:getData("potionId"))
+	   User:inform("potionQuality: "..TargetItem:getData("potionQuality"))
 	end
 	-- function end
 	
