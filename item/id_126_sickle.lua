@@ -73,11 +73,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- again, only for testing
 	if (base.common.GetFrontItemID(User) == 1008) and (User.lastSpokenText == "inform herbs") then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
-	   for i=1,8 do
-	        if (TargetItem:getData("essenceHerb"..i) ~= "") then
-			    User:inform("essenceHerb"..i..": "..TargetItem:getData("essenceHerb"..i))
-			end	
-	    end
+	   User:inform(""..cauldron:getData("essenceHerb1"))
+	   User:inform(""..cauldron:getData("essenceHerb2"))
+	   User:inform(""..cauldron:getData("essenceHerb3"))
+	   User:inform(""..cauldron:getData("essenceHerb4"))
+	   User:inform(""..cauldron:getData("essenceHerb5"))
+	   User:inform(""..cauldron:getData("essenceHerb6"))
+	   User:inform(""..cauldron:getData("essenceHerb7"))
+	   User:inform(""..cauldron:getData("essenceHerb8"))
 	end
 	-- function end
 	
