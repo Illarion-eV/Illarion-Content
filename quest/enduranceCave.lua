@@ -196,13 +196,14 @@ end
 
 function StatusInfoOnLookAt(player, Item)
 
-	if not Item.pos == (InfoItemPosition)  then
+	if not Item.pos == InfoItemPosition  then
 	    return;
-	end
+	else
 	
 	local stage = player:getQuestProgress(204);
 	local lang = player:getPlayerLanguage(); --returns 0 for german, 1=english
 
 	player:inform(StatusInfo[stage][lang]); -- send an crypted inform about current
 										    --stage to the player
+	end
 end
