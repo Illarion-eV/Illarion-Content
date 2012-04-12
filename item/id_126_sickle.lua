@@ -61,13 +61,41 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- function end
 	
 	-- again, only for testing
-	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
+	if base.common.GetFrontItemID(User) == 1008 and (User.lastSpokenText == "inform datas") then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
-	   cauldron:setData("stockData","")
-	   cauldron:setData("cauldronFilledWith","")
-	   return
+	   User:inform("stockdata: "..cauldron:getData("stockData"))
+	   User:inform("potionEffectId: "..cauldron:getData("potionEffectId"))
+	   User:inform("cauldronFilledWith: "..cauldron:getData("cauldronFilledWith"))
+	   User:inform("potionId: "..cauldron:getData("potionId"))
 	end
 	-- function end
+	
+	-- again, only for testing
+	if base.common.GetFrontItemID(User) == 1008 and (User.lastSpokenText == "inform herbs") then -- infront of a cauldron?
+	   local cauldron = base.common.GetFrontItem( User );
+	   for i=1,8 do
+	        if (TargetItem:getData("essenceHerb"..i) ~= "") then
+			    User:inform("essenceHerb"..i..": "..TargetItem:getData("essenceHerb"..i))
+			end	
+	end
+	-- function end
+	
+	if base.common.GetFrontItemID(User) == 1008 and (User.lastSpokenText == "remove all datas") then -- infront of a cauldron?
+	   local cauldron = base.common.GetFrontItem( User );
+	   cauldron:setData("stockData","")
+	   cauldron:setData("potionEffectId","")
+	   cauldron:setData("cauldronFilledWith","")
+	   cauldron:setData("potionId","")
+	   cauldron:setData("essenceHerb1","")
+	   cauldron:setData("essenceHerb2","")
+	   cauldron:setData("essenceHerb3","")
+	   cauldron:setData("essenceHerb4","")
+	   cauldron:setData("essenceHerb5","")
+	   cauldron:setData("essenceHerb6","")
+	   cauldron:setData("essenceHerb7","")
+	   cauldron:setData("essenceHerb8","")
+	   world:changeItem(cauldron)
+	end   
 	
 	-- yet another testing thing
 	local CheckBottle = base.common.GetFrontItemID(User)
