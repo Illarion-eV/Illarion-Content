@@ -13,6 +13,12 @@ function MoveToField(User)
 	
 	if User.pos == (position(1,1,0)) then
 	User:forceWarp(position(7,8,-15));
+	local language = User:getPlayerLanguage();
+		if language == 1 then
+		User:inform("You are warped into a strange room. The fireball in the middle looks strange to you.")
+		else
+		User:inform("Du wirst in einen seltsamen Raum teleportiert. Die Feuerkugel in dessen Mitte sieht seltsam aus.")
+		end
 	end
 	
 	if User.pos == (position(20,3,-15))

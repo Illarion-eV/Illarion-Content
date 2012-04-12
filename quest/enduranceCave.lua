@@ -47,7 +47,8 @@ if not GlobalsInitialized then
 	AddStageInfo(5, "Der Nebel ist gewichen, klar lässt sich eine vermummte Person erkennen, sie trägt eine braune Robe.", "The fog is gone. A hooded figure can be seen. It carries a brown robe.");
 	AddStageInfo(6, "Die Kaputze die die Person getragen hat, hat sie nun zurückgeschlagen. Ihr Gesicht ist unscharf.", "The figure has lifted the hood of its robe. Its face is blurred however.");
 	AddStageInfo(7, "Die Person lächelt dir nun zu. Es handelt sich um eine wunderschöne Menschenfrau mit wallendem blonden Haar und strahlend blauen Augen.", "The person is now smiling at you. A beautiful human female with long flowing blonde hair and sparkling blue eyes.");
-	AddStageInfo(8, "Die Frau sieht dich diesmal mit stechendem irren Blick an, ihre Augen blutunterlaufen. Ihr Haar zu roten Flammen gewandelt.", "This time the woman leers at you with madness in her bloodshot eyes. Her hair has turned to crimson flames.");
+	AddStageInfo(8, "Die Frau wirkt jetzt blasser. Ihre Haut unnatürlich fahl und ihr Lächeln zu einem Grinsen verzerrt.","The woman looks pale this time. Her skin an unhealthy ashen colour, her smile changed to a wicked grin.");
+	AddStageInfo(9, "Die Frau sieht dich diesmal mit stechendem irren Blick an, ihre Augen blutunterlaufen. Ihr Haar zu roten Flammen gewandelt.", "This time the woman leers at you with madness in her bloodshot eyes. Her hair has turned to crimson flames.");
 	
 	
 
