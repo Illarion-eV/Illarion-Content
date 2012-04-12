@@ -91,7 +91,8 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end	
 	
 	-- alchemy herb but no water, no stock, no essence brew
-	if (SourceItem.id ~= 157) and ((TargetItem:getData("stockData") == "") or (TargetItem:getData("cauldronFilledWith") ~= "water") or (TargetItem:getData("cauldronFilledWith") ~= "essenceBrew")) then
+	User:inform(""..cauldron:getData("cauldronFilledWith"))
+	if (SourceItem.id ~= 157) and ((TargetItem:getData("stockData") == "") and (TargetItem:getData("cauldronFilledWith") ~= "water") and (TargetItem:getData("cauldronFilledWith") ~= "essenceBrew")) then
 	    base.common.TempInformNLS( User,
 		"Es befindet sich keine Flüssigkeit im Kessel, in der Du das Kraut hinein tun könntest.",
 		"There is no fluid in the cauldron you could put the herb into."
