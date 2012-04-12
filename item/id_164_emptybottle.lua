@@ -42,7 +42,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			return;
 	    end
 	   
-	   if (TargetItem:getData("stockData") ~= then  -- stock
+	   if (TargetItem:getData("stockData") ~= "") then  -- stock
 	        SourceItem.id = 331
 	        SourceItem:setData("stockData",TargetItem:getData("stockData"))
 	        world:changeItem(SourceItem) -- got the stock
