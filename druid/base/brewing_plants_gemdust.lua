@@ -215,7 +215,7 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    if (SourceItem.id == 447) or (SourceItem.id == 450) then 
 		    potionEffectId = TargetItem:getData("stockData")
 	    else 
-		    potionEffectId = "0"
+		    potionEffectId = 0
         end			
 	    TargetItem:setData("potionEffectId",potionEffectId)
 	    TargetItem:setData("stockData","")
