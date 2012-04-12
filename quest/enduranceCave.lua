@@ -114,6 +114,11 @@ function InCave (User)
 		else
 		player:inform("Du spürst einen stechenden Schmerz im Kopf. Als du dich umsiehst befindest du dich in einem anderen Raum...");
 		end
+		
+		if nextstepindex == 9 then -- In case the Bossmonster was not killed yet, make sure Questprogress remains at 9
+		player:setQuestProgress(204,9); 
+		end
+		
 		return true, bosspos;
 	end
 	
