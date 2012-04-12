@@ -164,7 +164,7 @@ function DecodePlayerPath(player)
 	-- increase the counter of solved quests now, will get reseted in the InCave function
 	-- if the player does a wrong step
 
-		if nextstepindex >= 9 then -- In case the Bossmonster was not killed yet / killed already , make sure Questprogress is not raised further
+		if solvedsteps >= 9 then -- In case the Bossmonster was not killed yet / killed already , make sure Questprogress is not raised further
 			return solvedsteps, steppath; 
 		end
 		
