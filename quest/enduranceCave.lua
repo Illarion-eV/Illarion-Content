@@ -199,7 +199,7 @@ function CreateMonster(stage)
 	
 	for i = 1, table.maxn(monsterlist[stage]) do
     	local noDrop = world:createMonster(monsterlist[stage][i] , CenterPositionOfPortalRoom ,20); --create monster
-		noDrop:increaseSkill(2,"smithing",60)
+		noDrop:increaseSkill(2,"no drop pls",60)
 		
 	end
 end
