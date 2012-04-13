@@ -17,42 +17,41 @@ module("druid.item.id_331_green_bottle", package.seeall, package.seeall(druid.ba
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
-	   local cauldron = base.common.GetFrontItem( User );
-	   User:inform("data im kessel "..cauldron:getData("cauldronData"))
-	   if (cauldron:getData("cauldronData") ~= "") then 
+	   if ( ltstate == Action.abort ) then
+                base.common.TempInformNLS( User,
+                "Du brichst Deine Arbeit ab.",
+                "You abort your work."
+                       );
+		        return;
+        end
+			
+		if (ltstate == Action.none) then
+		   User:startAction(20,21,5,0,0);
+		   return
+		end
+		  
+	   local TargetItem = base.common.GetFrontItem( User );
+	   -- the cauldron is filled with something we cannot add a stock to
+	   if (TargetItem:getData("stockData") ~= "") or (TargetItem:getData("cauldronFilledWith") == "water") or (TargetItem:getData("potionEffectId") ~= "") then 
 	      base.common.TempInformNLS( User,
 					"In dem Kessel befindet sich bereits etwas. Du kannst nichts mehr hinzutun.",
 					"There is already something in the cauldron. You cannot add something else to it."
 						   );
 	       return;
       
-	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
+	    elseif (TargetItem:getData("cauldronFilledWith") == "essenceBrew") then -- essence brew; we call our function to combine stock and essence brew  
+	        -- functionBlub
+	  
+	  elseif (TargetItem:getData("stockData") == "") then -- empty; we fill in!
 		  
-		  if ( ltstate == Action.abort ) then
-                base.common.TempInformNLS( User,
-                "Du brichst Deine Arbeit ab.",
-                "You abort your work."
-                       );
-		        return;
-            end
-			
-			if (ltstate == Action.none) then
-			   User:startAction(20,21,5,0,0);
-			   return
-			end
-		  
-		  cauldron:setData("cauldronData",""..SourceItem:getData("stockData"))
-		  cauldron.quality = SourceItem.quality
-		  world:changeItem(cauldron)
-		  User:talkLanguage(Character.say, Player.german, "#me kippt einen Sud in den Kessel.");
-		  User:talkLanguage(Character.say, Player.english, "#me pours a stock into the cauldron.");
-		  world:makeSound(10,User.pos);
+		  TargetItem:setData("stockData",SourceItem:getData("stockData"))
+		  world:changeItem(TargetItem)
 		  world:erase(SourceItem,1);
-		  User:createItem(164, 1, 333, 0);
-		  return;
+		  world:makeSound(13,TargetItem.pos);
+	      User:createItem(164, 1, 333, 0);
 	   end  
    
-   else
+   else -- not infront of a cauldron; drink!
        base.common.TempInformNLS( User,
                 "Du leerst die Flasche.",
                 "You empty the bottle."
@@ -69,6 +68,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    base.character.ChangeFightingpoints(User, -20);
 	end
 end
+
 function LookAtItem(User,Item)
          world:itemInform( User, Item, base.common.GetNLS( User,
         "Du siehst ein Flaschenetikett mit der Aufschrift: \"Kräutersud\"",
