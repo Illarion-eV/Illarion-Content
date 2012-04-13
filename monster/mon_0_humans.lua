@@ -99,7 +99,7 @@ end
 
 function onDeath(Monster)
     local NoDrop=Monster:getSkill("no drop pls")
-		if not NoDrop then
+		if NoDrop >= 10 then
 		return;
 		end
 		
