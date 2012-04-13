@@ -182,7 +182,7 @@ function CreateMonster(stage)
 		monsterlist = {};
 		                 --ids of all monsters
 		                 
-		monsterlist[1] = {6}; --stage 1 : 1 Friendly Human
+		monsterlist[1] = {1,1,1}; --stage 1 : 1 Friendly Human
 		monsterlist[2] = {16,16} -- stage 2: 1 Friendly Dwarf
 		monsterlist[3] = {6,6,6} -- stage 3: 1 Skeleton
 		monsterlist[4] = {16,16,16,16} -- stage 4: 1 Friendly Forest Troll
@@ -199,7 +199,8 @@ function CreateMonster(stage)
 	
 	for i = 1, table.maxn(monsterlist[stage]) do
     	noDrop = world:createMonster(monsterlist[stage][i] , CenterPositionOfPortalRoom ,20); --create monster
-		noDrop:increaseSkill("2","smithing","60")
+		noDrop:increaseSkill(2,"smithing",60)
+		
 	end
 end
 
