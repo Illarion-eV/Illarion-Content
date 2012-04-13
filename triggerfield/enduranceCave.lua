@@ -16,7 +16,7 @@ function MoveToField(User)
 	if User.pos == position(7,8,-15) then -- Warp exiting the Dungeon
 	world:makeSound( 4, User.pos )
 	world:gfx( 41, User.pos )
-	User:forceWarp(position(1,1,0)
+	User:forceWarp(position(1,1,0));
 	world:gfx( 41, User.pos )
 		if language == 1 then
 		User:inform("You hear a faint laughter burrowing in your ears as you step into the portal. Then you are back on the surface.")
