@@ -168,7 +168,7 @@ function LookAtItem(User,Item)
 	end
 	
 	-------------------------------- ENDURANCE CAVE QUEST LOOKAT -----------------------------------------
-	if Item.pos == position (7,11,-15); then
+	if Item.pos == position (7,11,-15) then
 		local language = User:getPlayerLanguage();
 		
 	

@@ -219,23 +219,26 @@ end
 --gives the player an inform about his progress of the current quest, returns the
 --next stage the player reaches
 
+--[[ This part can now be found in item.pillar.lua !!!
 function LookAtItem(User,Item)
-	local language = User:getPlayerLanguage();
-	if Item.pos == InfoItemPosition  then
+	if Item.pos == position (7,11,-15); then
+		local language = User:getPlayerLanguage();
+		
 	
-	local stage = User:getQuestProgress(204);
-	local lang = User:getPlayerLanguage(); --returns 0 for german, 1=english
+		local stage = User:getQuestProgress(204);
+		local lang = User:getPlayerLanguage(); --returns 0 for german, 1=english
 	
-	if stage >= 9 then 
-		if language == 1 then
-		User:inform("This time the woman leers at you with madness in her bloodshot eyes. Her hair has turned to crimson flames.");
-		else
-		User:inform("Die Frau sieht dich diesmal mit stechendem irren Blick an, ihre Augen blutunterlaufen. Ihr Haar zu roten Flammen gewandelt."); 
-		return;
+		if stage >= 9 then 
+			if language == 1 then
+			User:inform("This time the woman leers at you with madness in her bloodshot eyes. Her hair has turned to crimson flames.");
+			else
+			User:inform("Die Frau sieht dich diesmal mit stechendem irren Blick an, ihre Augen blutunterlaufen. Ihr Haar zu roten Flammen gewandelt."); 
+			return;
+			end
 		end
-	end
 	
-	User:inform(StatusInfo[stage][lang]); -- send an crypted inform about current
+		User:inform(StatusInfo[stage][lang]); -- send an crypted inform about current
 										    --stage to the player
 	end
-end
+end 
+]]
