@@ -47,7 +47,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		  TargetItem:setData("stockData",SourceItem:getData("stockData"))
 		  world:changeItem(TargetItem)
 		  world:erase(SourceItem,1);
-		  world:makeSound(13,TargetItem.pos);
+		  world:makeSound(10,TargetItem.pos);
 	      User:createItem(164, 1, 333, 0);
 	   end  
    
