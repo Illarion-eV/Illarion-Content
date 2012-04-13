@@ -32,20 +32,23 @@ if not GlobalsInitialized then
 	
 	InfoItemPosition       = position (7,11,-15);        --the position of the Info Item
 	
+	
+	
 	StatusInfo    = {gText, eText};   -- create new List which shall hold the status informations
 	for i=1, StepAmount do --every step gets an own list where index 0 represents german and 1 english
 		StatusInfo[i] = {};
 	end
 	
 
-	AddStageInfo(1, "1 deutsch", "1 englisch");
-	AddStageInfo(2, "1 deutsch", "1 englisch");
-	AddStageInfo(3, "1 deutsch", "1 englisch");
-	AddStageInfo(4, "1 deutsch", "1 englisch");
-	AddStageInfo(5, "1 deutsch", "1 englisch");
-	AddStageInfo(6, "1 deutsch", "1 englisch");
-	AddStageInfo(7, "1 deutsch", "1 englisch");
-	AddStageInfo(8, "1 deutsch", "1 englisch");
+	AddStageInfo(1, "In der Kugel lässt sich außer dicken Nebelschwaden nichts erkennen.", "Thick fog clouds the ball. You can not see anything in the mist.");
+	AddStageInfo(2, "Der Nebel hat sich leicht gelichtet, grobe schemenhafte Umrisse zeichnen sich ab.", "The mist has receded a little, rough outlines can be spotted..");
+	AddStageInfo(3, "Der Nebel hat sich weiter aufgeklärt, eine annähernd menschliche Gestalt wird sichtbar.", "The mist has cleared more, an almost humanlike form becomes visible.");
+	AddStageInfo(4, "Der Nebel weicht zurück, umspielt nurmehr die Beine der Gestalt. Diese trägt eine alles verhüllende Robe.", "The fog has withdrawn, lingering around the legs of the figure. It wears a robe hiding its features.");
+	AddStageInfo(5, "Der Nebel ist gewichen, klar lässt sich eine vermummte Person erkennen, sie trägt eine braune Robe.", "The fog is gone. A hooded figure can be seen. It carries a brown robe.");
+	AddStageInfo(6, "Die Kaputze die die Person getragen hat, hat sie nun zurückgeschlagen. Ihr Gesicht ist unscharf.", "The figure has lifted the hood of its robe. Its face is blurred however.");
+	AddStageInfo(7, "Die Person lächelt dir nun zu. Es handelt sich um eine wunderschöne Menschenfrau mit wallendem blonden Haar und strahlend blauen Augen.", "The person is now smiling at you. A beautiful human female with long flowing blonde hair and sparkling blue eyes.");
+	AddStageInfo(8, "Die Frau wirkt jetzt blasser. Ihre Haut unnatürlich fahl und ihr Lächeln zu einem Grinsen verzerrt.","The woman looks pale this time. Her skin an unhealthy ashen colour, her smile changed to a wicked grin.");
+	
 	
 	
 
@@ -57,7 +60,7 @@ end
 function InCave (User)
 	local player = getCharForId(User.id);  --create a save copy of the char struct
 	local portalindex = nil;
-	
+	local language = User:getPlayerLanguage();
 	-- just for debugging
 	
 	if string.find(player.lastSpokenText, "reset") then
@@ -84,7 +87,11 @@ function InCave (User)
 	-------
 	
 	if not AllMonstersDead() then -- there are still monsters alive, don't let him
-	    player:inform("There are still monsters alive");
+	    if language == 1 then
+		player:inform("The Portal does not work with those monsters still around.");
+		else
+		player:inform("Das Portal funktioniert nicht. Wohl wegen den Monstern die noch im Raum sind.");
+		end
 		return;              	  -- warp till all monsters are dead!
 	end
 
@@ -102,16 +109,30 @@ function InCave (User)
 	                                                    -- and returns also how many steps the player has walked so far
 	                                                    
 	if (nextstepindex > StepAmount) then --9th step leads directly to the end boss
-	    player:inform("The boss is all yours");
+	    if language == 1 then
+		player:inform("You feel a stinging pain in your head. As you look around you notice you're in a different room now...");
+		else
+		player:inform("Du spürst einen stechenden Schmerz im Kopf. Als du dich umsiehst befindest du dich in einem anderen Raum...");
+		end
 		return true, bosspos;
+	end
+	
+	if (portalindex == steppath[nextstepindex]) then -- Tell the player he did something right, maybe?
+		if language == 1 then
+		player:inform("The picture in the floating ball has changed. The big room remains silent and empty.");
+		else
+		player:inform("Das Bild in der Flammenkugel hat sich verändert. Der große Raum bleibt ruhig und leer.");
+		end
 	end
 	                                                    
 	if (portalindex ~= steppath[nextstepindex]) then -- wrong path, reset solved status
-
-		player:inform("bring the monsters!");	 -- and create Monsters
+			if language == 1 then
+			player:inform("The picture in the floating ball has changed. And you hear noises coming from the big room...");
+			else
+			player:inform("Das Bild in der Flammenkugel hat sich verändert. Und du hörst Geräusche aus dem großen Raum...");
+			end	 -- and create Monsters
 		CreateMonster(nextstepindex); -- creates some monsters dependant from level
-		player:setQuestProgress(204,1); -- reset step counter
-		player:inform("n00b, you lost the game, try it again!");	
+		player:setQuestProgress(204,1); -- reset step counter	
 	end
 
     return true, anteroompos;
@@ -142,7 +163,11 @@ function DecodePlayerPath(player)
 	
 	-- increase the counter of solved quests now, will get reseted in the InCave function
 	-- if the player does a wrong step
-	
+
+		if solvedsteps >= 9 then -- In case the Bossmonster was not killed yet / killed already , make sure Questprogress is not raised further
+			return solvedsteps, steppath; 
+		end
+		
 	player:setQuestProgress(204,solvedsteps+1); -- step counter increased
 	
 	return solvedsteps, steppath;
@@ -157,7 +182,7 @@ function CreateMonster(stage)
 		monsterlist = {};
 		                 --ids of all monsters
 		                 
-		monsterlist[1] = {6}; --stage 1 : 1 Friendly Human
+		monsterlist[1] = {1,1,1}; --stage 1 : 1 Friendly Human
 		monsterlist[2] = {16,16} -- stage 2: 1 Friendly Dwarf
 		monsterlist[3] = {6,6,6} -- stage 3: 1 Skeleton
 		monsterlist[4] = {16,16,16,16} -- stage 4: 1 Friendly Forest Troll
@@ -173,8 +198,10 @@ function CreateMonster(stage)
 	end
 	
 	for i = 1, table.maxn(monsterlist[stage]) do
-    	world:createMonster(monsterlist[stage][i] , CenterPositionOfPortalRoom ,20); --create monster
-    end
+    	noDrop = world:createMonster(monsterlist[stage][i] , CenterPositionOfPortalRoom ,20); --create monster
+		noDrop:increaseSkill(2,"smithing",60)
+		
+	end
 end
 
 
@@ -194,15 +221,26 @@ end
 --gives the player an inform about his progress of the current quest, returns the
 --next stage the player reaches
 
-function StatusInfoOnLookAt(player, Item)
-
-	if not (equapos(Item.pos, InfoItemPosition))  then
-	    return;
-	end
+--[[ This part can now be found in item.pillar.lua !!!
+function LookAtItem(User,Item)
+	if Item.pos == position (7,11,-15); then
+		local language = User:getPlayerLanguage();
+		
 	
-	local stage = player:getQuestProgress(204);
-	local lang = player:getPlayerLanguage(); --returns 0 for german, 1=english
-
-	player:inform(StatusInfo[stage][lang]); -- send an crypted inform about current
+		local stage = User:getQuestProgress(204);
+		local lang = User:getPlayerLanguage(); --returns 0 for german, 1=english
+	
+		if stage >= 9 then 
+			if language == 1 then
+			User:inform("This time the woman leers at you with madness in her bloodshot eyes. Her hair has turned to crimson flames.");
+			else
+			User:inform("Die Frau sieht dich diesmal mit stechendem irren Blick an, ihre Augen blutunterlaufen. Ihr Haar zu roten Flammen gewandelt."); 
+			return;
+			end
+		end
+	
+		User:inform(StatusInfo[stage][lang]); -- send an crypted inform about current
 										    --stage to the player
-end
+	end
+end 
+]]
