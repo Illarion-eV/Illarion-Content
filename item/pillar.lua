@@ -184,7 +184,7 @@ function LookAtItem(User,Item)
 			end
 		end
 	
-		User:inform(StatusInfo[stage][lang]); -- send an crypted inform about current
+		User:inform(quest.enduranceCave.StatusInfo[stage][lang]); -- send an crypted inform about current
 										    --stage to the player
 	end
 	-------------------------------- ENDURANCE CAVE QUEST LOOKAT DONE -----------------------------------------
