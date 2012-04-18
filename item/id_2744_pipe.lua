@@ -17,7 +17,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 		if playerfound == true then 
 			User:inform("Noob found!")
 			
-			playerlist[idx]:inform("Hier sendet "..User.name.."dir folgende Nachricht:"..message);
+			playerlist[idx]:inform("Hier sendet "..message);
 		else
 		User:inform("Noob not found!")
 		end
