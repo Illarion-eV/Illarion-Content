@@ -1571,7 +1571,8 @@ end
 ]]
 function Shuffle(NumberList)
    
-   local temp = 0, ReplaceIdx = 0;
+	local temp = 0
+	local ReplaceIdx = 0;
    
    for i = 1, table.getn(NumberList) do -- shuffle all elements
    
