@@ -17,7 +17,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 		char = CheckIfOnline(playername)
 		if char then 
 			User:inform("Noob found!")
-			char:inform("Dir sendet "..User.name"folgende Nachricht: "..message);
+			char:inform("Dir sendet "..User.name.."folgende Nachricht: "..message);
 			User:eraseItem( 2744, 1 );
 		else
 		User:inform("Noob not found!")
