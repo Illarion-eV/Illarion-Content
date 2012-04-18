@@ -97,7 +97,7 @@ end]]
 end
 
 function CheckIfOnline(playername)
-	local playerlist = world:getPlayersOnline();
+	playerlist = world:getPlayersOnline();
 		local idx = 0;   --index
 	playerfound = false;
    
