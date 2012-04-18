@@ -21,7 +21,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 		else
 		User:inform("Noob not found!")
 		end
-	end
+	
 	
 	
 	--[[ if ( SourceItem.number == 1 ) then  --1 Würfel
