@@ -10,7 +10,7 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 --[[This item has been claimed by faladron to do his biding and sate his scripting curiosity.
 	It will do anything and everything with the exception of what should be expected from it]]
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
-	playername = User.lastSpokenText 
+	
 	CheckIfOnline();
 	if playerfound == true then 
 	User:inform("Noob found!")
@@ -94,19 +94,20 @@ end]]
 end
 
 function CheckIfOnline(playername)
-   local playerlist = world:getPlayersOnline();
-      local idx = 0;   --index
-   playerfound = false;
+	playername = User.lastSpokenText 
+	local playerlist = world:getPlayersOnline();
+		local idx = 0;   --index
+	playerfound = false;
    
-   for i = 1, table.getn(playerlist) do -- check all found players
+	for i = 1, table.getn(playerlist) do -- check all found players
    
-      if string.find(playerlist[i].name, playername) ~= nil then
-         playerfound = true;
-         idx = i;
-      end
-   end
+		if string.find(playerlist[i].name, playername) ~= nil then
+			playerfound = true;
+			idx = i;
+		end
+	end
    
-   return playerfound, playerlist[idx];   
+	return playerfound, playerlist[idx];   
 end   	
 
 	
