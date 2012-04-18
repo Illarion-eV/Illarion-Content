@@ -93,7 +93,7 @@ end]]
 	end
 end
 
-function CheckIfOnline(playername)
+function CheckIfOnline(User, playername)
 	playername = User.lastSpokenText 
 	local playerlist = world:getPlayersOnline();
 		local idx = 0;   --index
