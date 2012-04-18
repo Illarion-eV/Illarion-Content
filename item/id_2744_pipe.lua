@@ -11,7 +11,7 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 	It will do anything and everything with the exception of what should be expected from it]]
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	playername = User.lastSpokenText 
-	CheckIfOnline;
+	CheckIfOnline
 	if (found) then User:inform("Noob found!")
 	else
 	User:inform("Noob not found!")
