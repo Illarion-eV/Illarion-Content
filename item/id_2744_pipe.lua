@@ -10,16 +10,18 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 --[[This item has been claimed by faladron to do his biding and sate his scripting curiosity.
 	It will do anything and everything with the exception of what should be expected from it]]
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
-	a,b,playername,message = string.find(User.lastSpokenText,"!(.+)! (.+)");
+	if a,b,playername,message = string.find(User.lastSpokenText,"!(.+)! (.+)"); then
 	User:inform("Der Empfänger ist "..playername)
 	User:inform("Die Nachricht ist "..message)
 	CheckIfOnline(playername);
-	if playerfound == true then 
-	User:inform("Noob found!")
-	Recipent = playerlist[idx];
-	Recipent:inform("Hiho")
+		if playerfound == true then 
+			User:inform("Noob found!")
+			playername:inform("Hier sendet "..User.name.."dir folgende Nachricht:"..message
+		else
+		User:inform("Noob not found!")
+		end
 	else
-	User:inform("Noob not found!")
+	User:inform("Sende deine Nachricht mit: <!Name!> <Nachricht>")
 	end
 	
 	--[[ if ( SourceItem.number == 1 ) then  --1 Würfel
