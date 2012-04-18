@@ -13,11 +13,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	a,b,playername,message = string.find(User.lastSpokenText,"!(.+)! (.+)");
 	User:inform("Der Empfänger ist "..playername)
 	User:inform("Die Nachricht ist "..message)
-	CheckIfOnline(playername);
-		if playerfound == true then 
+	
+		char = CheckIfOnline(playername)
+		if char then 
 			User:inform("Noob found!")
-			
-			playerlist[idx]:inform("Hier sendet "..message);
+			char:inform("Hier sendet "..message);
 		else
 		User:inform("Noob not found!")
 		end
@@ -101,19 +101,17 @@ end
 
 function CheckIfOnline(playername)
 	playerlist = world:getPlayersOnline();
-		local idx = 0;   --index
-	playerfound = false;
-   
-	for i = 1, table.getn(playerlist) do -- check all found players
-   
-		if string.find(playerlist[i].name, playername) ~= nil then
-			playerfound = true;
-			idx = i;
+		   
+	for i = 1, #(playerlist) do -- check all found players
+		if playerlist[i].name == playername then
+		return playerlist[i]
 		end
 	end
-   
-	return playerfound, playerlist[idx];   
-end   	
+	return nil
+end
+		
+			
+     	
 
 	
 	
