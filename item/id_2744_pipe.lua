@@ -15,7 +15,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	CheckIfOnline(playername);
 	if playerfound == true then 
 	User:inform("Noob found!")
-	playerlist[idx]:inform("Hiho")
+	Recipent = playerlist[idx];
+	Recipent:inform("Hiho")
 	else
 	User:inform("Noob not found!")
 	end
