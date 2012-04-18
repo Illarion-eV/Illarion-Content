@@ -11,8 +11,8 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 	It will do anything and everything with the exception of what should be expected from it]]
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	playername = User.lastSpokenText 
-	CheckIfOnline
-	if found = true then 
+	CheckIfOnline();
+	if playerfound = true then 
 	User:inform("Noob found!")
 	else
 	User:inform("Noob not found!")
@@ -96,17 +96,17 @@ end
 function CheckIfOnline(playername)
    local playerlist = world:getPlayersOnline();
       local idx = 0;   --index
-   local playerfound = false;
+   playerfound = false;
    
    for i = 1, table.getn(playerlist) do -- check all found players
    
       if string.find(playerlist[i].name, playername) ~= nil then
-         found = true;
+         playerfound = true;
          idx = i;
       end
    end
    
-   return found, playerlist[idx];   
+   return playerfound, playerlist[idx];   
 end   	
 
 	
