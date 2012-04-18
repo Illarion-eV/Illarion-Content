@@ -12,7 +12,7 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	playername = User.lastSpokenText 
 	CheckIfOnline
-	if found then User:inform("Noob found!")
+	if (found) == true then User:inform("Noob found!")
 	else
 	User:inform("Noob not found!")
 	end
