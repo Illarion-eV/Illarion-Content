@@ -16,13 +16,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	CheckIfOnline(playername);
 		if playerfound == true then 
 			User:inform("Noob found!")
-			playername:inform("Hier sendet "..User.name.."dir folgende Nachricht:"..message
+			playername:inform("Hier sendet "..User.name.."dir folgende Nachricht:"..message)
 		else
 		User:inform("Noob not found!")
 		end
-	else
-	User:inform("Sende deine Nachricht mit: <!Name!> <Nachricht>")
-	end
+	
 	
 	--[[ if ( SourceItem.number == 1 ) then  --1 Würfel
 
