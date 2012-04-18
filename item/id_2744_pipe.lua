@@ -16,8 +16,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	
 		char = CheckIfOnline(playername)
 		if char then 
-			User:inform("Du liest die Schriftrolle, sie zerfällt in deinen Händen zu Staub!")
-			char:inform("Dir sendet "..User.name.." folgende Nachricht: "..message);
+			User:base.common.InformNLS(User, "Du liest die Schriftrolle, sie zerfällt in deinen Händen zu Staub!","You read the scroll, it turns to dust in your hands!")
+			char:base.common.InformNLS(char, "Du bekommst eine Nachricht von: "..User.name, "You receive a message from: "..User.name);
+			char:inform(message);
 			User:eraseItem( 2744, 1 );
 		else
 		User:inform("Noob not found!")
@@ -100,10 +101,12 @@ end]]
 	end
 end
 
+-- 
+
 function CheckIfOnline(playername)
 	playerlist = world:getPlayersOnline();
 		   
-	for i = 1, #(playerlist) do -- check all found players
+	for i = 1, #(playerlist) do 
 		if playerlist[i].name == playername then
 		return playerlist[i]
 		end

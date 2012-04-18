@@ -1525,10 +1525,105 @@ function BasicNPCChecks(originator,NPCRange, npc)
     return true;
 end
 
+
 function PositionToText(pos)
     if pos ~= nil then
         retString="("..pos.x..","..pos.y..","..pos.z..")";
         return retString;
     end
     return "nil","nil","nil"
+end
+
+--[[
+    \fn:    ListToNumber
+    \brief: transforms a number list into a number sequence which can be stored for example as quest status
+    \usage: list = {5,2,7,9,1};
+         ListToNumber(list) returns following number: 52791
+   
+   @param NumberList - the number list that shall be transformed into a number 
+    @return result - the list as number
+   
+    \attention: Only Lists holding elements greater 1 are allowed!
+]]
+function ListToNumber(NumberList)
+   
+   local result=NumberList[1];
+
+   for i = 2, table.getn(NumberList) do
+
+      result = result ..NumberList[i];
+      
+
+   end
+   result = tonumber(result);    --convert the string result   into a number   
+   return result;
+
+end
+
+--[[
+    \fn:    Shuffle
+    \brief: Shuffles the elements of a number list random
+    \usage: list = {5,2,7,9,1};
+         list = Shuffle(list) shuffles the list and could return: list ={1,7,5,9,2}
+   
+   @param NumberList - the number list that shall be shuffled
+    @return list - the shuffled number list
+]]
+function Shuffle(NumberList)
+   
+   local temp = 0, ReplaceIdx = 0;
+   
+   for i = 1, table.getn(NumberList) do -- shuffle all elements
+   
+      ReplaceIdx = math.random(1, table.getn(NumberList));
+      temp = NumberList[i];
+      NumberList[i] = NumberList[ReplaceIdx];   
+      NumberList[ReplaceIdx] = temp;   
+   
+   end
+   
+   return list;
+end
+
+--[[
+    \fn:    CreateRandomNumberList
+    \brief: creates a random number list with AmntElements elements
+    \usage: list = CreateRandomNumberList(6, 1, 4);
+         returned list could hold: list = {3,1,4,2,2,4}
+   
+   @param AmntElements - the amount of elements the list shall have
+   @param minval       - the smallest value an element can have
+   @param maxval       - the highest value an element can have
+    @return reslist       - a list holding AmntElements elements with values between minval and maxval
+]]
+function CreateRandomNumberList(AmntElements, minval, maxval)
+   
+   local reslist = {};
+   
+   for i = 1, AmntElements do
+		
+		reslist[i] = math.random(minval, maxval);
+   
+		if (reslist[i] == reslist[i-1]) then -- same number like before, try getting a new number
+        reslist[i] = math.random(minval, maxval);
+      end
+   
+   end
+   
+   return reslist;
+end
+
+--[[Searches the Online List for a Player by name 
+	if a player was found it returns: true, Char Struct
+-- 	if not, nil]]
+
+function CheckIfOnline(playername)
+	playerlist = world:getPlayersOnline();
+		   
+	for i = 1, #(playerlist) do 
+		if playerlist[i].name == playername then
+		return playerlist[i]
+		end
+	end
+	return nil
 end
