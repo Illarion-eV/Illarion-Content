@@ -69,6 +69,12 @@ end
 
 function onDeath(Monster)
 
+	local NoDrop=Monster:getSkill("no drop pls")
+	if NoDrop >= 10 then
+	return;
+	end
+	
+
     if killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
