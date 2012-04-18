@@ -16,8 +16,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
 	
 		char = CheckIfOnline(playername)
 		if char then 
-			User:base.common.InformNLS(User, "Du liest die Schriftrolle, sie zerfällt in deinen Händen zu Staub!","You read the scroll, it turns to dust in your hands!");
-			char:base.common.InformNLS(char, "Du bekommst eine Nachricht von: "..User.name, "You receive a message from: "..User.name);
+			base.common.InformNLS(User, "Du liest die Schriftrolle, sie zerfällt in deinen Händen zu Staub!","You read the scroll, it turns to dust in your hands!");
+			base.common.InformNLS(char, "Du bekommst eine Nachricht von: "..User.name, "You receive a message from: "..User.name);
 			char:inform(message);
 			User:eraseItem( 2744, 1 );
 		else
