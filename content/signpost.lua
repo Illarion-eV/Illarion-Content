@@ -130,10 +130,10 @@ function InitWegweiser()
     AddWeg({789,681,0},"Schlechte Wahl!","Bad choice!",6,0);
     AddWeg({790,681,0},"Sehr schlechte Wahl!","Very bad choice!",2,0);
     AddWeg({759,735,0},"Bärenhöhle; Drachenbau; Norden","Bear Cave; Dragon Lair; North",0,0);
-    AddWeg({847,728,0},"Heitere Lichtung","Merryglade",0,0);
+    AddWeg({847,728,0},"Fröhliche Lichtung","Merryglade",0,0);
     AddWeg({847,730,0},"Osthafen","Eastport",2,0);
     AddWeg({786,777,0},"Anthilbach","Anthil Brook",6,0);
-    AddWeg({786,777,0},"Heitere Lichtung; Osthafen","Merryglade; Eastport",2,0);
+    AddWeg({786,777,0},"Fröhliche Lichtung; Osthafen","Merryglade; Eastport",2,0);
     AddWeg({739,803,0},"Hafen","Harbour",6,0);
     AddWeg({739,806,0},"Hafen","Harbour",6,0);
     AddWeg({739,807,0},"Hafen","Harbour",6,0);
@@ -144,7 +144,7 @@ function InitWegweiser()
     AddWeg({762,801,0},"Bauernhöfe","Farmland",2,0);
     AddWeg({761,800,0},"Bärenhöhle; Drachenbau; Cadomyr; Galmair; Gasthof zur Hanfschlinge","Bear Cave; Dragon Lair; Cadomyr; Galmair; The Hemp Necktie Inn",0,0);
     AddWeg({783,798,0},"Erzmagier Elvaine Morgan; Vierbeiniger Roter Vogel; Hafen","Archmage Elvaine Morgan; Quadruped Red Bird; Harbour",6,0);
-    AddWeg({783,797,0},"Anthilbach; Heitere Lichtung; Osthafen","Anthil Brook; Merryglade; Eastport",0,0);
+    AddWeg({783,797,0},"Anthilbach; Fröhliche Lichtung; Osthafen","Anthil Brook; Merryglade; Eastport",0,0);
     AddWeg({761,813,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
     AddWeg({791,821,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
     AddWeg({840,821,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
