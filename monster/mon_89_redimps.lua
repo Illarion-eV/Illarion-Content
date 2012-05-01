@@ -74,6 +74,12 @@ function onCasted(Monster,Enemy)
 end
 
 function onDeath(Monster)    
+
+	local NoDrop=Monster:getSkill("no drop pls")
+	if NoDrop >= 10 then
+	return;
+	end
+
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 if (MonID==891) then --Fireimp, Level: 2, Armourtype: light, Weapontype: puncture

@@ -10,7 +10,22 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 --[[This item has been claimed by faladron to do his biding and sate his scripting curiosity.
 	It will do anything and everything with the exception of what should be expected from it]]
 function UseItem( User, SourceItem, TargetItem, Counter, Param)
-		
+	a,b,playername,message = string.find(User.lastSpokenText,"!(.+)! (.+)");
+	User:inform("Der Empfänger ist "..playername)
+	User:inform("Die Nachricht ist "..message)
+	
+		char = CheckIfOnline(playername)
+		if char then 
+			base.common.InformNLS(User, "Du liest die Schriftrolle, sie zerfällt in deinen Händen zu Staub!","You read the scroll, it turns to dust in your hands!");
+			base.common.InformNLS(char, "Du bekommst eine Nachricht von: "..User.name, "You receive a message from: "..User.name);
+			char:inform(message);
+			User:eraseItem( 2744, 1 );
+		else
+		User:inform("Noob not found!")
+		end
+	
+	
+	
 	--[[ if ( SourceItem.number == 1 ) then  --1 Würfel
 
 		WurfEins = (math.random(6))
@@ -85,7 +100,22 @@ end]]
 
 	end
 end
-	
+
+-- 
+
+function CheckIfOnline(playername)
+	playerlist = world:getPlayersOnline();
+		   
+	for i = 1, #(playerlist) do 
+		if playerlist[i].name == playername then
+		return playerlist[i]
+		end
+	end
+	return nil
+end
+		
+			
+     	
 
 	
 	

@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Brute Booze                                                 None --
--- NPC Job:  adventurer                                                       --
+-- NPC Job:  Adventurer                                                       --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  674, 320, 0            --
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: April 25, 2012                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Brute Booze"
@@ -16,7 +16,7 @@ sex = male
 position = 674, 320, 0
 direction = southwest
 affiliation = "None"
-job = "adventurer"
+job = "Adventurer"
 
 language = common
 language = orc
@@ -56,7 +56,7 @@ itemShoes = 53
 -- Borgate: 1908, 1909 beer, 2923 onion soup, 2456 mushroom soup
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Brute Booze an fameous orcish adventurer. Keyphrases: heoric deeds, tell something")
+"Help" -> inform("[Game Help] This NPC is Brute Booze an famous orcish adventurer. Keyphrases: heroric deeds, tell something")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brute Booze ein berühmter orkischer Glücksritter. Schlüsselwörter: Heldentaten, erzähl etwas")
 
 -- General speech
@@ -214,12 +214,12 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.", "Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Brute", "Booze", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Brute", "Booze" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ja" -> "Wahrlich, von Größe!", "Iche binne geehrt.", "Es iset mir ein Vergnü-higen."
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "Iset das So?", "Tatsächlich?", "Hm-hm."
+"Nein" -> "Iset das so?", "Tatsächlich?", "Hm-hm."
 
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC

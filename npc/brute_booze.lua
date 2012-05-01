@@ -1,13 +1,13 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Brute Booze                                                 None --
--- NPC Job:  adventurer                                                       --
+-- NPC Job:  Adventurer                                                       --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  674, 320, 0            --
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: April 25, 2012                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -28,7 +28,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Brute Booze an fameous orcish adventurer. Keyphrases: heoric deeds, tell something"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Brute Booze an famous orcish adventurer. Keyphrases: heroric deeds, tell something"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1132,8 +1132,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC first name>");
-talkEntry:addTrigger("<NPC last name>");
+talkEntry:addTrigger("Brute");
+talkEntry:addTrigger("Booze");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
@@ -1142,8 +1142,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addTrigger("Brute");
+talkEntry:addTrigger("Booze");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -1176,7 +1176,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("Iset das So?");
+talkEntry:addResponse("Iset das so?");
 talkEntry:addResponse("Tatsächlich?");
 talkEntry:addResponse("Hm-hm.");
 talkingNPC:addTalkingEntry(talkEntry);

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: March 15, 2012                          easyNPC Parser v1.02 --
+-- Last parsing: April 29, 2012                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -847,8 +847,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hinterland");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugen Insel, Oldras Säule, Meerjungfrau, Lurnord Brücke"));
-talkEntry:addResponse("Das Hinterland von Runewick enthält folgende Orte: Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugen Inseln, Oldras Säule, Lurnord Brücke und Meerjungfrau");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninsel, Oldras Säule, Meerjungfrau, Lurnord Brücke"));
+talkEntry:addResponse("Das Hinterland von Runewick enthält folgende Orte: Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninseln, Oldras Säule, Lurnord Brücke und Meerjungfrau");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -897,7 +897,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zwillingsaugen Inseln");
+talkEntry:addTrigger("Zwillingsaugeninseln");
 talkEntry:addResponse("Dieser Ort ist ganz im Süden. Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

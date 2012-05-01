@@ -98,8 +98,9 @@ function onCasted(Monster,Enemy)
 end
 
 function onDeath(Monster)
-    local NoDrop=Monster:getSkill("Smithing")
-		if NoDrop~= 0 then
+    
+	local NoDrop=Monster:getSkill("no drop pls")
+		if NoDrop >= 10 then
 		return;
 		end
 		

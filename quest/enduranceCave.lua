@@ -182,14 +182,14 @@ function CreateMonster(stage)
 		monsterlist = {};
 		                 --ids of all monsters
 		                 
-		monsterlist[1] = {1,1,1}; --stage 1 : 1 Friendly Human
-		monsterlist[2] = {16,16} -- stage 2: 1 Friendly Dwarf
-		monsterlist[3] = {6,6,6} -- stage 3: 1 Skeleton
-		monsterlist[4] = {16,16,16,16} -- stage 4: 1 Friendly Forest Troll
-		monsterlist[5] = {292,292,292,292,292} -- stage 5: 1 Pig
-		monsterlist[6] = {293,293,293,293,293,293} -- stage 6: 1 Cow
-		monsterlist[7] = {294,294,294,294,294,294,294} -- stage 7: 1 Deer
-		monsterlist[8] = {295,295,295,295,295,295,295,295} -- stage 8: 1 Rabbit
+		monsterlist[1] = {5,5,5,42,42,751,751,751,711,711}; --stage 1 : 
+		monsterlist[2] = {4,34,34,202,202,202,524,524,902} -- stage 2: 
+		monsterlist[3] = {123,123,143,524,524,832,832,543,903} -- stage 3:
+		monsterlist[4] = {4,4,64,64,125,205,842,842,711} -- stage 4: 
+		monsterlist[5] = {123,123,132,202,202,853,853,543} -- stage 5:
+		monsterlist[6] = {903,661,834,524,143,143,123} -- stage 6: 
+		monsterlist[7] = {125,125,132,132,205,205,842,743} -- stage 7: 
+		monsterlist[8] = {661,903,903,205,205,853,853,543,543,832} -- stage 8: 
 	end	
 
 
@@ -198,8 +198,8 @@ function CreateMonster(stage)
 	end
 	
 	for i = 1, table.maxn(monsterlist[stage]) do
-    	noDrop = world:createMonster(monsterlist[stage][i] , CenterPositionOfPortalRoom ,20); --create monster
-		noDrop:increaseSkill(2,"smithing",60)
+    	local noDrop = world:createMonster(monsterlist[stage][i] , CenterPositionOfPortalRoom ,20); --create monster
+		noDrop:increaseSkill(2,"no drop pls",60)
 		
 	end
 end

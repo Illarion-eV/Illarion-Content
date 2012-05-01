@@ -39,6 +39,7 @@ function init()
 	elevator2:bind(1, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil )); 
 	elevator2:bind(0, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil )); 
 	
+	-- Wall appear / disappear in dwarf Dungeon
 	dronrul1 = base.lever.Lever(position(446,754,-3),true);
 	dronrul1:bind(0, handler.deleteitem.deleteItem(position(442,754,-3),613));
 	dronrul1:bind(0, handler.createsound.createSound(position(442,754,-3),22));
@@ -47,6 +48,7 @@ function init()
 	dronrul1:bind(1, handler.createsound.createSound(position(442,754,-3),22));
 	--dronrul1.bind(1, handler.sendmessage.sendMessage(position(442,754,-3), "Der Hebel bewegt sich und das Loch in der Wand gegenüber schließt sich.", "The lever moves and the hole in the wall on the opposite side closes.", 4));
 	
+	-- Levers to spawn Bridge to pirate Isle
 	killerhuhn = base.lever.Lever(position(54,602,0),false);
 	killerhuhn:bind(0, handler.createmonster.createMonster(position(50,604,0),5,40));
 	killerhuhn:bind(0, handler.createitem.createItem(position(49,604,0),5, 123, 1));
@@ -69,7 +71,7 @@ function init()
 	ki4:bind(0, handler.createbridge.createBridge(position(58,599,0),0,3));
 	ki4:bind(1, handler.deletebridge.deleteBridge(position(58,599,0),0,3));
 	
-
+	-- Doors in Halfling Dungeon Will work once Data is assigned to doors!
 	openDoor = base.lever.Lever(position(558,520,-3),false);
 	openDoor:bind(0, handler.opendoor.openDoor(position(559,557,-6)));
 	openDoor:bind(0, handler.opendoor.openDoor(position(558,557,-6)));
@@ -85,6 +87,8 @@ function init()
 	openDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(559,556,-6)));
 	openDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(558,556,-6)));
 	openDoor1:bind(1, handler.sendmessage.sendMessage(position(538,557,-3), "Ich sperre die Türe zu!","I lock the door!", 10));
+	-- Doors in Halfling Dungeon end -----
+	
 	
 	
 	AddToLevers(elevator1);

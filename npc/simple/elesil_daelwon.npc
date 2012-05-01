@@ -182,7 +182,7 @@ itemShoes = 369
 -- "Guild" -> ""
 
 "Hinterland",english -> "The Hinterland of Runewick contains following locations: Fire of Triumph, Holy Oak, Woodcutter's Camp, Twin Eyes Island, Oldra's Column, Lurnord bridge and Mermaid", inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Camp, Twin Eyes Island, Oldra Column, Mermaid, Lurnord bridge")
-"Hinterland" -> "Das Hinterland von Runewick enthält folgende Orte: Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugen Inseln, Oldras Säule, Lurnord Brücke und Meerjungfrau", inform("[Schlüsselwörter] Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugen Insel, Oldras Säule, Meerjungfrau, Lurnord Brücke")
+"Hinterland" -> "Das Hinterland von Runewick enthält folgende Orte: Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninseln, Oldras Säule, Lurnord Brücke und Meerjungfrau", inform("[Schlüsselwörter] Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninsel, Oldras Säule, Meerjungfrau, Lurnord Brücke")
 "Fire Triumph","Triumph Fire" -> "It can be found north of here, after the Holy Oak. This place reminds on our involvement and victory in a compain between Cadomyr and Galmair. Unfortunately, some actions went wrong."
 "Feuer Triumph","Triumph Feuer" -> "Dieser Ort kann nördlich von hier, nach der Heiligen Eiche gefunden werden und erinnert an unsere Einflussnahme und unseren Sieg in einer Auseinandersetzung zwichen Cadomyr und Galmair. Leider ging einiges schief."
 "Holy Oak" -> "This is a holy and very old tree in the north of here. You will find more information there."
@@ -190,7 +190,7 @@ itemShoes = 369
 "Woodcutter Camp" -> "This place can be found in the south of here and is a champ for lumberjacks."
 "Holzfäller Lager" -> "Dieser Ort kann im Süden von hier aus gefunden werden und ist ein Lager für Holzfäller."
 "Twin Eyes Islands" -> "This place is the very south of here. Two islands, which... uhh... I forgot, but you will find there what you want to know."
-"Zwillingsaugen Inseln" -> "Dieser Ort ist ganz im Süden. Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht."
+"Zwillingsaugeninseln" -> "Dieser Ort ist ganz im Süden. Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht."
 "Oldra Column" -> "This place can be found in the south of here. Some information about Oldra and what she likes are waiting for you. Look for the column and trees over there."
 "Oldra Säule" -> "Dieser Ort kann im Süden von hier aus gefunden werden. Einige Informationen über Oldra und Dinge die sie mag warten dort auf euch. Haltet Ausschau nach der Säule und den Bäumen dort."
 "Mermaid" -> "Just follow the westcost to the south and you will find this place with a statue of a beautiful woman. This place is also used by fishers who are waiting to get in touch with the mermaid."
