@@ -591,7 +591,7 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 	local checkStringEssence = ""
 	local potionEffectId
 	
-	if base.common.GetFrontItemID(User) == 1008
+	if base.common.GetFrontItemID(User) == 1008 then
 		TargetItem = base.common.GetFrontItem( User ); -- cauldron
 		
 		if SourceItem.id == 331 then
