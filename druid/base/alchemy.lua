@@ -579,4 +579,102 @@ function StockExplosion(User, SourceItem, cauldron)
     cauldron:setData("cauldronData","");
     world:changeItem(cauldron)
     User:increaseAttrib("hitpoints", -3000);
+end
+
+----------------------------------------------------
+-- combine of stock and essence brew to create a potion
+-- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
+function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltstate )
+    local ourStock
+	local ourEssence
+	local potionId
+	local checkStringEssence = ""
+	local potionEffectId
+	
+	if base.common.GetFrontItemID(User) == 1008
+		TargetItem = base.common.GetFrontItem( User ); -- cauldron
+		
+		if SourceItem.id == 331 then
+		    ourStock = SourceItem -- SourceItem is a stock, so it becomes our stock!
+		    ourEssence = TargetItem -- and the essence brew is in the cauldron (TargetItem)
+		    potionId = ourEssence:getData("potionId") -- essence brew in cauldron: we need to check the data
+		else -- not a stock bottle (but a potion bottle = essence brew)
+		    ourStock = TargetItem -- the stock is in the cauldron
+			ourEssence = SourceItem -- and the essence brew in the bottle
+		    potionId = ourEssence.id -- essence brew in bottle: we use the id of the SourceItem
+		end
+        
+		for i=1,8 do
+		    if (ourEssence:getData("essenceHerb"..i) ~= "") then -- we put our essenced herbs to a string together
+			    checkStringEssence = checkStringEssence.." "..ourEssence:getData("essenceHerb"..i)
+            else
+                break
+			end	
+	    end     
+	
+        if checkStringEssence == "" then -- when there was not even one herb in the essence brew
+		    if (potionId == 166) or (potionId == 59) then -- attribute pushers and healing potions do not need essenced hersb
+			    potionEffectId = ourStock:getData("stockData") -- the PotionEffectId is the same as the stock data
+			else 
+                potionEffectId = 0 -- effect id 0 means no effect			
+	        end
+		else
+            for i=1,#ListPotionStock[potionId] do
+                if ListPotionStock[potionId][i] == ourStock:getData("stockData") then
+	                if ListPotionEssence[potionId] == checkStringEssence then
+	                    potionEffectId = ListPotionEffectId[potionId][i] -- we have a stock and an essence brew which matchn so that's our effect id
+	                    break
+	                end
+                end
+            end
+        end
+        
+		if not potionEffectId then -- if the potion effect id hasn't been set yet, it has to be 0
+		    potionEffectId = 0 
+		end
+		
+		-- now we have to put everything together
+		TargetItem:setData("potionId",""..potionId)
+		TargetItem:setData("potionEffectId",potionEffectId)
+		potionQuality = 999
+	    TargetItem:setData("potionQuality",""..potionQuality)
+	end    
 end	
+-------------------------------------------------------		
+-- ListPotionStock[potion.id][x] and ListPotionEssence[potion.id][x] ->  ListPotionEffectId[potion.id][x]
+-- in ListPotionStock: stockData
+-- in ListPotionEssence: herbs the essence brew has to contain; must not be more herbs than 8! 
+-- never the exact same combination of herbs twice in one essence brew list of the same potion kind!
+-- in ListPotionEffectId: the id of the effect, obviously
+
+ListPotionStock = {}
+ListPotionEssence = {}		
+ListPotionEffectId = {}
+-- red bottle:
+ListPotionStock[59] = {}
+ListPotionEssence[59] = {}		
+ListPotionEffectId[59] = {}
+-- light blue bottle:
+ListPotionStock[165] = {}
+ListPotionEssence[165] = {}		
+ListPotionEffectId[165] = {}
+-- pink bottle: 
+ListPotionStock[166] = {}
+ListPotionEssence[166] = {}		
+ListPotionEffectId[166] = {}
+-- dark blue bottle:
+ListPotionStock[327] = {}
+ListPotionEssence[327] = {}		
+ListPotionEffectId[327] = {}
+-- orange bottle:
+ListPotionStock[328] = {}
+ListPotionEssence[328] = {}		
+ListPotionEffectId[328] = {}
+-- black bottle: 
+ListPotionStock[329] = {}
+ListPotionEssence[329] = {}		
+ListPotionEffectId[329] = {}
+-- white bottle:
+ListPotionStock[330] = {}
+ListPotionEssence[330] = {}		
+ListPotionEffectId[330] = {}

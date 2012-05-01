@@ -40,7 +40,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	       return;
       
 	    elseif (TargetItem:getData("cauldronFilledWith") == "essenceBrew") then -- essence brew; we call our function to combine stock and essence brew  
-	        -- functionBlub
+	        druid.base.alchemy.CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	  
 	  elseif (TargetItem:getData("stockData") == "") then -- empty; we fill in!
 		  
