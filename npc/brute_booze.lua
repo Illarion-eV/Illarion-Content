@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: April 25, 2012                          easyNPC Parser v1.02 --
+-- Last parsing: May 03, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -59,7 +59,7 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("Seid mir gerüßet! Ihr seid wohl auch auf Reise?");
+talkEntry:addResponse("Seid mir gegrüßet! Ihr seid wohl auch auf Reise?");
 talkEntry:addResponse("Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?");
 talkEntry:addResponse("Seid mir willkommen!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -82,7 +82,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Seid mir gerüßet! Ihr seid wohl auch auf Reise?");
+talkEntry:addResponse("Seid mir gegrüßet! Ihr seid wohl auch auf Reise?");
 talkEntry:addResponse("Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?");
 talkEntry:addResponse("Seid mir willkommen!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -105,7 +105,7 @@ talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Sicheres Reisen!");
-talkEntry:addResponse("... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'");
+talkEntry:addResponse("...oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'");
 talkEntry:addResponse("Iche will Euch gute Stiefel an die Füße wünsch-higen...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -116,7 +116,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Save Travel!");
+talkEntry:addResponse("Save travel!");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -193,6 +193,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -203,13 +204,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("Ain't no king, ain't no smith, ain't no peasant. My life is adventurish!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,7 +273,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("heoric");
-talkEntry:addTrigger("deeds");
+talkEntry:addTrigger("deed");
 talkEntry:addResponse("xxx");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -803,9 +805,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("My forefathers are always with me while being travelish.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1144,7 +1144,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Brute");
 talkEntry:addTrigger("Booze");
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("Das iche binne.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1152,7 +1152,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("Truly bigly!");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1168,9 +1168,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Is dat so?");
+talkEntry:addResponse("Indeedish?");
+talkEntry:addResponse("Hm-hm.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: April 25, 2012                          easyNPC Parser v1.02 --
+-- Last parsing: May 03, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Brute Booze"
@@ -61,12 +61,12 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "xxx", "xxx", "ENGLISH3."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid mir gegrüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gegrüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
 "Farewell", "Bye", "Fare well", "See you" -> "Save Travel!", "xxx", "xxx"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Sicheres Reisen!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Save Travel!", "ENGLISH2.", "ENGLISH3."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Sicheres Reisen!", "...oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Save travel!", "ENGLISH2.", "ENGLISH3."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sichere Reise!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ja-h! Dem alten Brute geht's prächtigens. Irgendwann werde iche wohl zu einem neuen Abenteuer aufbrechen.", "Ach, das iset doch nicht wichti-hig, wie's mir geht! Sagt mir, wie gehthigt's Euch?", "Es geht mir wie an großen Tagen. Einst als iche noch Orkling war."
@@ -76,11 +76,11 @@ itemShoes = 53
 -- Catching quest triggers
 "quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "quest", "mission" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch."
+"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1."
+"profession" -> "Ain't no king, ain't no smith, ain't no peasant. My life is adventurish!"
 "beruf" -> "Binne kein König. Binne kein Schmied. Binne kein Bauer. Mein Leben iset das Abenteuer."
 "job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "job" -> "Binne kein König. Binne kein Schmied. Binne kein Bauer. Mein Leben iset das Abenteuer."
@@ -90,7 +90,7 @@ itemShoes = 53
 "mein Name" -> "Das klinghigt sehr wohl in meinen Ohren.", "Grossartig!", "Eine sehr feine Sache iset das."
 
 -- More small talk; add at least five triggers
-"heoric", "deeds" -> "xxx"
+"heoric", "deed" -> "xxx"
 "Heldentaten" -> "Vor drei Wintern, erschlug Brute Booze die Schlangenbestie, Myr Tobars! Ihr Leib wahr-higte so dick wie der einer Eiche und ungezähligte Mann lang. Zum dank gab der Hochpriester, Brute Booze seine Tochter zum Weib!.", "Sieben Winter iset es her, da erlegte iche den Fluch Kang-Arr's. Ein Bär groß für drei Norodaj-Krieger, übersähet mit armlangen Stacheln. An jenem Tag ernannte mich Fürst Aramar Ingelfsen von Kathun zum fahrigenden Ritter seines Hofes.", "Einst, als ich im eisigen Karras war, bedrohhigte ein dämonischer Wyrm das Land. Viele Krieger mussten sterben, doch endlich spießte man das Untier mit geeinigter Kraft auf. Seit da an genoß iche Ansehen und Ehre unter Karras' Norodaj.", "Vor vier Wintern, gelang es den Hofmagiern des Triumvirats in Falmarha, mit meiniger Hilfe Lad'Nothratar den Metzger zu pfählen. Ein altertühmlicher Vampir, dessen Tot, iche den Ehrentitel 'Ehrenhafter Magier Falmarhas' verdankige.", "Hossa! Seit einem Jahr besitze iche, Brute Booze das kupferige Fell des Löwen Azzors, der einst dutzende mutige Krieger Nubris' verschlang. Mich zu Ehre steht ein kupferiges Abbild des Kampfes vor einem dem Tempel Malachins."
 "Kroch", "Gurak", "Kroch'Gurak", english -> "xxx"
 "Fireshine", english -> "xxx"
@@ -172,7 +172,7 @@ itemShoes = 53
 "salkama" -> "Salkamar - Die Stadt der Sonne. Dort steht der größte Tempel der bekannten Welt, der Tempel des Rades und Bücher hortet man wie Schätze in großen Hallen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"god" -> "My forefathers are always with me while being travelish."
 "Gott", "Götter" -> "Meine Vorahnen si-hind auf meinen Reisen immer beihe mir."
 "Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -215,10 +215,10 @@ itemShoes = 53
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Brute", "Booze", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Brute", "Booze" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Brute", "Booze" -> "Das iche binne.", "GERMAN2.", "GERMAN3."
+"Yes" -> "Truly bigly!", "ENGLISH2.", "ENGLISH3."
 "Ja" -> "Wahrlich, von Größe!", "Iche binne geehrt.", "Es iset mir ein Vergnü-higen."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"No" -> "Is dat so?", "Indeedish?", "Hm-hm."
 "Nein" -> "Iset das so?", "Tatsächlich?", "Hm-hm."
 
 -- Absolutely last catch: Everything a player says and is not caught earlier
