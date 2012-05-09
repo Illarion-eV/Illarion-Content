@@ -2,12 +2,12 @@
 -- NPC Name: Mashital Besual Telk Me                                     None --
 -- NPC Job:  Lightning Warsage                                                --
 --                                                                            --
--- NPC Race: Elf 	                    NPC Position:  0, 0, 0                --
--- NPC Sex:  Female                     NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Kawan Baxter                                                     --
 --                                                                            --
--- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: May 09, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Mashital Besual Telk Me"
@@ -45,42 +45,42 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
---Name: Mashital Besual Telk Me
---Race: Elf
---Sex: Female
---Age: 30 human years
---Position: Lightning sage
---Hair: black,  short, Orange streak across the right side.
---Weight: thin
---Height: tall
---Eyes: brown.
+-- Name: Mashital Besual Telk Me
+-- Race: Elf
+-- Sex: Female
+-- Age: 30 human years
+-- Position: Lightning sage
+-- Hair: black,  short, Orange streak across the right side.
+-- Weight: thin
+-- Height: tall
+-- Eyes: brown.
 
---Personality:
---Angry, mad, inquisitive, knowledgeable, straight forward.
+-- Personality:
+-- Angry, mad, inquisitive, knowledgeable, straight forward.
 
---Background:
---Mashital is from a noble elf family in Runewick. She had some of the best tutors.
---She also read a bunch of books to get perspectives her tutors were not showing her.
---From this Mashital got a wide range view of the world and through this grew a social
---justice purpose in life. She dedicated her life to helping those lower than her. She
---regularly gives to the poor in secret and argues in the governing bodies why others
---should be helped. She is usually successful in making social change in Runewick as
---she is respected for her vast knowledge. Because of this a lot of the positive
---changes in Runewick for the poor and oppressed have been because of her. If she
---sees a person bullying another she will kill them on the spot. She was seen at
---market slicing an elf man’s chest for making fun of a human for being stupid.
+-- Background:
+-- Mashital is from a noble elf family in Runewick. She had some of the best tutors.
+-- She also read a bunch of books to get perspectives her tutors were not showing her.
+-- From this Mashital got a wide range view of the world and through this grew a social
+-- justice purpose in life. She dedicated her life to helping those lower than her. She
+-- regularly gives to the poor in secret and argues in the governing bodies why others
+-- should be helped. She is usually successful in making social change in Runewick as
+-- she is respected for her vast knowledge. Because of this a lot of the positive
+-- changes in Runewick for the poor and oppressed have been because of her. If she
+-- sees a person bullying another she will kill them on the spot. She was seen at
+-- market slicing an elf man’s chest for making fun of a human for being stupid.
 
---She is the only one of the current war sages that regularly uses her naginata.
---She is the most gifted with weaponry than all the other Warsages, with only Apple
---comparing. They both had noble training with all common and some exotic weapons.
---In the battle of Hasat. Mashitor was sent by herself to wipe out a village (though
---she secretly spared a lot of the villagers.) She called down lightning every time
---her blade hit an object. Killing everyone it touched instantly.
+-- She is the only one of the current war sages that regularly uses her naginata.
+-- She is the most gifted with weaponry than all the other Warsages, with only Apple
+-- comparing. They both had noble training with all common and some exotic weapons.
+-- In the battle of Hasat. Mashitor was sent by herself to wipe out a village (though
+-- she secretly spared a lot of the villagers.) She called down lightning every time
+-- her blade hit an object. Killing everyone it touched instantly.
 
---Mashitor has had relationships with both men and women and of different races from
---Orc, to gnome to lizardman. She is currently dating a male Human who is currently
---traveling in Gync in search of treasure. They haven’t met in almost a year, but she
---is still faithful and awaits his return.
+-- Mashitor has had relationships with both men and women and of different races from
+-- Orc, to gnome to lizardman. She is currently dating a male Human who is currently
+-- traveling in Gync in search of treasure. They haven’t met in almost a year, but she
+-- is still faithful and awaits his return.
 
 -- Template Version 1.04, 07/12/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -99,29 +99,24 @@ itemShoes = 53
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Why are you here?", "Move out of my way.", "What business do you have with me?"
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Why are you here?", "Move out of my way.", "What business do you have with me?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "Farewell", "Bye", "Fare well", "See you" -> "Please only come back if you have actual business.", "I don't have time to talk to you, goodbye.", "#Mashital waves you away."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Please only come back if you have actual business.", "I don't have time to talk to you, goodbye.", "#Mashital waves you away."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "How are you", "How feel", "How do you do" -> "Why do you want to know?", "Please stop pretending that you actually care.", "Obviously I'm not in a good mood so please stop talking to me."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "your name", "who are you", "who art thou" -> "Mashital Besual Telk Me", "The Lightningsage, Mashital Besual Telk Me.", "I am a person just like you."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
---"quest", "mission", english -> "to be determined.", "To be determined.", "To be determined."
---"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
---"task", "adventure", "order" -> "to be determined.", "To be determined.", "To be determined."
---"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "quest", "mission", english -> "to be determined.", "To be determined.", "To be determined."
+-- "quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "task", "adventure", "order" -> "to be determined.", "To be determined.", "To be determined."
+-- "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "The standing Lightningsage.", "I am a killer for Runewick; it is what I truly am.", "Even before I chose to be a Warsage I was disgustingly labeled a Noble."
@@ -131,10 +126,10 @@ itemShoes = 53
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Warsage" -> "We are the best magic useing fighters in the land.", "We answer to only Archmage Morgan.", "If you wish to join talk to Apple."
-"Noble" -> "Disgusting pariahs of man and elf.", "We eat the food that you fish, we smoke the reeds that you grow and then we pass laws that make this all legal.","The enimies of equality."
-"Equality" ->"There should not be a rich or poor, Orc or Elf. We are all the same. It is only through the manipulation of the some that we are seperated into hierarchie."
+"Noble" -> "Disgusting pariahs of man and elf.", "We eat the food that you fish, we smoke the reeds that you grow and then we pass laws that make this all legal.", "The enimies of equality."
+"Equality" -> "There should not be a rich or poor, Orc or Elf. We are all the same. It is only through the manipulation of the some that we are seperated into hierarchie."
 "Lightning" -> "The most direct of all the magics. It suits me.", "Beautiful, quick, deadly.", "In my hands lightning is a blade from heaven to strike down those that strike down others."
-"Naginata" ->"Its kind of like a spear with a curved blade.","None of the other seven use it. Apple jokes about having lost his. I don't think it a joke.", "A beautiful weapon for killing things at a safe distance."
+"Naginata" -> "Its kind of like a spear with a curved blade.", "None of the other seven use it. Apple jokes about having lost his. I don't think it a joke.", "A beautiful weapon for killing things at a safe distance."
 "DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -146,9 +141,9 @@ itemShoes = 53
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gobaith
---"Gobaith", "Gobiath", english ->"write after knows what happened to globaith."
+-- "Gobaith", "Gobiath", english ->"write after knows what happened to globaith."
 
---"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
 "my name" -> "Mashital Besual Telk Me "
