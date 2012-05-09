@@ -1,0 +1,181 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Joras the Auroch                                            None --
+-- NPC Job:  Skysage                                                          --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Kawan Baxter                                                     --
+--                                                                            --
+-- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Joras"
+race = human
+sex = male
+position = 0, 0, 0
+direction = south
+affiliation = "None"
+job = "Skysage"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Kawan Baxter"
+
+lookatDE = "Dieser NPC ist <Name> der <Beruf/Funktion>."
+lookatUS = "This NPC is <Joras> the <Skysage>."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+--Name: Joras the Auroch
+--Profession:  Skysage
+--Age: 23
+--Sex: Male
+--Race: Human
+--Skin: Mahogany Brown
+--Hair: Long black dreads
+
+--Clothes: black hemp pants, Sandals, tied to his foot,
+
+--Personality : tool, single minded focused on fighting. Straight forward, quiet, not easily angered, prideful, serious, loner
+
+--Background:  Joras grew up in a small village south of Cadomyr. A local Sorazehn(Fighting using feet and wind magic) Master taught the local children the art of battling. All the children there loved to play fight and they all became quite skilled, but one child practiced harder, longer and eventually won more fights. By the time Joras hit thirteen he was unmatched by his pupils. By fifteen he surpassed his master, who was overjoyed and felt his life had served its purpose. At seventeen Joras battled to the death one of the village’s other best Sorazehn fighters. Killing in the village like in most places was against the law. Joras knew what was going to happen, He killed the man and got banned from the village. Joras wondered the world for the next few years, training in natural solitude. Every now and then he would find masters that were stronger than him and then he would stay until he could beat them and move on.
+
+--Joras eventually made it to Runewick. He was overjoyed to find out that that there was an
+--order of dangerously powerful sages,  and inside them maybe the greatest wind mage in the world.
+
+--Joras challenged him in the streets. The wind mage, being a peace loving fellow declined,
+--so Joras waited till the mage had to leave the village and challenged him with the only other
+--choice being death. Joras killed the man who refused to fight him.
+
+--After he saw the mage’s body smack the ground. He knew he had to go into hiding for the
+--Warsages would track him down and kill him.
+
+--They eventually found him in a cave. They all blocked the cave entrance. Joras was ready to die
+--fighting them all, but one of them, a middle age man walked in front of the group and read off a
+--rule written on a scroll.
+
+--“There are two ways to become a member of the order of Warsages
+--1) to be unanimously decided on by the order to fill a vacancy,
+--2) to kill the previous member in battle.
+--Welcome to the order, Sage of the sky.”
+
+--With that he joined the order. He is currently the youngest person in the Warsages. He is still a
+--loner and is focused primarily on defeating the strongest opponent.
+
+--Goals:
+--To defeat the strongest opponent
+
+--Methods:
+--By working with and training with the order.
+
+--------------------------------------------------------------
+
+-- Template Version 1.04, 07/12/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keyphrases: Warsage, God, Sorazehn, Salamina, Sky.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
+-- Mandatory: General speeches
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "What is it?", "Do you want something?", "Yes?"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"Hiho", "Hallo", "Hey", "Greeb", english -> "What is it?", "Do you want something?", "Yes?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"Farewell", "Bye", "Fare well", "See you" -> " Farewell.", "Leave me alone... please.", "#Joras stopped looking in your direction."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Leave me alone... please.", "#Joras stopped looking in your direction."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"How are you", "How feel", "How do you do" -> "Angsty, I want something to fight.", "Hungry, I want something to eat.", "What’s it to you?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"your name", "who are you", "who art thou" -> "Joras The Auroch.", "Joras is my first name. I don't remember my last, not that it matters.", "Joras. I have trained under 36 different masters, the first one being Talik, who renounced me after I killed someone in my home village."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+--"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "Skysage.", "I am member of the Runewhick Warsages.", "I am a fighter. I use wind and foot to shred my opponents."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"job", english -> "Skysage.", "I am member of the Runewhick Warsages.", "I am a fighter. I use wind and foot to shred my opponents."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"Warsage" -> "Not every Warsage is the pinnacle of their element. I am however the strongest wind magic user in Illarion."
+"Sorazeh", "Fight","Combat" -> "It revolves around kicking and using your legs and feet as conduits for wind"
+"Sky","Wind","Air" -> "Wind is a weapon. Like any weapon, a blade, a club, a spear I have learned to use that weapon, and then to work with that weapon, and then to become that weapon."
+"Salamina" -> "She is always reading something or talking about some pious argument."
+"Mashital" -> "I wish to fight her to see who is stronger."
+"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Magic was created by the Gods to communicate with the hand of man."
+
+-- Optional: Main land factions
+"albar", english -> "Don't care."
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "Don't care."
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "Don't care."
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gobaith
+"Gobaith", "Gobiath", english -> "Those on it were too weak to protect it. so it's natural that it no longer exists."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "GERMAN.", "This tower is driving me mad."
+cycletext "GERMAN.", "I need to get to a desert."
+cycletext "GERMAN.", "Anyone who thinks they can beat me, attack me please."
+cycletext "GERMAN.", "Sorazehn can be so much more, why must others hold it back."
+cycletext "GERMAN.", "A forest trip, a waterfall, and silence that is all I need for the day."
+cycletext "GERMAN.", "I must get stronger."
+cycletext "GERMAN.", "I must continue to fight to get stronger."
+cycletext "GERMAN.", "I desire to fight a strong opponent."
+cycletext "GERMAN.", "Skot is a great sparring partner. Even though he refuses to fight serious, there is a great earnestness in his heart when we battle."
+cycletext "GERMAN.", "If only I could have fought Chal Pal in her prime."

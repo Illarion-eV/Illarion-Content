@@ -1,0 +1,166 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Salamina Zi                                                 None --
+-- NPC Job:  Dirtsage                                                         --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Sex:  female                     NPC Direction: south                  --
+--                                                                            --
+-- Author:   Kawan Baxter                                                     --
+--                                                                            --
+-- Last parsing: January 20, 2012                        easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Salamina Zi"
+race = human
+sex = female
+position = 0, 0, 0
+direction = south
+affiliation = "None"
+job = "Dirtsage"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Kawan Baxter"
+
+lookatDE = "Dieser NPC ist <> der <Beruf/Funktion>."
+lookatUS = "This NPC is <Salamina> the <Dirtsage>."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+--Name: Salamina Zi
+--Position: Dirtsage
+--Age: 30
+--Race human
+--Sex: Female
+--Weight: Skinny
+--Height: Short
+--Hair: Black Long
+--Eyes: Black
+--Skin: Yellow
+--Extra: Horizontal scar across her eyes
+
+--Personality:
+--Buck, wild, ready to fight, explosive, antagonistic, stubborn, strong, focus.
+
+--Background:
+
+--Salamina does not go looking for fights, but she has never been one to turn one down,
+--and sadly for her fights often come to her. As a babe she had to deal with an abusive father
+--and mother, whom led to the scar across her face. As a small child, she had to beg for her own
+--food, and learn whatever food she brought home her parents would eat and not share, so she
+--learned to get her fill before bringing the rest of the food or beggar money home.
+
+--One day when she was about seven Salamina saw an earth magic user use his magic to defend
+--himself against a bunch of bullies. At the end of the ordeal all four bullies were on the ground
+--reeling in pain and the earth user was walking away.
+
+--Salamina ran in front of the teen and prostrated herself in front of him, begging that he teach
+--her. The guy laughed and said no.  Salamina pleaded with him. The guy started to walk away saying
+--he does not know enough to teach her. She wrapped her arms around his legs as he walked. He
+--slipped his legs out. She tried again. He ran out of the alley. Salimina waited for him the next
+--day. She punched him saying she will make him teach her.
+
+--The boy said he would not hit a girl. Salamina did not stop. She kept punching and kicking
+--the boy was forced to defend himself. This daily activity happened for a whole year before the teen
+--decided to teach her. It was another three years before Salamina transcended the boy in earth magic
+--ability.
+
+--In her later teen years Salamina traveled the world learning about different places and improving her magic, fighting when necessary. She eventually became one of the strongest earth mages in existence and because of her physical ability to fight she made the perfect candidate to be the Dirtsage.
+
+--Note: Sezin was the young earth mage’s name
+
+-- Template Version 1.04, 07/12/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is <Salamina> the <Dirtsage>. Keyphrases: Warsage, God, Dirt, Parents, Sezin, Fight.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "What do you want?", "Why are you bothering me?", "Please, what is it? Your interrupting my day."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "What do you want?", "Why are you bothering me?", "Please, what is it? Your interrupting my day."
+"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Bye", "Fare well", "See you" -> "Get out of here.", "Just leave, I have no desire to talk to you.", "Bye."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Get out of here.", "Just leave, I have no desire to talk to you.", "Bye."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel", "How do you do" -> "I feel like bashing some heads.", "I feel like I'd rather be out fighting.", "I'm so bored inside."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"your name", "who are you", "who art thou" -> "Salamina Zi is my name.", "Salamina the Dirtsage.", "Salamina, I bury those who stand in my way."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+-- "quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "Dirtsage of the Runewick Seven Warsages", "As Mashital always says I am a dog of the Archmage.", "I am a straight killer."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "Dirtsage of the Runewick Seven Warsages", "As Mashital always says I am a dog of the Archmage.", "I am a straight killer."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"Warsage" -> "I am one of the seven Warsages. We are the strongest warriors in all of Runewick.", "We hone both our physical capabilites and our magic.", "We go around the world killing things by the orders of Archmage Morgan."
+"Dirt" -> "Earth is strong, it's independent", "Rocks, mud, dust, I can manipulate all that stuff.", "This boy named Sezin was my origional teacher."
+"Parents" -> "I remember having to bring home food only to have my mother and father take it from me and eat it greedily themselves.", "I left home at the age of eight because my parents were less than human.", "These scars on my face are because the people that birthed me are monsters."
+"Sezin" -> "He was the first person to teach me earth magic. It took me a year of trying to fight him to get him to teach me.", "Not a day goes by where I don't think about what happened to him, but I never cared to go back to my village to find out.", "He wasn't even an adult and I was nearly a babe when he began teaching me."
+"Fight" -> "I don't look for fights, but they always find me.", "I love the sensation of fighting, the putting ones own physical strength, magic and will against each other.", "Sometimes I go crazy when I fight, I know, and sometimes I destroy whole villages, I know, but it's who I am and everyone will just have to deal wih it."
+"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Magic was created by the Gods to communicate with the hand of man."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gobaith
+"Gobaith", "Gobiath", english -> "Earth that has fallen below the sea becomes a lot harder to move."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "GERMAN.", "Those who mess with the Dustsage get destroyed. No metaphors necessary."
+cycletext "GERMAN.", "We need a regular cook in this place. My stomach has been quaking all day."
+cycletext "GERMAN.", "Mashital is so annoying. I'm going to kick her in the face."
+cycletext "GERMAN.", "I wonder whatever happened to him."
+cycletext "GERMAN.", "Galmair stinks. I have to hold my breath everytime I go there."
+cycletext "GERMAN.", "Cadomyr brawlers are weak. Nothing compared to the honed warriors of Runewick."
+cycletext "GERMAN.", "If you want to fight, simplly hit me."
+cycletext "GERMAN.", "Gangs are a collection of weak individuals. Real woman fight on their own."
+cycletext "GERMAN.", "I once seen Fo char a whole caravan in one breath."
+cycletext "GERMAN.", "I love to fight, but I will never use my ability to pick on those weaker than me. Bullying is the trueth sign of inner weakness."

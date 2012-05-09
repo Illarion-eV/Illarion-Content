@@ -1,0 +1,155 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Chal Pal                                                    None --
+-- NPC Job:  Aqua Warsage                                                     --
+--                                                                            --
+-- NPC Race: Lizardman 	                NPC Position:  0, 0, 0                --
+-- NPC Sex:  Female                     NPC Direction: south                  --
+--                                                                            --
+-- Author:   Kawan Baxter                                                     --
+--                                                                            --
+-- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Chal Pal"
+race = human
+sex = female
+position = 0, 0, 0
+direction = south
+affiliation = "None"
+job = "Aqua Warsage"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Kawan Baxter"
+
+lookatDE = "Dieser NPC ist <> der <>."
+lookatUS = "This NPC is <Chal Pal> the <Aquasage>."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+--Name: Chal Pal
+--Race: Lizardman
+--Age: 67 human years
+--Sex: Female
+--Position: Watersage
+
+--Personality: I am the hero. Or I was the hero. Pure hearted, kind, energetic, courageous.
+--A bit in the clouds, dreamy, scattered.
+
+--Background: Chal is an aging Watersage. She fights mostly with her feet though she is not
+--like the sky sage in that she will also use her hands when need be. A long time ago, just before
+--Chal reached adult hood. A bandit took siege of her village. Chal was one of the few people to
+--escape alive. Chal traveled Alder learning water magic and how to fight. She eventually came back
+--with a group of 12 and rescued her village, exiling the evil bandit. Chal was labeled a hero. The
+--village tried to make her a leader, but she soon got bored and left to pursue other adventures. She
+--settled with the guy of her dreams in Runewick and became the Watersage. That was a long time ago.
+--Chal is now old, though her age does not dull her enthusiasm for life. She is usually seen fighting
+--a long side Fu. They use their flame and aqua magic in unison.
+
+-- Template Version 1.04, 07/12/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is <Chal Pal> the <Aquasage>. Keyphrases: Waresage, Aqua, Hero, Gods.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to our temple.", "Great morning isnt it?", "Hey! How may I help you?"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"Hiho", "Hallo", "Hey", "Greeb", english ->"Welcome to our temple.", "Great morning isnt it?", "Hey! How may I help you?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"Farewell", "Bye", "Fare well", "See you" -> "Have a good day.", "If you ever need something I will be here.", "I will see you later, ok."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have a good day.", "If you ever need something I will be here.", "I will see you later, ok."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"How are you", "How feel", "How do you do" -> "Even in my old age. I can feel the energy all around me. I feel Great.", "I truly am happy.", "Very bored at the moment."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"your name", "who are you", "who art thou" -> "Chal Pal", "Chal The Aquasage", "I am Chal of the Reed 13, former Hero and leader of Paltaka Village."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+--"quest", "mission", english -> "to be determined.", "To be determined.", "To be determined."
+--"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"task", "adventure", "order" -> "to be determined.", "To be determined.", "To be determined."
+--"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am one of the seven Warsages.", "I am a Warsage and part time adventurer, yes even now.", "I am the Aquasage, A Warsage that uses aqua magic and the tagik fighting style, a most explosive combination if I do say so myself."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english ->  "I am one of the seven Warsages.", "I am a Warsage and part time adventurer, yes even now.", "I am the Aquasage, A Warsage that uses aqua magic and the tagik fighting style, a most explosive combination if I do say so myself."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"Warsage" -> "We are the most elite fighting force in Runewick and possibly all of Illarion.","We are the weapons that are a deadly, I prefer the word explosive, balance between magic and fighting.","We are the gaurdians of Runewick, order and justice."
+"Aqua" -> "I specialize in water and ice magic. I can do massive damage with steam too. You should have seen me in the battle of Arktch, Hahahahaha."
+"Water" -> "It's so versitle it can be used for anything."
+"Ice" -> "Use this when you really want to make a point."
+"Hero" -> "Back in my prime. I saved my village from the evil Bandit Keith. It was all thanks to the many teachers I met along the way."
+"Skysage" -> "Once the skysage challenged me and Fo to a batttle. He wanted us to fight together even knowing that when the flame and aquasage fight toghether we are stronger than any two individual fighters. Neeless to say, We handed him his arse."
+"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Magic was created by the Gods to communicate with the hand of man."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gobaith
+"Gobaith", "Gobiath", english -> "It sadly dissapeared.", "If only that island had a hero.", "I wish we could have saved it."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+"my name" -> "Chal Pal"
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"<Chal>", "<Pal>", english -> "Yes, Here I am, Do you need me?"
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "GERMAN.", "So bored. I'd rather be outside."
+cycletext "GERMAN.", "I bet you can't swim faster than me."
+cycletext "GERMAN.", "Yes, I am probably the deadliest grandma in existance."
+cycletext "GERMAN.", "Aqua is my magic. Kicking people is my past time."
+cycletext "GERMAN.", "hahahahahahahaha."
+cycletext "GERMAN.", "I love to hear the leers play the tunes of my past hero days."
+cycletext "GERMAN.", "Maybe someday I will give up this gig and become a full time adventurer."
+cycletext "GERMAN.", "I'm so hungry. Meat, give me meat."
+cycletext "GERMAN.", "Fo needs to be more social. He gives orcs a bad name, hahahaha."
+cycletext "GERMAN.", "I'm going to die soon. I'm just kidding I'm not human, hahahaha"
