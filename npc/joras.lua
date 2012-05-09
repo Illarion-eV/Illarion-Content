@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Joras                                                       None --
+-- NPC Name: Joras                                                   Runewick --
 -- NPC Job:  Skysage                                                          --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  0, 0, 0                --

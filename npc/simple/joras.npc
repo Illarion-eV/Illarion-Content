@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Joras                                                       None --
+-- NPC Name: Joras                                                   Runewick --
 -- NPC Job:  Skysage                                                          --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  0, 0, 0                --
@@ -15,7 +15,7 @@ race = human
 sex = male
 position = 0, 0, 0
 direction = south
-affiliation = "None"
+affiliation = "Runewick"
 job = "Skysage"
 
 language = common
