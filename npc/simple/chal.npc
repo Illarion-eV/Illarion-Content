@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Chal Pal                                                    None --
+-- NPC Name: Chalpal                                                     None --
 -- NPC Job:  Aqua Warsage                                                     --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  0, 0, 0                --
@@ -10,7 +10,7 @@
 -- Last parsing: May 09, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "Chal Pal"
+name = "Chalpal"
 race = human
 sex = female
 position = 0, 0, 0
@@ -26,7 +26,7 @@ autointroduce = on
 author = "Kawan Baxter"
 
 lookatDE = "Dieser NPC ist <> der <>."
-lookatUS = "This NPC is <Chal Pal> the <Aquasage>."
+lookatUS = "This NPC is <Chalpal> the <Aquasage>."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
@@ -45,7 +45,7 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
--- Name: Chal Pal
+-- Name: Chalpal
 -- Race: Lizardman
 -- Age: 67 human years
 -- Sex: Female
@@ -128,9 +128,9 @@ itemShoes = 53
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
-"my name" -> "Chal Pal"
+"my name" -> "Chalpal"
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"<Chal>", "<Pal>", english -> "Yes, Here I am, Do you need me?"
+"Chalpal", english -> "Yes, Here I am, Do you need me?"
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
@@ -142,9 +142,9 @@ cycletext "GERMAN.", "So bored. I'd rather be outside."
 cycletext "GERMAN.", "I bet you can't swim faster than me."
 cycletext "GERMAN.", "Yes, I am probably the deadliest grandma in existance."
 cycletext "GERMAN.", "Aqua is my magic. Kicking people is my past time."
-cycletext "GERMAN.", "hahahahahahahaha."
+cycletext "GERMAN.", "Haha."
 cycletext "GERMAN.", "I love to hear the leers play the tunes of my past hero days."
 cycletext "GERMAN.", "Maybe someday I will give up this gig and become a full time adventurer."
 cycletext "GERMAN.", "I'm so hungry. Meat, give me meat."
-cycletext "GERMAN.", "Fo needs to be more social. He gives orcs a bad name, hahahaha."
-cycletext "GERMAN.", "I'm going to die soon. I'm just kidding I'm not human, hahahaha"
+cycletext "GERMAN.", "Fo needs to be more social. He gives orcs a bad name, haha."
+cycletext "GERMAN.", "I'm going to die soon. I'm just kidding I'm not human, haha."
