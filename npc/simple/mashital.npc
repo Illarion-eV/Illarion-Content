@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Mashital Besual Telk Me                                     None --
+-- NPC Name: Mashital                                                    None --
 -- NPC Job:  Lightning Warsage                                                --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  0, 0, 0                --
@@ -10,7 +10,7 @@
 -- Last parsing: May 09, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "Mashital Besual Telk Me"
+name = "Mashital"
 race = human
 sex = male
 position = 0, 0, 0
