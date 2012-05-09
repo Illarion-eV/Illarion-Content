@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Salamina Zi                                                 None --
+-- NPC Name: Salamina                                                    None --
 -- NPC Job:  Dirtsage                                                         --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  0, 0, 0                --
@@ -7,10 +7,10 @@
 --                                                                            --
 -- Author:   Kawan Baxter                                                     --
 --                                                                            --
--- Last parsing: January 20, 2012                        easyNPC Parser v1.02 --
+-- Last parsing: May 09, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "Salamina Zi"
+name = "Salamina"
 race = human
 sex = female
 position = 0, 0, 0
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Kawan Baxter"
 
-lookatDE = "Dieser NPC ist <> der <Beruf/Funktion>."
-lookatUS = "This NPC is <Salamina> the <Dirtsage>."
+lookatDE = "Dieser NPC ist Salamina der <Beruf/Funktion>."
+lookatUS = "This NPC is Salamina the Dirtsage."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
@@ -45,47 +45,47 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
---Name: Salamina Zi
---Position: Dirtsage
---Age: 30
---Race human
---Sex: Female
---Weight: Skinny
---Height: Short
---Hair: Black Long
---Eyes: Black
---Skin: Yellow
---Extra: Horizontal scar across her eyes
+-- Name: Salamina Zi
+-- Position: Dirtsage
+-- Age: 30
+-- Race human
+-- Sex: Female
+-- Weight: Skinny
+-- Height: Short
+-- Hair: Black Long
+-- Eyes: Black
+-- Skin: Yellow
+-- Extra: Horizontal scar across her eyes
 
---Personality:
---Buck, wild, ready to fight, explosive, antagonistic, stubborn, strong, focus.
+-- Personality:
+-- Buck, wild, ready to fight, explosive, antagonistic, stubborn, strong, focus.
 
---Background:
+-- Background:
 
---Salamina does not go looking for fights, but she has never been one to turn one down,
---and sadly for her fights often come to her. As a babe she had to deal with an abusive father
---and mother, whom led to the scar across her face. As a small child, she had to beg for her own
---food, and learn whatever food she brought home her parents would eat and not share, so she
---learned to get her fill before bringing the rest of the food or beggar money home.
+-- Salamina does not go looking for fights, but she has never been one to turn one down,
+-- and sadly for her fights often come to her. As a babe she had to deal with an abusive father
+-- and mother, whom led to the scar across her face. As a small child, she had to beg for her own
+-- food, and learn whatever food she brought home her parents would eat and not share, so she
+-- learned to get her fill before bringing the rest of the food or beggar money home.
 
---One day when she was about seven Salamina saw an earth magic user use his magic to defend
---himself against a bunch of bullies. At the end of the ordeal all four bullies were on the ground
---reeling in pain and the earth user was walking away.
+-- One day when she was about seven Salamina saw an earth magic user use his magic to defend
+-- himself against a bunch of bullies. At the end of the ordeal all four bullies were on the ground
+-- reeling in pain and the earth user was walking away.
 
---Salamina ran in front of the teen and prostrated herself in front of him, begging that he teach
---her. The guy laughed and said no.  Salamina pleaded with him. The guy started to walk away saying
---he does not know enough to teach her. She wrapped her arms around his legs as he walked. He
---slipped his legs out. She tried again. He ran out of the alley. Salimina waited for him the next
---day. She punched him saying she will make him teach her.
+-- Salamina ran in front of the teen and prostrated herself in front of him, begging that he teach
+-- her. The guy laughed and said no.  Salamina pleaded with him. The guy started to walk away saying
+-- he does not know enough to teach her. She wrapped her arms around his legs as he walked. He
+-- slipped his legs out. She tried again. He ran out of the alley. Salimina waited for him the next
+-- day. She punched him saying she will make him teach her.
 
---The boy said he would not hit a girl. Salamina did not stop. She kept punching and kicking
---the boy was forced to defend himself. This daily activity happened for a whole year before the teen
---decided to teach her. It was another three years before Salamina transcended the boy in earth magic
---ability.
+-- The boy said he would not hit a girl. Salamina did not stop. She kept punching and kicking
+-- the boy was forced to defend himself. This daily activity happened for a whole year before the teen
+-- decided to teach her. It was another three years before Salamina transcended the boy in earth magic
+-- ability.
 
---In her later teen years Salamina traveled the world learning about different places and improving her magic, fighting when necessary. She eventually became one of the strongest earth mages in existence and because of her physical ability to fight she made the perfect candidate to be the Dirtsage.
+-- In her later teen years Salamina traveled the world learning about different places and improving her magic, fighting when necessary. She eventually became one of the strongest earth mages in existence and because of her physical ability to fight she made the perfect candidate to be the Dirtsage.
 
---Note: Sezin was the young earth mage’s name
+-- Note: Sezin was the young earth mage’s name
 
 -- Template Version 1.04, 07/12/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -98,7 +98,7 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is <Salamina> the <Dirtsage>. Keyphrases: Warsage, God, Dirt, Parents, Sezin, Fight.")
+"Help" -> inform("[Game Help] This NPC is Salamina the Dirtsage. Keyphrases: Warsage, God, Dirt, Parents, Sezin, Fight.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- Mandatory: General speech
