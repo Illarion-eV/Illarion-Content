@@ -27,13 +27,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is <Name> the <profession/function>. Keyphrases: Warsage, God, Life, Necromancy, Women."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Apling the <profession/function>. Keyphrases: Warsage, God, Life, Necromancy, Women."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Apling der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -44,7 +44,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("It?s a pleasure to see you today.");
+talkEntry:addResponse("It's a pleasure to see you today.");
 talkEntry:addResponse("And hello to you too good citizen.");
 talkEntry:addResponse("May I assist you in anything?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -100,8 +100,23 @@ talkEntry:addTrigger("Your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("The one and only Lifesage.");
-talkEntry:addResponse("I guess I?m technically the current standing commander of the Warsages.");
-talkEntry:addResponse("Apple is my name.");
+talkEntry:addResponse("I guess I'm technically the current standing commander of the Warsages.");
+talkEntry:addResponse("Apling is my name.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("to be determined.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addResponse("to be determined");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -148,13 +163,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Necromancy");
-talkEntry:addResponse("I dabble in it too. It?s not something I wildly advertise though.");
+talkEntry:addResponse("I dabble in it too. It's not something I wildly advertise though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("life");
-talkEntry:addResponse("Life magic is what I specialize in. It?s a quite regal magic, don?t you think?");
+talkEntry:addResponse("Life magic is what I specialize in. It?s a quite regal magic, don't you think?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -272,7 +287,7 @@ talkingNPC:addCycleText("GERMAN.", "Life and death are both two sides of the sam
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist <Apple> der <Skysage>.", "This NPC is <Apple> the <Skysage>.");
+mainNPC:setLookat("Dieser NPC ist Apling der <...>.", "This NPC is Apling the Skysage.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
