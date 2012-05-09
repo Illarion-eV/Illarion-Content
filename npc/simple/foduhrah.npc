@@ -1,16 +1,16 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Fo Duh Rah                                                  None --
--- NPC Job:  Insert profession here                                           --
+-- NPC Name: Foduhrah                                                    None --
+-- NPC Job:  Flamesage                                                        --
 --                                                                            --
--- NPC Race: Orc 	                    NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  0, 0, 0                --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Kawan Baxter                                                     --
+-- Author:   Insert your name here                                            --
 --                                                                            --
--- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: May 09, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "Fo Duh Rah"
+name = "Foduhrah"
 race = human
 sex = male
 position = 0, 0, 0
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Insert your name here"
 
-lookatDE = "Dieser NPC ist <Fo Duh Rah> der <>."
-lookatUS = "This NPC is <Fo Duh Rah> the <Flamesage>."
+lookatDE = "Dieser NPC ist Foduhrah der <--->."
+lookatUS = "This NPC is Foduhrah the <Flamesage>."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
@@ -45,47 +45,47 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
---Name Fo Duh Rah
---Position: Flame Mage
---Age : Child
---Sex: Hermaphadite.
---Race: Orc
---Height: small
---Weight: skinny with plump belly
---Skin: green
+-- Name Foduhrah
+-- Position: Flame Mage
+-- Age : Child
+-- Sex: Hermaphadite.
+-- Race: Orc
+-- Height: small
+-- Weight: skinny with plump belly
+-- Skin: green
 
---Personality: calm, cool, quiet, mysterious, cruel, likes to make his victims suffer.
+-- Personality: calm, cool, quiet, mysterious, cruel, likes to make his victims suffer.
 
---Background:
---Fo was born in on top of a secluded mountain range. Where a tribe lives that has been cut
---off from all other sentient beings for many a generation. In this particular tribe where every
---orc can breathe fire. Every child is weaned on a mixture of breast milk and flint oil, until
---their own bellies become a incubator capable of holding fire. This is why the bellies of all
---those in the Duh Rah village are swollen looking. It is a means of being able to produce fire
---anytime to keep warm in the frigid mountainous conditions. Most members of the village can do
---at least a minute amount of fire magic.
+-- Background:
+-- Fo was born in on top of a secluded mountain range. Where a tribe lives that has been cut
+-- off from all other sentient beings for many a generation. In this particular tribe where every
+-- orc can breathe fire. Every child is weaned on a mixture of breast milk and flint oil, until
+-- their own bellies become a incubator capable of holding fire. This is why the bellies of all
+-- those in the Duh Rah village are swollen looking. It is a means of being able to produce fire
+-- anytime to keep warm in the frigid mountainous conditions. Most members of the village can do
+-- at least a minute amount of fire magic.
 
---The villagers store flammable oil in the bellies in liquid form where it is through magic ignited.
---Usually it is breathed out through the mouth, but more experiences users can send it out through the
---nose, eyes, butt, and even the pores. Some members of the Duh Rah clan have even been known to piss
---fire.  The reserves in the bellies allow them to emit fire longer and hotter than with normal fire magic.
+-- The villagers store flammable oil in the bellies in liquid form where it is through magic ignited.
+-- Usually it is breathed out through the mouth, but more experiences users can send it out through the
+-- nose, eyes, butt, and even the pores. Some members of the Duh Rah clan have even been known to piss
+-- fire.  The reserves in the bellies allow them to emit fire longer and hotter than with normal fire magic.
 
---The Duh Rah clan hasn’t had contact with outsiders in hundreds of years, no one knows exactly how Fo
---ended up at Runewick, but the truth is he fell off the mountain one day while venturing by itself, like
---Fo was prone to do. It ended up in the care of a human village, where a poor childless couple raised it
---for a few moons, until it found out it could breath fire. After that the couple sold Fo to a traveling
---sales cart and made great money off of this. This of course made Fo cynical in life, though since it was
---only a child it went along, and traveled with the salesman until it was sold to a circus. In the circus
---it would be asked breath on exotic animals in front of a crowd. The charred animal would then be served
---to the audiance.
+-- The Duh Rah clan hasn’t had contact with outsiders in hundreds of years, no one knows exactly how Fo
+-- ended up at Runewick, but the truth is he fell off the mountain one day while venturing by itself, like
+-- Fo was prone to do. It ended up in the care of a human village, where a poor childless couple raised it
+-- for a few moons, until it found out it could breath fire. After that the couple sold Fo to a traveling
+-- sales cart and made great money off of this. This of course made Fo cynical in life, though since it was
+-- only a child it went along, and traveled with the salesman until it was sold to a circus. In the circus
+-- it would be asked breath on exotic animals in front of a crowd. The charred animal would then be served
+-- to the audiance.
 
---Apple, the Lifesage happened to be on a date at this traveling circus, when he saw Fo char an elephant.
---The fire magic control it took to char that whole elephant to where it would be crispy on the outside and
---juicy yet cooked on the inside was a once in a generation ability. Apple bought the child from the circus,
---using both a large sum of coin and his status as head commander of the Warsages to get the child from its
---reluctant owners. Apple then told the child it is free to do what it wants, but honestly it will probably
---be the next Flamesage. The child followed Apple who worked for 10 years in secret to hone the child’s
---abilities till it was ready to accept the mantle of Flamesage.
+-- Apple, the Lifesage happened to be on a date at this traveling circus, when he saw Fo char an elephant.
+-- The fire magic control it took to char that whole elephant to where it would be crispy on the outside and
+-- juicy yet cooked on the inside was a once in a generation ability. Apple bought the child from the circus,
+-- using both a large sum of coin and his status as head commander of the Warsages to get the child from its
+-- reluctant owners. Apple then told the child it is free to do what it wants, but honestly it will probably
+-- be the next Flamesage. The child followed Apple who worked for 10 years in secret to hone the child’s
+-- abilities till it was ready to accept the mantle of Flamesage.
 
 -- Template Version 1.04, 07/12/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -98,48 +98,43 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is <Fo Duh Rah> the <Flamesage>. Keyphrases: Waresage, Fire, Apple, Gods.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Foduhrah the <Flamesage>. Keyphrases: Waresage, Fire, Apling, Gods.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Foduhrah der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Please make your business known.", "Yes?", "What?"
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Please make your business known.", "Yes?", "What?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "Farewell", "Bye", "Fare well", "See you" -> "Please Leave in haste.", "Goodbye.", "#Fo Stares at you."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Please Leave in haste.", "Goodbye.", "#Fo Stares at you."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "How are you", "How feel", "How do you do" -> "I am me.", "I am feeling in balance.", "I don't feel like answering you."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "your name", "who are you", "who art thou" -> "Fo Duh Rah.", "The Sage of Flame.", "I am one of the seven Warsages."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
---"quest", "mission", english -> "to be determined.", "To be determined.", "To be determined."
---"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
---"task", "adventure", "order" -> "to be determined.", "To be determined.", "To be determined."
---"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"quest", "mission", english -> "to be determined.", "To be determined.", "To be determined."
+"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"task", "adventure", "order" -> "to be determined.", "To be determined.", "To be determined."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Warsage, that is what I am.", "I work for Runewick.", "I live in the service of Archmage Elvaine by the grace of Apple the Lifesage."
+"profession" -> "Warsage, that is what I am.", "I work for Runewick.", "I live in the service of Archmage Elvaine by the grace of Apling the Lifesage."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "Warsage, that is what I am.", "I work for Runewick.", "I live in the service of Archmage Elvaine by the grace of Apple the Lifesage."
+"job", english -> "Warsage, that is what I am.", "I work for Runewick.", "I live in the service of Archmage Elvaine by the grace of Apling the Lifesage."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Warsage" -> "We are the emergency fighting force for Runewick, though this city is so well defended we are not generally needed.", "We use both magic and fighting skills to form a polished warrior.", "If you wish to know more about us a book could give you more information than I can."
-"Fire","Flame" -> "In my belly is an oil that can make a very hot flame.", "Fire is lituraly inside of me.", "Fire and Naginata are my form of self defence."
-"Elf","Elves" -> "The world was better when I was in my little village and did not know what an elf was.", "They are so damn arrogant.", "Us Opcs of Duh Rah have only ever known about thirty others in our lifetime, so we do not know how to talk so much, unlike the elves."
-"Elvaine","Morgan","Archmage" -> "He is the wise rular of this land.", "His magical ability is not easily matched. Only the seven are a match for him.", "He is stronger than I."
-"Apple." -> "He saved me from a life of servatude.", "He rescued me from the circus.", "Sir Apple saw that I was pristine in my use of flame. He spent years working with me until my physical ability to defend myself was up to par."
+"Fire", "Flame" -> "In my belly is an oil that can make a very hot flame.", "Fire is lituraly inside of me.", "Fire and Naginata are my form of self defence."
+"Elf", "Elves" -> "The world was better when I was in my little village and did not know what an elf was.", "They are so damn arrogant.", "My kin has only ever known about thirty others in our lifetime, so we do not know how to talk so much, unlike the elves."
+"Elvaine", "Morgan", "Archmage" -> "He is the wise rular of this land.", "His magical ability is not easily matched. Only the seven are a match for him.", "He is stronger than I."
+"Apling." -> "He saved me from a life of servatude.", "He rescued me from the circus.", "Sir Apling saw that I was pristine in my use of flame. He spent years working with me until my physical ability to defend myself was up to par."
 "DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -153,7 +148,7 @@ itemShoes = 53
 -- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
 "my name" -> "Fo Duh Rah."
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"<Fo>", "<Duh Rah>", english -> "That is me, please state your business."
+"Foduhrah", english -> "That is me, please state your business."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
