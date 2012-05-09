@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: May 03, 2012                            easyNPC Parser v1.02 --
+-- Last parsing: May 09, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Brute Booze"
@@ -60,11 +60,11 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brute Booze ein berühmter orkischer Glücksritter. Schlüsselwörter: Heldentaten, erzähl etwas")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "xxx", "xxx", "ENGLISH3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted! Are you travelish?", "A good day. Are you prowlish?", "Be welcomed."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid mir gegrüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted! Are you travelish?", "A good day. Are you prowlish?", "Be welcomed."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gegrüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
-"Farewell", "Bye", "Fare well", "See you" -> "Save Travel!", "xxx", "xxx"
+"Farewell", "Bye", "Fare well", "See you" -> "Save travel!", "xxx", "xxx"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Sicheres Reisen!", "...oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Save travel!", "ENGLISH2.", "ENGLISH3."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sichere Reise!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
@@ -214,7 +214,7 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.", "Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Brute", "Booze", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Brute", "Booze", english -> "That's me!", "ENGLISH2.", "ENGLISH3."
 "Brute", "Booze" -> "Das iche binne.", "GERMAN2.", "GERMAN3."
 "Yes" -> "Truly bigly!", "ENGLISH2.", "ENGLISH3."
 "Ja" -> "Wahrlich, von Größe!", "Iche binne geehrt.", "Es iset mir ein Vergnü-higen."
@@ -234,7 +234,7 @@ itemShoes = 53
 
 cycletext "#me grunzt vergnügt und nimmt einen Schluck aus seinem Tonkrug.", "ENGLISH."
 cycletext "#me nickt sich selbst zu und wirft einen Blick in seine Tasche. Dann holt er eine halbe Wurst hervor und beißt davon ab.", "ENGLISH."
-cycletext "#me kratzt sich an der Nase.", "ENGLISH."
+cycletext "#me kratzt sich an der Nase.", "#me scratches his nose."
 cycletext "#me streckt seine Zunge heraus und grinst.", "ENGLISH."
 cycletext "#me spannt seine muskulösen Arme an und streckt sich demonstrativ.", "ENGLISH."
 cycletext "#me lächelt und lässt dabei abwechselnd seinen linken Brustmuskel hüpfen und dann den Rechten.", "ENGLISH."

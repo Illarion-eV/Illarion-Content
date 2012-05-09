@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: May 03, 2012                            easyNPC Parser v1.02 --
+-- Last parsing: May 09, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -45,9 +45,9 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("xxx");
-talkEntry:addResponse("xxx");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Be greeted! Are you travelish?");
+talkEntry:addResponse("A good day. Are you prowlish?");
+talkEntry:addResponse("Be welcomed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -71,9 +71,9 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Be greeted! Are you travelish?");
+talkEntry:addResponse("A good day. Are you prowlish?");
+talkEntry:addResponse("Be welcomed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -93,7 +93,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Save Travel!");
+talkEntry:addResponse("Save travel!");
 talkEntry:addResponse("xxx");
 talkEntry:addResponse("xxx");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1135,7 +1135,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Brute");
 talkEntry:addTrigger("Booze");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("That's me!");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1203,7 +1203,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me grunzt vergnügt und nimmt einen Schluck aus seinem Tonkrug.", "ENGLISH.");
 talkingNPC:addCycleText("#me nickt sich selbst zu und wirft einen Blick in seine Tasche. Dann holt er eine halbe Wurst hervor und beißt davon ab.", "ENGLISH.");
-talkingNPC:addCycleText("#me kratzt sich an der Nase.", "ENGLISH.");
+talkingNPC:addCycleText("#me kratzt sich an der Nase.", "#me scratches his nose.");
 talkingNPC:addCycleText("#me streckt seine Zunge heraus und grinst.", "ENGLISH.");
 talkingNPC:addCycleText("#me spannt seine muskulösen Arme an und streckt sich demonstrativ.", "ENGLISH.");
 talkingNPC:addCycleText("#me lächelt und lässt dabei abwechselnd seinen linken Brustmuskel hüpfen und dann den Rechten.", "ENGLISH.");
