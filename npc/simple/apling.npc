@@ -1,16 +1,16 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Apple	                                                     None --
--- NPC Job:  Lifesage                                                         --
+-- NPC Name: Apling                                                      None --
+-- NPC Job:  Skysage                                                          --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  0, 0, 0                --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Regal                                                            --
+-- Author:   Regallo                                                          --
 --                                                                            --
--- Last parsing: January 19, 2012                        easyNPC Parser v1.02 --
+-- Last parsing: May 09, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "Apple"
+name = "Apling"
 race = human
 sex = male
 position = 0, 0, 0
@@ -45,27 +45,27 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
---Name: Apple
---Position: Life Warsage
---Age 102 (looks 35)
---Sex: male
---Race: Human
---Height: tall
---Weight: Broad shoulders medium build
---Skin: White
+-- Name: Apple
+-- Position: Life Warsage
+-- Age 102 (looks 35)
+-- Sex: male
+-- Race: Human
+-- Height: tall
+-- Weight: Broad shoulders medium build
+-- Skin: White
 
---Personality: carefree callous, flirtatious suave
+-- Personality: carefree callous, flirtatious suave
 
---Background
---The longest surviving and oldest of the human Warsages Apple has grown a little more carefree than his companions.
---He has a love for the ladies. Many females who desire the position of warsage try to use his weakness to gain easy
---entrance into the order; however Apple has sex with them and sends them off to their death like any other who tries to join.
+-- Background
+-- The longest surviving and oldest of the human Warsages Apple has grown a little more carefree than his companions.
+-- He has a love for the ladies. Many females who desire the position of warsage try to use his weakness to gain easy
+-- entrance into the order; however Apple has sex with them and sends them off to their death like any other who tries to join.
 
---Apple was born one of Runewick’s aristocrats. He studied with the best magic and knowledge tutors and fought
---with some of the best trainers. He chose life magic because it seemed refined and later switched to necromancy
---because it seemed daring. Apple became a criminal that used necromancy to gain him a following. A Warsage was
---sent to kill him. Apple killed her and sent the head back the fallen sage’s head and a parchment containing a proposal.
---If they would accept him as the new Lifesage, he would disband his group and serve Runewick. Recognizing his power the Archmage
+-- Apple was born one of Runewick’s aristocrats. He studied with the best magic and knowledge tutors and fought
+-- with some of the best trainers. He chose life magic because it seemed refined and later switched to necromancy
+-- because it seemed daring. Apple became a criminal that used necromancy to gain him a following. A Warsage was
+-- sent to kill him. Apple killed her and sent the head back the fallen sage’s head and a parchment containing a proposal.
+-- If they would accept him as the new Lifesage, he would disband his group and serve Runewick. Recognizing his power the Archmage
 -- decided to allow it.
 
 -- Template Version 1.04, 07/12/2011 by Estralis Seborian
