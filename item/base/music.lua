@@ -1,4 +1,4 @@
--- Standartscript für Instrumente spielen
+-- Standardskript für Instrumente
 -- Nitram
 
 require("base.common")
