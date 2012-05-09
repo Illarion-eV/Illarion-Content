@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Kawan"
 
-lookatDE = "Dieser NPC ist <Skot> der <Eyesage>."
-lookatUS = "This NPC is <Name> the <profession/function>."
+lookatDE = "Dieser NPC ist Skot der <...>."
+lookatUS = "This NPC is Skot the <profession/function>."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
