@@ -51,12 +51,25 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     --User:setQuestProgress(8, 1)
 
     local callback = function(dialog)
-        User:inform("Shitty called back!")
-        --no_func()
+        result = dialog:getResult()
+        if result == MerchantDialog.playerSells then
+            item = dialog:getSaleItem()
+            User:inform("Selling " .. item.number .. " of item " .. item.id .. "!")
+        else
+            if result == MerchantDialog.playerBuys then
+                User:inform("Buying " .. dialog:getPurchaseAmount() .. " of index " .. dialog:getPurchaseIndex() .. "!")
+            else
+                User:inform("Trade Aborted!")
+            end
+        end
     end
-    local dialog = MessageDialog("Cool Title", "Cool Text", callback)
+    local dialog = MerchantDialog("Trader 0",  callback)
+    dialog:addProduct(1, "Krasses Schwert", 12345)
+    dialog:addProduct(2, "Weizenmehl", 2)
+    dialog:addProduct(2, "Roggenmehl", 3)
+    dialog:addProduct(100, "Maurerkelle des Verderbens", 4711)
     User:inform("start dialog")
-    User:requestMessageDialog(dialog)
+    User:requestMerchantDialog(dialog)
 end
 
 function useNPC(User,counter,param)
