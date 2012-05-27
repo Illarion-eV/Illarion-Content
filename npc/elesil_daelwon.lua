@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: April 29, 2012                          easyNPC Parser v1.02 --
+-- Last parsing: May 27, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -218,8 +218,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gebäude");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Markt, Tempel, Teleport, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, Türme, Turm der Luft, Turm des Feuer, Turm des Wasser, Turm der Erde"));
-talkEntry:addResponse("Welches Gebäude meint ihr? Markt, Tempel, Teleport, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, oder unsere Türme, sprich Turm der Luft, Turm des Feuer, Turm des Wasser, Turm der Erde?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Markt, Tempel, Teleport, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, Türme, Turm der Luft, Turm des Feuers, Turm des Wassers, Turm der Erde"));
+talkEntry:addResponse("Welches Gebäude meint ihr? Markt, Tempel, Teleport, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, oder unsere Türme, sprich Turm der Luft, Turm des Feuers, Turm des Wassers, Turm der Erde?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -381,7 +381,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zensusbüro");
-talkEntry:addResponse("Das Zensusbüro kann im Turm des Feuer neben der Bibliothek des Feuers gefunden werden werden. Man findet dort Reret Odohir. Er wird einem weiterhelfen.");
+talkEntry:addResponse("Das Zensusbüro kann im Turm des Feuers neben der Bibliothek des Feuers gefunden werden werden. Man findet dort Reret Odohir. Er wird einem weiterhelfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -609,7 +609,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bibliothek Feuer");
 talkEntry:addTrigger("Feuer Bibliothek");
-talkEntry:addResponse("Die Bibliothek des Feuer kann im ersten Stock des Turm des Feuer gefunden werden. Muss ich erklären, was man dort tun kann? Ich hoffe nicht.");
+talkEntry:addResponse("Die Bibliothek des Feuer kann im ersten Stock des Turm des Feuers gefunden werden. Muss ich erklären, was man dort tun kann? Ich hoffe nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -623,7 +623,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier Kammer");
 talkEntry:addTrigger("Kammer Erzmagier");
-talkEntry:addResponse("Die Erzmagier Kammer kann im zweiten Stock des Turm des Feuer gefunden werden. Es ist der private Raum unserers Erzmagier Elvaine Morgan.");
+talkEntry:addResponse("Die Erzmagier Kammer kann im zweiten Stock des Turm des Feuers gefunden werden. Es ist der private Raum unserers Erzmagier Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -638,7 +638,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Halle Elara");
 talkEntry:addTrigger("Elara Halle");
-talkEntry:addResponse("Die Halle der Elara kann im zweiten Stock des Turm des Feuer gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum zum hören und treffen unseres Erzmagier Elvaine Morgan.");
+talkEntry:addResponse("Die Halle der Elara kann im zweiten Stock des Turm des Feuers gefunden werden. Sie dient als ein Audienzsaal oder Konferenzraum zum hören und treffen unseres Erzmagier Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -652,7 +652,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon Bollwerk");
 talkEntry:addTrigger("Bollwerk Bragon");
-talkEntry:addResponse("Bragon's Bollwerk ist im dritten Stock des Turm des Feuer und ermöglicht jeder Person seine Kampffähigkeiten zu verbessern.");
+talkEntry:addResponse("Bragon's Bollwerk ist im dritten Stock des Turm des Feuers und ermöglicht jeder Person seine Kampffähigkeiten zu verbessern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,7 +666,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schrein Bragon");
 talkEntry:addTrigger("Bragon Schrein");
-talkEntry:addResponse("Der Schrein des Bragon kann im fünften Stock beziehungsweise auf der Spitze des Turm des Feuer gefunden werden.");
+talkEntry:addResponse("Der Schrein des Bragon kann im fünften Stock beziehungsweise auf der Spitze des Turm des Feuers gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -696,7 +696,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bibliothek Wasser");
 talkEntry:addTrigger("Wasser Bibliothek");
-talkEntry:addResponse("Die Bibliothek des Wassers kann im ersten Stock des Turm des Wassers gefunden werden. Sie ist aber gesperrt wie der ganze Turm des Wasser, wie ihr unserem Geschichtsbuch entnehmen könnt.");
+talkEntry:addResponse("Die Bibliothek des Wassers kann im ersten Stock des Turm des Wassers gefunden werden. Sie ist aber gesperrt wie der ganze Turm des Wassers, wie ihr unserem Geschichtsbuch entnehmen könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -724,7 +724,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lärm Kammer");
 talkEntry:addTrigger("Kammer Lärm");
-talkEntry:addResponse("Die Lärmkammer ist im zweiten Stock des Turm des Wassers und dient als Übungsraum für unsere Barden. Sie ist aber gesperrt wie der ganze Turm des Wasser, wie ihr unserem Geschichtsbuch entnehmen könnt.");
+talkEntry:addResponse("Die Lärmkammer ist im zweiten Stock des Turm des Wassers und dient als Übungsraum für unsere Barden. Sie ist aber gesperrt wie der ganze Turm des Wassers, wie ihr unserem Geschichtsbuch entnehmen könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -818,8 +818,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm");
 talkEntry:addTrigger("Türme");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Turm der Luft, Turm des Feuer, Turm der Erde, Turm des Wasser"));
-talkEntry:addResponse("Es gibt vier Türme: Turm der Luft, Turm des Feuer, Turm der Erde und Turm des Wasser. Ihr könnt jeden Turm am Dach oder Erdgeschoss betretten oder verlassen, nachdem ihr über das Portal dort drüben die Stadt betreten habt. *zeigt südöstlich*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Turm der Luft, Turm des Feuers, Turm der Erde, Turm des Wassers"));
+talkEntry:addResponse("Es gibt vier Türme: Turm der Luft, Turm des Feuers, Turm der Erde und Turm des Wassers. Ihr könnt jeden Turm am Dach oder Erdgeschoss betretten oder verlassen, nachdem ihr über das Portal dort drüben die Stadt betreten habt. *zeigt südöstlich*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -832,8 +832,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bibliothek");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Bibliothek der Luft, Bibliothek des Feuer, Bibliothek der Erde, Bibliothek des Wasser"));
-talkEntry:addResponse("Eigentlich haben wir hier vier Stück. Jeweils eine in unseren vier Türmen: Bibliothek der Luft, Bibliothek des Feuer, Bibliothek der Erde und Bibliothek des Wasser. Jede von ihnen ist im ersten Stock ihres Turm zu finden. Zu welcher wollt ihr mehr wissen?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Bibliothek der Luft, Bibliothek des Feuers, Bibliothek der Erde, Bibliothek des Wassers"));
+talkEntry:addResponse("Eigentlich haben wir hier vier Stück. Jeweils eine in unseren vier Türmen: Bibliothek der Luft, Bibliothek des Feuers, Bibliothek der Erde und Bibliothek des Wassers. Jede von ihnen ist im ersten Stock ihres Turm zu finden. Zu welcher wollt ihr mehr wissen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -847,8 +847,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hinterland");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninsel, Oldras Säule, Meerjungfrau, Lurnord Brücke"));
-talkEntry:addResponse("Das Hinterland von Runewick enthält folgende Orte: Feuer des Triumph, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninseln, Oldras Säule, Lurnord Brücke und Meerjungfrau");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Feuer des Triumphes, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninsel, Oldras Säule, Meerjungfrau, Lurnord Brücke"));
+talkEntry:addResponse("Das Hinterland von Runewick enthält folgende Orte: Feuer des Triumphes, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninseln, Oldras Säule, Lurnord Brücke und Meerjungfrau");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -946,7 +946,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Unser Herrscher kann in der Halle der Elara im Feuerturm gefunden werden, wenn ihr ihn zu sprechen wünscht.");
+talkEntry:addResponse("Unser Herrscher kann in der Halle der Elara im Turm des Feuers gefunden werden, wenn ihr ihn zu sprechen wünscht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -961,7 +961,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Unser Herrscher kann in der Halle der Elara im Feuerturm gefunden werden, wenn ihr ihn zu sprechen wünscht.");
+talkEntry:addResponse("Unser Herrscher kann in der Halle der Elara im Turm des Feuers gefunden werden, wenn ihr ihn zu sprechen wünscht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
