@@ -21,7 +21,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     if base.common.Encumbrence(User) then -- Sehr steife Rüstung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert am Leder gerben.",
+        "Deine Rüstung behindert beim Gerben.",
         "Your armour disturbes while tanning leather." );
         return
     end
@@ -49,7 +49,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if base.common.ToolBreaks( User, Tool, true ) then -- Rasiermesser beschädigen
         base.common.InformNLS( User,
         "Das Rasiermesser wird stumpf.",
-        "The razor blade wents blunt" );
+        "The razor blade wents blunt." );
         return
     end
 
@@ -126,7 +126,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (ltstate ~= Action.success) then
         base.common.InformNLS( User,
         "Du hast kein Rohleder und keine Felle die du gerben könntest.",
-        "You don't have any rawleather or furs you could tan." );
+        "You don't have any raw leather or furs you could tan." );
     end
 end
 
