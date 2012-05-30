@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: May 09, 2012                            easyNPC Parser v1.02 --
+-- Last parsing: May 30, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -748,9 +748,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("It is too dry in Cadomyr. And there ain't no beer good enough that will make me stayish!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -769,7 +767,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Albar");
-talkEntry:addResponse("Iche muss Euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heiﬂt dort sperrt man Leute ohne Arbeit in die Mienen. Von Orks will iche gar nicht sprechen.");
+talkEntry:addResponse("Iche muss Euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heiﬂt dort sperrt man Leute ohne Arbeit in die Minen. Von Orks will iche gar nicht sprechen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

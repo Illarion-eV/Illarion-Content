@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: May 09, 2012                            easyNPC Parser v1.02 --
+-- Last parsing: May 30, 2012                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Brute Booze"
@@ -160,12 +160,12 @@ itemShoes = 53
 "Königin" -> "Eine Königin der Menschen. Wohl von den Göttern erwählt. - Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen."
 "rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "rosaline", "edwards" -> "Eine Königin der Menschen. Wohl von den Göttern erwählt. - Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr", english -> "It is too dry in Cadomyr. And there ain't no beer good enough that will make me stayish!"
 "Cadomyr" -> "Es iset mir zu trocken in Cadomyr. Und kein Bier dort iset gut genug um lange dort zu bleibigen."
 
 -- Main land factions
 "Albar", english -> ""
-"Albar" -> "Iche muss Euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heißt dort sperrt man Leute ohne Arbeit in die Mienen. Von Orks will iche gar nicht sprechen."
+"Albar" -> "Iche muss Euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heißt dort sperrt man Leute ohne Arbeit in die Minen. Von Orks will iche gar nicht sprechen."
 "gynk", "gync", english -> ""
 "gynk", "gync" -> "Lasst Euch sagen, wenn ihr was verbotenes machen wollt, macht es in Gynk. Stechkarut und Sibanac, wir einem überall feilgeboten. Und die Sklaven sind reicher als die Arbeiter."
 "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
