@@ -76,11 +76,18 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 				"You need ".. ReqTexts.english[this.req.id] .. " in your belt or hands to do that.");
 		end
 	elseif LightsOn[SourceItem.id] then
-		this = LightsOn[SourceItem.id];
+	
+	--Issue #6881: Estralis removed the option to put out lights. Reason: New rot system restores wear value after moving the item. Could be abused.
+	--[[	this = LightsOn[SourceItem.id];
 		if this.back then
 			giveBack(User,SourceItem,this)
 		end
-		putOff(SourceItem,this);
+		putOff(SourceItem,this);]]
+	
+	--Replacement: An inform. Remove this if you re-enable putting out fires.
+	base.common.TempInformNLS(User,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to exstinguish the flames.");
+	--Issue #6881 END
+	
 	end
 end
 
