@@ -92,8 +92,8 @@ itemShoes = 53
 "mein Name" -> "Das klinghigt sehr wohl in meinen Ohren.", "Grossartig!", "Eine sehr feine Sache iset das."
 
 -- More small talk; add at least five triggers
-"heoric", "deed" -> "xxx"
-"Heldentate" -> "Vor drei Wintern, erschlug Brute Booze die Schlangenbestie, Myr Tobars! Ihr Leib wahr-higte so dick wie der einer Eiche und ungezähligte Mann lang. Zum dank gab der Hochpriester, Brute Booze seine Tochter zum Weib!", "Sieben Winter iset es her, da erlegte iche den Fluch Kang-Arr's. Ein Bär groß für drei Norodaj-Krieger, übersähet mit armlangen Stacheln. An jenem Tag ernannte mich Fürst Aramar Ingelfsen von Kathun zum fahrigenden Ritter seines Hofes.", "Einst, als ich im eisigen Karras war, bedrohhigte ein dämonischer Wyrm das Land. Viele Krieger mussten sterben, doch endlich spießte man das Untier mit geeinigter Kraft auf. Seit da an genoß iche Ansehen und Ehre unter Karras' Norodaj.", "Vor vier Wintern, gelang es den Hofmagiern des Triumvirats in Falmarha, mit meiniger Hilfe Lad'Nothratar den Metzger zu pfählen. Ein altertühmlicher Vampir, dessen Tot, iche den Ehrentitel 'Ehrenhafter Magier Falmarhas' verdankige.", "Hossa! Seit einem Jahr besitze iche, Brute Booze das kupferige Fell des Löwen Azzors, der einst dutzende mutige Krieger Nubris' verschlang. Mich zu Ehre steht ein kupferiges Abbild des Kampfes vor einem dem Tempel Malachins."
+"hero", "deed" -> "Three winters ago, Brute Booze beat the snake beast, Myr Tobars! Her body was oakish thick and many men long. Thankish, the high priest gave Brute Booze a daughter as wife."
+"Heldentat" -> "Vor drei Wintern, erschlug Brute Booze die Schlangenbestie, Myr Tobars! Ihr Leib wahr-higte so dick wie der einer Eiche und ungezähligte Mann lang. Zum Dank gab der Hochpriester, Brute Booze seine Tochter zum Weib!", "Sieben Winter iset es her, da erlegte iche den Fluch Kang-Arr's. Ein Bär groß für drei Norodaj-Krieger, übersähet mit armlangen Stacheln. An jenem Tag ernannte mich Fürst Aramar Ingelfsen von Kathun zum fahrigenden Ritter seines Hofes.", "Einst, als ich im eisigen Karras war, bedrohhigte ein dämonischer Wyrm das Land. Viele Krieger mussten sterben, doch endlich spießte man das Untier mit geeinigter Kraft auf. Seit da an genoß iche Ansehen und Ehre unter Karras' Norodaj.", "Vor vier Wintern, gelang es den Hofmagiern des Triumvirats in Falmarha, mit meiniger Hilfe Lad'Nothratar den Metzger zu pfählen. Ein altertühmlicher Knilch, dessen Tot, iche den Ehrentitel 'Ehrenhafter Magier Falmarhas' verdankige.", "Hossa! Seit einem Jahr besitze iche, Brute Booze das kupferige Fell des Löwen Azzors, der einst dutzende mutige Krieger Nubris' verschlang. Mich zu Ehre steht ein kupferiges Abbild des Kampfes vor einem dem Tempel Malachins."
 
 -- Town list
 "town", "village", "city", "cities" -> "[RINCE: PLEASE WRITE DOWN SOME SORT OF LIST OF THE TOWNS!]"
@@ -109,7 +109,7 @@ itemShoes = 53
 "Khaari", english -> "xxx"
 "Khaari" -> "Iche will Euch sagen, das Licht von Khaari iset eine Stadt der Flammenorks. Und über der Stadt thront der Tempel der Flamme dessen Drachenfeuer so hell leuchtet, das die Stadt niemals im Dunkeln liegt. Selbst in der Nacht nicht."
 "Sevenhill" -> "xxx"
-"Siebenberg" -> "Tja, nichtmal Menschen lass-hen die Zwerge nach Siebenberg hinein. Also kann iche Euch nur sagigen, was man hört. Es soll eine Miene sein, und die ausgegrabigten Schätze unermässlich."
+"Siebenberg" -> "Tja, nichtmal Menschen lass-hen die Zwerge nach Siebenberg hinein. Also kann iche Euch nur sagigen, was man hört. Es soll eine Miene sein, und die ausgegrabigten Schätze unermesslich."
 "Storm", "Keep", english -> "xxx"
 "Storm", "Keep" -> "Es war wirklich schwierig nach Storm's Keeo zu gelangen. Sehr weit im Norden und nur wenig Fremde dort. Die Schmiedekunst dort, iset jedoch weithin legendär."
 "Arn", "Gharrach", english -> "xxx"
@@ -159,13 +159,13 @@ itemShoes = 53
 "Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Runewick" -> "In Runewick hält mich nichts. Meine Nackenhaare sträubigen sich wenn Zauberei in der Nähe iset."
 "Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "Ein Zwerg aus Gynk. Don Valerio Guilianni. Ein Skrupeloser Händler, alles im alligen."
+"Valerio", "Guilianni", "Don" -> "Ein Zwerg aus Gynk. Don Valerio Guilianni. Ein skrupeloser Händler, alles im Alligen."
 "Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Galmair" -> "Das Bier in Galmair iset gut. Aber wenn man nicht aufpassigt klauen sie einem den Geldbeutel, noch bevor man die Zeche begleichen kann."
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Königin" -> "Eine Königin der Menschen. Wohl von den Göttern erwählt. - Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen."
-"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "edwards" -> "Eine Königin der Menschen. Wohl von den Göttern erwählt. - Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen."
+"Queen" -> "A queen of men. Chosen by the gods - I prefer princesses lone and towerish."
+"Königin" -> "Eine Königin der Menschen. Wohl von den Göttern erwählt. Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen."
+"rosaline", "edwards", english -> "A queen of men. Chosen by the gods - I prefer princesses lone and towerish."
+"rosaline", "edwards" -> "Eine Königin der Menschen. Wohl von den Göttern erwählt. Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen."
 "Cadomyr", english -> "It is too dry in Cadomyr. And there ain't no beer good enough that will make me stayish!"
 "Cadomyr" -> "Es iset mir zu trocken in Cadomyr. Und kein Bier dort iset gut genug um lange dort zu bleibigen."
 

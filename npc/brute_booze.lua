@@ -265,18 +265,18 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("heoric");
+talkEntry:addTrigger("hero");
 talkEntry:addTrigger("deed");
-talkEntry:addResponse("xxx");
+talkEntry:addResponse("Three winters ago, Brute Booze beat the snake beast, Myr Tobars! Her body was oakish thick and many men long. Thankish, the high priest gave Brute Booze a daughter as wife.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Heldentate");
-talkEntry:addResponse("Vor drei Wintern, erschlug Brute Booze die Schlangenbestie, Myr Tobars! Ihr Leib wahr-higte so dick wie der einer Eiche und ungezähligte Mann lang. Zum dank gab der Hochpriester, Brute Booze seine Tochter zum Weib!");
+talkEntry:addTrigger("Heldentat");
+talkEntry:addResponse("Vor drei Wintern, erschlug Brute Booze die Schlangenbestie, Myr Tobars! Ihr Leib wahr-higte so dick wie der einer Eiche und ungezähligte Mann lang. Zum Dank gab der Hochpriester, Brute Booze seine Tochter zum Weib!");
 talkEntry:addResponse("Sieben Winter iset es her, da erlegte iche den Fluch Kang-Arr's. Ein Bär groß für drei Norodaj-Krieger, übersähet mit armlangen Stacheln. An jenem Tag ernannte mich Fürst Aramar Ingelfsen von Kathun zum fahrigenden Ritter seines Hofes.");
 talkEntry:addResponse("Einst, als ich im eisigen Karras war, bedrohhigte ein dämonischer Wyrm das Land. Viele Krieger mussten sterben, doch endlich spießte man das Untier mit geeinigter Kraft auf. Seit da an genoß iche Ansehen und Ehre unter Karras' Norodaj.");
-talkEntry:addResponse("Vor vier Wintern, gelang es den Hofmagiern des Triumvirats in Falmarha, mit meiniger Hilfe Lad'Nothratar den Metzger zu pfählen. Ein altertühmlicher Vampir, dessen Tot, iche den Ehrentitel 'Ehrenhafter Magier Falmarhas' verdankige.");
+talkEntry:addResponse("Vor vier Wintern, gelang es den Hofmagiern des Triumvirats in Falmarha, mit meiniger Hilfe Lad'Nothratar den Metzger zu pfählen. Ein altertühmlicher Knilch, dessen Tot, iche den Ehrentitel 'Ehrenhafter Magier Falmarhas' verdankige.");
 talkEntry:addResponse("Hossa! Seit einem Jahr besitze iche, Brute Booze das kupferige Fell des Löwen Azzors, der einst dutzende mutige Krieger Nubris' verschlang. Mich zu Ehre steht ein kupferiges Abbild des Kampfes vor einem dem Tempel Malachins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -362,7 +362,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Siebenberg");
-talkEntry:addResponse("Tja, nichtmal Menschen lass-hen die Zwerge nach Siebenberg hinein. Also kann iche Euch nur sagigen, was man hört. Es soll eine Miene sein, und die ausgegrabigten Schätze unermässlich.");
+talkEntry:addResponse("Tja, nichtmal Menschen lass-hen die Zwerge nach Siebenberg hinein. Also kann iche Euch nur sagigen, was man hört. Es soll eine Miene sein, und die ausgegrabigten Schätze unermesslich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -703,7 +703,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Ein Zwerg aus Gynk. Don Valerio Guilianni. Ein Skrupeloser Händler, alles im alligen.");
+talkEntry:addResponse("Ein Zwerg aus Gynk. Don Valerio Guilianni. Ein skrupeloser Händler, alles im Alligen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -724,15 +724,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("A queen of men. Chosen by the gods - I prefer princesses lone and towerish.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("Eine Königin der Menschen. Wohl von den Göttern erwählt. - Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen.");
+talkEntry:addResponse("Eine Königin der Menschen. Wohl von den Göttern erwählt. Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -740,16 +738,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("A queen of men. Chosen by the gods - I prefer princesses lone and towerish.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Eine Königin der Menschen. Wohl von den Göttern erwählt. - Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen.");
+talkEntry:addResponse("Eine Königin der Menschen. Wohl von den Göttern erwählt. Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
