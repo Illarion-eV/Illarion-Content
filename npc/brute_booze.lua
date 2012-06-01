@@ -1,12 +1,11 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Brute Booze                                                 None --
--- NPC Job:  Adventurer                                                       --
+-- NPC Job:  adventurer                                                       --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  674, 320, 0            --
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
--- Authors:  Rincewind                                                        --
---           Attempt of an translation by Estralis Seborian                   --
+-- Author:   Rincewind                                                        --
 --                                                                            --
 -- Last parsing: June 01, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
@@ -29,13 +28,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Brute Booze an famous orcish adventurer. Keyphrases: Hello, towns, heroic deeds, tell something."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Brute Booze an fameous orcish adventurer. Keyphrases: Hello, towns, heroic deeds, tell something"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Brute Booze, ein berühmter orkischer Glücksritter. Schlüsselwörter: Hallo, Städte, Heldentaten, erzähl etwas."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Brute Booze ein berühmter orkischer Glücksritter. Schlüsselwörter: Hallo, Städte, Heldentaten, erzähl etwas"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -46,9 +45,9 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Be greeted! Are you travelish?");
-talkEntry:addResponse("A good day. Are you prowlish?");
-talkEntry:addResponse("Be welcomed.");
+talkEntry:addResponse("Greetings! Are you traveling too?");
+talkEntry:addResponse("Good day to you. Are you on a great journey? ");
+talkEntry:addResponse("I welcome you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -60,7 +59,7 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("Seid mir gegrüßet! Ihr seid wohl auch auf Reise?");
+talkEntry:addResponse("Seid mir gerüßet! Ihr seid wohl auch auf Reise?");
 talkEntry:addResponse("Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?");
 talkEntry:addResponse("Seid mir willkommen!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -72,9 +71,9 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Be greeted! Are you travelish?");
-talkEntry:addResponse("A good day. Are you prowlish?");
-talkEntry:addResponse("Be welcomed.");
+talkEntry:addResponse("Greetings! Are you traveling too?");
+talkEntry:addResponse("Good day to you. Are you on a great journey?");
+talkEntry:addResponse("I welcome you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -83,7 +82,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Seid mir gegrüßet! Ihr seid wohl auch auf Reise?");
+talkEntry:addResponse("Seid mir gerüßet! Ihr seid wohl auch auf Reise?");
 talkEntry:addResponse("Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?");
 talkEntry:addResponse("Seid mir willkommen!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -94,9 +93,9 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Save travel!");
-talkEntry:addResponse("...or like the southern lizards say: 'May your path be purely waterish!'");
-talkEntry:addResponse("May your boots be good.");
+talkEntry:addResponse("Save Travel!");
+talkEntry:addResponse("...or like the southern lizard folk say: May clear waters surround you.");
+talkEntry:addResponse("May your feet walk in good shoes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -106,7 +105,7 @@ talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Sicheres Reisen!");
-talkEntry:addResponse("...oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'");
+talkEntry:addResponse("... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'");
 talkEntry:addResponse("Iche will Euch gute Stiefel an die Füße wünsch-higen...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -117,9 +116,9 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Save travel!");
-talkEntry:addResponse("...or like the southern lizards say: 'May your path be purely waterish!'");
-talkEntry:addResponse("May your boots be good.");
+talkEntry:addResponse("Save Travel!");
+talkEntry:addResponse("...or like the southern lizard folk say: May clear waters surround you.");
+talkEntry:addResponse("May your feet walk in good shoes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -138,9 +137,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Yeah. Good old Brute is feeling fine. I will set out one day for new adventures.");
-talkEntry:addResponse("That is not important. How about you?");
-talkEntry:addResponse("Big days, these are indeed big days. I feel like a cub!");
+talkEntry:addResponse("Yes! Old Brute is feeling great. Sometime I will leave for a new adventure.");
+talkEntry:addResponse("Oh, it is not important how I'm feeling! Tell me, how are you?");
+talkEntry:addResponse("I feel like I felt on great days, back then, when I was still a young orc.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -159,7 +158,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am the famous Brute Booze! Living legend and known everywhere. You heard about my deeds, didn't you?");
+talkEntry:addResponse("I am the famous Brute Booze! A living legend and famous aswell! I'm sure you have heard of my deeds.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -176,7 +175,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ah, well. People keep being questionish about work and task. Do so and you will be one day be as heroish as me. I am not hireish, though.");
+talkEntry:addResponse("Oh, yes! Keep asking people for work and tasks, and one day you will become great hero, just like myself. However I dont have any work for you at the moment.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -191,7 +190,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Ah, well. People keep being questionish about work and task. Do so and you will be one day be as heroish as me. I am not hireish, though.");
+talkEntry:addResponse("Oh, yes! Keep asking people for work and tasks, and one day you will become great hero, just as I am. However I dont have any work for you at the moment.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -206,7 +205,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("Ain't no king, ain't no smith, ain't no peasant. My life is adventurish!");
+talkEntry:addResponse("Im not a king. Not a smith. Not a peasant. I live for adventures.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -219,7 +218,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ain't no king, ain't no smith, ain't no peasant. My life is adventurish!");
+talkEntry:addResponse("Im not a king. Not a smith. Not a peasant. I live for adventures.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -233,16 +232,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Indeedish, even on Gobaith I drank a stale beer. Some say it should be called Gobiath but this was misspellish on a common map. It is Gobaith!");
-talkEntry:addResponse("Indeedish, even on Gobaith I drank a stale beer. An unimportant island but something exciting happened every day.");
-talkEntry:addResponse("Indeedish, even on Gobaith I drank a stale beer. A small smut on the map but full of tall men that were prideish and braveryish.");
+talkEntry:addResponse("Of course, even on Gobaith I drank a flat beer. Many call it Gobiath, but the truth is: on the maps that have been copied many times, it's name got distorted over time. It's name is GobAIth.");
+talkEntry:addResponse("Of course, even on Gobaith I drank a flat beer. It was a small, inconspicuous island, but there was always something exciting to experience.");
+talkEntry:addResponse("Of course, even on Gobaith I drank a flat beer. An inconspicuous piece of land, but filled with great men of honour and bravery.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Sicherlin, selbst auf Gobaith drank iche ein schales Bier. Viele meinen es hieße Gobiath, doch tatsächlich wurde der Name in der oft abgezeichneten Karte falsch geschriebigt. Es heißt Gobaith.");
+talkEntry:addResponse("Sicherlin, selbst auf Gobaith drank iche ein schales Bier. Viele meinen es hieße Gobiath, doch tatsächlich wurde der Name in der oft abgezeichneten Karte falsch geschriebigt. Es heißt GobAIth.");
 talkEntry:addResponse("Sicherlin, selbst auf Gobaith drank iche ein schales Bier. Es war eine kleine unscheinbare Insel, dennoche gab es immer viel Spannendes zu erlebigen.");
 talkEntry:addResponse("Sicherlin, selbst auf Gobaith drank iche ein schales Bier. Ein unscheinbarer Flecken, doch befüllt mit großigen Männern voll Ehre und Mut.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -250,9 +249,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Sounds good.");
+talkEntry:addResponse("That sounds very well in my ears.");
 talkEntry:addResponse("Great!");
-talkEntry:addResponse("Fine thing!");
+talkEntry:addResponse("That's a very nice thing.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -265,28 +264,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hero");
-talkEntry:addTrigger("deed");
-talkEntry:addResponse("Three winters ago, Brute Booze beat the snake beast, Myr Tobars! Her body was oakish thick and many men long. Thankish, the high priest gave Brute Booze a daughter as wife.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Heldentat");
-talkEntry:addResponse("Vor drei Wintern, erschlug Brute Booze die Schlangenbestie, Myr Tobars! Ihr Leib wahr-higte so dick wie der einer Eiche und ungezähligte Mann lang. Zum Dank gab der Hochpriester, Brute Booze seine Tochter zum Weib!");
-talkEntry:addResponse("Sieben Winter iset es her, da erlegte iche den Fluch Kang-Arr's. Ein Bär groß für drei Norodaj-Krieger, übersähet mit armlangen Stacheln. An jenem Tag ernannte mich Fürst Aramar Ingelfsen von Kathun zum fahrigenden Ritter seines Hofes.");
-talkEntry:addResponse("Einst, als ich im eisigen Karras war, bedrohhigte ein dämonischer Wyrm das Land. Viele Krieger mussten sterben, doch endlich spießte man das Untier mit geeinigter Kraft auf. Seit da an genoß iche Ansehen und Ehre unter Karras' Norodaj.");
-talkEntry:addResponse("Vor vier Wintern, gelang es den Hofmagiern des Triumvirats in Falmarha, mit meiniger Hilfe Lad'Nothratar den Metzger zu pfählen. Ein altertühmlicher Knilch, dessen Tot, iche den Ehrentitel 'Ehrenhafter Magier Falmarhas' verdankige.");
-talkEntry:addResponse("Hossa! Seit einem Jahr besitze iche, Brute Booze das kupferige Fell des Löwen Azzors, der einst dutzende mutige Krieger Nubris' verschlang. Mich zu Ehre steht ein kupferiges Abbild des Kampfes vor einem dem Tempel Malachins.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("town");
 talkEntry:addTrigger("village");
 talkEntry:addTrigger("city");
 talkEntry:addTrigger("cities");
-talkEntry:addResponse("[RINCE: PLEASE WRITE DOWN SOME SORT OF LIST OF THE TOWNS!]");
+talkEntry:addResponse("RINCE WRITE SOMETHING HERE!!!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,7 +277,28 @@ talkEntry:addTrigger("Stadt");
 talkEntry:addTrigger("Städte");
 talkEntry:addTrigger("Dorf");
 talkEntry:addTrigger("Dörfer");
-talkEntry:addResponse("[RINCE: AND TRANSLATE IT!]");
+talkEntry:addResponse("UND HIER AUCH!!!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("heroic");
+talkEntry:addTrigger("deed");
+talkEntry:addResponse("Three winters ago, Brute Nooze slayed the snake beast, Myr Tobars! It's body was as thick as an Oak's trunk and was as long as any number of men. As thanks for slaying the beast, the High Priest gave Brute Booze his daughter to marry!");
+talkEntry:addResponse("Seven winters ago, I brought down the curse of Kang-Arr. A bear big enough for tree Norodaj warriors, with spikes covering its body, as long as an arms-lenght. On that day Aramar Ingelfsen, ruler of Kanthun, appointed me to be travelling knight at his court.");
+talkEntry:addResponse(" Once, as I was travelling the frigid lands of Karras, a demonic Wyrm was threatening the land. Many warriors lost their lives to the beast, but eventually it was slayin with united froce. From this day on, the people of Karras' Nordanaj, greeted me with respect and honour.");
+talkEntry:addResponse("Four winters ago, the court magician of Falmarha's triumvirate, managed to stake Lad'Nothratar the butcher, with my help. An ancient vampire, whose death granted me the title 'Honourable Mage of Falmarhas' ");
+talkEntry:addResponse("Huzza! Since one year now, I, Brute Booze, count the coppery fur of the lion Azzor, to my possessions, who once devoured dozens of Nubris' brave warriors. They constructed a copperish monument of this very battle, infront of Malachins temple, in my honour.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Heldentat");
+talkEntry:addResponse("Vor drei Wintern, erschlug Brute Booze die Schlangenbestie, Myr Tobars! Ihr Leib wahr-higte so dick wie der einer Eiche und ungezähligte Mann lang. Zum dank gab der Hochpriester, Brute Booze seine Tochter zum Weib!.");
+talkEntry:addResponse("Sieben Winter iset es her, da erlegte iche den Fluch Kang-Arr's. Ein Bär groß für drei Norodaj-Krieger, übersähet mit armlangen Stacheln. An jenem Tag ernannte mich Fürst Aramar Ingelfsen von Kathun zum fahrigenden Ritter seines Hofes.");
+talkEntry:addResponse("Einst, als ich im eisigen Karras war, bedrohhigte ein dämonischer Wyrm das Land. Viele Krieger mussten sterben, doch endlich spießte man das Untier mit geeinigter Kraft auf. Seit da an genoß iche Ansehen und Ehre unter Karras' Norodaj.");
+talkEntry:addResponse("Vor vier Wintern, gelang es den Hofmagiern des Triumvirats in Falmarha, mit meiniger Hilfe Lad'Nothratar den Metzger zu pfählen. Ein altertühmlicher Vampir, dessen Tot, iche den Ehrentitel 'Ehrenhafter Magier Falmarhas' verdankige.");
+talkEntry:addResponse("Hossa! Seit einem Jahr besitze iche, Brute Booze das kupferige Fell des Löwen Azzors, der einst dutzende mutige Krieger Nubris' verschlang. Mir zu Ehren steht ein kupferiges Abbild des Kampfes vor einem der Tempel Malachins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -303,7 +306,28 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kroch");
 talkEntry:addTrigger("Gurak");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("xxx");
+talkEntry:addResponse("Kroch'Gurak! The winter camp of the wild clans. A colossal, cavernous construct, steeped in the rythmic sound of drums. Full of orcs, herding cattle and the smell of bean brandy!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Fireshine");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Fireshine! The Dragoncastle of the Flameorcs. Carved  in black lava-stone, the orcs of Khor-Anthalatosh, bearers of the Inner Flame, are lead by the Dragon of the North. This fortress is literally, illuminating. ");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Judgement");
+talkEntry:addTrigger("Flame");
+talkEntry:addResponse("Judgement's Flame is a monastery castle, inhabited by the Flameorcs. Three times a day, the loud, resounding sound of horns, is heard through the temples, calling the paladins and monks for prayer. But the inner part of the city is off-limits for travelers. ");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Khaari");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Let me tell you, the Light of Khaari is a Flameorc city. The Temple of Flames is enthroned above it and the shine of the temples Dragonfire lights up the whole city , so that it never gets dark. Not even at night.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,21 +340,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fireshine");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("xxx");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Fireshine");
 talkEntry:addResponse("Fireshine! Die Drachenburg der Flammenorks. Aus schwarzem Lava-Stein herausgehauen, werden die Orks von Khor-Anthalatosh, Träger der Inneren Flamme, großer Drache des Nordens, geleitet. Diese Festung iset im wahren Sinn des Worts, erleuchtigt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Judgement");
-talkEntry:addTrigger("Flame");
-talkEntry:addResponse("xxx");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -343,54 +353,47 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Khaari");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("xxx");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Khaari");
-talkEntry:addResponse("Iche will Euch sagen, das Licht von Khaari iset eine Stadt der Flammenorks. Und über der Stadt thront der Tempel der Flamme dessen Drachenfeuer so hell leuchtet, das die Stadt niemals im Dunkeln liegt. Selbst in der Nacht nicht.");
+talkEntry:addResponse("Iche will Euch sagen, das Licht von Khaaei iset eine Stadt der Flammenorks. Und über der Stadt thront der Tempel der Flamme dessen Drachenfeuer so hell leuchtet, das die Stadt niemals im Dunkeln liegt. Selbst in der Nacht nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sevenhill");
-talkEntry:addResponse("xxx");
+talkEntry:addResponse("Well, not even humans are allowerd inside Sevenhill by the dwarves. So I can only tell you, what one may hear. It is said to be a mine, with vast treasures recovered from it. ");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Storm");
+talkEntry:addTrigger("Keep");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("It was really hard to reach Storm's Keep. Away far north and with only frew strangers there. But the art of smithing there is legendary.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Arn-Gharrach");
+talkEntry:addTrigger("Arn Gharrach");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Arn-Gharrach, probably the oldest dwarven realm. It is the city of trading and even 'Overlander', as they say, are allowed inside. Before all, I'd like to praise the dwarven beer. '");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Siebenberg");
-talkEntry:addResponse("Tja, nichtmal Menschen lass-hen die Zwerge nach Siebenberg hinein. Also kann iche Euch nur sagigen, was man hört. Es soll eine Miene sein, und die ausgegrabigten Schätze unermesslich.");
+talkEntry:addResponse("Tja, nichtmal Menschen lass-hen die Zwerge nach Siebenberg hinein. Also kann iche Euch nur sagigen, was man hört. Es soll eine Miene sein, und die ausgegrabigten Schätze unermässlich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Storm");
 talkEntry:addTrigger("Keep");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("xxx");
+talkEntry:addResponse("Es war wirklich schwierig nach Storm's Keep zu gelangen. Sehr weit im Norden und nur wenig Fremde dort. Die Schmiedekunst dort, iset jedoch weithin legendär.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Storm");
-talkEntry:addTrigger("Keep");
-talkEntry:addResponse("Es war wirklich schwierig nach Storm's Keeo zu gelangen. Sehr weit im Norden und nur wenig Fremde dort. Die Schmiedekunst dort, iset jedoch weithin legendär.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Arn");
 talkEntry:addTrigger("Gharrach");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("xxx");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Arn");
 talkEntry:addTrigger("Gharrach");
 talkEntry:addResponse("Arn-Gharrach, wohl das älteste Zwergenreich. Es iset die Stadt des Handels und auch 'Oberwelter' wie man dort sagt, haben Zutritt. Vor allem möchte iche das Bier der Zwerge lobend erwähnen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -398,7 +401,19 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Firnismill");
-talkEntry:addResponse("xxx");
+talkEntry:addResponse("Firnismill is known for it's hospitality. As an orc however, one is frowned upon. Anyhow, it is very green and rich in gardens. ");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Pennymill");
+talkEntry:addResponse("In Pennymill, the vegetables usually are twice as big as elswhere. It was a bit too quiet there, for my taste and I didn't tay long.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldwillows");
+talkEntry:addResponse("Hm, I never visited Oldwillows. I doubt that it is worth visiting. ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -409,20 +424,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Pennymill");
-talkEntry:addResponse("xxx");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Pfennigmühle");
 talkEntry:addResponse("In Pfennigmühle iset das Gemüse für gewöhnlich doppelt so groß wie anders wo. Mir war's dort allerdings zu ruhig und iche blieb nicht besonders lange.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldwillows");
-talkEntry:addResponse("xxx");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -435,22 +438,20 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irulaith");
 talkEntry:addTrigger("Quenn");
-talkEntry:addTrigger("Arah");
 talkEntry:addTrigger("Shir");
 talkEntry:addTrigger("Assiri");
-talkEntry:addTrigger("Sor");
+talkEntry:addTrigger("Arah");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("xxx");
+talkEntry:addResponse("This is some kind of gnome city, isn't it? I can't imagine them, brewing any good beer in the desert, so I've never been there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irulaith");
 talkEntry:addTrigger("Quenn");
-talkEntry:addTrigger("Arah");
 talkEntry:addTrigger("Shir");
 talkEntry:addTrigger("Assiri");
-talkEntry:addTrigger("Sor");
+talkEntry:addTrigger("Arah");
 talkEntry:addResponse("Das iset so eine Gnom-Stadt nicht wahr? Iche kann mir nicht vorstellen das die in der Wüste gutes Bier brauen, also war iche dort auch nie.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -458,7 +459,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kjelt");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("The stormy city! Kjelt. After month of traveling through cold, bleak steppe, one will find a sightly fortress. The humans there similar to us orcs, but then again completely different.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Karras");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Karras is a city made of ice. Even during summer it doesn't get warm enough, to smelt the city walls, they say. There, you get hot beer and spiced wine. The journey was worth every frozen off toe!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -470,36 +478,41 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Karras");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Karras");
 talkEntry:addResponse("Karras die Stadt aus Eis. Es iset selbst im Sommer nicht warm genug um die Mauern zu schmelzen, ließ iche mir sagen. Man bekommt heißes Bier zum saufen und würzigen Wein. Die Reise war mir jede abgefrorigte Zehe wert!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ann");
 talkEntry:addTrigger("Korr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ann");
-talkEntry:addTrigger("Korr");
-talkEntry:addResponse("Ann'Korr iset eine besonders alte Hafenstadt. Man hat sie in verschiedene Viertel geteilt, und je wohlhabender man iset hat man sein Haus wo anders.");
+talkEntry:addResponse("Ann-Korr is a remarkably old harbour city. It got split into different districts, and depending on how wealthy you are, the position of your house would differ.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fennsworth");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("If you are an orc, you are only allowed into Fennsworth as a slave. So I've never been there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Kang");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Kang-Arr is probably the most beneficial city for travelers, in the whole albarian realm. Alot humans from the norht are there. I guess, this has a profitable influence.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldford");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oldford is a village, one would say, having visited as many great cities as I have. But the inn 'The Gumbler's Head' is quite louche. ");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Korr");
+talkEntry:addResponse("Ann'Korr iset eine besonders alte Hafenstadt. Man hat sie in verschiedene Viertel geteilt, und je wohlhabender man iset hat man sein Haus wo anders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -511,20 +524,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kang");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Kang");
 talkEntry:addResponse("Kang-Arr iset wohl die bekömmlichste Stadt für einen Reisenden im ganzen Albarischen Reich. Gi-hibt eine Menge Menschen aus dem Norden dort. Schätze das hat einen nützlichen Einfluss.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldford");
-talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -538,7 +538,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Myr");
 talkEntry:addTrigger("Tobar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("Myr-Tobar, the jade city and green heart of the jungle. The seven great temple are worth visiting. The people living there seem to generally like the number seven very much.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Khenserra");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Khenserra is a dusty mining city. I even saw an ogre there. A good city if an orc needs some money fast. It doesn't smeel very good, but is free from elves.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -551,13 +558,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Khenserra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Khenserra");
 talkEntry:addResponse("Khenserra iset eine staubige Mienenstadt. Sogar'n Oger hab iche dort gesehen. Eine gute Stadt wenn ein Ork schnell Geld braucht. Es riecht zwar nicht schön, iset aber Elfenfrei.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -565,7 +565,35 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Falmarha");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("Falmarha is some kind of sea castle. The inns are cheap and the humans serve you like slaves. I tell you, that many ships I have never seen before.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Laris");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Laris is a castle too, if you want to call it that. There, they even tamed a river and redirected. The most important thing is the wine though. THE WHINE!...You should try it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nubris");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Let me tell you, the humans in Nurbis have as black skin, as mine is green. Their city is called the golden jewel of the south and there is a vast amount of herbs and other stuff you can buy there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Mitsobar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There is stong beer and pungent, brown liquor in Mitsobar. The humans there, drink a lot of it and eat fish as if they were lizards.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Koldamar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Koldamar is a boring, windy city. Everyone there is thinking a lot and not very talkative. If you dont like the jungle, you can go there to see lizards - as long as the gods are willing.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -577,21 +605,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Laris");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Laris");
 talkEntry:addResponse("Laris iset auch eine Festung, wenn man das so sagen will. Man hat sogar einen Fluss gezähmhigt und umgegraben. Das wichtigste iset aber der Wein. DER WEIN!...sollte man getrunken haben.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nubris");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -603,21 +617,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mitsobar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Mitsobar");
 talkEntry:addResponse("In Mitsobar gibt es kräftiges Bier und starkigen , braunen Schnaps. Und davon saufen die Menschen beachtlicher Menge. Außerdem fressen die Menschen dorte Fische als wären sie Echsen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Koldamar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -628,31 +628,27 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Lor");
 talkEntry:addTrigger("Angur");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("xxx");
+talkEntry:addResponse("Lor-Angur is filled with elves that think themselves very celver. And the humans there, aren't different. All of them indulge in sorcery and other dangerous things like it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Lor");
 talkEntry:addTrigger("Angur");
-talkEntry:addResponse("In Lor-Angur iset's voll mit Elfen die meinen sie sind besonderig klug. Und die Menschen sind nichtig besser. Allesamte fröhnen sie der Zauberei und solch gefährlichen Sachen.");
+talkEntry:addResponse("In Lor-Angur iset's voll mit Elfen die meinen sie sind besonderig klug. Und die Menschen sind nichtig besser. Allesamte frönen sie der Zauberei und solch gefährlichen Sachen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I heard the Archmage of Runewick, Elvaine Morgan, is an elf from Lor-Angur.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Iche hab mir sagen lassen, der Erzmagier Runewicks, Elvaine Morgan iset ein Elf aus Lor-Angur.");
+talkEntry:addResponse("Iche hab mir sagen lassen der Erzmagier Runewicks, Elvaine Morgan, iset ein Elf aus Lor-Angur.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -660,25 +656,21 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I heard the Archmage of Runewick, Elvaine Morgan, is an elf from Lor-Angur.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Iche hab mir sagen lassen, der Erzmagier Runewicks, Elvaine Morgan iset ein Elf aus Lor-Angur.");
+talkEntry:addResponse("Iche hab mir sagen lassen der Erzmagier Runewicks, Elvaine Morgan, iset ein Elf aus Lor-Angur.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("There's nothing keeping me in Runewick. It makes my hair stend on end, when sorcery is near.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -693,9 +685,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("A dwarf from Gynk. Don Valerio Guilianni. A ruthless merchant, in general.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -703,16 +693,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Ein Zwerg aus Gynk. Don Valerio Guilianni. Ein skrupeloser Händler, alles im Alligen.");
+talkEntry:addResponse("Ein Zwerg aus Gynk. Don Valerio Guilianni. Ein Skrupeloser Händler, alles im alligen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("The beer in Galmair is good, but if you're not careful they steal your purse, before you can pay for it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -724,13 +712,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("A queen of men. Chosen by the gods - I prefer princesses lone and towerish.");
+talkEntry:addResponse("A human queen. Chosen by the gods, probably. I prefer lonely princesses in high towers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("Eine Königin der Menschen. Wohl von den Göttern erwählt. Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen.");
+talkEntry:addResponse("Eine Königin der Menschen. Wohl von den Göttern erwählt. Iche bevorzuge ja eher Prinzessinen in vereinsamten Türmsen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -738,7 +726,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("A queen of men. Chosen by the gods - I prefer princesses lone and towerish.");
+talkEntry:addResponse("A human queen. Chosen by the gods, probably. I prefer lonely princesses in high towers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -752,7 +740,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("It is too dry in Cadomyr. And there ain't no beer good enough that will make me stayish!");
+talkEntry:addResponse("It's too dry in Casomyr, for my liking. And no beer there, is good enough to stay for long.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -765,13 +753,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("I have to confess, I never set foot in Albar. They say, people without work are forced to work in the mines. I don't even want meantion what they do with orcs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Albar");
-talkEntry:addResponse("Iche muss Euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heißt dort sperrt man Leute ohne Arbeit in die Minen. Von Orks will iche gar nicht sprechen.");
+talkEntry:addResponse("Iche muss Euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heißt dort sperrt man Leute ohne Arbeit in die Mienen. Von Orks will iche gar nicht sprechen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -779,23 +767,21 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("Let me tell you, if you plan to do something illegal, do it in Gynk. You can get swampweed and sibanac on practically every corner. And slaves are richer than workers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Lasst Euch sagen, wenn ihr was verbotenes machen wollt, macht es in Gynk. Stechkraut und Sibanac wird einem überall feilgeboten. Und die Sklaven sind reicher als die Arbeiter.");
+talkEntry:addResponse("Lasst Euch sagen, wenn ihr was verbotenes machen wollt, macht es in Gynk. Stechkarut und Sibanac, wir einem überall feilgeboten. Und die Sklaven sind reicher als die Arbeiter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("City of the sun. The biggest temple of the known world is located there, Temple of the wheel, where books are kept like treasures in great halls.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -807,7 +793,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("My forefathers are always with me while being travelish.");
+talkEntry:addResponse("My ancestors always accompany me on my journey.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -823,7 +809,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I am sorry, nothing to sell I am possesionish and none of your goods is valueish for me.");
+talkEntry:addResponse("I'm afraid, I don't have anything for sale and I've got no interest in any of your things.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -838,39 +824,24 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("When is was cubish, someone asked me what I wanted to achieve before I am deadish. And I said that I want to drink a beer in every town of Illarion. The next day, I was travelish.");
-talkEntry:addResponse("Since I left the Norbug plateau I visited many towns. If you want to be knowledgeish, ask me. I love to tell about foreign towns!");
+talkEntry:addResponse("When I was a young orc, someone asked me, what I wanted to have done, before I die. And I said, I want to have drank a beer in even city of Illarion. The next day, I had alreasy broken up.");
+talkEntry:addResponse("Since I had left the Norbug Plateua back then, I have travelled many known countires. So if you are looking for knowledge, just ask me. I enjoy telling you about various, strange lands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Als iche noch ein Orkling war, fragte mich einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.");
-talkEntry:addResponse("Seit iche damals das Norbug-Plateau verließ, binne iche in viele der bekannten Städte gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremden Städten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Brute");
-talkEntry:addTrigger("Booze");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That's me!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Brute");
-talkEntry:addTrigger("Booze");
-talkEntry:addResponse("Das iche binne.");
+talkEntry:addResponse("Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.");
+talkEntry:addResponse("Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Truly bigly!");
-talkEntry:addResponse("I am honourish.");
-talkEntry:addResponse("Enjoyish, I am.");
+talkEntry:addResponse("Truly of greatness!");
+talkEntry:addResponse("I am honoured.");
+talkEntry:addResponse("It is a pleasure.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -884,9 +855,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("Is dat so?");
-talkEntry:addResponse("Indeedish?");
-talkEntry:addResponse("Hm-hm.");
+talkEntry:addResponse(" Is that so?");
+talkEntry:addResponse("Really?");
+talkEntry:addResponse("Mh-hm.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -894,7 +865,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
 talkEntry:addResponse("Iset das so?");
 talkEntry:addResponse("Tatsächlich?");
-talkEntry:addResponse("Hm-hm.");
+talkEntry:addResponse("Mh-hm.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -902,9 +873,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(40));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("But tell me, what do you want to have done, before you die?");
+talkEntry:addResponse("Yes. This is just like in those days, when I slayed the thorned bear of Kang-Arr.");
+talkEntry:addResponse("Hurr- hearing this, I am reminded of my own heroic deeds.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -917,20 +888,20 @@ talkEntry:addResponse("Ja-ha. Das ist gleich wie damalsig. Als iche den Stachelb
 talkEntry:addResponse("Hurr - wenn iche das hörige muss ich an meine Heldentaten denkigen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me grunzt vergnügt und nimmt einen Schluck aus seinem Tonkrug.", "ENGLISH.");
-talkingNPC:addCycleText("#me nickt sich selbst zu und wirft einen Blick in seine Tasche. Dann holt er eine halbe Wurst hervor und beißt davon ab.", "ENGLISH.");
+talkingNPC:addCycleText("#me grunzt vergnügt und nimmt einen Schluck aus seinem Tonkrug.", "#me grunts cheerfully and takes a swig from his jug");
+talkingNPC:addCycleText("#me nickt sich selbst zu und wirft einen Blick in seine Tasche. Dann holt er eine halbe Wurst hervor und beißt davon ab.", "#me nods to himself and takes a look inside his bag. Then he takes out half a sausage and takes a bite from it.");
 talkingNPC:addCycleText("#me kratzt sich an der Nase.", "#me scratches his nose.");
-talkingNPC:addCycleText("#me streckt seine Zunge heraus und grinst.", "ENGLISH.");
-talkingNPC:addCycleText("#me spannt seine muskulösen Arme an und streckt sich demonstrativ.", "ENGLISH.");
-talkingNPC:addCycleText("#me lächelt und lässt dabei abwechselnd seinen linken Brustmuskel hüpfen und dann den Rechten.", "ENGLISH.");
-talkingNPC:addCycleText("#me nimmt seinen Trinkschlauch vom Gürtel und nimmt einen Schluck daraus.", "ENGLISH.");
-talkingNPC:addCycleText("#me fährt sich mit der Hand über seinen kahlen Kopf und zeigt dabei, gewinnend lächelnd, seine blendend weißen Zähne.", "ENGLISH.");
-talkingNPC:addCycleText("#me zupft mit seinen gepflegten Händen am Spitzbart.", "ENGLISH.");
-talkingNPC:addCycleText("#me stemmt die Arme in die Seiten und streckt den Oberkörper durch.", "ENGLISH.");
+talkingNPC:addCycleText("#me streckt seine Zunge heraus und grinst.", "#me stretches out his tounge and grins.");
+talkingNPC:addCycleText("#me spannt seine muskulösen Arme an und streckt sich demonstrativ.", "#me flexes his muscular arms and stretches demonstratively. ");
+talkingNPC:addCycleText("#me lächelt und lässt dabei abwechselnd seinene Brustmuskeln hüfen.", "#me smiles and twitches his chest muscles alternately.");
+talkingNPC:addCycleText("#me nimmt seinen Trinkschlauch vom Gürtel und nimmt einen Schluck daraus.", "#me takes a waterskin from his belt and takes a sip from it.");
+talkingNPC:addCycleText("#me fährt sich mit der Hand über seinen kahlen Kopf und zeigt dabei, gewinnend lächelnd, seine blendend weißen Zähne.", "#me strokes a hand over his bald head, smiling engagingly and showing his dazzlingly white teeth.");
+talkingNPC:addCycleText("#me zupft mit seinen gepflegten Händen am Spitzbart.", "#me plucks on his pointed beard with his sleek hands.");
+talkingNPC:addCycleText("#me stemmt die Arme in die Seiten und streckt den Oberkörper durch.", "#me stands with his arms akimbo and stretches out his chest. ");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein stattlicher Ork, mit selbstbewusstem Lächeln. Er trägt nichts am Oberkörper und spricht mit seltsamem Akzent.", "An impressive orc, smiling with confidence. His chest is bare and he speaks with a strange accent.");
+mainNPC:setLookat("Ein stattlicher Ork, mit selbstbewusstem Lächeln. Er trägt nichts am Oberkörper und spricht mit seltsamem Akzent.", "A portly orc with a confident smile. He doesn't wear anything on his upper body and talks with a strange accent.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
