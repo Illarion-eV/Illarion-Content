@@ -15,8 +15,17 @@ init=true;
     --Random Messages
 
     msgs = base.messages.Messages();
-    msgs:addMessage("Dieses Monster wird mit NewIllarion abgeschafft. Bitte für Ersatz sorgen, um die Zahl der Bossmonster und die Balance der Monsterdrops beibehalten zu können!", "This monster will be discontinued with NewIllarion. Please create a replacement to maintain the number of boss monsters and the balance of drops!");
-
+    msgs:addMessage("#me starrt aus vielen Augen.", "#me stares with multiple eyes.");
+    msgs:addMessage("#me guckt.", "#me goggles.");
+    msgs:addMessage("#me schwebt einen Meter über dem Boden.", "#me floats three feet over the ground.");
+    msgs:addMessage("Die Schönheit liegt in meinen Augen!", "Beauty is in my eyes!");
+    msgs:addMessage("Ich habe das gesehen!", "I saw that!");	
+    msgs:addMessage("#me ist eine beeindruckende Sphäre, die wie durch Magie über dem Boden schwebt.", "#me is an impressive sphere that floats over the ground by magic.");	
+    msgs:addMessage("#me zwinkert mit einem Auge.", "#me blinks with one of its eyes.");
+    msgs:addMessage("Ich gehöre keinem Zauberer.", "I am not the property of any wizard.");
+    msgs:addMessage("Da werd ich mal ein Auge zudrücken.","I'll turn a blind eye to you.");
+    msgs:addMessage("Gehorche.","Obey me.");
+	
 end
 
 function enemyNear(Monster,Enemy)
