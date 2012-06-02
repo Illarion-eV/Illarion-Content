@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 23, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: June 02, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -19,6 +19,7 @@ require("npc.base.basic")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.skill")
 require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
@@ -201,6 +202,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress I"));
 talkEntry:addResponse("I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty pieces of wool, I am short on that.");
@@ -212,6 +214,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Das faule Schneiderlein I"));
 talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.");
@@ -221,6 +224,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -239,6 +243,22 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a needle. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Why thank you! I don't have a real reward for you, but you can have my spare needle.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20));
+talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
 talkEntry:addResponse("Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben.");
@@ -252,6 +272,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Nadel. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20));
+talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -268,9 +303,35 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a needle."));
+talkEntry:addResponse("Why thank you! I don't have a real reward for you, but you can have my spare needle.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20));
+talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt."));
 talkEntry:addResponse("Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20));
+talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Nadel."));
+talkEntry:addResponse("Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20));
 talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
@@ -297,6 +358,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
 talkEntry:addResponse("Did you forget? I need twenty bundles of wool! Oh please, I need to finish this robe for the Archmage in time.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -306,6 +368,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
 talkEntry:addResponse("Hast du es schon vergessen? Ich brauche zwanzig Wollballen. Bitte, ich muss die Robe für den Erzmagier rechtzeitig fertig kriegen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -335,6 +398,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress II"));
 talkEntry:addResponse("Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.");
@@ -346,6 +410,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Das faule Schneiderlein II"));
 talkEntry:addResponse("Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen.");
@@ -355,6 +420,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -373,6 +439,22 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a blue dress. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15));
+talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
 talkEntry:addResponse("Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.");
@@ -386,6 +468,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein blaues Kleid. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15));
+talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -402,9 +499,35 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a blue dress."));
+talkEntry:addResponse("Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15));
+talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt."));
 talkEntry:addResponse("Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15));
+talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein blaues Kleid."));
+talkEntry:addResponse("Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15));
 talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
@@ -431,6 +554,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
 talkEntry:addResponse("Thread, thread, my dear, I lack thread and you don't have enough!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -440,6 +564,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
 talkEntry:addResponse("Garn, Garn, ohje, mir ist das Garn ausgegangen und du hast auch nicht genug!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -469,6 +594,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress III"));
 talkEntry:addResponse("I'm short on red cloth, but I need some for the robe I'm making for Archmage Elvaine Morgan. Can you please get me five panels?");
@@ -477,7 +603,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Das faule Schneiderlein III"));
+talkEntry:addResponse("Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -496,6 +635,22 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a master mage robe. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Thank you, that is exactly what I needed! Now I can finish the robe for Archmage Morgan. Here, take my last attempt he sent it back it was too tight for him.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
 talkEntry:addResponse("Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.");
@@ -509,6 +664,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Meistermagierrobe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -525,6 +695,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a master mage robe."));
+talkEntry:addResponse("Thank you, that is exactly what I needed! Now I can finish the robe for Archmage Morgan. Here, take my last attempt he sent it back it was too tight for him.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt."));
 talkEntry:addResponse("Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
@@ -535,13 +719,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Das faule Schneiderlein III"));
-talkEntry:addResponse("Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 5));
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Meistermagierrobe."));
+talkEntry:addResponse("Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -565,6 +750,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
 talkEntry:addResponse("Hrm... I need a little more red cloth. Otherwise, I cannot finish the robe for Archmage Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -574,6 +760,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
 talkEntry:addResponse("Uhm... ich brauche mehr roten Stoff. Anderenfalls kann ich die Robe für den Erzmagier Morgan nicht fertigstellen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -599,6 +786,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 6));
 talkEntry:addResponse("I don't need anything else, but thank you! You saved the day!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -608,6 +796,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 6));
 talkEntry:addResponse("Ich brauche nichts weiter, aber danke nochmal! Du hast mir ganz schön aus der Patsche geholfen!");
 talkingNPC:addTalkingEntry(talkEntry);
