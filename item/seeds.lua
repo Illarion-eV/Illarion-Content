@@ -62,49 +62,49 @@ function SetSeeds( User, SourceItem, TargetPos, ltstate )
         
         seedList[  259 ] = { 
           246,50,30,10,              -- Getreide: -V247 -V248 (sense) -V249 ( Skript dreschen )- 246
-          {true ,true,true ,false},
+          {true,true,true,false},
           {nil,nil},{nil,nil} }; 
            
         seedList[  291 ] = {
           288,30,15, 5,              -- Kohl: Fruchtfolge: 291  -V288 -V -V -291
-          {false,true,true ,false},
-          {nil,nil},{-100,500} }; 
+          {true,true,true,false},
+          {nil,nil},{nil,nil} }; 
               
         seedList[  534 ] = {
           535,40,30,10,
-          {true ,true,true ,false},
-          {nil,nil},{-500,-150} };     -- Zwiebeln: 535 - 536 - 537 (ernten)
+          {true,true,true,false},
+          {nil,nil},{nil,nil} };     -- Zwiebeln: 535 - 536 - 537 (ernten)
           
         seedList[ 2494 ] = {
           2490,45,20,10,
-          {false,true,true ,false},
+          {true,true,true,false},
           {nil,nil},{nil,nil} };     -- Karotten: 2490 - 2491 - 2492 - 2493( fertige Möhren )
           
         seedList[ 2917 ] = { 
           538,10, 3, 0,
-          {false,true,false,false},
-          {nil,nil},{0,500} };     -- Tomaten: 538 - 539 - 540 (ernten)
+          {true,true,true,false},
+          {nil,nil},{nil,nil} };      -- Tomaten: 538 - 539 - 540 (ernten)
           
         seedList[  728 ] = {
           729,30,10, 5,
-          {false,true,true ,false},
+          {true,true,true,false},
           {nil,nil},{nil,nil} };     -- Hopfen: 729 - 730 - 731 (Hopfen ernten) - 732 ( Wurzel ernten ) 
 
 		seedList[  773 ] = {
           774,30,10, 5,
-          {true,true,true,true},
-          {-250,0},{-100,100} };     -- Tabak: 774 - 775 - 776 - 777 (Tabak ernten)
+          {true,true,true,false},
+          {nil,nil},{nil,nil} };     -- Tabak: 774 - 775 - 776 - 777 (Tabak ernten)
 
 		seedList[  779 ] = {
           780,30,10, 5,
-          {true,true,true,true},
-          {-250,100},{-100,100} };     -- Zuckerrohr: 780 - 781 - 782 (Zuckerrohr ernten)
+          {true,true,true,false},
+          {nil,nil},{nil,nil} };     -- Zuckerrohr: 780 - 781 - 782 (Zuckerrohr ernten)
           
     end
 
     local seed = seedList[ SourceItem.id ];
     if( seed == nil ) then
-        User:inform( "Unknown item" );
+        User:inform( "[Error] Unknown seed item. Please inform a developer." );
         return
     end
     
@@ -113,16 +113,18 @@ function SetSeeds( User, SourceItem, TargetPos, ltstate )
     if ( boden ~= 1 ) then
         base.common.InformNLS(User,
         "Du kannst nur auf Ackerboden planzen.",
-        "You can only plant on farm land");
+        "You can only plant on farm land.");
         return
     end
-
+	
+-- I see no use in "put seed in hands"-restrictions ~Estralis
+--[[
     if ( SourceItem:getType() < 4 ) then
         base.common.InformNLS( User,
-        "Du brauchst dazu Saatgut im Gürtel oder in der Hand.",
+        "Du brauchst zur Aussaat Saatgut im Gürtel oder in der Hand.",
         "You'd better carry some seed in your belt or in your hands." );
         return
-    end
+    end]]
     
     local month=world:getTime("month");
     local season=math.ceil(month/4);
@@ -130,19 +132,19 @@ function SetSeeds( User, SourceItem, TargetPos, ltstate )
             if (season == 1) then
                 base.common.InformNLS(User,
                 "Es ist noch zu kalt und es scheint zu wenig Sonne um das anzubauen.",
-                "Its still too cold and there is not enough sun to plant this.");
+                "It's still too cold and there is not enough sun to plant this.");
             elseif (season == 2) then
                 base.common.InformNLS(User,
                 "Es ist viel zu warm um das anzubauen.",
-                "Its much to warm to plant this.");
+                "It's much too warm to plant this.");
             elseif (season == 3) then
                 base.common.InformNLS(User,
                 "Es ist zu kalt um das anzubauen.",
-                "Its much to cold to plant this.");
+                "It's much too cold to plant this.");
             elseif (season == 4) then
                 base.common.InformNLS(User,
                 "Der Boden ist tief gefroren. Hier wirst du nichts anbauen können.",
-                "The ground is freezed deeply. You won't be able to plant anything here.");
+                "The ground is frozen deeply. You won't be able to plant anything here.");
             end
             return
     end
@@ -150,8 +152,8 @@ function SetSeeds( User, SourceItem, TargetPos, ltstate )
     if (seed[6][1] ~= nil) then
         if ((TargetPos.x < seed[6][1]) or (TargetPos.x > seed[6][2])) then
             base.common.InformNLS(User,
-            "Das wächst hier nicht.",
-            "This doesn't grow here.");
+            "Diese Pflanze wird hier nicht wachsen.",
+            "This plant won't grow here.");
             return
         end
     end
@@ -159,8 +161,8 @@ function SetSeeds( User, SourceItem, TargetPos, ltstate )
     if (seed[7][1] ~= nil) then
         if ((TargetPos.y < seed[7][1]) or (TargetPos.y > seed[7][2])) then
             base.common.InformNLS(User,
-            "Das wächst hier nicht.",
-            "This doesn't grow here.");
+            "Diese Pflanze wird hier nicht wachsen.",
+            "This plant won't grow here.");
             return
         end
     end
@@ -178,7 +180,7 @@ function SetSeeds( User, SourceItem, TargetPos, ltstate )
 		User:startAction(farming.SavedWorkTime[User.id], 0, 0, 0, 0);
         if farming.SavedWorkTime[User.id] > 10 then
             base.common.TempInformNLS(User, -- TODO
-                "Du säst Samen aus.",
+                "Du säst Saatgut aus.",
                 "You sow seeds.");
         end
         return
