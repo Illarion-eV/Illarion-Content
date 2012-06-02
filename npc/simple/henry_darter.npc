@@ -91,64 +91,64 @@ itemShoes = 53
 -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
 "quest", "mission", queststatus(64) = 0, english -> inform("[New quest] Dewy Swamps I"), "You can help me butchering the pigs. Take this knife and bring me ten pieces of pork. You will earn some money.", item(189, 1, 399, 0), queststatus(64) = 1
 "quest", "mission", queststatus(64) = 0 -> inform("[Neues Quest] Morgentausumpf I"), "Du kannst mir helfen die Schweine zu schlachten. Nehme dieses Messer und bring mir zehn Stücke Schweinefleisch. Du bekommst auch ein paar Münzen.", item(189, 1, 399, 0), queststatus(64) = 1
-"task", "adventure", queststatus(64) = 0 -> inform("[New quest] Dewy Swamps I"), "You can help me butchering the pigs. Take this knife and bring me ten pieces of pork. You will earn some money.", item(189, 1, 399, 0), queststatus(64) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(64) = 0 -> inform("[Neues Quest] Morgentausumpf I"), "Du kannst mir helfen die Schweine zu schlachten. Nehme dieses Messer und bring mir zehn Stücke Schweinefleich. Du bekommst auch ein paar Münzen.", item(189, 1, 399, 0), queststatus(64) = 1
+"task", "adventure", "order", queststatus(64) = 0 -> inform("[New quest] Dewy Swamps I"), "You can help me butchering the pigs. Take this knife and bring me ten pieces of pork. You will earn some money.", item(189, 1, 399, 0), queststatus(64) = 1
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(64) = 0 -> inform("[Neues Quest] Morgentausumpf I"), "Du kannst mir helfen die Schweine zu schlachten. Nehme dieses Messer und bring mir zehn Stücke Schweinefleich. Du bekommst auch ein paar Münzen.", item(189, 1, 399, 0), queststatus(64) = 1
 ".+", queststatus(64) = 1, item(307, all) > 9, town = Runewick -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Kochfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ah, wunderbar. Ich nehme das Fleisch und du bekommst deinen Lohn. Sag bescheid, wenn du noch einen Auftrag willst.", skill(baking) + 1, money + 50, deleteItem(307, 10), queststatus(64) = 2, rankpoints(Runewick) + 5
 ".+", queststatus(64) = 1, item(307, all) > 9, english, town = Runewick -> inform("[Quest solved] You are awarded 40 copper coins and your cooking skill increases. You advance in Archmage Elvaine Morgan's favour."), "Ah, great. I'll take the pork and you get your money. Tell me if you want another task.", skill(baking) + 1, money + 50, deleteItem(307, 10), queststatus(64) = 2, rankpoints(Runewick) + 5
 ".+", queststatus(64) = 1, item(307, all) > 9 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Kochfertigkeit steigt."), "Ah, wunderbar. Ich nehme das Fleisch und du bekommst deinen Lohn. Sag bescheid, wenn du noch einen Auftrag willst.", skill(baking) + 1, money + 50, deleteItem(307, 10), queststatus(64) = 2
 ".+", queststatus(64) = 1, item(307, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins and your cooking skill increases."), "Ah, great. I'll take the pork and you get your money. Tell me if you want another task.", skill(baking) + 1, money + 50, deleteItem(307, 10), queststatus(64) = 2
 "quest", "mission", queststatus(64) = 1, english -> "Not less than ten pieces of pork!"
 "quest", "mission", queststatus(64) = 1 -> "Zehn Stücke Schweinefleisch und nicht weniger!"
-"task", "adventure", queststatus(64) = 1 -> "Not less than ten pieces of pork!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(64) = 1 -> "Zehn Stücke Schweinefleisch und nicht weniger!"
+"task", "adventure", "order", queststatus(64) = 1 -> "Not less than ten pieces of pork!"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(64) = 1 -> "Zehn Stücke Schweinefleisch und nicht weniger!"
 
 -- 2nd quest: Gather 20 different raw materials for 100cp.
 "quest", "mission", queststatus(64) = 2, english -> inform("[New quest] Dewy Swamps II"), "You did it very well with the pork. Now you can try to bring twenty slabs of raw leather to me. Your reward will be a hundred copper coins.", queststatus(64) = 3
 "quest", "mission", queststatus(64) = 2 -> inform("[Neues Quest] Morgentausumpf II"), "Das Schweinefleisch hast du gut besorgt. Nun kannst du mir mal zwanzig Häute Rohleder auftreiben. Dein Lohn sollen hundert Kupferstücke sein.", queststatus(64) = 3
-"task", "adventure", queststatus(64) = 2 -> inform("[New quest] Dewy Swamps II"), "You did it very well with the pork. Now you can try to bring twenty slabs of raw leather to me to me. Your reward will be a hundred copper coins.", queststatus(64) = 3
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(64) = 2 -> inform("[Neues Quest] Morgentausumpf II"), " Das Schweinefleisch hast du gut besorgt. Du kannst mir nun mal zwanzig Häute Rohleder auftreiben. Dein Lohn sollen hundert Kupferstücke sein.", queststatus(64) = 3
+"task", "adventure", "order", queststatus(64) = 2 -> inform("[New quest] Dewy Swamps II"), "You did it very well with the pork. Now you can try to bring twenty slabs of raw leather to me to me. Your reward will be a hundred copper coins.", queststatus(64) = 3
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(64) = 2 -> inform("[Neues Quest] Morgentausumpf II"), " Das Schweinefleisch hast du gut besorgt. Du kannst mir nun mal zwanzig Häute Rohleder auftreiben. Dein Lohn sollen hundert Kupferstücke sein.", queststatus(64) = 3
 ".+", queststatus(64) = 3, item(69, all) > 19, town = Runewick -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kochfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Das sind doch mal ein paar ordentlichen Häute! Hier dein Geld und sag bescheid, wenn du wieder eine Aufgabe brauchst.", skill(baking) + 1, money + 100, deleteItem(69, 20), queststatus(64) = 4, rankpoints(Runewick) + 10
 ".+", queststatus(64) = 3, item(69, all) > 19, english, town = Runewick -> inform("[Quest solved] You are awarded 100 copper coins and your cooking skill increases. You advance in Archmage Elvaine Morgan's favour."), "Very good pieces of leather. Here is your money and tell me, if you want an other task.", skill(baking) + 1, money + 100, deleteItem(69, 20), queststatus(64) = 4, rankpoints(Runewick) + 10
 ".+", queststatus(64) = 3, item(69, all) > 19 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kochfertigkeit steigt."), "Das sind doch mal ein paar ordentlichen Häute! Hier dein Geld und sag bescheid, wenn du wieder eine Aufgabe brauchst.", skill(baking) + 1, money + 100, deleteItem(69, 20), queststatus(64) = 4
 ".+", queststatus(64) = 3, item(69, all) > 19, english -> inform("[Quest solved] You are awarded 100 copper coins and your cooking skill increases."), "Very good pieces of leather. Here is your money and tell me, if you want an other task.", skill(baking) + 1, money + 100, deleteItem(69, 20), queststatus(64) = 4
 "quest", "mission", queststatus(64) = 3, english -> "And? Where are my twenty slabs of raw leather?"
 "quest", "mission", queststatus(64) = 3 -> "Na, wo bleiben meine zwanzig Häute Rohleder?"
-"task", "adventure", queststatus(64) = 3 -> "And? Where are my twenty slabs of raw leather?"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(64) = 3 -> "Na, wo bleiben meine zwanzig Häute Rohleder?"
+"task", "adventure", "order", queststatus(64) = 3 -> "And? Where are my twenty slabs of raw leather?"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(64) = 3 -> "Na, wo bleiben meine zwanzig Häute Rohleder?"
 
 -- 3rd quest: Gather 5 rare raw materials for 100cp.
 "quest", "mission", queststatus(64) = 4, english -> inform("[New quest] Dewy Swamps III"), "You want another task? Well, bring me five pieces of deer meat and you will earn a hundred copper coins.", queststatus(64) = 5
 "quest", "mission", queststatus(64) = 4 -> inform("[Neues Quest] Morgentausumpf III"), "Du willst noch eine Aufgabe? Dann bring mir mal fünf Rehrücken und du erhältst hundert Kupfermünzen.", queststatus(64) = 5
-"task", "adventure", queststatus(64) = 4 -> inform("[New quest] Dewy Swamps III"), "You want another task? Well, bring me five pieces of deer meat and you will earn a hundred copper coins.", queststatus(64) = 5
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(64) = 4 -> inform("[Neues Quest] Morgentausumpf III"), "Du willst noch eine Aufgabe? Dann bring mir mal fünf Rehrücken und du erhältst hundert Kupfermünzen.", queststatus(64) = 5
+"task", "adventure", "order", queststatus(64) = 4 -> inform("[New quest] Dewy Swamps III"), "You want another task? Well, bring me five pieces of deer meat and you will earn a hundred copper coins.", queststatus(64) = 5
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(64) = 4 -> inform("[Neues Quest] Morgentausumpf III"), "Du willst noch eine Aufgabe? Dann bring mir mal fünf Rehrücken und du erhältst hundert Kupfermünzen.", queststatus(64) = 5
 ".+", queststatus(64) = 5, item(552, all) > 4, town = Runewick -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kochfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Was für ein hervorragendes Fleisch. Dafür bekommst du deine hundert Kupfermünzen.", skill(baking) + 1, money + 100, deleteItem(552, 5), queststatus(64) = 6, rankpoints(Runewick) + 15
 ".+", queststatus(64) = 5, item(552, all) > 4, english, town = Runewick -> inform("[Quest solved] You are awarded 100 copper coins and your cooking skill increases. You advance in Archmage Elvaine Morgan's favour."), "That's meat with a great quality. Here are your coins for this work.", skill(baking) + 1, money + 100, deleteItem(552, 5), queststatus(64) = 6, rankpoints(Runewick) + 15
 ".+", queststatus(64) = 5, item(552, all) > 4 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kochfertigkeit steigt."), "Was für ein hervorragendes Fleisch. Dafür bekommst du deine hundert Kupfermünzen.", skill(baking) + 1, money + 100, deleteItem(552, 5), queststatus(64) = 6
 ".+", queststatus(64) = 5, item(552, all) > 4, english -> inform("[Quest solved] You are awarded 100 copper coins and your cooking skill increases."), "That's meat with a great quality. Here are your coins for this work.", skill(baking) + 1, money + 100, deleteItem(552, 5), queststatus(64) = 6
 "quest", "mission", queststatus(64) = 5, english -> "Five fine pieces of deer meat, hurry up."
 "quest", "mission", queststatus(64) = 5 -> "Fünf feine Rehrücken. Los, los."
-"task", "adventure", queststatus(64) = 5 -> "Five fine pieces of deer meat, hurry up."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(64) = 5 -> "Fünf feine Rehrücken. Los, los."
+"task", "adventure", "order", queststatus(64) = 5 -> "Five fine pieces of deer meat, hurry up."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(64) = 5 -> "Fünf feine Rehrücken. Los, los."
 
 -- 4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
 "quest", "mission", queststatus(64) = 6, english -> inform("[New quest] Dewy Swamps IV"), "Of course I have an other task for you. For a barbecue, I need ten lumps of coal. Head for the Malachite mine, my buddy Bruno will help you. And believe it or not, your reward will be two hundred copper coins!", queststatus(64) = 7
 "quest", "mission", queststatus(64) = 6 -> inform("[Neues Quest] Morgentausumpf IV"), "Natürlich habe ich noch was für dich zutun. Für ein richtiges Grillfest brauche ich zehn Klumpen Kohle. Lauf mal zur Malachitmine, mein Kumpel Bruno wird dir helfen. Und glaub es oder nicht, dein Lohn werden zweihundert Kupfermünzen sein.", queststatus(64) = 7
-"task", "adventure", queststatus(64) = 6 -> inform("[New quest] Dewy Swamps IV"), "Of course I have an other task for you. For a barbecue, I need ten lumps of coal. Head for the Malachite mine, my buddy Bruno will help you. And believe it or not, your reward will be two hundred copper coins!", queststatus(64) = 7
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(64) = 6 -> inform("[Neues Quest] Morgentausumpf IV"), " Natürlich habe ich noch was für dich zutun. Für ein richtiges Grillfest brauche ich zehn Klumpen Kohle. Lauf mal zur Malachitmine, mein Kumpel Bruno wird dir helfen. Und glaub es oder nicht, dein Lohn werden zweihundert Kupfermünzen sein.", queststatus(64) = 7
+"task", "adventure", "order", queststatus(64) = 6 -> inform("[New quest] Dewy Swamps IV"), "Of course I have an other task for you. For a barbecue, I need ten lumps of coal. Head for the Malachite mine, my buddy Bruno will help you. And believe it or not, your reward will be two hundred copper coins!", queststatus(64) = 7
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(64) = 6 -> inform("[Neues Quest] Morgentausumpf IV"), " Natürlich habe ich noch was für dich zutun. Für ein richtiges Grillfest brauche ich zehn Klumpen Kohle. Lauf mal zur Malachitmine, mein Kumpel Bruno wird dir helfen. Und glaub es oder nicht, dein Lohn werden zweihundert Kupfermünzen sein.", queststatus(64) = 7
 ".+", queststatus(64) = 7, item(21, all) > 9, town = Runewick -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Kochfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Das ist wirklich gute Kohle. Da hast du dir diese Münzen wirklich verdient.", skill(baking) + 1, money + 200, deleteItem(21, 10), queststatus(64) = 8, rankpoints(Runewick) + 20
 ".+", queststatus(64) = 7, item(21, all) > 9, english, town = Runewick -> inform("[Quest solved] You are awarded 200 copper coins and your cooking skill increases. You advance in Archmage Elvaine Morgan's favour."), "Hmmm, good coal. You really deserve the coins.", skill(baking) + 1, money + 200, deleteItem(21, 10), queststatus(64) = 8, rankpoints(Runewick) + 20
 ".+", queststatus(64) = 7, item(21, all) > 9 -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Kochfertigkeit steigt."), "Das ist wirklich gute Kohle. Da hast du dir diese Münzen wirklich verdient.", skill(baking) + 1, money + 200, deleteItem(21, 10), queststatus(64) = 8
 ".+", queststatus(64) = 7, item(21, all) > 9, english -> inform("[Quest solved] You are awarded 200 copper coins and your cooking skill increases."), "Hmmm, good coal. You really deserve the coins.", skill(baking) + 1, money + 200, deleteItem(21, 10), queststatus(64) = 8
 "quest", "mission", queststatus(64) = 7, english -> "Where is my coal, eh?"
 "quest", "mission", queststatus(64) = 7 -> "Wo ist denn meine Kohle, bitte schön?"
-"task", "adventure", queststatus(64) = 7 -> "Where is my coal, eh?"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(64) = 7 -> "Wo ist denn meine Kohle, bitte schön?"
+"task", "adventure", "order", queststatus(64) = 7 -> "Where is my coal, eh?"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(64) = 7 -> "Wo ist denn meine Kohle, bitte schön?"
 
 -- Final dialogue: No more quests, just nice hints
 "quest", "mission", queststatus(64) = 8, english -> "I'm sorry, but you really did enough for me. You were a great help. But maybe you go to the Malachite mine close to Galmair. There is someone who can need your help, too."
 "quest", "mission", queststatus(64) = 8 -> "Tut mir leid, du hast wirklich genug gemacht. Du warst eine tolle Hilfe. Aber gehe doch mal zur Malachitmine bei Galmair. Da ist jemand, der deine Hilfe gebrauchen kann."
-"task", "adventure", queststatus(64) = 8 -> "I'm sorry, but you really did enough for me. You were a great help. But maybe you go to the Malachite mine close to Galmair. There is someone who can need your help, too."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(64) = 8 -> "Tut mir leid, du hast wirklich genug gemacht. Du warst eine tolle Hilfe. Aber gehe doch mal zur Malachitmine bei Galmair. Da ist jemand, der deine Hilfe gebrauchen kann."
+"task", "adventure", "order", queststatus(64) = 8 -> "I'm sorry, but you really did enough for me. You were a great help. But maybe you go to the Malachite mine close to Galmair. There is someone who can need your help, too."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(64) = 8 -> "Tut mir leid, du hast wirklich genug gemacht. Du warst eine tolle Hilfe. Aber gehe doch mal zur Malachitmine bei Galmair. Da ist jemand, der deine Hilfe gebrauchen kann."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a butcher and proud of it!", "Yes, I am a butcher.", "Butchering is a hard but good work."

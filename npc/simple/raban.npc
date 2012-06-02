@@ -88,8 +88,8 @@ itemShoes = 369
 -- 1st quest: Take a tool and gather 10 raw materials for 40cp.
 "quest", "mission", queststatus(66) = 0, english -> inform("[New quest] Raban's Grove I"), "So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around.", item(126, 1, 399, 0), queststatus(66) = 1
 "quest", "mission", queststatus(66) = 0 -> inform("[Neues Quest] Rabans Hain I"), "So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehnSetzlinge von den Fichten des Hains.", item(126, 1, 399, 0), queststatus(66) = 1
-"task", "adventure", queststatus(66) = 0 -> inform("[New quest] Raban's Grove I"), "So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around.", item(126, 1, 399, 0), queststatus(66) = 1
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 0 -> inform("[Neues Quest] Rabans Hain I"), "So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehn Setzlinge von den Fichten des Hains.", item(126, 1, 399, 0), queststatus(66) = 1
+"task", "adventure", "order", queststatus(66) = 0 -> inform("[New quest] Raban's Grove I"), "So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around.", item(126, 1, 399, 0), queststatus(66) = 1
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(66) = 0 -> inform("[Neues Quest] Rabans Hain I"), "So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehn Setzlinge von den Fichten des Hains.", item(126, 1, 399, 0), queststatus(66) = 1
 
 -- Quest 1 solved
 ".+", queststatus(66) = 1, item(149, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins and your herb lore skill increases."), "Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.", skill(herb lore) + 1, money + 50, deleteItem(149, 10), queststatus(66) = 2
@@ -98,14 +98,14 @@ itemShoes = 369
 -- Quest 1 not solved, repeat the instructions
 "quest", "mission", queststatus(66) = 1, english -> "So, how is progress in finding ten fir tree seedlings?"
 "quest", "mission", queststatus(66) = 1 -> "Und, wie kommt ihr voran mit dem Finden von zehn Fichtensetzlingen?"
-"task", "adventure", queststatus(66) = 1 -> "So, how is progress in finding ten fir tree seedlings?"
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 1 -> "Und, wie kommt ihr voran mit dem Finden von zehn Fichtensetzlingen?"
+"task", "adventure", "order", queststatus(66) = 1 -> "So, how is progress in finding ten fir tree seedlings?"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(66) = 1 -> "Und, wie kommt ihr voran mit dem Finden von zehn Fichtensetzlingen?"
 
 -- 2nd quest: Gather 20 different raw materials for 80cp.
 "quest", "mission", queststatus(66) = 2, english -> inform("[New quest] Raban's Grove II"), "How kind of you that you want to assist me one more time. Could you gather twenty black berries, sweet gifts of Oldra?", queststatus(66) = 3
 "quest", "mission", queststatus(66) = 2 -> inform("[Neues Quest] Rabans Hain II"), "Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntet ihr so nett sein und zwanzig Brombeeren sammeln, süße Geschenke der Oldra?", queststatus(66) = 3
-"task", "adventure", queststatus(66) = 2 -> inform("[New quest] Raban's Grove II"), "How kind of you that you want to assist me one more time. Could you gather twenty black berries, sweet gifts of Oldra?", queststatus(66) = 3
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 2 -> inform("[Neues Quest] Rabans Hain II"), "Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntet ihr so nett sein und zwanzig Brombeeren sammeln, süße Geschenke der Oldra?", queststatus(66) = 3
+"task", "adventure", "order", queststatus(66) = 2 -> inform("[New quest] Raban's Grove II"), "How kind of you that you want to assist me one more time. Could you gather twenty black berries, sweet gifts of Oldra?", queststatus(66) = 3
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(66) = 2 -> inform("[Neues Quest] Rabans Hain II"), "Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntet ihr so nett sein und zwanzig Brombeeren sammeln, süße Geschenke der Oldra?", queststatus(66) = 3
 
 -- Quest 2 solved
 ".+", queststatus(66) = 3, item(147, all) > 19, english -> inform("[Quest solved] You are awarded 100 copper coins and your herb lore skill increases."), "I am grateful for the twenty black berries you brought me. Have this small reward.", skill(herb lore) + 1, money + 100, deleteItem(147, 20), queststatus(66) = 4
@@ -114,14 +114,14 @@ itemShoes = 369
 -- Quest 2 not solved, repeat the instructions
 "quest", "mission", queststatus(66) = 3, english -> "You can find the twenty black berries I ask for in the hedge over there."
 "quest", "mission", queststatus(66) = 3 -> "Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden."
-"task", "adventure", queststatus(66) = 3 -> "You can find the twenty black berries I ask for in the hedge over there."
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 3 -> "Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden."
+"task", "adventure", "order", queststatus(66) = 3 -> "You can find the twenty black berries I ask for in the hedge over there."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(66) = 3 -> "Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden."
 
 -- 3rd quest: Gather 5 rare raw materials for 100cp.
 "quest", "mission", queststatus(66) = 4, english -> inform("[New quest] Raban's Grove III"), "It is honourable that you help me and the godess. For now, I desire five birth mushrooms to spread life on the soil.", queststatus(66) = 5
 "quest", "mission", queststatus(66) = 4 -> inform("[Neues Quest] Rabans Hain III"), "Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Geburtspilze, um Leben auf dem Erdboden zu sähen.", queststatus(66) = 5
-"task", "adventure", queststatus(66) = 4 -> inform("[New quest] Raban's Grove III"), "It is honourable that you help me and the godess. For now, I desire five birth mushrooms to spread life on the soil.", queststatus(66) = 5
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 4 -> inform("[Neues Quest] Rabans Hain III"), "Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Geburtspilze, um Leben auf dem Erdboden zu sähen.", queststatus(66) = 5
+"task", "adventure", "order", queststatus(66) = 4 -> inform("[New quest] Raban's Grove III"), "It is honourable that you help me and the godess. For now, I desire five birth mushrooms to spread life on the soil.", queststatus(66) = 5
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(66) = 4 -> inform("[Neues Quest] Rabans Hain III"), "Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Geburtspilze, um Leben auf dem Erdboden zu sähen.", queststatus(66) = 5
 
 -- Quest 3 solved
 ".+", queststatus(66) = 5, item(162, all) > 4, english -> inform("[Quest solved] You are awarded 100 copper coins and your herb lore skill increases."), "Ah, you brought the five birth mushrooms. Long did I store this reward, now it is yours.", skill(herb lore) + 1, money + 100, deleteItem(162, 5), queststatus(66) = 6
@@ -130,14 +130,14 @@ itemShoes = 369
 -- Quest 3 not solved, repeat the instructions
 "quest", "mission", queststatus(66) = 5, english -> "Search for the five birth mushrooms at the mushroom circles you may find close to the trees."
 "quest", "mission", queststatus(66) = 5 -> "Sucht nach den fünf Geburtspilzen in den Pilskreisen, die ihr nahe der Bäume findet."
-"task", "adventure", queststatus(66) = 5 -> "Search for the five birth mushrooms at the mushroom circles you may find close to the trees."
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 5 -> "Sucht nach den fünf Geburtspilzen in den Pilskreisen, die ihr nahe der Bäume findet."
+"task", "adventure", "order", queststatus(66) = 5 -> "Search for the five birth mushrooms at the mushroom circles you may find close to the trees."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(66) = 5 -> "Sucht nach den fünf Geburtspilzen in den Pilskreisen, die ihr nahe der Bäume findet."
 
 -- 4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
 "quest", "mission", queststatus(66) = 6, english -> inform("[New quest] Raban's Grove IV"), "Now I need something special. The soil here is too wet for some plants to grow. I need ten shovel of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?", queststatus(66) = 7
 "quest", "mission", queststatus(66) = 6 -> inform("[Neues Quest] Rabans Hain IV"), "Nun benötige ich etwas besonderes. Der Mutterboden hier ist ein wenig zu feucht, damit gewisse Pflanzen hier wachsen können. Ich benötige zehn Schaufeln voll groben Sand. Bitte geht zu meinem alten Freund Rutrus zur Sternenoase und holt mir welchen.", queststatus(66) = 7
-"task", "adventure", queststatus(66) = 6 -> inform("[New quest] Raban's Grove IV"), "Now I need something special. The soil here is too wet for some plants to grow. I need ten shovel of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?", queststatus(66) = 7
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 6 -> inform("[Neues Quest] Rabans Hain IV"), "Nun benötige ich etwas besonderes. Der Mutterboden hier ist ein wenig zu feucht, damit gewisse Pflanzen hier wachsen können. Ich benötige zehn Schaufeln voll groben Sand. Bitte geht zu meinem alten Freund Rutrus zur Sternenoase und holt mir welchen.", queststatus(66) = 7
+"task", "adventure", "order", queststatus(66) = 6 -> inform("[New quest] Raban's Grove IV"), "Now I need something special. The soil here is too wet for some plants to grow. I need ten shovel of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?", queststatus(66) = 7
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(66) = 6 -> inform("[Neues Quest] Rabans Hain IV"), "Nun benötige ich etwas besonderes. Der Mutterboden hier ist ein wenig zu feucht, damit gewisse Pflanzen hier wachsen können. Ich benötige zehn Schaufeln voll groben Sand. Bitte geht zu meinem alten Freund Rutrus zur Sternenoase und holt mir welchen.", queststatus(66) = 7
 
 -- Quest 4 solved
 ".+", queststatus(66) = 7, item(726, all) > 9, english -> inform("[Quest solved] You are awarded 200 copper coins and your herb lore skill increases."), "I thank you so much for venturing to the Oasis. I hope my friend Rutrus is well? Here, have this reward in exchange for the coarse sand.", skill(herb lore) + 1, money + 200, deleteItem(726, 10), queststatus(66) = 8
@@ -146,14 +146,14 @@ itemShoes = 369
 -- Quest 4 not solved, repeat the instructions
 "quest", "mission", queststatus(66) = 7, english -> "Head for the Oasis of Stars in order to find ten shovels of coarse sand. You get there when you head south and turn west when you reach the ocean."
 "quest", "mission", queststatus(66) = 7 -> "Geht zur Sternenoase um zehn Schaufeln voll grobem Sand zu finden. Ihr gelangt dorthin, indem ihr euch in südlicher Richtung auf den Weg macht und euch dann westlich haltet, wenn ihr zum Meer kommt."
-"task", "adventure", queststatus(66) = 7 -> "Head for the Oasis of Hope in order to find ten shovels of coarse sand. You get there when you head south and turn west when you reach the ocean."
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 7 -> "Geht zur Oase der Offnung um zehn Schaufeln voll grobem Sand zu finden. Ihr gelangt dorthin, indem ihr euch in südlicher Richtung auf den Weg macht und euch dann westlich haltet, wenn ihr zum Meer kommt."
+"task", "adventure", "order", queststatus(66) = 7 -> "Head for the Oasis of Hope in order to find ten shovels of coarse sand. You get there when you head south and turn west when you reach the ocean."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(66) = 7 -> "Geht zur Oase der Offnung um zehn Schaufeln voll grobem Sand zu finden. Ihr gelangt dorthin, indem ihr euch in südlicher Richtung auf den Weg macht und euch dann westlich haltet, wenn ihr zum Meer kommt."
 
 -- Final dialogue: No more quests, just nice hints
 "quest", "mission", queststatus(66) = 8, english -> "There is nothing you can do for me. Just leave me alone, maybe you visit my old friend Rutrus at the oasis again?"
 "quest", "mission", queststatus(66) = 8 -> "Es gibt nichts, was ihr noch für mich tun könntet. Lasst mich einfach alleine, vielleicht wollt ihr meinen Freund Rutrus bei der Oase erneut aufsuchen?"
-"task", "adventure", queststatus(66) = 8 -> "There is nothing you can do for me. Just leave me alone, maybe you visit my old friend Rutrus at the oasis again?"
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 8 -> "Es gibt nichts, was ihr noch für mich tun könntet. Lasst mich einfach alleine, vielleicht wollt ihr meinen Freund Rutrus bei der Oase erneut aufsuchen?"
+"task", "adventure", "order", queststatus(66) = 8 -> "There is nothing you can do for me. Just leave me alone, maybe you visit my old friend Rutrus at the oasis again?"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(66) = 8 -> "Es gibt nichts, was ihr noch für mich tun könntet. Lasst mich einfach alleine, vielleicht wollt ihr meinen Freund Rutrus bei der Oase erneut aufsuchen?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "One could call me a hermit. Or a forester. Or a ranger. I do not care anymore."

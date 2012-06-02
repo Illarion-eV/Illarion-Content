@@ -76,8 +76,8 @@ itemShoes = 53
 -- 1st quest: Gather 10 apples
 "quest", "mission", queststatus(118) = 0, english -> inform("[New quest] Runewick Gardens I"), "Ah, you want to help me? Look, I'd like to plant some apple trees in my garden. But for that, I need apple seeds. So, please, bring me ten apples!", queststatus(118) = 1
 "quest", "mission", queststatus(118) = 0 -> inform("[Neues Quest] Die Gärten von Runewick I"), "Ah, ihr wollt mir also helfen? Ich würde gerne einige Apfelbäume in meinem Garten pflanzen. Aber dafür brauche ich Apfelsamen. Also bringt mir doch bitte zehn Äpfel!", queststatus(118) = 1
-"task", "adventure", queststatus(118) = 0 -> inform("[New quest] Runewick Gardens I"), "Ah, you want to help me? Look, I'd like to plant some apple trees in my garden. But for that, I need apple seeds. So, please, bring me ten apples!", queststatus(118) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 0 -> inform("[Neues Quest] Die Gärten von Runewick I"), "Ah, ihr wollt mir also helfen? Ich würde gerne einige Apfelbäume in meinem Garten pflanzen. Aber dafür brauche ich Apfelsamen. Also bringt mir doch bitte zehn Äpfel!", queststatus(118) = 1
+"task", "adventure", "order", queststatus(118) = 0 -> inform("[New quest] Runewick Gardens I"), "Ah, you want to help me? Look, I'd like to plant some apple trees in my garden. But for that, I need apple seeds. So, please, bring me ten apples!", queststatus(118) = 1
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(118) = 0 -> inform("[Neues Quest] Die Gärten von Runewick I"), "Ah, ihr wollt mir also helfen? Ich würde gerne einige Apfelbäume in meinem Garten pflanzen. Aber dafür brauche ich Apfelsamen. Also bringt mir doch bitte zehn Äpfel!", queststatus(118) = 1
 
 -- 1st quest solved, reward: goblet with cider (1844), +5 rankpoints if Runewick
 ".+", queststatus(118) = 1, item(15, all) > 9, english, town = Runewick -> inform("[Quest solved] You are awarded a goblet with cider. You advance in Archmage Elvaine Morgan's favour."), "How marvellous! Now I can plant new friends for me. You know, I love cider, it makes me forget... Have one goblet with me!", deleteItem(15, 10), item(1844, 1, 699, 0), queststatus(118) = 2, rankpoints(Runewick) + 5
@@ -88,14 +88,14 @@ itemShoes = 53
 -- 1st quest not solved, repeat the instructions
 "quest", "mission", queststatus(118) = 1, english -> "Some new trees would be so fine, please, get me ten apples so I can plant new friends for me."
 "quest", "mission", queststatus(118) = 1 -> "Ein paar neue Bäume wären so fein, bitte, holt mir zehn Äpfel, damit ich mir neue Freund pflanzen kann."
-"task", "adventure", queststatus(118) = 1 -> "Some new trees would be so fine, please, get me ten apples so I can plant new friends for me."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 1 -> "Ein paar neue Bäume wären so fein, bitte, holt mir zehn Äpfel, damit ich mir neue Freund pflanzen kann."
+"task", "adventure", "order", queststatus(118) = 1 -> "Some new trees would be so fine, please, get me ten apples so I can plant new friends for me."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Befehl", queststatus(118) = 1 -> "Ein paar neue Bäume wären so fein, bitte, holt mir zehn Äpfel, damit ich mir neue Freund pflanzen kann."
 
 -- 2nd quest: Gather 10 grapes
 "quest", "mission", queststatus(118) = 2, english -> inform("[New quest] Runewick Gardens II"), "I am honest: I enjoy sweet fruits once in a whiles. Makes me feel... alive. Could you bring me ten grapes? That'd be so nice!", queststatus(118) = 3
 "quest", "mission", queststatus(118) = 2 -> inform("[Neues Quest] Die Gärten von Runewick II"), "Ich bin ganz offen: Ich nasche gerne süße Früchte. Dann fühl ich mich irgendwie lebendig. Könntet ihr mir zehn Trauben bringen? Das wäre so nett!", queststatus(118) = 3
-"task", "adventure", queststatus(118) = 2 -> inform("[New quest] Runewick Gardens II"), "I am honest: I enjoy sweet fruits once in a whiles. Makes me feel... alive. Could you bring me ten grapes? That'd be so nice!", queststatus(118) = 3
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 2 -> inform("[Neues Quest] Die Gärten von Runewick II"), "Ich bin ganz offen: Ich nasche gerne süße Früchte. Dann fühl ich mich irgendwie lebendig. Könntet ihr mir zehn Trauben bringen? Das wäre so nett!", queststatus(118) = 3
+"task", "adventure", "order", queststatus(118) = 2 -> inform("[New quest] Runewick Gardens II"), "I am honest: I enjoy sweet fruits once in a whiles. Makes me feel... alive. Could you bring me ten grapes? That'd be so nice!", queststatus(118) = 3
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(118) = 2 -> inform("[Neues Quest] Die Gärten von Runewick II"), "Ich bin ganz offen: Ich nasche gerne süße Früchte. Dann fühl ich mich irgendwie lebendig. Könntet ihr mir zehn Trauben bringen? Das wäre so nett!", queststatus(118) = 3
 
 -- 2nd quest solved, reward: +1 peasantry, 20cp, +5 rankpoints if Runewick
 ".+", queststatus(118) = 3, item(388, all) > 9, english, town = Runewick -> inform("[Quest solved] You are awarded twenty coppercoins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."), "Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while. And this time, I can share my joy!", skill(peasantry) + 1, money + 20, deleteItem(388, 10), queststatus(118) = 4, rankpoints(Runewick) + 5
@@ -106,14 +106,14 @@ itemShoes = 53
 -- 2nd quest not solved, repeat the instructions
 "quest", "mission", queststatus(118) = 3, english -> "Please, I do not enjoy many things in life anymore, but some grapes could really relieve my heart."
 "quest", "mission", queststatus(118) = 3 -> "Bitte, es gibt nicht mehr viele Dinge im Leben, die mich erfreuen. Einige Trauben könnten mich jetzt echt erheitern."
-"task", "adventure", queststatus(118) = 3 -> "Please, I do not enjoy many things in life anymore, but some grapes could really relieve my heart."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 3 -> "Bitte, es gibt nicht mehr viele Dinge im Leben, die mich erfreuen. Einige Trauben könnten mich jetzt echt erheitern."
+"task", "adventure", "order", queststatus(118) = 3 -> "Please, I do not enjoy many things in life anymore, but some grapes could really relieve my heart."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(118) = 3 -> "Bitte, es gibt nicht mehr viele Dinge im Leben, die mich erfreuen. Einige Trauben könnten mich jetzt echt erheitern."
 
 -- Final dialogue: No more quests, just nice hints
 "quest", "mission", queststatus(118) = 4, english -> "You can help me by... staying. Stay a little longer, that's all I ask for. Please!"
 "quest", "mission", queststatus(118) = 4 -> "Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!"
-"task", "adventure", queststatus(118) = 4 -> "You can help me by... staying. Stay a little longer, that's all I ask for. Please!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 4 -> "Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!"
+"task", "adventure", "order", queststatus(118) = 4 -> "You can help me by... staying. Stay a little longer, that's all I ask for. Please!"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(118) = 4 -> "Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the gardener here, can't you see? Oh, sorry, I didn't mean to be rude."
