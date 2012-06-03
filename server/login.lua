@@ -252,7 +252,7 @@ function onLogin( player )
 	    player:inform("Effekt gefunden.");
 	end
 ]]
-	-- player logs in on noobia map and has no neewbie status yet
+	-- player logs in on noobia map and has no newbie status yet
 	if (((player.pos.z == 100) or (player.pos.z == 101)) and player:getQuestProgress(2)==0) --[[and (not player:isAdmin())]] then 
 	    local callbackNewbie = function(dialogNewbie)
            player:setQuestProgress(2,1)
