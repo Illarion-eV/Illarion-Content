@@ -253,23 +253,20 @@ function onLogin( player )
 	end
 ]]
 	-- player logs in on noobia map and has no neewbie status yet
-	--[[if ((player.pos.z == 100) or (player.pos.z == 101)) and player:getQuestProgress(2)==0 then 
-	    player:inform("debug 1")
-		local callbackNewbie = function(dialogNewbie)
-           player:inform("debug 2")
-		   player:setQuestProgress(2,1)
+	if (((player.pos.z == 100) or (player.pos.z == 101)) and player:getQuestProgress(2)==0) --[[and (not player:isAdmin())]] then 
+	    local callbackNewbie = function(dialogNewbie)
+           player:setQuestProgress(2,1)
            newbieEffect = LongTimeEffect(13,1)
 		   player.effects:addEffect(newbieEffect)
 		end 
 		
 		if player:getPlayerLanguage() == 0 then
-			player:inform("debug 3")
-			local dialogNewbie = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!", callbackNewbie)
+			dialogNewbie = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!\n und: geh zur echse!", callbackNewbie)
 		else	
-			local dialogNewbie = MessageDialog("Welcome!", "fancy welcome text - in English!", callbackNewbie)
+			dialogNewbie = MessageDialog("Welcome!", "fancy welcome text - in English!\n and: go to the lizard!", callbackNewbie)
 		end	
 		player:requestMessageDialog(dialogNewbie)
-	end]]
+	end
 	
 	return true;
 end

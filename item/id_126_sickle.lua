@@ -8,17 +8,6 @@ require("base.common")
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-	--testing
-	if (User.lastSpokenText == "zeilenumbruch") then
-	    if User:getPlayerLanguage() == 0 then
-			dialog = MessageDialog("Zeilenumbruch", "ich bin ein\nZeilenumbruch!", callbackNewbie)
-		else	
-			dialog = MessageDialog("line break", "i am a\nline break!!", callbackNewbie)
-		end	
-		User:requestMessageDialog(dialog)
-	    
-	end	
-	
 	--testing stuff
 	if (User.lastSpokenText == "textbox") then
 		    User:inform("debug 1")
