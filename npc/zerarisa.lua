@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 03, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -19,6 +19,7 @@ require("npc.base.basic")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.skill")
 require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
@@ -203,7 +204,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell I"));
@@ -216,7 +216,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Kap des Abschiedes I"));
 talkEntry:addResponse("Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen.");
@@ -228,6 +227,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell I"));
 talkEntry:addResponse("Zerarisa hass hurt her paw, if you could collect ten trout for me, I give you coinsss.");
@@ -240,6 +240,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Kap des Abschiedes I"));
 talkEntry:addResponse("Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen.");
@@ -251,7 +252,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -263,7 +263,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
 talkEntry:addResponse("Habenss zssehn Forellen? Nein?");
@@ -274,6 +273,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
 talkEntry:addResponse("Did you get the ten troutss for me yet?");
@@ -285,6 +285,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
 talkEntry:addResponse("Habenss zssehn Forellen? Nein?");
@@ -294,6 +295,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -312,6 +314,22 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins. You advance in Queen Rosaline Edwards's favour."));
+talkEntry:addResponse("Zerarisa thankss you for the troutss, here, take ssome copperss.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Zerarisa dankenss für Forellen, nehmenss Kupfersss.");
@@ -325,6 +343,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Zerarisa dankenss für Forellen, nehmenss Kupfersss.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -341,6 +374,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins."));
+talkEntry:addResponse("Zerarisa thankss you for the troutss, here, take ssome copperss.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Fischereifertigkeit steigt."));
 talkEntry:addResponse("Zerarisa dankenss für Forellen, nehmenss Kupfersss.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "fishing", "+", 1));
@@ -351,9 +398,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke."));
+talkEntry:addResponse("Zerarisa dankenss für Forellen, nehmenss Kupfersss.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell II"));
@@ -365,7 +423,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Kap des Abschiedes II"));
 talkEntry:addResponse("Dankss für Forellen nochmalss, wollenss fangen zsswanzig Lachss nun für Zerarisa?");
@@ -376,6 +433,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell II"));
 talkEntry:addResponse("Thankss for troutss again, if you want you can catch twenty ssalmonss for me now.");
@@ -387,6 +445,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Kap des Abschiedes II"));
 talkEntry:addResponse("Dankss für Forellen nochmalss, wollenss fangen zsswanzig Lachss nun für Zerarisa?");
@@ -397,7 +456,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 20));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -409,7 +467,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 20));
 talkEntry:addResponse("Zsswanzigs Lachsess, kriegenss Münzssenss.");
@@ -420,6 +477,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 20));
 talkEntry:addResponse("Twenty ssalmonss for Zerarisa, and you get coinss.");
@@ -431,6 +489,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 20));
 talkEntry:addResponse("Zsswanzigs Lachsess, kriegenss Münzssenss.");
@@ -440,6 +499,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -458,6 +518,22 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins. You advance in Queen Rosaline Edwards's favour."));
+talkEntry:addResponse("Thankss for ssalmonss, Zerarisa hass coinss for you.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Dankss für Lachsss, Zerarisa habenss Münzssen für dich.");
@@ -471,6 +547,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Dankss für Lachsss, Zerarisa habenss Münzssen für dich.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -487,6 +578,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
+talkEntry:addResponse("Thankss for ssalmonss, Zerarisa hass coinss for you.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 19));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Fischereifertigkeit steigt."));
 talkEntry:addResponse("Dankss für Lachsss, Zerarisa habenss Münzssen für dich.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "fishing", "+", 1));
@@ -497,9 +602,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 19));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
+talkEntry:addResponse("Dankss für Lachsss, Zerarisa habenss Münzssen für dich.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell III"));
@@ -511,7 +627,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Kap des Abschiedes III"));
 talkEntry:addResponse("Zerarisa brauchenss fünf geräuchert Forellenss nun, könnenss räuchern in Ofenss. Kriegensss Münzssenss!");
@@ -522,6 +637,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell III"));
 talkEntry:addResponse("Zerarisa needss five roasst trout now, you can cookss them at a ssmoke oven. You'll get coinsss.");
@@ -533,6 +649,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Kap des Abschiedes III"));
 talkEntry:addResponse("Zerarisa brauchenss fünf geräuchert Forellenss nun, könnenss räuchern in Ofenss. Kriegensss Münzssenss!");
@@ -564,7 +681,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("job");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(455, "all", "<", 5));
 talkEntry:addResponse("Have you the five roasst trout? Catch five trout and cook them at an oven.");
@@ -576,6 +693,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(455, "all", "<", 5));
@@ -586,6 +704,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(455, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -604,6 +723,22 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(455, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins. You advance in Queen Rosaline Edwards's favour."));
+talkEntry:addResponse("Zerarisa thanksss you for the troutss, here...");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(455, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Zerarisa dankenss für Forellenss, nehmenss...");
@@ -617,6 +752,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(455, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Zerarisa dankenss für Forellenss, nehmenss...");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(455, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -633,6 +783,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(455, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper."));
+talkEntry:addResponse("Zerarisa thanksss you for the troutss, here...");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(455, "all", ">", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Fischereifertigkeit steigt."));
 talkEntry:addResponse("Zerarisa dankenss für Forellenss, nehmenss...");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "fishing", "+", 1));
@@ -643,9 +807,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(455, "all", ">", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
+talkEntry:addResponse("Zerarisa dankenss für Forellenss, nehmenss...");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell IV"));
@@ -657,7 +832,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Kap des Abschiedes IV"));
 talkEntry:addResponse("Tuenss Zerarisa Gefallen, findenss Henry, isst Sschlachter in Morgentausumpfss, bringenss zehn Lederhäute von ihmss.");
@@ -668,6 +842,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Cape Farewell IV"));
 talkEntry:addResponse("Do Zerarisa favour, go findss Henryss, he'ss butcher in Dewy Swampss, getss me ten piecess of leather from him.");
@@ -679,6 +854,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Kap des Abschiedes IV"));
 talkEntry:addResponse("Tuenss Zerarisa Gefallen, findenss Henry, isst Sschlachter in Morgentausumpfss, bringenss zehn Lederhäute von ihmss.");
@@ -689,7 +865,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2547, "all", "<", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -701,7 +876,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addResponse("Habenss sschon gefundenss Henry in Morgentausumpfss? Schuldenss zehn Lederhäute.");
 talkEntry:addResponse("Zerarisa wartenss noch auf Leder von Henry in Morgentaussumpf.");
@@ -711,6 +885,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addResponse("You findss Henry in Dewy Swampss? He owess me ten piecess of leather.");
 talkEntry:addResponse("Zerarisa sstill waitss for leather from Henry in Dewy Swampss.");
@@ -721,6 +896,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addResponse("Habenss sschon gefundenss Henry in Morgentausumpfss? Schuldenss zehn Lederhäute.");
 talkEntry:addResponse("Zerarisa wartenss noch auf Leder von Henry in Morgentaussumpf.");
@@ -729,6 +905,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2547, "all", ">", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -747,6 +924,22 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2547, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins. You advance in Queen Rosaline Edwards's favour."));
+talkEntry:addResponse("Zerarisa thanksss you, here'ss money for your troubless.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(2547, "all", ">", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Zerarisa dankenss dir, hier sindsss Geld für Ärgerss.");
@@ -760,6 +953,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(2547, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Zerarisa dankenss dir, hier sindsss Geld für Ärgerss.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2547, "all", ">", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -776,6 +984,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2547, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins."));
+talkEntry:addResponse("Zerarisa thanksss you, here'ss money for your troubless.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "fishing", "<", 90));
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(2547, "all", ">", 9));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Fischereifertigkeit steigt."));
 talkEntry:addResponse("Zerarisa dankenss dir, hier sindsss Geld für Ärgerss.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "fishing", "+", 1));
@@ -786,9 +1008,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(2547, "all", ">", 9));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke."));
+talkEntry:addResponse("Zerarisa dankenss dir, hier sindsss Geld für Ärgerss.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Zerarisa hass no more jobss for you, sshe hass enough fissh.");
@@ -798,7 +1031,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 8));
 talkEntry:addResponse("Zerarisa habenss nichts mehr Aufgabe für dich, habenss genug Fissch.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -807,6 +1039,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 8));
 talkEntry:addResponse("Zerarisa hass enough fissh, no more jobss for you.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -816,6 +1049,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 8));
 talkEntry:addResponse("Zerarisa habenss nichts mehr Aufgabe für dich, habenss genug Fissch.");
 talkingNPC:addTalkingEntry(talkEntry);
