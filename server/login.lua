@@ -124,7 +124,7 @@ function onLogin( player )
 	if player:getMentalCapacity() < 1999 or player:getQuestProgress(122) == 0 then --Mental Capacity CANNOT drop below 1999 -> New player or cheater. However, new players should start with a higher value
 	    player:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
 		base.common.TempInformNLS(player,"[Skillsystem] Mental Capacity zwangsangepasst!","[Skill system] Adjustment of mental capacity enforced."); --Debuggin'
-		player:setQuestProgress(122,1);
+		player:setQuestProgress(122,1); --Saving the information that the player went throuh this process
 	end
 	--TEMPORARY SOLUTION END
 	
@@ -147,7 +147,7 @@ function onLogin( player )
 		    end
 		end
 		if not newPos then
-			player:inform("Fehler beim Erstellen des Lasttieres.");
+			player:inform("[Error] Problem creating the beast of burden. Please inform a developer.");
 		else
 			Transporter = world:getCharacterOnField(newPos);
 			transport_effect = LongTimeEffect( 10, 500000 );
