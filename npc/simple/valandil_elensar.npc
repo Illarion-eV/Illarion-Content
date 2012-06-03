@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Zak                                                              --
 --                                                                            --
--- Last parsing: July 11, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 02, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Valandil Elensar"
@@ -93,8 +93,10 @@ itemShoes = 53
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(69) = 0 -> inform("[Neues Quest] Elsbaumwald I"), "Ah, fein, ihr möchtet mir dabei helfen, die Bäume zu pflegen. Borkenkäfer sind zu einer echten Plage geworden. Nehmt dieses Beil und sucht nach kranken Naldorbäumen. Bringt mir zehn Scheite, ja?", item(74, 1, 399, 0), queststatus(69) = 1
 
 -- Quest 1 solved
-".+", queststatus(69) = 1, item(544, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins and your lumberjacking skill increases."), "Oh, thank you. Here, take this reward for your efforts.", skill(lumberjacking) + 1, money + 50, deleteItem(2560, 10), queststatus(69) = 2
-".+", queststatus(69) = 1, item(544, all) > 9 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Holzfällerfertigkeit steigt."), "Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen.", skill(lumberjacking) + 1, money + 50, deleteItem(2560, 10), queststatus(69) = 2
+".+", skill(lumberjacking) < 90, queststatus(69) = 1, item(544, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins and your lumberjacking skill increases."), "Oh, thank you. Here, take this reward for your efforts.", skill(lumberjacking) + 1, money + 50, deleteItem(2560, 10), queststatus(69) = 2
+".+", queststatus(69) = 1, item(544, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins."), "Oh, thank you. Here, take this reward for your efforts.", money + 50, deleteItem(2560, 10), queststatus(69) = 2
+".+", skill(lumberjacking) < 90, queststatus(69) = 1, item(544, all) > 9 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Holzfällerfertigkeit steigt."), "Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen.", skill(lumberjacking) + 1, money + 50, deleteItem(2560, 10), queststatus(69) = 2
+".+", queststatus(69) = 1, item(544, all) > 9 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke."), "Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen.", money + 50, deleteItem(2560, 10), queststatus(69) = 2
 
 -- Quest 1 not solved, repeat the instructions
 "quest", "mission", queststatus(69) = 1, english -> "Please take care of ill naldor trees, else bark beetles might make other trees suffer, too.", "Well, I am sure you'll find more ill naldor trees."
@@ -109,8 +111,10 @@ itemShoes = 53
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(69) = 2 -> inform("[Neues Quest] Elsbaumwald II"), "Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite.", queststatus(69) = 3
 
 -- Quest 2 solved
-".+", queststatus(69) = 3, item(543, all) > 19, english -> inform("[Quest solved] You are awarded 100 copper coins and your lumberjacking skill increases."), "Ha, now the archers can train again for any possible emergency, thank you. Take this as a reward.", skill(lumberjacking) + 1, money + 100, deleteItem(543, 20), queststatus(69) = 4
-".+", queststatus(69) = 3, item(543, all) > 19 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Holzfällerfertigkeit steigt."), "Ha, ihr habt es den Schildläusen gezeigt, danke euch. Nehmt dies als Belohnung.", skill(lumberjacking) + 1, money + 100, deleteItem(543, 20), queststatus(69) = 4
+".+", skill(lumberjacking) < 90, queststatus(69) = 3, item(543, all) > 19, english -> inform("[Quest solved] You are awarded 100 copper coins and your lumberjacking skill increases."), "Ha, now the archers can train again for any possible emergency, thank you. Take this as a reward.", skill(lumberjacking) + 1, money + 100, deleteItem(543, 20), queststatus(69) = 4
+".+", queststatus(69) = 3, item(543, all) > 19, english -> inform("[Quest solved] You are awarded 100 copper coins."), "Ha, now the archers can train again for any possible emergency, thank you. Take this as a reward.", money + 100, deleteItem(543, 20), queststatus(69) = 4
+".+", skill(lumberjacking) < 90, queststatus(69) = 3, item(543, all) > 19 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Holzfällerfertigkeit steigt."), "Ha, ihr habt es den Schildläusen gezeigt, danke euch. Nehmt dies als Belohnung.", skill(lumberjacking) + 1, money + 100, deleteItem(543, 20), queststatus(69) = 4
+".+", queststatus(69) = 3, item(543, all) > 19 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Ha, ihr habt es den Schildläusen gezeigt, danke euch. Nehmt dies als Belohnung.", money + 100, deleteItem(543, 20), queststatus(69) = 4
 
 -- Quest 2 not solved, repeat the instructions
 "quest", "mission", queststatus(69) = 3, english -> "Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please.", "Those are not enough cherry logs yet, try to get some more."
@@ -125,8 +129,10 @@ itemShoes = 53
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(69) = 4 -> inform("[Neues Quest] Elsbaumwald III"), "Wir brachten immer einige Zweige an der Decke an, des köstlichen Duftes wegen, den sie verbreiten. Doch nun haben die jetzigen Zweige ihren Duft verloren. Meint ihr, ihr könntet uns fünf neue besorgen? Die aus dem Nordwald riechen am intensivsten.", queststatus(69) = 5
 
 -- Quest 3 solved
-".+", queststatus(69) = 5, item(2786, all) > 4, english -> inform("[Quest solved] You are awarded 100 copper coins and your lumberjacking skill increases."), "Mmh... do you smell that? The calming scent of the woods, thank you very much. Finally my wife and I can go to sleep completely relaxed again.", skill(lumberjacking) + 1, money + 100, deleteItem(2786, 5), queststatus(69) = 6
-".+", queststatus(69) = 5, item(2786, all) > 4 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Holzfällerfertigkeit steigt."), "Mmh... riecht ihr das? Der beruhigende Duft des Waldes, vielen vielen Dank. Meine Frau und ich können nun endlich wieder entspannt einschlafen.", skill(lumberjacking) + 1, money + 100, deleteItem(2786, 5), queststatus(69) = 6
+".+", skill(lumberjacking) < 90, queststatus(69) = 5, item(2786, all) > 4, english -> inform("[Quest solved] You are awarded 100 copper coins and your lumberjacking skill increases."), "Mmh... do you smell that? The calming scent of the woods, thank you very much. Finally my wife and I can go to sleep completely relaxed again.", skill(lumberjacking) + 1, money + 100, deleteItem(2786, 5), queststatus(69) = 6
+".+", queststatus(69) = 5, item(2786, all) > 4, english -> inform("[Quest solved] You are awarded 100 copper coins."), "Mmh... do you smell that? The calming scent of the woods, thank you very much. Finally my wife and I can go to sleep completely relaxed again.", money + 100, deleteItem(2786, 5), queststatus(69) = 6
+".+", skill(lumberjacking) < 90, queststatus(69) = 5, item(2786, all) > 4 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Holzfällerfertigkeit steigt."), "Mmh... riecht ihr das? Der beruhigende Duft des Waldes, vielen vielen Dank. Meine Frau und ich können nun endlich wieder entspannt einschlafen.", skill(lumberjacking) + 1, money + 100, deleteItem(2786, 5), queststatus(69) = 6
+".+", queststatus(69) = 5, item(2786, all) > 4 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Mmh... riecht ihr das? Der beruhigende Duft des Waldes, vielen vielen Dank. Meine Frau und ich können nun endlich wieder entspannt einschlafen.", money + 100, deleteItem(2786, 5), queststatus(69) = 6
 
 -- Quest 3 not solved, repeat the instructions
 "quest", "mission", queststatus(69) = 5, english -> "We always used to pin some twigs to the ceiling because of the delicious scent they spread. But now the branches we have have lost their scent. Do you think you can get us five new ones?", "Well, actually we wanted to have a bigger storage so that we do not have to bother you again. Please, gather some more twigs."
@@ -141,8 +147,10 @@ itemShoes = 53
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(69) = 6 -> inform("[Neues Quest] Elsbaumwald IV"), "Zusätzlich zu meinen Aufgaben als Förster kümmere ich mich um die Kühe. Könnt ihr mir zehn Bündel Getreide bringen, um sie zu füttern? Nana Winterbutter im Eibenthal könnte dir dabei helfen.", queststatus(69) = 7
 
 -- Quest 4 solved
-".+", queststatus(69) = 7, item(249, all) > 9, english -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Holzfällerfertigkeit steigt."), "Vielen, vielen Dank. Nun kann ich die Kühe füttern und mich ihrer Dankbarkeit erfreuen.", skill(lumberjacking) + 1, money + 200, deleteItem(249, 10), queststatus(69) = 8
-".+", queststatus(69) = 7, item(249, all) > 9 -> inform("[Quest solved] You are awarded 200 copper coins and your lumberjacking skill increases."), "Thank you so much. Now I can feed the cows and enjoy their gratefullness.", skill(lumberjacking) + 1, money + 200, deleteItem(249, 10), queststatus(69) = 8
+".+", skill(lumberjacking) < 90, queststatus(69) = 7, item(249, all) > 9, english -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Holzfällerfertigkeit steigt."), "Vielen, vielen Dank. Nun kann ich die Kühe füttern und mich ihrer Dankbarkeit erfreuen.", skill(lumberjacking) + 1, money + 200, deleteItem(249, 10), queststatus(69) = 8
+".+", queststatus(69) = 7, item(249, all) > 9, english -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), "Vielen, vielen Dank. Nun kann ich die Kühe füttern und mich ihrer Dankbarkeit erfreuen.", money + 200, deleteItem(249, 10), queststatus(69) = 8
+".+", skill(lumberjacking) < 90, queststatus(69) = 7, item(249, all) > 9 -> inform("[Quest solved] You are awarded 200 copper coins and your lumberjacking skill increases."), "Thank you so much. Now I can feed the cows and enjoy their gratefullness.", skill(lumberjacking) + 1, money + 200, deleteItem(249, 10), queststatus(69) = 8
+".+", queststatus(69) = 7, item(249, all) > 9 -> inform("[Quest solved] You are awarded 200 copper coins."), "Thank you so much. Now I can feed the cows and enjoy their gratefullness.", money + 200, deleteItem(249, 10), queststatus(69) = 8
 
 -- Quest 4 not solved, repeat the instructions
 "quest", "mission", queststatus(69) = 7, english -> "Please, the cows have a hard time, finding fresh grass. Will you bring me some straw?", "Could you please bring me more straw? Some of the cows are already pretty thin, aren't they?"
@@ -179,8 +187,8 @@ itemShoes = 53
 "Nana", "Winterbutter" -> "Nana ist eine liebliche und nette Person. Sie lebt im Eibenthal, wohin ich früher oft gereist bin - bevor die Borkenkäfer kamen."
 "bark beetle" -> "Bark beetles are the trees' foes. And I am the trees' friend. So they are my foes!"
 "Borkenkäfer" -> "Der Borkenkäfer ist der Feind der Bäume und ich bin ein Freund der Bäume. Also ist er mein Feind!"
-"lice", "louse", "scale bug", "scale insect" -> "Scale lice want to exterminate the forest. But what if they succeed - won't they exterminate themselves?"
-"Schildlaus", "Schildläuse", "Läuse" -> "Die Schildläuse wollen den Wald vernichten. Doch, was wenn sie Erfolg haben? Rotten sie sich nicht so selbst aus?"
+"lice", "louse", "bug", "insect" -> "Scale lice want to exterminate the forest. But what if they succeed - won't they exterminate themselves?"
+"Laus", "Läuse" -> "Die Schildläuse wollen den Wald vernichten. Doch, was wenn sie Erfolg haben? Rotten sie sich nicht so selbst aus?"
 "Elstree" -> "Yes, the Elstree forest is like a child and a mother to me. I care for it like for a child and it grants me a sense of well-being like a mother."
 "Elsbaum" -> "Ja, der Elsbaumwald ist wie ein Kind und eine Mutter für mich. Ich kümmere mich um ihn wie um ein Kind und er gibt mir die Geborgenheit wie eine Mutter."
 "Raban", english -> "Raban, yes, I heard that name. He's a hermit, living somewhere deep in the forest, but do not ask me where."
