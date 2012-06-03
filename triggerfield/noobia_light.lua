@@ -17,7 +17,7 @@ function MoveToField(Character)
 	end
 	
 	if player:getPlayerLanguage() == 0 then
-		dialogNewbie = MessageDialog("Willkommen!","Um mit dem Echsenmann zu sprechen, öffne die Sprechkonsole mit Enter, schreibe etwas und drücke wieder Enter. Alle NPCs (NonPlayerCharacters) reagiern auf bestimmte Signal Wörter wenn du in ihrer Nähe stehst. Versuche den Echsenmann um 'Hilfe' zu bitten. Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen.", callbackNewbie)
+		dialogNewbie = MessageDialog("Willkommen!","Um mit dem Echsenmann zu sprechen, öffne die Sprachkonsole mit Enter, schreibe etwas und drücke wieder Enter. Alle NPCs (NonPlayerCharacters) reagieren auf bestimmte Schlüsselwörter wenn du in ihrer Nähe stehst. Versuche den Echsenmann um 'Hilfe' zu bitten. Ist die Sprachkonsole leer, kannst du sie mit erneutem Drücken der Entertaste schließen.", callbackNewbie)
 	else	
 		dialogNewbie = MessageDialog("Welcome!", "translation", callbackNewbie)
 	end	
