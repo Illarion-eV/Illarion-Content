@@ -492,7 +492,7 @@ mainNPC:initDone();
 end;
 
 function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); 
-    if npc.base.autonpcfunctions.NPCStatus[speaker.id] ~= 0 then --initiate repairing with state
+    if NPCStatus[speaker.id] ~= 0 then --initiate repairing with state
 
 		--Full repair is the same as buying a new one. Just worth it with special (e.g. gemmed) items.
 		--Round prices to prevent prices like "1273 cp" and to prevent exact durability determination via repairing.
