@@ -16,6 +16,7 @@ VALUES (0, 133, 581, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 1, 3, 180, 3
 ---]]
 
 require("npc.base.basic")
+require("npc.base.autonpcfunctions")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.state")
