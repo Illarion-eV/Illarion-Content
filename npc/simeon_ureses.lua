@@ -16,7 +16,6 @@ VALUES (0, 133, 581, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 1, 3, 180, 3
 ---]]
 
 require("npc.base.basic")
-require("npc.base.autonpcfunctions")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.state")
@@ -491,68 +490,7 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); 
-    if NPCStatus[speaker.id] ~= 0 then --initiate repairing with state
-
-		--Full repair is the same as buying a new one. Just worth it with special (e.g. gemmed) items.
-		--Round prices to prevent prices like "1273 cp" and to prevent exact durability determination via repairing.
-		
-		theItem=GetFrontItem(thisNPC); --What item shall be repaired?
-		durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
-		toRepair=99-durability; --the amount of durability points that has to repaired
-		price=math.ceil(theItem.worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
-	    
-		--Defining the messages in english and german. State is used here. Please do NOT simply use the player's language because a german answer on an english request looks weird.
-		
-		--Please edit here!
-        message1={"Please put the item I shall repair on the table.","Pack den Gegenstand, den ich instandsetzen soll, einfach auf den Tisch."}; --No item found
-        message2={"I cannot repair this, sorry.","Entschuldige, aber das kann ich nicht reparieren."}; --Priceless, perfect or stackable item
-        message3={"For repairing this item, I demand "..price.." copper coins.","Die Reparatur dieses Gegenstandes würde "..price.." Kupferstücke kosten."}; --Saying the price
-        message4={"You don't have enough money I suppose. I demand "..price.." copper coins for repairing this item.","Du hast anscheinend nicht genug Geld. Die Reparatur würde dich "..price.." Kupferstücke kosten."}; --Player is broke
-        message5={"#me repairs the item at a cost of "..price.." copper coins.","#me setzt den Gegenstand für "..price.." Kupferstücke in Stand."};	--...
-		--Stop editing here!
-
-		language=npc.base.autonpcfunctions.NPCStatus[speaker.id]; --1 for english, 2 for german
-
-		if language >2 then --correction for state 3 and 4; a little dirty, I know
-		    language=language-2;
-		end
-		
-		if theItem.id == 0 or theItem.id == 320 or theItem.id == nil then --there is nothing on the table!
-		
-		    thisNPC:talk(Character.say, message1(language)); --Message 1
-			
-		elseif theItem.worth == 0 or theItem.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
-		
-		    thisNPC:talk(Character.say, message2(language)); --Message 2
-			
-		else -- I can repair it!
-		
-	        if npc.base.autonpcfunctions.NPCStatus[speaker.id] == 1 or npc.base.autonpcfunctions.NPCStatus[speaker.id] == 2 then --player just wants to know the price
-			
-		        thisNPC:talk(Character.say, message3(language)); --Message 3
-				
-            elseif npc.base.autonpcfunctions.NPCStatus[speaker.id] == 3 or npc.base.autonpcfunctions.NPCStatus[speaker.id] == 4 then --player wants to repair the item
-			
-			    if not npc.base.autonpcfunctions.CheckMoney(speaker,price) then --player is broke
-				
-		            thisNPC:talk(Character.say, message4 (language)); --Message 4
-					
-			    else --he has the money
-				
-                    thisNPC:talk(Character.say, message5 (language)); --Message 5
-                    npc.base.autonpcfunctions.PayTheNPC(speaker,price); --pay!
-                    theItem.quality=theItem.quality+toRepair; --repair!
-                    world:changeItem(theItem);
-					
-				end --broke/wealthy	
-			end --price/repair
-		end --there is an item
-		
-	npc.base.autonpcfunctions.NPCStatus[speaker.id]=0; -- set state to 0 again
-	
-	end --repairing
-end;
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
 function nextCycle() mainNPC:nextCycle(); end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
