@@ -491,7 +491,7 @@ mainNPC:initDone();
 end;
 
 function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); 
-    if NPCStatus[speaker.id] ~= 0 then --initiate repairing with state
+    if npc.base.autonpcfunctions.NPCStatus[speaker.id] ~= 0 then --initiate repairing with state
 
 		--Full repair is the same as buying a new one. Just worth it with special (e.g. gemmed) items.
 		--Round prices to prevent prices like "1273 cp" and to prevent exact durability determination via repairing.
@@ -511,8 +511,8 @@ function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, me
         message5={"#me repairs the item at a cost of "..price.." copper coins.","#me setzt den Gegenstand für "..price.." Kupferstücke in Stand."};	--...
 		--Stop editing here!
 
-		language=NPCStatus[speaker.id]; --1 for english, 2 for german
-		
+		language=npc.base.autonpcfunctions.NPCStatus[speaker.id]; --1 for english, 2 for german
+
 		if language >2 then --correction for state 3 and 4; a little dirty, I know
 		    language=language-2;
 		end
@@ -527,11 +527,11 @@ function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, me
 			
 		else -- I can repair it!
 		
-	        if NPCStatus[speaker.id] == 1 or NPCStatus[speaker.id] == 2 then --player just wants to know the price
+	        if npc.base.autonpcfunctions.NPCStatus[speaker.id] == 1 or npc.base.autonpcfunctions.NPCStatus[speaker.id] == 2 then --player just wants to know the price
 			
 		        thisNPC:talk(Character.say, message3(language)); --Message 3
 				
-            elseif NPCStatus[speaker.id] == 3 or NPCStatus[speaker.id] == 4 then --player wants to repair the item
+            elseif npc.base.autonpcfunctions.NPCStatus[speaker.id] == 3 or npc.base.autonpcfunctions.NPCStatus[speaker.id] == 4 then --player wants to repair the item
 			
 			    if not npc.base.autonpcfunctions.CheckMoney(speaker,price) then --player is broke
 				
@@ -548,7 +548,7 @@ function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, me
 			end --price/repair
 		end --there is an item
 		
-	NPCStatus[speaker.id]=0; -- set state to 0 again
+	npc.base.autonpcfunctions.NPCStatus[speaker.id]=0; -- set state to 0 again
 	
 	end --repairing
 end;
