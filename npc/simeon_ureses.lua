@@ -519,11 +519,11 @@ function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, me
 		
 		if theItem.id == 0 or theItem.id == 320 or theItem.id == nil then --there is nothing on the table!
 		
-		    thisNPC:talk(Character.say, message1(language); --Message 1
+		    thisNPC:talk(Character.say, message1(language)); --Message 1
 			
 		elseif theItem.price=0 or theItem is stackable or theItem.durability==99 then --Cannot repair perfect, priceless or stackable items
 		
-		    thisNPC:talk(Character.say, message2(language); --Message 2
+		    thisNPC:talk(Character.say, message2(language)); --Message 2
 			
 		else -- I can repair it!
 		
