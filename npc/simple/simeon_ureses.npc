@@ -2,7 +2,7 @@
 -- NPC Name: Simeon Ureses                                            Cadomyr --
 -- NPC Job:  Armourer                                                         --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  133, 582, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Simeon Ureses"
 race = human
 sex = male
-position = 0, 0, 0
+position = 133, 582, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Armourer"

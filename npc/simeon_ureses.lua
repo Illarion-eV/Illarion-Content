@@ -2,7 +2,7 @@
 -- NPC Name: Simeon Ureses                                            Cadomyr --
 -- NPC Job:  Armourer                                                         --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  133, 582, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 0, 0, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 133, 582, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
