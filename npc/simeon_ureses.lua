@@ -12,11 +12,10 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 133, 581, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 1, 3, 0, 0, 0, 160, 80, 45);
+VALUES (0, 133, 581, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 1, 3, 180, 35, 35, 160, 80, 45);
 ---]]
 
 require("npc.base.basic")
-require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.state")
@@ -29,13 +28,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is <Name> the <profession/function>. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keyphrases: Hello, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -211,18 +210,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Do I look like I'd issue quests?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Sehe ich aus wie einer, der Befehle verteilt?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -230,9 +225,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Do I look like I'd issue quests?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -241,9 +234,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Sehe ich aus wie einer, der Befehle verteilt?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -281,7 +272,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER1");
+talkEntry:addTrigger("dwarf");
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -321,7 +312,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER1");
+talkEntry:addTrigger("Zwerg");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -417,23 +408,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -446,74 +420,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -550,307 +456,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargún");
-talkEntry:addTrigger("Nargùn");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargún");
-talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zhambra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gynk");
-talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gync");
-talkEntry:addTrigger("gynk");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("my name");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC first name>");
-talkEntry:addTrigger("<NPC last name>");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
