@@ -521,7 +521,7 @@ function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, me
 		
 		    thisNPC:talk(Character.say, message1(language)); --Message 1
 			
-		elseif theItem.price=0 or theItem is stackable or theItem.durability==99 then --Cannot repair perfect, priceless or stackable items
+		elseif theItem.worth == 0 or theItem.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
 		
 		    thisNPC:talk(Character.say, message2(language)); --Message 2
 			
