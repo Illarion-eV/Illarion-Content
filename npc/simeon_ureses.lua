@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 133, 581, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 1, 3, 123, 62, 9, 140, 70, 20);
+VALUES (0, 133, 581, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 1, 3, 0, 0, 0, 160, 80, 45);
 ---]]
 
 require("npc.base.basic")
@@ -873,12 +873,12 @@ mainNPC:setLookat("Dieser NPC ist Simeon Ureses der königliche Waffenmeister.", 
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
-mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(3, 363);
+mainNPC:setEquipment(11, 195);
+mainNPC:setEquipment(5, 23);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(9, 459);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 

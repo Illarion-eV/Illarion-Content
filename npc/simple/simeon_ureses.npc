@@ -34,15 +34,15 @@ wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 1
 beardID = 3
-colorHair = 123, 62, 9
-colorSkin = 140, 70, 20
+colorHair = 0, 0, 0
+colorSkin = 160, 80, 45
 itemHead = 0
-itemChest = 181
-itemCoat = 0
-itemMainHand = 0
+itemChest = 363
+itemCoat = 195
+itemMainHand = 23
 itemSecondHand = 0
 itemHands = 48
-itemTrousers = 34
+itemTrousers = 459
 itemShoes = 53
 
 -- Template Version 1.04, 07/12/2011 by Estralis Seborian
