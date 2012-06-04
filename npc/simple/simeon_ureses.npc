@@ -2,7 +2,7 @@
 -- NPC Name: Simeon Ureses                                            Cadomyr --
 -- NPC Job:  Armourer                                                         --
 --                                                                            --
--- NPC Race: human                      NPC Position:  133, 582, 0            --
+-- NPC Race: human                      NPC Position:  133, 581, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Simeon Ureses"
 race = human
 sex = male
-position = 133, 582, 0
+position = 133, 581, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Armourer"
@@ -32,10 +32,10 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
-hairID = 2
-beardID = 5
+hairID = 1
+beardID = 3
 colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+colorSkin = 140, 70, 20
 itemHead = 0
 itemChest = 181
 itemCoat = 0
