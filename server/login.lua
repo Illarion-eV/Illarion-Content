@@ -13,12 +13,14 @@ function onLogin( player )
 	base.common.TempInformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
     
 	if player.pos.z == 100 or player.pos.z== 101 then --On Noobia
+		local callbackNewbie = function(dialogNewbie)
         if player:getPlayerLanguage() == 0 then
 			dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen.", callbackNewbie)
 		else	
 			dialogNewbie = MessageDialog("Welcome to Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen.", callbackNewbie)
 		end	
 		player:requestMessageDialog(dialogNewbie)
+		end
     end
 	
     if player.pos.z ~= 100 and player.pos.z~= 101 then --Not on Noobia, confuses noobs
@@ -29,7 +31,7 @@ function onLogin( player )
     messageG[2]="[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stichwaffen.";
     messageG[3]="[Tipp] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stichwaffen aber schlecht gegen stumpfe Waffen.";
 	messageG[4]="[Tipp] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!";	
-	messageG[5]="[Tipp] Bitte besuche uns im IRC-Chat: #illarion auf Quakenet.";
+	messageG[5]="[Tipp] Bitte besuche uns auch im IRC-Chat: #illarion auf Quakenet.";
 	messageG[6]="[Tipp] Im Forum sind viele interessante Diskussion und Informationen zu finden. Meld dich gleich an!";
 	messageG[7]="[Tipp] Wenn du einen Gamemaster erreichen möchtest, schreibe !gm <Deine Nachricht> im Chatfenster.";
 	messageG[8]="[Tipp] Brágon ist der Gott des Feuers.";
@@ -266,11 +268,9 @@ function onLogin( player )
 ]]
 	-- player logs in on noobia map and has no newbie status yet
 	if (((player.pos.z == 100) or (player.pos.z == 101)) and player:getQuestProgress(2)==0) --[[and (not player:isAdmin())]] then 
-	    local callbackNewbie = function(dialogNewbie)
-           player:setQuestProgress(2,1)
-           newbieEffect = LongTimeEffect(13,1)
-		   player.effects:addEffect(newbieEffect)
-		end 
+        player:setQuestProgress(2,1)
+        newbieEffect = LongTimeEffect(13,1)
+		player.effects:addEffect(newbieEffect)
 	end
 	
 	return true;
