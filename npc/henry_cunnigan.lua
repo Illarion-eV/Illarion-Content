@@ -104,7 +104,7 @@ mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich ver
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 101);
 mainNPC:setEquipment(11, 2419);
-mainNPC:setEquipment(5, 392);
+mainNPC:setEquipment(5, 323);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 366);
