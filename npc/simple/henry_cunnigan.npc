@@ -39,13 +39,13 @@ beardID = 5
 colorHair = 123, 62, 9
 colorSkin = 245, 180, 137
 itemHead = 0
-itemChest = 696
-itemCoat = 0
-itemMainHand = 0
+itemChest = 4
+itemCoat = 194
+itemMainHand = 323
 itemSecondHand = 0
-itemHands = 392
-itemTrousers = 0
-itemShoes = 0
+itemHands = 48
+itemTrousers = 366
+itemShoes = 53
 "Lektion wiederholen" -> "Sss, hasst dir wohl den Kopf gestoßen? Ich werde dir erklären, wie du flüsterst, rufst und deine Handlungen darstellst. - Um zu flüstern schreibe '#w und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.", queststatus(310) = 1
 ".*", queststatus(310) = 0 -> "Sss, hasst dir wohl den Kopf gestoßen? Ich werde dir erklären, wie du flüsterst, rufst und deine Handlungen darstellst. - Um zu flüstern schreibe '#w und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.", queststatus(310) = 1
 "#w.*", queststatus(310) = 1 -> "Großartig. Wenn du flüsterst können dich nur diejenigen Personen hören, die sich deiner unmittelbaren Nähe aufhalten. - Um laut zu rufen schreibe '#s und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.", queststatus(310) = 2
