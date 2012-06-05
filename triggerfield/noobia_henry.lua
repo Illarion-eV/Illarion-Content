@@ -23,7 +23,7 @@ function MoveToField(Character)
 	    Character:inform("Value: "..value.."!");
 	end
 
-    if not value then --Didn't visit the triggerfield yet
+    if (value == 0) or (not value) then --Didn't visit the triggerfield yet
 
 	    local callbackNewbie = function(dialogNewbie)
            find, myEffect = Character.effects:find(13)
