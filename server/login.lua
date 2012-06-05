@@ -29,7 +29,7 @@ function onLogin( player )
 		if player:getPlayerLanguage() == 0 then		
 			dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen.", callbackNewbie)
 		else		
-			dialogNewbie = MessageDialog("Welcome to Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen.", callbackNewbie)
+			dialogNewbie = MessageDialog("Welcome to Illarion!", "Welcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and will show you the handling of the game. You may skip the tutorial at any time.", callbackNewbie)
 		end	
 		
 		player:requestMessageDialog(dialogNewbie)
