@@ -15,7 +15,7 @@ module("triggerfield.noobia_henry", package.seeall)
 function MoveToField(Character)
     -- for Noobia: the char has to walk to a specific field (this triggerfield); he gets a message and we add a LTEvalue so that we remember he was at the field
 	local callbackNewbie = function(dialogNewbie)
-           find, myEffect = Character.effect:find(13)
+           find, myEffect = Character.effects:find(13)
 		   if find then
 		      myEffect:addValue("noobiaHenry",1)
 			end  
