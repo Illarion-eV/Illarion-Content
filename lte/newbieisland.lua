@@ -45,7 +45,7 @@ function callEffect(newbieEffect,Character)
 	if not foundNoobiaLight then -- the char should walk to a specific postion (see: triggerfield/noobia_light)
 		base.common.InformNLS(Character,
 		"TRANSLATE",
-		"[Tutorial] Please walk to the human by clicking and holding the right mouse button on a spot close to the human at the end of the pier to start the tutorial. You can also walk using the arrow keys or WASD.");
+		"[Tutorial] To start the tutorial, please walk to the human by clicking and holding the right mouse button on a spot close to the human at the end of the pier. You can also walk using the arrow keys or WASD.");
 	end 
 	
 	if (Character:getQuestProgress(13) == 2) or (Character:getQuestProgress(13) == 3) then
