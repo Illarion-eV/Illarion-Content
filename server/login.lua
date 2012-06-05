@@ -14,15 +14,16 @@ function onLogin( player )
     
 	--Noobia handling
 	if player.pos.z == 100 or player.pos.z== 101 then --On Noobia	
-		local callbackNewbie = function(dialogNewbie)	
+		--local callbackNewbie = function(dialogNewbie)	
 		
         if player:getPlayerLanguage() == 0 then		
 			dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen.", callbackNewbie)
 		else		
 			dialogNewbie = MessageDialog("Welcome to Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen.", callbackNewbie)
 		end	
-		    player:requestMessageDialog(dialogNewbie)
-		end --local!?
+		
+		player:requestMessageDialog(dialogNewbie)
+		--end --local!?
 		
 		if player:getQuestProgress(2)==0 then
 		
