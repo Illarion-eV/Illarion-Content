@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 04, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 05, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -18,7 +18,6 @@ VALUES (0, 133, 581, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 1, 3, 180, 3
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.state")
 require("npc.base.talk")
 module("npc.simeon_ureses", package.seeall)
 
@@ -28,13 +27,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keyphrases: Hello, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keyphrases: Hello, armourer, TRIGGER3, TRIGGER4, TRIGGER5."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, TRIGGER3, TRIGGER4, TRIGGER5."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -176,37 +175,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("price");
-talkEntry:addTrigger("cost");
-talkEntry:addTrigger("payment");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Preis");
-talkEntry:addTrigger("kosten");
-talkEntry:addTrigger("kostet");
-talkEntry:addTrigger("bezahl");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("repair");
-talkEntry:addTrigger("fix");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("reparier");
-talkEntry:addTrigger("instand");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -280,7 +248,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER2");
+talkEntry:addTrigger("armourer");
+talkEntry:addTrigger("armorer");
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -320,7 +289,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER2");
+talkEntry:addTrigger("Waffenmeister");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -356,9 +325,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am not a trader but I can repair your items.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -367,26 +334,7 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin kein Händler aber ich kann eure Gegenstände reparieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -461,10 +409,10 @@ talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("Ja, ich schaff das.", "Yes, I can!");
+talkingNPC:addCycleText("Ihr da! Sehe ich da eine Schramme in eurer Rüstung?", "Lo! Is that a scratch in your armour?");
+talkingNPC:addCycleText("Die Ritter Cadomyrs sollten nur in strahlenden Rüstungen in die Schlacht ziehen.", "The knights of Cadomyr should go to battle only in shiny armour.");
+talkingNPC:addCycleText("Ein gebrochenes Herz? Das kann ein Bier von Severus helfen. Ein zerbrochenes Schwert? Da kann ich helfen!", "A broken heart? A beer from Severus might help. A broken sword? I can help!");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");

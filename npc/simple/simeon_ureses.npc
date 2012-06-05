@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 04, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 05, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Simeon Ureses"
@@ -56,8 +56,8 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keyphrases: Hello, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keyphrases: Hello, armourer, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -72,12 +72,6 @@ itemShoes = 53
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Repairing. State is used as connection to the lua part
-"price", "cost", "payment" -> state = 1
-"Preis", "kosten", "kostet", "bezahl" -> state = 2
-"repair", "fix" -> state = 3
-"reparier", "instand" -> state = 4
 
 -- OPTIONAL TRIGGERS
 
@@ -95,21 +89,19 @@ itemShoes = 53
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "dwarf" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"armourer", "armorer" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Zwerg" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Waffenmeister" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"what sell", "what buy", "list wares", "price of" -> "I am not a trader but I can repair your items."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler aber ich kann eure Gegenstände reparieren."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -126,10 +118,10 @@ itemShoes = 53
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "Ja, ich schaff das.", "Yes, I can!"
+cycletext "Ihr da! Sehe ich da eine Schramme in eurer Rüstung?", "Lo! Is that a scratch in your armour?"
+cycletext "Die Ritter Cadomyrs sollten nur in strahlenden Rüstungen in die Schlacht ziehen.", "The knights of Cadomyr should go to battle only in shiny armour."
+cycletext "Ein gebrochenes Herz? Das kann ein Bier von Severus helfen. Ein zerbrochenes Schwert? Da kann ich helfen!", "A broken heart? A beer from Severus might help. A broken sword? I can help!"
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
