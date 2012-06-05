@@ -12,16 +12,33 @@ function onLogin( player )
     players=world:getPlayersOnline(); --Reading all players online so we can count them
 	base.common.TempInformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
     
+	--Noobia handling
 	if player.pos.z == 100 or player.pos.z== 101 then --On Noobia
+	
 		local callbackNewbie = function(dialogNewbie)
+		
         if player:getPlayerLanguage() == 0 then
+		
 			dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen.", callbackNewbie)
-		else	
+		
+		else
+		
 			dialogNewbie = MessageDialog("Welcome to Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen.", callbackNewbie)
+		
 		end	
+		
 		player:requestMessageDialog(dialogNewbie)
+		
+		end --local!?
+		
+		if player:getQuestProgress(2)==0 then
+		
+		    player:setQuestProgress(2,1)
+            newbieEffect = LongTimeEffect(13,1)
+		    player.effects:addEffect(newbieEffect)
+			
 		end
-    end
+    end --Noobia end
 	
     if player.pos.z ~= 100 and player.pos.z~= 101 then --Not on Noobia, confuses noobs
 	
@@ -266,12 +283,7 @@ function onLogin( player )
 	    player:inform("Effekt gefunden.");
 	end
 ]]
-	-- player logs in on noobia map and has no newbie status yet
-	if (((player.pos.z == 100) or (player.pos.z == 101)) and player:getQuestProgress(2)==0) --[[and (not player:isAdmin())]] then 
-        player:setQuestProgress(2,1)
-        newbieEffect = LongTimeEffect(13,1)
-		player.effects:addEffect(newbieEffect)
-	end
+
 	
 	return true;
 end
