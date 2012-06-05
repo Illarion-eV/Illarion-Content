@@ -92,62 +92,62 @@ function onLogin( player )
 	messageG[50]="[Tipp] Die besten Edelsteinschleifer leben in Cadomyr.";
 	
     messageE={};
-    messageE[1]="[Tip] Light armour like leather armour protects good against blunt weapons but bad against slashing weapons.";
-    messageE[2]="[Tip] Medium armour like chain mail protects good against slashing weapons but bad against puncture weapons.";
-    messageE[3]="[Tip] Heavy armour like plate armour protects good against puncture weapons but bad against blunt weapons.";
-    messageE[4]="[Tip] We play with, not against each other. Have fun playing!";
-	messageE[5]="[Tip] Please join our IRC chat: #illarion on Quakenet.";
-	messageE[6]="[Tip] The forum contains many interesting discussions and information. Register today!";	
-	messageE[7]="[Tip] If you want to contact a gamemaster, type !gm <Your message> in the chat box.";
-	messageE[8]="[Tip] Brágon is the God of fire.";
-	messageE[9]="[Tip] Eldan is the God of spirit.";
-	messageE[10]="[Tip] Findari is the Goddess of air.";
-	messageE[11]="[Tip] Tanora/Zelphia is the Goddess of water.";
-	messageE[12]="[Tip] Ushara is the Goddess of earth.";
-	messageE[13]="[Tip] Adron is the God of festivities and wine.";
-	messageE[14]="[Tip] Cherga is the Goddess of spirits and the underworld.";
-	messageE[15]="[Tip] Elara is the Goddess of wisdom and knowledge.";
-	messageE[16]="[Tip] Irmorom is the God of trade and craftsmanship.";
-	messageE[17]="[Tip] Malachín is the God of battle and hunting.";
-	messageE[18]="[Tip] Moshran is the God of blood and bones.";
-	messageE[19]="[Tip] Nargùn is the God of chaos.";
-	messageE[20]="[Tip] Oldra is the Goddess of life and fertility.";
-	messageE[21]="[Tip] Ronagan is the God of thieves and shadows.";
-	messageE[22]="[Tip] Sirani is the Goddess of love and pleasure.";
-	messageE[23]="[Tip] Zhambra is the God of friendship and loyalty.";
-	messageE[24]="[Tip] Cadomyr is the realm of honour.";
-	messageE[25]="[Tip] Runewick is the realm of wisdom.";
-	messageE[26]="[Tip] Galmair is the realm of wealth.";
-	messageE[27]="[Tip] Some monsters you should avoid all alone.";
-	messageE[28]="[Tip] Items of low durability might break any time. A specialist can repair them.";
-	messageE[29]="[Tip] Distance weapons have their name for a reason; useful for distant targets, useless in melee.";
-	messageE[30]="[Tip] Slashing weapons are good against light armour.";
-	messageE[31]="[Tip] Puncture weapons are good against medium armour.";
-	messageE[32]="[Tip] Blunt weapons are good against heavy armour.";
-	messageE[33]="[Tip] A silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin.";
-	messageE[34]="[Tip] The best alchemists are living in Runewick.";
-	messageE[35]="[Tip] The best candle makers are living in Runewick.";
-	messageE[36]="[Tip] The best carpenters are living in Runewick.";
-	messageE[37]="[Tip] The best cooks are living in Runewick.";
-	messageE[38]="[Tip] The best peasants are living in Runewick.";
-	messageE[39]="[Tip] The best herbalists are living in Runewick.";
-	messageE[40]="[Tip] The best tailors are living in Runewick.";
-	messageE[41]="[Tip] The best blacksmiths are living in Galmair.";
-	messageE[42]="[Tip] The best brick makers are living in Galmair.";
-	messageE[43]="[Tip] The best masons are living in Galmair.";
-	messageE[44]="[Tip] The best miners are living in Galmair.";
-	messageE[45]="[Tip] The best brewers are living in Galmair.";
-	messageE[46]="[Tip] The best fishers are living in Cadomyr.";
-	messageE[47]="[Tip] The best glass blowers are living in Cadomyr.";
-	messageE[48]="[Tip] The best diggers are living in Cadomyr.";
-	messageE[49]="[Tip] The best finesmiths are living in Cadomyr.";
-	messageE[50]="[Tip] The best gem grinders are living in Cadomyr.";	
+    messageE[1]="[Hint] Light armour like leather armour protects good against blunt weapons but bad against slashing weapons.";
+    messageE[2]="[Hint] Medium armour like chain mail protects good against slashing weapons but bad against puncture weapons.";
+    messageE[3]="[Hint] Heavy armour like plate armour protects good against puncture weapons but bad against blunt weapons.";
+    messageE[4]="[Hint] We play with, not against each other. Have fun playing!";
+	messageE[5]="[Hint] Please join our IRC chat: #illarion on Quakenet.";
+	messageE[6]="[Hint] The forum contains many interesting discussions and information. Register today!";	
+	messageE[7]="[Hint] If you want to contact a gamemaster, type !gm <Your message> in the chat box.";
+	messageE[8]="[Hint] Brágon is the God of fire.";
+	messageE[9]="[Hint] Eldan is the God of spirit.";
+	messageE[10]="[Hint] Findari is the Goddess of air.";
+	messageE[11]="[Hint] Tanora/Zelphia is the Goddess of water.";
+	messageE[12]="[Hint] Ushara is the Goddess of earth.";
+	messageE[13]="[Hint] Adron is the God of festivities and wine.";
+	messageE[14]="[Hint] Cherga is the Goddess of spirits and the underworld.";
+	messageE[15]="[Hint] Elara is the Goddess of wisdom and knowledge.";
+	messageE[16]="[Hint] Irmorom is the God of trade and craftsmanship.";
+	messageE[17]="[Hint] Malachín is the God of battle and hunting.";
+	messageE[18]="[Hint] Moshran is the God of blood and bones.";
+	messageE[19]="[Hint] Nargùn is the God of chaos.";
+	messageE[20]="[Hint] Oldra is the Goddess of life and fertility.";
+	messageE[21]="[Hint] Ronagan is the God of thieves and shadows.";
+	messageE[22]="[Hint] Sirani is the Goddess of love and pleasure.";
+	messageE[23]="[Hint] Zhambra is the God of friendship and loyalty.";
+	messageE[24]="[Hint] Cadomyr is the realm of honour.";
+	messageE[25]="[Hint] Runewick is the realm of wisdom.";
+	messageE[26]="[Hint] Galmair is the realm of wealth.";
+	messageE[27]="[Hint] Some monsters you should avoid all alone.";
+	messageE[28]="[Hint] Items of low durability might break any time. A specialist can repair them.";
+	messageE[29]="[Hint] Distance weapons have their name for a reason; useful for distant targets, useless in melee.";
+	messageE[30]="[Hint] Slashing weapons are good against light armour.";
+	messageE[31]="[Hint] Puncture weapons are good against medium armour.";
+	messageE[32]="[Hint] Blunt weapons are good against heavy armour.";
+	messageE[33]="[Hint] A silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin.";
+	messageE[34]="[Hint] The best alchemists are living in Runewick.";
+	messageE[35]="[Hint] The best candle makers are living in Runewick.";
+	messageE[36]="[Hint] The best carpenters are living in Runewick.";
+	messageE[37]="[Hint] The best cooks are living in Runewick.";
+	messageE[38]="[Hint] The best peasants are living in Runewick.";
+	messageE[39]="[Hint] The best herbalists are living in Runewick.";
+	messageE[40]="[Hint] The best tailors are living in Runewick.";
+	messageE[41]="[Hint] The best blacksmiths are living in Galmair.";
+	messageE[42]="[Hint] The best brick makers are living in Galmair.";
+	messageE[43]="[Hint] The best masons are living in Galmair.";
+	messageE[44]="[Hint] The best miners are living in Galmair.";
+	messageE[45]="[Hint] The best brewers are living in Galmair.";
+	messageE[46]="[Hint] The best fishers are living in Cadomyr.";
+	messageE[47]="[Hint] The best glass blowers are living in Cadomyr.";
+	messageE[48]="[Hint] The best diggers are living in Cadomyr.";
+	messageE[49]="[Hint] The best finesmiths are living in Cadomyr.";
+	messageE[50]="[Hint] The best gem grinders are living in Cadomyr.";	
 	
-
 	    dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	    base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
     end
-		--TEMPORARY SOLUTION TO CATCH NEW PLAYERS
+	
+	--TEMPORARY SOLUTION TO CATCH NEW PLAYERS
 	if player:getMentalCapacity() < 1999 or player:getQuestProgress(122) == 0 then --Mental Capacity CANNOT drop below 1999 -> New player or cheater. However, new players should start with a higher value
 	    player:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
 		base.common.TempInformNLS(player,"[Skillsystem] Mental Capacity zwangsangepasst!","[Skill system] Adjustment of mental capacity enforced."); --Debuggin'
@@ -156,7 +156,8 @@ function onLogin( player )
 	--TEMPORARY SOLUTION END
 	
 	player:increaseAttrib("foodlevel",-1);
-	-- Abhandlung von Transporttieren
+	
+	-- Beasts of burden
 	local cowStatus = player:getQuestProgress(8);
 	if (player:getQuestProgress(8) ~= 0) then
 	    if (cowStatus == 1) then
@@ -182,7 +183,7 @@ function onLogin( player )
 			Transporter.effects:addEffect(transport_effect);
 		end
 	end
-	-- Abhandlung von Transporttieren fertig
+	-- Beasts of burden done
 
 	-- Überprüfung für korrekt initiertes Regenerationsskript
 	find, reg_effect = player.effects:find(2);
@@ -208,11 +209,6 @@ function onLogin( player )
 		player.effects:removeEffect(3);
 	end
 
-	--Good/Bad days removed for the time being (confusing!!!)
-	--[[if not( player.pos.z == 100 or player.pos.z == 101 ) then
-		HowAreYouToday( player );
-	end]]
-
 	-- Langzeitefekt für Runenlehren
     year=world:getTime("year");
     year=(year-1)*31536000;						-- (year-1)*((15*24) + 5)*24*60*60;
@@ -231,41 +227,32 @@ function onLogin( player )
 
 	find, teachEffect = player.effects:find(22);
 	if find then
-	    --player:inform("moep->Effekt gefunden");
 		found, Rune1Index = teachEffect:findValue("Rune1Index");
 		if found then
     		if ( (timestamp>=Rune1Index) or (Rune1Index==1) ) then
-    		    --player:inform("moep->Rune 1 ist frei");
     			teachEffect:addValue("Rune1Index",1);
 				Rune1=1;
 			else
-			    --player:inform("moep->Rune 1 ist gesperrt");
 			    Rune1=2;
 			end
 		end
 		found, Rune2Index = teachEffect:findValue("Rune2Index");
 		if found then
     		if ( (timestamp>=Rune2Index) or (Rune2Index==1) ) then
-    		    --player:inform("moep->Rune 2 ist frei");
 				teachEffect:addValue("Rune2Index",1);
 				Rune2=1;
 			else
-			    --player:inform("moep->Rune 2 ist gesperrt");
 			    Rune2=2;
 			end
 		end
 		if ( (Rune1==1) and (Rune2==1) ) then
-		    --player:inform("moep->Effekt wird entfernt");
 			player.effects:removeEffect(22);
 		end
 	else
-	    --player:inform("moep->Effekt NICHT gefunden");
     end
 
-    --player:inform("moep->Fertig!");
-
 --[[
-	-- Langzeiteffekt für magie
+	-- Langzeiteffekt für Magie
 	--
 	if ( ( player:getMagicType( ) == 0 ) and ( player:getMagicFlags( 0 ) > 0 ) ) then -- Charakter ist Magier
 		player:inform("Magie start");
@@ -280,6 +267,10 @@ function onLogin( player )
 	end
 ]]
 
+	--Good/Bad days removed for the time being (confusing!!!)
+	--[[if not( player.pos.z == 100 or player.pos.z == 101 ) then
+		HowAreYouToday( player );
+	end]]
 	
 	return true;
 end
