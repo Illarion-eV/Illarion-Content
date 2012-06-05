@@ -1,13 +1,14 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Sincewind                                                   None --
+-- NPC Name: Henry Cunnigan                                              None --
 -- NPC Job:  Tutor                                                            --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  46, 21, 100            --
+-- NPC Race: human                      NPC Position:  38, 21, 100            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   Rincewind                                                        --
+-- Authors:  Rincewind                                                        --
+--           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 22, 2012                          easyNPC Parser v1.02 --
+-- Last parsing: June 05, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Henry Cunnigan"
