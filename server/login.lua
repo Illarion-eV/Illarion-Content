@@ -10,8 +10,18 @@ function onLogin( player )
 
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
-	base.common.TempInformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
-
+	
+	if player.pos.z ~= 100 and player.pos.z~= 101 then --Not on Noobia, custom message there
+	    base.common.TempInformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
+    else --Player logs in on Noobia
+        if player:getPlayerLanguage() == 0 then
+			dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial überspringen, indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie)
+		else	
+			dialogNewbie = MessageDialog("Welcome to Illarion!", "TRANSLATION", callbackNewbie)
+		end	
+		player:requestMessageDialog(dialogNewbie)
+    end
+	
 	--Messages of the day
     messageG={};
     messageG[1]="[Tipp] Leichte Rüstungen wie Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.";
@@ -259,13 +269,6 @@ function onLogin( player )
            newbieEffect = LongTimeEffect(13,1)
 		   player.effects:addEffect(newbieEffect)
 		end 
-		
-		if player:getPlayerLanguage() == 0 then
-			dialogNewbie = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!\n und: geh zur echse!", callbackNewbie)
-		else	
-			dialogNewbie = MessageDialog("Welcome!", "fancy welcome text - in English!\n and: go to the lizard!", callbackNewbie)
-		end	
-		player:requestMessageDialog(dialogNewbie)
 	end
 	
 	return true;
