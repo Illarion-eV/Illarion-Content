@@ -103,7 +103,7 @@ mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache.", "You have to talk to me in a language which I understand. Either the common or the race specific language.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 101);
-mainNPC:setEquipment(11, 55);
+mainNPC:setEquipment(11, 548);
 mainNPC:setEquipment(5, 323);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
