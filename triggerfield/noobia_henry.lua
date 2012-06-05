@@ -15,8 +15,9 @@ module("triggerfield.noobia_henry", package.seeall)
 function MoveToField(Character)
 
     -- for Noobia: the char has to walk to a specific field (this triggerfield); he gets a message and we add a LTEvalue so that we remember he was at the field
-
-    found, value = Character.effects:findValue("noobiaHenry");
+	
+    find, myEffect = Character.effects:find(13)
+    found, value = myEffect:findValue("noobiaHenry");
 
     if not value then --Didn't visit the triggerfield yet
 
