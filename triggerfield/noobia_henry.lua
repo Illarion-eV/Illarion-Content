@@ -18,6 +18,7 @@ function MoveToField(Character)
 	
     find, myEffect = Character.effects:find(13)
     found, value = myEffect:findValue("noobiaHenry");
+	Character:inform(value);
 
     if not value then --Didn't visit the triggerfield yet
 
