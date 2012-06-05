@@ -14,9 +14,9 @@ function onLogin( player )
     
 	if player.pos.z == 100 or player.pos.z== 101 then --On Noobia
         if player:getPlayerLanguage() == 0 then
-			dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Im Spiel wird es dann noch vieles für dich zu entdecken geben. Welche Rolle wirst du spielen? Erlebe als edler Ritter ruhmvolle Abenteuer oder führe ein Leben als fleißiger Handwerker, geschäftiger Händler oder charismatischer Priester der Götter. Illarion wartet auf dich! \nDu kannst das Tutorial jederzeit überspringen, indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie)
+			dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. \nDu kannst das Tutorial jederzeit überspringen, indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie)
 		else	
-			dialogNewbie = MessageDialog("Welcome to Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Im Spiel wird es dann noch vieles für dich zu entdecken geben. Welche Rolle wirst du spielen? Erlebe als edler Ritter ruhmvolle Abenteuer oder führe ein Leben als fleißiger Handwerker, geschäftiger Händler oder charismatischer Priester der Götter. Illarion wartet auf dich! \nDu kannst das Tutorial jederzeit überspringen, indem du 'Tutorial überspringen' zu einem NPC sagst. (translate plz)", callbackNewbie)
+			dialogNewbie = MessageDialog("Welcome to Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. \nDu kannst das Tutorial jederzeit überspringen, indem du 'Tutorial überspringen' zu einem NPC sagst. (translate plz)", callbackNewbie)
 		end	
 		player:requestMessageDialog(dialogNewbie)
     end
