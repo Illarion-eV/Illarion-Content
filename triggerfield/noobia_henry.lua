@@ -32,7 +32,8 @@ function MoveToField(Character)
 	        end
 	
 	        if Character:getPlayerLanguage() == 0 then
-		        dialogNewbie = MessageDialog("Sehr gut!","Um mit dem Menschen zu sprechen, öffne die Sprachkonsole mit Return, schreibe ein Wort und drücke wieder Enter. Alle NPCs (NonPlayerCharacters) reagieren auf bestimmte Schlüsselwörter wenn du in ihrer Nähe stehst. Versuche den Menschen um 'Hilfe' zu bitten. Ist die Sprachkonsole leer, kannst du sie mit erneutem Drücken der Returntaste schließen.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Sehr gut!","Text!", callbackNewbie)
+				--Um mit dem Menschen zu sprechen, öffne die Sprachkonsole mit Return, schreibe ein Wort und drücke wieder Enter. Alle NPCs (NonPlayerCharacters) reagieren auf bestimmte Schlüsselwörter wenn du in ihrer Nähe stehst. Versuche den Menschen um 'Hilfe' zu bitten. Ist die Sprachkonsole leer, kannst du sie mit erneutem Drücken der Returntaste schließen.
 	        else	
 		        dialogNewbie = MessageDialog("Very good!", "translation", callbackNewbie)
 	        end	
