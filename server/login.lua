@@ -22,6 +22,8 @@ function onLogin( player )
 		player:requestMessageDialog(dialogNewbie)
     end
 	
+    if player.pos.z ~= 100 and player.pos.z~= 101 then --Not on Noobia, confuses noobs
+	
 	--Messages of the day
     messageG={};
     messageG[1]="[Tipp] Leichte Rüstungen wie Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.";
@@ -127,9 +129,10 @@ function onLogin( player )
 	messageE[49]="[Tip] The best finesmiths are living in Cadomyr.";
 	messageE[50]="[Tip] The best gem grinders are living in Cadomyr.";	
 	
-	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
-	base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
 
+	    dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
+	    base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
+    end
 		--TEMPORARY SOLUTION TO CATCH NEW PLAYERS
 	if player:getMentalCapacity() < 1999 or player:getQuestProgress(122) == 0 then --Mental Capacity CANNOT drop below 1999 -> New player or cheater. However, new players should start with a higher value
 	    player:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
