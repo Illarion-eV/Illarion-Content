@@ -72,7 +72,7 @@ function callEffect(newbieEffect,Character)
 			""..ListCycleMessageEnglish[messageCount]);   
 			
 			messageCount = messageCount + 1
-			if messageCount > 9 then 
+			if messageCount > #ListCycleMessageGerman then 
 				messageCount = 1
 			end	
 			
