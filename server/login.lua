@@ -11,9 +11,9 @@ function onLogin( player )
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
 	base.common.TempInformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
-    -- @Estralis, deactivated for tests; pos see,s not to work; the lte is also added when not on noobia. Merung
+    
 	--Noobia handling
-	--[[if player.pos.z == 100 or player.pos.z== 101 then --On Noobia	
+	if player.pos.z == 100 or player.pos.z== 101 then --On Noobia	
 		
 		local callbackNewbie = function(dialogNewbie)	
 		
@@ -34,7 +34,7 @@ function onLogin( player )
 		
 		player:requestMessageDialog(dialogNewbie)
 		
-    end]] --Noobia end
+    end --Noobia end
 	
     if player.pos.z ~= 100 and player.pos.z~= 101 then --Not on Noobia, confuses noobs
 	
