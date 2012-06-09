@@ -576,7 +576,7 @@ function StockExplosion(User, SourceItem, cauldron)
 	    "Deine letzte Handlung scheint den Sud zerstört und zu einer Explosion geführt zu haben.",
 	    "Your last doing seems to have destroyed the stock and caused an explosion."
 				);
-    cauldron:setData("cauldronData","");
+    cauldron:setData("stockData","");
     world:changeItem(cauldron)
     User:increaseAttrib("hitpoints", -3000);
 end
