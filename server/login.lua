@@ -15,8 +15,6 @@ function onLogin( player )
 	--Noobia handling
 	if (player.pos.z == 100) or (player.pos.z == 101) then --On Noobia	
 		
-		local callbackNewbie = function(dialogNewbie) end; --empty callback
-		
 		found, myEffect = Character.effects:find(13); --Noob effect
 			
 		if not found then --brand new player!
@@ -25,6 +23,8 @@ function onLogin( player )
 		    player.effects:addEffect(newbieEffect);
 					    
 		end
+
+		local callbackNewbie = function(dialogNewbie) end; --empty callback
 		
 		if player:getPlayerLanguage() == 0 then		
 			dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen.", callbackNewbie);
