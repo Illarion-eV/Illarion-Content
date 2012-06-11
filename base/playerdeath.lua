@@ -32,7 +32,7 @@ function showDeathDialog(Player)
 		dialog = MessageDialog("Death", "You have died. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.", nothing);
 	end	
 	
-	player:requestMessageDialog(dialog); --showing the text
+	Player:requestMessageDialog(dialog); --showing the text
 		
 end
 
