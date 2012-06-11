@@ -47,6 +47,27 @@ AmbientList = {	add = function ( self, pos, direction, german, english, hours, m
 				end
 }
 
+-- Tutorial by Rincewind
+AmbientList:add( position(37,94,100 ),nil,"Dies ist das Ende des Tutorials. Wähle nun ein Reich, dem dein Charakter angehören wird. Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(40,107,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(40,108,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(39,108,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(39,109,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(38,109,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(38,110,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(37,110,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(42,97,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(42,98,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(42,99,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(42,100,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(42,101,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(26,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(27,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(28,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(29,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(30,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms.","ENGLISH",nil,nil,100); --Tutorial
+AmbientList:add( position(31,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms.","ENGLISH",nil,nil,100); --Tutorial
+
 --SW map by Estralis et al.
 AmbientList:add( position(93,587,0),nil,"In der Ferne hörst du das Bellen eines Hundes.","In the distance, you can hear a barking dog.",nil,nil,1); --General Cadomyr
 AmbientList:add( position(105,569,0),nil,"Ein scharfer Wind bläßt durch die Straßen Cadomyrs.","A strong wind blows in the streets of Cadomyr.",nil,nil,1); --General Cadomyr
@@ -156,31 +177,7 @@ AmbientList:add( position(384,175,-6),nil,"Eine grobe Gravur, in Stein gemeißelt
 AmbientList:add( position(352,217,-6),nil,"Höhlenmalerei: Ein schlaksiger alter Ork. Er wirkt ungesund dürr und unzählige Narben ziehen Furchen durch seine Haut, wie bei einer Rosine. Eine Aura innerer Kraft scheint ihn zu umgeben. 'Do, or do not.  There is no try... yes...' ","Cave art: A gangly old orc. He's unhealthy scrawny and uncounted scars plough his skin like a raisin, an aura of inner strength surrounds him. 'Do, or do not.  There is no try... yes...' ",nil,nil,65); --Galmair Underground (Orc chambers)
 AmbientList:add( position(389,176,-6),nil,"Eine krummbeinige Ork, einen schweren Bogen spannend. Ihre Augen schimmern voll Habgier, sie wirkt niederträchtig und verschlagen. 'We will beat up the people who say orcs would beat up people!'","A bandy-legged orcess drawing a heavy bow. Her devious eyes seem to be filled with greed and baseness. 'We will beat up the people who say orcs would beat up people!'",nil,nil,65); --Galmair Underground (Orc chambers)
 
--- Tutorial by Rincewind
-AmbientList:add( position(37,94,100 ),nil,"~ Dies ist das Ende des Tutorials. Mache dich nun auf den Weg in die Stadt, die deinem Charakter am besten gefallen würde.~","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(40,107,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(40,108,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(39,108,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(39,109,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(38,109,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(38,110,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(37,110,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weißheit und Magie. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(42,97,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(42,98,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(42,99,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(42,100,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(42,101,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(26,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(27,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(28,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(29,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(30,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(31,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms. - Im Laufe des Spiels kannst du deine Fraktionszugehörigkeit jederzeit ändern.","ENGLISH",nil,nil,100); --Tutorial
-
-
-
 --Other map parts by Estralis et al.
-
 AmbientList:add( position(530,248,0),nil,"Auf deinem Weg durch das Unterholz fühlst du dich beobachtet.","As you make your way towards the underbrush, you can't help but feeling watched.",nil,nil,10); --General forest
 AmbientList:add( position(579,732,0),nil,"Ein uralter, knorriger Baumstumpf trotzt hier allen Änderungen, die den Wald befallen haben.","An old, knarled tree truck stands before you. The forest might have grown around this ancient bark.",nil,nil,10); --General forest
 AmbientList:add( position(667,167,0),nil,"Ein sanfter Windhauch umstreicht die Bäume, braun-goldene Blätter fallen zur Erde hinab.","There is a slight breeze coming through the trees which causes the dead leaves to fall to the ground.",nil,{9,10,11,12},10); --General forest
