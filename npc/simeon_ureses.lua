@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 05, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 11, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -27,13 +27,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keyphrases: Hello, armourer, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keyphrases: Hello, armourer, dwarves, Irmorom, TRIGGER5."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, TRIGGER5."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -241,6 +241,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("dwarf");
+talkEntry:addTrigger("dwarv");
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -257,26 +258,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER3");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER4");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER5");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addTrigger("Hastings");
+talkEntry:addTrigger("Baron");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hush! Not in public.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -297,26 +282,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER3");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER4");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER5");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Hastings");
+talkEntry:addTrigger("Baron");
+talkEntry:addResponse("Still! Doch nicht in der Öffentlichkeit!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,18 +308,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Irmorom, der Gott des Handwerkes, ist der einzige Gott, zu dem ich bete. Ich respektiere sie aber alle, sogar Oldra!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -359,35 +323,29 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Brágon grants me the fire for forging but he does not grant the hammer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Brágon gibt mir das Schmiedefeuer, doch gibt er mir nicht den Schmiedehammer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
+talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Oldra");
+talkEntry:addResponse("Irmorom, der Gott des Handwerkes, ist der einzige Gott, zu dem ich bete. Ich respektiere sie aber alle, sogar Oldra!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -395,30 +353,66 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("So, I am with Cadomyr so I have to pray to Malachín? You need to learn a lot...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("So, ich bin also aus Cadomyr, also muss ich zu Malachín beten? Ihr müßt noch eine Menge lernen...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("I serve the queen because she is the queen. Did I make myself clear?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Ich diene der Königin, weil sie die Königin ist. Habe ich mich klar ausgedrückt?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I serve the queen because she is the queen. Did I make myself clear?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Ich diene der Königin, weil sie die Königin ist. Habe ich mich klar ausgedrückt?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The wellbeing of Cadomyr is my only concern. I will not do anything against Cadomyr, regardless of my personal opinion.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Das Wohlergehen Cadomyrs ist mein einziger Lebensinhalt. Ich werde nichts zum Schaden Cadomyrs tun, unabhängig davon, was meine eigentliche Meinung ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Ja, ich schaff das.", "Yes, I can!");
 talkingNPC:addCycleText("Ihr da! Sehe ich da eine Schramme in eurer Rüstung?", "Lo! Is that a scratch in your armour?");
 talkingNPC:addCycleText("Die Ritter Cadomyrs sollten nur in strahlenden Rüstungen in die Schlacht ziehen.", "The knights of Cadomyr should go to battle only in shiny armour.");
 talkingNPC:addCycleText("Ein gebrochenes Herz? Das kann ein Bier von Severus helfen. Ein zerbrochenes Schwert? Da kann ich helfen!", "A broken heart? A beer from Severus might help. A broken sword? I can help!");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("Dies ist... Cadomyr!", "This is... Cadomyr!");
+talkingNPC:addCycleText("#me poliert eine Panzerplatte.", "#me polishes a plate armour.");
+talkingNPC:addCycleText("Ein zerbrochener Bogen tötet genau noch ein Opfer: Den Idioten mit der Sehne in der Hand.", "A broken bow kills just one victim: The idiot holding the string.");
+talkingNPC:addCycleText("Ich kenne einen Ort mit Bäumen in der Wüste... Nicht einfach nur ein paar verschrumpelte Palmen sondern richtig Bäume mit Blättern!", "I know a place with trees in the desert... not just some ordinary palm trees but real trees with leaves!");
+talkingNPC:addCycleText("Guten Tag.", "Good day.");
+talkingNPC:addCycleText("Ich hoffe, alles läuft zu eurer Zufriedenheit?", "I hope all is well?");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
