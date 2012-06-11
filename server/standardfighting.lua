@@ -864,8 +864,8 @@ function NewbieIsland(Attacker, Defender)
         _AntiSpamVar[Attacker.id] =_AntiSpamVar[Attacker.id] + 1;
     else
         base.common.InformNLS(Attacker,
-        "Du darfst jetzt noch keine anderen Spieler angreifen, erst auf Gobaith. Halte STRG gedrückt und klicke nochmals auf deinen Gegner, um den Kampf abzubrechen.",
-        "You are not allowed to attack other players yet, only as soon as you enter Gobaith. Hold CTRL and click again on your enemy in order to cancel the attack.");
+        "[Tutorial] Du darfst während des Tutorials noch keine anderen Spieler angreifen. Klicke nochmals auf deinen Gegner in der Angriffsliste um den Kampf abzubrechen.",
+        "[Tutorial] You are not allowed to attack other players during the tutorial. Click again on your enemy in the attack list to cancel the attack.");
         _AntiSpamVar[Attacker.id] = 0;
     end;
     return false;
