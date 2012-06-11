@@ -15,7 +15,7 @@ function onLogin( player )
 	--Noobia handling
 	if (player.pos.z == 100) or (player.pos.z == 101) then --On Noobia	
 		
-		found, myEffect = Character.effects:find(13); --Noob effect
+		found, myEffect = player.effects:find(13); --Noob effect
 			
 		if not found then --brand new player!
 		
