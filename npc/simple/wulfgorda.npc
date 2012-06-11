@@ -1,21 +1,21 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Wulfgorda                                             None --
--- NPC Job:  hunter                                           --
+-- NPC Name: Wulfgorda                                                   Free --
+-- NPC Job:  hunter                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  685,315,0              --
--- NPC Sex:  female                       NPC Direction: north                 --
+-- NPC Race: human                      NPC Position:  685, 315, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
--- Author:   envi                                     					      --
+-- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 11, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Wulfgorda"
 race = human
 sex = female
-position = 685,315,0
-direction = north
-affiliation = "free"
+position = 685, 315, 0
+direction = west
+affiliation = "Free"
 job = "hunter"
 
 language = common
@@ -35,7 +35,7 @@ radius = 0
 hairID = 9
 beardID = 0
 colorHair = 218, 165, 32
-colorSkin = 38, 03, 73
+colorSkin = 38, 3, 73
 itemHead = 324
 itemChest = 362
 itemCoat = 196
@@ -60,8 +60,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Wulfgorda die Jägerin. Schlüsselwörter: Auskunft, Information, Plätze.")
 
 -- Mandatory: General speech
-".*", queststatus (650)=1, english -> "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have a silvercoin for that you found me.", item(3077, 1, 333, 0), queststatus (650)=2
-".*", queststatus (650)=1 -> "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.", item(3077, 1, 333, 0), queststatus (650)=2
+".*", queststatus(650) = 1, english -> "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have a silvercoin for that you found me.", item(3077, 1, 333, 0), queststatus(650) = 2
+".*", queststatus(650) = 1 -> "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.", item(3077, 1, 333, 0), queststatus(650) = 2
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me tips her helmet."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me tippt auf ihren Helm."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "#me tips her helmet."
@@ -78,18 +78,18 @@ itemShoes = 369
 -- OPTIONAL TRIGGERS
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
---"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
---"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"inform", english -> "I have information about places here in the northeast for you if you want to know them.", inform("[Keywords] place")
-"inform" -> "Ich habe Informationen über Plätze hier im Nordosten für dich wenn du wünscht.", inform("[Schlüsselwörter] Platz")
-"question" -> "I have information about places here in the northeast for you if you want to know them.", inform("[Keywords] place")
-"Frage", "Auskunft" -> "Ich habe Informationen über Plätze hier im Nordosten für dich wenn du wünscht.", inform("[Schlüsselwörter] Platz")
-"place" -> "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Tir Draganfod?", inform("[Keywords] Tir Draganfod, northeast, northwest, southwest, southeast")
-"Platz","Plätz" -> "Plätze? Welche Plätze meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Tir Draganfod?", inform("[Schlüsselwörter] Tir Draganfod, Nordosten, Nordwesten, Südwesten, Südosten")
+"inform", english -> inform("[Keywords] place"), "I have information about places here in the northeast for you if you want to know them."
+"inform" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen über Plätze hier im Nordosten für dich wenn du wünscht."
+"question" -> inform("[Keywords] place"), "I have information about places here in the northeast for you if you want to know them."
+"Frage", "Auskunft" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen über Plätze hier im Nordosten für dich wenn du wünscht."
+"place" -> inform("[Keywords] Tir Draganfod, northeast, northwest, southwest, southeast"), "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Tir Draganfod?"
+"Platz", "Plätz" -> inform("[Schlüsselwörter] Tir Draganfod, Nordosten, Nordwesten, Südwesten, Südosten"), "Plätze? Welche Plätze meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Tir Draganfod?"
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 "quest", "mission", english -> "IN PROGRESS."
@@ -98,20 +98,20 @@ itemShoes = 369
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
 
 -- Places
-"Tir","Draganfod",english -> "This region is called Tir Draganfod and I devide it in northeast, northwest, southwest and southeast. Tir Draganfod is furthermore in the east from the Sevenhill Mountains.", inform("[Keywords] Sevenhill Mountains, northeast, northwest, southwest, southeast")
-"Tir","Draganfod" -> "Diese Region wird Tir Draganfod genannt und ich unterteile sie in in Nordost, Nordwest, Südwest und Südost. Tir Draganfod liegt außerdem im Osten von den Siebenhügel Bergen.", inform("[Schlüsselwörter] Siebenhügel Berge, Nordosten, Nordwesten, Südwesten, Südosten")
-"northeast" -> "I know following places: Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock.", inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock")
-"Nordost" -> "Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen.", inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen")
-"northwest" -> "I know following places: Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau.", inform("[Keywords] Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau")
-"Nordwest" -> "Ich weiß folgende Plätze: See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene.", inform("[Schlüsselwörter] See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene")
-"southwest" -> "I know following places: Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert.", inform("[Keywords] Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert")
-"Südwest" -> "Ich weiß folgende Plätze: Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste", inform("[Schlüsselwörter] Schattenland, Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste")
-"southeast" -> "I know following places: Snakehead Bay, Lonely Islands, Death’s Stench, Dragon's Lair, Dewy Swamps, Yewdale.", inform("[Keywords] Snakehead Bay, Lonely Islands, Death’s Stench, Dragon's Lair, Dewy Swamps Yewdale")
-"Südost" -> "Ich weiß folgende Plätze: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental.", inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental")
+"Tir", "Draganfod", english -> inform("[Keywords] Sevenhill Mountains, northeast, northwest, southwest, southeast"), "This region is called Tir Draganfod and I devide it in northeast, northwest, southwest and southeast. Tir Draganfod is furthermore in the east from the Sevenhill Mountains."
+"Tir", "Draganfod" -> inform("[Schlüsselwörter] Siebenhügel Berge, Nordosten, Nordwesten, Südwesten, Südosten"), "Diese Region wird Tir Draganfod genannt und ich unterteile sie in in Nordost, Nordwest, Südwest und Südost. Tir Draganfod liegt außerdem im Osten von den Siebenhügel Bergen."
+"northeast" -> inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock"), "I know following places: Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock."
+"Nordost" -> inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen"), "Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen."
+"northwest" -> inform("[Keywords] Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau"), "I know following places: Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau."
+"Nordwest" -> inform("[Schlüsselwörter] See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene"), "Ich weiß folgende Plätze: See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene."
+"southwest" -> inform("[Keywords] Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert"), "I know following places: Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert."
+"Südwest" -> inform("[Schlüsselwörter] Schattenland, Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"), "Ich weiß folgende Plätze: Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"
+"southeast" -> inform("[Keywords] Snakehead Bay, Lonely Islands, Death’s Stench, Dragon's Lair, Dewy Swamps Yewdale"), "I know following places: Snakehead Bay, Lonely Islands, Death’s Stench, Dragon's Lair, Dewy Swamps, Yewdale."
+"Südost" -> inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental"), "Ich weiß folgende Plätze: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental."
 "Sevenhill" -> "The Sevenhill Mountains are at the eastside of Illarion, our world, as you should know."
 "Siebenhügel" -> "Die Siebenhügel Berge sind an der Ostseite von Illarion, unsere Welt, wie ihr wissen solltet."
 
---northeast
+-- northeast
 "Elstree Forest" -> "The Elstree Forest is huge and wonderful forest sourth of the Dead Marsh. You find there also Elstree Lake, Fairy's Dance, the Sunken Tower of Mar'ku, Mount Liferoot, and in the south the Den of Thieves."
 "Elstree Wald" -> "Der Elstree Wald ist ein rießiger und wunderbarer Wald südlich vom Todes Sumpf. Dort findest du auch den Elstree See, den Feen Tanz, den Versunken Turm von Mar'ku, Berg Lebenswurzel, und im Süden die Diebeshöhle."
 "Elstree Plain" -> "It is between Igruk's cave and the Elstree Forest. You find the Jarl's Longhouse and the Glolden Hole there."
@@ -143,7 +143,7 @@ itemShoes = 369
 "Snakehead Coast" -> "It is at the north of the Snakehead Bay and you will find Wilder Island, Demonspring, Cherga's Mouth, Mount Snakehead and the Shrine of Zelphia there."
 "Schlangenkopfküste" -> "Sie ist im Norden der Schlangenkopfbucht und du findest die Wilder Inseln, Dämonenquelle, Chergas Maul, den Schlangenkopfberg und Zelphias Schrein dort."
 
---northwest
+-- northwest
 "Lake Syrita" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
 "See Syrita" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
 "Nagrun Plain" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
@@ -156,10 +156,10 @@ itemShoes = 369
 "Einsame Berge" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
 "Galmair Plateau" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
 "Galmair Hochebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
-"Lotta","Medborgar" -> "Die findet man in Galmair und die weiß sämtliche Orte im Nordwesten, sprich um Galmair."
-"Lotta","Medborgar" -> "You can find her in Galmair and he knows several places in the northwest, thus around Galmair."
+"Lotta", "Medborgar" -> "Die findet man in Galmair und die weiß sämtliche Orte im Nordwesten, sprich um Galmair."
+"Lotta", "Medborgar" -> "You can find her in Galmair and he knows several places in the northwest, thus around Galmair."
 
---southwest
+-- southwest
 "Shadowland" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
 "Schattenland" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 "Wight Canal" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
@@ -179,7 +179,7 @@ itemShoes = 369
 "Ruzusss" -> "Den findet man in Cadomyr und der weiß sämtliche Orte im Südwesten, sprich um Cadomyr."
 "Ruzusss" -> "You can find him in Cadomyr and he knows several places in the southwest, thus around Cadomyr."
 
---southeast
+-- southeast
 "Snakehead Bay" -> "Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick."
 "Schlangenkopfbucht" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
 "Lonely Islands" -> "Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick."
@@ -192,8 +192,8 @@ itemShoes = 369
 "Frische Sümpfe" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
 "Yewdale" -> "Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick."
 "Eibental" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
-"Numila","Irunnleh" -> "Die findet man in Runewick und die weiß sämtliche Orte im Südosten, sprich um Runewick."
-"Numila","Irunnleh" -> "You can find her in Runewick and he knows several places in the southeast, thus around Runewick."
+"Numila", "Irunnleh" -> "Die findet man in Runewick und die weiß sämtliche Orte im Südosten, sprich um Runewick."
+"Numila", "Irunnleh" -> "You can find her in Runewick and he knows several places in the southeast, thus around Runewick."
 
 -- Faction stuff
 "archmage" -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect Runewick against Galmair and Cadomyr."
@@ -214,35 +214,35 @@ itemShoes = 369
 "Cadomyr" -> "Cadomyr ist im Südwesten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen."
 
 -- Optional: Catching typical NPC phrases
---"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
---"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "If you want to know something about gods, than look for priests or ask in one of the factions."
 "Gott", "Götter" -> "Wenn du etwas über die Götter wissen möchtest, dann suche einen Priester oder frage jemanden in den Fraktionen."
 
 -- Optional: Main land factions
---"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
---"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
---"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gobaith
---"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
---"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
-"my name" -> "Hmm...you want some information? But about what?"
-"mein Name" -> "Hmm...und ihr wünscht nach Information? Aber welche?"
+"my name" -> "Hmm... you want some information? But about what?"
+"mein Name" -> "Hmm... und ihr wünscht nach Information? Aber welche?"
 "Numila", "Irunnleh", english -> "Yes, that is my name. About which places do you want information?"
 "Numila", "Irunnleh" -> "Ja, das ist mein Name. Über welche Plätze wollt ihr Information?"
-"Yes" -> "A bit more concrete, please!"
+"Yes" -> "A bit more precise, please!"
 "Ja" -> "Etwas konkreter wenn ich bitten darf!"
-"No" -> "A bit more concrete, please!"
+"No" -> "A bit more precise, please!"
 "Nein" -> "Etwas konkreter wenn ich bitten darf!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time

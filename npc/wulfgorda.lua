@@ -3,16 +3,16 @@
 -- NPC Job:  hunter                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  685, 315, 0            --
--- NPC Sex:  female                     NPC Direction: north                  --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: March 22, 2012                          easyNPC Parser v1.02 --
+-- Last parsing: June 11, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 685, 315, 0, 0, 'Wulfgorda', 'npc.wulfgorda', 1, 9, 0, 218, 165, 32, 38, 3, 73);
+VALUES (0, 685, 315, 0, 6, 'Wulfgorda', 'npc.wulfgorda', 1, 9, 0, 218, 165, 32, 38, 3, 73);
 ---]]
 
 require("npc.base.basic")
@@ -920,13 +920,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Hmm...you want some information? But about what?");
+talkEntry:addResponse("Hmm... you want some information? But about what?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Hmm...und ihr wünscht nach Information? Aber welche?");
+talkEntry:addResponse("Hmm... und ihr wünscht nach Information? Aber welche?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -947,7 +947,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("A bit more concrete, please!");
+talkEntry:addResponse("A bit more precise, please!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -959,7 +959,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("A bit more concrete, please!");
+talkEntry:addResponse("A bit more precise, please!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
