@@ -27,9 +27,9 @@ function showDeathDialog(Player)
 	local callback = function(nothing) end; --empty callback
 		
 	if Player:getPlayerLanguage() == 0 then		
-		dialog = MessageDialog("Tod", "Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.", nothing);
+		dialog = MessageDialog("Tod", "Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.", callback);
 	else		
-		dialog = MessageDialog("Death", "You have died. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.", nothing);
+		dialog = MessageDialog("Death", "You have died. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.", callback);
 	end	
 	
 	Player:requestMessageDialog(dialog); --showing the text
