@@ -14,7 +14,7 @@ module("triggerfield.noobia_henry", package.seeall)
 
 function MoveToField(Character)
 
-    -- for Noobia: the char has to walk to a specific field (this triggerfield); he gets a message and we add a LTEvalue so that we remember he was at the field
+    -- for Noobia: the char has to walk to a specific field (this triggerfield); he gets a message and we add a LTE value so that we remember he was at the field
 	
     find, myEffect = Character.effects:find(13); --Noob effect
 	
@@ -24,18 +24,14 @@ function MoveToField(Character)
 	
 	    if (value == 0) then --Didn't visit the triggerfield yet
 
-	        local callbackNewbie = function(dialogNewbie)
-                find, myEffect = Character.effects:find(13)
-		        if find then
-		           myEffect:addValue("noobiaHenry",1)
-			    end  
-	        end
+	        local callbackNewbie = function(dialogNewbie) end; --empty callback
+			
+            myEffect:addValue("noobiaHenry",1)
 	
 	        if Character:getPlayerLanguage() == 0 then
-		        dialogNewbie = MessageDialog("Sehr gut!","Text!", callbackNewbie)
-				--Um mit dem Menschen zu sprechen, öffne die Sprachkonsole mit Return, schreibe ein Wort und drücke wieder Enter. Alle NPCs (NonPlayerCharacters) reagieren auf bestimmte Schlüsselwörter wenn du in ihrer Nähe stehst. Versuche den Menschen um 'Hilfe' zu bitten. Ist die Sprachkonsole leer, kannst du sie mit erneutem Drücken der Returntaste schließen.
+		        dialogNewbie = MessageDialog("Tutorial","Um mit dem Menschen zu sprechen, öffne die Sprachkonsole mit Return, schreibe ein Wort und drücke wieder Return. Alle NPCs reagieren auf bestimmte Schlüsselwörter wenn du in ihrer Nähe stehst. Versuche den Menschen um 'Hilfe' zu bitten.", callbackNewbie)
 	        else	
-		        dialogNewbie = MessageDialog("Very good!", "translation", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial", "translation", callbackNewbie)
 	        end	
 	        Character:requestMessageDialog(dialogNewbie)
 		end
