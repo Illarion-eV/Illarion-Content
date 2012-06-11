@@ -20,7 +20,6 @@ function MoveToField(Character)
 	
 	if find then --Is this even a noob?
         found, value = myEffect:findValue("noobiaHenry");
-	    Character:inform("Value: "..value.."!");
 	
 	    if (value == 0) then --Didn't visit the triggerfield yet
 
