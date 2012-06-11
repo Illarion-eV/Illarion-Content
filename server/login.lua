@@ -13,30 +13,30 @@ function onLogin( player )
 	base.common.TempInformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
     
 	--Noobia handling
-	if player.pos.z == 100 or player.pos.z== 101 then --On Noobia	
+	if (player.pos.z == 100) or (player.pos.z == 101) then --On Noobia	
 		
-		local callbackNewbie = function(dialogNewbie)	
+		local callbackNewbie = function(dialogNewbie) end; --empty callback
 		
-		    if player:getQuestProgress(2)==0 then
-		
-		        player:setQuestProgress(2,1)
-                newbieEffect = LongTimeEffect(13,1)
-		        player.effects:addEffect(newbieEffect)
+		found, myEffect = Character.effects:find(13); --Noob effect
 			
-		    end
-		end --local
+		if not found then --brand new player!
+		
+            newbieEffect = LongTimeEffect(13,1);
+		    player.effects:addEffect(newbieEffect);
+					    
+		end
 		
 		if player:getPlayerLanguage() == 0 then		
-			dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen.", callbackNewbie)
+			dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen.", callbackNewbie);
 		else		
-			dialogNewbie = MessageDialog("Welcome to Illarion!", "Welcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and will show you the handling of the game. You may skip the tutorial at any time.", callbackNewbie)
+			dialogNewbie = MessageDialog("Welcome to Illarion!", "Welcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and will show you the handling of the game. You may skip the tutorial at any time.", callbackNewbie);
 		end	
 		
-		player:requestMessageDialog(dialogNewbie)
+		player:requestMessageDialog(dialogNewbie); --showing the welcome text
 		
     end --Noobia end
 	
-    if player.pos.z ~= 100 and player.pos.z~= 101 then --Not on Noobia, confuses noobs
+    if (player.pos.z ~= 100) and (player.pos.z~= 101) then --Not on Noobia, confuses noobs
 	
 	--Messages of the day
     messageG={};

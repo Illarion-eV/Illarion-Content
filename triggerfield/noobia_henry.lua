@@ -16,7 +16,7 @@ function MoveToField(Character)
 
     -- for Noobia: the char has to walk to a specific field (this triggerfield); he gets a message and we add a LTEvalue so that we remember he was at the field
 	
-    find, myEffect = Character.effects:find(13);
+    find, myEffect = Character.effects:find(13); --Noob effect
 	
 	if find then --Is this even a noob?
         found, value = myEffect:findValue("noobiaHenry");
