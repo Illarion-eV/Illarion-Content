@@ -428,6 +428,8 @@ function receiveText(texttype, message, speaker)
  
 		theItem=base.common.GetFrontItem(thisNPC); --What item shall be repaired?
 
+		thisNPC:talk(Character.say, "Worth: "..theItem.Worth.."!"); --Message 3
+		
 		if theItem and theItem.Worth then
 			durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 		    toRepair=99-durability; --the amount of durability points that has to repaired
