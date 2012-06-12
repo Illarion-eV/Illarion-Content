@@ -410,7 +410,14 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function receiveText(texttype, message, speaker) 
+    if string.find(message,"price") or string.find(message,"cost") or string.find(message,"Preis") or string.find(message,"koste") or string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand") then --initiate repairing with triggers
+        thisNPC:talk(Character.say, "OMG LOL!"); --Message 1
+    else
+        mainNPC:receiveText(speaker, message); 
+	end
+end;
+
 function nextCycle() mainNPC:nextCycle(); end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
