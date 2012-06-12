@@ -427,7 +427,11 @@ function receiveText(texttype, message, speaker)
 		end
  
 		theItem=base.common.GetFrontItem(thisNPC); --What item shall be repaired?
-        theItemStats=world:getItemStats(theItem); --reading its stats
+		
+		if theItem then
+            theItemStats=world:getItemStats(theItem); --reading its stats
+		end
+		
 		thisNPC:talk(Character.say, "Worth: "..theItemStats.Worth.."!"); --Message 3
 		
 		if theItem and theItemStats.Worth then
