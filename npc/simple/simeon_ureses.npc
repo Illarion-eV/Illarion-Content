@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 11, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 12, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Simeon Ureses"
@@ -56,22 +56,22 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keyphrases: Hello, armourer, dwarves, Irmorom.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom.")
+"Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keyphrases: Hello, armourer, dwarves, Irmorom, repair, cost.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparieren, Kosten.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag. Soll ich eure Ausrüstung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag. Soll ich eure Ausrüstung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
+"Farewell", "Bye", "Fare well", "See you" -> "Good bye. And do some adventures for me.", "Farewell and come back soon.", "I bid you farewell."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
+"How are you", "How feel", "How do you do" -> "Good. I just got a new rasp.", "Did you know why a raspberry is called raspberry? Take a rasp and a raspberry and feel the surface...", "I need to work, sorry."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Ich habe gerade eine neue Feile bekommen.", "Wußtet ihr, dass eine Erdbeere gar keine Beere sondern eine Nussart ist?", "Ich muss arbeiten, entschuldigt."
+"your name", "who are you", "who art thou" -> "I am Simeon Ureses, the royal armourer."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Simeon Ureses, der königliche Waffenmeister."
 
 -- OPTIONAL TRIGGERS
 
@@ -82,22 +82,22 @@ itemShoes = 53
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Sehe ich aus wie einer, der Befehle verteilt?"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"profession" -> "I am the royal armourer. So, whenever your sword turns blunt, come to me."
+"beruf" -> "Ich bin der königliche Waffenmeister. Wenn also euer Schwert stumpf wird, kommt zu mir."
+"job", english -> "I am the royal armourer. So, whenever your sword turns blunt, come to me."
+"job" -> "Ich bin der königliche Waffenmeister. Wenn also euer Schwert stumpf wird, kommt zu mir."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"dwarf", "dwarv" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"armourer", "armorer" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"dwarf", "dwarv" -> "Yes, indeed, I am the royal armourer and I am not a dwarf. Do you think only dwarves can forge and smith?"
+"armourer", "armorer" -> "As royal armourer, it is my responsibility that the equipment of the knights of Cadomyr is in a perfect condition."
 "Hastings", "Baron", english -> "Hush! Not in public."
-"Zwerg" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Waffenmeister" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zwerg" -> "Fürwahr, ich bin der königliche Waffenmeister und kein Zwerg. Denkt ihr etwa, nur Zwerge können schmieden?"
+"Waffenmeister" -> "Als königlicher Waffenmeister ist es meine Pflicht, dafür zu sorgen, dass die Ausrüstung der Ritter Cadomyrs in bester Verfassung ist."
 "Hastings", "Baron" -> "Still! Doch nicht in der Öffentlichkeit!"
 
 -- Optional: Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I am not a trader but I can repair your items."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler aber ich kann eure Gegenstände reparieren."
+"what sell", "what buy", "list wares" -> "I am not a trader but I can repair your items."
+"was verkauf", "was kauf", "warenliste" -> "Ich bin kein Händler aber ich kann eure Gegenstände reparieren."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!"

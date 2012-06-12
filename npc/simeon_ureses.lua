@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 11, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 12, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -27,13 +27,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keyphrases: Hello, armourer, dwarves, Irmorom."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keyphrases: Hello, armourer, dwarves, Irmorom, repair, cost."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparieren, Kosten."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -44,9 +44,9 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Good day. Shall I repair your equipment?");
+talkEntry:addResponse("Hello. Come with broken things and you will go with fixed ones.");
+talkEntry:addResponse("Pardon me, could you come back in a minute or two? I have to fix this first.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -58,9 +58,9 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Guten Tag. Soll ich eure Ausrüstung reparieren?");
+talkEntry:addResponse("Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.");
+talkEntry:addResponse("Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -70,9 +70,9 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Good day. Shall I repair your equipment?");
+talkEntry:addResponse("Hello. Come with broken things and you will go with fixed ones.");
+talkEntry:addResponse("Pardon me, could you come back in a minute or two? I have to fix this first.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -81,9 +81,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Guten Tag. Soll ich eure Ausrüstung reparieren?");
+talkEntry:addResponse("Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.");
+talkEntry:addResponse("Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -92,9 +92,9 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Good bye. And do some adventures for me.");
+talkEntry:addResponse("Farewell and come back soon.");
+talkEntry:addResponse("I bid you farewell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -103,9 +103,9 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.");
+talkEntry:addResponse("Gehabt euch wohl und kommt bald wieder.");
+talkEntry:addResponse("Ich wünsche euch was.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -115,9 +115,9 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.");
+talkEntry:addResponse("Gehabt euch wohl und kommt bald wieder.");
+talkEntry:addResponse("Ich wünsche euch was.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -126,9 +126,9 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.");
+talkEntry:addResponse("Gehabt euch wohl und kommt bald wieder.");
+talkEntry:addResponse("Ich wünsche euch was.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -136,9 +136,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Good. I just got a new rasp.");
+talkEntry:addResponse("Did you know why a raspberry is called raspberry? Take a rasp and a raspberry and feel the surface...");
+talkEntry:addResponse("I need to work, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -147,9 +147,9 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Gut. Ich habe gerade eine neue Feile bekommen.");
+talkEntry:addResponse("Wußtet ihr, dass eine Erdbeere gar keine Beere sondern eine Nussart ist?");
+talkEntry:addResponse("Ich muss arbeiten, entschuldigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -157,9 +157,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am Simeon Ureses, the royal armourer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -168,9 +166,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin Simeon Ureses, der königliche Waffenmeister.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -208,52 +204,40 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am the royal armourer. So, whenever your sword turns blunt, come to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin der königliche Waffenmeister. Wenn also euer Schwert stumpf wird, kommt zu mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am the royal armourer. So, whenever your sword turns blunt, come to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin der königliche Waffenmeister. Wenn also euer Schwert stumpf wird, kommt zu mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("dwarf");
 talkEntry:addTrigger("dwarv");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Yes, indeed, I am the royal armourer and I am not a dwarf. Do you think only dwarves can forge and smith?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("armourer");
 talkEntry:addTrigger("armorer");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("As royal armourer, it is my responsibility that the equipment of the knights of Cadomyr is in a perfect condition.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,17 +251,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zwerg");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Fürwahr, ich bin der königliche Waffenmeister und kein Zwerg. Denkt ihr etwa, nur Zwerge können schmieden?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Waffenmeister");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Als königlicher Waffenmeister ist es meine Pflicht, dafür zu sorgen, dass die Ausrüstung der Ritter Cadomyrs in bester Verfassung ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -292,7 +272,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
 talkEntry:addResponse("I am not a trader but I can repair your items.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -301,7 +280,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
 talkEntry:addResponse("Ich bin kein Händler aber ich kann eure Gegenstände reparieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
