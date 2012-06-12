@@ -415,7 +415,7 @@ end;
 function receiveText(texttype, message, speaker) 
 
 --ADDITTION BY ESTRALIS
-    if speaker~=thisNPC and string.find(message,"price") or string.find(message,"cost") or string.find(message,"Preis") or string.find(message,"koste") or string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand") then --initiate repairing with triggers
+    if speaker ~= thisNPC and (string.find(message,"price") or string.find(message,"cost") or string.find(message,"Preis") or string.find(message,"koste") or string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand")) then --initiate repairing with triggers
 
 		--Full repair is the same as buying a new one. Just worth it with special (e.g. gemmed) items.
 		--Round prices to prevent prices like "1273 cp" and to prevent exact durability determination via repairing.
