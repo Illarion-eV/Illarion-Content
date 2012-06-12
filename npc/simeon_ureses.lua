@@ -432,9 +432,8 @@ function receiveText(texttype, message, speaker)
             theItemStats=world:getItemStats(theItem); --reading its stats
 		end
 		
-		thisNPC:talk(Character.say, "Worth: "..theItemStats.Worth.."!"); --Message 3
-		
 		if theItem then
+		    thisNPC:talk(Character.say, "Worth: "..theItemStats.Worth.."!"); --Message 3
 			durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 		    toRepair=99-durability; --the amount of durability points that has to repaired
 		    price=math.ceil(theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
