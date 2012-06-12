@@ -433,7 +433,7 @@ function receiveText(texttype, message, speaker)
 		if theItem and theItemStats.Worth then
 			durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 		    toRepair=99-durability; --the amount of durability points that has to repaired
-		    price=math.ceil(theItem.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
+		    price=math.ceil(theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
 		end
 		
 		if theItemStats.id == 0 or theItemStats.id == 320 or theItemStats.id == nil then --there is nothing on the table!
