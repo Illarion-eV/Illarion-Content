@@ -43,6 +43,9 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     --    return;
     --end;
 
+    User:inform("Worth: " .. SourceItem.Worth)
+
+
     --User.effects:addEffect(LongTimeEffect(777, 30))
 
     --pos = User.pos
