@@ -415,7 +415,10 @@ end;
 function receiveText(texttype, message, speaker) 
 
 --ADDITTION BY ESTRALIS
-    if base.common.BasicNPCChecks(speaker,2,thisNPC) and (string.find(message,"price") or string.find(message,"cost") or string.find(message,"Preis") or string.find(message,"koste") or string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand")) then --initiate repairing with triggers
+
+    message=string.lower(message); --lower case MESSAGE -> message
+	
+    if base.common.BasicNPCChecks(speaker,2,thisNPC) and (string.find(message,"price") or string.find(message,"cost") or string.find(message,"preis") or string.find(message,"koste") or string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand")) then --initiate repairing with triggers
 
 		--Full repair is the same as buying a new one. Just worth it with special (e.g. gemmed) items.
 		--Round prices to prevent prices like "1273 cp" and to prevent exact durability determination via repairing.
@@ -451,7 +454,7 @@ function receiveText(texttype, message, speaker)
 			
 		else -- I can repair it!
 	
-	        if string.find(message,"price") or string.find(message,"cost") or  string.find(message,"Preis") or string.find(message,"koste") then --player just wants to know the price
+	        if string.find(message,"price") or string.find(message,"cost") or  string.find(message,"preis") or string.find(message,"koste") then --player just wants to know the price
 			    
 				message3={"For repairing this item, I demand "..price.." copper coins.","Die Reparatur dieses Gegenstandes würde "..price.." Kupferstücke kosten."}; --Saying the price
 		        thisNPC:talk(Character.say, message3[language]); --Message 3
