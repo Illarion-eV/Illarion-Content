@@ -428,12 +428,12 @@ function receiveText(texttype, message, speaker)
  
 		theItem=base.common.GetFrontItem(thisNPC); --What item shall be repaired?
 
-	    thisNPC:talk(Character.say, "Worth: "..theItem.worth.."!"); --Message
+	    thisNPC:talk(Character.say, "Worth: "..theItem.Worth.."!"); --Message
 							
-		if theItem and theItem.worth then
+		if theItem and theItem.Worth then
 			durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 		    toRepair=99-durability; --the amount of durability points that has to repaired
-		    price=math.ceil(theItem.worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
+		    price=math.ceil(theItem.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
 		end
 		
 		if theItem.id == 0 or theItem.id == 320 or theItem.id == nil then --there is nothing on the table!
@@ -441,7 +441,7 @@ function receiveText(texttype, message, speaker)
 	        message1={"Please put the item I shall repair on the table.","Packt den Gegenstand, den ich instandsetzen soll, einfach auf den Tisch."}; --No item found
 		    thisNPC:talk(Character.say, message1[language]); --Message 1
 			
-		elseif theItem.worth == 0 or theItem.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
+		elseif theItem.Worth == 0 or theItem.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
 		
 	        message2={"I cannot repair this, sorry.","Entschuldigt, aber das kann ich nicht reparieren."}; --Priceless, perfect or stackable item
 		    thisNPC:talk(Character.say, message2[language]); --Message 2
