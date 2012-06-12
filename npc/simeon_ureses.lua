@@ -15,6 +15,8 @@ INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto",
 VALUES (0, 133, 581, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 1, 3, 180, 35, 35, 160, 80, 45);
 ---]]
 
+require("base.common")
+require("npc.base.autonpcfunctions")
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
@@ -418,7 +420,7 @@ function receiveText(texttype, message, speaker)
 		--Full repair is the same as buying a new one. Just worth it with special (e.g. gemmed) items.
 		--Round prices to prevent prices like "1273 cp" and to prevent exact durability determination via repairing.
 		
-		theItem=GetFrontItem(thisNPC); --What item shall be repaired?
+		theItem=base.common.GetFrontItem(thisNPC); --What item shall be repaired?
 		durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 		toRepair=99-durability; --the amount of durability points that has to repaired
 		price=math.ceil(theItem.worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
