@@ -434,13 +434,13 @@ function receiveText(texttype, message, speaker)
 		
 		thisNPC:talk(Character.say, "Worth: "..theItemStats.Worth.."!"); --Message 3
 		
-		if theItem and theItemStats.Worth then
+		if theItem then
 			durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 		    toRepair=99-durability; --the amount of durability points that has to repaired
 		    price=math.ceil(theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
 		end
 		
-		if theItemStats.id == 0 or theItemStats.id == 320 or theItemStats.id == nil then --there is nothing on the table!
+		if theItem.id == 0 or theItem.id == 320 or theItem.id == nil then --there is nothing on the table!
 		
 	        message1={"Please put the item I shall repair on the table.","Packt den Gegenstand, den ich instandsetzen soll, einfach auf den Tisch."}; --No item found
 		    thisNPC:talk(Character.say, message1[language]); --Message 1
