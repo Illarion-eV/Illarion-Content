@@ -415,7 +415,6 @@ end;
 function receiveText(texttype, message, speaker) 
 
 --ADDITTION BY ESTRALIS
-
     message=string.lower(message); --lower case MESSAGE -> message
 	
     if base.common.BasicNPCChecks(speaker,2,thisNPC) and (string.find(message,"price") or string.find(message,"cost") or string.find(message,"preis") or string.find(message,"koste") or string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand")) then --initiate repairing with triggers
@@ -480,6 +479,7 @@ function receiveText(texttype, message, speaker)
 	else
         mainNPC:receiveText(speaker, message); 
 	end
+--ADDITION END
 end;
 
 function nextCycle() mainNPC:nextCycle(); end;

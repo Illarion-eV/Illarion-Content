@@ -45,6 +45,8 @@ itemHands = 48
 itemTrousers = 459
 itemShoes = 53
 
+-- HANDS OFF! This NPC has modifications in its .lua file. See simeon_urestes_repairing.lua for instructions. Or better: Do not touch anything!
+
 -- Template Version 1.04, 07/12/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
