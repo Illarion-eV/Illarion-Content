@@ -43,7 +43,8 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     --    return;
     --end;
 
-    User:inform("Worth: " .. SourceItem.Worth)
+    local stats = world:getItemStats(SourceItem)
+    User:inform("Worth: " .. stats.Worth)
 
 
     --User.effects:addEffect(LongTimeEffect(777, 30))
