@@ -28,7 +28,7 @@ function MoveToField(Character)
             myEffect:addValue("noobiaHenry",1)
 	
 	        if Character:getPlayerLanguage() == 0 then
-		        dialogNewbie = MessageDialog("Tutorial","Um mit dem Menschen zu sprechen, öffne die Sprachkonsole mit Return, schreibe ein Wort und drücke wieder Return. Alle NPCs reagieren auf bestimmte Schlüsselwörter wenn du in ihrer Nähe stehst. Versuche den Menschen um 'Hilfe' zu bitten.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial","Um mit dem Menschen zu sprechen, öffne die Sprachkonsole mit Return, schreibe ein Wort und drücke wieder Return. Alle NPCs reagieren auf bestimmte Schlüsselwörter wenn du in ihrer Nähe stehst. Begrüße den Menschen einfach mit 'Hallo'.", callbackNewbie)
 	        else	
 		        dialogNewbie = MessageDialog("Tutorial", "translation", callbackNewbie)
 	        end	

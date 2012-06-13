@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 05, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 13, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Henry Cunnigan"
@@ -20,7 +20,7 @@ affiliation = "None"
 job = "Tutor"
 
 language = common
-language = lizard
+language = human
 defaultLanguage = common
 autointroduce = on
 
@@ -46,6 +46,20 @@ itemSecondHand = 0
 itemHands = 48
 itemTrousers = 366
 itemShoes = 53
+
+-- Help
+"Help" -> inform("[Tutorial] This NPC is the Tutor Henry Cunnigan. Keywords: Hello, help, farewell.")
+"Hilfe" -> inform("[Tutorial] Sehr gut!")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to the Tutorial, %CHARNAME. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> ""
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Welcome to the Tutorial, %CHARNAME. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!"
+"Hiho", "Hallo", "Hey", "Greeb" -> ""
+"Farewell", "Bye", "Fare well", "See you" -> ""
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> ""
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> ""
+"Ciao", "Adieu", "Au revoir", "Farebba" -> ""
 "Lektion wiederholen" -> "Sss, hasst dir wohl den Kopf gestoßen? Ich werde dir erklären, wie du flüsterst, rufst und deine Handlungen darstellst. - Um zu flüstern schreibe '#w und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.", queststatus(310) = 1
 ".*", queststatus(310) = 0 -> "Sss, hasst dir wohl den Kopf gestoßen? Ich werde dir erklären, wie du flüsterst, rufst und deine Handlungen darstellst. - Um zu flüstern schreibe '#w und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.", queststatus(310) = 1
 "#w.*", queststatus(310) = 1 -> "Großartig. Wenn du flüsterst können dich nur diejenigen Personen hören, die sich deiner unmittelbaren Nähe aufhalten. - Um laut zu rufen schreibe '#s und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.", queststatus(310) = 2
@@ -56,9 +70,13 @@ itemShoes = 53
 ".*", queststatus(310) = 3 -> "Versuche als nächstes eine deiner Handlungen zu beschreiben. Schreibe zum Beispiel '#me krazt sich an der Nase.' in die Sprechkonsole und drücke Enter."
 ".*", queststatus(310) = 4 -> "Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Sss, auf wiedersehen Fremdling. Möge die Göttin den Regen der auf dein Haupt fällt segnen."
 
+-- Skipping
+"skip", "cancel", "abort" -> "OK"
+"überspring", "abbrech" -> "OK"
+
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me winkt dir freundlich zu und zischelt. 'Sss, komm näher Fremdling. Ich kann dir helfen. Ss.'", "#me waves to you and hisses friendly: 'Sss, come closer. I may help you. Ss.'"
+cycletext "Kommt näher und sagt doch 'Hallo'.", "Come a little closer and say 'hello'."
