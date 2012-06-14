@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 13, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 14, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Henry Cunnigan"
@@ -49,7 +49,7 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Tutorial] This NPC is the Tutor Henry Cunnigan. Keywords: Hello, help, farewell.")
-"Hilfe" -> inform("[Tutorial] Sehr gut!")
+"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to the Tutorial, %CHARNAME. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!"
@@ -71,8 +71,8 @@ itemShoes = 53
 ".*", queststatus(310) = 4 -> "Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Sss, auf wiedersehen Fremdling. Möge die Göttin den Regen der auf dein Haupt fällt segnen."
 
 -- Skipping
-"skip", "cancel", "abort" -> "OK"
-"überspring", "abbrech" -> "OK"
+"skip", "cancel", "abort" -> "OK", warp(0, 0, 0)
+"überspring", "abbrech" -> "OK", warp(0, 0, 0)
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

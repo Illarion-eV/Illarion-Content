@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 13, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 14, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -21,6 +21,7 @@ require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.warp")
 require("npc.base.talk")
 module("npc.henry_cunnigan", package.seeall)
 
@@ -36,7 +37,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Sehr gut!"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -192,6 +193,7 @@ talkEntry:addTrigger("skip");
 talkEntry:addTrigger("cancel");
 talkEntry:addTrigger("abort");
 talkEntry:addResponse("OK");
+talkEntry:addConsequence(npc.base.consequence.warp.warp(0, 0, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -199,6 +201,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("überspring");
 talkEntry:addTrigger("abbrech");
 talkEntry:addResponse("OK");
+talkEntry:addConsequence(npc.base.consequence.warp.warp(0, 0, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Kommt näher und sagt doch 'Hallo'.", "Come a little closer and say 'hello'.");
