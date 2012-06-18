@@ -19,18 +19,18 @@ function MoveToField(Character)
     find, myEffect = Character.effects:find(13); --Noob effect
 	
 	if find then --Is this even a noob?
-        found, value = myEffect:findValue("noobiaHenry");
+        value = Character:getQuestProgress(309);
 	
 	    if (value == 0) then --Didn't visit the triggerfield yet
 
+		    Character:setQuestProgress(309,1); --remember that he knows how to walk
+			
 	        local callbackNewbie = function(dialogNewbie) end; --empty callback
 			
-            myEffect:addValue("noobiaHenry",1)
-	
 	        if Character:getPlayerLanguage() == 0 then
 		        dialogNewbie = MessageDialog("Tutorial","Um mit dem Menschen zu sprechen, öffne die Sprachkonsole mit Return, schreibe ein Wort und drücke wieder Return. Alle NPCs reagieren auf bestimmte Schlüsselwörter wenn du in ihrer Nähe stehst. Begrüße den Menschen einfach mit 'Hallo'.", callbackNewbie)
 	        else	
-		        dialogNewbie = MessageDialog("Tutorial", "translation", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial", "In order to speak to the human, open the chat box with return, type a word and hit return again. All NPCs react on certain keywords if you stand next to them. Greet the human with a simple 'hello'!.", callbackNewbie)
 	        end	
 	        Character:requestMessageDialog(dialogNewbie)
 		end

@@ -19,6 +19,7 @@ VALUES (0, 38, 21, 100, 6, 'Henry Cunnigan', 'npc.henry_cunnigan', 0, 2, 5, 123,
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.warp")
 require("npc.base.talk")
 module("npc.henry_cunnigan", package.seeall)
@@ -31,6 +32,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the Tutor Henry Cunnigan. Keywords: Hello, help, farewell."));
 talkEntry:addResponse("Very good! NPCs also react on keywords they mention in their responses. Many issue 'quests' as well. Now say 'farewell' to me and follow the road to the next lesson of the tutorial.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

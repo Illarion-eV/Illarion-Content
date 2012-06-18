@@ -47,8 +47,12 @@ itemHands = 48
 itemTrousers = 366
 itemShoes = 53
 
+-- Queststatus 309
+-- Queststatus was set to 1 if the player knows how to walk
+-- Queststatus is set to 2 if the player knows how to talk
+
 -- Help
-"Help" -> inform("[Tutorial] This NPC is the Tutor Henry Cunnigan. Keywords: Hello, help, farewell."), "Very good! NPCs also react on keywords they mention in their responses. Many issue 'quests' as well. Now say 'farewell' to me and follow the road to the next lesson of the tutorial."
+"Help" -> inform("[Tutorial] This NPC is the Tutor Henry Cunnigan. Keywords: Hello, help, farewell."), "Very good! NPCs also react on keywords they mention in their responses. Many issue 'quests' as well. Now say 'farewell' to me and follow the road to the next lesson of the tutorial.", queststatus(309) = 2
 "Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen."), "ÜBERSETZEN"
 
 -- General speech
