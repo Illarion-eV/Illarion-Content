@@ -14,7 +14,7 @@ module("triggerfield.noobia_henry", package.seeall)
 
 function MoveToField(Character)
 
-    -- for Noobia: the char has to walk to a specific field (this triggerfield); he gets a message and we add a LTE value so that we remember he was at the field
+    -- for Noobia: the char has to walk to a field (this triggerfield); he gets a message and we change a queststatus so that we remember he was at the field
 	
     find, myEffect = Character.effects:find(13); --Noob effect
 	
