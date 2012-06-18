@@ -201,7 +201,7 @@ mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Geme
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 101);
 mainNPC:setEquipment(11, 2419);
-mainNPC:setEquipment(5, 323);
+mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 366);
