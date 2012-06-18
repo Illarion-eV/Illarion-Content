@@ -52,7 +52,7 @@ itemShoes = 53
 -- Queststatus is set to 2 if the player knows how to talk
 
 -- Debugging
-"reset" -> "Noobia reset!", queststatus(309) = 0
+"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0
 
 -- Help
 "Help" -> inform("[Tutorial] This NPC is the Tutor Henry Cunnigan. Keywords: Hello, help, farewell."), "Very good! NPCs also react on keywords they mention in their responses. Many issue 'quests' as well. Now say 'farewell' to me and follow the road to the next lesson of the tutorial.", queststatus(309) = 2

@@ -32,6 +32,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("reset");
 talkEntry:addResponse("Noobia reset!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
