@@ -42,7 +42,7 @@ function callEffect(newbieEffect,Character)
 	    return false; --removing the effect
 	end	
 	
-	foundRoundCount, roundCount = newbieEffect:findValue("roundCount"): --each 2nd call yields a hint on tutorial, the other a general hint
+	foundRoundCount, roundCount = newbieEffect:findValue("roundCount"); --each 2nd call yields a hint on tutorial, the other a general hint
 
 	if foundRoundCount then --Help	
 	    if (roundCount/2) ~= math.floor(roundCount/2) then --Tutorial help
