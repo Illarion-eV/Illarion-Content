@@ -163,33 +163,33 @@ function LookAtItem( User, Item )
 
         if priesthood ~= 0 and devotion ~= priesthood and User:getMagicType()== 1 then --Error! The character is a priest, but not a priest of "his" god!
 
-            base.common.InformNLS(User,"#w Fehler! Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.","#w Error! Please inform a developer, the priest status of your character is flawed.");
+            base.common.InformNLS(User,"#w [Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.","#w [Error] Please inform a developer, the priest status of your character is flawed.");
             return; --bailing out
 
         end
 
         if priesthood ~= 0 and User:getMagicType()~= 1 then --Error! The character is not a priest, but has a priest quest status!
 
-            base.common.InformNLS(User,"#w Fehler! Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.","#w Error! Please inform a developer, the priest status of your character is flawed.");
+            base.common.InformNLS(User,"#w [Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.","#w [Error] Please inform a developer, the priest status of your character is flawed.");
             return; --bailing out
 
         end
 
         --Check what the User is and send him instructions accordingly
 
-        if devotion == 0 then --a noob without a god
+        if devotion == 0 and thisGod > 5 then --a noob without a god
 
              base.common.InformNLS(User,"#w Um euch "..godName[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","#w To devote yourself to "..godName[thisGod]..", you'll have to donate:");
              User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
 
-        elseif devotion ~= thisGod and priesthood == devotion and User:getMagicType()== 1 then --a priest of another god
+        elseif devotion ~= thisGod and priesthood == devotion and User:getMagicType()== 1 and thisGod>5 then --a priest of another god
              
              base.common.InformNLS(User,"#w Als Priester einer anderen Gottheit müßtet ihr eurer Gottheit abschwören, um ein Priester "..godName[thisGod].."s zu werden.","#w As priest of another god, you'll have to abjure your god to become a priest of "..godName[thisGod]..".");
              base.common.InformNLS(User,"#w Um ein Priester "..godName[thisGod].."s zu werden, werdet ihr folgendes opfern müssen:","#w To devote yourself to "..godName[thisGod]..", you'll have to donate:");
              User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
              User:inform(tellStuff(priestItems[thisGod],User:getPlayerLanguage())); --stuff4priest
 
-        elseif devotion ~= thisGod and priesthood == 0 and User:getMagicType()~= 1 then --a devotee of another god
+        elseif devotion ~= thisGod and priesthood == 0 and User:getMagicType()~= 1 thisGod>5 then --a devotee of another god
 
              base.common.InformNLS(User,"#w Als Anhänger einer anderen Gottheit werdet ihr eurem Gott abschwören müssen, um euch "..godName[thisGod].." zu weihen.","#w As devotee of another god, you'll have to abjure your god to devote yourself to "..godName[thisGod]..".");
              base.common.InformNLS(User,"#w Um euch "..godName[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","#w To devote yourself to "..godName[thisGod]..", you'll have to donate:");
@@ -227,7 +227,6 @@ function LookAtItem( User, Item )
 ]]
 
         else --uhm, no idea!
-            base.common.InformNLS(User,"#w Fehler! Bitte informiere einen Entwickler. Der Religionsstatus deines Charakters ist fehlerhaft.","#w Error! Please inform a developer, the religious status of your character is flawed.");
             return; --bailing out
         end
 
@@ -274,7 +273,7 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
         --Check what the User is and act accordingly
 
-        if devotion == 0 then --a noob without a god - wants to become devotee
+        if devotion == 0 and thisGod>5 then --a noob without a god - wants to become devotee
 
              if checkStuff(User,devoteItems[thisGod]) then
 
@@ -325,7 +324,7 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
              User:inform(tellStuff(priestItems[thisGod],User:getPlayerLanguage())); --stuff4priest
 ]]
 
-        elseif devotion ~= thisGod and priesthood == 0 and User:getMagicType()~= 1 then --a devotee of another god - wants to become devotee
+        elseif devotion ~= thisGod and priesthood == 0 and User:getMagicType()~= 1 and thisGod >5 then --a devotee of another god - wants to become devotee
 
              if checkStuff(User,devoteItems[thisGod]) then
 
