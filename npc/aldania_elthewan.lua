@@ -199,7 +199,7 @@ mainNPC:setLookat("This is your tutorial guide Aldania Elthewan.", "Das ist dein
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST.", "Please switch the language of your character to the common tongue by DOING THIS AND THAT.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 385);
+mainNPC:setEquipment(3, 800);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
