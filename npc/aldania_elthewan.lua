@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 51, 30, 100, 6, 'Aldania Elthewan', 'npc.aldania_elthewan', 1, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (3, 51, 30, 100, 6, 'Aldania Elthewan', 'npc.aldania_elthewan', 1, 8, 0, 255, 215, 0, 245, 200, 145);
 ---]]
 
 require("npc.base.basic")
@@ -199,13 +199,13 @@ mainNPC:setLookat("This is your tutorial guide Aldania Elthewan.", "Das ist dein
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST.", "Please switch the language of your character to the common tongue by DOING THIS AND THAT.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 101);
-mainNPC:setEquipment(11, 2419);
+mainNPC:setEquipment(3, 385);
+mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 366);
-mainNPC:setEquipment(10, 53);
+mainNPC:setEquipment(4, 2295);
+mainNPC:setEquipment(9, 0);
+mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
