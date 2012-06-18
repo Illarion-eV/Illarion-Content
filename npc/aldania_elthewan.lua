@@ -37,13 +37,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, help, farewell, pick-axe."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, help, equip, use, examine, farewell."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Dieser NPC ist die Tutorin Aldania Elthewan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen, Spitzhacke."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Dieser NPC ist die Tutorin Aldania Elthewan. Schlüsselwörter: Hallo, Hilfe, ausrüsten, benutzen, untersuchen, auf Wiedersehen."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -54,7 +54,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to 'equip', 'use' and 'examine' items.");
+talkEntry:addResponse("Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to 'equip', 'use' and 'examine' items. Just say the corresponding keyword to hear my instructions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -76,7 +76,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to equip items. Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. I just gave you a pick-axe; try to drag it into one of your hand slots.");
+talkEntry:addResponse("Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to 'equip', 'use' and 'examine' items. Just say the corresponding keyword to hear my instructions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -194,7 +194,6 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZ
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Kommt näher und sagt doch 'Hallo'.", "Come a little closer and say 'hello'.");
-talkingNPC:addCycleText("ÜBERSETZEN", "Forgot how to move? Use the right mouse button, the arrow keys, the num pad or WASD.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
