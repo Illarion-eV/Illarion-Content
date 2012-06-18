@@ -209,7 +209,6 @@ function putOff(Item, this)
 end
 
 function MoveItemAfterMove(User,SourceItem,TargetItem)
-    User:inform("starte")
 	-- Quest 305: we burn a tabacco plantaion
     local fld=world:getField(TargetItem.pos);
 	local cnt=fld:countItems();
@@ -228,7 +227,7 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 								TheItem = world:getItemOnField(position(PositionX,PositionY,0))
 								if TheItem.id == 775 then
 									world:erase(TheItem,1)
-								    User:inform("lösche")
+								    --User:inform("lösche")
 								end
 							end	
 						end
