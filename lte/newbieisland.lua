@@ -44,7 +44,7 @@ function callEffect(newbieEffect,Character)
 	foundNoobiaHenry,noobiaHenryValue = newbieEffect:findValue("noobiaHenry")
 	if not foundNoobiaHenry then -- the char should walk to a specific postion (see: triggerfield/noobia_henry)
 		base.common.InformNLS(Character,
-		"TRANSLATE",
+		"ÜBERSETZEN.",
 		"[Tutorial] To start the tutorial, please walk to the human at the end of the pier. Click and hold with the right mouse button on a spot close to the human. You can also walk using the num pad, the arrow keys or WASD.");
 	end 
 	
