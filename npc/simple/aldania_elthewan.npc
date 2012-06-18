@@ -51,11 +51,11 @@ itemShoes = 369
 "reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0
 
 -- Help
-"Help" -> inform("[Tutorial] This NPC is the Tutor Henry Cunnigan. Keywords: Hello, help, farewell."), "Very good! NPCs also react on keywords they mention in their responses. Many issue 'quests' as well. Now say 'farewell' to me and follow the road to the next lesson of the tutorial.", queststatus(309) = 2
-"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen."), "ÜBERSETZEN"
+"Help" -> inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, help, farewell."), "Very good! NPCs also react on keywords they mention in their responses. Many issue 'quests' as well. Now say 'farewell' to me and follow the road to the next lesson of the tutorial.", queststatus(309) = 2
+"Hilfe" -> inform("[Tutorial] Dieser NPC ist die Tutorin Aldania Elthewan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen."), "ÜBERSETZEN"
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to the Tutorial, %CHARNAME. I will teach you how to talk to NPCs. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you..."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "ÜBERSETZEN"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Welcome to the Tutorial, %CHARNAME. I will teach you how to talk to NPCs. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "ÜBERSETZEN"

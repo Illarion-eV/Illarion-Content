@@ -56,31 +56,31 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Tutorial] This NPC is the Tutor Henry Cunnigan. Keywords: Hello, help, farewell."), "Very good! NPCs also react on keywords they mention in their responses. Many issue 'quests' as well. Now say 'farewell' to me and follow the road to the next lesson of the tutorial.", queststatus(309) = 2
-"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen."), "ÜBERSETZEN"
+"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen."), "ÜBERSETZEN", queststatus(309) = 2
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to the Tutorial, %CHARNAME. I will teach you how to talk to NPCs. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "ÜBERSETZEN"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Welcome to the Tutorial, %CHARNAME. I will teach you how to talk to NPCs. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "ÜBERSETZEN"
-"Farewell", "Bye", "Fare well", "See you" -> "Have fun with the Tutorial, %CHARNAME. And remember: All NPCs give you a list of commands when you say 'help'. Now follow the road to the next lesson."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "ÜBERSETZEN"
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have fun with the Tutorial, %CHARNAME. And remember: All NPCs give you a list of commands when you say 'help'. Now follow the road to the next lesson."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "ÜBERSETZEN"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan. I will teach you how to talk to NPCs. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!", queststatus(309) = 2
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "ÜBERSETZEN", queststatus(309) = 2
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan. I will teach you how to talk to NPCs. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!", queststatus(309) = 2
+"Hiho", "Hallo", "Hey", "Greeb" -> "ÜBERSETZEN", queststatus(309) = 2
+"Farewell", "Bye", "Fare well", "See you" -> "Have fun with the Tutorial, %CHARNAME. And remember: All NPCs give you a list of commands when you say 'help'. Now follow the road to the next lesson.", queststatus(309) = 2
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "ÜBERSETZEN", queststatus(309) = 2
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have fun with the Tutorial, %CHARNAME. And remember: All NPCs give you a list of commands when you say 'help'. Now follow the road to the next lesson.", queststatus(309) = 2
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "ÜBERSETZEN", queststatus(309) = 2
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "I do not issue quests, sorry. I just teach you how to talk to NPCs. Follow the road to the next lesson."
-"quest", "mission" -> "ÜBERSETZEN"
-"task", "adventure", "order" -> "I do not issue quests, sorry. I just teach you how to talk to NPCs. Follow the road to the next lesson."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "ÜBERSETZEN"
+"quest", "mission", english -> "I do not issue quests, sorry. I just teach you how to talk to NPCs. Follow the road to the next lesson.", queststatus(309) = 2
+"quest", "mission" -> "ÜBERSETZEN", queststatus(309) = 2
+"task", "adventure", "order" -> "I do not issue quests, sorry. I just teach you how to talk to NPCs. Follow the road to the next lesson.", queststatus(309) = 2
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "ÜBERSETZEN", queststatus(309) = 2
 
 -- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(0, 0, 0)
-"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(0, 0, 0)
+"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), queststatus(309) = 2, warp(0, 0, 0)
+"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), queststatus(309) = 2, warp(0, 0, 0)
 
 -- Default answer
-".*", english -> inform("[Tutorial] NPCs react on specific keywords. This one here reacts on 'hello', for instance. If you just want to close the chat box, hit return while the input box is empty.")
-".*" -> inform("[Tutorial] ÜBERSETZEN.")
+".*", english -> inform("[Tutorial] NPCs react on specific keywords. This one here reacts on 'hello', for instance. If you just want to close the chat box, hit return while the input box is empty."), queststatus(309) = 2
+".*" -> inform("[Tutorial] ÜBERSETZEN."), queststatus(309) = 2
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
