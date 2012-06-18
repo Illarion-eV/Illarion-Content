@@ -37,16 +37,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, help, farewell."));
-talkEntry:addResponse("Very good! NPCs also react on keywords they mention in their responses. Many issue 'quests' as well. Now say 'farewell' to me and follow the road to the next lesson of the tutorial.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, help, farewell, pick-axe."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Dieser NPC ist die Tutorin Aldania Elthewan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen."));
-talkEntry:addResponse("ÜBERSETZEN");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Dieser NPC ist die Tutorin Aldania Elthewan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen, Spitzhacke."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -57,7 +54,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you...");
+talkEntry:addResponse("Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to 'equip', 'use' and 'examine' items.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -79,7 +76,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Welcome to the Tutorial, %CHARNAME. I will teach you how to talk to NPCs. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!");
+talkEntry:addResponse("Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to equip items. Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. I just gave you a pick-axe; try to drag it into one of your hand slots.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -126,6 +123,12 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("ÜBERSETZEN");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("equip");
+talkEntry:addResponse("Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. I just gave you a pick-axe; try to drag it into one of your hand slots.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
