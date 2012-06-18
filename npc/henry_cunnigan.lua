@@ -2,7 +2,7 @@
 -- NPC Name: Henry Cunnigan                                              None --
 -- NPC Job:  Tutor                                                            --
 --                                                                            --
--- NPC Race: human                      NPC Position:  38, 21, 100            --
+-- NPC Race: human                      NPC Position:  37, 21, 100            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Rincewind                                                        --
@@ -13,7 +13,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 38, 21, 100, 6, 'Henry Cunnigan', 'npc.henry_cunnigan', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 37, 21, 100, 6, 'Henry Cunnigan', 'npc.henry_cunnigan', 0, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
