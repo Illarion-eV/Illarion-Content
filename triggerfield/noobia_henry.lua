@@ -1,11 +1,11 @@
+-- INSERT INTO triggerfields VALUES (36,20,100,'triggerfield.noobia_henry');
+-- INSERT INTO triggerfields VALUES (36,21,100,'triggerfield.noobia_henry');
+-- INSERT INTO triggerfields VALUES (36,22,100,'triggerfield.noobia_henry');
 -- INSERT INTO triggerfields VALUES (37,20,100,'triggerfield.noobia_henry');
--- INSERT INTO triggerfields VALUES (37,21,100,'triggerfield.noobia_henry');
 -- INSERT INTO triggerfields VALUES (37,22,100,'triggerfield.noobia_henry');
 -- INSERT INTO triggerfields VALUES (38,20,100,'triggerfield.noobia_henry');
+-- INSERT INTO triggerfields VALUES (38,21,100,'triggerfield.noobia_henry');
 -- INSERT INTO triggerfields VALUES (38,22,100,'triggerfield.noobia_henry');
--- INSERT INTO triggerfields VALUES (39,20,100,'triggerfield.noobia_henry');
--- INSERT INTO triggerfields VALUES (39,21,100,'triggerfield.noobia_henry');
--- INSERT INTO triggerfields VALUES (39,22,100,'triggerfield.noobia_henry');
 
 
 require("base.common")
