@@ -48,7 +48,7 @@ function callEffect(newbieEffect,Character)
 	    if (roundCount/2) ~= math.floor(roundCount/2) then --Tutorial help
 
 	        --Station 1: Henry Cunnigan teaches how to talk to NPCs		
-	        if Character:getQuestProgress(309) < 1 and Character:isInRangeToPosition(position(38, 21, 100),15) then -- the char should walk to a specific postion (see: triggerfield/noobia_henry)
+	        if Character:getQuestProgress(309) < 2 and Character:isInRangeToPosition(position(38, 21, 100),10) then -- the char should walk to a specific postion (see: triggerfield/noobia_henry)
 		        base.common.InformNLS(Character,"ÜBERSETZEN.","[Tutorial] To start the tutorial, please walk to the human at the end of the pier. Click and hold with the right mouse button on a spot close to the human. You can also walk using the num pad, the arrow keys or WASD.");
 	        end 
 
