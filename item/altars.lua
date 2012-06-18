@@ -189,7 +189,7 @@ function LookAtItem( User, Item )
              User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
              User:inform(tellStuff(priestItems[thisGod],User:getPlayerLanguage())); --stuff4priest
 
-        elseif devotion ~= thisGod and priesthood == 0 and User:getMagicType()~= 1 thisGod>5 then --a devotee of another god
+        elseif devotion ~= thisGod and priesthood == 0 and User:getMagicType()~= 1 and thisGod>5 then --a devotee of another god
 
              base.common.InformNLS(User,"#w Als Anhänger einer anderen Gottheit werdet ihr eurem Gott abschwören müssen, um euch "..godName[thisGod].." zu weihen.","#w As devotee of another god, you'll have to abjure your god to devote yourself to "..godName[thisGod]..".");
              base.common.InformNLS(User,"#w Um euch "..godName[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","#w To devote yourself to "..godName[thisGod]..", you'll have to donate:");
