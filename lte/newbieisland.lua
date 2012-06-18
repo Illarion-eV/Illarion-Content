@@ -81,7 +81,7 @@ function callEffect(newbieEffect,Character)
 	end
 	
 	newbieEffect:addValue("roundCount",roundCount); --whatever this is. Merung, learn to use comments ;-)
-	newbieEffect.nextCalled=100; --Ten seconds
+	newbieEffect.nextCalled=70; --Seven seconds
 	return true; --bailing out in any case
 	
 end
