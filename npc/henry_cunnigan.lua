@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 14, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 18, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -18,9 +18,7 @@ VALUES (0, 38, 21, 100, 6, 'Henry Cunnigan', 'npc.henry_cunnigan', 0, 2, 5, 123,
 
 require("npc.base.basic")
 require("npc.base.condition.language")
-require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.quest")
 require("npc.base.consequence.warp")
 require("npc.base.talk")
 module("npc.henry_cunnigan", package.seeall)
@@ -32,12 +30,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the Tutor Henry Cunnigan. Keywords: Hello, help, farewell."));
+talkEntry:addResponse("Very good! NPCs also react on keywords they mention in their responses. Many issue 'quests' as well. Now say 'farewell' to me and follow the road to the next lesson of the tutorial.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen."));
+talkEntry:addResponse("ÜBERSETZEN");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -48,7 +48,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Welcome to the Tutorial, %CHARNAME. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!");
+talkEntry:addResponse("Welcome to the Tutorial, %CHARNAME. I will teach you how to talk to NPCs. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -60,7 +60,7 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("");
+talkEntry:addResponse("ÜBERSETZEN");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -70,7 +70,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Welcome to the Tutorial, %CHARNAME. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!");
+talkEntry:addResponse("Welcome to the Tutorial, %CHARNAME. I will teach you how to talk to NPCs. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -79,7 +79,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("");
+talkEntry:addResponse("ÜBERSETZEN");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -88,7 +88,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("");
+talkEntry:addResponse("Have fun with the Tutorial, %CHARNAME. And remember: All NPCs give you a list of commands when you say 'help'. Now follow the road to the next lesson.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -97,7 +97,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("");
+talkEntry:addResponse("ÜBERSETZEN");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -107,7 +107,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("Have fun with the Tutorial, %CHARNAME. And remember: All NPCs give you a list of commands when you say 'help'. Now follow the road to the next lesson.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -116,75 +116,39 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("");
+talkEntry:addResponse("ÜBERSETZEN");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Lektion wiederholen");
-talkEntry:addResponse("Sss, hasst dir wohl den Kopf gestoßen? Ich werde dir erklären, wie du flüsterst, rufst und deine Handlungen darstellst. - Um zu flüstern schreibe '#w und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I do not issue quests, sorry. I just teach you how to talk to NPCs. Follow the road to the next lesson.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 0));
-talkEntry:addResponse("Sss, hasst dir wohl den Kopf gestoßen? Ich werde dir erklären, wie du flüsterst, rufst und deine Handlungen darstellst. - Um zu flüstern schreibe '#w und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("ÜBERSETZEN");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("#w.*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 1));
-talkEntry:addResponse("Großartig. Wenn du flüsterst können dich nur diejenigen Personen hören, die sich deiner unmittelbaren Nähe aufhalten. - Um laut zu rufen schreibe '#s und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("I do not issue quests, sorry. I just teach you how to talk to NPCs. Follow the road to the next lesson.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 1));
-talkEntry:addResponse("Um zu flüstern schreibe '#w und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("#s.*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
-talkEntry:addResponse("Ausgezeichnet. Wenn du rufst hört man dich in einem viel größeren Umkreis. - Versuche als nächstes eine deiner Handlungen zu beschreiben. Schreibe zum Beispiel '#me krazt sich an der Nase.' in die Sprechkonsole.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
-talkEntry:addResponse("Um laut zu rufen schreibe '#s und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("#me.*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."));
-talkEntry:addResponse("Toll gemacht, Sss. Wenn du das Bishergesagte sehen möchtest öffne das Journal mit der Taste 'J', bei geschlossener Sprachkonsole. Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
-talkEntry:addResponse("Versuche als nächstes eine deiner Handlungen zu beschreiben. Schreibe zum Beispiel '#me krazt sich an der Nase.' in die Sprechkonsole und drücke Enter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
-talkEntry:addResponse("Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Sss, auf wiedersehen Fremdling. Möge die Göttin den Regen der auf dein Haupt fällt segnen.");
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("ÜBERSETZEN");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -192,7 +156,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("skip");
 talkEntry:addTrigger("cancel");
 talkEntry:addTrigger("abort");
-talkEntry:addResponse("OK");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(0, 0, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -200,17 +164,31 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("überspring");
 talkEntry:addTrigger("abbrech");
-talkEntry:addResponse("OK");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(0, 0, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] NPCs react on specific keywords. This one here reacts on 'hello', for instance. If you just want to close the chat box, hit return while the input box is empty."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 talkingNPC:addCycleText("Kommt näher und sagt doch 'Hallo'.", "Come a little closer and say 'hello'.");
+talkingNPC:addCycleText("ÜBERSETZEN", "Forgot how to move? Use the right mouse button, the arrow keys, the num pad or WASD.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("This is your tutorial guide Henry Cunnigan.", "Das ist dein Tutor Henry Cunnigan.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
-mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache.", "You have to talk to me in a language which I understand. Either the common or the race specific language.");
+mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST.", "Please switch the language of your character to the common tongue by DOING THIS AND THAT.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 101);
 mainNPC:setEquipment(11, 2419);

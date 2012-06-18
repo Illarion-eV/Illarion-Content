@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 14, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 18, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Henry Cunnigan"
@@ -31,8 +31,8 @@ lookatDE = "This is your tutorial guide Henry Cunnigan."
 lookatUS = "Das ist dein Tutor Henry Cunnigan."
 useMsgDE = "Finger weg!"
 useMsgUS = "Do not touch me!"
-wrongLangDE = "Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache."
-wrongLangUS = "You have to talk to me in a language which I understand. Either the common or the race specific language."
+wrongLangDE = "Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST."
+wrongLangUS = "Please switch the language of your character to the common tongue by DOING THIS AND THAT."
 radius = 0
 hairID = 2
 beardID = 5
@@ -48,31 +48,32 @@ itemTrousers = 366
 itemShoes = 53
 
 -- Help
-"Help" -> inform("[Tutorial] This NPC is the Tutor Henry Cunnigan. Keywords: Hello, help, farewell.")
-"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen.")
+"Help" -> inform("[Tutorial] This NPC is the Tutor Henry Cunnigan. Keywords: Hello, help, farewell."), "Very good! NPCs also react on keywords they mention in their responses. Many issue 'quests' as well. Now say 'farewell' to me and follow the road to the next lesson of the tutorial."
+"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Auf Wiedersehen."), "ÜBERSETZEN"
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to the Tutorial, %CHARNAME. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> ""
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Welcome to the Tutorial, %CHARNAME. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!"
-"Hiho", "Hallo", "Hey", "Greeb" -> ""
-"Farewell", "Bye", "Fare well", "See you" -> ""
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> ""
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> ""
-"Ciao", "Adieu", "Au revoir", "Farebba" -> ""
-"Lektion wiederholen" -> "Sss, hasst dir wohl den Kopf gestoßen? Ich werde dir erklären, wie du flüsterst, rufst und deine Handlungen darstellst. - Um zu flüstern schreibe '#w und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.", queststatus(310) = 1
-".*", queststatus(310) = 0 -> "Sss, hasst dir wohl den Kopf gestoßen? Ich werde dir erklären, wie du flüsterst, rufst und deine Handlungen darstellst. - Um zu flüstern schreibe '#w und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.", queststatus(310) = 1
-"#w.*", queststatus(310) = 1 -> "Großartig. Wenn du flüsterst können dich nur diejenigen Personen hören, die sich deiner unmittelbaren Nähe aufhalten. - Um laut zu rufen schreibe '#s und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste.", queststatus(310) = 2
-".*", queststatus(310) = 1 -> "Um zu flüstern schreibe '#w und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste."
-"#s.*", queststatus(310) = 2 -> "Ausgezeichnet. Wenn du rufst hört man dich in einem viel größeren Umkreis. - Versuche als nächstes eine deiner Handlungen zu beschreiben. Schreibe zum Beispiel '#me krazt sich an der Nase.' in die Sprechkonsole.", queststatus(310) = 3
-".*", queststatus(310) = 2 -> "Um laut zu rufen schreibe '#s und deine Nachricht' in die Sprechkonsole, bestätige mit der Entertaste."
-"#me.*", queststatus(310) = 3 -> inform("[Spielhilfe] Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), "Toll gemacht, Sss. Wenn du das Bishergesagte sehen möchtest öffne das Journal mit der Taste 'J', bei geschlossener Sprachkonsole. Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg.", queststatus(310) = 4
-".*", queststatus(310) = 3 -> "Versuche als nächstes eine deiner Handlungen zu beschreiben. Schreibe zum Beispiel '#me krazt sich an der Nase.' in die Sprechkonsole und drücke Enter."
-".*", queststatus(310) = 4 -> "Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Sss, auf wiedersehen Fremdling. Möge die Göttin den Regen der auf dein Haupt fällt segnen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to the Tutorial, %CHARNAME. I will teach you how to talk to NPCs. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "ÜBERSETZEN"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Welcome to the Tutorial, %CHARNAME. I will teach you how to talk to NPCs. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "ÜBERSETZEN"
+"Farewell", "Bye", "Fare well", "See you" -> "Have fun with the Tutorial, %CHARNAME. And remember: All NPCs give you a list of commands when you say 'help'. Now follow the road to the next lesson."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "ÜBERSETZEN"
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have fun with the Tutorial, %CHARNAME. And remember: All NPCs give you a list of commands when you say 'help'. Now follow the road to the next lesson."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "ÜBERSETZEN"
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "I do not issue quests, sorry. I just teach you how to talk to NPCs. Follow the road to the next lesson."
+"quest", "mission" -> "ÜBERSETZEN"
+"task", "adventure", "order" -> "I do not issue quests, sorry. I just teach you how to talk to NPCs. Follow the road to the next lesson."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "ÜBERSETZEN"
 
 -- Skipping
-"skip", "cancel", "abort" -> "OK", warp(0, 0, 0)
-"überspring", "abbrech" -> "OK", warp(0, 0, 0)
+"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(0, 0, 0)
+"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(0, 0, 0)
+
+-- Default answer
+".*", english -> inform("[Tutorial] NPCs react on specific keywords. This one here reacts on 'hello', for instance. If you just want to close the chat box, hit return while the input box is empty.")
+".*" -> inform("[Tutorial] ÜBERSETZEN.")
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -80,3 +81,4 @@ itemShoes = 53
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Kommt näher und sagt doch 'Hallo'.", "Come a little closer and say 'hello'."
+cycletext "ÜBERSETZEN", "Forgot how to move? Use the right mouse button, the arrow keys, the num pad or WASD."
