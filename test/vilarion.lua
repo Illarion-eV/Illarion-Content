@@ -27,7 +27,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 	
     if (User.lastSpokenText == "text") then
         local callback = function(dialog)
-            User:inform("Lorem ipsum closed.");
+            User:inform("Lorem ipsum closed.")
         end;
 
 local message = [[
@@ -47,24 +47,25 @@ At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergr
 
 Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 ]]
+        debug(message
 
-        local dialog = MessageDialog("Lorem ipsum", message, callback);
+        local dialog = MessageDialog("Lorem ipsum", message, callback)
         User:requestMessageDialog(dialog)
-        return;
-    end;
+        return
+    end
 
 	if (User.lastSpokenText == "input") then
 		local callback = function(dialog)
 			if not dialog:getSuccess() then
-				User:inform("You canceled! How dare you?");
+				User:inform("You canceled! How dare you?")
 			else
-				User:inform("You wrote: " .. dialog:getInput());
-			end;
-		end;
-		local dialog = InputDialog("Insert some text!", false, 255, callback);
+				User:inform("You wrote: " .. dialog:getInput())
+			end
+		end
+		local dialog = InputDialog("Insert some text!", false, 255, callback)
 		User:requestInputDialog(dialog)
-		return;
-	end;
+		return
+	end
 
     --if User.id ~= 64 then
     --    User:inform("e-Vil says: You are not allowed to use this!");
