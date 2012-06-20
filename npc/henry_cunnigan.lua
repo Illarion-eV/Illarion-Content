@@ -110,7 +110,6 @@ talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."));
 talkEntry:addResponse("Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -119,64 +118,59 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
 talkEntry:addResponse("ÜBERSETZEN");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("#w");
-talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Emoting, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."));
 talkEntry:addResponse("Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("#w");
-talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
 talkEntry:addResponse("ÜBERSETZEN");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."));
 talkEntry:addResponse("Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
 talkEntry:addResponse("ÜBERSETZEN");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."));
 talkEntry:addResponse("Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
 talkEntry:addResponse("ÜBERSETZEN");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -184,7 +178,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("#me");
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Very good. You learned all the things I could teach you. Have fun with the Tutorial, %CHARNAME. Now follow the road to the next lesson on items.");
+talkEntry:addResponse("You learned all the things I could teach you. Have fun with the Tutorial, %CHARNAME. Now follow the road to the next lesson on items.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

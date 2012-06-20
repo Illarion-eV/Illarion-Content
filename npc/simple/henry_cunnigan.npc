@@ -49,7 +49,8 @@ itemShoes = 53
 
 -- Queststatus 309
 -- Queststatus was set to 1 if the player knows how to walk
--- Queststatus is set to 2 if the player knows how to talk
+-- 2: The player shall shout
+-- 3: The player shall whisper
 
 -- Debugging
 "reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0
@@ -71,23 +72,23 @@ itemShoes = 53
 "#s", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 3
 
 -- Player seems to have a problem with shouting
-".*", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 2
-".*", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 2
+".*", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!"
+".*", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Learn how to emote
-"#w", queststatus(309) = 2, english -> inform("[Tutorial] Emoting, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 2
-"#w", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 2
+"#w", queststatus(309) = 3, english -> inform("[Tutorial] Emoting, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 4
+"#w", queststatus(309) = 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 4
 
 -- Player seems to have a problem with whispering
-".*", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 2
-".*", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 2
+".*", queststatus(309) = 3, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!"
+".*", queststatus(309) = 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player seems to have a problem with emoting
-".*", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 2
-".*", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 2
+".*", queststatus(309) = 4, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!"
+".*", queststatus(309) = 4 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player did all the lessons
-"#me", queststatus(309) = 4, english -> "Very good. You learned all the things I could teach you. Have fun with the Tutorial, %CHARNAME. Now follow the road to the next lesson on items."
+"#me", queststatus(309) = 4, english -> "You learned all the things I could teach you. Have fun with the Tutorial, %CHARNAME. Now follow the road to the next lesson on items."
 "#me", queststatus(309) = 4 -> "ÜBERSETZEN"
 
 ------------------------------------------------------------------------------AC
