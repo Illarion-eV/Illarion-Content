@@ -55,7 +55,7 @@ itemShoes = 369
 -- More dialogs are in the pick-axe script and the torch script! They also set the queststatus to higher values!
 
 -- Debugging
-"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0
+"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0
 
 -- Help
 "Help" -> inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, help, skip tutorial.")

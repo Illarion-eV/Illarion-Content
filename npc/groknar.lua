@@ -22,6 +22,7 @@ require("npc.base.condition.sex")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.warp")
 require("npc.base.talk")
 module("npc.groknar", package.seeall)
 
@@ -30,9 +31,40 @@ mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Lektion wiederhohlen");
-talkEntry:addResponse("Hurr, Fremder. Ich bin Maurince der Schweinehirte. Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deines Helden über seinem Kopf lesen können.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 1));
+talkEntry:addTrigger("reset");
+talkEntry:addResponse("Noobia reset!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the Tutor Groknar. Keywords: Hello, help, skip tutorial."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Dieser NPC ist der Tutor Groknar. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("skip");
+talkEntry:addTrigger("cancel");
+talkEntry:addTrigger("abort");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(0, 0, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("überspring");
+talkEntry:addTrigger("abbrech");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(0, 0, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -128,8 +160,8 @@ mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich ver
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 363);
 mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
-mainNPC:setEquipment(6, 2664);
+mainNPC:setEquipment(5, 17);
+mainNPC:setEquipment(6, 2642);
 mainNPC:setEquipment(4, 0);
 mainNPC:setEquipment(9, 2113);
 mainNPC:setEquipment(10, 697);

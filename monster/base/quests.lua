@@ -671,20 +671,20 @@ function iniQuests()
     questLocation[id]=position(501,107,0); 
     radius[id]=15;
 	
-	--Quest 22: Tutorial
+	--Quest 22: Tutorial Groknar
 
     local id=22;
     germanTitle[id]="Tutorial"; 
     englishTitle[id]="Tutorial";
-    NPCName[id]="Maurince"; 
+    NPCName[id]="Groknar"; 
     statusId[id]=311;
-    germanRace[id]="Schwein"; 
-    englishRace[id]="Pig";
+    germanRace[id]="Schweine"; 
+    englishRace[id]="pig";
     table.insert(questList[241],id); 
     minimumQueststatus[id]=2; 
     maximumQueststatus[id]=4; 
-    questLocation[id]=position(32,47,100); 
-    radius[id]=25;
+    questLocation[id]=position(41,46,100); 
+    radius[id]=50;
 --debug("INI QUEETS END")
 end
 

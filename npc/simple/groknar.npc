@@ -41,12 +41,27 @@ colorSkin = 84, 113, 46
 itemHead = 0
 itemChest = 363
 itemCoat = 0
-itemMainHand = 0
-itemSecondHand = 2664
+itemMainHand = 17
+itemSecondHand = 2642
 itemHands = 0
 itemTrousers = 2113
 itemShoes = 697
-"Lektion wiederhohlen" -> "Hurr, Fremder. Ich bin Maurince der Schweinehirte. Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deines Helden über seinem Kopf lesen können.", queststatus(311) = 1
+
+-- Queststatus 311
+-- See also scripts\monster\base\quests.lua
+
+-- Debugging
+"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0
+
+-- Help
+"Help" -> inform("[Tutorial] This NPC is the Tutor Groknar. Keywords: Hello, help, skip tutorial.")
+"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Groknar. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
+
+-- Skipping
+"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(0, 0, 0)
+"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(0, 0, 0)
+
+-- fefeasf
 ".*", queststatus(311) = 0, sex = male -> "Hurr, Fremder. Ich bin Maurince der Schweinehirte. Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deines Helden über seinem Kopf lesen können.", queststatus(311) = 1
 ".*", queststatus(311) = 0 -> "Hurr, Fremder. Ich bin Maurince der Schweinehirte. Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deiner Heldin über ihrem Kopf lesen können.", queststatus(311) = 1
 "#i.*", queststatus(311) = 1 -> "Nun, du hast sicher eine Menge Abenteuer vor dir, %CHARNAME. Darum werde ich dir jetzt erklären wie du kämpfen kannst. Attackiere eines der Schweine indem du dies und das machst, keine Sorge Schweine währen sich in der Regel nicht.", queststatus(311) = 2
