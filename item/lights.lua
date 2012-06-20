@@ -240,7 +240,6 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 								TheItem = world:getItemOnField(position(PositionX,PositionY,0))
 								if TheItem.id == 775 then
 									world:erase(TheItem,1)
-								    --User:inform("lösche")
 								end
 							end	
 						end
