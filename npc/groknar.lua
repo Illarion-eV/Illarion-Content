@@ -2,7 +2,7 @@
 -- NPC Name: Groknar                                                     None --
 -- NPC Job:  herder                                                           --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  39, 43, 100            --
+-- NPC Race: orc                        NPC Position:  41, 46, 100            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Rincewind                                                        --
@@ -13,7 +13,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 39, 43, 100, 6, 'Groknar', 'npc.groknar', 0, 3, 0, 119, 28, 0, 84, 113, 46);
+VALUES (4, 41, 46, 100, 6, 'Groknar', 'npc.groknar', 0, 3, 0, 119, 28, 0, 84, 113, 46);
 ---]]
 
 require("npc.base.basic")
@@ -126,10 +126,10 @@ mainNPC:setLookat("This is your tutorial guide Groknar the pig herder.", "Das is
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache.", "You have to talk to me in a language which I understand. Either the common or the racespecific language.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 0);
+mainNPC:setEquipment(3, 363);
 mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 2664);
-mainNPC:setEquipment(6, 392);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 2664);
 mainNPC:setEquipment(4, 0);
 mainNPC:setEquipment(9, 2113);
 mainNPC:setEquipment(10, 697);
