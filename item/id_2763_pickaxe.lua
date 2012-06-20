@@ -28,9 +28,27 @@ require("base.common")
 require("base.treasure")
 require("content.gathering")
 require("base.gatheringcraft")
+require("base.lookat")
 
 module("item.id_2763_pickaxe", package.seeall, package.seeall(item.general.metal))
 
+function LookAtItem(User,Item)
+
+     world:itemInform(User,Item,base.lookat.GetItemDescription(User,Item,1,false,false ));
+		
+	--Noobia addition by Estralis: Examining a pick-axe is a task of NPC Aldania
+
+    if User:getQuestProgress(310)==3 and Item.id==2763 and User:isInRangeToPosition((position (51,30,100)),20) then --only invoked if the user has the quest, examines a pick-axe and is in range of the NPC
+		User:inform("OK");
+		--User:setQuestProgress(310,4); --Connection to easyNPC
+		NPCList=world:getNPCSInRangeOf((position(51,30,100)),1); --Let's be tolerant, the NPC might move a tile.
+		Aldania=NPCList[1];
+		base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "gagragragra");
+	    base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] [Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to ignite the torch." );
+	end
+
+--Noobia end
+end
 
 function MoveItemAfterMove(User,SourceItem,TargetItem)
 

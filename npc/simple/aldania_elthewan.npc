@@ -52,6 +52,8 @@ itemShoes = 369
 -- 4: Player looked at the pick-axe. Player gets a torch and the job to ignite it. Set by the pick-axe script
 -- 5: Player lit the torch. Set by the torch script
 
+-- More dialogs are in the pick-axe script and the torch script! They also set the queststatus to higher values!
+
 -- Debugging
 "reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0
 
@@ -86,8 +88,6 @@ itemShoes = 369
 -- Player seems to have a problem with using items
 ".*", queststatus(310) = 4, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to ignite the torch."), "What is the purpose of items you cannot use properly? Do THIS AND THAT to ignite the torch I gave you."
 ".*", queststatus(310) = 4 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
-
--- More dialogs are in metal.lua, the pick-axe script and the torch script! They also set the queststatus to higher values!
 
 -- Player did all the lessons
 ".*", queststatus(310) = 5, english -> "This is where we part company, %CHARNAME. My best regards to WHOEVER who will teach you in the art of fighting further down the road."
