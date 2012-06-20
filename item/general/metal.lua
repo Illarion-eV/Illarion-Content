@@ -15,7 +15,7 @@ function LookAtItem(User,Item)
 	--Noobia addition by Estralis: Examining a pick-axe is a task of NPC Aldania
 
     if User:getQuestProgress(310)==3 and Item.id==2763 and User:isInRangeToPosition((position (51,30,100)),20) then --only invoked if the user has the quest, examines a pick-axe and is in range of the NPC
-		--User:setQuestProgress(310)=4; --Connection to easyNPC
+		--User:setQuestProgress(310,4); --Connection to easyNPC
 		NPCList=world:getNPCSInRangeOf((position(51,30,100)),1); --Let's be tolerant, the NPC might move a tile.
 		Aldania=NPCList[1];
 		base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "gagragragra");
