@@ -68,23 +68,23 @@ itemShoes = 53
 ".*", queststatus(309) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 2
 
 -- Learn how to whisper
-"#s", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 3
+"#s", queststatus(309) = 2, english -> inform("[Tutorial] Whispering works alike shouting, open your chatbox again and DO THIS AND THAT."), "You have a strong voice! Shouting can be heard over quite some distance; sometimes, you don't want eardroppers to hear what you say. Please whisper some words for my ears only.", queststatus(309) = 3
 "#s", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 3
 
 -- Player seems to have a problem with shouting
-".*", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!"
+".*", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "You already know how to talk - shouting can help you to find your friends in lonely woods or dark dungeons. Please shout some words at will."
 ".*", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Learn how to emote
-"#w", queststatus(309) = 3, english -> inform("[Tutorial] Emoting, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 4
+"#w", queststatus(309) = 3, english -> inform("[Tutorial] Emoting, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Sometimes, silence is golden, I see you learned how to whisper. To show others the actions of your character you can do emotes. ", queststatus(309) = 4
 "#w", queststatus(309) = 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 4
 
 -- Player seems to have a problem with whispering
-".*", queststatus(309) = 3, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!"
+".*", queststatus(309) = 3, english -> inform("[Tutorial] Whispering works alike shouting, open your chatbox again and DO THIS AND THAT."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!"
 ".*", queststatus(309) = 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player seems to have a problem with emoting
-".*", queststatus(309) = 4, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!"
+".*", queststatus(309) = 4, english -> inform("[Tutorial] ."), "Emoting is "
 ".*", queststatus(309) = 4 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player did all the lessons
