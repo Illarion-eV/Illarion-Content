@@ -22,9 +22,9 @@ module("lte.newbieisland", package.seeall)
 
 	ListCycleMessageEnglish = {}
 	ListCycleMessageEnglish = {
-	"Zyklusnachricht 1 englisch",
-	"Zyklusnachricht 2 englisch",
-	"Zyklusnachricht 3 englisch",
+	"[Tutorial] If you want to skip the tutorial, just say 'skip tutorial' to any NPC.",
+	"[Tutorial] To shout, place #s in front of your message. To whisper, use #w and use #o for the out of character mode.",
+	"[Tutorial] A tutorial can never replace the help of other players or the Illarion staff. We invite you to join the official Illarion chat that is linked on the homepage.",
 	"Zyklusnachricht 4 englisch",
 	"Zyklusnachricht 5 englisch",
 	"Zyklusnachricht 6 englisch",
