@@ -81,7 +81,7 @@ itemShoes = 369
 
 -- Player lost his torch. We will remove farmed torches at the end of the tutorial.
 ".*", queststatus(310) = 4, item(391, all) = 0, english -> "Without a torch, darkness will engulf you sooner or later. I gave you another torch, be more careful with this one.", item(391, 1, 333, 0)
-".*", queststatus(310) = 4, item(391, all) = 0 -> "ÜBERSETZEN", item(2763, 1, 333, 0)
+".*", queststatus(310) = 4, item(391, all) = 0 -> "ÜBERSETZEN", item(391, 1, 333, 0)
 
 -- Player seems to have a problem with using items
 ".*", queststatus(310) = 4, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to ignite the torch."), "What is the purpose of items you cannot use properly? Do THIS AND THAT to ignite the torch I gave you."

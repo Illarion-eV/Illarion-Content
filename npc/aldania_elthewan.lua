@@ -156,7 +156,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0));
 talkEntry:addResponse("ÜBERSETZEN");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
