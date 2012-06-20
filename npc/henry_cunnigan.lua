@@ -145,7 +145,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Whispering works alike shouting, open your chatbox again and DO THIS AND THAT."));
-talkEntry:addResponse("Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!");
+talkEntry:addResponse("Not every townguard should hear about your dark plans - or the thugs should not hear you talking about your bank account. Please try to whisper once more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
