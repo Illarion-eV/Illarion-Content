@@ -31,6 +31,17 @@ require("base.gatheringcraft")
 
 module("item.id_2763_pickaxe", package.seeall, package.seeall(item.general.metal))
 
+--Noobia addition by Estralis: Equipping a pick-axe is a task of NPC Aldania
+function function MoveItemAfterMove(User,SourceItem,TargetItem)
+
+    if User:getQuestProgress(310)==2 and TargetItem.id==2763 and User:isInRangeToPosition((position (51,30,100)),20) then --only invoked if the user has the quest, moves a pick-axe and is in range of the NPC
+        User:inform("OK!!!");
+	end
+	
+return true; --leave savely
+
+end
+
 function Init()
     if InitDone then
         return
