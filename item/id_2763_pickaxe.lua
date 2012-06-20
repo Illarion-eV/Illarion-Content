@@ -44,7 +44,7 @@ function LookAtItem(User,Item)
 		NPCList=world:getNPCSInRangeOf((position(51,30,100)),1); --Let's be tolerant, the NPC might move a tile.
 		Aldania=NPCList[1];
 		base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "gagragragra");
-	    base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] [Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to ignite the torch." );
+	    base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to ignite the torch." );
 	end
 
 --Noobia end
