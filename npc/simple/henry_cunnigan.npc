@@ -51,6 +51,8 @@ itemShoes = 53
 -- Queststatus was set to 1 if the player knows how to walk
 -- 2: The player shall shout
 -- 3: The player shall whisper
+-- 4: The player shall emote
+-- 5: The player did all lessons
 
 -- Debugging
 "reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0
@@ -72,11 +74,11 @@ itemShoes = 53
 "#s", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 3
 
 -- Player seems to have a problem with shouting
-".*", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "You already know how to talk - shouting can help you to find your friends in lonely woods or dark dungeons. Please shout some words at will."
+".*", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "You already know how to talk - shouting can help you to find your friends in lonely woods or dark dungeons. Please shout some words at will. Make your voice heard!"
 ".*", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Learn how to emote
-"#w", queststatus(309) = 3, english -> inform("[Tutorial] Emoting, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Sometimes, silence is golden, I see you learned how to whisper. To show others the actions of your character you can do emotes. ", queststatus(309) = 4
+"#w", queststatus(309) = 3, english -> inform("[Tutorial] Emoting is done by doing THIS AND THAT."), "Sometimes, silence is golden, I see you learned how to whisper. To show others the actions of your character you can do emotes. Emotes cannot affect the game world or other characters but are a good way to add some flavour to your roleplaying. Please emote an action!", queststatus(309) = 4
 "#w", queststatus(309) = 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 4
 
 -- Player seems to have a problem with whispering
@@ -84,12 +86,16 @@ itemShoes = 53
 ".*", queststatus(309) = 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player seems to have a problem with emoting
-".*", queststatus(309) = 4, english -> inform("[Tutorial] ."), "Emoting is "
+".*", queststatus(309) = 4, english -> inform("[Tutorial] Emoting is done by doing THIS AND THAT."), "Emoting is very important - it is the only way to show others actions that cannot be represented graphically. Please try to emote once more."
 ".*", queststatus(309) = 4 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
+-- Player emotes
+"#me", queststatus(309) = 4, english -> "Very good! You learned all the things I could teach you. Have fun with the Tutorial, %CHARNAME. Now follow the road to the next lesson on items.", queststatus(309) = 5
+"#me", queststatus(309) = 4 -> "ÜBERSETZEN", queststatus(309) = 5
+
 -- Player did all the lessons
-"#me", queststatus(309) = 4, english -> "You learned all the things I could teach you. Have fun with the Tutorial, %CHARNAME. Now follow the road to the next lesson on items."
-"#me", queststatus(309) = 4 -> "ÜBERSETZEN"
+".*", queststatus(309) = 5, english -> "You learned all the things I could teach you. Have fun with the Tutorial, %CHARNAME. Now follow the road to the next lesson on items."
+".*", queststatus(309) = 5 -> "ÜBERSETZEN"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
