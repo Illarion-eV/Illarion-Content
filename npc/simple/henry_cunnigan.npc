@@ -85,13 +85,13 @@ itemShoes = 53
 ".*", queststatus(309) = 3, english -> inform("[Tutorial] Whispering works alike shouting, open your chatbox again and DO THIS AND THAT."), "Not every townguard should hear about your dark plans - or the thugs should not hear you talking about your bank account. Please try to whisper once more."
 ".*", queststatus(309) = 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
--- Player seems to have a problem with emoting
-".*", queststatus(309) = 4, english -> inform("[Tutorial] Emoting is done by doing THIS AND THAT."), "Emoting is very important - it is the only way to show others actions that cannot be represented graphically. Please try to emote once more."
-".*", queststatus(309) = 4 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
-
 -- Player emotes
 "#me", queststatus(309) = 4, english -> "Very good! You learned all the things I could teach you. Have fun with the Tutorial, %CHARNAME. Now follow the road to the next lesson on items.", queststatus(309) = 5
 "#me", queststatus(309) = 4 -> "ÜBERSETZEN", queststatus(309) = 5
+
+-- Player seems to have a problem with emoting
+".*", queststatus(309) = 4, english -> inform("[Tutorial] Emoting is done by doing THIS AND THAT."), "Emoting is very important - it is the only way to show others actions that cannot be represented graphically. Please try to emote once more."
+".*", queststatus(309) = 4 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player did all the lessons
 ".*", queststatus(309) = 5, english -> "You learned all the things I could teach you. Have fun with the Tutorial, %CHARNAME. Now follow the road to the next lesson on items."

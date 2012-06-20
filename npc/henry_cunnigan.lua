@@ -158,23 +158,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 4));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Emoting is done by doing THIS AND THAT."));
-talkEntry:addResponse("Emoting is very important - it is the only way to show others actions that cannot be represented graphically. Please try to emote once more.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
-talkEntry:addResponse("ÜBERSETZEN");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("#me");
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -188,6 +171,23 @@ talkEntry:addTrigger("#me");
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 4));
 talkEntry:addResponse("ÜBERSETZEN");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Emoting is done by doing THIS AND THAT."));
+talkEntry:addResponse("Emoting is very important - it is the only way to show others actions that cannot be represented graphically. Please try to emote once more.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addResponse("ÜBERSETZEN");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
