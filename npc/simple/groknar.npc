@@ -31,8 +31,8 @@ lookatDE = "This is your tutorial guide Groknar the pig herder."
 lookatUS = "Das ist dein Tutor Groknar, der Schweinehirte."
 useMsgDE = "Finger weg!"
 useMsgUS = "Do not touch me!"
-wrongLangDE = "Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache."
-wrongLangUS = "You have to talk to me in a language which I understand. Either the common or the racespecific language."
+wrongLangDE = "Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST."
+wrongLangUS = "Please switch the language of your character to the common tongue by DOING THIS AND THAT."
 radius = 0
 hairID = 3
 beardID = 0
@@ -62,8 +62,8 @@ itemShoes = 697
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(0, 0, 0)
 
 -- fefeasf
-".*", queststatus(311) = 0, sex = male -> "Hurr, Fremder. Ich bin Maurince der Schweinehirte. Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deines Helden über seinem Kopf lesen können.", queststatus(311) = 1
-".*", queststatus(311) = 0 -> "Hurr, Fremder. Ich bin Maurince der Schweinehirte. Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deiner Heldin über ihrem Kopf lesen können.", queststatus(311) = 1
+".*", queststatus(311) = 0, sex = male -> "Hurr, Fremder. Ich bin Groknar der Schweinehirte. Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deines Helden über seinem Kopf lesen können.", queststatus(311) = 2
+".*", queststatus(311) = 0 -> "Hurr, Fremder. Ich bin Groknar der Schweinehirte. Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deiner Heldin über ihrem Kopf lesen können.", queststatus(311) = 2
 "#i.*", queststatus(311) = 1 -> "Nun, du hast sicher eine Menge Abenteuer vor dir, %CHARNAME. Darum werde ich dir jetzt erklären wie du kämpfen kannst. Attackiere eines der Schweine indem du dies und das machst, keine Sorge Schweine währen sich in der Regel nicht.", queststatus(311) = 2
 ".*", queststatus(311) = 1, sex = male -> "Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deines Helden über seinem Kopf lesen können."
 ".*", queststatus(311) = 1 -> "Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deiner Heldin über ihrem Kopf lesen können."
