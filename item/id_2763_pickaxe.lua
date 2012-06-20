@@ -38,7 +38,7 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
         User:inform("OK!!!");
 		--User:setQuestProgress(310)=3; --Connection to easyNPC
 		NPCList=world:getNPCSInRangeOf((position(51,30,100)),2); --Let's be tolerant, the NPC might move a tile.
-		Aldania=NPCList[1];
+		Aldania=NPCList;
 		Aldania:TalkNLS(Aldania, Character.say, "DEUTSCH", "EngliSh");
 	    base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to examine the pick-axe." );
 	end
