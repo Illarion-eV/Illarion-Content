@@ -42,7 +42,7 @@ function LookAtItem(User,Item)
 		User:inform("OK");
 		User:setQuestProgress(310,4); --Connection to easyNPC
 		NPCList=world:getNPCSInRangeOf((position(51,30,100)),1); --Let's be tolerant, the NPC might move a tile.
-		for i,Aldania in NPCList do
+		for i, Aldania in pairs(NPCList) do
 		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "gagragragra");
 		end
 	    base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to ignite the torch." );
@@ -58,8 +58,8 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
     if User:getQuestProgress(310)==2 and TargetItem.id==2763 and User:isInRangeToPosition((position (51,30,100)),20) and TargetItem:getType() == 4 then --only invoked if the user has the quest, moves a pick-axe to a hand slot and is in range of the NPC
 		User:setQuestProgress(310,3); --Connection to easyNPC
 		NPCList=world:getNPCSInRangeOf((position(51,30,100)),1); --Let's be tolerant, the NPC might move a tile.
-		for i,Aldania in NPCList do
-		base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "Good job, you know how to handle your equipment now. Helmets, shoes and the like are equipped the same way. To get some more information about your pick-axe, please examine your pick-axe now.");
+		for i, Aldania in pairs(NPCList) do
+		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "Good job, you know how to handle your equipment now. Helmets, shoes and the like are equipped the same way. To get some more information about your pick-axe, please examine your pick-axe now.");
 	    end
 		base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to examine the pick-axe." );
 	end
