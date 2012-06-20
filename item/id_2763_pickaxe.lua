@@ -34,7 +34,7 @@ module("item.id_2763_pickaxe", package.seeall, package.seeall(item.general.metal
 --Noobia addition by Estralis: Equipping a pick-axe is a task of NPC Aldania
 function MoveItemAfterMove(User,SourceItem,TargetItem)
 
-    if User:getQuestProgress(310)==2 and TargetItem.id==2763 and User:isInRangeToPosition((position (51,30,100)),20) then --only invoked if the user has the quest, moves a pick-axe and is in range of the NPC
+    if User:getQuestProgress(310)==2 and TargetItem.id==2763 and User:isInRangeToPosition((position (51,30,100)),20) and TargetItem:getType() == 4 then --only invoked if the user has the quest, moves a pick-axe to a hand slot and is in range of the NPC
         User:inform("OK!!!");
 	end
 	
