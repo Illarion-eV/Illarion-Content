@@ -1,18 +1,19 @@
 --------------------------------------------------------------------------------
--- NPC Name: Maurince                                                    None --
+-- NPC Name: Groknar                                                     None --
 -- NPC Job:  herder                                                           --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  39, 43, 100            --
--- NPC Sex:  male                       NPC Direction: east                   --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   Rincewind                                                        --
+-- Authors:  Rincewind                                                        --
+--           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 22, 2012                          easyNPC Parser v1.02 --
+-- Last parsing: June 20, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 39, 43, 100, 2, 'Maurince', 'npc.maurince', 0, 3, 0, 119, 28, 0, 84, 113, 46);
+VALUES (4, 39, 43, 100, 6, 'Groknar', 'npc.groknar', 0, 3, 0, 119, 28, 0, 84, 113, 46);
 ---]]
 
 require("npc.base.basic")
@@ -22,7 +23,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("npc.maurince", package.seeall)
+module("npc.groknar", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -117,11 +118,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(311, "=<", 3));
 talkEntry:addResponse("Töte mindestens 2 Schweine. Greife Monster an indem du dies und das machst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me grunzt freundlich. 'Ich zeige dir wie du kämpfst.'", "#me grunts while speaking. 'I will teach you how to fight something.'");
+talkingNPC:addCycleText("#me grunzt freundlich: 'Ich zeige dir wie du kämpfst.'", "#me grunts while speaking: 'I will teach you how to fight.'");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("This is your tutorial guide Maurince the pig herder.", "Das ist dein Tutor Maurince, der Schweinehirte.");
+mainNPC:setLookat("This is your tutorial guide Groknar the pig herder.", "Das ist dein Tutor Groknar, der Schweinehirte.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache.", "You have to talk to me in a language which I understand. Either the common or the racespecific language.");
 mainNPC:setEquipment(1, 0);
