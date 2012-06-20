@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 18, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 20, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Henry Cunnigan"
@@ -62,33 +62,33 @@ itemShoes = 53
 "Help" -> inform("[Tutorial] This NPC is the Tutor Henry Cunnigan. Keywords: Hello, help, skip tutorial.")
 "Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
--- Learn how to talk
-".*", queststatus(309) <2, english -> inform("[Tutorial] ."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, ",queststatus(309) = 2
-".*", queststatus(309) <2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 2
+-- Learn how to shout
+".*", queststatus(309) < 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 2
+".*", queststatus(309) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 2
 
--- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan. I will teach you how to communicate. . Just try it!", queststatus(309) = 2
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "ÜBERSETZEN", queststatus(309) = 2
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan. I will teach you how to talk to NPCs. All NPCs react on certain keywords. Upon saying 'help' to a NPC, you get a list of their commands. Just try it!", queststatus(309) = 2
-"Hiho", "Hallo", "Hey", "Greeb" -> "ÜBERSETZEN", queststatus(309) = 2
-"Farewell", "Bye", "Fare well", "See you" -> "Have fun with the Tutorial, %CHARNAME. And remember: All NPCs give you a list of commands when you say 'help'. Now follow the road to the next lesson.", queststatus(309) = 2
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "ÜBERSETZEN", queststatus(309) = 2
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have fun with the Tutorial, %CHARNAME. And remember: All NPCs give you a list of commands when you say 'help'. Now follow the road to the next lesson.", queststatus(309) = 2
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "ÜBERSETZEN", queststatus(309) = 2
+-- Learn how to whisper
+"#s", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 3
+"#s", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 3
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "I do not issue quests, sorry. I just teach you how to talk to NPCs. Follow the road to the next lesson.", queststatus(309) = 2
-"quest", "mission" -> "ÜBERSETZEN", queststatus(309) = 2
-"task", "adventure", "order" -> "I do not issue quests, sorry. I just teach you how to talk to NPCs. Follow the road to the next lesson.", queststatus(309) = 2
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "ÜBERSETZEN", queststatus(309) = 2
+-- Player seems to have a problem with shouting
+".*", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 2
+".*", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 2
 
--- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), queststatus(309) = 2, warp(0, 0, 0)
-"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), queststatus(309) = 2, warp(0, 0, 0)
+-- Learn how to emote
+"#w", queststatus(309) = 2, english -> inform("[Tutorial] Emoting, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 2
+"#w", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 2
 
--- Default answer
-".*", english -> inform("[Tutorial] NPCs react on specific keywords. This one here reacts on 'hello', for instance. If you just want to close the chat box, hit return while the input box is empty."), queststatus(309) = 2
-".*" -> inform("[Tutorial] ÜBERSETZEN."), queststatus(309) = 2
+-- Player seems to have a problem with whispering
+".*", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 2
+".*", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 2
+
+-- Player seems to have a problem with emoting
+".*", queststatus(309) = 2, english -> inform("[Tutorial] To shout, please hit return to activate the chatbox. Do THIS AND THAT, type some words and hit return again to make your character shout the words."), "Welcome to the Tutorial, %CHARNAME, my name is Henry Cunnigan, I am the harbourmaster. I will teach you how to communicate with NPCs and other characters. Now that you already know how to talk, I will show you how to shout. Please shout out for example your name!", queststatus(309) = 2
+".*", queststatus(309) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", queststatus(309) = 2
+
+-- Player did all the lessons
+"#me", queststatus(309) = 4, english -> "Very good. You learned all the things I could teach you. Have fun with the Tutorial, %CHARNAME. Now follow the road to the next lesson on items."
+"#me", queststatus(309) = 4 -> "ÜBERSETZEN"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
