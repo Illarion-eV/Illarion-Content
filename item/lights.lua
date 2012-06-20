@@ -48,10 +48,23 @@ ReqTexts.german = { [392] = "Fackeln", [43] = "Kerzen", [390] = "Lampenöl" };
 ReqTexts.english = { [392] = "torches", [43] = "candles", [390] = "lamp oil" };
 
 function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
+
+	--Noobia addition by Estralis: Examining a pick-axe is a task of NPC Aldania
+
+    if User:getQuestProgress(310)==4 and SourceItem.id==391 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, examines a pick-axe and is in range of the NPC
+		User:setQuestProgress(310,5); --Connection to easyNPC
+		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
+		for i, Aldania in pairs(NPCList) do
+		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "You are prepared for ventures into dark dungeons now. This is where we part company, %CHARNAME. My best regards to WHOEVER who will teach you in the art of fighting further down the road.");
+		end
+	end
+
+--Noobia end
+
 	if SourceItem:getType()==1 or SourceItem:getType()==2 then
 		base.common.TempInformNLS(User,
-			"Nimm das Licht in die Hand oder lege es am Grütel ab.",
-			"Take the light into your hand or put it on your belt.");
+			"Nimm die Lichtquelle in die Hand oder lege es am Gürtel ab.",
+			"Take the light source into your hand or put it on your belt.");
 		return;
 	end
 	local this = LightsOff[SourceItem.id];
@@ -59,7 +72,7 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 		local ok, wear = checkReq(User,SourceItem,this)
 		if ok then
 
-            --Quest 105: NPC Gregor Remethar "A light at the end of the tunnel
+            --Quest 105: NPC Gregor Remethar "A light at the end of the tunnel"
 
             if SourceItem.id == 395 and (SourceItem.pos == position (906, 823, -3) or SourceItem.pos == position (906, 825, -3) ) and User:getQuestProgress(105) == 1 then
                 base.common.TempInformNLS(User, "[Queststatus] Du entfachst die Ehrenfeuer von Runewick. Kehre zu Gregor Remethar zurück, um deine Belohnung einzufordern.", "[Quest status] You lit the lights of honour of Runewick. Return to Gregor Remethar to claim your reward.")
