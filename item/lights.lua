@@ -55,7 +55,7 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 		User:setQuestProgress(310,5); --Connection to easyNPC
 		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
 		for i, Aldania in pairs(NPCList) do
-		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "You are prepared for ventures into dark dungeons now. This is where we part company, %CHARNAME. My best regards to WHOEVER who will teach you in the art of fighting further down the road.");
+		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "You are prepared for ventures into dark dungeons now. This is where we part company. My best regards to WHOEVER who will teach you in the art of fighting further down the road.");
 		end
 	end
 
