@@ -69,28 +69,28 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "<", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to move the pick-axe to a hand slot of your inventory."));
 talkEntry:addResponse("Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with equipping: I just gave you a pick-axe, put it in your hands, please.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "<", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
 talkEntry:addResponse("ÜBERSETZEN");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Alas, looks like you lost the pick-axe I gave you. Don't be too careless about your belongings! Here you have another one. Take it to your hands, please.");
@@ -100,7 +100,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
 talkEntry:addResponse("ÜBERSETZEN");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
@@ -109,27 +109,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to move the pick-axe to a hand slot of your inventory."));
 talkEntry:addResponse("Please put the pick-axe into your hands. Learning how to equip items is important, just imagine you face a dragon and you can't draw your sword!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
-talkEntry:addResponse("ÜBERSETZEN");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to examine the pick-axe."));
-talkEntry:addResponse("In order to examine an item, you just have to do THIS AND THAT. Knowledge about your belongings is as vital as acquiring them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -144,6 +127,23 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to examine the pick-axe."));
+talkEntry:addResponse("In order to examine an item, you just have to do THIS AND THAT. Knowledge about your belongings is as vital as acquiring them.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addResponse("ÜBERSETZEN");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Without a torch, darkness will engulf you sooner or later. I gave you another torch, be more careful with this one.");
@@ -153,7 +153,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0));
 talkEntry:addResponse("ÜBERSETZEN");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
@@ -162,7 +162,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to ignite the torch."));
 talkEntry:addResponse("What is the purpose of items you cannot use properly? Do THIS AND THAT to ignite the torch I gave you.");
@@ -171,7 +171,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
 talkEntry:addResponse("ÜBERSETZEN");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -179,7 +179,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("This is where we part company, %CHARNAME. My best regards to WHOEVER who will teach you in the art of fighting further down the road.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -187,7 +187,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 5));
 talkEntry:addResponse("ÜBERSETZEN");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
