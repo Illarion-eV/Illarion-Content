@@ -78,19 +78,6 @@ function LookAtItem(User,Item)
         specialnames[4036]={"Gefängnissschlüssel #1","Prisonkey #1"};
         specialnames[4037]={"Gefängnissschlüssel #2","Prisonkey #2"};
         specialnames[4001]={"Stadttor Schlüssel","Towngate key"};
-        specialnames[5014]={"Graue Zuflucht Schlüssel #1","Grey Refuge key #1"}
-        specialnames[5015]={"Graue Zuflucht Schlüssel #2","Grey Refuge key #2"}
-        specialnames[7100]={"Greenbriar Tavernen Schlüssel","Greenbriar Taverne key"};
-        specialnames[7101]={"Greenbriar 1 Schlüssel","Greenbriar 1 key"};
-        specialnames[7102]={"Greenbriar 2 Schlüssel","Greenbriar 2 key"};
-        specialnames[7103]={"Greenbriar 3 Schlüssel","Greenbriar 3 key"};
-        specialnames[1060]={"Varshikar 1 Schlüssel","Varshikar 1 key"};
-        specialnames[1061]={"Varshikar 2 Schlüssel","Varshikar 2 key"};
-        specialnames[1062]={"Varshikar 3 Schlüssel","Varshikar 3 key"};
-        specialnames[1063]={"Varshikar 4 Schlüssel","Varshikar 4 key"};
-        specialnames[1064]={"Varshikar 5 Schlüssel","Varshikar 5 key"};
-        specialnames[1065]={"Varshikar 6 Schlüssel","Varshikar 6 key"};
-        specialnames[1066]={"Varshikar 7 Schlüssel","Varshikar 7 key"};
         specialnames[4031]={"Schlüssel zur Arena","Key to the Arena"};
         specialnames[4050]={"Schlüssel zum Seahorse","Key to the Sea Horse"};
         specialnames[4051]={"Schlüssel zum Seahorse #1","Key to the Sea Horse #1"};
@@ -137,7 +124,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
 
     if (TargetItem:getType()~=3) then
         base.common.InformNLS(User,
-        "Der Schlüssel rutscht dir seltsamer Weise aus der Hand.",
+        "Der Schlüssel rutscht dir seltsamerweise aus der Hand.",
         "The key slips out of your hand for a strange reason.");
         return false;
     end

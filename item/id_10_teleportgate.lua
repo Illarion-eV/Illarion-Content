@@ -62,12 +62,6 @@ function CharacterOnField( User )
 		--User:inform( "target id "..SourceItem.quality )
         local gate = TargetCoor[ SourceItem.data ]
 
-        --Vanima Magic Trap
-        vanTrap = false;
-        if (SourceItem.quality == 6) and (User:getQuestProgress(6) == 1) then
-            vanTrap = true;
-        end;
-
         --check if we are in the endurance cave and change the destination if needed
 		local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
 		if (PlayerInCave) then
@@ -75,14 +69,7 @@ function CharacterOnField( User )
 		end
 
         if gate ~= nil then
-            --User:inform( "gate found" )
 
-            --User:inform( "warp" )
-
-            local dest = position( gate[ 1 ], gate[ 2 ], gate[ 3 ] );
-            if vanTrap then
-                dest = position(405,207,0);
-            end;
 
 			--check if we are at the teleporter in the forced labour camp
 			if User.pos == (position(-495, -484, -40)) then
@@ -103,7 +90,7 @@ function CharacterOnField( User )
 					world:changeItem(SourceItem);
 				else
 	                base.common.InformNLS( User,
-	                "Du hast deine Strafe noch nicht abgearbeitet. Bring Percy was er verlangt, um freizukommen..",
+	                "Du hast deine Strafe noch nicht abgearbeitet. Bring Percy was er verlangt, um freizukommen.",
 	                "You still haven't completed your punishment. Bring Percy what he requests, to get released." );
 	                return;
 				end
@@ -111,22 +98,6 @@ function CharacterOnField( User )
 			-- Quest Special
             allOK = true;
             if (allOK) then
-
-                if not (User:isAdmin()) then
-                    -- check for newbie state
-                    local newbieState = User:getQuestProgress(2);
-
-                    if 0 < newbieState then
-                        if  ( (newbieState == 100) and (User.effects:find(13)) )then
-                                User.effects:removeEffect(13);
-                        elseif not (76 <= SourceItem.data and SourceItem.data <= 85) then
-                            base.common.InformNLS(User,
-                            "Nichts passiert, du scheinst noch nicht bereit zu sein. Frage Findecano Melwasul, den Elfen bei dem Thron, wie du nach Gobaith gelangen kannst.",
-                            "Nothing happens, it seems that you are not ready yet. Ask Findecano Melwasul, the Elf next to the throne, how you can enter Gobaith.");
-                            return;
-                        end
-                    end
-                end
 
 				world:makeSound( 4, dest )
                 --world:gfx( 41, dest )
@@ -137,11 +108,6 @@ function CharacterOnField( User )
                 base.common.InformNLS( User,
                 "Du machst eine magische Reise.",
                 "You travel by the realm of magic." );
-                if (vanTrap) then
-                    base.common.InformNLS( User,
-                    "Eine Stimme schallt: IHR WURDET GEWARNT NICHT UNGEBETEN IN UNSER LAND EINZUDRINGEN...WILLKOMMEN IN VANIMA",
-                    "A voice booms: YOU HAVE BEEN WARNED NOT TO ENTER OUR LANDS UNINVITED...WELCOME TO VANIMA" );
-                end;
 
                 if ( SourceItem.wear ~= 255 ) then
                     if ( SourceItem.quality < 900 ) then
