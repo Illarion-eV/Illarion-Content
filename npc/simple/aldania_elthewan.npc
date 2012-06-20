@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 18, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 20, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Aldania Elthewan"
@@ -19,7 +19,7 @@ affiliation = "None"
 job = "Tutor"
 
 language = common
-language = human
+language = elf
 defaultLanguage = common
 autointroduce = on
 
@@ -46,47 +46,56 @@ itemTrousers = 0
 itemShoes = 369
 
 -- Queststatus 310
+-- 0: Player arrives
+-- 1: Player got the task to equip the pick-axe
+-- 2: Player put the pick-axe into his hands. Player gets the job to examine the pick-axe. Set by the pick-axe script.
+-- 3: Player looked at the pick-axe. Player gets a torch and the job to ignite it. Set by the pick-axe script
+-- 4: Player lit the torch. Set by the torch script
 
 -- Debugging
 "reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0
 
 -- Help
-"Help" -> inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, help, equip, use, examine, farewell.")
-"Hilfe" -> inform("[Tutorial] Dieser NPC ist die Tutorin Aldania Elthewan. Schlüsselwörter: Hallo, Hilfe, ausrüsten, benutzen, untersuchen, auf Wiedersehen.")
-
--- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to 'equip', 'use' and 'examine' items. Just say the corresponding keyword to hear my instructions."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "ÜBERSETZEN"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to 'equip', 'use' and 'examine' items. Just say the corresponding keyword to hear my instructions."
-"Hiho", "Hallo", "Hey", "Greeb" -> "ÜBERSETZEN"
-"Farewell", "Bye", "Fare well", "See you" -> "Have fun with the Tutorial, %CHARNAME. And remember: All NPCs give you a list of commands when you say 'help'. Now follow the road to the next lesson."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "ÜBERSETZEN"
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have fun with the Tutorial, %CHARNAME. And remember: All NPCs give you a list of commands when you say 'help'. Now follow the road to the next lesson."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "ÜBERSETZEN"
-
--- Equip
-"equip" -> "Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. I just gave you a pick-axe; try to drag it into one of your hand slots."
-
--- Use
--- Examine
-
--- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "I do not issue quests, sorry. I just teach you how to talk to NPCs. Follow the road to the next lesson."
-"quest", "mission" -> "ÜBERSETZEN"
-"task", "adventure", "order" -> "I do not issue quests, sorry. I just teach you how to talk to NPCs. Follow the road to the next lesson."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "ÜBERSETZEN"
+"Help" -> inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, help, skip tutorial.")
+"Hilfe" -> inform("[Tutorial] Dieser NPC ist die Tutorin Aldania Elthewan. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
 -- Skipping
 "skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(0, 0, 0)
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(0, 0, 0)
 
--- Default answer
-".*", english -> inform("[Tutorial] NPCs react on specific keywords. This one here reacts on 'hello', for instance. If you just want to close the chat box, hit return while the input box is empty.")
-".*" -> inform("[Tutorial] ÜBERSETZEN.")
+-- Learn how to equip
+".*", queststatus(310) = 0, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to move the pick-axe to a hand slot of your inventory."), "Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with equipping: I just gave you a pick-axe, put it in your hands, please.", item(2763, 1, 333, 0), queststatus(310) = 1
+".*", queststatus(310) = 0 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", item(2763, 1, 333, 0), queststatus(310) = 1
+
+-- Player lost his pick-axe. We will remove farmed pick axes at the end of the tutorial.
+".*", queststatus(310) = 1, item(2763, all) = 0, english -> "Alas, looks like you lost the pick-axe I gave you. Don't be too careless about your belongings! Here you have another one. Take it to your hands, please.", item(2763, 1, 333, 0)
+".*", queststatus(310) = 1, item(2763, all) = 0 -> "ÜBERSETZEN", item(2763, 1, 333, 0)
+
+-- Player seems to have a problem with equipping
+".*", queststatus(310) = 1, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to move the pick-axe to a hand slot of your inventory."), "Please put the pick-axe into your hands. Learning how to equip items is important, just imagine you face a dragon and you can't draw your sword!"
+".*", queststatus(310) = 1 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
+
+-- Player seems to have a problem with examining
+".*", queststatus(310) = 2, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to examine the pick-axe."), "In order to examine an item, you just have to do THIS AND THAT. Knowledge about your belongings is as vital as acquiring them."
+".*", queststatus(310) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
+
+-- Player lost his torch. We will remove farmed torches at the end of the tutorial.
+".*", queststatus(310) = 3, item(391, all) = 0, english -> "Without a torch, darkness will engulf you sooner or later. I gave you another torch, be more careful with this one.", item(391, 1, 333, 0)
+".*", queststatus(310) = 3, item(391, all) = 0 -> "ÜBERSETZEN", item(2763, 1, 333, 0)
+
+-- Player seems to have a problem with using items
+".*", queststatus(310) = 3, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to ignite the torch."), "What is the purpose of items you cannot use properly? Do THIS AND THAT to ignite the torch I gave you."
+".*", queststatus(310) = 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
+
+-- More dialogs are in the pick-axe script and the torch script! They also set the queststatus to higher values!
+
+-- Player did all the lessons
+".*", queststatus(310) = 4, english -> "This is where we part company, %CHARNAME. My best regards to WHOEVER who will teach you in the art of fighting further down the road."
+".*", queststatus(310) = 4 -> "ÜBERSETZEN"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Kommt näher und sagt doch 'Hallo'.", "Come a little closer and say 'hello'."
+cycletext "ÜBERSETZEN", "Aldania Elthelwan, at your service. Equipping, examining and using items is what I teach."
