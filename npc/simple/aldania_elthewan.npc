@@ -2,7 +2,7 @@
 -- NPC Name: Aldania Elthewan                                            None --
 -- NPC Job:  Tutor                                                            --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  51, 30, 100            --
+-- NPC Race: elf                        NPC Position:  52, 24, 100            --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Aldania Elthewan"
 race = elf
 sex = female
-position = 51, 30, 100
+position = 52, 24, 100
 direction = west
 affiliation = "None"
 job = "Tutor"

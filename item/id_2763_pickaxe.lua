@@ -38,12 +38,12 @@ function LookAtItem(User,Item)
 		
 	--Noobia addition by Estralis: Examining a pick-axe is a task of NPC Aldania
 
-    if User:getQuestProgress(310)==3 and Item.id==2763 and User:isInRangeToPosition((position (51,30,100)),20) then --only invoked if the user has the quest, examines a pick-axe and is in range of the NPC
+    if User:getQuestProgress(310)==3 and Item.id==2763 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, examines a pick-axe and is in range of the NPC
 		User:setQuestProgress(310,4); --Connection to easyNPC
-		NPCList=world:getNPCSInRangeOf(position(51,30,100),3); --Let's be tolerant, the NPC might move a tile.
+		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
 		for i, Aldania in pairs(NPCList) do
-			User:inform("FOUND1");
-		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "gagragragra");
+		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "Indeed, items can be of different quality. Keep this in mind when bartering about prices. My last lesson is how to use items. I gave you a torch: Let there be light!");
+		    User:createItem(391,1,333,0); --Torch
 		end
 	    base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to ignite the torch." );
 	end
@@ -57,9 +57,8 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 
     if User:getQuestProgress(310)==2 and TargetItem.id==2763 and User:isInRangeToPosition((position (51,30,100)),20) and TargetItem:getType() == 4 then --only invoked if the user has the quest, moves a pick-axe to a hand slot and is in range of the NPC
 		User:setQuestProgress(310,3); --Connection to easyNPC
-		NPCList=world:getNPCSInRangeOf(position(51,30,100),3); --Let's be tolerant, the NPC might move a tile.
+		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
 		for i, Aldania in pairs(NPCList) do
-		    User:inform("FOUND2")
 		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "Good job, you know how to handle your equipment now. Helmets, shoes and the like are equipped the same way. To get some more information about your pick-axe, please examine your pick-axe now.");
 	    end
 		base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to examine the pick-axe." );

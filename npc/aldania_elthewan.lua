@@ -2,7 +2,7 @@
 -- NPC Name: Aldania Elthewan                                            None --
 -- NPC Job:  Tutor                                                            --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  51, 30, 100            --
+-- NPC Race: elf                        NPC Position:  52, 24, 100            --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 51, 30, 100, 6, 'Aldania Elthewan', 'npc.aldania_elthewan', 1, 8, 0, 255, 215, 0, 245, 200, 145);
+VALUES (3, 52, 24, 100, 6, 'Aldania Elthewan', 'npc.aldania_elthewan', 1, 8, 0, 255, 215, 0, 245, 200, 145);
 ---]]
 
 require("npc.base.basic")
