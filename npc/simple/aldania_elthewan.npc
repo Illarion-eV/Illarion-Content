@@ -94,7 +94,7 @@ itemShoes = 369
 ".*", queststatus(310) = 4 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player did all the lessons
-".*", queststatus(310) = 5, english -> "This is where we part company, %CHARNAME. My best regards to WHOEVER who will teach you in the art of fighting further down the road."
+".*", queststatus(310) = 5, english -> "This is where we part company, %CHARNAME. My best regards to Groknar who will teach you in the art of fighting further down the road."
 ".*", queststatus(310) = 5 -> "ÜBERSETZEN"
 
 ------------------------------------------------------------------------------AC

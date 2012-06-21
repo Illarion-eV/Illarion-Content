@@ -201,7 +201,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("This is where we part company, %CHARNAME. My best regards to WHOEVER who will teach you in the art of fighting further down the road.");
+talkEntry:addResponse("This is where we part company, %CHARNAME. My best regards to Groknar who will teach you in the art of fighting further down the road.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
