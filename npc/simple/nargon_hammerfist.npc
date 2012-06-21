@@ -64,6 +64,9 @@ itemShoes = 697
 ".*", queststatus(312) < 2, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
 ".*", queststatus(312) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
 
+-- TEst
+".*" -> "feaöpeönhaopefhnweopöfhnopehnwfpohnewrapouhefn puaefrnpuiobhef poiuewhrbpiouhwrbfpuhb puiohfb piowehbfpiow hbfiopu hbepwefrhb puefbh upiofhb ewpouifhb wpoufhbhweopfbhe uopwbhuef piowbhef upbhef uWBHEF PUOwbhe puwf pouWBFpuob wUFBWIUbfwUFIOUEWBFPOUIWEBFE WBFPB FPBWpberfuopbefpobefwupobfopefwb ufowpbf weopfweo pwfebopw"
+
 -- Zeug
 "Lektion wiederhohlen", queststatus(313) = 3 -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), " Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.", queststatus(312) = 1
 "Lektion wiederhohlen" -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), "Ich hab dir eine Spitzhacke in den Gürtel gesteckt. Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.", item(2763, 1, 555, 0), queststatus(312) = 1, queststatus(313) + 1

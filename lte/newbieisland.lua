@@ -28,7 +28,7 @@ module("lte.newbieisland", package.seeall)
 	"[Tutorial] To shout, place #s in front of your message. To whisper, use #w and use #o for the out of character mode.",
 	"[Tutorial] A tutorial can never replace the help of other players or the Illarion staff. We invite you to join the official Illarion chat that is linked on the homepage.",
 	"[Tutorial] If you want to introduce your character to other players, DO THIS AND THAT or type #i in the chatbox and hit return.",
-	"[Tutorial] All NPCs react on a number of keywords. You can get a list of the most important keywords as anser to 'help'. ",
+	"[Tutorial] All NPCs react on a number of keywords. You can get a list of the most important keywords as answer to 'help'. ",
 	"[Tutorial] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy.",
 	"[Tutorial] You can review your skills by DOING THIS AND THAT.",
 	"[Tutorial] The red bar represents the health of your character. The yellow bar is an indicator how much your character is sated and the blue bar shows the mana of mages.",

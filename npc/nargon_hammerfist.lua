@@ -91,6 +91,12 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("feaöpeönhaopefhnweopöfhnopehnwfpohnewrapouhefn puaefrnpuiobhef poiuewhrbpiouhwrbfpuhb puiohfb piowehbfpiow hbfiopu hbepwefrhb puefbh upiofhb ewpouifhb wpoufhbhweopfbhe uopwbhuef piowbhef upbhef uWBHEF PUOwbhe puwf pouWBFpuob wUFBWIUbfwUFIOUEWBFPOUIWEBFE WBFPB FPBWpberfuopbefpobefwupobfopefwb ufowpbf weopfweo pwfebopw");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lektion wiederhohlen");
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."));

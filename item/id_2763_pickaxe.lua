@@ -86,12 +86,21 @@ function Init()
     Rocks[1250]  = 1251;
 	
 --[[
+For coals mines:
 1245: 60% Coal + 7% Blackstone + 3% Ruby
 1246: 40% Coal + 7% Amethyst + 3% Emerald
-232: 40% Copper + 10% Gold + 7% Diamond 3% Amethyst
+
+For iron mines:
 914: 60% Iron + 7% Ruby + 3% Topaz
 1273: 40% Iron + 7% Bluestone + 3% Blackstone
+
+For copper mines:
 1276: 60% Copper + 7% Emerald + 3% Bluestone
+
+For gold and copper mines:
+232: 40% Copper + 10% Gold + 7% Diamond 3% Amethyst
+
+For gold and merinium mines:
 1250: 10% Gold + 5% Merinium + 7% Topaz + 3% Diamond
 
 Coalmine: Galmair "Dark Hole Mine"
@@ -214,15 +223,29 @@ Radius 15
     SetRessource( 6, 1246,  256,  3,  0); -- emerald
 	    	
 	----------- Noobia Mine -----------
-	AddArea( 7, position(122,25,100), 10 );
-	AddStone( 7, 1245 );
-	SetRessource( 7, 1245, 21, 90, 0 ); -- coal
-	AddStone( 7, 1246 );
-	SetRessource( 7, 1246, 21, 90, 0 ); -- coal
-	AddStone( 7, 914 );
-	SetRessource( 7, 914, 22, 90, 0 ); -- iron ore
-	AddStone( 7, 1273 );
-	SetRessource( 7, 1273, 22, 90, 0 ); -- iron ore
+	AddArea( 7, position(59,49,100), 15 );
+    AddStone( 7, 1245 );
+    SetRessource( 1, 1245,  21, 60,  0); -- coal
+	SetRessource( 1, 1245,  252, 7, 0); -- blackstone
+    SetRessource( 1, 1245,  255, 3,  0); -- rubys
+    AddStone( 7, 1246 );
+    SetRessource( 1, 1246, 21,  40, 0); -- coal
+    SetRessource( 1, 1246, 251,  7, 0); -- amethysts
+    SetRessource( 1, 1246,  256,  3,  0); -- emerald
+	AddStone( 7, 232 );
+    SetRessource( 2, 232, 2536, 40,  0); -- copper
+    SetRessource( 2, 232, 234,  10,  0); -- gold nuggets
+	SetRessource( 2, 232, 254,  7,  0); -- diamonds
+	SetRessource( 2, 232, 251,  3, 0); -- amethysts
+    AddStone( 7, 914 );
+    SetRessource( 2, 914,  22, 60,  0); -- iron ore
+	SetRessource( 2, 914,  255, 7, 0); -- rubys
+	SetRessource( 2, 914,  257, 3, 0); -- topas
+    AddStone( 7, 1273 );
+    SetRessource( 2, 1273,  22, 40,  0); -- iron ore
+	SetRessource( 2, 1273,  253, 7, 0); -- bluestone
+	SetRessource( 2, 1273,  252, 3, 0); -- blackstone
+	
 	------- Noobia Mine - FERTIG ------
 
     InitDone = true;
@@ -369,7 +392,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
     if base.common.Encumbrence(User) then
         base.common.InformNLS( User,
-        "Deine Rüstung behindert Dich Rohstoffe abzubauen.",
+        "Deine Rüstung behindert dich beim Schürfen.",
         "Your armour disturbes you when mining ores" );
         return
     end
@@ -390,7 +413,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if ( AreaID == false ) then
         base.common.InformNLS(User,
         "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
-        "The area doesn't look like a area to mine.");
+        "The area doesn't look like an area to mine.");
         return
     end
 
