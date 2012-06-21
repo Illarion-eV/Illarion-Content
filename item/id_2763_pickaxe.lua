@@ -154,6 +154,10 @@ Radius 15
     SetRessource( 2, 1273,  22, 40,  0); -- iron ore
 	SetRessource( 2, 1273,  253, 7, 0); -- bluestone
 	SetRessource( 2, 1273,  252, 3, 0); -- blackstone
+    AddStone( 2, 1276 );
+    SetRessource( 2, 1276,  2536, 40,  0); -- copper ore
+	SetRessource( 2, 1276,  256, 7, 0); -- emerald
+	SetRessource( 2, 1276,  253, 3, 0); -- bluestone
 	
 	--Cadomyr "Cornerstone of Candour"
 	AddArea( 3, position(142,686,0), 15 );
@@ -181,6 +185,10 @@ Radius 15
     SetRessource( 4, 1273,  22, 40,  0); -- iron ore
 	SetRessource( 4, 1273,  253, 7, 0); -- bluestone
 	SetRessource( 4, 1273,  252, 3, 0); -- blackstone
+	AddStone( 4, 1276 );
+    SetRessource( 4, 1276,  2536, 40,  0); -- copper ore
+	SetRessource( 4, 1276,  256, 7, 0); -- emerald
+	SetRessource( 4, 1276,  253, 3, 0); -- bluestone
 	
 	--Wilderness "Glittering Cave"
 	AddArea( 5, position(548,371,0), 15 );
@@ -221,31 +229,43 @@ Radius 15
     SetRessource( 6, 1246, 21,  40, 0); -- coal
     SetRessource( 6, 1246, 251,  7, 0); -- amethysts
     SetRessource( 6, 1246,  256,  3,  0); -- emerald
+	AddStone( 6, 1276 );
+    SetRessource( 6, 1276,  2536, 40,  0); -- copper ore
+	SetRessource( 6, 1276,  256, 7, 0); -- emerald
+	SetRessource( 6, 1276,  253, 3, 0); -- bluestone
 	    	
 	----------- Noobia Mine -----------
 	AddArea( 7, position(59,49,100), 15 );
-    AddStone( 7, 1245 );
-    SetRessource( 1, 1245,  21, 60,  0); -- coal
-	SetRessource( 1, 1245,  252, 7, 0); -- blackstone
-    SetRessource( 1, 1245,  255, 3,  0); -- rubys
-    AddStone( 7, 1246 );
-    SetRessource( 1, 1246, 21,  40, 0); -- coal
-    SetRessource( 1, 1246, 251,  7, 0); -- amethysts
-    SetRessource( 1, 1246,  256,  3,  0); -- emerald
-	AddStone( 7, 232 );
-    SetRessource( 2, 232, 2536, 40,  0); -- copper
-    SetRessource( 2, 232, 234,  10,  0); -- gold nuggets
-	SetRessource( 2, 232, 254,  7,  0); -- diamonds
-	SetRessource( 2, 232, 251,  3, 0); -- amethysts
+    AddStone( 7, 232 );
+    SetRessource( 7, 232, 2536, 40,  0); -- copper
+    SetRessource( 7, 232, 234,  10,  0); -- gold nuggets
+	SetRessource( 7, 232, 254,  7,  0); -- diamonds
+	SetRessource( 7, 232, 251,  3, 0); -- amethysts
     AddStone( 7, 914 );
-    SetRessource( 2, 914,  22, 60,  0); -- iron ore
-	SetRessource( 2, 914,  255, 7, 0); -- rubys
-	SetRessource( 2, 914,  257, 3, 0); -- topas
+    SetRessource( 7, 914,  22, 60,  0); -- iron ore
+	SetRessource( 7, 914,  255, 7, 0); -- rubys
+	SetRessource( 7, 914,  257, 3, 0); -- topas
     AddStone( 7, 1273 );
-    SetRessource( 2, 1273,  22, 40,  0); -- iron ore
-	SetRessource( 2, 1273,  253, 7, 0); -- bluestone
-	SetRessource( 2, 1273,  252, 3, 0); -- blackstone
-	
+    SetRessource( 7, 1273,  22, 40,  0); -- iron ore
+	SetRessource( 7, 1273,  253, 7, 0); -- bluestone
+	SetRessource( 7, 1273,  252, 3, 0); -- blackstone
+	AddStone( 7, 1245 );
+    SetRessource( 7, 1245,  21, 60,  0); -- coal
+	SetRessource( 7, 1245,  252, 7, 0); -- blackstone
+    SetRessource( 7, 1245,  255, 3,  0); -- rubys
+    AddStone( 7, 1246 );
+    SetRessource( 7, 1246, 21,  40, 0); -- coal
+    SetRessource( 7, 1246, 251,  7, 0); -- amethysts
+    SetRessource( 7, 1246,  256,  3,  0); -- emerald
+	AddStone( 7, 1276 );
+    SetRessource( 7, 1276,  2536, 40,  0); -- copper ore
+	SetRessource( 7, 1276,  256, 7, 0); -- emerald
+	SetRessource( 7, 1276,  253, 3, 0); -- bluestone
+	AddStone( 7, 1250 );
+    SetRessource( 7, 1250, 234,  10, 0); -- gold nuggets
+    SetRessource( 7, 1250, 2534,  5, 0); -- merinium ore
+    SetRessource( 7, 1250,  254,  7,  0); -- diamonds
+	SetRessource( 7, 1250,  257,  3, 0); -- topas
 	------- Noobia Mine - FERTIG ------
 
     InitDone = true;
