@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 20, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 21, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Aldania Elthewan"
@@ -76,6 +76,10 @@ itemShoes = 369
 -- Player seems to have a problem with equipping
 ".*", queststatus(310) = 2, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to move the pick-axe to a hand slot of your inventory."), "Please put the pick-axe into your hands. Learning how to equip items is important, just imagine you face a dragon and you can't draw your sword!"
 ".*", queststatus(310) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
+
+-- Player lost his pick-axe. Again. We will remove farmed pick axes at the end of the tutorial.
+".*", queststatus(310) = 3, item(2763, all) = 0, english -> "Alas, looks like you lost the pick-axe I gave you. Don't be too careless about your belongings! Here you have another one. Examine it, please.", item(2763, 1, 333, 0)
+".*", queststatus(310) = 3, item(2763, all) = 0 -> "ÜBERSETZEN", item(2763, 1, 333, 0)
 
 -- Player seems to have a problem with examining
 ".*", queststatus(310) = 3, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to examine the pick-axe."), "In order to examine an item, you just have to do THIS AND THAT. Knowledge about your belongings is as vital as acquiring them."

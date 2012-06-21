@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 20, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 21, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -122,6 +122,25 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
 talkEntry:addResponse("ÜBERSETZEN");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Alas, looks like you lost the pick-axe I gave you. Don't be too careless about your belongings! Here you have another one. Examine it, please.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addResponse("ÜBERSETZEN");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
