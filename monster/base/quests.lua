@@ -682,7 +682,7 @@ function iniQuests()
     englishRace[id]="pig";
     table.insert(questList[241],id); 
     minimumQueststatus[id]=2; 
-    maximumQueststatus[id]=4; 
+    maximumQueststatus[id]=5; 
     questLocation[id]=position(41,46,100); 
     radius[id]=50;
 --debug("INI QUEETS END")
