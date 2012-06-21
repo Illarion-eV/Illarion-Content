@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Groknar                                                     None --
--- NPC Job:  herder                                                           --
+-- NPC Job:  hunter                                                           --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  41, 46, 100            --
 -- NPC Sex:  male                       NPC Direction: west                   --
@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 20, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 21, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Groknar"
@@ -17,7 +17,7 @@ sex = male
 position = 41, 46, 100
 direction = west
 affiliation = "None"
-job = "herder"
+job = "hunter"
 
 language = common
 language = orc
@@ -27,8 +27,8 @@ autointroduce = on
 author = "Rincewind"
 author = "Estralis Seborian"
 
-lookatDE = "This is your tutorial guide Groknar the pig herder."
-lookatUS = "Das ist dein Tutor Groknar, der Schweinehirte."
+lookatDE = "This is your tutorial guide Groknar the hunter."
+lookatUS = "Das ist dein Tutor Groknar der Jäger."
 useMsgDE = "Finger weg!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST."
@@ -49,6 +49,10 @@ itemShoes = 697
 
 -- Queststatus 311
 -- See also scripts\monster\base\quests.lua
+-- 1: Player arrives at the station
+-- 2: Player got the task to kill three little pigs (241)
+-- 3-5: Player kills three little pigs (241). Reward: Club
+-- 6: Player did all lessons
 
 -- Debugging
 "reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0
@@ -61,19 +65,21 @@ itemShoes = 697
 "skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(0, 0, 0)
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(0, 0, 0)
 
--- fefeasf
-".*", queststatus(311) = 0, sex = male -> "Hurr, Fremder. Ich bin Groknar der Schweinehirte. Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deines Helden über seinem Kopf lesen können.", queststatus(311) = 2
-".*", queststatus(311) = 0 -> "Hurr, Fremder. Ich bin Groknar der Schweinehirte. Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deiner Heldin über ihrem Kopf lesen können.", queststatus(311) = 2
-"#i.*", queststatus(311) = 1 -> "Nun, du hast sicher eine Menge Abenteuer vor dir, %CHARNAME. Darum werde ich dir jetzt erklären wie du kämpfen kannst. Attackiere eines der Schweine indem du dies und das machst, keine Sorge Schweine währen sich in der Regel nicht.", queststatus(311) = 2
-".*", queststatus(311) = 1, sex = male -> "Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deines Helden über seinem Kopf lesen können."
-".*", queststatus(311) = 1 -> "Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deiner Heldin über ihrem Kopf lesen können."
+-- Learn how to fight
+".*", queststatus(311) < 2, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(311) = 2
+".*", queststatus(311) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(311) = 2
 
--- scripts\monster\base\quests.lua
-".*", queststatus(311) = 6 -> "Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Gute weiterreise %CHARNAME!", queststatus(311) = 6
-".*", queststatus(311) = 5, queststatus(314) = 1 -> " Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Gute weiterreise %CHARNAME!", queststatus(311) = 6
-".*", queststatus(311) = 5 -> inform("Du erhältst eine schwere Holzkeule zur Belohnung."), "Hurr, es ist gefährlich da draußen. Hier, nimm zur Sicherheit diese Keule mit. Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Gute weiterreise %CHARNAME!", item(2664, 1, 555, 0), queststatus(311) = 6, queststatus(314) = 1
-".*", queststatus(311) = 4 -> "Sehr schön. In zukünftigen Kämpfen wird die Zusammenstellung deiner Ausrüstung für dein Überleben entscheidend sein. So wie deine Erfahrung - Beispielsweise wirst du automatisch geschickter im Kampf mit Hiebwaffen wenn du ein Schwert schwingst.", queststatus(311) = 5
-".*", queststatus(311) =< 3 -> "Töte mindestens 2 Schweine. Greife Monster an indem du dies und das machst."
+-- Player seems to have problems with fighting. Weichei!
+".*", queststatus(311) < 5, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "If there is one things I don't like to see then it is someone who refuses to smash puny pigs! Off, kill at least three of them."
+".*", queststatus(311) < 5 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
+
+-- Player killed the pigs. Reward: Club (2664)
+".*", queststatus(311) = 5, english -> inform("[Tutorial] You are awarded a club."), "Very good. Your survival depends on your experience and your equipment. Here, have this club, it will fulfill its purpose. Now follow the road until you reach a brick house. Good travels, %CHARNAME!", item(2664, 1, 599, 0), queststatus(311) = 6
+".*", queststatus(311) = 5 -> inform("[Tutorial] Du erhältst eine Keule."), "Sehr schön. Im Kampf wird deine Erfahrung und deine Ausrüstung für dein Überleben entscheidend sein. Hier, nimm diese Keule, sie wird dir gute Dienste leisten. Folge nun der Straße bis zu einem Ziegelhaus. Gute Reise, %CHARNAME!", item(2664, 1, 599, 0), queststatus(311) = 6
+
+-- Player did all lessons
+".*", queststatus(311) = 6, english -> "Hurr, you are prepared to face the threats of the world. Now follow the road until you reach a brick house. Good travels, %CHARNAME!"
+".*", queststatus(311) = 6 -> "ÜBERSETZEN"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

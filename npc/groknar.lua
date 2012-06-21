@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Groknar                                                     None --
--- NPC Job:  herder                                                           --
+-- NPC Job:  hunter                                                           --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  41, 46, 100            --
 -- NPC Sex:  male                       NPC Direction: west                   --
@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 20, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 21, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -17,8 +17,8 @@ VALUES (4, 41, 46, 100, 6, 'Groknar', 'npc.groknar', 0, 3, 0, 119, 28, 0, 84, 11
 ---]]
 
 require("npc.base.basic")
+require("npc.base.condition.language")
 require("npc.base.condition.quest")
-require("npc.base.condition.sex")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
@@ -70,91 +70,80 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 0));
-talkEntry:addCondition(npc.base.condition.sex.sex(0));
-talkEntry:addResponse("Hurr, Fremder. Ich bin Groknar der Schweinehirte. Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deines Helden über seinem Kopf lesen können.");
+talkEntry:addCondition(npc.base.condition.quest.quest(311, "<", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."));
+talkEntry:addResponse("Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 0));
-talkEntry:addResponse("Hurr, Fremder. Ich bin Groknar der Schweinehirte. Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deiner Heldin über ihrem Kopf lesen können.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 2));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("#i.*");
-talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 1));
-talkEntry:addResponse("Nun, du hast sicher eine Menge Abenteuer vor dir, %CHARNAME. Darum werde ich dir jetzt erklären wie du kämpfen kannst. Attackiere eines der Schweine indem du dies und das machst, keine Sorge Schweine währen sich in der Regel nicht.");
+talkEntry:addCondition(npc.base.condition.quest.quest(311, "<", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addResponse("Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 1));
-talkEntry:addCondition(npc.base.condition.sex.sex(0));
-talkEntry:addResponse("Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deines Helden über seinem Kopf lesen können.");
+talkEntry:addCondition(npc.base.condition.quest.quest(311, "<", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."));
+talkEntry:addResponse("If there is one things I don't like to see then it is someone who refuses to smash puny pigs! Off, kill at least three of them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 1));
-talkEntry:addResponse("Wenn du dich anderen Spielern vorstellen möchtest schreibe '#i und deinen Namen' in die Sprachkonsole, Personen in deiner Nähe werden dann den Namen deiner Heldin über ihrem Kopf lesen können.");
+talkEntry:addCondition(npc.base.condition.quest.quest(311, "<", 5));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addResponse("ÜBERSETZEN");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded a club."));
+talkEntry:addResponse("Very good. Your survival depends on your experience and your equipment. Here, have this club, it will fulfill its purpose. Now follow the road until you reach a brick house. Good travels, %CHARNAME!");
+talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst eine Keule."));
+talkEntry:addResponse("Sehr schön. Im Kampf wird deine Erfahrung und deine Ausrüstung für dein Überleben entscheidend sein. Hier, nimm diese Keule, sie wird dir gute Dienste leisten. Folge nun der Straße bis zu einem Ziegelhaus. Gute Reise, %CHARNAME!");
+talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 6));
-talkEntry:addResponse("Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Gute weiterreise %CHARNAME!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hurr, you are prepared to face the threats of the world. Now follow the road until you reach a brick house. Good travels, %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 5));
-talkEntry:addCondition(npc.base.condition.quest.quest(314, "=", 1));
-talkEntry:addResponse(" Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Gute weiterreise %CHARNAME!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 6));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Du erhältst eine schwere Holzkeule zur Belohnung."));
-talkEntry:addResponse("Hurr, es ist gefährlich da draußen. Hier, nimm zur Sicherheit diese Keule mit. Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Gute weiterreise %CHARNAME!");
-talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 555, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(314, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 4));
-talkEntry:addResponse("Sehr schön. In zukünftigen Kämpfen wird die Zusammenstellung deiner Ausrüstung für dein Überleben entscheidend sein. So wie deine Erfahrung - Beispielsweise wirst du automatisch geschickter im Kampf mit Hiebwaffen wenn du ein Schwert schwingst.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 5));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(311, "=<", 3));
-talkEntry:addResponse("Töte mindestens 2 Schweine. Greife Monster an indem du dies und das machst.");
+talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 6));
+talkEntry:addResponse("ÜBERSETZEN");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me grunzt freundlich: 'Ich zeige dir wie du kämpfst.'", "#me grunts while speaking: 'I will teach you how to fight.'");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("This is your tutorial guide Groknar the pig herder.", "Das ist dein Tutor Groknar, der Schweinehirte.");
+mainNPC:setLookat("This is your tutorial guide Groknar the hunter.", "Das ist dein Tutor Groknar der Jäger.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST.", "Please switch the language of your character to the common tongue by DOING THIS AND THAT.");
 mainNPC:setEquipment(1, 0);
