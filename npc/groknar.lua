@@ -2,7 +2,7 @@
 -- NPC Name: Groknar                                                     None --
 -- NPC Job:  hunter                                                           --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  41, 46, 100            --
+-- NPC Race: orc                        NPC Position:  41, 44, 100            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Rincewind                                                        --
@@ -13,7 +13,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 41, 46, 100, 6, 'Groknar', 'npc.groknar', 0, 3, 0, 119, 28, 0, 84, 113, 46);
+VALUES (4, 41, 44, 100, 6, 'Groknar', 'npc.groknar', 0, 3, 0, 119, 28, 0, 84, 113, 46);
 ---]]
 
 require("npc.base.basic")
