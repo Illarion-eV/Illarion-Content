@@ -36,6 +36,8 @@ talkEntry:addResponse("Noobia reset!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -56,7 +58,7 @@ talkEntry:addTrigger("skip");
 talkEntry:addTrigger("cancel");
 talkEntry:addTrigger("abort");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."));
-talkEntry:addConsequence(npc.base.consequence.warp.warp(0, 0, 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(37, 97, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -64,7 +66,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("überspring");
 talkEntry:addTrigger("abbrech");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
-talkEntry:addConsequence(npc.base.consequence.warp.warp(0, 0, 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(37, 97, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

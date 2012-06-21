@@ -1,0 +1,76 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Nargon Hammerfist                                           None --
+-- NPC Job:  Miner                                                            --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  42, 55, 100            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Authors:  Rincewind                                                        --
+--           Estralis Seborian                                                --
+--                                                                            --
+-- Last parsing: June 21, 2012                           easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Nargon Hammerfist"
+race = dwarf
+sex = male
+position = 42, 55, 100
+direction = west
+affiliation = "None"
+job = "Miner"
+
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "Rincewind"
+author = "Estralis Seborian"
+
+lookatDE = "This is your tutorial guide Agi Hammerklau the mason."
+lookatUS = "Das ist dein Tutor Agi Hammerklau, der Steinmetz."
+useMsgDE = "Finger weg!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache."
+wrongLangUS = "You have to talk to me in a language which I understand. Either the common or the racespecific language."
+radius = 0
+hairID = 1
+beardID = 3
+colorHair = 100, 53, 0
+colorSkin = 248, 198, 137
+itemHead = 7
+itemChest = 2390
+itemCoat = 2419
+itemMainHand = 2763
+itemSecondHand = 392
+itemHands = 529
+itemTrousers = 2113
+itemShoes = 697
+
+-- Queststatus 311
+
+-- Debugging
+"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0
+
+-- Help
+"Help" -> inform("[Tutorial] This NPC is the Tutor Nargon Hammerfist. Keywords: Hello, help, skip tutorial.")
+"Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Nargon Hammerfist. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
+
+-- Skipping
+"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(37, 97, 100)
+"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(37, 97, 100)
+"Lektion wiederhohlen", queststatus(313) = 3 -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), " Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.", queststatus(312) = 1
+"Lektion wiederhohlen" -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), "Ich hab dir eine Spitzhacke in den Gürtel gesteckt. Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.", item(2763, 1, 555, 0), queststatus(312) = 1, queststatus(313) + 1
+".*", queststatus(312) = 0 -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), "Ich hab dir eine Spitzhacke in den Gürtel gesteckt. Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.", item(2763, 1, 555, 0), queststatus(312) = 1, queststatus(313) + 1
+".*", queststatus(312) = 1, item(2763, body) => 1 -> "Auf selbe Weiße kannst du deine gesamte Ausrüstung verwalten. Geh jetzt in die Miene und benütze die Spitzhacke mit einem Steinbrocken um nach Kohle zu graben.", queststatus(312) = 2
+".*", queststatus(312) = 1 -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), "Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen."
+".*", queststatus(312) = 2, item(21, all) => 2 -> "Großartig. Rohstoffe wie Kohle werden in Illarion benötigt um Waffen oder andere Gegenstände herzustellen.", queststatus(312) = 3
+".*", queststatus(312) = 2 -> "Benütze die Spitzhacke mit einem Steinbrocken um nach Kohle und Erz zu graben. Bringe mir zwei Stück Kohle."
+".*", queststatus(312) = 3 -> "Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Gehabt Euch wohl Fremder."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me streicht sich durch seinen langen Bart. 'Arr, ich zeige dir wie du deine Ausrüstung verwaltest und Rohstoffe schürfst.'", "#me scratches his beard. 'Arr...! I will show you how to administrate your equipment and teach you how to gather ressources.'"

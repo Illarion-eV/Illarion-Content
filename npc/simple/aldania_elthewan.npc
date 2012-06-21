@@ -55,15 +55,15 @@ itemShoes = 369
 -- More dialogs are in the pick-axe script and the torch script! They also set the queststatus to higher values!
 
 -- Debugging
-"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0
+"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0
 
 -- Help
 "Help" -> inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, help, skip tutorial.")
 "Hilfe" -> inform("[Tutorial] Dieser NPC ist die Tutorin Aldania Elthewan. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
 -- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(0, 0, 0)
-"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(0, 0, 0)
+"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(37, 97, 100)
+"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(37, 97, 100)
 
 -- Learn how to equip
 ".*", queststatus(310) < 2, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to move the pick-axe to a hand slot of your inventory."), "Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with equipping: I just gave you a pick-axe, put it in your hands, please.", item(2763, 1, 333, 0), queststatus(310) = 2

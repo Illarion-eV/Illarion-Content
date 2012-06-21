@@ -1,18 +1,19 @@
 --------------------------------------------------------------------------------
--- NPC Name: Agi Hammerklau                                              None --
--- NPC Job:  Mason                                                            --
+-- NPC Name: Nargon Hammerfist                                           None --
+-- NPC Job:  Miner                                                            --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  41, 53, 100            --
--- NPC Sex:  male                       NPC Direction: northwest              --
+-- NPC Race: dwarf                      NPC Position:  42, 55, 100            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   Rincewind                                                        --
+-- Authors:  Rincewind                                                        --
+--           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 22, 2012                          easyNPC Parser v1.02 --
+-- Last parsing: June 21, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 41, 53, 100, 7, 'Agi Hammerklau', 'npc.agi_hammerklau', 0, 1, 3, 100, 53, 0, 248, 198, 137);
+VALUES (1, 42, 55, 100, 6, 'Nargon Hammerfist', 'npc.nargon_hammerfist', 0, 1, 3, 100, 53, 0, 248, 198, 137);
 ---]]
 
 require("npc.base.basic")
@@ -21,12 +22,53 @@ require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.warp")
 require("npc.base.talk")
-module("npc.agi_hammerklau", package.seeall)
+module("npc.nargon_hammerfist", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("reset");
+talkEntry:addResponse("Noobia reset!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the Tutor Nargon Hammerfist. Keywords: Hello, help, skip tutorial."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Dieser NPC ist der Tutor Nargon Hammerfist. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("skip");
+talkEntry:addTrigger("cancel");
+talkEntry:addTrigger("abort");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(37, 97, 100));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("überspring");
+talkEntry:addTrigger("abbrech");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(37, 97, 100));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lektion wiederhohlen");
