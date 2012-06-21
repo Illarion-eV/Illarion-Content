@@ -13,11 +13,12 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 42, 55, 100, 6, 'Nargon Hammerfist', 'npc.nargon_hammerfist', 0, 1, 3, 100, 53, 0, 248, 198, 137);
+VALUES (1, 42, 55, 100, 6, 'Nargon Hammerfist', 'npc.nargon_hammerfist', 0, 1, 2, 100, 53, 0, 248, 198, 137);
 ---]]
 
 require("npc.base.basic")
 require("npc.base.condition.item")
+require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
@@ -67,6 +68,25 @@ talkEntry:addTrigger("überspring");
 talkEntry:addTrigger("abbrech");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(37, 97, 100));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."));
+talkEntry:addResponse("Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addResponse("Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -149,8 +169,8 @@ mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich ver
 mainNPC:setEquipment(1, 7);
 mainNPC:setEquipment(3, 2390);
 mainNPC:setEquipment(11, 2419);
-mainNPC:setEquipment(5, 2763);
-mainNPC:setEquipment(6, 392);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 2763);
 mainNPC:setEquipment(4, 529);
 mainNPC:setEquipment(9, 2113);
 mainNPC:setEquipment(10, 697);

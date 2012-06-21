@@ -35,14 +35,14 @@ wrongLangDE = "Du musst schon in einer Sprache sprechen die ich verstehe. Entwed
 wrongLangUS = "You have to talk to me in a language which I understand. Either the common or the racespecific language."
 radius = 0
 hairID = 1
-beardID = 3
+beardID = 2
 colorHair = 100, 53, 0
 colorSkin = 248, 198, 137
 itemHead = 7
 itemChest = 2390
 itemCoat = 2419
-itemMainHand = 2763
-itemSecondHand = 392
+itemMainHand = 0
+itemSecondHand = 2763
 itemHands = 529
 itemTrousers = 2113
 itemShoes = 697
@@ -59,6 +59,12 @@ itemShoes = 697
 -- Skipping
 "skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(37, 97, 100)
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(37, 97, 100)
+
+-- Learn how to gather
+".*", queststatus(312) < 2, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
+".*", queststatus(312) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
+
+-- Zeug
 "Lektion wiederhohlen", queststatus(313) = 3 -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), " Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.", queststatus(312) = 1
 "Lektion wiederhohlen" -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), "Ich hab dir eine Spitzhacke in den Gürtel gesteckt. Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.", item(2763, 1, 555, 0), queststatus(312) = 1, queststatus(313) + 1
 ".*", queststatus(312) = 0 -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), "Ich hab dir eine Spitzhacke in den Gürtel gesteckt. Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.", item(2763, 1, 555, 0), queststatus(312) = 1, queststatus(313) + 1
