@@ -10,27 +10,29 @@ module("lte.newbieisland", package.seeall)
 -- cycle messages 
 	ListCycleMessageGerman = {}
 	ListCycleMessageGerman = {
-	"Zyklusnachricht 1 deutsch",
-	"Zyklusnachricht 2 deutsch",
-	"Zyklusnachricht 3 deutsch",
-	"Zyklusnachricht 4 deutsch",
-	"Zyklusnachricht 5 deutsch",
-	"Zyklusnachricht 6 deutsch",
-	"Zyklusnachricht 7 deutsch",
-	"Zyklusnachricht 8 deutsch",
-	"Zyklusnachricht 9 deutsch"}
+	"Zyklusnachricht deutsch",
+	"[Tutorial] Brauchst du Hilfe? Mache DIES UND DAS oder schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird er dir helfen.",
+	"Zyklusnachricht deutsch",
+	"Zyklusnachricht deutsch",
+	"Zyklusnachricht deutsch",
+	"[Tutorial] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'.",
+	"[Tutorial] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen.",
+	"Zyklusnachricht deutsch",
+	"[Tutorial] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier.",
+	"Zyklusnachricht deutsch"}
 
 	ListCycleMessageEnglish = {}
 	ListCycleMessageEnglish = {
 	"[Tutorial] If you want to skip the tutorial, just say 'skip tutorial' to any NPC.",
+	"[Tutorial] Do you need help? DO THIS AND THAT or type '!gm your question' and hit enter. As soon as a Gamemaster is available, he'll assist you.",
 	"[Tutorial] To shout, place #s in front of your message. To whisper, use #w and use #o for the out of character mode.",
 	"[Tutorial] A tutorial can never replace the help of other players or the Illarion staff. We invite you to join the official Illarion chat that is linked on the homepage.",
-	"Zyklusnachricht 4 englisch",
-	"Zyklusnachricht 5 englisch",
-	"Zyklusnachricht 6 englisch",
-	"Zyklusnachricht 7 englisch",
-	"Zyklusnachricht 8 englisch",
-	"Zyklusnachricht 9 englisch"}
+	"[Tutorial] If you want to introduce your character to other players, DO THIS AND THAT or type #i in the chatbox and hit return.",
+	"[Tutorial] All NPCs react on a number of keywords. You can get a list of the most important keywords as anser to 'help'. ",
+	"[Tutorial] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy.",
+	"[Tutorial] You can review your skills by DOING THIS AND THAT.",
+	"[Tutorial] The red bar represents the health of your character. The yellow bar is an indicator how much your character is sated and the blue bar shows the mana of mages.",
+	"[Tutorial] Did you already think about the background and past of your character? The illarion.org homepage contains a lot of information on lore."}
 	-- cycle messages end
 
 function addEffect(newbieEffect, Character)
@@ -52,7 +54,7 @@ function callEffect(newbieEffect,Character)
 		        base.common.InformNLS(Character,"ÜBERSETZEN.","[Tutorial] To start the tutorial, please walk to the human at the end of the pier. Click and hold with the right mouse button on a spot close to the human. You can also walk using the num pad, the arrow keys or WASD.");
 	        end 
 
-	        --Station 2: XXX		
+	        --Station 2: Aldania Elthewan, no special cycletext		
 	        if XXX then
 		    end
 			
