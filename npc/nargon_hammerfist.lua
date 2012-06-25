@@ -20,6 +20,7 @@ require("npc.base.basic")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
@@ -77,7 +78,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which you have to hold in your hands. Note that not every rock yields coal."));
-talkEntry:addResponse("Arr, the name is Nargon, Nargon Hammerfist.");
+talkEntry:addResponse("Arr, the name is Nargon, Nargon Hammerfist. Only by hard labour you can become wealthy and I can show you hard labour! Here, have this pick-axe. Head for the mine and gather five lumps of coal for me. It won't be in vain!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -99,7 +100,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which you have to hold in your hands. Note that not every rock yields coal."));
-talkEntry:addResponse("TEXT.");
+talkEntry:addResponse("Arr, the name is Nargon, Nargon Hammerfist. Only by hard labour you can become wealthy and I can show you hard labour! Remember the pick-axe the wicked elfess gave you? Head for the mine and gather five lumps of coal for me. It won't be in vain!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -118,7 +119,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("TEXT.");
+talkEntry:addResponse("What! You lost your pick-axe? How do you want to become rich if you keep losing your belongings? Have this replacement; now off to the mines!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 599, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -138,7 +139,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which you have to hold in your hands. Note that not every rock yields coal."));
-talkEntry:addResponse("TEXT.");
+talkEntry:addResponse("Well, well, well. Hard labour means that you have to work hard. Please bring me at least five lumps of coal. If you cannot find coal in one corner of the mine, try the other!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -156,8 +157,10 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded a ...."));
-talkEntry:addResponse("TEXT");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded a ruby."));
+talkEntry:addResponse("Oi! You did it, thanks for the coal. As a fair dwarven tradesman, I give you this ruby in exchange. My kinsmate Nimbur down at the brick house can teach you another lesson about dwarven craft.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -166,8 +169,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst einen Rubin."));
 talkEntry:addResponse("ÜBERSETZEN.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
