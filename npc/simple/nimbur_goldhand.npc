@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 25, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 26, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Nimbur Goldhand"
@@ -35,9 +35,9 @@ radius = 0
 hairID = 3
 beardID = 1
 colorHair = 105, 105, 105
-colorSkin = 255, 130, 70
+colorSkin = 205, 130, 70
 itemHead = 356
-itemChest = 180
+itemChest = 365
 itemCoat = 196
 itemMainHand = 0
 itemSecondHand = 23

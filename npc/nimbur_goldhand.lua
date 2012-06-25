@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 25, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 26, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 42, 83, 100, 6, 'Nimbur Goldhand', 'npc.nimbur_goldhand', 0, 3, 1, 105, 105, 105, 255, 130, 70);
+VALUES (1, 42, 83, 100, 6, 'Nimbur Goldhand', 'npc.nimbur_goldhand', 0, 3, 1, 105, 105, 105, 205, 130, 70);
 ---]]
 
 require("npc.base.basic")
@@ -177,7 +177,7 @@ mainNPC:setLookat("This is your tutorial guide Nimbur Goldhand the blacksmith.",
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST.", "Please switch the language of your character to the common tongue by DOING THIS AND THAT.");
 mainNPC:setEquipment(1, 356);
-mainNPC:setEquipment(3, 180);
+mainNPC:setEquipment(3, 365);
 mainNPC:setEquipment(11, 196);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 23);
