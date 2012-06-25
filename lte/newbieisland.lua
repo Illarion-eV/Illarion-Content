@@ -77,11 +77,11 @@ function callEffect(newbieEffect,Character)
 		
 		roundCount = roundCount + 1;
 		
-		if roundCount > 30 then --Let us check for players that required more than ten minutes for Noobia
+		if roundCount > 45 and Character:isAdmin() == false then --Let us check for players that required more than fifteen minutes for Noobia
 		    playerlist = world:getPlayersOnline();
 	        for i = 1, #(playerlist) do 
 	            if playerlist[i]:isAdmin() then --Out GMs should know a noob has problems!
-		            playerlist[i]:inform("[Noob alert] A player could use assistance on Noobia!"..roundCount.."!");
+		            playerlist[i]:inform("[Noob alert] A player could use assistance on Noobia!");
 		        end
 	        end
 		end
