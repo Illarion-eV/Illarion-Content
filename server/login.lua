@@ -8,14 +8,19 @@ function onLogin( player )
 
     world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
 
-	player:talk(Character.say,"!gm TEST OMG LOL");
-
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
 	base.common.TempInformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
     
 	--Noobia handling
 	if (player.pos.z == 100) or (player.pos.z == 101) then --On Noobia	
+	
+		playerlist = world:getPlayersOnline();
+	    for i = 1, #(playerlist) do 
+	        if playerlist[i]:isAdmin() then --Out GMs should know a noob logged in!
+		        playerlist[i]:inform("[Noob alert] A player just logged in on Noobia!");
+		    end
+	    end
 		
 		found, myEffect = player.effects:find(13); --Noob effect
 			

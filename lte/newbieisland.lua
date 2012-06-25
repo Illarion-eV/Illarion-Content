@@ -56,10 +56,6 @@ function callEffect(newbieEffect,Character)
 		        base.common.InformNLS(Character,"ÜBERSETZEN.","[Tutorial] To start the tutorial, please walk to the human at the end of the pier. Click and hold with the right mouse button on a spot close to the human. You can also walk using the num pad, the arrow keys or WASD.");
 	        end 
 
-	        --Station 2: Aldania Elthewan, no special cycletext		
-	        if XXX then
-		    end
-			
 		else --General help
 		
 			foundMessageCount, messageCount = newbieEffect:findValue("messageCount");
@@ -80,6 +76,16 @@ function callEffect(newbieEffect,Character)
 		end
 		
 		roundCount = roundCount + 1;
+		
+		if roundCount > 30 then --Let us check for players that required more than ten minutes for Noobia
+		    playerlist = world:getPlayersOnline();
+	        for i = 1, #(playerlist) do 
+	            if playerlist[i]:isAdmin() then --Out GMs should know a noob has problems!
+		            playerlist[i]:inform("[Noob alert] A player could use assistance on Noobia!");
+		        end
+	        end
+		end
+		
 	else
 	    roundCount = 1;
 	end
