@@ -64,28 +64,28 @@ itemShoes = 697
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(37, 97, 100)
 
 -- Learn how to gather - player has no pick axe
-".*", queststatus(312) < 2, item(2763, all) = 0, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
-".*", queststatus(312) < 2, item(2763, all) = 0 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
+".*", queststatus(312) < 2, item(2763, all) = 0, english -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which you have to hold in your hands."), "Arr, the name is Nargon, Nargon Hammerfist.", item(2763, 1, 599, 0), queststatus(312) = 2
+".*", queststatus(312) < 2, item(2763, all) = 0 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", item(2763, 1, 599, 0), queststatus(312) = 2
 
 -- Learn how to gather - player has pick axe
 ".*", queststatus(312) < 2, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
-".*", queststatus(312) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
+".*", queststatus(312) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", queststatus(312) = 2
 
 -- Player has lost his pick axe
-".*", queststatus(312) = 2, item(2763, all) = 0, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
-".*", queststatus(312) = 2, item(2763, all) = 0 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
+".*", queststatus(312) = 2, item(2763, all) = 0, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", item(2763, 1, 599, 0)
+".*", queststatus(312) = 2, item(2763, all) = 0 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", item(2763, 1, 599, 0)
 
 -- Player has problems gathering
-".*", queststatus(312) = 2, item(21, all) < 5, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
-".*", queststatus(312) = 2, item(21, all) < 5 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
+".*", queststatus(312) = 2, item(21, all) < 5, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there."
+".*", queststatus(312) = 2, item(21, all) < 5 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN."
 
 -- Player brought five coal pieces
-".*", queststatus(312) = 2, item(21, all) > 4, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
-".*", queststatus(312) = 2, item(21, all) > 4 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
+".*", queststatus(312) = 2, item(21, all) > 4, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 3
+".*", queststatus(312) = 2, item(21, all) > 4 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", queststatus(312) = 3
 
 -- Player did all lessons
-".*", queststatus(312) = 3, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
-".*", queststatus(312) = 3 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
+".*", queststatus(312) = 3, english -> "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there."
+".*", queststatus(312) = 3 -> "ÜBERSETZEN."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
