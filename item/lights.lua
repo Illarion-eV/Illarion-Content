@@ -49,7 +49,14 @@ ReqTexts.english = { [392] = "torches", [43] = "candles", [390] = "lamp oil" };
 
 function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 
-	--Noobia addition by Estralis: Examining a pick-axe is a task of NPC Aldania
+	if SourceItem:getType()==1 or SourceItem:getType()==2 then
+		base.common.TempInformNLS(User,
+			"Nimm die Lichtquelle in die Hand oder lege sie am Gürtel ab.",
+			"Take the light source into your hand or put it on your belt.");
+		return;
+	end
+
+--Noobia addition by Estralis: Examining a pick-axe is a task of NPC Aldania
 
     if User:getQuestProgress(310)==4 and SourceItem.id==391 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, examines a pick-axe and is in range of the NPC
 		User:setQuestProgress(310,5); --Connection to easyNPC
@@ -60,13 +67,6 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 	end
 
 --Noobia end
-
-	if SourceItem:getType()==1 or SourceItem:getType()==2 then
-		base.common.TempInformNLS(User,
-			"Nimm die Lichtquelle in die Hand oder lege es am Gürtel ab.",
-			"Take the light source into your hand or put it on your belt.");
-		return;
-	end
 	local this = LightsOff[SourceItem.id];
 	if this then
 		local ok, wear = checkReq(User,SourceItem,this)
