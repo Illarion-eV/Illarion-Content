@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 21, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 25, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Aldania Elthewan"
@@ -66,7 +66,7 @@ itemShoes = 369
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(37, 97, 100)
 
 -- Learn how to equip
-".*", queststatus(310) < 2, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to move the pick-axe to a hand slot of your inventory."), "Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with equipping: I just gave you a pick-axe, put it in your hands, please.", item(2763, 1, 333, 0), queststatus(310) = 2
+".*", queststatus(310) < 2, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Drag the pick-axe while holding the left mouse button to an empty hand slot of your inventory."), "Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with equipping: I just gave you a pick-axe, put it in your hands, please.", item(2763, 1, 333, 0), queststatus(310) = 2
 ".*", queststatus(310) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", item(2763, 1, 333, 0), queststatus(310) = 2
 
 -- Player lost his pick-axe. We will remove farmed pick axes at the end of the tutorial.
@@ -74,7 +74,7 @@ itemShoes = 369
 ".*", queststatus(310) = 2, item(2763, all) = 0 -> "ÜBERSETZEN", item(2763, 1, 333, 0)
 
 -- Player seems to have a problem with equipping
-".*", queststatus(310) = 2, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to move the pick-axe to a hand slot of your inventory."), "Please put the pick-axe into your hands. Learning how to equip items is important, just imagine you face a dragon and you can't draw your sword!"
+".*", queststatus(310) = 2, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Drag the pick-axe while holding the left mouse button to an empty hand slot of your inventory."), "Please put the pick-axe into your hands. Learning how to equip items is important, just imagine you face a dragon and you can't draw your sword!"
 ".*", queststatus(310) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player lost his pick-axe. Again. We will remove farmed pick axes at the end of the tutorial.
@@ -82,7 +82,7 @@ itemShoes = 369
 ".*", queststatus(310) = 3, item(2763, all) = 0 -> "ÜBERSETZEN", item(2763, 1, 333, 0)
 
 -- Player seems to have a problem with examining
-".*", queststatus(310) = 3, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to examine the pick-axe."), "In order to examine an item, you just have to do THIS AND THAT. Knowledge about your belongings is as vital as acquiring them."
+".*", queststatus(310) = 3, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Click with the left mouse button to examine the pick-axe."), "In order to examine an item, you just have to click on it once. Knowledge about your belongings is as vital as acquiring them."
 ".*", queststatus(310) = 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player lost his torch. We will remove farmed torches at the end of the tutorial.
@@ -90,7 +90,7 @@ itemShoes = 369
 ".*", queststatus(310) = 4, item(391, all) = 0 -> "ÜBERSETZEN", item(391, 1, 333, 0)
 
 -- Player seems to have a problem with using items
-".*", queststatus(310) = 4, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to ignite the torch."), "What is the purpose of items you cannot use properly? Do THIS AND THAT to ignite the torch I gave you."
+".*", queststatus(310) = 4, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Perform a double click on the torch to ignite it."), "What is the purpose of items you cannot use properly? Ignite the torch I gave you with a double click."
 ".*", queststatus(310) = 4 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player did all the lessons

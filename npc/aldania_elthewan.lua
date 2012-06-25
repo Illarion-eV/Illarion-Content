@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 21, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 25, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -74,7 +74,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "<", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to move the pick-axe to a hand slot of your inventory."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Drag the pick-axe while holding the left mouse button to an empty hand slot of your inventory."));
 talkEntry:addResponse("Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with equipping: I just gave you a pick-axe, put it in your hands, please.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 2));
@@ -114,7 +114,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to move the pick-axe to a hand slot of your inventory."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Drag the pick-axe while holding the left mouse button to an empty hand slot of your inventory."));
 talkEntry:addResponse("Please put the pick-axe into your hands. Learning how to equip items is important, just imagine you face a dragon and you can't draw your sword!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -150,8 +150,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to examine the pick-axe."));
-talkEntry:addResponse("In order to examine an item, you just have to do THIS AND THAT. Knowledge about your belongings is as vital as acquiring them.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Click with the left mouse button to examine the pick-axe."));
+talkEntry:addResponse("In order to examine an item, you just have to click on it once. Knowledge about your belongings is as vital as acquiring them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -186,8 +186,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to ignite the torch."));
-talkEntry:addResponse("What is the purpose of items you cannot use properly? Do THIS AND THAT to ignite the torch I gave you.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Perform a double click on the torch to ignite it."));
+talkEntry:addResponse("What is the purpose of items you cannot use properly? Ignite the torch I gave you with a double click.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

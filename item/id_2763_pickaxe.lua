@@ -45,7 +45,7 @@ function LookAtItem(User,Item)
 		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "Indeed, items can be of different quality. Keep this in mind when bartering about prices. My last lesson is how to use items. I gave you a torch: Let there be light!");
 		    User:createItem(391,1,333,0); --Torch
 		end
-	    base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to ignite the torch." );
+	    base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Perform a double click on the torch to ignite it." );
 	end
 
 --Noobia end
@@ -61,7 +61,7 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 		for i, Aldania in pairs(NPCList) do
 		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "Good job, you know how to handle your equipment now. Helmets, shoes and the like are equipped the same way. To get some more information about your pick-axe, please examine your pick-axe now.");
 	    end
-		base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Close your chatbox and press 'I' to open your inventory and WHATEVER to open your backpack. Do WHATEVER to examine the pick-axe." );
+		base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Click with the left mouse button to examine the pick-axe." );
 	end
 
 --Noobia end
