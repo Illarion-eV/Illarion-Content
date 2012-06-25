@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 21, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 25, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Nargon Hammerfist"
@@ -27,12 +27,12 @@ autointroduce = on
 author = "Rincewind"
 author = "Estralis Seborian"
 
-lookatDE = "This is your tutorial guide Agi Hammerklau the mason."
-lookatUS = "Das ist dein Tutor Agi Hammerklau, der Steinmetz."
+lookatDE = "This is your tutorial guide Nargon Hammerfist the miner."
+lookatUS = "Das ist dein Tutor Nargon Hammerfist der Bergarbeiter."
 useMsgDE = "Finger weg!"
 useMsgUS = "Do not touch me!"
-wrongLangDE = "Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache."
-wrongLangUS = "You have to talk to me in a language which I understand. Either the common or the racespecific language."
+wrongLangDE = "Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST."
+wrongLangUS = "Please switch the language of your character to the common tongue by DOING THIS AND THAT."
 radius = 0
 hairID = 1
 beardID = 2
@@ -47,7 +47,10 @@ itemHands = 529
 itemTrousers = 2113
 itemShoes = 697
 
--- Queststatus 311
+-- Queststatus 312
+-- 1: Player arrives
+-- 2: Player got the task to gather 5 coal
+-- 3: All lessons done
 
 -- Debugging
 "reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0
@@ -60,26 +63,33 @@ itemShoes = 697
 "skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(37, 97, 100)
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(37, 97, 100)
 
--- Learn how to gather
+-- Learn how to gather - player has no pick axe
+".*", queststatus(312) < 2, item(2763, all) = 0, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
+".*", queststatus(312) < 2, item(2763, all) = 0 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
+
+-- Learn how to gather - player has pick axe
 ".*", queststatus(312) < 2, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
 ".*", queststatus(312) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
 
--- TEst
-".*" -> "feaöpeönhaopefhnweopöfhnopehnwfpohnewrapouhefn puaefrnpuiobhef poiuewhrbpiouhwrbfpuhb puiohfb piowehbfpiow hbfiopu hbepwefrhb puefbh upiofhb ewpouifhb wpoufhbhweopfbhe uopwbhuef piowbhef upbhef uWBHEF PUOwbhe puwf pouWBFpuob wUFBWIUbfwUFIOUEWBFPOUIWEBFE WBFPB FPBWpberfuopbefpobefwupobfopefwb ufowpbf weopfweo pwfebopw"
+-- Player has lost his pick axe
+".*", queststatus(312) = 2, item(2763, all) = 0, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
+".*", queststatus(312) = 2, item(2763, all) = 0 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
 
--- Zeug
-"Lektion wiederhohlen", queststatus(313) = 3 -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), " Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.", queststatus(312) = 1
-"Lektion wiederhohlen" -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), "Ich hab dir eine Spitzhacke in den Gürtel gesteckt. Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.", item(2763, 1, 555, 0), queststatus(312) = 1, queststatus(313) + 1
-".*", queststatus(312) = 0 -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), "Ich hab dir eine Spitzhacke in den Gürtel gesteckt. Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.", item(2763, 1, 555, 0), queststatus(312) = 1, queststatus(313) + 1
-".*", queststatus(312) = 1, item(2763, body) => 1 -> "Auf selbe Weiße kannst du deine gesamte Ausrüstung verwalten. Geh jetzt in die Miene und benütze die Spitzhacke mit einem Steinbrocken um nach Kohle zu graben.", queststatus(312) = 2
-".*", queststatus(312) = 1 -> inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."), "Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen."
-".*", queststatus(312) = 2, item(21, all) => 2 -> "Großartig. Rohstoffe wie Kohle werden in Illarion benötigt um Waffen oder andere Gegenstände herzustellen.", queststatus(312) = 3
-".*", queststatus(312) = 2 -> "Benütze die Spitzhacke mit einem Steinbrocken um nach Kohle und Erz zu graben. Bringe mir zwei Stück Kohle."
-".*", queststatus(312) = 3 -> "Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Gehabt Euch wohl Fremder."
+-- Player has problems gathering
+".*", queststatus(312) = 2, item(21, all) < 5, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
+".*", queststatus(312) = 2, item(21, all) < 5 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
+
+-- Player brought five coal pieces
+".*", queststatus(312) = 2, item(21, all) > 4, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
+".*", queststatus(312) = 2, item(21, all) > 4 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
+
+-- Player did all lessons
+".*", queststatus(312) = 3, english -> inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."), "Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.", queststatus(312) = 2
+".*", queststatus(312) = 3 -> inform("[Tutorial] ÜBERSETZEN."), "Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(312) = 2
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me streicht sich durch seinen langen Bart. 'Arr, ich zeige dir wie du deine Ausrüstung verwaltest und Rohstoffe schürfst.'", "#me scratches his beard. 'Arr...! I will show you how to administrate your equipment and teach you how to gather ressources.'"
+cycletext "#me streicht sich durch seinen langen Bart: 'Arr, ich zeige dir wie du Rohstoffe schürfst.'", "#me scratches his beard: 'Arr...! I will show you how to gather resources.'"

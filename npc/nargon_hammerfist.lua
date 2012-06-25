@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 21, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 25, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -21,7 +21,6 @@ require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.warp")
 require("npc.base.talk")
@@ -74,6 +73,27 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."));
+talkEntry:addResponse("Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addResponse("Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."));
 talkEntry:addResponse("Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.");
@@ -92,86 +112,92 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("feaöpeönhaopefhnweopöfhnopehnwfpohnewrapouhefn puaefrnpuiobhef poiuewhrbpiouhwrbfpuhb puiohfb piowehbfpiow hbfiopu hbepwefrhb puefbh upiofhb ewpouifhb wpoufhbhweopfbhe uopwbhuef piowbhef upbhef uWBHEF PUOwbhe puwf pouWBFpuob wUFBWIUbfwUFIOUEWBFPOUIWEBFE WBFPB FPBWpberfuopbefpobefwupobfopefwb ufowpbf weopfweo pwfebopw");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Lektion wiederhohlen");
-talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."));
-talkEntry:addResponse(" Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Lektion wiederhohlen");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."));
-talkEntry:addResponse("Ich hab dir eine Spitzhacke in den Gürtel gesteckt. Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."));
-talkEntry:addResponse("Ich hab dir eine Spitzhacke in den Gürtel gesteckt. Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 555, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "body", "=>", 1));
-talkEntry:addResponse("Auf selbe Weiße kannst du deine gesamte Ausrüstung verwalten. Geh jetzt in die Miene und benütze die Spitzhacke mit einem Steinbrocken um nach Kohle zu graben.");
+talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."));
+talkEntry:addResponse("Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Ist die Sprachkonsole leer, kannst du sie mit erneutem drücken der Entertaste schließen."));
-talkEntry:addResponse("Öffne dein Inventar indem du bei geschlossener Sprachkonsole 'i' drückst. Halte die linke Maustaste gedrückt um die Spitzhacke in deine Hand zu ziehen.");
+talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addResponse("Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", 2));
-talkEntry:addResponse("Großartig. Rohstoffe wie Kohle werden in Illarion benötigt um Waffen oder andere Gegenstände herzustellen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."));
+talkEntry:addResponse("Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
-talkEntry:addResponse("Benütze die Spitzhacke mit einem Steinbrocken um nach Kohle und Erz zu graben. Bringe mir zwei Stück Kohle.");
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 5));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addResponse("Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."));
+talkEntry:addResponse("Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addResponse("Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 3));
-talkEntry:addResponse("Folge nun weiter der Straße und sprich mit den Leuten auf deinem Weg. Gehabt Euch wohl Fremder.");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and initiating the attack with a double click on your enemy."));
+talkEntry:addResponse("Hurr! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take a weapon of your choice in your hands and slay three of those pigs over there.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me streicht sich durch seinen langen Bart. 'Arr, ich zeige dir wie du deine Ausrüstung verwaltest und Rohstoffe schürfst.'", "#me scratches his beard. 'Arr...! I will show you how to administrate your equipment and teach you how to gather ressources.'");
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addResponse("Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("#me streicht sich durch seinen langen Bart: 'Arr, ich zeige dir wie du Rohstoffe schürfst.'", "#me scratches his beard: 'Arr...! I will show you how to gather resources.'");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("This is your tutorial guide Agi Hammerklau the mason.", "Das ist dein Tutor Agi Hammerklau, der Steinmetz.");
+mainNPC:setLookat("This is your tutorial guide Nargon Hammerfist the miner.", "Das ist dein Tutor Nargon Hammerfist der Bergarbeiter.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
-mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache.", "You have to talk to me in a language which I understand. Either the common or the racespecific language.");
+mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST.", "Please switch the language of your character to the common tongue by DOING THIS AND THAT.");
 mainNPC:setEquipment(1, 7);
 mainNPC:setEquipment(3, 2390);
 mainNPC:setEquipment(11, 2419);
