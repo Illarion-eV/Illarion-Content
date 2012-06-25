@@ -15,12 +15,15 @@ function onLogin( player )
 	--Noobia handling
 	if (player.pos.z == 100) or (player.pos.z == 101) then --On Noobia	
 	
-		playerlist = world:getPlayersOnline();
-	    for i = 1, #(playerlist) do 
-	        if playerlist[i]:isAdmin() then --Out GMs should know a noob logged in!
-		        playerlist[i]:inform("[Noob alert] A player just logged in on Noobia!");
-		    end
-	    end
+	    if not player:isAdmin() then --non admin chars need help!
+		
+		    playerlist = world:getPlayersOnline();
+	        for i = 1, #(playerlist) do 
+	            if playerlist[i]:isAdmin() then --Out GMs should know a noob logged in!
+		            playerlist[i]:inform("[Noob alert] A player just logged in on Noobia!");
+		        end
+	        end
+		end
 		
 		found, myEffect = player.effects:find(13); --Noob effect
 			
