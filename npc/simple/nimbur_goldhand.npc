@@ -37,7 +37,7 @@ beardID = 1
 colorHair = 105, 105, 105
 colorSkin = 255, 130, 70
 itemHead = 356
-itemChest = 181
+itemChest = 180
 itemCoat = 196
 itemMainHand = 0
 itemSecondHand = 23
@@ -61,29 +61,27 @@ itemShoes = 53
 "skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(37, 97, 100)
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(37, 97, 100)
 
--- Learn how to gather - player has no pick axe
-".*", queststatus(312) < 2, item(2763, all) = 0, english -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which you have to hold in your hands. Note that not every rock yields coal."), "Arr, the name is Nargon, Nargon Hammerfist. Only by hard labour you can become wealthy and I can show you hard labour! Here, have this pick-axe. Head for the mine and gather five lumps of coal for me. It won't be in vain!", item(2763, 1, 599, 0), queststatus(312) = 2
-".*", queststatus(312) < 2, item(2763, all) = 0 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", item(2763, 1, 599, 0), queststatus(312) = 2
+-- Learn how to craft - player gets a hammer
+".*", queststatus(313) < 2, english -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which you have to hold in your hands. Note that not every rock yields coal."), "Arr, the name is Nargon, Nargon Hammerfist. Only by hard labour you can become wealthy and I can show you hard labour! Here, have this pick-axe. Head for the mine and gather five lumps of coal for me. It won't be in vain!", item(23, 1, 599, 0), queststatus(313) = 2
+".*", queststatus(313) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", item(23, 1, 599, 0), queststatus(313) = 2
 
--- Learn how to gather - player has pick axe
-".*", queststatus(312) < 2, english -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which you have to hold in your hands. Note that not every rock yields coal."), "Arr, the name is Nargon, Nargon Hammerfist. Only by hard labour you can become wealthy and I can show you hard labour! Remember the pick-axe the wicked elfess gave you? Head for the mine and gather five lumps of coal for me. It won't be in vain!", queststatus(312) = 2
-".*", queststatus(312) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", queststatus(312) = 2
+-- Player has lost his hammer
+".*", queststatus(313) = 2, item(23, all) = 0, english -> "What! You lost your pick-axe? How do you want to become rich if you keep losing your belongings? Have this replacement; now off to the mines!", item(23, 1, 599, 0)
+".*", queststatus(313) = 2, item(23, all) = 0 -> "ÜBERSETZEN.", item(23, 1, 599, 0)
 
--- Player has lost his pick axe
-".*", queststatus(312) = 2, item(2763, all) = 0, english -> "What! You lost your pick-axe? How do you want to become rich if you keep losing your belongings? Have this replacement; now off to the mines!", item(2763, 1, 599, 0)
-".*", queststatus(312) = 2, item(2763, all) = 0 -> "ÜBERSETZEN.", item(2763, 1, 599, 0)
+-- Player has no iron left
 
 -- Player has problems gathering
-".*", queststatus(312) = 2, item(21, all) < 5, english -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which you have to hold in your hands. Note that not every rock yields coal."), "Well, well, well. Hard labour means that you have to work hard. Please bring me at least five lumps of coal. If you cannot find coal in one corner of the mine, try the other!"
-".*", queststatus(312) = 2, item(21, all) < 5 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN."
+".*", queststatus(313) = 2, item(21, all) < 5, english -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which you have to hold in your hands. Note that not every rock yields coal."), "Well, well, well. Hard labour means that you have to work hard. Please bring me at least five lumps of coal. If you cannot find coal in one corner of the mine, try the other!"
+".*", queststatus(313) = 2, item(21, all) < 5 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN."
 
--- Player brought five coal pieces
-".*", queststatus(312) = 2, item(21, all) > 4, english -> inform("[Tutorial] You are awarded a ruby."), "Oi! You did it, thanks for the coal. As a fair dwarven tradesman, I give you this ruby in exchange. My kinsmate Nimbur down at the brick house can teach you another lesson about dwarven craft.", deleteItem(21, 5), item(46, 1, 333, 0), queststatus(312) = 3
-".*", queststatus(312) = 2, item(21, all) > 4 -> inform("[Tutorial] Du erhältst einen Rubin."), "ÜBERSETZEN.", deleteItem(21, 5), item(46, 1, 333, 0), queststatus(312) = 3
+-- Player brought five oins
+".*", queststatus(313) = 2, item(21, all) > 4, english -> inform("[Tutorial] You are awarded a ruby."), "Oi! You did it, thanks for the coal. As a fair dwarven tradesman, I give you this ruby in exchange. My kinsmate Nimbur down at the brick house can teach you another lesson about dwarven craft.", deleteItem(21, 5), item(46, 1, 333, 0), queststatus(313) = 3
+".*", queststatus(313) = 2, item(21, all) > 4 -> inform("[Tutorial] Du erhältst einen Rubin."), "ÜBERSETZEN.", deleteItem(21, 5), item(46, 1, 333, 0), queststatus(313) = 3
 
 -- Player did all lessons
-".*", queststatus(312) = 3, english -> "Arr, now you can mine for gems and gold. What else is there to learn!? You might become rich, aye. My kinsmate Nimbur down at the brick house can teach you another lesson about dwarven craft."
-".*", queststatus(312) = 3 -> "ÜBERSETZEN."
+".*", queststatus(313) = 3, english -> "Arr, now you can mine for gems and gold. What else is there to learn!? You might become rich, aye. My kinsmate Nimbur down at the brick house can teach you another lesson about dwarven craft."
+".*", queststatus(313) = 3 -> "ÜBERSETZEN."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

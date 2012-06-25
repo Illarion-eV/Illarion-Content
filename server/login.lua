@@ -8,6 +8,8 @@ function onLogin( player )
 
     world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
 
+	player:talk(Character.say,"!gm TEST OMG LOL");
+
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
 	base.common.TempInformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
