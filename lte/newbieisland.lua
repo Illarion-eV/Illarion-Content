@@ -19,6 +19,7 @@ module("lte.newbieisland", package.seeall)
 	"[Tutorial] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du groﬂen Reichtum erlangen.",
 	"Zyklusnachricht deutsch",
 	"[Tutorial] Der rote Balken repr‰sentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier.",
+	"Zyklusnachricht deutsch",
 	"Zyklusnachricht deutsch"}
 
 	ListCycleMessageEnglish = {}
@@ -32,7 +33,8 @@ module("lte.newbieisland", package.seeall)
 	"[Tutorial] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy.",
 	"[Tutorial] You can review your skills by DOING THIS AND THAT.",
 	"[Tutorial] The red bar represents the health of your character. The yellow bar is an indicator how much your character is sated and the blue bar shows the mana of mages.",
-	"[Tutorial] Did you already think about the background and past of your character? The illarion.org homepage contains a lot of information on lore."}
+	"[Tutorial] Did you already think about the background and past of your character? The illarion.org homepage contains a lot of information on lore.",
+	"[Tutorial] If your character gets hungry, just harvest some fruits by using the trunk of a fruit tree. You can eat the fruits by using them."}
 	-- cycle messages end
 
 function addEffect(newbieEffect, Character)
