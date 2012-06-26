@@ -2,11 +2,11 @@
 -- NPC Name: Viola Baywillow                                             None --
 -- NPC Job:  Tutor                                                            --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  33, 90, 100            --
--- NPC Sex:  female                     NPC Direction: northeast              --
+-- NPC Race: halfling                   NPC Position:  38, 97, 100            --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Authors:  envi                                                             --
---           adapted by Rincewind                                             --
+--           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
 -- Last parsing: June 26, 2012                           easyNPC Parser v1.02 --
@@ -15,8 +15,8 @@
 name = "Viola Baywillow"
 race = halfling
 sex = female
-position = 33, 90, 100
-direction = northeast
+position = 38, 97, 100
+direction = south
 affiliation = "None"
 job = "Tutor"
 
@@ -26,7 +26,7 @@ defaultLanguage = common
 autointroduce = on
 
 author = "envi"
-author = "adapted by Rincewind"
+author = "Rincewind"
 author = "Estralis Seborian"
 
 lookatDE = "A NPC who has brief and important information about factions."

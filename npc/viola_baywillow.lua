@@ -2,11 +2,11 @@
 -- NPC Name: Viola Baywillow                                             None --
 -- NPC Job:  Tutor                                                            --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  33, 90, 100            --
--- NPC Sex:  female                     NPC Direction: northeast              --
+-- NPC Race: halfling                   NPC Position:  38, 97, 100            --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Authors:  envi                                                             --
---           adapted by Rincewind                                             --
+--           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
 -- Last parsing: June 26, 2012                           easyNPC Parser v1.02 --
@@ -14,7 +14,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 33, 90, 100, 1, 'Viola Baywillow', 'npc.viola_baywillow', 1, 2, 0, 254, 14, 1, 245, 180, 137);
+VALUES (2, 38, 97, 100, 4, 'Viola Baywillow', 'npc.viola_baywillow', 1, 2, 0, 254, 14, 1, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
