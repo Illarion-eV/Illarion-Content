@@ -77,7 +77,7 @@ function callEffect(newbieEffect,Character)
 		
 		roundCount = roundCount + 1;
 		
-		if roundCount > 44 and (roundCount/6 == math.floor(roundCount/6)) and Character:isAdmin() == false then --Let us check for players that required more than fifteen minutes for Noobia. Every 2nd minute, a GM gets a message
+		if roundCount > 44 and (roundCount/5 == math.floor(roundCount/5)) and Character:isAdmin() == false then --Let us check for players that required more than fifteen minutes for Noobia. Every five minutes, a GM gets a message
 		    playerlist = world:getPlayersOnline();
 	        for i = 1, #(playerlist) do 
 	            if playerlist[i]:isAdmin() then --Out GMs should know a noob has problems!
@@ -91,7 +91,7 @@ function callEffect(newbieEffect,Character)
 	end
 	
 	newbieEffect:addValue("roundCount",roundCount); --whatever this is. Merung, learn to use comments ;-)
-	newbieEffect.nextCalled=200; --Twenty seconds
+	newbieEffect.nextCalled=300; --Thirty seconds
 	return true; --bailing out in any case
 	
 end
