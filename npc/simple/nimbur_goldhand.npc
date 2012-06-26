@@ -47,7 +47,7 @@ itemShoes = 53
 
 -- Queststatus 313
 -- 1: Player arrives
--- 2: Player got the task to craft 5 pins
+-- 2: Player got the task to craft 3 pins
 -- 3: All lessons done
 
 -- Debugging
@@ -66,19 +66,19 @@ itemShoes = 53
 ".*", queststatus(313) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", item(23, 1, 599, 0), item(2535, 10, 599, 0), queststatus(313) = 2
 
 -- Player brought three pins
-".*", queststatus(313) = 2, item(2738, all) > 2, english -> inform("[Tutorial] You are awarded a ruby."), "Great! Ye' did it!", deleteItem(2738, 3), item(46, 1, 333, 0), queststatus(313) = 3
-".*", queststatus(313) = 2, item(2738, all) > 2 -> inform("[Tutorial] Du erhältst einen Rubin."), "ÜBERSETZEN.", deleteItem(2738, 3), item(46, 1, 333, 0), queststatus(313) = 3
+".*", queststatus(313) = 2, item(2738, all) > 2, english -> inform("[Tutorial] You are awarded an iron goblet."), "Great! Ye' did it! I give you this cup as example of my work, show it everyone on the main land so I get some more customers. Viola Baywillow will help you to find a proper home for you on Illarion.", deleteItem(2738, 3), item(223, 1, 599, 0), queststatus(313) = 3
+".*", queststatus(313) = 2, item(2738, all) > 2 -> inform("[Tutorial] Du erhältst einen Eisenkelch."), "ÜBERSETZEN.", deleteItem(2738, 3), item(223, 1, 599, 0), queststatus(313) = 3
 
 -- Player has lost his hammer
-".*", queststatus(313) = 2, item(23, all) = 0, english -> "What! You lost your pick-axe? How do you want to become rich if you keep losing your belongings? Have this replacement; now off to the mines!", item(23, 1, 599, 0)
+".*", queststatus(313) = 2, item(23, all) = 0, english -> "Without a hammer, you are not able to forge. Losing your hammer is the first step towards ending up on the rocks. Luckily for you, I have another one.", item(23, 1, 599, 0)
 ".*", queststatus(313) = 2, item(23, all) = 0 -> "ÜBERSETZEN.", item(23, 1, 599, 0)
 
 -- Player has no iron left
-".*", queststatus(313) = 2, item(23, all) = 0, english -> "What! You lost your pick-axe? How do you want to become rich if you keep losing your belongings? Have this replacement; now off to the mines!", item(23, 1, 599, 0)
-".*", queststatus(313) = 2, item(23, all) = 0 -> "ÜBERSETZEN.", item(23, 1, 599, 0)
+".*", queststatus(313) = 2, item(2535, all) = 0, english -> "I see you used up all the iron ingots I gave you - quite a bad haul. I give you one more ingot but you have to promise me that you'll forge those three sets of pins right now.", item(2535, 1, 599, 0)
+".*", queststatus(313) = 2, item(2535, all) = 0 -> "ÜBERSETZEN.", item(2535, 1, 599, 0)
 
 -- Player has problems gathering
-".*", queststatus(313) = 2, item(21, all) < 3, english -> inform("[Tutorial] Blacksmithing requires you to stand in front of an anvil and use the hammere which you have to hold in your hands. Chose the desired product from the appearing menu to start working."), "Well, well, well. Hard labour means that you have to work hard. Please bring me at least five lumps of coal. If you cannot find coal in one corner of the mine, try the other!"
+".*", queststatus(313) = 2, item(21, all) < 3, english -> inform("[Tutorial] Blacksmithing requires you to stand in front of an anvil and use the hammere which you have to hold in your hands. Chose the desired product from the appearing menu to start working."), "Any problems with forging? Just slam the hammer on the hot metal until it gets the desired shape. I need three sets of pins from you, shouldn't be too difficult."
 ".*", queststatus(313) = 2, item(21, all) < 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN."
 
 -- Player did all lessons
