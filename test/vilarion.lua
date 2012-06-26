@@ -24,6 +24,11 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         User:inform("#w Quest " .. quest .. " has been reset!")
         return
     end
+
+    if (User.lastSpokenText == "GM") then
+        User:GMTicket("Test ticket by " .. User.name);
+    end;
+
 	
     if (User.lastSpokenText == "text") then
         local callback = function(dialog)
