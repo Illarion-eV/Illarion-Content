@@ -1470,7 +1470,7 @@ mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 803);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
-mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(6, 40);
 mainNPC:setEquipment(4, 2295);
 mainNPC:setEquipment(9, 34);
 mainNPC:setEquipment(10, 369);
