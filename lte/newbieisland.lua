@@ -81,7 +81,7 @@ function callEffect(newbieEffect,Character)
 		    playerlist = world:getPlayersOnline();
 	        for i = 1, #(playerlist) do 
 	            if playerlist[i]:isAdmin() then --Out GMs should know a noob has problems!
-		            playerlist[i]:inform("[Noob alert] A player could use assistance on Noobia!");
+					base.common.InformNLS(playerlist[i],"[Noobalarm] Ein Spieler könnte auf Noobia Hilfe gebrauchen.","[Noob alert] A player could use assistance on Noobia!");  
 		        end
 	        end
 		end

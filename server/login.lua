@@ -20,7 +20,7 @@ function onLogin( player )
 		    playerlist = world:getPlayersOnline();
 	        for i = 1, #(playerlist) do 
 	            if playerlist[i]:isAdmin() then --Out GMs should know a noob logged in!
-		            playerlist[i]:inform("[Noob alert] A player just logged in on Noobia!");
+                    base.common.InformNLS(playerlist[i],"[Noobalarm] Ein Spieler hat sich gerade auf Noobia eingeloggt.","[Noob alert] A player just logged in on Noobia!");  
 		        end
 	        end
 		end
