@@ -1,20 +1,7 @@
--- INSERT INTO triggerfields VALUES (27,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (28,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (29,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (30,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (31,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (32,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (33,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (34,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (35,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (36,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (37,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (38,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (39,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (40,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (41,54,100,'triggerfield.noobia_nargon');
--- INSERT INTO triggerfields VALUES (42,54,100,'triggerfield.noobia_nargon');
-
+-- INSERT INTO triggerfields VALUES (41,74,100,'triggerfield.noobia_nimbur');
+-- INSERT INTO triggerfields VALUES (40,74,100,'triggerfield.noobia_nimbur');
+-- INSERT INTO triggerfields VALUES (39,74,100,'triggerfield.noobia_nimbur');
+-- INSERT INTO triggerfields VALUES (38,74,100,'triggerfield.noobia_nimbur');
 
 require("base.common")
 
