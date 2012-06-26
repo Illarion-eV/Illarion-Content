@@ -41,13 +41,13 @@ beardID = 0
 colorHair = 254, 14, 1
 colorSkin = 245, 180, 137
 itemHead = 0
-itemChest = 849
+itemChest = 803
 itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
-itemHands = 392
+itemHands = 2295
 itemTrousers = 34
-itemShoes = 0
+itemShoes = 369
 
 -- Template Version 1.03 Estralis Seborian
 

@@ -1467,13 +1467,13 @@ mainNPC:setLookat("A NPC who has brief and important information about factions.
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache.", "You have to talk to me in a language which I understand. Either the common or the racespecific language.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 849);
+mainNPC:setEquipment(3, 803);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 392);
+mainNPC:setEquipment(4, 2295);
 mainNPC:setEquipment(9, 34);
-mainNPC:setEquipment(10, 0);
+mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
