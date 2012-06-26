@@ -62,12 +62,12 @@ itemShoes = 53
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(37, 97, 100)
 
 -- Learn how to craft - player gets a hammer and 10 iron ingots
-".*", queststatus(313) < 2, english -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which you have to hold in your hands. Note that not every rock yields coal."), "Arr, the name is Nargon, Nargon Hammerfist. Only by hard labour you can become wealthy and I can show you hard labour! Here, have this pick-axe. Head for the mine and gather five lumps of coal for me. It won't be in vain!", item(23, 1, 599, 0), queststatus(313) = 2
-".*", queststatus(313) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", item(23, 1, 599, 0), queststatus(313) = 2
+".*", queststatus(313) < 2, english -> inform("[Tutorial] Blacksmithing requires you to stand in front of an anvil and use the hammer which you have to hold in your hands. Chose the desired product from the appearing menu to start working."), "Arr... right. Listen to me, I tell you all about blacksmithing you need to know. Here, have this hammer and these ingots. Move inside and don't dare to come back without three sets of pins!", item(23, 1, 599, 0), item(2535, 10, 599, 0), queststatus(313) = 2
+".*", queststatus(313) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", item(23, 1, 599, 0), item(2535, 10, 599, 0), queststatus(313) = 2
 
 -- Player brought three pins
-".*", queststatus(313) = 2, item(21, all) > 2, english -> inform("[Tutorial] You are awarded a ruby."), "Oi! You did it, thanks for the coal. As a fair dwarven tradesman, I give you this ruby in exchange. My kinsmate Nimbur down at the brick house can teach you another lesson about dwarven craft.", deleteItem(21, 5), item(46, 1, 333, 0), queststatus(313) = 3
-".*", queststatus(313) = 2, item(21, all) > 2 -> inform("[Tutorial] Du erhältst einen Rubin."), "ÜBERSETZEN.", deleteItem(21, 5), item(46, 1, 333, 0), queststatus(313) = 3
+".*", queststatus(313) = 2, item(2738, all) > 2, english -> inform("[Tutorial] You are awarded a ruby."), "Great! Ye' did it!", deleteItem(2738, 3), item(46, 1, 333, 0), queststatus(313) = 3
+".*", queststatus(313) = 2, item(2738, all) > 2 -> inform("[Tutorial] Du erhältst einen Rubin."), "ÜBERSETZEN.", deleteItem(2738, 3), item(46, 1, 333, 0), queststatus(313) = 3
 
 -- Player has lost his hammer
 ".*", queststatus(313) = 2, item(23, all) = 0, english -> "What! You lost your pick-axe? How do you want to become rich if you keep losing your belongings? Have this replacement; now off to the mines!", item(23, 1, 599, 0)
@@ -78,11 +78,11 @@ itemShoes = 53
 ".*", queststatus(313) = 2, item(23, all) = 0 -> "ÜBERSETZEN.", item(23, 1, 599, 0)
 
 -- Player has problems gathering
-".*", queststatus(313) = 2, item(21, all) < 3, english -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which you have to hold in your hands. Note that not every rock yields coal."), "Well, well, well. Hard labour means that you have to work hard. Please bring me at least five lumps of coal. If you cannot find coal in one corner of the mine, try the other!"
+".*", queststatus(313) = 2, item(21, all) < 3, english -> inform("[Tutorial] Blacksmithing requires you to stand in front of an anvil and use the hammere which you have to hold in your hands. Chose the desired product from the appearing menu to start working."), "Well, well, well. Hard labour means that you have to work hard. Please bring me at least five lumps of coal. If you cannot find coal in one corner of the mine, try the other!"
 ".*", queststatus(313) = 2, item(21, all) < 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN."
 
 -- Player did all lessons
-".*", queststatus(313) = 3, english -> "Arr, now you can mine for gems and gold. What else is there to learn!? You might become rich, aye. My kinsmate Nimbur down at the brick house can teach you another lesson about dwarven craft."
+".*", queststatus(313) = 3, english -> "Very well, now I educated a competitor for my business - again. But true dwarven craft knows no competition! I can say you learned all that matters now; Viola Baywillow will help you to find a proper home for you on Illarion."
 ".*", queststatus(313) = 3 -> "ÜBERSETZEN."
 
 ------------------------------------------------------------------------------AC
@@ -90,4 +90,4 @@ itemShoes = 53
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me streicht sich durch seinen langen Bart: 'Arr, ich zeige dir wie du Rohstoffe schürfst.'", "#me scratches his beard: 'Arr...! I will show you how to gather resources.'"
+cycletext "ÜBERSETZEN.", "Over here! I am Nimbur, the best blacksmith of them all and I can teach you some tricks."
