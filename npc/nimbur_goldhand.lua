@@ -95,6 +95,31 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded a ruby."));
+talkEntry:addResponse("Oi! You did it, thanks for the coal. As a fair dwarven tradesman, I give you this ruby in exchange. My kinsmate Nimbur down at the brick house can teach you another lesson about dwarven craft.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst einen Rubin."));
+talkEntry:addResponse("ÜBERSETZEN.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("What! You lost your pick-axe? How do you want to become rich if you keep losing your belongings? Have this replacement; now off to the mines!");
@@ -114,7 +139,26 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("What! You lost your pick-axe? How do you want to become rich if you keep losing your belongings? Have this replacement; now off to the mines!");
+talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 599, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0));
+talkEntry:addResponse("ÜBERSETZEN.");
+talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 599, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which you have to hold in your hands. Note that not every rock yields coal."));
 talkEntry:addResponse("Well, well, well. Hard labour means that you have to work hard. Please bring me at least five lumps of coal. If you cannot find coal in one corner of the mine, try the other!");
@@ -124,34 +168,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
 talkEntry:addResponse("ÜBERSETZEN.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded a ruby."));
-talkEntry:addResponse("Oi! You did it, thanks for the coal. As a fair dwarven tradesman, I give you this ruby in exchange. My kinsmate Nimbur down at the brick house can teach you another lesson about dwarven craft.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5));
-talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst einen Rubin."));
-talkEntry:addResponse("ÜBERSETZEN.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5));
-talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

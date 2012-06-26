@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 25, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: June 26, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -117,6 +117,31 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded a ruby."));
+talkEntry:addResponse("Oi! You did it, thanks for the coal. As a fair dwarven tradesman, I give you this ruby in exchange. My kinsmate Nimbur down at the brick house can teach you another lesson about dwarven craft.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst einen Rubin."));
+talkEntry:addResponse("ÜBERSETZEN.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("What! You lost your pick-axe? How do you want to become rich if you keep losing your belongings? Have this replacement; now off to the mines!");
@@ -149,31 +174,6 @@ talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 5));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
 talkEntry:addResponse("ÜBERSETZEN.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded a ruby."));
-talkEntry:addResponse("Oi! You did it, thanks for the coal. As a fair dwarven tradesman, I give you this ruby in exchange. My kinsmate Nimbur down at the brick house can teach you another lesson about dwarven craft.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5));
-talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst einen Rubin."));
-talkEntry:addResponse("ÜBERSETZEN.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5));
-talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
