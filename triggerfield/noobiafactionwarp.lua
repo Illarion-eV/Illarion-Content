@@ -4,11 +4,11 @@ function MoveToField(Character)
 
     -- we define our destination
     if Character.pos == postion(--[[cadomyr-field]]) then 
-	   destination == postion(--[[cadomyr]]) 
+	   destination = postion(--[[cadomyr]]) 
 	elseif Character.pos == postion(--[[runewick-field]]) then 
-	   destination == postion(--[[runcewick]])
+	   destination = postion(--[[runcewick]])
     elseif Character.pos == postion(--[[galmair-field]]) then 
-	   destination == postion(--[[galmair]])
+	   destination = postion(--[[galmair]])
 	end
 
     world:gfx(41,Character.pos)	
