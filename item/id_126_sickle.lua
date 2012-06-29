@@ -11,7 +11,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	--testing stuff
 	if (User.lastSpokenText == "faction") then
 	    FactionCheck = base.factions.get_Faction(User)
-		User:inform(""..FactionCheck[2])
+		User:inform("factioncheck")
+		User:inform("faction: "..FactionCheck[2])
 	    return
 	end	
 	
