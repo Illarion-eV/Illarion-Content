@@ -12,7 +12,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if (User.lastSpokenText == "faction") then
 	    FactionCheck = base.factions.get_Faction(User)
 		User:inform("factioncheck")
-		User:inform("faction: "..FactionCheck[2])
+		User:inform("faction: "..FactionCheck)
 	    return
 	end	
 	
