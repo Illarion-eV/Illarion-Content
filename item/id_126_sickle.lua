@@ -10,9 +10,9 @@ module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	--testing stuff
 	if (User.lastSpokenText == "faction") then
-	    FactionCheck = base.factions.get_Faction(User)[2]
+	    FactionCheck = base.factions.get_Faction(User)
 		User:inform("factioncheck")
-		User:inform("faction: "..FactionCheck)
+		User:inform("faction: "..FactionCheck.tid)
 	    return
 	end	
 	
