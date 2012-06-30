@@ -16,8 +16,8 @@ function MoveToField(Character)
     world:makeSound(4,destination)
     world:gfx(41,Character.pos)	
 	
-	--[[FactionCheck = base.factions.get_Faction(Character)]]
-	if not Character:isAdmin() --[[and not (FactionCheck[2]~=0)]] then -- admins and chars who are already members of a faction are unaffected and just warped 
+	FactionCheck = base.factions.get_Faction(Character)
+	if not Character:isAdmin() and not (FactionCheck.tid~=0) then -- admins and chars who are already members of a faction are unaffected and just warped 
 	
 		-- we delete some items, if the char has more than one of them
 		local DeleteList = {--[[ids]]}
