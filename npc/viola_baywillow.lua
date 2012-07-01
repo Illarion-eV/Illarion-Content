@@ -1,19 +1,20 @@
 --------------------------------------------------------------------------------
--- NPC Name: Brummi Hollaficht                                           None --
+-- NPC Name: Viola Baywillow                                             None --
 -- NPC Job:  Tutor                                                            --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  33, 90, 100            --
--- NPC Sex:  female                     NPC Direction: northeast              --
+-- NPC Race: halfling                   NPC Position:  38, 97, 100            --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Authors:  envi                                                             --
---           adapted by Rincewind                                             --
+--           Rincewind                                                        --
+--           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 22, 2012                          easyNPC Parser v1.02 --
+-- Last parsing: June 26, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 33, 90, 100, 1, 'Brummi Hollaficht', 'npc.brummi_hollaficht', 1, 2, 0, 254, 14, 1, 245, 180, 137);
+VALUES (2, 38, 97, 100, 4, 'Viola Baywillow', 'npc.viola_baywillow', 1, 2, 0, 254, 14, 1, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -24,7 +25,7 @@ require("npc.base.condition.race")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("npc.brummi_hollaficht", package.seeall)
+module("npc.viola_baywillow", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -1466,13 +1467,13 @@ mainNPC:setLookat("A NPC who has brief and important information about factions.
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache.", "You have to talk to me in a language which I understand. Either the common or the racespecific language.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 849);
+mainNPC:setEquipment(3, 803);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
-mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 392);
+mainNPC:setEquipment(6, 40);
+mainNPC:setEquipment(4, 2295);
 mainNPC:setEquipment(9, 34);
-mainNPC:setEquipment(10, 0);
+mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

@@ -9,6 +9,13 @@ module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	--testing stuff
+	if (User.lastSpokenText == "faction") then
+	    FactionCheck = base.factions.get_Faction(User)
+		User:inform("factioncheck")
+		User:inform("faction: "..FactionCheck.tid)
+	    return
+	end	
+	
 	if (User.lastSpokenText == "textbox") then
 		    User:inform("debug 1")
 			local callbackNewbie = function(dialog)
