@@ -26,7 +26,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     end
 
     if (User.lastSpokenText == "GM") then
-        User:GMTicket("Test ticket by " .. User.name);
+        User:pageGM("Test ticket by " .. User.name);
     end;
 
 	
