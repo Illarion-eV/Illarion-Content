@@ -19,10 +19,8 @@ VALUES (2, 38, 97, 100, 4, 'Viola Baywillow', 'npc.viola_baywillow', 1, 2, 0, 25
 
 require("npc.base.basic")
 require("npc.base.condition.language")
-require("npc.base.condition.quest")
 require("npc.base.condition.race")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.quest")
 require("npc.base.talk")
 module("npc.viola_baywillow", package.seeall)
 
@@ -32,47 +30,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Viola Baywillow. She can give you some information about what you can find here. Keyphrases: quest, faction, gods, race, craft, motive, landscape, leader, law."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keyphrases: Help, realms, gods, races, crafts, motives, landscapes, leaders, laws."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Quest, Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 0));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("xxx");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 0));
-talkEntry:addResponse("Ich werde dir helfen dich für eine von drei Spielbaren Fraktionen zu entscheiden. Wenn du dich entschieden hast, wähle mithilfe der Wegweißer den Weg in deine neue Heimat.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 1));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("xxx");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 1));
-talkEntry:addResponse("Nütze die Schlüsselwörter um mit mir zu sprechen: Hilfe, Quest, Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir Informationen geben über die Spielwelt geben. Schlüsselwörter: Hilfe, Reiche, Götter, Rassen, Handwerke, Motive, Landschaften, Anführer, Gesetze."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1419,7 +1383,7 @@ talkingNPC:addCycleText("Frag mich nach 'Hilfe', wenn du Hilfe brauchst.", "Ask 
 talkingNPC:addCycleText("Frag mich wenn du was über die drei Fraktionen wissen möchtest.", "Ask me if you'd like to know something about three factions.");
 talkingNPC:addCycleText("Runewick, Galmair, Cadomyr... ich weiß alles. Fast alles.", "Runewick, Galmair, Cadomyr... I know everything. Almost.");
 talkingNPC:addCycleText("Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveler! Keep on the lookout if you're in search for tasks or grand quests! All across the land many are in need, don't be afraid ask!");
-talkingNPC:addCycleText("Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... ich weiß alles über sie... fast alles.*kichert*", "Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan...learn all you need to know right here! Well, just about everything. *Giggles*");
+talkingNPC:addCycleText("Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... Ich weiß alles über sie. Fast alles.", "Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan...learn all you need to know right here! Well, just about everything. *Giggles*");
 talkingNPC:addCycleText("Wenn du nicht weißt wohin du gehen sollst, frag mich nach hilfe.", "Don't get lost! I'm Viola, the local area guide ask me for help, and I won't let you down!");
 talkingNPC:addCycleText("Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach hilfe.", "If you'd like to know where you and your faith are welcome, tell me your god and I'll tell you the best faction to join!");
 talkingNPC:addCycleText("Ich bin Viola und weiß viele Sachen.", "I'm Viola and I know many things.");
@@ -1427,9 +1391,9 @@ talkingNPC:addCycleText("Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, 
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("A NPC who has brief and important information about factions.", "Ein NPC der kurze und wichtige Informationen über die Fraktionen hat.");
+mainNPC:setLookat("Das ist deine Tutorin Viola Baywillow.", "This is your tutorial guide Viola Baywillow.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
-mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache.", "You have to talk to me in a language which I understand. Either the common or the racespecific language.");
+mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST.", "Please switch the language of your character to the common tongue by DOING THIS AND THAT.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 803);
 mainNPC:setEquipment(11, 0);
