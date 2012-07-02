@@ -59,7 +59,7 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir Informationen geben über die Spielwelt geben. Schlüsselwörter: Hilfe, Reiche, Götter, Rassen, Handwerke, Motive, Landschaften, Anführer, Gesetze.")
 
 -- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You are already at the end of the tutorial. Please chose a faction now by stepping through a portal on one of the islands.")
+"skip", "cancel", "abort" -> inform("[Tutorial] You are already at the end of the tutorial. Please chose a realm now by stepping through a portal on one of the islands.")
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN.")
 
 -- bis hier

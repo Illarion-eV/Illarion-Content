@@ -57,7 +57,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("skip");
 talkEntry:addTrigger("cancel");
 talkEntry:addTrigger("abort");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are already at the end of the tutorial. Please chose a faction now by stepping through a portal on one of the islands."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are already at the end of the tutorial. Please chose a realm now by stepping through a portal on one of the islands."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

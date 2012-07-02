@@ -62,7 +62,7 @@ itemShoes = 53
 "Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
 -- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by stepping through a portal on one of the islands."), warp(35, 95, 100)
+"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a realm now by stepping through a portal on one of the islands."), warp(35, 95, 100)
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(35, 95, 100)
 
 -- Learn how to shout
