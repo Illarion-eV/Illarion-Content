@@ -2,8 +2,8 @@
 -- NPC Name: Viola Baywillow                                             None --
 -- NPC Job:  Tutor                                                            --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  38, 97, 100            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  37, 101, 100           --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Authors:  envi                                                             --
 --           Rincewind                                                        --
@@ -14,7 +14,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 38, 97, 100, 4, 'Viola Baywillow', 'npc.viola_baywillow', 1, 2, 0, 254, 14, 1, 245, 180, 137);
+VALUES (2, 37, 101, 100, 6, 'Viola Baywillow', 'npc.viola_baywillow', 1, 2, 0, 254, 14, 1, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -96,7 +96,6 @@ talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Fare thee well.");
-talkEntry:addResponse("Tata!");
 talkEntry:addResponse("Good bye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -119,7 +118,6 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Fare thee well.");
-talkEntry:addResponse("Tata!");
 talkEntry:addResponse("Good bye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1136,7 +1134,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Sie ist die Götting der Geister und der Unterwelt. Niemand besonderes dient ihr, außer jene, welche denken, sie bald zu besuchen. *kichert*");
+talkEntry:addResponse("Sie ist die Göttin der Geister und der Unterwelt. Niemand besonderes dient ihr, außer jene, welche denken, sie bald zu besuchen. *kichert*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

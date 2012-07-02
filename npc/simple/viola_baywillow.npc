@@ -2,8 +2,8 @@
 -- NPC Name: Viola Baywillow                                             None --
 -- NPC Job:  Tutor                                                            --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  38, 97, 100            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  37, 101, 100           --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Authors:  envi                                                             --
 --           Rincewind                                                        --
@@ -15,8 +15,8 @@
 name = "Viola Baywillow"
 race = halfling
 sex = female
-position = 38, 97, 100
-direction = south
+position = 37, 101, 100
+direction = west
 affiliation = "None"
 job = "Tutor"
 
@@ -61,9 +61,9 @@ itemShoes = 369
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho to you, if you'd like to know something about the factions here, just ask me.", "Hiya, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the factions!", "Good day, if you'd like to know something about the factions here, let me know!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach."
-"Farewell", "Bye", "Fare well", "See you" -> "Fare thee well.", "Tata!", "Good bye."
+"Farewell", "Bye", "Fare well", "See you" -> "Fare thee well.", "Good bye."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mach's gut.", "Tschüß.", "Wiedersehen."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Fare thee well.", "Tata!", "Good bye."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Fare thee well.", "Good bye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Mach's gut.", "Tschüß.", "Wiedersehen."
 "How are you", "How do you feel", "How do you do" -> "I'm fine and you?", "I feel wonderful.", "Can't complain."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht's toll. Und dir?", "Ich fühle mich wunderbar.", "Ich kann mich nicht beschweren."
@@ -230,7 +230,7 @@ itemShoes = 369
 "Bragon", "Brágon", english -> "He is one of the elder gods who left this realm. Therefore, he will not help you at all and makes no sense to worship him. Only nostalgic and disconcerted Elves still do, so don't bother. However, he was known as the god of fire."
 "Bragon", "Brágon" -> "Er ist einer der alten Götter, die diese Ebene verlassen haben. Daher wird er dir nicht mehr helfen und es macht keinen Sinn ihm zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, er war bekannt als der Gott des Feuers."
 "Cherga", english -> "She is the goddess of spirits and the underworld. No one in particular worships her, except those who think they will be traveling to underworld soon. *Giggles*"
-"Cherga" -> "Sie ist die Götting der Geister und der Unterwelt. Niemand besonderes dient ihr, außer jene, welche denken, sie bald zu besuchen. *kichert*"
+"Cherga" -> "Sie ist die Göttin der Geister und der Unterwelt. Niemand besonderes dient ihr, außer jene, welche denken, sie bald zu besuchen. *kichert*"
 "Elara", english -> "She is the goddess of wisdom and knowledge, most consider her the patron god of Runewick. So if you follow her teachings you will find like-minded people there. Perhaps I will see you in Runewick since she is my goddess! *Giggles*"
 "Elara" -> "Sie ist die Göttin des Wissens und der Weisheit und einige Anhänger können in Runewick gefunden werden. Wenn du an sie glaubst, dann wirst du dort Gleichgesinnte finden, so wie ich, weil ich ja auch an Elara glaube. *kichert*"
 "Eldan", english -> "He is one of the elder gods who left this realm. Therefore, don't bother to worship him- where would your prayers go? Only nostalgic Elves still do so anyway. If you're still wondering about him though, he was known as the god of spirit."
