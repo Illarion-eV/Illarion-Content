@@ -25,8 +25,8 @@ function MoveToField(Character)
 	end
 
     world:gfx(41,Character.pos)	
-	Character:warp(destination)
-    world:makeSound(4,destination)
+	Character:forceWarp(destination)
+    world:makeSound(13,destination)
     world:gfx(41,Character.pos)	
 	
 	FactionCheck = base.factions.get_Faction(Character)
