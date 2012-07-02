@@ -58,8 +58,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Nimbur Goldhand. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
 -- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(37, 97, 100)
-"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(37, 97, 100)
+"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please chose a faction now by DOING THIS AND THAT."), warp(35, 95, 100)
+"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(35, 95, 100)
 
 -- Learn how to craft - player gets a hammer and 10 iron ingots
 ".*", queststatus(313) < 2, english -> inform("[Tutorial] Blacksmithing requires you to stand in front of an anvil and use the hammer which you have to hold in your hands. Chose the desired product from the appearing menu to start working."), "Arr... right. Listen to me, I tell you all about blacksmithing you need to know. Here, have this hammer and these ingots. Move inside and don't dare to come back without three sets of pins!", item(23, 1, 599, 0), item(2535, 10, 599, 0), queststatus(313) = 2
