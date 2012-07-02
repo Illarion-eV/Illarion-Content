@@ -16,12 +16,12 @@ function MoveToField(Character)
     -- Galmair: 424 245 0
 
     -- we define our destination
-    if Character.pos == position(56,96,0) then --Cadomyr
-	   destination = position(127,647,0) 
-	elseif Character.pos == postion(20,99,100) then --Runewick
-	   destination = position(788,826,0)
-    elseif Character.pos == postion(40,111,0) then --Galmair
-	   destination = position(424,245,0)
+    if Character.pos == position(56,96,100) then --Cadomyr
+	   destination = position(127,647,0);
+	elseif Character.pos == position(20,99,100) then --Runewick
+	   destination = position(788,826,0);
+    elseif Character.pos == position(40,111,100) then --Galmair
+	   destination = position(424,245,0);
 	end
 
     world:gfx(41,Character.pos)	
