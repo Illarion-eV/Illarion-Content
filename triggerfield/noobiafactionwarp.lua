@@ -1,18 +1,27 @@
--- noobia triggerfields: teleport char to Cadomyr, Runewick or Galmair
+-- Noobia triggerfields: teleport char to Cadomyr, Runewick or Galmair
 -- by Merung
+
+-- INSERT INTO triggerfields VALUES (56,96,100,'triggerfield.noobiafactionwarp');
+-- INSERT INTO triggerfields VALUES (20,99,100,'triggerfield.noobiafactionwarp');
+-- INSERT INTO triggerfields VALUES (40,111,100,'triggerfield.noobiafactionwarp');
+
 require("base.common")
 
 module("triggerfield.noobiafactionwarp", package.seeall)
 
 function MoveToField(Character)
 
+    -- Cadomyr: 127 647 0
+    -- Runewick: 788 826 0
+    -- Galmair: 424 245 0
+
     -- we define our destination
-    if Character.pos == position(--[[cadomyr-field]]) then 
-	   destination = position(--[[cadomyr]]) 
-	elseif Character.pos == postion(--[[runewick-field]]) then 
-	   destination = position(--[[runcewick]])
-    elseif Character.pos == postion(--[[galmair-field]]) then 
-	   destination = position(--[[galmair]])
+    if Character.pos == position(56,96,0) then --Cadomyr
+	   destination = position(127,647,0) 
+	elseif Character.pos == postion(20,99,100) then --Runewick
+	   destination = position(788,826,0)
+    elseif Character.pos == postion(40,111,0) then --Galmair
+	   destination = position(424,245,0)
 	end
 
     world:gfx(41,Character.pos)	
@@ -24,7 +33,7 @@ function MoveToField(Character)
 	if not Character:isAdmin() and not (FactionCheck.tid~=0) then -- admins and chars who are already members of a faction are unaffected and just warped 
 	
 		-- we delete some items, if the char has more than one of them
-		local DeleteList = {--[[ids]]}
+		local DeleteList = {23,391,2763} --hammer, torch, pick-axe
 		for i=1,#DeleteList do
 			itemAmount = Character:count(DeleteList[i])
 			Character:eraseItem( ItemListe[i], (itemAmount -1))
@@ -48,7 +57,7 @@ function MoveToField(Character)
 	        if Character:getPlayerLanguage() == 0 then
 		        dialogNewbie = MessageDialog("Überschrift","deutscher Text", callbackNewbie)
 	        else	
-		        dialogNewbie = MessageDialog("Headline", "english text", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial", "Congratulations, you finished the tutorial. ", callbackNewbie)
 	        end	
 	        Character:requestMessageDialog(dialogNewbie)
 	end	
