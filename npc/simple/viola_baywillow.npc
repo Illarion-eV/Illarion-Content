@@ -51,6 +51,9 @@ itemShoes = 369
 
 -- Template Version 1.03 Estralis Seborian
 
+-- Debugging
+"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keyphrases: Help, realms, gods, races, crafts, motives, landscapes, leaders, laws.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir Informationen geben über die Spielwelt geben. Schlüsselwörter: Hilfe, Reiche, Götter, Rassen, Handwerke, Motive, Landschaften, Anführer, Gesetze.")
