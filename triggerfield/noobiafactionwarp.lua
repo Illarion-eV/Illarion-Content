@@ -1,14 +1,18 @@
 -- noobia triggerfields: teleport char to Cadomyr, Runewick or Galmair
 -- by Merung
+require("base.common")
+
+module("triggerfield.noobiafactionwarp", package.seeall)
+
 function MoveToField(Character)
 
     -- we define our destination
-    if Character.pos == postion(--[[cadomyr-field]]) then 
-	   destination = postion(--[[cadomyr]]) 
+    if Character.pos == position(--[[cadomyr-field]]) then 
+	   destination = position(--[[cadomyr]]) 
 	elseif Character.pos == postion(--[[runewick-field]]) then 
-	   destination = postion(--[[runcewick]])
+	   destination = position(--[[runcewick]])
     elseif Character.pos == postion(--[[galmair-field]]) then 
-	   destination = postion(--[[galmair]])
+	   destination = position(--[[galmair]])
 	end
 
     world:gfx(41,Character.pos)	
@@ -31,7 +35,7 @@ function MoveToField(Character)
 		if find then
 			removedEffect = Character.effects:removeEffect(13)
 			if not removedEffect then -- security check
-				Character:inform("Please contact a dev or gm. error: triggerfields to factions")
+				Character:inform("[Error] Please contact a developer. Error: Triggerfields to factions.")
 			end
 		end
 		
