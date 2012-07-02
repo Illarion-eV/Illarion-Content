@@ -40,26 +40,7 @@ function LookAtItem(User,Item)
     local DataVal=Item.data;
     if (specialnames==nil) then
         specialnames={};
-        specialnames[4050]={"Seahorse","Seahorse"};
-        specialnames[4051]={"Zimmer 1","Room 1"};
-        specialnames[4052]={"Zimmer 2","Room 2"};
-        specialnames[4053]={"Badezimmer","Bathroom"};
-        specialnames[4054]={"Zimmer 3","Room 3"};
-        specialnames[4040]={"Wohnhaus 1 - Silas Farron","residential house 1 - Sillas Farron"};
-        specialnames[4080]={"Garons Goldschmiede","Garons goldsmith workshop"};
-        specialnames[5014]={"Graue Zuflucht","Grey Refuge"}
-        specialnames[5015]={"Kerker","Cells"}
-        specialnames[7100]={"Greenbriar Taverne","Greenbriar Taverne"};
-        specialnames[7101]={"Greenbriar 1","Greenbriar 1"};
-        specialnames[7102]={"Greenbriar 2","Greenbriar 2"};
-        specialnames[7103]={"Greenbriar 3","Greenbriar 3"};
-        specialnames[1060]={"Varshikar 1","Varshikar 1"};
-        specialnames[1061]={"Varshikar 2","Varshikar 2"};
-        specialnames[1062]={"Varshikar 3","Varshikar 3"};
-        specialnames[1063]={"Varshikar 4","Varshikar 4"};
-        specialnames[1064]={"Varshikar 5","Varshikar 5"};
-        specialnames[1065]={"Varshikar 6","Varshikar 6"};
-        specialnames[1066]={"Varshikar 7","Varshikar 7"};
+        --nothing defined yet		
     end
     local lang=User:getPlayerLanguage();
     if (specialnames[DataVal]~=nil) then
