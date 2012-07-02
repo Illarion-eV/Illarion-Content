@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 26, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 02, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -18,7 +18,6 @@ VALUES (2, 38, 97, 100, 4, 'Viola Baywillow', 'npc.viola_baywillow', 1, 2, 0, 25
 ---]]
 
 require("npc.base.basic")
-require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.condition.race")
@@ -33,13 +32,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Brummi Olaficht. She can give you some information about what you can find here. Keyphrases: quest, faction, gods, race, craft, motive, landscape, leader, law."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Viola Baywillow. She can give you some information about what you can find here. Keyphrases: quest, faction, gods, race, craft, motive, landscape, leader, law."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Brummi Olaficht. Sie kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Quest, Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Quest, Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -197,8 +196,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I'm Brummi, the local guide around these parts.");
-talkEntry:addResponse("I'm Brummi and you? Need help with anything?");
+talkEntry:addResponse("I'm Viola, the local guide around these parts.");
+talkEntry:addResponse("I'm Viola and you? Need help with anything?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -207,8 +206,8 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Ich bin Brummi und weiß alle wichtigen Dinge über diesen Platz hier. So, frag mich was!");
-talkEntry:addResponse("Ich bin Brummi und du? Möchtest du etwas wissen?");
+talkEntry:addResponse("Ich bin Viola und weiß alle wichtigen Dinge über diesen Platz hier. So, frag mich was!");
+talkEntry:addResponse("Ich bin Viola und du? Möchtest du etwas wissen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1303,7 +1302,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She is the goddess of love and pleasure. *Blushes* I have heard that many travel to Cadomyr in search of love and well other things. *Giggles* May you find your true mate if you're bound for Cadomyr!");
+talkEntry:addResponse("She is the goddess of love and pleasure. I have heard that many travel to Cadomyr in search of love and well other things. *Giggles* May you find your true mate if you're bound for Cadomyr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1359,7 +1358,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("*Chuckles* All I have is information, and I'll give that to you for free!");
+talkEntry:addResponse("All I have is information, and I'll give that to you for free!");
 talkEntry:addResponse("I'm sorry, but I don't sell anything.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1376,7 +1375,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("*Chuckles* All I have is information, and I'll give that to you for free!");
+talkEntry:addResponse("All I have is information, and I'll give that to you for free!");
 talkEntry:addResponse("I'm sorry, but I don't sell anything.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1390,75 +1389,40 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("brummi");
-talkEntry:addTrigger("hollaficht");
+talkEntry:addTrigger("Viola");
+talkEntry:addTrigger("Baywillow");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("That's me! If your after information look no further!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("brummi");
-talkEntry:addTrigger("hollaficht");
+talkEntry:addTrigger("Viola");
+talkEntry:addTrigger("Baywillow");
 talkEntry:addResponse("Das bin ich und ich weiß viele wichtige Dinge.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Yes?");
-talkEntry:addResponse("'Yes' is the opposite of 'no'. *Giggles*");
-talkEntry:addResponse("'Yes' means 'Ja' in the old language. *Giggles*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
-talkEntry:addResponse("Ja?");
-talkEntry:addResponse("'Ja' ist das Gegenteil von 'Nein'. *kichert*");
-talkEntry:addResponse("'Ja' bedeutet 'Yes' in der neuen Sprache. *kichert*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addResponse("No?");
-talkEntry:addResponse("'No' is the opposite of 'Yes'. *Giggles*");
-talkEntry:addResponse("'No' means 'Nein' in the old language. *Giggles*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addResponse("Nein?");
-talkEntry:addResponse("'Nein' ist das Gegenteil von 'Ja'. *kichert*");
-talkEntry:addResponse("'Nein' bedeutet 'No' in der neuen Sprache. *kichert*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("Duddli, do-da, ask me for help.");
+talkEntry:addResponse("ask me for help.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("Duddli, duddla, frag mich nach Hilfe.");
+talkEntry:addResponse("frag mich nach Hilfe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Frag mich nach 'Hilfe', wenn du 'Hilfe' brauchst.", "Ask me for 'help', if you need help.");
+talkingNPC:addCycleText("Frag mich nach 'Hilfe', wenn du Hilfe brauchst.", "Ask me for 'help', if you need help.");
 talkingNPC:addCycleText("Frag mich wenn du was über die drei Fraktionen wissen möchtest.", "Ask me if you'd like to know something about three factions.");
-talkingNPC:addCycleText("Runewick, Galmair, Cadomyr...ich weiß alles...fast alles. *kichert*", "Runewick, Galmair, Cadomyr... I know everything...almost. *Giggles*");
+talkingNPC:addCycleText("Runewick, Galmair, Cadomyr... ich weiß alles. Fast alles.", "Runewick, Galmair, Cadomyr... I know everything. Almost.");
 talkingNPC:addCycleText("Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveler! Keep on the lookout if you're in search for tasks or grand quests! All across the land many are in need, don't be afraid ask!");
 talkingNPC:addCycleText("Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... ich weiß alles über sie... fast alles.*kichert*", "Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan...learn all you need to know right here! Well, just about everything. *Giggles*");
-talkingNPC:addCycleText("Wenn du nicht weißt wohin du gehen sollst, frag mich nach hilfe.", "Don't get lost! I'm Brummi, the local area guide ask me for help, and I won't let you down!");
+talkingNPC:addCycleText("Wenn du nicht weißt wohin du gehen sollst, frag mich nach hilfe.", "Don't get lost! I'm Viola, the local area guide ask me for help, and I won't let you down!");
 talkingNPC:addCycleText("Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach hilfe.", "If you'd like to know where you and your faith are welcome, tell me your god and I'll tell you the best faction to join!");
-talkingNPC:addCycleText("Ich bin Brummi und weiß viele Sachen", "I'm Brummi and I know many things.");
+talkingNPC:addCycleText("Ich bin Viola und weiß viele Sachen.", "I'm Viola and I know many things.");
 talkingNPC:addCycleText("Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, ich weiß für jeden den richtigen Platz.", "Whether your an elf, dwarf, human, orc, lizardman, or halfling I know the right place for everyone!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);

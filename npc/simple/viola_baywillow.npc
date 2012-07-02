@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 26, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 02, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Viola Baywillow"
@@ -52,8 +52,8 @@ itemShoes = 369
 -- Template Version 1.03 Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Brummi Olaficht. She can give you some information about what you can find here. Keyphrases: quest, faction, gods, race, craft, motive, landscape, leader, law.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brummi Olaficht. Sie kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Quest, Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz.")
+"Help" -> inform("[Game Help] This NPC is Viola Baywillow. She can give you some information about what you can find here. Keyphrases: quest, faction, gods, race, craft, motive, landscape, leader, law.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Quest, Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz.")
 ".*", queststatus(309) = 0, english -> "xxx", queststatus(309) = 1
 ".*", queststatus(309) = 0 -> "Ich werde dir helfen dich für eine von drei Spielbaren Fraktionen zu entscheiden. Wenn du dich entschieden hast, wähle mithilfe der Wegweißer den Weg in deine neue Heimat.", queststatus(309) = 1
 ".*", queststatus(309) = 1, english -> "xxx", queststatus(309) = 2
@@ -70,8 +70,8 @@ itemShoes = 369
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Mach's gut.", "Tschüß.", "Wiedersehen."
 "How are you", "How do you feel", "How do you do" -> "I'm fine and you?", "I feel wonderful.", "Can't complain."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht's toll. Und dir?", "Ich fühle mich wunderbar.", "Ich kann mich nicht beschweren."
-"your name", "who are you", "who art thou" -> "I'm Brummi, the local guide around these parts.", "I'm Brummi and you? Need help with anything?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Brummi und weiß alle wichtigen Dinge über diesen Platz hier. So, frag mich was!", "Ich bin Brummi und du? Möchtest du etwas wissen?"
+"your name", "who are you", "who art thou" -> "I'm Viola, the local guide around these parts.", "I'm Viola and you? Need help with anything?"
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Viola und weiß alle wichtigen Dinge über diesen Platz hier. So, frag mich was!", "Ich bin Viola und du? Möchtest du etwas wissen?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The factions are always on the look out for adventurers and workers alike! Another option would be the Explorer-guild. Just look for them."
@@ -252,7 +252,7 @@ itemShoes = 369
 "Oldra" -> "Sie ist die Göttin der Fruchtbarkeit und des Lebens und einige Anhänger können in Runewick gefunden werden. Wenn du an sie glaubst, dann wirst du dort Gleichgesinnte finden."
 "Ronagan", english -> "He is the god of thieves and shadows; only Galmair openly worships this god as far as I know. Most others like me only pray to him for safe travel, and I'll do just that for you if your are off to Galmair!"
 "Ronagan" -> "Er ist der Gott der Diebe und der Schatten und einige Anhänger können in Galmair gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden."
-"Sirani", english -> "She is the goddess of love and pleasure. *Blushes* I have heard that many travel to Cadomyr in search of love and well other things. *Giggles* May you find your true mate if you're bound for Cadomyr!"
+"Sirani", english -> "She is the goddess of love and pleasure. I have heard that many travel to Cadomyr in search of love and well other things. *Giggles* May you find your true mate if you're bound for Cadomyr!"
 "Sirani" -> "Sie ist die Göttin der Liebe und der Freude und einige Anhänger können in Cadomyr gefunden werden. Wenn du an sie glaubst, dann wirst du dort Gleichgesinnte finden."
 "Tanora", "Zelphia", english -> "She is the only elder god that has not departed from this realm. Her followers are mainly the lizardmen, but don't take her lightly for many of them regard her with strict devotion and pride. Since she is an elder god the elves honor her too. If you haven't guessed it yet she is the goddess of water!"
 "Tanora", "Zelphia" -> "Sie ist eine der alten Götter, die diese Ebene verlassen haben. Daher wird sie dir nicht mehr helfen und es macht keinen Sinn ihr zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, sie war die Göttin des Wasser."
@@ -262,34 +262,30 @@ itemShoes = 369
 "Zhambra" -> "Er ist der Freundschaft und Treue und einige Anhänger können in Cadomyr gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "*Chuckles* All I have is information, and I'll give that to you for free!", "I'm sorry, but I don't sell anything."
+"what sell", "what buy", "list wares", "price of" -> "All I have is information, and I'll give that to you for free!", "I'm sorry, but I don't sell anything."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Von mir bekommst du nur Informationen, und die sind umsonst!", "Tut mir leid, aber ich verkaufe nichts."
-"tell something" -> "*Chuckles* All I have is information, and I'll give that to you for free!", "I'm sorry, but I don't sell anything."
+"tell something" -> "All I have is information, and I'll give that to you for free!", "I'm sorry, but I don't sell anything."
 "erzähl was", "erzähl etwas" -> "Von mir bekommst du nur Informationen, und die sind umsonst!", "Tut mir leid, aber ich verkaufe nichts."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-"brummi", "hollaficht", english -> "That's me! If your after information look no further!"
-"brummi", "hollaficht" -> "Das bin ich und ich weiß viele wichtige Dinge."
-"Yes" -> "Yes?", "'Yes' is the opposite of 'no'. *Giggles*", "'Yes' means 'Ja' in the old language. *Giggles*"
-"Ja" -> "Ja?", "'Ja' ist das Gegenteil von 'Nein'. *kichert*", "'Ja' bedeutet 'Yes' in der neuen Sprache. *kichert*"
-"No" -> "No?", "'No' is the opposite of 'Yes'. *Giggles*", "'No' means 'Nein' in the old language. *Giggles*"
-"Nein" -> "Nein?", "'Nein' ist das Gegenteil von 'Ja'. *kichert*", "'Nein' bedeutet 'No' in der neuen Sprache. *kichert*"
+"Viola", "Baywillow", english -> "That's me! If your after information look no further!"
+"Viola", "Baywillow" -> "Das bin ich und ich weiß viele wichtige Dinge."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Duddli, do-da, ask me for help."
-".*", german, chance(20) -> "Duddli, duddla, frag mich nach Hilfe."
+-- Optional: Everything a player says and is not caught earlier.
+".*", english -> "ask me for help."
+".*" -> "frag mich nach Hilfe."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Frag mich nach 'Hilfe', wenn du 'Hilfe' brauchst.", "Ask me for 'help', if you need help."
+cycletext "Frag mich nach 'Hilfe', wenn du Hilfe brauchst.", "Ask me for 'help', if you need help."
 cycletext "Frag mich wenn du was über die drei Fraktionen wissen möchtest.", "Ask me if you'd like to know something about three factions."
-cycletext "Runewick, Galmair, Cadomyr...ich weiß alles...fast alles. *kichert*", "Runewick, Galmair, Cadomyr... I know everything...almost. *Giggles*"
+cycletext "Runewick, Galmair, Cadomyr... ich weiß alles. Fast alles.", "Runewick, Galmair, Cadomyr... I know everything. Almost."
 cycletext "Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveler! Keep on the lookout if you're in search for tasks or grand quests! All across the land many are in need, don't be afraid ask!"
 cycletext "Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... ich weiß alles über sie... fast alles.*kichert*", "Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan...learn all you need to know right here! Well, just about everything. *Giggles*"
-cycletext "Wenn du nicht weißt wohin du gehen sollst, frag mich nach hilfe.", "Don't get lost! I'm Brummi, the local area guide ask me for help, and I won't let you down!"
+cycletext "Wenn du nicht weißt wohin du gehen sollst, frag mich nach hilfe.", "Don't get lost! I'm Viola, the local area guide ask me for help, and I won't let you down!"
 cycletext "Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach hilfe.", "If you'd like to know where you and your faith are welcome, tell me your god and I'll tell you the best faction to join!"
-cycletext "Ich bin Brummi und weiß viele Sachen", "I'm Brummi and I know many things."
+cycletext "Ich bin Viola und weiß viele Sachen.", "I'm Viola and I know many things."
 cycletext "Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, ich weiß für jeden den richtigen Platz.", "Whether your an elf, dwarf, human, orc, lizardman, or halfling I know the right place for everyone!"
