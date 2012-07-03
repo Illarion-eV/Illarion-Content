@@ -14,32 +14,60 @@ function MoveToField(Character)
     -- Cadomyr: 127 647 0
     -- Runewick: 788 826 0
     -- Galmair: 424 245 0
-
+	
     -- we define our destination
     if Character.pos == position(56,96,100) then --Cadomyr
-	   destination = position(127,647,0);
+	
+	    destination = position(127,647,0);
+		factionID = 1;
+		
+	    if Character:getPlayerLanguage() == 0 then
+		    dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
+	    else	
+		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you finished the tutorial. CADOMYR", callbackNewbie)
+	    end	
+		
 	elseif Character.pos == position(20,99,100) then --Runewick
-	   destination = position(788,826,0);
+	
+	    destination = position(788,826,0);
+	    factionID = 2;
+		
+	   	if Character:getPlayerLanguage() == 0 then
+		    dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
+	    else	
+		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you finished the tutorial. RUNEWICK", callbackNewbie)
+	    end	
+		
     elseif Character.pos == position(40,111,100) then --Galmair
-	   destination = position(424,245,0);
+	
+	    destination = position(424,245,0);
+	    factionID = 3;
+		
+        if Character:getPlayerLanguage() == 0 then
+		    dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
+	    else	
+		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you finished the tutorial. GALMAIR", callbackNewbie)
+	    end	
+		
 	end
 
-    world:gfx(41,Character.pos)	
-	Character:forceWarp(destination)
-    world:makeSound(13,destination)
-    world:gfx(41,Character.pos)	
+    world:gfx(41,Character.pos);
+	Character:forceWarp(destination);
+    world:makeSound(13,destination);
+    world:gfx(41,Character.pos);
 	
-	FactionCheck = base.factions.get_Faction(Character)
+	FactionCheck = base.factions.get_Faction(Character);
+	
 	if not Character:isAdmin() and not (FactionCheck.tid~=0) then -- admins and chars who are already members of a faction are unaffected and just warped 
 	
-		-- we delete some items, if the char has more than one of them
+		-- We delete some items, if the char has more than one of them
 		local DeleteList = {23,391,2763} --hammer, torch, pick-axe
 		for i=1,#DeleteList do
 			itemAmount = Character:count(DeleteList[i])
 			Character:eraseItem( ItemListe[i], (itemAmount -1))
 		end	
 		
-		-- we remove the newbie lte
+		-- We remove the newbie lte
 		find, myEffect = Character.effects:find(13)
 		if find then
 			removedEffect = Character.effects:removeEffect(13)
@@ -48,17 +76,30 @@ function MoveToField(Character)
 			end
 		end
 		
+		-- We restore the character 
+		
 		Character:setAttrib("hitpoints",10000)
 		Character:setAttrib("mana",10000)
 		Character:setAttrib("foodlevel",30000)
 		
-		local callbackNewbie = function(dialogNewbie) end; --empty callback
-			
-	        if Character:getPlayerLanguage() == 0 then
-		        dialogNewbie = MessageDialog("Überschrift","deutscher Text", callbackNewbie)
-	        else	
-		        dialogNewbie = MessageDialog("Tutorial", "Congratulations, you finished the tutorial. ", callbackNewbie)
-	        end	
-	        Character:requestMessageDialog(dialogNewbie)
+		-- We send him a message box
+		
+	    local callbackNewbie = function(dialogNewbie) end; --empty callback
+	    Character:requestMessageDialog(dialogNewbie); --sending the dialog box
+		
+        -- We tell other players about our noob
+		
+	    playerlist = world:getPlayersOnline();
+		
+	    for i = 1, #(playerlist) do 
+		    FactionStuff = base.factions.get_Faction(playerlist[i]);
+	        if FactionStuff.tid == factionID then --Other faction members are alerted
+                base.common.InformNLS(playerlist[i],"[New player] Ein neuer Spieler ist gerade deinem Reich beigetreten.","[New player] A new player just joined your realm.");  
+		    end
+	    end
+		
+		-- We make the noob a faction member - finally!
+		-- Merung, you forgot this! ~Estralis
+		
 	end	
 end	
