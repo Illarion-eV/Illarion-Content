@@ -434,6 +434,11 @@ function receiveText(texttype, message, speaker)
             theItemStats=world:getItemStats(theItem); --reading its stats
 		end
 		
+		if not theItem then --nothing there!
+			message1={"Please put the item I shall repair on the table.","Packt den Gegenstand, den ich instandsetzen soll, einfach auf den Tisch."}; --No item found
+		    thisNPC:talk(Character.say, message1[language]); --Message 1
+		end
+		
 		if theItem then
 		    thisNPC:talk(Character.say, "Worth: "..theItemStats.Worth.."!"); --Message 3
 			durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
