@@ -63,8 +63,8 @@ function MoveToField(Character)
 		-- We delete some items, if the char has more than one of them
 		local DeleteList = {23,391,2763} --hammer, torch, pick-axe
 		for i=1,#DeleteList do
-			itemAmount = Character:count(DeleteList[i])
-			Character:eraseItem( ItemListe[i], (itemAmount -1))
+			itemAmount = Character:countItem(DeleteList[i])
+			Character:eraseItem( DeleteList[i], (itemAmount -1))
 		end	
 		
 		-- We remove the newbie lte
