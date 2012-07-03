@@ -84,10 +84,14 @@ AddToDoorList(3481, 3477);
 AddToDoorList(3482, 3478);
 AddToDoorList(3483, 3479);
 AddToDoorList(3484, 3480);
+AddToDoorList(3489, 3485);
+AddToDoorList(3490, 3486);
+AddToDoorList(3491, 3487);
+AddToDoorList(3492, 3488);
 AddToDoorList(3285, 3203);
-AddToDoorList(3202, 3282); -- n cl
-AddToDoorList(3203, 3283); -- e cl
-AddToDoorList(3284, 3200); -- s op
+AddToDoorList(3202, 3282);
+AddToDoorList(3203, 3283);
+AddToDoorList(3284, 3200);
 
 AddToDoorList = nil;
 
