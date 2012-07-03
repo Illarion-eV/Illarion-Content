@@ -7,17 +7,19 @@ module("item.doors", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
 
-    if base.doors.CloseDoor(SourceItem) then
-	
-	    if User.pos.z==100 or User.pos.z==101 then --On Noobia: Doors must not be closed.
+	if User.pos.z==100 or User.pos.z==101 then --On Noobia: Doors must not be closed.
 		
-	        base.common.InformNLS(User,"Die Tür klemmt und kann nicht geschlossen werden.","The door is jammed and won't close.");
-	        return; --bailing out
+	    base.common.InformNLS(User,"Die Tür klemmt und kann nicht geschlossen werden.","The door is jammed and won't close.");
+	    return; --bailing out
 			
-	    end --Noobia end
+	end --Noobia end
 		
-        base.common.InformNLS(User,"Du schließt die Tür.","You close the door.");
-
+    if base.doors.CloseDoor(SourceItem) then
+		
+	    base.common.InformNLS(User,"Du schließt die Tür.","You close the door.");
+     
+	else
+		
 		local OpenDoor,OpenOK=base.doors.OpenDoor(SourceItem);
 		
         if OpenOK then
