@@ -47,26 +47,10 @@ AmbientList = {	add = function ( self, pos, direction, german, english, hours, m
 				end
 }
 
--- Tutorial by Rincewind
-AmbientList:add( position(37,94,100 ),nil,"Dies ist das Ende des Tutorials. W‰hle nun ein Reich, dem dein Charakter angehˆren wird. Im Laufe des Spiels kannst du deine Fraktionszugehˆrigkeit jederzeit ‰ndern.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(40,107,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weiﬂheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(40,108,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weiﬂheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(39,108,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weiﬂheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(39,109,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weiﬂheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(38,109,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weiﬂheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(38,110,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weiﬂheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(37,110,100 ),nil,"Dies ist der Weg nach Runewick der Stadt der Weiﬂheit und Magie.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(42,97,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(42,98,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(42,99,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(42,100,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(42,101,100 ),nil,"Dies ist der Weg nach Galmair der Stadt des aufstrebenden Wohlstands.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(26,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(27,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(28,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(29,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(30,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms.","ENGLISH",nil,nil,100); --Tutorial
-AmbientList:add( position(31,115,100 ),nil,"Dies ist der Weg nach Cadomyr der Stadt der Ehre und des Ruhms.","ENGLISH",nil,nil,100); --Tutorial
+-- Tutorial by Rincewind and Estralis
+AmbientList:add( position(28,101,100 ),{5,6,7},"[Tutorial] Dies ist der Weg nach Runewick, dem Reich der Weiﬂheit und Magie.","[Tutorial] This is the way to Runewick, realm of wisdom and magic.",nil,nil,100); --Tutorial
+AmbientList:add( position(36,108,100 ),{3,4,5},"[Tutorial] Dies ist der Weg nach Galmair, dem Reich des aufstrebenden Wohlstands.","[Tutorial] This is the way to Galmair, realm of prosperity and wealth.",nil,nil,100); --Tutorial
+AmbientList:add( position(45,97,100 ),{1,2,3},"[Tutorial] Dies ist der Weg nach Cadomyr, dem Reich der Ehre und des Ruhms.","[Tutorial] This is the way to Cadomyr, realm of honour and glory.",nil,nil,100); --Tutorial
 
 --SW map by Estralis et al.
 AmbientList:add( position(93,587,0),nil,"In der Ferne hˆrst du das Bellen eines Hundes.","In the distance, you can hear a barking dog.",nil,nil,1); --General Cadomyr
