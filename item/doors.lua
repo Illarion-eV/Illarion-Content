@@ -18,9 +18,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		
         base.common.InformNLS(User,"Du schließt die Tür.","You close the door.");
 
-		else
-		
-        local OpenDoor,OpenOK=base.doors.OpenDoor(SourceItem);
+		local OpenDoor,OpenOK=base.doors.OpenDoor(SourceItem);
 		
         if OpenOK then
 		
