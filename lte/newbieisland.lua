@@ -53,7 +53,7 @@ function callEffect(newbieEffect,Character)
 
 	        --Station 1: Henry Cunnigan teaches how to talk to NPCs		
 	        if Character:getQuestProgress(309) < 2 and Character:isInRangeToPosition(position(37, 21, 100),7) then -- the char should walk to a specific postion (see: triggerfield/noobia_henry)
-		        base.common.InformNLS(Character,"ÜBERSETZEN.","[Tutorial] To start the tutorial, please walk to the human at the end of the pier. Click and hold with the right mouse button on a spot close to the human. You can also walk using the num pad, the arrow keys or WASD.");
+		        base.common.TempInformNLS(Character,"ÜBERSETZEN.","[Tutorial] To start the tutorial, please walk to the human at the end of the pier. Click and hold with the right mouse button on a spot close to the human. You can also walk using the num pad, the arrow keys or WASD.");
 	        end 
 
 		else --General help
@@ -64,7 +64,7 @@ function callEffect(newbieEffect,Character)
 				messageCount = 1;
 			end	
 			
-			base.common.InformNLS(Character,""..ListCycleMessageGerman[messageCount],""..ListCycleMessageEnglish[messageCount]);   
+			base.common.TempInformNLS(Character,""..ListCycleMessageGerman[messageCount],""..ListCycleMessageEnglish[messageCount]);   
 			
 			messageCount = messageCount + 1;
 			
@@ -81,7 +81,7 @@ function callEffect(newbieEffect,Character)
 		    playerlist = world:getPlayersOnline();
 	        for i = 1, #(playerlist) do 
 	            if playerlist[i]:isAdmin() then --Out GMs should know a noob has problems!
-					base.common.InformNLS(playerlist[i],"[Noobalarm] Ein Spieler könnte auf Noobia Hilfe gebrauchen.","[Noob alert] A player could use assistance on Noobia!");  
+					base.common.TempInformNLS(playerlist[i],"[Noobalarm] Ein Spieler könnte auf Noobia Hilfe gebrauchen.","[Noob alert] A player could use assistance on Noobia!");  
 		        end
 	        end
 		end
