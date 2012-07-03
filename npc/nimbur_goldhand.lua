@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 02, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 03, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -59,7 +59,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("skip");
 talkEntry:addTrigger("cancel");
 talkEntry:addTrigger("abort");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You decided to skip the tutorial. Please chose a realm now by stepping through a portal on one of the islands."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You decided to skip the tutorial. Please choose a realm as home for your character now by stepping through a portal on one of the islands."));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(35, 95, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;

@@ -52,7 +52,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir Informationen geben über die Spielwelt geben. Schlüsselwörter: Hilfe, Reiche, Götter, Rassen, Handwerke, Motive, Landschaften, Anführer, Gesetze."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir Informationen über die Spielwelt geben. Schlüsselwörter: Hilfe, Reiche, Götter, Rassen, Handwerke, Motive, Landschaften, Anführer, Gesetze."));
 talkEntry:addResponse("Hiho, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.");
 talkEntry:addResponse("Hallo, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.");
 talkEntry:addResponse("Guten Tag, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.");
@@ -63,7 +63,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("skip");
 talkEntry:addTrigger("cancel");
 talkEntry:addTrigger("abort");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are already at the end of the tutorial. Please chose a realm as home for your character now by stepping through a portal on one of the islands."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are already at the end of the tutorial. Please choose a realm as home for your character now by stepping through a portal on one of the islands."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

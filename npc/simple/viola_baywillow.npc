@@ -56,10 +56,10 @@ itemShoes = 369
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keyphrases: Help, realms, gods, races, crafts, motives, landscapes, leaders, laws."), "Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!", "Hiho, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the realms of Cadomyr, Galmair and Runewick!", "Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!"
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir Informationen geben über die Spielwelt geben. Schlüsselwörter: Hilfe, Reiche, Götter, Rassen, Handwerke, Motive, Landschaften, Anführer, Gesetze."), "Hiho, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach."
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir Informationen über die Spielwelt geben. Schlüsselwörter: Hilfe, Reiche, Götter, Rassen, Handwerke, Motive, Landschaften, Anführer, Gesetze."), "Hiho, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach."
 
 -- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You are already at the end of the tutorial. Please chose a realm as home for your character now by stepping through a portal on one of the islands.")
+"skip", "cancel", "abort" -> inform("[Tutorial] You are already at the end of the tutorial. Please choose a realm as home for your character now by stepping through a portal on one of the islands.")
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN.")
 
 -- General speech
