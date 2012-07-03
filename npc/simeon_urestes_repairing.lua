@@ -33,43 +33,43 @@ function receiveText(texttype, message, speaker)
 			durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 		    toRepair=99-durability; --the amount of durability points that has to repaired
 		    price=math.ceil(theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
-		end
 		
-		if theItem.id == 0 or theItem.id == 320 or theItem.id == nil then --there is nothing on the table!
+            if theItem.id == 0 or theItem.id == 320 or theItem.id == nil then --there is nothing on the table!
 		
-	        message1={"Please put the item I shall repair on the table.","Packt den Gegenstand, den ich instandsetzen soll, einfach auf den Tisch."}; --No item found
-		    thisNPC:talk(Character.say, message1[language]); --Message 1
+	            message1={"Please put the item I shall repair on the table.","Packt den Gegenstand, den ich instandsetzen soll, einfach auf den Tisch."}; --No item found
+		        thisNPC:talk(Character.say, message1[language]); --Message 1
 			
-		elseif theItemStats.Worth == 0 or theItemStats.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
+		    elseif theItemStats.Worth == 0 or theItemStats.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
 		
-	        message2={"I cannot repair this, sorry.","Entschuldigt, aber das kann ich nicht reparieren."}; --Priceless, perfect or stackable item
-		    thisNPC:talk(Character.say, message2[language]); --Message 2
+	            message2={"I cannot repair this, sorry.","Entschuldigt, aber das kann ich nicht reparieren."}; --Priceless, perfect or stackable item
+		        thisNPC:talk(Character.say, message2[language]); --Message 2
 			
-		else -- I can repair it!
+		    else -- I can repair it!
 	
-	        if string.find(message,"price") or string.find(message,"cost") or  string.find(message,"preis") or string.find(message,"koste") then --player just wants to know the price
+	            if string.find(message,"price") or string.find(message,"cost") or  string.find(message,"preis") or string.find(message,"koste") then --player just wants to know the price
 			    
-				message3={"For repairing this item, I demand "..price.." copper coins.","Die Reparatur dieses Gegenstandes würde "..price.." Kupferstücke kosten."}; --Saying the price
-		        thisNPC:talk(Character.say, message3[language]); --Message 3
+				    message3={"For repairing this item, I demand "..price.." copper coins.","Die Reparatur dieses Gegenstandes würde "..price.." Kupferstücke kosten."}; --Saying the price
+		            thisNPC:talk(Character.say, message3[language]); --Message 3
 				
-            elseif string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand") then --player wants to repair the item
+                elseif string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand") then --player wants to repair the item
 			
-			    if not npc.base.autonpcfunctions.CheckMoney(speaker,price) then --player is broke
+			        if not npc.base.autonpcfunctions.CheckMoney(speaker,price) then --player is broke
 				
-			        message4={"You don't have enough money I suppose. I demand "..price.." copper coins for repairing this item.","Ihr habt anscheinend nicht genug Geld. Die Reparatur würde "..price.." Kupferstücke kosten."}; --Player is broke
-		            thisNPC:talk(Character.say, message4 [language]); --Message 4
+			            message4={"You don't have enough money I suppose. I demand "..price.." copper coins for repairing this item.","Ihr habt anscheinend nicht genug Geld. Die Reparatur würde "..price.." Kupferstücke kosten."}; --Player is broke
+		                thisNPC:talk(Character.say, message4 [language]); --Message 4
 					
-			    else --he has the money
+			        else --he has the money
 				
-			        message5={"#me repairs the item at a cost of "..price.." copper coins.","#me setzt den Gegenstand für "..price.." Kupferstücke in Stand."};	--...
-                    thisNPC:talk(Character.say, message5 [language]); --Message 5
-                    npc.base.autonpcfunctions.PayTheNPC(speaker,price); --pay!
-                    theItem.quality=theItem.quality+toRepair; --repair!
-                    world:changeItem(theItem);
+			            message5={"#me repairs the item at a cost of "..price.." copper coins.","#me setzt den Gegenstand für "..price.." Kupferstücke in Stand."};	--...
+                        thisNPC:talk(Character.say, message5 [language]); --Message 5
+                        npc.base.autonpcfunctions.PayTheNPC(speaker,price); --pay!
+                        theItem.quality=theItem.quality+toRepair; --repair!
+                        world:changeItem(theItem);
 					
-				end --broke/wealthy	
-			end --price/repair
-		end --there is an item
+				    end --broke/wealthy	
+			    end --price/repair
+		    end --there is an item
+        end --item exists
 	else
         mainNPC:receiveText(speaker, message); 
 	end
