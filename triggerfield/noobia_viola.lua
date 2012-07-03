@@ -22,7 +22,7 @@ function MoveToField(Character)
 	        if Character:getPlayerLanguage() == 0 then
 		        dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
 	        else	
-		        dialogNewbie = MessageDialog("Tutorial", "This is the final station of the tutorial. Please choose a realm as home for your character now by stepping through a portal on one of the islands. Viola Baywillow will answer your questions on the available realms, just ask her for 'help'.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial", "This is the final station of the tutorial. Please choose a realm as home for your character now by stepping through a portal on one of the islands. You can reconsider any time once you joined the game. Viola Baywillow will answer your questions on the available realms, just ask her for 'help'.", callbackNewbie)
 	        end	
 	        Character:requestMessageDialog(dialogNewbie)
 		end

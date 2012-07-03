@@ -24,7 +24,7 @@ function MoveToField(Character)
 	    if Character:getPlayerLanguage() == 0 then
 		    dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
 	    else	
-		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you finished the tutorial. CADOMYR", callbackNewbie)
+		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you finished the tutorial. You joined Cadomyr, realm of honour and glory. Please note that from now on everyone will expect you to stay in your chosen role - be it a proud knight, a humble servant or a noble diplomat.", callbackNewbie)
 	    end	
 		
 	elseif Character.pos == position(20,99,100) then --Runewick
@@ -35,7 +35,7 @@ function MoveToField(Character)
 	   	if Character:getPlayerLanguage() == 0 then
 		    dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
 	    else	
-		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you finished the tutorial. RUNEWICK", callbackNewbie)
+		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you finished the tutorial. You joined Runewick, realm of wisdom and magic. Please note that from now on everyone will expect you to stay in your chosen role - be it a mysterious mage, a wise scholar or a peaceful ranger.", callbackNewbie)
 	    end	
 		
     elseif Character.pos == position(40,111,100) then --Galmair
@@ -46,7 +46,7 @@ function MoveToField(Character)
         if Character:getPlayerLanguage() == 0 then
 		    dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
 	    else	
-		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you finished the tutorial. GALMAIR", callbackNewbie)
+		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you finished the tutorial. You joined Galmair, realm of prosperity and wealth. Please note that from now on everyone will expect you to stay in your chosen role - be it a sturdy craftsman, a shady thug or a wealthy merchant.", callbackNewbie)
 	    end	
 		
 	end
