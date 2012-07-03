@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 02, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 03, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -44,12 +44,18 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keyphrases: Help, realms, gods, races, crafts, motives, landscapes, leaders, laws."));
+talkEntry:addResponse("Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!");
+talkEntry:addResponse("Hiho, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the realms of Cadomyr, Galmair and Runewick!");
+talkEntry:addResponse("Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir Informationen geben über die Spielwelt geben. Schlüsselwörter: Hilfe, Reiche, Götter, Rassen, Handwerke, Motive, Landschaften, Anführer, Gesetze."));
+talkEntry:addResponse("Hiho, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Hallo, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Guten Tag, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -57,7 +63,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("skip");
 talkEntry:addTrigger("cancel");
 talkEntry:addTrigger("abort");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are already at the end of the tutorial. Please chose a realm now by stepping through a portal on one of the islands."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are already at the end of the tutorial. Please chose a realm as home for your character now by stepping through a portal on one of the islands."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -75,9 +81,9 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Hiho, if you'd like to know something about the factions here, just ask me!");
-talkEntry:addResponse("Hiya, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the factions!");
-talkEntry:addResponse("Good day, if you'd like to know something about the factions here, let me know!");
+talkEntry:addResponse("Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!");
+talkEntry:addResponse("Hiho, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the realms of Cadomyr, Galmair and Runewick!");
+talkEntry:addResponse("Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -89,9 +95,9 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
-talkEntry:addResponse("Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
-talkEntry:addResponse("Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Hiho, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Hallo, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Guten Tag, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -101,9 +107,9 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hiho to you, if you'd like to know something about the factions here, just ask me.");
-talkEntry:addResponse("Hiya, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the factions!");
-talkEntry:addResponse("Good day, if you'd like to know something about the factions here, let me know!");
+talkEntry:addResponse("Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!");
+talkEntry:addResponse("Hiho, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the realms of Cadomyr, Galmair and Runewick!");
+talkEntry:addResponse("Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -112,9 +118,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
-talkEntry:addResponse("Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
-talkEntry:addResponse("Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Hiho, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Hallo, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Guten Tag, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -186,8 +192,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I'm Viola, the local guide around these parts.");
-talkEntry:addResponse("I'm Viola and you? Need help with anything?");
+talkEntry:addResponse("I'm Viola and I know all that matters about the realms Cadomyr, Galmair and Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -196,8 +201,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Ich bin Viola und weiß alle wichtigen Dinge über diesen Platz hier. So, frag mich was!");
-talkEntry:addResponse("Ich bin Viola und du? Möchtest du etwas wissen?");
+talkEntry:addResponse("Ich bin Viola und weiß alle wichtigen Dinge über die Reiche Cadomyr, Galmair und Runewick. So, frag mich was!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -205,21 +209,21 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The factions are always on the look out for adventurers and workers alike! Another option would be the Explorer-guild. Just look for them.");
+talkEntry:addResponse("Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The realms are always on the look out for adventurers and workers alike!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Fraktionen immer nach Abenteuerer und Arbeitern suchen! Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
+talkEntry:addResponse("Hoi, noch ein tapferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Reiche immer nach Abenteuerer und Arbeitern suchen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Ahh, gotta case of idle hands I see. Be assured traveler if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions! Another option would be the Explorer-guild. Just look for them.");
+talkEntry:addResponse("Ahh, gotta case of idle hands I see. Be assured traveler if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -227,7 +231,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen!  Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen.");
+talkEntry:addResponse("Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1396,24 +1400,23 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ask me for help.");
+talkEntry:addResponse("I don't quite understand, sorry. Just ask me for help and I'll see what I can do for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("frag mich nach Hilfe.");
+talkEntry:addResponse("Das habe ich jetzt nicht richtig verstanden. Frag mich einfach nach Hilfe und ich schau, was ich für dich tun kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Frag mich nach 'Hilfe', wenn du Hilfe brauchst.", "Ask me for 'help', if you need help.");
-talkingNPC:addCycleText("Frag mich wenn du was über die drei Fraktionen wissen möchtest.", "Ask me if you'd like to know something about three factions.");
+talkingNPC:addCycleText("Frag mich wenn du was über die drei Reiche wissen möchtest.", "Ask me if you'd like to know something about three realms.");
 talkingNPC:addCycleText("Runewick, Galmair, Cadomyr... ich weiß alles. Fast alles.", "Runewick, Galmair, Cadomyr... I know everything. Almost.");
-talkingNPC:addCycleText("Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveler! Keep on the lookout if you're in search for tasks or grand quests! All across the land many are in need, don't be afraid ask!");
-talkingNPC:addCycleText("Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... Ich weiß alles über sie. Fast alles.", "Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan...learn all you need to know right here! Well, just about everything. *Giggles*");
-talkingNPC:addCycleText("Wenn du nicht weißt wohin du gehen sollst, frag mich nach hilfe.", "Don't get lost! I'm Viola, the local area guide ask me for help, and I won't let you down!");
-talkingNPC:addCycleText("Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach hilfe.", "If you'd like to know where you and your faith are welcome, tell me your god and I'll tell you the best faction to join!");
-talkingNPC:addCycleText("Ich bin Viola und weiß viele Sachen.", "I'm Viola and I know many things.");
-talkingNPC:addCycleText("Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, ich weiß für jeden den richtigen Platz.", "Whether your an elf, dwarf, human, orc, lizardman, or halfling I know the right place for everyone!");
+talkingNPC:addCycleText("Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveler! Keep on the lookout if you're in search for tasks or grand quests! All across the land many are in need, don't be afraid to ask!");
+talkingNPC:addCycleText("Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... Ich weiß alles über sie. Fast alles.", "Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan... learn all you need to know right here! Well, just about everything.");
+talkingNPC:addCycleText("Wenn du nicht weißt wohin du gehen sollst, frag mich nach Hilfe.", "Don't get lost! I'm Viola, the local guide, ask me for help, and I won't let you down!");
+talkingNPC:addCycleText("Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach Hilfe.", "If you'd like to know where you and your faith are welcome, tell me your god and I'll tell you the best realm to join!");
+talkingNPC:addCycleText("Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbling, ich weiß für jeden den richtigen Platz.", "Whether your an elf, dwarf, human, orc, lizardman, or halfling I know the right place for everyone!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);

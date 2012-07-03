@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 02, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 03, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Viola Baywillow"
@@ -55,33 +55,34 @@ itemShoes = 369
 "reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keyphrases: Help, realms, gods, races, crafts, motives, landscapes, leaders, laws.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir Informationen geben über die Spielwelt geben. Schlüsselwörter: Hilfe, Reiche, Götter, Rassen, Handwerke, Motive, Landschaften, Anführer, Gesetze.")
+"Help" -> inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keyphrases: Help, realms, gods, races, crafts, motives, landscapes, leaders, laws."), "Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!", "Hiho, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the realms of Cadomyr, Galmair and Runewick!", "Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!"
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir Informationen geben über die Spielwelt geben. Schlüsselwörter: Hilfe, Reiche, Götter, Rassen, Handwerke, Motive, Landschaften, Anführer, Gesetze."), "Hiho, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach."
 
 -- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You are already at the end of the tutorial. Please chose a realm now by stepping through a portal on one of the islands.")
+"skip", "cancel", "abort" -> inform("[Tutorial] You are already at the end of the tutorial. Please chose a realm as home for your character now by stepping through a portal on one of the islands.")
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN.")
 
--- bis hier
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, if you'd like to know something about the factions here, just ask me!", "Hiya, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the factions!", "Good day, if you'd like to know something about the factions here, let me know!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho to you, if you'd like to know something about the factions here, just ask me.", "Hiya, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the factions!", "Good day, if you'd like to know something about the factions here, let me know!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!", "Hiho, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the realms of Cadomyr, Galmair and Runewick!", "Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!", "Hiho, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the realms of Cadomyr, Galmair and Runewick!", "Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach."
 "Farewell", "Bye", "Fare well", "See you" -> "Fare thee well.", "Good bye."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mach's gut.", "Tschüß.", "Wiedersehen."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Fare thee well.", "Good bye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Mach's gut.", "Tschüß.", "Wiedersehen."
 "How are you", "How do you feel", "How do you do" -> "I'm fine and you?", "I feel wonderful.", "Can't complain."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht's toll. Und dir?", "Ich fühle mich wunderbar.", "Ich kann mich nicht beschweren."
-"your name", "who are you", "who art thou" -> "I'm Viola, the local guide around these parts.", "I'm Viola and you? Need help with anything?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Viola und weiß alle wichtigen Dinge über diesen Platz hier. So, frag mich was!", "Ich bin Viola und du? Möchtest du etwas wissen?"
+"your name", "who are you", "who art thou" -> "I'm Viola and I know all that matters about the realms Cadomyr, Galmair and Runewick."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Viola und weiß alle wichtigen Dinge über die Reiche Cadomyr, Galmair und Runewick. So, frag mich was!"
+
+-- bis hier
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The factions are always on the look out for adventurers and workers alike! Another option would be the Explorer-guild. Just look for them."
-"quest", "mission" -> "Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Fraktionen immer nach Abenteuerer und Arbeitern suchen! Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen."
-"task", "adventure" -> "Ahh, gotta case of idle hands I see. Be assured traveler if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions! Another option would be the Explorer-guild. Just look for them."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen!  Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen."
+"quest", "mission", english -> "Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The realms are always on the look out for adventurers and workers alike!"
+"quest", "mission" -> "Hoi, noch ein tapferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Reiche immer nach Abenteuerer und Arbeitern suchen!"
+"task", "adventure" -> "Ahh, gotta case of idle hands I see. Be assured traveler if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions!"
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I don't have a specific profession.", "I only pass along information, but I don't have profession, per say."
@@ -275,9 +276,11 @@ itemShoes = 369
 "Viola", "Baywillow", english -> "That's me! If your after information look no further!"
 "Viola", "Baywillow" -> "Das bin ich und ich weiß viele wichtige Dinge."
 
+-- hierunter auch fertig
+
 -- Optional: Everything a player says and is not caught earlier.
-".*", english -> "ask me for help."
-".*" -> "frag mich nach Hilfe."
+".*", english -> "I don't quite understand, sorry. Just ask me for help and I'll see what I can do for you."
+".*" -> "Das habe ich jetzt nicht richtig verstanden. Frag mich einfach nach Hilfe und ich schau, was ich für dich tun kann."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -285,11 +288,10 @@ itemShoes = 369
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Frag mich nach 'Hilfe', wenn du Hilfe brauchst.", "Ask me for 'help', if you need help."
-cycletext "Frag mich wenn du was über die drei Fraktionen wissen möchtest.", "Ask me if you'd like to know something about three factions."
+cycletext "Frag mich wenn du was über die drei Reiche wissen möchtest.", "Ask me if you'd like to know something about three realms."
 cycletext "Runewick, Galmair, Cadomyr... ich weiß alles. Fast alles.", "Runewick, Galmair, Cadomyr... I know everything. Almost."
-cycletext "Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveler! Keep on the lookout if you're in search for tasks or grand quests! All across the land many are in need, don't be afraid ask!"
-cycletext "Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... Ich weiß alles über sie. Fast alles.", "Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan...learn all you need to know right here! Well, just about everything. *Giggles*"
-cycletext "Wenn du nicht weißt wohin du gehen sollst, frag mich nach hilfe.", "Don't get lost! I'm Viola, the local area guide ask me for help, and I won't let you down!"
-cycletext "Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach hilfe.", "If you'd like to know where you and your faith are welcome, tell me your god and I'll tell you the best faction to join!"
-cycletext "Ich bin Viola und weiß viele Sachen.", "I'm Viola and I know many things."
-cycletext "Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, ich weiß für jeden den richtigen Platz.", "Whether your an elf, dwarf, human, orc, lizardman, or halfling I know the right place for everyone!"
+cycletext "Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveler! Keep on the lookout if you're in search for tasks or grand quests! All across the land many are in need, don't be afraid to ask!"
+cycletext "Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... Ich weiß alles über sie. Fast alles.", "Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan... learn all you need to know right here! Well, just about everything."
+cycletext "Wenn du nicht weißt wohin du gehen sollst, frag mich nach Hilfe.", "Don't get lost! I'm Viola, the local guide, ask me for help, and I won't let you down!"
+cycletext "Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach Hilfe.", "If you'd like to know where you and your faith are welcome, tell me your god and I'll tell you the best realm to join!"
+cycletext "Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbling, ich weiß für jeden den richtigen Platz.", "Whether your an elf, dwarf, human, orc, lizardman, or halfling I know the right place for everyone!"
