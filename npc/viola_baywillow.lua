@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 03, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -216,14 +216,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Hoi, noch ein tapferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Reiche immer nach Abenteuerer und Arbeitern suchen!");
+talkEntry:addResponse("Hoi, noch ein tapferer Reisender! Leider habe ich keine Arbeit für euch. Das soll euch nicht entmutigen, da die Reiche immer nach Abenteuerer und Arbeitern suchen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Ahh, gotta case of idle hands I see. Be assured traveler if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions!");
+talkEntry:addResponse("Ahh, a case of idle hands, I see. Be assured traveler if you're willing to seek there are folks out there that could use a hand or two. Best start with one of the realms!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,7 +231,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen!");
+talkEntry:addResponse("Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten sucht ihr nach ihnen in einem der Reiche!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -244,7 +244,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich habe keine spezifische Arbeit.");
+talkEntry:addResponse("Ich habe keinen spezifischen Beruf.");
 talkEntry:addResponse("Ich gebe lediglich Informationen, aber ich habe nicht wirklich einen Beruf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -259,20 +259,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich habe keine spezifische Arbeit.");
+talkEntry:addResponse("Ich habe keinen spezifische Beruf.");
 talkEntry:addResponse("Ich gebe lediglich Informationen, aber ich habe nicht wirklich einen Beruf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Sounds pretty nice, but nothing like mine. *giggles*");
+talkEntry:addResponse("Sounds pretty nice, but nothing like mine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Klingt hübsch, aber nicht so hübsch wie mein Name. *kichert*");
+talkEntry:addResponse("Klingt hübsch, aber nicht so hübsch wie mein Name.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -280,7 +280,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("This in an old island, which does not exist anymore. Many who you can find here, are from this island. If you like know more about it, feel free to ask them.");
+talkEntry:addResponse("This in an old island, which does not exist anymore. Many who you can find in the three realms, are from this island. If you like know more about it, feel free to ask them.");
 talkEntry:addResponse("I haven't been there, therefore I cannot tell you anything about it except that it doesn't exist anymore and that you can ask other people about it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -288,20 +288,21 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Das ist eine alte Insel, welche nicht mehr existiert. Viele die du hier finden kannst sind von dort. Wenn du mehr darüber wissen möchtest, frag sie.");
+talkEntry:addResponse("Das ist eine alte Insel, welche nicht mehr existiert. Viele die du in den drei Reichen finden kannst sind von dort. Wenn du mehr darüber wissen möchtest, frag sie.");
 talkEntry:addResponse("Ich war noch nie dort, daher weiß ich auch nichts über sie, außer dass es sie nicht mehr gibt und dass du andere Leute über sie fragen kannst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faction");
-talkEntry:addResponse("We have three factions here: Runewick, Cadomyr and Galmair. Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word.");
+talkEntry:addTrigger("realm");
+talkEntry:addResponse("We have three realms here: Runewick, Cadomyr and Galmair. Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("race");
-talkEntry:addResponse("In every faction there are particular races you will find. In Runewick, you'll mainly find Elves and Halflings; in Galmair, Dwarves; and in Cadomyr, Lizards and Orcs. As far as humans, well just about anywhere really.");
+talkEntry:addResponse("In every realm there are particular races you will find. In Runewick, you'll mainly find Elves and Halflings; in Galmair, Dwarves; and in Cadomyr, Lizards and Orcs. As far as humans, well just about anywhere really.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -365,6 +366,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fraktion");
+talkEntry:addTrigger("Reich");
 talkEntry:addResponse("Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -397,7 +399,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Anführer");
-talkEntry:addResponse("Erzmagier Elvaine Morgan der Herrscher in Runewick, Don Valerio Guilianni herrscht in Galmair, und Königin Rosaline Edwards in Cadomyr.");
+talkEntry:addResponse("Erzmagier Elvaine Morgan ist der Herrscher in Runewick, Don Valerio Guilianni herrscht in Galmair, und Königin Rosaline Edwards in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -409,7 +411,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Vater");
-talkEntry:addResponse("Der Vater von Königin Rosaline Edwards war König Sir Reginald und der Vater von Don Valerio Guilianni war Don Tommaso Guilianni. Beide sind Tod. Wahrscheinlich auch der Vater von Erzmagier Elvaine Morgan, aber ich hab nie was von ihm gehört.*kichert*");
+talkEntry:addResponse("Der Vater von Königin Rosaline Edwards war König Sir Reginald und der Vater von Don Valerio Guilianni war Don Tommaso Guilianni. Beide sind tot. Wahrscheinlich auch der Vater von Erzmagier Elvaine Morgan, aber ich hab nie was von ihm gehört.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -428,21 +430,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Khenserra");
 talkEntry:addResponse("Berge von Khenserra? Irgendwo im Süden müssten die sein.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("guild");
-talkEntry:addTrigger("explor");
-talkEntry:addResponse("If you want to find the Explorer-guild, just head to ??????.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gilde");
-talkEntry:addTrigger("entdeck");
-talkEntry:addTrigger("erkund");
-talkEntry:addResponse("Falls du die Erkunder-Gilde finden möchtest, dann geh zu ??????.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -755,7 +742,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("elf");
 talkEntry:addTrigger("elves");
 talkEntry:addCondition(npc.base.condition.race.race(3));
-talkEntry:addResponse("Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -777,14 +764,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("human");
 talkEntry:addCondition(npc.base.condition.race.race(0));
-talkEntry:addResponse("You'd be hard pressed not find a place with humans! *Giggles* So feel free to go anywhere!");
+talkEntry:addResponse("You'd be hard pressed not find a place with humans! So feel free to go anywhere!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mensch");
 talkEntry:addCondition(npc.base.condition.race.race(0));
-talkEntry:addResponse("Menschen können überall gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Menschen können überall gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -811,7 +798,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("zwerg");
 talkEntry:addCondition(npc.base.condition.race.race(1));
-talkEntry:addResponse("Zwerge können vorallem in Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Zwerge können vorallem in Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -839,7 +826,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ork");
 talkEntry:addCondition(npc.base.condition.race.race(4));
-talkEntry:addResponse("Orks können vorallem in Cadomyr und Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Orks können vorallem in Cadomyr und Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -866,7 +853,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("echse");
 talkEntry:addCondition(npc.base.condition.race.race(5));
-talkEntry:addResponse("Echsenmenschen können vorallem in Cadomyr gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Echsenmenschen können vorallem in Cadomyr gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -896,7 +883,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("halbling");
 talkEntry:addTrigger("halfling");
 talkEntry:addCondition(npc.base.condition.race.race(2));
-talkEntry:addResponse("Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

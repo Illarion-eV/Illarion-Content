@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 03, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 04, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Viola Baywillow"
@@ -76,27 +76,27 @@ itemShoes = 369
 "your name", "who are you", "who art thou" -> "I'm Viola and I know all that matters about the realms Cadomyr, Galmair and Runewick."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Viola und weiß alle wichtigen Dinge über die Reiche Cadomyr, Galmair und Runewick. So, frag mich was!"
 
--- bis hier
-
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The realms are always on the look out for adventurers and workers alike!"
-"quest", "mission" -> "Hoi, noch ein tapferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Reiche immer nach Abenteuerer und Arbeitern suchen!"
-"task", "adventure" -> "Ahh, gotta case of idle hands I see. Be assured traveler if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions!"
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen!"
+"quest", "mission" -> "Hoi, noch ein tapferer Reisender! Leider habe ich keine Arbeit für euch. Das soll euch nicht entmutigen, da die Reiche immer nach Abenteuerer und Arbeitern suchen!"
+"task", "adventure" -> "Ahh, a case of idle hands, I see. Be assured traveler if you're willing to seek there are folks out there that could use a hand or two. Best start with one of the realms!"
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten sucht ihr nach ihnen in einem der Reiche!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I don't have a specific profession.", "I only pass along information, but I don't have profession, per say."
-"beruf" -> "Ich habe keine spezifische Arbeit.", "Ich gebe lediglich Informationen, aber ich habe nicht wirklich einen Beruf."
+"beruf" -> "Ich habe keinen spezifischen Beruf.", "Ich gebe lediglich Informationen, aber ich habe nicht wirklich einen Beruf."
 "job", english -> "I don't have any specific profession.", " I only pass along information, but I don't have profession, per say."
-"job" -> "Ich habe keine spezifische Arbeit.", "Ich gebe lediglich Informationen, aber ich habe nicht wirklich einen Beruf."
-"my name" -> "Sounds pretty nice, but nothing like mine. *giggles*"
-"mein Name" -> "Klingt hübsch, aber nicht so hübsch wie mein Name. *kichert*"
-"Gobaith", "Gobiath", english -> "This in an old island, which does not exist anymore. Many who you can find here, are from this island. If you like know more about it, feel free to ask them.", "I haven't been there, therefore I cannot tell you anything about it except that it doesn't exist anymore and that you can ask other people about it."
-"Gobaith", "Gobiath" -> "Das ist eine alte Insel, welche nicht mehr existiert. Viele die du hier finden kannst sind von dort. Wenn du mehr darüber wissen möchtest, frag sie.", "Ich war noch nie dort, daher weiß ich auch nichts über sie, außer dass es sie nicht mehr gibt und dass du andere Leute über sie fragen kannst."
+"job" -> "Ich habe keinen spezifische Beruf.", "Ich gebe lediglich Informationen, aber ich habe nicht wirklich einen Beruf."
+"my name" -> "Sounds pretty nice, but nothing like mine."
+"mein Name" -> "Klingt hübsch, aber nicht so hübsch wie mein Name."
+"Gobaith", "Gobiath", english -> "This in an old island, which does not exist anymore. Many who you can find in the three realms, are from this island. If you like know more about it, feel free to ask them.", "I haven't been there, therefore I cannot tell you anything about it except that it doesn't exist anymore and that you can ask other people about it."
+"Gobaith", "Gobiath" -> "Das ist eine alte Insel, welche nicht mehr existiert. Viele die du in den drei Reichen finden kannst sind von dort. Wenn du mehr darüber wissen möchtest, frag sie.", "Ich war noch nie dort, daher weiß ich auch nichts über sie, außer dass es sie nicht mehr gibt und dass du andere Leute über sie fragen kannst."
+
+-- bis hier
 
 -- More small talk; add at least five triggers
-"faction" -> "We have three factions here: Runewick, Cadomyr and Galmair. Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word."
-"race" -> "In every faction there are particular races you will find. In Runewick, you'll mainly find Elves and Halflings; in Galmair, Dwarves; and in Cadomyr, Lizards and Orcs. As far as humans, well just about anywhere really."
+"faction", "realm" -> "We have three realms here: Runewick, Cadomyr and Galmair. Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word."
+"race" -> "In every realm there are particular races you will find. In Runewick, you'll mainly find Elves and Halflings; in Galmair, Dwarves; and in Cadomyr, Lizards and Orcs. As far as humans, well just about anywhere really."
 "craft" -> "Which one do you mean? Alchemist, Candle maker, Carpenter, Lumberjack, Cook, Baker, Farmer, Herb gatherer, Tailor, Tanner, Dyer, Blacksmith, Brick maker, Mason, Miner, Brewer, Fisher, Glass blower, Digger, Finesmith or Gem grinder?", "Every faction has specialists depending on the craft. Mention a specific craft and I will tell you in which faction you will find it.", "The main crafts you'll find in Runewick are Alchemists, Candle makers, Carpenters/Lumberjacks, Cooks/Bakers, Farmers, Herb gatherers, and Tailors/Tanners/Dyers. In Galmair you'll find Blacksmiths, Masons, Miners, and Brewers. Finally, in Cadomyr you'll get Fishers, Glass blowers, Diggers, Finesmiths, and Gem grinders."
 "motive", english -> "The leading motive in Runewick is wisdom, in Cadomyr it's honor, and in Galmair it's wealth."
 "landscape" -> "The four towers of Runewick are somewhere in the southeast between the meadow and the forest; the halls and caves of Galmair are to the northwest between the mountains and the forest; and the houses of Cadomyr lie to the west between the desert and the mountains."
@@ -106,19 +106,17 @@ itemShoes = 369
 "sevenhill" -> "That is to the south of the Sinking Mountains, just north of the Mountains of Khenserra, and generally speaking west of us. *Giggles*"
 "sinking" -> "Sinking Mountains? They lie somewhere in the north."
 "Khenserra", english -> "Mountains of Khenserra? They are somewhere to the south."
-"Fraktion" -> "Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen."
+"Fraktion", "Reich" -> "Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen."
 "Rasse" -> "In jeder Fraktion kannst du spezifische Rassen finden. In Runewick vorallem Elfen und Halblinge; in Galmair Zwerge; und in Cadomyr Orks und Echsenmenschen. Menschen sind überall zufinden."
 "Handwerk" -> "Welches meinst du? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer?", "Jede Fraktion ist auf bestimmte Handwerke spezialisiert. Nenn mir dein Handwerk und ich sag in welcher Fraktion du es finden wirst.", ""
 "Motive" -> "Das leitende Motive in Runewick ist Weisheit, in Galmair ist es Reichtum, und in Cadomyr ist es `Ehre."
 "Landschaft" -> "Die vier Türme von Runewick wirst du irgendwo im Südosten zwischen Sümpfen und Wäldern finden; die Hallen und Höhlen von Galmair inmitten von Bergen und Wäldern; und die Häuser von Cadomyr zwischen einer Wüste und Bergen."
-"Anführer" -> "Erzmagier Elvaine Morgan der Herrscher in Runewick, Don Valerio Guilianni herrscht in Galmair, und Königin Rosaline Edwards in Cadomyr."
+"Anführer" -> "Erzmagier Elvaine Morgan ist der Herrscher in Runewick, Don Valerio Guilianni herrscht in Galmair, und Königin Rosaline Edwards in Cadomyr."
 "Gesetz" -> "Runewick ist die einzige Gemeinde mit exakten Gesetzen an denen du dich orientieren kannst; Galmair hat keine wirklichen Gesetzte - du musst nur dem Don gehorchen; und dann sind noch die Bräuche von Cadomyr welche ihren Ursprung in Albar haben, aber für einen Albarianer sind diese schockierend innovative."
-"Vater" -> "Der Vater von Königin Rosaline Edwards war König Sir Reginald und der Vater von Don Valerio Guilianni war Don Tommaso Guilianni. Beide sind Tod. Wahrscheinlich auch der Vater von Erzmagier Elvaine Morgan, aber ich hab nie was von ihm gehört.*kichert*"
+"Vater" -> "Der Vater von Königin Rosaline Edwards war König Sir Reginald und der Vater von Don Valerio Guilianni war Don Tommaso Guilianni. Beide sind tot. Wahrscheinlich auch der Vater von Erzmagier Elvaine Morgan, aber ich hab nie was von ihm gehört."
 "siebenhügel" -> "Das ist südlich von den Sinkenden Berge, nördlich der Berge von Khenserra und westlich von uns hier. *kichert*"
 "sinken" -> "Sinkende Berge? Irgendwo im Norden müssten die sein."
 "Khenserra" -> "Berge von Khenserra? Irgendwo im Süden müssten die sein."
-"guild", "explor" -> "If you want to find the Explorer-guild, just head to ??????."
-"gilde", "entdeck", "erkund" -> "Falls du die Erkunder-Gilde finden möchtest, dann geh zu ??????."
 
 -- Faction motive
 "wisdom" -> "Wisdom is the highest premise in Runewick. Therefore, most follow the path of Elara, but other followers are permitted. It is well known that people seek the council of Archmage Elvaine Morgan, whose sageness is widely renowned."
@@ -172,29 +170,29 @@ itemShoes = 369
 "Brewer" -> "Galmair without question, they have the finest brewers near and wide, but if Galmair isn't the place for you the next best place is Runewick. Not aware of a brewer in Cadomyr, I think they may trade for their mead."
 "Brauer" -> "Brauer können vor allem in Galmair gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Runewick gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
 
--- fraction race
+-- Faction race
 "elf", "elves", race = elf, english -> "Elves are mainly found in Runewick. So if you are looking for a tranquil community there is no better place."
-"elf", "elves", race = elf -> "Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"elf", "elves", race = elf -> "Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!"
 "elf", "elves", english -> "If it's elves you seek best to head toward Runewick."
 "elf", "elves" -> "Elfen können vorallem in Runewick gefunden werden."
-"human", race = human -> "You'd be hard pressed not find a place with humans! *Giggles* So feel free to go anywhere!"
-"mensch", race = human -> "Menschen können überall gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"human", race = human -> "You'd be hard pressed not find a place with humans! So feel free to go anywhere!"
+"mensch", race = human -> "Menschen können überall gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!"
 "human" -> "Humans, hmm, can't think of a single place without humans."
 "mensch" -> "Menschen können überall gefunden werden."
 "dwarf", "dwarves", race = dwarf -> "If you're seeking the long bearded ones head toward Galmair!"
-"zwerg", race = dwarf -> "Zwerge können vorallem in Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"zwerg", race = dwarf -> "Zwerge können vorallem in Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!"
 "dwarf", "dwarves" -> "Dwarves are mainly found in Galmair."
 "zwerg" -> "Zwerge können vorallem in Galmair gefunden werden."
 "orc", race = orc, english -> "Follow the path toward Cadomyr or Galmair if your looking for orcs."
-"ork", race = orc -> "Orks können vorallem in Cadomyr und Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"ork", race = orc -> "Orks können vorallem in Cadomyr und Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!"
 "orc", english -> "Orcs are mainly found in Cadomyr and Galmair traveler."
 "ork" -> "Orks können vorallem in Cadomyr und Galmair gefunden werden."
 "lizard", race = lizardman -> "Most Lizardmen call Cadomyr home. So if you prefer a waterfront living there is no better place."
-"echse", race = lizardman -> "Echsenmenschen können vorallem in Cadomyr gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"echse", race = lizardman -> "Echsenmenschen können vorallem in Cadomyr gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!"
 "lizard", english -> "Cadomyr is where you will find the majority of the lizardmen population."
 "echse" -> "Echsenmenschen können vorallem in Cadomyr gefunden werden."
 "halbling", "halfling", race = halfling, english -> "Hiho! Looking for more of my kin? Best be off to Runewick."
-"halbling", "halfling", race = halfling -> "Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"halbling", "halfling", race = halfling -> "Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!"
 "halbling", "halfling", english -> "We Halflings certainly like Runewick, no better place in my opinion."
 "halbling", "halfling" -> "Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden."
 

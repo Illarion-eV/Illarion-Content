@@ -17,12 +17,8 @@ function onLogin( player )
 	
 	    if not player:isAdmin() then --non admin chars need help!
 		
-		    playerlist = world:getPlayersOnline();
-	        for i = 1, #(playerlist) do 
-	            if playerlist[i]:isAdmin() then --Our GMs should know a noob logged in!
-                    base.common.TempInformNLS(playerlist[i],"[Noobalarm] Ein Spieler hat sich gerade auf Noobia eingeloggt.","[Noob alert] A player just logged in on Noobia!");  
-		        end
-	        end
+            player:pageGM("This player just logged in on Noobia.");
+			
 		end
 		
 		found, myEffect = player.effects:find(13); --Noob effect
