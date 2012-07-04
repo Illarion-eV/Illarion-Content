@@ -77,7 +77,7 @@ function callEffect(newbieEffect,Character)
 		
 		roundCount = roundCount + 1;
 		
-		if roundCount = 30 then --Let us check for players that required more than fifteen minutes for Noobia.
+		if roundCount == 30 then --Let us check for players that required more than fifteen minutes for Noobia.
 
             player:pageGM("This player could use assistance on Noobia.");
 				
