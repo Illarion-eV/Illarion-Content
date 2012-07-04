@@ -296,13 +296,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faction");
 talkEntry:addTrigger("realm");
-talkEntry:addResponse("We have three factions here: Runewick, Cadomyr and Galmair. Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word.");
+talkEntry:addResponse("We have three realms here: Runewick, Cadomyr and Galmair. Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("race");
-talkEntry:addResponse("In every faction there are particular races you will find. In Runewick, you'll mainly find Elves and Halflings; in Galmair, Dwarves; and in Cadomyr, Lizards and Orcs. As far as humans, well just about anywhere really.");
+talkEntry:addResponse("In every realm there are particular races you will find. In Runewick, you'll mainly find Elves and Halflings; in Galmair, Dwarves; and in Cadomyr, Lizards and Orcs. As far as humans, well just about anywhere really.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -411,7 +411,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Vater");
-talkEntry:addResponse("Der Vater von Königin Rosaline Edwards war König Sir Reginald und der Vater von Don Valerio Guilianni war Don Tommaso Guilianni. Beide sind Tod. Wahrscheinlich auch der Vater von Erzmagier Elvaine Morgan, aber ich hab nie was von ihm gehört.*kichert*");
+talkEntry:addResponse("Der Vater von Königin Rosaline Edwards war König Sir Reginald und der Vater von Don Valerio Guilianni war Don Tommaso Guilianni. Beide sind tot. Wahrscheinlich auch der Vater von Erzmagier Elvaine Morgan, aber ich hab nie was von ihm gehört.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -742,7 +742,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("elf");
 talkEntry:addTrigger("elves");
 talkEntry:addCondition(npc.base.condition.race.race(3));
-talkEntry:addResponse("Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -764,14 +764,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("human");
 talkEntry:addCondition(npc.base.condition.race.race(0));
-talkEntry:addResponse("You'd be hard pressed not find a place with humans! *Giggles* So feel free to go anywhere!");
+talkEntry:addResponse("You'd be hard pressed not find a place with humans! So feel free to go anywhere!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mensch");
 talkEntry:addCondition(npc.base.condition.race.race(0));
-talkEntry:addResponse("Menschen können überall gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Menschen können überall gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -798,7 +798,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("zwerg");
 talkEntry:addCondition(npc.base.condition.race.race(1));
-talkEntry:addResponse("Zwerge können vorallem in Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Zwerge können vorallem in Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -826,7 +826,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ork");
 talkEntry:addCondition(npc.base.condition.race.race(4));
-talkEntry:addResponse("Orks können vorallem in Cadomyr und Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Orks können vorallem in Cadomyr und Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -853,7 +853,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("echse");
 talkEntry:addCondition(npc.base.condition.race.race(5));
-talkEntry:addResponse("Echsenmenschen können vorallem in Cadomyr gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Echsenmenschen können vorallem in Cadomyr gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -883,7 +883,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("halbling");
 talkEntry:addTrigger("halfling");
 talkEntry:addCondition(npc.base.condition.race.race(2));
-talkEntry:addResponse("Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
