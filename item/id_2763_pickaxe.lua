@@ -45,7 +45,7 @@ function LookAtItem(User,Item)
 		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "Indeed, items can be of different quality. Keep this in mind when bartering about prices. My last lesson is how to use items. I gave you a torch: Let there be light!");
 		    User:createItem(391,1,333,0); --Torch
 		end
-	    base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Perform a double click on the torch to ignite it." );
+	    base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Deactivate your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Perform a double click on the torch to ignite it." );
 	end
 
 --Noobia end

@@ -25,7 +25,7 @@ module("lte.newbieisland", package.seeall)
 	ListCycleMessageEnglish = {}
 	ListCycleMessageEnglish = {
 	"[Tutorial] If you want to skip the tutorial, just say 'skip tutorial' to any NPC.",
-	"[Tutorial] Do you need help? DO THIS AND THAT or type '!gm your question' and hit enter. As soon as a Gamemaster is available, he'll assist you.",
+	"[Tutorial] Do you need help? DO THIS AND THAT or type '!gm your question' and hit enter. As soon as a Gamemaster is available, they'll assist you.",
 	"[Tutorial] To shout, place #s in front of your message. To whisper, use #w and use #o for the out of character mode.",
 	"[Tutorial] A tutorial can never replace the help of other players or the Illarion staff. We invite you to join the official Illarion chat that is linked on the homepage.",
 	"[Tutorial] If you want to introduce your character to other players, DO THIS AND THAT or type #i in the chatbox and hit return.",

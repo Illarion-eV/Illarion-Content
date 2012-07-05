@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 03, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 05, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -93,7 +93,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("#s");
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Whispering works alike shouting, open your chatbox again and DO THIS AND THAT."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Whispering works alike shouting, activate your chatbox again and DO THIS AND THAT."));
 talkEntry:addResponse("You have a strong voice! Shouting can be heard over quite some distance; sometimes, you don't want eardroppers to hear what you say. Please whisper some words for my ears only.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -148,7 +148,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Whispering works alike shouting, open your chatbox again and DO THIS AND THAT."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Whispering works alike shouting, activate your chatbox again and DO THIS AND THAT."));
 talkEntry:addResponse("Not every townguard should hear about your dark plans - or the thugs should not hear you talking about your bank account. Please try to whisper once more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

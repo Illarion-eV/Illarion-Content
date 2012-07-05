@@ -28,9 +28,9 @@ function MoveToField(Character)
 	        local callbackNewbie = function(dialogNewbie) end; --empty callback
 			
 	        if Character:getPlayerLanguage() == 0 then
-		        dialogNewbie = MessageDialog("Tutorial","Um mit dem Menschen zu sprechen, öffne die Sprachkonsole mit Return, schreibe ein Wort und drücke wieder Return. Alle NPCs reagieren auf bestimmte Schlüsselwörter wenn du in ihrer Nähe stehst. Begrüße den Menschen einfach mit 'Hallo'.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial","Um mit dem Menschen zu sprechen, aktiviere die Sprachkonsole mit Return, schreibe ein Wort und drücke wieder Return. Alle NPCs reagieren auf bestimmte Schlüsselwörter wenn du in ihrer Nähe stehst. Begrüße den Menschen einfach mit 'Hallo'.", callbackNewbie)
 	        else	
-		        dialogNewbie = MessageDialog("Tutorial", "In order to speak to the human, open the chat box with return, type a word and hit return again. All NPCs react on certain keywords if you stand next to them. Greet the human with a simple 'hello'.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial", "In order to speak to the human, activate the chat box with return, type a word and hit return again. All NPCs react on certain keywords if you stand next to them. Greet the human with a simple 'hello'.", callbackNewbie)
 	        end	
 	        Character:requestMessageDialog(dialogNewbie)
 		end
