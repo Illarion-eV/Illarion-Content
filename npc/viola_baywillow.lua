@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 04, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 05, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -296,28 +296,26 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faction");
 talkEntry:addTrigger("realm");
-talkEntry:addResponse("We have three realms here: Runewick, Cadomyr and Galmair. Each of which are home to certain races and craftsmen. If you'd like to know more about factions, races, or crafting in this area just say the word.");
+talkEntry:addResponse("We have three realms here: Runewick, Cadomyr and Galmair. Each of which are home to fampous craftsmen. If you'd like to know more about races or crafting in these realms just say the word.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("race");
-talkEntry:addResponse("In every realm there are particular races you will find. In Runewick, you'll mainly find Elves and Halflings; in Galmair, Dwarves; and in Cadomyr, Lizards and Orcs. As far as humans, well just about anywhere really.");
+talkEntry:addResponse("In every realm there are members of all races but some prefer certain realms. In Runewick, you'll find many elves and halflings; in Galmair, dwarves and orcs; and in Cadomyr, lizards and humans.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("craft");
-talkEntry:addResponse("Which one do you mean? Alchemist, Candle maker, Carpenter, Lumberjack, Cook, Baker, Farmer, Herb gatherer, Tailor, Tanner, Dyer, Blacksmith, Brick maker, Mason, Miner, Brewer, Fisher, Glass blower, Digger, Finesmith or Gem grinder?");
-talkEntry:addResponse("Every faction has specialists depending on the craft. Mention a specific craft and I will tell you in which faction you will find it.");
-talkEntry:addResponse("The main crafts you'll find in Runewick are Alchemists, Candle makers, Carpenters/Lumberjacks, Cooks/Bakers, Farmers, Herb gatherers, and Tailors/Tanners/Dyers. In Galmair you'll find Blacksmiths, Masons, Miners, and Brewers. Finally, in Cadomyr you'll get Fishers, Glass blowers, Diggers, Finesmiths, and Gem grinders.");
+talkEntry:addResponse("About which craft shall I tell you all I know? Alchemist, candle maker, carpenter, lumberjack, cook, baker, farmer, herb gatherer, tailor, tanner, dyer, blacksmith, brick maker, mason, miner, brewer, fisher, glass blower, digger, finesmith or gem grinder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("motive");
+talkEntry:addTrigger("motiv");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The leading motive in Runewick is wisdom, in Cadomyr it's honor, and in Galmair it's wealth.");
+talkEntry:addResponse("The leitmotiv in Runewick is wisdom, in Galmair it is wealth and in Cadomyr it's honour.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -341,53 +339,32 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Father");
-talkEntry:addResponse("The father of Queen Rosaline Edwards was King Sir Reginald, and the father of Don Valerio Guilianni was Don Tommaso Guilianni. Both Reginald and Tommaso are dead. The father of Archmage Elvaine Morgan is presumed dead as well, but that's just the rumors I have heard. *Giggles*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sevenhill");
-talkEntry:addResponse("That is to the south of the Sinking Mountains, just north of the Mountains of Khenserra, and generally speaking west of us. *Giggles*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sinking");
-talkEntry:addResponse("Sinking Mountains? They lie somewhere in the north.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Khenserra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Mountains of Khenserra? They are somewhere to the south.");
+talkEntry:addResponse("The father of Queen Rosaline Edwards was Sir Reginald, and the father of Don Valerio Guilianni was Don Tommaso Guilianni. Both Reginald and Tommaso are dead. The father of Archmage Elvaine Morgan is presumed dead as well, but that's just the rumors I have heard.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fraktion");
 talkEntry:addTrigger("Reich");
-talkEntry:addResponse("Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen.");
+talkEntry:addResponse("Wir haben hier drei Reiche: Runewick, Cadomyr und Galmair. Die Bewohner sind für unterschiedliche Handwerken berühmt. Wenn du mehr über Handwerke oder die Reiche wissen möchtest, dann sag den jeweiligen Namen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rasse");
-talkEntry:addResponse("In jeder Fraktion kannst du spezifische Rassen finden. In Runewick vorallem Elfen und Halblinge; in Galmair Zwerge; und in Cadomyr Orks und Echsenmenschen. Menschen sind überall zufinden.");
+talkEntry:addResponse("In jedem Reich sind Angehörige aller Rassen willkommen, aber einige Rassen bevorzugen bestimmte Reiche. In Runewick kann man viele Elfen und Halblinge finden; in Galmair Zwerge und Orks; und in Cadomyr Menschen und Echsen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Handwerk");
-talkEntry:addResponse("Welches meinst du? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer?");
-talkEntry:addResponse("Jede Fraktion ist auf bestimmte Handwerke spezialisiert. Nenn mir dein Handwerk und ich sag in welcher Fraktion du es finden wirst.");
-talkEntry:addResponse("");
+talkEntry:addResponse("Über welches Handwerk möchtest du etwas wissen? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Motive");
-talkEntry:addResponse("Das leitende Motive in Runewick ist Weisheit, in Galmair ist es Reichtum, und in Cadomyr ist es `Ehre.");
+talkEntry:addTrigger("Motiv");
+talkEntry:addResponse("Das Leitmotiv in Runewick ist Weisheit, in Galmair ist es Reichtum, und in Cadomyr ist es Ehre.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -405,31 +382,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gesetz");
-talkEntry:addResponse("Runewick ist die einzige Gemeinde mit exakten Gesetzen an denen du dich orientieren kannst; Galmair hat keine wirklichen Gesetzte - du musst nur dem Don gehorchen; und dann sind noch die Bräuche von Cadomyr welche ihren Ursprung in Albar haben, aber für einen Albarianer sind diese schockierend innovative.");
+talkEntry:addResponse("Runewick ist die einzige Gemeinde mit niedergeschriebenen Gesetzen an denen du dich orientieren kannst; Galmair hat keine wirklichen Gesetzte - du musst nur dem Don gehorchen; und dann sind noch die Bräuche von Cadomyr welche ihren Ursprung in Albar haben, aber für einen Albarianer sind diese wohl schockierend neuartig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Vater");
-talkEntry:addResponse("Der Vater von Königin Rosaline Edwards war König Sir Reginald und der Vater von Don Valerio Guilianni war Don Tommaso Guilianni. Beide sind tot. Wahrscheinlich auch der Vater von Erzmagier Elvaine Morgan, aber ich hab nie was von ihm gehört.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("siebenhügel");
-talkEntry:addResponse("Das ist südlich von den Sinkenden Berge, nördlich der Berge von Khenserra und westlich von uns hier. *kichert*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sinken");
-talkEntry:addResponse("Sinkende Berge? Irgendwo im Norden müssten die sein.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Khenserra");
-talkEntry:addResponse("Berge von Khenserra? Irgendwo im Süden müssten die sein.");
+talkEntry:addResponse("Der Vater von Königin Rosaline Edwards war Sir Reginald und der Vater von Don Valerio Guilianni war Don Tommaso Guilianni. Beide sind tot. Wahrscheinlich auch der Vater von Erzmagier Elvaine Morgan, aber ich hab nie was von ihm gehört.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -441,7 +400,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Weisheit");
-talkEntry:addResponse("Weisheit ist die höchste Prämisse in Runewick. Deswegen glauben sie auch an Elara neben anderen Göttern und dem Rat ihres Herrschers Erzmagier Elvaine Morgan, wessen Klugheit ist weitbekannt.");
+talkEntry:addResponse("Weisheit ist die höchste Prämisse in Runewick. Deswegen folgen sie auch Elara neben anderen Göttern und dem Rat ihres Herrschers Erzmagier Elvaine Morgan, wessen Weisheit weitbekannt ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -460,13 +419,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("honour");
 talkEntry:addTrigger("honor");
-talkEntry:addResponse("Honor is the highest premise in Cadomyr. Therefore, they believe in Malachin above all other gods, and they rely on Queen Rosaline Edwards for her noble leadership.");
+talkEntry:addResponse("Honour is the highest premise in Cadomyr. Therefore, they believe in Malachín above all other gods, and they rely on Queen Rosaline Edwards for her noble leadership.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ehre");
-talkEntry:addResponse("Ehre ist die höchste Prämisse in Cadomyr. Deswegen glauben sie auch an Malachin neben anderen Göttern und ihrer Herrscherin Königin Rosaline Edwards, welche die nobelste Person dort ist.");
+talkEntry:addResponse("Ehre ist die höchste Prämisse in Cadomyr. Deswegen glauben sie auch an Malachín neben anderen Göttern und ihrer Herrscherin Königin Rosaline Edwards, welche die edelste Person dort ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
