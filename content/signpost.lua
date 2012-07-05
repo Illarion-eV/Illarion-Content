@@ -146,7 +146,7 @@ function InitWegweiser()
     AddWeg({783,798,0},"Erzmagier Elvaine Morgan; Vierbeiniger Roter Vogel; Hafen","Archmage Elvaine Morgan; Quadruped Red Bird; Harbour",6,0);
     AddWeg({783,797,0},"Anthilbach; Fröhliche Lichtung; Osthafen","Anthil Brook; Merryglade; Eastport",0,0);
     AddWeg({761,813,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
-    AddWeg({791,821,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
+    AddWeg({791,819,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
     AddWeg({840,821,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
     AddWeg({840,824,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
     AddWeg({853,821,0},"Hölzfällersiedlung; Zwillingsaugeninseln","Woodcutter's Hut; Twin Eyes Islands",4,0);
