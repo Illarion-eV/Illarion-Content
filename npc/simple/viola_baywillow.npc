@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 05, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 06, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Viola Baywillow"
@@ -185,8 +185,8 @@ itemShoes = 369
 "echse", race = lizardman -> "Echsenmenschen können vorallem in Cadomyr gefunden werden. Daher wirst du dort gut aufgehoben sein."
 "lizard", english -> "Cadomyr is where you will find the majority of the lizardmen population."
 "echse" -> "Echsenmenschen können vorallem in Cadomyr gefunden werden."
-"halbling", "halfling", race = halfling, english -> "Hiho! Looking for more of my kin? Best be off to Runewick."
-"halbling", "halfling", race = halfling -> "Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein."
+"halbling", "halfling", "hobbit", race = halfling, english -> "Hiho! Looking for more of my kin? Best be off to Runewick."
+"halbling", "halfling", "hobbit", race = halfling -> "Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein."
 "halbling", "halfling", english -> "We Halflings certainly like Runewick, no better place in my opinion."
 "halbling", "halfling" -> "Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden."
 

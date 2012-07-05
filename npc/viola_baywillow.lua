@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 05, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 06, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -837,6 +837,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("halbling");
 talkEntry:addTrigger("halfling");
+talkEntry:addTrigger("hobbit");
 talkEntry:addCondition(npc.base.condition.race.race(2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hiho! Looking for more of my kin? Best be off to Runewick.");
@@ -846,6 +847,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("halbling");
 talkEntry:addTrigger("halfling");
+talkEntry:addTrigger("hobbit");
 talkEntry:addCondition(npc.base.condition.race.race(2));
 talkEntry:addResponse("Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein.");
 talkingNPC:addTalkingEntry(talkEntry);
