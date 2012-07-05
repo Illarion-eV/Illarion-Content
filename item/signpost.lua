@@ -60,6 +60,8 @@ LookAtItem = LookAtItemIdent;
 
 function checkNoobiaSigns( User,TargetPos )
 
+-- Rince: Das ist Gobaith-Scheiﬂ, bitte Skript s‰ubern ~Estralis
+
 	if NoobiaSigns == nil then
 		NoobiaSigns = {};
 		NoobiaSigns[1] = {position(68,35,101),"Troll's Bane.","Troll's Bane."};
