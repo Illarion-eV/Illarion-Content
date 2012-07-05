@@ -996,7 +996,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Ein sehr altes Reich mit einer sehr hierarchischen gesellschaftlichen Ordnung ihrer Gesellschaft. Die Gesellschaft von Cadomyr ähnelt ihr, kann aber nicht wirklich damit verglichen werden. Die Familie der Königin hat ihre Wurzeln von dort.");
+talkEntry:addResponse("Ein sehr altes Reich mit einer sehr hierarchischen Ordnung ihrer Gesellschaft. Die Gesellschaft von Cadomyr ähnelt ihr, kann aber nicht wirklich damit verglichen werden. Die Familie der Königin hat ihre Wurzeln dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1011,14 +1011,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Gynk ist ein sehr chaotischer Platz, wo beinahe alles möglich ist solange man es schafft zu überleben. Galmair ist sehr ähnlich. Wahrscheinlich liegt das daran, dass der Vater des Don aus Gynk war .");
+talkEntry:addResponse("Gynk ist ein sehr chaotischer Platz, wo beinahe alles möglich ist solange man es schafft zu überleben. Galmair ist sehr ähnlich. Wahrscheinlich liegt das daran, dass der Vater des Don aus Gynk kam.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Is one of the three largest cities in all of Illarion, and although it is close to Gynk and Albar it's more closely related to the magical city of Lor-Angur. Many of its social influences can be seen in Runewick, mainly, due to the fact that Elvaine Morgan was once the Archmage there.");
+talkEntry:addResponse("Salkamar one of the three largest cities in all of Illarion, and although it is close to Gynk and Albar it's more closely related to the magical city of Lor-Angur. Many of its social influences can be seen in Runewick, mainly, due to the fact that Elvaine Morgan was once the Archmage there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1031,52 +1031,52 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("angur");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That is the distant magical city of wonder and lore. Much of its ways can be seen in Runewick because Archmage Elvaine Morgan is from there. I wonder if he is working on getting that fifth tower like Lor-Angur? *smiles*");
+talkEntry:addResponse("That is the distant magical city of wonder and lore. Much of its ways can be seen in Runewick because Archmage Elvaine Morgan is from there. I wonder if he is working on getting that fifth tower like Lor-Angur?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("angur");
-talkEntry:addResponse("Das ist eine sehr berühmte und ferne Stadt von Magiern und es ist die Heimatstadt des Herrschers von Runewick, Erzmagier Elvaine Morgan. Die haben sogar einen fünften Turm. *lächelt*");
+talkEntry:addResponse("Das ist eine sehr berühmte und ferne Stadt von Magiern und es ist die Heimatstadt des Herrschers von Runewick, Erzmagier Elvaine Morgan. Die haben sogar einen fünften Turm.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Inhabitants of every faction prefer specific younger gods for the most part. In Runewick they pray to Elara, Oldra, and Adron; in Galmair they pray to Irmorom, Ronagan, and Nargun; and in Cadomyr they honor Malachin, Zhambra and Sirani.");
-talkEntry:addResponse("Most inhabitants vary between the younger and elder gods. You will find that most everyone worships one of the younger gods within their preferred faction, but rarely does anyone still worship the elder gods. I can't understand why anyone would worship someone who has left us. Where would your prayers go? *Giggles*");
+talkEntry:addResponse("Inhabitants of every realm prefer specific younger gods for the most part. In Runewick they pray to Elara, Oldra, and Adron; in Galmair they pray to Irmorom, Ronagan, and Nargùn; and in Cadomyr they honour Malachín, Zhambra and Sirani.");
+talkEntry:addResponse("Most inhabitants vary between the younger and elder gods. You will find that most everyone worships one of the younger gods within their preferred realm, but rarely does anyone still worship the elder gods. Where will your prayers go?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Die Einwohner jeder Fraktion bevorzugen spezifische junge Götter. In Runewick beten sie zu Elara, Oldra und Adron; in Galmair zu Irmorom, Ronagan und Nargun; und in Cadomyr zu Malachin, Zhambra and Sirani.");
-talkEntry:addResponse("Wir unterscheiden zwischen jungen und alten Göttern. Du wirst für beinahe jeden der jungen einen Gleichgesinnten in einer der Fraktionen finden, aber niemanden für die älteren. Aber wer ist so dumm und dient denen noch? Die sind weg!");
+talkEntry:addResponse("Die Einwohner jeder Fraktion bevorzugen spezifische junge Götter. In Runewick beten sie zu Elara, Oldra und Adron; in Galmair zu Irmorom, Ronagan und Nargùn; und in Cadomyr zu Malachín, Zhambra and Sirani.");
+talkEntry:addResponse("Wir unterscheiden zwischen jungen und alten Göttern. Du wirst für beinahe jeden der Jungen einen Gleichgesinnten in einem der Reichen finden, aber kaum jemand für die Älteren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("elder");
-talkEntry:addResponse("The elder gods are Brágon, Eldan, Findari, Tanora, and Ushara. Besides Tanora they have all left this realm, and you should not waste your time worshipping them. Only some nostalgic and disconcerted elves still do, but that behavior is silly to me. *Giggles*");
+talkEntry:addResponse("The elder gods are Brágon, Eldan, Findari, Tanora, and Ushara. Only some nostalgic and disconcerted elves honour them, but that behavior is silly to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("alten");
-talkEntry:addResponse("Die alten Götter sind Bragon, Eldan, Findari, Tanora und Ushara. Bis auf Tanora haben sie diese Ebene verlassen. Somit besteht kein Grund ihnen mehr zu dienen. Nur nostalgische und verwirrte Elfen tun das noch, aber die sind komisch. *kichert*");
+talkEntry:addResponse("Die alten Götter sind Brágon, Eldan, Findari, Tanora und Ushara. Nur nostalgische und verwirrte Elfen verehren sie, komisch, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("younger");
-talkEntry:addResponse("The younger gods are Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan, and Moshran. Most factions are shaped and molded by the gods they follow. I follow Elara! *Smiles*");
+talkEntry:addResponse("The younger gods are Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan, and Moshran. Most realms are shaped and molded by the gods they follow. I follow Elara!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("junge");
-talkEntry:addResponse("Die jungen Götter sind Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan und Moshran. Einige Fraktionen glauben in den einen, andere Fraktionen in die anderen. Ich glaube an Elara. Und du?");
+talkEntry:addResponse("Die jungen Götter sind Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan und Moshran. Einige Reiche glauben an den einen, andere Reiche an die anderen. Ich glaube an Elara. Und du?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1089,7 +1089,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("Er ist des Weines und der Feste und einige Anhänger können in Runewick gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden.");
+talkEntry:addResponse("Er ist des Weines und der Feste und einige Anhänger können in Runewick gefunden werden. Wenn du an ihn glaubst, dann wirst du dort Gleichgesinnte finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1097,66 +1097,66 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He is one of the elder gods who left this realm. Therefore, he will not help you at all and makes no sense to worship him. Only nostalgic and disconcerted Elves still do, so don't bother. However, he was known as the god of fire.");
+talkEntry:addResponse("He is one of the elder gods. He will not help you at all and it makes no sense to worship him. Only nostalgic and disconcerted Elves still do, so don't bother. However, he is known as the god of fire.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Er ist einer der alten Götter, die diese Ebene verlassen haben. Daher wird er dir nicht mehr helfen und es macht keinen Sinn ihm zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, er war bekannt als der Gott des Feuers.");
+talkEntry:addResponse("Er ist einer der alten Götter. Er wird dir nicht helfen und es macht keinen Sinn ihm zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, er ist bekannt als der Gott des Feuers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She is the goddess of spirits and the underworld. No one in particular worships her, except those who think they will be traveling to underworld soon. *Giggles*");
+talkEntry:addResponse("She is the goddess of spirits and the underworld. No one in particular worships her, except those who think they will be traveling to her realm soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Sie ist die Göttin der Geister und der Unterwelt. Niemand besonderes dient ihr, außer jene, welche denken, sie bald zu besuchen. *kichert*");
+talkEntry:addResponse("Sie ist die Göttin der Geister und der Unterwelt. Niemand besonderes dient ihr, außer jene, welche denken, sie bald zu besuchen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She is the goddess of wisdom and knowledge, most consider her the patron god of Runewick. So if you follow her teachings you will find like-minded people there. Perhaps I will see you in Runewick since she is my goddess! *Giggles*");
+talkEntry:addResponse("She is the goddess of wisdom and knowledge, most consider her the patron god of Runewick. So if you follow her teachings you will find like-minded people there. Perhaps I will see you in Runewick since she is my goddess!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Sie ist die Göttin des Wissens und der Weisheit und einige Anhänger können in Runewick gefunden werden. Wenn du an sie glaubst, dann wirst du dort Gleichgesinnte finden, so wie ich, weil ich ja auch an Elara glaube. *kichert*");
+talkEntry:addResponse("Sie ist die Göttin des Wissens und der Weisheit und einige Anhänger können in Runewick gefunden werden. Wenn du an sie glaubst, dann wirst du dort Gleichgesinnte finden, so wie ich, weil ich ja auch an Elara glaube.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He is one of the elder gods who left this realm. Therefore, don't bother to worship him- where would your prayers go? Only nostalgic Elves still do so anyway. If you're still wondering about him though, he was known as the god of spirit.");
+talkEntry:addResponse("He is one of the elder gods. Don't bother to worship him. Only nostalgic Elves still do so anyway. If you're still wondering about him though, he is known as the god of spirit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Er ist einer der alten Götter, die diese Ebene verlassen haben. Daher wird er dir nicht mehr helfen und es macht keinen Sinn ihm zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, er war bekannt als der Gott des Geistes.");
+talkEntry:addResponse("Er ist einer der alten Götter. Er wird dir nicht helfen und es macht keinen Sinn ihm zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, er ist bekannt als der Gott des Geistes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She is one of the elder gods who left this realm. There is no point in knowing about her; I mean she is long gone. Alright, alright if you must know she was the goddess of air.");
+talkEntry:addResponse("She is one of the elder gods. There is no point in knowing about her. Alright, alright if you must know she is the goddess of air.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("Sie ist eine der alten Götter, die diese Ebene verlassen haben. Daher wird sie dir nicht mehr helfen und es macht keinen Sinn ihr zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, sie war bekannt als der Gott der Luft.");
+talkEntry:addResponse("Sie ist eine der alten Götter. Sie wird dir nicht helfen und es macht keinen Sinn ihr zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, sie ist bekannt als der Gott der Luft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1177,27 +1177,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He is the god of battle and hunting. So if you are seeking the thrill of the hunt or glory in battle you best be on your way to Cadomyr, and I will pray that you live past a week! *Grins*");
+talkEntry:addResponse("He is the god of battle and hunting. So if you are seeking the thrill of the hunt or glory in battle you best be on your way to Cadomyr, and I will pray that you live past a week!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Er ist der Jagd und der Schlachten und einige Anhänger können in Cadomyr gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden.");
+talkEntry:addResponse("Er ist der Gott der Jagd und der Schlachten und einige Anhänger können in Cadomyr gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He is the unnamed one, also called the Milkspiller, who suffered a sickness in his belly from an old cake he had stolen from Nargùn. The cake was actually baked by Nargùn in order to poison and kill a giant. But I won't say anymore about him. *Shivers*");
+talkEntry:addResponse("He is the unnamed one, also called the Milkspiller, who suffered a sickness in his belly from an old cake he had stolen from Nargùn. The cake was actually baked by Nargùn in order to poison and kill a giant. But I won't say anymore about him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Er ist der Ungenannte, den man auch den Milchversaurer nennt, der sich den Magen an einem alten Kuchen verdarb, den er Nargun gestohlen hatte, welcher damit eigentlich einen Riesen hatte erschlagen wollte. Und mehr sag ich nicht dazu. *zittert*");
+talkEntry:addResponse("Er ist der Ungenannte, den man auch den Milchversaurer nennt, der sich den Magen an einem alten Kuchen verdarb, den er Nargun gestohlen hatte, welcher damit eigentlich einen Riesen hatte vergiften wollte. Und mehr sag ich nicht dazu.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1206,7 +1206,7 @@ talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He is the god of chaos and the trickiest of tricksters I assure you! There is no better place to find his followers than in Galmair. Be warned though, I wouldn't try to play any tricks on the Don he might try and eat you! *Giggles*");
+talkEntry:addResponse("He is the god of chaos and the trickiest of tricksters I assure you! There is no better place to find his followers than in Galmair. Be warned though, I wouldn't try to play any tricks on the Don he might try and eat you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1221,7 +1221,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She is the goddess of life and fertility! Many of her followers call Runewick home because the soil is rich and the harvest is grand. I go there often to fatten my belly! *Grins*");
+talkEntry:addResponse("She is the goddess of life and fertility! Many of her followers call Runewick home because the soil is rich and the harvest is grand. I go there often to fatten my belly!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1247,7 +1247,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She is the goddess of love and pleasure. I have heard that many travel to Cadomyr in search of love and well other things. *Giggles* May you find your true mate if you're bound for Cadomyr!");
+talkEntry:addResponse("She is the goddess of love and pleasure. I have heard that many travel to Cadomyr in search of love and well other things. May you find your true mate if you're bound for Cadomyr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1261,27 +1261,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She is the only elder god that has not departed from this realm. Her followers are mainly the lizardmen, but don't take her lightly for many of them regard her with strict devotion and pride. Since she is an elder god the elves honor her too. If you haven't guessed it yet she is the goddess of water!");
+talkEntry:addResponse("She is the only elder god that is worth mentioning. Her followers are mainly the lizardmen, but don't take her lightly for many of them regard her with strict devotion and pride. Since she is an elder god the elves honour her too. If you haven't guessed it yet she is the goddess of water!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Sie ist eine der alten Götter, die diese Ebene verlassen haben. Daher wird sie dir nicht mehr helfen und es macht keinen Sinn ihr zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, sie war die Göttin des Wasser.");
+talkEntry:addResponse("Sie ist die einzige der alten Götter, die man kennen sollte. Sie dir nicht helfen und es macht keinen Sinn ihr zu dienen. Nur nostalgische und verwirrte Elfen und Echsen tun das noch. Wie dem auch sei, sie ist die Göttin des Wasser.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She is one of the elder gods and has long since left this realm. I wouldn't even bother remembering her name if I were you. Only nostalgic and disconcerted Elves still do anyway. However, if you must know she was known as the god of earth.");
+talkEntry:addResponse("She is one of the elder gods. I wouldn't even bother remembering her name if I were you. Only nostalgic and disconcerted Elves still do anyway. However, if you must know she is known as the god of earth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Sie ist eine der alten Götter, die diese Ebene verlassen haben. Daher wird sie dir nicht mehr helfen und es macht keinen Sinn ihr zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, sie war die Göttin der Erde.");
+talkEntry:addResponse("Sie ist eine der alten Götter. Sie wird dir nicht helfen und es macht keinen Sinn ihr zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, sie ist die Göttin der Erde.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1303,8 +1303,8 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("All I have is information, and I'll give that to you for free!");
-talkEntry:addResponse("I'm sorry, but I don't sell anything.");
+talkEntry:addResponse("All I have is information about the realms, and I'll give that to you for free!");
+talkEntry:addResponse("I'm sorry, but I don't sell anything. Ask me about the realms instead.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1313,23 +1313,21 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Von mir bekommst du nur Informationen, und die sind umsonst!");
-talkEntry:addResponse("Tut mir leid, aber ich verkaufe nichts.");
+talkEntry:addResponse("Von mir bekommst du Informationen über die Reiche und die sind umsonst!");
+talkEntry:addResponse("Tut mir leid, aber ich verkaufe nichts. Frag mich doch was über die Reiche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("All I have is information, and I'll give that to you for free!");
-talkEntry:addResponse("I'm sorry, but I don't sell anything.");
+talkEntry:addResponse("All I have is information about the realms, and I'll give that to you for free!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Von mir bekommst du nur Informationen, und die sind umsonst!");
-talkEntry:addResponse("Tut mir leid, aber ich verkaufe nichts.");
+talkEntry:addResponse("Von mir bekommst du Informationen über die Reiche und die sind umsonst!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1337,14 +1335,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Viola");
 talkEntry:addTrigger("Baywillow");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That's me! If your after information look no further!");
+talkEntry:addResponse("That's me! If your after information about the realms look no further!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Viola");
 talkEntry:addTrigger("Baywillow");
-talkEntry:addResponse("Das bin ich und ich weiß viele wichtige Dinge.");
+talkEntry:addResponse("Das bin ich und ich weiß viele wichtige Dinge über die Reiche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
