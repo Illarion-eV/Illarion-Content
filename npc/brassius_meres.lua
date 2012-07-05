@@ -2,7 +2,7 @@
 -- NPC Name: Brassius Meres                                          Runewick --
 -- NPC Job:  Guard                                                            --
 --                                                                            --
--- NPC Race: human                      NPC Position:  841, 819, 0            --
+-- NPC Race: human                      NPC Position:  844, 819, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk & Estralis Seborian                                        --
