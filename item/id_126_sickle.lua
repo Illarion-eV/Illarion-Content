@@ -9,6 +9,17 @@ module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	--testing stuff
+	if (string.sub(User.lastSpokenText,1,10) == "setfaction") then
+	    newFaction = tonumber(string.sub(User.lastSpokenText,11))
+        if (newFaction > 3) or (newFaction == nil) then
+            User:inform("invalid value: faction can only be set to 1,2 or 3")		
+		    return
+        else
+		    base.factions.makeCharMemberOfTown(User,{},1, newFaction)
+		end
+	end	
+        		
+	
 	if (User.lastSpokenText == "faction") then
 	    FactionCheck = base.factions.get_Faction(User)
 		User:inform("factioncheck")
