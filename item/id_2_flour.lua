@@ -11,7 +11,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return
     end
     
-    if User.id == 552556288
+    if User.id == 552556288 then
         local callback = function(dialog)
             User:inform("closed");
         end
