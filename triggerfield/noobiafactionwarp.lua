@@ -99,7 +99,7 @@ function MoveToField(Character)
 	    end
 		
 		-- We make the noob a faction member - finally!
-		-- Merung, you forgot this! ~Estralis
+		Character:setQuestProgress(200,10111+(factionID*1000))
 		
 	end	
 end	
