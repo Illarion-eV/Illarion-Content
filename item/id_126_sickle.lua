@@ -15,7 +15,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             User:inform("invalid value: faction can only be set to 1,2 or 3")		
 		    return
         else
-		    User:setQuestProgress(200,11111)
+		    User:setQuestProgress(200,10111+(newFaction*1000))
 		end
 	end	
         		
