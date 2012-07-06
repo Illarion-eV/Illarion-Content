@@ -21,15 +21,11 @@ wMirror = false;
 testPos = position(0,0,0)
 
 function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
-    User:inform("test");
     if User.lastSpokenText == "remove grain" then
-        User:inform("in remove grain");
-        User:inform("count: " .. User:countItem(249));
-        User:eraseItem(249, User:countItem(249));
-        User:inform("count: " .. User:countItem(249));
-        User:eraseItem(249, 255);
-        User:inform("count: " .. User:countItem(249));
+        User:eraseItem(259, User:countItem(259));
+        return;
     end
+    User:requestInputDialog(InputDialog("Insert text!", false, 255));
 end
 
 function UseItem_deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
