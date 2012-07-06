@@ -15,7 +15,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             User:inform("invalid value: faction can only be set to 1,2 or 3")		
 		    return
         else
-		    base.factions.makeCharMemberOfTown(User,{},1, newFaction)
+		    User:setQuestProgress(200,11111)
 		end
 	end	
         		
