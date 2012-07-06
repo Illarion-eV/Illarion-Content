@@ -102,20 +102,24 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     User:eraseItem( 249, 1 ); -- Getreidebündel wegnehmen
     amount = GenAmount(User);                
     local notCreated = User:createItem( 259, amount, 333 ,0); -- Getreidekörner erstellen
-		if ( amount==0) then
-			base.common.InformNLS(User,
-			"Du verschüttest etwas Getreide.",
-			"You spill some grain.");
-		else
-    		if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
-        		world:createItemFromId( 259, notCreated, User.pos, true, 333 ,0);
-        		base.common.InformNLS(User,
-        		"Du kannst nichts mehr halten.",
-        		"You can't carry any more.");
-    		else -- Nicht überladen -> Neue aktion Starten
-        		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil,true);
-                User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
-    		end      
+    if ( amount==0) then
+        base.common.InformNLS(User,
+        "Du verschüttest etwas Getreide.",
+        "You spill some grain.");
+    else
+        if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
+            world:createItemFromId( 259, notCreated, User.pos, true, 333 ,0);
+            base.common.InformNLS(User,
+            "Du kannst nichts mehr halten.",
+            "You can't carry any more.");
+        elseif (User:countItemAt("all",249)==0) then -- Nicht überladen -> Neue aktion Starten
+            farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil,true);
+            User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
+        else
+            base.common.InformNLS(User,
+            "Du hast kein Getreidebündel mehr.",
+            "You have no bundle of grain anymore.");
+        end      
     end              
     base.common.GetHungry( User, 200 ); -- Hungrig werden
     if base.common.ToolBreaks( User, SourceItem, true ) then -- Dreschflegen beschädigen
@@ -138,4 +142,5 @@ function GenAmount(User)
     elseif ( chance < (Skill+Attrib) + 25 ) then return 2;
     elseif ( chance < (Skill+Attrib) + 50 ) then return 1;
     end
+    return 0;
 end
