@@ -21,6 +21,17 @@ wMirror = false;
 testPos = position(0,0,0)
 
 function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
+    local callback = function(dialog)
+        User:inform("closed");
+    end
+    
+    -- local dialog = MessageDialog("This is the title!", "This \n is \n the \n text!");
+    -- User:requestMessageDialog(dialog);
+    User:requestInputDialog(InputDialog("Input window.", false, 255, callback));
+    return;
+end
+
+function UseItem-deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
 	if dowp then
 		if User.lastSpokenText == "nowp" then
 			dowp = false;

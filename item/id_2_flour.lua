@@ -10,17 +10,6 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
         return
     end
-    
-    if User.id == 552556288 then
-        local callback = function(dialog)
-            User:inform("closed");
-        end
-        
-        local dialog = MessageDialog("This is the title!", "This \n is \n the \n text!");
-        User:requestMessageDialog(dialog);
-        User:requestInputDialog("Input window.", false, 255, callback);
-        return;
-    end
 
     list=world:LoS(User.pos,position(User.pos.x+5,User.pos.y,User.pos.z));
 
