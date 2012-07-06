@@ -11,6 +11,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return
     end
 
+
     list=world:LoS(User.pos,position(User.pos.x+5,User.pos.y,User.pos.z));
 
     if list ~= nil then
