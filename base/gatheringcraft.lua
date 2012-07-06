@@ -175,7 +175,61 @@ end
 function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
     local skill  = User:getSkill(self.LeadSkill);
     local attrib = User:increaseAttrib(self.LeadAttrib, 0);
-	-- new algorithm
+    
+    local skillBonus=0;
+	local timeBonus=0;
+    if(toolItem ~= nil) then
+		local gem1, str1, gem2, str2=base.common.GetBonusFromTool(toolItem);
+		if gem1==3 then     -- ruby modifies skill!
+			skillBonus=str1;
+		end
+		if gem2==3 then
+			skillBonus=skillBonus+str2;
+		end
+		if gem1==6 then     -- amethyst modifies time needed
+			timeBonus=str1;
+		end
+		if gem2==6 then
+			timeBonus=timeBonus+str2;
+		end
+	end
+    -- gem boni should range in [0,1]
+	-- currently: linear distribution
+	-- current max (2 gems, lvl 10): 20
+	skillBonus = math.min(20,skillBonus) / 20;
+	timeBonus = math.min(20,timeBonus) / 20;
+    
+    local maxTime = 80; -- without random
+    local minTime = 10; -- without random
+    local randomChange = 5; -- randomly change result by a value between -5 and +5
+    local timeNoAttribFullSkill = 50;
+    
+    -- skill should not exceed 100
+    local skillMultiplier = math.min(100,skill);
+    -- add skill according to bonus
+    skillMultiplier = skillMultiplier + skillBonus*(100-skillMultiplier);
+    -- skillMultiplier is now in range of [0,1]
+    skillMultiplier = math.min(100,skillMultiplier) / 100;
+    
+    -- basically the best, so the minimum, time that can be achieved with maximum skill
+    -- a maximum attribute value of 25 is assumed
+    local retValue = timeNoAttribFullSkill - (timeNoAttribFullSkill - minTime) * math.min(25,attrib) / 25;
+    -- modulate best achievable time with skillMultiplier
+    retValue = math.max(minTime, maxTime - (maxTime-retValue) * skillMultiplier);
+    
+    -- fill the remaining time if there is a time bonus
+    retValue = math.max(minTime, retValue - ( (retValue-minTime)*timeBonus ) );
+    
+    -- add/subtract random change
+    retValue = retValue + math.random(0,randomChange*2) - randomChange;
+    
+    if fastAction then
+        retVal = math.ceil(retVal/3);
+    end
+    return retValue;
+    
+    
+    --[[ alternative algorithm
 	local skillBonus=0;
 	local timeBonus=0;
 	if(toolItem ~= nil) then
@@ -238,7 +292,8 @@ function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
         retVal = math.ceil(retVal/3);
     end
 	return retVal;
-	
+	]]
+    
 	-- -- old algorithm
 	-- if(toolItem ~= nil) then
 		-- gem1, str1, gem2, str2=base.common.GetBonusFromTool(toolItem);
