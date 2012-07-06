@@ -213,20 +213,20 @@ function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
     
     -- basically the best, so the minimum, time that can be achieved with maximum skill
     -- a maximum attribute value of 25 is assumed
-    local retValue = timeNoAttribFullSkill - (timeNoAttribFullSkill - minTime) * math.min(25,attrib) / 25;
+    local retVal = timeNoAttribFullSkill - (timeNoAttribFullSkill - minTime) * math.min(25,attrib) / 25;
     -- modulate best achievable time with skillMultiplier
-    retValue = math.max(minTime, maxTime - (maxTime-retValue) * skillMultiplier);
+    retVal = math.max(minTime, maxTime - (maxTime-retVal) * skillMultiplier);
     
     -- fill the remaining time if there is a time bonus
-    retValue = math.max(minTime, retValue - ( (retValue-minTime)*timeBonus ) );
+    retVal = math.max(minTime, retVal - ( (retVal-minTime)*timeBonus ) );
     
     -- add/subtract random change
-    retValue = retValue + math.random(0,randomChange*2) - randomChange;
+    retVal = retVal + math.random(0,randomChange*2) - randomChange;
     
     if fastAction then
         retVal = math.ceil(retVal/3);
     end
-    return retValue;
+    return retVal;
     
     
     --[[ alternative algorithm
