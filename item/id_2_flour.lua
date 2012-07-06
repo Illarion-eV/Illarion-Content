@@ -16,9 +16,9 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
             User:inform("closed");
         end
         
-        local dialog = MessageDialog("This is the title!", "This \n is \n the \n text!", callback);
+        local dialog = MessageDialog("This is the title!", "This \n is \n the \n text!");
         User:requestMessageDialog(dialog);
-        
+        User:requestInputDialog("Input window.", false, 255, callback);
         return;
     end
 
