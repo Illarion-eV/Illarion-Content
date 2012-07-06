@@ -31,7 +31,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
     return;
 end
 
-function UseItem-deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
+function UseItem_deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
 	if dowp then
 		if User.lastSpokenText == "nowp" then
 			dowp = false;
