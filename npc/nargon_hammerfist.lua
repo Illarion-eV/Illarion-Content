@@ -29,7 +29,7 @@ require("npc.base.talk")
 module("npc.nargon_hammerfist", package.seeall)
 
 function initNpc()
-mainNPC = npc.base.basic.baseNPC();
+local mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
