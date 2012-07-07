@@ -38,7 +38,7 @@ function MoveToField(Character)
 	        if Character:getPlayerLanguage() == 0 then
 		        dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
 	        else	
-		        dialogNewbie = MessageDialog("Tutorial", "At this station, you will learn how to gather resources. And who might be the best to teach you how to mine for gold? A dwarf like Nargon Hammerfist.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial", "At this station, you will learn how to gather resources. This station will focus on mining, though similar principles are applicable to the other crafts. Now, who might be the best to teach you how to mine for gold? Why, a dwarf like Nargon Hammerfist of course.", callbackNewbie)
 	        end	
 	        Character:requestMessageDialog(dialogNewbie)
 		end
