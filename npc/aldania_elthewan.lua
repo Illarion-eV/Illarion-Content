@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 05, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 07, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -44,7 +44,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, help, skip tutorial."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, Help, Skip Tutorial."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -58,7 +58,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("skip");
 talkEntry:addTrigger("cancel");
 talkEntry:addTrigger("abort");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You decided to skip the tutorial. Please choose a realm as home for your character now by stepping through a portal on one of the islands."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands."));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(35, 95, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -75,8 +75,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "<", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Deactivate your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Drag the pick-axe while holding the left mouse button to an empty hand slot of your inventory."));
-talkEntry:addResponse("Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with equipping: I just gave you a pick-axe, put it in your hands, please.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."));
+talkEntry:addResponse("Be greeted, %CHARNAME. My name is Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with the basics, equipping. I have just given you a pick-axe, hold it in your hands, please.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -97,7 +97,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Alas, looks like you lost the pick-axe I gave you. Don't be too careless about your belongings! Here you have another one. Take it to your hands, please.");
+talkEntry:addResponse("Alas, it looks like you lost the pick-axe I gave you. Do not be so careless with your belongings! Here, have another. Take it into your hands, please.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -115,8 +115,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Drag the pick-axe while holding the left mouse button to an empty hand slot of your inventory."));
-talkEntry:addResponse("Please put the pick-axe into your hands. Learning how to equip items is important, just imagine you face a dragon and you can't draw your sword!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."));
+talkEntry:addResponse("Please place the pick-axe into your hands. Learning how to equip items is important, just imagine if you should face a dragon and could not even draw your sword!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -133,7 +133,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Alas, looks like you lost the pick-axe I gave you. Don't be too careless about your belongings! Here you have another one. Examine it, please.");
+talkEntry:addResponse("Alas, it looks like you lost the pick-axe I gave you. Don't be so careless with your belongings! Here, have another one. Examine it, please.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -151,8 +151,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Activate your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Click with the left mouse button to examine the pick-axe."));
-talkEntry:addResponse("In order to examine an item, you just have to click on it once. Knowledge about your belongings is as vital as acquiring them.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Click the pick-axe with the left mouse button to examine it."));
+talkEntry:addResponse("In order to examine an item, you simply have to click on it once. Learning about your belongings is as vital as acquiring them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,7 +169,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Without a torch, darkness will engulf you sooner or later. I gave you another torch, be more careful with this one.");
+talkEntry:addResponse("Without a light source, the darkness will engulf you sooner or later. I have given you another torch, be more careful with this one.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -187,8 +187,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Deactivate your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Perform a double click on the torch to ignite it."));
-talkEntry:addResponse("What is the purpose of items you cannot use properly? Ignite the torch I gave you with a double click.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. You can perform a double click on an item to use it. Double click the torch to ignite it."));
+talkEntry:addResponse("What is the purpose of owning an item if you cannot use it properly? Ignite the torch I gave you with a double click. Light sources are quite important when travelling by night.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -204,7 +204,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("This is where we part company, %CHARNAME. My best regards to Groknar who will teach you in the art of fighting further down the road.");
+talkEntry:addResponse("This is where we part company, %CHARNAME. You have done well enough. Run along to that savage, Groknar, further down the road. He will train you in the art of fighting.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -218,7 +218,7 @@ talkingNPC:addCycleText("ÜBERSETZEN", "Aldania Elthelwan, at your service. Equip
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("This is your tutorial guide Aldania Elthewan.", "Das ist deine Tutorin Aldania Elthewan.");
+mainNPC:setLookat("Das ist deine Tutorin Aldania Elthewan.", "This is your tutorial guide Aldania Elthewan.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST.", "Please switch the language of your character to the common tongue by DOING THIS AND THAT.");
 mainNPC:setEquipment(1, 0);

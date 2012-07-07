@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "This is your tutorial guide Aldania Elthewan."
-lookatUS = "Das ist deine Tutorin Aldania Elthewan."
+lookatDE = "Das ist deine Tutorin Aldania Elthewan."
+lookatUS = "This is your tutorial guide Aldania Elthewan."
 useMsgDE = "Finger weg!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST."
@@ -58,43 +58,43 @@ itemShoes = 369
 "reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0
 
 -- Help
-"Help" -> inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, help, skip tutorial.")
+"Help" -> inform("[Tutorial] This NPC is the Tutor Aldania Elthewan. Keywords: Hello, Help, Skip Tutorial.")
 "Hilfe" -> inform("[Tutorial] Dieser NPC ist die Tutorin Aldania Elthewan. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
 -- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You decided to skip the tutorial. Please choose a realm as home for your character now by stepping through a portal on one of the islands."), warp(35, 95, 100)
+"skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands."), warp(35, 95, 100)
 "überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(35, 95, 100)
 
 -- Learn how to equip
-".*", queststatus(310) < 2, english -> inform("[Tutorial] Deactivate your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Drag the pick-axe while holding the left mouse button to an empty hand slot of your inventory."), "Be greeted %CHARNAME, I am Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with equipping: I just gave you a pick-axe, put it in your hands, please.", item(2763, 1, 333, 0), queststatus(310) = 2
+".*", queststatus(310) < 2, english -> inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."), "Be greeted, %CHARNAME. My name is Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with the basics, equipping. I have just given you a pick-axe, hold it in your hands, please.", item(2763, 1, 333, 0), queststatus(310) = 2
 ".*", queststatus(310) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN", item(2763, 1, 333, 0), queststatus(310) = 2
 
 -- Player lost his pick-axe. We will remove farmed pick axes at the end of the tutorial.
-".*", queststatus(310) = 2, item(2763, all) = 0, english -> "Alas, looks like you lost the pick-axe I gave you. Don't be too careless about your belongings! Here you have another one. Take it to your hands, please.", item(2763, 1, 333, 0)
+".*", queststatus(310) = 2, item(2763, all) = 0, english -> "Alas, it looks like you lost the pick-axe I gave you. Do not be so careless with your belongings! Here, have another. Take it into your hands, please.", item(2763, 1, 333, 0)
 ".*", queststatus(310) = 2, item(2763, all) = 0 -> "ÜBERSETZEN", item(2763, 1, 333, 0)
 
 -- Player seems to have a problem with equipping
-".*", queststatus(310) = 2, english -> inform("[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Drag the pick-axe while holding the left mouse button to an empty hand slot of your inventory."), "Please put the pick-axe into your hands. Learning how to equip items is important, just imagine you face a dragon and you can't draw your sword!"
+".*", queststatus(310) = 2, english -> inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."), "Please place the pick-axe into your hands. Learning how to equip items is important, just imagine if you should face a dragon and could not even draw your sword!"
 ".*", queststatus(310) = 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player lost his pick-axe. Again. We will remove farmed pick axes at the end of the tutorial.
-".*", queststatus(310) = 3, item(2763, all) = 0, english -> "Alas, looks like you lost the pick-axe I gave you. Don't be too careless about your belongings! Here you have another one. Examine it, please.", item(2763, 1, 333, 0)
+".*", queststatus(310) = 3, item(2763, all) = 0, english -> "Alas, it looks like you lost the pick-axe I gave you. Don't be so careless with your belongings! Here, have another one. Examine it, please.", item(2763, 1, 333, 0)
 ".*", queststatus(310) = 3, item(2763, all) = 0 -> "ÜBERSETZEN", item(2763, 1, 333, 0)
 
 -- Player seems to have a problem with examining
-".*", queststatus(310) = 3, english -> inform("[Tutorial] Activate your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Click with the left mouse button to examine the pick-axe."), "In order to examine an item, you just have to click on it once. Knowledge about your belongings is as vital as acquiring them."
+".*", queststatus(310) = 3, english -> inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Click the pick-axe with the left mouse button to examine it."), "In order to examine an item, you simply have to click on it once. Learning about your belongings is as vital as acquiring them."
 ".*", queststatus(310) = 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player lost his torch. We will remove farmed torches at the end of the tutorial.
-".*", queststatus(310) = 4, item(391, all) = 0, english -> "Without a torch, darkness will engulf you sooner or later. I gave you another torch, be more careful with this one.", item(391, 1, 333, 0)
+".*", queststatus(310) = 4, item(391, all) = 0, english -> "Without a light source, the darkness will engulf you sooner or later. I have given you another torch, be more careful with this one.", item(391, 1, 333, 0)
 ".*", queststatus(310) = 4, item(391, all) = 0 -> "ÜBERSETZEN", item(391, 1, 333, 0)
 
 -- Player seems to have a problem with using items
-".*", queststatus(310) = 4, english -> inform("[Tutorial] Deactivate your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Perform a double click on the torch to ignite it."), "What is the purpose of items you cannot use properly? Ignite the torch I gave you with a double click."
+".*", queststatus(310) = 4, english -> inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. You can perform a double click on an item to use it. Double click the torch to ignite it."), "What is the purpose of owning an item if you cannot use it properly? Ignite the torch I gave you with a double click. Light sources are quite important when travelling by night."
 ".*", queststatus(310) = 4 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN"
 
 -- Player did all the lessons
-".*", queststatus(310) = 5, english -> "This is where we part company, %CHARNAME. My best regards to Groknar who will teach you in the art of fighting further down the road."
+".*", queststatus(310) = 5, english -> "This is where we part company, %CHARNAME. You have done well enough. Run along to that savage, Groknar, further down the road. He will train you in the art of fighting."
 ".*", queststatus(310) = 5 -> "ÜBERSETZEN"
 
 ------------------------------------------------------------------------------AC
