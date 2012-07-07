@@ -28,7 +28,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
     local callback = function(dialog)
         User:inform("closed");
     end
-    User:requestInputDialog(InputDialog("Insert text!", false, 255, nil));
+    User:requestInputDialog(InputDialog("Insert text!", false, 255, callback));
 end
 
 function UseItem_deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
