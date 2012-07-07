@@ -26,14 +26,14 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         return;
     end
     local callback = function(dialog)
-        User:inform("closed");
-        if  not  dialog:getSuccess()  then
-            User:inform("You  canceled!  How  dare  you?")
+        if not dialog:getSuccess() then
+            User:inform("You canceled! How dare you?")
         else
-            User:inform("You  wrote:  "  ..  dialog:getInput())
+            User:inform("You wrote: " .. dialog:getInput())
         end
     end
-    User:requestInputDialog(InputDialog("Insert text!", false, 255, callback));
+    local dialog = InputDialog("Insert some text!", false, 255, callback)
+    User:requestInputDialog(dialog)
 end
 
 function UseItem_deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
