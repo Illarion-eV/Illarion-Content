@@ -25,7 +25,10 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         User:eraseItem(259, User:countItem(259));
         return;
     end
-    User:requestInputDialog(InputDialog("Insert text!", false, 255));
+    local callback = function(dialog)
+        User:inform("closed");
+    end
+    User:requestInputDialog(InputDialog("Insert text!", false, 255, nil));
 end
 
 function UseItem_deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
