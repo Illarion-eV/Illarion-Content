@@ -21,10 +21,19 @@ wMirror = false;
 testPos = position(0,0,0)
 
 function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
-    User:inform("test");
     if User.lastSpokenText == "remove grain" then
         User:eraseItem(259, User:countItem(259));
+        return;
     end
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            User:inform("You canceled! How dare you?")
+        else
+            User:inform("You wrote: " .. dialog:getInput())
+        end
+    end
+    local dialog = InputDialog("Insert some text!", false, 255, callback)
+    User:requestInputDialog(dialog)
 end
 
 function UseItem_deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
