@@ -212,10 +212,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-initNpc();
-initNpc = nil;
 function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
 function nextCycle() mainNPC:nextCycle(); end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
+initNpc();
+initNpc = nil;
 -- END
