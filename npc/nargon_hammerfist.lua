@@ -28,8 +28,9 @@ require("npc.base.consequence.warp")
 require("npc.base.talk")
 module("npc.nargon_hammerfist", package.seeall)
 
-function initNpc()
 local mainNPC = npc.base.basic.baseNPC();
+
+function initNpc()
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
