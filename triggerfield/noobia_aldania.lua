@@ -41,7 +41,7 @@ function MoveToField(Character)
 	        if Character:getPlayerLanguage() == 0 then
 		        dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
 	        else	
-		        dialogNewbie = MessageDialog("Tutorial", "At this station, the elfess will explain to you how to equip, use and examine items. Greet her like you learned from Henry Cunnigan!", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial", "At this station, the elfess will explain to you how to equip, use and examine items. Greet her as you learned from Henry Cunnigan!", callbackNewbie)
 	        end	
 	        Character:requestMessageDialog(dialogNewbie)
 		end

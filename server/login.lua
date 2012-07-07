@@ -98,12 +98,12 @@ function onLogin( player )
 	messageG[50]="[Tipp] Die besten Edelsteinschleifer leben in Cadomyr.";
 	
     messageE={};
-    messageE[1]="[Hint] Light armour like leather armour protects good against blunt weapons but bad against slashing weapons.";
-    messageE[2]="[Hint] Medium armour like chain mail protects good against slashing weapons but bad against puncture weapons.";
-    messageE[3]="[Hint] Heavy armour like plate armour protects good against puncture weapons but bad against blunt weapons.";
+    messageE[1]="[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons.";
+    messageE[2]="[Hint] Medium armours, such as chain mail, offer good protection against slashing weapons but are more vulnerable to puncture weapons.";
+    messageE[3]="[Hint] Heavy armours, such as those made from sturdy metal plates, offer good protection against puncture weapons but are vulnerable to blunt weapons.";
     messageE[4]="[Hint] We play with, not against each other. Have fun playing!";
 	messageE[5]="[Hint] Please join our IRC chat: #illarion on Quakenet.";
-	messageE[6]="[Hint] The forum contains many interesting discussions and information. Register today!";	
+	messageE[6]="[Hint] The forum contains many interesting discussions and a lot of useful information. Register today!";	
 	messageE[7]="[Hint] If you want to contact a gamemaster, type !gm <Your message> in the chat box.";
 	messageE[8]="[Hint] Brágon is the God of fire.";
 	messageE[9]="[Hint] Eldan is the God of spirit.";
@@ -124,13 +124,13 @@ function onLogin( player )
 	messageE[24]="[Hint] Cadomyr is the realm of honour.";
 	messageE[25]="[Hint] Runewick is the realm of wisdom.";
 	messageE[26]="[Hint] Galmair is the realm of wealth.";
-	messageE[27]="[Hint] Some monsters you should avoid all alone.";
+	messageE[27]="[Hint] There are some monsters which you should avoid while adventuring alone.";
 	messageE[28]="[Hint] Items of low durability might break any time. A specialist can repair them.";
-	messageE[29]="[Hint] Distance weapons have their name for a reason; useful for distant targets, useless in melee.";
+	messageE[29]="[Hint] Distance weapons have their name for a reason; they are useful for distant targets, but useless in a melee.";
 	messageE[30]="[Hint] Slashing weapons are good against light armour.";
 	messageE[31]="[Hint] Puncture weapons are good against medium armour.";
 	messageE[32]="[Hint] Blunt weapons are good against heavy armour.";
-	messageE[33]="[Hint] A silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin.";
+	messageE[33]="[Hint] A single silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin.";
 	messageE[34]="[Hint] The best alchemists are living in Runewick.";
 	messageE[35]="[Hint] The best candle makers are living in Runewick.";
 	messageE[36]="[Hint] The best carpenters are living in Runewick.";
@@ -148,7 +148,17 @@ function onLogin( player )
 	messageE[48]="[Hint] The best diggers are living in Cadomyr.";
 	messageE[49]="[Hint] The best finesmiths are living in Cadomyr.";
 	messageE[50]="[Hint] The best gem grinders are living in Cadomyr.";	
-	
+	messageE[51]="[Hint] Each realm specialises in certain crafts. If you can't find what you are looking for in your home market, you may need to travel abroad.";
+	messageE[52]="[Hint] If you ever get stuck while communicating with an NPC, the 'help' command will provide you with a list of useful topics.";
+	messageE[53]="[Hint] Fruit trees have saved the lives of countless starving travellers. You will soon find yourself needing a more filling meal, though.";
+	messageE[54]="[Hint] There are many ways to move your character around in Illarion. The right mouse button, arrow keys, num pad, and WASD will all work.";
+	messageE[55]="[Hint] Asking an NPC whether they have a 'quest' for you to carry out can be a good way to earn a quick coin or two.";
+	messageE[56]="[Hint] Don't be afraid to ask the other players around you for help if you encounter difficulties. But make sure to remain respectful and to use OOC chat (#o), where appropriate.";
+	messageE[57]="[Hint] Using the '!i' command will introduce your character to any people around them. The other players will then be able to see your character's name.";
+	messageE[58]="[Hint] The Illarion chat is linked on the homepage. It is useful for technical assistance and for simply getting to know your fellow players.";
+	messageE[59]="[Hint] Fullscreen mode can be activated from the settings menu when the client is started.";
+	messageE[60]="[Hint] You will receive a notification when a new player chooses to join your realm. Give them a friendly welcome!";
+
 	    dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	    base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
     end

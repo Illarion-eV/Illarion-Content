@@ -25,7 +25,7 @@ function MoveToField(Character)
 	        if Character:getPlayerLanguage() == 0 then
 		        dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
 	        else	
-		        dialogNewbie = MessageDialog("Tutorial", "At this station, you will learn how to craft. Nimbur Goldhand is a very skilled artisan who can teach you the ropes.", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial", "At this station, you will learn how to craft items. Nimbur Goldhand is a very skilled artisan who can teach you the necessary steps to get started with a crafting profession.", callbackNewbie)
 	        end	
 	        Character:requestMessageDialog(dialogNewbie)
 		end

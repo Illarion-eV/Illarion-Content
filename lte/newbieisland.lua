@@ -24,17 +24,17 @@ module("lte.newbieisland", package.seeall)
 
 	ListCycleMessageEnglish = {}
 	ListCycleMessageEnglish = {
-	"[Tutorial] If you want to skip the tutorial, just say 'skip tutorial' to any NPC.",
-	"[Tutorial] Do you need help? DO THIS AND THAT or type '!gm your question' and hit enter. As soon as a Gamemaster is available, they'll assist you.",
-	"[Tutorial] To shout, place #s in front of your message. To whisper, use #w and use #o for the out of character mode.",
-	"[Tutorial] A tutorial can never replace the help of other players or the Illarion staff. We invite you to join the official Illarion chat that is linked on the homepage.",
-	"[Tutorial] If you want to introduce your character to other players, DO THIS AND THAT or type #i in the chatbox and hit return.",
-	"[Tutorial] All NPCs react on a number of keywords. You can get a list of the most important keywords as answer to 'help'. ",
+	"[Tutorial] If you wish to skip the tutorial, just say 'skip tutorial' to any NPC.",
+	"[Tutorial] Do you need help? DO THIS AND THAT or type '!gm <your question>' and hit enter. As soon as a Gamemaster is available, they will assist you.",
+	"[Tutorial] To shout, type #s in front of your message. To whisper, use #w. And use #o for the out of character mode.",
+	"[Tutorial] A tutorial can never replace the help of other players or the Illarion staff. We invite you to join the official Illarion chat, linked on the homepage, and introduce yourself.",
+	"[Tutorial] If you want to introduce your character to other players, DO THIS AND THAT or type #i in the chatbox and hit return. The players around you will then be able to see your character's name.",
+	"[Tutorial] All NPCs react on a number of keywords. You can get a list of the most important keywords for a particular NPC with the command 'help'.",
 	"[Tutorial] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy.",
 	"[Tutorial] You can review your skills by DOING THIS AND THAT.",
-	"[Tutorial] The red bar represents the health of your character. The yellow bar is an indicator how much your character is sated and the blue bar shows the mana of mages.",
-	"[Tutorial] Did you already think about the background and past of your character? The illarion.org homepage contains a lot of information on lore.",
-	"[Tutorial] If your character gets hungry, just harvest some fruits by using the trunk of a fruit tree. You can eat the fruits by using them."}
+	"[Tutorial] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters.",
+	"[Tutorial] Did you already think about the background and past of your character? The illarion.org homepage contains a lot of information on the races, the gods, and the lore of Illarion.",
+	"[Tutorial] If your character ever gets hungry, just harvest some fruits by using the trunk of a fruit tree. You can then eat the fruits by using them."}
 	-- cycle messages end
 
 function addEffect(newbieEffect, Character)
@@ -53,7 +53,7 @@ function callEffect(newbieEffect,Character)
 
 	        --Station 1: Henry Cunnigan teaches how to talk to NPCs		
 	        if Character:getQuestProgress(309) < 2 and Character:isInRangeToPosition(position(37, 21, 100),7) then -- the char should walk to a specific postion (see: triggerfield/noobia_henry)
-		        base.common.TempInformNLS(Character,"ÜBERSETZEN.","[Tutorial] To start the tutorial, please walk to the human at the end of the pier. Click and hold with the right mouse button on a spot close to the human. You can also walk using the num pad, the arrow keys or WASD.");
+		        base.common.TempInformNLS(Character,"ÜBERSETZEN.","[Tutorial] To start the tutorial, please walk to the human at the end of the pier. To move, click and hold with the right mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD.");
 	        end 
 
 		else --General help

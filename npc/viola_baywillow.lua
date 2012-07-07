@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 06, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 07, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -43,9 +43,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keyphrases: Help, realms, gods, races, crafts, motives, landscapes, leaders, laws."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keyphrases: Help, Realms, Gods, Races, Crafts, Motives, Landscapes, Leaders, Laws."));
 talkEntry:addResponse("Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!");
-talkEntry:addResponse("Hiho, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the realms of Cadomyr, Galmair and Runewick!");
+talkEntry:addResponse("Hiho, have we met before? There are so many new faces around, my apologies if we have. Let me tell about the realms of Cadomyr, Galmair and Runewick!");
 talkEntry:addResponse("Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -63,7 +63,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("skip");
 talkEntry:addTrigger("cancel");
 talkEntry:addTrigger("abort");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are already at the end of the tutorial. Please choose a realm as home for your character now by stepping through a portal on one of the islands."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You have already made it to the end of the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -82,7 +82,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addResponse("Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!");
-talkEntry:addResponse("Hiho, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the realms of Cadomyr, Galmair and Runewick!");
+talkEntry:addResponse("Hiho, have we met before? There are so many new faces around, my apologies if we have. Let me tell about the realms of Cadomyr, Galmair and Runewick!");
 talkEntry:addResponse("Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -108,7 +108,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!");
-talkEntry:addResponse("Hiho, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the realms of Cadomyr, Galmair and Runewick!");
+talkEntry:addResponse("Hiho, have we met before? There are so many new faces around, my apologies if we have. Let me tell about the realms of Cadomyr, Galmair and Runewick!");
 talkEntry:addResponse("Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -130,7 +130,7 @@ talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Fare thee well.");
-talkEntry:addResponse("Good bye.");
+talkEntry:addResponse("Good-bye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -152,7 +152,7 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Fare thee well.");
-talkEntry:addResponse("Good bye.");
+talkEntry:addResponse("Good-bye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -223,7 +223,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Ahh, a case of idle hands, I see. Be assured traveler if you're willing to seek there are folks out there that could use a hand or two. Best start with one of the realms!");
+talkEntry:addResponse("Ahh, a case of idle hands, I see. Be assured, traveler, if you're willing to look around there are folks out there that could use a hand or two. Best start with one of the realms!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -238,7 +238,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I don't have a specific profession.");
-talkEntry:addResponse("I only pass along information, but I don't have profession, per say.");
+talkEntry:addResponse("I only pass along information, but I don't have profession, per se.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -253,7 +253,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I don't have any specific profession.");
-talkEntry:addResponse(" I only pass along information, but I don't have profession, per say.");
+talkEntry:addResponse(" I only pass along information, but I don't have profession, per se.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -280,7 +280,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("This in an old island, which does not exist anymore. Many who you can find in the three realms, are from this island. If you like know more about it, feel free to ask them.");
+talkEntry:addResponse("This in an old island, which does not exist anymore. Many who you can find in the three realms have arrived from this island. If you would like know more about it, feel free to ask them.");
 talkEntry:addResponse("I haven't been there, therefore I cannot tell you anything about it except that it doesn't exist anymore and that you can ask other people about it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -296,13 +296,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faction");
 talkEntry:addTrigger("realm");
-talkEntry:addResponse("We have three realms here: Runewick, Cadomyr and Galmair. Each of which are home to fampous craftsmen. If you'd like to know more about races or crafting in these realms just say the word.");
+talkEntry:addResponse("We have three realms here: Runewick, Cadomyr and Galmair. Each realm is home to famous craftsmen. If you'd like to know more about races or crafting in these realms just say the word.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("race");
-talkEntry:addResponse("In every realm there are members of all races but some prefer certain realms. In Runewick, you'll find many elves and halflings; in Galmair, dwarves and orcs; and in Cadomyr, lizards and humans.");
+talkEntry:addTrigger("people");
+talkEntry:addResponse("In every realm there are members of all races, though some prefer certain realms. In Runewick, you'll find many elves and halflings; in Galmair, dwarves and orcs; and in Cadomyr, lizardmen and humans.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -314,32 +315,41 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("motiv");
+talkEntry:addTrigger("motif");
+talkEntry:addTrigger("theme");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The leitmotiv in Runewick is wisdom, in Galmair it is wealth and in Cadomyr it's honour.");
+talkEntry:addResponse("The central theme of Runewick is wisdom, in Galmair it is wealth and in Cadomyr it's honour.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("landscape");
-talkEntry:addResponse("The four towers of Runewick are somewhere in the southeast between the meadow and the forest; the halls and caves of Galmair are to the northwest between the mountains and the forest; and the houses of Cadomyr lie to the west between the desert and the mountains.");
+talkEntry:addTrigger("land");
+talkEntry:addTrigger("region");
+talkEntry:addTrigger("area");
+talkEntry:addResponse("The four towers of Runewick are somewhere in the southeast between the meadow and the forest. The halls and caves of Galmair are to the northwest between the mountains and the forest. The town of Cadomyr lies to the west between the desert and the mountains.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("leader");
+talkEntry:addTrigger("ruler");
+talkEntry:addTrigger("govern");
 talkEntry:addResponse("Archmage Elvaine Morgan is the leader of Runewick, Don Valerio Guilianni rules in Galmair, and Queen Rosaline Edwards reigns over Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("law");
-talkEntry:addResponse("Runewick is the only community with posted laws to rely on; Galmair doesn't have any real laws - except obeying the Don; and there are customs in Cadomyr which are of albarian origin, but to an Albarian they will look shockingly innovative. More information can be found in the town of your choice.");
+talkEntry:addTrigger("custom");
+talkEntry:addTrigger("legal");
+talkEntry:addTrigger("justice");
+talkEntry:addResponse("Runewick is the only community with posted laws to rely on. Galmair doesn't have any real laws - except strict obedience to the Don. There are customs in Cadomyr which are somewhat of Albarian origin, though to a true Albarian they would look shockingly innovative and progressive. More information can be found in the town of your choice.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Father");
-talkEntry:addResponse("The father of Queen Rosaline Edwards was Sir Reginald, and the father of Don Valerio Guilianni was Don Tommaso Guilianni. Both Reginald and Tommaso are dead. The father of Archmage Elvaine Morgan is presumed dead as well, but that's just the rumors I have heard.");
+talkEntry:addResponse("The father of Queen Rosaline Edwards was Sir Reginald, and the father of Don Valerio Guilianni was Don Tommaso Guilianni. Both Reginald and Tommaso ruled prior to their children, and both have passed on from this life. The father of Archmage Elvaine Morgan is presumed dead as well, but that's just the rumours I have heard.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -394,7 +404,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("wisdom");
-talkEntry:addResponse("Wisdom is the highest premise in Runewick. Therefore, most follow the path of Elara, but other followers are permitted. It is well known that people seek the council of Archmage Elvaine Morgan, whose sageness is widely renowned.");
+talkEntry:addResponse("Wisdom is the highest value in Runewick. Therefore, many follow the path of Elara, though other followers are permitted. It is well known that people seek out the council of Archmage Elvaine Morgan, whose sageness is widely renowned.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -406,7 +416,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("wealth");
-talkEntry:addResponse("Wealth is the highest premise in Galmair. Therefore, Irmorom is exalted above all other gods. So it goes without question that Don Valerio Guilianni leads them since he is by far the richest.");
+talkEntry:addTrigger("money");
+talkEntry:addTrigger("lucre");
+talkEntry:addTrigger("coin");
+talkEntry:addResponse("Wealth is the highest value in Galmair. Therefore, Irmorom is exalted above all other gods. It goes without question that Don Valerio Guilianni rules in Galmair, as he is by far the richest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -419,7 +432,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("honour");
 talkEntry:addTrigger("honor");
-talkEntry:addResponse("Honour is the highest premise in Cadomyr. Therefore, they believe in Malachín above all other gods, and they rely on Queen Rosaline Edwards for her noble leadership.");
+talkEntry:addResponse("Honour is the highest value in Cadomyr. Therefore, most believe in Malachín above all other gods, and the people rely on Queen Rosaline Edwards for her noble and just leadership.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -433,7 +446,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Alchem");
 talkEntry:addTrigger("Druid");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Alchemists and druids alike can be found readily available in Runewick from novice to grandmaster. Galmair won't have nearly the selection, but I have seen a druid or two there before. Cadomyr on the other hand doesn't have a single druid or alchemist as far as I remember.");
+talkEntry:addResponse("Alchemists and druids alike can be found readily available in Runewick, from the freshest novice to the wisest grandmaster. Galmair won't have nearly the selection, though I have seen a druid or two there before. Cadomyr, on the other hand, doesn't have a single druid or alchemist as far as I remember.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -458,7 +471,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Carpent");
-talkEntry:addResponse("Carpenters are mainly found in Runewick since there is a forest nearby. However, Galmair has a few wealthy carpenters if memory serves me right. Cadomyr from what I know mainly trades for the wares of a carpenter.");
+talkEntry:addResponse("Carpenters are mainly found in Runewick since there is a forest nearby. However, Galmair has a few wealthy carpenters if memory serves me right. Cadomyr, from what I know, mainly trades for the wares of a carpenter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -470,7 +483,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lumberjack");
-talkEntry:addResponse("Most lumberjacks I know live near Runewick since the largest forest is nearby. Galmair does have a few as well since there is less competition. Cadomyr's trees are not strong enough so they must rely on trade.");
+talkEntry:addResponse("Most lumberjacks I know live near Runewick since the largest forest is nearby. Galmair does have a few as well, as there is less competition there. Cadomyr's trees are not strong enough so they must rely on trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -482,7 +495,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cook");
-talkEntry:addResponse("Cooks are abundant in Runewick and many travel far and wide to taste their delights. Including me! Although Galmair is not as renowned for its cooks I've seen several set up shop within its grand halls. Cadomyr has very few cooks and relies heavily on trade.");
+talkEntry:addResponse("Cooks are abundant in Runewick and many travel far and wide to taste their delights. Including me! Although Galmair is not as renowned for its cooks, I've seen several set up shop within its grand halls. Cadomyr has very few cooks and relies heavily on trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -494,7 +507,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Baker");
-talkEntry:addResponse("Runewick without question has the finest bakers in all the land. Galmair bakers could certainly learn a lesson or two, but if you find yourself in need there are worst places to stop. As far as Cadomyr goes I think only the wealthiest could afford baked bread.");
+talkEntry:addResponse("Runewick without question has the finest bakers in all of the land. Galmair bakers could certainly learn a lesson or two, but if you find yourself in need there are worst places to stop. As far as Cadomyr goes, I think only the wealthiest could afford baked bread.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -508,7 +521,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farmer");
 talkEntry:addTrigger("peasant");
-talkEntry:addResponse("Farmers rely on Runewick's fair climate to grow and harvest their crops, and without question have the most peasants in the land. Galmair doesn't get nearly the same amount of rain as Runewick, but the land is cheap and I know a skilled farmer or two that call Galmair home. Cadomyr, ha, you'd be better off digging for buried treasure as a profession.");
+talkEntry:addResponse("Farmers rely on Runewick's fair climate to grow and harvest their crops, and without question have the most peasants working the land. Galmair doesn't get nearly the same amount of rain as Runewick, but the land is cheap and I know a skilled farmer or two that call Galmair home. Cadomyr, ha, you'd be better off digging for buried treasure as a profession.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -520,7 +533,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Herb");
-talkEntry:addResponse("Herb gatherers usually stay close to Runewick so they can sell their fresh herbs to alchemists and druids. Cadomyr has a few well-maintained herb gathers as well, if memory serves me right. Without supply and demand Galmair relies strictly on trade for any herbal needs.");
+talkEntry:addResponse("Herb gatherers usually stay close to Runewick so they can sell their fresh herbs to the alchemists and druids. Cadomyr has a few well-maintained herb gathers as well, if memory serves me right. Without supply or demand, Galmair relies strictly on trade for any herbal needs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -534,7 +547,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tailor");
-talkEntry:addResponse("The finest tailors in the land can be found in Runewick. Cadomyr also has a fair amount of tailors too. As for Galmair, I am quite sure most of their tailored wares come through trade.");
+talkEntry:addResponse("The finest tailors in the land can be found in Runewick. Cadomyr also has a fair amount of tailors, too. As for Galmair, I am quite sure that most of their tailored wares arrive through trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -558,7 +571,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Dyer");
-talkEntry:addResponse("Dyers like tanners stay close to Runewick to trade their wares with tailors. I've also seen a number of dyers in Cadomyr too. Galmair as far as I know has to trade for dyes if they're needed.");
+talkEntry:addResponse("Dyers, like tanners, stay close to Runewick to trade their wares with the tailors. I've also seen a number of dyers in Cadomyr too. Galmair, as far as I know, has to trade for dyes if they're needed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -584,7 +597,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glass");
 talkEntry:addTrigger("blow");
-talkEntry:addResponse("Cadomyr has always been known for their glassblowers if you are searching for a mentor. However, if you're looking for less competition perhaps you should make your way to Runewick. Now as for Galmair you won't find many glassblowers if my memory serves me right.");
+talkEntry:addResponse("Cadomyr has always been known for their glassblowers, if you are searching for a mentor. However, if you're looking for less competition perhaps you should make your way to Runewick. Now, as for Galmair, you won't find many glassblowers if my memory serves me right.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -597,7 +610,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Digger");
-talkEntry:addResponse("Diggers can always find clay and sand near Cadomyr. Then again, Galmair isn't a bad place either, but as for Runewick the nearby land is no place for diggers.");
+talkEntry:addResponse("Diggers can always find clay and sand near Cadomyr. Then again, Galmair isn't a bad place either, but as for Runewick, the nearby land is no place for diggers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -609,7 +622,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Finesmith");
-talkEntry:addResponse("Finesmiths are mainly found in Cadomyr, but you can also search in Galmair as well. Runewick, not so much, they trade for such wares.");
+talkEntry:addResponse("Finesmiths are mainly found in Cadomyr, but you could also search in Galmair as well. Runewick, not so much, they import such wares.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -635,7 +648,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Blacksmith");
-talkEntry:addResponse("Galmair is by far the best place to look for a good blacksmith, but if you find yourself near Cadomyr you should be able to find one there as well. You'll have no such luck in Runewick though because they must trade for such wares.");
+talkEntry:addResponse("Galmair is by far the best place to look for a good blacksmith, but if you find yourself near Cadomyr you should be able to locate one there as well. You'll have no such luck in Runewick though, because they must trade for such wares.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -647,7 +660,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Brick");
-talkEntry:addResponse("Ah, looking for a brick maker best start in Galmair. If you can't find one there, Cadomyr might have one or two as well. As for Runewick it won't be the best place to find bricks I assure you.");
+talkEntry:addResponse("Ah, if looking for a brick maker you'd best start in Galmair. If you can't find one there, Cadomyr might have one or two as well. As for Runewick it won't be the best place to find bricks, I assure you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -659,7 +672,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mason");
-talkEntry:addResponse("Galmair for sure but you might be able to find a mason in Cadomyr too. Runewick not so much, although you might be able to make a trade.");
+talkEntry:addResponse("Galmair for sure, but you might be able to find a mason in Cadomyr too. Runewick not so much, although you might be able to organise a trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -714,7 +727,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("elf");
 talkEntry:addTrigger("elves");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("If it's elves you seek best to head toward Runewick.");
+talkEntry:addResponse("If it's elves you seek, best to head toward Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -755,7 +768,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("dwarf");
 talkEntry:addTrigger("dwarves");
 talkEntry:addCondition(npc.base.condition.race.race(1));
-talkEntry:addResponse("If you're seeking the long bearded ones head towards Galmair!");
+talkEntry:addResponse("If you're seeking your long bearded brethren, then head towards Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -783,7 +796,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("orc");
 talkEntry:addCondition(npc.base.condition.race.race(4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Follow the path towards Galmair if your looking for orcs.");
+talkEntry:addResponse("Follow the path towards Galmair if your looking for your brother orcs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -810,7 +823,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("lizard");
 talkEntry:addCondition(npc.base.condition.race.race(5));
-talkEntry:addResponse("Most Lizardmen call Cadomyr home. So if you prefer a waterfront living there is no better place.");
+talkEntry:addResponse("Most lizardmen call Cadomyr home. So if you prefer a waterfront living there is no better place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -840,7 +853,7 @@ talkEntry:addTrigger("halfling");
 talkEntry:addTrigger("hobbit");
 talkEntry:addCondition(npc.base.condition.race.race(2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hiho! Looking for more of my kin? Best be off to Runewick.");
+talkEntry:addResponse("Hiho! Looking for more of our kin? Best be off to Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -857,7 +870,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("halbling");
 talkEntry:addTrigger("halfling");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("We Halflings certainly like Runewick, no better place in my opinion.");
+talkEntry:addResponse("We halflings certainly like Runewick, no better place in my opinion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -948,7 +961,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("queen");
-talkEntry:addResponse("The Queen of Cadomyr? Her name is Rosaline Edwards, but don't let her beauty fool you, she is a proud and noble ruler. It's well known that she is Albarian, but be prepared she doesn't govern in quite the same manner. She is, however, a devout follower of Malachín and is always on the lookout for valiant warriors and hunters!");
+talkEntry:addResponse("The Queen of Cadomyr? Her name is Rosaline Edwards, but don't let her beauty fool you, she is a proud and noble ruler. It's well known that she is of Albarian heritage, but be prepared as she doesn't govern in quite the same manner. She is, however, a devout follower of Malachín and is always on the lookout for valiant warriors and hunters!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -962,7 +975,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ah, Rosaline Edwards, she is the fair Queen of Cadomyr. It's well known that she is Albarian, but be prepared she doesn't govern in quite the same manner. She is, however, a devout follower of Malachín and is always on the lookout for valiant warriors and hunters!");
+talkEntry:addResponse("Ah, Rosaline Edwards, she is the fair Queen of Cadomyr. It's well known that she is of Albarian heritage, but be prepared as she doesn't govern in quite the same manner. She is, however, a devout follower of Malachín and is always on the lookout for valiant warriors and hunters!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1165,7 +1178,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He is the god of trade and craftsmanship most of his followers can be found in Galmair. So if you believe in him as the dwarves do then you will find like-minded people there.");
+talkEntry:addResponse("He is the god of trade and craftsmanship. Most of his followers can be found in Galmair. So if you believe in him, as the dwarves do, then you will find like-minded people there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1208,7 +1221,7 @@ talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He is the god of chaos and the trickiest of tricksters I assure you! There is no better place to find his followers than in Galmair. Be warned though, I wouldn't try to play any tricks on the Don he might try and eat you!");
+talkEntry:addResponse("He is the god of chaos and the trickiest of tricksters I assure you! There is no better place to find his followers than in Galmair. Be warned though, I wouldn't try to play any tricks on the Don... he might try and end you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1249,7 +1262,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She is the goddess of love and pleasure. I have heard that many travel to Cadomyr in search of love and well other things. May you find your true mate if you're bound for Cadomyr!");
+talkEntry:addResponse("She is the goddess of love and pleasure. I have heard that many travel to Cadomyr in search of love and, well, other things. May you find your true mate if you're bound for Cadomyr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1263,7 +1276,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She is the only elder god that is worth mentioning. Her followers are mainly the lizardmen, but don't take her lightly for many of them regard her with strict devotion and pride. Since she is an elder god the elves honour her too. If you haven't guessed it yet she is the goddess of water!");
+talkEntry:addResponse("She is the only elder god that is worth mentioning. Her followers are mainly the lizardmen, but don't take her lightly, for many of them regard her with strict devotion and pride. Since she is an elder god the elves honour her too. If you haven't guessed it yet she is the goddess of water!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1360,14 +1373,14 @@ talkEntry:addTrigger(".*");
 talkEntry:addResponse("Das habe ich jetzt nicht richtig verstanden. Frag mich einfach nach Hilfe und ich schau, was ich für dich tun kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Frag mich nach 'Hilfe', wenn du Hilfe brauchst.", "Ask me for 'help', if you need help.");
-talkingNPC:addCycleText("Frag mich wenn du was über die drei Reiche wissen möchtest.", "Ask me if you'd like to know something about three realms.");
+talkingNPC:addCycleText("Frag mich nach 'Hilfe', wenn du Hilfe brauchst.", "Ask me for 'help', if you need assistance.");
+talkingNPC:addCycleText("Frag mich wenn du was über die drei Reiche wissen möchtest.", "Tell me if you'd like to know something specific about three realms.");
 talkingNPC:addCycleText("Runewick, Galmair, Cadomyr... ich weiß alles. Fast alles.", "Runewick, Galmair, Cadomyr... I know everything. Almost.");
 talkingNPC:addCycleText("Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveler! Keep on the lookout if you're in search for tasks or grand quests! All across the land many are in need, don't be afraid to ask!");
 talkingNPC:addCycleText("Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... Ich weiß alles über sie. Fast alles.", "Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan... learn all you need to know right here! Well, just about everything.");
 talkingNPC:addCycleText("Wenn du nicht weißt wohin du gehen sollst, frag mich nach Hilfe.", "Don't get lost! I'm Viola, the local guide, ask me for help, and I won't let you down!");
 talkingNPC:addCycleText("Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach Hilfe.", "If you'd like to know where you and your faith are welcome, tell me your god and I'll tell you the best realm to join!");
-talkingNPC:addCycleText("Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbling, ich weiß für jeden den richtigen Platz.", "Whether your an elf, dwarf, human, orc, lizardman, or halfling I know the right place for everyone!");
+talkingNPC:addCycleText("Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbling, ich weiß für jeden den richtigen Platz.", "Whether you are an elf, dwarf, human, orc, lizardman, or halfling, I know the right place for everyone!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
