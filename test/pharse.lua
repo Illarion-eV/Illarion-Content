@@ -27,6 +27,11 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
     end
     local callback = function(dialog)
         User:inform("closed");
+        if  not  dialog:getSuccess()  then
+            User:inform("You  canceled!  How  dare  you?")
+        else
+            User:inform("You  wrote:  "  ..  dialog:getInput())
+        end
     end
     User:requestInputDialog(InputDialog("Insert text!", false, 255, callback));
 end
