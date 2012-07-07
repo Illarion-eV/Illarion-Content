@@ -62,7 +62,7 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 		User:setQuestProgress(310,5); --Connection to easyNPC
 		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
 		for i, Aldania in pairs(NPCList) do
-		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "You are prepared for ventures into dark dungeons now. This is where we part company. My best regards to Groknar who will teach you in the art of fighting further down the road.");
+		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "The darkness can be a real obstacle in Illarion. You should remember to carry a light source when travelling by night, and when exploring caves and dungeons. Well, this is where we part company. Run along to that savage, Groknar, down the road. He will train you in the art of combat.");
 		end
 	end
 
@@ -98,7 +98,7 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 		putOff(SourceItem,this);]]
 	
 	--Replacement: An inform. Remove this if you re-enable putting out fires.
-	base.common.TempInformNLS(User,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to exstinguish the flames.");
+	base.common.TempInformNLS(User,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to extinguish the flames.");
 	--Issue #6881 END
 	
 	end
@@ -267,7 +267,7 @@ function LookAtItem(User, Item)
 	if(TimeLeftI == 255) then
 		TimeLeft = base.common.GetNLS(User, "nie", "never");
 	elseif (TimeLeftI == 0) then
-		TimeLeft = base.common.GetNLS(User, "sofort", "immediatly");
+		TimeLeft = base.common.GetNLS(User, "sofort", "immediately");
 	elseif (TimeLeftI == 1) then
 		TimeLeft = base.common.GetNLS(User, "demnächst", "anytime soon");
 	elseif (TimeLeftI == 2) then

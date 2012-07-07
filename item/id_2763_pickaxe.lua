@@ -42,10 +42,10 @@ function LookAtItem(User,Item)
 		User:setQuestProgress(310,4); --Connection to easyNPC
 		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
 		for i, Aldania in pairs(NPCList) do
-		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "Indeed, items can be of different quality. Keep this in mind when bartering about prices. My last lesson is how to use items. I gave you a torch: Let there be light!");
+		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "See, items can be of differing quality. Keep this in mind when you are negotiating a trade with a merchant. My final lesson is on how to use items. I have given you a torch, try lighting it!");
 		    User:createItem(391,1,333,0); --Torch
 		end
-	    base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Deactivate your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Perform a double click on the torch to ignite it." );
+	    base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. You can perform a double click on an item to use it. Double click the torch to ignite it." );
 	end
 
 --Noobia end
@@ -59,9 +59,9 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 		User:setQuestProgress(310,3); --Connection to easyNPC
 		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
 		for i, Aldania in pairs(NPCList) do
-		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "Good job, you know how to handle your equipment now. Helmets, shoes and the like are equipped the same way. To get some more information about your pick-axe, please examine your pick-axe now.");
+		    base.common.TalkNLS(Aldania, Character.say, "ÜBERSETZEN.", "Very good, you know how to properly handle your equipment now. Helmets, shoes and the like are equipped in the same way. My next lesson will allow you to learn more information about your items, such as how damaged and how well-crafted they are. To see the quality of your pick-axe, please examine it now.");
 	    end
-		base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Close your chatbox and press 'I' to open your inventory and double click on your backpack to open it. Click with the left mouse button to examine the pick-axe." );
+		base.common.InformNLS( User,"[Tutorial] ÜBERSETZEN.","[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Click with the left mouse button to examine the pick-axe." );
 	end
 
 --Noobia end
@@ -413,7 +413,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if base.common.Encumbrence(User) then
         base.common.InformNLS( User,
         "Deine Rüstung behindert dich beim Schürfen.",
-        "Your armour disturbes you when mining ores" );
+        "Your armour disturbs you when mining ores" );
         return
     end
 
@@ -433,7 +433,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if ( AreaID == false ) then
         base.common.InformNLS(User,
         "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
-        "The area doesn't look like an area to mine.");
+        "The area doesn't look like a sensible place to mine.");
         return
     end
 
@@ -525,7 +525,7 @@ function DigForTresure(User,TargetPos)
     if (GroundType ~= 5) and base.treasure.DigForTreasure( User, TargetPos, (User:getSkill("mining")/10)+1,
                                                 base.common.GetNLS( User,
                                                     "Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
-                                                    "You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The teasure! Digging another time and it yours!" ), false ) then
+                                                    "You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The treasure! Another swing and it is yours!" ), false ) then
         return;
     end
     
@@ -542,11 +542,11 @@ function DigForTresure(User,TargetPos)
         elseif ( GroundType == 4 ) then
             base.common.InformNLS( User,
             "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie gräbt sich tief in die Wiese.",
-            "You swing your pick-axe towards the ground and it digs deeply into the gras.");
+            "You swing your pick-axe towards the ground and it digs deeply into the grass.");
         elseif ( GroundType == 5 ) then
             base.common.InformNLS( User,
             "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und lockerst du den festen Boden etwas",
-            "You swing your pick-axe towards the ground and ease the stony ground slightly.");
+            "You swing your pick-axe towards the ground and disturb the stony ground slightly.");
         elseif ( GroundType == 6 ) then
             base.common.InformNLS( User,
             "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie versinkt mit einem Platschen im Wasser.",
