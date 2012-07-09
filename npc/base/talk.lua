@@ -71,10 +71,16 @@ function talkNPC:nextCycle(counter)
         
         local p = thisNPC.pos
         if (p.z==100 and ((p.x==41 and p.y==44) or (p.x==42 and p.y==55))) then
-            debug("SAY FROM " .. thisNPC.name .. ": " .. german .. " ### " .. english)
+            debug("GER SAY FROM " .. thisNPC.name .. ": " .. german .. " ### " .. english)
         end
 
         thisNPC:talkLanguage(Character.say, Player.german, german);
+
+        local p = thisNPC.pos
+        if (p.z==100 and ((p.x==41 and p.y==44) or (p.x==42 and p.y==55))) then
+            debug("ENG SAY FROM " .. thisNPC.name .. ": " .. german .. " ### " .. english)
+        end
+
         thisNPC:talkLanguage(Character.say, Player.english, english);
     else
         self._nextCycleText = self._nextCycleText - counter;
