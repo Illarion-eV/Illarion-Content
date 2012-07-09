@@ -68,27 +68,8 @@ function talkNPC:nextCycle(counter)
     if (counter >= self._nextCycleText) then
 	    self._nextCycleText = math.random(1200, 3600); --2 to 6 minutes
         local german, english = self._cycleText:getRandomMessage();
-        
-        local p = thisNPC.pos
-        if (p.z==100 and ((p.x==41 and p.y==44) or (p.x==42 and p.y==55))) then
-            debug("GER SAY FROM " .. thisNPC.name .. ": " .. german .. " ### " .. english)
-        end
-
         thisNPC:talkLanguage(Character.say, Player.german, german);
-
-        local p = thisNPC.pos
-        if (p.z==100 and ((p.x==41 and p.y==44) or (p.x==42 and p.y==55))) then
-            debug("ENG SAY FROM " .. thisNPC.name .. ": " .. german .. " ### " .. english)
-        end
-
         thisNPC:talkLanguage(Character.say, Player.english, english);
-
-        local p = thisNPC.pos
-        if (p.z==100 and ((p.x==41 and p.y==44) or (p.x==42 and p.y==55))) then
-            debug("AFT SAY FROM " .. thisNPC.name .. ": " .. german .. " ### " .. english)
-        end
-
-
     else
         self._nextCycleText = self._nextCycleText - counter;
     end;
