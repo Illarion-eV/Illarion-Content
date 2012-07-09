@@ -70,7 +70,7 @@ function talkNPC:nextCycle(counter)
         local german, english = self._cycleText:getRandomMessage();
         
         local p = thisNPC.pos
-        if (p.z==100 and ((p.x==41 and p.y==44) or (p.x==42 and p.y==55)))
+        if (p.z==100 and ((p.x==41 and p.y==44) or (p.x==42 and p.y==55))) then
             debug("SAY FROM " .. thisNPC.name .. ": " .. german .. " ### " .. english)
         end
 
