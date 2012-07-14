@@ -13,7 +13,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
    -- infront of a cauldron?
    if base.common.GetFrontItemID(User) == 1008 then
 	  
-       if ( ltstate == Action.abort ) then
+       --[[if ( ltstate == Action.abort ) then
 			base.common.TempInformNLS( User,
 			"Du brichst Deine Arbeit ab.",
 			"You abort your work."
@@ -24,7 +24,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   if (ltstate == Action.none) then
 	        User:startAction(20,21,5,0,0);
 	        return
-	    end
+	    end]]
 	   
 	   -- the cauldron becomce our TargetItem
 	   local TargetItem = base.common.GetFrontItem( User );
