@@ -14,7 +14,7 @@ function DrinkPotion(User,SourceItem)
     if SourceItem:getData("essenceBrew") == "true" then
         if base.common.GetFrontItemID(User) == 1008 then
 	        cauldron = base.common.GetFrontItem( User );
-	        if cauldron:getData("stockData") ~= ""
+	        if cauldron:getData("stockData") ~= "" then
 			    druid.base.alchemy.CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			else
 			    User:inform("no stock")
