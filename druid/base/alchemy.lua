@@ -671,9 +671,9 @@ ListPotionStock[328] = {}
 ListPotionEssence[328] = {}		
 ListPotionEffectId[328] = {}
 -- black bottle: 
-ListPotionStock[329] = {}
-ListPotionEssence[329] = {}		
-ListPotionEffectId[329] = {}
+ListPotionStock[329] = {"65554555","75553555"}
+ListPotionEssence[329] = {"133"   ,"133 133"}		
+ListPotionEffectId[329] = {36     ,67}
 -- white bottle:
 ListPotionStock[330] = {}
 ListPotionEssence[330] = {}		

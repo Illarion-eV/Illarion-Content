@@ -11,7 +11,30 @@ module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(drui
 -- UPDATE common SET com_script='druid.item.id_329_black_bottle' WHERE com_itemid = 329;
 
 function DrinkPotion(User,SourceItem)
-   potionData = tonumber(SourceItem:getData("potionData"));
+    if SourceItem:getData("essenceBrew") == "true" then
+        if base.common.GetFrontItemID(User) == 1008 then
+	        cauldron = base.common.GetFrontItem( User );
+	        if cauldron:getData("stockData") ~= ""
+			    druid.base.alchemy.CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltstate )
+			else
+			    User:inform("no stock")
+			end
+		else
+		    User:inform("no cauldron")
+        end
+		return  	
+	end
+	
+	ListPotionEffect = {"pax","bellum"}
+	
+	if SourceItem:getData("potionEffectId") == "" then
+	    User:inform("no potion effect!")
+    else
+	    User:inform(""..ListPotionEffect[SourceItem:getData("potionEffectId")])
+	end	
+	    
+	    
+   --[[potionData = tonumber(SourceItem:getData("potionData"));
    
    -- if there is an active transformation and the potion belongs to the transformation
    -- and the counter of the new potion would be higher than raise the counter
@@ -299,7 +322,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     else
        User:createItem(164, 1, 333, 0);
     end
-	DrinkPotion(User, SourceItem);
+	DrinkPotion(User, SourceItem);]]
 end
 
 function LookAtItem(User,Item)
