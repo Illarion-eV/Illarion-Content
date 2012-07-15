@@ -8,6 +8,31 @@ require("base.common")
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	
+	--------- TESTING STUFF !!! ------------ Merung
+	if User.lastSpokenText == "test1" then
+	    User:inform("test1 success")
+	    return
+	end
+
+    if User.lastSpokenText == "test2" then
+	    User:inform("#w test2 success")
+	    return
+	end
+	
+	if User.lastSpokenText == "test3" then 	
+	    base.common.TempInformNLS( User,
+		    "test3 success",
+		    "test3 success"
+			   )
+	    return
+	end	
+	
+	if User.lastSpokenText == "test4" then 
+	    User:talkLanguage(Character.say, Player.german, "#me test4 success");
+        User:talkLanguage(Character.say, Player.english, "#me test4 success");
+	end
+	
 	--testing stuff
 	if (string.sub(User.lastSpokenText,1,10) == "setfaction") then
 	    newFaction = tonumber(string.sub(User.lastSpokenText,11))
@@ -136,7 +161,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   User:setAttrib("body_height",tonumber(User.lastSpokenText))
 	   return
 	end
-    -- testing end	
+    ------------ TESTTING END !!! ------------
 	
 	content.gathering.InitGathering();
 	InitHerblore();
