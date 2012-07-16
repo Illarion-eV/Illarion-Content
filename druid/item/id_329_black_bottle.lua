@@ -248,7 +248,7 @@ end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     
-	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
+	--[[if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	
 	   if (cauldron:getData("cauldronData") ~= "") then 
@@ -324,7 +324,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
        base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
     else
        User:createItem(164, 1, 333, 0);
-    end
+    end]]
 	DrinkPotion(User, SourceItem);
 end
 
