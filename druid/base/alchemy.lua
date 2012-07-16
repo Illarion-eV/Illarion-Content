@@ -608,7 +608,7 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
         
 		for i=1,8 do
 		    if (ourEssence:getData("essenceHerb"..i) ~= "") then -- we put our essenced herbs to a string together
-			    if i=1 then
+			    if i==1 then
 				   checkStringEssence = checkStringEssence..ourEssence:getData("essenceHerb"..i)
 				else
                     checkStringEssence = checkStringEssence.." "..ourEssence:getData("essenceHerb"..i)				
