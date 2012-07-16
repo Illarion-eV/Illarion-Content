@@ -96,12 +96,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- again, only for testing
 	if ((base.common.GetFrontItemID(User) == 1008) or myCheck) and (User.lastSpokenText == "inform herbs") then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
-	   User:inform(""..cauldron:getData("essenceHerb1"))
-	   User:inform(""..cauldron:getData("essenceHerb2"))
-	   User:inform(""..cauldron:getData("essenceHerb3"))
-	   User:inform(""..cauldron:getData("essenceHerb4"))
-	   User:inform(""..cauldron:getData("essenceHerb5"))
-	   User:inform(""..cauldron:getData("essenceHerb6"))
+	   User:talkLanguage(Character.say, Player.german, ""..cauldron:getData("essenceHerb1"))
+	   User:talkLanguage(Character.say, Player.german, ""..cauldron:getData("essenceHerb2"))
+	   User:talkLanguage(Character.say, Player.german, ""..cauldron:getData("essenceHerb3"))
+	   User:talkLanguage(Character.say, Player.german, ""..cauldron:getData("essenceHerb4"))
+	   User:talkLanguage(Character.say, Player.german, ""..cauldron:getData("essenceHerb5"))
+	   User:talkLanguage(Character.say, Player.german, ""..cauldron:getData("essenceHerb6"))
 	end
 	-- function end
 	
