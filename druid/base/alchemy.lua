@@ -617,7 +617,7 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
                 break
 			end	
 	    end     
-	
+	User:talkLanguage(Character.say, Player.german, "checkString: "..checkStringEssence);
         if checkStringEssence == "" then -- when there was not even one herb in the essence brew
 		    if (potionId == 166) or (potionId == 59) then -- attribute pushers and healing potions do not need essenced hersb
 			    potionEffectId = ourStock:getData("stockData") -- the PotionEffectId is the same as the stock data
@@ -683,7 +683,7 @@ ListPotionEffectId[328] = {}
 -- black bottle: 
 ListPotionStock[329] = {"65554555","75553555"}
 ListPotionEssence[329] = {"133"   ,"133 133"}		
-ListPotionEffectId[329] = {36     ,67}
+ListPotionEffectId[329] = {1     ,2}
 -- white bottle:
 ListPotionStock[330] = {}
 ListPotionEssence[330] = {}		
