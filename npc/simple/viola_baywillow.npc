@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 06, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 16, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Viola Baywillow"
@@ -60,7 +60,7 @@ itemShoes = 369
 
 -- Skipping
 "skip", "cancel", "abort" -> inform("[Tutorial] You have already made it to the end of the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands.")
-"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN.")
+"überspring", "abbrech" -> inform("[Tutorial] Du bist bereits am Ende des Tutorials. Wähle nun bitte ein Reich als neue Heimat deines Charakters. Gehe hierzu durch ein Portal auf einer der drei Inseln.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!", "Hiho, have we met before? There are so many new faces around, my apologies if we have. Let me tell about the realms of Cadomyr, Galmair and Runewick!", "Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!"

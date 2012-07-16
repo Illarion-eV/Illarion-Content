@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 07, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 16, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -70,7 +70,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("überspring");
 talkEntry:addTrigger("abbrech");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du bist bereits am Ende des Tutorials. Wähle nun bitte ein Reich als neue Heimat deines Charakters. Gehe hierzu durch ein Portal auf einer der drei Inseln."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
