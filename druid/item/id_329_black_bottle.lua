@@ -11,11 +11,14 @@ module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(drui
 -- UPDATE common SET com_script='druid.item.id_329_black_bottle' WHERE com_itemid = 329;
 
 function DrinkPotion(User,SourceItem)
-    if SourceItem:getData("essenceBrew") == "true" then
-        if base.common.GetFrontItemID(User) == 1008 then
+    User:talkLanguage(Character.say, Player.german, "debugging 0");
+	if SourceItem:getData("essenceBrew") == "true" then
+        User:talkLanguage(Character.say, Player.german, "debugging 1");
+		if base.common.GetFrontItemID(User) == 1008 then
 	        cauldron = base.common.GetFrontItem( User );
 	        if cauldron:getData("stockData") ~= "" then
-			    druid.base.alchemy.CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltstate )
+			    User:talkLanguage(Character.say, Player.german, "debugging 2");
+				druid.base.alchemy.CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			else
 			    User:talkLanguage(Character.say, Player.german, "no stock");
 			end
@@ -239,7 +242,7 @@ function DrinkPotion(User,SourceItem)
 	  myEffect:addValue("cooldownBlack",5) -- starts after the effect has ended
 
 	  User.effects:addEffect(myEffect)
-   end
+   end]]
 end
 
 
@@ -322,7 +325,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     else
        User:createItem(164, 1, 333, 0);
     end
-	DrinkPotion(User, SourceItem);]]
+	DrinkPotion(User, SourceItem);
 end
 
 function LookAtItem(User,Item)
