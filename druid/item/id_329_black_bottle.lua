@@ -34,7 +34,7 @@ function DrinkPotion(User,SourceItem)
 	    User:talkLanguage(Character.say, Player.german, "no potion effect")
         world:erase(SourceItem,1)
 	else
-	    potionEffectId = SourceItem:getData("potionEffectId")
+	    potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 		User:talkLanguage(Character.say, Player.german, ""..ListPotionEffect[potionEffectId])
 	    world:erase(SourceItem,1)
 	end	
