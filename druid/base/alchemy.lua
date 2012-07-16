@@ -572,10 +572,12 @@ function StockExplosion(User, SourceItem, cauldron)
     User:increaseAtPos(SourceItem.itempos,-1);
     world:makeSound(5,cauldron.pos);
     world:gfx(9,cauldron.pos);
-    base.common.InformNLS( User,
+    User:talkLanguage(Character.say, Player.german, "hast sud kaputt gemacht");
+    User:talkLanguage(Character.say, Player.english, "you destroyed stock");
+	--[[base.common.InformNLS( User,
 	    "Deine letzte Handlung scheint den Sud zerstört und zu einer Explosion geführt zu haben.",
 	    "Your last doing seems to have destroyed the stock and caused an explosion."
-				);
+				);]]
     cauldron:setData("stockData","");
     world:changeItem(cauldron)
     User:increaseAttrib("hitpoints", -3000);

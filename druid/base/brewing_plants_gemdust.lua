@@ -31,19 +31,23 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   
 	   -- is the char an alchemist?
 	    if User:getMagicType() ~= 3 then
-		  base.common.TempInformNLS( User,
+		  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
+          User:talkLanguage(Character.say, Player.english, "only alchemists");
+		  --[[base.common.TempInformNLS( User,
 				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
 				"Only those who have been introduced to the art of alchemy are able to work here."
-							);
+							);]]
 		  return;
 	    end
 	   
 	    -- there is a complete potions; we cannot add anything to it
 		if (TargetItem:getData("potionEffectId") ~= "") then 
-	        base.common.TempInformNLS( User,
+	        User:talkLanguage(Character.say, Player.german, "trank schon fertig");
+            User:talkLanguage(Character.say, Player.english, "potion already done");
+			--[[base.common.TempInformNLS( User,
 		    "Einem fertigen Trank kannst Du nichts mehr beifügen.",
 		    "You cannot add something to a completed potion."
-			   );
+			   );]]
 		    return;
 	    end
 	
@@ -67,10 +71,12 @@ end
 function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	-- no stock and char tries to filter it
 	if (TargetItem:getData("stockData") == "") and (SourceItem.id == 157) then
-		base.common.TempInformNLS( User,
+		User:talkLanguage(Character.say, Player.german, "nichts zum filtern");
+        User:talkLanguage(Character.say, Player.english, "nothing to filter");
+		--[[base.common.TempInformNLS( User,
 		"Es befindet sich nichts zum Filtern im Kessel.",
 		"There is nothing to filter in the cauldron."
-		   );
+		   );]]
 		return
         -- we want to filter and there is a stock
 	elseif (SourceItem.id == 157) then
@@ -93,10 +99,12 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	-- alchemy herb but no water, no stock, no essence brew
 	User:inform(""..TargetItem:getData("cauldronFilledWith"))
 	if (SourceItem.id ~= 157) and ((TargetItem:getData("stockData") == "") and (TargetItem:getData("cauldronFilledWith") ~= "water") and (TargetItem:getData("cauldronFilledWith") ~= "essenceBrew")) then
-	    base.common.TempInformNLS( User,
+	    User:talkLanguage(Character.say, Player.german, "keine flüssigkeit");
+        User:talkLanguage(Character.say, Player.english, "keine flüssigkeit");
+		--[[base.common.TempInformNLS( User,
 		"Es befindet sich keine Flüssigkeit im Kessel, in der Du das Kraut hinein tun könntest.",
 		"There is no fluid in the cauldron you could put the herb into."
-		   );
+		   );]]
 		return
 	elseif SourceItem.id ~= 157 then -- not a rotten tree bark; a normal alchemy herb
 		
@@ -140,10 +148,12 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		        TargetItem:setData("essenceHerb1",""..SourceItem.id)
 			    world:changeItem(TargetItem)
 			elseif TargetItem:getData("essenceHerb8") ~= "" then
-			    base.common.TempInformNLS( User,
+			    User:talkLanguage(Character.say, Player.german, "kein weiteres essenzieren");
+                User:talkLanguage(Character.say, Player.english, "no further essencing");
+				--[[base.common.TempInformNLS( User,
 				"Es kann kein weiteres Kraut mehr essenziert werden.",
 				"No herb can be essenced any further."
-				   );
+				   );]]
 				return
 		    else
 			    for i=2,8 do
@@ -168,16 +178,20 @@ end
 function WaterCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
 	if (SourceItem.id == 52) and (TargetItem:getData("cauldronFilledWith") ~= "") then
-        base.common.TempInformNLS( User,
+        User:talkLanguage(Character.say, Player.german, "schon was drin");
+        User:talkLanguage(Character.say, Player.english, "already something in");
+		--[[base.common.TempInformNLS( User,
 		"Der Kessel ist bereits mit etwas gefüllt - noch mehr und er würde überlaufen.",
 		"The cauldron is already filled with something - more and it will spill over."
-			   );
+			   );]]
 		return;
     elseif (SourceItem.id == 51) and (TargetItem:getData("cauldronFilledWith") ~= "water") then
-	    base.common.TempInformNLS( User,
+	    User:talkLanguage(Character.say, Player.german, "kein wasser");
+        User:talkLanguage(Character.say, Player.english, "no water");
+		--[[base.common.TempInformNLS( User,
 		"Hier ist kein Wasser im Kessel, dass Du abschöpfen könntest.",
 		"There is no water in the cauldon for you to scoop out."
-			   );
+			   );]]
 		return;
 	
 	else	
@@ -204,10 +218,12 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- no stock, no water
 	if (TargetItem:getData("stockData") == "") and (TargetItem:getData("cauldronFilledWith") ~= "water") then
-	   base.common.TempInformNLS( User,
+	   User:talkLanguage(Character.say, Player.german, "brauchst wasser oder sud im kessel");
+       User:talkLanguage(Character.say, Player.english, "need water or stock in cauldron");
+	   --[[base.common.TempInformNLS( User,
 		"Im Kessel muss sich ein Sud oder Wasser befinden.",
 		"There has to be a stock or water in the cauldron."
-			   );
+			   );]]
 		return;
 	end
 	

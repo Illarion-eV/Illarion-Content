@@ -15,10 +15,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
        TargetItem = base.common.GetFrontItem( User ) 
 	   
 	   if ( ltstate == Action.abort ) then
-                base.common.TempInformNLS( User,
+                User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
+                User:talkLanguage(Character.say, Player.english, "abort work");
+				--[[base.common.TempInformNLS( User,
                 "Du brichst Deine Arbeit ab.",
                 "You abort your work."
-                       );
+                       );]]
 		        return;
         end
 			
@@ -28,17 +30,21 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 		
 	   if (TargetItem:getData("cauldronFilledWith") == "water") then -- water belongs into a bucket, not a potion bottle!
-	        base.common.TempInformNLS( User,
+	        User:talkLanguage(Character.say, Player.german, "zuviel wasser. nehm eimer");
+            User:talkLanguage(Character.say, Player.english, "too much water. use bucket");
+			--[[base.common.TempInformNLS( User,
 					"Es ist zu viel Wasser im Kessel, als dass es in die Flaschen passen würde. Ein Eimer wäre hilfreicher.",
 					"There is too much water in the cauldron to bottle it. Better use a bucket."
-						   );
+						   );]]
 			return;
 	    -- no stock, no potion, not essence brew -> nothing we could fil into the bottle
 	    elseif (TargetItem:getData("stockData") == "") and (TargetItem:getData("potionEffectId") == "") and (TargetItem:getData("cauldronFilledWith") == "") then
-	        base.common.TempInformNLS( User,
+	        User:talkLanguage(Character.say, Player.german, "nichts zum abfüllen");
+            User:talkLanguage(Character.say, Player.english, "notthing to bottle");
+			--[[base.common.TempInformNLS( User,
 					"Es befindet sich nichts zum Abfüllen im Kessel.",
 					"There is nothing to be bottled in the cauldron."
-						   );
+						   );]]
 			return;
 	    end
 	   

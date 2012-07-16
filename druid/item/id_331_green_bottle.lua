@@ -18,10 +18,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   if ( ltstate == Action.abort ) then
-                base.common.TempInformNLS( User,
+                User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
+                User:talkLanguage(Character.say, Player.english, "abort work");
+				--[[base.common.TempInformNLS( User,
                 "Du brichst Deine Arbeit ab.",
                 "You abort your work."
-                       );
+                       );]]
 		        return;
         end
 			
@@ -33,10 +35,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   local TargetItem = base.common.GetFrontItem( User );
 	   -- the cauldron is filled with something we cannot add a stock to
 	   if (TargetItem:getData("stockData") ~= "") or (TargetItem:getData("cauldronFilledWith") == "water") or (TargetItem:getData("potionEffectId") ~= "") then 
-	      base.common.TempInformNLS( User,
+	      User:talkLanguage(Character.say, Player.german, "aschon was drin");
+          User:talkLanguage(Character.say, Player.english, "already something in");
+		  --[[base.common.TempInformNLS( User,
 					"In dem Kessel befindet sich bereits etwas. Du kannst nichts mehr hinzutun.",
 					"There is already something in the cauldron. You cannot add something else to it."
-						   );
+						   );]]
 	       return;
       
 	    elseif (TargetItem:getData("cauldronFilledWith") == "essenceBrew") then -- essence brew; we call our function to combine stock and essence brew  
@@ -52,16 +56,20 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   end  
    
    else -- not infront of a cauldron; drink!
-       base.common.TempInformNLS( User,
+       User:talkLanguage(Character.say, Player.german, "leerst flasche");
+       User:talkLanguage(Character.say, Player.english, "empty bottle");
+	   --[[base.common.TempInformNLS( User,
                 "Du leerst die Flasche.",
                 "You empty the bottle."
-                       );
+                       );]]
 
 	   world:makeSound(12,User.pos);
 	   world:gfx(1,User.pos);
        world:erase(SourceItem,1);
 	   if(math.random(20) == 1) then
-           base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
+           User:talkLanguage(Character.say, Player.german, "flasche kaputt");
+           User:talkLanguage(Character.say, Player.english, "bottle broken");
+		   --[[base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");]]
         else
             User:createItem(164, 1, 333, 0);
         end

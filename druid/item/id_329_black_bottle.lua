@@ -17,10 +17,10 @@ function DrinkPotion(User,SourceItem)
 	        if cauldron:getData("stockData") ~= "" then
 			    druid.base.alchemy.CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			else
-			    User:inform("no stock")
+			    User:talkLanguage(Character.say, Player.german, "no stock");
 			end
 		else
-		    User:inform("no cauldron")
+		    User:talkLanguage(Character.say, Player.german, "no cauldron");
         end
 		return  	
 	end
