@@ -84,12 +84,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- again, only for testing
 	if ((base.common.GetFrontItemID(User) == 1008) or myCheck) and (User.lastSpokenText == "inform datas") then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
-	   User:inform("stockdata: "..cauldron:getData("stockData"))
-	   User:inform("potionEffectId: "..cauldron:getData("potionEffectId"))
-	   User:inform("cauldronFilledWith: "..cauldron:getData("cauldronFilledWith"))
-	   User:inform("potionId: "..cauldron:getData("potionId"))
-	   User:inform("potionQuality: "..cauldron:getData("potionQuality"))
-	   User:inform("essenceBrew :"..cauldron:getData("essenceBrew"))
+	   User:talkLanguage(Character.say, Player.german, "stockdata: "..cauldron:getData("stockData"))
+	   User:talkLanguage(Character.say, Player.german, "potionEffectId: "..cauldron:getData("potionEffectId"))
+	   User:talkLanguage(Character.say, Player.german, "cauldronFilledWith: "..cauldron:getData("cauldronFilledWith"))
+	   User:talkLanguage(Character.say, Player.german, "potionId: "..cauldron:getData("potionId"))
+	   User:talkLanguage(Character.say, Player.german, "potionQuality: "..cauldron:getData("potionQuality"))
+	   User:talkLanguage(Character.say, Player.german, "essenceBrew :"..cauldron:getData("essenceBrew"))
 	end
 	-- function end
 	
