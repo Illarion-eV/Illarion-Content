@@ -643,6 +643,7 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 		potionQuality = 999
 	    TargetItem:setData("potionQuality",""..potionQuality)
 	    world:changeItem(TargetItem)
+	    world:erase(SourceItem,1)
 	end    
 end	
 -------------------------------------------------------		
