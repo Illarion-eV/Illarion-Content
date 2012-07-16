@@ -96,16 +96,16 @@ function onLogin( player )
 	messageG[48]="[Tipp] Die besten Gräber leben in Cadomyr.";
 	messageG[49]="[Tipp] Die besten Kunstschmiede leben in Cadomyr.";
 	messageG[50]="[Tipp] Die besten Edelsteinschleifer leben in Cadomyr.";
-	messageE[51]="[Hint] .";
-	messageE[52]="[Hint] .";
-	messageE[53]="[Hint] .";
-	messageE[54]="[Hint] .";
-	messageE[55]="[Hint] .";
-	messageE[56]="[Hint] .";
-	messageE[57]="[Hint] .";
-	messageE[58]="[Hint] .";
-	messageE[59]="[Hint] .";
-	messageE[60]="[Hint] .";
+	messageG[51]="[Hint] .";
+	messageG[52]="[Hint] .";
+	messageG[53]="[Hint] .";
+	messageG[54]="[Hint] .";
+	messageG[55]="[Hint] .";
+	messageG[56]="[Hint] .";
+	messageG[57]="[Hint] .";
+	messageG[58]="[Hint] .";
+	messageG[59]="[Hint] .";
+	messageG[60]="[Hint] .";
 	
     messageE={};
     messageE[1]="[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons.";
