@@ -10,28 +10,11 @@ module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	--------- TESTING STUFF !!! ------------ Merung
-	if User.lastSpokenText == "test1" then
-	    User:inform("test1 success")
-	    return
-	end
-
-    if User.lastSpokenText == "test2" then
-	    User:inform("#w test2 success")
-	    return
-	end
-	
-	if User.lastSpokenText == "test3" then 	
-	    base.common.TempInformNLS( User,
-		    "test3 success",
-		    "test3 success"
-			   )
-	    return
+	if (string.sub(User.lastSpokenText,1,6) == "delete") then
+	    myItemId = tonumber(string.sub(User.lastSpokenText,7))
+	    deleteAmount = User:countItem(myItemId)
+		User:eraseItem(myItemId,deleteAmount)
 	end	
-	
-	if User.lastSpokenText == "test4" then 
-	    User:talkLanguage(Character.say, Player.german, "#me test4 success");
-        User:talkLanguage(Character.say, Player.english, "#me test4 success");
-	end
 	
 	--testing stuff
 	if (string.sub(User.lastSpokenText,1,10) == "setfaction") then
