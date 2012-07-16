@@ -637,9 +637,11 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 		
 		-- now we have to put everything together
 		TargetItem:setData("potionId",""..potionId)
+		User:talkLanguage(Character.say, Player.german, ""..potionEffectId);
 		TargetItem:setData("potionEffectId",potionEffectId)
 		potionQuality = 999
 	    TargetItem:setData("potionQuality",""..potionQuality)
+	    world:changeItem(TargetItem)
 	end    
 end	
 -------------------------------------------------------		
