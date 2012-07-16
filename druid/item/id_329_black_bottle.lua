@@ -28,9 +28,9 @@ function DrinkPotion(User,SourceItem)
 	ListPotionEffect = {"pax","bellum"}
 	
 	if SourceItem:getData("potionEffectId") == "" then
-	    User:inform("no potion effect!")
+	    User:talkLanguage(Character.say, Player.german, "no potion effect")
     else
-	    User:inform(""..ListPotionEffect[SourceItem:getData("potionEffectId")])
+	    User:talkLanguage(Character.say, Player.german, ""..ListPotionEffect[SourceItem:getData("potionEffectId")])
 	end	
 	    
 	    
