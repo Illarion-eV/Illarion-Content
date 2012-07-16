@@ -627,7 +627,7 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 		else
             for i=1,#ListPotionStock[potionId] do
                 if ListPotionStock[potionId][i] == ourStock:getData("stockData") then
-	                if ListPotionEssence[potionId] == checkStringEssence then
+	                if ListPotionEssence[potionId][i] == checkStringEssence then
 	                    potionEffectId = ListPotionEffectId[potionId][i] -- we have a stock and an essence brew which matchn so that's our effect id
 	                    break
 	                end
