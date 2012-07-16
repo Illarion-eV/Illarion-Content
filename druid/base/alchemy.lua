@@ -612,7 +612,8 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 				   checkStringEssence = checkStringEssence..ourEssence:getData("essenceHerb"..i)
 				else
                     checkStringEssence = checkStringEssence.." "..ourEssence:getData("essenceHerb"..i)				
-            else
+                end
+			else
                 break
 			end	
 	    end     
