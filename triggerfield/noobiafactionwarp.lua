@@ -22,7 +22,7 @@ function MoveToField(Character)
 		factionID = 1;
 		
 	    if Character:getPlayerLanguage() == 0 then
-		    dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
+		    dialogNewbie = MessageDialog("Tutorial","Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Cadomyr beizutreten, dem Reich von Ruhm und Ehre. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein nobler Ritter, ein unterwürfiger Diener oder ein edler Diplomat.", callbackNewbie)
 	    else	
 		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you have completed the tutorial. You have chosen to join Cadomyr, the realm of honour and glory. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a proud knight, a humble servant or a noble diplomat.", callbackNewbie)
 	    end	
@@ -33,7 +33,7 @@ function MoveToField(Character)
 	    factionID = 2;
 		
 	   	if Character:getPlayerLanguage() == 0 then
-		    dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
+		    dialogNewbie = MessageDialog("Tutorial","Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Runewick beizutreten, dem Reich der Weisheit und der Magie. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein geheimnisvoller Magier, ein weiser Gelehrter oder ein friedliebender Waldläufer.", callbackNewbie)
 	    else	
 		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you have completed the tutorial. You have chosen to join Runewick, the realm of wisdom and magic. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a mysterious mage, a wise scholar or a peaceful ranger.", callbackNewbie)
 	    end	
@@ -44,7 +44,7 @@ function MoveToField(Character)
 	    factionID = 3;
 		
         if Character:getPlayerLanguage() == 0 then
-		    dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
+		    dialogNewbie = MessageDialog("Tutorial","Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Galmair beizutreten, dem Reich des aufstrebenden Wohlstands. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein fleißiger Handwerker, ein durchtriebener Gauner oder ein reicher Händler.", callbackNewbie)
 	    else	
 		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you have completed the tutorial. You have chosen to join Galmair, the realm of prosperity and wealth. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a sturdy craftsman, a shady thug or a wealthy merchant.", callbackNewbie)
 	    end	
