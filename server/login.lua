@@ -96,16 +96,16 @@ function onLogin( player )
 	messageG[48]="[Tipp] Die besten Gräber leben in Cadomyr.";
 	messageG[49]="[Tipp] Die besten Kunstschmiede leben in Cadomyr.";
 	messageG[50]="[Tipp] Die besten Edelsteinschleifer leben in Cadomyr.";
-	messageG[51]="[Hint] ÜBERSETZEN!";
-	messageG[52]="[Hint] ÜBERSETZEN!";
-	messageG[53]="[Hint] ÜBERSETZEN!";
-	messageG[54]="[Hint] ÜBERSETZEN!";
-	messageG[55]="[Hint] ÜBERSETZEN!";
-	messageG[56]="[Hint] ÜBERSETZEN!";
-	messageG[57]="[Hint] ÜBERSETZEN!";
-	messageG[58]="[Hint] ÜBERSETZEN!";
-	messageG[59]="[Hint] ÜBERSETZEN!";
-	messageG[60]="[Hint] ÜBERSETZEN!";
+	messageG[51]="[Tipp] ÜBERSETZEN!";
+	messageG[52]="[Tipp] ÜBERSETZEN!";
+	messageG[53]="[Tipp] ÜBERSETZEN!";
+	messageG[54]="[Tipp] ÜBERSETZEN!";
+	messageG[55]="[Tipp] ÜBERSETZEN!";
+	messageG[56]="[Tipp] ÜBERSETZEN!";
+	messageG[57]="[Tipp] ÜBERSETZEN!";
+	messageG[58]="[Tipp] ÜBERSETZEN!";
+	messageG[59]="[Tipp] ÜBERSETZEN!";
+	messageG[60]="[Tipp] ÜBERSETZEN!";
 	
     messageE={};
     messageE[1]="[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons.";
