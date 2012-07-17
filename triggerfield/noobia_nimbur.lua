@@ -23,7 +23,7 @@ function MoveToField(Character)
 	        local callbackNewbie = function(dialogNewbie) end; --empty callback
 			
 	        if Character:getPlayerLanguage() == 0 then
-		        dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial","An dieser Station wird dir beigebracht, wie man einem Handwerk nachgeht. Nimbur Goldhand ist ein sehr begabter Artisane, der die nötigen Kenntnisse vermittelt, die du benötigst, um die Laufbahn des Handwerkers einzuschlagen.", callbackNewbie)
 	        else	
 		        dialogNewbie = MessageDialog("Tutorial", "At this station, you will learn how to craft items. Nimbur Goldhand is a very skilled artisan who can teach you the necessary steps to get started with a crafting profession.", callbackNewbie)
 	        end	
