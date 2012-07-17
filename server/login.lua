@@ -45,8 +45,9 @@ function onLogin( player )
     if (player.pos.z ~= 100) and (player.pos.z~= 101) then --Not on Noobia, confuses noobs
 	
 	--Messages of the day
+	--German
     messageG={};
-    messageG[1]="[Tipp] Leichte Rüstungen wie Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.";
+    messageG[1]="[Tipp] Leichte Rüstungen aus Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.";
     messageG[2]="[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stichwaffen.";
     messageG[3]="[Tipp] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stichwaffen aber schlecht gegen stumpfe Waffen.";
 	messageG[4]="[Tipp] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!";	
@@ -96,17 +97,18 @@ function onLogin( player )
 	messageG[48]="[Tipp] Die besten Gräber leben in Cadomyr.";
 	messageG[49]="[Tipp] Die besten Kunstschmiede leben in Cadomyr.";
 	messageG[50]="[Tipp] Die besten Edelsteinschleifer leben in Cadomyr.";
-	messageG[51]="[Tipp] ÜBERSETZEN!";
-	messageG[52]="[Tipp] ÜBERSETZEN!";
-	messageG[53]="[Tipp] ÜBERSETZEN!";
-	messageG[54]="[Tipp] ÜBERSETZEN!";
-	messageG[55]="[Tipp] ÜBERSETZEN!";
-	messageG[56]="[Tipp] ÜBERSETZEN!";
-	messageG[57]="[Tipp] ÜBERSETZEN!";
-	messageG[58]="[Tipp] ÜBERSETZEN!";
-	messageG[59]="[Tipp] ÜBERSETZEN!";
-	messageG[60]="[Tipp] ÜBERSETZEN!";
+	messageG[51]="[Tipp] Jedes Reich ist auf bestimmte Handwerke spezialisiert. Wenn es das, was du benötigst, nicht auf dem örtlichen Markt gibt, wirst du wohl reisen müssen.";
+	messageG[52]="[Tipp] Wenn du Probleme bei der Kommunikation mit einem NPC hast, sage 'Hilfe' um eine Liste der Schlüsselwörter aufzurufen.";
+	messageG[53]="[Tipp] Obstbäume haben schon so manchen hungrigen Abenteurer gerettet. Allerdings ist ein schmackhafteres Mahl stets vorzuziehen.";
+	messageG[54]="[Tipp] Es gibt viele Möglichkeiten, seinen Charakter zu bewegen: Die rechte Maustaste, die Pfeiltasten, den Ziffernblock und WASD.";
+	messageG[55]="[Tipp] Einen NPC nach einer 'Mission' zu fragen ist ein guter Weg um ein paar einfache Münzen zu verdienen.";
+	messageG[56]="[Tipp] Scheue dich nicht, andere Spieler um Hilfe zu bitten. Behandle sie mit Respekt und verwende so weit möglich den out-of-character-Modus (#o).";
+	messageG[57]="[Tipp] Mit #i stellst du deinen Charakter anderen Spielern vor. Diese erfahren so den Namen deines Charakters.";
+	messageG[58]="[Tipp] Der Illarion-Chat ist auf der Homepage verlinkt. Du erhältst dort technische Unterstützung oder kannst einfach andere Spieler kennenlernen.";
+	messageG[59]="[Tipp] Der Vollbildmodus kann im Optionsmenü des Clients aktiviert werden.";
+	messageG[60]="[Tipp] Wenn ein neuer Spieler deinem Reich beitritt erhältst du eine kurze Mitteilung. Heiße ihn doch gleich willkommen!";
 	
+	--English
     messageE={};
     messageE[1]="[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons.";
     messageE[2]="[Hint] Medium armours, such as chain mail, offer good protection against slashing weapons but are more vulnerable to puncture weapons.";
