@@ -26,7 +26,7 @@ function MoveToField(Character)
 	        local callbackNewbie = function(dialogNewbie) end; --empty callback
 			
 	        if Character:getPlayerLanguage() == 0 then
-		        dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial","Diese Station lehrt dich, wie man kämpft. Groknar, der Lehrmeister, ist ein stolzer und mächtiger Orkkrieger. Stell dich ihm vor - vorsichtig.", callbackNewbie)
 	        else	
 		        dialogNewbie = MessageDialog("Tutorial", "At the next station, you will learn how to fight. Groknar, the instructor, is a proud and mighty Orc warrior. Just speak up to him - carefully.", callbackNewbie)
 	        end	

@@ -36,7 +36,7 @@ function MoveToField(Character)
 	        local callbackNewbie = function(dialogNewbie) end; --empty callback
 			
 	        if Character:getPlayerLanguage() == 0 then
-		        dialogNewbie = MessageDialog("Tutorial","ÜBERSETZEN", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial","An dieser Station lernst du, wie man Rohstoffe abbaut. Der Augenmerk liegt auf Bergbau aber im Prinzip laufen alle Handwerke nach dem selben Schema ab. Nun, wer ist wohl der Richtige, um dir zu zeigen, wie man nach Gold gräbt? Natürlich ein Zwerg wie Nargon Hammerfist!", callbackNewbie)
 	        else	
 		        dialogNewbie = MessageDialog("Tutorial", "At this station, you will learn how to gather resources. This station will focus on mining, though similar principles are applicable to the other crafts. Now, who might be the best to teach you how to mine for gold? Why, a dwarf like Nargon Hammerfist of course.", callbackNewbie)
 	        end	
