@@ -10,17 +10,17 @@ module("lte.newbieisland", package.seeall)
 -- cycle messages 
 	ListCycleMessageGerman = {}
 	ListCycleMessageGerman = {
-	"Zyklusnachricht deutsch",
+	"[Tutorial] Wenn du das Tutorial überspringen möchtest, sage 'Tutorial überspringen' zu einem NPC.",
 	"[Tutorial] Brauchst du Hilfe? Mache DIES UND DAS oder schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird er dir helfen.",
-	"Zyklusnachricht deutsch",
-	"Zyklusnachricht deutsch",
-	"Zyklusnachricht deutsch",
+	"[Tutorial] Um laut zu rufen, schreibe #s vor deine Nachricht. Um zu flüstern, verwende #w. Für den 'Out-of-character'-Modus verwendest du #o.",
+	"[Tutorial] Ein Tutorial kann niemals die Hilfe anderer Spieler oder des Illarion-Teams ersetzen. Trete bitte dem offiziellen Illarion-Chat, der auf der Homepage verlinkt ist, und stell dich einfach mal vor.",
+	"[Tutorial] Um deinen Charakter anderen Charakteren vorzustellen, mache DIES UND DAS oder schreibe #i in die Chatbox und drücke Return. Spieler in der näheren Umgebung werden so den Namen deines Charakters erfahren.",
 	"[Tutorial] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'.",
 	"[Tutorial] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen.",
-	"Zyklusnachricht deutsch",
+	"[Tutorial] Um die Fertigkeiten deines Charakters zu überprüfen, MACHE DIES UND DAS.",
 	"[Tutorial] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier.",
-	"Zyklusnachricht deutsch",
-	"Zyklusnachricht deutsch"}
+	"[Tutorial] Hast du dir schon Gedanken zum Hintergrund und zur Vergangenheit deines Charakters gemnacht? Die Illarion-Homepage enthält eine Menge nützliche Informationen über Rassen, Götter und die Geschichte Illarions.",
+	"[Tutorial] Sollte dein Charakter Hunger bekommen, so pflücke ein paar Früchte indem du den Stamm eines Obstbaums benutzt. Früchte werden gegessen, indem man sie benutzt."}
 
 	ListCycleMessageEnglish = {}
 	ListCycleMessageEnglish = {
@@ -53,7 +53,7 @@ function callEffect(newbieEffect,Character)
 
 	        --Station 1: Henry Cunnigan teaches how to talk to NPCs		
 	        if Character:getQuestProgress(309) < 2 and Character:isInRangeToPosition(position(37, 21, 100),7) then -- the char should walk to a specific postion (see: triggerfield/noobia_henry)
-		        base.common.TempInformNLS(Character,"ÜBERSETZEN.","[Tutorial] To start the tutorial, please walk to the human at the end of the pier. To move, click and hold with the right mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD.");
+		        base.common.TempInformNLS(Character,"[Tutorial] Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der rechten Maustaste auf ein Feld neben dem Menschen und halte die rechte Maustaste gedrückt. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen.","[Tutorial] To start the tutorial, please walk to the human at the end of the pier. To move, click and hold with the right mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD.");
 	        end 
 
 		else --General help
