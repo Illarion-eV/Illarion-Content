@@ -189,9 +189,9 @@ function Cow_NextCycle(User,n_active_task,thisNPC)
 					world:eraseItem(itemlist[task], NumberBottles);
 				end
 				if (NumberBottles == 1) then
-			    	base.common.InformNLS(User, "Du erhälst eine Flasche Orun-Milch aber die Kuh scheint noch genug Milch zu haben, nächstes Mal nimmst du lieber einige Flaschen mehr mit.", "You get a bottle with Orun-Milk but the cow seems still to have enough milk, you better bring some more bottles with you next time.");
+			    	base.common.InformNLS(User, "Du erhältst eine Flasche Orun-Milch aber die Kuh scheint noch genug Milch zu haben, nächstes Mal nimmst du lieber einige Flaschen mehr mit.", "You get a bottle with Orun-Milk but the cow seems still to have enough milk, you better bring some more bottles with you next time.");
 				else
-			    	base.common.InformNLS(User, "Du erhälst einige Flaschen Orun-Milch.", "You get some bottles with Orun-Milk.");
+			    	base.common.InformNLS(User, "Du erhältst einige Flaschen Orun-Milch.", "You get some bottles with Orun-Milk.");
 				end
 
 				----------------give some rankpoints-----------------------
@@ -202,7 +202,7 @@ function Cow_NextCycle(User,n_active_task,thisNPC)
 				fv = base.factions.put(User,fv);
 				-----------------------------------------------------------
 			else
-				base.common.TalkNLS(thisNPC, Character.say, "#me scheint sich über die Pflege zu freuen und muht zufrieden.", "#me seems to enjoy the care and gives a content and haunting \"Mooooo!\"");
+				base.common.TalkNLS(thisNPC, Character.say, "#me scheint sich über die Pflege zu freuen und muht zufrieden.", "#me seems to enjoy the care and gives a content and haunting 'Mooooo!'");
 				counter = counter - 1 ;
 			end
 			task = 0; --reset task

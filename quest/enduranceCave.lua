@@ -39,19 +39,15 @@ if not GlobalsInitialized then
 		StatusInfo[i] = {};
 	end
 	
-
 	AddStageInfo(1, "In der Kugel lässt sich außer dicken Nebelschwaden nichts erkennen.", "Thick fog clouds the ball. You can not see anything in the mist.");
-	AddStageInfo(2, "Der Nebel hat sich leicht gelichtet, grobe schemenhafte Umrisse zeichnen sich ab.", "The mist has receded a little, rough outlines can be spotted..");
+	AddStageInfo(2, "Der Nebel hat sich leicht gelichtet, grobe schemenhafte Umrisse zeichnen sich ab.", "The mist has receded a little, rough outlines can be spotted.");
 	AddStageInfo(3, "Der Nebel hat sich weiter aufgeklärt, eine annähernd menschliche Gestalt wird sichtbar.", "The mist has cleared more, an almost humanlike form becomes visible.");
 	AddStageInfo(4, "Der Nebel weicht zurück, umspielt nurmehr die Beine der Gestalt. Diese trägt eine alles verhüllende Robe.", "The fog has withdrawn, lingering around the legs of the figure. It wears a robe hiding its features.");
 	AddStageInfo(5, "Der Nebel ist gewichen, klar lässt sich eine vermummte Person erkennen, sie trägt eine braune Robe.", "The fog is gone. A hooded figure can be seen. It carries a brown robe.");
-	AddStageInfo(6, "Die Kaputze die die Person getragen hat, hat sie nun zurückgeschlagen. Ihr Gesicht ist unscharf.", "The figure has lifted the hood of its robe. Its face is blurred however.");
+	AddStageInfo(6, "Die Kaputze, die die Person getragen hat, hat sie nun zurückgeschlagen. Ihr Gesicht ist unscharf.", "The figure has lifted the hood of its robe. Its face is blurred however.");
 	AddStageInfo(7, "Die Person lächelt dir nun zu. Es handelt sich um eine wunderschöne Menschenfrau mit wallendem blonden Haar und strahlend blauen Augen.", "The person is now smiling at you. A beautiful human female with long flowing blonde hair and sparkling blue eyes.");
 	AddStageInfo(8, "Die Frau wirkt jetzt blasser. Ihre Haut unnatürlich fahl und ihr Lächeln zu einem Grinsen verzerrt.","The woman looks pale this time. Her skin an unhealthy ashen colour, her smile changed to a wicked grin.");
 	
-	
-	
-
 end
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
 
@@ -90,7 +86,7 @@ function InCave (User)
 	    if language == 1 then
 		player:inform("The Portal does not work with those monsters still around.");
 		else
-		player:inform("Das Portal funktioniert nicht. Wohl wegen den Monstern die noch im Raum sind.");
+		player:inform("Das Portal funktioniert nicht aufgrund der Monster, die noch im Raum sind.");
 		end
 		return;              	  -- warp till all monsters are dead!
 	end
