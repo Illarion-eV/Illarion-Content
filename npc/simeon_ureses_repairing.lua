@@ -13,7 +13,7 @@ function receiveText(texttype, message, speaker)
 	
     if base.common.BasicNPCChecks(speaker,2,thisNPC) and (string.find(message,"price") or string.find(message,"cost") or string.find(message,"preis") or string.find(message,"koste") or string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand")) then --initiate repairing with triggers
 
-		--Full repair is the same as buying a new one. Just worth it with special (e.g. gemmed) items.
+		--Full repair is the same as buying half a new one. Just worth it with special (e.g. gemmed) items. Price may change if the players overdo it.
 		--Round prices to prevent prices like "1273 cp" and to prevent exact durability determination via repairing.
 
 		if string.find(message,"price") or string.find(message,"cost") or string.find(message,"repair") or string.find(message,"fix") then --english triggers
@@ -36,7 +36,7 @@ function receiveText(texttype, message, speaker)
 		if theItem then
 			durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
 		    toRepair=99-durability; --the amount of durability points that has to repaired
-		    price=math.ceil(theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
+		    price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
 		
             if theItem.id == 0 or theItem.id == 320 or theItem.id == nil then --there is nothing on the table!
 		
