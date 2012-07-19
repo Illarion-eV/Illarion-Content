@@ -26,9 +26,12 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     end
 
     if (User.lastSpokenText == "GM") then
-        User:pageGM("test ticket");
-    end;
+        User:pageGM("test ticket")
+    end
 
+    if (User.lastSpokenText == "die") then
+        User:increaseAttrib("hitpoints",-10000);
+    end
 	
     if (User.lastSpokenText == "text") then
         local callback = function(dialog)
