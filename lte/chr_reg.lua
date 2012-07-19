@@ -3,7 +3,6 @@
 
 require("base.common")
 require("base.factions")
-require("base.playerdeath")
 module("lte.chr_reg", package.seeall)
 
 crossPosition={};
@@ -101,8 +100,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
                     -------------- Meldungen fertig --------------------
                 end
             else -- Tod durch Hunger
-            -- Andere Scripts ggf. benachrichtigen
-            base.playerdeath.playerKilled(Char);
+
                 -------------- Meldungen ausgeben ------------------
                 Char:talkLanguage( Character.say, Player.german,  "#me krampft zusammen und geht zu Boden.");
                 Char:talkLanguage( Character.say, Player.english, "#me convulses and falls to the ground.");
@@ -134,8 +132,6 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
                     Effect:addValue("poison",1);
                 end
             else -- Tod durch Gift
-            -- Andere Scripts ggf. benachrichtigen
-            base.playerdeath.playerKilled(Char);
             
                 Poisonvalue = 0; -- Char Tod, Gift verfliegt
                 Char:talkLanguage( Character.say, Player.german,  "#me tropft etwas Speichel aus dem Mund und bricht zusammen.");

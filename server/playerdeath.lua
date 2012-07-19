@@ -1,11 +1,11 @@
 -- Player death
-
 -- deadPlayer - The player (character) whose hitpoints have just been set to zero
 
 require("base.common")
 module("server.playerdeath", package.seeall)
 
 function playerDeath(deadPlayer)
+
     world:makeSound(25,deadPlayer.pos);
     showDeathDialog(deadPlayer);
 	

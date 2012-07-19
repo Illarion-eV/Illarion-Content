@@ -114,9 +114,6 @@ function HitChar(Posi,Hitpoints, Attacker)
     if world:isCharacterOnField(Posi) then
 		local Defender = world:getCharacterOnField(Posi);
 		local hp = Defender:increaseAttrib("hitpoints",-Hitpoints);
-		if (hp <= 0) and (hp + Hitpoints) > 0 then -- that character was killed by that gynk, so notify base.playerdeath
-			base.playerdeath.playerKilledByMagic(Defender, Attacker);
-		end
 	end;
 end;
 

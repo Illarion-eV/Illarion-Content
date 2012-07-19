@@ -9,9 +9,6 @@ require("base.common")
 -- character properly there
 require("base.character")
 
--- Hang in base.playerdeath in order to call it's death recognition functions
-require("base.playerdeath")
-
 -- Lists with static values of the fighting system
 require("content.fighting")
 
@@ -846,9 +843,6 @@ function CoupDeGrace( Attacker, Defender )
                 DropBlood(position(Defender.Char.pos.x+x,Defender.Char.pos.y+y,Defender.Char.pos.z),3101);
             end
         end
-		
-		-- Andere Scripts ggf. benachrichtigen
-		base.playerdeath.playerKilledByFighting(Defender.Char, Attacker.Char);
 		
         return true;
     end
@@ -1825,11 +1819,8 @@ function CauseDamage( Attacker, Defender, Globals )
         return true;
     else
 	
-		if (Hitpoints - Globals.Damage <= 0) then
-			base.playerdeath.monsterKilledByFighting(Defender.Char:getMonsterType(), Attacker.Char);
-		end
-	
         Defender.Char:increaseAttrib("hitpoints",-Globals.Damage);
+		
         if ( Attacker.AttackKind == 4 ) then -- distanz angriff.
             Defender.Char.movepoints = Defender.Char.movepoints - 5;
             DropAmmo( Attacker, false, Defender.Char );

@@ -3,7 +3,6 @@
 -- Written by martin, Nitram and Xandrina
 -- $Id$
 
-
 --[[
 Call: Character:learn(skill,skillGroup,movePoints,opponent,leadAttribute);
 skill: Name of the skill as string, e.g. "mining"
@@ -17,17 +16,12 @@ jeweils nur 1/n der movepoints/FP, weil ja n skills gesteigert werden.
 
 ]]
 
-
-
 -- Hang in base.common - Some functions of the collection are needed
 require("base.common")
 
 -- Include base.character to use the methods changing some attributes of the
 -- character properly there
 require("base.character")
-
--- Hang in base.playerdeath in order to call it's death recognition functions
-require("base.playerdeath")
 
 -- Lists with static values of the fighting system
 require("content.fighting")
@@ -287,13 +281,9 @@ function CauseDamage(Attacker, Defender, Globals)
         return true;
     else
         if not base.character.ChangeHP(Defender.Char, -Globals.Damage) then
-            if base.character.IsPlayer(Defender.Char) then
-                base.playerdeath.playerKilledByFighting(Defender.Char,
-                    Attacker.Char);
-            else
-                base.playerdeath.monsterKilledByFighting(
-                    Defender.Char:getMonsterType(), Attacker.Char);
-            end;
+
+		--removed: Call of base.playerdeath
+		
         end;
         
         if (Attacker.AttackKind == 4) then -- Distanzangriff.
@@ -510,10 +500,10 @@ function CoupDeGrace(Attacker, Defender)
             -- something interrupted the kill
             return true;
         end;
-        base.playerdeath.playerKilledByFighting(Defender.Char, Attacker.Char);
     
         -- Drop much blood around the player
         DropMuchBlood(Defender.Char.pos);
+		
     end;
     
     return false;
