@@ -52,13 +52,6 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
     end
     ------------------------POSITION ANZEIGEN FERTIG--------------------------
 
-    --Addition by Estralis: Quest 119/120 (Cadomyr daily missions)
-	theQuestStatus=Char:getQuestProgress(120);
-	if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
-	    Char:setQuestProgress(120,theQuestStatus-1); --cooling!
-    end
-	--Addition end
-	
     if ( Hitpoints == 0 ) then -- Charakter ist tot
         leadToCross( Char , Effect ); -- Warp char to cross
 
