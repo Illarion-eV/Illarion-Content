@@ -90,26 +90,28 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
     --world:createDynamicNPC("Lasttier",50,pos,0,"npc.lasttier")
     --User:setQuestProgress(8, 1)
 
-    local callback = function(dialog)
-        result = dialog:getResult()
-        if result == MerchantDialog.playerSells then
-            item = dialog:getSaleItem()
-            User:inform("Selling " .. item.number .. " of item " .. item.id .. "!")
-        else
-            if result == MerchantDialog.playerBuys then
-                User:inform("Buying " .. dialog:getPurchaseAmount() .. " of index " .. dialog:getPurchaseIndex() .. "!")
+    if (User.lastSpokenText == "trade") then
+        local callback = function(dialog)
+            result = dialog:getResult()
+            if result == MerchantDialog.playerSells then
+                item = dialog:getSaleItem()
+                User:inform("Selling " .. item.number .. " of item " .. item.id .. "!")
             else
-                User:inform("Trade Aborted!")
+                if result == MerchantDialog.playerBuys then
+                    User:inform("Buying " .. dialog:getPurchaseAmount() .. " of index " .. dialog:getPurchaseIndex() .. "!")
+                else
+                    User:inform("Trade Aborted!")
+                end
             end
         end
+        local dialog = MerchantDialog("Trader 0",  callback)
+        dialog:addProduct(1, "Krasses Schwert", 12345)
+        dialog:addProduct(2, "Weizenmehl", 2)
+        dialog:addProduct(2, "Roggenmehl", 3)
+        dialog:addProduct(100, "Maurerkelle des Verderbens", 4711)
+        User:inform("start dialog")
+        User:requestMerchantDialog(dialog)
     end
-    local dialog = MerchantDialog("Trader 0",  callback)
-    dialog:addProduct(1, "Krasses Schwert", 12345)
-    dialog:addProduct(2, "Weizenmehl", 2)
-    dialog:addProduct(2, "Roggenmehl", 3)
-    dialog:addProduct(100, "Maurerkelle des Verderbens", 4711)
-    User:inform("start dialog")
-    User:requestMerchantDialog(dialog)
 end
 
 function useNPC(User,counter,param)
