@@ -326,9 +326,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	    if math.random(1,20) == 1 then
 		    User:eraseItem(SourceItem,1) -- bottle breaks
 		    if User:getPlayerLanguage() == 0 then
-			    myInform == "Die Flasche zerbricht."
+			    myInform = "Die Flasche zerbricht."
 			else
-			    myInform == "The bottle breaks."
+			    myInform = "The bottle breaks."
 			end
             --User:inform(myInform,Player.lowPriority)
 		else	
