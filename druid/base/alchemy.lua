@@ -1,5 +1,13 @@
 -- ds_base_alchemy.lua
 
+-- documentation of the datas used in the alchemy system:
+-- "stockData" - used to save the combination of active agents. 
+-- "cauldronFilledWith" - can have the value "water" or "essenceBrew";
+-- "potionEffectId" - the id of the effect a potion has
+-- "essenceHerb1",...,"essenceHerb8" - the ids of the herbs of essence brew
+-- "essenceBrew" - actually, only used to distinguish an essence brew from a potion. returns "true"
+-- "potionId" -- id of the potion 
+
 -- PFLANZENLISTE:
 
 -- 133 Sonnenkraut / sun herb						15				
@@ -647,7 +655,6 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 		potionQuality = 999
 	    TargetItem:setData("potionQuality",""..potionQuality)
 	    world:changeItem(TargetItem)
-	    world:erase(SourceItem,1)
 	end    
 end	
 -------------------------------------------------------		

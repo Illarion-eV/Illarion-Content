@@ -251,47 +251,97 @@ end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     
-	--[[if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
+	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	
-	   if (cauldron:getData("cauldronData") ~= "") then 
-	      base.common.InformNLS( User,
-					"In dem Kessel befindet sich bereits etwas. Du kannst nichts mehr hinzutun.",
-					"There is already something in the cauldron. You cannot add something else to it."
-						   );
-	       return;
-      
-	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
-	      
-		  if ( ltstate == Action.abort ) then
-                base.common.TempInformNLS( User,
-                "Du brichst Deine Arbeit ab.",
-                "You abort your work."
-                       );
-		        return;
-            end
+	   if (SourceItem:getData("essenceBrew") =="true") then -- essence brew should be filled into the cauldron
+			-- water, essence brew or potion is in the cauldron; leads to a failure
+			if cauldron:getData("cauldronFilledWith") == "water" then
+			    User:talkLanguage(Character.say, Player.german, "essenceBrew -> water, fail")
+				 -- define effect
+			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+			    User:talkLanguage(Character.say, Player.german, "essenceBrew -> essemceBrew, fail")
+				-- define effect
+			elseif cauldron:getData("potionEffectId") ~= "" then
+			    User:talkLanguage(Character.say, Player.german, "essenceBrew -> essemceBrew, fail")
+				-- define effect
 			
-			if (ltstate == Action.none) then
-			   User:startAction(20,21,5,0,0);
-			   return
+			elseif cauldron:getData("stockData") ~= "" then -- stock is in the cauldron; we call the combin function
+				druid.base.alchemy.CombineStockEssence( User, SourceItem, cauldron, Counter, Param, ltstate )
+				
+			else -- nothing in the cauldron, we just fill in the essence brew
+				cauldron:setData("cauldronFilledWith","essenceBrew")
+				cauldron:setData("potionId",SourceItem.id)
+				cauldron:setData("essenceHerb1",SourceItem:getData("essenceHerb1"))
+				cauldron:setData("essenceHerb2",SourceItem:getData("essenceHerb2"))
+				cauldron:setData("essenceHerb3",SourceItem:getData("essenceHerb3"))
+				cauldron:setData("essenceHerb4",SourceItem:getData("essenceHerb4"))
+				cauldron:setData("essenceHerb5",SourceItem:getData("essenceHerb5"))
+				cauldron:setData("essenceHerb6",SourceItem:getData("essenceHerb6"))
+				cauldron:setData("essenceHerb7",SourceItem:getData("essenceHerb7"))
+				cauldron:setData("essenceHerb8",SourceItem:getData("essenceHerb8"))
 			end
-		  
-		  local ID_potion = SourceItem.id			 
-		  cauldron:setData("potionID", ""..ID_potion);
-		  cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
-	      cauldron.quality = SourceItem.quality
-		  world:changeItem(cauldron)
-		  User:inform(""..ID_potion)
-		  User:talkLanguage(Character.say, Player.german, "#me kippt einen Trank in den Kessel.");
-          User:talkLanguage(Character.say, Player.english, "#me pours a potion into the cauldron.");
-		  world:makeSound(10,User.pos);
-		  world:erase(SourceItem,1);
-		  User:createItem(164, 1, 333, 0);
-	      return;
-	   end  
-	end
+		
+		    SourceItem:setData("essenceBrew","")
+			SourceItem:setData("essenceHerb1","")
+			SourceItem:setData("essenceHerb2","")
+			SourceItem:setData("essenceHerb3","")
+			SourceItem:setData("essenceHerb4","")
+			SourceItem:setData("essenceHerb5","")
+			SourceItem:setData("essenceHerb6","")
+			SourceItem:setData("essenceHerb7","")
+			SourceItem:setData("essenceHerb8","")
+			SourceItem.id = 164
+			SourceItem.quality = 333
+			
+		elseif (SourceItem:getData("potionEffectId")~="") -- potion should be filled into the cauldron
+		    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
+			if cauldron:getData("cauldronFilledWith") == "water" then
+			    User:talkLanguage(Character.say, Player.german, "potion -> water, fail")
+				 -- define effect
+			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+			    User:talkLanguage(Character.say, Player.german, "potion -> essenceBrew, fail")
+				-- define effect
+			elseif cauldron:getData("potionEffectId") ~= "" then
+			    User:talkLanguage(Character.say, Player.german, "potion -> potion, fail")
+				-- define effect
+			elseif cauldron:getData("stockData") ~= "" then
+				User:talkLanguage(Character.say, Player.german, "potion -> stock, fail")
+				-- define effect
+			
+			else -- nothing in the cauldron, we just fill in the potion
+                cauldron:setData("potionEffectId",SourceItem:setData("potionEffectId"))
+                cauldron:setData("potionId",SourceItem.id)
+				cauldron.quality = SourceItem.quality
+			end
+                
+            SourceItem:setData("potionEffectId","")
+			SourceItem.id = 164
+			SourceItem.quality = 333				
+			
+		else
+            -- neither essence brew nor a potion; placeholder 
+		    return
+		end
+	    if math.random(1,20) == 1 then
+		    User:eraseItem(SourceItem,1) -- bottle breaks
+		    if User:getPlayerLanguage() == 0 then
+			    myInform == "Die Flasche zerbricht."
+			else
+			    myInform == "The bottle breaks."
+			end
+            --User:inform(myInform,Player.lowPriority)
+		else	
+		    world:changeItem(SourceItem)
+        end
+		world:changeItem(cauldron)		
+			
+    else -- not infront of a cauldron, therefore drink!
+        DrinkPotion(User,SourceItem) 
+	end  
+end
 	
-	-- not infront of a cauldron: let's drink the potion!
+--[[	-- not infront of a cauldron: let's drink the potion!
 	if User.attackmode then
         base.common.TempInformNLS(User,
 			"Du kannst den Trank nicht benutzen, während Du kämpfst.",
@@ -318,150 +368,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	     User:inform("Error, please inform dev.");
 	   end
 	  return;
-	end	
+	end	]]
 	
-	base.character.ChangeFightingpoints(User, -20);
-	world:makeSound(12,User.pos);
-	world:erase(SourceItem,1);
-	if(math.random(20) == 1) then
-       base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
-    else
-       User:createItem(164, 1, 333, 0);
-    end]]
-	DrinkPotion(User, SourceItem);
-end
-
 function LookAtItem(User,Item)
-    world:itemInform(User,Item,"test name")
-
-	--[[local potionData = tonumber(Item:getData("potionData"));
-
-	if Item.data == 77744151 then
-        EtikettDe = "Gestaltenwandler Mensch"
-        EtikettEn = "Shape Shifter Potion Human"
-    elseif  potionData == 65545555 then
-        EtikettDe = "Gestaltenwandler Zwerg"
-        EtikettEn = "Shape Shifter Potion Dwarf"
-    elseif  Item.data == 32699619 then
-        EtikettDe = "Gestaltenwandler Halbling"
-        EtikettEn = "Shape Shifter Potion Halfling"
-    elseif Item.data == 54876565 then
-        EtikettDe = "Gestaltenwandler Elb"
-        EtikettEn = "Shape Shifter Potion Elf"
-    elseif Item.data == 61348438 then
-        EtikettDe = "Gestaltenwandler Ork"
-        EtikettEn = "Shape Shifter Potion Orc"
-    elseif Item.data == 71378653 then
-        EtikettDe = "Gestaltenwandler Echse"
-        EtikettEn = "Shape Shifter Potion Lizard"
-    elseif Item.data == 58548893 then
-        EtikettDe = "Gestaltenwandler Gnom"
-        EtikettEn = "Shape Shifter Potion Gnom"
-    elseif Item.data == 45634355 then
-        EtikettDe = "Gestaltenwandler Oger"
-        EtikettEn = "Shape Shifter Potion Ogre"
-    elseif Item.data == 75529399 then
-        EtikettDe = "Gestaltenwandler Mumie"
-        EtikettEn = "Shape Shifter Potion Mummy"
-    elseif Item.data == 44554428 then
-        EtikettDe = "Gestaltenwandler Skelett"
-        EtikettEn = "Shape Shifter Potion Skeleton"
-    elseif  Item.data == 18861363 then
-        EtikettDe = "Gestaltenwandler Beholder"
-        EtikettEn = "Shape Shifter Potion Beholder"
-    elseif  Item.data == 26562174 then
-        EtikettDe = "Gestaltenwandler Fliege"
-        EtikettEn = "Shape Shifter Potion Fly"
-    elseif Item.data == 47418515 then
-        EtikettDe = "Gestaltenwandler Schaf"
-        EtikettEn = "Shape Shifter Potion Sheep"
-    elseif Item.data == 58151138 then
-        EtikettDe = "Gestaltenwandler Spinne"
-        EtikettEn = "Shape Shifter Potion Spider"
-    elseif Item.data == 22551786 then
-        EtikettDe = "Gestaltenwandler Rotes Skelett"
-        EtikettEn = "Shape Shifter Potion Red Skeleton"
-    elseif Item.data == 72225438 then
-        EtikettDe = "Gestaltenwandler Rotwurm"
-        EtikettEn = "Shape Shifter Potion Redworm"
-    elseif Item.data == 99992352 then
-        EtikettDe = "Gestaltenwandler Großer Dämon"
-        EtikettEn = "Shape Shifter Potion Big Demon"
-    elseif Item.data == 38114786 then
-        EtikettDe = "Gestaltenwandler Skorpion"
-        EtikettEn = "Shape Shifter Potion Scorpion"
-    elseif Item.data == 95371655 then
-        EtikettDe = "Gestaltenwandler Schwein"
-        EtikettEn = "Shape Shifter Potion Pig"
-    elseif Item.data == 71796337 then
-        EtikettDe = "Gestaltenwandler Luft"
-        EtikettEn = "Shape Shifter Potion Air"
-    elseif Item.data == 87611881 then
-        EtikettDe = "Gestaltenwandler Schï¿½del"
-        EtikettEn = "Shape Shifter Potion Skull"
-    elseif Item.data == 31231973 then
-        EtikettDe = "Gestaltenwandler Wespe"
-        EtikettEn = "Shape Shifter Potion Wasp"
-    elseif Item.data == 14523375 then
-        EtikettDe = "Gestaltenwandler Waldtroll"
-        EtikettEn = "Shape Shifter Potion Forest Troll"
-    elseif Item.data == 46852135 then
-        EtikettDe = "Gestaltenwandler Geister-Skelett"
-        EtikettEn = "Shape Shifter Potion Shadow Skeleton"
-    elseif Item.data == 37531813 then
-        EtikettDe = "Gestaltenwandler Stein-Golem"
-        EtikettEn = "Shape Shifter Potion Stone-Golem"
-    elseif Item.data == 85293266 then
-        EtikettDe = "Gestaltenwandler Goblin"
-        EtikettEn = "Shape Shifter Potion Goblin"
-    elseif Item.data == 86659455 then
-        EtikettDe = "Gestaltenwandler Gnoll"
-        EtikettEn = "Shape Shifter Potion Gnoll"
-    elseif Item.data == 51464953 then
-        EtikettDe = "Gestaltenwandler Drache"
-        EtikettEn = "Shape Shifter Potion Dragon"
-    elseif Item.data == 97171535 then
-        EtikettDe = "Gestaltenwandler Drow"
-        EtikettEn = "Shape Shifter Potion Drow"
-    elseif Item.data == 77577615 then
-        EtikettDe = "Gestaltenwandler Drow-Frau"
-        EtikettEn = "Shape Shifter Potion Female Drow"
-    elseif Item.data == 11695753 then
-        EtikettDe = "Gestaltenwandler Kleiner Dämon"
-        EtikettEn = "Shape Shifter Potion Lower Demon"
-    elseif Item.data == 62545579 then
-        EtikettDe = "Gestaltenwandler Kuh"
-        EtikettEn = "Shape Shifter Potion Cow"
-    elseif Item.data == 81519773 then
-        EtikettDe = "Gestaltenwandler Hirsch"
-        EtikettEn = "Shape Shifter Potion Deer"
-    elseif Item.data == 95153618 then
-        EtikettDe = "Gestaltenwandler Wolf"
-        EtikettEn = "Shape Shifter Potion Wolve"
-    elseif Item.data == 52728756 then
-        EtikettDe = "Gestaltenwandler Panther"
-        EtikettEn = "Shape Shifter Potion Panther"
-    elseif Item.data == 91986793 then
-        EtikettDe = "Gestaltenwandler Hase"
-        EtikettEn = "Shape Shifter Potion Rabbit"
-    elseif Item.data == 19831914 then
-        EtikettDe = "Gestaltenwandler Gnom"
-        EtikettEn = "Shape Shifter Potion gnome"
-    else
-
-      if (Item:getData("potionData") == "") then
-         EtikettDe = "Tinte"
-         EtikettEn = "Ink"
-      elseif (Item:getData("potionData") == "1") then
-         EtikettDe = "Janus-Trunk"
-         EtikettEn = "Janus Potion"
-      end
-    end
-
-  if (User:getPlayerLanguage()==0) then
-     world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: "..EtikettDe)
-  else
-     world:itemInform(User,Item,"You look at a sticker telling: "..EtikettEn)
-  end]]
-
 end
