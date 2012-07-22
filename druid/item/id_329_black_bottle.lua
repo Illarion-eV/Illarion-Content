@@ -294,7 +294,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			SourceItem.id = 164
 			SourceItem.quality = 333
 			
-		elseif (SourceItem:getData("potionEffectId")~="") -- potion should be filled into the cauldron
+		elseif (SourceItem:getData("potionEffectId")~="") then -- potion should be filled into the cauldron
 		    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
 			    User:talkLanguage(Character.say, Player.german, "potion -> water, fail")
