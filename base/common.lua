@@ -14,16 +14,9 @@ end;
 -- @param User The character who receives the message
 -- @param textInDe german text
 -- @param textInEn english text
-function InformNLS(User, textInDe, textInEn)
-    User:inform(GetNLS(User, textInDe, textInEn));
-end;
-
---- Send a temporary inform to the player that is not stored in the logfile
--- @param User The character who receives the message
--- @param textInDe german text
--- @param textInEn english text
-function TempInformNLS(User, textInDe, textInEn)
-    User:inform("#w " .. GetNLS( User, textInDe, textInEn));
+-- @param informPriority Player.[low|medium|high]Priority
+function InformNLS(User, textInDe, textInEn, informPriority)
+    User:inform(GetNLS(User, textInDe, textInEn),informPriorty);
 end;
 
 --- Triggers a multi language talking for a character
