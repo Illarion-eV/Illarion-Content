@@ -16,7 +16,7 @@ end;
 -- @param textInEn english text
 -- @param informPriority Player.[low|medium|high]Priority
 function InformNLS(User, textInDe, textInEn, informPriority)
-    User:inform(GetNLS(User, textInDe, textInEn),informPriorty);
+    User:inform(GetNLS(User, textInDe, textInEn),informPriority);
 end;
 
 --- Triggers a multi language talking for a character
