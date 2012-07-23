@@ -254,6 +254,22 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	
+	   if ( ltstate == Action.abort ) then
+	        User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
+		   -- base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.", Player.lowPriority)
+	       return
+		end
+		
+		if ( ltstate == Action.none ) then
+            if (SourceItem:getData("essenceBrew") =="true") and (cauldron:getData("stockData") ~= "") then
+		        actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
+            else
+                actionDuration = 20
+            end				
+			User:startAction( actionDuration, 21, 5, 15, 45)
+			return
+		end	
+		
 	   if (SourceItem:getData("essenceBrew") =="true") then -- essence brew should be filled into the cauldron
 			-- water, essence brew or potion is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
@@ -263,7 +279,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			    User:talkLanguage(Character.say, Player.german, "essenceBrew -> essemceBrew, fail")
 				-- define effect
 			elseif cauldron:getData("potionEffectId") ~= "" then
-			    User:talkLanguage(Character.say, Player.german, "essenceBrew -> essemceBrew, fail")
+			    User:talkLanguage(Character.say, Player.german, "essenceBrew -> potion, fail")
 				-- define effect
 			
 			elseif cauldron:getData("stockData") ~= "" then -- stock is in the cauldron; we call the combin function
@@ -325,13 +341,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		end
 	    if math.random(1,20) == 1 then
 		    User:eraseItem(SourceItem,1) -- bottle breaks
-		    if User:getPlayerLanguage() == 0 then
-			    myInform = "Die Flasche zerbricht."
-			else
-			    myInform = "The bottle breaks."
-			end
-            --User:inform(myInform,Player.lowPriority)
-		else	
+		    User:talkLanguage(Character.say, Player.german, "flasche kaputt");
+		   -- base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+        else	
 		    world:changeItem(SourceItem)
         end
 		world:changeItem(cauldron)		
