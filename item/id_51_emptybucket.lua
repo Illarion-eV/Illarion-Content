@@ -24,7 +24,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	elseif (boden == 6) then -- Am Wasser fuellen
 		FillBucket(User, SourceItem);
 	elseif(IdfrontItem == 1008) and (frontItem:getData("cauldronFilledWith") == "water") then -- cauldron with water
-	    druid.base.brewing_plants_gemdust.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+	    FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	else
 		base.common.InformNLS(User, "Du musst am Brunnen stehen, um Wasser zu schöpfen.", "You need to stand in front of the well to scoop water.");
 	end
@@ -47,4 +47,35 @@ function FillBucket( User, SourceItem )
         end
         base.common.GetHungry( User, 200 );
     end    
+end
+
+function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
+    
+    if ( ltstate == Action.abort ) then
+		User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
+	   -- base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.", Player.lowPriority)
+	   return
+	end
+		
+	-- is the char an alchemist?
+	if User:getMagicType() ~= 3 then
+	  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
+	  --[[base.common.InformNLS( User,
+			"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
+			"Only those who have been introduced to the art of alchemy are able to work here.",
+			Player.lowPriority
+						)]]
+	  return;
+	end
+		
+	if ( ltstate == Action.none ) then
+		User:startAction( 20, 21, 5, 15, 25)
+		return
+	end
+
+	TargetItem:setData("cauldronFilledWith","water")
+	world:changeItem(TargetItem)
+    SourceItem.id = 52
+	SourceItem.quality = 333
+	world:changeItem(SourceItem)
 end
