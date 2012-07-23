@@ -181,11 +181,11 @@ end
 	-- is the char an alchemist?
 	if User:getMagicType() ~= 3 then
 	  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
-	  --[[base.common.InformNLS( User,
+	  base.common.InformNLS( User,
 			"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
 			"Only those who have been introduced to the art of alchemy are able to work here.",
 			Player.lowPriority
-			)]]
+			)
 	  return;
 	end
 
