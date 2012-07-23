@@ -44,10 +44,8 @@ function GetItemDescription(User,Item,material,Weapon,Priest)
     end
 
 	checkForAdminChar(User,Item);
-	--User:inform("moep->debug");
     checkGemsOnItem(User,Item);
 
-	--User:inform("In base_lookat");
     -- initialize arrays if not already done
     if GenericQualDe == nil then
         -- init german descriptions
@@ -76,7 +74,6 @@ function GetItemDescription(User,Item,material,Weapon,Priest)
         -- init required skills
         GenericSkillName={ "smithing", "carpentry", "tailoring", "goldsmithing" };
     end
-    -- User:inform("generic lookAt initialized");
 
 	-- init custom lookat
 	if CustomLookAt == nil then
@@ -108,24 +105,21 @@ function GetItemDescription(User,Item,material,Weapon,Priest)
    -- decode item quality, extract duration
     local itemDura=math.mod(Item.quality,100);
     local itemQual=(Item.quality-itemDura)/100;
-    --User:inform("qual");
 
     if not ((User:getItemAt(5).id == 336) or (User:getItemAt(6).id == 336)) then
         -- get attribute and skill values
         local Per=User:increaseAttrib("perception",0);    --0-20
         local Skl=User:getSkill(GenericSkillName[material]);              --0-100
-        --User:inform("skill");
         -- modify duration with perception attribute
         local limit=(20-Per);
         if limit<0 then
             limit=0 ;
         end
-        --User:inform("lim");
+
         math.randomseed(User.id+Skl+Per+Item.id);   -- set seed to produce identical series of rand numbers each time
         local ranval=0;
         if (limit>0) then ranval=math.random(0,limit) end;        -- generates a number from 0-limit
         itemDura=itemDura+(ranval-limit/2);     --
-        --User:inform("limit "..limit.."ran val "..ranval);
 
         -- modify quality with skill value
         limit=math.floor((100-Skl)/40);  --5-0
@@ -135,19 +129,15 @@ function GetItemDescription(User,Item,material,Weapon,Priest)
         ranval=0;
         if (limit>0) then ranval=math.random(0,limit) end;
         itemQual=itemQual+(ranval-limit/2);
-        -- User:inform("limit "..limit.." ran val "..ranval);
     end;
 
     -- build description
 
-    --User:inform("call genus ");
     local gender = content.genus.GenusData( Item.id );
 	if newGender then
 		gender = newGender;
 	end
-    --User:inform("genus "..gender);
     local genderExtension = GenericGender[gender + 1];
-    --User:inform("extension "..genderExtension);
 
     local lang = User:getPlayerLanguage();
     local DisplayText="";
@@ -157,7 +147,6 @@ function GetItemDescription(User,Item,material,Weapon,Priest)
 	if not noQuality then
 	    for i,qualLimit in pairs(GenericQualLm) do
 	        if (itemQual>=qualLimit) then
-	            --User:inform("limit index "..i.."lang "..lang);
 	            if( lang == 0 ) then
 	                if string.len(GenericQualDe[i])>2 then
 	                    DisplayText = GenericQualDe[i]..genderExtension;
@@ -168,7 +157,6 @@ function GetItemDescription(User,Item,material,Weapon,Priest)
 	            break;
 	        end
 	    end
-	    --User:inform("qual ");
 
 	    -- build durability text
 	    Found=false;
@@ -176,7 +164,6 @@ function GetItemDescription(User,Item,material,Weapon,Priest)
 	        if (itemDura>=duraLimit and Found==false) then
 	            Found=true;
 	            local dura = {};
-	            --User:inform("qual index "..i.."lang "..lang);
 	            if( lang == 0 ) then
 	                dura = GenericDuraDe[material];
 	                if string.len(dura[i])>2 then
@@ -188,7 +175,6 @@ function GetItemDescription(User,Item,material,Weapon,Priest)
 	            end
 	        end
 	    end
-	    --User:inform("dur "..DisplayText);
 
 	    -- concatenate descriptive texts
 	    if( (string.len(duraText)>2) and (string.len(DisplayText)>2)) then
@@ -247,13 +233,10 @@ function checkGemsOnItem(User,Item)
 	elseif ((Item.data >= 1010) and (Item.data <= 7979) ) then
 		gems=2;
 	end
-	--User:inform("moep->O");
 	if gems~=nil then
     content.lookat.unique.itemList();
-	--User:inform("moep->X");
 		Class=content.lookat.unique.ItemClass[Item.id];
 		ItemCl=content.lookat.unique.writeClass(User,Class);
-	--User:inform("moep");
 
 	    if ItemCl == nil then
 	        return;
@@ -281,10 +264,6 @@ function checkGemsOnItem(User,Item)
 		else
 			User:inform("#w You see, that there was set a "..FirstGemStr.." "..FirstGemName..""..firstPart_en..""..SecondGemStr..""..space..""..SecondGemName.." into the "..ItemCl..".");
 		end
-	--User:inform("1 Ziffer: "..FirstGemName);
-	--User:inform("2 Ziffer: "..FirstGemStr);
-	--User:inform("3 Ziffer: "..SecondGemName);
-	--User:inform("4 Ziffer: "..SecondGemStr);
    end
 end
 

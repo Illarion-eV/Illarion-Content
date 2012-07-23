@@ -323,7 +323,7 @@ function put_Guild(originator,Guild)
 		local qpg=(Guild.rankGuild..Guild.gid)+1-1;
 		originator:setQuestProgress(201,qpg);
 	else
-		originator:inform("ERROR at put_Guild, please inform a DEV");
+		--nothing
 	end
 end
 
