@@ -15,13 +15,20 @@ end;
 -- @param textInDe german text
 -- @param textInEn english text
 -- @param informPriority Player.[low|medium|high]Priority
-function InformNLS(User, textInDe, textInEn, informPriority)
-    User:inform(GetNLS(User, textInDe, textInEn),informPriority);
+
+-- Default: Medium priority
+function InformNLS(User, textInDe, textInEn)
+    User:inform(GetNLS(User, textInDe, textInEn),Player.mediumPriority);
 end;
 
---Temporary workaround to reduce spam in the error log
-function TempInformNLS(User, textInDe, textInEn, informPriority)
-    InformNLS(User, textInDe, textInEn, Player.mediumPriority);
+-- Temp: Low priority
+function TempInformNLS(User, textInDe, textInEn)
+    User:inform(GetNLS(User, textInDe, textInEn),Player.lowPriority);
+end;
+
+-- High: High priority
+function HighInformNLS(User, textInDe, textInEn)
+    User:inform(GetNLS(User, textInDe, textInEn),Player.highPriority);
 end;
 
 --- Triggers a multi language talking for a character
