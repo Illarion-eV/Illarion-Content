@@ -175,7 +175,7 @@ function BlockCheck(Posi)
     end
 end
 
-function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
+--[[function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
     cauldron = TargetItem
 	
 	-- is the char an alchemist?
@@ -206,4 +206,4 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	else -- nothing in the cauldron, we just fill in the water
 	    cauldron:setData
     end
-end
+end]]
