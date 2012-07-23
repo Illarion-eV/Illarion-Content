@@ -72,7 +72,7 @@ function MoveToField(Character)
 		if find then
 			removedEffect = Character.effects:removeEffect(13)
 			if not removedEffect then -- security check
-				Character:inform("[Error] Please contact a developer. Error: Triggerfields to factions.")
+				Character:inform("[Error] Please contact a developer. Error: Triggerfields to factions.", Player.highPriority)
 			end
 		end
 		

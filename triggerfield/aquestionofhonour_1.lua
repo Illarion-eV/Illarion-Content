@@ -9,10 +9,10 @@ function Init()
         return
     end
    
-       waypoint={}; --a list with positions
-       waypoint[1]=position(121,547,0); --1: Palace
-       waypoint[2]=position(107,558,0); --2: Notary
-       waypoint[3]=position(114,634,0); --3: Gate
+      waypoint={}; --a list with positions
+      waypoint[1]=position(121,547,0); --1: Palace
+      waypoint[2]=position(107,558,0); --2: Notary
+      waypoint[3]=position(114,634,0); --3: Gate
       messageG={};
       messageG[1]="[Queststatus] Im Palast scheint alles in Ordnung zu sein.";
       messageG[2]="[Queststatus] Torina Scibrim scheint es gut zu gehen.";
@@ -21,7 +21,7 @@ function Init()
       messageE[1]="[Quest status] All is quiet in the palace.";
       messageE[2]="[Quest status] Torina Scibrim seems to be doing well.";
       messageE[3]="[Quest status] Horatio Milenus guards the gate just like he should be doing.";
-       InitDone = true;
+      InitDone = true;
     
 end
 
@@ -32,20 +32,20 @@ function MoveToField(User)
        queststatus=User:getQuestProgress(115); --here, we save which fields were visited
       
        queststatuslist={};
-      queststatuslist=base.common.Split_number(queststatus, 3); --reading the digits of the queststatus as table
+       queststatuslist=base.common.Split_number(queststatus, 3); --reading the digits of the queststatus as table
       
       for i=1,3 do
           if User:isInRangeToPosition(waypoint[i],2) and queststatuslist[i] == 0 then
               queststatuslist[i]=1; --found it!
               base.common.TempInformNLS(User,messageG[i],messageE[i]); --sending a message
-            User:setQuestProgress(115,queststatuslist[1]*100+queststatuslist[2]*10+ queststatuslist[3]*1); --saving the new queststatus
-            queststatus=User:getQuestProgress(115); --and reading it again
+              User:setQuestProgress(115,queststatuslist[1]*100+queststatuslist[2]*10+ queststatuslist[3]*1); --saving the new queststatus
+              queststatus=User:getQuestProgress(115); --and reading it again
             if queststatus==111 then --found all waypoints
-                User:setQuestProgress(111, 5); --Quest solved!
+               User:setQuestProgress(111, 5); --Quest solved!
                base.common.TempInformNLS(User,"[Queststatus] Du hast deine Patroullie erfolgreich abgeschlossen.","[Quest status] You completed your patrol successfully."); --sending a message
                return; --more than solving isn't possible, bailing out
             end
-            end
+         end
       end   
    end
 end
