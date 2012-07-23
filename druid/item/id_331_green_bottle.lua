@@ -97,7 +97,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	        User.movepoints=User.movepoints - 20
 		end
 	end
-
+end
 function LookAtItem(User,Item)
          world:itemInform( User, Item, base.common.GetNLS( User,
         "Du siehst ein Flaschenetikett mit der Aufschrift: \"Kräutersud\"",
