@@ -9,32 +9,24 @@ module("item.id_164_emptybottle", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
-	-- the following few lines are for the alchemy system
+	-- alchemy
    if base.common.GetFrontItemID(User) == 1008 then   -- is the char infront of a culdron?
    
        TargetItem = base.common.GetFrontItem( User ) 
 	   
 	   if ( ltstate == Action.abort ) then
-                User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
-                User:talkLanguage(Character.say, Player.english, "abort work");
-				--[[base.common.TempInformNLS( User,
-                "Du brichst Deine Arbeit ab.",
-                "You abort your work."
-                       );]]
-		        return;
-        end
-			
-		if (ltstate == Action.none) then
-		   User:startAction(20,21,5,0,0);
-		   return
+	        User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
+		   -- base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.", Player.lowPriority)
+	       return
 		end
-		
-	   if (TargetItem:getData("cauldronFilledWith") == "water") then -- water belongs into a bucket, not a potion bottle!
+			
+		if (TargetItem:getData("cauldronFilledWith") == "water") then -- water belongs into a bucket, not a potion bottle!
 	        User:talkLanguage(Character.say, Player.german, "zuviel wasser. nehm eimer");
             User:talkLanguage(Character.say, Player.english, "too much water. use bucket");
-			--[[base.common.TempInformNLS( User,
+			--[[base.common.InformNLS( User,
 					"Es ist zu viel Wasser im Kessel, als dass es in die Flaschen passen würde. Ein Eimer wäre hilfreicher.",
-					"There is too much water in the cauldron to bottle it. Better use a bucket."
+					"There is too much water in the cauldron to bottle it. Better use a bucket.",
+					Player.lowPriority
 						   );]]
 			return;
 	    -- no stock, no potion, not essence brew -> nothing we could fil into the bottle
@@ -43,11 +35,17 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             User:talkLanguage(Character.say, Player.english, "notthing to bottle");
 			--[[base.common.TempInformNLS( User,
 					"Es befindet sich nichts zum Abfüllen im Kessel.",
-					"There is nothing to be bottled in the cauldron."
+					"There is nothing to be bottled in the cauldron.",
+					Player.lowPriority
 						   );]]
 			return;
 	    end
-	   
+		
+		if (ltstate == Action.none) then
+		   User:startAction(20,21,5,15,25);
+		   return
+		end
+		
 	   if (TargetItem:getData("stockData") ~= "") then  -- stock
 	        SourceItem.id = 331
 	        SourceItem:setData("stockData",TargetItem:getData("stockData"))
@@ -98,7 +96,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   end
 	end
     
-    -- bottle in hand?
+    --[[-- bottle in hand?
 	if SourceItem:getType() == 4 and (SourceItem.itempos == 5 or SourceItem.itempos == 6) then
 
 		-- check for sheep
@@ -136,5 +134,5 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			-- world:changeItem(bottles);
 			-- return;
         -- end;
-	end	
+	end	]]
 end

@@ -260,13 +260,24 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	       return
 		end
 		
+		-- is the char an alchemist?
+	    if User:getMagicType() ~= 3 then
+		  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
+          --[[base.common.InformNLS( User,
+				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
+				"Only those who have been introduced to the art of alchemy are able to work here.",
+				Player.lowPriority
+							)]]
+		  return;
+	    end
+		
 		if ( ltstate == Action.none ) then
             if (SourceItem:getData("essenceBrew") =="true") and (cauldron:getData("stockData") ~= "") then
 		        actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
             else
                 actionDuration = 20
             end				
-			User:startAction( actionDuration, 21, 5, 15, 45)
+			User:startAction( actionDuration, 21, 5, 10, 45)
 			return
 		end	
 		
@@ -349,7 +360,22 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		world:changeItem(cauldron)		
 			
     else -- not infront of a cauldron, therefore drink!
-        DrinkPotion(User,SourceItem) 
+        if User.attackmode then
+		   base.common.InformNLS(User, "Du kannst nichts trinken, während Du kämpfst.", "You cannot drink while fighting.", Player.lowPriority)
+		else
+			User:talkLanguage(Character.say, Player.german, "#me trinkt eine schwarze Flüssigkeit.");
+			User:talkLanguage(Character.say, Player.english, "#me drinks a black liquid.");
+			SourceItem.id = 164
+			SourceItem.quality = 333
+			if math.random(1,20) == 1 then
+			   User:eraseItem(SourceItem,1) -- bottle breaks
+			   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+			else	
+				world:changeItem(SourceItem)
+			end
+			User.movepoints=User.movepoints - 20
+			DrinkPotion(User,SourceItem)
+	    end
 	end  
 end
 	

@@ -175,19 +175,30 @@ function BlockCheck(Posi)
     end
 end
 
---[[function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
     cauldron = TargetItem
 	
-	-- is the char an alchemist?
-	if User:getMagicType() ~= 3 then
-	  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
-	  base.common.InformNLS( User,
-			"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-			"Only those who have been introduced to the art of alchemy are able to work here.",
-			Player.lowPriority
-			)
-	  return;
-	end
+	if ( ltstate == Action.abort ) then
+	        User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
+		   -- base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.", Player.lowPriority)
+	       return
+		end
+		
+		-- is the char an alchemist?
+	    if User:getMagicType() ~= 3 then
+		  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
+          --[[base.common.InformNLS( User,
+				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
+				"Only those who have been introduced to the art of alchemy are able to work here.",
+				Player.lowPriority
+							)]]
+		  return;
+	    end
+		
+		if ( ltstate == Action.none ) then
+            User:startAction( 20, 21, 5, 10, 25)
+			return
+		end	
 
 	-- water, essence brew, potion or stock is in the cauldron; leads to a failure
 	if cauldron:getData("cauldronFilledWith") == "water" then
@@ -204,6 +215,11 @@ end
 		-- define effect
 	
 	else -- nothing in the cauldron, we just fill in the water
-	    cauldron:setData
+	    cauldron:setData("cauldronFilledWith","water")
     end
-end]]
+
+	world:changeItem(cauldron)
+	SourceItem.id = 51
+	SourceItem.quality = 333
+	world:changeItem(SourceItem)
+end
