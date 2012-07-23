@@ -19,6 +19,11 @@ function InformNLS(User, textInDe, textInEn, informPriority)
     User:inform(GetNLS(User, textInDe, textInEn),informPriority);
 end;
 
+--Temporary workaround to reduce spam in the error log
+function TempInformNLS(User, textInDe, textInEn, informPriority)
+    InformNLS(User, textInDe, textInEn, Player.mediumPriority);
+end;
+
 --- Triggers a multi language talking for a character
 -- In case there is no player in range who could hear the talking nothing is
 -- said
