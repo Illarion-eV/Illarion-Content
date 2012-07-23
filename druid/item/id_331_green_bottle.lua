@@ -94,7 +94,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             else	
 		        world:changeItem(SourceItem)
             end
-	        User.movepoints - 20
+	        User.movepoints=User.movepoints - 20
 		end
 	end
 

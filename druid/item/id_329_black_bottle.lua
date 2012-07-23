@@ -373,7 +373,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			else	
 				world:changeItem(SourceItem)
 			end
-			User.movepoints - 20
+			User.movepoints=User.movepoints - 20
 			DrinkPotion(User,SourceItem)
 	    end
 	end  
