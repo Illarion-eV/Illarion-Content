@@ -25,9 +25,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return;
 	end
 	
-    -- infront of a cauldron -> alchemy
+    -- infront of a cauldron
 	if (TargetItem.id == 1008) then
-	    druid.base.brewing_plants_gemdust.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+	    WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return
 	end
 	
@@ -175,3 +175,34 @@ function BlockCheck(Posi)
     end
 end
 
+function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
+    cauldron = TargetItem
+	
+	-- is the char an alchemist?
+	if User:getMagicType() ~= 3 then
+	  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
+	  --[[base.common.InformNLS( User,
+			"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
+			"Only those who have been introduced to the art of alchemy are able to work here.",
+			Player.lowPriority
+			)]]
+	  return;
+	end
+
+	-- water, essence brew, potion or stock is in the cauldron; leads to a failure
+	if cauldron:getData("cauldronFilledWith") == "water" then
+		User:talkLanguage(Character.say, Player.german, "water -> water, fail")
+		 -- define effect
+	elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+		User:talkLanguage(Character.say, Player.german, "water -> essenceBrew, fail")
+		-- define effect
+	elseif cauldron:getData("potionEffectId") ~= "" then
+		User:talkLanguage(Character.say, Player.german, "water -> potion, fail")
+		-- define effect
+	elseif cauldron:getData("stockData") ~= "" then
+		User:talkLanguage(Character.say, Player.german, "water -> stock, fail")
+		-- define effect
+	
+	else -- nothing in the cauldron, we just fill in the water
+	    cauldron:setData
+end
