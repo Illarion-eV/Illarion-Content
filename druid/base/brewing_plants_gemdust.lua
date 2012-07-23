@@ -13,55 +13,24 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
    -- infront of a cauldron?
    if base.common.GetFrontItemID(User) == 1008 then
 	  
-       --[[if ( ltstate == Action.abort ) then
-			base.common.TempInformNLS( User,
-			"Du brichst Deine Arbeit ab.",
-			"You abort your work."
-				   );
-			return;
-	   end
-	   
-	   if (ltstate == Action.none) then
-	        User:startAction(20,21,5,0,0);
-	        return
-	    end]]
-	   
-	   -- the cauldron becomce our TargetItem
-	   local TargetItem = base.common.GetFrontItem( User );
-	   
-	   -- is the char an alchemist?
+       -- is the char an alchemist?
 	    if User:getMagicType() ~= 3 then
 		  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
-          User:talkLanguage(Character.say, Player.english, "only alchemists");
-		  --[[base.common.TempInformNLS( User,
+          --[[base.common.InformNLS( User,
 				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-				"Only those who have been introduced to the art of alchemy are able to work here."
-							);]]
+				"Only those who have been introduced to the art of alchemy are able to work here.",
+				Player.lowPriority
+							)]]
 		  return;
 	    end
 	   
-	    -- there is a complete potions; we cannot add anything to it
-		if (TargetItem:getData("potionEffectId") ~= "") then 
-	        User:talkLanguage(Character.say, Player.german, "trank schon fertig");
-            User:talkLanguage(Character.say, Player.english, "potion already done");
-			--[[base.common.TempInformNLS( User,
-		    "Einem fertigen Trank kannst Du nichts mehr beifügen.",
-		    "You cannot add something to a completed potion."
-			   );]]
-		    return;
-	    end
-	
-		local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem);
+	    local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem);
 	    local GemDust = druid.base.alchemy.CheckIfGemDust(User,SourceItem);
 		-- check if the SourceItem is a herb used for alchemy
 		if AlchemyPlant or SourceItem.id == 157 then
 		    BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	        
-		    -- bucket
-		elseif (SourceItem.id == 51) or (SourceItem.id == 52) then
-		    WaterCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate) 
-			
-			-- check if it is gem dust
+		-- check if it is gem dust
 	    elseif GemDust then
 		   BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
@@ -174,45 +143,6 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	-- learn!
 	User:learn("alchemy",6,10,100,User:increaseAttrib("perception",0))
 end	
-
-function WaterCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    
-	if (SourceItem.id == 52) and (TargetItem:getData("cauldronFilledWith") ~= "") then
-        User:talkLanguage(Character.say, Player.german, "schon was drin");
-        User:talkLanguage(Character.say, Player.english, "already something in");
-		--[[base.common.TempInformNLS( User,
-		"Der Kessel ist bereits mit etwas gefüllt - noch mehr und er würde überlaufen.",
-		"The cauldron is already filled with something - more and it will spill over."
-			   );]]
-		return;
-    elseif (SourceItem.id == 51) and (TargetItem:getData("cauldronFilledWith") ~= "water") then
-	    User:talkLanguage(Character.say, Player.german, "kein wasser");
-        User:talkLanguage(Character.say, Player.english, "no water");
-		--[[base.common.TempInformNLS( User,
-		"Hier ist kein Wasser im Kessel, dass Du abschöpfen könntest.",
-		"There is no water in the cauldon for you to scoop out."
-			   );]]
-		return;
-	
-	else	
-		
-		if (SourceItem.id == 51) then
-		    newFilled = ""
-			newBucketId = 52
-		else
-		    newFilled = "water"
-			newBucketId = 51
-		end	
-		
-		TargetItem:setData("cauldronFilledWith",newFilled);
-	    world:changeItem(TargetItem)
-		
-		SourceItem.id = newBucketId;
-	    SourceItem.data = 0;
-	    world:changeItem(SourceItem);
-        world:makeSound(10,TargetItem.pos);
-	end
-end
 
 function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
