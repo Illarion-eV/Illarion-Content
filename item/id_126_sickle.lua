@@ -12,11 +12,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	--------- TESTING STUFF !!! ------------ Merung
 	if string.sub(User.lastSpokenText,1,9) == "inform me" then
 	    informNumber = tonumber(string.sub(User.lastSpokenText,10))
-		if informNumber = 1 then
+		if informNumber == 1 then
 		    User:inform("inform worked",Player.lowPriority)
-	    elseif informNumber = 2 then
+	    elseif informNumber == 2 then
 		    User:inform("inform worked",Player.mediumPriority)
-		elseif informNumber = 3 then
+		elseif informNumber == 3 then
 		    User:inform("inform worked",Player.highPriority)
 		end
         return		
