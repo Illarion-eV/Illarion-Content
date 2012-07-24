@@ -258,7 +258,7 @@ function MoveCharacter( Character, Effect, XOff, YOff, range )
 end
 
 function InformW( User, textInDe, textInEn )
-    User:inform( "#w "..base.common.GetNLS( User, textInDe, textInEn ) );
+    User:inform(base.common.GetNLS( User, textInDe, textInEn ),Player.mediumPriority);
 end
 
 function IsEffectInLogoutTime( Effect, Character )

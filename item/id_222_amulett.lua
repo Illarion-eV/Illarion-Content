@@ -35,7 +35,7 @@ function LookAtItem(User, Item)
         if (User:getPlayerLanguage() == 0) then
             world:itemInform(User,Item,"Verfluchtes Amulett des Sukkubus");
         else
-            world:itemInform(User,Item,"cursed amulet of the Succubus");
+            world:itemInform(User,Item,"Cursed amulet of the Succubus");
         end
     elseif ( Item.data == 777 ) then
 		if (User:getPlayerLanguage() == 0) then
@@ -87,7 +87,6 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 			RingOfPower(User);
 		elseif counter >= 2 and counter <= 5 then
 			if not RoadToNode(User, counter-1) then
-				User:inform("#w No valid target found.");
 			end
 		elseif counter == 6 then
 			MuckyLuck(User);

@@ -365,8 +365,8 @@ function Craft:LocationFine( User, ltstate, mode )
                     return false
                 else
                     return 2,base.common.GetNLS(User,
-                    "#w Hier arbeitet schon jemand.",
-                    "#w Someone is working here already.");
+                    "Hier arbeitet schon jemand.",
+                    "Someone is working here already.");
                 end
             elseif not self.Tool[StaticTool] then
                 if not mode then
@@ -376,8 +376,8 @@ function Craft:LocationFine( User, ltstate, mode )
                     return false
                 else
                     return 1,base.common.GetNLS(User,
-                    "#w Hier kannst du nicht arbeiten.",
-                    "#w You cannot work here.");
+                    "Hier kannst du nicht arbeiten.",
+                    "You cannot work here.");
                 end
             end
         elseif not self.ActiveTool[StaticTool] and not self.Tool[StaticTool] then
@@ -388,8 +388,8 @@ function Craft:LocationFine( User, ltstate, mode )
                 return false
             else
                 return 1,base.common.GetNLS(User,
-                "#w Hier kannst du nicht arbeiten.",
-                "#w You cannot work here.");
+                "Hier kannst du nicht arbeiten.",
+                "You cannot work here.");
             end
         elseif base.common.GetFrontItem( User ).quality < 100 then
             if not mode then
@@ -399,8 +399,8 @@ function Craft:LocationFine( User, ltstate, mode )
                 return false
             else
                 return 1,base.common.GetNLS(User,
-                "#w Das Werkzeug ist kaputt.",
-                "#w The tool is broken.");
+                "Das Werkzeug ist kaputt.",
+                "The tool is broken.");
             end
 		elseif base.common.GetFrontItem( User ).id==359 and base.common.GetFrontItem( User ).quality==100 then
 			if not mode then
@@ -410,8 +410,8 @@ function Craft:LocationFine( User, ltstate, mode )
                 return false
             else
                 return 1,base.common.GetNLS(User,
-                "#w Die Flamme ist nur eine Illusion.",
-                "#w The flame is just an illusion.");
+                "Die Flamme ist nur eine Illusion.",
+                "The flame is just an illusion.");
             end
         end
     end

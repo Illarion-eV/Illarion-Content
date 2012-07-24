@@ -14,8 +14,8 @@ module("item.id_270_grindstone", package.seeall)
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
         base.common.InformNLS( User,
-        "#w Benutze eine kleine Zange um Edelsteine zu schleifen.",
-        "#w Use a pair of small tongs to cut gems." );
+        "Benutze eine kleine Zange um Edelsteine zu schleifen.",
+        "Use a pair of small tongs to cut gems." );
 		
 --Gem cutting is done via item 2140. The code below is a relict.
 

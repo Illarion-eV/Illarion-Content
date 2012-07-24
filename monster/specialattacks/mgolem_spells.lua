@@ -51,11 +51,11 @@ function MGolem_PowerFist (monster, char, distance)
 					for i,v in pairs(Metallist) do			
 						if v == armor.id then
 							char:increaseAttrib("hitpoints", -2000);
-							char:inform("#w You receive a powerful hit in your chest, which sends you flying. Your metal armor seems to have absorbed most of the impact.");
+							char:inform("You receive a powerful hit in your chest, which sends you flying. Your metal armor seems to have absorbed most of the impact.",Player.mediumPriority);
 							return true;
 						else
 							char:increaseAttrib("hitpoints", -6000);
-							char:inform("#w You receive a very powerful strike in your chest, which sends you flying.");
+							char:inform("You receive a very powerful strike in your chest, which sends you flying.",Player.mediumPriority);
 							return true;
 						end
 					end

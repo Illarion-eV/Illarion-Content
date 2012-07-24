@@ -87,7 +87,7 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 			elseif info.tid == 3 then
 				townName = "Galmair";
 			end
-			local txt = "#w [Faction]: "..TargetCharacter.name.." is member of ".. townName .." (".. info.tid .."); He changed his hometown ".. info.towncnt .." times; Rank C/R/G: ".. info.rankC .."/".. info.rankR .."/".. info.rankG;
+			local txt = "[Faction]: "..TargetCharacter.name.." is member of ".. townName .." (".. info.tid .."); He changed his hometown ".. info.towncnt .." times; Rank C/R/G: ".. info.rankC .."/".. info.rankR .."/".. info.rankG;
 			User:inform(txt);
 
 		end

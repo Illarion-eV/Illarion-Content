@@ -21,7 +21,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     if a ~= nil then
         quest = tonumber(quest)
         User:setQuestProgress(quest, 0)
-        User:inform("#w Quest " .. quest .. " has been reset!",Player.mediumPriority)
+        User:inform("Quest " .. quest .. " has been reset!",Player.mediumPriority)
         return
     end
 
