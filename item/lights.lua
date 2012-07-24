@@ -280,5 +280,5 @@ function LookAtItem(User, Item)
 		TimeLeft = base.common.GetNLS(User, "nach langer Zeit", "in a long time");
 	end	
 	
-	world:itemInform(User, Item, base.common.GetNLS(User, ItemName..", sie wird "..TimeLeft.." ausbrennen", ItemName..", it will burn down "..TimeLeft));
+	world:itemInform(User, Item, base.common.GetNLS(User, ItemName..", sie wird "..TimeLeft.." ausbrennen.", ItemName..", it will burn down "..TimeLeft.."."));
 end
