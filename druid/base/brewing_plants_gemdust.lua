@@ -10,37 +10,6 @@ module("druid.base.brewing_plants_gemdust", package.seeall)
 
 
 
-function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
---[[	-- no stock and char tries to filter it
-	if (TargetItem:getData("stockData") == "") and (SourceItem.id == 157) then
-		User:talkLanguage(Character.say, Player.german, "nichts zum filtern");
-        User:talkLanguage(Character.say, Player.english, "nothing to filter");
-		--[[base.common.InformNLS( User,
-		"Es befindet sich nichts zum Filtern im Kessel.",
-		"There is nothing to filter in the cauldron."
-		   );]]
-		return
-        -- we want to filter and there is a stock
-	elseif (SourceItem.id == 157) then
-	    cauldronData = tonumber(TargetItem:getData("stockData"));
-	    dataZList = druid.base.alchemy.SplitCauldronData(User,cauldronData);
-	    for i=1,8 do
-			if dataZList < 5 then 
-				dataZList[i] = dataZList[i] + 1
-			elseif dataZList > 5 then
-				dataZList[i] = dataZList[i] - 1
-			end	
-		end
-	    -- we change our stock
-	    newStockData = druid.base.alchemy.PasteCauldronData(User,dataZList);
-		TargetItem:setData("stockData",""..newStockData);
-		User:inform(""..newStockData)
-		world:changeItem(TargetItem)
-	end	]]
-	
-	
-end	
-
 function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- no stock, no water
