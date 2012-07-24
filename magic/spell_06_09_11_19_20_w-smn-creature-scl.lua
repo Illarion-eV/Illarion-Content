@@ -4,8 +4,10 @@
 -- Spruchrollen Zauber
 -- Beschwörungs Zauber
 
+require("base.common");
 require("magic.base.basics");
 module("magic.spell_06_09_11_19_20_write-summon-creature-scroll", package.seeall)
+
 function InitSpell() -- Spell Grundeinstellungen
     Difficult=75;
     NeededSkill="desicio";
@@ -97,12 +99,10 @@ function WriteTeleSpell(Caster, ltstate )
     magic.base.basics.InitializeHelpList();
     if ( ltstate == nil or ltstate == Action.success or timeToCast == 0 ) then
         local CasterVal=magic.base.basics.CasterValue(Caster);
-        --Caster:inform("CasterVal: "..CasterVal);
         local HPChange=CalcAttribChange(minHPNeeded,maxHPNeeded,CasterVal);
         local FPChange=CalcAttribChange(minFPNeeded,maxFPNeeded,CasterVal);
         local APChange=CalcAttribChange(minAPNeeded,maxAPNeeded,CasterVal);
         local MPChange=CalcAttribChange(minMPNeeded,maxMPNeeded,CasterVal);
-        --Caster:inform("MPChange: "..MPChange);
         local PPCaused=CalcAttribChange(minPPCaused,maxPPCaused,CasterVal);
         if CheckAttrib(Caster,"hitpoints",HPChange) then
             if CheckAttrib(Caster,"foodlevel",FPChange) then
@@ -199,38 +199,33 @@ function WriteTeleSpell(Caster, ltstate )
 			elseif successStepTwo then
 			    world:erase( diamond,1 );
 
-			    Caster:inform("moep1->ID: "..parchment.id..", QUAL: "..parchment.quality..", DATA: "..parchment.data);
 			    parchment.quality=parchment.quality;
-			    Caster:inform("moep2->ID: "..parchment.id..", QUAL: "..parchment.quality..", DATA: "..parchment.data);
 			    world:swap(parchment, 3110, parchment.quality);
-			    Caster:inform("moep3->ID: "..parchment.id..", QUAL: "..parchment.quality..", DATA: "..parchment.data);
 
 			    world:gfx(Effect,Caster.pos);
 			    world:makeSound(SFX,Caster.pos);
 			else
-			    InformNLS(Caster,"Ein leichter Windstoß fährt über dich hinweg.","You feel some wind passing by.");
+			    base.common.InformNLS(Caster,"Ein leichter Windstoß fährt über dich hinweg.","You feel some wind passing by.");
 			end
 
                     else
-                        InformNLS(Caster,"Der Spruch gelingt nicht","The spell fails.");
+                        base.common.InformNLS(Caster,"Der Spruch gelingt nicht.","The spell fails.");
                     end
                 else
-                    InformNLS(Caster,"Nicht genügend Mana","Not enough mana.");
+                    base.common.InformNLS(Caster,"Nicht genügend Mana.","Not enough mana.");
                 end
             else
-                InformNLS(Caster,"Du hast Hunger und kannst dich nicht konzentrieren.","You are hungry and can't concentrate.");
+                base.common.InformNLS(Caster,"Du hast Hunger und kannst dich nicht konzentrieren.","You are hungry and can't concentrate.");
             end
         else
-            InformNLS(Caster,"Du würdest es nicht überleben, jetzt diesen Spruch zu sprechen.","You die if you cast this spell now.");
+            base.common.InformNLS(Caster,"Du würdest es nicht überleben, jetzt diesen Spruch zu sprechen.","You die if you cast this spell now.");
         end
     elseif ( ltstate == Action.none ) then
         local CasterVal=magic.base.basics.CasterValue(Caster);
-        --Caster:inform("CasterVal: "..CasterVal);
         local HPChange=CalcAttribChange(minHPNeeded,maxHPNeeded,CasterVal);
         local FPChange=CalcAttribChange(minFPNeeded,maxFPNeeded,CasterVal);
         local APChange=CalcAttribChange(minAPNeeded,maxAPNeeded,CasterVal);
         local MPChange=CalcAttribChange(minMPNeeded,maxMPNeeded,CasterVal);
-        --Caster:inform("MPChange: "..MPChange);
         local PPCaused=CalcAttribChange(minPPCaused,maxPPCaused,CasterVal);
         if CheckAttrib(Caster,"hitpoints",HPChange) then
             if CheckAttrib(Caster,"foodlevel",FPChange) then
@@ -239,10 +234,10 @@ function WriteTeleSpell(Caster, ltstate )
                    Caster:talkLanguage( Character.say, Player.german, "#me beginnt mit einer mystischen Formel.");
                    Caster:talkLanguage( Character.say, Player.english, "#me starts with a mystical formula.");
                 else
-                    InformNLS(Caster,"Nicht genügend Mana","Not enough mana");
+                    base.common.InformNLS(Caster,"Nicht genügend Mana.","Not enough mana.");
                 end;
             else
-                InformNLS(Caster,"Du hast Hunger und kannst dich nicht konzentrieren.","You are hungry and can't concentrate.");
+                base.common.InformNLS(Caster,"Du hast Hunger und kannst dich nicht konzentrieren.","You are hungry and can't concentrate.");
             end;
         else
             InformNLS(Caster,"Du würdest es nicht überleben, jetzt diesen Spruch zu sprechen.","You die if you cast this spell now.");

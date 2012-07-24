@@ -110,8 +110,6 @@ module("base.treasure", package.seeall)
             treasureMonsters[User.id] = {};
         end
         
-        User:inform("now calling getmonster. level: "..level);
-        
         local monList = GetMonsterList( level );
         local newPos;
         local showMsgs = {};
@@ -341,11 +339,10 @@ module("base.treasure", package.seeall)
         if not fndTreasure then --User:inform("Effect given");
             treasureEff=LongTimeEffect(16,1);
             treasureEff:addValue("pos",mapItem.data);
-            User:inform("added pos value: "..mapItem.data);
             treasureEff:addValue("category",treasureLevel);
             User.effects:addEffect(treasureEff);
         else
-            InformNLS(User,
+            base.common.InformNLS(User,
                 "Du hast schon einen Schatz ausgegraben und die Wächter noch nicht besiegt.",
                 "You already dug out a treasure and didn't overcome the guardians." );
             treasureEff.nextCalled =20;

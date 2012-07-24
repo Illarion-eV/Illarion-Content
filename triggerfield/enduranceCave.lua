@@ -19,14 +19,14 @@ function MoveToField(User)
 	world:gfx( 41, User.pos )
 	User:forceWarp(position(1,1,0));
 	world:gfx( 41, User.pos )
-    InformNLS(User, "Du hörst ein fernes Lachen in deinen Ohren dröhnen. Dann bist du wieder auf der Oberwelt.", "You hear a faint laughter burrowing in your ears as you step into the portal. Then you are back on the surface.");
+    base.common.InformNLS(User, "Du hörst ein fernes Lachen in deinen Ohren dröhnen. Dann bist du wieder auf der Oberwelt.", "You hear a faint laughter burrowing in your ears as you step into the portal. Then you are back on the surface.");
 	end
 	if User.pos == (position(1,1,0)) then -- Warp entering the Dungeon
 	world:makeSound( 4, User.pos )
 	world:gfx( 41, User.pos )
 	User:forceWarp(position(7,8,-15));
 	world:gfx( 41, User.pos )
-    InformNLS(User, "Du wirst in einen seltsamen Raum teleportiert. Die Feuerkugel in dessen Mitte sieht seltsam aus.","You are warped into a strange room. The fireball in the middle looks strange to you.")
+    base.common.InformNLS(User, "Du wirst in einen seltsamen Raum teleportiert. Die Feuerkugel in dessen Mitte sieht seltsam aus.","You are warped into a strange room. The fireball in the middle looks strange to you.")
 	end
 	
 	-- Warp through the Portals inside the dungeon
