@@ -364,6 +364,6 @@ function AttribMessage( Char, attrib, value )
     local Race = Char:getRace();
     local msg = content.dailymessage.GetMessage( Char:getPlayerLanguage(), attrib, Race, value );
     if msg then
-		Char:inform( base.common.GetNLS( Char, "#w Deine heutige Verfassung: ", "#w Your condition today: " )..msg );
+		Char:inform( base.common.GetNLS( Char, "Deine heutige Verfassung: ", "Your condition today: " )..msg );
     end
 end]]
