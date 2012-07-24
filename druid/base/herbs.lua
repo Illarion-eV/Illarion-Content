@@ -87,7 +87,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
     else -- there is nothing in the cauldron to put the herb in, failure
 	    User:talkLanguage(Character.say, Player.german, "herb -> nothing, fail")
 		-- define effect
-		
+end		
 		
 		
 		
