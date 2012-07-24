@@ -71,7 +71,7 @@ function doubleEffect( rebirthEffect, Reborn )
 	  return false;
     end
 
-    base.common.TempInformNLS( Reborn,
+    base.common.InformNLS( Reborn,
         "[Wiederbelebung] Du fühlst dich noch sehr schwach.",
         "[Respawn] You feel very weak." );
     local maxChange = 0;

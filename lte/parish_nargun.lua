@@ -16,7 +16,7 @@ function addEffect(Effect, Char)
 		Effect:addValue("saveRace", Char:getRace() );
 		Char:setAttrib("racetyp", PN_FriendlyRaces[math.random(1,table.getn(PN_FriendlyRaces))]);
 		world:gfx(31,Char.pos);
-		base.common.TempInformNLS(Char,
+		base.common.InformNLS(Char,
 			"Du fühlst dich auf einmal so seltsam distanziert von deinem Körper.",
 			"You suddenly feel strangely dissociated from your body.");
 		cycleCounter[Char.id] = 40;
@@ -55,7 +55,7 @@ function removeEffect(Effect, Char)
 			gText = "Ein wohliges Gefühl überkommt dich, als ob du hier hingehörst.";
 			eText = "A cosy feeling comes over you, as if you belong here.";
 		end
-		base.common.TempInformNLS(Char,gText,eText);
+		base.common.InformNLS(Char,gText,eText);
 	end
 end
 
@@ -101,23 +101,23 @@ function PN_LeadToPoint( Char, effectType )
        	    end;
 
 		    if ( distance <= 5 ) then
-				base.common.TempInformNLS(Char,
+				base.common.InformNLS(Char,
 					"Genau hier solltest du hin. Du fühlst wie eine Last von dir genommen wird.",
 					"This is where you was to go. You feel a burden is taken off you.");
 					return false;
 			elseif ( distance <= 30 ) then
-			    base.common.TempInformNLS( Char,
+			    base.common.InformNLS( Char,
 			    "Dein Ziel ist ganz in der Nähe. Gehe weiter nach "..dirText,
 				"You are close to your destination. Keep going "..dirText);
                 cycleCounter[Char.id]=30;
 		    else
-			    base.common.TempInformNLS( Char,
+			    base.common.InformNLS( Char,
 				"Eine seltsame Macht zieht dich nach "..dirText,
 				"A strange power leads you "..dirText);
 				cycleCounter[Char.id]=20;
 		    end;
 	    else
-	     	base.common.TempInformNLS( Char,
+	     	base.common.InformNLS( Char,
 				"Irgendetwas sagt dir, dass es eine gute Idee wäre wieder zur Erdoberfläche zu gelangen.",
 				"Something tells you it would be a good idea to get back to the surface.");
 	  		cycleCounter[Char.id]=1;

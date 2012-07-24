@@ -8,7 +8,7 @@ function addEffect( rebirthEffect, Reborn )
 	  return false;
     end
 
-        base.common.TempInformNLS( Reborn,
+        base.common.InformNLS( Reborn,
         "[Wiederbelebung] Du fühlst dich noch sehr schwach.",
         "[Respawn] You feel very weak." );
     local maxChange = 0;
@@ -43,7 +43,7 @@ function loadEffect( rebirthEffect, Reborn )
     end
 
 
-    base.common.TempInformNLS( Reborn,
+    base.common.InformNLS( Reborn,
         "[Wiederbelebung] Du fühlst dich noch immer schwach.",
         "[Respawn] You feel still weak." );
 
@@ -134,7 +134,7 @@ function removeEffect( rebirthEffect, Reborn )
 	  return;
     end
 	
-	base.common.TempInformNLS( Reborn,
+	base.common.InformNLS( Reborn,
         "[Wiederbelebung] Du hast dich vollständig erholt.",
         "[Respawn] You have fully recovered." );
 
@@ -159,7 +159,7 @@ function doubleEffect( rebirthEffect, Reborn )
 	  return false;
     end
 
-    base.common.TempInformNLS( Reborn,
+    base.common.InformNLS( Reborn,
         "[Wiederbelebung] Du fühlst dich noch sehr schwach.",
         "[Respawn] You feel very weak." );
     local maxChange = 0;

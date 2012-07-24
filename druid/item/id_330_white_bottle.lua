@@ -92,7 +92,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
 	      
 		  if ( ltstate == Action.abort ) then
-                base.common.TempInformNLS( User,
+                base.common.InformNLS( User,
                 "Du brichst Deine Arbeit ab.",
                 "You abort your work."
                        );
@@ -124,14 +124,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   User.effects:removeEffect(330);
 	end
 	if User.attackmode then
-	   base.common.TempInformNLS(User,
+	   base.common.InformNLS(User,
 			"Du kannst den Trank nicht benutzen, während Du kämpfst.",
 			"You can't use the potion while you are fighting.");
 		return;
 	end
 	
 	if User.effects:find(330) then
-	   base.common.TempInformNLS( User,
+	   base.common.InformNLS( User,
                 "Der Trank hätte jetzt keine Wirkung.",
                 "The potion wouldn't have any effect now."
                        );  
@@ -171,7 +171,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         --    world:erase( SourceItem, 1 );
 
         --    if (math.random( 20 ) == 1) then
-        --        base.common.TempInformNLS( User,
+        --        base.common.InformNLS( User,
         --        "Die Flasche zerbricht.",
          --       "The bottle breaks.");
          --   else

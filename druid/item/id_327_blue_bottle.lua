@@ -129,7 +129,7 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
     end
     
     if (SourceItem:getType()~=4) and (SourceItem:getData("missileStatus") == "activated") then
-        base.common.TempInformNLS( User,
+        base.common.InformNLS( User,
         "Du musst den Wurfkörper aus der Hand werfen.",
         "You have to throw the missle out of your hand.");
         User:inform(""..(SourceItem:getData("missileStatus")))
@@ -145,13 +145,13 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 
 	if checkMissile(User, potionData) then -- a missile
 		if (missileStatus == "deactivated") or (missileStatus == "") then -- potion deactivated or status not set --> activate
-			base.common.TempInformNLS( User,
+			base.common.InformNLS( User,
 			"Du entsicherst des Wurfkörper. Vorsicht damit.",
 			"You activate the missle. Careful with it.");
 			SourceItem:setData("missileStatus","activated")
 			world:changeItem( SourceItem );
 		else
-			base.common.TempInformNLS( User,
+			base.common.InformNLS( User,
 			"Du sicherst den Wurfkörper.",
 			"You deactivate the missile.");
 			SourceItem:setData("missileStatus","deactivated")

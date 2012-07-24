@@ -33,7 +33,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    elseif (TargetItem:getData("stockData") == "") and (TargetItem:getData("potionEffectId") == "") and (TargetItem:getData("cauldronFilledWith") == "") then
 	        User:talkLanguage(Character.say, Player.german, "nichts zum abfüllen");
             User:talkLanguage(Character.say, Player.english, "notthing to bottle");
-			--[[base.common.TempInformNLS( User,
+			--[[base.common.InformNLS( User,
 					"Es befindet sich nichts zum Abfüllen im Kessel.",
 					"There is nothing to be bottled in the cauldron.",
 					Player.lowPriority

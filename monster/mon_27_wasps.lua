@@ -166,7 +166,7 @@ function HitChar(Posi,Hitpoints,CenterPos)
             end
             Character:warp(position(Character.pos.x-Diffx,Character.pos.y-Diffy,Character.pos.z));
         end
-        base.common.TempInformNLS(Character,
+        base.common.InformNLS(Character,
         "Getroffen von der Detonation wirst du davon geschleudert.",
         "Hitted by the detonation, you get thrown away.");
         Character:increaseAttrib("hitpoints",-Hitpoints);

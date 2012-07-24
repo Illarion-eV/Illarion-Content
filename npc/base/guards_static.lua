@@ -122,7 +122,7 @@ end
 -- @param char The char that will be warped
 function Warp(guard, char)
 	char:warp(WarpPos[guard.id]);
-	base.common.TempInformNLS(char,
+	base.common.InformNLS(char,
 		"Du wurdest soeben von einer Wache der Stadt verwiesen.",
 		"You've just been expelled from the town by a guard.");
 end

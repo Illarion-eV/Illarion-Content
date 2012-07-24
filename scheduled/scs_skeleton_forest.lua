@@ -14,7 +14,7 @@ function ForestSkells()
                 return
             end
         elseif (RndTry == 2) then
-		    base.common.TempInformNLS(Char,"Du hörst ein leises Knacken im Unterholz und vielleicht ein leises Murmeln.","You hear a quiet cracking in the forest and maybe a muttering.");
+		    base.common.InformNLS(Char,"Du hörst ein leises Knacken im Unterholz und vielleicht ein leises Murmeln.","You hear a quiet cracking in the forest and maybe a muttering.");
         end
     end
 end
@@ -31,7 +31,7 @@ function SpawnSkeleton(Charakter)
         end
     end  
 
-	base.common.TempInformNLS(Charakter,"Um dich herum raschelt der Wald und du hört das Klappern von Knochen.","Around you the forest rustles and you hear the clacking of bones.");
+	base.common.InformNLS(Charakter,"Um dich herum raschelt der Wald und du hört das Klappern von Knochen.","Around you the forest rustles and you hear the clacking of bones.");
 
     SpawnSkeletonCycle(Charakter.pos,6,math.random(3,8));
     return true;

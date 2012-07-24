@@ -430,7 +430,7 @@ function getEffect_4(Character,Runde)
 		local chance = math.random(1,table.getn(paranoiaList[1]));
 		local race = Character:getRace() + 1;
 		if race > 9 then race = 4 end;
-		base.common.TempInformNLS(Character,
+		base.common.InformNLS(Character,
 			string.gsub(paranoiaList[1][chance],"%RACETEXT",raceList[1][race]),
 			string.gsub(paranoiaList[2][chance],"%RACETEXT",raceList[2][race]));
 	  end

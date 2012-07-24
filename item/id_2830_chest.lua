@@ -15,14 +15,14 @@ function UseItem(User,SourceItem)
     level=SourceItem.data;
     posi=SourceItem.pos;
 
-    base.common.TempInformNLS(User, "Du öffnest die Schatzkiste...", "You open the treasure chest...");
+    base.common.InformNLS(User, "Du öffnest die Schatzkiste...", "You open the treasure chest...");
 	world:erase(SourceItem,1);
 	if SourceItem.data ~= 0 and SourceItem.data < 10 then
         world:gfx(16,posi);
         world:makeSound(13,posi);
         base.treasure.SpawnTreasure( level, posi );
 	else	
-        base.common.TempInformNLS(User, "...sie ist leer!", "...it is empty!");
+        base.common.InformNLS(User, "...sie ist leer!", "...it is empty!");
     end
 
 end

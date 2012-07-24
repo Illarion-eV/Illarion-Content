@@ -576,5 +576,5 @@ function createDevotionInform(SourceCharacter, TargetCharacter)
 	gText = gText .. godName .."s.";
 	eText = eText .. "of " .. godName ".";
 	
-	base.common.TempInformNLS(SourceCharacter, gText, eText);
+	base.common.InformNLS(SourceCharacter, gText, eText);
 end

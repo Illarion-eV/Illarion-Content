@@ -151,11 +151,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			end
 			-- inform the player
 			if poison then
-				base.common.TempInformNLS(User,
+				base.common.InformNLS(User,
 				"Du fühlst dich krank und etwas benommen.",
 				"You feel sick and a little dizzy.");
 			elseif (domMalus < 0) then
-				base.common.TempInformNLS( User,
+				base.common.InformNLS( User,
 				"Du bekommst kaum noch was runter und dir wird schlecht. Dies schadet sicherlich deinem Körper.",
 				"You hardly manage to eat something more and get sick! This surely harms your body.");
 				-- check for newbie state
@@ -164,27 +164,27 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				end
 				foodLevel = foodLevel - 10000;
 			elseif  (foodLevel > 55000) then
-				base.common.TempInformNLS( User,
+				base.common.InformNLS( User,
 				"Nur mit Mühe kannst du dir noch etwas hinunter zwingen.",
 				"You hardly manage to eat something more.");
 			elseif  (foodLevel > 50000) then
-				base.common.TempInformNLS( User,
+				base.common.InformNLS( User,
 				"Du bist sehr satt.",
 				"You have had enough.");
 			elseif  (foodLevel > 40000) then
-				base.common.TempInformNLS( User,
+				base.common.InformNLS( User,
 				"Du bist satt.",
 				"You are stuffed.");
 			elseif  (foodLevel > 30000) then
-				base.common.TempInformNLS( User,
+				base.common.InformNLS( User,
 				"Du fühlst dich noch etwas hungrig.",
 				"You still feel a little hungry.");
 			elseif  (foodLevel > 20000) then
-				base.common.TempInformNLS( User,
+				base.common.InformNLS( User,
 				"Du hast noch immer Hunger.",
 				"You are still hungry.");
 			elseif  (foodLevel > 5000) then
-				base.common.TempInformNLS( User,
+				base.common.InformNLS( User,
 				"Dein Magen schmerzt noch immer vor Hunger.",
 				"Your stomach still hurts because of your hunger.");
 			end
@@ -353,7 +353,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			User:inform("unknown food item ");
 		end
 	else
-		base.common.TempInformNLS( User,
+		base.common.InformNLS( User,
 			"Du kannst nicht während eines Kampfes essen.",
 			"You cannot eat during a fight.");
 	end

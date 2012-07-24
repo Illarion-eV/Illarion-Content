@@ -269,7 +269,7 @@ module("base.treasure", package.seeall)
         local MapQuality = (10-math.floor(math.sqrt(math.random(1,99))))*100+99;
         if Char:createItem(505,1,MapQuality,MapData) ~= 0 then
             world:createItemFromId(505, 1, Char.pos, true, MapQuality, MapData);
-			base.common.TempInformNLS(User,
+			base.common.InformNLS(User,
 				"Du kannst nichts mehr tragen.",
 				"You can't carry any more.");
         end
@@ -312,7 +312,7 @@ module("base.treasure", package.seeall)
 
         local treasureLevel = math.floor( mapItem.quality / 100 );
         if ( treasureLevel > maxToFind ) then
-            base.common.TempInformNLS( User,
+            base.common.InformNLS( User,
             "Du bist nicht erfahren genug in der Bergarbeit um diesen Schatz auszugraben.",
             "You are not skilled enough in mining to dig out the treasure." );
             return false;
@@ -328,7 +328,7 @@ module("base.treasure", package.seeall)
         if foundMessage then
             User:inform( foundMessage );
         else
-            base.common.TempInformNLS( User,
+            base.common.InformNLS( User,
             "Du gräbst den Schatz aus dem Boden aus und musst dabei leider feststellen, dass der Schatz einige Wächter hat.",
             "You dig the treasure out of the ground and realize that the treasure sadly has some guards." );
         end

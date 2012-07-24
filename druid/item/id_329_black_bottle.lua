@@ -381,7 +381,7 @@ end
 	
 --[[	-- not infront of a cauldron: let's drink the potion!
 	if User.attackmode then
-        base.common.TempInformNLS(User,
+        base.common.InformNLS(User,
 			"Du kannst den Trank nicht benutzen, während Du kämpfst.",
 			"You can't use the potion while you are fighting.");
 		return;
@@ -396,7 +396,7 @@ end
 	    findCounter,counterBlack = myEffect:findValue("counterBlack")
 		if findCodecValue then
 	        if CodecValue ~= tonumber(SourceItem:getData("potionData")) or (counterBlack == 0) then
-	           base.common.TempInformNLS( User,
+	           base.common.InformNLS( User,
                 "Der Trank hätte jetzt keine Wirkung.",
                 "The potion wouldn't have any effect now."
                        );  

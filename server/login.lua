@@ -10,7 +10,7 @@ function onLogin( player )
 
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
-	base.common.TempInformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
+	base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
     
 	--Noobia handling
 	if (player.pos.z == 100) or (player.pos.z == 101) then --On Noobia	
@@ -172,13 +172,13 @@ function onLogin( player )
 	messageE[60]="[Hint] You will receive a notification when a new player chooses to join your realm. Give them a friendly welcome!";
 
 	    dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
-	    base.common.TempInformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
+	    base.common.InformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
     end
 	
 	--TEMPORARY SOLUTION TO CATCH NEW PLAYERS
 	if player:getMentalCapacity() < 1999 or player:getQuestProgress(122) == 0 then --Mental Capacity CANNOT drop below 1999 -> New player or cheater. However, new players should start with a higher value
 	    player:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
-		--base.common.TempInformNLS(player,"[Skillsystem] Mental Capacity zwangsangepasst!","[Skill system] Adjustment of mental capacity enforced."); --Debuggin'
+		--base.common.InformNLS(player,"[Skillsystem] Mental Capacity zwangsangepasst!","[Skill system] Adjustment of mental capacity enforced."); --Debuggin'
 		player:setQuestProgress(122,1); --Saving the information that the player went throuh this process
 	end
 	--TEMPORARY SOLUTION END

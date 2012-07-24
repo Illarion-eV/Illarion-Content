@@ -179,7 +179,7 @@ function SetSeeds( User, SourceItem, TargetPos, ltstate )
         farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil,true);
 		User:startAction(farming.SavedWorkTime[User.id], 0, 0, 0, 0);
         if farming.SavedWorkTime[User.id] > 10 then
-            base.common.TempInformNLS(User, -- TODO
+            base.common.InformNLS(User, -- TODO
                 "Du säst Saatgut aus.",
                 "You sow seeds.");
         end

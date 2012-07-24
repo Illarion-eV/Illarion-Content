@@ -1068,7 +1068,7 @@ if base.common. BasicNPCChecks(speaker,2, thisNPC) then
 	elseif ((string.find(message,"[Hh]ilfe")~=nil or string.find(message,"[Hh]elp")~=nil) and speaker:getQuestProgress(28)>0) then
 		gText = "Schlüsselwörter: 'Wie lautet meine Aufgabe?','Gib mir einen Hinweis zur Aufgabe'";
 		eText = "Keyphrases : 'What is my task?','Give me a hint to the task'";
-		base.common.TempInformNLS(speaker, gText,eText);
+		base.common.InformNLS(speaker, gText,eText);
 	elseif ((string.find(message,"[Hh]inweis")~=nil or string.find(message,"[Hh]int")~=nil) and speaker:getQuestProgress(28)>0) then
 
 		-- GIVE A HINT TO THE TASK

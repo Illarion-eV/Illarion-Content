@@ -50,7 +50,7 @@ ReqTexts.english = { [392] = "torches", [43] = "candles", [390] = "lamp oil" };
 function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 
 	if SourceItem:getType()==1 or SourceItem:getType()==2 then
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Nimm die Lichtquelle in die Hand oder lege sie am Gürtel ab.",
 			"Take the light source into your hand or put it on your belt.");
 		return;
@@ -75,7 +75,7 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
             --Quest 105: NPC Gregor Remethar "A light at the end of the tunnel"
 
             if SourceItem.id == 395 and (SourceItem.pos == position (906, 823, -3) or SourceItem.pos == position (906, 825, -3) ) and User:getQuestProgress(105) == 1 then
-                base.common.TempInformNLS(User, "[Queststatus] Du entfachst die Ehrenfeuer von Runewick. Kehre zu Gregor Remethar zurück, um deine Belohnung einzufordern.", "[Quest status] You lit the lights of honour of Runewick. Return to Gregor Remethar to claim your reward.")
+                base.common.InformNLS(User, "[Queststatus] Du entfachst die Ehrenfeuer von Runewick. Kehre zu Gregor Remethar zurück, um deine Belohnung einzufordern.", "[Quest status] You lit the lights of honour of Runewick. Return to Gregor Remethar to claim your reward.")
                 User:setQuestProgress(105,2);
             end
 
@@ -84,7 +84,7 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 			putOn(SourceItem,wear,false);
 
 		elseif this.req then
-			base.common.TempInformNLS(User,
+			base.common.InformNLS(User,
 				"Dafür brauchst du ".. ReqTexts.german[this.req.id] .. " in der Hand oder im Gürtel.",
 				"You need ".. ReqTexts.english[this.req.id] .. " in your belt or hands to do that.");
 		end
@@ -98,7 +98,7 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 		putOff(SourceItem,this);]]
 	
 	--Replacement: An inform. Remove this if you re-enable putting out fires.
-	base.common.TempInformNLS(User,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to extinguish the flames.");
+	base.common.InformNLS(User,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to extinguish the flames.");
 	--Issue #6881 END
 	
 	end
@@ -141,7 +141,7 @@ end
 -- give something back
 function giveBack(User, Item, this)
 	if Item.data==2 then -- a night watchman has put on that light, give nothing back
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Das Licht erlischt in dem Moment, als du danach greifst.",
 			"The light goes off in the very moment you reach out for it.")
 		return;

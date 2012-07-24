@@ -20,7 +20,7 @@ function MoveItemBeforeMove( who, sourceItem, targetItem )
 		    end
 		elseif targetItem.data == 111 then
 			if sourceItem:getType() == 3 then
-				base.common.TempInformNLS(who,
+				base.common.InformNLS(who,
 					"Etwas hindert dich daran, das Amulett auch nur anzufassen.",
 					"Something won't let you even touch the amulet.");
 				--return false;
@@ -184,7 +184,7 @@ function MuckyLuck(User)
 			base.common.CreateCircle(pos,i,event);
 		end
 	else
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Irgendetwas verhindert die Ausführung des Rituals.",
 			"Something inhibits performing the ritual.");
 	end

@@ -155,12 +155,12 @@ function Cow_NextCycle(User,n_active_task,thisNPC)
             if (math.random( 5 ) == 1) then  -- "Tool Break" by random
                	if task == 1 then
 	            	User:eraseItem( itemlist[task],1);
-				    base.common.TempInformNLS( User,
+				    base.common.InformNLS( User,
 	                "Durch zu starkes Bürsten zerbricht plötzlich der Kamm.",
 	                "The comb breaks due to your heavy brushing.");
 	            elseif task == 2 then
 	            	User:eraseItem( itemlist[task],1);
-				    base.common.TempInformNLS( User,
+				    base.common.InformNLS( User,
 	                "Der Eimer fällt dir versehentlich zu Boden und zerbricht.",
 	                "The bucket falls on the ground and breakes.");
 	            end

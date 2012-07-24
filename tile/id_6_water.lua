@@ -92,7 +92,7 @@ function useTile(User,Position,counter,param,ltstate)
      end
 
     if base.common.IsInterrupted( User ) then
-		base.common.TempInformNLS( User, Interrupt_Messages:getRandom() );
+		base.common.InformNLS( User, Interrupt_Messages:getRandom() );
 		return
     end
 

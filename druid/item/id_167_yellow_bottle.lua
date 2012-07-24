@@ -67,7 +67,7 @@ function DrinkPotion(Character,SourceItem)
 		end
 	else
 		-- Character has already a disease (thus is immune to anything else)
-		base.common.TempInformNLS(Character,
+		base.common.InformNLS(Character,
 			"Du trinkst die Flüssigkeit, doch sie scheint keine Wirkung auf dich zu haben.",
 			"You drink the liquid but it doesn't seem to have any effect on you.");
 	end
@@ -89,18 +89,18 @@ function PoisonCharacter(User,SourceItem,Character)
 			local AttribValDef=math.floor((Character:increaseAttrib("dexterity",0)+(Character:increaseAttrib("agility",0)*2))/3)*(math.random(7,13)/10);
 			local PoiDef=(5*AttribValDef)-11;
 			if (PoiTry>PoiDef) then
-				base.common.TempInformNLS(User,
+				base.common.InformNLS(User,
 					"Du verabreichst deinem Opfer den Trank.",
 					"You administer your victim the potion.");
-				base.common.TempInformNLS(Character,
+				base.common.InformNLS(Character,
 					"Jemand hat dir einen Trank in den Mund geschüttet.",
 					"Someone has poured a potion into your mouth.");
 				DrinkPotion(Character, SourceItem);
 			else
-				base.common.TempInformNLS(User,
+				base.common.InformNLS(User,
 					"Du versuchst deinem Opfer den Trank zu verabreichen, aber du scheiterst.",
 					"You try to administer the potion to your victim, buy you fail.");
-				base.common.TempInformNLS(Character,
+				base.common.InformNLS(Character,
 					"Jemand versuchte dir den Inhalt einer Flasche in den Mund zu schütten.",
 					"Someone tried to make you drink a potion.");
 			end
@@ -108,12 +108,12 @@ function PoisonCharacter(User,SourceItem,Character)
 			--Replace with new learn function, see learn.lua 
 			return true;
 		else
-			base.common.TempInformNLS(User,
+			base.common.InformNLS(User,
 				"Dein Opfer darf nicht zu dir sehen, wenn du Erfolg haben willst.",
 				"Your victim shouldn't look at you, if you want to succeed.");
 		end
 	else
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Du musst zu deinem Opfer sehen.",
 			"You have to look at your victim.");
 	end
@@ -172,7 +172,7 @@ function DoDruidism(Character,SourceItem)
     Character.effects:addEffect(myEffect);
   else
 --  Character hat schon eine Krankheit (und ist immun vor weiterer Infektion)
-    base.common.TempInformNLS(Character,
+    base.common.InformNLS(Character,
 		"Du trinkst die Flüssigkeit, doch sie scheint keine Wirkung auf dich zu haben.",
 		"You drink the liquid but it doesn't seem to have any effect on you.");
   end
@@ -186,7 +186,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
         world:erase(SourceItem,1);
         -- Chance for a new bottle 19/20
         if(math.random(20) == 1) then
-            base.common.TempInformNLS(Character, "Die Flasche zerbricht.", "The bottle breaks.");
+            base.common.InformNLS(Character, "Die Flasche zerbricht.", "The bottle breaks.");
         else
             Character:createItem(164, 1, 333, 0);
         end
@@ -194,14 +194,14 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
     end
 
     if Character.attackmode then
-        base.common.TempInformNLS(Character,
+        base.common.InformNLS(Character,
 			"Du kannst den Trank nicht benutzen während du kämpfst.",
 			"You can't use the potion while you are fighting.");
 		return;
 	end
 	
 	if not base.common.IsItemInHands(SourceItem) then
-		base.common.TempInformNLS(Character,
+		base.common.InformNLS(Character,
 			"Du musst die Flasche in die Hand nehmen.",
 			"You have to take the bottle in your hand.");
 		return;
@@ -227,7 +227,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
 	world:erase(SourceItem,1);
 
     if( math.random( 20 ) <= 1 ) then
-        base.common.TempInformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
+        base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
     else
         Character:createItem( 164, 1, 333,0);
     end

@@ -126,7 +126,7 @@ end
 -- teleports the char to WarpPos
 function Warp(guard, char)
 	char:warp(WarpPos[guard.id]);
-	base.common.TempInformNLS(Char,
+	base.common.InformNLS(Char,
 		"Du wurdest von einer Wache des Landes verwiesen.",
 		"You've just been expelled from the territory by a guard.");
 end
