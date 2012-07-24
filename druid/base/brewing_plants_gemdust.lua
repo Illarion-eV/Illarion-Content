@@ -11,7 +11,7 @@ module("druid.base.brewing_plants_gemdust", package.seeall)
 
 
 function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
-	-- no stock and char tries to filter it
+--[[	-- no stock and char tries to filter it
 	if (TargetItem:getData("stockData") == "") and (SourceItem.id == 157) then
 		User:talkLanguage(Character.say, Player.german, "nichts zum filtern");
         User:talkLanguage(Character.say, Player.english, "nothing to filter");
@@ -36,7 +36,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		TargetItem:setData("stockData",""..newStockData);
 		User:inform(""..newStockData)
 		world:changeItem(TargetItem)
-	end	
+	end	]]
 	
 	
 end	
