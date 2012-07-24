@@ -260,9 +260,9 @@ function checkGemsOnItem(User,Item)
 			space="";
 		end
 		if User:getPlayerLanguage() == 0 then
-			User:inform("#w Du siehst, dass in "..ItemCl.." ein "..FirstGemStr.." "..FirstGemName..""..firstPart_de..""..SecondGemStr..""..space..""..SecondGemName.." eingelassen wurde.");
+			User:inform("Du siehst, dass in "..ItemCl.." ein "..FirstGemStr.." "..FirstGemName..""..firstPart_de..""..SecondGemStr..""..space..""..SecondGemName.." eingelassen wurde.");
 		else
-			User:inform("#w You see, that there was set a "..FirstGemStr.." "..FirstGemName..""..firstPart_en..""..SecondGemStr..""..space..""..SecondGemName.." into the "..ItemCl..".");
+			User:inform("You see, that there was set a "..FirstGemStr.." "..FirstGemName..""..firstPart_en..""..SecondGemStr..""..space..""..SecondGemName.." into the "..ItemCl..".");
 		end
    end
 end

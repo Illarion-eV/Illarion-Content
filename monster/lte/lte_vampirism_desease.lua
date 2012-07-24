@@ -36,8 +36,8 @@ function callEffect(VampEffect, User)
 	local rand = math.random(1000);
 	if (rand == 1) then
 		base.common.InformNLS(User,
-			"#w Du verspürst das Verlangen danach, jemanden zu töten...",
-			"#w You feel like killing someone...");
+			"Du verspürst das Verlangen danach, jemanden zu töten...",
+			"You feel like killing someone...");
 	end
 	
 	local foundHealthPerCall, HealthPerCall = VampEffect:findValue("healthpercall");

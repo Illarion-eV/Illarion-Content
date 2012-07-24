@@ -18,6 +18,6 @@ function LookAtItem(User,Item)
 end
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
-	base.common.TempInformNLS(User,"Bitte hier das Lesen des Salavesh-Buches implementieren!","Please implement reading the Salavesh book here!");
+	base.common.InformNLS(User,"Bitte hier das Lesen des Salavesh-Buches implementieren!","Please implement reading the Salavesh book here!");
 	--Please implement reading the Salavesh book here!
 end

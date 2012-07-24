@@ -122,7 +122,7 @@ end
 -- @param char The char that will be warped
 function Warp(guard, char)
 	char:warp(WarpPos[guard.id]);
-	base.common.TempInformNLS(char,
+	base.common.InformNLS(char,
 		"Du wurdest soeben von einer Wache der Stadt verwiesen.",
 		"You've just been expelled from the town by a guard.");
 end
@@ -155,7 +155,7 @@ function CheckAdminCommand(guard, speaker, message)
 			end
 		end
 		if faction == -1 then
-			speaker:inform("#w [Guard Help] no proper faction found. Try cadomyr, galmair, runewick or outcast.");
+			speaker:inform("[Guard Help] no proper faction found. Try cadomyr, galmair, runewick or outcast.",Player.mediumPriority);
 			return;
 		end
 		
@@ -168,7 +168,7 @@ function CheckAdminCommand(guard, speaker, message)
 		-- just print the mode if the admin wants to check a mode
 		if string.find(msg, "check .*mode") then
 			local mode = GetModeByFaction(FactionId[guard.id],faction);
-			speaker:inform("#w [Guard Help] Current mode for ".. factionString[faction] ..": ".. modeString[mode]);
+			speaker:inform("[Guard Help] Current mode for ".. factionString[faction] ..": ".. modeString[mode],Player.mediumPriority);
 			return;
 		end
 		
@@ -178,22 +178,18 @@ function CheckAdminCommand(guard, speaker, message)
 			end
 		end
 		if mode == -1 then
-			speaker:inform("#w [Guard Help] no proper mode found. Try none, passive, hostile or aggressive.");
+			speaker:inform("[Guard Help] No proper mode found. Try none, passive, hostile or aggressive.",Player.mediumPriority);
 			return;
 		else
-			--speaker:inform("mode ~= -1");
 		end
 		if FactionId then
-			--speaker:inform("FactionId exists");
 			if FactionId[guard.id] then
-				--speaker:inform("FactionId[guard.id] exists");
 			end
 		end
-		--speaker:inform("call SetMode: ".. FactionId[guard.id] ..";".. faction ..";".. mode);
 		SetMode(FactionId[guard.id], faction, mode);
-		speaker:inform("#w [Guard Help] Mode for ".. factionString[faction] .." set to ".. modeString[mode]);
+		speaker:inform("[Guard Help] Mode for ".. factionString[faction] .." set to ".. modeString[mode],Player.mediumPriority);
 	elseif string.find(msg, "help") then
-		speaker:inform("#w [Guard Help] You can set the mode for the guards by: set mode <faction> <mode>");
+		speaker:inform("[Guard Help] You can set the mode for the guards by: set mode <faction> <mode>",Player.mediumPriority);
 	end
 end
 

@@ -20,7 +20,7 @@ function MoveItemBeforeMove( who, sourceItem, targetItem )
 		    end
 		elseif targetItem.data == 111 then
 			if sourceItem:getType() == 3 then
-				base.common.TempInformNLS(who,
+				base.common.InformNLS(who,
 					"Etwas hindert dich daran, das Amulett auch nur anzufassen.",
 					"Something won't let you even touch the amulet.");
 				--return false;
@@ -35,7 +35,7 @@ function LookAtItem(User, Item)
         if (User:getPlayerLanguage() == 0) then
             world:itemInform(User,Item,"Verfluchtes Amulett des Sukkubus");
         else
-            world:itemInform(User,Item,"cursed amulet of the Succubus");
+            world:itemInform(User,Item,"Cursed amulet of the Succubus");
         end
     elseif ( Item.data == 777 ) then
 		if (User:getPlayerLanguage() == 0) then
@@ -87,7 +87,6 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 			RingOfPower(User);
 		elseif counter >= 2 and counter <= 5 then
 			if not RoadToNode(User, counter-1) then
-				User:inform("#w No valid target found.");
 			end
 		elseif counter == 6 then
 			MuckyLuck(User);
@@ -185,7 +184,7 @@ function MuckyLuck(User)
 			base.common.CreateCircle(pos,i,event);
 		end
 	else
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Irgendetwas verhindert die Ausführung des Rituals.",
 			"Something inhibits performing the ritual.");
 	end

@@ -450,7 +450,7 @@ function generateTasteMessage(Character,dataZList)
 		textEn = string.sub(textEn, 0, -3);
         textEn = textEn..".";
     end
-    base.common.TempInformNLS(Character,textDe,textEn);
+    base.common.InformNLS(Character,textDe,textEn);
 end
 
 function ds_skillgain(User)

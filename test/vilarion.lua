@@ -14,14 +14,14 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         quest = tonumber(quest)
         status = tonumber(status)
         User:setQuestProgress(quest, status)
-        User:inform("#w Quest " .. quest .. " has been set to " .. status .. "!")
+        User:inform("Quest " .. quest .. " has been set to " .. status .. "!",Player.mediumPriority)
         return
     end
     a,b,quest = string.find(User.lastSpokenText,"reset (%d+)")
     if a ~= nil then
         quest = tonumber(quest)
         User:setQuestProgress(quest, 0)
-        User:inform("#w Quest " .. quest .. " has been reset!")
+        User:inform("Quest " .. quest .. " has been reset!",Player.mediumPriority)
         return
     end
 
@@ -35,7 +35,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 	
     if (User.lastSpokenText == "text") then
         local callback = function(dialog)
-            User:inform("Lorem ipsum closed.")
+            User:inform("Lorem ipsum closed.",Player.mediumPriority)
         end;
 
 local message = [[
@@ -66,7 +66,7 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
 			if not dialog:getSuccess() then
 				User:inform("You canceled! How dare you?")
 			else
-				User:inform("You wrote: " .. dialog:getInput())
+				User:inform("You wrote: " .. dialog:getInput(),Player.mediumPriority)
 			end
 		end
 		local dialog = InputDialog("Insert some text!", false, 255, callback)
@@ -75,12 +75,12 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
 	end
 
     --if User.id ~= 64 then
-    --    User:inform("e-Vil says: You are not allowed to use this!");
+    --    User:inform("e-Vil says: You are not allowed to use this!",Player.mediumPriority);
     --    return;
     --end;
 
     local stats = world:getItemStats(SourceItem)
-    User:inform("Worth: " .. stats.Worth)
+    User:inform("Worth: " .. stats.Worth,Player.mediumPriority)
 
 
     --User.effects:addEffect(LongTimeEffect(777, 30))
@@ -95,12 +95,12 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
             result = dialog:getResult()
             if result == MerchantDialog.playerSells then
                 item = dialog:getSaleItem()
-                User:inform("Selling " .. item.number .. " of item " .. item.id .. "!")
+                User:inform("Selling " .. item.number .. " of item " .. item.id .. "!",Player.mediumPriority)
             else
                 if result == MerchantDialog.playerBuys then
-                    User:inform("Buying " .. dialog:getPurchaseAmount() .. " of index " .. dialog:getPurchaseIndex() .. "!")
+                    User:inform("Buying " .. dialog:getPurchaseAmount() .. " of index " .. dialog:getPurchaseIndex() .. "!",Player.mediumPriority)
                 else
-                    User:inform("Trade Aborted!")
+                    User:inform("Trade Aborted!",Player.mediumPriority)
                 end
             end
         end
@@ -109,20 +109,20 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         dialog:addProduct(2, "Weizenmehl", 2)
         dialog:addProduct(2, "Roggenmehl", 3)
         dialog:addProduct(100, "Maurerkelle des Verderbens", 4711)
-        User:inform("start dialog")
+        User:inform("start dialog",Player.mediumPriority)
         User:requestMerchantDialog(dialog)
     end
 end
 
 function useNPC(User,counter,param)
-    User:inform("Name: " .. thisNPC.name .. ", Id: " .. thisNPC.id);
+    User:inform("Name: " .. thisNPC.name .. ", Id: " .. thisNPC.id,Player.mediumPriority);
 end
 
 function nextCycle()  -- ~10 times per second
     if isValidChar(test.vilarion.user) and test.vilarion.user then
         test.vilarion.counter = test.vilarion.counter + 1;
         if test.vilarion.counter > 100 then
-            test.vilarion.user:inform("CRASH");
+            test.vilarion.user:inform("CRASH",Player.mediumPriority);
             test.vilarion.user = nil;
         end;
     end;
@@ -134,14 +134,14 @@ function receiveText(texttype, message, originator)
 end
 
 function addEffect( e, c )
-    c:inform("--- effect added ---");
+    c:inform("--- effect added ---",Player.mediumPriority);
     e:addValue("n",100);
 end
 
 function callEffect( e, c )
     local found, n = e:findValue("n");
-    c:inform("--- effect called, n == "..n.." ---");
-    c:inform("idleTime: "..c:idleTime());
+    c:inform("--- effect called, n == "..n.." ---",Player.mediumPriority);
+    c:inform("idleTime: "..c:idleTime(),Player.mediumPriority);
     if n>0 then
         e:addValue("n",n-1);
         e.nextCalled = 30;
@@ -154,5 +154,5 @@ end
 
 function doubleEffect( e, c )
     local found, n = e:findValue("n");
-    c:inform("--- tried to add effect, but it is still active (n == "..n..") ---");
+    c:inform("--- tried to add effect, but it is still active (n == "..n..") ---",Player.mediumPriority);
 end;

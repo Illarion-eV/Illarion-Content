@@ -25,7 +25,7 @@ function callEffect(Effect,User)
 		  
 		  -- info that the effect will be removed soon
 		   if counterBlack == 2 then 
-		        base.common.TempInformNLS( User,
+		        base.common.InformNLS( User,
                 "Du spührst, wie ein Schauer über deinen Körper streicht. Deine Verwandlung wird nicht mehr lange andauern.",
                 "Shortly, you feel a chill on your skin. Your transformation won't last a long time anymore."
                        );

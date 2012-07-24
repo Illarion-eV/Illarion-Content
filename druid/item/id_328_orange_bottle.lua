@@ -20,15 +20,15 @@ function DoDruidism(Character,SourceItem)
 				if noPotionEffect > 3 then
 					world:erase(SourceItem, 1);
 					base.common.InformNLS(Character,
-						"#w Du trinkst die Flüssigkeit, doch sie scheint keine Wirkung mehr auf dich zu haben. Die Krankheit hat sich zu weit entwickelt.",
-						"#w You drink the liquid but it doesn't seem to have any effect on you. The desease seems to have developed too much.");
+						"Du trinkst die Flüssigkeit, doch sie scheint keine Wirkung mehr auf dich zu haben. Die Krankheit hat sich zu weit entwickelt.",
+						"You drink the liquid but it doesn't seem to have any effect on you. The desease seems to have developed too much.");
 					return;
 				end
 			end
 			world:erase(SourceItem, 1);
 			base.common.InformNLS(Character, 
-				"#w Nachdem du die Flüssigkeit getrunken hast, fühlst du dich leicht schwach, aber das Verlangen nach Blut scheint verschwunden.",
-				"#w After you drank the liquid, you felt a little weak, but the demand for blood seems to be gone.");
+				"Nachdem du die Flüssigkeit getrunken hast, fühlst du dich leicht schwach, aber das Verlangen nach Blut scheint verschwunden.",
+				"After you drank the liquid, you felt a little weak, but the demand for blood seems to be gone.");
 			Character.effects:removeEffect(501);
 			return;
 		end
@@ -65,8 +65,8 @@ function DoDruidism(Character,SourceItem)
                  end
                  myEffect:addValue("zaehler",zaehler)
 				 base.common.InformNLS(Character,
-					"#w Die Wirkung des Tranks lindert dein Leiden.",
-					"#w The effect of the potion allays your suffering.");
+					"Die Wirkung des Tranks lindert dein Leiden.",
+					"The effect of the potion allays your suffering.");
 				 return;
               else
                  Character:inform("debug: keine Heilung wegen zu niedriger Trank-Qualität")
@@ -79,8 +79,8 @@ function DoDruidism(Character,SourceItem)
    end
    world:erase(SourceItem,1);
    base.common.InformNLS(Character,
-	"#w Du trinkst die Flüssigkeit, doch sie scheint keine Wirkung auf dich zu haben.",
-	"#w You drink the liquid but it doesn't seem to have any effect on you.");
+	"Du trinkst die Flüssigkeit, doch sie scheint keine Wirkung auf dich zu haben.",
+	"You drink the liquid but it doesn't seem to have any effect on you.");
 end
 
 function UseItem(Character,SourceItem,TargetItem,Counter,Param)
@@ -116,7 +116,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
      if not Character:isAdmin() then
         world:erase(SourceItem,1);
         if( math.random( 20 ) <= 1 ) then
-           base.common.InformNLS( Character, "#w Die Flasche zerbricht.", "#w The bottle breaks.");
+           base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
         else
            Character:createItem( 164, 1, 333,0);
         end    

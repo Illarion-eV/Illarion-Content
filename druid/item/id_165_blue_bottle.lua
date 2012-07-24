@@ -104,7 +104,7 @@ function DoDruidism(Character,SourceItem,TargetItem)
      end 
 	
 	if not foundItem then
-		base.common.TempInformNLS(Character,
+		base.common.InformNLS(Character,
 			"Die Paste lässt sich nicht auf diesen Gegenstand anwenden.",
 			"The paste has no use for this item.");
 		return false;

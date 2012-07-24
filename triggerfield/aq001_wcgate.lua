@@ -19,7 +19,7 @@ function MoveToField( user )
                 world:changeItem(right);
                 world:changeItem(left);
             else
-			    informNLS(user,"Eine unsichtbare Wand hält dich zurück.","An invisible wall holds you back.");
+			    base.common.InformNLS(user,"Eine unsichtbare Wand hält dich zurück.","An invisible wall holds you back.");
                 user:warp(position(27,190,-12));
             end;
 

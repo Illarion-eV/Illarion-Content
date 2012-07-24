@@ -85,7 +85,7 @@ function DrinkPotion(User,SourceItem)
 		effectMessageEN = "You don't feel any effect."
 	end
 	
-	base.common.TempInformNLS(User,effectMessageDE,effectMessageEN);
+	base.common.InformNLS(User,effectMessageDE,effectMessageEN);
 	
 	-- LTE is being added for the effects over time 
 	find, myEffect = User.effects:find(166)
@@ -124,7 +124,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
 	      
 		  if ( ltstate == Action.abort ) then
-                base.common.TempInformNLS( User,
+                base.common.InformNLS( User,
                 "Du brichst Deine Arbeit ab.",
                 "You abort your work."
                        );
@@ -152,14 +152,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param, ltstate)
 	
 	-- not infront of a cauldron: let's drink the potion!
 	if User.attackmode then
-        base.common.TempInformNLS(User,
+        base.common.InformNLS(User,
 			"Du kannst den Trank nicht benutzen, während Du kämpfst.",
 			"You can't use the potion while you are fighting.");
 		return;
 	end
 	
 	if User.effects:find(166) then
-	   base.common.TempInformNLS( User,
+	   base.common.InformNLS( User,
                 "Der Trank hätte jetzt keine Wirkung.",
                 "The potion wouldn't have any effect now."
                        );  

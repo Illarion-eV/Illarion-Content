@@ -43,12 +43,12 @@ function MoveToField(User)
       for i=1,5 do
           if User:isInRangeToPosition(altar[i],1) and queststatuslist[i] == 0 then
               queststatuslist[i]=1; --found it!
-              base.common.TempInformNLS(User,messageG[i],messageE[i]); --sending a message
+              base.common.InformNLS(User,messageG[i],messageE[i]); --sending a message
               User:setQuestProgress(114,queststatuslist[1]*10000+queststatuslist[2]*1000+ queststatuslist[3]*100+queststatuslist[4]*10+queststatuslist[5]*1); --saving the new queststatus
               queststatus=User:getQuestProgress(114); --and reading it again
             if queststatus==11111 then --found all altars
                User:setQuestProgress(113, 2); --Quest solved!
-               base.common.TempInformNLS(User,"[Queststatus] Du hast nun alle Altare der Fünf besucht.","[Quest status] You have visited all the altars of the Five."); --sending a message
+               base.common.InformNLS(User,"[Queststatus] Du hast nun alle Altare der Fünf besucht.","[Quest status] You have visited all the altars of the Five."); --sending a message
                return; --more than solving isn't possible, bailing out
             end
             end

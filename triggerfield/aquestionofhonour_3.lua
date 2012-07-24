@@ -37,12 +37,12 @@ function MoveToField(User)
       for i=1,3 do
           if User:isInRangeToPosition(waypoint[i],2) and queststatuslist[i] == 0 then
               queststatuslist[i]=1; --found it!
-              base.common.TempInformNLS(User,messageG[i],messageE[i]); --sending a message
+              base.common.InformNLS(User,messageG[i],messageE[i]); --sending a message
               User:setQuestProgress(117,queststatuslist[1]*100+queststatuslist[2]*10+ queststatuslist[3]*1); --saving the new queststatus
               queststatus=User:getQuestProgress(117); --and reading it again
             if queststatus == 111 then --found all waypoints
                User:setQuestProgress(111, 13); --Quest solved!
-               base.common.TempInformNLS(User,"[Queststatus] Du hast deine Patroullie erfolgreich abgeschlossen.","[Quest status] You completed your patrol successfully."); --sending a message
+               base.common.InformNLS(User,"[Queststatus] Du hast deine Patroullie erfolgreich abgeschlossen.","[Quest status] You completed your patrol successfully."); --sending a message
                return; --more than solving isn't possible, bailing out
             end
           end

@@ -62,7 +62,7 @@ function CastMagicOnItem(Caster,TargetItem,counter,param)
 	else 
 		world:gfx(1,Caster.pos);
 		world:makeSound(18,Caster.pos);
-		base.common.InformNLS("Die Edelsteine zerfallen zu Staub. Das hat wohl nicht geklappt...", "The gems break into dust. Seems like it did not work...");
+		base.common.InformNLS(Caster, "Die Edelsteine zerfallen zu Staub. Das hat wohl nicht geklappt...", "The gems break into dust. Seems like it did not work...");
 		Caster:createItem(DustList[gemidx], 1, 333, 0);
 		world:erase(TargetItem,3);
 	end

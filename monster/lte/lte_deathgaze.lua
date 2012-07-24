@@ -17,7 +17,7 @@ function callEffect (gazeEff,user)
 				user:increaseAttrib ("hitpoints",-300);
 				gazeEff:addValue("effTime",effTime-1);
 				if (math.random(100)<= 10) then
-					user:inform ("#w The terrifying gaze of the monster is piercing your skull, making you feel like your head is about to explode.");
+					user:inform ("The terrifying gaze of the monster is piercing your skull, making you feel like your head is about to explode.",Player.mediumPriority);
 				end
 			else
 				return false;

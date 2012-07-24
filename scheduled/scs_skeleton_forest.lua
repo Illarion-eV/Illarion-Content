@@ -14,11 +14,7 @@ function ForestSkells()
                 return
             end
         elseif (RndTry == 2) then
-            if (Char:getPlayerLanguage() == 0) then
-                Char:inform("#w Du hörst ein leises Knacken im Unterholz und vielleicht ein leises Murmeln.");
-            else
-                Char:inform("#w You hear a quiet cracking in the forest and maybe a muttering.");
-            end
+		    base.common.InformNLS(Char,"Du hörst ein leises Knacken im Unterholz und vielleicht ein leises Murmeln.","You hear a quiet cracking in the forest and maybe a muttering.");
         end
     end
 end
@@ -34,12 +30,9 @@ function SpawnSkeleton(Charakter)
             end
         end
     end  
-    
-    if (Charakter:getPlayerLanguage() == 0) then
-        Charakter:inform("#w Um dich herum raschelt der Wald und du hört das Klappern von Knochen.");
-    else
-        Charakter:inform("#w Around you the forest rustles and you hear the clacking of bones.");
-    end
+
+	base.common.InformNLS(Charakter,"Um dich herum raschelt der Wald und du hört das Klappern von Knochen.","Around you the forest rustles and you hear the clacking of bones.");
+
     SpawnSkeletonCycle(Charakter.pos,6,math.random(3,8));
     return true;
 end

@@ -6,6 +6,7 @@ module("base.common", package.seeall)
 -- @param textInDe german text
 -- @param textInEn english text
 -- @return Text german or english text version
+
 function GetNLS(User, textInDe, textInEn)
     return (User:getPlayerLanguage() == Player.german and textInDe or textInEn);
 end;

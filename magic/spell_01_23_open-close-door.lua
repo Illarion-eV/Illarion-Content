@@ -7,6 +7,7 @@
 require("base.doors")
 require("base.common")
 module("magic.spell_01_23_open-close-door", package.seeall)
+
 function OpenCloseTarget(Caster,Item)
     if not base.common.IsLookingAt(Caster,Item.pos) then
 		base.common.TurnTo(Caster, Item.pos);
@@ -33,7 +34,7 @@ function OpenCloseTarget(Caster,Item)
             end
         end
     else
-        informNLS(Caster,"Nicht genug Mana","Not enougth mana");
+        base.common.InformNLS(Caster,"Nicht genug Mana.","Not enough mana.");
     end
 end
 
@@ -47,11 +48,11 @@ function Succeed(Caster)
 end
 
 function CastMagic(Caster,counter,param)
-    informNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
+    base.common.InformNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
 end
 
 function CastMagicOnCharacter(Caster,TargetCharacter,counter,param)
-    informNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
+    base.common.InformNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
 end
 
 function CastMagicOnField(Caster,Targetpos,counter,param)
