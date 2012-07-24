@@ -8,34 +8,7 @@ require("druid.base.alchemy")
 
 module("druid.base.brewing_plants_gemdust", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-   
-   -- infront of a cauldron?
-   if base.common.GetFrontItemID(User) == 1008 then
-	  
-       -- is the char an alchemist?
-	    if User:getMagicType() ~= 3 then
-		  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
-          --[[base.common.InformNLS( User,
-				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-				"Only those who have been introduced to the art of alchemy are able to work here.",
-				Player.lowPriority
-							)]]
-		  return;
-	    end
-	   
-	    local AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem);
-	    local GemDust = druid.base.alchemy.CheckIfGemDust(User,SourceItem);
-		-- check if the SourceItem is a herb used for alchemy
-		if AlchemyPlant or SourceItem.id == 157 then
-		    BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
-	        
-		-- check if it is gem dust
-	    elseif GemDust then
-		   BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
-	    end
-    end
-end
+
 
 function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	-- no stock and char tries to filter it
@@ -111,28 +84,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			User:inform(""..newStockData)
 			world:changeItem(TargetItem)
 		
-		elseif (TargetItem:getData("cauldronFilledWith") == "essenceBrew") then -- essence brew
-		    
-			if TargetItem:getData("essenceHerb1") == "" then -- no herb added yet
-		        TargetItem:setData("essenceHerb1",""..SourceItem.id)
-			    world:changeItem(TargetItem)
-			elseif TargetItem:getData("essenceHerb8") ~= "" then
-			    User:talkLanguage(Character.say, Player.german, "kein weiteres essenzieren");
-                User:talkLanguage(Character.say, Player.english, "no further essencing");
-				--[[base.common.TempInformNLS( User,
-				"Es kann kein weiteres Kraut mehr essenziert werden.",
-				"No herb can be essenced any further."
-				   );]]
-				return
-		    else
-			    for i=2,8 do
-				    if (TargetItem:getData("essenceHerb"..i) == "") then
-		                TargetItem:setData("essenceHerb"..i,""..SourceItem.id)
-                        world:changeItem(TargetItem)
-                        break
-                    end
-                end 					
-	        end
+		
 	    end
 	end
 	
