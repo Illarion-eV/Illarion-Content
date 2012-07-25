@@ -19,7 +19,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         IdfrontItem = frontItem.id	
 	end
 	
-	if(IdfrontItem == 2207) then -- Am Brunnen fuellen
+	if(IdfrontItem == 2207) or (IdfrontItem == 631) or (IdfrontItem == 2079) then -- Am Brunnen fuellen
 		FillBucket(User, SourceItem);
 	elseif (boden == 6) then -- Am Wasser fuellen
 		FillBucket(User, SourceItem);
