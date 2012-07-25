@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 02, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 25, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -56,7 +56,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addResponse("Greetings, my friend.");
 talkEntry:addResponse("Hello. A great day to butcher some pigs, isn't it?");
-talkEntry:addResponse("Hello, hello.");
+talkEntry:addResponse("Hello, hello. Welcome to the Dewy Swamps.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -70,7 +70,7 @@ talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addResponse("Grüße, mein Freund.");
 talkEntry:addResponse("Hallo. Ein herrlicher Tag zum Schweineschlachten, nicht?");
-talkEntry:addResponse("Hallo, hallo.");
+talkEntry:addResponse("Hallo, hallo. Willkommen im Morgentausumpf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1087,6 +1087,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("swamp");
 talkEntry:addTrigger("dew");
 talkEntry:addResponse("It's beautiful here, isn't it? So wet and full of life.");
+talkEntry:addResponse("This place wasn't always a swamp. I like it much better this way, though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1094,6 +1095,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sumpf");
 talkEntry:addTrigger("morgentau");
 talkEntry:addResponse("Schön hier, nicht? So feucht und lebendig.");
+talkEntry:addResponse("Diese Gegend war nicht immer ein Sumpf, aber so gefällt sie mir viel besser.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1420,6 +1422,25 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Henry");
 talkEntry:addTrigger("Darter");
 talkEntry:addResponse("Meine Mutter hat mir einst erzählt, dass ich nach einem berühmten Koch aus Gynk benannt wurde. Merkwürdigerweise konnte ich meinen unbekannten Vater nie über diese Dinge befragen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mother");
+talkEntry:addTrigger("father");
+talkEntry:addTrigger("family");
+talkEntry:addTrigger("shop");
+talkEntry:addResponse("My family - my mother and me - once had a shop here. But then, the water came... I am still here, though! And I won't yield!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Mutter");
+talkEntry:addTrigger("Vater");
+talkEntry:addTrigger("Familie");
+talkEntry:addTrigger("Laden");
+talkEntry:addTrigger("Geschäft");
+talkEntry:addResponse("Meine Familie - also meine Mutter und ich - hatten hier einst einen Laden. Aber dann kam das Wasser... Ich bleibe hier, ich werde nicht weichen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

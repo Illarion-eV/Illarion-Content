@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 02, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 25, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Henry Darter"
@@ -74,8 +74,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schlachter Henry Darter. Schlüsselwörter: Hallo, Quest, Schlachter.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings, my friend.", "Hello. A great day to butcher some pigs, isn't it?", "Hello, hello."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüße, mein Freund.", "Hallo. Ein herrlicher Tag zum Schweineschlachten, nicht?", "Hallo, hallo."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings, my friend.", "Hello. A great day to butcher some pigs, isn't it?", "Hello, hello. Welcome to the Dewy Swamps."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüße, mein Freund.", "Hallo. Ein herrlicher Tag zum Schweineschlachten, nicht?", "Hallo, hallo. Willkommen im Morgentausumpf."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings. Do not waste your time with small talk!", "Be greeted.", "Greetings, my friend."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße. Verschwende deine Zeit nicht mit Plausch!", "Seid gegrüßt.", "Grüße, mein Freund."
 "Farewell", "Bye", "Fare well", "See you" -> "Have a nice day!", "Farewell.", "Goodbye, my friend."
@@ -179,8 +179,8 @@ itemShoes = 53
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "butcher" -> "I am a butcher and proud of it!", "Yes, I am a butcher.", "Butchering is a hard but good work."
 "Schlachter" -> "Ich bin Schlachter und stolz darauf!", "Ja, ich bin ein Schlachter.", "Schlachten ist eine harte, aber ehrliche Arbeit."
-"swamp", "dew" -> "It's beautiful here, isn't it? So wet and full of life."
-"sumpf", "morgentau" -> "Schön hier, nicht? So feucht und lebendig."
+"swamp", "dew" -> "It's beautiful here, isn't it? So wet and full of life.", "This place wasn't always a swamp. I like it much better this way, though."
+"sumpf", "morgentau" -> "Schön hier, nicht? So feucht und lebendig.", "Diese Gegend war nicht immer ein Sumpf, aber so gefällt sie mir viel besser."
 "Messer", "Dolch", "Beil" -> "Schlachten tut man am besten mit einem Messer. Ein Beil ist so... brutal."
 "knife", "dagger", "hatchet" -> "Butchering is done best with a knife. A hatchet is so... brute."
 "Rind", "Kuh", "Kühe", "Kalb" -> "Rinder findet ihr in der Steppe. Die Steaks von den Rindern sind wirklich gut. Aber irgendwie mögen die Elfen nicht, wenn ich sie besuchen komme..."
@@ -237,6 +237,8 @@ itemShoes = 53
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Henry", "Darter", english -> "My mother once told me that she named my Henry because of a famous cook in Gynk. Strangely, I was never able to ask my unknown father about this."
 "Henry", "Darter" -> "Meine Mutter hat mir einst erzählt, dass ich nach einem berühmten Koch aus Gynk benannt wurde. Merkwürdigerweise konnte ich meinen unbekannten Vater nie über diese Dinge befragen."
+"mother", "father", "family", "shop" -> "My family - my mother and me - once had a shop here. But then, the water came... I am still here, though! And I won't yield!"
+"Mutter", "Vater", "Familie", "Laden", "Geschäft" -> "Meine Familie - also meine Mutter und ich - hatten hier einst einen Laden. Aber dann kam das Wasser... Ich bleibe hier, ich werde nicht weichen!"
 "Yes" -> "Pardon?", "Can I help you?", "Let's butcher something!"
 "Ja" -> "Pardon?", "Kann ich helfen?", "Lasst uns was schlachten!"
 "No" -> "Pardon?", "Can I help you?", "Let's butcher something!"
