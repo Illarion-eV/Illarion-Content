@@ -58,7 +58,7 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    User:talkLanguage(Character.say, Player.german, "gemdust -> potion, fail")
 		-- define effect
 		
-	elseif cauldron:getData("stockData")~= then
+	elseif cauldron:getData("stockData") ~= "" then
 	    if (SourceItem.id == 447) or (SourceItem.id == 450) then 
 		    potionEffectId = TargetItem:getData("stockData")
 	    else 
