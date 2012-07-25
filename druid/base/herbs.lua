@@ -18,7 +18,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	  
         -- is the char an alchemist?
 	    if User:getMagicType() ~= 3 then
-		  base.common.TempInformNLS( User,
+		  base.common.InformNLS( User,
 				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
 				"Only those who have been introduced to the art of alchemy are able to work here."
 				)
@@ -40,6 +40,16 @@ end
 
 function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
     cauldron = base.common.GetFronItem(User)
+	
+	if ( ltstate == Action.abort ) then
+		base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	   return
+	end
+	
+	if (ltstate == Action.none) then
+		   User:startAction(20,21,5,7,25);
+		   return
+	end
 	
 	if cauldron:getData("potionEffectId") ~= "" then -- potion in cauldron, failure
         User:talkLanguage(Character.say, Player.german, "herb -> potion, fail")
@@ -72,7 +82,6 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		-- "overflow" leads to explosion of the stock
 		if dataZList[plusWertPos] == 9 or dataZList[minusWertPos] == 1 then
 		  druid.base.alchemy.StockExplosion(User, SourceItem, cauldron);
-		  return;
 		end 
 
 		if plusWertPos == 0 then
@@ -84,15 +93,64 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			dataZList[minusWertPos] = dataZList[minusWertPos] - 1 ;
 		end
 		
-    else -- there is nothing in the cauldron to put the herb in, failure
+        newStockData = druid.base.alchemy.PasteCauldronData(User,dataZList);
+		cauldron:setData("stockData",""..newStockData);
+		cauldron:setData("cauldronFilledWith","")
+	
+	else -- there is nothing in the cauldron to put the herb in, failure
 	    User:talkLanguage(Character.say, Player.german, "herb -> nothing, fail")
 		-- define effect
-end		
+    end		
 		
-		
-		
-		
-		end
+	world:changeItem(cauldron)
+    world:eraseItem(SourceItem,1)	
+end
 
 function Filter(User,SourceItem,TargetItem,Counter,Param,ltstate)
+    cauldron = base.common.GetFronItem(User)
+	
+	if ( ltstate == Action.abort ) then
+		base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	   return
+	end
+	
+	if (ltstate == Action.none) then
+		   User:startAction(20,21,5,7,25);
+		   return
+	end
+	
+	-- a potion in the cauldron, failure
+	if cauldron:getData("potionEffectId")~="" then
+        User:talkLanguage(Character.say, Player.german, "filter -> potion, fail")
+		-- define effect
+    
+	elseif cauldron:getData("cauldronFilledWith")=="essenceBrew" then 
+        User:talkLanguage(Character.say, Player.german, "filter -> essence, fail")
+		-- define effect
+		
+	elseif cauldron:getData("cauldronFilledWith")=="water" then 
+        User:talkLanguage(Character.say, Player.german, "filter -> water, fail")
+		-- define effect
+
+	elseif cauldron:getData("stockData")~="" then -- stock, let's filter
+        cauldronData = tonumber(cauldron:getData("stockData"));
+	    dataZList = druid.base.alchemy.SplitCauldronData(User,cauldronData);
+	    for i=1,8 do
+			if dataZList < 5 then 
+				dataZList[i] = dataZList[i] + 1
+			elseif dataZList > 5 then
+				dataZList[i] = dataZList[i] - 1
+			end	
+		end
+	    -- we change our stock
+	    newStockData = druid.base.alchemy.PasteCauldronData(User,dataZList);
+		cauldron:setData("stockData",""..newStockData);
+
+    else -- empty cauldron
+        User:talkLanguage(Character.say, Player.german, "filter -> nothing, fail")
+		-- define effect	
+	end
+
+	world:changeItem(cauldron)
+    world:eraseItem(SourceItem,1)	
 end

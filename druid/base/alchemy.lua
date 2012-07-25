@@ -2,11 +2,12 @@
 
 -- documentation of the datas used in the alchemy system:
 -- "stockData" - used to save the combination of active agents. 
--- "cauldronFilledWith" - can have the value "water" or "essenceBrew";
+-- "cauldronFilledWith" - can have the value "water" or "essenceBrew"; (to check if there is a stock in, we can use "stockData", for a potion "potionIdEffect")
 -- "potionEffectId" - the id of the effect a potion has
 -- "essenceHerb1",...,"essenceHerb8" - the ids of the herbs of essence brew
 -- "essenceBrew" - actually, only used to distinguish an essence brew from a potion. returns "true"
 -- "potionId" -- id of the potion 
+-- "potionQuality" -- quality of the potion
 
 -- PFLANZENLISTE:
 
@@ -577,7 +578,6 @@ end
 
 function StockExplosion(User, SourceItem, cauldron)
     world:makeSound(10,cauldron.pos);
-    User:increaseAtPos(SourceItem.itempos,-1);
     world:makeSound(5,cauldron.pos);
     world:gfx(9,cauldron.pos);
     base.common.InformNLS( User,
