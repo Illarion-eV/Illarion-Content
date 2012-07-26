@@ -69,10 +69,17 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    cauldron:setData("stockData","")
 		potionQuality = 999
 	    cauldron:setData("potionQuality",""..potionQuality)
+		world:makeSound(13,cauldron.pos)
+		world:gfx(52,cauldron.pos)
 
     elseif cauldron:getData("cauldronFilledWith")=="water" then
 		cauldron:setData("cauldronFilledWith","essenceBrew")
 	
 	else	
+	    User:talkLanguage(Character.say, Player.german, "gemdust -> nothing, fail")
+		-- define effect
 	end	
+
+    world:changeItem(cauldron)
+    world:eraseItem(SourceItem,1)
 end
