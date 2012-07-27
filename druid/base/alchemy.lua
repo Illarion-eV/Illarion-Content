@@ -576,17 +576,31 @@ end
 return retVal
 end
 
-function StockExplosion(User, SourceItem, cauldron)
-    world:makeSound(10,cauldron.pos);
-    world:makeSound(5,cauldron.pos);
-    world:gfx(9,cauldron.pos);
-    base.common.InformNLS( User,
-	    "Deine letzte Handlung scheint den Sud zerstört und zu einer Explosion geführt zu haben.",
-	    "Your last doing seems to have destroyed the stock and caused an explosion."
+function CauldronExplosion(User,cauldron,ListGfx)
+    world:makeSound(5,cauldron.pos)
+    for i=1,#ListGfx do
+	    world:Gfx(ListGfx[i],cauldron.pos)
+    end
+	base.common.InformNLS( User,
+	    "Deine letzte Handlung scheint den Inhalt des Kessels zerstört und zu einer Explosion geführt zu haben.",
+	    "Your last doing seems to have destroyed the substance in the cauldron and caused an explosion."
 				);
-    cauldron:setData("stockData","");
-    world:changeItem(cauldron)
-    User:increaseAttrib("hitpoints", -3000);
+    local myVictims = world:getPlayersInRangeOf(cauldron.pos,1) -- we hurt everyone around the cauldron!
+	for i=1,#myVictims do
+	    myVictims[i]:increaseAttrib("hitpoints",-3000)
+	    base.common.HighInformNLS(myVictims, "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
+	end
+	-- we remove every possible data the cauldron could have to cover all substances
+	for i=1,8 do
+	    cauldron:setData("essenceHerb"..[i],"")
+		world:changeItem(cauldron)
+	end	
+	cauldron:setData("stockData","")
+    cauldron:setData("cauldronFilledWith","")
+	cauldron:setData("potionEffectId","")
+	cauldron:setData("potionId","")
+	cauldron:setData("potionQuality","")
+	world:changeItem(cauldron)
 end
 
 ----------------------------------------------------
@@ -653,6 +667,8 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 		potionQuality = 999
 	    TargetItem:setData("potionQuality",""..potionQuality)
 	    world:changeItem(TargetItem)
+	    world:makeSound(13,TargetItem.pos)
+		world:gfx(53,TargetItem.pos)
 	end    
 end	
 -------------------------------------------------------		

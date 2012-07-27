@@ -9,7 +9,7 @@
 require("base.common")
 require("base.character")
 
-module("druid.item.id_331_green_bottle", package.seeall, package.seeall(druid.base.alchemy))
+module("druid.item.id_331_green_bottle", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_331_green_bottle' WHERE com_itemid = 331;
 
@@ -24,19 +24,15 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    cauldron = base.common.GetFrontItemID(User)
 		
 		if ( ltstate == Action.abort ) then
-	        User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
-		   -- base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.", Player.lowPriority)
+	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	       return
 		end
 		
 		-- is the char an alchemist?
 	    if User:getMagicType() ~= 3 then
-		  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
-          --[[base.common.InformNLS( User,
+		  base.common.InformNLS( User,
 				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-				"Only those who have been introduced to the art of alchemy are able to work here.",
-				Player.lowPriority
-							)]]
+				"Only those who have been introduced to the art of alchemy are able to work here.")
 		  return;
 	    end
 		
@@ -52,14 +48,15 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 		-- water, stock or potion is in the cauldron; leads to a failure
 		if cauldron:getData("cauldronFilledWith") == "water" then
-			User:talkLanguage(Character.say, Player.german, "stock -> water, fail")
-			 -- define effect
+			world:gfx(1)
+		    base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		                                "The substance in the cauldron blows out, as you fill the water in.")
+		
 		elseif cauldron:getData("stockData") ~= "" then
-			User:talkLanguage(Character.say, Player.german, "stock -> stock, fail")
-			-- define effect
+			druid.base.alchemy.CauldronExplosion(User,cauldron,{4,5})
+			
 		elseif cauldron:getData("potionEffectId") ~= "" then
-			User:talkLanguage(Character.say, Player.german, "stock -> potion, fail")
-			-- define effect
+			druid.base.alchemy.CauldronExplosion(User,cauldron,{4,36})
 		
 		elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
 			druid.base.alchemy.CombineStockEssence( User, SourceItem, cauldron, Counter, Param, ltstate )
@@ -69,12 +66,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 		
 		world:changeItem(cauldron)
+		SourceItem:setData("stockData","")
 		SourceItem.id = 164
 		SourceItem.quality = 333
 	    if math.random(1,20) == 1 then
 		    User:eraseItem(SourceItem,1) -- bottle breaks
-		    User:talkLanguage(Character.say, Player.german, "flasche kaputt");
-		   -- base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+		    Uase.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
         else	
 		    world:changeItem(SourceItem)
         end
@@ -85,7 +82,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		else
 		    User:talkLanguage(Character.say, Player.german, "#me trinkt eine grüne Flüssigkeit.");
 			User:talkLanguage(Character.say, Player.english, "#me drinks a green liquid.");
-			base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.", Player.mediumPriority)
+			base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
 			SourceItem.id = 164
 		    SourceItem.quality = 333
 	        if math.random(1,20) == 1 then

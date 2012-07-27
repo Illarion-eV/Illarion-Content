@@ -255,19 +255,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	   local cauldron = base.common.GetFrontItem( User );
 	
 	   if ( ltstate == Action.abort ) then
-	        User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
-		   -- base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.", Player.lowPriority)
+	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	       return
 		end
 		
 		-- is the char an alchemist?
 	    if User:getMagicType() ~= 3 then
 		  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
-          --[[base.common.InformNLS( User,
+          base.common.InformNLS( User,
 				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-				"Only those who have been introduced to the art of alchemy are able to work here.",
-				Player.lowPriority
-							)]]
+				"Only those who have been introduced to the art of alchemy are able to work here.")
 		  return;
 	    end
 		
@@ -284,14 +281,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	   if (SourceItem:getData("essenceBrew") =="true") then -- essence brew should be filled into the cauldron
 			-- water, essence brew or potion is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
-			    User:talkLanguage(Character.say, Player.german, "essenceBrew -> water, fail")
-				 -- define effect
+			    world:gfx(1)
+		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Gebräu hinzu tust.", 
+		                                    "The substance in the cauldron blows out, as you fill the mixture in.")
+			    cauldron:setData("cauldronFilledWith","")
+			
 			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
-			    User:talkLanguage(Character.say, Player.german, "essenceBrew -> essemceBrew, fail")
-				-- define effect
+			     druid.base.alchemy.CauldronExplosion(User,cauldron,{4,44})
+			
 			elseif cauldron:getData("potionEffectId") ~= "" then
-			    User:talkLanguage(Character.say, Player.german, "essenceBrew -> potion, fail")
-				-- define effect
+			     druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
 			
 			elseif cauldron:getData("stockData") ~= "" then -- stock is in the cauldron; we call the combin function
 				druid.base.alchemy.CombineStockEssence( User, SourceItem, cauldron, Counter, Param, ltstate )
@@ -299,56 +298,48 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			else -- nothing in the cauldron, we just fill in the essence brew
 				cauldron:setData("cauldronFilledWith","essenceBrew")
 				cauldron:setData("potionId",SourceItem.id)
-				cauldron:setData("essenceHerb1",SourceItem:getData("essenceHerb1"))
-				cauldron:setData("essenceHerb2",SourceItem:getData("essenceHerb2"))
-				cauldron:setData("essenceHerb3",SourceItem:getData("essenceHerb3"))
-				cauldron:setData("essenceHerb4",SourceItem:getData("essenceHerb4"))
-				cauldron:setData("essenceHerb5",SourceItem:getData("essenceHerb5"))
-				cauldron:setData("essenceHerb6",SourceItem:getData("essenceHerb6"))
-				cauldron:setData("essenceHerb7",SourceItem:getData("essenceHerb7"))
-				cauldron:setData("essenceHerb8",SourceItem:getData("essenceHerb8"))
+				for i=1,8 do 
+				    cauldron:setData("essenceHerb"..[i],SourceItem:getData("essenceHerb"..[i]))
+				    world:changeItem(cauldron)
+				end	
 			end
 		
 		    SourceItem:setData("essenceBrew","")
-			SourceItem:setData("essenceHerb1","")
-			SourceItem:setData("essenceHerb2","")
-			SourceItem:setData("essenceHerb3","")
-			SourceItem:setData("essenceHerb4","")
-			SourceItem:setData("essenceHerb5","")
-			SourceItem:setData("essenceHerb6","")
-			SourceItem:setData("essenceHerb7","")
-			SourceItem:setData("essenceHerb8","")
-			SourceItem.id = 164
-			SourceItem.quality = 333
+			SourceItem:setData("potionId","")
+			for i=1,8 do
+			    SourceItem:setData("ssenceBrew"..[i],"")
+				world:changeItem(SourceItem)
+			end	
 			
 		elseif (SourceItem:getData("potionEffectId")~="") then -- potion should be filled into the cauldron
 		    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
-			    User:talkLanguage(Character.say, Player.german, "potion -> water, fail")
-				 -- define effect
+			    world:gfx(1)
+		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		                            "The substance in the cauldron blows out, as you fill the water in.")
+			    cauldron:setData("cauldronFilledWith","")
+			
 			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
-			    User:talkLanguage(Character.say, Player.german, "potion -> essenceBrew, fail")
-				-- define effect
+			    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
+			
 			elseif cauldron:getData("potionEffectId") ~= "" then
-			    User:talkLanguage(Character.say, Player.german, "potion -> potion, fail")
-				-- define effect
+			    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,38})
+			
 			elseif cauldron:getData("stockData") ~= "" then
-				User:talkLanguage(Character.say, Player.german, "potion -> stock, fail")
-				-- define effect
+				druid.base.alchemy.CauldronExplosion(User,cauldron,{4,36})
 			
 			else -- nothing in the cauldron, we just fill in the potion
                 cauldron:setData("potionEffectId",SourceItem:setData("potionEffectId"))
                 cauldron:setData("potionId",SourceItem.id)
-				cauldron.quality = SourceItem.quality
+				cauldron:setData("potionQuality",SourceItem.quality)
 			end
                 
             SourceItem:setData("potionEffectId","")
-			SourceItem.id = 164
-			SourceItem.quality = 333				
-			
+			SourceItem:setData("potionId","")				
+			SourceItem:setData("potionQuality","")
+		
 		else
             -- neither essence brew nor a potion; placeholder 
-		    return
 		end
 	    if math.random(1,20) == 1 then
 		    User:eraseItem(SourceItem,1) -- bottle breaks

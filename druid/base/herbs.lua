@@ -47,18 +47,21 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	
 	if (ltstate == Action.none) then
-		   User:startAction(20,21,5,7,25);
+		   User:startAction(20,21,5,15,25);
 		   return
 	end
 	
 	if cauldron:getData("potionEffectId") ~= "" then -- potion in cauldron, failure
-        User:talkLanguage(Character.say, Player.german, "herb -> potion, fail")
-		-- define effect
+        cauldron:setData("potionEffectId","")
+		cauldron:setData("potionId","")
+		cauldron:setData("potionQuality","")
+		world:gfx(1)
+		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Kraut hinzu tust.", 
+		                            "The substance in the cauldron blows out, as you put the herb in.")
     
 	elseif cauldron:getData("cauldronFilledWith")== "essenceBrew" then -- essence brew
 		if cauldron:getData("essenceHerb8") ~= "" then -- already 8 herbs in the essence brew, failure 
-		    User:talkLanguage(Character.say, Player.german, "herb -> essence brew 8, fail")
-		    -- define effect
+		    druid.base.alchemy.CauldronExplosion(User,cauldron,{36})
         else
 		    for i=1,8 do -- we put the herb inot the essence brew
 				if (cauldron:getData("essenceHerb"..i) == "") then
@@ -67,6 +70,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 					break
 				end
             end 
+		    User:learn("alchemy",6,20,100,Character:increaseAttrib("essence",0))
 		end	
 		
 	elseif (cauldron:getData("stockData") ~= "") or (cauldron:getData("cauldronFilledWith") == "water") then -- water or a stock we put the herb in
@@ -81,27 +85,29 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		
 		-- "overflow" leads to explosion of the stock
 		if dataZList[plusWertPos] == 9 or dataZList[minusWertPos] == 1 then
-		  druid.base.alchemy.StockExplosion(User, SourceItem, cauldron);
-		end 
-
-		if plusWertPos == 0 then
-		   dataZList[minusWertPos] = dataZList[minusWertPos] - 1 ;
-		elseif minusWertPos == 0 then
-			   dataZList[plusWertPos] = dataZList[plusWertPos] + 1 ;
-		else
-			dataZList[plusWertPos] = dataZList[plusWertPos] + 1 ;
-			dataZList[minusWertPos] = dataZList[minusWertPos] - 1 ;
+		    druid.base.alchemy.CauldronExplosion(User,cauldron,{4})
+		 
+        else
+			if plusWertPos == 0 then
+			   dataZList[minusWertPos] = dataZList[minusWertPos] - 1 ;
+			elseif minusWertPos == 0 then
+				   dataZList[plusWertPos] = dataZList[plusWertPos] + 1 ;
+			else
+				dataZList[plusWertPos] = dataZList[plusWertPos] + 1 ;
+				dataZList[minusWertPos] = dataZList[minusWertPos] - 1 ;
+			end
+		    newStockData = druid.base.alchemy.PasteCauldronData(User,dataZList);
+		    cauldron:setData("stockData",""..newStockData);
+		    User:learn("alchemy",6,20,100,Character:increaseAttrib("essence",0))
 		end
 		
-        newStockData = druid.base.alchemy.PasteCauldronData(User,dataZList);
-		cauldron:setData("stockData",""..newStockData);
-		cauldron:setData("cauldronFilledWith","")
+        cauldron:setData("cauldronFilledWith","")
 	
 	else -- there is nothing in the cauldron to put the herb in, failure
-	    User:talkLanguage(Character.say, Player.german, "herb -> nothing, fail")
-		-- define effect
-    end		
-		
+	    base.common.InformNLS(User, "Die Pflanze vertrockent auf dem Boden des heiﬂen Kessels und zerf‰llt zu Asche.", 
+		                            "The plant dries up on the hot bottom of the cauldron and falls to ashes.")
+        world:makeSound(7,cauldron.pos)    
+	end		
 	world:changeItem(cauldron)
     world:eraseItem(SourceItem,1)	
 end
@@ -115,23 +121,33 @@ function Filter(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	
 	if (ltstate == Action.none) then
-		   User:startAction(20,21,5,7,25);
+		   User:startAction(20,21,5,15,25);
 		   return
 	end
 	
 	-- a potion in the cauldron, failure
 	if cauldron:getData("potionEffectId")~="" then
-        User:talkLanguage(Character.say, Player.german, "filter -> potion, fail")
-		-- define effect
+        cauldron:setData("potionEffectId","")
+		cauldron:setData("potionId","")
+		cauldron:setData("potionQuality","")
+		world:gfx(1)
+		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Kraut hinzu tust.", 
+		                            "The substance in the cauldron blows out, as you put the herb in.")
     
-	elseif cauldron:getData("cauldronFilledWith")=="essenceBrew" then 
-        User:talkLanguage(Character.say, Player.german, "filter -> essence, fail")
-		-- define effect
+	elseif cauldron:getData("cauldronFilledWith")=="essenceBrew" then -- essence brew in cauldron, failure
+        for i=1,8 do
+			cauldron:setData("essenceHerb"..[i],"")
+			world:changeItem(cauldron)
+		end
+		cauldron:setData("cauldronFilledWith","")
+		cauldron:setData("potionId")
+		world:gfx(1)
+		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Kraut hinzu tust.", 
+		                            "The substance in the cauldron blows out, as you put the herb in.")
 		
-	elseif cauldron:getData("cauldronFilledWith")=="water" then 
-        User:talkLanguage(Character.say, Player.german, "filter -> water, fail")
-		-- define effect
-
+	elseif cauldron:getData("cauldronFilledWith")=="water" then -- water, the water is _not_ destroyed
+        -- water stays
+    
 	elseif cauldron:getData("stockData")~="" then -- stock, let's filter
         cauldronData = tonumber(cauldron:getData("stockData"));
 	    dataZList = druid.base.alchemy.SplitCauldronData(User,cauldronData);
@@ -147,8 +163,8 @@ function Filter(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		cauldron:setData("stockData",""..newStockData);
 
     else -- empty cauldron
-        User:talkLanguage(Character.say, Player.german, "filter -> nothing, fail")
-		-- define effect	
+        base.common.InformNLS(User, "Die Pflanze vertrockent auf dem Boden des heiﬂen Kessels und zerf‰llt zu Asche", 
+		                            "The plant dries up on the hot bottom of the cauldron and falls to ashes.")	
 	end
 
 	world:changeItem(cauldron)

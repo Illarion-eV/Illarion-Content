@@ -52,20 +52,17 @@ end
 function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if ( ltstate == Action.abort ) then
-		User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
-	   -- base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.", Player.lowPriority)
+		base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	   return
 	end
 		
 	-- is the char an alchemist?
 	if User:getMagicType() ~= 3 then
-	  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
-	  --[[base.common.InformNLS( User,
+	  base.common.InformNLS( User,
 			"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
 			"Only those who have been introduced to the art of alchemy are able to work here.",
-			Player.lowPriority
-						)]]
-	  return;
+			)
+	  return
 	end
 		
 	if ( ltstate == Action.none ) then
@@ -73,7 +70,7 @@ function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return
 	end
 
-	TargetItem:setData("cauldronFilledWith","water")
+	TargetItem:setData("cauldronFilledWith","")
 	world:changeItem(TargetItem)
     SourceItem.id = 52
 	SourceItem.quality = 333

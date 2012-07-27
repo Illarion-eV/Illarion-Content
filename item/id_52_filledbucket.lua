@@ -176,12 +176,10 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		
 		-- is the char an alchemist?
 	    if User:getMagicType() ~= 3 then
-		  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
-          --[[base.common.InformNLS( User,
+		  base.common.InformNLS( User,
 				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
 				"Only those who have been introduced to the art of alchemy are able to work here.",
-				Player.lowPriority
-							)]]
+				)
 		  return;
 	    end
 		
@@ -192,18 +190,38 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
 	-- water, essence brew, potion or stock is in the cauldron; leads to a failure
 	if cauldron:getData("cauldronFilledWith") == "water" then
-		User:talkLanguage(Character.say, Player.german, "water -> water, fail")
-		 -- define effect
+		base.common.InformNLS( User,
+				"Der Kessel läuft über. Offensichtlich war schon Wasser in ihm.",
+				"The water runs over. Obviously, ther was already water in it.",
+				)
+		world:makeSound(9,cauldron.pos)
+		world:gfx(11,cauldron.pos)
+		
 	elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
-		User:talkLanguage(Character.say, Player.german, "water -> essenceBrew, fail")
-		-- define effect
+		world:gfx(1)
+		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		                            "The substance in the cauldron blows out, as you fill the water in.")
+		for i=1,8 do
+			cauldron:setData("essenceHerb"..[i],"")
+			world:changeItem(cauldron)
+	    end	
+		cauldron:setData("cauldronFilledWith","")
+        cauldron:setData("potionId","")		
+									
 	elseif cauldron:getData("potionEffectId") ~= "" then
-		User:talkLanguage(Character.say, Player.german, "water -> potion, fail")
-		-- define effect
+		world:gfx(1)
+		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		                            "The substance in the cauldron blows out, as you fill the water in.")
+		cauldron:setData("potionEffectId","")
+        cauldron:setData("potionId","")
+        cauldron:setData("potionQuality","")
+		
 	elseif cauldron:getData("stockData") ~= "" then
-		User:talkLanguage(Character.say, Player.german, "water -> stock, fail")
-		-- define effect
-	
+		world:gfx(1)
+		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		                            "The substance in the cauldron blows out, as you fill the water in.")
+	    cauldron:setData("stockData","")
+	    
 	else -- nothing in the cauldron, we just fill in the water
 	    cauldron:setData("cauldronFilledWith","water")
     end

@@ -50,13 +50,11 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		   IdPotion = 330
 	end 
 	
-	if cauldron:getData("potienIdEffect")~="" then
-	    User:talkLanguage(Character.say, Player.german, "gemdust -> potion, fail")
-		-- define effect
+	if cauldron:getData("potionIdEffect")~="" then -- potion in cauldron, failure
+	    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,5})
 	
-    elseif cauldron:getData("cauldronFilledWith")=="essenceBrew" then
-	    User:talkLanguage(Character.say, Player.german, "gemdust -> potion, fail")
-		-- define effect
+    elseif cauldron:getData("cauldronFilledWith")=="essenceBrew" then -- essence brew in cauldron, failure
+	    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,5})
 		
 	elseif cauldron:getData("stockData") ~= "" then
 	    if (SourceItem.id == 447) or (SourceItem.id == 450) then 
@@ -74,10 +72,13 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     elseif cauldron:getData("cauldronFilledWith")=="water" then
 		cauldron:setData("cauldronFilledWith","essenceBrew")
+		cauldron:setData("potionId",IdPotion)
+		world:makeSound(13,cauldron.pos)
+		world:gfx(52,cauldron.pos)
 	
-	else	
-	    User:talkLanguage(Character.say, Player.german, "gemdust -> nothing, fail")
-		-- define effect
+	else -- nothing in the cauldron
+	    base.common.InformNLS(User, "Der Edelsteinstaub verflüchtigt sich, als Du ihn in den leeren Kessel schüttest.", 
+		                            "The gem dust dissipates, as you fill it into the empty cauldron.")
 	end	
 
     world:changeItem(cauldron)
