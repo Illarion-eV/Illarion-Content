@@ -170,7 +170,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
     cauldron = TargetItem
 	
 	if ( ltstate == Action.abort ) then
-		   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.", Player.lowPriority)
+		   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	       return
 		end
 		
@@ -178,8 +178,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    if User:getMagicType() ~= 3 then
 		  base.common.InformNLS( User,
 				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-				"Only those who have been introduced to the art of alchemy are able to work here.",
-				)
+				"Only those who have been introduced to the art of alchemy are able to work here.")
 		  return;
 	    end
 		
@@ -202,7 +201,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
 		for i=1,8 do
-			cauldron:setData("essenceHerb"..[i],"")
+			cauldron:setData("essenceHerb"..i,"")
 			world:changeItem(cauldron)
 	    end	
 		cauldron:setData("cauldronFilledWith","")

@@ -60,8 +60,7 @@ function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if User:getMagicType() ~= 3 then
 	  base.common.InformNLS( User,
 			"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-			"Only those who have been introduced to the art of alchemy are able to work here.",
-			)
+			"Only those who have been introduced to the art of alchemy are able to work here.")
 	  return
 	end
 		

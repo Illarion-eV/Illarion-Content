@@ -592,7 +592,7 @@ function CauldronExplosion(User,cauldron,ListGfx)
 	end
 	-- we remove every possible data the cauldron could have to cover all substances
 	for i=1,8 do
-	    cauldron:setData("essenceHerb"..[i],"")
+	    cauldron:setData("essenceHerb"..i,"")
 		world:changeItem(cauldron)
 	end	
 	cauldron:setData("stockData","")

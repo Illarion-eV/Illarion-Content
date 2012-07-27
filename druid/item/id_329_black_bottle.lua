@@ -299,7 +299,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				cauldron:setData("cauldronFilledWith","essenceBrew")
 				cauldron:setData("potionId",SourceItem.id)
 				for i=1,8 do 
-				    cauldron:setData("essenceHerb"..[i],SourceItem:getData("essenceHerb"..[i]))
+				    cauldron:setData("essenceHerb"..i,SourceItem:getData("essenceHerb"..i))
 				    world:changeItem(cauldron)
 				end	
 			end

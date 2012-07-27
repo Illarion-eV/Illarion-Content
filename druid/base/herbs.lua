@@ -136,7 +136,7 @@ function Filter(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
 	elseif cauldron:getData("cauldronFilledWith")=="essenceBrew" then -- essence brew in cauldron, failure
         for i=1,8 do
-			cauldron:setData("essenceHerb"..[i],"")
+			cauldron:setData("essenceHerb"..i,"")
 			world:changeItem(cauldron)
 		end
 		cauldron:setData("cauldronFilledWith","")
