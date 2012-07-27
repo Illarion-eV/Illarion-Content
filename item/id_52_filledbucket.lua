@@ -191,8 +191,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if cauldron:getData("cauldronFilledWith") == "water" then
 		base.common.InformNLS( User,
 				"Der Kessel läuft über. Offensichtlich war schon Wasser in ihm.",
-				"The water runs over. Obviously, ther was already water in it.",
-				)
+				"The water runs over. Obviously, ther was already water in it.")
 		world:makeSound(9,cauldron.pos)
 		world:gfx(11,cauldron.pos)
 		

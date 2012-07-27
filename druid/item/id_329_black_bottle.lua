@@ -307,7 +307,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		    SourceItem:setData("essenceBrew","")
 			SourceItem:setData("potionId","")
 			for i=1,8 do
-			    SourceItem:setData("ssenceBrew"..[i],"")
+			    SourceItem:setData("essenceBrew"..i,"")
 				world:changeItem(SourceItem)
 			end	
 			
