@@ -21,7 +21,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end	
 	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
-	    cauldron = base.common.GetFrontItemID(User)
+	    cauldron = base.common.GetFrontItem(User)
 		
 		-- is the char an alchemist?
 	    if User:getMagicType() ~= 3 then
