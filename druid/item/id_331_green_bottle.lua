@@ -16,17 +16,12 @@ module("druid.item.id_331_green_bottle", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
-	if not SourceItem:getData("stockData") ~= "" then -- no stock, something else
+	if not SourceItem:getData("stockData") == "" then -- no stock, something else
 	    return
 	end	
 	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	    cauldron = base.common.GetFrontItemID(User)
-		
-		if ( ltstate == Action.abort ) then
-	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
-	       return
-		end
 		
 		-- is the char an alchemist?
 	    if User:getMagicType() ~= 3 then
@@ -35,6 +30,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				"Only those who have been introduced to the art of alchemy are able to work here.")
 		  return;
 	    end
+		
+		if ( ltstate == Action.abort ) then
+	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	       return
+		end
 		
 		if ( ltstate == Action.none ) then
             if (cauldron:getData("essenceBrew") =="true") then
