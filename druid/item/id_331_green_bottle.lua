@@ -70,7 +70,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		SourceItem.id = 164
 		SourceItem.quality = 333
 	    if math.random(1,20) == 1 then
-		    User:eraseItem(SourceItem,1) -- bottle breaks
+		    world:increase(SourceItem,-1)	 -- bottle breaks
 		    Uase.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
         else	
 		    world:changeItem(SourceItem)

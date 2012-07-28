@@ -342,7 +342,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             -- neither essence brew nor a potion; placeholder 
 		end
 	    if math.random(1,20) == 1 then
-		    User:eraseItem(SourceItem,1) -- bottle breaks
+		    world:increase(SourceItem,-1)	 -- bottle breaks
 		    User:talkLanguage(Character.say, Player.german, "flasche kaputt");
 		   -- base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
         else	

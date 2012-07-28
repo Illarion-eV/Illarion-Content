@@ -82,5 +82,5 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end	
 
     world:changeItem(cauldron)
-    world:eraseItem(SourceItem,1)
+    world:increase(SourceItem,-1)	
 end
