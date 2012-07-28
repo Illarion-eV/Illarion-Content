@@ -65,7 +65,7 @@ function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 		
 	if ( ltstate == Action.none ) then
-		User:startAction( 20, 21, 5, 9, 25)
+		User:startAction( 20, 21, 5, 10, 25)
 		return
 	end
 
