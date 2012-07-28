@@ -70,7 +70,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 					break
 				end
             end 
-		    User:learn("alchemy",6,20,100,Character:increaseAttrib("essence",0))
+		    User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
 		end	
 		
 	elseif (cauldron:getData("stockData") ~= "") or (cauldron:getData("cauldronFilledWith") == "water") then -- water or a stock we put the herb in
@@ -98,7 +98,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end
 		    newStockData = druid.base.alchemy.PasteCauldronData(User,dataZList);
 		    cauldron:setData("stockData",""..newStockData);
-		    User:learn("alchemy",6,20,100,Character:increaseAttrib("essence",0))
+		    User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
 		end
 		
         cauldron:setData("cauldronFilledWith","")
