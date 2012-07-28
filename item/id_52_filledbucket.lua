@@ -196,7 +196,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		world:gfx(11,cauldron.pos)
 		
 	elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
-		world:gfx(1)
+		world:gfx(1,cauldron.pos)
 		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
 		for i=1,8 do
@@ -207,7 +207,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
         cauldron:setData("potionId","")		
 									
 	elseif cauldron:getData("potionEffectId") ~= "" then
-		world:gfx(1)
+		world:gfx(1,cauldron.pos)
 		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
 		cauldron:setData("potionEffectId","")
@@ -215,7 +215,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
         cauldron:setData("potionQuality","")
 		
 	elseif cauldron:getData("stockData") ~= "" then
-		world:gfx(1)
+		world:gfx(1,cauldron.pos)
 		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
 	    cauldron:setData("stockData","")

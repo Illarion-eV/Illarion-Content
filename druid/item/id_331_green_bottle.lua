@@ -48,7 +48,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 		-- water, stock or potion is in the cauldron; leads to a failure
 		if cauldron:getData("cauldronFilledWith") == "water" then
-			world:gfx(1)
+			world:gfx(1,cauldron.pos)
 		    base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
 		                                "The substance in the cauldron blows out, as you fill the water in.")
 		
