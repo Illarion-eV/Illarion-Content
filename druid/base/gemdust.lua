@@ -32,7 +32,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 end
 
 function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    cauldron = base.common.GetFronItem(User)
+    cauldron = base.common.GetFrontItem(User)
 
 	if SourceItem.id == 446 then --bluestone
 	   IdPotion = 165 -- id of the matching potion

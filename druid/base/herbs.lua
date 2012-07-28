@@ -39,7 +39,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 end
 
 function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    cauldron = base.common.GetFronItem(User)
+    cauldron = base.common.GetFrontItem(User)
 	
 	if ( ltstate == Action.abort ) then
 		base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
