@@ -85,7 +85,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		
 		-- "overflow" leads to explosion of the stock
 		if dataZList[plusWertPos] == 9 or dataZList[minusWertPos] == 1 then
-		    druid.base.alchemy.CauldronExplosion(User,cauldron,{4})
+		    druid.base.alchemy.CauldronExplosion(User,cauldron,ListGfx{4})
 		 
         else
 			if plusWertPos == 0 then
