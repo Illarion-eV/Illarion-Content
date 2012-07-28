@@ -579,7 +579,7 @@ end
 function CauldronExplosion(User,cauldron,ListGfx)
     world:makeSound(5,cauldron.pos)
     for i=1,#ListGfx do
-	    world:Gfx(ListGfx[i],cauldron.pos)
+	    world:gfx(ListGfx[i],cauldron.pos)
     end
 	base.common.InformNLS( User,
 	    "Deine letzte Handlung scheint den Inhalt des Kessels zerstört und zu einer Explosion geführt zu haben.",
