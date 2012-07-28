@@ -588,7 +588,7 @@ function CauldronExplosion(User,cauldron,ListGfx)
     local myVictims = world:getPlayersInRangeOf(cauldron.pos,1) -- we hurt everyone around the cauldron!
 	for i=1,#myVictims do
 	    myVictims[i]:increaseAttrib("hitpoints",-3000)
-	    base.common.HighInformNLS(myVictims, "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
+	    base.common.InformNLS(myVictims, "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
 	end
 	-- we remove every possible data the cauldron could have to cover all substances
 	for i=1,8 do
