@@ -183,7 +183,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
 		
 		if ( ltstate == Action.none ) then
-            User:startAction( 20, 21, 5, 10, 25)
+            User:startAction( 20, 21, 5, 0, 0)
 			return
 		end	
 
@@ -221,7 +221,8 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    cauldron:setData("stockData","")
 	    
 	else -- nothing in the cauldron, we just fill in the water
-	    cauldron:setData("cauldronFilledWith","water")
+	    world:makeSound(10,cauldron.pos)
+		cauldron:setData("cauldronFilledWith","water")
     end
 
 	world:changeItem(cauldron)

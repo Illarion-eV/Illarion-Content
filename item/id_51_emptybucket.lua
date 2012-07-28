@@ -65,10 +65,11 @@ function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 		
 	if ( ltstate == Action.none ) then
-		User:startAction( 20, 21, 5, 10, 25)
+		User:startAction( 20, 21, 5, 0, 0)
 		return
 	end
 
+	world:makeSound(10,TargetItem.pos)
 	TargetItem:setData("cauldronFilledWith","")
 	world:changeItem(TargetItem)
     SourceItem.id = 52
