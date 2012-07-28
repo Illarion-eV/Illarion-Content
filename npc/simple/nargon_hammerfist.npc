@@ -56,36 +56,36 @@ itemShoes = 697
 "reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0
 
 -- Help
-"Help" -> inform("[Tutorial] This NPC is the Tutor Nargon Hammerfist. Keywords: Hello, Help, Skip Tutorial.")
+"Help" -> inform("[Tutorial] This NPC is the tutor Nargon Hammerfist. Keywords: Hello, Help, Skip tutorial.")
 "Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Nargon Hammerfist. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
 -- Skipping
 "skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands."), warp(35, 95, 100)
-"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(35, 95, 100)
+"überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln trittst."), warp(35, 95, 100)
 
 -- Learn how to gather - player has no pick axe
 ".*", queststatus(312) < 2, item(2763, all) = 0, english -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which must be held in your hands. Note that not every rock will yield coal."), "Arr, the name be Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Don't fear, Nargon will get ye started. Here, have this pick-axe. Head into the mine behind me and gather five lumps of coal. It won't be in vain!", item(2763, 1, 599, 0), queststatus(312) = 2
-".*", queststatus(312) < 2, item(2763, all) = 0 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", item(2763, 1, 599, 0), queststatus(312) = 2
+".*", queststatus(312) < 2, item(2763, all) = 0 -> inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."), "Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne Münze? Harr. Nur mit harter Arbeit kannste Reich werden. Keine Sorge, Nargon wird dir helfen. Hier haste 'ne Spitzhacke. Geh in die Mine hinter mir und sammel fünf Brocken Kohle. Es wird nicht umsonst sein!", item(2763, 1, 599, 0), queststatus(312) = 2
 
 -- Learn how to gather - player has pick axe
 ".*", queststatus(312) < 2, english -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe, which must be held in your hands. Note that not every rock yields coal."), "Arr, the name is Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Don't fear, Nargon will get ye started. Remember the pick-axe that wicked elfess gave you? Head into the mine behind me and gather five lumps of coal. It won't be in vain!", queststatus(312) = 2
-".*", queststatus(312) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", queststatus(312) = 2
+".*", queststatus(312) < 2 -> inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."), "Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne Münze? Harr. Nur mit harter Arbeit kannste Reich werden. Keine Sorge, Nargon wird dir helfen. Kannste dich noch an die Spitzhacke erinnern, die dir die verruchte Elfe gegeben hat? Geh in die Mine hinter mir und sammel fünf Brocken Kohle. Es wird nicht umsonst sein!", queststatus(312) = 2
 
 -- Player brought five coal pieces
 ".*", queststatus(312) = 2, item(21, all) > 4, english -> inform("[Tutorial] You are awarded a ruby."), "Oi! Ye did it, thanks for the coal! As an honest dwarven tradesman, I'll give you this ruby in exchange. Harr! Told ye the work wouldn't be in vain! My kinsman Nimbur, down at the brick house, can teach ye another lesson about dwarven craft.", deleteItem(21, 5), item(46, 1, 333, 0), queststatus(312) = 3
-".*", queststatus(312) = 2, item(21, all) > 4 -> inform("[Tutorial] Du erhältst einen Rubin."), "ÜBERSETZEN.", deleteItem(21, 5), item(46, 1, 333, 0), queststatus(312) = 3
+".*", queststatus(312) = 2, item(21, all) > 4 -> inform("[Tutorial] Du erhältst einen Rubin."), "Ui! Du hast es geschafft, danke für die Kohle! Als 'nen anständiger Zwergenhändler, will ich dir diesen Rubin als Ausgleich geben. Harr! Hab' ja gesagt, dass es nicht umsonst sein wird! Mein Zwergenbruder Nimbur, da unten beim Steinhaus, kann dir noch was in Sachen Zwergenhandwerk beibringen.", deleteItem(21, 5), item(46, 1, 333, 0), queststatus(312) = 3
 
 -- Player has lost his pick axe
 ".*", queststatus(312) = 2, item(2763, all) = 0, english -> "What!? Ye lost your pick-axe? How do ye expect to become rich if ye keep losing yer belongings? Take this replacement; now off to the mines with ye!", item(2763, 1, 599, 0)
-".*", queststatus(312) = 2, item(2763, all) = 0 -> "ÜBERSETZEN.", item(2763, 1, 599, 0)
+".*", queststatus(312) = 2, item(2763, all) = 0 -> "Was? Du hast deine Spitzhacke verloren? Wie denkste denn reich zu werden, wenn du deine Sachen verlierst? Nimm die als Ersatz und ab mir dir in die Mine!", item(2763, 1, 599, 0)
 
 -- Player has problems gathering
 ".*", queststatus(312) = 2, item(21, all) < 5, english -> inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe, which must be held in your hands. Note that not every rock yields coal."), "Well, well, well. Hard work is hard work. Harr. Please bring me at least five lumps of coal. If ye cannot find coal in one corner of the mine, try the other!"
-".*", queststatus(312) = 2, item(21, all) < 5 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN."
+".*", queststatus(312) = 2, item(21, all) < 5 -> inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."), "Nun, nun. Harte Arbeit ist harte Arbeit. Harr. Bring mir bitte mindestens fünf Brocken Kohle. Wenn du keine Kohle in der einen Ecke der Mine finden kannst, versuch es in 'ner Anderen."
 
 -- Player did all lessons
 ".*", queststatus(312) = 3, english -> "Arr, now ye know how to mine for gems and gold. What else is there to learn!? Ye might become rich, aye. My kinsmate Nimbur, down at the brick house, can teach ye another lesson about dwarven craft."
-".*", queststatus(312) = 3 -> "ÜBERSETZEN."
+".*", queststatus(312) = 3 -> "Arr, nun weißte wie du Gold und Edelsteinen finden kannst. Was willst du denn noch lernen?! Vielleicht wirste reich, aye. Mein Zwergenbruder Nimbur, da unten beim Steinhaus, kann dir noch was in Sachen Zwergenhandwerk beibringen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
