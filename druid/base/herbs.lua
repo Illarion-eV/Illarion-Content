@@ -169,5 +169,5 @@ function Filter(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 
 	world:changeItem(cauldron)
-   world:increase(SourceItem,-1)	
+   world:eraseItem(SourceItem,1)	
 end
