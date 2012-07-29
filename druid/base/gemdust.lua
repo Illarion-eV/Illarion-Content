@@ -83,7 +83,7 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     elseif cauldron:getData("cauldronFilledWith")=="water" then
 		cauldron:setData("cauldronFilledWith","essenceBrew")
-		cauldron:setData("potionId",IdPotion)
+		cauldron:setData("potionId",""..IdPotion)
 		world:makeSound(13,cauldron.pos)
 		world:gfx(52,cauldron.pos)
 	
