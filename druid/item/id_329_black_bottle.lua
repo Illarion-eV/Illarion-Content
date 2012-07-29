@@ -249,7 +249,7 @@ function DrinkPotion(User,SourceItem)
 end
 
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
@@ -267,7 +267,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	       return
 		end
-		
 		
 		if ( ltstate == Action.none ) then
             if (SourceItem:getData("essenceBrew") =="true") and (cauldron:getData("stockData") ~= "") then
