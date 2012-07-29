@@ -254,12 +254,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	
-	   if ( ltstate == Action.abort ) then
-	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
-	       return
-		end
-		
-		-- is the char an alchemist?
+	   -- is the char an alchemist?
 	    if User:getMagicType() ~= 3 then
 		  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
           base.common.InformNLS( User,
@@ -267,6 +262,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				"Only those who have been introduced to the art of alchemy are able to work here.")
 		  return;
 	    end
+	   
+	   if ( ltstate == Action.abort ) then
+	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	       return
+		end
+		
 		
 		if ( ltstate == Action.none ) then
             if (SourceItem:getData("essenceBrew") =="true") and (cauldron:getData("stockData") ~= "") then
@@ -307,7 +308,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		    SourceItem:setData("essenceBrew","")
 			SourceItem:setData("potionId","")
 			for i=1,8 do
-			    SourceItem:setData("essenceBrew"..i,"")
+			    SourceItem:setData("essenceHerb"..i,"")
 				world:changeItem(SourceItem)
 			end	
 			
@@ -346,7 +347,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		    User:talkLanguage(Character.say, Player.german, "flasche kaputt");
 		   -- base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
         else	
-		    world:changeItem(SourceItem)
+		    SourceItem.id = 164
+			SourceItem.quality = 333
+			world:changeItem(SourceItem)
         end
 		world:changeItem(cauldron)		
 			
