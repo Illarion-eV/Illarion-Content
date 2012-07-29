@@ -73,7 +73,7 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    else 
 		    potionEffectId = 0
         end			
-	    cauldron:setData("potionId",IdPotion)
+	    cauldron:setData("potionId",""..IdPotion)
 		cauldron:setData("potionEffectId",""..potionEffectId)
 	    cauldron:setData("stockData","")
 		potionQuality = 999
