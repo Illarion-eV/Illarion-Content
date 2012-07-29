@@ -110,7 +110,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
         world:makeSound(7,cauldron.pos)    
 	end		
 	world:changeItem(cauldron)
-    world:increase(SourceItem,-1)	
+    world:eraseItem(SourceItem,1)	
 end
 
 function Filter(User,SourceItem,TargetItem,Counter,Param,ltstate)
