@@ -52,6 +52,7 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		   IdPotion = 327
 	elseif SourceItem.id ==	449 then  -- blackstone
 		   IdPotion = 329
+	       User:talkLanguage(Character.say, Player.german, ""..IdPotion);
 	elseif SourceItem.id == 450 then -- amethyst
 		   IdPotion = 166
 	elseif SourceItem.id == 451 then -- topaz
