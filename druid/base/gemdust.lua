@@ -52,7 +52,6 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		   IdPotion = 327
 	elseif SourceItem.id ==	449 then  -- blackstone
 		   IdPotion = 329
-	       User:talkLanguage(Character.say, Player.german, ""..IdPotion);
 	elseif SourceItem.id == 450 then -- amethyst
 		   IdPotion = 166
 	elseif SourceItem.id == 451 then -- topaz
@@ -73,8 +72,7 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    else 
 		    potionEffectId = 0
         end			
-	    User:talkLanguage(Character.say, Player.german, ""..IdPotion);
-		cauldron:setData("potionId",""..IdPotion)
+	    cauldron:setData("potionId",""..IdPotion)
 		cauldron:setData("potionEffectId",""..potionEffectId)
 	    cauldron:setData("stockData","")
 		potionQuality = 999

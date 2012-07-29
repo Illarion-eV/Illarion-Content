@@ -329,7 +329,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				druid.base.alchemy.CauldronExplosion(User,cauldron,{4,36})
 			
 			else -- nothing in the cauldron, we just fill in the potion
-                cauldron:setData("potionEffectId",SourceItem:setData("potionEffectId"))
+                cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
                 cauldron:setData("potionId",""..SourceItem.id)
 				cauldron:setData("potionQuality",""..SourceItem.quality)
 			end
