@@ -297,7 +297,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				
 			else -- nothing in the cauldron, we just fill in the essence brew
 				cauldron:setData("cauldronFilledWith","essenceBrew")
-				cauldron:setData("potionId",SourceItem.id)
+				cauldron:setData("potionId",""..SourceItem.id)
 				for i=1,8 do 
 				    cauldron:setData("essenceHerb"..i,SourceItem:getData("essenceHerb"..i))
 				    world:changeItem(cauldron)
@@ -330,8 +330,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			
 			else -- nothing in the cauldron, we just fill in the potion
                 cauldron:setData("potionEffectId",SourceItem:setData("potionEffectId"))
-                cauldron:setData("potionId",SourceItem.id)
-				cauldron:setData("potionQuality",SourceItem.quality)
+                cauldron:setData("potionId",""..SourceItem.id)
+				cauldron:setData("potionQuality",""..SourceItem.quality)
 			end
                 
             SourceItem:setData("potionEffectId","")
