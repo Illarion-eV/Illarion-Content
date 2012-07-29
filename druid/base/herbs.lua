@@ -111,6 +111,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end		
 	world:changeItem(cauldron)
     world:erase(SourceItem,1)	
+    User:startAction(20,0,0,0,0)
 end
 
 function Filter(User,SourceItem,TargetItem,Counter,Param,ltstate)
