@@ -34,6 +34,16 @@ end
 function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
     cauldron = base.common.GetFrontItem(User)
 
+	if ( ltstate == Action.abort ) then
+		base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	   return
+	end
+	
+	if (ltstate == Action.none) then
+		   User:startAction(30,21,5,15,25);
+		   return
+	end
+	
 	if SourceItem.id == 446 then --bluestone
 	   IdPotion = 165 -- id of the matching potion
 	elseif SourceItem.id == 447 then  -- ruby
