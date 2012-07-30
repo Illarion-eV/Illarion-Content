@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Ardian/Faladron/Rincewind                                        --
 --                                                                            --
--- Last parsing: March 19, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: July 30, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Bippi"
@@ -132,6 +132,10 @@ itemShoes = 369
 "Kuh", "Kühe", queststatus(28) = 0 -> "Meine Kühe sind mein ganzer Stolz! Außerdem sichern sie mir meine Existenz. Wenn ich nur jemanden hätte der mir mit all der Arbeit hilft...", "Ich werde alt und die Arbeit mit den Kühen wird für mich immer schwerer. Ich könnte Hilfe im Stall gebrauchen aber wer nimmt sich schon so einer Aufgabe an..."
 "Stall" -> "Ja, im Stall stehen meine Kühe, wenn sie nicht gerade weiden.", "Mein Stall ist das große Gebäude rechts von uns.", "Drei Kühe passen in meinen Stall, toll oder?"
 "Arbeit", "helfer", queststatus(28) = 0 -> inform("Sag 'Ich helfe euch' wenn du ihm helfen möchtest."), "Wenn ihr euch um meine Kühe kümmert, könnt ihr auch etwas Milch haben. Helft ihr mir?", "Nun, ich könnte Hände die zupacken können gebrauchen. Wollt ihr mir helfen?", "Könntet ihr mir helfen? Ich kann euch nicht viel dafür geben aber es würde mir viel bedeuten und mir einige Sorgen abnehmen.", state = 1
+"Yewdale" -> "Yewdale is the name of this place; just a cottage of peaceful farmers. There is not much to do here except watching the crops grow."
+"Eibenthal", "Eibental" -> "Eibenthal heißt dieser Ort hier; es ist einfach nur ein Hof friedlicher Bauern. Hier kann man nicht viel tun außer dem Gras beim Wachsen zuzusehen."
+"Nana", "Winterbutter", english -> "Nana over there is the local cook. I overheard she might need help with a recipe of her."
+"Nana", "Winterbutter" -> "Nana dort drüben ist hier die Köchin. Ich hörte, sie könnte etwas Hilfe bei einem ihrer Rezepte gebrauchen."
 
 -- Faction stuff
 "archmage" -> "I am proud to say that archmage Morgan never starts a day without a glass of my milk!", "They say when the archmage is doing research the only signs of life are the empty milk bottles and dishes he summons to the front of his chambers."
@@ -202,9 +206,9 @@ itemShoes = 369
 "erzähl was", "erzähl etwas" -> "Nun, ihr seht nicht aus wie ein Viehzüchter, sonst würde ich über die Arbeit sprechen.", "Mein Großgroßvater hat angefangen sein Wissen über Milchkühe weiterzugeben, heute bin ich der, der alle Geheimnisse kennt.", "Nun, wenn ihr so bittet. Ich glaube ich brauche Helfer um die Arbeit zu bewältigen, wie wäre es mit euch?"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Bippi", english -> "That’s my name and milk is my business.", "Hiho!", "That’s me! Ask me again, I’ll tell ya the same."
+"Bippi", english -> "That's my name and milk is my business.", "Hiho!", "That's me! Ask me again, I’ll tell ya the same."
 "Bippi" -> "Das ist mein Name und die Milch ist mein Geschäft.", "Hiho!", "Das bin ich! Frag mich erneut, und Ich erzähle dir das selbe."
-"Yes" -> "That's true! Let's have a glass of milk to celebrate.", "Absolutely! Even my cows understand.", "#me nods leisurely: 'My grandfather used to say that all the time."
+"Yes" -> "That's true! Let's have a glass of milk to celebrate.", "Absolutely! Even my cows understand.", "#me nods leisurely: 'My grandfather used to say that all the time.'"
 "Ja" -> "Richtig so! Darauf trinken wir ein Glas Milch.", "Absolut! Sogar meine Kühe verstehen das.", "#me nickt müßig: 'Mein Großvater sagte das auch immer.'"
 "No" -> "Ah? Can a glass of milk change your mind?", "That's sad, still you should try my milk.", "Don't be that negative! Drink a bit of milk and everything will turn out well!"
 "Nein" -> "Ah? Kann ein Glas Milch dich umstimmen?", "Das ist schade. Aber meine Milch solltest du trotzdem probieren.", "Sei nicht so negativ! Trink ein wenig Milch und alles wird gut!"
