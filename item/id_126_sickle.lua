@@ -27,14 +27,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:eraseItem(myItemId,deleteAmount)
 	end	
 	
-	if string.sub(User.lastSpokenText,1,7)=="setrace" then
-		length = string.len(User.lastSpokenText)
-		User:talkLanguage(Character.say, Player.german, ""..length)
-		newRace = tonumber((string.sub(User.lastSpokenText,9,length)))
-		User:talkLanguage(Character.say, Player.german, ""..newRace)
+	if base.common.GetFrontItemID(User) == 15 then
+		newRace = tonumber(User.lastSpokenText)
 		User:setAttrib("racetype",newRace)
-		User:increaseAttrib("hitpoints",10)
-		User:increaseAttrib("hitpoints",10)
+		User:inceraseAttrib("hitpoints",-10)
+	    User:inceraseAttrib("hitpoints",10)
 	end	
 	
 	if string.sub(User.lastSpokenText,1,14)=="potionEffectId" then
