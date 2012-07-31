@@ -31,6 +31,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		newRace = tonumber(User.lastSpokenText)
 		User:setAttrib("racetype",newRace)
 		User:talkLanguage(Character.say, Player.german, ""..newRace);
+		newHeight = math.random(80,120)
+		User:setAttrib("body_height",newHeight)
 		User:increaseAttrib("hitpoints",-10)
 	    User:increaseAttrib("hitpoints",10)
 	end	
