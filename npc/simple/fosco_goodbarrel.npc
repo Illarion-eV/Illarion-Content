@@ -25,9 +25,9 @@ autointroduce = on
 
 author = "Grokk"
 
-lookatDE = "Dieser NPC ist <Name> der <Beruf/Funktion>."
+lookatDE = "Dieser NPC ist Fosco Goodbarel der fiese Halbling."
 lookatUS = "This NPC is Fosco Goodbarel the mischievous halfling."
-useMsgDE = "Fasst mich nicht an!"
+useMsgDE = "So arbeite ich nicht!"
 useMsgUS = "I don't work like that!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
@@ -76,77 +76,77 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Fosco Goodbarrel the mischievous halfling. Keyphrases: quest, profession, Gobaith, gods, Fosco.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Fosco Goodbarrel der spitzbübische Halbling. Schlüsselwörter: Auftrag, Beruf, Gobaith, Götter, Fosco.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho!", "Howdy, dowdy!", "'Ello, 'ello!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho!", "Holldario.", "'allo, 'allo!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho!", "Howdy, dowdy!", "'Ello, 'ello!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho!","Holldario.", "'allo, 'allo!"
 "Farewell", "Bye", "Fare well", "See you" -> "Ta-ta!", "Don't forget me!", "Stay outta trouble!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ta-da!", "Vergiss mich nicht!", "Halt dich von Ärger fern!"
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Ta-ta!", "Don't forget me!", "Stay outta trouble!"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ta-da!", "Vergiss mich nicht!", "Halt dich von Ärger fern!"
 "How are you", "How feel", "How do you do" -> "As fine as a hair upon my head.", "I'm dandy!", "Fine, just fine!"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "So gut, wie ein Haar auf meinem Kopf.", "Mir geht's prima!", "Gut, einfach nur gut!"
 "your name", "who are you", "who art thou" -> "Fosco Goodbarrel, at your service!", "Fosco Goodbarrel, halfling extraordinaire!", "You don't know me?! I'm Fosco Goodbarrel!"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fosco Goodbarrel,zu Diensten","Fosco Goodbarrel,der außergewöhnliche Halbling.", "Du kennst mich nicht? Ich bin Fosco Goodbarrel."
 
 -- 1st quest: Bring Fosco's flute
 
 -- Give out quest 1
 "quest", "mission", queststatus(333) = 6, english -> inform("[Quest update] Aurora's Staff: Part II"), "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He’s in <town name>.", queststatus(333) = 7
-"quest", "mission", queststatus(333) = 6 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(333) = 7
+"quest", "mission", queststatus(333) = 6 -> inform("[Neues Quest] Die Geistereiche I"), "Ahh, der Stab! Nun, weil ich dich mag, gebe ich es dir für fünf Goldstücke. Ich sag' dir was: Ich habe ein Auge auf den goldenen Dolch des Echsenmenschen Kai'itza geworfen. Bring ihn mir, den Stab. ", queststatus(333) = 7
 "task", "adventure", "staff", queststatus(333) = 6 -> inform("[Quest update] Aurora's Staff: Part II"), "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He’s in <town name>.", queststatus(333) = 7
-"Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(333) = 6 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(333) = 7
+"Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(333) = 6 -> inform("[Neues Quest] Die Geistereiche I"), "Ahh, der Stab! Nun, weil ich dich mag, gebe ich es dir für fünf Goldstücke. Ich sag' dir was: Ich habe ein Auge auf den goldenen Dolch des Echsenmenschen Kai'itza geworfen. Bring ihn mir, den Stab.", queststatus(333) = 7
 
 -- Quest 1 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(333) = 7, english -> "You want your staff, you bring me my ornate dagger. And it had better be Kai'itza's. I'll be able to spot a fake. You'll find the lizard in <town name>. She stole my flute."
-"quest", "mission", queststatus(333) = 7 -> "GERMAN."
+"quest", "mission", queststatus(333) = 7 -> "Du möchtest den Stab, dann bringt mir meinem verzierten Dolch. Dabei hanldelt es sich um den Kai'tza. Ich bin in der Lage einen Betrug zubemerken. Du findest den Echsenmensch in <Stadtname>. Sie hat meine Flöte gestohlen."
 "task", "adventure", "staff", queststatus(333) = 7 -> "You want your staff, you bring me my ornate dagger. And it had better be Kai'itza's. I'll be able to spot a fake. You'll find the lizard in <town name>. She stole my flute."
-"Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(333) = 7 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(333) = 7 -> "Du möchtest den Stab, dann bringt mir meinem verzierten Dolch. Dabei hanldelt es sich um den Kai'tza. Ich bin in der Lage einen Betrug zubemerken. Du findest den Echsenmensch in <Stadtname>. Sie hat meine Flöte gestohlen."
 
 -- Quest 1 solved, ornate dagger deleted, battle staff added
 ".+", queststatus(333) = 10, item(190, all) > 0, english -> inform("[Quest updated] Aurora's Staff: Part II."), "That's the one! I didn't think you had it in ya. Well, I'm a halfling of his word today. Here's the staff. I hope you enjoy your piece of wood.", deleteItem(190, 1), item(209, 1, 499, 0), queststatus(13372) = 11
-".+", queststatus(333) = 10, item(190, all) > 0 -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke."), "GERMAN.", deleteItem(190, 1), item(209, 1, 499, 0), queststatus(13372) = 11
+".+", queststatus(333) = 10, item(190, all) > 0 -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke."), "Das ist er! I hätte ja nicht gedacht, dass du das schaffst. Nun, ich bin ein Halbling der zu seinen worten steht. Hier hast du den Stab. Viel Spaß mit dem Stück Holz.", deleteItem(190, 1), item(209, 1, 499, 0), queststatus(13372) = 11
 
 -- 2nd quest: Bring 1 black coat and 1 amulet
 
 -- Give out quest 2
 "quest", "mission", queststatus(336) = 0, english -> inform("[New quest] The Mischievous Halfling"), "Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet.", queststatus(336) = 1
-"quest", "mission", queststatus(336) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(336) = 1
+"quest", "mission", queststatus(336) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "Nun, da du fragst, ich bräuchte ein Kostüm für mein nächstes ...'Stück'. Ich werde die Rolle eines außländischen Halblingswürdenträgers spielen, den die Regierung großzügoig mit Geschenken überhäufen wird. Ich brauche einen schwarzen Mantel und ein Amulett.", queststatus(336) = 1
 "task", "adventure", queststatus(336) = 0 -> inform("[New quest] The Mischievous Halfling"), "Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet..", queststatus(336) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(336) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(336) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(336) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "Nun, da du fragst, ich bräuchte ein Kostüm für mein nächstes ...'Stück'. Ich werde die Rolle eines außländischen Halblingswürdenträgers spielen, den die Regierung großzügoig mit Geschenken überhäufen wird. Ich brauche einen schwarzen Mantel und ein Amulett.", queststatus(336) = 1
 
 -- Quest 2 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(336) = 1, item(2384, all) < 1, english -> "I need you to find me one black coat. Don't worry, I'll see to it that you are compensated."
-"quest", "mission", queststatus(336) = 1, item(2384, all) < 1 -> "GERMAN."
+"quest", "mission", queststatus(336) = 1, item(2384, all) < 1 -> "Ich möchte, dass du mir einen schwarzen Mantel findest. Keine Sorge, ich sorge schon dafür, dass du entschädigt wirst."
 "task", "adventure", queststatus(336) = 1, item(2384, all) < 1 -> "I need you to find me one black coat. Don't worry, I'll see to it that you are compensated."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(336) = 1, item(2384, all) < 1 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(336) = 1, item(2384, all) < 1 -> "Ich möchte, dass du mir einen schwarzen Mantel findest. Keine Sorge, ich sorge schon dafür, dass du entschädigt wirst."
 "quest", "mission", queststatus(336) = 1, item(222, all) < 1, english -> "You've got one black coat for me, but I also need one amulet. Don't worry, I'll see to it that you are compensated."
-"quest", "mission", queststatus(336) = 1, item(222, all) < 1 -> "GERMAN."
+"quest", "mission", queststatus(336) = 1, item(222, all) < 1 -> "Du hast mir den schwarzen Mantel gebracht, aber ich bräuchte da noch ein Amulett. Keine Sorge, ich werde dafür sorgen, dass du entschädigt wirst."
 "task", "adventure", queststatus(336) = 1, item(222, all) < 1 -> "You've got one black coat for me, but I also need one amulet. Don't worry, I'll see to it that you are compensated."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(336) = 1, item(222, all) < 1 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(336) = 1, item(222, all) < 1 -> "Du hast mir den schwarzen Mantel gebracht, aber ich bräuchte da noch ein Amulett. Keine Sorge, ich werde dafür sorgen, dass du entschädigt wirst."
 
 -- Quest 2 solved, reward: 120cp, strawberry cake
 ".+", queststatus(336) = 1, item(2384, all) > 0, item(222, all) > 0, english -> inform("[Quest solved] You are awarded 120 copper coins and a strawberry cake."), "Perfect! I shall certainly fool the...audience with this disgui...erm...costume. Oh, righto. Take your money. Here, you must try one of these, too! Just divine!", money + 120, deleteItem(2384, 1), deleteItem(222, 1), item(354, 1, 599, 0), queststatus(336) = 2
-".+", queststatus(336) = 1, item(2384, all) > 0, item(222, all) > 0 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."), "GERMAN.", money + 120, deleteItem(2384, 1), deleteItem(222, 1), item(354, 1, 599, 0), queststatus(336) = 2
+".+", queststatus(336) = 1, item(2384, all) > 0, item(222, all) > 0 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und einen Erbbeerkuchen."), "Großartig! I werde die... Zuschauer sicherlich hereinlegen mit dieser Tarnung...ähm...mit diesem Kostüm. Ah, ja richelig. Nimm dein Geld! Und hier, davon musst du einen probieren! Schmeckt ganz wunderbar!", money + 120, deleteItem(2384, 1), deleteItem(222, 1), item(354, 1, 599, 0), queststatus(336) = 2
 
 -- No more quests, just nice words of gratitude
 "quest", "mission", queststatus(336) = 2, english -> "I've got to get busy studying for my new character. Take care, now!"
-"quest", "mission", queststatus(336) = 2 -> "GERMAN."
+"quest", "mission", queststatus(336) = 2 -> "Ich muss meine neue Rolle lernen. Lebt wohl!"
 "task", "adventure", queststatus(336) = 2 -> "I've got to get busy studying for my new character. Take care, now!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(336) = 2 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(336) = 2 -> "Ich muss mich ranhalten und meine neue Rolle lernen. Lebt wohl!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a charming rogue!", "When you are this handsome, people pay you for it!", "I steal from the rich. And I steal from the poor. And I give to ol' Fosco!"
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"beruf" -> "Ich bin ein entzückender Spitzbube!", "Wenn man so gut aussieht, bezahlen die Leute einen.", "Ich nehme von den Reichen. Ich nehme von den Armen. Und ich gebe alles an Fosco!"
 "job", english -> "I'm a charming rogue!", "When you are this handsome, people pay you for it!", "I steal from the rich. And I steal from the poor. And I give to ol' Fosco!"
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job" -> "Ich bin ein entzückender Spitzbube!", "Wenn man so gut aussieht, bezahlen die Leute einen.", "Ich nehme von den Reichen. Ich nehme von den Armen. Und ich gebe alles an Fosco!"
 "Gobaith", "Gobiath", english -> "It was an island, surrounded by water, not much more to say, really.", "Lots o' the people there were...hmm...well...slow to catch on.", "The name was strange. The land was stranger. The people were strangest."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath" -> "Es war eine Insel umgeben von Wasser, da gibt's nichts weiter zu sagen.", "Viele Leute da hatten...wenig Durchblick.", "Der Name war seltsam. Das Land war seltsamer. Die Leute dort warem am seltsamsten."
 "my name" -> "Ah, well! The pleasure is yours!", "I guessed that!", "That was my mother's name!"
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"mein Name" -> "Ah, nun! GERMAN.", "Ich hab's mir gedacht!", "So hieß meine Mutter auch!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Even I wouldn't dare say it to his face, but the fellow's a nut.", "Just your typical mage, that fellow. Prances around like his feet don't stink.", "Book smarts will only get you so far."
@@ -168,78 +168,78 @@ itemShoes = 53
 
 -- Main land factions
 "albar", english -> "Bo-ring.", "Humans are almost too easy. Almost.", "Albar...eh. Doesn't interest me."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"albar" -> "Laaangweilig.", "Menschen sind fast zu lässig. Fast.", "Albar...ähm. Interessiert mich nicht."
 "gynk", "gync", english -> "Bo-ring.", "Humans are almost too easy. Almost.", "Gynk...eh. Doesn't interest me."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gync", "gynk" -> "Laaangweilig.", "Menschen sind fast zu lässig. Fast.","Gynk...ähm. Interessiert mich nicht."
 "salkama", english -> "Bo-ring.", "Humans are almost too easy. Almost.", "Salkamar...eh. Doesn't interest me."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama" ->"Laaangweilig.", "Menschen sind fast zu lässig. Fast.","Salkamar...ähm. Interessiert mich nicht."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "If Ronagan's proud, I'm doing well.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gott", "Götter" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Adron", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Bragon", "Brágon", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Cherga", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Elara", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Eldan", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Findari", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Irmorom", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Malachin", "Malachín", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Moshran", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Nargun", "Nargún", "Nargùn", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Oldra", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Ronagan", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "If Ronagan's proud, I'm doing well.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Sirani", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Tanora", "Zelphia", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Ushara", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 "Zhambra", english -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "I won't be inviting that God for dinner any time soon.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra" -> "Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.", "Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Tell you what: you hand me the money now, and I'll make sure to get the goods to you when I can.", "How about you give me your goods now, and I'll send the money to pay for them when I have it.", "I can't just be trading with any passerby! I've got a reputation to uphold!"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich sag dir was: Du gibst mir dein Geld und ich bemühe mich so gut ich kann,dass die Waren bei dir ankommen.", "Wie waäre es damit? Du gibst mir deine Sachen und ich bezahl dich, wenn ich das Geld hab.", "Ich kann nicht mit jedem Handeln. Mein Ruf steht auf dem Spiel."
 "tell something" -> "Has anyone ever told you that you have a rather noticeable nose?", "While we've been standing here, I've stolen your purse, and then returned it, compeletely full. I know, it's amazing, thank you.", "If there is one thing I've learned during my travels, it's this: never trust a sober dwarf."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"erzähl was", "erzähl etwas" -> "Hat dir schonmal einer gesagt, das du eine sehr auffällige Nase hast?","Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.", "Wenn ich auf meinen Reisen eines gelernt habe, dann flogendes, vertraue niemals einem nüchternen Zwerg."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Fosco", "Goodbarrel", english -> "Such a delightful name, don't you agree?", "Ahh...Fosco Goodbarrel. It just rolls off of the tongue.", "From here to Pennymill, that name will make any woman weak at the knees."
-"Fosco", "Goodbarrel" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Fosco", "Goodbarrel" -> "Welch ein entzückender Name, findest du nicht auch?", "Ahh...Fosco Goodbarrel. Das geht runter wie Honig!", "Von hier bis nach Pennymill, dieser Name lässt alle Frauen niederknien."
 "Yes" -> "#me taps his foot impatiently.", "I knew you were going to say that!", "Yes, yes. Whatever. You should keep your purse in a less obvious place."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ja" -> "#me tappst ungeduldigt mit dem Fuß auf den Boden.", "Ich wusste du würdest das sagen!", "Ja.Ja. Du solltest deine Geldbörse weniger offensichtlich bei dir tagen."
 "No" -> "#me taps his foot impatiently.", "I knew you were going to say that!", "Yes, yes. Whatever. You should keep your purse in a less obvious place."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nein" -> "#me tappst ungeduldigt mit dem Fuß auf den Boden.", "Ich wusste du würdest das sagen!", "Ja.Ja. Du solltest deine Geldbörse weniger offensichtlich bei dir tagen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 ".*", english, chance(20) -> "#me taps his foot impatiently.", "I knew you were going to say that!", "Yes, yes. Whatever. You should keep your purse in a less obvious place."
-".*", german, chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+".*", german, chance(20) -> "#me tappst ungeduldigt mit dem Fuß auf den Boden.", "Ich wusste du würdest das sagen!", "Ja.Ja. Du solltest deine Geldbörse weniger offensichtlich bei dir tagen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "#me performs a brief jig on the spot."
-cycletext "GERMAN.", "#me glances at you out of the corner of his eye."
-cycletext "GERMAN.", "#me laughs cheekily."
-cycletext "GERMAN.", "#me grins slyly."
-cycletext "GERMAN.", "#me kicks at the ground."
-cycletext "GERMAN.", "#me leans back and yawns."
-cycletext "GERMAN.", "#me scratches the back of his head."
-cycletext "GERMAN.", "#me whistles a pleasant tune."
-cycletext "GERMAN.", "#me licks his lips."
-cycletext "GERMAN.", "#me pats his stomach, sighing faintly."
+cycletext "#me vollführt einen kleinen Freudentanz auf der Stelle.", "#me performs a brief jig on the spot."
+cycletext "#me beobachtete dich aus den Augenwinkeln.", "#me glances at you out of the corner of his eye."
+cycletext "#me lacht vorwitzig.", "#me laughs cheekily."
+cycletext "#me lächelt schüchtern.", "#me grins slyly."
+cycletext "#me stampft auf dem Boden.", "#me kicks at the ground."
+cycletext "#me lehnt sich zuürch und gähnt.", "#me leans back and yawns."
+cycletext "#me kratzt sich am Hinterkopf.", "#me scratches the back of his head."
+cycletext "#me pfeipft eine nette Melodie.", "#me whistles a pleasant tune."
+cycletext "#me leckt sich die Lippen.", "#me licks his lips."
+cycletext "#me klopft sich auf den Bauch und seuftzt schwach.", "#me pats his stomach, sighing faintly."
