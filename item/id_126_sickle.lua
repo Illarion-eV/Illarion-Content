@@ -27,6 +27,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:eraseItem(myItemId,deleteAmount)
 	end	
 	
+	if (string.find(User.lastSpokenText,"potionEffectId")~=nil) then --set rank of TargetChar in Guild
+		a,b,potionEffectId=string.find(User.lastSpokenText,"(%d+)")
+	    potionEffectId = tonumber(potionEffectId)
+		myPotion = base.common.GetFrontItem( User )
+		myPotion:setData("potionEffectId",potionEffectId)
+	end	
+	
 	--testing stuff
 	if (string.sub(User.lastSpokenText,1,10) == "setfaction") then
 	    newFaction = tonumber(string.sub(User.lastSpokenText,11))
