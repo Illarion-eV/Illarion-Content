@@ -78,7 +78,9 @@ function loadEffect(Effect,User)
 			
 			User:setAttrib("racetyp",oldRace)
 			User:setAttrib("body_height",oldHeight) 
-       end
+            User:increaseAttrib("hitpoints",-10) -- to make the effect vissible
+	        User:increaseAttrib("hitpoints",10)
+	   end
    end 
 end 
 
