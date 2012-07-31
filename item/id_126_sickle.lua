@@ -30,8 +30,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if base.common.GetFrontItemID(User) == 15 then
 		newRace = tonumber(User.lastSpokenText)
 		User:setAttrib("racetype",newRace)
-		User:inceraseAttrib("hitpoints",-10)
-	    User:inceraseAttrib("hitpoints",10)
+		User:increaseAttrib("hitpoints",-10)
+	    User:increaseAttrib("hitpoints",10)
 	end	
 	
 	if string.sub(User.lastSpokenText,1,14)=="potionEffectId" then
