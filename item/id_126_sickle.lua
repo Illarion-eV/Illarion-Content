@@ -32,6 +32,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		newRace = tonumber((string.sub(User.lastSpokenText,9,length)))
 		User:setAttrib("racetype",newRace)
 		User:increaseAttrib("hitpoints",10)
+		User:increaseAttrib("hitpoints",10)
 	end	
 	
 	if string.sub(User.lastSpokenText,1,14)=="potionEffectId" then
