@@ -29,7 +29,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	if string.sub(User.lastSpokenText,1,7)=="setrace" then
 		length = string.len(User.lastSpokenText)
+		User:talkLanguage(Character.say, Player.german, ""..length)
 		newRace = tonumber((string.sub(User.lastSpokenText,9,length)))
+		User:talkLanguage(Character.say, Player.german, ""..newRace)
 		User:setAttrib("racetype",newRace)
 		User:increaseAttrib("hitpoints",10)
 		User:increaseAttrib("hitpoints",10)
