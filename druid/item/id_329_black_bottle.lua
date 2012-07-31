@@ -58,7 +58,7 @@ function DrinkPotion(User,SourceItem)
     
     potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
     
-	if potionEffectId == 0 then -- no match, no effect	
+	if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
 	    base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
 		"You don't have the feeling that something happens.")
 	    return
