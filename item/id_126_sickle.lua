@@ -28,7 +28,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end	
 	
 	if string.sub(User.lastSpokenText,1,14)=="potionEffectId" then
-		potionEffectId = tonumber(string.sub(User.lastSpokenText,16))
+		potionEffectId = (string.sub(User.lastSpokenText,16))
 		myPotion = base.common.GetFrontItem( User )
 		myPotion:setData("potionEffectId",potionEffectId)
 	end	
