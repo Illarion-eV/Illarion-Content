@@ -27,6 +27,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:eraseItem(myItemId,deleteAmount)
 	end	
 	
+	if string.sub(User.lastSpokenText,1,14)=="potionEffectId" then
+		length = string.len(User.lastSpokenText)
+		potionEffectId = (string.sub(User.lastSpokenText,16,length))
+		myPotion = base.common.GetFrontItem( User )
+		myPotion:setData("potionEffectId",potionEffectId)
+	    world:changeItem(myPotion)
+	end	
+	
 	--testing stuff
 	if (string.sub(User.lastSpokenText,1,10) == "setfaction") then
 	    newFaction = tonumber(string.sub(User.lastSpokenText,11))
