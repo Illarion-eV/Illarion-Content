@@ -27,6 +27,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:eraseItem(myItemId,deleteAmount)
 	end	
 	
+	if string.sub(User.lastSpokenText,1,7)=="setrace" then
+		length = string.len(User.lastSpokenText)
+		newRace = tonumber((string.sub(User.lastSpokenText,9,length)))
+		User:setAttrib("racetype",newRace)
+	end	
+	
 	if string.sub(User.lastSpokenText,1,14)=="potionEffectId" then
 		length = string.len(User.lastSpokenText)
 		potionEffectId = (string.sub(User.lastSpokenText,16,length))
