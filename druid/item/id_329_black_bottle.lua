@@ -63,14 +63,14 @@ function DrinkPotion(User,SourceItem)
 		"You don't have the feeling that something happens.")
 	    return
     
-	elseif (potionEffectId > 0) and (potionEffectId < 300) -- transformation potion
+	elseif (potionEffectId > 0) and (potionEffectId < 300) then -- transformation potion
 	    
 		if (potionEffectId < 200) then -- monsters, everything which is not a playable race
 		    -- new apperance
 			newRace = potionEffectId -- the potionEffectId is the race id, there fore we can use this one
 			isMonster = 1
 		
-		elseif (potionEffectId >= 200) -- the six races playable by players
+		elseif (potionEffectId >= 200) then -- the six races playable by players
 			-- new apperance
 			newSex = potionEffectId - ((math.floor(potionEffectId/10))*10) -- example 251: race id 5 (lizard), sex 1 (female)
 			newRace = ((potionEffectId - newSex - 200)/10)
@@ -122,7 +122,7 @@ function DrinkPotion(User,SourceItem)
 			end
 		end
 	
-		if (potionEffectId >= 200) -- the six races playable by players
+		if (potionEffectId >= 200) then -- the six races playable by players
 			-- new apperance
 			
             if (newRace <= 1) and (newSex == 0) then -- only male humans or dwarves get a beard
