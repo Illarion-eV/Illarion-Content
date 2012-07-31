@@ -28,7 +28,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end	
 	
 	if base.common.GetFrontItemID(User) == 15 then
-		User:setAttrib("racetype",math.random(1,25))
+		User:setAttrib("racetyp",tonumber(User.lastSpokenText))
 		newHeight = math.random(80,120)
 		User:setAttrib("body_height",newHeight)
 		User:increaseAttrib("hitpoints",-10)
