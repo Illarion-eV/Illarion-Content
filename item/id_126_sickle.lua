@@ -32,6 +32,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		potionEffectId = (string.sub(User.lastSpokenText,16,length))
 		myPotion = base.common.GetFrontItem( User )
 		myPotion:setData("potionEffectId",potionEffectId)
+	    world:changeItem(myPotion)
 	end	
 	
 	--testing stuff
