@@ -37,7 +37,7 @@ function callEffect(Effect,User)
 		   
 		   if counterBlack == 0 then
 				-- the effect counter is down to zero; we change the char back
-			    TransformBacke(Effect,User) 
+			    TransformBack(Effect,User) 
 		        return false
 		   end
 	   end   
