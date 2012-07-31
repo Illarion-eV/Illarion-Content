@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Magdha Tiefenerz                                                 --
 --                                                                            --
--- Last parsing: June 02, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 30, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Nana Winterbutter"
@@ -218,8 +218,8 @@ itemShoes = 53
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "cook" -> "Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe."
 "Koch", "Köchin" -> "Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren."
-"Yewdale" -> "Yewdale is a peaceful place."
-"Eibenthal", "Eibental" -> "Eibenthal ist ein friedlicher Ort."
+"Yewdale" -> "Yewdale is a peaceful place. Not too many yews grow here, but it is a lovely name, isn't it?"
+"Eibenthal", "Eibental" -> "Eibenthal ist ein friedlicher Ort. Hier wachsen zwar nicht viele Eiben, aber der Name ist doch wunderschön, oder?"
 "grain" -> "Grain can be used as seed or you can grind it to flour. Put the grain on fertile land and the crop will grow."
 "Getreide", "Korn", "Körner" -> "Getreidekörner können als Saatgut verwendet werden oder man zermahlt sie zu Mehl. Gib die Saat auf fruchtbares Land und das Getreide wird wachsen."
 "tomato" -> "You can put tomato seeds into fertile soil. Be sure to fasten the growing plants to poles so that it grows straight up."
