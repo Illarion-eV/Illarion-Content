@@ -25,11 +25,11 @@ autointroduce = on
 
 author = "Grokk"
 
-lookatDE = "Dieser NPC ist <Name> der <Beruf/Funktion>."
+lookatDE = "Dieser NPC ist Natiana die Frau des Bauern."
 lookatUS = "This NPC is Natiana Banius the Farmer's Wife."
-useMsgDE = "Fasst mich nicht an!"
+useMsgDE = "#me zittert, 'k...ko...komm mir n...nicht z..z..zu nahe.'"
 useMsgUS = "#me shivers, 'D...d...don't...get...t...too...close.'"
-wrongLangDE = "#me schaut verwirrt."
+wrongLangDE = "#me schüttelt schwach ihren Kopf."
 wrongLangUS = "#me weakly shakes her head."
 radius = 0
 hairID = 1
@@ -66,41 +66,41 @@ itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Natiana Banius the farmer's wife. Keyphrases: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Natiana Banius die Frau des Bauern. Schlüsselwörter: Auftrag")
 
--- General speech
+-- General speech.
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me struggles to open her eyes, looking up at you.", "#me smiles weakly.", "H...h...hello."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me bemüht sich ihre Augen zu öffnen um dich anzusehen.", "#me lächelt schwach.", "H...h...hallo."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "#me struggles to open her eyes, looking up at you.", "#me smiles weakly.", "H...h...hello."
-"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb" -> "#me bemüht sich ihre Augen zu öffnen um dich anzusehen.", "#me lächelt schwach.", "H...h...hallo."
 "Farewell", "Bye", "Fare well", "See you" -> "T...t...take...care.", "#me lightly taps your hand in acknowledgment.", "#me slightly inclines her head."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "P...passt auf E...Euch auf.", "#me drückt sanft deine Hand zur Bestätigung.", "#me neigt leicht ihren Kopf."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "T...t...take...care.", "#me lightly taps your hand in acknowledgment.", "#me slightly inclines her head."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "P...passt auf E...Euch auf.", "#me drückt sanft deine Hand zur Bestätigung.", "#me neigt leicht ihren Kopf."
 "How are you", "How feel", "How do you do" -> "I am...v...very...sick.", "T...the...medico does...doesn't know what...i...is wrong...with me.", "#me coughs into a handkerchief, stained red."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich...ich bin...s...sehr krank.", "D...der...Heiler, w...weiß nicht, was mit mir n...nicht stimmt.", "#me hustet in ein blutbeflecktes Taschentuch."
 "your name", "who are you", "who art thou" -> "I am...N...Natiana.", "M...m...my name...is Natiana...Banius.", "N...Natiana Banius. I...I am...the wife...o...of Rowan."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "I...Ich bin...Natiana...Banius.", "N...Natiana Banius. I...Ich... bin...Rowans...F...Frau."
 
 -- The Farmer's Wife quest incomplete
 "quest", "mission", queststatus(322) < 11, english -> "P...please...help my husband."
-"quest", "mission", queststatus(322) < 11 -> "GERMAN."
+"quest", "mission", queststatus(322) < 11 -> "B...bitte...helft meinem Mann."
 "task", "adventure", queststatus(322) < 11 -> "M...my...husband."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) < 11 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) < 11 -> "M..Mein...Mann."
 
 -- The Farmer's Wife quest completed
 ".+", queststatus(1337) = 11, english -> "#me forces a smile, 'Thank you.'"
-".+", queststatus(1337) = 11 -> "GERMAN."
+".+", queststatus(1337) = 11 -> "#me ringt sich ein Lächeln ab,'Habt Dank'."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"beruf" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "job", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Gobaith", "Gobiath", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "my name" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"mein Name" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
@@ -122,80 +122,79 @@ itemShoes = 53
 
 -- Main land factions
 "albar", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"albar" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "gynk", "gync", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gync", "gynk" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "salkama", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama" ->"Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gott", "Götter" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "B...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Adron", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Bragon", "Brágon", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Cherga", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Elara", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Eldan", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
 "Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Findari", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Irmorom", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Malachin", "Malachín", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Moshran", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Nargun", "Nargún", "Nargùn", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Oldra", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Ronagan", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Sirani", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Tanora", "Zelphia", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Ushara", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Zhambra", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Aurora", english -> "#me forces a weak smile at the mention of the name."
-"Aurora" -> "German"
+"Aurora" -> "#me ringt sich ein schwaches Lächen ab, als sie den Namen hört."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "tell something" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"erzähl was", "erzähl etwas" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Natiana", "Banius", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Natiana","Banius", -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Yes" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ja" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "No" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nein" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 ".*", english, chance(20) -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
-".*", german, chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+".*", german, chance(20) -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.","Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.","Rowan...b...braucht...E...Eure Hilfe.", "#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "#me smiles weakly."
-cycletext "GERMAN.", "#me coughs into a stained-red handkerchief."
-cycletext "GERMAN.", "#me glances to her husband, a warm expression appearing upon her face."
-cycletext "GERMAN.", "#me closes her eyes, drifting into a fitful sleep."
-cycletext "GERMAN.", "#me sighs faintly."
-cycletext "GERMAN.", "#me smiles at her husband."
-cycletext "GERMAN.", "#me's eyes flicker a few times, before falling shut."
-cycletext "GERMAN.", "#me turns her head slightly."
-cycletext "GERMAN.", "#me nods weakly."
-cycletext "GERMAN.", "#me lets out a sharp cough, wincing in pain."
+cycletext "#me lächelt schwach.", "#me smiles weakly."
+cycletext "#me hustet in ein blutgetränktes Taschentuch.", "#me coughs into a stained-red handkerchief."
+cycletext "#me blickt mit frendlicher Mine zu ihrem Mann.","#me glaces at her husband a warm expression on her face."
+cycletext "#me schließt ihre Augen, und dämmert weg in unruhigen Schlaf.", "#me closes her eyes, drifting into a fitful sleep."
+cycletext "#me seuftz schwach.", "#me sighs faintly."
+cycletext "#me lächelt ihrem Mann zu.", "#me smiles at her husband."
+cycletext "#me's Augenlieder flackern ein paar mal, dann schläft sie.", "#me's eyes flicker a few times, before falling shut."
+cycletext "#me wendet ihren leicht.", "#me turns her head slightly."
+cycletext "#me nickt schwach.", "#me nods weakly."
+cycletext "#me hustet keuchend und zuckt vor Schmerz krampfhaft zusammen.", "#me lets out a sharp cough, wincing in pain."

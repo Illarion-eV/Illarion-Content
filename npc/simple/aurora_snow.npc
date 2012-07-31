@@ -25,11 +25,11 @@ autointroduce = on
 
 author = "Grokk"
 
-lookatDE = "Dieser NPC ist <Name> der <Beruf/Funktion>."
+lookatDE = "Dieser NPC ist Aurora Snow die Druidin."
 lookatUS = "This NPC is Aurora Snow the druid."
-useMsgDE = "Fasst mich nicht an!"
+useMsgDE = "Körperliche Genzen sind ein Konstukt der Gesellschaft."
 useMsgUS = "Physical boundaries are a construct of society."
-wrongLangDE = "#me schaut verwirrt."
+wrongLangDE = "#me schließt ihre Augen, nickt langsam. 'Wir verständigen uns auf wesentlich tieferen Ebenen als nur durch Laute oder Worte."
 wrongLangUS = "#me closes her eyes, nodding slowly, 'We communicate at levels far deeper than mere sounds and words.'"
 radius = 0
 hairID = 1
@@ -65,129 +65,128 @@ itemShoes = 0
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Aurora Snow the druid. Keyphrases: quest, Ushara, profession, gods, Aurora.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Aurora Show die Druidin. Schlüsselwörter: Auftrag, Ushara, Beruf, Götter, Aurora.")
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", sex = male -> "Greetings, my brother.", "Welcome, brother.", "Ah, yes. I was expecting you, my brother."
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", sex = female -> "Greetings, my sister.", "Welcome, sister.", "Ah, yes. I was expecting you, my sister."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", sex = male -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", sex = female -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", sex = male -> "Seid gegrüßt, mein Bruder.", "Willkommen, Bruder.", "Ah ja. Ich habe Euch erwartet mein Bruder."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", sex = female ->  "Seid gegrüßt, meine Schwester.", "Willkommen, Schwester.", "Ah ja. Ich habe Euch erwartet meine Schwester."
 "Hiho", "Hallo", "Hey", "Greeb", english, sex = male -> "Greetings, my brother.", "Welcome, brother.", "Ah, yes. I was expecting you, my brother."
 "Hiho", "Hallo", "Hey", "Greeb", english, sex = female -> "Greetings, my sister.", "Welcome, sister.", "Ah, yes. I was expecting you, my sister."
-"Hiho", "Hallo", "Hey", "Greeb", sex = male -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greeb", sex = female -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb", sex = male -> "Seid gegrüßt, mein Bruder.", "Willkommen, Bruder.", "Ah ja. Ich habe Euch erwatet mein Bruder."
+"Hiho", "Hallo", "Hey", "Greeb", sex = female -> "Seid gegrüßt, meine Schwester.", "Willkommen, Schwester.", "Ah ja. Ich habe Euch erwatet meine Schwester."
 "Farewell", "Bye", "Fare well", "See you", sex = male -> "May the Five watch over you.", "May Ushara guide you along your path, my brother.", "The Five with you, brother."
 "Farewell", "Bye", "Fare well", "See you", sex = female -> "May the Five watch over you.", "May Ushara guide you along your path, my sister.", "The Five with you, sister."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", sex = male -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", sex = female -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", sex = male -> "Mögen die Fünf über euch wachen.", "Möge Ushara dich auf deinem Pfad leiten, mein Bruder.", "Mögen die Fünf mit dir sein, Bruder."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", sex = female -> "Mögen die Fünf über euch wachen.", "Möge Ushara dich auf deinem Pfad leiten, meine Schwester.", "Mögen die Fünf mit dir sein, Schwester."
 "Ciao", "Adieu", "Au revoir", "Farebba", english, sex = male -> "May the Five watch over you.", "May Ushara guide you along your path, my brother.", "The Five with you, brother."
 "Ciao", "Adieu", "Au revoir", "Farebba", english, sex = female -> "May the Five watch over you.", "May Ushara guide you along your path, my sister.", "The Five with you, sister."
 "How are you", "How feel", "How do you do" -> "I am at peace.", "I am everywhere, and everything, yet nowhere, and nothing.", "The Five watch over me."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich bin mit mir im reinen und habe meinen Frieden gefunden.", "Ich bin überall, und alles, doch bin ich nirgendwo und nichts.", "Die Fünf wachen über mich."
 "your name", "who are you", "who art thou" -> "I am Aurora Snow, a priest of nature.", "My name is Aurora Snow.", "Aurora Snow. I am a druid."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Aurora Snow, eine Priesterin der Natur.", "Ich bin Aurora Snow.", "Aurora Snow. Ich bin eine Druidin."
 
 -- 1st quest: Bring 5 entrails and 10 black thistles (The Farmer's Wife 4th quest)
 
 -- Give out quest 1
 ".+", queststatus(322) = 5, english -> inform("[New quest] The Farmer's Wife: Part IV"), "Natiana appears to have the symptoms of corrupted blood. The illness is highly infectious and has been the cause of at least one known pandemic. Fortunately, I am aware of a potion to cure it. Will you help me gather the ingredients?", queststatus(322) = 6
-".+", queststatus(322) = 5 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(322) = 6
+".+", queststatus(322) = 5 -> inform("[Neues Quest] Die Geistereiche I"),"Natiana zeigt Symtome von schlechtem Blut. Die Krankheit ist hochansteckend und war die Ursache für mindestens eine  uns bekannte Pandemie. Glücklicherweise, kenne ich einen Trank um sie zu heilen. Werdet Ihr mir helfen die Zutaten zu sammeln?", queststatus(322) = 6
 
 -- Quest 1 taken, information
 ".+", queststatus(322) = 6, english -> "Well, if you wish to help Miss Banius, then I shall need you to bring me the entrails of five wild animals and ten black thistles. I shall get to work preparing the potion.", queststatus(1337) = 7
-".+", queststatus(322) = 6 -> "GERMAN", queststatus(1337) = 7
+".+", queststatus(322) = 6 -> "Nun, da Ihr wünscht Frau Banius zu helfen, bitte ich Euch mir Eingeweide wilder Tiere zu bringen, ebenso wie 10 schwarze Disteln. Ich werde  mich an die Arbeit begeben und den Trank zubereiten", queststatus(1337) = 7
 
 -- Quest 1 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(322) = 7, item(141, all) < 10, english -> "You must find those ten black thistles, Miss Banius may not have much time left."
 "quest", "mission", queststatus(322) = 7, item(141, all) < 10 -> "GERMAN."
 "task", "adventure", queststatus(322) = 7, item(141, all) < 10 -> "You must bring me those ten black thistles, Miss Banius may not have much time left."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 7, item(141, all) < 10 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 7, item(141, all) < 10 -> "Ihr müsst mir die besagten 10 schwarzen Disteln finden, Frau Banius scheint nicht mehr all zu viel Zeit zu bleiben."
 "quest", "mission", queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5, english -> "You have ten black thistles, but we still need five entrails also. Hurry, Miss Banius may not have much time left."
-"quest", "mission", queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5 -> "GERMAN."
+"quest", "mission", queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5 -> "Ihr habt 10 schwarze Disteln, aber wir benötigen noch fünf Eingeweide. Um Frau Willen, so beeilt euch!"
 "task", "adventure", queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5 -> "You have ten black thistles, but we still need five entrails also. Hurry, Miss Banius may not have much time left."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5 -> "Ihr habt 10 schwarze Disteln, aber wir benötigen noch fünf Eingeweide. Um Frau Willen, so beeilt euch!."
 
 -- Quest 1 solved, reward: 80cp
 ".+", queststatus(322) = 7, item(141, all) > 9, item(63, all) > 4, english -> inform("[Quest solved] You are awarded 100 copper coins."), "Yes, these shall suffice. Well done. Hmm...perhaps you shall find more use for these coins than I am able.", money + 100, deleteItem(141, 10), deleteItem(63, 5), queststatus(322) = 8
-".+", queststatus(322) = 7, item(141, all) > 9, item(63, all) > 4 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "GERMAN.", money + 100, deleteItem(141, 10), deleteItem(63, 5), queststatus(322) = 8
+".+", queststatus(322) = 7, item(141, all) > 9, item(63, all) > 4 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Ja, dies sollte reichen. Gut gemacht. Hmm... vielleicht habt Ihr für diese Münzen eine bessere Verwendung als ich.", money + 100, deleteItem(141, 10), deleteItem(63, 5), queststatus(322) = 8
 
 -- 2nd quest: Bring 10 RESOURCES
 
 -- Give out quest 2
 "quest", "mission", queststatus(322) = 8, english -> inform("[New quest] The Farmer's Wife: Part V"), "#me gasps lightly as she fumbles with a glass bottle. Time almost seems to slow as it falls from her grip, shattering against the solid floor, 'Oh, dear. That was my last bottle. I shall need one small empty bottle so that you can transport the potion.'", queststatus(322) = 9
-"quest", "mission", queststatus(322) = 8 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(322) = 9
+"quest", "mission", queststatus(322) = 8 -> inform("[Neues Quest] Die Geistereiche II"), "#me atmet auf, während sie mit einer Glasflasche hantiert. Die Zeit scheint still zu stehen, als ihr die Flasche aus den Händen fällt und auf dem Fußboden zerbirst. 'Oh jeh. Das was meine letzte Flasche. Ich benötige eine kleine leere Flasche, damit Ihr den Trank transportieren könnt.'", queststatus(322) = 9
 "task", "adventure", queststatus(322) = 8 -> inform("[New quest] The Farmer's Wife: Part V"), "#me gasps lightly as she fumbles with a glass bottle. Time almost seems to slow as it falls from her grip, shattering against the solid floor, 'Oh, dear. That was my last bottle. I shall need one small empty bottle so that you can transport the potion.'", queststatus(322) = 9
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 8 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(322) = 9
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 8 -> inform("[Neues Quest] Die Geistereiche II"), "#me atmet auf, während sie mit einer Glasflasche hantiert. Die Zeit scheint still zu stehen, als ihr die Flasche aus den Händen fällt und auf dem Fußboden zerschellt/zerbirst. 'Oh jeh. Das was meine letzte Flasche. Ich benötige eine kleine leere Flasche, damit Ihr den Trank transportieren könnt.'", queststatus(322) = 9
 
 -- Quest 2 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(322) = 9, item(1317, all) = 0, english -> "I need that small empty bottle urgently. Natiana's life depends upon it."
-"quest", "mission", queststatus(322) = 9, item(1317, all) = 0 -> "GERMAN."
+"quest", "mission", queststatus(322) = 9, item(1317, all) = 0 -> "Ich benötige eine kleine leere Flasche. Natianas Leben hängt davon ab."
 "task", "adventure", queststatus(322) = 9, item(1317, all) = 0 -> "I need that empty bottle urgently. Natiana's life depends upon it."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 9, item(1317, all) = 0 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 9, item(1317, all) = 0 -> "Ich brauche unbedingt eine kleine leere Flasche. Natianas Leben hängt davon ab."
 
 -- Quest 2 solved, reward: 20cp, small healing potion
 ".+", queststatus(322) = 9, item(1317, all) > 0, english -> inform("[Quest solved] You have received Natiana's medicine and 20 coppers."), "Wonderful. Now just let me mix that a little...fill that up for you...and there we are. Hand this to Mister Banius. You must hurry though, Natiana cannot have much longer.", money + 20, deleteItem(1317, 1), item(2499, 1, 599, 0), queststatus(322) = 10
-".+", queststatus(322) = 9, item(1317, all) > 0 -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und ein ITEM."), "GERMAN.", money + 20, deleteItem(1317, 1), item(2499, 1, 599, 0), queststatus(322) = 10
+".+", queststatus(322) = 9, item(1317, all) > 0 -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und Natianas Medizin."), "Wunderbar. Jetzt lasst mich das ein wenig mischen, … nun  einwenig davon abfüllen …. und da hätten wir es! Gebt das Herrn Banius. Ihr musst euch jedoch beeilen, Natiana hat nicht mehr viel Zeit.", money + 20, deleteItem(1317, 1), item(2499, 1, 599, 0), queststatus(322) = 10
 
 -- 3rd quest: Aurora's Staff
 
 -- Give out quest 3
 "quest", "mission", queststatus(322) = 11, queststatus(333) = 0, english -> inform("[New quest] Aurora's Staff: Part I"), "Natiana is slowly recovering, thanks to your efforts. I could use your help again, actually. I've left my staff in the possession of my apprentice, Madeline Clarbelis. If you could go to Runewick, collect and return it, I would be most grateful.", queststatus(333) = 2
-"quest", "mission", queststatus(322) = 11, queststatus(333) = 0 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(333) = 2
+"quest", "mission", queststatus(322) = 11, queststatus(333) = 0 -> inform("[Neues Quest] Die Geistereiche III"),"Natiana ist dank Euch auf dem Wege der Besserung. Ich könnte jedoch erneut Eure Hilfe gebrauchen. Ich habe meinen Stab unter der Obhut meiner Schülerin Madeline Clarbelis gelassen. Wenn Ihr nach Runewick gehen und mir meinen Stab bringen könntet, wäre ich Euch ausgesprochen dankbar.", queststatus(333) = 2
 "task", "adventure", queststatus(322) = 11, queststatus(333) = 0 -> inform("[New quest] Aurora's Staff: Part I"), "Natiana is slowly recovering, thanks to your efforts. I could use your help again, actually. I've left my staff in the possession of my apprentice, Madeline Clarbelis. If you could go to Runewick, collect and return it, I would be most grateful.", queststatus(333) = 2
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 11, queststatus(333) = 0 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(333) = 2
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 11, queststatus(333) = 0 -> inform("[Neues Quest] Die Geistereiche III"), "Natiana ist dank Euch auf dem Wege der Besserung. Ich könnte jedoch erneut Eure Hilfe gebrauchen.Ich habe meinen Stab unter der Obhut meiner Schülerin Madeline Clarbelis gelassen.Wenn Ihr nach Runewick gehen könntet und mir meinen Stab bringen könntet, wäre ich Euch ausgesprochen dankbar.", queststatus(333) = 2
 "staff", english -> "My staff is of little monetary worth, though it holds a great deal of spiritual and sentimental value to me."
-"German" -> "German"
+"Stab" -> "Mein Stab ist von wenig finanziellem Wert, dennoch bedeutet er mir eine Menge. Er beherbergt viele meiner Erinnerungen und Kräfte."
 
 -- Quest 3 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(333) = 2, english -> "If you are able to retrieve my staff from my apprentice, Madeline Clarbelis, in Runewick, then I shall see to it that you are suitably rewarded."
-"quest", "mission", queststatus(333) = 2 -> "GERMAN."
+"quest", "mission", queststatus(333) = 2 -> "Wenn es Euch gelingt meinen Stab von meiner Schülerin Madeline Clarbelis in Runewick zurück zu erhalten, so will ich dafür Sorge tragen, dass Ihr angemessen belohnt werdet."
 "task", "adventure", queststatus(333) = 2 -> "If you are able to retrieve my staff from my apprentice, Madeline Clarbelis, in Runewick, then I shall see to it that you are suitably rewarded."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(333) = 2 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(333) = 2 -> "Wenn es Euch gelingt meinen Stab von meiner Schülerin Madeline Clarbelis in Runewick zurück zu erhalten, so will ich dafür Sorge tragen, dass Ihr angemessen belohnt werdet."
 
 -- Quest 3 updated
 ".+", queststatus(333) = 3, english -> inform("[Quest completed] You have received 50 coppers."), "Ahh, thank y...wait. This is not my staff. I look forward to hearing the explanation behind this one. That apprentice of mine is nothing but trouble. Well, I do not have my staff, but take this for your troubles.", money + 50, queststatus(333) = 4
-".+", queststatus(333) = 3 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke"), "GERMAN.", money + 50, queststatus(333) = 4
+".+", queststatus(333) = 3 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke"), "Ahh, ich Danke Eu... Moment. Dies ist nicht mein Stab. Ich bin da aber mal auf die Erklärung gespannt, was hinter dieser Sache steckt. Meine Schülerin macht nichts als Ärger. Nun, Ich habe zwar meinen Stab nicht wieder, aber nehmt dies als Entschädigung für eure Mühe.", money + 50, queststatus(333) = 4
 
 -- Give out quest 4
 "quest", "mission", "staff", queststatus(333) = 4, english -> inform("[New Quest] Aurora's Staff: Part II"), "If you are looking for a job, I still require someone to recover my staff. Seek to my apprentice again, and return with my staff. My actual staff.", queststatus(333) = 5
-"quest", "mission", queststatus(333) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(333) = 5
+"quest", "mission", queststatus(333) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "Wenn Ihr einen Auftrag wünscht, Ich bräuchte noch immer jemanden, der mir meinen Stab wiederbringt. Sucht erneut meine Schülerin auf und kehrt mit meinem Stab zurück. Meinem richtigen Stab.", queststatus(333) = 5
 "task", "adventure", queststatus(333) = 4 -> inform("[New Quest] Aurora's Staff: Part II"), "If you are looking for a job, I still require someone to recover my staff. Seek to my apprentice again, and return with my staff. My actual staff.", queststatus(333) = 5
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(333) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(333) = 5
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(333) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "Wenn Ihr einen Auftrag wünscht, Ich bräuchte noch immer jemanden, der mir meinen Stab wiederbringt. Sucht erneut meine Schülerin auf und kehrt mit meinem Stab zurück. Meinem richtigen Stab.", queststatus(333) = 5
 
 -- Update quest 4
 "quest", "mission", queststatus(333) = 8, english -> inform("[Quest update] Aurora's Staff: Part II"), "How is the recovery of my staff going? You desire my ring? Hmm...I do not see why not. It is of little value to me. Here, take it.", item(281, 1, 499, 0), queststatus(333) = 9
-"quest", "mission", queststatus(333) = 8 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", item(281, 1, 499, 0), queststatus(333) = 9
+"quest", "mission", queststatus(333) = 8 -> inform("[Neues Quest] Die Geistereiche III"), "Wie sieht es mit der Wiederbeschaffung meines Stabes aus? Ihr benötigt meinen Ring. Hmm... Ich sehe keinen Grund ihn Euch nicht zu geben. Hier, nehmt.", item(281, 1, 499, 0), queststatus(333) = 9
 "task", "adventure", "staff", "dagger", "ring", queststatus(13372) = 8 -> inform("[Quest update] Aurora's Staff: Part II"), "How is the recovery of my staff going? You desire my ring? Hmm...I do not see why not. It is of little value to me. Here, take it.", item(281, 1, 499, 0), queststatus(333) = 9
-"Auftrag", "Aufgabe", "Abenteuer", "german", "german", "german", queststatus(13372) = 8 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", item(281, 1, 499, 0), queststatus(333) = 9
+"Auftrag", "Aufgabe", "Abenteuer", "Dolch", "Ring", "Stabh", queststatus(13372) = 8 -> inform("[Neues Quest] Die Geistereiche III"), "Wie sieht es mit der Wiederbeschaffung meines Stabes aus? Ihr benötigt meinen Ring. Hmm... Ich sehe keinen Grund ihn Euch nicht zu geben. Hier, nehmt.", item(281, 1, 499, 0), queststatus(333) = 9
 
 -- Quest 4 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(333) > 3, queststatus(333) < 11, english -> "Find out what happened to my staff, and bring it back to me. My apprentice, Madeline Clarbelis, is in Runewick. She should know what happened to it."
-"quest", "mission", queststatus(333) > 3, queststatus(333) < 11 -> "GERMAN."
+"quest", "mission", queststatus(333) > 3, queststatus(333) < 11 -> "Finde heraus was mit meinem Stab passiert, und bring ihn mir zurück. Meine Schülerin Madeline Clarbelis, ist in Runewick. Sie sollte wissen was mit meinem Stab geschehen ist."
 "task", "adventure", queststatus(333) > 3, queststatus(333) < 11 -> "Find out what happened to my staff, and bring it back to me. My apprentice, Madeline Clarbelis, is in Runewick. She should know what happened to it."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(333) > 3, queststatus(333) < 11 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(333) > 3, queststatus(333) < 11 -> "Finde heraus was mit meinem Stab passiert, und bring ihn mir zurück. Meine Schülerin Madeline Clarbelis, ist in Runewick. Sie sollte wissen was mit meinem Stab geschehen ist."
 
 -- Quest 4 solved, reward: 500cp, magical serinjah-sword
 ".+", queststatus(333) = 11, item(209, all) > 0, english -> inform("[Quest solved] You have received a magical serinjah-sword and 200 coppers."), "Ahh... my staff! Thank you, my friend. I'll save you the effort of explaining to me what sort of trouble my apprentice got into. Here is the reward, as promised.", money + 200, deleteItem(209, 1), item(2693, 1, 599, 0), queststatus(333) = 12
-".+", queststatus(333) = 11, item(209, all) > 0 -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und ein ITEM."), "GERMAN.", money + 200, deleteItem(209, 1), item(2693, 1, 599, 0), queststatus(333) = 12
+".+", queststatus(333) = 11, item(209, all) > 0 -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und ein magisches Serinjah-Schwert."), "Ahh...mein Stab! Ich danke euch, mein Freund. Ich erlasse Euch die Mühe mir zu erklären in welche Schwierigkeiten sind meine Schülerin gebracht hat.Hier ist Eure Belohnung, wie versprochen.", money + 200, deleteItem(209, 1), item(2693, 1, 599, 0), queststatus(333) = 12
 
 -- No more quests, just nice words of gratitude
 "quest", "mission", queststatus(333) = 12, english -> "Thank you for all of your help, my friend. You have truly earned my respect."
-"quest", "mission", queststatus(333) = 12 -> "GERMAN."
+"quest", "mission", queststatus(333) = 12 -> "Danke für all deine Hilfe mein Freund. Du hast dir meinen Respekt wirklich verdient."
 "task", "adventure", queststatus(333) = 12 -> "Thank you for all of your help, my friend. You have truly earned my respect."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(13372) = 12 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(13372) = 12 -> "Danke für all deine Hilfe mein Freund. Du hast dir meinen Respekt wirklich verdient."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a priest of nature.", "I am a druid.", "I am a child of Ushara."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"beruf" -> "Ich bin eine Priesterin der Natur.", "Ich bin eine Druidin.", "Ich bin ein Kind Usharas."
 "job", english -> "I am a priest of nature.", "I am a druid.", "I am a child of Ushara."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job" -> "Ich bin eine Priesterin der Natur.", "Ich bin eine Druidin.", "Ich bin ein Kind Usharas."
 "Gobaith", "Gobiath", english -> "That island often slipped into unbalance. My fellow druids were tasked with putting it right. They were unsuccessful, I fear.", "Like many things, Gobaith was beautiful upon appearances, but filled with hate and darkness upon closer inspection.", "My kind, druids, were common upon that island."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath" ->  "Diese Insel stürzte oft ins Ungleichgewicht. Meine Mitstreiter unter den Druiden waren beaufragt das Gleichgewicht wieder herzustellen. Sie waren nicht sehr erfolgreich, fürchte ich.", "Wie viele Dinge war Gobaith auf den ersten Blick sehr schön, jedoch voll von Hass und Dunkelheit, wenn man  genauer hinschaute.","Druidnen, wie ich einer bin, waren weit verbeitet auf dieser Insel."
 "my name" -> "It is a true honour to meet you.", "Ah, yes. I see it now.", "I am most pleased to have met you."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"mein Name" -> "Es ist für wahr eine Ehre Euch zu treffen.", "Ah jah, jetzt verstehe ich.", "Ich bin hoch erfeut Euch getroffen zu haben."
 "apprentice" -> "Madeline Clarbelis is my apprentice...she is talented, though impatient."
-"german" -> "german"
+"german" -> "Madeline Clarbelis ist meine Schülerin... sie ist begabt, aber ungeduldig."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Elvaine is a intelligent being.", "I have seen few more powerful beings than the Archmage.", "Elvaine, the Archmage, is the ruler of Runewick."
@@ -209,82 +208,82 @@ itemShoes = 0
 
 -- Main land factions
 "albar", english -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"albar" ->  "Hört, lasst uns nicht über solch unwichtige Dinge sprechen.", "Das ist kaum ein Ort, nichts von Wichtigkeit.", "Ich würde meinen Atem nicht verschwenden um über ein solches Thema zu sprechen."
 "gynk", "gync", english -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gync", "gynk" -> "Hört, lasst uns nicht über solch unwichtige Dinge sprechen.", "Das ist kaum ein Ort, nichts von Wichtigkeit.", "Ich würde meinen Atem nicht verschwenden um über ein solches Thema zu sprechen."
 "salkama", english -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama" -> "Hört, lasst uns nicht über solch unwichtige Dinge sprechen.", "Das ist kaum ein Ort, nichts von Wichtigkeit.", "Ich würde meinen Atem nicht verschwenden um über ein solches Thema zu sprechen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "The Elder Gods created all that ever was, and all that ever will be, upon Illarion.", "I worship all five of the Elder Gods, though Ushara is of most importance to me.", "The Elder Gods control the five elements. These elements are the very roots of existence."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gott", "Götter" -> "Die alte Götter erschufen alles was je jemals gab und alles was jemals sein wird in Illarion.", "Ich bete zu allen der Fünf alten Götter, wobei ich jedoch Ushara am nächsten stehe.", "Die alten Götter herrschen über die Fünf Elemente. Diese sind die Wurzel jeglicher Existenz."
 "Adron", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron" ->  "Ah ja. Einer der heiligen Vorfahren.", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 "Bragon", "Brágon", english -> "There shall never be a warrior to match the strength of Bragon.", "Bragon holds dominion over the element of fire. Through Him, there is life.", "We must be thankful to the Five, our mothers and fathers."
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon" -> "Niemals wird ein Krieger sich mit der Stärke Bargons messen können.", "Bargon beherrscht das Element des Feuers. Durch ihn, ist leben.", "Wir müssen den Fünf, unseren Müttern und Vätern dankbar sein."
 "Cherga", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga" -> "Ah ja. Einer der heiligen Vorfahren.", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 "Elara", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara" -> "Ah ja. Einer der heiligen Vorfahren.", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 "Eldan", english -> "The wisest of all beings.", "Eldan holds dominion over the element of spirit. Through Him, there is life.", "We must be thankful to the Five, our mothers and fathers."
-"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan" -> "Der Weiseste unter allem was ist.", "Eldan herrscht über den Geist.Durch ihn, ist Leben.", "Wir müssen den Fünf, unseren Müttern und Vätern dankbar sein."
 "Findari", english -> "No kinder being, shall you ever meet.", "Findari holds dominion over the element of air. Through Her, there is life.", "We must be thankful to the Five, our mothers and fathers."
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari" -> "Kein gütigeres Wesen, wird Euch jemals begegnen.", "Findari herrscht über die Luft. Durch sie, ist leben.", "Wir müssen den Fünf, unseren Müttern und Vätern dankbar sein."
 "Irmorom", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom" -> "Ah ja. Einer der heiligen Vorfahren.", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 "Malachin", "Malachín", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín" -> "Ah ja. Einer der heiligen Vorfahren.", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 "Moshran", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran" -> "Ah ja. Einer der heiligen Vorfahren.", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 "Nargun", "Nargún", "Nargùn", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn" -> "Ah ja. Einer der heiligen Vorfahren.", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 "Oldra", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra" -> "Ah ja. Einer der heiligen Vorfahren..", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 "Ronagan", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan" -> "Ah ja. Einer der heiligen Vorfahren..", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 "Sirani", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani" -> "Ah ja. Einer der heiligen Vorfahren..", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 "Tanora", "Zelphia", english -> "Though Tanora is the only Elder God who still walks this land, we sense the presence of each of the Five.", "Tanora holds dominion over the element of water. Through Her, there is life.", "We must be thankful to the Five, our mothers and fathers."
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia" ->  "Tanora ist die einzige der alten Götter, die noch in diesem Land wandelt. Wir spüren die Gegenwart von jedem der Fünf.", "Tanora herrscht über die Wasser. Durch sie, ist Leben.", "Wir müssen den Fünf, unseren Müttern und Vätern dankbar sein."
 "Ushara", english -> "I have never met one so modest as the Mother Goddess.", "Ushara holds dominion over the element of earth. Through Her, there is life.", "We must be thankful to the Five, our mothers and fathers."
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara" -> "Ich traf niemals jemanden so bescheiden wie Ushara.", "Ushara herrscht über die Erde. Durch sie, ist Leben.", "Wir müssen den Fünf, unseren Müttern und Vätern dankbar sein."
 "Zhambra", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra" -> "Ah ja. Einer der heiligen Vorfahren..", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I have no need for material possessions.", "Your money is worthless to me.", "I do not desire to trade."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich habe kein Interesse an weltlichem Besitz.", "Euer Geld ist für mich wertlos.", "Ich bin nicht daran interessiert zu handeln."
 "tell something" -> "#me closes her eyes and places a hand upon your shoulder.", "Hmm...I sense that you already know what I shall say.", "I shall do so. But I shall not reply upon mere words."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"erzähl was", "erzähl etwas" -> "#me schließt ihre Augen und legt eine Hand auf deine Schulter.", "Hmm... I spüre, das Ihr bereits wisst, was I sagen werde.", "Das werde ich tun. Doch werde ich nicht auf bloße Worte antworten."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 "corrupted blood" -> "Wow, really?"
-"GERMAN" -> "GERMAN."
+"schlechtes Blut" ->  "Wow, wirklich?"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Aurora", "Snow", english -> "Let us communicate without words.", "Have you spoken with my apprentice?", "We must all learn to embrace nature and be one."
-"Aurora", "Snow" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Aurora", "Snow" -> "Lass und ohne Worte sprechen.", "Habt ihr mit meiner Schülerin gespochen?", "Wir alle müssen lernen eines mit der Natur zu werden."
 "Yes" -> "Let us communicate without words.", "Have you spoken with my apprentice?", "We must all learn to embrace nature and be one."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ja" -> "Lass und ohne Worte sprechen.", "Habt ihr mit meiner Schülerin gespochen?", "Wir alle müssen lernen eines mit der Natur zu werden."
 "No" -> "Let us communicate without words.", "Have you spoken with my apprentice?", "We must all learn to embrace nature and be one."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nein" -> "Lass und ohne Worte sprechen.", "Habt ihr mit meiner Schülerin gespochen?", "Wir alle müssen lernen eines mit der Natur zu werden."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 ".*", english, chance(20) -> "#me closes her eyes, nodding slowly.", "Time is just an illusion.", "Society is a mask."
-".*", german, chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+".*", german, chance(20) -> "#me schließt ihre Augen und nickt langsam.", "Zeit ist eine Illusion.", "Gesellschaft ist eine Fassade."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "#me opens her bag and sorts through a handful of herbs."
-cycletext "GERMAN.", "#me's gaze wanders across the scene before her."
-cycletext "GERMAN.", "#me lifts her hand in a smooth, graceful movement."
-cycletext "GERMAN.", "#me slowly bows her head."
-cycletext "GERMAN.", "#me closes her eyes, while her head nods rhythmically."
-cycletext "GERMAN.", "#me closes her eyes, a faint hint of movement upon her lips."
-cycletext "GERMAN.", "Time is just an illusion."
-cycletext "GERMAN.", "Society is a mask."
-cycletext "GERMAN.", "Be at peace, my brothers and sisters."
-cycletext "GERMAN.", "Open yourselves. Be free."
+cycletext "#me öffnet ihre Tasche und sortiert einige Käuter.", "#me opens her bag and sorts through a handful of herbs."
+cycletext  "#me's Blick wandert durch die Landschaft", "#me's gaze wanders across the scene before her."
+cycletext "#me hebt ihre Hand, in einer eleganten, fließenden Bewegung", "#me lifts her hand in a smooth, graceful movement."
+cycletext "#me senkt langsam den Kopf", "#me slowly bows her head."
+cycletext "#me schließt ihre Augen, während sie rhythmisch mit dem Kopf nickt.", "#me closes her eyes, while her head nods rhythmically."
+cycletext "#me schließt ihre Augen, ihre Lippen bewegen sich kaum.", "#me closes her eyes, a faint hint of movement upon her lips."
+cycletext "Zeit ist lediglich eine Illusion.", "Time is just an illusion."
+cycletext "Die Gesellschaft ist eine Fassade.", "Society is a mask."
+cycletext "Erkennt euch selbst, meine Brüder und Schwestern.", "Be at peace, my brothers and sisters."
+cycletext "Öffnet euren Geist. Seid frei!", "Open yourselves. Be free."
