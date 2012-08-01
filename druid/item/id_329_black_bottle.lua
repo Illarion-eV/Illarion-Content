@@ -315,7 +315,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			
     else -- not infront of a cauldron, therefore drink!
         if User.attackmode then
-		   base.common.InformNLS(User, "Du kannst nichts trinken, während Du kämpfst.", "You cannot drink while fighting.")
+		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während Du kämpfst.", "You cannot use the potion while fighting.")
 		else
 			User:talkLanguage(Character.say, Player.german, "#me trinkt eine schwarze Flüssigkeit.");
 			User:talkLanguage(Character.say, Player.english, "#me drinks a black liquid.");

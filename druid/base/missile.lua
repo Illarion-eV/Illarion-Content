@@ -311,28 +311,28 @@ end
 ---- HITPOINT WURFBOMBEN ----
 
 -- Voller Hitpoint-Schaden auf 1er-Feld
-function effect_66475155(User,Item)
+function effect_1(User,Item)
     causeDamage(User, Item, { selectCharacter( fieldOfRadius1( Item ) ) }, "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Voller Hitpoint-Schaden auf 9er-Feld
-function effect_93531588(User,Item)
+function effect_2(User,Item)
     causeDamage(User, Item, fieldOfRadius1( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Aufgeteilter Hitpoint-Schaden auf 9er Feld
-function effect_84254555(User,Item)
+function effect_3(User,Item)
     local hitArea = fieldOfRadius1( Item );
     causeDamage(User, Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
 end
 
 -- Voller Hitpoint-Schaden auf 21er-Feld
-function effect_75568356(User,Item)
+function effect_4(User,Item)
     causeDamage(User, Item, fieldOfRadius2( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Aufgeteilter Hitpoint-Schaden auf 21er Feld
-function effect_36835636(User,Item)
+function effect_5(User,Item)
     local hitArea = fieldOfRadius2( Item );
     causeDamage(User, Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
 end
@@ -341,28 +341,28 @@ end
 ---- MANA WURFBOMBEN ----
 
 -- Voller Mana-Schaden auf 1er-Feld
-function effect_24968253(User,Item)
+function effect_6(User,Item)
     causeDamage( Item, { selectCharacter( fieldOfRadius1( Item ) )  }, "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Voller Mana-Schaden auf 9er-Feld
-function effect_16359531(User,Item)
+function effect_7(User,Item)
     causeDamage( Item, (fieldOfRadius1( Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Aufgeteilter Mana-Schaden auf 9er Feld
-function effect_71943574(User,Item)
+function effect_8(User,Item)
     local hitArea = (fieldOfRadius1( Item ) );
     causeDamage( Item, hitArea, "mana", { "willpower", "essence" }, 4, 5, 1/countCharacters( hitArea ) );
 end
 
 -- Voller Mana-Schaden auf 21er-Feld
-function effect_47564545(User,Item)
+function effect_9(User,Item)
     causeDamage( Item, (fieldOfRadius2( Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Aufgeteilter Mana-Schaden auf 21er Feld
-function effect_33421656(User,Item)
+function effect_10(User,Item)
     local hitArea = (fieldOfRadius2( Item ) );
     causeDamage( Item, hitArea, "mana", { "willpower", "essence" }, 4, 5, 1/countCharacters( hitArea ) );
 end
@@ -371,28 +371,28 @@ end
 ---- FOODLEVEL WURFBOMBEN ----
 
 -- Voller Sattmacher-Schaden auf 1er-Feld
-function effect_63155452(User,Item)
+function effect_11(User,Item)
     causeDamage( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
 end
 
 -- Voller Sattmacher-Schaden auf 9er-Feld
-function effect_21915579(User,Item)
+function effect_12(User,Item)
     causeDamage( Item, (fieldOfRadius1( Item ) ), "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
 end
 
 -- Aufgeteilter Sattmacher-Schaden auf 9er Feld
-function effect_64312656(User,Item)
+function effect_13(User,Item)
     local hitArea = (fieldOfRadius1( Item ) );
     causeDamage( Item, hitArea, "foodlevel", { "constitution", "agility" }, 4, 5, 6/countCharacters( hitArea ) );
 end
 
 -- Voller Sattmacher-Schaden auf 21er-Feld
-function effect_87783632(User,Item)
+function effect_14(User,Item)
     causeDamage( Item, (fieldOfRadius2( Item ) ), "foodlevel", { "constitution", "agility" }, 4, 5, 6 );
 end
 
 -- Aufgeteilter Sattmacher-Schaden auf 21er Feld
-function effect_62358491(User,Item)
+function effect_15(User,Item)
     local hitArea = (fieldOfRadius2( Item ) );
     causeDamage( Item, hitArea, "foodlevel", { "constitution", "agility" }, 4, 5, 6/countCharacters( hitArea ) );
 end
@@ -400,12 +400,12 @@ end
 ---- MONSTER UM DEN WEG ZU BLOCKIEREN ----
 
 --Schleimbarriere auf 9er-Feld
-function effect_84613666(User,Item)
+function effect_16(User,Item)
     createSlime(User, Item, (fieldOfRadius1( Item ) ) );
 end
 
 --Schleimbarriere auf 21er-Feld
-function effect_29732752(User,Item)
+function effect_17(User,Item)
     createSlime(Item, (fieldOfRadius2( Item ) ) );
 end
 
