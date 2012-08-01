@@ -241,6 +241,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		else
 			if (potionEffectId > 0) and (potionEffectId < 100) then
 			      
+				missileStatus = SourceItem:getData("missileStatus")
 				if (missileStatus == "deactivated") or (missileStatus == "") then -- potion deactivated or status not set --> activate
 					base.common.InformNLS( User,
 					"Du entsicherst des Wurfkörper. Vorsicht damit.",
