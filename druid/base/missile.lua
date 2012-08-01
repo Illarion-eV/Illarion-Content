@@ -70,9 +70,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
         modifier = 1;
     end
 
-    User:inform(""..modifier)
-	
-	for i, posi in pairs(DamagedArea) do
+    for i, posi in pairs(DamagedArea) do
         if world:isCharacterOnField( posi ) then
             Person = world:getCharacterOnField( posi );
 
@@ -112,9 +110,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
 			-- Modifier für Attribute mit mehr als 10000 Punkten
             Schaden = math.ceil(Schaden * modifier);
 
-            User:inform("schaden nach modifier: "..Schaden)
-			
-			if ( Schaden > 0 ) then
+            if ( Schaden > 0 ) then
                 Person:increaseAttrib( DamagedAttrib, -Schaden );
             end
         end
