@@ -14,7 +14,7 @@ module("druid.item.id_327_blue_bottle", package.seeall) --, package.seeall(druid
 
 function Explode(User,TargetItem)
 Item = TargetItem
-local potionEffectId = (tonumber(Item:getData("potionData")))
+local potionEffectId = (tonumber(Item:getData("potionEffectId")))
 
 	if (potionEffectId > 0) and (potionEffectId < 100) then	-- bombs
 		
