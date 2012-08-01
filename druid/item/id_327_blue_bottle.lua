@@ -104,7 +104,8 @@ end;
 
 function MoveItemBeforeMove( User, SourceItem, TargetItem )
 	local missileStatus = (SourceItem:getData("missileStatus"));
-    
+    potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
+	
 	if not ((potionEffectId > 0) and (potionEffectId < 100)) then
         return true; -- no missile
     end
