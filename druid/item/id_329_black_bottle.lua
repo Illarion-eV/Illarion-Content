@@ -115,7 +115,7 @@ function DrinkPotion(User,SourceItem)
 					-- and remove the old effect
 					effectRemoved = User.effects:removeEffect(329)
 					if not effectRemove then
-					    base.common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. black bottöle script", "Error: inform dev. Lte not removed. black bottle script.")
+					    base.common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. black bottle script", "Error: inform dev. Lte not removed. black bottle script.")
 			            return
 					end	
 			    end
@@ -315,7 +315,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			
     else -- not infront of a cauldron, therefore drink!
         if User.attackmode then
-		   base.common.InformNLS(User, "Du kannst nichts trinken, während Du kämpfst.", "You cannot drink while fighting.", Player.lowPriority)
+		   base.common.InformNLS(User, "Du kannst nichts trinken, während Du kämpfst.", "You cannot drink while fighting.")
 		else
 			User:talkLanguage(Character.say, Player.german, "#me trinkt eine schwarze Flüssigkeit.");
 			User:talkLanguage(Character.say, Player.english, "#me drinks a black liquid.");

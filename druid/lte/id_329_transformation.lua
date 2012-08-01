@@ -33,8 +33,7 @@ function callEffect(Effect,User)
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
 		  Effect:addValue("counterBlack",counterBlack)
 		  findCounter,counterBlack = Effect:findValue("counterBlack")
-		  base.common.InformNLS(User, ""..counterBlack , ""..counterBlack)
-		   
+		  
 		   if counterBlack == 0 then
 				-- the effect counter is down to zero; we change the char back
 			    TransformBack(Effect,User) 
