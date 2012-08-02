@@ -28,7 +28,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end	
 	
 	if User.lastSpokenText == "death" then
-	    base.character.DeathAfterTime(User,40,2,4)
+	    base.character.DeathAfterTime(User,400,2,4)
 		return
 	end	
 	
