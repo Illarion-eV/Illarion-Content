@@ -52,7 +52,7 @@ function createSlime(User, Item, targetArea )
         if not world:isCharacterOnField( posi ) then
             slime = world:createMonster(1054,posi,-20);
             if isValidChar(slime) then
-		        slime:increaseSkill("no drop pls",10)
+		        slime:increaseSkill(4,"no drop pls",10)
 				base.character.DeathAfterTime(slime,(lifeTime+(math.random(10,150))),11)
 		    end
         end
