@@ -136,6 +136,16 @@ function DrinkPotion(User,SourceItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
+	-- for testing --
+	if string.sub(User.lastSpokenText,1,14)=="potionEffectId" then
+		length = string.len(User.lastSpokenText)
+		potionEffectId = (string.sub(User.lastSpokenText,16,length))
+		SourceItem:setData("potionEffectId",potionEffectId)
+	    world:changeItem(SourceItem)
+		base.common.InformNLS(User,"set potionEffectId to: "..SourceItem:getData("potionEffectId"),"set potionEffectId to: "..SourceItem:getData("potionEffectId"))
+	end	
+	-- test end --
+	
 	potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
