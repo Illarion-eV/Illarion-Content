@@ -338,7 +338,7 @@ end
 
 -- Voller Mana-Schaden auf 1er-Feld
 function effect_6(User,Item)
-    causeDamage( Item, { selectCharacter( fieldOfRadius1( Item ) )  }, "mana", { "willpower", "essence" }, 4, 5 );
+    causeDamage(User, Item, { selectCharacter( fieldOfRadius1( Item ) )  }, "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Voller Mana-Schaden auf 9er-Feld
