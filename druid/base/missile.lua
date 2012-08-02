@@ -401,7 +401,7 @@ end
 
 --Schleimbarriere auf 21er-Feld
 function effect_17(User,Item)
-    createSlime(Item, (fieldOfRadius2( Item ) ) );
+    createSlime(User, Item, (fieldOfRadius2( Item ) ) );
 end
 
 
