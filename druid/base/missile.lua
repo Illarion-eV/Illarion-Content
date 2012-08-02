@@ -52,7 +52,7 @@ function createSlime(User, Item, targetArea )
         if not world:isCharacterOnField( posi ) then
             slime = world:createMonster(1054,posi,-20);
             if isValidChar(slime) then
-		        base.common.informNLS("valid","valid")
+		        base.common.InformNLS("valid","valid")
 				slime:setAttrib("poisonvalue", lifeTime )
 		    end
         end
