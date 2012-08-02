@@ -23,8 +23,7 @@ function callEffect(Effect,User)
 		   if findCounter then
 		      counterWhite = counterWhite - 1;
 	          Effect:addValue("counterWhite",counterWhite)
-	          User:inform("counterWhite - 1 = "..counterWhite)
-		   end
+	       end
 		
 		   if counterWhite == 0 then
 		        find,languageId = Effect:findValue("languageId")
