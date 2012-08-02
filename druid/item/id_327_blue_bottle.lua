@@ -148,6 +148,9 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 	-- test end --
 	
 	potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
+	if potionEffectId == nil then
+	    potionEffectId = 0
+	end	
 	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
