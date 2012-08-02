@@ -46,13 +46,13 @@ function createSlime(User, Item, targetArea )
     local slime
     -- Bestimme lebenszeit der Hasen. Vernichtung Hasen erfolgt über die initiale Verwendung von Gift.
     -- Vergebene Giftpunkte werden Skaliert von 1000 (bei quality 100) bis 50 (bei quality 999)
-    --local lifeTime = base.common.Scale( 1000, 50, (Item.quality-100)*100/899 );
+    local lifeTime = 100+(math.random(10,50))--base.common.Scale( 1000, 50, (Item.quality-100)*100/899 );
 
     for i, posi in pairs(targetArea) do
         if not world:isCharacterOnField( posi ) then
             slime = world:createMonster(1054,posi,-20);
             if isValidChar(slime) then
-		        base.character.DeathAfterTime(slime,100,11)
+		        base.character.DeathAfterTime(slime,lifeTime,11)
 		    end
         end
     end
