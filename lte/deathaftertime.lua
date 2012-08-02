@@ -10,11 +10,12 @@ function addEffect(Effect, Character)
 end
 
 function callEffect(Effect, Character) 
-
+    posOfVic = Character.pos
+   
    findDeathGfx, deathGfx = Effect:findValue("deathGfx")
    if findDeathGfx then -- in case we defined a Gfx shown on his death
-		world:Gfx(deathGfx,Character.pos)
-        myList = world:getPlayersInRangeOf(Character.pos,10) 
+		world:Gfx(deathGfx,posOfVic)
+        myList = world:getPlayersInRangeOf(posOfVic,10) 
         for i=1,#myList do
 		    base.common.InformNLS(myList[i], "debug 1", "debug 1")
 		end	
