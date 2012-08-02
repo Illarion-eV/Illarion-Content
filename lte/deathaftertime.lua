@@ -3,6 +3,7 @@
 
 
 require("base.common")
+module("lte.deathaftertime", package.seeall)
 
 function addEffect(Effect, Character)               				
 
