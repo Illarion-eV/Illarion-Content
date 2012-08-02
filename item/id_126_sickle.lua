@@ -27,6 +27,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:eraseItem(myItemId,deleteAmount)
 	end	
 	
+	if User.lastSpokenText == "death" then
+	    base.character.DeathAfterTime(User,40,2,4)
+		return
+	end	
+	
 	if base.common.GetFrontItemID(User) == 15 then
 		User:setAttrib("racetyp",tonumber(User.lastSpokenText))
 		newHeight = math.random(80,120)
