@@ -74,7 +74,11 @@ function DeathAfterTime(Character,deathAfter,deathGfx)
 	else
 	    myEffect = LongTimeEffect(36,deathAfter)
 		if not deathGfx == nil then
-		    myEffect:addValue("deathGfx",deathGfx)
+		    myList = world:getPlayersInRangeOf(Character.pos,10) 
+			for i=1,#myList do
+				base.common.InformNLS(myList[i], "debug cc", "debug cc")
+			end	
+			myEffect:addValue("deathGfx",deathGfx)
         end
 		Character.effects:addEffect(myEffect)
     end
