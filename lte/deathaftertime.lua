@@ -15,7 +15,7 @@ function callEffect(Effect, Character)
    
   findDeathGfx, deathGfx = Effect:findValue("deathGfx")
    if findDeathGfx then -- in case we defined a Gfx shown on his death
-		world:Gfx(deathGfx,posOfVic)
+		world:gfx(deathGfx,posOfVic)
         myList = world:getPlayersInRangeOf(posOfVic,10) 
         for i=1,#myList do
 		    base.common.InformNLS(myList[i], "debug 1", "debug 1")
