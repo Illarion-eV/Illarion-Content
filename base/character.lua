@@ -67,17 +67,19 @@ end;
 -- @param Character The character (e.g. summoned monster) supposed to die
 -- @param deathAfter The period of time after which the character dies in 1/10 sec
 -- @param deathGfx The GFX shown on the characters' death, nil for no GFX
-function DeathAfterTime(Character,deathAfter,deathGfx)
+-- @param deathSound The sound played on characters' death, nil for no sound
+function DeathAfterTime(Character,deathAfter,deathGfx,deathSound)
     find, myEffect = Character.effects:find(36)
 	if find then 
 	    return
 	else
 	    myEffect = LongTimeEffect(36,deathAfter)
-		debug("character 2")
 		if deathGfx ~= nil then
-		    debug("character 3")
-			myEffect:addValue("deathGfx",deathGfx)
+		    myEffect:addValue("deathGfx",deathGfx)
         end
+		if deathSound ~= nil then
+		    myEffect:addValue("deathSound",deathSound)  
+		end	  
 		Character.effects:addEffect(myEffect)
     end
 end	

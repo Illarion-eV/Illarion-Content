@@ -10,13 +10,15 @@ function addEffect(Effect, Character)
 end
 
 function callEffect(Effect, Character) 
-    posOfVic = Character.pos
-    base.common.TalkNLS(Character, Character.say, "#me zerfällt zu einer blauen Pfütze.", "#me collapses into a blue puddle.")
-   
+  posOfVic = Character.pos
+    
   findDeathGfx, deathGfx = Effect:findValue("deathGfx")
   if findDeathGfx then -- in case we defined a Gfx shown on his death
-		debug("lte 2")
 		world:gfx(deathGfx,posOfVic)
+   end
+   findDeathSound, deathSound = Effect:findValue("deathSound")
+   if findDeathSound then -- if we have defined a sound for the death
+        world:makeSound(deathSound,posOfVic)
    end
    Character:increaseAttrib("hitpoints",-10000) -- die!
    return false
