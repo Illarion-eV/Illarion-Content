@@ -14,7 +14,7 @@ function callEffect(Effect, Character)
     base.common.TalkNLS(Character, Character.say, "#me zerfällt zu einer blauen Pfütze.", "#me collapses into a blue puddle.")
    
   findDeathGfx, deathGfx = Effect:findValue("deathGfx")
-   local myList = world:getPlayersInRangeOf(cauldron.pos,1) -- we hurt everyone around the cauldron!
+   myList = world:getPlayersInRangeOf(posOfVic.pos,1) -- we hurt everyone around the cauldron!
 	if not findDeathGfx then
 		for i=1,#myList do
 			base.common.HighInformNLS(myList[i], "fail", "fail")
