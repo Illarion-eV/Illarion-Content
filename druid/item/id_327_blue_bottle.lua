@@ -143,6 +143,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		SourceItem:setData("potionEffectId",potionEffectId)
 	    world:changeItem(SourceItem)
 		base.common.InformNLS(User,"set potionEffectId to: "..SourceItem:getData("potionEffectId"),"set potionEffectId to: "..SourceItem:getData("potionEffectId"))
+	    return
 	end	
 	-- test end --
 	
