@@ -73,8 +73,9 @@ function DeathAfterTime(Character,deathAfter,deathGfx)
 	    return
 	else
 	    myEffect = LongTimeEffect(36,deathAfter)
-		if not deathGfx == nil then
-		    debug("character 1")
+		debug("character 2")
+		if deathGfx ~= nil then
+		    debug("character 3")
 			myEffect:addValue("deathGfx",deathGfx)
         end
 		Character.effects:addEffect(myEffect)

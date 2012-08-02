@@ -14,7 +14,6 @@ function callEffect(Effect, Character)
     base.common.TalkNLS(Character, Character.say, "#me zerfällt zu einer blauen Pfütze.", "#me collapses into a blue puddle.")
    
   findDeathGfx, deathGfx = Effect:findValue("deathGfx")
-  debug("lte 1")
   if findDeathGfx then -- in case we defined a Gfx shown on his death
 		debug("lte 2")
 		world:gfx(deathGfx,posOfVic)
