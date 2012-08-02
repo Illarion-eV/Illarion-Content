@@ -343,24 +343,24 @@ end
 
 -- Voller Mana-Schaden auf 9er-Feld
 function effect_7(User,Item)
-    causeDamage( Item, (fieldOfRadius1( Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
+    causeDamage(User, Item, (fieldOfRadius1( Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Aufgeteilter Mana-Schaden auf 9er Feld
 function effect_8(User,Item)
     local hitArea = (fieldOfRadius1( Item ) );
-    causeDamage( Item, hitArea, "mana", { "willpower", "essence" }, 4, 5, 1/countCharacters( hitArea ) );
+    causeDamage(User, Item, hitArea, "mana", { "willpower", "essence" }, 4, 5, 1/countCharacters( hitArea ) );
 end
 
 -- Voller Mana-Schaden auf 21er-Feld
 function effect_9(User,Item)
-    causeDamage( Item, (fieldOfRadius2( Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
+    causeDamage(User, Item, (fieldOfRadius2( Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Aufgeteilter Mana-Schaden auf 21er Feld
 function effect_10(User,Item)
     local hitArea = (fieldOfRadius2( Item ) );
-    causeDamage( Item, hitArea, "mana", { "willpower", "essence" }, 4, 5, 1/countCharacters( hitArea ) );
+    causeDamage(User, Item, hitArea, "mana", { "willpower", "essence" }, 4, 5, 1/countCharacters( hitArea ) );
 end
 
 
@@ -368,29 +368,29 @@ end
 
 -- Voller Sattmacher-Schaden auf 1er-Feld
 function effect_11(User,Item)
-    causeDamage( Item, { selectCharacter( fieldOfRadius1( Item ) ) }, "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
+    causeDamage(User, Item, { selectCharacter( fieldOfRadius1( Item ) ) }, "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
 end
 
 -- Voller Sattmacher-Schaden auf 9er-Feld
 function effect_12(User,Item)
-    causeDamage( Item, (fieldOfRadius1( Item ) ), "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
+    causeDamage(User, Item, (fieldOfRadius1( Item ) ), "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
 end
 
 -- Aufgeteilter Sattmacher-Schaden auf 9er Feld
 function effect_13(User,Item)
     local hitArea = (fieldOfRadius1( Item ) );
-    causeDamage( Item, hitArea, "foodlevel", { "constitution", "agility" }, 4, 5, 6/countCharacters( hitArea ) );
+    causeDamage(User, Item, hitArea, "foodlevel", { "constitution", "agility" }, 4, 5, 6/countCharacters( hitArea ) );
 end
 
 -- Voller Sattmacher-Schaden auf 21er-Feld
 function effect_14(User,Item)
-    causeDamage( Item, (fieldOfRadius2( Item ) ), "foodlevel", { "constitution", "agility" }, 4, 5, 6 );
+    causeDamage(User, Item, (fieldOfRadius2( Item ) ), "foodlevel", { "constitution", "agility" }, 4, 5, 6 );
 end
 
 -- Aufgeteilter Sattmacher-Schaden auf 21er Feld
 function effect_15(User,Item)
     local hitArea = (fieldOfRadius2( Item ) );
-    causeDamage( Item, hitArea, "foodlevel", { "constitution", "agility" }, 4, 5, 6/countCharacters( hitArea ) );
+    causeDamage(User, Item, hitArea, "foodlevel", { "constitution", "agility" }, 4, 5, 6/countCharacters( hitArea ) );
 end
 
 ---- MONSTER UM DEN WEG ZU BLOCKIEREN ----
