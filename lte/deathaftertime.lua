@@ -12,8 +12,8 @@ end
 function callEffect(Effect, Character) 
     posOfVic = Character.pos
    
-   Character:talkLanguage(Character.say, Player.german, "#me zerfällt zu einer blauen Pfütze.");
-   Character:talkLanguage(Character.say, Player.english, "#me collapses into a blue puddle.");
+   Character:talkLanguage(Character.say, Character.german, "#me zerfällt zu einer blauen Pfütze.");
+   Character:talkLanguage(Character.say, Character.english, "#me collapses into a blue puddle.");
   
   findDeathGfx, deathGfx = Effect:findValue("deathGfx")
    if findDeathGfx then -- in case we defined a Gfx shown on his death
