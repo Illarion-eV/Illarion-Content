@@ -16,7 +16,7 @@ function callEffect(Effect, Character)
    end
    Character:increaseAttrib("hitpoints",-10000) -- die!
    return false
--- callEffect is only needed once, now 
+-- callEffect is only needed once, no return true necessary
 end
 
 function removeEffect(Effect,User)
