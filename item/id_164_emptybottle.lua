@@ -51,7 +51,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			    
 			cauldron:setData("potionId","")
 	        cauldron:setData("cauldronFilledWith","")
-			cauldron:setData("essenceHerbs""")
+			cauldron:setData("essenceHerbs")
 			    
 	    elseif (cauldron:getData("potionEffectId") ~= "") then -- potion
 	        SourceItem.id = tonumber(cauldron:getData("potionId"))
