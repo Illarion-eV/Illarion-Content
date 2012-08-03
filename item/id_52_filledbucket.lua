@@ -199,10 +199,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		world:gfx(1,cauldron.pos)
 		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
-		for i=1,8 do
-			cauldron:setData("essenceHerb"..i,"")
-			world:changeItem(cauldron)
-	    end	
+		cauldron:setData("essenceHerbs","")
 		cauldron:setData("cauldronFilledWith","")
         cauldron:setData("potionId","")		
 									

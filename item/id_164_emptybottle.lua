@@ -47,19 +47,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   elseif (cauldron:getData("cauldronFilledWith") == "essenceBrew") then -- essence Brew
 	        SourceItem.id = tonumber(cauldron:getData("potionId"))
 	        SourceItem:setData("essenceBrew","true")
-			for i=1,8 do
-			    SourceItem:setData("essenceHerb"..i,cauldron:getData("essenceHerb"..i))
-			    world:changeItem(SourceItem)
-			end
-			
+			SourceItem:setData("essenceHerbs",cauldron:getData("essenceHerbs"))
+			    
 			cauldron:setData("potionId","")
 	        cauldron:setData("cauldronFilledWith","")
-			for i=1,8 do 
-			    cauldron:setData("essenceHerb"..i,"")
-			    world:changeItem(cauldron)
-	        end
-			
-		elseif (cauldron:getData("potionEffectId") ~= "") then -- potion
+			cauldron:setData("essenceHerbs""")
+			    
+	    elseif (cauldron:getData("potionEffectId") ~= "") then -- potion
 	        SourceItem.id = tonumber(cauldron:getData("potionId"))
 	        SourceItem.quality = tonumber(cauldron:getData("potionQuality"))
 	        SourceItem:setData("potionEffectId",cauldron:getData("potionEffectId"))
