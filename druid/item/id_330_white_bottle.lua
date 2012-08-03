@@ -112,7 +112,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		    SourceItem:setData("essenceBrew","")
 			SourceItem:setData("potionId","")
 			SourceItem:setData("essenceHerbs")orld:changeItem(SourceItem)
-			end	
 			
 		elseif (SourceItem:getData("potionEffectId")~="") then -- potion should be filled into the cauldron
 		    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
