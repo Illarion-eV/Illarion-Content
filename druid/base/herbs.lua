@@ -60,17 +60,14 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		                            "The substance in the cauldron blows out, as you put the herb in.")
     
 	elseif cauldron:getData("cauldronFilledWith")== "essenceBrew" then -- essence brew
-		if cauldron:getData("essenceHerb8") ~= "" then -- already 8 herbs in the essence brew, failure 
-		    druid.base.alchemy.CauldronExplosion(User,cauldron,{36})
+		
+		herbString = cauldron:getData("essenceHerbs")
+		herbs, countSpaces = string.gsub(herbString, " ", " ")
+		if countSpaces == 7 then -- 7 spaces means 8 herbs, failure
+		   druid.base.alchemy.CauldronExplosion(User,cauldron,{36})
         else
-		    for i=1,8 do -- we put the herb inot the essence brew
-				if (cauldron:getData("essenceHerb"..i) == "") then
-					cauldron:setData("essenceHerb"..i,""..SourceItem.id)
-					world:changeItem(cauldron)
-					break
-				end
-            end 
-		    User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
+		    cauldron:setData("essenceHerbs",herbString.." "..SourceItem.id) -- put the herb into the essence brew
+			User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
 		end	
 		
 	elseif (cauldron:getData("stockData") ~= "") or (cauldron:getData("cauldronFilledWith") == "water") then -- water or a stock we put the herb in

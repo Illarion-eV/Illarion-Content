@@ -4,7 +4,7 @@
 -- "stockData" - used to save the combination of active agents. 
 -- "cauldronFilledWith" - can have the value "water" or "essenceBrew"; (to check if there is a stock in, we can use "stockData", for a potion "potionIdEffect")
 -- "potionEffectId" - the id of the effect a potion has
--- "essenceHerb1",...,"essenceHerb8" - the ids of the herbs of essence brew
+-- "essenceHerbs" - the ids of the herbs of the essence brew in one string, seperated by spaces
 -- "essenceBrew" - actually, only used to distinguish an essence brew from a potion. returns "true"
 -- "potionId" -- id of the potion 
 -- "potionQuality" -- quality of the potion
@@ -591,10 +591,7 @@ function CauldronExplosion(User,cauldron,ListGfx)
 	    base.common.HighInformNLS(myVictims[i], "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
 	end
 	-- we remove every possible data the cauldron could have to cover all substances
-	for i=1,8 do
-	    cauldron:setData("essenceHerb"..i,"")
-		world:changeItem(cauldron)
-	end	
+	cauldron:setData("essenceHerbs")  
 	cauldron:setData("stockData","")
     cauldron:setData("cauldronFilledWith","")
 	cauldron:setData("potionEffectId","")
@@ -610,7 +607,7 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
     local ourStock
 	local ourEssence
 	local potionId
-	local checkStringEssence = ""
+	local essenceHerbs
 	local potionEffectId
 	
 	if base.common.GetFrontItemID(User) == 1008 then
@@ -626,18 +623,8 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 		    potionId = ourEssence.id -- essence brew in bottle: we use the id of the SourceItem
 		end
         
-		for i=1,8 do
-		    if (ourEssence:getData("essenceHerb"..i) ~= "") then -- we put our essenced herbs to a string together
-			    if i==1 then
-				   checkStringEssence = checkStringEssence..ourEssence:getData("essenceHerb"..i)
-				else
-                    checkStringEssence = checkStringEssence.." "..ourEssence:getData("essenceHerb"..i)				
-                end
-			else
-                break
-			end	
-	    end     
-	User:talkLanguage(Character.say, Player.german, "checkString: "..checkStringEssence);
+		essenceHerbs = ourEssence:getData("essenceHerbs")  
+	
         if checkStringEssence == "" then -- when there was not even one herb in the essence brew
 		    if (potionId == 166) or (potionId == 59) then -- attribute pushers and healing potions do not need essenced hersb
 			    potionEffectId = ourStock:getData("stockData") -- the PotionEffectId is the same as the stock data
@@ -647,7 +634,7 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 		else
             for i=1,#ListPotionStock[potionId] do
                 if ListPotionStock[potionId][i] == ourStock:getData("stockData") then
-	                if ListPotionEssence[potionId][i] == checkStringEssence then
+	                if ListPotionEssence[potionId][i] == essenceHerbs then
 	                    potionEffectId = ListPotionEffectId[potionId][i] -- we have a stock and an essence brew which matchn so that's our effect id
 	                    break
 	                end
@@ -662,7 +649,6 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 		-- now we have to put everything together
 		TargetItem:setData("stockData","")
 		TargetItem:setData("potionId",""..potionId)
-		User:talkLanguage(Character.say, Player.german, ""..TargetItem:getData("potionId"));
 		TargetItem:setData("potionEffectId",""..potionEffectId)
 		potionQuality = 999
 	    TargetItem:setData("potionQuality",""..potionQuality)

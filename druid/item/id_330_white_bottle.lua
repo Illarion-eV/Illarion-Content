@@ -106,17 +106,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			else -- nothing in the cauldron, we just fill in the essence brew
 				cauldron:setData("cauldronFilledWith","essenceBrew")
 				cauldron:setData("potionId",""..SourceItem.id)
-				for i=1,8 do 
-				    cauldron:setData("essenceHerb"..i,SourceItem:getData("essenceHerb"..i))
-				    world:changeItem(cauldron)
-				end	
+				cauldron:setData("essenceHerbs",SourceItem:getData("essenceHerbs"))
 			end
 		
 		    SourceItem:setData("essenceBrew","")
 			SourceItem:setData("potionId","")
-			for i=1,8 do
-			    SourceItem:setData("essenceHerb"..i,"")
-				world:changeItem(SourceItem)
+			SourceItem:setData("essenceHerbs")orld:changeItem(SourceItem)
 			end	
 			
 		elseif (SourceItem:getData("potionEffectId")~="") then -- potion should be filled into the cauldron
