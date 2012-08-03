@@ -8,6 +8,7 @@
 -- include base.common for additional functions
 require("base.common")
 require("base.character")
+require("druid.item.id_165_blue_bottle")
 
 module("druid.item.id_331_green_bottle", package.seeall)
 
@@ -56,8 +57,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			druid.base.alchemy.CauldronExplosion(User,cauldron,{4,5})
 			
 		elseif cauldron:getData("potionEffectId") ~= "" then
-			druid.base.alchemy.CauldronExplosion(User,cauldron,{4,36})
-		
+			if cauldron:getData("potionId") == "331" then -- support potion
+			    druid.item.id_165_blue_bottle.SupportStock(User,support,stock)
+			else
+			    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,36})
+		    end
+			
 		elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
 			druid.base.alchemy.CombineStockEssence( User, SourceItem, cauldron, Counter, Param, ltstate )
 		

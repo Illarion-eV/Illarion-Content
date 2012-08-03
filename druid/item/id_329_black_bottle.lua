@@ -5,6 +5,7 @@
 
 require("base.common")
 require("druid.base.alchemy")
+require("druid.item.id_165_blue_bottle")
 
 module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(druid.base.alchemy))
 
@@ -251,7 +252,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			     druid.base.alchemy.CauldronExplosion(User,cauldron,{4,44})
 			
 			elseif cauldron:getData("potionEffectId") ~= "" then
-			     druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
+			     if cauldron:getData("potionId") == "331" then -- support potion
+			        druid.item.id_165_blue_bottle.SupportEssencebrew(User,cauldron,SourceItem)
+			     else
+				    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
+			     end
 			
 			elseif cauldron:getData("stockData") ~= "" then -- stock is in the cauldron; we call the combin function
 				druid.base.alchemy.CombineStockEssence( User, SourceItem, cauldron, Counter, Param, ltstate )
@@ -278,7 +283,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
 			
 			elseif cauldron:getData("potionEffectId") ~= "" then
-			    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,38})
+			    if cauldron:getData("potionId") == "331" then -- support potion
+			        druid.item.id_165_blue_bottle.SupportPotion(User,cauldron,SourceItem)
+			    else
+				    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,38})
+			    end
 			
 			elseif cauldron:getData("stockData") ~= "" then
 				druid.base.alchemy.CauldronExplosion(User,cauldron,{4,36})
@@ -298,8 +307,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		end
 	    if math.random(1,20) == 1 then
 		    world:erase(SourceItem,1)	 -- bottle breaks
-		    User:talkLanguage(Character.say, Player.german, "flasche kaputt");
-		   -- base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+		    base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
         else	
 		    SourceItem.id = 164
 			SourceItem.quality = 333
