@@ -2,6 +2,7 @@ require("base.common")
 require("content.chardescription")
 
 module("item.id_2874_mirror", package.seeall, package.seeall(content.chardescription))
+-- belongs also to item id 2873
 
 -- UPDATE common SET com_script='item.id_2874_mirror' WHERE com_itemid = 2874;
 
@@ -11,7 +12,13 @@ function init()
 end
 
 function LookAtItem( User, Item )
-    if (first==nil) then
+    -- Mirror of Death --
+	if (Item.pos == (891,390,0)) and (User:getFaceTo() == 2) and (User.pos == (890,390,0) or User.pos == (889,390,0)) then
+	    MirrorOfDeath(User)
+	    return
+	end	-- end of mirror of death
+		
+	if (first==nil) then
         init();
         first=1;
     end
@@ -60,3 +67,71 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	end
 	User:sendCharDescription(User.id, output);
 end
+
+function MirrorOfDeath(User)
+	deathCounter = User:getQuestProgress(666)
+	charSex = User:increaseAttrib("sex",0)
+	charRace = User:getRace()
+	
+	if deathCounter == 0 then
+		base.common.InformNLS(User, "Im Spiegel siehst du ein Bild deiner selbst - jedoch in den besten deiner Jahre, bei voller Gesundheit.",
+									"You see yourself in the mirror - but in your prime time and fit as a fiddle.")
+	else
+	
+	    if deathCounter > 10 then
+		    deathCounter = 10
+		elseif (deathCounter/2) == math.floor((deathCounter/2)) then
+			textId = deathCounter - 1
+		else
+			textId = deathCounter
+		end
+	
+	    if charSex == 0 then
+		    base.common.InformNLS(User, DeathTextMaleDE[charRace][deathCounter], DeathTextMaleEN[charRace][deathCounter])
+	    else
+	        base.common.InformNLS(User, DeathTextFemaleDE[charRace][deathCounter], DeathTextFemaleEN[charRace][deathCounter])
+	    end
+	end
+end
+
+DeathTextMaleDE = {}
+DeathTextMaleEN = {}
+-- human
+DeathTextMaleDE[0] = {"de1","de2","de3","de4","de5"}
+DeathTextMaleEN[0] = {"en1","en2","en3","en4","en5"}
+-- dwarf
+DeathTextMaleDE[1] = {"de1","de2","de3","de4","de5"}
+DeathTextMaleEN[1] = {"en1","en2","en3","en4","en5"}
+-- halfling
+DeathTextMaleDE[2] = {"de1","de2","de3","de4","de5"}
+DeathTextMaleEN[2] = {"en1","en2","en3","en4","en5"}
+-- elf
+DeathTextMaleDE[3] = {"de1","de2","de3","de4","de5"}
+DeathTextMaleEN[3] = {"en1","en2","en3","en4","en5"}
+-- orc
+DeathTextMaleDE[4] = {"de1","de2","de3","de4","de5"}
+DeathTextMaleEN[4] = {"en1","en2","en3","en4","en5"}
+-- lizard
+DeathTextMaleDE[5] = {"de1","de2","de3","de4","de5"}
+DeathTextMaleEN[5] = {"en1","en2","en3","en4","en5"}
+
+DeathTextFemaleDE = {}
+DeathTextFemaleEN = {}
+-- human
+DeathTextFemaleDE[0] = {"de1","de2","de3","de4","de5"}
+DeathTextFemaleEN[0] = {"en1","en2","en3","en4","en5"}
+-- dwarf
+DeathTextFemaleDE[1] = {"de1","de2","de3","de4","de5"}
+DeathTextFemaleEN[1] = {"en1","en2","en3","en4","en5"}
+-- halfling
+DeathTextFemaleDE[2] = {"de1","de2","de3","de4","de5"}
+DeathTextFemaleEN[2] = {"en1","en2","en3","en4","en5"}
+-- elf
+DeathTextFemaleDE[3] = {"de1","de2","de3","de4","de5"}
+DeathTextFemaleEN[3] = {"en1","en2","en3","en4","en5"}
+-- orc
+DeathTextFemaleDE[4] = {"de1","de2","de3","de4","de5"}
+DeathTextFemaleEN[4] = {"en1","en2","en3","en4","en5"}
+-- lizard
+DeathTextFemaleDE[5] = {"de1","de2","de3","de4","de5"}
+DeathTextFemaleEN[5] = {"en1","en2","en3","en4","en5"}
