@@ -28,7 +28,15 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end	
 	
 	if User.lastSpokenText == "death" then
-	    base.character.DeathAfterTime(User,400,2,4)
+	    find, myEffect = User.effects:find(36)
+		if find then
+		   effectRemoved = User.effects:removeEffect(329)
+		end
+		base.character.DeathAfterTime(User,400,2,4)
+		find, myEffect = User.effects:find(36)
+		if find then
+		   base.common.InformNLS(User,"death death death","death death death")
+		end
 		return
 	end	
 	
