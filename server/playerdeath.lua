@@ -23,7 +23,8 @@ function playerDeath(deadPlayer)
             end
         end
     end
-
+    
+	deadPlayer:setQuestProgress(666,(deadPlayer:getQuestProgress(666)+1)) -- deathCounter, can be reduced by donations to Cherga
     world:makeSound(25,deadPlayer.pos);
     showDeathDialog(deadPlayer);
 end
