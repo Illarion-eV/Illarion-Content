@@ -57,13 +57,13 @@ end
 function MoveItemAfterMove(User, SourceItem, TargetItem)
 
     if TargetItem.pos == position(890,390,0) then -- donation to cherga to reduce death counter, for one cold we reduce all deathes at once!
-	    getProgress = deadPlayer:getQuestProgress(666)
+	    getProgress = User:getQuestProgress(666)
 		if getProgress == 0 then
 			getProgress = 10000
 		end	
 		
 		deathCounter = getProgress-((math.floor(getProgress/10))*10)  
-		deadPlayer:setQuestProgress(666,getProgress - deathCounter)
+		User:setQuestProgress(666,getProgress - deathCounter)
 		world:erase(TargetItem,1)
         world:gfx(31,position(890,390,0))
 	end	
