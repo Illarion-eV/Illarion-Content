@@ -56,7 +56,7 @@ end
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
 
-    if TargetItem.pos == (User.pos == position(890,390,0) then -- donation to cherga to reduce death counter, for one cold we reduce all deathes at once!
+    if TargetItem.pos == (User.pos == position(890,390,0)) then -- donation to cherga to reduce death counter, for one cold we reduce all deathes at once!
 	    getProgress = deadPlayer:getQuestProgress(666)
 		if getProgress == 0 then
 			getProgress = 10000
