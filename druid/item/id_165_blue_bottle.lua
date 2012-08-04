@@ -169,7 +169,7 @@ function SupportPotion(User,support,potion)
 	    targetPotionQuality = potion:getData("potionQuality")
 	
 	    supportQuality = support.quality
-        supportPotionEffectId = support:("potionEffectId")		
+        supportPotionEffectId = support:getData("potionEffectId")		
 	
 	else -- support in cauldron, potion in bottle
 	    targetPotionId = potion.id
@@ -177,7 +177,7 @@ function SupportPotion(User,support,potion)
 		targetPotionEffectId = potion:getData("potionEffectId")
 		
 		supportQuality = support:getData("potionQuality")
-		supportPotionEffectId = support:("potionEffectId")	
+		supportPotionEffectId = support:getData("potionEffectId")	
 		
 	end
 	cauldron = base.common.GetFrontItem( User )
