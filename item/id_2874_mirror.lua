@@ -69,26 +69,21 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 end
 
 function MirrorOfDeath(User)
-	-- shows the a picture of him after his deahth
+	-- shows the a picture of him after his death
 	-- can be reducned by donations, see coin scripts MoveItemAfterMove
 	
-	deathCounter = User:getQuestProgress(666)
+	getProgress = deadPlayer:getQuestProgress(666)
+	if getProgress == 0 then
+	    getProgress = 10000
+	end	
 	charSex = User:increaseAttrib("sex",0)
 	charRace = User:getRace()
+	deathCounter = getProgress-((math.floor(getProgress/10))*10)  
 	
 	if deathCounter == 0 then
 		base.common.InformNLS(User, "Im Spiegel siehst du ein Bild deiner selbst - jedoch in den besten deiner Jahre, bei voller Gesundheit.",
 									"You see yourself in the mirror - but in your prime time and fit as a fiddle.")
 	else
-	
-	    if deathCounter > 10 then
-		    deathCounter = 10
-		elseif (deathCounter/2) == math.floor((deathCounter/2)) then
-			textId = deathCounter - 1
-		else
-			textId = deathCounter
-		end
-	
 	    if charSex == 0 then
 		    base.common.InformNLS(User, DeathTextMaleDE[charRace][deathCounter], DeathTextMaleEN[charRace][deathCounter])
 	    else

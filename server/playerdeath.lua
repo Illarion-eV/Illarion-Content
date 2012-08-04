@@ -24,7 +24,7 @@ function playerDeath(deadPlayer)
         end
     end
     
-	deadPlayer:setQuestProgress(666,(deadPlayer:getQuestProgress(666)+1)) -- deathCounter, can be reduced by donations to Cherga, see Mirror of Death in "item.id_2874_mirror"
+	MirrorOfDeathCounter(deadPlayer)
     world:makeSound(25,deadPlayer.pos);
     showDeathDialog(deadPlayer);
 end
@@ -41,4 +41,20 @@ function showDeathDialog(deadPlayer)
 	
 	deadPlayer:requestMessageDialog(dialog); --showing the text
 		
+end
+
+function MirrorOfDeathCounter(deadPlayer)
+    -- see MirrorOfDeath(User) in "item.id_2874_mirror"
+	local deathCounter
+	local getProgress = deadPlayer:getQuestProgress(666)
+	
+	if getProgress < 10000 then
+	    deadPlayer:setQuestProgress(666,10001)
+	else
+        deathCounter = getProgress-((math.floor(getProgress/10))*10)  
+		if deathCounter < 5 then
+		    deathCounter = deathCounter + 1
+			deadPlayer:setQuestProgress(666,deathCounter)
+        end
+    end
 end

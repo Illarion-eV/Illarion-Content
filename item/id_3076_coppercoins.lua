@@ -26,3 +26,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
       	TimeList[User.id] = world:getTime("second");
 	end
 end
+
+function MoveItemBeforeMove(User,SourceItem,TargetItem)
+
+
+
+end
