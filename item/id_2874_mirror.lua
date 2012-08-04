@@ -13,7 +13,7 @@ end
 
 function LookAtItem( User, Item )
     -- Mirror of Death --
-	if (Item.pos == (891,390,0)) --[[and (User:getFaceTo() == 2) and (User.pos == (890,390,0)) or User.pos == (889,390,0))]] then
+	if (Item.pos == postion(891,390,0)) and (User:getFaceTo() == 2) and (User.pos == postion(890,390,0)) or User.pos == postion(889,390,0)) then
 	    MirrorOfDeath(User)
 	    return
 	end	-- end of mirror of death
