@@ -69,6 +69,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 end
 
 function MirrorOfDeath(User)
+	-- shows the a picture of him after his deahth
+	-- can be reducned by donations, see coin scripts MoveItemAfterMove
+	
 	deathCounter = User:getQuestProgress(666)
 	charSex = User:increaseAttrib("sex",0)
 	charRace = User:getRace()
