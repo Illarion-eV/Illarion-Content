@@ -1,7 +1,7 @@
 require("base.common")
 require("content.chardescription")
 
-module("item.id_2874_mirror", package.seeall, package.seeall(content.chardescription))
+module("item.id_2874_mirror", package.seeall)
 -- belongs also to item id 2873
 
 -- UPDATE common SET com_script='item.id_2874_mirror' WHERE com_itemid = 2874;
@@ -12,7 +12,7 @@ function init()
 end
 
 function LookAtItem( User, Item )
-    -- Mirror of Death -
+    -- Mirror of Death --
 	if (Item.pos == (891,390,0)) and (User:getFaceTo() == 2) and (User.pos == (890,390,0) or User.pos == (889,390,0)) then
 	    MirrorOfDeath(User)
 	    return
