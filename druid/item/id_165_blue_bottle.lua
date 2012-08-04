@@ -12,6 +12,9 @@ module("druid.item.id_165_blue_bottle", package.seeall)
 
 function DrinkPotion(User,SourceItem)
 
+    potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
+
+
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
@@ -21,11 +24,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	end	
 	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
-	   local cauldron = base.common.GetFrontItem( User );
+	   local cauldron = base.common.GetFrontItem( User )
 	
 	   -- is the char an alchemist?
 	    if User:getMagicType() ~= 3 then
-		  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
+		  User:talkLanguage(Character.say, Player.german, "nur alchemisten")
           base.common.InformNLS( User,
 				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
 				"Only those who have been introduced to the art of alchemy are able to work here.")
@@ -78,11 +81,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		    -- water leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
 			    world:gfx(1)
-		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
-		                            "The substance in the cauldron blows out, as you fill the water in.")
-			    cauldron:setData("cauldronFilledWith","")
-	
-	        elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+		    
+			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
 			    SupportEssencebrew(User,SourceItem,cauldron)
 			
 			elseif cauldron:getData("potionEffectId") ~= "" then
@@ -124,7 +124,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			SourceItem.quality = 333
 			if math.random(1,20) == 1 then
 			   world:erase(SourceItem,1) -- bottle breaks
-			   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+			   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
 			else	
 				world:changeItem(SourceItem)
 			end
@@ -135,15 +135,75 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 end
 
 function SupportStock(User,support,stock)
-
+    cauldron = base.common.GetFrontItem( User )
+    potionEffectId = tonumber(support:getData("potionEffectId"))
+	if potionEffectId == nil then
+	    potionEffectId = 0
+	end
+	
+    -- effects
+	--else
+	    world:gfx(1)
+	-- end
+	world:changeItem(cauldron)
 end
 
 function SupportEssencebrew(User,support,essencebrew)
-
+    cauldron = base.common.GetFrontItem( User )
+    potionEffectId = tonumber(support:getData("potionEffectId"))
+	if potionEffectId == nil then
+	    potionEffectId = 0
+	end
+	
+    -- effects
+	--else
+	    world:gfx(1)
+	-- end
+	world:changeItem(cauldron)
 end
 
 function SupportPotion(User,support,potion)
+    if potion.id == 1008 then -- in case the potion is in a cauldron and the support in a bottle
+	    targetPotionId = potion:getData("potionId")
+		targetPotionEffectId = potion:getData("potionEffectId")
+	    targetPotionQuality = potion:getData("potionQuality")
+	
+	    supportQuality = support.quality
+        supportPotionEffectId = support:("potionEffectId")		
+	
+	else -- support in cauldron, potion in bottle
+	    targetPotionId = potion.id
+	    targetPotionQuality = potion.quality
+		targetPotionEffectId = potion:getData("potionEffectId")
+		
+		supportQuality = support:getData("potionQuality")
+		supportPotionEffectId = support:("potionEffectId")	
+		
+	end
+	cauldron = base.common.GetFrontItem( User )
+    potionEffectId = tonumber(potion:getData("potionEffectId"))
+	if potionEffectId == nil then
+	    potionEffectId = 0
+	end
+	
+	
+	
+	
+	--[[if (potionEffectId > 0) and (potionEffectId <= 7) then
+	    
+		PotionList = {59,165,166,327,328,329,330} -- potion ids
+	
+	    if potion
+	
+    -- effects
+	--else
+	    world:gfx(1)
+	-- end
+	world:changeItem(cauldron)]]
 
+	
+	
+	
 end
 
 

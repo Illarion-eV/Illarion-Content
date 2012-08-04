@@ -204,12 +204,17 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
         cauldron:setData("potionId","")		
 									
 	elseif cauldron:getData("potionEffectId") ~= "" then
+		if cauldron:getData("potionId") == "165" then
+		    world:makeSound(10,cauldron.pos)
+		    cauldron:setData("cauldronFilledWith","water")
+		else
+			base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+										"The substance in the cauldron blows out, as you fill the water in.")
+		end
 		world:gfx(1,cauldron.pos)
-		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
-		                            "The substance in the cauldron blows out, as you fill the water in.")
 		cauldron:setData("potionEffectId","")
-        cauldron:setData("potionId","")
-        cauldron:setData("potionQuality","")
+		cauldron:setData("potionId","")
+		cauldron:setData("potionQuality","")
 		
 	elseif cauldron:getData("stockData") ~= "" then
 		world:gfx(1,cauldron.pos)

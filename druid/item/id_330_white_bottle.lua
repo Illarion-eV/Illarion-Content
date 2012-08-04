@@ -99,7 +99,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			     druid.base.alchemy.CauldronExplosion(User,cauldron,{4,44})
 			
 			elseif cauldron:getData("potionEffectId") ~= "" then
-			     if cauldron:getData("potionId") == "331" then -- support potion
+			     if cauldron:getData("potionId") == "165" then -- support potion
 			        druid.item.id_165_blue_bottle.SupportEssencebrew(User,cauldron,SourceItem)
 			     else
 				    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
@@ -130,7 +130,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
 			
 			elseif cauldron:getData("potionEffectId") ~= "" then
-			    if cauldron:getData("potionId") == "331" then -- support potion
+			    if cauldron:getData("potionId") == "165" then -- support potion
 			        druid.item.id_165_blue_bottle.SupportPotion(User,cauldron,SourceItem)
 			    else
 				    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,38})
