@@ -72,7 +72,7 @@ function MirrorOfDeath(User)
 	-- shows the a picture of him after his death
 	-- can be reducned by donations, see coin scripts MoveItemAfterMove
 	
-	getProgress = deadPlayer:getQuestProgress(666)
+	getProgress = User:getQuestProgress(666)
 	if getProgress == 0 then
 	    getProgress = 10000
 	end	
