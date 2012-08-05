@@ -27,3 +27,51 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
       	TimeList[User.id] = world:getTime("second");
 	end
 end
+
+function MoveItemAfterMove(User, SourceItem, TargetItem)
+
+    if TargetItem.pos == position(890,390,0) then -- donation to cherga to reduce death counter
+	    getProgress = User:getQuestProgress(666)
+		if getProgress == 0 then
+			getProgress = 10000
+		end	
+		
+		deathCounter = getProgress-((math.floor(getProgress/10))*10) 
+		copperCoins = (SourceItem.number)*100 -- money to donate
+		moneyCounter = math.floor((getProgress/10))-1000 -- money already donated to cherga, what wa snot enough to reduce death
+		
+		if deathCounter == 0 then -- there is no death count to be lowered, we accept any donation happily
+		    world:gfx(31,position(890,390,0))
+		    base.common.InformNLS(User, "Ein angenehmes Gefühl erfüllt dich, als die Gottheit deine Spende zu akzeptieren scheint.",
+				                            "You get a comfortable feeling, as the divinity seems to accept your offer.")
+		else
+		    
+			newMoney = copperCoins + moneyCounter
+			if newMoney < 500 then -- not enough to donate yet
+			    base.common.InformNLS(User, "Die Münzen verschwinden, doch dich beschleicht das Gefühl noch nicht genug gespendet zu haben. Wirf einen Blick in den Spiegel.",
+				                            "The coins vansih, but you get the feeling thaht you may haven't sacrificed enough. Look in the mirror.")
+				setMoney = 	((getProgress - (moneyCounter*10)) + (newMoney*10))						
+		        User:setQuestProgress(666, setMoney)
+		    else 
+		        deathReducer = math.floor((newMoney/500))
+				if deathReducer > deathCounter then
+				    deathRedcuer = deathCounter
+				end
+                
+				User:setQuestProgress(666, (getProgress - deathReducer)-(copperCoins*10))
+				newDeathCounter = getProgress-((math.floor(getProgress/10))*10)
+				
+				if newDeathCounter > 0 then
+				    base.common.InformNLS(User, "Als die Gottheit das Opfer annzunehmen scheint, hast Du das Gefühl, dass du ganz von der Last des Todes befreift wirst.",
+				                            "As the divinity seems to accept your offer, you get the feeling, that your burden of death is easied completely.")
+		        else
+		            base.common.InformNLS(User, "Als die Gottheit das Opfer annzunehmen scheint, hast Du das Gefühl, dass ein Teil der Last des Todes von dir genommen wird.",
+				                            "As the divinity seems to accept your offer, you get the feeling, that some of your burden of death is easied.")
+		        end
+		        world:gfx(31,position(890,390,0))
+		    end
+	    end
+	end	
+
+	return true
+end
