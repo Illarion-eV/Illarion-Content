@@ -70,6 +70,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 		        world:gfx(31,position(890,390,0))
 		    end
 	    end
+	    world:erase(TargetItem,1)
 	end	
 
 	return true
