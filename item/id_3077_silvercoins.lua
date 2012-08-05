@@ -47,6 +47,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 		else
 		    
 			newMoney = copperCoins + moneyCounter
+			base.common.InformNLS(User,"newMoney "..newMoney,"newMoney "..newMoney)
 			if newMoney < 500 then -- not enough to donate yet
 			    base.common.InformNLS(User, "Die Münzen verschwinden, doch dich beschleicht das Gefühl noch nicht genug gespendet zu haben. Wirf einen Blick in den Spiegel.",
 				                            "The coins vansih, but you get the feeling thaht you may haven't sacrificed enough. Look in the mirror.")
