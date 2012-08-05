@@ -27,6 +27,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:eraseItem(myItemId,deleteAmount)
 	end	
 	
+	if User.lastSpokenText == "cherga" then
+	    world:createItemFromId(2874,1,position(892,390,0),true,999,0)
+		world:createItemFromId(2952,1,position(891,390,0),true,999,0)
+	end	
+	
 	if User.lastSpokenText == "death" then
 	    find, myEffect = User.effects:find(36)
 		if find then

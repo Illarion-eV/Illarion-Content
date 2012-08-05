@@ -56,7 +56,7 @@ end
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
 
-    if TargetItem.pos == position(890,390,0) then -- donation to cherga to reduce death counter, for one gold we reduce all deathes at once!
+    if TargetItem.pos == position(891,390,0) then -- donation to cherga to reduce death counter, for one gold we reduce all deathes at once!
 	    getProgress = User:getQuestProgress(666)
 		if getProgress == 0 then
 			getProgress = 10000
@@ -73,7 +73,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 		
 		User:setQuestProgress(666,getProgress - deathCounter)
 		world:erase(TargetItem,1)
-        world:gfx(31,position(890,390,0))
+        world:gfx(31,position(891,390,0))
 	end	
 return true
 end

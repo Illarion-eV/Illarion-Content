@@ -30,7 +30,7 @@ end
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
 
-    if TargetItem.pos == position(890,390,0) then -- donation to cherga to reduce death counter
+    if TargetItem.pos == position(891,390,0) then -- donation to cherga to reduce death counter
 	    getProgress = User:getQuestProgress(666)
 		if getProgress == 0 then
 			getProgress = 10000
@@ -41,7 +41,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 		moneyCounter = math.floor((getProgress/10))-1000 -- money already donated to cherga, what wa snot enough to reduce death
 		
 		if deathCounter == 0 then -- there is no death count to be lowered, we accept any donation happily
-		    world:gfx(31,position(890,390,0))
+		    world:gfx(31,position(891,390,0))
 		    base.common.InformNLS(User, "Ein angenehmes Gefühl erfüllt dich, als die Gottheit deine Spende zu akzeptieren scheint.",
 				                            "You get a comfortable feeling, as the divinity seems to accept your offer.")
 		else
@@ -68,7 +68,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 		            base.common.InformNLS(User, "Als die Gottheit das Opfer annzunehmen scheint, hast Du das Gefühl, dass ein Teil der Last des Todes von dir genommen wird.",
 				                            "As the divinity seems to accept your offer, you get the feeling, that some of your burden of death is easied.")
 		        end
-		        world:gfx(31,position(890,390,0))
+		        world:gfx(31,position(891,390,0))
 		    end
 	    end
 	    world:erase(TargetItem,1)
