@@ -57,7 +57,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 				    deathRedcuer = deathCounter
 				end
                 
-				User:setQuestProgress(666, (getProgress - deathReducer)-(copperCoins*10))
+				User:setQuestProgress(666, (getProgress - deathReducer)-(moneyCounter*10))
 				newDeathCounter = getProgress-((math.floor(getProgress/10))*10)
 				
 				if newDeathCounter > 0 then
@@ -65,7 +65,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 				                            "As the divinity seems to accept your offer, you get the feeling, that your burden of death is easied completely.")
 		        else
 		            base.common.InformNLS(User, "Als die Gottheit das Opfer annzunehmen scheint, hast Du das Gefühl, dass ein Teil der Last des Todes von dir genommen wird.",
-				                            "As the divinity seems to accept your offer, you get the feeling, that some of your burden of death is easied.")
+				                            "As the divinity seems to accept your offer, you get the feeling, that some of your burden of death is eased.")
 		        end
 		        world:gfx(31,position(891,390,0))
 		    end

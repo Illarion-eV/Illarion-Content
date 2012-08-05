@@ -65,13 +65,13 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 		deathCounter = getProgress-((math.floor(getProgress/10))*10)  
 		if deathCounter > 0 then
 		    base.common.InformNLS(User, "Als die Gottheit das Opfer annzunehmen scheint, hast Du das Gefühl, dass du ganz von der Last des Todes befreift wirst.",
-				"As the divinity seems to accept your offer, you get the feeling, that your burden of death is easied completely.")
+				"As the divinity seems to accept your offer, you get the feeling, that your burden of death is eased completely.")
 		else
 		    base.common.InformNLS(User, "Ein angenehmes Gefühl erfüllt dich, als die Gottheit deine Spende zu akzeptieren scheint.",
 				                            "You get a comfortable feeling, as the divinity seems to accept your offer.")
 		end
 		
-		User:setQuestProgress(666,getProgress - deathCounter)
+		User:setQuestProgress(666,10000)
 		world:erase(TargetItem,1)
         world:gfx(31,position(891,390,0))
 	end	

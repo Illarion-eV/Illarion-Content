@@ -47,8 +47,6 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 		else
 		    
 			newMoney = copperCoins + moneyCounter
-			base.common.InformNLS(User, ""..newMoney,
-				                            ""..newMoney)
 			if newMoney < 500 then -- not enough to donate yet
 			    base.common.InformNLS(User, "Die Münzen verschwinden, doch dich beschleicht das Gefühl noch nicht genug gespendet zu haben. Wirf einen Blick in den Spiegel.",
 				                            "The coins vansih, but you get the feeling that you may haven't sacrificed enough. Look in the mirror.")
@@ -60,7 +58,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 				    deathRedcuer = deathCounter
 				end
                 
-				User:setQuestProgress(666, (getProgress - deathReducer)-(copperCoins*10))
+				User:setQuestProgress(666, (getProgress - deathReducer)-(moneyCounter*10))
 				newDeathCounter = getProgress-((math.floor(getProgress/10))*10)
 				
 				if newDeathCounter > 0 then
@@ -68,7 +66,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 				                            "As the divinity seems to accept your offer, you get the feeling, that your burden of death is easied completely.")
 		        else
 		            base.common.InformNLS(User, "Als die Gottheit das Opfer annzunehmen scheint, hast Du das Gefühl, dass ein Teil der Last des Todes von dir genommen wird.",
-				                            "As the divinity seems to accept your offer, you get the feeling, that some of your burden of death is easied.")
+				                            "As the divinity seems to accept your offer, you get the feeling, that some of your burden of death is eased.")
 		        end
 		        world:gfx(31,position(891,390,0))
 		    end
