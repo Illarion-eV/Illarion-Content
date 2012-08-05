@@ -49,7 +49,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 			newMoney = copperCoins + moneyCounter
 			if newMoney < 500 then -- not enough to donate yet
 			    base.common.InformNLS(User, "Die Münzen verschwinden, doch dich beschleicht das Gefühl noch nicht genug gespendet zu haben. Wirf einen Blick in den Spiegel.",
-				                            "The coins vansih, but you get the feeling thaht you may haven't sacrificed enough. Look in the mirror.")
+				                            "The coins vansih, but you get the feeling that you may haven't sacrificed enough. Look in the mirror.")
 				setMoney = 	((getProgress - (moneyCounter*10)) + (newMoney*10))						
 		        User:setQuestProgress(666, setMoney)
 		    else 
