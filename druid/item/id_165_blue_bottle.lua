@@ -11,10 +11,9 @@ module("druid.item.id_165_blue_bottle", package.seeall)
 -- UPDATE common SET com_script='druid.item.id_165_blue_bottle' WHERE com_itemid = 165;
 
 function DrinkPotion(User,SourceItem)
-
-    potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
-
-
+    -- no effecs yet
+	 base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
+		"You don't have the feeling that something happens.")
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
@@ -118,8 +117,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         if User.attackmode then
 		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während Du kämpfst.", "You cannot use the potion while fighting.")
 		else
-			User:talkLanguage(Character.say, Player.german, "#me trinkt eine schwarze Flüssigkeit.");
-			User:talkLanguage(Character.say, Player.english, "#me drinks a black liquid.");
+			User:talkLanguage(Character.say, Player.german, "#me trinkt eine hellblaue Flüssigkeit.");
+			User:talkLanguage(Character.say, Player.english, "#me drinks a light blue liquid.");
 			SourceItem.id = 164
 			SourceItem.quality = 333
 			if math.random(1,20) == 1 then
@@ -135,78 +134,120 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 end
 
 function SupportStock(User,support,stock)
-    cauldron = base.common.GetFrontItem( User )
-    potionEffectId = tonumber(support:getData("potionEffectId"))
-	if potionEffectId == nil then
-	    potionEffectId = 0
-	end
+    if potion.id == 1008 then -- in case the potion is in a cauldron and the support in a bottle
+	    targetPotionId = tonumber(potion:getData("potionId"))
+		targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
+	    targetPotionQuality = tonumber(potion:getData("potionQuality"))
 	
-    -- effects
-	--else
-	    world:gfx(1)
-	-- end
-	world:changeItem(cauldron)
+	    supportQuality = support.quality
+    else -- support in cauldron, potion in bottle
+	    targetPotionId = potion.id
+	    targetPotionQuality = potion.quality
+		targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
+		
+		supportQuality = support:getData("potionQuality")
+	end
+	targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
+	supportPotionEffectId = tonumber(support:getData("potionEffectId"))	
+	
+	if targetPotionEffectId == nil then
+	   targetPotionEffectId = 0
+	elseif supportPotionEffectId == nil then
+	    supportPotionEffectId = 0 
+	end	
+	
+	cauldron = base.common.GetFrontItem( User )
+	
+	-- no effects yet
+    cauldron:setData("potionId",targetPotionId)
+	cauldron:setData("potionEffectId",targetPotionEffectId)
+    world:changeItem(cauldron)
 end
 
 function SupportEssencebrew(User,support,essencebrew)
-    cauldron = base.common.GetFrontItem( User )
-    potionEffectId = tonumber(support:getData("potionEffectId"))
-	if potionEffectId == nil then
-	    potionEffectId = 0
-	end
+    if potion.id == 1008 then -- in case the potion is in a cauldron and the support in a bottle
+	    targetPotionId = tonumber(potion:getData("potionId"))
+		targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
+	    targetPotionQuality = tonumber(potion:getData("potionQuality"))
 	
-    -- effects
-	--else
-	    world:gfx(1)
-	-- end
-	world:changeItem(cauldron)
+	    supportQuality = support.quality
+    else -- support in cauldron, potion in bottle
+	    targetPotionId = potion.id
+	    targetPotionQuality = potion.quality
+		targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
+		
+		supportQuality = support:getData("potionQuality")
+	end
+	targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
+	supportPotionEffectId = tonumber(support:getData("potionEffectId"))	
+	
+	if targetPotionEffectId == nil then
+	   targetPotionEffectId = 0
+	elseif supportPotionEffectId == nil then
+	    supportPotionEffectId = 0 
+	end	
+	
+	cauldron = base.common.GetFrontItem( User )
+	
+	-- no effects yet
+	cauldron:setData("potionId",targetPotionId)
+	cauldron:setData("potionEffectId",targetPotionEffectId)
+    world:changeItem(cauldron)
+	
 end
 
 function SupportPotion(User,support,potion)
     if potion.id == 1008 then -- in case the potion is in a cauldron and the support in a bottle
-	    targetPotionId = potion:getData("potionId")
-		targetPotionEffectId = potion:getData("potionEffectId")
-	    targetPotionQuality = potion:getData("potionQuality")
+	    targetPotionId = tonumber(potion:getData("potionId"))
+		targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
+	    targetPotionQuality = tonumber(potion:getData("potionQuality"))
 	
 	    supportQuality = support.quality
-        supportPotionEffectId = support:getData("potionEffectId")		
-	
-	else -- support in cauldron, potion in bottle
+    else -- support in cauldron, potion in bottle
 	    targetPotionId = potion.id
 	    targetPotionQuality = potion.quality
-		targetPotionEffectId = potion:getData("potionEffectId")
+		targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
 		
 		supportQuality = support:getData("potionQuality")
-		supportPotionEffectId = support:getData("potionEffectId")	
-		
 	end
+	targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
+	supportPotionEffectId = tonumber(support:getData("potionEffectId"))	
+	
+	if targetPotionEffectId == nil then
+	   targetPotionEffectId = 0
+	elseif supportPotionEffectId == nil then
+	    supportPotionEffectId = 0 
+	end	
+	
 	cauldron = base.common.GetFrontItem( User )
-    potionEffectId = tonumber(potion:getData("potionEffectId"))
-	if potionEffectId == nil then
-	    potionEffectId = 0
-	end
 	
+	if (supportPotionEffectId > 0) and (supportPotionEffectId <= 7) -- quality raiser
+	    PotionList = {59,165,166,327,328,329,330} -- potion ids
 	
-	
-	
-	--[[if (potionEffectId > 0) and (potionEffectId <= 7) then
-	    
-		PotionList = {59,165,166,327,328,329,330} -- potion ids
-	
-	    if potion
-	
-    -- effects
-	--else
-	    world:gfx(1)
-	-- end
-	world:changeItem(cauldron)]]
+	    if targetPotionId == PotionList[supportPotionEffectId] then -- support and potion belong together
+		
+		    local chance = (math.floor(supportQuality/100))*9  -- support quality * 9 = chance that potion's quality is increased
+		    if base.common.Chance(chance, 100)==true then 
+			    local newQuali = Limit(targetPotionQuality+100, 100, 999)
+			    cauldron:setData("potionQuality",newQuali)
+		        world:gfx(53,cauldron.pos)
+			else -- no success, quality stays the same
+		        cauldron:setData("potionQuality",targetPotionQuality)
+                world:gfx(1,cauldron.pos)
+			end
+		
+		else 
+	        world:gfx(1,cauldron.pos)
+	    end
 
-	
-	
-	
+	else
+	    world:gfx(1,cauldron.pos)
+	end	
+
+	cauldron:setData("potionId",targetPotionId)
+	cauldron:setData("potionEffectId",targetPotionEffectId)
+    world:changeItem(cauldron)
 end
-
-
 
 function LookAtItem(User,Item)
   
