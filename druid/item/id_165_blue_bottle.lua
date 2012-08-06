@@ -221,7 +221,7 @@ function SupportPotion(User,support,potion)
 	
 	cauldron = base.common.GetFrontItem( User )
 	
-	if (supportPotionEffectId > 0) and (supportPotionEffectId <= 7) -- quality raiser
+	if (supportPotionEffectId > 0) and (supportPotionEffectId <= 7) then -- quality raiser
 	    PotionList = {59,165,166,327,328,329,330} -- potion ids
 	
 	    if targetPotionId == PotionList[supportPotionEffectId] then -- support and potion belong together
