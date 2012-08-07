@@ -90,7 +90,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   if (SourceItem:getData("essenceBrew") =="true") then -- essence brew should be filled into the cauldron
 			-- water, essence brew or potion is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
-			    world:gfx(1)
+			    world:gfx(1,cauldron.pos)
 		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Gebräu hinzu tust.", 
 		                                    "The substance in the cauldron blows out, as you fill the mixture in.")
 			    cauldron:setData("cauldronFilledWith","")
@@ -121,7 +121,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		elseif (SourceItem:getData("potionEffectId")~="") then -- potion should be filled into the cauldron
 		    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
-			    world:gfx(1)
+			    world:gfx(1,cauldron.pos)
 		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
 			    cauldron:setData("cauldronFilledWith","")
@@ -181,95 +181,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
 	end  
 end
--- end (milk)
-  
-  ----------- MILK ; has to be reworked sometime --------
-  --if SourceItem.data == 0 then
-	--world:erase(SourceItem,1);
-	--world:makeSound(12,Character.pos);
-	--return;
-    -- Sheep Milk
- -- elseif SourceItem.data == 1 then     -- special Cow Milk
-	--User = getCharForId(Character.id);  --create a save copy of the char struct
-	--world:erase(SourceItem,1);
-	--world:makeSound(12,Character.pos);
-
-    
-        -- ALTE FASSUNG ALS HEILTRANK
-       -- if (ltstate == Action.abort) then
-
-        --    User:talkLanguage(Character.say, Player.german, "#me verschüttet die Milch.");
-        --    User:talkLanguage(Character.say, Player.english, "#me spills the milk.");
-
-        --    world:erase( SourceItem, 1 );
-
-        --    if (math.random( 20 ) == 1) then
-        --        base.common.InformNLS( User,
-        --        "Die Flasche zerbricht.",
-         --       "The bottle breaks.");
-         --   else
-         --       User:createItem( 164, 1, 333, 0 );
-        --    end
-
-        --    return
-       -- end
-
-        --if User.attackmode then
-        --    base.common.InformNLS( User,
-        --    "Du kannst nichts trinken während du kämpfst.",
-        --    "You can't drink something while fighting." );
-        --    return
-        --end
-
-        --if (ltstate == Action.none) then
-
-            --User:startAction( 20, 0, 0, 12, 25 );
-
-         --   User:talkLanguage(Character.say, Player.german, "#me beginnt eine Milch zu trinken.");
-         --   User:talkLanguage(Character.say, Player.english, "#me starts to drink a milk.");
-
-        --end
-
-
-        --if( math.random( 20 ) == 1 ) then
-        --    base.common.InformNLS( User,
-        --    "Die Flasche zerbricht.",
-        --    "The bottle breaks.");
-       -- else
-        --    User:createItem( 164, 1, 333,0);
-        --end
-
-        --User:LTIncreaseHP(333,3,1); --1000HP+
-        --User:LTIncreaseMana(333,3,1); --1000Mana+
-        --User:increaseAttrib("foodlevel",1000);
-       -- User.movepoints = User.movepoints - 16;
-        
-        --local Poisonvalue = User:getPoisonValue();                -- Poisonvalue einlesen  ( 0 - 10000 )
-        --if Poisonvalue>1000 then
-        --	Poisonvalue = Poisonvalue -1000; --remove 1000 Poison points
-        --end
-        --User:setPoisonValue( Poisonvalue );
-			
-        --if (User:increaseAttrib("foodlevel",0) > 60000) then
-        --    base.common.InformNLS( User,
-        --    "Du bekommst kaum noch was runter und dir wird schlecht.",
-        --    "You hardly manage to eat something more and get sick!");
-
-        --    User:increaseAttrib("hitpoints",-1000);
-        --elseif  (User:increaseAttrib("foodlevel",0) > 40000) then
-       --     base.common.InformNLS( User,
-        --    "Du bist satt.",
-        --    "You are stuffed.");
-        --else
-        --    base.common.InformNLS( User,
-        --    "Du trinkst die Flasche aus und fühlst wie neue Stärke dich durchströmt.",
-        --    "You drink up the bottle, and you feel the new strength that flows through your body.");
-        --end
-
-        --return
-        -- Old style potion done
-   --end
-	------------------------ MILKD END -------------------	
 
 function LookAtItem(User,Item)
 

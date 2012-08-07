@@ -52,7 +52,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	    if (SourceItem:getData("essenceBrew") =="true") then -- essence brew should be filled into the cauldron
 			-- water, essence brew or potion is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
-			    world:gfx(1)
+			    world:gfx(1,cauldron.pos)
 		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Gebräu hinzu tust.", 
 		                                    "The substance in the cauldron blows out, as you fill the mixture in.")
 			    cauldron:setData("cauldronFilledWith","")
@@ -79,7 +79,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	    elseif (SourceItem:getData("potionEffectId")~="") then -- potion should be filled into the cauldron
 		    -- water leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
-			    world:gfx(1)
+			    world:gfx(1,cauldron.pos)
 		    
 			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
 			    SupportEssencebrew(User,SourceItem,cauldron)
@@ -133,91 +133,71 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	end  
 end
 
-function SupportStock(User,support,stock)
-    if potion.id == 1008 then -- in case the potion is in a cauldron and the support in a bottle
-	    targetPotionId = tonumber(potion:getData("potionId"))
-		targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
-	    targetPotionQuality = tonumber(potion:getData("potionQuality"))
+function GetProperties(support,targetBrew)
+    -- returns datas and qualities for the support functions
 	
-	    supportQuality = support.quality
-    else -- support in cauldron, potion in bottle
-	    targetPotionId = potion.id
-	    targetPotionQuality = potion.quality
-		targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
-		
-		supportQuality = support:getData("potionQuality")
+	if targetBrew.id == 1008 then -- the target brew is in the cauldron, the support is in a bottle
+	    supQuali = support.quality 
+	    tarBrewId = tonumber(targetBrew:getData("potionId"))
+	    tarBrewQuali = tonumber(targetBrew:getData("potionQuality"))
+	
+    else -- support is in the cauldron, the other brew in a bottle
+        supQuali = tonumber(support:getData("potionQuality"))
+	    tarBrewId = targetBrew.id
+		tarBrewQuali = targetBrew.quality
 	end
-	targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
-	supportPotionEffectId = tonumber(support:getData("potionEffectId"))	
 	
-	if targetPotionEffectId == nil then
-	   targetPotionEffectId = 0
-	elseif supportPotionEffectId == nil then
-	    supportPotionEffectId = 0 
-	end	
+	supEffId = tonumber(support:getData("potionEffectId"))
+	essHerbs = targetBrew:get("essenceHerbs")
+	tarStData = targetBrew:getData("stockData")
+	tarBrewEffId = tonumber(support:getData("potionEffectId"))
 	
-	cauldron = base.common.GetFrontItem( User )
+	if tarStData~="" then -- target a stock
+		return supEffId, supQuali, tarStData
+	
+	elseif (targetBrew:getData("essenceBrew")=="true") or (targetBrew:getData("cauldronFilledWith")=="essenceBrew")then -- target an essence brew
+		return supEffId, supQuali, tarBrewId, essHerbs
+		
+	elseif tarBrewEffId ~= nil then -- target a potion
+		return supEffId, supQuali, tarBrewId, tarBrewEffId, tarBrewQuali
+	end
+	
+end	
+	
+function SupportStock(User,support,stock)
+    supportEffectId, supportQuality, stockData = GetProperties(support,stock)
 	
 	-- no effects yet
-    cauldron:setData("potionId",targetPotionId)
-	cauldron:setData("potionEffectId",targetPotionEffectId)
-    world:changeItem(cauldron)
+    
+	cauldron = base.common.GetFrontItem( User )
+	-- remove support potion in case it was in the cauldron
+	cauldron:setData("potionId","")
+	cauldron:setData("potionEffectId","")
+	cauldron:setData("potionQuality","")
+	-- fill in the stock
+	cauldron:setData("stockData",stockData)
+	world:changeItem(cauldron)
+	world:gfx(1,cauldron.pos)
 end
 
 function SupportEssencebrew(User,support,essencebrew)
-    if potion.id == 1008 then -- in case the potion is in a cauldron and the support in a bottle
-	    targetPotionId = tonumber(potion:getData("potionId"))
-		targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
-	    targetPotionQuality = tonumber(potion:getData("potionQuality"))
-	
-	    supportQuality = support.quality
-    else -- support in cauldron, potion in bottle
-	    targetPotionId = potion.id
-	    targetPotionQuality = potion.quality
-		targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
-		
-		supportQuality = support:getData("potionQuality")
-	end
-	targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
-	supportPotionEffectId = tonumber(support:getData("potionEffectId"))	
-	
-	if targetPotionEffectId == nil then
-	   targetPotionEffectId = 0
-	elseif supportPotionEffectId == nil then
-	    supportPotionEffectId = 0 
-	end	
-	
-	cauldron = base.common.GetFrontItem( User )
+    supportEffectId, supportQuality, potionId, essenceHerbs = GetProperties(support,essencebrew)
 	
 	-- no effects yet
-	cauldron:setData("potionId",targetPotionId)
-	cauldron:setData("potionEffectId",targetPotionEffectId)
-    world:changeItem(cauldron)
+	
+	cauldron = base.common.GetFrontItem( User )
+	-- remove the support brew and fill in the essence brew
+	cauldron:setData("potionEffectId","")
+	cauldron:setData("potionId",potionId)
+	cauldron:setData("cauldronFilledWith","essenceBrew")
+	cauldron:setData("essenceHerbs",essenceHerbs)
+    cauldron:setData("potionQuality","")
+	world:changeItem(cauldron)
 	
 end
 
 function SupportPotion(User,support,potion)
-    if potion.id == 1008 then -- in case the potion is in a cauldron and the support in a bottle
-	    targetPotionId = tonumber(potion:getData("potionId"))
-		targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
-	    targetPotionQuality = tonumber(potion:getData("potionQuality"))
-	
-	    supportQuality = support.quality
-    else -- support in cauldron, potion in bottle
-	    targetPotionId = potion.id
-	    targetPotionQuality = potion.quality
-		targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
-		
-		supportQuality = support:getData("potionQuality")
-	end
-	targetPotionEffectId = tonumber(potion:getData("potionEffectId"))
-	supportPotionEffectId = tonumber(support:getData("potionEffectId"))	
-	
-	if targetPotionEffectId == nil then
-	   targetPotionEffectId = 0
-	elseif supportPotionEffectId == nil then
-	    supportPotionEffectId = 0 
-	end	
+    supportPotionEffectId, supportQuality, targetPotionId, targetPotionEffectId, targetPotionQuality = GetProperties(support,potion)
 	
 	cauldron = base.common.GetFrontItem( User )
 	

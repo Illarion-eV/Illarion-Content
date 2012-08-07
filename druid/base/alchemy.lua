@@ -5,7 +5,7 @@
 -- "cauldronFilledWith" - can have the value "water" or "essenceBrew"; (to check if there is a stock in, we can use "stockData", for a potion "potionIdEffect")
 -- "potionEffectId" - the id of the effect a potion has
 -- "essenceHerbs" - the ids of the herbs of the essence brew in one string, seperated by spaces
--- "essenceBrew" - actually, only used to distinguish an essence brew from a potion. returns "true"
+-- "essenceBrew" - actually, only used to distinguish an essence brew from a potion. returns "true", note the quotes!
 -- "potionId" -- id of the potion 
 -- "potionQuality" -- quality of the potion
 

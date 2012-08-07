@@ -243,7 +243,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	   if (SourceItem:getData("essenceBrew") =="true") then -- essence brew should be filled into the cauldron
 			-- water, essence brew or potion is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
-			    world:gfx(1)
+			    world:gfx(1,cauldron.pos)
 		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Gebräu hinzu tust.", 
 		                                    "The substance in the cauldron blows out, as you fill the mixture in.")
 			    cauldron:setData("cauldronFilledWith","")
@@ -274,7 +274,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		elseif (SourceItem:getData("potionEffectId")~="") then -- potion should be filled into the cauldron
 		    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
-			    world:gfx(1)
+			    world:gfx(1,cauldron.pos)
 		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
 			    cauldron:setData("cauldronFilledWith","")
@@ -334,35 +334,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
 	end  
 end
-	
---[[	-- not infront of a cauldron: let's drink the potion!
-	if User.attackmode then
-        base.common.InformNLS(User,
-			"Du kannst den Trank nicht benutzen, während Du kämpfst.",
-			"You can't use the potion while you are fighting.");
-		return;
-	end
-	
-	-- if the transformation LTE is there
-	-- and it is not the same transformation potion kind OR if the transformation of the first potion is already over
-    -- -> no effect
-	find, myEffect = User.effects:find(329)
-	if find then
-	   findCodecValue, CodecValue = myEffect:findValue("CodecValue")
-	    findCounter,counterBlack = myEffect:findValue("counterBlack")
-		if findCodecValue then
-	        if CodecValue ~= tonumber(SourceItem:getData("potionData")) or (counterBlack == 0) then
-	           base.common.InformNLS( User,
-                "Der Trank hätte jetzt keine Wirkung.",
-                "The potion wouldn't have any effect now."
-                       );  
-	            return
-			end
-	   else
-	     User:inform("Error, please inform dev.");
-	   end
-	  return;
-	end	]]
 	
 function LookAtItem(User,Item)
 end
