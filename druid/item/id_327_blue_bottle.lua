@@ -151,6 +151,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 	potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 	if potionEffectId == nil then
 	    potionEffectId = 0
+	    User:talkLanguage(Character.say, Player.german, "effect id: "..potionEffectId)
 	end	
 	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
