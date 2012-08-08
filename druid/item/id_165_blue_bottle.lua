@@ -146,7 +146,7 @@ function GetProperties(support,targetBrew)
 	end
 	
 	supEffId = tonumber(support:getData("potionEffectId"))
-	essHerbs = targetBrew:get("essenceHerbs")
+	essHerbs = targetBrew:getData("essenceHerbs")
 	tarStData = targetBrew:getData("stockData")
 	tarBrewEffId = tonumber(support:getData("potionEffectId"))
 	
@@ -196,7 +196,7 @@ end
 
 function SupportPotion(User,support,potion)
     supportPotionEffectId, supportQuality, targetPotionId, targetPotionEffectId, targetPotionQuality = GetProperties(support,potion)
-	
+	User:talkLanguage(Character.say,Player.german,"old quali: "..targetPotionQuality)
 	cauldron = base.common.GetFrontItem( User )
 	
 	if (supportPotionEffectId > 0) and (supportPotionEffectId <= 7) then -- quality raiser
@@ -205,9 +205,11 @@ function SupportPotion(User,support,potion)
 	    if targetPotionId == PotionList[supportPotionEffectId] then -- support and potion belong together
 		
 		    local chance = (math.floor(supportQuality/100))*9  -- support quality * 9 = chance that potion's quality is increased
-		    if base.common.Chance(chance, 100)==true then 
+		    User:talkLanguage(Character.say,Player.german,"chance: "..chance)
+			if base.common.Chance(chance, 100)==true then 
 			    local newQuali = Limit(targetPotionQuality+100, 100, 999)
-			    cauldron:setData("potionQuality",newQuali)
+			    User:talkLanguage(Character.say,Player.german,"new quali: "..newQuali)
+				cauldron:setData("potionQuality",newQuali)
 		        world:gfx(53,cauldron.pos)
 			else -- no success, quality stays the same
 		        cauldron:setData("potionQuality",targetPotionQuality)
@@ -225,14 +227,15 @@ function SupportPotion(User,support,potion)
 	cauldron:setData("potionId",targetPotionId)
 	cauldron:setData("potionEffectId",targetPotionEffectId)
     world:changeItem(cauldron)
+    User:talkLanguage(Character.say,Player.german,"quali added: "..cauldron:getData("potionQuality"))
 end
 
 function LookAtItem(User,Item)
   
-  if (Character:getPlayerLanguage()==0) then
+  --[[if (Character:getPlayerLanguage()==0) then
 	world:itemInform(Character,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: \"Wunderpaste\"")
   else
 	world:itemInform(Character,Item,"You look at a sticker telling: \"Marvel Paste\"")      
-  end
+  end]]
   
 end
