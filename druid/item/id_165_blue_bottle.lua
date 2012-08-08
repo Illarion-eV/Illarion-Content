@@ -41,9 +41,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		
 		if ( ltstate == Action.none ) then
             if (SourceItem:getData("essenceBrew") =="true") and (cauldron:getData("stockData") ~= "") then
-		        local actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
+		        actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
             else
-                local actionDuration = 20
+                actionDuration = 20
             end				
 			User:startAction( actionDuration, 21, 5, 10, 45)
 			return
