@@ -22,7 +22,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return		
 	end
 	
-	if User.lastSpoktenText == "data test" then
+	if User.lastSpokenText == "data test" then
 	    local unus = 1
 		SourceItem:setData("value",unus)
 		world:changeItem(SourceItem)
