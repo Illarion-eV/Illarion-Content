@@ -149,7 +149,7 @@ function GetProperties(support,targetBrew)
 	supEffId = tonumber(support:getData("potionEffectId"))
 	essHerbs = targetBrew:getData("essenceHerbs")
 	tarStData = targetBrew:getData("stockData")
-	tarBrewEffId = tonumber(support:getData("potionEffectId"))
+	tarBrewEffId = tonumber(targetBrew:getData("potionEffectId"))
 	
 	if tarStData~="" then -- target a stock
 		return supEffId, supQuali, tarStData
