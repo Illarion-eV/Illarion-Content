@@ -63,7 +63,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			elseif cauldron:getData("potionEffectId") ~= "" then
 			     druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
 			
-			elseif cauldron:getData("stockData") ~= "" then -- stock is in the cauldron; we call the combin function
+			elseif cauldron:getData("stockData") ~= "" then -- stock is in the cauldron; we call the combine function
 				druid.base.alchemy.CombineStockEssence( User, SourceItem, cauldron)
 				
 			else -- nothing in the cauldron, we just fill in the essence brew
@@ -82,13 +82,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			    world:gfx(1,cauldron.pos)
 		    
 			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
-			    SupportEssencebrew(User,SourceItem,cauldron)
+			    cauldron = SupportEssencebrew(User,SourceItem,cauldron)
 			
 			elseif cauldron:getData("potionEffectId") ~= "" then
 			    cauldron = SupportPotion(User,SourceItem,cauldron)
 			    
 			elseif cauldron:getData("stockData") ~= "" then
-				SupportStock(User,SourceItem,cauldron)
+				cauldron = SupportStock(User,SourceItem,cauldron)
+			
 			else -- nothing in the cauldron, we just fill in the potion
                 User:talkLanguage(Character.say,Player.german,"Here I am to save the day")
 				cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
@@ -176,6 +177,7 @@ function SupportStock(User,support,stock)
 	cauldron:setData("stockData",stockData)
 	world:changeItem(cauldron)
 	world:gfx(1,cauldron.pos)
+    return cauldron -- we have to give the cauldron back to keep our changes
 end
 
 function SupportEssencebrew(User,support,essencebrew)
@@ -183,7 +185,7 @@ function SupportEssencebrew(User,support,essencebrew)
 	
 	-- no effects yet
 	
-	cauldron = base.common.GetFrontItem( User )
+	local cauldron = base.common.GetFrontItem( User )
 	-- remove the support brew and fill in the essence brew
 	cauldron:setData("potionEffectId","")
 	cauldron:setData("potionId",potionId)
@@ -192,6 +194,7 @@ function SupportEssencebrew(User,support,essencebrew)
     cauldron:setData("potionQuality","")
 	world:changeItem(cauldron)
 	world:gfx(1,cauldron.pos)
+    return cauldron -- we have to give the cauldron back to keep our changes
 end
 
 function SupportPotion(User,support,potion)
@@ -228,7 +231,7 @@ function SupportPotion(User,support,potion)
 	cauldron:setData("potionEffectId",targetPotionEffectId)
     world:changeItem(cauldron)
     User:talkLanguage(Character.say,Player.german,"quali added: "..cauldron:getData("potionQuality"))
-return cauldron -- we have to give the cauldron back to keep our changes
+    return cauldron -- we have to give the cauldron back to keep our changes
 end
 
 function LookAtItem(User,Item)
