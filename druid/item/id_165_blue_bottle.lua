@@ -85,10 +85,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			    SupportEssencebrew(User,SourceItem,cauldron)
 			
 			elseif cauldron:getData("potionEffectId") ~= "" then
-			    SupportPotion(User,SourceItem,cauldron)
+			    cauldron = SupportPotion(User,SourceItem,cauldron)
 			    
 			elseif cauldron:getData("stockData") ~= "" then
-				cauldron = SupportStock(User,SourceItem,cauldron)
+				SupportStock(User,SourceItem,cauldron)
 			else -- nothing in the cauldron, we just fill in the potion
                 User:talkLanguage(Character.say,Player.german,"Here I am to save the day")
 				cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
