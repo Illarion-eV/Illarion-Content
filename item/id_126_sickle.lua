@@ -22,19 +22,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return		
 	end
 	
-	if User.lastSpokenText == "data test" then
-	    local unus = 1
-		SourceItem:setData("value",unus)
-		world:changeItem(SourceItem)
-		base.common.InformNLS(User, "value is "..SourceItem:getData("value"), "value is "..SourceItem:getData("value"))
-	    return
-	end	
-	
-	if User.lastSpokenText == "test data" then
-	    SourceItem:setData("value",1)
-		world:changeItem(SourceItem)
-		base.common.InformNLS(User, "value is "..SourceItem:getData("value"), "value is "..SourceItem:getData("value"))
-	    return
+	if (string.find(lastSpokenText,"create potion")~=nil) then 
+	    a,b,id,effect,quali=string.find(lastSpokenText,"(%d+) (%d+) (%d+)") 
+		position = base.common.GetFrontPosition(User, 1)
+		world:createItemFromId(id,1,position,true,quali,0)
+		potion = base.common.GetFrontItem(User)
+	    potion:setData("potionEffectId",effect)
+		world:changeItem(potion)
 	end	
 	
 	if (string.sub(User.lastSpokenText,1,6) == "delete") then
@@ -68,14 +62,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:increaseAttrib("hitpoints",-10)
 	    User:increaseAttrib("hitpoints",10)
 	    User:talkLanguage(Character.say, Player.german, ""..User:getRace())
-	end	
-	
-	if string.sub(User.lastSpokenText,1,14)=="potionEffectId" then
-		length = string.len(User.lastSpokenText)
-		potionEffectId = (string.sub(User.lastSpokenText,16,length))
-		myPotion = base.common.GetFrontItem( User )
-		myPotion:setData("potionEffectId",potionEffectId)
-	    world:changeItem(myPotion)
 	end	
 	
 	--testing stuff
