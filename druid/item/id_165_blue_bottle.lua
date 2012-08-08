@@ -92,8 +92,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			else -- nothing in the cauldron, we just fill in the potion
                 User:talkLanguage(Character.say,Player.german,"Here I am to save the day")
 				cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
-                cauldron:setData("potionId",""..SourceItem.id)
-				cauldron:setData("potionQuality",""..SourceItem.quality)
+                cauldron:setData("potionId",""SourceItem.id)
+				cauldron:setData("potionQuality",""SourceItem.quality)
 			end
                 
             SourceItem:setData("potionEffectId","")
