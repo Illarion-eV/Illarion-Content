@@ -22,8 +22,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return		
 	end
 	
-	if (string.find(lastSpokenText,"create potion")~=nil) then 
-	    a,b,id,effect,quali=string.find(lastSpokenText,"(%d+) (%d+) (%d+)") 
+	if (string.find(User.lastSpokenText,"create potion")~=nil) then 
+	    a,b,id,effect,quali=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)") 
 		position = base.common.GetFrontPosition(User, 1)
 		world:createItemFromId(id,1,position,true,quali,0)
 		potion = base.common.GetFrontItem(User)
