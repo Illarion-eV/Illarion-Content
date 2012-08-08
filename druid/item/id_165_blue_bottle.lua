@@ -229,6 +229,7 @@ function SupportPotion(User,support,potion)
 	cauldron:setData("potionEffectId",targetPotionEffectId)
     world:changeItem(cauldron)
     User:talkLanguage(Character.say,Player.german,"quali added: "..cauldron:getData("potionQuality"))
+return
 end
 
 function LookAtItem(User,Item)
