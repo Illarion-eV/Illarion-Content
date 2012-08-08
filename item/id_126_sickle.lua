@@ -28,7 +28,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		nEffect = tonumber(myEffect)
 		nQuali = tonumber(myQuali)
 		local myPosition = base.common.GetFrontPosition(User, 1)
-		world:createItemFromId(nId,1,myPosition,true,999,0)
+		world:createItemFromId(nId,1,myPosition,true,nQuali,0)
 		--[[potion = base.common.GetFrontItem(User)
 	    potion:setData("potionEffectId",nEffect)
 		world:changeItem(potion)]]
