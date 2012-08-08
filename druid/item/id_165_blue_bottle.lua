@@ -100,8 +100,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			SourceItem:setData("potionId","")				
 			SourceItem:setData("potionQuality","")
 	    else
-            -- neither essence brew nor a potion; placeholder 
-	    end
+            -- neither essence brew nor a potion; something else
+	        return
+		end
 		if math.random(1,20) == 1 then
 		    world:erase(SourceItem,1)	 -- bottle breaks
 		    User:talkLanguage(Character.say, Player.german, "flasche kaputt");
