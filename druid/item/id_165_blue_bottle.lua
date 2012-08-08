@@ -207,7 +207,7 @@ function SupportPotion(User,support,potion)
 		    local chance = (math.floor(supportQuality/100))*9  -- support quality * 9 = chance that potion's quality is increased
 		    User:talkLanguage(Character.say,Player.german,"chance: "..chance)
 			if base.common.Chance(chance, 100)==true then 
-			    local newQuali = Limit(targetPotionQuality+100, 100, 999)
+			    local newQuali = base.common.Limit(targetPotionQuality+100, 100, 999)
 			    User:talkLanguage(Character.say,Player.german,"new quali: "..newQuali)
 				cauldron:setData("potionQuality",newQuali)
 		        world:gfx(53,cauldron.pos)
