@@ -215,7 +215,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
 	if not ((SourceItem:getData("potionEffectId")~="") or (SourceItem:getData("essenceBrew") =="true")) then
 		return -- no potion, no essencebrew, something else
-	else
+	end
 	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
