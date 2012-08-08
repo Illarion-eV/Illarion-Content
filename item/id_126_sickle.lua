@@ -22,13 +22,21 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return		
 	end
 	
-	if User.lastSpokenText == "data test" then
+	if User.lastSpoktenText == "data test" then
 	    local unus = 1
 		SourceItem:setData("value",unus)
 		world:changeItem(SourceItem)
 		base.common.InformNLS(User, "value is "..SourceItem:getData("value"), "value is "..SourceItem:getData("value"))
 	    return
 	end	
+	
+	if User.lastSpoktenText == "test data" then
+	    SourceItem:setData("value",1)
+		world:changeItem(SourceItem)
+		base.common.InformNLS(User, "value is "..SourceItem:getData("value"), "value is "..SourceItem:getData("value"))
+	    return
+	end	
+	
 	if (string.sub(User.lastSpokenText,1,6) == "delete") then
 	    myItemId = tonumber(string.sub(User.lastSpokenText,7))
 	    deleteAmount = User:countItem(myItemId)
