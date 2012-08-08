@@ -136,23 +136,11 @@ function DrinkPotion(User,SourceItem)
     end
 end
 
-function UseItem(User,SourceItem,TargetItem,counter,param)
-	-- for testing --
-	if string.sub(User.lastSpokenText,1,14)=="potionEffectId" then
-		length = string.len(User.lastSpokenText)
-		potionEffectId = (string.sub(User.lastSpokenText,16,length))
-		SourceItem:setData("potionEffectId",potionEffectId)
-	    world:changeItem(SourceItem)
-		base.common.InformNLS(User,"set potionEffectId to: "..SourceItem:getData("potionEffectId"),"set potionEffectId to: "..SourceItem:getData("potionEffectId"))
-	    return
-	end	
-	-- test end --
+function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	
-	potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
-	if potionEffectId == nil then
-	    potionEffectId = 0
-	    User:talkLanguage(Character.say, Player.german, "effect id: "..potionEffectId)
-	end	
+	if not ((SourceItem:getData("potionEffectId")~="") or (SourceItem:getData("essenceBrew") =="true")) then
+		return -- no potion, no essencebrew, something else
+	end
 	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
@@ -242,9 +230,6 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
             SourceItem:setData("potionEffectId","")
 			SourceItem:setData("potionId","")				
 			SourceItem:setData("potionQuality","")
-		
-		else
-            -- neither essence brew nor a potion; placeholder 
 		end
 	    if math.random(1,20) == 1 then
 		    world:erase(SourceItem,1)	 -- bottle breaks
@@ -279,13 +264,13 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		        end
 			
 			else 
-				User:talkLanguage(Character.say, Player.german, "#me trinkt eine schwarze Flüssigkeit.");
-				User:talkLanguage(Character.say, Player.english, "#me drinks a black liquid.");
+				User:talkLanguage(Character.say, Player.german, "#me trinkt eine dunkelblaue Flüssigkeit.");
+				User:talkLanguage(Character.say, Player.english, "#me drinks a dark blue liquid.");
 				SourceItem.id = 164
 				SourceItem.quality = 333
 				if math.random(1,20) == 1 then
 				   world:erase(SourceItem,1) -- bottle breaks
-				   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+				   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
 				else	
 					world:changeItem(SourceItem)
 				end

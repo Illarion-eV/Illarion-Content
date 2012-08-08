@@ -213,6 +213,10 @@ end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
+	if not ((SourceItem:getData("potionEffectId")~="") or (SourceItem:getData("essenceBrew") =="true")) then
+		return -- no potion, no essencebrew, something else
+	end
+	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	
@@ -301,9 +305,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             SourceItem:setData("potionEffectId","")
 			SourceItem:setData("potionId","")				
 			SourceItem:setData("potionQuality","")
-		
-		else
-            -- neither essence brew nor a potion; placeholder 
 		end
 	    if math.random(1,20) == 1 then
 		    world:erase(SourceItem,1)	 -- bottle breaks
@@ -325,7 +326,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			SourceItem.quality = 333
 			if math.random(1,20) == 1 then
 			   world:erase(SourceItem,1) -- bottle breaks
-			   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+			   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
 			else	
 				world:changeItem(SourceItem)
 			end

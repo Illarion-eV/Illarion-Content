@@ -591,7 +591,7 @@ function CauldronExplosion(User,cauldron,ListGfx)
 	    base.common.HighInformNLS(myVictims[i], "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
 	end
 	-- we remove every possible data the cauldron could have to cover all substances
-	cauldron:setData("essenceHerbs")  
+	cauldron:setData("essenceHerbs","")  
 	cauldron:setData("stockData","")
     cauldron:setData("cauldronFilledWith","")
 	cauldron:setData("potionEffectId","")
