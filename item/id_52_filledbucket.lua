@@ -48,13 +48,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				world:makeSound( 9, User.pos );
 	            -- Lagerfeuer ausmachen
 	            if (TargetItem.id == 12 or TargetItem.id == 359) then
-					if (TargetItem.wear == 255) {
+					if (TargetItem.wear == 255) then
 						base.common.InformNLS(User,
 							"Das Wasser verdampft in dem Feuer ohne es zu löschen.",
 							"The water vaporises in the fire but it does not extinguish it.");
-					} else {
+					else
 						world:erase(TargetItem,1);
-					}
+					end
 	                -- Esse ausmachen
 	            elseif ( TargetItem.id == 2835 ) then
 	                world:swap(TargetItem,2836,333);
