@@ -23,12 +23,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if (string.find(User.lastSpokenText,"create potion")~=nil) then 
-	    a,b,id,effect,quali=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)") 
-		User:talkLanguage(Character.say, Player.german, ""..id)
-		User:talkLanguage(Character.say, Player.german, ""..effect)
-		User:talkLanguage(Character.say, Player.german, ""..quali)
+	    a,b,myId,myEffect,myQuali=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)") 
+		User:talkLanguage(Character.say, Player.german, ""..myId)
+		User:talkLanguage(Character.say, Player.german, ""..myEffect)
+		User:talkLanguage(Character.say, Player.german, ""..myQuali)
 		local myPosition = base.common.GetFrontPosition(User, 1)
-		world:createItemFromId(id,1,myPosition,true,quali,0)
+		world:createItemFromId(myId,1,myPosition,true,myQuali,0)
 		potion = base.common.GetFrontItem(User)
 	    potion:setData("potionEffectId",effect)
 		world:changeItem(potion)
