@@ -41,9 +41,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		
 		if ( ltstate == Action.none ) then
             if (SourceItem:getData("essenceBrew") =="true") and (cauldron:getData("stockData") ~= "") then
-		        actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
+		        local actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
             else
-                actionDuration = 20
+                local actionDuration = 20
             end				
 			User:startAction( actionDuration, 21, 5, 10, 45)
 			return
@@ -86,10 +86,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			
 			elseif cauldron:getData("potionEffectId") ~= "" then
 			    SupportPotion(User,SourceItem,cauldron)
-			    return
+			    
 			elseif cauldron:getData("stockData") ~= "" then
-				SupportStock(User,SourceItem,cauldron)
-			
+				cauldron = SupportStock(User,SourceItem,cauldron)
 			else -- nothing in the cauldron, we just fill in the potion
                 User:talkLanguage(Character.say,Player.german,"Here I am to save the day")
 				cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
@@ -229,6 +228,7 @@ function SupportPotion(User,support,potion)
 	cauldron:setData("potionEffectId",targetPotionEffectId)
     world:changeItem(cauldron)
     User:talkLanguage(Character.say,Player.german,"quali added: "..cauldron:getData("potionQuality"))
+return cauldron -- we have to give the cauldron back to keep our changes
 end
 
 function LookAtItem(User,Item)
