@@ -45,10 +45,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				base.common.InformNLS(User,"Du solltest das Feuer besser nicht ausmachen, du könntest es noch gebrauchen.","You shouldn't extinguish the fire, you maybe could need it.");
 				return;
 			else	
-			world:makeSound( 9, User.pos );
+				world:makeSound( 9, User.pos );
 	            -- Lagerfeuer ausmachen
 	            if (TargetItem.id == 12 or TargetItem.id == 359) then
-	                world:erase(TargetItem,1);
+					if (TargetItem.wear == 255) then
+						base.common.InformNLS(User,
+							"Das Wasser verdampft in dem Feuer ohne es zu löschen.",
+							"The water vaporises in the fire but it does not extinguish it.");
+					else
+						world:erase(TargetItem,1);
+					end
 	                -- Esse ausmachen
 	            elseif ( TargetItem.id == 2835 ) then
 	                world:swap(TargetItem,2836,333);
