@@ -168,7 +168,7 @@ function SupportStock(User,support,stock)
 	
 	-- no effects yet
     
-	cauldron = base.common.GetFrontItem( User )
+	local cauldron = base.common.GetFrontItem( User )
 	-- remove support potion in case it was in the cauldron
 	cauldron:setData("potionId","")
 	cauldron:setData("potionEffectId","")
@@ -198,7 +198,7 @@ end
 function SupportPotion(User,support,potion)
     supportPotionEffectId, supportQuality, targetPotionId, targetPotionEffectId, targetPotionQuality = GetProperties(support,potion)
 	User:talkLanguage(Character.say,Player.german,"old quali: "..targetPotionQuality)
-	cauldron = base.common.GetFrontItem( User )
+	local cauldron = base.common.GetFrontItem( User )
 	
 	if (supportPotionEffectId > 0) and (supportPotionEffectId <= 7) then -- quality raiser
 	    PotionList = {59,165,166,327,328,329,330} -- potion ids
