@@ -60,6 +60,10 @@ function DrinkPotion(User,SourceItem)
     
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
  
+	if not ((SourceItem:getData("potionEffectId")~="") or (SourceItem:getData("essenceBrew") =="true")) then
+		return -- no potion, no essencebrew, something else
+	else
+	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	
@@ -148,9 +152,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             SourceItem:setData("potionEffectId","")
 			SourceItem:setData("potionId","")				
 			SourceItem:setData("potionQuality","")
-		
-		else
-            -- neither essence brew nor a potion; placeholder 
 		end
 	    if math.random(1,20) == 1 then
 		    world:erase(SourceItem,1)	 -- bottle breaks
@@ -166,8 +167,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         if User.attackmode then
 		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während Du kämpfst.", "You cannot use the potion while fighting.")
 		else
-			User:talkLanguage(Character.say, Player.german, "#me trinkt eine schwarze Flüssigkeit.");
-			User:talkLanguage(Character.say, Player.english, "#me drinks a black liquid.");
+			User:talkLanguage(Character.say, Player.german, "#me trinkt eine weiße Flüssigkeit.");
+			User:talkLanguage(Character.say, Player.english, "#me drinks a white liquid.");
 			SourceItem.id = 164
 			SourceItem.quality = 333
 			if math.random(1,20) == 1 then

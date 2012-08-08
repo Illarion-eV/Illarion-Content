@@ -17,10 +17,10 @@ function DrinkPotion(User,SourceItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-	potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
-	if potionEffectId == nil then
-	    potionEffectId = 0
-	end	
+	
+	if not ((SourceItem:getData("potionEffectId")~="") or (SourceItem:getData("essenceBrew") =="true")) then
+		return -- no potion, no essencebrew, something else
+	else
 	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User )
@@ -99,10 +99,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             SourceItem:setData("potionEffectId","")
 			SourceItem:setData("potionId","")				
 			SourceItem:setData("potionQuality","")
-	    else
-            -- neither essence brew nor a potion; something else
-	        return
-		end
+	    end
 		if math.random(1,20) == 1 then
 		    world:erase(SourceItem,1)	 -- bottle breaks
 		    User:talkLanguage(Character.say, Player.german, "flasche kaputt");
