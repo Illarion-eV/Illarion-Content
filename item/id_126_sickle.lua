@@ -22,7 +22,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return		
 	end
 	
-	if User.lastSpoktenText == "data test" then
+	if User.lastSpokenText == "data test" then
 	    local unus = 1
 		SourceItem:setData("value",unus)
 		world:changeItem(SourceItem)
@@ -30,7 +30,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    return
 	end	
 	
-	if User.lastSpoktenText == "test data" then
+	if User.lastSpokenText == "test data" then
 	    SourceItem:setData("value",1)
 		world:changeItem(SourceItem)
 		base.common.InformNLS(User, "value is "..SourceItem:getData("value"), "value is "..SourceItem:getData("value"))
