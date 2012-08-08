@@ -86,12 +86,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			
 			elseif cauldron:getData("potionEffectId") ~= "" then
 			    SupportPotion(User,SourceItem,cauldron)
-			
+			    User:talkLanguage(Character.say,Player.german,"quali added: "..cauldron:getData("potionQuality"))
 			elseif cauldron:getData("stockData") ~= "" then
 				SupportStock(User,SourceItem,cauldron)
 			
 			else -- nothing in the cauldron, we just fill in the potion
-                cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
+                User:talkLanguage(Character.say,Player.german,"Here I am to save the day")
+				cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
                 cauldron:setData("potionId",""..SourceItem.id)
 				cauldron:setData("potionQuality",""..SourceItem.quality)
 			end
