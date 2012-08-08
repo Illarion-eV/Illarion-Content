@@ -23,15 +23,15 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if (string.find(User.lastSpokenText,"create potion")~=nil) then 
-	    a,b,myId,myEffect,myQuali=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)") 
+	   --[[ a,b,myId,myEffect,myQuali=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)") 
 		nId = tonumber(myId)
 		nEffect = tonumber(myEffect)
-		nQuali = tonumber(myQuali)
+		nQuali = tonumber(myQuali)]]
 		local myPosition = base.common.GetFrontPosition(User, 1)
-		world:createItemFromId(nId,1,myPosition,true,nQuali)
-		potion = base.common.GetFrontItem(User)
+		world:createItemFromId(327,1,myPosition,true,999,0)
+		--[[potion = base.common.GetFrontItem(User)
 	    potion:setData("potionEffectId",nEffect)
-		world:changeItem(potion)
+		world:changeItem(potion)]]
 	end	
 	
 	if (string.sub(User.lastSpokenText,1,6) == "delete") then
