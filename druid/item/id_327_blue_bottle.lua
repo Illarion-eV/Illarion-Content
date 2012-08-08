@@ -137,16 +137,6 @@ function DrinkPotion(User,SourceItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
-	-- for testing --
-	if string.sub(User.lastSpokenText,1,14)=="potionEffectId" then
-		length = string.len(User.lastSpokenText)
-		potionEffectId = (string.sub(User.lastSpokenText,16,length))
-		SourceItem:setData("potionEffectId",potionEffectId)
-	    world:changeItem(SourceItem)
-		base.common.InformNLS(User,"set potionEffectId to: "..SourceItem:getData("potionEffectId"),"set potionEffectId to: "..SourceItem:getData("potionEffectId"))
-	    return
-	end	
-	-- test end --
 	
 	if not ((SourceItem:getData("potionEffectId")~="") or (SourceItem:getData("essenceBrew") =="true")) then
 		return -- no potion, no essencebrew, something else
