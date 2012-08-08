@@ -165,6 +165,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
             else
                 actionDuration = 20
             end				
+			base.common.InformNLS(User, "startAction", "startAction")
 			User:startAction( actionDuration, 21, 5, 10, 45)
 			return
 		end	
