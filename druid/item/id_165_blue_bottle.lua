@@ -191,7 +191,7 @@ function SupportEssencebrew(User,support,essencebrew)
 	cauldron:setData("essenceHerbs",essenceHerbs)
     cauldron:setData("potionQuality","")
 	world:changeItem(cauldron)
-	
+	world:gfx(1,cauldron.pos)
 end
 
 function SupportPotion(User,support,potion)
@@ -209,7 +209,7 @@ function SupportPotion(User,support,potion)
 			if base.common.Chance(chance, 100)==true then 
 			    local newQuali = base.common.Limit(targetPotionQuality+100, 100, 999)
 			    User:talkLanguage(Character.say,Player.german,"new quali: "..newQuali)
-				cauldron:setData("potionQuality",newQuali)
+				cauldron:setData("potionQuality",""..newQuali)
 		        world:gfx(53,cauldron.pos)
 			else -- no success, quality stays the same
 		        cauldron:setData("potionQuality",targetPotionQuality)
