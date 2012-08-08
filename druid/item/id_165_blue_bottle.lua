@@ -91,8 +91,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				cauldron = SupportStock(User,SourceItem,cauldron)
 			
 			else -- nothing in the cauldron, we just fill in the potion
-                User:talkLanguage(Character.say,Player.german,"Here I am to save the day")
-				cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
+                cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
                 cauldron:setData("potionId",SourceItem.id)
 				cauldron:setData("potionQuality",SourceItem.quality)
 			end
@@ -103,8 +102,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
 		if math.random(1,20) == 1 then
 		    world:erase(SourceItem,1)	 -- bottle breaks
-		    User:talkLanguage(Character.say, Player.german, "flasche kaputt");
-		     base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
+		    base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
         else	
 		    SourceItem.id = 164
 			SourceItem.quality = 333
