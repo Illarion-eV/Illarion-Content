@@ -136,7 +136,7 @@ function DrinkPotion(User,SourceItem)
     end
 end
 
-function UseItem(User,SourceItem,TargetItem,counter,param)
+function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	
 	if not ((SourceItem:getData("potionEffectId")~="") or (SourceItem:getData("essenceBrew") =="true")) then
 		return -- no potion, no essencebrew, something else
