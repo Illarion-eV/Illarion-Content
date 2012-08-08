@@ -86,7 +86,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			
 			elseif cauldron:getData("potionEffectId") ~= "" then
 			    SupportPotion(User,SourceItem,cauldron)
-			    User:talkLanguage(Character.say,Player.german,"quali added: "..cauldron:getData("potionQuality"))
+			    return
 			elseif cauldron:getData("stockData") ~= "" then
 				SupportStock(User,SourceItem,cauldron)
 			
@@ -229,7 +229,6 @@ function SupportPotion(User,support,potion)
 	cauldron:setData("potionEffectId",targetPotionEffectId)
     world:changeItem(cauldron)
     User:talkLanguage(Character.say,Player.german,"quali added: "..cauldron:getData("potionQuality"))
-return
 end
 
 function LookAtItem(User,Item)
