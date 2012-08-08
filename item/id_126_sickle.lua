@@ -29,9 +29,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		nQuali = tonumber(myQuali)
 		local myPosition = base.common.GetFrontPosition(User, 1)
 		world:createItemFromId(nId,1,myPosition,true,nQuali,0)
-		--[[potion = base.common.GetFrontItem(User)
-	    potion:setData("potionEffectId",nEffect)
-		world:changeItem(potion)]]
+		myPotion = base.common.GetFrontItem(User)
+	    myPotion:setData("potionEffectId",nEffect)
+		world:changeItem(myPotion)
 	end	
 	
 	if (string.sub(User.lastSpokenText,1,6) == "delete") then
