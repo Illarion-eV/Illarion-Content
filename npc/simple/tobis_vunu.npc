@@ -202,7 +202,7 @@ itemShoes = 369
 "Nein" -> "Vergiss, dass ich was gesagt hab.", "Selbstverständlich.", "Arr-h!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "We’re drinking rum all night long.- Ho! Ho! Ho! The waves are high, the wind is strong.- Ho! Ho! Ho!", "We are the lords of the sea. - Ho! Ho! Ho! Drink rum and beer, but never tea.- Ho! Ho! Ho!", "Thirteen men on a dead man´s chest! - Ho! Ho! Ho! Every man has got the pest! - Ho! Ho! Ho!"
+".*", english, chance(20) -> "We're drinking rum all night long.- Ho! Ho! Ho! The waves are high, the wind is strong.- Ho! Ho! Ho!", "We are the lords of the sea. - Ho! Ho! Ho! Drink rum and beer, but never tea.- Ho! Ho! Ho!", "Thirteen men on a dead man´s chest! - Ho! Ho! Ho! Every man has got the pest! - Ho! Ho! Ho!"
 ".*", german, chance(20) -> "Dreizehn Mann saßen auf einem Sarg, Ho! Ho! Ho! -  Sie soffen drei Tage, der Schnaps war stark. - Ho! Ho! Ho!", "Sie liebten das Meer und den Schnaps und das Gold. Ho! Ho! Ho! -  Bis einst alle dreizehn n' Dämon holt. - Ho! Ho! Ho!", "Wir sind die Herrn der See. - Ho! Ho! Ho! Drinken Rum und Bier, aber niemals Tee! Ho! Ho! Ho!"
 
 ------------------------------------------------------------------------------AC

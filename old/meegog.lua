@@ -63,7 +63,7 @@ function initializeNpc()
     npc.base.autonpcfunctions.AddConsequence("item",546,1,333,0);
     npc.base.autonpcfunctions.AddConsequence("deleteitem",544,1);
     -- RP reactions
-    npc.base.autonpcfunctions.AddTraderTrigger("kick","Ooohhh!  Please don’t hurt poor "..thisNPC.name..", I’ll do as you asks!");
+    npc.base.autonpcfunctions.AddTraderTrigger("kick","Ooohhh!  Please don't hurt poor "..thisNPC.name..", I'll do as you asks!");
     npc.base.autonpcfunctions.AddAdditionalTrigger("boot");
     npc.base.autonpcfunctions.AddTraderTrigger("tritt"," Ooohhh! Du nicht bestrafen armen "..thisNPC.name..", ich alles machen was du sagst!");
     npc.base.autonpcfunctions.AddAdditionalTrigger("trete");

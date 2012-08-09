@@ -95,9 +95,9 @@ itemShoes = 53
 -- 1st quest: Bring Fosco's flute
 
 -- Give out quest 1
-"quest", "mission", queststatus(333) = 6, english -> inform("[Quest update] Aurora's Staff: Part II"), "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He’s in <town name>.", queststatus(333) = 7
+"quest", "mission", queststatus(333) = 6, english -> inform("[Quest update] Aurora's Staff: Part II"), "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He's in <town name>.", queststatus(333) = 7
 "quest", "mission", queststatus(333) = 6 -> inform("[Neues Quest] Die Geistereiche I"), "Ahh, der Stab! Nun, weil ich dich mag, gebe ich es dir für fünf Goldstücke. Ich sag' dir was: Ich habe ein Auge auf den goldenen Dolch des Echsenmenschen Kai'itza geworfen. Bring ihn mir, den Stab. ", queststatus(333) = 7
-"task", "adventure", "staff", queststatus(333) = 6 -> inform("[Quest update] Aurora's Staff: Part II"), "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He’s in <town name>.", queststatus(333) = 7
+"task", "adventure", "staff", queststatus(333) = 6 -> inform("[Quest update] Aurora's Staff: Part II"), "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He's in <town name>.", queststatus(333) = 7
 "Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(333) = 6 -> inform("[Neues Quest] Die Geistereiche I"), "Ahh, der Stab! Nun, weil ich dich mag, gebe ich es dir für fünf Goldstücke. Ich sag' dir was: Ich habe ein Auge auf den goldenen Dolch des Echsenmenschen Kai'itza geworfen. Bring ihn mir, den Stab.", queststatus(333) = 7
 
 -- Quest 1 taken but not solved, repeat the instructions

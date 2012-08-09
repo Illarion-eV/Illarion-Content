@@ -340,7 +340,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("necklet");
 talkEntry:addTrigger("necklace");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "<", 1));
-talkEntry:addResponse("I always have an eye on the necklace. You can’t trust my revolting half-sister. I think she's trying to sell our only heirloom!");
+talkEntry:addResponse("I always have an eye on the necklace. You can't trust my revolting half-sister. I think she's trying to sell our only heirloom!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -362,7 +362,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sister");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "<", 1));
-talkEntry:addResponse("She is my half-sister. We have the same father, but never really liked each other. Everything she does is devious. I really don’t want to know how she earns her money.");
+talkEntry:addResponse("She is my half-sister. We have the same father, but never really liked each other. Everything she does is devious. I really don't want to know how she earns her money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -435,7 +435,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sister");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addResponse("You can’t trust my revolting half-sister. I think she's trying to sell our only heirloom!");
+talkEntry:addResponse("You can't trust my revolting half-sister. I think she's trying to sell our only heirloom!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
