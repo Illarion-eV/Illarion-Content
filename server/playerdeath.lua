@@ -13,7 +13,7 @@ function playerDeath(deadPlayer)
 	
 	    deadPlayer:increaseAttrib("hitpoints",10000); -- Respawn
 		world:gfx(53,deadPlayer.pos);
-        base.common.InformNLS(player,"[Wiederbelebung] Während des Tutorials bist du 'unsterblich'. Im Hauptspiel ist die Wiederbelebung mit merklichen Konsequenzen für deinen Charakter verbunden.","[Login] During the tutorial, you are 'immortal'. In the main game, serious consequences for your character are triggered upon respawn."); --sending a message
+        base.common.InformNLS(deadPlayer,"[Wiederbelebung] Während des Tutorials bist du 'unsterblich'. Im Hauptspiel ist die Wiederbelebung mit merklichen Konsequenzen für deinen Charakter verbunden.","[Login] During the tutorial, you are 'immortal'. In the main game, serious consequences for your character are triggered upon respawn."); --sending a message
         return; --bailing out!
 		
 	else --valid death
