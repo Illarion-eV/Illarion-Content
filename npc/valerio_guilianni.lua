@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Faladron                                                         --
 --                                                                            --
--- Last parsing: December 08, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: August 09, 2012                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -99,7 +99,7 @@ talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("#me rubs his chin looking contemplative, 'Eh, you may leave. Probably not worth it to send someone to keep an eye on ya.'");
 talkEntry:addResponse("May Ronagan keep ya safe in the shadows but not too safe, and be sure to give my regards to the family!");
-talkEntry:addResponse("#me gives a brief nod and then turns away, 'Hm, an interesting person, gonna get good one day, maybe too good. Hope I don?t have to send Miggs to keep an eye on him.");
+talkEntry:addResponse("#me gives a brief nod and then turns away, 'Hm, an interesting person, gonna get good one day, maybe too good. Hope I don't have to send Miggs to keep an eye on him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -122,7 +122,7 @@ talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me rubs his chin looking contemplative, 'Eh, you may leave. Probably not worth it to send someone to keep an eye on ya.'");
 talkEntry:addResponse("May Ronagan keep ya safe in the shadows but not too safe, and be sure to give my regards to the family!");
-talkEntry:addResponse("#me gives a brief nod and then turns away, 'Hm, an interesting person, gonna get good one day, maybe too good. Hope I don?t have to send Miggs to keep an eye on him.");
+talkEntry:addResponse("#me gives a brief nod and then turns away, 'Hm, an interesting person, gonna get good one day, maybe too good. Hope I don't have to send Miggs to keep an eye on him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,7 +492,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("I got deep pockets if ya know what I mean, %CHARNAME. It?s my business to know people and what happens in Galmair.");
+talkEntry:addResponse("I got deep pockets if ya know what I mean, %CHARNAME. It's my business to know people and what happens in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -535,9 +535,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("protection");
 talkEntry:addTrigger("fee");
-talkEntry:addResponse("You wanna be in the know? So do about a thousand other people. Don?t talk about things that don?t concern you.");
-talkEntry:addResponse("You talking about protection fees? You need some protection? You might if you keep talking about things that don?t concern you.");
-talkEntry:addResponse("A business has to have protection from a lot things. Also, has to pay a lot fees. That?s about all you need to know.");
+talkEntry:addResponse("You wanna be in the know? So do about a thousand other people. Don't talk about things that don't concern you.");
+talkEntry:addResponse("You talking about protection fees? You need some protection? You might if you keep talking about things that don't concern you.");
+talkEntry:addResponse("A business has to have protection from a lot things. Also, has to pay a lot fees. That's about all you need to know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -567,8 +567,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faction");
-talkEntry:addResponse("Ya know I hear people talking about these ?factions?, but all I see is the land of my future wife and a drugged out magician leading halfers.");
-talkEntry:addResponse("Ya, ya Runewick, Cadomyr, and Galmair that?s all you newcomers want to talk about. Focus on what?s important, getting rich, plain and simple.");
+talkEntry:addResponse("Ya know I hear people talking about these ?factions', but all I see is the land of my future wife and a drugged out magician leading halfers.");
+talkEntry:addResponse("Ya, ya Runewick, Cadomyr, and Galmair that's all you newcomers want to talk about. Focus on what's important, getting rich, plain and simple.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -582,7 +582,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Tell me, what should I think of a man who wears women?s clothing and enjoys men swooning over his greatness?");
+talkEntry:addResponse("Tell me, what should I think of a man who wears women's clothing and enjoys men swooning over his greatness?");
 talkEntry:addResponse("He is said not to leave his tower very often. If you ask me, that's a good thing.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -598,7 +598,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Tell me, what should I think of a man who wears women?s clothing and enjoys men swooning over his greatness?");
+talkEntry:addResponse("Tell me, what should I think of a man who wears women's clothing and enjoys men swooning over his greatness?");
 talkEntry:addResponse("He is said not to leave his tower very often. And if you ask me, that's a good thing.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -615,7 +615,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Sadly, the tide never rises high enough for a wave to wash away all those bookworms into the sea.");
-talkEntry:addResponse("Some suspect me of blackmail, but do you know how much a mage from Runewick charges for his services? Now that?s a crime!");
+talkEntry:addResponse("Some suspect me of blackmail, but do you know how much a mage from Runewick charges for his services? Now that's a crime!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -703,7 +703,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Honorable former 'business partners' of my father lived there. Until we had to terminate them, the business relationships o?course.");
+talkEntry:addResponse("Honorable former 'business partners' of my father lived there. Until we had to terminate them, the business relationships o'course.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -730,7 +730,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You got faith, %CHARNAME? Don?t let the priests and zealots fool ya, if you?re looking for practical words about the gods just ask me about one.");
+talkEntry:addResponse("You got faith, %CHARNAME? Don't let the priests and zealots fool ya, if you're looking for practical words about the gods just ask me about one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -785,7 +785,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Books might teach ya a lot, but everything I had to learn to become successful I?ve experienced through action.");
+talkEntry:addResponse("Books might teach ya a lot, but everything I had to learn to become successful I've experienced through action.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -824,7 +824,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("As Galmair?s wealth comes from the mining and processing of ore it would be foolish not to drink a mug of beer regularly in honor of the great craftsman, right?");
+talkEntry:addResponse("As Galmair's wealth comes from the mining and processing of ore it would be foolish not to drink a mug of beer regularly in honor of the great craftsman, right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -893,7 +893,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("No coins, no wares leave my possession without being blessed in the face of Ronagan. You can figure out why I?d do that ya?self.");
+talkEntry:addResponse("No coins, no wares leave my possession without being blessed in the face of Ronagan. You can figure out why I'd do that ya'self.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1047,7 +1047,7 @@ talkingNPC:addCycleText("#me dreht sich besorgt um 'Halt! Wer ist da? Es ist noc
 talkingNPC:addCycleText("#me spuckt angewidert ein paar Trauben aus. 'Ugh. Wer hat das zu verantworten?", "#me spits out some grapes in disgust. 'Ugh. Who's responsible for that?'");
 talkingNPC:addCycleText("Ich befürchet, dieser Kräuterhandel wird uns noch in den nächsten Jahren viele Sorgen bereiten.", "I believe this herb business is gonna destroy us in the years to come.");
 talkingNPC:addCycleText("Ich war niemals unvorsichtig. Frauen und Kinder dürfen unvorsichtig sein, Männer nicht.", "I spent my life trying not to be careless. Females and children can be careless, but not dwarves or men.");
-talkingNPC:addCycleText("Ich glaube an Gold, Reichtümer und Macht. Wer an sie nicht ehrt, hat sie wohl schlichtweg nicht!", "I have faith in gold, wealth and power. Those who don?t honor such meaningful things simply don?t have either.");
+talkingNPC:addCycleText("Ich glaube an Gold, Reichtümer und Macht. Wer an sie nicht ehrt, hat sie wohl schlichtweg nicht!", "I have faith in gold, wealth and power. Those who don't honor such meaningful things simply don't have either.");
 talkingNPC:addCycleText("Miggs! Wo ist Miggs schon wieder! Einige Händler haben ihre 'Protektionsgebühr' diesen Monat noch nicht entrichtet.", "Miggs! Where is Miggs again? Some traders haven't paid their 'protection fee' this month.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
