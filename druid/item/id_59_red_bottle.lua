@@ -96,7 +96,11 @@ function GenerateEffectMessage(User,dataZList)
 			effectMessagesEn = effectMessagesEn.."Your "..attribEn..nPTagEn.."creases "..attribIntensityEn..". "
 		end
     end		
-    base.common.InformNLS(User,effectMessagesDe,effectMessagesEn)
+    if anyEffect == false then -- no effect
+	    base.common.InformNLS(User,"Du spürst keine Wirkung.","You don't feel any effect.")
+	else
+	    base.common.InformNLS(User,effectMessagesDe,effectMessagesEn)
+    end
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)

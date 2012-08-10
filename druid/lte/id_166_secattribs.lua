@@ -11,10 +11,8 @@ function addEffect(Effect, User)               -- we start with adding the effec
 end
 
 function callEffect(Effect,User) 
-
     findCounter,counterPink = Effect:findValue("counterPink")
-    findCooldown,cooldownPink = Effect:findValue("cooldownPink")
-	
+    
 	findHitpoints,hitpointsIncrease = Effect:findValue("hitpointsIncrease")
     findMana,manaIncrease = Effect:findValue("manaIncrease")
     findFoodlevel,foodlevelIncrease = Effect:findValue("foodlevelIncrease")
@@ -22,8 +20,7 @@ function callEffect(Effect,User)
     
 	if findCounter then 
        if counterPink > 0 then
-       
-	       if findHitpoints then
+           if findHitpoints then
               User:increaseAttrib("hitpoints",hitpointsIncrease);
            end
            if findMana then   
@@ -42,14 +39,11 @@ function callEffect(Effect,User)
 		      counterPink = counterPink - 1;
 	          Effect:addValue("counterPink",counterPink)
 	       end
-	       
-	   elseif findCooldown then
-          if cooldownPink < 1 then
-	         return false
-	      else 
-             cooldownPink = cooldownPink - 1;
-             Effect:addValue("cooldownPink",cooldownPink)
-			end
+	       world:gfx(45,User.pos)
+		   
+		   if counterPink <= 0 then
+		        return false
+	       end
        end
    end
   Effect.nextCalled = 50
