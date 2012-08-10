@@ -12,53 +12,92 @@ module("druid.item.id_59_red_bottle",package.seeall)
 -- UPDATE common SET com_script='druid.item.id_59_red_bottle' WHERE com_itemid = 59;
 
 taste = {}
-attribList ={"strength","intelligence","dexterity","perception","constitution","essence","agility","willpower"}
-taste[0]   ={"fruchtig","herb"        ,"bitter"   ,"faulig"      ,"sauer"     ,"salzig" ,"scharf" ,"süß"}
-taste[1]   ={"fruity"  ,"tartly"      ,"bitter"   ,"putrefactive","acidly"    ,"salt"   ,"hot"    ,"sweet"}
+attribList   ={"strength","intelligence","dexterity"       ,"perception"  ,"constitution","essence","agility"      ,"willpower"}
+attribListDe ={"Stärke"  ,"Intelligenz" ,"Geschicklichkeit","Wahrnehmung" ,"Ausdauer"    ,"Essenz" ,"Schnelligkeit","Willenskraft"}
+taste[0]     ={"fruchtig","herb"        ,"bitter"          ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"       ,"süß"}
+taste[1]     ={"fruity"  ,"tartly"      ,"bitter"          ,"putrefactive","acidly"      ,"salt"   ,"hot"          ,"sweet"}
+
+intensityListDe = {"stark"   ,"merkbar"  ,"leicht"  ,"kaum merklich"   ,"","kaum merklich"   ,"leicht"  ,"merkbar"  ,"stark"}
+intensityListEn = {"strongly","noticably","slightly","barely noticably","","barely noticable","slightly","noticably","strongly"}
 
 function DrinkPotion(User,SourceItem)
-
-	local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
-	local dataZList = druid.base.alchemy.SplitBottleData(User,potionEffectId)
-
-   druid.base.alchemy.generateTasteMessage(User,dataZList)
-
-    -- there is already an effect, we remove it
-    foundEffect, myEffect = User.effects:find(59);
-    if foundEffect then
-        effectRemoved = User.effects:removeEffect(59)
-    end
-	--local myEffectDuration = SourceItem.qualit*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
-	myEffectDuration = 300
-	myEffect=LongTimeEffect(59,myEffectDuration) -- new effect
+    local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 	
-    local pax = User:increaseAttrib("strength",0)
-	local bellum = User:increaseAttrib("constitution",0)
-    User:talkLanguage(Character.say, Player.german, "inform 1: strength "..pax..", constituion "..bellum)
-	for i=1,8 do
-        
-        attribValue = User:increaseAttrib(attribList[i],0);
+	if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
+	    base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
+		"You don't have the feeling that something happens.")
+	    return
+	
+	elseif potionEffectId >= 11111111 then -- it's an attribute changer  
+		local dataZList = druid.base.alchemy.SplitBottleData(User,potionEffectId)
 
-        bottomBorder = 1
+	   druid.base.alchemy.generateTasteMessage(User,dataZList)
+	   GenerateEffectMessage(User,dataZList)
+
+		-- there is already an effect, we remove it
+		foundEffect, myEffect = User.effects:find(59);
+		if foundEffect then
+			effectRemoved = User.effects:removeEffect(59)
+		end
+		local myEffectDuration = SourceItem.qualit*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
+		myEffect=LongTimeEffect(59,myEffectDuration) -- new effect
 		
-		if (attribValue + dataZList[i] - 5) < bottomBorder then
-            dataZList[i] = (bottomBorder - attribValue) + 5;
-        end
+		local pax = User:increaseAttrib("strength",0)
+		local bellum = User:increaseAttrib("constitution",0)
+		for i=1,8 do
+			
+			attribValue = User:increaseAttrib(attribList[i],0);
 
-        if dataZList[i] ~= 5 then
-            User:increaseAttrib(attribList[i],dataZList[i]-5);
-            myEffect:addValue(""..attribList[i],dataZList[i]);
-        end
-        
-	end
-    local pax = User:increaseAttrib("strength",0)
-	local bellum = User:increaseAttrib("constitution",0)
-    User:talkLanguage(Character.say, Player.german, "inform 2: strength "..pax..", constituion "..bellum)
+			bottomBorder = 1
+			
+			if (attribValue + dataZList[i] - 5) < bottomBorder then
+				dataZList[i] = (bottomBorder - attribValue) + 5;
+			end
+
+			if dataZList[i] ~= 5 then
+				User:increaseAttrib(attribList[i],dataZList[i]-5);
+				myEffect:addValue(""..attribList[i],dataZList[i]);
+			end
+			
+		end
+		local pax = User:increaseAttrib("strength",0)
+		local bellum = User:increaseAttrib("constitution",0)
+		
+		foundEffect, checkedEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
+		if not foundEffect then
+		   User.effects:addEffect( myEffect )
+		end
+    else
+	    -- something else
+	end	
+end
+
+function GenerateEffectMessage(User,dataZList)
+    local effectMessagesDe = ""
+    local effectMessagesEn = ""
+	local anyEffect = false
 	
-	foundEffect, checkedEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
-	if not foundEffect then
-       User.effects:addEffect( myEffect )
-    end
+	for i=1,8 do
+	    if dataZList[i] ~= 5 then
+		    
+			attribEn = attribList[i] -- attribute
+			attribDe = attribListDe[i]
+			if dataZList > 5 then
+			    nPTagEn = "in" -- increasing 
+				nPTagDe = "zu"
+			else
+                nPTagEn = "de" -- decreasing
+                nPTagDe = "ab"				
+		    end
+	        attribIntensityEn = intensityListEn[i] -- how strong it is in/decreased
+			attribIntensityDe = intensityListDe[i]
+            anyEffect = true
+			-- we put everything together
+			effectMessagesDe = effectMessagesDe.."Deine "..attribDe.." nimmt".." "..attribIntensityDe.." "..nPTagDe..". "
+			effectMessagesEn = effectMessagesEn.."Your "..attribEn..nPTagEn.."creases "..attribIntensityEn..". "
+		end
+    end		
+    base.common.InformNLS(User,effectMessagesDe,effectMessagesEn)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
