@@ -55,7 +55,7 @@ function DrinkPotion(User,SourceItem)
 	local bellum = User:increaseAttrib("constitution",0)
     User:talkLanguage(Character.say, Player.german, "inform 2: strength "..pax..", constituion "..bellum)
 	
-	foundEffect, myEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
+	foundEffect, checkedEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
 	if not foundEffect then
        User.effects:addEffect( myEffect )
     end
