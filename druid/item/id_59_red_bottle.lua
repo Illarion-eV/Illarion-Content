@@ -29,12 +29,7 @@ function DrinkPotion(User,SourceItem)
 	    return
 	
 	elseif potionEffectId >= 11111111 then -- it's an attribute changer  
-		local dataZList = druid.base.alchemy.SplitBottleData(User,potionEffectId)
-
-	   druid.base.alchemy.generateTasteMessage(User,dataZList)
-	   GenerateEffectMessage(User,dataZList)
-
-		-- there is already an effect, we remove it
+		  -- there is already an effect, we remove it
 		foundEffect, myEffect = User.effects:find(59);
 		if foundEffect then
 			effectRemoved = User.effects:removeEffect(59)
@@ -42,8 +37,10 @@ function DrinkPotion(User,SourceItem)
 		local myEffectDuration = SourceItem.quality*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
 		myEffect=LongTimeEffect(59,myEffectDuration) -- new effect
 		
-		local pax = User:increaseAttrib("strength",0)
-		local bellum = User:increaseAttrib("constitution",0)
+		local dataZList = druid.base.alchemy.SplitBottleData(User,potionEffectId)
+		druid.base.alchemy.generateTasteMessage(User,dataZList)
+	    GenerateEffectMessage(User,dataZList)
+		
 		for i=1,8 do
 			
 			attribValue = User:increaseAttrib(attribList[i],0);
@@ -89,8 +86,8 @@ function GenerateEffectMessage(User,dataZList)
                 nPTagEn = "de" -- decreasing
                 nPTagDe = "ab"				
 		    end
-	        attribIntensityEn = intensityListEn[i] -- how strong it is in/decreased
-			attribIntensityDe = intensityListDe[i]
+	        attribIntensityEn = intensityListEn[dataZList[i]] -- how strong it is in/decreased
+			attribIntensityDe = intensityListDe[dataZList[i]]
             anyEffect = true
 			-- we put everything together
 			effectMessagesDe = effectMessagesDe.."Deine "..attribDe.." nimmt".." "..attribIntensityDe.." "..nPTagDe..". "
