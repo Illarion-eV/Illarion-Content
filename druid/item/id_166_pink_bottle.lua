@@ -30,7 +30,7 @@ function DrinkPotion(User,SourceItem)
 			return
 	    end
 	
-	    local dataZList = druid.base.alchemy.SplitBottleData(User,potionData);
+	    local dataZList = druid.base.alchemy.SplitBottleData(User,potionEffectId);
 	    -- taste and effect message
 	    druid.base.alchemy.generateTasteMessage(User,dataZList)
 		GenerateEffectMessage(User,dataZList)
