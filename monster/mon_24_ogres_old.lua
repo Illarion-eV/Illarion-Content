@@ -21,7 +21,7 @@ msgs:addMessage("#me murmelt ein Gebet.", "#me murmurs a prayer.");
 msgs:addMessage("#me neigt bedrohlich den Kopf und damit die spitzen Hörner.", "#me lowers the head, his horns look threatening.");
 msgs:addMessage("#me schwingt seine Keule.", "#me swings his club.");
 msgs:addMessage("#me zieht die Nase hoch.", "#me sniffs deeply.");
-msgs:addMessage("#me’s Knochenschmuck klappert laut als er baumelt.", "#me’s bone jewellery dangles and clatters loudly.");
+msgs:addMessage("#me's Knochenschmuck klappert laut als er baumelt.", "#me's bone jewellery dangles and clatters loudly.");
 msgs:addMessage("#me bleckt die von Fleischstückchen bedeckten Zähne und kauderwelscht glücklich: 'Mmh… saftich süßes Ding.'.", "#me bares its teeth, covered with pieces of meat: 'Mmm... tasty sweet thing.'.");
 msgs:addMessage("#me brüllt etwas in einer unverständlichen Sprache.", "#me yells something in an incomprehensible language.");
 msgs:addMessage("#me schlägt mit der Keule auf den Boden, dass der Grund unter den Füßen bebt: 'Niemand so stark wie ich, werde dich jetzt zermalmen und dann deine Knochen abnagen!'", "#me strikes the ground with his mace, shaking the growl: 'No one so strong as I, I will crush you now and then gnaw your bones!'");

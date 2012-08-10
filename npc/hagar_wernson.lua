@@ -8,7 +8,7 @@
 -- Authors:  kormkormsen                                                      --
 --           Rincewind                                                        --
 --                                                                            --
--- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: August 09, 2012                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1092,7 +1092,7 @@ talkingNPC:addCycleText("#me riecht nach vergammeltem Fleisch und feuchtem Schaf
 talkingNPC:addCycleText("#me kratzt sich abwesend unterm Kilt.", "#me scratches himself below his kilt absently.");
 talkingNPC:addCycleText("#me sieht sich gelangweilt um.", "#me looks around bored.");
 talkingNPC:addCycleText("#me trocknet sich mit dem Geschirrtuch unter den Achseln.", "#me dries his armpits with the dishrag.");
-talkingNPC:addCycleText("#me's Atem riecht nach schalem Bier.", "#me's breath smells of stale beer.");
+talkingNPC:addCycleText("#mes Atem riecht nach schalem Bier.", "#me's breath smells of stale beer.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);

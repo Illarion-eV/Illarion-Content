@@ -184,7 +184,7 @@ itemShoes = 53
 "what sell", "what buy", "list wares", "price of" -> "Forgive me, I don't trade with you.", "The business of an archmage is, well - business which only concerns the archmage himself.", "The market is located next to the entrance portals to the town. It should be impossible to miss it."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Bitte verzeiht, aber ich handle nicht mit Euch.", "Eines Erzmagiers Geschäfte sind, nun ja - Geschäfte die nur für den Erzmagier von Revelanz sind.", "Der Marktplatz befindet sich gleich vor den Portalen zur Stadt. Es sollte unmöglich sein daran vorbei zu laufen."
 "tell something" -> "The signs I observed are clear, soon they will be omens everywhere else.", "Only a fool ignores implausible possibilities and stays with only obvious facts.", "Sometimes I think... - If people could put rainbows in zoos, they'd do it."
-"erzähl was", "erzähl etwas" -> "Die Zeichen, die ich bemerkte sind eindeutig und schon bald werden sie auch weithin zu sehen sein.", "Nur der Narr ignoriert die unwahrscheinlichsten Möglichkeiten und versteift sich auf das was offensichtlich ist.", "An manchen Tagen denke ich... - Könnten die Leute Regenbögen in Zoos stecken, sie würden’s glatt tun."
+"erzähl was", "erzähl etwas" -> "Die Zeichen, die ich bemerkte sind eindeutig und schon bald werden sie auch weithin zu sehen sein.", "Nur der Narr ignoriert die unwahrscheinlichsten Möglichkeiten und versteift sich auf das was offensichtlich ist.", "An manchen Tagen denke ich... - Könnten die Leute Regenbögen in Zoos stecken, sie würden's glatt tun."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "archmage" -> "A word?", "You desire to speak?", "Please make it short."
