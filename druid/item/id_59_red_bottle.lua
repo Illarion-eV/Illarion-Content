@@ -82,7 +82,7 @@ function GenerateEffectMessage(User,dataZList)
 		    
 			attribEn = attribList[i] -- attribute
 			attribDe = attribListDe[i]
-			if dataZList > 5 then
+			if dataZList[i] > 5 then
 			    nPTagEn = "in" -- increasing 
 				nPTagDe = "zu"
 			else
