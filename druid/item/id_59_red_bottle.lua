@@ -33,6 +33,8 @@ function DrinkPotion(User,SourceItem)
 		foundEffect, myEffect = User.effects:find(59);
 		if foundEffect then
 			effectRemoved = User.effects:removeEffect(59)
+		    base.common.InformNLS(User, "Du spürst das der alte Stärkungstrank seine Wirkung verliert und wie der neue zu wirken einsetzt.", 
+		    "You feel that the strengthening potion looses its effect and how the new one takes effect.")
 		end
 		local myEffectDuration = SourceItem.quality*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
 		myEffect=LongTimeEffect(59,myEffectDuration) -- new effect

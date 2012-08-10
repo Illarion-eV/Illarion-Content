@@ -15,6 +15,7 @@ end
 
 function callEffect(Effect,User)
     -- callEffect is only called once; we just need to return false
+	base.common.InformNLS( User, "Du fühlst, dass der Stärkungsrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
 	return false
 
 end
@@ -30,8 +31,6 @@ function removeEffect(Effect,User)
 	end
 	local pax = User:increaseAttrib("strength",0)
 	local bellum = User:increaseAttrib("constitution",0)
-    User:talkLanguage(Character.say, Player.german, "inform 3: strength "..pax..", constituion "..bellum)
-	base.common.InformNLS( User, "Du fühlst, dass der Stärkungsrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
 end
 
 function loadEffect(Effect,User)
@@ -44,5 +43,4 @@ function loadEffect(Effect,User)
 	end
 	local pax = User:increaseAttrib("strength",0)
 	local bellum = User:increaseAttrib("constitution",0)
-    User:talkLanguage(Character.say, Player.german, "inform 4: strength "..pax..", constituion "..bellum)
 end
