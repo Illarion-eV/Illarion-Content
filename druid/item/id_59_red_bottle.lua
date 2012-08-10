@@ -39,7 +39,7 @@ function DrinkPotion(User,SourceItem)
 		if foundEffect then
 			effectRemoved = User.effects:removeEffect(59)
 		end
-		local myEffectDuration = SourceItem.qualit*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
+		local myEffectDuration = SourceItem.quality*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
 		myEffect=LongTimeEffect(59,myEffectDuration) -- new effect
 		
 		local pax = User:increaseAttrib("strength",0)
