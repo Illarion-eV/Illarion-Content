@@ -1,6 +1,6 @@
 -- DeathAfterTime, id 36
 -- to kill a monster (or a char) after some time
--- see base.character.DeathAfterTime(Character,deathAfter,deathGfx)
+-- see base.character.DeathAfterTime(Character,deathAfter,deathGfx,deathSound)
 
 require("base.common")
 module("lte.deathaftertime", package.seeall)
