@@ -106,8 +106,8 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         end
         local dialog = MerchantDialog("Trader 0",  callback)
         dialog:addOffer(1, "Krasses Schwert", 20000)
-        dialog:addOffer(2, "Weizenmehl", 20)
-        dialog:addOffer(2, "Roggenmehl", 33)
+        dialog:addOffer(2, "Weizenmehl", 20, 100)
+        dialog:addOffer(2, "Roggenmehl", 33, 50)
         dialog:addOffer(100, "Maurerkelle des Verderbens", 4711)
         dialog:addPrimaryRequest(2, "Weizenmehl", 2)
         dialog:addPrimaryRequest(2, "Gammeliges Mehl", 1)

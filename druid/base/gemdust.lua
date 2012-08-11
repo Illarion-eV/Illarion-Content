@@ -68,7 +68,7 @@ function BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		
 	elseif cauldron:getData("stockData") ~= "" then
 	    if (SourceItem.id == 447) or (SourceItem.id == 450) then 
-		    potionEffectId = TargetItem:getData("stockData")
+		    potionEffectId = cauldron:getData("stockData")
 	    else 
 		    potionEffectId = 0
         end			

@@ -109,10 +109,10 @@ function initializeNpc()
     TraderText[2]="Hello, stranger!";
 
     TraderTrig[3]="I.+no.+stranger";
-    TraderText[3]="People are always strangers. I can’t read your mind!";
+    TraderText[3]="People are always strangers. I can't read your mind!";
 
     TraderTrig[4]="[Ww]hat.+do";
-    TraderText[4]="I’m a mage. Unfortunately, my spells tend to backfire on my robe.";
+    TraderText[4]="I'm a mage. Unfortunately, my spells tend to backfire on my robe.";
 
     TraderTrig[5]="[Ll]ist.+wares";
     TraderText[5]="I sell and buy parchment, ink, mage robes and wizard hats.";

@@ -36,7 +36,7 @@ function initializeNpc()
     npc.base.autonpcfunctions.AddTraderTrigger("Orc Cave","Just go North and see Tihgorac.  Go through Cave and up ladder.  Keep North and see Higdish.");
     npc.base.autonpcfunctions.AddTraderTrigger("Orc Cave"," Gehen Sie gerade Norden und sieh Tihgorac. Gehen Sie Höhle und Leiter durch. Behalten Sie Norden und sieh Higdish.");
     npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Varshikar","Oomie desert town.  Just go East, joo can’t miss it.");
+    npc.base.autonpcfunctions.AddTraderTrigger("Varshikar","Oomie desert town.  Just go East, joo can't miss it.");
     npc.base.autonpcfunctions.AddCondition("lang","english");
     npc.base.autonpcfunctions.AddTraderTrigger("Varshikar"," Menschliche Wüste-Stadt. Gehen Sie gerade Osten, Sie können nicht es verpassen!");
     npc.base.autonpcfunctions.AddCondition("lang","german");

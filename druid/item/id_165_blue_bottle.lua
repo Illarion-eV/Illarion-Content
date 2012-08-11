@@ -16,7 +16,7 @@ function DrinkPotion(User,SourceItem)
 		"You don't have the feeling that something happens.")
 end
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	if not ((SourceItem:getData("potionEffectId")~="") or (SourceItem:getData("essenceBrew") =="true")) then
 		return -- no potion, no essencebrew, something else
@@ -41,9 +41,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		
 		if ( ltstate == Action.none ) then
             if (SourceItem:getData("essenceBrew") =="true") and (cauldron:getData("stockData") ~= "") then
-		        local actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
+		        actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
             else
-                local actionDuration = 20
+                actionDuration = 20
             end				
 			User:startAction( actionDuration, 21, 5, 10, 45)
 			return
@@ -91,8 +91,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				cauldron = SupportStock(User,SourceItem,cauldron)
 			
 			else -- nothing in the cauldron, we just fill in the potion
-                User:talkLanguage(Character.say,Player.german,"Here I am to save the day")
-				cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
+                cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
                 cauldron:setData("potionId",SourceItem.id)
 				cauldron:setData("potionQuality",SourceItem.quality)
 			end
@@ -103,8 +102,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	    end
 		if math.random(1,20) == 1 then
 		    world:erase(SourceItem,1)	 -- bottle breaks
-		    User:talkLanguage(Character.say, Player.german, "flasche kaputt");
-		     base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
+		    base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
         else	
 		    SourceItem.id = 164
 			SourceItem.quality = 333
@@ -149,7 +147,7 @@ function GetProperties(support,targetBrew)
 	supEffId = tonumber(support:getData("potionEffectId"))
 	essHerbs = targetBrew:getData("essenceHerbs")
 	tarStData = targetBrew:getData("stockData")
-	tarBrewEffId = tonumber(support:getData("potionEffectId"))
+	tarBrewEffId = tonumber(targetBrew:getData("potionEffectId"))
 	
 	if tarStData~="" then -- target a stock
 		return supEffId, supQuali, tarStData

@@ -269,10 +269,10 @@ function CheckIfBottleInHand(User)
 	return retVal;
 end
 -- --------------------------------------------------------------------
-function SplitBottleData(User,potionData)
+function SplitBottleData(User,potionEffectId)
     local dataZList = {};
 	local thisDigit;
-	local workData=potionData
+	local workData=potionEffectId
    for digit=1,8 do
       thisDigit=math.floor(workData/10^(8-digit));
       workData=workData-thisDigit*10^(8-digit);

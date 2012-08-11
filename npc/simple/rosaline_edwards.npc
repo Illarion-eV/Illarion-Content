@@ -68,13 +68,13 @@ itemShoes = 369
 "Ciao", "Adieu", "Au revoir" -> "#me winkt ab: 'Hinfort.'", "Geht mit Malachins Segen und vollbringt Taten zu Ehren Cadomyrs. Und meiner.", "Fort, fort und dient mir in jeder Minute eures Lebens so, wie ich Cadomyr diene.", "Gehabt euch wohl und verbreitet Kunde über das glorreiche Königreich Cadomyr überall auf euren Reisen."
 "How are you", "How feel", "How do you do" -> "No queen could be better, I assure you, with the service of the noblest and truest of men at her side.", "Glorious, truly Zhambra has blessed me with the most honourable servants.", "Truth be told my skin is yearning for the soothing comfort of donkey milk, but that is neither here nor there I suppose."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin die unbestrittene Monarchin eines glorreichen Reiches der edelsten Leute. Wie geht es mir wohl?", "Mir würde es weit besser gehen, wenn ihr niederknien würdet. Jetzt!", "Mir käme ein Bad in Eselsmilch gerade recht. Dieser ganze Sand schadet meiner feinen Haut."
-"your name", "who are you", "who art thou" -> "Who am I? You dare address me in such a manner? Be assured if my mood were not so temperate you’d be bellowing my name in the dungeons with your cries for mercy!", "Poor child you must be born from under a rock if you don’t know my name. Do not disgrace me with your daft shortcomings ask any of my humble servants who I am.", "You must be some distant traveler to have the nerve to ask the Queen of Cadomyr’s name. Be gone from me I haven’t the time for you."
+"your name", "who are you", "who art thou" -> "Who am I? You dare address me in such a manner? Be assured if my mood were not so temperate you'd be bellowing my name in the dungeons with your cries for mercy!", "Poor child you must be born from under a rock if you don't know my name. Do not disgrace me with your daft shortcomings ask any of my humble servants who I am.", "You must be some distant traveler to have the nerve to ask the Queen of Cadomyr's name. Be gone from me I haven't the time for you."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Wer ich bin? Ihr habt die Kühnheit zuzugeben, dass ihr nicht wißt, wer ich bin? Aus meinen Augen!", "Wenn ihr wirklich nicht wißt, wer ich bin, dann fragt einen meiner Diener.", "Schämt ihr euch nicht, eine Königin albarischen Geblüts nach ihrem Namen zu fragen?"
 
 -- Quest 107: A message from Groktan Flintsplit
-"message", "news", "letter", "scroll", "parchment", queststatus(107) = 12 -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and crumples the letter in her firm grasp: 'Tell that filthy bastard he’ll get my throne over my dead body!", queststatus(107) = 13
+"message", "news", "letter", "scroll", "parchment", queststatus(107) = 12 -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and crumples the letter in her firm grasp: 'Tell that filthy bastard he'll get my throne over my dead body!", queststatus(107) = 13
 "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(107) = 12 -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
-"Groktan", "Flintsplit", queststatus(107) = 12, english -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and crumples the letter in her firm grasp: 'Tell that filthy bastard he’ll get my throne over my dead body!", queststatus(107) = 13
+"Groktan", "Flintsplit", queststatus(107) = 12, english -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and crumples the letter in her firm grasp: 'Tell that filthy bastard he'll get my throne over my dead body!", queststatus(107) = 13
 "Groktan", "Flintsplit", queststatus(107) = 12 -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
 
 -- Catching quest triggers
@@ -126,7 +126,7 @@ itemShoes = 369
 "Law", "Custom", "habit" -> "The law of Cadomyr lies before your very eyes. I am the law, but you may bear witness to our customs at the statue of my father in front of the palace."
 "builder" -> "Robertus is my royal builder. Currently he is working on building me the most magnificent grave known to man. My legacy will last forever!"
 "Robertus", english -> "Robertus is my royal builder. Currently he is working on building me the most magnificent grave known to man. My legacy will last forever!"
-"Desert" -> "Sand, sand, sand. It is everywhere! In my shoes, in my chambers, and even in my hair! I hate the sand but thank Sirani that I have a lifetime supply of donkey’s milk."
+"Desert" -> "Sand, sand, sand. It is everywhere! In my shoes, in my chambers, and even in my hair! I hate the sand but thank Sirani that I have a lifetime supply of donkey's milk."
 "Economy" -> "Cadomyr's economy prospers. You can see that at every corner of town. Go forth to the market place and behold the goods of my beloved country."
 "palace" -> "My palace is the grandeur of hard working slaves and artisans. But it was not built for me alone; it was built for the honour of Cadomyr and the glory of Malachin, Zhambra, and Sirani!"
 "market" -> "Glass goods, fine jewelry, herbal remedies, and masonry are our marquee products, readily available in our market quarter. So go see for yourself!"
@@ -179,7 +179,7 @@ itemShoes = 369
 "Erzmagier" -> "Ein abtrünniger Magier der zugegebenerweise weiß, wie man seine Untertanen dahingehend täuscht, dass er vorgibt, ein großzügiger Anführer zu sein.", "Fürwahr, mit ihm zu verhandeln ist schwieriger als ihm einfach eine Lanze in den Bauch zu rammen."
 "Runewick", english -> "I have no problem with Runewick, as long as they stay in their place. Historically, however, they have chosen to be quite the nuisance."
 "Runewick" -> "Ich habe keine Probleme mit Runewick, solange sie ihren Füße nicht auf das Land setzen. Und das geschieht mir in letzter Zeit zu häufig."
-"Valerio", "Guilianni", "Don", english -> "Do not insight my rage by mentioning his name. That illicit marriage proposal of his still agitates me greatly. Any satire or jest depicting that mockery shall result in the actor’s mouth being filled with scorpions!"
+"Valerio", "Guilianni", "Don", english -> "Do not insight my rage by mentioning his name. That illicit marriage proposal of his still agitates me greatly. Any satire or jest depicting that mockery shall result in the actor's mouth being filled with scorpions!"
 "Valerio", "Guilianni", "Don" -> "Wenn ihr es wagt, mich an den Heiratsantrag des Dons zu erinnern, dann lasse ich euren Mund mit Skorpionen füllen!"
 "Galmair", english -> "Galmair is like rose with thorns; it might look appealing, but grasping for it should be done carefully."
 "Galmair" -> "Galmair ist wie eine dornenbewehrte Rose; es mag begehrenswert aussehen, aber wenn man danach greift, dann sollte man jeden Schriff genau überdenken."
@@ -199,9 +199,9 @@ itemShoes = 369
 "salkama" -> "Die Salkamaerier haben ihre Gebräuche, wir haben unsere. Solange sie sich nicht in cadomyrische Angelegenheiten einmischen, sollen sie machen, was sie für richtig halten."
 
 -- Gods; gods are relevant, so the faction leader has to have an opinion on ALL gods
-"Adron", english -> "Ah, the god of Festivities and Wine. His purpose is joyous but indulge too much, like those people of Runewick, and you’ll risk your safety and waste your resources."
+"Adron", english -> "Ah, the god of Festivities and Wine. His purpose is joyous but indulge too much, like those people of Runewick, and you'll risk your safety and waste your resources."
 "Adron" -> "Ah, der Gott der Festlichkeiten und des Weines. Sein Begehr ist simpel und von niederem Stand, wie diese Leute aus Runewick..."
-"Bragon", "Brágon", english -> "How can one worship the Lord of Fire? Of course, we all honour the Five, but fire has always been a city’s greatest foe. It does keeps us warm, so respect it and Brágon, but do not worship it."
+"Bragon", "Brágon", english -> "How can one worship the Lord of Fire? Of course, we all honour the Five, but fire has always been a city's greatest foe. It does keeps us warm, so respect it and Brágon, but do not worship it."
 "Bragon", "Brágon" -> "Wie kann man nur den Herren des Feuers verehren? Selbstredend ehren wir die Fünf, aber Feuer kann so viel Leid verursachen. Es spendet uns aber auch Wärme; also respektiert es und Brágon, aber verehrt es nicht."
 "Cherga", english -> "I hope the time when I face Cherga in the afterlife will not come anytime soon; Robertus has not even finished the plans for my grave yet. Furthermore, who would rule Cadomyr, if not me?"
 "Cherga" -> "Ich hoffe, dass es noch eine Weile dauert, bis ich Cherga ins Angesicht trete. Robertus hat noch nicht einmal die Baupläne für mein Grab vollendet. Und wer sollte schon Cadomyr regieren, wenn nicht ich?"
@@ -219,7 +219,7 @@ itemShoes = 369
 "Moshran" -> "Ihr werdet diesen Namen niemals wieder laut in Cadomyr aussprechen. Tut ihr es doch, so wird mein Zorn euch zerschmettern. Geht dunklen Künsten woanderns nach, wie wäre es mit Runewick?"
 "Nargun", "Nargún", english -> "If there is one thing I hate more than Baron Hastings, it is disorder. So you can estimate how much I love Nargún, the god of chaos."
 "Nargun", "Nargún" -> "Wenn etwas gibt, was ich nochmehr hasse als Baron Hastings, dann ist das Unordnung. Somit könnt ihr euch selbst erklären, wie sehr ich Nargún, die Gott des Chaos, liebe."
-"Oldra", english -> "Hah! Only superstitious creatures rely on Oldra’s grace to grow their crops. The educated know that irrigation makes plants grow, not prayer."
+"Oldra", english -> "Hah! Only superstitious creatures rely on Oldra's grace to grow their crops. The educated know that irrigation makes plants grow, not prayer."
 "Oldra" -> "Hah! Ich werde Cadomyr in blühende Landschaften verwandeln, auch ohne die Hilfe der verwunschenen Oldra. Bewässerung läßt Pflanzen gedeihen, nicht ein Gebet zu dieser unbedeutenden Göttin."
 "Ronagan", english -> "You are speaking about the god of travelers, I hope. Not the god of those with chopped off hands, am I right?"
 "Ronagan" -> "Ihr sprecht vom Gott der Reisenden, hoffe ich; nicht vom Gott derer mit abgeschlagenen Händen, nicht wahr?"
