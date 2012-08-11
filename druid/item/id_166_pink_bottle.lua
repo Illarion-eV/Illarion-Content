@@ -25,8 +25,8 @@ function DrinkPotion(User,SourceItem)
 		-- there is already an effect; sadly,therefore, the current potion will have no effect
 		foundEffect, myEffect = User.effects:find(166)
 		if foundEffect then
-			base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
-			"You don't have the feeling that something happens.")
+			base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert. Scheinbar verhindert der bereits wirkende Heiltranktrank weitere Effekte.", 
+			"You don't have the feeling that something happens. It seems that the already affecting healing potion prevents other effects.")
 			return
 	    end
 	

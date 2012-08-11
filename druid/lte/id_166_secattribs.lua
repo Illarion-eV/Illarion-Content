@@ -39,10 +39,11 @@ function callEffect(Effect,User)
 		      counterPink = counterPink - 1;
 	          Effect:addValue("counterPink",counterPink)
 	       end
-	       world:gfx(45,User.pos)
-		   
+	       
 		   if counterPink <= 0 then
-		        return false
+		        world:gfx(45,User.pos)
+				base.common.InformNLS(User,"Die Wirkungsphase des Heiltranks endet.","The effect phase of the healing potion ends.")
+				return false
 	       end
        end
    end
