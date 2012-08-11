@@ -65,7 +65,7 @@ function DrinkPotion(User,SourceItem)
 			end
 	    end
 	    -- LTE
-		myEffect=LongTimeEffect(166,50);
+		myEffect=LongTimeEffect(166,70);
 		-- now we add the values
 	   myEffect:addValue("hitpointsIncrease",hitpointsOT)
 	   myEffect:addValue("manaIncrease",manaOT)

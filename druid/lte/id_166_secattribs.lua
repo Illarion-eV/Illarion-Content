@@ -47,7 +47,7 @@ function callEffect(Effect,User)
 	       end
        end
    end
-  Effect.nextCalled = 50
+  Effect.nextCalled = 70
   return true
 end
 
