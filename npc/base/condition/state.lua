@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.condition.condition")
 
@@ -25,32 +24,32 @@ function(self, comp, value)
     end; 
 end);
 
-function _state_helper_equal(self, _)
+function _state_helper_equal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value == self.npc._state)
 end;
 
-function _state_helper_notequal(self, _)
+function _state_helper_notequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value ~= self.npc._state)
 end;
 
-function _state_helper_lesserequal(self, _)
+function _state_helper_lesserequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (self.npc._state <= value)
 end;
 
-function _state_helper_greaterequal(self, _)
+function _state_helper_greaterequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (self.npc._state >= value)
 end;
 
-function _state_helper_lesser(self, _)
+function _state_helper_lesser(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (self.npc._state < value)
 end;
 
-function _state_helper_greater(self, _)
+function _state_helper_greater(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (self.npc._state > value)
 end;

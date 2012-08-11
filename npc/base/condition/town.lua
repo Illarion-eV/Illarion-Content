@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("base.factions")
 require("npc.base.condition.condition")
@@ -12,6 +11,6 @@ function(self, value)
     self["check"] = _town_helper_equal;
 end);
 
-function _town_helper_equal(self, player)
+function _town_helper_equal(self, npcChar, player)
     return (base.factions.get_Faction(player).tid == self.value);
 end;

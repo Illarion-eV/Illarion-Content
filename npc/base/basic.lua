@@ -5,7 +5,6 @@
 -- one that requires regular from the actual NPC script.
 --
 -- Author: Martin Karing
--- $Id$
 
 require("base.common")
 require("base.class")
@@ -15,7 +14,16 @@ module("npc.base.basic", package.seeall)
 --- Constructor for the baseNPC. This does not take any paramters.
 --
 -- The sole purpose is to prepare all required values in the NPC script.
-baseNPC = base.class.class(function(self)
+baseNPC = base.class.class(function(self, npcChar)
+	-- This variable holds the reference to the NPC character that is using
+	-- this base NPC.
+	self["npcChar"] = nil;
+	if (npcChar == nil)
+		self["npcChar"] = thisNPC;
+	else
+		self["npcChar"] = npcChar;
+	end;
+	
     -- The state of the NPC. This value can be used to have the special parts
     -- of the NPC communicating with each other.
     self["state"] = baseNPC.stateNormal;
@@ -159,8 +167,8 @@ function baseNPC:nextCycle()
         self["_equipmentList"] = nil;
         
         table.foreach(tempList, function(key, value)
-            thisNPC:createAtPos(value[1], value[2], 1);
-            local item = thisNPC:getItemAt(value[1]);
+            self.npcChar:createAtPos(value[1], value[2], 1);
+            local item = self.npcChar:getItemAt(value[1]);
             item.wear = 255;
             item.quality = 999;
             world:changeItem(item);            
@@ -184,7 +192,7 @@ function baseNPC:nextCycle2()
         return;
     end;
     
-    thisNPC.activeLanguage = self._defaultLanguage;
+    self.npcChar.activeLanguage = self._defaultLanguage;
     
     local oldCycle = self._cycleCounter;
     self._cycleCounter = 0;
@@ -212,11 +220,11 @@ function baseNPC:receiveText(speaker, text)
         return false;
     end;
     
-    if not thisNPC:isInRange(speaker, 2) then
+    if not self.npcChar:isInRange(speaker, 2) then
         return false;
     end;
 
-    if (speaker.id == thisNPC.id) then
+    if (speaker.id == self.npcChar.id) then
         return false;
     end;
 
@@ -225,14 +233,14 @@ function baseNPC:receiveText(speaker, text)
     end;
 
     if self._autointroduce then
-        speaker:introduce(thisNPC);
+        speaker:introduce(self.npcChar);
     end;
     
     if not self:checkLanguageOK(speaker) then
         self:_displayLanguageConfusion();
         return false;
     end;
-    thisNPC.activeLanguage = speaker.activeLanguage;
+    self.npcChar.activeLanguage = speaker.activeLanguage;
     text = string.lower(text);
     
     table.foreach(self._receiveTextFunctions, function(key, value)
@@ -252,9 +260,9 @@ function baseNPC:_displayLanguageConfusion()
     local currentUnix = world:getTime("unix");
     if (currentUnix - self._lastConfusionTimestamp > 59) then
         self._lastConfusionTimestamp = currentUnix;
-        thisNPC.activeLanguage = self._defaultLanguage;
-        thisNPC:talkLanguage(Character.say, Player.german, self._confusedDE);
-        thisNPC:talkLanguage(Character.say, Player.english, self._confusedUS);
+        self.npcChar.activeLanguage = self._defaultLanguage;
+        self.npcChar:talkLanguage(Character.say, Player.german, self._confusedDE);
+        self.npcChar:talkLanguage(Character.say, Player.english, self._confusedUS);
     end;
 end;
 
@@ -331,10 +339,10 @@ end;
 --  @param char the character who is looking at the NPC
 --  @param mode the mode used to look at the NPC (no effect)
 function baseNPC:lookAt(char, mode)
-    char:sendCharDescription(thisNPC.id, base.common.GetNLS(char, self._lookAtMsgDE, self._lookAtMsgUS));
+    char:sendCharDescription(self.npcChar.id, base.common.GetNLS(char, self._lookAtMsgDE, self._lookAtMsgUS));
     
     if self._autointroduce then
-        char:introduce(thisNPC);
+        char:introduce(self.npcChar);
     end;
 end;
 
@@ -344,12 +352,12 @@ end;
 --  @param char the character who is looking at the NPC
 --  @param mode the mode used to look at the NPC (no effect)
 function baseNPC:use(char)
-    thisNPC.activeLanguage = self._defaultLanguage;
-    thisNPC:talkLanguage(Character.say, Player.german, self._useMsgDE);
-    thisNPC:talkLanguage(Character.say, Player.english, self._useMsgUS);
+    self.npcChar.activeLanguage = self._defaultLanguage;
+    self.npcChar:talkLanguage(Character.say, Player.german, self._useMsgDE);
+    self.npcChar:talkLanguage(Character.say, Player.english, self._useMsgUS);
     
     if self._autointroduce then
-        char:introduce(thisNPC);
+        char:introduce(self.npcChar);
     end;
 end;
 
@@ -390,7 +398,7 @@ end;
 --- itself after it was called once.
 function baseNPC:initLanguages()
     table.foreach(self._npcLanguages, function(key, value)
-        thisNPC:increaseSkill(1, langCodeToSkillName(value), 100);
+        self.npcChar:increaseSkill(1, langCodeToSkillName(value), 100);
     end);
     self["initLanguages"] = nil;
 end;

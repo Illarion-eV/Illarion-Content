@@ -11,6 +11,6 @@ function(self, tradeNPC)
     self["perform"] = _trade_helper;
 end);
 
-function _trade_helper(self, player)
+function _trade_helper(self, npcChar, player)
     self.tradeNPC:showDialog(player); 
 end;

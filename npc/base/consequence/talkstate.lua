@@ -17,10 +17,10 @@ function(self, mode)
     end;
 end);
 
-function _talkstate_helper_begin(self, _)
+function _talkstate_helper_begin(self, npcChar, player)
     self.npc._parent.state = npc.base.basic.baseNPC.stateBusyTalking;
 end;
 
-function _talkstate_helper_end(self, _)
+function _talkstate_helper_end(self, npcChar, player)
     self.npc._parent.state = npc.base.basic.baseNPC.stateNormal;
 end;

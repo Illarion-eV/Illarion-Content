@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.condition.condition")
 
@@ -52,62 +51,62 @@ function(self, itemId, itemLoc, comp, value, data)
     end;
 end);
 
-function _item_helper_equal(self, player)
+function _item_helper_equal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item) == value;
 end;
 
-function _item_helper_notequal(self, player)
+function _item_helper_notequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item) ~= value;
 end;
 
-function _item_helper_lesserequal(self, player)
+function _item_helper_lesserequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item) <= value;
 end;
 
-function _item_helper_greaterequal(self, player)
+function _item_helper_greaterequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item) >= value;
 end;
 
-function _item_helper_lesser(self, player)
+function _item_helper_lesser(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item) < value;
 end;
 
-function _item_helper_greater(self, player)
+function _item_helper_greater(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item) > value;
 end;
 
-function _item_helper_equal_data(self, player)
+function _item_helper_equal_data(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item, self.data) == value;
 end;
 
-function _item_helper_notequal_data(self, player)
+function _item_helper_notequal_data(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item, self.data) ~= value;
 end;
 
-function _item_helper_lesserequal_data(self, player)
+function _item_helper_lesserequal_data(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item, self.data) <= value;
 end;
 
-function _item_helper_greaterequal_data(self, player)
+function _item_helper_greaterequal_data(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item, self.data) >= value;
 end;
 
-function _item_helper_lesser_data(self, player)
+function _item_helper_lesser_data(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item, self.data) < value;
 end;
 
-function _item_helper_greater_data(self, player)
+function _item_helper_greater_data(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item, self.data) > value;
 end;

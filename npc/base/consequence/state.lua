@@ -19,17 +19,17 @@ function(self, mode, value)
     end;
 end);
 
-function _state_helper_set(self, _)
+function _state_helper_set(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     self.npc._state = value;
 end;
 
-function _state_helper_add(self, _)
+function _state_helper_add(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     self.npc._state = self.npc._state + value;
 end;
 
-function _state_helper_sub(self, _)
+function _state_helper_sub(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     self.npc._state = self.npc._state - value;
 end;
