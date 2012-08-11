@@ -18,7 +18,7 @@ baseNPC = base.class.class(function(self, npcChar)
 	-- This variable holds the reference to the NPC character that is using
 	-- this base NPC.
 	self["npcChar"] = nil;
-	if (npcChar == nil)
+	if (npcChar == nil) then
 		self["npcChar"] = thisNPC;
 	else
 		self["npcChar"] = npcChar;
