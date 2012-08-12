@@ -82,10 +82,12 @@ function GenerateEffectMessage(User,dataZList)
     local effectMessageDE = ""
 	local effectMessageEN = ""
 	
-	ListPositiveEffectDE = {"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
-	ListNegativeEffectDE = {"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
+	ListPositiveEffectDE = {"Deine Lebenskraft nimmt sofort zu."   ,"Dein Mana nimmt sofort zu."   ,"Du fühlst dich sofort satter." ,"Das Gift in dir wird sofort geschwächt.","Deine Lebenskraft nimmt mit der Zeit zu.","Dein Mana nimmt mit der Zeit zu.","Mit der Zeit wächst dein Hunger.","Das Gift in dir wir dmit der Zeit schwächer."}
+	ListNegativeEffectDE = {"Your life energy increases instantly.","Your mana increases instanly.","You feel more sated instantly.","The poison in you is instalny weakened.","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
 	ListPositiveEffectEN = {"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
 	ListNegativeEffectEN = {"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
+	"Dein Lebenskraft nimmt sofort ab"
+	"Deine Lebenskraft nimmt mit der Zeit ab"
 	
 	for i=1,8 do
 		if (dataZList[i] > 5) then
