@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.consequence.consequence")
 
@@ -24,7 +23,7 @@ function(self, id, count, data)
 	end;
 end);
 
-function _deleteitem_helper(self, player)
+function _deleteitem_helper(self, npcChar, player)
     local count = npc.base.talk._get_value(self.npc, self.count, self.counttype);
     
     if (count == 0) then
@@ -34,7 +33,7 @@ function _deleteitem_helper(self, player)
     player:eraseItem(self.id, count); 
 end;
 
-function _deleteitem_data_helper(self, player)
+function _deleteitem_data_helper(self, npcChar, player)
     local count = npc.base.talk._get_value(self.npc, self.count, self.counttype);
     
     if (count == 0) then

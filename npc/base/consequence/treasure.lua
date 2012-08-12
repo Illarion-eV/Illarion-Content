@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("base.treasure")
 require("npc.base.consequence.consequence")
@@ -13,7 +12,7 @@ function(self, level)
     self["perform"] = _treasure_helper;
 end);
 
-function _treasure_helper(self, player)
+function _treasure_helper(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     base.treasure.createMap(player, value)
 end;

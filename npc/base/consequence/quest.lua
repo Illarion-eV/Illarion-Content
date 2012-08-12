@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.consequence.consequence")
 
@@ -20,19 +19,19 @@ function(self, questid, mode, value)
     end;
 end);
 
-function _quest_helper_set(self, player)
+function _quest_helper_set(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     player:setQuestProgress(self.questid, value);
 end;
 
-function _quest_helper_add(self, player)
+function _quest_helper_add(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     local currState = player:getQuestProgress(self.questid);
     
     player:setQuestProgress(self.questid, currState + value);
 end;
 
-function _quest_helper_sub(self, player)
+function _quest_helper_sub(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     local currState = player:getQuestProgress(self.questid);
     

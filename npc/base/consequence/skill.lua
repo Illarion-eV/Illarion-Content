@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.consequence.consequence")
 
@@ -21,19 +20,19 @@ function(self, group, name, mode, value)
     end;
 end);
 
-function _skill_helper_set(self, player)
+function _skill_helper_set(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     local currSkill = player:getSkill(self.name);
     local modSkill = value - currSkill;
     player:increaseSkill(self.group, self.name, modSkill);
 end;
 
-function _skill_helper_add(self, player)
+function _skill_helper_add(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     player:increaseSkill(self.group, self.name, value);
 end;
 
-function _skill_helper_sub(self, player)
+function _skill_helper_sub(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     player:increaseSkill(self.group, self.name, -value);
 end;

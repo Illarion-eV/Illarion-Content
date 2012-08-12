@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.condition.condition")
 
@@ -20,11 +19,11 @@ function(self, value)
     end;
 end);
 
-function _magictype_helper_none(self, player)
+function _magictype_helper_none(self, npcChar, player)
     return (player:getMagicFlags(player:getMagicType()) == 0)
 end;
 
-function _magictype_helper_mage(self, player)
+function _magictype_helper_mage(self, npcChar, player)
     local magicType = player:getMagicType();
     if (magicType == 0) then
         return true;
@@ -37,7 +36,7 @@ function _magictype_helper_mage(self, player)
     return false;
 end;
 
-function _magictype_helper_priest(self, player)
+function _magictype_helper_priest(self, npcChar, player)
     local magicType = player:getMagicType();
     if (magicType == 1) then
         return true;
@@ -50,7 +49,7 @@ function _magictype_helper_priest(self, player)
     return false;
 end;
 
-function _magictype_helper_bard(self, player)
+function _magictype_helper_bard(self, npcChar, player)
     local magicType = player:getMagicType();
     if (magicType == 2) then
         return true;
@@ -63,7 +62,7 @@ function _magictype_helper_bard(self, player)
     return false;
 end;
 
-function _magictype_helper_druid(self, player)
+function _magictype_helper_druid(self, npcChar, player)
     local magicType = player:getMagicType();
     if (magicType == 3) then
         return true;

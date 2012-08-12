@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.consequence.consequence")
 
@@ -15,7 +14,7 @@ function(self, id, count, quality, data)
     self["perform"] = _item_helper;
 end);
 
-function _item_helper(self, player)
+function _item_helper(self, npcChar, player)
     local count = npc.base.talk._get_value(self.npc, self.count, self.counttype);
     local quality = npc.base.talk._get_value(self.npc, self.quality, self.qualitytype);
     local data = npc.base.talk._get_value(self.npc, self.data, self.datatype);
