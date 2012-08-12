@@ -26,7 +26,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    a,b,myPS=string.find(User.lastSpokenText,"(%d+)") 
 		poisonChange = tonumber(myPS)
 		User:increaseAttrib("poisonvalue",poisonChange)
-		myPoisonMsg = "poison value is "..User:increaseAttrib("posionvalue",0)
+		myPoisonMsg = "poison value is "..User:increaseAttrib("poisonvalue",0)
 		base.common.InformNLS(User,""..myPoisonMsg,""..myPoisonMsg)
 	end 
 	
