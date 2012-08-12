@@ -33,7 +33,7 @@ function DrinkPotion(User,SourceItem)
 	    local dataZList = druid.base.alchemy.SplitBottleData(User,potionEffectId);
 	    -- taste and effect message
 	    druid.base.alchemy.generateTasteMessage(User,dataZList)
-		GenerateEffectMessage(User,dataZList)
+		--GenerateEffectMessage(User,dataZList)
 		for i=1,8 do
 			-- effects
 			if (i == 3) or (i == 6) then  -- poison
