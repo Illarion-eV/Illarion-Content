@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 02, 2012                         easyNPC Parser v1.02 --
+-- Last parsing: August 13, 2012                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -40,6 +40,7 @@ talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(314, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(31, 22, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
