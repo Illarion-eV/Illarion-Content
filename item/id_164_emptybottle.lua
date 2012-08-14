@@ -9,96 +9,65 @@ module("item.id_164_emptybottle", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
-	-- the following few lines are for the alchemy system
+	-- alchemy
    if base.common.GetFrontItemID(User) == 1008 then   -- is the char infront of a culdron?
    
-       TargetItem = base.common.GetFrontItem( User ) 
+       cauldron = base.common.GetFrontItem( User ) 
 	   
 	   if ( ltstate == Action.abort ) then
-                User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
-                User:talkLanguage(Character.say, Player.english, "abort work");
-				--[[base.common.TempInformNLS( User,
-                "Du brichst Deine Arbeit ab.",
-                "You abort your work."
-                       );]]
-		        return;
-        end
+	        User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
+		    base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	       return
+		end
 			
+		if (cauldron:getData("cauldronFilledWith") == "water") then -- water belongs into a bucket, not a potion bottle!
+	        base.common.InformNLS( User,
+					"Es ist zu viel Wasser im Kessel, als dass es in die Flaschen passen würde. Ein Eimer wäre hilfreicher.",
+					"There is too much water in the cauldron to bottle it. Better use a bucket.")
+			return;
+	    
+		-- no stock, no potion, not essence brew -> nothing we could fil into the bottle
+	    elseif (cauldron:getData("stockData") == "") and (cauldron:getData("potionEffectId") == "") and (cauldron:getData("cauldronFilledWith") == "") then
+	        base.common.InformNLS( User,
+					"Es befindet sich nichts zum Abfüllen im Kessel.",
+					"There is nothing to be bottled in the cauldron.")
+			return;
+	    end
+		
 		if (ltstate == Action.none) then
-		   User:startAction(20,21,5,0,0);
+		   User:startAction(20,21,5,15,25);
 		   return
 		end
 		
-	   if (TargetItem:getData("cauldronFilledWith") == "water") then -- water belongs into a bucket, not a potion bottle!
-	        User:talkLanguage(Character.say, Player.german, "zuviel wasser. nehm eimer");
-            User:talkLanguage(Character.say, Player.english, "too much water. use bucket");
-			--[[base.common.TempInformNLS( User,
-					"Es ist zu viel Wasser im Kessel, als dass es in die Flaschen passen würde. Ein Eimer wäre hilfreicher.",
-					"There is too much water in the cauldron to bottle it. Better use a bucket."
-						   );]]
-			return;
-	    -- no stock, no potion, not essence brew -> nothing we could fil into the bottle
-	    elseif (TargetItem:getData("stockData") == "") and (TargetItem:getData("potionEffectId") == "") and (TargetItem:getData("cauldronFilledWith") == "") then
-	        User:talkLanguage(Character.say, Player.german, "nichts zum abfüllen");
-            User:talkLanguage(Character.say, Player.english, "notthing to bottle");
-			--[[base.common.TempInformNLS( User,
-					"Es befindet sich nichts zum Abfüllen im Kessel.",
-					"There is nothing to be bottled in the cauldron."
-						   );]]
-			return;
-	    end
-	   
-	   if (TargetItem:getData("stockData") ~= "") then  -- stock
+	   if (cauldron:getData("stockData") ~= "") then  -- stock
 	        SourceItem.id = 331
-	        SourceItem:setData("stockData",TargetItem:getData("stockData"))
-	        world:changeItem(SourceItem) -- got the stock
-
-            TargetItem:setData("stockData","")
-            world:changeItem(TargetItem) -- clean cauldron
-            world:makeSound(10,TargetItem.pos);		
-	   
-	   elseif (TargetItem:getData("cauldronFilledWith") == "essenceBrew") then -- essence Brew
-	        SourceItem.id = tonumber(TargetItem:getData("potionId"))
+	        SourceItem:setData("stockData",cauldron:getData("stockData"))
+	        cauldron:setData("stockData","")
+            	
+	   elseif (cauldron:getData("cauldronFilledWith") == "essenceBrew") then -- essence Brew
+	        SourceItem.id = tonumber(cauldron:getData("potionId"))
 	        SourceItem:setData("essenceBrew","true")
-			SourceItem:setData("essenceHerb1",TargetItem:getData("essenceHerb1"))
-	        SourceItem:setData("essenceHerb2",TargetItem:getData("essenceHerb2"))
-	        SourceItem:setData("essenceHerb3",TargetItem:getData("essenceHerb3"))
-	        SourceItem:setData("essenceHerb4",TargetItem:getData("essenceHerb4"))
-	        SourceItem:setData("essenceHerb5",TargetItem:getData("essenceHerb5"))
-	        SourceItem:setData("essenceHerb6",TargetItem:getData("essenceHerb6"))
-	        SourceItem:setData("essenceHerb7",TargetItem:getData("essenceHerb7"))
-	        SourceItem:setData("essenceHerb8",TargetItem:getData("essenceHerb8"))
-	        world:changeItem(SourceItem) -- our essence brew
-			
-			TargetItem:setData("potionId","")
-	        TargetItem:setData("cauldronFilledWith","")
-			TargetItem:setData("essenceHerb1","")
-	        TargetItem:setData("essenceHerb2","")
-	        TargetItem:setData("essenceHerb3","")
-	        TargetItem:setData("essenceHerb4","")
-	        TargetItem:setData("essenceHerb5","")
-	        TargetItem:setData("essenceHerb6","")
-	        TargetItem:setData("essenceHerb7","")
-	        TargetItem:setData("essenceHerb8","")
-	        world:changeItem(TargetItem) -- clean cauldron
-	        world:makeSound(10,TargetItem.pos);
-			
-	   elseif (TargetItem:getData("potionEffectId") ~= "") then -- potion
-	        SourceItem.id = tonumber(TargetItem:getData("potionId"))
-	        SourceItem.quality = tonumber(TargetItem:getData("potionQuality"))
-	        SourceItem:setData("potionEffectId",TargetItem:getData("potionEffectId"))
-	        world:changeItem(SourceItem) -- we have a out potion
-			
-			TargetItem:setData("potionId","")
-			TargetItem:setData("potionQuality","")
-			TargetItem:setData("potionEffectId","")
-			world:changeItem(TargetItem) -- we clean our cauldron
-	        world:makeSound(10,TargetItem.pos);
-	   
-	   end
+			SourceItem:setData("essenceHerbs",cauldron:getData("essenceHerbs"))
+			    
+			cauldron:setData("potionId","")
+	        cauldron:setData("cauldronFilledWith","")
+			cauldron:setData("essenceHerbs")
+			    
+	    elseif (cauldron:getData("potionEffectId") ~= "") then -- potion
+	        SourceItem.id = tonumber(cauldron:getData("potionId"))
+	        SourceItem.quality = tonumber(cauldron:getData("potionQuality"))
+	        SourceItem:setData("potionEffectId",cauldron:getData("potionEffectId"))
+	        
+			cauldron:setData("potionId","")
+			cauldron:setData("potionQuality","")
+			cauldron:setData("potionEffectId","")
+		end
+	    world:changeItem(cauldron)
+		world:changeItem(SourceItem)
+		world:makeSound(10,cauldron.pos)
 	end
     
-    -- bottle in hand?
+    --[[-- bottle in hand?
 	if SourceItem:getType() == 4 and (SourceItem.itempos == 5 or SourceItem.itempos == 6) then
 
 		-- check for sheep
@@ -136,5 +105,5 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			-- world:changeItem(bottles);
 			-- return;
         -- end;
-	end	
+	end	]]
 end

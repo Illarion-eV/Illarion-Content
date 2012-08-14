@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.condition.condition")
 
@@ -26,32 +25,32 @@ function(self, name, comp, value)
     end;
 end);
 
-function _attrib_helper_equal(self, player)
+function _attrib_helper_equal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value == player:increaseAttrib(self.attrib, 0))
 end;
 
-function _attrib_helper_notequal(self, player)
+function _attrib_helper_notequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value ~= player:increaseAttrib(self.attrib, 0))
 end;
 
-function _attrib_helper_lesserequal(self, player)
+function _attrib_helper_lesserequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value <= player:increaseAttrib(self.attrib, 0))
 end;
 
-function _attrib_helper_greaterequal(self, player)
+function _attrib_helper_greaterequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value >= player:increaseAttrib(self.attrib, 0))
 end;
 
-function _attrib_helper_lesser(self, player)
+function _attrib_helper_lesser(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value < player:increaseAttrib(self.attrib, 0))
 end;
 
-function _attrib_helper_greater(self, player)
+function _attrib_helper_greater(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value > player:increaseAttrib(self.attrib, 0))
 end;

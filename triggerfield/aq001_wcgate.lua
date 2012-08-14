@@ -2,6 +2,7 @@
 -- Purpose: invisible wall for secret passage to well, testing for
 
 module("triggerfield.aq001_wcgate", package.seeall)
+require("base.common")
 
 function MoveToField( user )
     if world:isItemOnField( position( 28, 190, -12) ) then
@@ -18,11 +19,7 @@ function MoveToField( user )
                 world:changeItem(right);
                 world:changeItem(left);
             else
-                if user:getPlayerLanguage()==0 then
-                    user:inform("Eine unsichtbare Wand hält dich zurück.");
-                else
-                    user:inform("An invisible wall holds you back.");
-                end;
+			    base.common.InformNLS(user,"Eine unsichtbare Wand hält dich zurück.","An invisible wall holds you back.");
                 user:warp(position(27,190,-12));
             end;
 

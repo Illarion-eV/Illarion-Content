@@ -5,240 +5,183 @@
 -- reworked by Merung
 require("base.common")
 require("druid.base.alchemy")
+require("druid.item.id_165_blue_bottle")
 
-module("druid.item.id_330_white_bottle",package.seeall); --, package.seeall(druid.base.alchemy))
+module("druid.item.id_330_white_bottle",package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_330_white_bottle' WHERE com_itemid = 330;
 
 function DrinkPotion(User,SourceItem)
-User:inform("beginng drinkPotion")
--- Grundwerte, Listen einlesen:
--- Sprachverständnis (man kann eine Zeitlang fremde Sprachen verstehen/lesen)
-	if firsttime == nil then
-		ListCodecs = {}
-		ListLanguages  = {}
-		ListSkillGroup = {}
-		ListSkillID = {}
-		firsttime = 1
-	end
-	ListCodecs={45942235,62483256,65554555,15751754,82897532,63296636,93538334}
-	ListLanguages={"common language","human language","dwarf language","elf language","lizard language","orc language","halfling language","ancient language"}
-	ListSkillID = {0,1,2,3,4,5,6,10}
-	ListSkillGroup={1,1,1,1,1,1,1,1}
 
-    potionData = tonumber(SourceItem:getData("potionData")); 
+    potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
+
+    if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
+	    base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
+		"You don't have the feeling that something happens.")
+	    return
     
-  for i=1,table.getn(ListCodecs) do
-    
-	if potionData == ListCodecs[i] then
-
-      find, myEffect = User.effects:find(330);
-      if not find then
-
-      	oldSkill = User:getSkill(ListLanguages[i])
-        end
-      	if oldSkill == nil then
-      	   oldSkill = 0
-      	end
-
-      	newSkill = 100
-
-        myEffect=LongTimeEffect(330,1);
-
---      SkillName sichern
-        myEffect:addValue( "skillID",ListSkillID[i] )
-
---      Alten Wert sichern
-        myEffect:addValue( "oldSkill",oldSkill )
-
---      Neuen Wert sichern
-        myEffect:addValue( "newSkill",newSkill )
-
---      SkillGroup sichern
-        myEffect:addValue( "skillGroup",ListSkillGroup[i])
-
---      Laufzeit nach Quality berechnen
-        -- replance with formula
-		myEffect:addValue("counterWhite",10)
-
- 		-- cooldown 	
-		myEffect:addValue("cooldownWhite",15)	
-			
-			--Character:inform(ListCodecs[i].." / "..ListLanguages[i].." / "..oldSkill)
-      	User:increaseSkill(ListSkillGroup[i],ListLanguages[i],newSkill)
- 			--Character:inform(ListCodecs[i].." / "..ListLanguages[i].." / "..Character:getSkill(ListLanguages[i]))
-
---      Effekt an Char binden
-        User.effects:addEffect(myEffect);
-        User:inform("ende drinPotion, effekt hinzufügen")
+	elseif (potionEffectId <= 8) then -- language potion
+            
+		ListPotionEffectId={1,2,3,4,5,6,7,8}
+		ListLanguages={"common language","human language","dwarf language","elf language","lizard language","orc language","halfling language","ancient language"}
+		
+        find, myEffect = User.effects:find(330)
+		if find then --  there is already an effect, we remove it, only one language at a time
+            
+			find,languageId = myEffect:findValue("languageId")
+			skillName = ListLanguages[languageId]
+			find,oldSkill = myEffect:findValue( "oldSkill")
+			find,newSkill = myEffect:findValue( "newSkill")
+			User:increaseSkill(1,skillName,(-(newSkill-oldSkill))) -- old skill level restored
+		    effectRemoved = User.effects:removeEffect(329)
+			if not effectRemove then
+				base.common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. white bottle script", "Error: inform dev. Lte not removed. white bottle script.")
+				return
+			end
+		end
+		
+		oldSkill = User:getSkill(ListLanguages[potionEffectId])
+		if oldSkill == nil then
+		   oldSkill = 0
+		end
+		newSkill = 100
+   
+        myEffect=LongTimeEffect(330,1)
+		myEffect:addValue( "oldSkill",oldSkill )
+		myEffect:addValue( "newSkill",newSkill )
+	    myEffect:addValue( "languageId",potionEffectId)
+        duration = 10 -- replace with formula
+        myEffect:addValue("counterWhite",10)
 	  
+	    User:increaseSkill(1,ListLanguages[potionEffectId],newSkill)
+ 		User.effects:addEffect(myEffect);
     end
   end
     
-end
-
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
--- if not milk then	  
-  if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
+ 
+	if not ((SourceItem:getData("potionEffectId")~="") or (SourceItem:getData("essenceBrew") =="true")) then
+		return -- no potion, no essencebrew, something else
+	end
+	
+	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
 	
-	   if (cauldron:getData("cauldronData") ~= "") then 
-	      base.common.InformNLS( User,
-					"In dem Kessel befindet sich bereits etwas. Du kannst nichts mehr hinzutun.",
-					"There is already something in the cauldron. You cannot add something else to it."
-						   );
-	       return;
-      
-	  elseif (cauldron:getData("cauldronData") == "") then -- nothing in the cauldron, so the stock is being filled in
-	      
-		  if ( ltstate == Action.abort ) then
-                base.common.TempInformNLS( User,
-                "Du brichst Deine Arbeit ab.",
-                "You abort your work."
-                       );
-		        return;
-            end
+	   -- is the char an alchemist?
+	    if User:getMagicType() ~= 3 then
+		  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
+          base.common.InformNLS( User,
+				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
+				"Only those who have been introduced to the art of alchemy are able to work here.")
+		  return;
+	    end
+	   
+	   if ( ltstate == Action.abort ) then
+	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	       return
+		end
+		
+		if ( ltstate == Action.none ) then
+            if (SourceItem:getData("essenceBrew") =="true") and (cauldron:getData("stockData") ~= "") then
+		        actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
+            else
+                actionDuration = 20
+            end				
+			User:startAction( actionDuration, 21, 5, 10, 45)
+			return
+		end	
+		
+	   if (SourceItem:getData("essenceBrew") =="true") then -- essence brew should be filled into the cauldron
+			-- water, essence brew or potion is in the cauldron; leads to a failure
+			if cauldron:getData("cauldronFilledWith") == "water" then
+			    world:gfx(1,cauldron.pos)
+		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Gebräu hinzu tust.", 
+		                                    "The substance in the cauldron blows out, as you fill the mixture in.")
+			    cauldron:setData("cauldronFilledWith","")
 			
-			if (ltstate == Action.none) then
-			   User:startAction(20,21,5,0,0);
-			   return
+			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+			     druid.base.alchemy.CauldronExplosion(User,cauldron,{4,44})
+			
+			elseif cauldron:getData("potionEffectId") ~= "" then
+			     if cauldron:getData("potionId") == "165" then -- support potion
+			        druid.item.id_165_blue_bottle.SupportEssencebrew(User,cauldron,SourceItem)
+			     else
+				    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
+			     end
+			
+			elseif cauldron:getData("stockData") ~= "" then -- stock is in the cauldron; we call the combin function
+				druid.base.alchemy.CombineStockEssence( User, SourceItem, cauldron, Counter, Param, ltstate )
+				
+			else -- nothing in the cauldron, we just fill in the essence brew
+				cauldron:setData("cauldronFilledWith","essenceBrew")
+				cauldron:setData("potionId",""..SourceItem.id)
+				cauldron:setData("essenceHerbs",SourceItem:getData("essenceHerbs"))
 			end
-		  
-		  local ID_potion = SourceItem.id			 
-		  cauldron:setData("potionID", ""..ID_potion);
-		  cauldron:setData("cauldronData",""..SourceItem:getData("potionData"))
-	      cauldron.quality = SourceItem.quality
-		  world:changeItem(cauldron)
-		  User:inform(""..ID_potion)
-		  User:talkLanguage(Character.say, Player.german, "#me kippt einen Trank in den Kessel.");
-          User:talkLanguage(Character.say, Player.english, "#me pours a potion into the cauldron.");
-		  world:makeSound(10,User.pos);
-		  world:erase(SourceItem,1);
-		  User:createItem(164, 1, 333, 0);
-	      return;
-	   end  
-	end
-	
-	-- not infront of a cauldron: let's drink the potion!
-    if User.effects:find(330) then
-	   User.effects:removeEffect(330);
-	end
-	if User.attackmode then
-	   base.common.TempInformNLS(User,
-			"Du kannst den Trank nicht benutzen, während Du kämpfst.",
-			"You can't use the potion while you are fighting.");
-		return;
-	end
-	
-	if User.effects:find(330) then
-	   base.common.TempInformNLS( User,
-                "Der Trank hätte jetzt keine Wirkung.",
-                "The potion wouldn't have any effect now."
-                       );  
-	   return;
-	end	
-	
-	base.character.ChangeFightingpoints(User, -20);
-	world:makeSound(12,User.pos);
-	world:erase(SourceItem,1);
-	   if(math.random(20) == 1) then
-           base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");
-        else
-            User:createItem(164, 1, 333, 0);
-        end
-	User:inform("ende von useitem")
-	DrinkPotion(User, SourceItem);
--- end (milk)
-  
-  ----------- MILK ; has to be reworked sometime --------
-  --if SourceItem.data == 0 then
-	--world:erase(SourceItem,1);
-	--world:makeSound(12,Character.pos);
-	--return;
-    -- Sheep Milk
- -- elseif SourceItem.data == 1 then     -- special Cow Milk
-	--User = getCharForId(Character.id);  --create a save copy of the char struct
-	--world:erase(SourceItem,1);
-	--world:makeSound(12,Character.pos);
-
-    
-        -- ALTE FASSUNG ALS HEILTRANK
-       -- if (ltstate == Action.abort) then
-
-        --    User:talkLanguage(Character.say, Player.german, "#me verschüttet die Milch.");
-        --    User:talkLanguage(Character.say, Player.english, "#me spills the milk.");
-
-        --    world:erase( SourceItem, 1 );
-
-        --    if (math.random( 20 ) == 1) then
-        --        base.common.TempInformNLS( User,
-        --        "Die Flasche zerbricht.",
-         --       "The bottle breaks.");
-         --   else
-         --       User:createItem( 164, 1, 333, 0 );
-        --    end
-
-        --    return
-       -- end
-
-        --if User.attackmode then
-        --    base.common.InformNLS( User,
-        --    "Du kannst nichts trinken während du kämpfst.",
-        --    "You can't drink something while fighting." );
-        --    return
-        --end
-
-        --if (ltstate == Action.none) then
-
-            --User:startAction( 20, 0, 0, 12, 25 );
-
-         --   User:talkLanguage(Character.say, Player.german, "#me beginnt eine Milch zu trinken.");
-         --   User:talkLanguage(Character.say, Player.english, "#me starts to drink a milk.");
-
-        --end
-
-
-        --if( math.random( 20 ) == 1 ) then
-        --    base.common.InformNLS( User,
-        --    "Die Flasche zerbricht.",
-        --    "The bottle breaks.");
-       -- else
-        --    User:createItem( 164, 1, 333,0);
-        --end
-
-        --User:LTIncreaseHP(333,3,1); --1000HP+
-        --User:LTIncreaseMana(333,3,1); --1000Mana+
-        --User:increaseAttrib("foodlevel",1000);
-       -- User.movepoints = User.movepoints - 16;
-        
-        --local Poisonvalue = User:getPoisonValue();                -- Poisonvalue einlesen  ( 0 - 10000 )
-        --if Poisonvalue>1000 then
-        --	Poisonvalue = Poisonvalue -1000; --remove 1000 Poison points
-        --end
-        --User:setPoisonValue( Poisonvalue );
+		
+		    SourceItem:setData("essenceBrew","")
+			SourceItem:setData("potionId","")
+			SourceItem:setData("essenceHerbs")orld:changeItem(SourceItem)
 			
-        --if (User:increaseAttrib("foodlevel",0) > 60000) then
-        --    base.common.InformNLS( User,
-        --    "Du bekommst kaum noch was runter und dir wird schlecht.",
-        --    "You hardly manage to eat something more and get sick!");
-
-        --    User:increaseAttrib("hitpoints",-1000);
-        --elseif  (User:increaseAttrib("foodlevel",0) > 40000) then
-       --     base.common.InformNLS( User,
-        --    "Du bist satt.",
-        --    "You are stuffed.");
-        --else
-        --    base.common.InformNLS( User,
-        --    "Du trinkst die Flasche aus und fühlst wie neue Stärke dich durchströmt.",
-        --    "You drink up the bottle, and you feel the new strength that flows through your body.");
-        --end
-
-        --return
-        -- Old style potion done
-   --end
-	------------------------ MILKD END -------------------	
+		elseif (SourceItem:getData("potionEffectId")~="") then -- potion should be filled into the cauldron
+		    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
+			if cauldron:getData("cauldronFilledWith") == "water" then
+			    world:gfx(1,cauldron.pos)
+		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		                            "The substance in the cauldron blows out, as you fill the water in.")
+			    cauldron:setData("cauldronFilledWith","")
+			
+			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+			    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
+			
+			elseif cauldron:getData("potionEffectId") ~= "" then
+			    if cauldron:getData("potionId") == "165" then -- support potion
+			        druid.item.id_165_blue_bottle.SupportPotion(User,cauldron,SourceItem)
+			    else
+				    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,38})
+			    end
+				
+			elseif cauldron:getData("stockData") ~= "" then
+				druid.base.alchemy.CauldronExplosion(User,cauldron,{4,36})
+			
+			else -- nothing in the cauldron, we just fill in the potion
+                cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
+                cauldron:setData("potionId",""..SourceItem.id)
+				cauldron:setData("potionQuality",""..SourceItem.quality)
+			end
+                
+            SourceItem:setData("potionEffectId","")
+			SourceItem:setData("potionId","")				
+			SourceItem:setData("potionQuality","")
+		end
+	    if math.random(1,20) == 1 then
+		    world:erase(SourceItem,1)	 -- bottle breaks
+		    base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
+        else	
+		    SourceItem.id = 164
+			SourceItem.quality = 333
+			world:changeItem(SourceItem)
+        end
+		world:changeItem(cauldron)		
+			
+    else -- not infront of a cauldron, therefore drink!
+        if User.attackmode then
+		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während Du kämpfst.", "You cannot use the potion while fighting.")
+		else
+			User:talkLanguage(Character.say, Player.german, "#me trinkt eine weiße Flüssigkeit.");
+			User:talkLanguage(Character.say, Player.english, "#me drinks a white liquid.");
+			SourceItem.id = 164
+			SourceItem.quality = 333
+			if math.random(1,20) == 1 then
+			   world:erase(SourceItem,1) -- bottle breaks
+			   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+			else	
+				world:changeItem(SourceItem)
+			end
+			User.movepoints=User.movepoints - 20
+			DrinkPotion(User,SourceItem)
+	    end
+	end  
 end
-
 
 function LookAtItem(User,Item)
 

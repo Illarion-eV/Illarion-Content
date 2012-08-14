@@ -56,7 +56,7 @@ function callEffect( Tying, Capturer )
 			if not foundLogout then
 				local Rope = GetRope(Capturer);
 				if not Rope then
-					Capturer:inform("Error: no rope found. Please inform a developer.");
+					Capturer:inform("[Error] No rope found. Please inform a developer.",Player.mediumPriority);
 					return false;
 				end
 				if Tying.numberCalled == 0 then -- first call (set in I_2760_seil.lua), calculate duration
@@ -64,7 +64,7 @@ function callEffect( Tying, Capturer )
 					local Quality = math.min(1200,120+math.random(55,65)*AttribOffset);
 					Rope.quality = (Quality*2)+100; -- *2 -> nextCalled = 5. Duration min=2minutes max=20minutes
 				elseif Rope.quality == 100 then -- break rope
-					Capturer:talkLanguage(Character.say,Player.german,"#me's Seil zerreiﬂt, es wurde wohl zu lange belastet.");
+					Capturer:talkLanguage(Character.say,Player.german,"#mes Seil zerreiﬂt, es wurde wohl zu lange belastet.");
 					Capturer:talkLanguage(Character.say,Player.english,"#me's rope is torn, it has been used for too long apparently.");
 					world:erase(Rope,1);
 					return false;
@@ -206,7 +206,7 @@ function GetBestAttribOffset( Char1, Char2, AttribList )
 end
 
 function InformW( User, textInDe, textInEn )
-    User:inform( "#w "..base.common.GetNLS( User, textInDe, textInEn ) );
+    User:inform(base.common.GetNLS( User, textInDe, textInEn ),Player.mediumPriority);
 end
 
 function GetRope( Character )

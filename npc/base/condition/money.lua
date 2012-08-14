@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("base.money")
 require("npc.base.condition.condition")
@@ -20,17 +19,17 @@ function(self, comp, value)
     end;
 end);
 
-function _money_helper_greaterequal(self, player)
+function _money_helper_greaterequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return base.money.CharHasMoney(player, value);
 end;
 
-function _money_helper_greater(self, player)
+function _money_helper_greater(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return base.money.CharHasMoney(player, value + 1);
 end;
 
-function _money_helper_lesser(self, player)
+function _money_helper_lesser(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return not base.money.CharHasMoney(player, value);
 end;

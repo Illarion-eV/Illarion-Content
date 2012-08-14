@@ -11,10 +11,8 @@ function addEffect(Effect, User)               -- we start with adding the effec
 end
 
 function callEffect(Effect,User) 
-
     findCounter,counterPink = Effect:findValue("counterPink")
-    findCooldown,cooldownPink = Effect:findValue("cooldownPink")
-	
+    
 	findHitpoints,hitpointsIncrease = Effect:findValue("hitpointsIncrease")
     findMana,manaIncrease = Effect:findValue("manaIncrease")
     findFoodlevel,foodlevelIncrease = Effect:findValue("foodlevelIncrease")
@@ -22,8 +20,7 @@ function callEffect(Effect,User)
     
 	if findCounter then 
        if counterPink > 0 then
-       
-	       if findHitpoints then
+           if findHitpoints then
               User:increaseAttrib("hitpoints",hitpointsIncrease);
            end
            if findMana then   
@@ -43,16 +40,14 @@ function callEffect(Effect,User)
 	          Effect:addValue("counterPink",counterPink)
 	       end
 	       
-	   elseif findCooldown then
-          if cooldownPink < 1 then
-	         return false
-	      else 
-             cooldownPink = cooldownPink - 1;
-             Effect:addValue("cooldownPink",cooldownPink)
-			end
+		   if counterPink <= 0 then
+		        world:gfx(45,User.pos)
+				base.common.InformNLS(User,"Die Wirkungsphase des Heiltranks endet.","The effect phase of the healing potion ends.")
+				return false
+	       end
        end
    end
-  Effect.nextCalled = 50
+  Effect.nextCalled = 70
   return true
 end
 

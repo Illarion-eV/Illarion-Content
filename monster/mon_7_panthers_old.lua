@@ -25,7 +25,7 @@ msgs:addMessage("#me peitscht mit seinem Schwanz duch die Luft.", "#me lashes it
 msgs:addMessage("#me schleicht auf samtigen Pfoten.", "#me sneaks on velvet paws.");
 msgs:addMessage("#me springt ohne Vorwarnung, die Zähne zum tödlichen Biss gebleckt.", "#me jumps without warning; fangs prepared for a deadly bite.");
 msgs:addMessage("#mes Fell glänzt wie schwarzer Samt, aber sein Schwanz zornig gesträubt wie eine Bürste.", "#me's fur shines like black velvet, but its tail is viciously bristled like a brush.");
-msgs:addMessage("#mes weiße Zähne bilden einen scharfen Kontrast zu seinem schwarzen Fell, als er sie fauchend zeigt.", "#me’s white teeth contrast hard with its black fur, as it hisses and bares them.");
+msgs:addMessage("#mes weiße Zähne bilden einen scharfen Kontrast zu seinem schwarzen Fell, als er sie fauchend zeigt.", "#me's white teeth contrast hard with its black fur, as it hisses and bares them.");
 
 end
 

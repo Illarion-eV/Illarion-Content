@@ -48,7 +48,7 @@ function initializeNpc()
     npc.base.functions.AddTraderTrigger("[Hh]allo","Hallo");
     npc.base.functions.AddAdditionalTrigger("[Gg]r[üu][ßs]+");
     npc.base.functions.AddAdditionalText("Grüße");
-    npc.base.functions.AddTraderTrigger("[Ww]hat.+buy","I’ll buy cutlery, plates and bowls, cups, goblets, bottles and cooking tools.");
+    npc.base.functions.AddTraderTrigger("[Ww]hat.+buy","I'll buy cutlery, plates and bowls, cups, goblets, bottles and cooking tools.");
     npc.base.functions.AddTraderTrigger("[Ww]as.+%skauf","Ich kaufe Besteck, Teller und Schüsseln, Becher, Kelche, diverse Flaschen und Kochutensilien.");
     npc.base.functions.AddTraderTrigger("[Ww]hat.+do","I buy table supplies for the tavern");
     npc.base.functions.AddTraderTrigger("[Ww]as.+[tm][ua][tsc]","Ich kaufe Tisch Gedeck für die Taverne");

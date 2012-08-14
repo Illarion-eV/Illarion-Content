@@ -318,7 +318,7 @@ function OrderNPC:receiveText(who,text)
                         if ( order:createOrderItem(who) ) then
                             base.common.TalkNLS(self.npc,Character.say,self.textGetOrder.ger,self.textGetOrder.eng);
                             setThrustWorthyness(who,ThrustworthynessChangeAfterGetOrder,0);
-                            base.common.TempInformNLS(who, "[Neues Quest] Bringe Ihm die verlangten Waren innerhalb der im Vertrag vorgegebenen Zeit.", "[New quest] Bring him the demanded wares within the given time of the contract.");
+                            base.common.InformNLS(who, "[Neues Quest] Bringe Ihm die verlangten Waren innerhalb der im Vertrag vorgegebenen Zeit.", "[New quest] Bring him the demanded wares within the given time of the contract.");
                             table.remove(self.openOrders,number);
                         end
                     end
@@ -939,7 +939,7 @@ function Order:doOrder(character,orderstatestruct)
         --Wert für schlecht erfüllten auftrag.
         setThrustWorthyness(character,ThrustworthynessChangeAfterNotSuccessOrder,GoodOrderChangeAfterNotSuccessOrder);
     end
-	base.common.TempInformNLS(character, "[Quest gelöst] Du erhälst "..price.." Kupferstücke.", "[Quest solved] You are awarded "..price.." copper coins.")
+	base.common.InformNLS(character, "[Quest gelöst] Du erhälst "..price.." Kupferstücke.", "[Quest solved] You are awarded "..price.." copper coins.")
 end
 
 

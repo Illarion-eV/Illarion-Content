@@ -8,75 +8,98 @@
 -- include base.common for additional functions
 require("base.common")
 require("base.character")
+require("druid.item.id_165_blue_bottle")
 
-module("druid.item.id_331_green_bottle", package.seeall, package.seeall(druid.base.alchemy))
+module("druid.item.id_331_green_bottle", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_331_green_bottle' WHERE com_itemid = 331;
 
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
+	if SourceItem:getData("stockData") == "" then -- no stock, something else
+	    return
+	end	
+	
 	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
-	   if ( ltstate == Action.abort ) then
-                User:talkLanguage(Character.say, Player.german, "abbruch arbeit");
-                User:talkLanguage(Character.say, Player.english, "abort work");
-				--[[base.common.TempInformNLS( User,
-                "Du brichst Deine Arbeit ab.",
-                "You abort your work."
-                       );]]
-		        return;
-        end
-			
-		if (ltstate == Action.none) then
-		   User:startAction(20,21,5,0,0);
-		   return
+	    cauldron = base.common.GetFrontItem(User)
+		
+		-- is the char an alchemist?
+	    if User:getMagicType() ~= 3 then
+		  base.common.InformNLS( User,
+				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
+				"Only those who have been introduced to the art of alchemy are able to work here.")
+		  return;
+	    end
+		
+		if ( ltstate == Action.abort ) then
+	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	       return
 		end
-		  
-	   local TargetItem = base.common.GetFrontItem( User );
-	   -- the cauldron is filled with something we cannot add a stock to
-	   if (TargetItem:getData("stockData") ~= "") or (TargetItem:getData("cauldronFilledWith") == "water") or (TargetItem:getData("potionEffectId") ~= "") then 
-	      User:talkLanguage(Character.say, Player.german, "aschon was drin");
-          User:talkLanguage(Character.say, Player.english, "already something in");
-		  --[[base.common.TempInformNLS( User,
-					"In dem Kessel befindet sich bereits etwas. Du kannst nichts mehr hinzutun.",
-					"There is already something in the cauldron. You cannot add something else to it."
-						   );]]
-	       return;
-      
-	    elseif (TargetItem:getData("cauldronFilledWith") == "essenceBrew") then -- essence brew; we call our function to combine stock and essence brew  
-	        druid.base.alchemy.CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltstate )
-	  
-	  elseif (TargetItem:getData("stockData") == "") then -- empty; we fill in!
-		  
-		  TargetItem:setData("stockData",SourceItem:getData("stockData"))
-		  world:changeItem(TargetItem)
-		  world:erase(SourceItem,1);
-		  world:makeSound(10,TargetItem.pos);
-	      User:createItem(164, 1, 333, 0);
-	   end  
-   
-   else -- not infront of a cauldron; drink!
-       User:talkLanguage(Character.say, Player.german, "leerst flasche");
-       User:talkLanguage(Character.say, Player.english, "empty bottle");
-	   --[[base.common.TempInformNLS( User,
-                "Du leerst die Flasche.",
-                "You empty the bottle."
-                       );]]
+		
+		if ( ltstate == Action.none ) then
+            if (cauldron:getData("essenceBrew") =="true") then
+		        actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
+            else
+                actionDuration = 20
+            end				
+			User:startAction( actionDuration, 21, 5, 10, 45)
+			return
+		end	  
 
-	   world:makeSound(12,User.pos);
-	   world:gfx(1,User.pos);
-       world:erase(SourceItem,1);
-	   if(math.random(20) == 1) then
-           User:talkLanguage(Character.say, Player.german, "flasche kaputt");
-           User:talkLanguage(Character.say, Player.english, "bottle broken");
-		   --[[base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.");]]
-        else
-            User:createItem(164, 1, 333, 0);
+		-- water, stock or potion is in the cauldron; leads to a failure
+		if cauldron:getData("cauldronFilledWith") == "water" then
+			world:gfx(1,cauldron.pos)
+		    base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		                                "The substance in the cauldron blows out, as you fill the water in.")
+		
+		elseif cauldron:getData("stockData") ~= "" then
+			druid.base.alchemy.CauldronExplosion(User,cauldron,{4,5})
+			
+		elseif cauldron:getData("potionEffectId") ~= "" then
+			if cauldron:getData("potionId") == "331" then -- support potion
+			    druid.item.id_165_blue_bottle.SupportStock(User,support,stock)
+			else
+			    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,36})
+		    end
+			
+		elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+			druid.base.alchemy.CombineStockEssence( User, SourceItem, cauldron, Counter, Param, ltstate )
+		
+		else -- nothing in the cauldron, we just fill in the stock
+            cauldron:setData("stockData",SourceItem:getData("stockData"))
+		end
+		
+		world:changeItem(cauldron)
+		SourceItem:setData("stockData","")
+		SourceItem.id = 164
+		SourceItem.quality = 333
+	    if math.random(1,20) == 1 then
+		    world:erase(SourceItem,1)	 -- bottle breaks
+		    Uase.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
+        else	
+		    world:changeItem(SourceItem)
         end
-	    base.character.ChangeFightingpoints(User, -20);
+	
+	else -- no cauldron, drink 
+	    if User.attackmode then
+		   base.common.InformNLS(User, "Du kannst nichts trinken, während Du kämpfst.", "You cannot drink while fighting.", Player.lowPriority)
+		else
+		    User:talkLanguage(Character.say, Player.german, "#me trinkt eine grüne Flüssigkeit.");
+			User:talkLanguage(Character.say, Player.english, "#me drinks a green liquid.");
+			base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
+			SourceItem.id = 164
+		    SourceItem.quality = 333
+	        if math.random(1,20) == 1 then
+		       User:eraseItem(SourceItem,1) -- bottle breaks
+		       base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+            else	
+		        world:changeItem(SourceItem)
+            end
+	        User.movepoints=User.movepoints - 20
+		end
 	end
 end
-
 function LookAtItem(User,Item)
          world:itemInform( User, Item, base.common.GetNLS( User,
         "Du siehst ein Flaschenetikett mit der Aufschrift: \"Kräutersud\"",

@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.condition.condition")
 
@@ -27,35 +26,32 @@ function(self, questid, comp, value)
     end;
 end);
 
-function _quest_helper_equal(self, player)
+function _quest_helper_equal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
---    thisNPC:talk(Character.say,"COMP: questID: "..self.questid);
---    thisNPC:talk(Character.say,"COMP: value  : "..value);
---    thisNPC:talk(Character.say,"COMP: p:qID  : "..player:getQuestProgress(self.questid));
     return player:getQuestProgress(self.questid) == value;
 end;
 
-function _quest_helper_notequal(self, player)
+function _quest_helper_notequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:getQuestProgress(self.questid) ~= value;
 end;
 
-function _quest_helper_lesserequal(self, player)
+function _quest_helper_lesserequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:getQuestProgress(self.questid) <= value;
 end;
 
-function _quest_helper_greaterequal(self, player)
+function _quest_helper_greaterequal(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:getQuestProgress(self.questid) >= value;
 end;
 
-function _quest_helper_lesser(self, player)
+function _quest_helper_lesser(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:getQuestProgress(self.questid) < value;
 end;
 
-function _quest_helper_greater(self, player)
+function _quest_helper_greater(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:getQuestProgress(self.questid) > value;
 end;

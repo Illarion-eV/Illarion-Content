@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Magdha Tiefenerz                                                 --
 --                                                                            --
--- Last parsing: June 02, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: July 30, 2012                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1241,14 +1241,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yewdale");
-talkEntry:addResponse("Yewdale is a peaceful place.");
+talkEntry:addResponse("Yewdale is a peaceful place. Not too many yews grow here, but it is a lovely name, isn't it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eibenthal");
 talkEntry:addTrigger("Eibental");
-talkEntry:addResponse("Eibenthal ist ein friedlicher Ort.");
+talkEntry:addResponse("Eibenthal ist ein friedlicher Ort. Hier wachsen zwar nicht viele Eiben, aber der Name ist doch wunderschön, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

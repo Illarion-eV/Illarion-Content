@@ -6,6 +6,7 @@ module("base.common", package.seeall)
 -- @param textInDe german text
 -- @param textInEn english text
 -- @return Text german or english text version
+
 function GetNLS(User, textInDe, textInEn)
     return (User:getPlayerLanguage() == Player.german and textInDe or textInEn);
 end;
@@ -15,8 +16,20 @@ end;
 -- @param textInDe german text
 -- @param textInEn english text
 -- @param informPriority Player.[low|medium|high]Priority
-function InformNLS(User, textInDe, textInEn, informPriority)
-    User:inform(GetNLS(User, textInDe, textInEn),informPriority);
+
+-- Default: Medium priority
+function InformNLS(User, textInDe, textInEn)
+    User:inform(GetNLS(User, textInDe, textInEn),Player.mediumPriority);
+end;
+
+-- Temp: Low priority
+function TempInformNLS(User, textInDe, textInEn)
+    User:inform(GetNLS(User, textInDe, textInEn),Player.lowPriority);
+end;
+
+-- High: High priority
+function HighInformNLS(User, textInDe, textInEn)
+    User:inform(GetNLS(User, textInDe, textInEn),Player.highPriority);
 end;
 
 --- Triggers a multi language talking for a character

@@ -503,7 +503,7 @@ function receiveText(texttype, message, originator)
 				if (originator:increaseSkill(3,TheSkill,0)<=10) then --teach school of rune				
 					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				    npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-					base.common.TempInformNLS(originator,
+					base.common.InformNLS(originator,
 					    "Es scheint als wären dir nun einige Grundlagen dieser Runenschule klarer.",
 					    "It seems that you understand some basics of this school of rune now better.");										
 					originator:increaseSkill(3,TheSkill,1);

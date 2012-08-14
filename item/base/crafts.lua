@@ -240,15 +240,15 @@ function Craft:CheckMaterial( User, ItemID, Step )
     local available = User:countItemAt( StepInfos[3], StepInfos[1] );
     if (available < StepInfos[2]) then
         if (self.SecretArt) then
-            base.common.TempInformNLS( User,
+            base.common.InformNLS( User,
             "Dir fehlt ein notwendiges Material.",
             "You do not have a required material ready." );
         elseif (available == 0) then
-            base.common.TempInformNLS( User,
+            base.common.InformNLS( User,
             "Dir fehlt "..world:getItemName( StepInfos[1], Player.german )..".",
             "You lack "..world:getItemName( StepInfos[1], Player.english ).."." );
         else
-            base.common.TempInformNLS( User,
+            base.common.InformNLS( User,
             "Das Material reicht nicht. Du brauchst mehr "..world:getItemName( StepInfos[1], Player.german ),
             "The materials are insufficient. You lack of "..world:getItemName( StepInfos[1], Player.english ) );
         end
@@ -359,59 +359,59 @@ function Craft:LocationFine( User, ltstate, mode )
         if ((ltstate ~= Action.success) and (self.ToolLink[StaticTool] ~= StaticTool) and (table.getn(self.ActiveTool) ~= 0)) then
             if self.ActiveTool[StaticTool] then
                 if not mode then
-                    base.common.TempInformNLS(User,
+                    base.common.InformNLS(User,
                     "Hier arbeitet schon jemand.",
                     "Someone is working here already.");
                     return false
                 else
                     return 2,base.common.GetNLS(User,
-                    "#w Hier arbeitet schon jemand.",
-                    "#w Someone is working here already.");
+                    "Hier arbeitet schon jemand.",
+                    "Someone is working here already.");
                 end
             elseif not self.Tool[StaticTool] then
                 if not mode then
-                    base.common.TempInformNLS(User,
+                    base.common.InformNLS(User,
                     "Hier kannst du nicht arbeiten.",
                     "You cannot work here.");
                     return false
                 else
                     return 1,base.common.GetNLS(User,
-                    "#w Hier kannst du nicht arbeiten.",
-                    "#w You cannot work here.");
+                    "Hier kannst du nicht arbeiten.",
+                    "You cannot work here.");
                 end
             end
         elseif not self.ActiveTool[StaticTool] and not self.Tool[StaticTool] then
             if not mode then
-                base.common.TempInformNLS(User,
+                base.common.InformNLS(User,
                 "Hier kannst du nicht arbeiten.",
                 "You cannot work here.");
                 return false
             else
                 return 1,base.common.GetNLS(User,
-                "#w Hier kannst du nicht arbeiten.",
-                "#w You cannot work here.");
+                "Hier kannst du nicht arbeiten.",
+                "You cannot work here.");
             end
         elseif base.common.GetFrontItem( User ).quality < 100 then
             if not mode then
-                base.common.TempInformNLS(User,
+                base.common.InformNLS(User,
                 "Das Werkzeug ist kaputt.",
                 "The tool is broken.");
                 return false
             else
                 return 1,base.common.GetNLS(User,
-                "#w Das Werkzeug ist kaputt.",
-                "#w The tool is broken.");
+                "Das Werkzeug ist kaputt.",
+                "The tool is broken.");
             end
 		elseif base.common.GetFrontItem( User ).id==359 and base.common.GetFrontItem( User ).quality==100 then
 			if not mode then
-                base.common.TempInformNLS(User,
+                base.common.InformNLS(User,
                 "Die Flamme ist nur eine Illusion.",
                 "The flame is just an illusion.");
                 return false
             else
                 return 1,base.common.GetNLS(User,
-                "#w Die Flamme ist nur eine Illusion.",
-                "#w The flame is just an illusion.");
+                "Die Flamme ist nur eine Illusion.",
+                "The flame is just an illusion.");
             end
         end
     end
@@ -426,7 +426,7 @@ function Craft:CheckInterrupt(User)
     if (table.getn(self.Interrupt_Messages) > 0) then
         if base.common.IsInterrupted( User ) then
             local message = math.random(1,table.getn(self.Interrupt_Messages));
-            base.common.TempInformNLS(User,
+            base.common.InformNLS(User,
             self.Interrupt_Messages[message].german,
             self.Interrupt_Messages[message].english);
             return false;
@@ -498,7 +498,7 @@ function Craft:ToolCreateItem( User, Param, WorkOnItem, ltstate, toolItem )
         return;
     end
     if (ProduceItem.Difficulty[1] > self:ModifySkill(User,toolItem)) then
-        base.common.TempInformNLS(User,
+        base.common.InformNLS(User,
         "Du bist nicht fähig genug um das zu tun.",
         "You are not skilled enough to do this.");
         return
@@ -551,7 +551,7 @@ function Craft:RepairItem( User, Item, ltstate ,toolItem)
     end
 
     if (Item.quality < 200) then
-        base.common.TempInformNLS(User,
+        base.common.InformNLS(User,
         "Der Gegenstand zerbricht, bei dem Versuch ihn zu reparieren.",
         "The Item breaks, while trying to repair it.");
         world:erase(Item,1);
@@ -582,7 +582,7 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
 				end
 			end
 			if not foundSlot then
-				base.common.TempInformNLS(User,
+				base.common.InformNLS(User,
 					"Du hast keinen Platz mehr in deinem Gürtel.",
 					"You have no room left in your belt.");
 				return;
@@ -593,7 +593,7 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
             User:talkLanguage(Character.say, Player.german, "#me beginnt zu arbeiten.");
             User:talkLanguage(Character.say, Player.english, "#me starts to work.");
         else
-            base.common.TempInformNLS(User,
+            base.common.InformNLS(User,
 				"Du setzt die Arbeit fort.",
 				"You continue the work.");
         end
@@ -651,7 +651,7 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
         if (Step == table.getn(self.Products[ ItemID ].ProductionSteps)) then -- Item fertig -> Finale Qualität
             ItemQual = self:GenerateQuality( User, ItemID, toolItem );
             ItemCount = self.Products[ ItemID ].Quantity;
-			base.common.TempInformNLS(User,
+			base.common.InformNLS(User,
 				"Du beendest die Arbeit.",
 				"You finish the work.");
         else
@@ -661,7 +661,7 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
 			local notcreated = User:createItem(ItemID,ItemCount,ItemQual,0);
             if (notcreated ~= 0) then
                 world:createItemFromId(ItemID,notcreated,User.pos,true,ItemQual,0);
-                base.common.TempInformNLS(User,
+                base.common.InformNLS(User,
                 "Du kannst nichts mehr halten.",
                 "You cannot carry anything else.");
             else
@@ -677,7 +677,7 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
                     end
                     if foundMadeItem then
                         User:startAction( self:GenWorkTime( User, ItemID, toolItem ), self.Products[ ItemID ].GfxEffect[1], self.Products[ ItemID ].GfxEffect[2], self.Products[ ItemID ].SfxEffect[1], self.Products[ ItemID ].SfxEffect[2]);
-                        base.common.TempInformNLS(User,
+                        base.common.InformNLS(User,
 							"Du setzt die Arbeit fort.",
 							"You continue the work.");
                     else
@@ -698,7 +698,7 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
             world:changeItem(WorkOnItem);
             if self:CheckMaterial( User, ItemID, (Step + 1) ) then
                 User:startAction( self:GenWorkTime( User, ItemID, toolItem ), self.Products[ ItemID ].GfxEffect[1], self.Products[ ItemID ].GfxEffect[2], self.Products[ ItemID ].SfxEffect[1], self.Products[ ItemID ].SfxEffect[2]);
-                base.common.TempInformNLS(User,
+                base.common.InformNLS(User,
 					"Du setzt die Arbeit fort.",
 					"You continue the work.");
                 User:changeTarget(User:getItemAt(WorkOnItem.itempos));
@@ -707,7 +707,7 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
             end
         end
     else
-        base.common.TempInformNLS(User,
+        base.common.InformNLS(User,
         "Deine Arbeit misslingt.",
         "Your work fails.");
         if (self.Products[ ItemID ].FailLeftOvers[Step] ~= nil) then
@@ -715,7 +715,7 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
                 local notcreated = User:createItem(self.Products[ ItemID ].FailLeftOvers[Step][1],self.Products[ ItemID ].FailLeftOvers[Step][2],333,0);
                 if (notcreated ~= 0) then
                     world:createItemFromId(self.Products[ ItemID ].FailLeftOvers[Step][1],notcreated,User.pos,true,333,0);
-                    base.common.TempInformNLS(User,
+                    base.common.InformNLS(User,
                     "Du kannst nichts mehr halten.",
                     "You cannot carry anything else.");
                 end
@@ -727,7 +727,7 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
         local notcreated = User:createItem(self.Products[ ItemID ].LeftOvers[Step][1],self.Products[ ItemID ].LeftOvers[Step][2],333,0);
         if (notcreated ~= 0) then
             world:createItemFromId(self.Products[ ItemID ].LeftOvers[Step][1],notcreated,User.pos,true,333,0);
-            base.common.TempInformNLS(User,
+            base.common.InformNLS(User,
             "Du kannst nichts mehr halten.",
             "You cannot carry anything else.");
         end

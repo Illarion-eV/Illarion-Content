@@ -1103,7 +1103,7 @@ end
 function CharInform(Char)
 	if table.getn(TraderInform)>0 then
 		local inform = TraderInform[ math.random(1,table.getn(TraderInform)) ];
-		Char:inform("#w "..inform);
+		Char:inform(inform,Player.mediumPriority);
 	end
 end
 

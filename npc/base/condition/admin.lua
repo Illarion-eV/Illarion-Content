@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.condition.condition")
 
@@ -10,6 +9,6 @@ function(self)
     self["check"] = _admin_helper_equal;
 end);
 
-function _admin_helper_equal(self, player)
+function _admin_helper_equal(self, npcChar, player)
     return player:isAdmin();
 end;

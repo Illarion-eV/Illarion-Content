@@ -89,6 +89,13 @@ function Messages:getMessage(index)
     return self.__german[index], self.__english[index];
 end;
 
+--- Check if this instance contains any messages.
+-- <br>
+-- @return true in case there are messages stored in this object
+function Messages:hasMessages()
+	return self.__count > 0
+end;
+
 --- Get the amount of stored messages.
 -- This meta method is called by the unary operator # and returns the amount of
 -- messages stored in this object.<br>

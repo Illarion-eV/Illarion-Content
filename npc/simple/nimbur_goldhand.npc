@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 03, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: August 13, 2012                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Nimbur Goldhand"
@@ -51,43 +51,43 @@ itemShoes = 53
 -- 3: All lessons done
 
 -- Debugging
-"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0
+"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0, warp(31, 22, 100)
 
 -- Help
-"Help" -> inform("[Tutorial] This NPC is the Tutor Nimbur Goldhand. Keywords: Hello, Help, Skip Tutorial.")
+"Help" -> inform("[Tutorial] This NPC is the tutor Nimbur Goldhand. Keywords: Hello, Help, Skip tutorial.")
 "Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Nimbur Goldhand. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
 -- Skipping
 "skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands."), warp(35, 95, 100)
-"überspring", "abbrech" -> inform("[Tutorial] ÜBERSETZEN."), warp(35, 95, 100)
+"überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln trittst."), warp(35, 95, 100)
 
 -- Learn how to craft - player gets a hammer and 10 iron ingots
 ".*", queststatus(313) < 2, english -> inform("[Tutorial] Blacksmithing requires you to stand in front of an anvil and use a hammer, which must be held in your hands. Then, choose the desired product from the menu to start working on it."), "Arr... right. Listen up! I tell ye everything about blacksmithing ye need to know. Here, take this hammer and these ingots. Step inside and don't dare come out without three sets of pins in yer bag!", item(23, 1, 599, 0), item(2535, 10, 599, 0), queststatus(313) = 2
-".*", queststatus(313) < 2 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN.", item(23, 1, 599, 0), item(2535, 10, 599, 0), queststatus(313) = 2
+".*", queststatus(313) < 2 -> inform("[Tutorial] Um zu schmieden, stell dich vor einen Amboss und benutze den in der Hand gehaltenen Hammer. Wähle dann ein Produkt aus dem Menü aus, um anzufangen es zu fertigen."), "Arr, richtig. Hör zu! Ich werd' dir alles, was ich weiß, über's schmieden beibringen. Hier, nimm diesen Hammer und diesen Barren und geh rein und komm nicht eher raus, bis du drei Sätze Nägel in deiner Tasche hast! ", item(23, 1, 599, 0), item(2535, 10, 599, 0), queststatus(313) = 2
 
 -- Player brought three pins
 ".*", queststatus(313) = 2, item(2738, all) > 2, english -> inform("[Tutorial] You are awarded an iron goblet."), "Aye! Ye did it! I'll give ye this cup as example of my work, and of what ye might be able to achieve one day. Don't hesitate to show it off to everyone on the main land... ye might land me some more customers. Harr! Viola Baywillow, down the road, will help ye to choose a proper home and send ye on yer way.", deleteItem(2738, 3), item(223, 1, 599, 0), queststatus(313) = 3
-".*", queststatus(313) = 2, item(2738, all) > 2 -> inform("[Tutorial] Du erhältst einen Eisenkelch."), "ÜBERSETZEN.", deleteItem(2738, 3), item(223, 1, 599, 0), queststatus(313) = 3
+".*", queststatus(313) = 2, item(2738, all) > 2 -> inform("[Tutorial] Du erhältst einen Eisenkelch."), "Aye! Du hast es geschafft! Nimm diesen Kelch als Beispiel für meine Arbeit und als Zeichen, was du vielleicht mal erreichen kannst. Zögere nicht, ihn auch auf dem Festland rumzuzeigen, vielleicht verschaffste mir ja ein paar Kunden. Harr! Viola Bayillow, die die Straße runter wohnt, wird dir helfen, 'ne vernünftige Heimat auszusuchen und dich auf deinen Weg schicken.", deleteItem(2738, 3), item(223, 1, 599, 0), queststatus(313) = 3
 
 -- Player has lost his hammer
 ".*", queststatus(313) = 2, item(23, all) = 0, english -> "Bah! Without a hammer, ye are not able to forge. Losing your hammer is the first step towards ending up on the rocks. Luckily for ye, I have another one.", item(23, 1, 599, 0)
-".*", queststatus(313) = 2, item(23, all) = 0 -> "ÜBERSETZEN.", item(23, 1, 599, 0)
+".*", queststatus(313) = 2, item(23, all) = 0 -> "Bah! Ohne 'nen Hammer kannste nicht schmieden. Deinen Hammer zu verlieren, ist der erste Schritt im Staub zu landen. Zum Glück hab' ich noch einen für dich.", item(23, 1, 599, 0)
 
 -- Player has no iron left
 ".*", queststatus(313) = 2, item(2535, all) = 0, english -> "I see ye used up all the iron ingots I gave ye - quite a bad haul then, aye? I give ye one more ingot but ye have to promise me that ye will forge those three sets of pins right now. Get on with it!", item(2535, 1, 599, 0)
-".*", queststatus(313) = 2, item(2535, all) = 0 -> "ÜBERSETZEN.", item(2535, 1, 599, 0)
+".*", queststatus(313) = 2, item(2535, all) = 0 -> "Ich sehe, du hast die ganzen Barren aufgebraucht, die ich dir gegeben habe - keine gute Quote, aye? Hier haste noch einen Barren, aber du musst mir versprechen, dass du jetzt drei Sätze Nägel schmiedest. Geh und fang an!", item(2535, 1, 599, 0)
 
 -- Player has problems gathering
 ".*", queststatus(313) = 2, item(21, all) < 3, english -> inform("[Tutorial] Blacksmithing requires you to stand in front of an anvil and use a hammer, which must be held in your hands. Then, choose the desired product from the menu to start working on it."), "Any problems with forging? Just slam the hammer on the hot metal until it gets the desired shape. Simple. Harr! I need three sets of pins, I'm sure even ye can manage that!"
-".*", queststatus(313) = 2, item(21, all) < 3 -> inform("[Tutorial] ÜBERSETZEN."), "ÜBERSETZEN."
+".*", queststatus(313) = 2, item(21, all) < 3 -> inform("[Tutorial] Um zu schmieden, stell dich vor einen Amboss und benutze den in der Hand gehaltenen Hammer. Wähle dann ein Produkt aus dem Menü aus, um anzufangen es zu fertigen."), "Probleme mit dem Schmieden? Einfach mit dem Hammer auf das heiße Metall schlagen, bis es die gewünschte Form annimmt. Ganz einfach. Harr! Ich brauche drei Sätze Nägel und ich bin mir sicher, dass auch du das schaffen kannst!"
 
 -- Player did all lessons
 ".*", queststatus(313) = 3, english -> "Harr! Now I've only gone and trained another competitor for my business - yet again. But true dwarven craft knows no competition! I can proudly say ye learned all that ye need to get started now. Viola Baywillow will help ye to choose a proper home and send ye on yer way."
-".*", queststatus(313) = 3 -> "ÜBERSETZEN."
+".*", queststatus(313) = 3 -> "Harr! Jetzt hab' ich schon wieder einen Konkurrenten für mein Geschäft trainiert. Aber wahre Zwergenkunst hat keine Konkurrenz! Ich kann mit Stolz sagen, dass du alles gelernt hast für den Anfang. Viola Bayillow wird dir helfen 'ne vernünftige Heimat auszusuchen und dich auf deinen Weg schicken."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "ÜBERSETZEN.", "Over here! I am Nimbur, the finest blacksmith of them all. I can teach ye some tricks if ye please."
+cycletext "Hier drüben! Ich bin Nimbur, der beste Schmied von allen! Wenn du willst, kann ich dir ein paar Tricks beibringen. ", "Over here! I am Nimbur, the finest blacksmith of them all. I can teach ye some tricks if ye please."

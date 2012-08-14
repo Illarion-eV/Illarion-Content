@@ -80,6 +80,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, LTState )
 			gText = gText .. " Doch sofort danach brechen die morschen Holzlatten auseinander und die Kiste ist kaputt.";
 			eText = eText .. " But in this very moment the rotten wood lathes break off and the chest is destroyed.";
 		end
-		base.common.TempInformNLS(User,gText,eText);
+		base.common.InformNLS(User,gText,eText);
 	end
 end

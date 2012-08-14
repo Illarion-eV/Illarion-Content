@@ -3,7 +3,6 @@
 -- This script offers all functions needed to get NPCs to talk.
 --
 -- Author: Martin Karing
--- $Id$
 
 require("base.common")
 require("base.messages")
@@ -68,8 +67,8 @@ function talkNPC:nextCycle(counter)
     if (counter >= self._nextCycleText) then
 	    self._nextCycleText = math.random(1200, 3600); --2 to 6 minutes
         local german, english = self._cycleText:getRandomMessage();
-        thisNPC:talkLanguage(Character.say, Player.german, german);
-        thisNPC:talkLanguage(Character.say, Player.english, english);
+        self._parent.npcChar:talkLanguage(Character.say, Player.german, german);
+        self._parent.npcChar:talkLanguage(Character.say, Player.english, english);
     else
         self._nextCycleText = self._nextCycleText - counter;
     end;
@@ -127,20 +126,14 @@ function talkNPCEntry:addResponse(text)
 end;
 
 function talkNPCEntry:addConsequence(consequence)
--- debug("            *******ADD CONSEQUENCE START")
     if (consequence == nil or not consequence:is_a(npc.base.consequence.consequence.consequence)) then
-    -- debug("            *******ADD CONSEQUENCE 1")
         return;
     end;
-    -- debug("            *******ADD CONSEQUENCE 2")
+	
     table.insert(self._consequences, consequence);
-    -- debug("            *******ADD CONSEQUENCE 3")
 	if (self._parent ~= nil) then
-	-- debug("            *******ADD CONSEQUENCE 4")
 		consequence:setNPC(self._parent);
-		-- debug("            *******ADD CONSEQUENCE 5")
 	end;
-	-- debug("            *******ADD CONSEQUENCE 6")
 end;
 
 function talkNPCEntry:checkEntry(player, text)
@@ -150,7 +143,7 @@ function talkNPCEntry:checkEntry(player, text)
         if (a ~= nil) then
             local conditionsResult = true;
             for _3, condition in pairs(self._conditions) do
-                if not condition:check(player) then
+                if not condition:check(self._parent.npcChar, player) then
                     conditionsResult = false;
                     break;
                 end;
@@ -168,14 +161,14 @@ function talkNPCEntry:execute(player)
         local selectedResponse = math.random(1, self._responsesCount);
 
     	self._responses[selectedResponse] = string.gsub(self._responses[selectedResponse],"%%CHARNAME",player.name);
-    	self._responses[selectedResponse] = string.gsub(self._responses[selectedResponse],"%%NPCNAME",thisNPC.name);
+    	self._responses[selectedResponse] = string.gsub(self._responses[selectedResponse],"%%NPCNAME",self._parent.npcChar.name);
     	
-		thisNPC:talk(Character.say, self._responses[selectedResponse]);
+		self._parent.npcChar:talk(Character.say, self._responses[selectedResponse]);
     end;
     
 	table.foreach(self._consequences, function(_, consequence)
 		if consequence then
-			consequence:perform(player);
+			consequence:perform(self._parent.npcChar, player);
 		end;
 	end);
 end;

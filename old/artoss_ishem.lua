@@ -26,7 +26,7 @@ function initializeNpc()
     npc.base.autonpcfunctions.AddCycleText("#me blickt sich mit wachsamen Augen um.","#me looks around with an observant gaze.");
     npc.base.autonpcfunctions.AddCycleText("#me strafft seine Schultern.","#me squares his shoulders.");
     npc.base.autonpcfunctions.AddCycleText("#me gähnt verhalten.","#me yawns retained.");
-    npc.base.autonpcfunctions.AddCycleText("#me’s Rüstung strahlt vor glanz.","#me’s armor is shining of brightness.");
+    npc.base.autonpcfunctions.AddCycleText("#me's Rüstung strahlt vor glanz.","#me's armor is shining of brightness.");
     npc.base.autonpcfunctions.AddCycleText("#me kämmt gepflegt sein Haar.","#me combs his hair.");
     
     npc.base.autonpcfunctions.AddTraderTrigger("Hallo","Ich grüße euch.");

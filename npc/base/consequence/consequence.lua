@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 
 module("npc.base.consequence.consequence", package.seeall)
@@ -14,6 +13,6 @@ function consequence:setNPC(npc)
     self["npc"] = npc;
 end;
 
-function _consequence_helper_empty(self, player)
+function _consequence_helper_empty(self, npcChar, player)
     -- by default nothing is done
 end;

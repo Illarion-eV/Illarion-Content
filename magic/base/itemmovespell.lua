@@ -24,14 +24,14 @@ function DoItemMoveSpell(Caster, TargetPos, ltstate)
     end
 
     if not base.common.IsLookingAt( Caster, TargetPos ) then
-        base.common.TempInformNLS( Caster,
+        base.common.InformNLS( Caster,
         "Du drehst dich auf dein Ziel zu um es in dein Blickfeld zu bekommen.",
         "You turn to your target to get it into your field of vision.");
         base.common.TurnTo( Caster, TargetPos );
     end
 
     if not world:isItemOnField( TargetPos ) then
-        base.common.TempInformNLS( Caster,
+        base.common.InformNLS( Caster,
         "Du musst diesen Zauber auf ein Item sprechen um Erfolg zu haben.",
         "You have to cast this spell on a item to success.");
         return;
@@ -55,7 +55,7 @@ function DoItemMoveSpell(Caster, TargetPos, ltstate)
     end
 
     if not CasterVal then
-        base.common.TempInformNLS( Caster,
+        base.common.InformNLS( Caster,
         "Es gelingt dir nicht die nötige Konzentration aufzubringen um diesen Zauber zur Entfaltung zu bringen.",
         "You fail to concentrate enought to get this spell to its evolvement." );
         return;
@@ -70,7 +70,7 @@ function DoItemMoveSpell(Caster, TargetPos, ltstate)
         world:createItemFromItem( theItem, base.common.GetFrontPosition( Caster ), true );
         world:erase( theItem, theItem.number );
     else
-        base.common.TempInformNLS( Caster,
+        base.common.InformNLS( Caster,
         "Der Gegenschand ist zu schwer. Du schaffst es nicht ihn mit dem Zauber zu bewegen.",
         "The item is too heavy. You fail to move it with this spell." );
         return false;

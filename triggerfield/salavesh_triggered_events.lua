@@ -52,7 +52,7 @@ function MoveToField(User)
 		if User.pos == waypoint[1] and queststatuslist[1] == 0 then --the firetrap, only triggered once by each char
 		
 			queststatuslist[1]=1; --triggered it!
-            base.common.TempInformNLS(User,messageG[1],messageE[1]); --sending a message
+            base.common.InformNLS(User,messageG[1],messageE[1]); --sending a message
             User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 			queststatus=User:getQuestProgress(121); --and reading it again
 
@@ -69,7 +69,7 @@ function MoveToField(User)
 		elseif User.pos == waypoint[2] and queststatuslist[2] == 0 and User:getFaceTo() == 6 then --the boss in the small alcove, only triggered once by each char upon entering the alcove
 
 			queststatuslist[2]=1; --triggered it!
-            base.common.TempInformNLS(User,messageG[2],messageE[2]); --sending a message
+            base.common.InformNLS(User,messageG[2],messageE[2]); --sending a message
             User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 
 			--The actual event
@@ -81,7 +81,7 @@ function MoveToField(User)
 		elseif User.pos == waypoint[3] and queststatuslist[3] == 0 then --an ambush by mummies
 
 			queststatuslist[3]=1; --triggered it!
-            base.common.TempInformNLS(User,messageG[3],messageE[3]); --sending a message
+            base.common.InformNLS(User,messageG[3],messageE[3]); --sending a message
             User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 
 			--The actual event
@@ -99,7 +99,7 @@ function MoveToField(User)
 		elseif User.pos == waypoint[4] and queststatuslist[4] == 0 then --icetrap and an ambush by imps
 
 			queststatuslist[4]=1; --triggered it!
-            base.common.TempInformNLS(User,messageG[4],messageE[4]); --sending a message
+            base.common.InformNLS(User,messageG[4],messageE[4]); --sending a message
             User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 
 			--The actual event
@@ -121,7 +121,7 @@ function MoveToField(User)
 		elseif User.pos == waypoint[5] and queststatuslist[5] == 0 and User:getFaceTo() == 6 then --the boss in the small alcove, only triggered once by each char upon entering the alcove
 
 			queststatuslist[5]=1; --triggered it!
-            base.common.TempInformNLS(User,messageG[5],messageE[5]); --sending a message
+            base.common.InformNLS(User,messageG[5],messageE[5]); --sending a message
             User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 
 			--The actual event
@@ -133,7 +133,7 @@ function MoveToField(User)
 		elseif User.pos == waypoint[6] and queststatuslist[6] == 0 then --an ambush by slime in the flooded tunnel
 
 			queststatuslist[6]=1; --triggered it!
-            base.common.TempInformNLS(User,messageG[6],messageE[6]); --sending a message
+            base.common.InformNLS(User,messageG[6],messageE[6]); --sending a message
             User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
 
 			--The actual event

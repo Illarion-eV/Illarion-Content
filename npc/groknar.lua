@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 07, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: August 13, 2012                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -39,12 +39,13 @@ talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(314, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(31, 22, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the Tutor Groknar. Keywords: Hello, Help, Skip Tutorial."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the tutor Groknar. Keywords: Hello, Help, Skip tutorial."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -66,7 +67,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("überspring");
 talkEntry:addTrigger("abbrech");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln trittst."));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(35, 95, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -84,8 +85,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "<", 2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
-talkEntry:addResponse("Hurr! Ich bin Groknar der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du die Charakterlite mit dem Hotkey XXX öffnest und dort mit einem Klick auf den Namen deines Feindes eine Attacke beginnst."));
+talkEntry:addResponse("Hurr! Frischfleisch! Ich bin Groknar, der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -102,8 +103,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "<", 5));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
-talkEntry:addResponse("ÜBERSETZEN");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du die Charakterlite mit dem Hotkey XXX öffnest und dort mit einem Klick auf den Namen deines Feindes eine Attacke beginnst."));
+talkEntry:addResponse("Hurr, hast du Angst vor diesen erbärmlichen Schweinen? Geh! Töte mindestens drei von ihnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -122,7 +123,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst eine Keule."));
-talkEntry:addResponse("Sehr schön. Im Kampf wird deine Erfahrung und deine Ausrüstung für dein Überleben entscheidend sein. Hier, nimm diese Keule, sie wird dir gute Dienste leisten. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!");
+talkEntry:addResponse("Gut. Vielleicht wirst du da draußen nun überleben. Hier, nimm diese Keule, sie wird dir gute Dienste leisten. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -142,7 +143,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 6));
 talkEntry:addResponse("Hurr, du bist nun auf die Gefahren der Welt vorbereitet. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me grunzt freundlich: 'Ich zeige dir wie du kämpfst.'", "#me grunts while speaking: 'I will teach you how to fight like a true warrior.'");
+talkingNPC:addCycleText("#me grunzt während er sagt: 'Ich zeige dir, wie man wie ein richtiger Krieger kämpft.'", "#me grunts while speaking: 'I will teach you how to fight like a true warrior.'");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);

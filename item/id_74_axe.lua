@@ -8,7 +8,7 @@ require("base.common")
 require("item.general.metal")
 require("content.gathering")
 
-module("item.id_74_axe", package.seeall, package.seeall(item.general.metal))
+module("item.id_74_axe", package.seeall)
 
 function initLists(  )
     -- Initialisierung der Listen
@@ -301,4 +301,8 @@ function Lumberjack( User, SourceItem, TargetItem, Counter, Param, ltstate )
             return false;
         end
     end
+end
+
+function LookAtItem(User,Item)
+    item.general.metal.LookAtItem(User,Item)
 end

@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.consequence.consequence")
 
@@ -20,19 +19,19 @@ function(self, name, mode, value)
     end;
 end);
 
-function _attribute_helper_set(self, player)
+function _attribute_helper_set(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     local currAttrib = player:increaseAttrib(self.name, 0);
     local modAttrib = value - currAttrib;
     player:increaseAttrib(self.name, modAttrib);
 end;
 
-function _attribute_helper_add(self, player)
+function _attribute_helper_add(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     player:increaseAttrib(self.name, value);
 end;
 
-function _attribute_helper_sub(self, player)
+function _attribute_helper_sub(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     player:increaseAttrib(self.name, -value);
 end;

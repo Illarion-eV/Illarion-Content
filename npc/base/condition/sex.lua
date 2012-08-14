@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.condition.condition")
 
@@ -15,6 +14,6 @@ function(self, value)
     self["check"] = _sex_helper_equal;
 end);
 
-function _sex_helper_equal(self, player)
+function _sex_helper_equal(self, npcChar, player)
     return (player:increaseAttrib("sex", 0) == self.value);
 end;

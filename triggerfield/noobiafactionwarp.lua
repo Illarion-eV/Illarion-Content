@@ -72,7 +72,7 @@ function MoveToField(Character)
 		if find then
 			removedEffect = Character.effects:removeEffect(13)
 			if not removedEffect then -- security check
-				Character:inform("[Error] Please contact a developer. Error: Triggerfields to factions.")
+				Character:inform("[Error] Please contact a developer. Error: Triggerfields to factions.", Player.highPriority)
 			end
 		end
 		
@@ -94,7 +94,7 @@ function MoveToField(Character)
 	    for i = 1, #(playerlist) do 
 		    FactionStuff = base.factions.get_Faction(playerlist[i]);
 	        if FactionStuff.tid == factionID then --Other faction members are alerted
-                base.common.TempInformNLS(playerlist[i],"[New player] Ein neuer Spieler ist gerade deinem Reich beigetreten.","[New player] A new player has just joined your realm.");  
+                base.common.InformNLS(playerlist[i],"[New player] Ein neuer Spieler ist gerade deinem Reich beigetreten.","[New player] A new player has just joined your realm.");  
 		    end
 	    end
 		

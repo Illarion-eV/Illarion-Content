@@ -12,7 +12,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	
 	-- item in hand?
 	if not BC.IsItemInHands(SourceItem) then
-		BC.TempInformNLS(User,
+		BC.InformNLS(User,
 			"Du musst die Zunderbüchse in die Hand nehmen.",
 			"You have to hold the tinderbox in your hands.");
 		return;
@@ -23,7 +23,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	-- check front position for proper ground tile
 	local groundType = BC.GetGroundType(world:getField(frontPos).tile);
 	if groundType == BC.GroundType.water or groundType == BC.GroundType.unknown then
-		BC.TempInformNLS(User,
+		BC.InformNLS(User,
 			"Auf diesem Untergrund kannst du kein Feuer machen.",
 			"You can't light a fire on this ground.");
 		return;
@@ -46,7 +46,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		end
 	end
 	if not posOkay or world:isCharacterOnField(frontPos) then
-		BC.TempInformNLS(User,
+		BC.InformNLS(User,
 			"Du kannst nur unter einem Kessel oder an einer freien Stelle ein Feuer machen.",
 			"You have to light a fire beneath a kettle or at a clear place.");
 		return;
@@ -91,7 +91,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		-- wildfires disabled
 		--tryWildfire(User, SourceItem);
 	else
-		BC.TempInformNLS(User,
+		BC.InformNLS(User,
 			"Für ein Feuer brauchst du Holz.",
 			"For a fire you need wood.");
 	end
@@ -117,7 +117,7 @@ end
 
 function LightFire(User, FrontPos)
 	world:createItemFromId(12,1,frontPos,true,333,0); -- the fire
-	BC.TempInformNLS(User,
+	BC.InformNLS(User,
 		"Du entzündest ein Feuer.",
 		"You light a fire.");
 end

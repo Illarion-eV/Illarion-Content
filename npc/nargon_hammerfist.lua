@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 07, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: August 13, 2012                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -41,12 +41,13 @@ talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(314, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(31, 22, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the Tutor Nargon Hammerfist. Keywords: Hello, Help, Skip Tutorial."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the tutor Nargon Hammerfist. Keywords: Hello, Help, Skip tutorial."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -68,7 +69,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("überspring");
 talkEntry:addTrigger("abbrech");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln trittst."));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(35, 95, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -89,8 +90,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
-talkEntry:addResponse("ÜBERSETZEN.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."));
+talkEntry:addResponse("Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne Münze? Harr. Nur mit harter Arbeit kannste Reich werden. Keine Sorge, Nargon wird dir helfen. Hier haste 'ne Spitzhacke. Geh in die Mine hinter mir und sammel fünf Brocken Kohle. Es wird nicht umsonst sein!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -109,8 +110,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
-talkEntry:addResponse("ÜBERSETZEN.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."));
+talkEntry:addResponse("Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne Münze? Harr. Nur mit harter Arbeit kannste Reich werden. Keine Sorge, Nargon wird dir helfen. Kannste dich noch an die Spitzhacke erinnern, die dir die verruchte Elfe gegeben hat? Geh in die Mine hinter mir und sammel fünf Brocken Kohle. Es wird nicht umsonst sein!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -133,7 +134,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst einen Rubin."));
-talkEntry:addResponse("ÜBERSETZEN.");
+talkEntry:addResponse("Ui! Du hast es geschafft, danke für die Kohle! Als 'nen anständiger Zwergenhändler, will ich dir diesen Rubin als Ausgleich geben. Harr! Hab' ja gesagt, dass es nicht umsonst sein wird! Mein Zwergenbruder Nimbur, da unten beim Steinhaus, kann dir noch was in Sachen Zwergenhandwerk beibringen.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5));
 talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 3));
@@ -154,7 +155,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
-talkEntry:addResponse("ÜBERSETZEN.");
+talkEntry:addResponse("Was? Du hast deine Spitzhacke verloren? Wie denkste denn reich zu werden, wenn du deine Sachen verlierst? Nimm die als Ersatz und ab mir dir in die Mine!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 599, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -173,8 +174,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 5));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] ÜBERSETZEN."));
-talkEntry:addResponse("ÜBERSETZEN.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."));
+talkEntry:addResponse("Nun, nun. Harte Arbeit ist harte Arbeit. Harr. Bring mir bitte mindestens fünf Brocken Kohle. Wenn du keine Kohle in der einen Ecke der Mine finden kannst, versuch es in 'ner Anderen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -189,7 +190,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 3));
-talkEntry:addResponse("ÜBERSETZEN.");
+talkEntry:addResponse("Arr, nun weißte wie du Gold und Edelsteinen finden kannst. Was willst du denn noch lernen?! Vielleicht wirste reich, aye. Mein Zwergenbruder Nimbur, da unten beim Steinhaus, kann dir noch was in Sachen Zwergenhandwerk beibringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me streicht sich durch seinen langen Bart: 'Arr, ich zeige dir wie du Rohstoffe schürfst.'", "#me scratches his beard: 'Arr...! I will show you how to gather resources.'");

@@ -15,7 +15,7 @@ local CharList = world:getCharactersInRangeOf (posit, 10);
 			if (math.random(100)<= 10) then
 				Monster:talk(Character.say, "#me makes a terrifying sound, a stream of blue energy suddenly leaving the mage and dissipating into the air.");
 				v:increaseAttrib ("mana",-3000);
-				v:inform ("#w You suddenly feel drained of mana, your energies weakening.");
+				v:inform ("You suddenly feel drained of mana, your energies weakening.",Player.mediumPriority);
 				return true;
 			else
 				return false;
@@ -32,7 +32,6 @@ function Energy_Beam (monster, char, distance)
 	
 	if (math.random(100)<= 10) then
 		if (monster.pos.z == char.pos.z) and ((math.abs(monster.pos.x - char.pos.x) <= 1) and (math.abs(monster.pos.y - char.pos.y) <= 1)) then
-		--	monster:talk(Character.say, "#me charges a ball of pure energy which is immediately shot as a ray, in a forward direction.");
 			
 			local DamagePosX;		
 			if char.pos.x-monster.pos.x == 0 then
@@ -51,8 +50,6 @@ function Energy_Beam (monster, char, distance)
 			else
 				DamagePosY = char.pos.y - math.floor((distance*math.sqrt(2))/2);
 			end
-			
-			char:inform("DEBUG: End damage position will be at x="..DamagePosX..", y="..DamagePosY..", z="..char.pos.z);
 			
 			local DamagePosition = position (DamagePosX,DamagePosY,char.pos.z);
 		--	local tilePos;
@@ -76,7 +73,7 @@ function doDamage(currPos)
 		local dude = world:getCharacterOnField (tilePos);
 		world:gfx( 11, tilePos );
 		dude:increaseAttrib("hitpoints", -3000);
-		dude:inform("#w You get blasted by a powerful energy ray shot by the monster.");
+		dude:inform("You get blasted by a powerful energy ray shot by the monster.",Player.mediumPriority);
 	end
 end
 
@@ -95,7 +92,7 @@ end
 				v:increaseAttrib ("hitpoints",-300);
 				v:increaseAttrib ("mana",-300);
 				if (math.random(100)<= 5) then
-					v:inform ("#w The terrifying gaze of the monster is piercing your skull, making you feel like your head is about to explode.");
+					v:inform ("The terrifying gaze of the monster is piercing your skull, making you feel like your head is about to explode.",Player.mediumPriority);
 				end
 			else
 				return false;

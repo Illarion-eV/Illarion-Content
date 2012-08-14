@@ -8,22 +8,34 @@ DURABILITY_LOSS = 10
 BLOCKED_ITEM = 228
 
 function playerDeath(deadPlayer)
-    for i=Character.head,Character.coat do
-        local item = deadPlayer:getItemAt(i)
-        local common = world:getItemStats(item)
 
-        if item.id > 0 and item.id ~= BLOCKEDITEM and item.quality > 100 and not common.isStackable then
-            local durability = item.quality % 100
+    if deadPlayer.pos.z==100 or deadPlayer.pos.z==101 then --someone died on Noobia!
+	
+	    deadPlayer:increaseAttrib("hitpoints",10000); -- Respawn
+		world:gfx(53,deadPlayer.pos);
+        base.common.InformNLS(deadPlayer,"[Wiederbelebung] Während des Tutorials bist du 'unsterblich'. Im Hauptspiel ist die Wiederbelebung mit merklichen Konsequenzen für deinen Charakter verbunden.","[Login] During the tutorial, you are 'immortal'. In the main game, serious consequences for your character are triggered upon respawn."); --sending a message
+        return; --bailing out!
+		
+	else --valid death
+	
+        for i=Character.head,Character.coat do
+            local item = deadPlayer:getItemAt(i)
+            local common = world:getItemStats(item)
 
-            if durability <= DURABILITY_LOSS then
-                deadPlayer:increaseAtPos(i, -1)
-            else
-                item.quality = item.quality - DURABILITY_LOSS
-                world:changeItem(item)
+            if item.id > 0 and item.id ~= BLOCKEDITEM and item.quality > 100 and not common.isStackable then
+                local durability = item.quality % 100
+
+                if durability <= DURABILITY_LOSS then
+                    deadPlayer:increaseAtPos(i, -1)
+                else
+                    item.quality = item.quality - DURABILITY_LOSS
+                    world:changeItem(item)
+                end
             end
         end
     end
-
+	
+	MirrorOfDeathCounter(deadPlayer)
     world:makeSound(25,deadPlayer.pos);
     showDeathDialog(deadPlayer);
 end
@@ -40,4 +52,20 @@ function showDeathDialog(deadPlayer)
 	
 	deadPlayer:requestMessageDialog(dialog); --showing the text
 		
+end
+
+function MirrorOfDeathCounter(deadPlayer)
+    -- see MirrorOfDeath(User) in "item.id_2874_mirror"
+	local deathCounter
+	local getProgress = deadPlayer:getQuestProgress(666)
+	
+	if getProgress < 10000 then
+	    deadPlayer:setQuestProgress(666,10001)
+	else
+        deathCounter = getProgress-((math.floor(getProgress/10))*10)  
+		if deathCounter < 5 then
+		    deathCounter = deathCounter + 1
+			deadPlayer:setQuestProgress(666,deathCounter)
+        end
+    end
 end

@@ -18,7 +18,7 @@ function MoveToField(Character)
 
 	if Character:getQuestProgress(2) < 48 and not Character:isAdmin() then
 		Character:warp(position(56,98,100));
-		base.common.TempInformNLS(Character,
+		base.common.InformNLS(Character,
 			"Du hast die Lektionen von Amelia noch nicht absolviert. Gehe den Weg zurück zu ihr und spreche sie an. Wenn du fertig bist, wird sie dich weiterschicken.",
 			"You haven't passed the lessons of Amelia. Go this way back and talk to her. She will send you further if you're done.");
 	end

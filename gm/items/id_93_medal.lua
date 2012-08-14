@@ -18,13 +18,13 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 	--Additions end
 
     if (SourceItem.data==0) then --monster
-	    User:inform("#w Creating monster with ID "..Counter);
+	    User:inform("Creating monster with ID "..Counter);
         world:createMonster(Counter,TargetPos,20);
     elseif (SourceItem.data==1) then --monster
-	    User:inform("#w Creating monster with ID "..Counter+250);
+	    User:inform("Creating monster with ID "..Counter+250);
 	    world:createMonster(Counter+250,TargetPos,20);
     elseif (SourceItem.data==2) then --monster
-		User:inform("#w Creating monster with ID "..Counter+500);
+		User:inform("Creating monster with ID "..Counter+500);
         world:createMonster(Counter+500,TargetPos,20);
     elseif (SourceItem.data==3) then --GFX
 		world:gfx(Counter,TargetPos);

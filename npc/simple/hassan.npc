@@ -72,14 +72,14 @@ itemShoes = 53
 
 -- First part, the gossiper is thirsty--
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(75) = 0 -> inform("[New Quest] Cadomyr's Gossiper"), "#me stares at you. 'Be greeted, traveler! I am much too thirsty to talk. If you bring me a glass with red wine I will gladly answer your questions.'", queststatus(75) = 1
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(75) = 1, item(2057, all) < 1 -> "Wine! I told you to bring me wine! You want to hear my stories don’t you?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(75) = 1, item(2057, all) < 1 -> "Wine! I told you to bring me wine! You want to hear my stories don't you?"
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(75) = 2 -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
 "Hiho", "Hallo", "Hey", "Greeb", queststatus(75) = 0, english -> inform("[New Quest] Cadomyr's Gossiper"), "#me frowns: ‘Mere peasant you dare greet me in such a way! Make up for you lack of consideration by giving me an offering of red wine so I may quench my thirst.'", queststatus(75) = 1
 "Hiho", "Hallo", "Hey", "Greeb", queststatus(75) = 1, item(2057, all) < 1, english -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
 "Hiho", "Hallo", "Hey", "Greeb", queststatus(75) = 2, english -> "Hah! My friend, come, let us talk about important things, we're important people, aren't we?"
 "How are you", "How feel", "How do you do", queststatus(75) = 0 -> inform("[New Quest] Cadomyr's Gossiper"), "I am thirsty! If you bring me a glass of red wine, I will answer your questions... and trust me I know many things!", queststatus(75) = 1
 "How are you", "How feel", "How do you do", queststatus(75) = 1, item(2057, all) < 1 -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
-"How are you", "How feel", "How do you do", queststatus(75) = 2 -> "Now that you’ve brought me wine, splendid."
+"How are you", "How feel", "How do you do", queststatus(75) = 2 -> "Now that you've brought me wine, splendid."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(75) = 0 -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), "#me starrt dich an. 'Seid gegrüßt, Reisender. Meine Kehle ist zu trocken zum Reden. Bringt mir ein Glas Wein, wenn ihr was erfahren wollt.", queststatus(75) = 1
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(75) = 1, item(2057, all) < 1 -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(75) = 2 -> "Ah, hallo nochmal. Nun, da mein Durst gestillt ist, fragt was immer ihr wollt."
@@ -195,7 +195,7 @@ itemShoes = 53
 "Eldan", queststatus(75) = 2 -> "Ich bin mir ziemlich sicher... das ist eine Art Baum. Aber davon gibts nicht wirklich viele hier."
 "Tanora", queststatus(75) = 2, english -> "Tanora, sounds familiar but I can't place where I've heard the name."
 "Tanora", queststatus(75) = 2 -> "Tanora, kommt mir bekannt vor, aber ich kann mich einfach nicht erinnern..."
-"Zelphia", queststatus(75) = 2, english -> "If you're looking for answers about Zelphia go find the lizardfolks, they’re always blabbing on and on about her."
+"Zelphia", queststatus(75) = 2, english -> "If you're looking for answers about Zelphia go find the lizardfolks, they're always blabbing on and on about her."
 "Zelphia", queststatus(75) = 2 -> "Wenn du fragen über Zelphia hast, geh und such dir ne verdammte Echse, die brabbeln nämlich die ganze Zeit über sie."
 "Findari", queststatus(75) = 2, english -> "#me hiccups: 'Huh? I think you need to lay off the wine traveler; you're talking gibberish.'"
 "Findari", queststatus(75) = 2 -> "#me stößt leise auf. 'Huh? Du solltest nicht so viel Wein trinken, mein Freund! Dein Lallen ist ja kaum noch zu verstehn.'"
@@ -240,8 +240,8 @@ itemShoes = 53
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me schwingt ein Weinglas und riecht daran.", "#me swings a wine glass and sniffles."
-cycletext "Ich hab mal von einer Taverne gehört, die 'Happy Halfling' hieß. 'Happy Hassan', das wäre mal ein Name!", "I heard there’s a tavern called 'Happy Halfling'. I’d prefer Happy Hassan personally."
-cycletext "Oh ja, ich bin wirklich wichtig. Ohne meine Dienste würde die Königin schwitzen! Und das wäre nicht gut...", "Oh yes, I am indeed an important man. Without my service, the queen would sweat, and we couldn’t have that could we?"
+cycletext "Ich hab mal von einer Taverne gehört, die 'Happy Halfling' hieß. 'Happy Hassan', das wäre mal ein Name!", "I heard there's a tavern called 'Happy Halfling'. I'd prefer Happy Hassan personally."
+cycletext "Oh ja, ich bin wirklich wichtig. Ohne meine Dienste würde die Königin schwitzen! Und das wäre nicht gut...", "Oh yes, I am indeed an important man. Without my service, the queen would sweat, and we couldn't have that could we?"
 cycletext "#me knallt seine Faust auf den Tresen: 'Bedienung!'", "#me bangs his fist on the counter: 'I demand service!'"
 cycletext "#me tippt sich mit seinem Zeigefinger auf die Brust: 'Ich kenne die Königin! Ich bin eine sehr wichtige Person.'", "#me pokes his own chest with his index finger 'I know the Queen! I am a very important person!'"
 cycletext "Wie, ich soll für meine Getränke zahlen? Ihr solltet mich dafür bezahlen, dass ich hier trinke. Wißt ihr nicht, wer ich bin?", "What do you mean I have to pay for my drinks? You should be paying 'me' to drink here! Do you have any idea who I am?"

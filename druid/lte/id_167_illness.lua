@@ -277,8 +277,8 @@ function getEffect_1(Character,Runde)
 		end
 		if curItem.id > 0 then
 			base.common.InformNLS(Character,
-				"#w Du fühlst eine unangenehme Hitze in dir aufsteigen und Du hast den Zwang, Dir die Kleider vom Leib zu reißen",
-				"#w You feel a painful heat emerging and you have to put off some clothes");
+				"Du fühlst eine unangenehme Hitze in dir aufsteigen und Du hast den Zwang, Dir die Kleider vom Leib zu reißen",
+				"You feel a painful heat emerging and you have to put off some clothes");
 			world:createItemFromItem(curItem,Character.pos,true);
 			world:erase(curItem,1);
 		end
@@ -294,8 +294,8 @@ function getEffect_2(Character,Runde)
    if Runde -(math.floor(Runde/25)*25) == 0 then
 
 --    Enstprechender RP-Text
-      base.common.InformNLS(Character,"#w Dir wird urplötzlich schlecht, Dein Magen rebelliert und Du musst Dich übergeben.",
-                           "#w You feel sick, your stomache strikes back and you need to puke")
+      base.common.InformNLS(Character,"Dir wird urplötzlich schlecht, Dein Magen rebelliert und Du musst Dich übergeben.",
+                           "You feel sick, your stomache strikes back and you need to puke")
 
 --    Spieler dreht sich ab
       xpos = Character.pos.x
@@ -430,7 +430,7 @@ function getEffect_4(Character,Runde)
 		local chance = math.random(1,table.getn(paranoiaList[1]));
 		local race = Character:getRace() + 1;
 		if race > 9 then race = 4 end;
-		base.common.TempInformNLS(Character,
+		base.common.InformNLS(Character,
 			string.gsub(paranoiaList[1][chance],"%RACETEXT",raceList[1][race]),
 			string.gsub(paranoiaList[2][chance],"%RACETEXT",raceList[2][race]));
 	  end
@@ -473,8 +473,8 @@ function getEffect_5(Character,Effect,Runde)
 	end
 	if doInform or Runde-(math.floor(Runde/60)*60) == 0 then
 		base.common.InformNLS(Character,
-			"#w An deinem Körper haben sich rote, stark juckende Pusteln gebildet."..(doInform and " Du kannst jene Kleidung nicht am Körper halten." or ""),
-			"#w All over your body you find little red terribly itching blisters."..(doInform and " You can't keep that clothes at your body." or ""));
+			"An deinem Körper haben sich rote, stark juckende Pusteln gebildet."..(doInform and " Du kannst jene Kleidung nicht am Körper halten." or ""),
+			"All over your body you find little red terribly itching blisters."..(doInform and " You can't keep that clothes at your body." or ""));
 	end
 -- Krankheit verbreiten:
 --   DoInfection(Character,Runde,5)
@@ -496,8 +496,8 @@ function getEffect_6(Character,Runde)
 	end
 	if doInform or Runde-(math.floor(Runde/60)*60) == 0 then
 		base.common.InformNLS(Character,
-			"#w An deinen Händen haben sich grünlich schimmernde schmerzhafte eitrige Dornwarzen gebildet."..(doInform and " Du musst alles in deinen Händen fallen lassen." or ""),
-			"#w Your hands are covered with greenish glimmering painful mucopurulent plantar warts."..(doInform and " You have to drop everything you hold in your hands." or ""));
+			"An deinen Händen haben sich grünlich schimmernde schmerzhafte eitrige Dornwarzen gebildet."..(doInform and " Du musst alles in deinen Händen fallen lassen." or ""),
+			"Your hands are covered with greenish glimmering painful mucopurulent plantar warts."..(doInform and " You have to drop everything you hold in your hands." or ""));
 	end
 -- Krankheit verbreiten:
 -- DoInfection(Character,Runde,6)
@@ -514,8 +514,8 @@ function getEffect_7(Character,Runde)
       Character.movepoints = Character.movepoints -50
 	  if Runde-(math.floor(Runde/30)*30) == 0 then
 		base.common.InformNLS(Character,
-			"#w Du fühlst Dich fiebrig, dein Puls ist flach, auf Deiner Stirn glänzt kalter Schweiß.",
-			"#w You feel febrile, your pulse is low, at your frown cold sweat is shining.");
+			"Du fühlst Dich fiebrig, dein Puls ist flach, auf Deiner Stirn glänzt kalter Schweiß.",
+			"You feel febrile, your pulse is low, at your frown cold sweat is shining.");
 	  end
    end
 -- Krankheit verbreiten:
@@ -529,8 +529,8 @@ function getEffect_8(Character,Effect,Runde)
    if Runde -(math.floor(Runde/10)*10) == 0 then
       if math.random(6) == 6 then
          base.common.InformNLS(Character,
-			"#w Du hast das Gefühl, deine Organe würden brennen.",
-			"#w Your insides feel like burning.");
+			"Du hast das Gefühl, deine Organe würden brennen.",
+			"Your insides feel like burning.");
       end
       local L = {"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"};
       local i = math.random(1,8);
@@ -608,15 +608,15 @@ function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 			if immunityEffect:findValue("immunity_"..illness) then
 
 				base.common.InformNLS(Character,
-					"#w Du spürst wie die Krankheit von dir Besitz ergreifen will, doch dein Körper wehrt sich erfolgreich.",
-					"#w You feel the illness trying to take control over you, but your body can resist.");
+					"Du spürst wie die Krankheit von dir Besitz ergreifen will, doch dein Körper wehrt sich erfolgreich.",
+					"You feel the illness trying to take control over you, but your body can resist.");
 				Character.effects:removeEffect(167);
 				return;
 			end
 		end
 		base.common.InformNLS(Character,
-			"#w Du fühlst dich auf einmal ganz seltsam. Irgendetwas stimmt nicht mit deinem Körper.",
-			"#w You suddenly have a very strange feeling. Something's wrong with your body.");
+			"Du fühlst dich auf einmal ganz seltsam. Irgendetwas stimmt nicht mit deinem Körper.",
+			"You suddenly have a very strange feeling. Something's wrong with your body.");
 		if illness == 3 then
 			--  Sprachskills sichern
 			Effect:addValue("ancient language",Character:getSkill("ancient language"))
@@ -716,8 +716,8 @@ function removeEffect(Effect,Character)
 	-- if illness is removed as usual and not due to immunity, then inform player and create gfx
 	if not foundImmunity then
 		base.common.InformNLS(Character,
-			"#w Du spürst wie die Krankheit aus deinem Körper weicht und du neue Kraft bekommst.",
-			"#w You feel the illness withdrawing from your body and you regain your strength.");
+			"Du spürst wie die Krankheit aus deinem Körper weicht und du neue Kraft bekommst.",
+			"You feel the illness withdrawing from your body and you regain your strength.");
 		world:gfx(45,Character.pos);
 	end
 end

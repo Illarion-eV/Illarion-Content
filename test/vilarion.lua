@@ -14,14 +14,14 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         quest = tonumber(quest)
         status = tonumber(status)
         User:setQuestProgress(quest, status)
-        User:inform("#w Quest " .. quest .. " has been set to " .. status .. "!")
+        User:inform("Quest " .. quest .. " has been set to " .. status .. "!")
         return
     end
     a,b,quest = string.find(User.lastSpokenText,"reset (%d+)")
     if a ~= nil then
         quest = tonumber(quest)
         User:setQuestProgress(quest, 0)
-        User:inform("#w Quest " .. quest .. " has been reset!")
+        User:inform("Quest " .. quest .. " has been reset!")
         return
     end
 
@@ -105,10 +105,13 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
             end
         end
         local dialog = MerchantDialog("Trader 0",  callback)
-        dialog:addProduct(1, "Krasses Schwert", 12345)
-        dialog:addProduct(2, "Weizenmehl", 2)
-        dialog:addProduct(2, "Roggenmehl", 3)
-        dialog:addProduct(100, "Maurerkelle des Verderbens", 4711)
+        dialog:addOffer(1, "Krasses Schwert", 20000)
+        dialog:addOffer(2, "Weizenmehl", 20, 100)
+        dialog:addOffer(2, "Roggenmehl", 33, 50)
+        dialog:addOffer(100, "Maurerkelle des Verderbens", 4711)
+        dialog:addPrimaryRequest(2, "Weizenmehl", 2)
+        dialog:addPrimaryRequest(2, "Gammeliges Mehl", 1)
+        dialog:addSecondaryRequest(1, "Nicht so krasses Schwert", 123)
         User:inform("start dialog")
         User:requestMerchantDialog(dialog)
     end

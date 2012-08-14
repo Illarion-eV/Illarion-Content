@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.consequence.consequence")
 
@@ -12,6 +11,6 @@ function(self, text)
     self["perform"] = _inform_helper;
 end);
 
-function _inform_helper(self, player)
+function _inform_helper(self, npcChar, player)
     player:inform(self.text);
 end;

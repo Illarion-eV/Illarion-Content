@@ -323,7 +323,7 @@ function put_Guild(originator,Guild)
 		local qpg=(Guild.rankGuild..Guild.gid)+1-1;
 		originator:setQuestProgress(201,qpg);
 	else
-		originator:inform("ERROR at put_Guild, please inform a DEV");
+		--nothing
 	end
 end
 
@@ -359,33 +359,33 @@ function put_Rankpoints(originator,Rankpoints)
 	 ---increase rank ----
 	if (Rankpoints.rankpointsC >99) then
 		local rank = Faction.rankC; Rankpoints.rankpointsC,Faction.rankC = IncreaseRank(Rankpoints.rankpointsC,Faction.rankC);
-		if Faction.rankC>rank then  base.common.InformNLS( originator, "#w Du hast soeben einen neuen Rang in Cadomyr erreicht.", "#w You reached a new town rank in Cadomyr." ) end
+		if Faction.rankC>rank then  base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in Cadomyr erreicht.", "You reached a new town rank in Cadomyr." ) end
 	end
 
 	if (Rankpoints.rankpointsR >99) then
 		local rank = Faction.rankR; Rankpoints.rankpointsR,Faction.rankR = IncreaseRank(Rankpoints.rankpointsR,Faction.rankR);
-		if Faction.rankR>rank then  base.common.InformNLS( originator, "#w Du hast soeben einen neuen Rang in Runewick erreicht.", "#w You reached a new town rank in Runewick." ) end
+		if Faction.rankR>rank then  base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in Runewick erreicht.", "You reached a new town rank in Runewick." ) end
 	end
 
 	if (Rankpoints.rankpointsG >99) then
 		local rank = Faction.rankG; Rankpoints.rankpointsG,Faction.rankG = IncreaseRank(Rankpoints.rankpointsG,Faction.rankG);
-		if Faction.rankG>rank then  base.common.InformNLS( originator, "#w Du hast soeben einen neuen Rang in Galmair erreicht.", "#w You reached a new town rank in Galmair." ) end
+		if Faction.rankG>rank then  base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in Galmair erreicht.", "You reached a new town rank in Galmair." ) end
 	end
 	------------------------
 	----lower rank----------
 	if (Rankpoints.rankpointsC <10) then
 		local rank = Faction.rankC; Rankpoints.rankpointsC,Faction.rankC = DecreaseRank(Rankpoints.rankpointsC,Faction.rankC);
-		if Faction.rankC<rank then  base.common.InformNLS( originator, "#w Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Cadomyr um eine Stufe gesunken.", "#w Because of your permanent conflicts with the law your rank sinks for a degree in Cadomyr." ) end
+		if Faction.rankC<rank then  base.common.InformNLS( originator, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Cadomyr um eine Stufe gesunken.", "Because of your permanent conflicts with the law your rank sinks for a degree in Cadomyr." ) end
 	end
 
 	if (Rankpoints.rankpointsR <10) then
 		local rank = Faction.rankR; Rankpoints.rankpointsR,Faction.rankR = DecreaseRank(Rankpoints.rankpointsR,Faction.rankR);
-		if Faction.rankR<rank then  base.common.InformNLS( originator, "#w Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Runewick um eine Stufe gesunken.", "#w Because of your permanent conflicts with the law your rank sinks for a degree in Runewick." ) end
+		if Faction.rankR<rank then  base.common.InformNLS( originator, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Runewick um eine Stufe gesunken.", "Because of your permanent conflicts with the law your rank sinks for a degree in Runewick." ) end
 	end
 
 	if (Rankpoints.rankpointsG <10) then
 		local rank = Faction.rankG; Rankpoints.rankpointsG,Faction.rankG = DecreaseRank(Rankpoints.rankpointsG,Faction.rankG);
-		if Faction.rankG<rank then  base.common.InformNLS( originator, "#w Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Galmair um eine Stufe gesunken.", "#w Because of your permanent conflicts with the law your rank sinks for a degree in Galmair." ) end
+		if Faction.rankG<rank then  base.common.InformNLS( originator, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Galmair um eine Stufe gesunken.", "Because of your permanent conflicts with the law your rank sinks for a degree in Galmair." ) end
 	end
 	------save changes----------------
 	put_Faction(originator,Faction);

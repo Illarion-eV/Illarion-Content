@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("npc.base.condition.condition")
 
@@ -11,6 +10,6 @@ function(self, value)
     self["check"] = _chance_helper_equal;
 end);
 
-function _chance_helper_equal(self, _)
+function _chance_helper_equal(self, npcChar, player)
     return (math.random(100) < self.value);
 end;

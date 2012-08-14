@@ -2,11 +2,12 @@
 
 -- documentation of the datas used in the alchemy system:
 -- "stockData" - used to save the combination of active agents. 
--- "cauldronFilledWith" - can have the value "water" or "essenceBrew";
+-- "cauldronFilledWith" - can have the value "water" or "essenceBrew"; (to check if there is a stock in, we can use "stockData", for a potion "potionIdEffect")
 -- "potionEffectId" - the id of the effect a potion has
--- "essenceHerb1",...,"essenceHerb8" - the ids of the herbs of essence brew
--- "essenceBrew" - actually, only used to distinguish an essence brew from a potion. returns "true"
+-- "essenceHerbs" - the ids of the herbs of the essence brew in one string, seperated by spaces
+-- "essenceBrew" - actually, only used to distinguish an essence brew from a potion. returns "true", note the quotes!
 -- "potionId" -- id of the potion 
+-- "potionQuality" -- quality of the potion
 
 -- PFLANZENLISTE:
 
@@ -268,10 +269,10 @@ function CheckIfBottleInHand(User)
 	return retVal;
 end
 -- --------------------------------------------------------------------
-function SplitBottleData(User,potionData)
+function SplitBottleData(User,potionEffectId)
     local dataZList = {};
 	local thisDigit;
-	local workData=potionData
+	local workData=potionEffectId
    for digit=1,8 do
       thisDigit=math.floor(workData/10^(8-digit));
       workData=workData-thisDigit*10^(8-digit);
@@ -450,7 +451,7 @@ function generateTasteMessage(Character,dataZList)
 		textEn = string.sub(textEn, 0, -3);
         textEn = textEn..".";
     end
-    base.common.TempInformNLS(Character,textDe,textEn);
+    base.common.InformNLS(Character,textDe,textEn);
 end
 
 function ds_skillgain(User)
@@ -575,20 +576,28 @@ end
 return retVal
 end
 
-function StockExplosion(User, SourceItem, cauldron)
-    world:makeSound(10,cauldron.pos);
-    User:increaseAtPos(SourceItem.itempos,-1);
-    world:makeSound(5,cauldron.pos);
-    world:gfx(9,cauldron.pos);
-    User:talkLanguage(Character.say, Player.german, "hast sud kaputt gemacht");
-    User:talkLanguage(Character.say, Player.english, "you destroyed stock");
-	--[[base.common.InformNLS( User,
-	    "Deine letzte Handlung scheint den Sud zerstört und zu einer Explosion geführt zu haben.",
-	    "Your last doing seems to have destroyed the stock and caused an explosion."
-				);]]
-    cauldron:setData("stockData","");
-    world:changeItem(cauldron)
-    User:increaseAttrib("hitpoints", -3000);
+function CauldronExplosion(User,cauldron,ListGfx)
+    world:makeSound(5,cauldron.pos)
+    for i=1,#ListGfx do
+	    world:gfx(ListGfx[i],cauldron.pos)
+    end
+	base.common.InformNLS( User,
+	    "Deine letzte Handlung scheint den Inhalt des Kessels zerstört und zu einer Explosion geführt zu haben.",
+	    "Your last doing seems to have destroyed the substance in the cauldron and caused an explosion."
+				);
+    local myVictims = world:getPlayersInRangeOf(cauldron.pos,1) -- we hurt everyone around the cauldron!
+	for i=1,#myVictims do
+	    --[[myVictims[i]:increaseAttrib("hitpoints",-3000)]] world:gfx(13,myVictims[i].pos)
+	    base.common.HighInformNLS(myVictims[i], "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
+	end
+	-- we remove every possible data the cauldron could have to cover all substances
+	cauldron:setData("essenceHerbs","")  
+	cauldron:setData("stockData","")
+    cauldron:setData("cauldronFilledWith","")
+	cauldron:setData("potionEffectId","")
+	cauldron:setData("potionId","")
+	cauldron:setData("potionQuality","")
+	world:changeItem(cauldron)
 end
 
 ----------------------------------------------------
@@ -598,7 +607,7 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
     local ourStock
 	local ourEssence
 	local potionId
-	local checkStringEssence = ""
+	local essenceHerbs
 	local potionEffectId
 	
 	if base.common.GetFrontItemID(User) == 1008 then
@@ -614,18 +623,8 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 		    potionId = ourEssence.id -- essence brew in bottle: we use the id of the SourceItem
 		end
         
-		for i=1,8 do
-		    if (ourEssence:getData("essenceHerb"..i) ~= "") then -- we put our essenced herbs to a string together
-			    if i==1 then
-				   checkStringEssence = checkStringEssence..ourEssence:getData("essenceHerb"..i)
-				else
-                    checkStringEssence = checkStringEssence.." "..ourEssence:getData("essenceHerb"..i)				
-                end
-			else
-                break
-			end	
-	    end     
-	User:talkLanguage(Character.say, Player.german, "checkString: "..checkStringEssence);
+		essenceHerbs = ourEssence:getData("essenceHerbs")  
+	
         if checkStringEssence == "" then -- when there was not even one herb in the essence brew
 		    if (potionId == 166) or (potionId == 59) then -- attribute pushers and healing potions do not need essenced hersb
 			    potionEffectId = ourStock:getData("stockData") -- the PotionEffectId is the same as the stock data
@@ -635,7 +634,7 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 		else
             for i=1,#ListPotionStock[potionId] do
                 if ListPotionStock[potionId][i] == ourStock:getData("stockData") then
-	                if ListPotionEssence[potionId][i] == checkStringEssence then
+	                if ListPotionEssence[potionId][i] == essenceHerbs then
 	                    potionEffectId = ListPotionEffectId[potionId][i] -- we have a stock and an essence brew which matchn so that's our effect id
 	                    break
 	                end
@@ -650,11 +649,12 @@ function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltst
 		-- now we have to put everything together
 		TargetItem:setData("stockData","")
 		TargetItem:setData("potionId",""..potionId)
-		User:talkLanguage(Character.say, Player.german, ""..TargetItem:getData("potionId"));
 		TargetItem:setData("potionEffectId",""..potionEffectId)
 		potionQuality = 999
 	    TargetItem:setData("potionQuality",""..potionQuality)
 	    world:changeItem(TargetItem)
+	    world:makeSound(13,TargetItem.pos)
+		world:gfx(53,TargetItem.pos)
 	end    
 end	
 -------------------------------------------------------		

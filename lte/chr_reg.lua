@@ -206,7 +206,7 @@ if Char:idleTime() < 300 then --absolutely no regeneration effect if the player 
                   if ( math.random(1,100) <= pChance ) then
                      P_CharToPriest(Char,pGod);
                   else
-                     base.common.TempInformNLS(Char,
+                     base.common.InformNLS(Char,
                         "Nichts passiert.",
                         "Nothing happens.");
                   end
@@ -357,7 +357,7 @@ function leadToCross( Char , Effect )
 
     if cycleCounter>=12 then --Time is over!
 
-        base.common.TempInformNLS( Char,"[Wiederbelebung] Der Eintritt in Chergas Reich der Toten wird dir verwehrt. Deine Taten auf Illarion sind noch nicht vorüber. Die Götter gewähren dir eine weitere Chance auf die Ebene der Lebenden zurückzukehren.","[Respawn] You are denied access to Cherga's Realm of the Death. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.");
+        base.common.InformNLS( Char,"[Wiederbelebung] Der Eintritt in Chergas Reich der Toten wird dir verwehrt. Deine Taten auf Illarion sind noch nicht vorüber. Die Götter gewähren dir eine weitere Chance auf die Ebene der Lebenden zurückzukehren.","[Respawn] You are denied access to Cherga's Realm of the Death. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.");
         world:gfx(31,Char.pos); --GFX, alternatively 16
         world:makeSound(13,Char.pos); --Healing sound
         factionValues=base.factions.get_Faction(Char); --reading the faction values

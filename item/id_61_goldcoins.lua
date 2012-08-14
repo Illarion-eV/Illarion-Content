@@ -53,3 +53,27 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         
 	end
 end
+
+function MoveItemAfterMove(User, SourceItem, TargetItem)
+
+    if TargetItem.pos == position(891,390,0) then -- donation to cherga to reduce death counter, for one gold we reduce all deathes at once!
+	    getProgress = User:getQuestProgress(666)
+		if getProgress == 0 then
+			getProgress = 10000
+		end	
+		
+		deathCounter = getProgress-((math.floor(getProgress/10))*10)  
+		if deathCounter > 0 then
+		    base.common.InformNLS(User, "Als die Gottheit das Opfer annzunehmen scheint, hast Du das Gefühl, dass du ganz von der Last des Todes befreift wirst.",
+				"As the divinity seems to accept your offer, you get the feeling, that your burden of death is eased completely.")
+		else
+		    base.common.InformNLS(User, "Ein angenehmes Gefühl erfüllt dich, als die Gottheit deine Spende zu akzeptieren scheint.",
+				                            "You get a comfortable feeling, as the divinity seems to accept your offer.")
+		end
+		
+		User:setQuestProgress(666,10000)
+		world:erase(TargetItem,1)
+        world:gfx(31,position(891,390,0))
+	end	
+return true
+end

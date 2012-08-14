@@ -27,7 +27,7 @@ function Demon_Pull (monster, char)
 						SearchArea = position (SearchArea);
 							if not world:isCharacterOnField (x,y,monster.pos.z) then 
 								monster:talk(Character.yell, "I'll tear your soul apart!");							
-								v:inform ("#w You feel an unbeatable force pulling you towards the demon.");
+								v:inform ("You feel an unbeatable force pulling you towards the demon.",Player.mediumPriority);
 								v:warp (SearchArea);
 								v.movepoints = 0;
 								v:increaseAttrib ("hitpoints",-2000);
@@ -42,7 +42,7 @@ function Demon_Pull (monster, char)
 					SearchArea = position (x,y,monster.pos.z);
 						if not world:isCharacterOnField (SearchArea) then 
 							monster:talk(Character.yell, "I'll tear your soul apart!");
-							v:inform ("#w You feel an unbeatable force pulling you towards the demon.");
+							v:inform ("You feel an unbeatable force pulling you towards the demon.",Player.mediumPriority);
 							v:warp (SearchArea);
 							v.movepoints = 0;
 							v:increaseAttrib ("hitpoints",-2000);

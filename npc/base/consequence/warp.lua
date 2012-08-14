@@ -14,6 +14,6 @@ function(self, x, y, z)
     self["perform"] = _warp_helper;
 end);
 
-function _warp_helper(self, player)
+function _warp_helper(self, npcChar, player)
     player:forceWarp(position(self.x,self.y,self.z));
 end;

@@ -57,7 +57,7 @@ itemShoes = 369
 
 -- Cloth: Long sleeve black shirt. Brown leather pants
 
--- Personality: Rose is meek, cheerful and practical. It’s a weird combination. Her daughter missed the practical and meek bit, but it works for Rose.
+-- Personality: Rose is meek, cheerful and practical. It's a weird combination. Her daughter missed the practical and meek bit, but it works for Rose.
 
 -- Background:  Rose was one of three children. She was the only girl and helped her dad take care of her diseased stricken mother. That would have been her Life, except on a trip to the bazaar she caught the eye of a sand rat cook. Their eyes met. She smiled. It was random, but the next day she was shocked to see him at her front door bartering with her father about a dowry. They married the next week. Part of the marriage deal was that he needed to get a house. They made a small hut together with their hands, blasting sand, chopping wood and tying twine. It was a great bonding experience.  Taking care of her husband was even more work than taking care of her ill mother. Kay was a slob, but Rose did not care. Life with him was heaven. Through his dreams and money, and her practicality and both working hard they turned their stand into a shop and their shop into a tavern. Now Life with him and their daughter, Linda is great. Rose takes the position of hostess; she greets the people upon entering with a smile. She directs those who are lost and new.
 
@@ -66,15 +66,15 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day potential customers. How may I assist you today?", "If you’re a regular please seat yourself. My business is your home.", "Welcome to the Glass Spiegel"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day potential customers. How may I assist you today?", "If you're a regular please seat yourself. My business is your home.", "Welcome to the Glass Spiegel"
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day potential customers. How may I assist you today?", "If you’re a regular please seat yourself. My business is your home.", "Welcome to the Glass Spiegel"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day potential customers. How may I assist you today?", "If you're a regular please seat yourself. My business is your home.", "Welcome to the Glass Spiegel"
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Farewell", "Bye", "Fare well", "See you" -> "Oh won’t you please visit us again.", "Anytime you think of dining please do not forget the Glass Spiegel", "Goodbye beautiful person."
+"Farewell", "Bye", "Fare well", "See you" -> "Oh won't you please visit us again.", "Anytime you think of dining please do not forget the Glass Spiegel", "Goodbye beautiful person."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Oh won’t you please visit us again.", "Anytime you think of dining please do not forget the Glass Speigel", "Goodbye beautiful person."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Oh won't you please visit us again.", "Anytime you think of dining please do not forget the Glass Speigel", "Goodbye beautiful person."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel" -> "Hahaha, I think I forgot what a real bad day looks like.", "I am enjoying my day and you?", "I think I’m a little bit sleepy, but how are you?"
+"How are you", "How feel" -> "Hahaha, I think I forgot what a real bad day looks like.", "I am enjoying my day and you?", "I think I'm a little bit sleepy, but how are you?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Your name", "who are you", "who art thou" -> "I am Rose Rabon, the hostess for this restaurant.", "I am Rose Rabon, mother and wife.", "I am Rose the happy."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -86,11 +86,11 @@ itemShoes = 369
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Gobaith", "Gobiath", english -> "What opinion can I have on the entire world?"
 "Gobaith", "Gobiath" -> "GERMAN1", "GERMAN2.", "GERMAN3."
-"Glass Spiegel" -> "You’re at the glass Spiegel. I know this may sound boastful, but I think we have the best restaurant in Cadomyr."
+"Glass Spiegel" -> "You're at the glass Spiegel. I know this may sound boastful, but I think we have the best restaurant in Cadomyr."
 "Daughter", "Linda" -> "My beautiful little girl. She takes so much after her father. Linda even followed him and became a cook"
-"Husband", "Severus" -> "I love him. He’s my life. This Restaurant is his dream and we built it together."
-"Pal", "Por" -> "He never speaks. It’s kind of weird. Don’t you think?"
-"Ouchpan", "Yang" -> "He’s so big. He used to have to duck to enter this place. My husband is so nice though. He made the entrance taller."
+"Husband", "Severus" -> "I love him. He's my life. This Restaurant is his dream and we built it together."
+"Pal", "Por" -> "He never speaks. It's kind of weird. Don't you think?"
+"Ouchpan", "Yang" -> "He's so big. He used to have to duck to enter this place. My husband is so nice though. He made the entrance taller."
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -107,7 +107,7 @@ itemShoes = 369
 "rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "gods", "god" -> "gods?  There is Oldra, Sirani and Adron."
 "Oldra" -> "Olddra has to be the favorite god of any mother."
-"Sirani" -> " I do not deserve it, I do not deserve it, I do not deserve it, but Sirani blessed me. I don’t know why. Somethimes at night when I think about how in love I am I start crying."
+"Sirani" -> " I do not deserve it, I do not deserve it, I do not deserve it, but Sirani blessed me. I don't know why. Somethimes at night when I think about how in love I am I start crying."
 "Adron" -> "My husband put up an alter to Adron In this tavern. I see it everyday. He has given us plenty."
 
 -- Main land factions
@@ -119,18 +119,18 @@ itemShoes = 369
 "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"Irmorom", english -> "He’s the only one that ever cared about me. I give him 10% of my earnings."
+"Irmorom", english -> "He's the only one that ever cared about me. I give him 10% of my earnings."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
-"secret" -> "I’m too bland of a person to have any."
+"secret" -> "I'm too bland of a person to have any."
 "GERMAN" -> "GERMAN."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "<Linda>", "<Rabon>", english -> "Oh, did you need something?", "That is me.", "Hello. I am Rose Darknight. I would be glad to help you with anything that you need."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "I did not say anything.", "I don’t believe I asked a yes or no question.", "Wait what?"
+"Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "I did not say anything.", "I don’t believe I asked a yes or no question.", "Wait what?"
+"No" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
@@ -142,7 +142,7 @@ itemShoes = 369
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "ENGLISH.", "If you have any questions please come to me. It is my job to answer them if that’s alright with you."
+cycletext "ENGLISH.", "If you have any questions please come to me. It is my job to answer them if that's alright with you."
 cycletext "ENGLISH.", "Welcome to the Glass Spiegel."
 cycletext "ENGLISH.", "Please come visit us again at the Glass Spiegel. We miss your presence."
 cycletext "ENGLISH.", "Here at the Glass Spiegel we have the best grilled sand rat in all of Globieth."

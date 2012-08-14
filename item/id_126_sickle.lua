@@ -21,10 +21,58 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
         return		
 	end
+	
+	if (string.find(User.lastSpokenText,"poison")~=nil) then 
+	    a,b,myPS=string.find(User.lastSpokenText,"(%d+)") 
+		poisonChange = tonumber(myPS)
+		User:increaseAttrib("poisonvalue",poisonChange)
+		myPoisonMsg = "poison value is "..User:increaseAttrib("poisonvalue",0)
+		base.common.InformNLS(User,""..myPoisonMsg,""..myPoisonMsg)
+	end 
+	
+	if (string.find(User.lastSpokenText,"create potion")~=nil) then 
+	   a,b,myId,myEffect,myQuali=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)") 
+		nId = tonumber(myId)
+		nEffect = tonumber(myEffect)
+		nQuali = tonumber(myQuali)
+		local myPosition = base.common.GetFrontPosition(User, 1)
+		world:createItemFromId(nId,1,myPosition,true,nQuali,0)
+		myPotion = base.common.GetFrontItem(User)
+	    myPotion:setData("potionEffectId",nEffect)
+		world:changeItem(myPotion)
+	end	
+	
 	if (string.sub(User.lastSpokenText,1,6) == "delete") then
 	    myItemId = tonumber(string.sub(User.lastSpokenText,7))
 	    deleteAmount = User:countItem(myItemId)
 		User:eraseItem(myItemId,deleteAmount)
+	end	
+	
+	if User.lastSpokenText == "cherga" then
+	    world:createItemFromId(2874,1,position(892,390,0),true,999,0)
+		world:createItemFromId(2952,1,position(891,390,0),true,999,0)
+	end	
+	
+	if User.lastSpokenText == "death" then
+	    find, myEffect = User.effects:find(36)
+		if find then
+		   effectRemoved = User.effects:removeEffect(329)
+		end
+		base.character.DeathAfterTime(User,400,2,4)
+		find, myEffect = User.effects:find(36)
+		if find then
+		   base.common.InformNLS(User,"death death death","death death death")
+		end
+		return
+	end	
+	
+	if base.common.GetFrontItemID(User) == 15 then
+		User:setAttrib("racetyp",tonumber(User.lastSpokenText))
+		newHeight = math.random(80,120)
+		User:setAttrib("body_height",newHeight)
+		User:increaseAttrib("hitpoints",-10)
+	    User:increaseAttrib("hitpoints",10)
+	    User:talkLanguage(Character.say, Player.german, ""..User:getRace())
 	end	
 	
 	--testing stuff
@@ -107,12 +155,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- again, only for testing
 	if ((base.common.GetFrontItemID(User) == 1008) or myCheck) and (User.lastSpokenText == "inform herbs") then -- infront of a cauldron?
 	   local cauldron = base.common.GetFrontItem( User );
-	   User:talkLanguage(Character.say, Player.german, ""..cauldron:getData("essenceHerb1"))
-	   User:talkLanguage(Character.say, Player.german, ""..cauldron:getData("essenceHerb2"))
-	   User:talkLanguage(Character.say, Player.german, ""..cauldron:getData("essenceHerb3"))
-	   User:talkLanguage(Character.say, Player.german, ""..cauldron:getData("essenceHerb4"))
-	   User:talkLanguage(Character.say, Player.german, ""..cauldron:getData("essenceHerb5"))
-	   User:talkLanguage(Character.say, Player.german, ""..cauldron:getData("essenceHerb6"))
+	   User:talkLanguage(Character.say, Player.german, "essenceHerbs: "..cauldron:getData("essenceHerbs"))
 	end
 	-- function end
 	
@@ -122,14 +165,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   cauldron:setData("potionEffectId","")
 	   cauldron:setData("cauldronFilledWith","")
 	   cauldron:setData("potionId","")
-	   cauldron:setData("essenceHerb1","")
-	   cauldron:setData("essenceHerb2","")
-	   cauldron:setData("essenceHerb3","")
-	   cauldron:setData("essenceHerb4","")
-	   cauldron:setData("essenceHerb5","")
-	   cauldron:setData("essenceHerb6","")
-	   cauldron:setData("essenceHerb7","")
-	   cauldron:setData("essenceHerb8","")
+	   cauldron:setData("essenceHerbs","")
+	   cauldron:setData("potionQuality","")
 	   world:changeItem(cauldron)
 	end   
 	

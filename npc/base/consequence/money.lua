@@ -1,4 +1,3 @@
--- $Id$
 require("base.class")
 require("base.money")
 require("npc.base.consequence.consequence")
@@ -18,12 +17,12 @@ function(self, mode, value)
     end;
 end);
 
-function _money_helper_add(self, player)
+function _money_helper_add(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     base.money.GiveMoneyToChar(player, value);
 end;
 
-function _money_helper_sub(self, player)
+function _money_helper_sub(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     base.money.TakeMoneyFromChar(player, value);
 end;

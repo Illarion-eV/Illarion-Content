@@ -34,7 +34,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	-- Wasserflasche auffüllen
 	if( TargetItem.id == 2498 ) then
 		if(TargetItem.number > 1) then
-			base.common.InformNLS(User, "#w Du kannst nur eine Flasche befüllen!", "#w You can only fill one bottle.");
+			base.common.InformNLS(User, "Du kannst nur eine Flasche befüllen.", "You can only fill one bottle.");
 			return;
 		end
         world:makeSound( 10, User.pos )
@@ -42,19 +42,24 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     else
         if TargetItem.id ~= 0 then
 			if ((TargetItem.id==12 or TargetItem.id == 359) and (User.pos.z==100 or User.pos.z==101)) then --Prevents extinguishing campfires on n00bia(needed for the cook-npc)
-				base.common.InformNLS(User,"#w Du solltest das Feuer besser nicht ausmachen, du könntest es noch gebrauchen.","#w You shouldn't extinguish the fire, you maybe could need it.");
+				base.common.InformNLS(User,"Du solltest das Feuer besser nicht ausmachen, du könntest es noch gebrauchen.","You shouldn't extinguish the fire, you maybe could need it.");
 				return;
 			else	
-			world:makeSound( 9, User.pos );
+				world:makeSound( 9, User.pos );
 	            -- Lagerfeuer ausmachen
 	            if (TargetItem.id == 12 or TargetItem.id == 359) then
-	                world:erase(TargetItem,1);
+					if (TargetItem.wear == 255) then
+						base.common.InformNLS(User,
+							"Das Wasser verdampft in dem Feuer ohne es zu löschen.",
+							"The water vaporises in the fire but it does not extinguish it.");
+					else
+						world:erase(TargetItem,1);
+					end
 	                -- Esse ausmachen
 	            elseif ( TargetItem.id == 2835 ) then
 	                world:swap(TargetItem,2836,333);
 	                -- test for seedlings
 	            else
-	                --User:inform( "calling sprouts" );
 					--Planting trees deactivated. Players should not change the map.
 	                --MakeSprout( User, SourceItem, TargetItem )
 				end
@@ -74,7 +79,7 @@ function PourOnCharacter (Character, SourceItem, TargetCharacter )
     SourceItem.id = 51;
     SourceItem.data = 0;
     world:changeItem(SourceItem);
-	base.common.InformNLS(TargetCharacter, "#w Du fühlst dich gleich viel sauberer.", "#w You feel much cleaner.");
+	base.common.InformNLS(TargetCharacter, "Du fühlst dich gleich viel sauberer.", "You feel much cleaner.");
 
 end
 
@@ -94,12 +99,9 @@ function MakeSprout( User, SourceItem, TargetItem )
     if( seed == nil ) then
         return
     end
-    --User:inform( "found sprouts" );
     local Field = world:getField( TargetItem.pos )
-    --User:inform( "cecking ground "..Field:tile() );
     local boden = base.common.GetGroundType( Field:tile() );
 
-    --User:inform( "standing on "..boden );
     -- only on fields
     if( boden == seed[2] ) then
         --User:inform( "on field" );
@@ -107,16 +109,13 @@ function MakeSprout( User, SourceItem, TargetItem )
         if BlockCheck(TargetItem.pos) then
 
             if CheckSucceed(User) then
-                --User:inform( "deleting fruit "..TargetItem.id );
                 world:swap(TargetItem,seed[1],333)
 			else
-				base.common.InformNLS(User, "#w Der Setzling braucht noch mehr Wasser um anzuwachsen.", "#w The seedling needs more water to grow.");
+				base.common.InformNLS(User, "Der Setzling braucht noch mehr Wasser um anzuwachsen.", "The seedling needs more water to grow.");
             end
 
         else
-        base.common.InformNLS( User, 
-            "#w Der Boden ist an dieser Stelle zu ausgelaugt, als das Bäume wachsen könnten. Der Setzling geht ein.", 
-            "#w The soil at this location is not fertile enough to let a tree grow. The seedling whithers." ); 
+        base.common.InformNLS( User,"Der Boden ist an dieser Stelle zu ausgelaugt, als das Bäume wachsen könnten. Der Setzling geht ein.","The soil at this location is not fertile enough to let a tree grow. The seedling whithers." ); 
         end    
         --User:learn( 2, "peasantry", 1, 100 )
 		--Replace with new learn function, see learn.lua 
@@ -154,13 +153,11 @@ function BlockCheck(Posi)
 		allowed[1790]=true;
     end
     for i, dir in pairs(Directions) do
-        --User:inform( "checking field "..i );
         testLoc = position( Posi.x + dir[ 1 ], Posi.y + dir[ 2 ], Posi.z );
         if world:isItemOnField( testLoc ) then
 		    theItem=world:getItemOnField(testLoc);
 		    if allowed[theItem.id] == nil then
-            --User:inform( "block found at "..i );
-            block = block + dir[ 3 ];
+              block = block + dir[ 3 ];
 			end
         end
     end
@@ -175,35 +172,69 @@ function BlockCheck(Posi)
     end
 end
 
---[[function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
     cauldron = TargetItem
 	
-	-- is the char an alchemist?
-	if User:getMagicType() ~= 3 then
-	  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
-	  base.common.InformNLS( User,
-			"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-			"Only those who have been introduced to the art of alchemy are able to work here.",
-			Player.lowPriority
-			)
-	  return;
-	end
+	if ( ltstate == Action.abort ) then
+		   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	       return
+		end
+		
+		-- is the char an alchemist?
+	    if User:getMagicType() ~= 3 then
+		  base.common.InformNLS( User,
+				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
+				"Only those who have been introduced to the art of alchemy are able to work here.")
+		  return;
+	    end
+		
+		if ( ltstate == Action.none ) then
+            User:startAction( 20, 21, 5, 0, 0)
+			return
+		end	
 
 	-- water, essence brew, potion or stock is in the cauldron; leads to a failure
 	if cauldron:getData("cauldronFilledWith") == "water" then
-		User:talkLanguage(Character.say, Player.german, "water -> water, fail")
-		 -- define effect
+		base.common.InformNLS( User,
+				"Der Kessel läuft über. Offensichtlich war schon Wasser in ihm.",
+				"The water runs over. Obviously, ther was already water in it.")
+		world:makeSound(9,cauldron.pos)
+		world:gfx(11,cauldron.pos)
+		
 	elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
-		User:talkLanguage(Character.say, Player.german, "water -> essenceBrew, fail")
-		-- define effect
+		world:gfx(1,cauldron.pos)
+		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		                            "The substance in the cauldron blows out, as you fill the water in.")
+		cauldron:setData("essenceHerbs","")
+		cauldron:setData("cauldronFilledWith","")
+        cauldron:setData("potionId","")		
+									
 	elseif cauldron:getData("potionEffectId") ~= "" then
-		User:talkLanguage(Character.say, Player.german, "water -> potion, fail")
-		-- define effect
+		if cauldron:getData("potionId") == "165" then
+		    world:makeSound(10,cauldron.pos)
+		    cauldron:setData("cauldronFilledWith","water")
+		else
+			base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+										"The substance in the cauldron blows out, as you fill the water in.")
+		end
+		world:gfx(1,cauldron.pos)
+		cauldron:setData("potionEffectId","")
+		cauldron:setData("potionId","")
+		cauldron:setData("potionQuality","")
+		
 	elseif cauldron:getData("stockData") ~= "" then
-		User:talkLanguage(Character.say, Player.german, "water -> stock, fail")
-		-- define effect
-	
+		world:gfx(1,cauldron.pos)
+		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		                            "The substance in the cauldron blows out, as you fill the water in.")
+	    cauldron:setData("stockData","")
+	    
 	else -- nothing in the cauldron, we just fill in the water
-	    cauldron:setData
+	    world:makeSound(10,cauldron.pos)
+		cauldron:setData("cauldronFilledWith","water")
     end
-end]]
+
+	world:changeItem(cauldron)
+	SourceItem.id = 51
+	SourceItem.quality = 333
+	world:changeItem(SourceItem)
+end

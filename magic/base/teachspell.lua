@@ -6,39 +6,39 @@ Students = {};
 function DoTeachSpell(TeachingChar,StudentChar)
 
     if (TeachingChar.id == StudentChar.id) then
-        base.common.TempInformNLS(TeachingChar,
+        base.common.InformNLS(TeachingChar,
         "Du kannst dir nicht selbst Runen beibringen.",
         "You can't teach yourself runes.");
         return;
     end
 
     if (LuaAnd(StudentChar:getQuestProgress(24),1) ~= 0 ) then
-        base.common.TempInformNLS(TeachingChar,
+        base.common.InformNLS(TeachingChar,
         "Dein Schüler kann keine Runen lernen.",
         "Your student is not able to learn runes.");
         return;
     end
 
     if (LuaAnd(TeachingChar:getQuestProgress(24),1) ~= 0 ) then
-        base.common.TempInformNLS(TeachingChar,
+        base.common.InformNLS(TeachingChar,
         "Du bist nicht in der Lage Runen zu lehren.",
         "You are unable to teach runes.");
         return;
     end
 
     if (LuaAnd(StudentChar:getMagicFlags(0),2^Rune.value) ~= 0) then
-        base.common.TempInformNLS(TeachingChar,
+        base.common.InformNLS(TeachingChar,
         "Dein Schüler kennt diese Rune schon.",
         "You student already knows that rune.");
         return;
     end
 
     if not LTERuneLock( StudentChar ) then
-        base.common.TempInformNLS(TeachingChar,
+        base.common.InformNLS(TeachingChar,
         "Du kannst diesem Schüler im Augenblick nichts beibringen. Er ist noch nicht bereit dazu.",
         "You can't teach this student anything at the moment. He is not ready yet.");
 
-        base.common.TempInformNLS(StudentChar,
+        base.common.InformNLS(StudentChar,
         "Im Augenblick kannst du keine weiteren Runen lernen. Du bist noch nicht bereit für weitere Runen.",
         "At the moment you can't learn more runes. You are not able yet to learn more.");
 
@@ -47,13 +47,13 @@ function DoTeachSpell(TeachingChar,StudentChar)
 
     if Teacher.attribsum then
         if Teacher.attribsum > GetAttributeSum( TeachingChar ) then
-            base.common.TempInformNLS(TeachingChar,
+            base.common.InformNLS(TeachingChar,
             "Du bist nicht fähig diese Rune zu lehren.",
             "You are not able to teach this rune.");
             return;
         end
     elseif GetAttributeSum( TeachingChar ) < 0 then
-        base.common.TempInformNLS(TeachingChar,
+        base.common.InformNLS(TeachingChar,
         "Du bist nicht fähig zu lehren.",
         "You are not able to teach.");
         return;
@@ -61,7 +61,7 @@ function DoTeachSpell(TeachingChar,StudentChar)
 
     if Teacher.skill then
         if Teacher.skill.value > GetSkillValue( TeachingChar, Teacher.skill.name ) then
-            base.common.TempInformNLS(TeachingChar,
+            base.common.InformNLS(TeachingChar,
             "Du bist noch nicht fähig diese Rune zu lehren.",
             "You are not able yet to teach this rune.");
             return;
@@ -70,19 +70,19 @@ function DoTeachSpell(TeachingChar,StudentChar)
 
     if Student.attribsum then
         if Student.attribsum > GetAttributeSum( StudentChar ) then
-            base.common.TempInformNLS(StudentChar,
+            base.common.InformNLS(StudentChar,
             "Du bist nicht fähig diese Rune zu lehren.",
             "You are not able to teach this rune.");
-            base.common.TempInformNLS(TeachingChar,
+            base.common.InformNLS(TeachingChar,
             "Dein Schüler ist nicht fähig diese Rune zu lernen.",
             "Your student ist not able to learn this rune.");
             return;
         end
     elseif GetAttributeSum( StudentChar ) < 0 then
-        base.common.TempInformNLS(StudentChar,
+        base.common.InformNLS(StudentChar,
         "Du bist nicht fähig Magie zu erlernen.",
         "You are not able to learn magic.");
-        base.common.TempInformNLS(TeachingChar,
+        base.common.InformNLS(TeachingChar,
         "Dein Schüler ist nicht fähig Magie zu lernen.",
         "Your student ist not able to learn magic.");
         return;
@@ -90,10 +90,10 @@ function DoTeachSpell(TeachingChar,StudentChar)
 
     if Student.skill then
         if Student.skill.value > GetSkillValue( StudentChar, Student.skill.name ) then
-            base.common.TempInformNLS(StudentChar,
+            base.common.InformNLS(StudentChar,
             "Du bist noch nicht fähig diese Rune zu lehren.",
             "You are not able yet to learn this rune.");
-            base.common.TempInformNLS(TeachingChar,
+            base.common.InformNLS(TeachingChar,
             "Dein Schüler ist noch nicht fähig diese Rune zu lernen.",
             "Your student ist not able yet to learn this rune.");
             return;
@@ -110,18 +110,18 @@ function DoTeachSpell(TeachingChar,StudentChar)
     TeachingChar.activeLanguage = Language;
 
     if (Students[TeachingChar.id + StudentChar.id] ~= Rune.value) then
-        base.common.TempInformNLS(TeachingChar,
+        base.common.InformNLS(TeachingChar,
         "Du konzentrierst dich auf deinen Schüler. Wiederhole deine Worte um ihm die Macht der Rune "..Rune.name.." zu übergeben.",
         "You focus on your student. Repeat your words to give him the power of the rune "..Rune.name..".");
         Students[TeachingChar.id + StudentChar.id] = Rune.value;
         return;
     end
 
-    base.common.TempInformNLS(TeachingChar,
+    base.common.InformNLS(TeachingChar,
     "Du gibst deinem Studenten die Kraft der Rune "..Rune.name..".",
     "You give your student the power of the rune "..Rune.name..".");
 
-    base.common.TempInformNLS(StudentChar,
+    base.common.InformNLS(StudentChar,
     "Du fühlst wie die Kraft der Rune "..Rune.name.." deinen Körper durchflutet.",
     "You feel how the power of the rune "..Rune.name.." flows thougth your body.");
 
@@ -329,7 +329,7 @@ function TeachingRoom( posi )
 end
 
 function CastMagic(Caster,counter,param, ltstate)
-    base.common.TempInformNLS( Caster,
+    base.common.InformNLS( Caster,
     "Dieser Zauber hat hier keinen Effekt.",
     "This spell has no effect at all here." );
 end
@@ -343,13 +343,13 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param, ltstate)
 end
 
 function CastMagicOnField(Caster,Targetpos,counter,param, ltstate)
-    base.common.TempInformNLS( Caster,
+    base.common.InformNLS( Caster,
     "Dieser Zauber hat hier keinen Effekt.",
     "This spell has no effect at all here." );
 end
 
 function CastMagicOnItem(Caster,TargetItem,counter,param, ltstate)
-    base.common.TempInformNLS( Caster,
+    base.common.InformNLS( Caster,
     "Dieser Zauber hat hier keinen Effekt.",
     "This spell has no effect at all here." );
 end

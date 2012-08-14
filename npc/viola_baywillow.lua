@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 16, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: August 13, 2012                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -22,6 +22,7 @@ require("npc.base.condition.language")
 require("npc.base.condition.race")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.warp")
 require("npc.base.talk")
 module("npc.viola_baywillow", package.seeall)
 
@@ -38,6 +39,7 @@ talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(314, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(31, 22, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

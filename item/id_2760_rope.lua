@@ -113,7 +113,7 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
 	
 	if SourceItem.data == 1 then
 		
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Du solltest das Seil fest in der Hand behalten. Damit ist jemand gefesselt.",
 			"You should hold the rope tight in your hand. Someone is tied up with it.")
 		return false;
@@ -126,7 +126,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	
 	-- check if rope is in hands
 	if SourceItem:getType() ~= 4 then
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Du musst das Seil in die Hand nehmen, wenn du jemanden fesseln willst.",
 			"You have to take the rope in your hand if you want to tie up someone.")
 		return;
@@ -136,7 +136,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	if (ltstate == Action.abort) then
 		gText = GetRaceGenderText(0,Target);
 		eText = GetRaceGenderText(1,Target);
-		base.common.TempInformNLS ( User,
+		base.common.InformNLS ( User,
 			"Dir gelingt es nicht "..gText.." zu fesseln.",
 			"You don't succeed in tying up "..eText..".");
 		return;
@@ -144,14 +144,14 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	
 	-- check viewing direction
 	if not base.common.IsLookingAt(User, Target.pos) then
-		base.common.TempInformNLS( User,
+		base.common.InformNLS( User,
 			"Du solltest dort hinschauen, wo dein Gefangener ist.",
 			"You should look in your captive's direction.");
 		return;
 	end
 	
 	if User.effects:find(26) then
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Du hast schon einen Gefangenen.",
 			"You already have a captive.");
 		return;
@@ -159,14 +159,14 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	
 	-- tie up only PCs without admin rights
 	if Target:getType()~=0 or ( Target:isAdmin() and not User:isAdmin() ) then
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Dieses Wesen kannst du nicht fesseln.",
 			"You can't tie this creature up.");
 		return;
 	end
 	
 	if User.id==Target.id then
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Du solltest dich nicht selbst fesseln.",
 			"You shouldn't tie up yourself.");
 		return;
@@ -174,21 +174,21 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	
 	-- Check if User is in attackmode
 	if User.attackmode then
-		base.common.TempInformNLS ( User,
+		base.common.InformNLS ( User,
 			"Du kannst niemanden fesseln, während du kämpfst.",
 			"You can't tie someone up while you are fighting." );
 		return;
 	end
 	
 	if lte.tying_capturer.HasEnoughCapturers(Target) then
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Der Gefangene ist nun schon ausreichend gefesselt.",
 			"The captive is now sufficiently tied up already.");
 		return;
 	end
 	
 	if User.effects:find(24) then
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Dir sind leider die Hände gebunden.",
 			"Unfortunately your hands are tied.");
 		return;
@@ -218,7 +218,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 		User:talkLanguage(Character.say, Player.german, "#me versucht "..gText.." zu fesseln.");
 		User:talkLanguage(Character.say, Player.english, "#me tries to tie up "..eText..".");
 		
-		base.common.TempInformNLS(Target,
+		base.common.InformNLS(Target,
 			"Jemand versucht dich zu fesseln!",
 			"Someone tries to tie you up!");
 		
@@ -238,7 +238,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	end
 	-- check if target has moved
 	if TargetPosList and not equapos( TargetPosList[Target.id], Target.pos ) then
-		base.common.TempInformNLS( User,
+		base.common.InformNLS( User,
 			"Dein Gefangener sollte still halten, damit du ihn fesseln kannst.",
 			"Your captive should hold still so you can tie him up.");
 		return;
@@ -263,7 +263,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 			item = Target:getItemAt(i);
 			if item.id > 0 and item.id ~= 228 then
 				world:createItemFromItem(item,Target.pos,true);
-				base.common.TempInformNLS(Target,
+				base.common.InformNLS(Target,
 					"Du kannst nichts mehr in den Händen halten.",
 					"You can't carry anything any more in your hands.");
 			end
@@ -282,7 +282,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	if not foundEffectTarget then
 		gText = "#me hat ein festes Seil um die Hände.";
 		eText = "#me has a tight rope around the hands.";
-		base.common.TempInformNLS(User,
+		base.common.InformNLS(User,
 			"Der Gefangene folgt nun dir.",
 			"Now the captive follows you.");
 	else
@@ -292,7 +292,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	Target:talkLanguage(Character.say, Player.german, gText);
 	Target:talkLanguage(Character.say, Player.english, eText);
 	if Target.effects:find(26) then
-		base.common.TempInformNLS(Target,
+		base.common.InformNLS(Target,
 			"Du kannst deinen Gefangenen nicht mehr halten und lässt ihn frei.",
 			"You can't hold your captive any more. You release him.");
 		Target.effects:removeEffect(26);
@@ -317,7 +317,7 @@ function StrengthenKnot(User, Rope, TargetItem)
 					local Quality = math.min(600,120+math.random(25,35)*AttribOffset);
 					TargetItem.quality = math.min(2500,TargetItem.quality+(Quality*2));
 					world:changeItem(TargetItem);
-					base.common.TempInformNLS(User,
+					base.common.InformNLS(User,
 						"Du verstärkst den Knoten mit dem neuen Seil.",
 						"You strengthen the knot with the new rope.");
 					world:erase(Rope,1);
@@ -347,7 +347,7 @@ function TyingRopeHandler(User, Rope, Target)
 	foundCaptive, Captive = Tying:findValue("Captive");
 	if foundCaptive then
 		if Tying:findValue("logout") then
-			base.common.TempInformNLS(User,
+			base.common.InformNLS(User,
 				"Du lässt deinen Gefangenen frei.",
 				"You release your captive.");
 			User.effects:removeEffect(26);
@@ -404,10 +404,10 @@ function TyingRopeHandler(User, Rope, Target)
 										eText = GetRaceGenderText(1,Target);
 										User:talkLanguage(Character.say, Player.german, "#me übergibt das Seil an "..gText..".");
 										User:talkLanguage(Character.say, Player.english, "#me hands the rope to "..eText..".");
-										base.common.TempInformNLS(User,
+										base.common.InformNLS(User,
 											"Der Gefangene folgt dir nun nicht mehr.",
 											"Now the captive doesn't follow you any more.");
-										base.common.TempInformNLS(Target,
+										base.common.InformNLS(Target,
 											"Der Gefangene folgt nun dir.",
 											"Now the captive follows you.");
 										return true;

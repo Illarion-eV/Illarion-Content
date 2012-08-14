@@ -25,7 +25,7 @@ function DoItemSpell(Caster, TargetPos, ltstate)
     end
 
     if not base.common.IsLookingAt( Caster, TargetPos ) then
-        base.common.TempInformNLS( Caster,
+        base.common.InformNLS( Caster,
         "Du drehst dich auf dein Ziel zu um es in dein Blickfeld zu bekommen.",
         "You turn to your target to get it into your field of vision.");
         base.common.TurnTo( Caster, TargetPos );
@@ -49,7 +49,7 @@ function DoItemSpell(Caster, TargetPos, ltstate)
     end
 
     if not CasterVal then
-        base.common.TempInformNLS( Caster,
+        base.common.InformNLS( Caster,
         "Es gelingt dir nicht die nötige Konzentration aufzubringen um diesen Zauber zur Entfaltung zu bringen.",
         "You fail to concentrate enought to get this spell to its evolvement." );
         return;

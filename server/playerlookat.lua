@@ -18,10 +18,8 @@ module("server.playerlookat", package.seeall)
 
 function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 	content.uniquechardescription.InitPlayerDesc();
-    -- SourceCharacter:inform("first");
     -- here we go the lookat
     -- Generate the looking at value
-    -- SourceCharacter:inform("h, m  ="..TargetCharacter:increaseAttrib("body_height",0).."  "..TargetCharacter:increaseAttrib("weight",0));
     LookingAt = mode * 50;
     LookingAt = LookingAt + SourceCharacter:increaseAttrib( "perception", 0 ) * 2;
     LookingAt = LookingAt + ( SourceCharacter:distanceMetric( TargetCharacter ) - 2 ) * ( -8 );
@@ -131,7 +129,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 
     if (mode == 1) then
         if (TargetCharacter:getPlayerLanguage() == 0) then
-            TargetCharacter:inform( "#w Du f�hlst dich beobachtet." );
+            TargetCharacter:inform( "Du fühlst dich beobachtet.",Player.mediumPriority );
             if base.common.IsLookingAt( TargetCharacter, SourceCharacter.pos ) then
                 if ( SourceCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
                     TargetCharacter:sendCharDescription( SourceCharacter.id , "Er scheint dich anzustarren." );
@@ -140,7 +138,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
                 end
             end
         else
-            TargetCharacter:inform( "#w You feel watched" );
+            TargetCharacter:inform( "You feel watched.",Player.mediumPriority );
             if base.common.IsLookingAt( TargetCharacter, SourceCharacter.pos ) then
                 if ( SourceCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
                     TargetCharacter:sendCharDescription( SourceCharacter.id , "He appears to stare at you." );
@@ -534,7 +532,7 @@ function handleCustomLookat(TargetChar,SourceChar,Item)
 				customText = customText .. world:getItemName( Item.id, lang ) .. " ";
 			end
 			customText = customText .. CustomLookAt[Item.id][itemData][lang+1] .. ". ";
-			SourceChar:inform( "#w " .. customText );
+			SourceChar:inform( customText,Player.mediumPriority );
 		end
 	end
 end
@@ -561,7 +559,7 @@ function createDevotionInform(SourceCharacter, TargetCharacter)
 			gText = gText .. "Priester ";
 			eText = eText .. "priest ";
 		else
-			gText = gText .. "Anh�nger ";
+			gText = gText .. "Anhänger ";
 			eText = eText .. "devotee ";
 		end
 	else
@@ -571,12 +569,12 @@ function createDevotionInform(SourceCharacter, TargetCharacter)
 			gText = gText .. "Priesterin ";
 			eText = eText .. "priestess ";
 		else
-			gText = gText .. "Anh�ngerin ";
+			gText = gText .. "Anhängerin ";
 			eText = eText .. "devotee ";
 		end
 	end
 	gText = gText .. godName .."s.";
 	eText = eText .. "of " .. godName ".";
 	
-	base.common.TempInformNLS(SourceCharacter, gText, eText);
+	base.common.InformNLS(SourceCharacter, gText, eText);
 end

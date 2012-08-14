@@ -5,7 +5,7 @@
 require("item.general.metal")
 require("item.base.crafts")
 
-module("item.id_6_scissors", package.seeall, package.seeall(item.general.metal))
+module("item.id_6_scissors", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );
@@ -174,4 +174,8 @@ function GetWoolFromSheep(User,SourceItem, Sheep, ltstate)
     end
     
     base.common.GetHungry( User, 100 ); 
+end
+
+function LookAtItem(User,Item)
+    item.general.metal.LookAtItem(User,Item)
 end

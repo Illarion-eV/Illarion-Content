@@ -103,7 +103,7 @@ function Lever:switchLever(Char)                    -- switch the lever; return 
                 end
             end
         else
-            if Char~=nil then Char:inform("Not strong enough.") end;
+
             return thisState;
         end
         
