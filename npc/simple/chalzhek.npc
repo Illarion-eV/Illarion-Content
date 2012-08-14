@@ -2,13 +2,13 @@
 -- NPC Name: Chalzhek                                                Runewick --
 -- NPC Job:  Watersage                                                        --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  0, 0, 0                --
+-- NPC Race: lizardman                  NPC Position:  790, 818, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Regallo                                                          --
 --           ...with a little help of Estralis Seborian                       --
 --                                                                            --
--- Last parsing: June 01, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: August 15, 2012                         easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Chalzhek"
@@ -64,38 +64,33 @@ itemShoes = 53
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to our temple.", "Great morning isnt it?", "Hey! How may I help you?"
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
-"Hiho", "Hallo", "Hey", "Greeb", english ->"Welcome to our temple.", "Great morning isnt it?", "Hey! How may I help you?"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Welcome to our temple.", "Great morning isnt it?", "Hey! How may I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "Farewell", "Bye", "Fare well", "See you" -> "Have a good day.", "If you ever need something I will be here.", "I will see you later, ok."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have a good day.", "If you ever need something I will be here.", "I will see you later, ok."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "How are you", "How feel", "How do you do" -> "Even in my old age. I can feel the energy all around me. I feel Great.", "I truly am happy.", "Very bored at the moment."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "your name", "who are you", "who art thou" -> "Chal Pal", "Chal The Aquasage", "I am Chal of the Reed 13, former Hero and leader of Paltaka Village."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
---"quest", "mission", english -> "to be determined.", "To be determined.", "To be determined."
---"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
---"task", "adventure", "order" -> "to be determined.", "To be determined.", "To be determined."
---"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "quest", "mission", english -> "to be determined.", "To be determined.", "To be determined."
+-- "quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "task", "adventure", "order" -> "to be determined.", "To be determined.", "To be determined."
+-- "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am one of the seven Warsages.", "I am a Warsage and part time adventurer, yes even now.", "I am the Aquasage, A Warsage that uses aqua magic and the tagik fighting style, a most explosive combination if I do say so myself."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english ->  "I am one of the seven Warsages.", "I am a Warsage and part time adventurer, yes even now.", "I am the Aquasage, A Warsage that uses aqua magic and the tagik fighting style, a most explosive combination if I do say so myself."
+"job", english -> "I am one of the seven Warsages.", "I am a Warsage and part time adventurer, yes even now.", "I am the Aquasage, A Warsage that uses aqua magic and the tagik fighting style, a most explosive combination if I do say so myself."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"Warsage" -> "We are the most elite fighting force in Runewick and possibly all of Illarion.","We are the weapons that are a deadly, I prefer the word explosive, balance between magic and fighting.","We are the gaurdians of Runewick, order and justice."
+"Warsage" -> "We are the most elite fighting force in Runewick and possibly all of Illarion.", "We are the weapons that are a deadly, I prefer the word explosive, balance between magic and fighting.", "We are the gaurdians of Runewick, order and justice."
 "Aqua" -> "I specialize in water and ice magic. I can do massive damage with steam too. You should have seen me in the battle of Arktch, Hahahahaha."
 "Water" -> "It's so versitle it can be used for anything."
 "Ice" -> "Use this when you really want to make a point."
