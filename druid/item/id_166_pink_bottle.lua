@@ -33,7 +33,7 @@ function DrinkPotion(User,SourceItem)
 	    local dataZList = druid.base.alchemy.SplitBottleData(User,potionEffectId);
 	    -- taste and effect message
 	    druid.base.alchemy.generateTasteMessage(User,dataZList)
-		--GenerateEffectMessage(User,dataZList)
+		GenerateEffectMessage(User,dataZList)
 		for i=1,8 do
 			-- effects
 			if (i == 3) or (i == 6) then  -- poison
@@ -81,22 +81,25 @@ end
 function GenerateEffectMessage(User,dataZList)
     local effectMessageDE = ""
 	local effectMessageEN = ""
+	local anyEffect = false
 	
-	ListPositiveEffectDE = {"Deine Lebenskraft nimmt sofort zu."   ,"Dein Mana nimmt sofort zu."   ,"Du fühlst dich sofort satter." ,"Das Gift in dir wird sofort geschwächt.","Deine Lebenskraft nimmt mit der Zeit zu.","Dein Mana nimmt mit der Zeit zu.","Mit der Zeit wächst dein Hunger.","Das Gift in dir wir dmit der Zeit schwächer."}
-	ListNegativeEffectDE = {"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
-	ListPositiveEffectEN = {"Your life energy increases instantly.","Your mana increases instanly.","You feel more sated instantly.","The poison in you is instalny weakened.","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
-	ListNegativeEffectEN = {"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
+	ListPositiveEffectDE = {"Deine Lebenskraft nimmt sofort zu."   ,"Dein Mana nimmt sofort zu."   ,"Du fühlst dich sofort satter."      ,"Das Gift in dir wird geschwächt."       ,"Deine Lebenskraft nimmt mit der Zeit zu.","Dein Mana nimmt mit der Zeit zu.","Mit der Zeit nimmt dein Hunger ab.","Das Gift in dir wird mit der Zeit schwächer."}
+	ListNegativeEffectDE = {"Deine Lebenskraft nimmt sofort ab."   ,"Dein Mana nimmt sofort ab."   ,"Du fühlst dich plötlzich hungriger.","Gift breitet sich in dir aus."          ,"Deine Lebenskraft nimmt mit der Zeit ab.","Dein Mana nimmt mit der Zeit ab.","Mit der Zeit nimmt dein Hunger zu.","Mit der Zeit breitet sich ein stärker werdendes Gift aus."}
+	ListPositiveEffectEN = {"Your life energy increases instantly.","Your mana increases instanly.","You feel instantly more sated."     ,"The poison in you is instalny weakened.","Your life energy increases with time."   ,"Your mana increases with time."  ,"Your hunger decreases with time."  ,"The poison is weakend with time."}
+	ListNegativeEffectEN = {"Your life energy decreases instantly.","Your mana decreases instanly.","You feel instantly more hungry."    ,"You are poisoned."                      ,"Your life energy decreases with time."   ,"Your mana decreases with time."  ,"Your hunger increases with time."  ,"A with time stronger getting poison spreads in your body."}
 	
 	for i=1,8 do
 		if (dataZList[i] > 5) then
-		   effectMessageDE = effectMessageDE..ListPositiveEffectDE[i]
-		   effectMessageEN = effectMessageEN..ListPositiveEffectEN[i]
+		   effectMessageDE = effectMessageDE.." "..ListPositiveEffectDE[i]
+		   effectMessageEN = effectMessageEN.." "..ListPositiveEffectEN[i]
+	       anyEffect = true
 	   elseif (dataZList[i] < 5) then
-			effectMessageDE = effectMessageDE..ListNegativeEffectDE[i]
-			effectMessageEN = effectMessageEN..ListNegativeEffectEN[i]
+			effectMessageDE = effectMessageDE.." "..ListNegativeEffectDE[i]
+			effectMessageEN = effectMessageEN.." "..ListNegativeEffectEN[i]
+	        anyEffect = true
 	   end
 	end
-	if (effeceMessageDE == "") and (effeceMessageEN == "") then
+	if anyEffect == false then
 	    effectMessageDE = "Du spührst keine Wirkung."
 		effectMessageEN = "You don't feel any effect."
 	end

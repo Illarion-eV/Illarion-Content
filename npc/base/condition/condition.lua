@@ -9,6 +9,10 @@ condition = base.class.class(function(self)
     self["check"] = _condition_helper_empty;
 end);
 
+function condition:setNPC(npc)
+    self["npc"] = npc;
+end;
+
 function _condition_helper_empty(self, npcChar, player)
     -- by default nothing is done
 end;
