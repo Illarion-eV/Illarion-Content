@@ -81,6 +81,7 @@ end
 function GenerateEffectMessage(User,dataZList)
     local effectMessageDE = ""
 	local effectMessageEN = ""
+	local anyEffect = false
 	
 	ListPositiveEffectDE = {"Deine Lebenskraft nimmt sofort zu."   ,"Dein Mana nimmt sofort zu."   ,"Du fühlst dich sofort satter."      ,"Das Gift in dir wird geschwächt."       ,"Deine Lebenskraft nimmt mit der Zeit zu.","Dein Mana nimmt mit der Zeit zu.","Mit der Zeit nimmt dein Hunger ab.","Das Gift in dir wird mit der Zeit schwächer."}
 	ListNegativeEffectDE = {"Deine Lebenskraft nimmt sofort ab."   ,"Dein Mana nimmt sofort ab."   ,"Du fühlst dich plötlzich hungriger.","Gift breitet sich in dir aus."          ,"Deine Lebenskraft nimmt mit der Zeit ab.","Dein Mana nimmt mit der Zeit ab.","Mit der Zeit nimmt dein Hunger zu.","Mit der Zeit breitet sich ein stärker werdendes Gift aus."}
@@ -91,12 +92,14 @@ function GenerateEffectMessage(User,dataZList)
 		if (dataZList[i] > 5) then
 		   effectMessageDE = effectMessageDE.." "..ListPositiveEffectDE[i]
 		   effectMessageEN = effectMessageEN.." "..ListPositiveEffectEN[i]
+	       anyEffect = true
 	   elseif (dataZList[i] < 5) then
 			effectMessageDE = effectMessageDE.." "..ListNegativeEffectDE[i]
 			effectMessageEN = effectMessageEN.." "..ListNegativeEffectEN[i]
+	        anyEffect = true
 	   end
 	end
-	if (effeceMessageDE == "") and (effeceMessageEN == "") then
+	if anyEffect == false then
 	    effectMessageDE = "Du spührst keine Wirkung."
 		effectMessageEN = "You don't feel any effect."
 	end
