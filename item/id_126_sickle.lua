@@ -22,6 +22,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return		
 	end
 	
+	if (string.find(User.lastSpokenText,"poison")~=nil) then 
+	    a,b,myPS=string.find(User.lastSpokenText,"(%d+)") 
+		poisonChange = tonumber(myPS)
+		User:increaseAttrib("poisonvalue",poisonChange)
+		myPoisonMsg = "poison value is "..User:increaseAttrib("poisonvalue",0)
+		base.common.InformNLS(User,""..myPoisonMsg,""..myPoisonMsg)
+	end 
+	
 	if (string.find(User.lastSpokenText,"create potion")~=nil) then 
 	   a,b,myId,myEffect,myQuali=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)") 
 		nId = tonumber(myId)
