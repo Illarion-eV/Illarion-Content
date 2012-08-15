@@ -158,6 +158,10 @@ end;
 --- removed during its first call. Instead the function originally named
 --- baseNPC:nextCycle2() will take its place and serve its actual purpose.
 function baseNPC:nextCycle()
+	if (self["npcChar"] == nil) then
+		self["npcChar"] = thisNPC;
+	end;
+
     if (self.initLanguages ~= nil) then
         self:initLanguages();
     end;
