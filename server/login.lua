@@ -30,7 +30,7 @@ function onLogin( player )
 					    
 		end
 
-		if  player:isInRangeToPosition(position(32,20,100),4) then --only show the dialog if the char is close to the noob spawn
+		if  player:isInRangeToPosition(position(31,22,100),7) then --only show the dialog if the char is close to the noob spawn
 		
 		    local callbackNewbie = function(dialogNewbie) end; --empty callback
 		
