@@ -12,5 +12,5 @@ function(self, tradeNPC)
 end);
 
 function _trade_helper(self, npcChar, player)
-    self.tradeNPC:showDialog(player); 
+    self.tradeNPC:showDialog(npcChar, player); 
 end;

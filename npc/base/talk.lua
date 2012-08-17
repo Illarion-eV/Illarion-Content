@@ -49,12 +49,12 @@ function talkNPC:addTalkingEntry(newEntry)
     table.insert(self._entry, newEntry);
 end;
 
-function talkNPC:receiveText(player, text)
+function talkNPC:receiveText(npcChar, player, text)
 	local result = false;
 	
 	table.foreach(self._entry, function(_, entry)
-        if entry:checkEntry(player, text) then
-            entry:execute(player);
+        if entry:checkEntry(npcChar, player, text) then
+            entry:execute(npcChar, player);
 			result = true;
             return true;
         end;
@@ -63,12 +63,12 @@ function talkNPC:receiveText(player, text)
     return result;
 end;
 
-function talkNPC:nextCycle(counter)
+function talkNPC:nextCycle(npcChar, counter)
     if (counter >= self._nextCycleText) then
 	    self._nextCycleText = math.random(1200, 3600); --2 to 6 minutes
         local german, english = self._cycleText:getRandomMessage();
-        self._parent.npcChar:talkLanguage(Character.say, Player.german, german);
-        self._parent.npcChar:talkLanguage(Character.say, Player.english, english);
+        npcChar:talkLanguage(Character.say, Player.german, german);
+        npcChar:talkLanguage(Character.say, Player.english, english);
     else
         self._nextCycleText = self._nextCycleText - counter;
     end;
@@ -136,14 +136,14 @@ function talkNPCEntry:addConsequence(consequence)
 	end;
 end;
 
-function talkNPCEntry:checkEntry(player, text)
+function talkNPCEntry:checkEntry(npcChar, player, text)
     for _1, pattern in pairs(self._trigger) do
         local a, _2, number = string.find(text, pattern);
         self._saidNumber = number;
         if (a ~= nil) then
             local conditionsResult = true;
             for _3, condition in pairs(self._conditions) do
-                if not condition:check(self._parent.npcChar, player) then
+                if not condition:check(npcChar, player) then
                     conditionsResult = false;
                     break;
                 end;
@@ -156,19 +156,19 @@ function talkNPCEntry:checkEntry(player, text)
     end;
 end;
 
-function talkNPCEntry:execute(player)
+function talkNPCEntry:execute(npcChar, player)
     if (self._responsesCount > 0) then
         local selectedResponse = math.random(1, self._responsesCount);
 
     	self._responses[selectedResponse] = string.gsub(self._responses[selectedResponse],"%%CHARNAME",player.name);
-    	self._responses[selectedResponse] = string.gsub(self._responses[selectedResponse],"%%NPCNAME",self._parent.npcChar.name);
+    	self._responses[selectedResponse] = string.gsub(self._responses[selectedResponse],"%%NPCNAME",npcChar.name);
     	
-		self._parent.npcChar:talk(Character.say, self._responses[selectedResponse]);
+		npcChartalk(Character.say, self._responses[selectedResponse]);
     end;
     
 	table.foreach(self._consequences, function(_, consequence)
 		if consequence then
-			consequence:perform(self._parent.npcChar, player);
+			consequence:perform(npcChar, player);
 		end;
 	end);
 end;

@@ -51,25 +51,25 @@ function tradeNPC:addDialogClosedNoTradeMsg(msgGerman, msgEnglish)
     self._dialogClosedNoTradeMsg:addMessage(msgGerman, msgEnglish);
 end;
 
-function tradeNPC:showDialog(player)
+function tradeNPC:showDialog(npcChar, player)
     local anyTradeAction = false;
     local callback = function(dialog)
         local result = dialog:getResult()
         if result == MerchantDialog.playerSells then
-            self:buyItemFromPlayer(player, dialog:getSaleItem());
+            self:buyItemFromPlayer(npcChar, player, dialog:getSaleItem());
             anyTradeAction = true;
         else
             if result == MerchantDialog.playerBuys then
-                self:sellItemToPlayer(player, dialog:getPurchaseIndex(), dialog:getPurchaseAmount());
+                self:sellItemToPlayer(npcChar, player, dialog:getPurchaseIndex(), dialog:getPurchaseAmount());
                 anyTradeAction = true;
             elseif (not anyTradeAction and self._dialogClosedNoTradeMsg:hasMessages()) then
                 local msgGerman, msgEnglish = self._dialogClosedNoTradeMsg:getRandomMessage();
-                self._parent.npcChar:talkLanguage(Character.say, Player.german, msgGerman);
-                self._parent.npcChar:talkLanguage(Character.say, Player.english, msgEnglish);
+                npcChar:talkLanguage(Character.say, Player.german, msgGerman);
+                npcChar:talkLanguage(Character.say, Player.english, msgEnglish);
             elseif (self._dialogClosedMsg:hasMessages()) then    
                 local msgGerman, msgEnglish = self._dialogClosedMsg:getRandomMessage();
-                self._parent.npcChar:talkLanguage(Character.say, Player.german, msgGerman);
-                self._parent.npcChar:talkLanguage(Character.say, Player.english, msgEnglish);
+                npcChar:talkLanguage(Character.say, Player.german, msgGerman);
+                npcChar:talkLanguage(Character.say, Player.english, msgEnglish);
             end;
         end;
     end;
@@ -98,7 +98,7 @@ local function isFittingItem(tradeItem, boughtItem)
     return true;
 end;
 
-function tradeNPC:buyItemFromPlayer(player, boughtItem)
+function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
     for index, item in pairs(self._buyItems) do 
         if isFittingItem(item, boughtItem) then
             local price = item._price * boughtItem.number;
@@ -110,7 +110,7 @@ function tradeNPC:buyItemFromPlayer(player, boughtItem)
     end
 end;
 
-function tradeNPC:sellItemToPlayer(player, itemIndex, amount)
+function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
     local item = self._sellItems[itemIndex];
     if (item == nil) then
         base.common.InformNLS(player, "Ein Fehler ist beim Kauf des Items aufgetreten", "And error occurred while buying the item");
@@ -125,8 +125,8 @@ function tradeNPC:sellItemToPlayer(player, itemIndex, amount)
         end;
     elseif (self._notEnoughMoneyMsg:hasMessages()) then
         local msgGerman, msgEnglish = self._notEnoughMoneyMsg:getRandomMessage();
-        self._parent.npcChar:talkLanguage(Character.say, Player.german, msgGerman);
-        self._parent.npcChar:talkLanguage(Character.say, Player.english, msgEnglish);
+        npcChar:talkLanguage(Character.say, Player.german, msgGerman);
+        npcChar:talkLanguage(Character.say, Player.english, msgEnglish);
     end;
 end;
 

@@ -14,16 +14,7 @@ module("npc.base.basic", package.seeall)
 --- Constructor for the baseNPC. This does not take any paramters.
 --
 -- The sole purpose is to prepare all required values in the NPC script.
-baseNPC = base.class.class(function(self, npcChar)
-	-- This variable holds the reference to the NPC character that is using
-	-- this base NPC.
-	self["npcChar"] = nil;
-	if (npcChar == nil) then
-		self["npcChar"] = thisNPC;
-	else
-		self["npcChar"] = npcChar;
-	end;
-	
+baseNPC = base.class.class(function(self)	
     -- The state of the NPC. This value can be used to have the special parts
     -- of the NPC communicating with each other.
     self["state"] = baseNPC.stateNormal;
@@ -157,11 +148,9 @@ end;
 --- manages and calls the functions registered this NPC. This function will be
 --- removed during its first call. Instead the function originally named
 --- baseNPC:nextCycle2() will take its place and serve its actual purpose.
-function baseNPC:nextCycle()
-	if (self["npcChar"] == nil) then
-		self["npcChar"] = thisNPC;
-	end;
-
+--
+--  @param npcChar the NPC character
+function baseNPC:nextCycle(npcChar)
     if (self.initLanguages ~= nil) then
         self:initLanguages();
     end;
@@ -171,8 +160,8 @@ function baseNPC:nextCycle()
         self["_equipmentList"] = nil;
         
         table.foreach(tempList, function(key, value)
-            self.npcChar:createAtPos(value[1], value[2], 1);
-            local item = self.npcChar:getItemAt(value[1]);
+            npcChar:createAtPos(value[1], value[2], 1);
+            local item = npcChar:getItemAt(value[1]);
             item.wear = 255;
             item.quality = 999;
             world:changeItem(item);            
@@ -186,7 +175,9 @@ end;
 --- This method has to be called during each next cycle call of a NPC. It
 --- manages and calls the functions registered this NPC. This function will be
 --- copied to baseNPC:nextCycle() once the initialization is done.
-function baseNPC:nextCycle2()    
+--
+--  @param npcChar the NPC character
+function baseNPC:nextCycle2(npcChar)    
     if (self._cycleFunctions == nil) then
         return;
     end;
@@ -196,7 +187,7 @@ function baseNPC:nextCycle2()
         return;
     end;
     
-    self.npcChar.activeLanguage = self._defaultLanguage;
+    npcChar.activeLanguage = self._defaultLanguage;
     
     local oldCycle = self._cycleCounter;
     self._cycleCounter = 0;
@@ -204,10 +195,9 @@ function baseNPC:nextCycle2()
     
     local nextRequestedCall = 0;
     table.foreach(self._cycleFunctions, function(key, value)
-        nextRequestedCall = value:nextCycle(oldCycle);
+        nextRequestedCall = value:nextCycle(npcChar, oldCycle);
         if (nextRequestedCall ~= nil and nextRequestedCall >= 0) then
-            self._nextCycleCalls = math.min(self._nextCycleCalls,
-                nextRequestedCall);
+            self._nextCycleCalls = math.min(self._nextCycleCalls, nextRequestedCall);
         end;
     end);
 end;
@@ -216,19 +206,20 @@ end;
 --- method will maintain all functions registered to this class and call them
 --- properly in case its needed.
 --
+--  @param npcChar the NPC character
 --  @param speaker the character struct who said some text
 --  @param text the text that was spoken
 --  @return true in case the text was handled properly by one of the receive text handlers
-function baseNPC:receiveText(speaker, text)
+function baseNPC:receiveText(npcChar, speaker, text)
     if (self._receiveTextFunctions == nil) then
         return false;
     end;
     
-    if not self.npcChar:isInRange(speaker, 2) then
+    if not npcChar:isInRange(speaker, 2) then
         return false;
     end;
 
-    if (speaker.id == self.npcChar.id) then
+    if (speaker.id == npcChar.id) then
         return false;
     end;
 
@@ -237,18 +228,18 @@ function baseNPC:receiveText(speaker, text)
     end;
 
     if self._autointroduce then
-        speaker:introduce(self.npcChar);
+        speaker:introduce(npcChar);
     end;
     
     if not self:checkLanguageOK(speaker) then
-        self:_displayLanguageConfusion();
+        self:_displayLanguageConfusion(npcChar);
         return false;
     end;
-    self.npcChar.activeLanguage = speaker.activeLanguage;
+    npcChar.activeLanguage = speaker.activeLanguage;
     text = string.lower(text);
     
     table.foreach(self._receiveTextFunctions, function(key, value)
-        if (value:receiveText(speaker, text)) then
+        if (value:receiveText(npcChar, speaker, text)) then
             return true;
         end;
     end);
@@ -260,13 +251,15 @@ end;
 --- understand the language the player character is speaking. It should be
 --- called every time the languageOK check is failing because it has its own
 --- protection against spamming.
-function baseNPC:_displayLanguageConfusion()
+--
+--  @param npcChar the NPC character
+function baseNPC:_displayLanguageConfusion(npcChar)
     local currentUnix = world:getTime("unix");
     if (currentUnix - self._lastConfusionTimestamp > 59) then
         self._lastConfusionTimestamp = currentUnix;
-        self.npcChar.activeLanguage = self._defaultLanguage;
-        self.npcChar:talkLanguage(Character.say, Player.german, self._confusedDE);
-        self.npcChar:talkLanguage(Character.say, Player.english, self._confusedUS);
+        npcChar.activeLanguage = self._defaultLanguage;
+        npcChar:talkLanguage(Character.say, Player.german, self._confusedDE);
+        npcChar:talkLanguage(Character.say, Player.english, self._confusedUS);
     end;
 end;
 
@@ -340,28 +333,30 @@ end;
 --- This method handles the lookat requests that are send to the NPC. If set
 --- properly a message will be returned describing the appearance of the NPC.
 --
+--  @param npcChar the NPC character
 --  @param char the character who is looking at the NPC
 --  @param mode the mode used to look at the NPC (no effect)
-function baseNPC:lookAt(char, mode)
-    char:sendCharDescription(self.npcChar.id, base.common.GetNLS(char, self._lookAtMsgDE, self._lookAtMsgUS));
+function baseNPC:lookAt(npcChar, char, mode)
+    char:sendCharDescription(npcChar.id, base.common.GetNLS(char, self._lookAtMsgDE, self._lookAtMsgUS));
     
     if self._autointroduce then
-        char:introduce(self.npcChar);
+        char:introduce(npcChar);
     end;
 end;
 
 --- This method handles all use methods that are done to the NPC. When ever a
 --- NPC is used by the player this one is called.
 --
+--  @param npcChar the NPC character
 --  @param char the character who is looking at the NPC
 --  @param mode the mode used to look at the NPC (no effect)
-function baseNPC:use(char)
-    self.npcChar.activeLanguage = self._defaultLanguage;
-    self.npcChar:talkLanguage(Character.say, Player.german, self._useMsgDE);
-    self.npcChar:talkLanguage(Character.say, Player.english, self._useMsgUS);
+function baseNPC:use(npcChar, char)
+    npcChar.activeLanguage = self._defaultLanguage;
+    npcChar:talkLanguage(Character.say, Player.german, self._useMsgDE);
+    npcChar:talkLanguage(Character.say, Player.english, self._useMsgUS);
     
     if self._autointroduce then
-        char:introduce(self.npcChar);
+        char:introduce(npcChar);
     end;
 end;
 
@@ -400,9 +395,11 @@ end;
 --- This function learns the NPC the languages skills needed to work properly.
 --- Check if this function is not nil before you call it, because it destructs
 --- itself after it was called once.
-function baseNPC:initLanguages()
+--
+--  @param npcChar the NPC character
+function baseNPC:initLanguages(npcChar)
     table.foreach(self._npcLanguages, function(key, value)
-        self.npcChar:increaseSkill(1, langCodeToSkillName(value), 100);
+        npcChar:increaseSkill(1, langCodeToSkillName(value), 100);
     end);
     self["initLanguages"] = nil;
 end;
