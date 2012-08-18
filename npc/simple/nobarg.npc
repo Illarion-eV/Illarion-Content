@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: May 27, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Nobarg"
@@ -232,8 +232,8 @@ itemShoes = 53
 "Drachen" -> "Diese Kreaturen sind Kinder von Bragon und werden geschützt von ihm!"
 "Gold", english -> "Brágon loves gold and I give him every gold that I have ever gotten."
 "Gold" -> "Bragon liebt Gold und ich gebe ihm alles Gold, dass ich habe."
-"five" -> "There are five elder gods and several younger gods. The elder gods are Bragon, Ushara, Eldan, Tanora and Findari. They, past one, have left us to another realm for our protection.","Bragon, Ushara, Eldan, Tanora and Findari are their names. We have of each of them a statue here. Only exception is Eldan... So, take a look!"
-"fünf" -> "Es gibt fünf alte Götter und mehrere junge Götter. Die alten sind Bragon, Ushara, Eldan, Tanora und Findari. Sie haben uns in eine andere Ebene verlassen.","Bragon, Ushara, Eldan, Tanora und Findari sind ihre Namen. Wir haben von jeden von ihnen eine Statue hier. Eldan ist die Ausnahme... Aber werft doch einen Blick auf sie!"
+"five" -> "There are five elder gods and several younger gods. The elder gods are Bragon, Ushara, Eldan, Tanora and Findari. They, past one, have left us to another realm for our protection.", "Bragon, Ushara, Eldan, Tanora and Findari are their names. We have of each of them a statue here. Only exception is Eldan... So, take a look!"
+"fünf" -> "Es gibt fünf alte Götter und mehrere junge Götter. Die alten sind Bragon, Ushara, Eldan, Tanora und Findari. Sie haben uns in eine andere Ebene verlassen.", "Bragon, Ushara, Eldan, Tanora und Findari sind ihre Namen. Wir haben von jeden von ihnen eine Statue hier. Eldan ist die Ausnahme... Aber werft doch einen Blick auf sie!"
 "level" -> "Yes level. Other people call it world. However, Illarion is our level. For more information ask someone else."
 "Ebene" -> "Ja Ebene. Andere nennen sie auch Welt. Wie dem auch sei, Illarion ist unsere Ebene. Für mehr Information fragt jemand anderen."
 "Chapel" -> "Chapel of the Five? The name of this place. It has been built after one of the many wars between the factions to praise the Five for the pease. But don't ask after which war. I don't know."
@@ -284,7 +284,7 @@ itemShoes = 53
 "Elara" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon."
 "Eldan", english -> "This is not a god I take much interest in.", "I once knew a priest of Eldan, but cannot recall his name.", "He is an elder god like my lord, Brágon."
 "Eldan" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon."
-"Findari", english -> "I give little attention to this god.", "I cannot recall anyone I know worshipping her.", "Like Brágon she is an elder god.","One of the statues behind me represents her. Just take a look if you want to know how she could look like."
+"Findari", english -> "I give little attention to this god.", "I cannot recall anyone I know worshipping her.", "Like Brágon she is an elder god.", "One of the statues behind me represents her. Just take a look if you want to know how she could look like."
 "Findari" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon.", "Eine der Statuen hinter mir repräsentiert sie. Wirf einen Blick darauf wenn du wissen möchtest wie sie aussehen könnte."
 "Irmorom", english -> "Best speak with someone from Galmair about such a god.", "I do not know anyone personally that honors this god.", "Just one of many younger gods that cannot compare to Lord Brágon."
 "Irmorom" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
@@ -300,9 +300,9 @@ itemShoes = 53
 "Ronagan" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
 "Sirani", english -> "Yes, this god exists but she is not interesting to me.", "I heard about priests of this goddess, but I cannot remember their names.", "Oh, all this speak of younger gods bores me."
 "Sirani" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
-"Tanora", "Zelphia", english -> "She is of little interest to me.", "Search yourself a lizardman if you seek answers about her", "That's one of the elder gods like Brágon.","One of the statues behind me represents her. Just take a look if you want to know how she could look like."
+"Tanora", "Zelphia", english -> "She is of little interest to me.", "Search yourself a lizardman if you seek answers about her", "That's one of the elder gods like Brágon.", "One of the statues behind me represents her. Just take a look if you want to know how she could look like."
 "Tanora", "Zelphia" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon.", "Eine der Statuen hinter mir repräsentiert sie. Wirf einen Blick darauf wenn du wissen möchtest wie sie aussehen könnte."
-"Ushara", english -> "She is of little concern to me.", "Never heard of a priest dedicated to Ushara.", "She is an elder god but nothing compared to Brágon.","One of the statues in front of me me represents her. Just take a look if you want to know how she could look like."
+"Ushara", english -> "She is of little concern to me.", "Never heard of a priest dedicated to Ushara.", "She is an elder god but nothing compared to Brágon.", "One of the statues in front of me me represents her. Just take a look if you want to know how she could look like."
 "Ushara" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon.", "Eine der Statuen vor mir repräsentiert sie. Wirf einen Blick darauf wenn du wissen möchtest wie sie aussehen könnte."
 "Zhambra", english -> "#me looks disinterested, 'Perhaps another subject?'", "I don't know anyone that worships Zhambra.", "One of the many younger gods that serve Brágon."
 "Zhambra" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich .", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
@@ -322,8 +322,8 @@ itemShoes = 53
 "Nein" -> "Nein? Seid ihr sicher?"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Don't you think it is time for another pray now?"
-".*", german, chance(20) -> "Denkt ihr nicht es ist an der Zeit für ein weiteres Gebet?"
+".*", english, chance(20.0) -> "Don't you think it is time for another pray now?"
+".*", german, chance(20.0) -> "Denkt ihr nicht es ist an der Zeit für ein weiteres Gebet?"
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

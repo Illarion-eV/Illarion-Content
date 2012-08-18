@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Ardian                                                           --
 --                                                                            --
--- Last parsing: February 19, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 106, 553, 0, 4, 'Torina Scibrim', 'npc.torina_scibrim', 1, 2, 0, 255, 250, 205, 245, 222, 179);
+VALUES (0, 106, 553, 0, 4, 'Torina Scibrim', 'npc.torina_scibrim', 1, 1, 0, 255, 250, 205, 245, 222, 179);
 ---]]
 
 require("npc.base.basic")
@@ -20,7 +20,6 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
-require("base.factions")
 module("npc.torina_scibrim", package.seeall)
 
 function initNpc()
@@ -29,13 +28,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keyphrases: 'I want to become citizen', 'I want to exchange a decree'"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keyphrases: 'I want to become citizen', 'I want to exchange a decree', ('I want to buy an life insurance')"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Ich möchte Bürger werden', 'Ich möchte ein Dekret einlösen'"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Ich möchte Bürger werden', 'Ich möchte ein Dekret einlösen', ('Ich möchte eine Lebensversicherung kaufen')"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -931,7 +930,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -941,7 +940,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -973,96 +972,13 @@ mainNPC:setEquipment(9, 822);
 mainNPC:setEquipment(10, 326);
 mainNPC:setAutoIntroduceMode(true);
 
---------------explicit notary stuff----------
-npctown = 1;--town is standing in cadomyr
-flag = {};
--------------------------------------
-
 mainNPC:initDone();
-
 end;
 
-function receiveText(texttype, message, originator)
-	if base.common. BasicNPCChecks(originator,2, thisNPC) then
-		if not mainTask(texttype,message,originator) then
-			mainNPC:receiveText(originator, message);
-		end
-	end
-
-end;
-
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
-
-function mainTask(texttype,message,originator)
-	Factionvalues = base.factions.get(originator);
-	if (string.find(message,"[Bb]ürger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Cc]itizen")~=nil or
-		   string.find(message,"[Bb]uerger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Mm]ember.+[Tt]own")~=nil or
-		   string.find(message,"[Mm]itglied.+Stadt")~=nil) then
-
-			if (Factionvalues[base.factions.r_index(npctown)] == 0) then
-			--OUTCASTED CHAR CHECK
-			 	gText="Ihr seid aus der Stadt verbannt, ihr müsst mir erst ein unterschriebenes Entbannungsdekret der Königin vorzeigen damit ich Euch in die Bürgerliste eintragen kann.";
-				eText="You're outcasted from this town, you need to show me first a signed unban decree of the queen to sign you in in the citizen list.";
-				outText=base.common.GetNLS(originator,gText,eText);
-                thisNPC:talk(Character.say, outText);
-				return true;
-			end
-
-
-			--if ((TextRepeatCnt[originator.id]==nil) or (TextRepeatCnt[originator.id] == 0)) then
-			if ((flag[originator.id]==nil) or (flag[originator.id] == 0)) then
-			 	gText="Diese Eintragung wird "..base.factions.PriceListForTownChange[Factionvalues.towncnt].." Silberstücke kosten, wenn ihr nach eurem Beitritt zu einer anderen Stadt wechseln wollt verdoppeln sich die Kosten dafür. Seid ihr sicher dass ihr dieser Stadt beitreten wollt?";
-				eText="Adding you to the citizenlist will cost "..base.factions.PriceListForTownChange[Factionvalues.towncnt].." silver coins. If you decide to become a citizen of another town after joining the fee will double. Do you really wish to join this town?";
-				outText=base.common.GetNLS(originator,gText,eText);
-                thisNPC:talk(Character.say, outText);
-				flag[originator.id] = 0;
-				return true;
-			end
-	elseif (string.find(message,"[Jj]a")~=nil or string.find(message,"[Ss]icher")~=nil or
-			string.find(message,"[Yy]es")~=nil or string.find(message,"[Ss]ure")~=nil) and (flag[originator.id] == 0) then
-
-				base.factions.makeCharMemberOfTown(originator,Factionvalues,1, npctown); --rank citizen
-				flag[originator.id] = nil;
-				return true;
-
-	elseif (string.find(message,"[Nn]ein")~=nil or string.find(message,"[Nn]o")~=nil) and (flag[originator.id] == 0) then
-
-				flag[originator.id] = nil;
-				return true;
-
-	elseif string.find(message,"[Dd]ekret.+einl[öo][se][es][ne]")~=nil or string.find(message,"[Ee]xchange.+[Dd]ecree")~=nil or
-		   string.find(message,"[Dd]ecree.+[Ee]xchange")~=nil then
-
-				gText="Ihr habt ein Dekret für mich...lasst mich mal nachschauen.";
-				eText="You have a decree with you...let me have a look at it.";
-				outText=base.common.GetNLS(originator,gText,eText);
-                thisNPC:talk(Character.say, outText);
-				base.factions.deleteDecree(originator);
-				return true;
-
-	elseif string.find(message,"[Ee]ntbannungsdekret")~=nil or string.find(message,"[Uu]nban.+[Dd]ecree")~=nil then
-			if (Factionvalues.rankTown == base.factions.leaderRank) then --if Character is leader in this town
-				originator:createItem(3110,1,751,Factionvalues.tid);	--town id stored in the data
-
-				gText="Ein Entbannungsdekret, kommt sofort.";
-				eText="A unban decree, right away.";
-				outText=base.common.GetNLS(originator,gText,eText);
-                thisNPC:talk(Character.say, outText);
-
-
-			else
-				gText="Nur der Anführer dieser Stadt kann ein Entbannungsdekret erwerben!";
-				eText="Only the leader of the town can buy a unban decree!";
-				outText=base.common.GetNLS(originator,gText,eText);
-                thisNPC:talk(Character.say, outText);
-			end
-			return true;
-	end
-	return false;
-end
-
 -- END

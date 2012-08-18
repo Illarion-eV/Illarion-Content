@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: October 01, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -207,8 +207,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", "1));
+talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", "1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Shuddup and bring mes torch! Hurr!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -218,8 +218,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", "1));
+talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", "1));
 talkEntry:addResponse("Maul halt und gibst mir Fackl! Hurr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -228,8 +228,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", "1));
+talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", "1));
 talkEntry:addResponse("Shuddup and bring mes torch! Hurr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -239,8 +239,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", "1));
+talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", "1));
 talkEntry:addResponse("Maul halt und gibst mir Fackl! Hurr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -248,7 +248,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", "0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a piece of pork. Tasty..."));
 talkEntry:addResponse("Hurr! Danks fer dat torch. Now mes can go explorin' again. Hab dat pork, dat be tasty.");
@@ -261,7 +261,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", "0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Stück Schweinefleich. Lecker..."));
 talkEntry:addResponse("Hurr! Dancke für d' Fackl. Jetz mirr kann gehn, Erkundung. Du nimmst Fleisch, das lecker!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 1));
@@ -273,7 +273,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(392, "all", ">", "0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a piece of pork. Tasty..."));
 talkEntry:addResponse("Hurr! Danks fer dat burnin' torch. Now mes can go explorin' again. Hab dat pork, dat be tasty.");
@@ -286,7 +286,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(392, "all", ">", "0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Stück Schweinefleich. Lecker..."));
 talkEntry:addResponse("Hurr! Dancke für d' Fackl. Jetz mirr kann gehn, Erkundung. Du nimmst Fleisch, das lecker!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(392, 1));
@@ -1089,10 +1089,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

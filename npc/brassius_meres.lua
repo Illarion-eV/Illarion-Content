@@ -2,12 +2,12 @@
 -- NPC Name: Brassius Meres                                          Runewick --
 -- NPC Job:  Guard                                                            --
 --                                                                            --
--- NPC Race: human                      NPC Position:  844, 819, 0            --
+-- NPC Race: human                      NPC Position:  841, 819, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk & Estralis Seborian                                        --
 --                                                                            --
--- Last parsing: July 05, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -272,7 +272,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", "5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me's stomach rumbles: 'I could really do with those five apples, if you've got a few moments to spare.'");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -282,7 +282,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", "5));
 talkEntry:addResponse("#me' Magen knurrt: 'Mit fünf Äpfeln im Magen würde es mir weit besser gehen, wenn ihr einen Moment Zeit dafür habt.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -291,7 +291,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", "5));
 talkEntry:addResponse("#me's stomach rumbles: 'I could really do with those five apples, if you've got a few moments to spare.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -301,7 +301,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", "5));
 talkEntry:addResponse("#me' Magen knurrt: 'Mit fünf Äpfeln im Magen würde es mir weit besser gehen, wenn ihr einen Moment Zeit dafür habt.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -309,7 +309,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", "4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 30 copper coins."));
 talkEntry:addResponse("#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the apples into his bag as he chews.");
@@ -322,7 +322,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", "4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 30 Kupferstücke."));
 talkEntry:addResponse("#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 30));
@@ -377,7 +377,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", "10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me glances at his empty quiver, frowning lightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -387,7 +387,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", "10));
 talkEntry:addResponse("#me starrt naserümpfend auf seinen leeren Köcher: 'Ich brauche dringend zehn Pfeile, wenn es euch nichts ausmacht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -396,7 +396,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", "10));
 talkEntry:addResponse("#me glances at his empty quiver, frowning lightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -406,7 +406,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", "10));
 talkEntry:addResponse("#me starrt naserümpfend auf seinen leeren Köcher: 'Ich brauche dringend zehn Pfeile, wenn es euch nichts ausmacht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -414,7 +414,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(64, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(64, "all", ">", "9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
 talkEntry:addResponse("#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'");
@@ -427,7 +427,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(64, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(64, "all", ">", "9));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addResponse("#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
@@ -482,7 +482,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", "10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -492,7 +492,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", "10));
 talkEntry:addResponse("Nahezu täglich hört man von Tierangriffen. Ihr müßt die Bürger von Eibenthal beschützen, indem ihr die Tiere erschlagt. Wenn ihr mir zehn Felle bringt, werde ich sicherstellen, dass man an höchster Stelle von euren Anstrengungen hört.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -501,7 +501,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", "10));
 talkEntry:addResponse("I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -511,7 +511,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", "10));
 talkEntry:addResponse("Nahezu täglich hört man von Tierangriffen. Ihr müßt die Bürger von Eibenthal beschützen, indem ihr die Tiere erschlagt. Wenn ihr mir zehn Felle bringt, werde ich sicherstellen, dass man an höchster Stelle von euren Anstrengungen hört.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -519,7 +519,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", "9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a legionaire's tower shield. You advance in Archmage Elvaine Morgan's favour."));
@@ -534,7 +534,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", "9));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Legionärsschild. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
 talkEntry:addResponse("#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.");
@@ -548,7 +548,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", "9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a legionaire's tower shield."));
 talkEntry:addResponse("#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.");
@@ -561,7 +561,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", "9));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Legionärsschild."));
 talkEntry:addResponse("#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 10));
@@ -1353,7 +1353,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("I should really be returning to my work.");
 talkEntry:addResponse("If the Archmage catches me chatting away, he will not be pleased.");
 talkEntry:addResponse("Please, you shall get me into trouble if I am caught standing here chatting.");
@@ -1363,7 +1363,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Ich sollte mich wieder um meinen Dienst kümmern.");
 talkEntry:addResponse("Wenn der Erzmagier mich dabei erwischt, wie ich herumklöne, wird er nicht zufrieden sein.");
 talkEntry:addResponse("Bitte, ich bekomme noch Ärger, wenn man mich hier tratschen sieht.");
@@ -1399,10 +1399,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

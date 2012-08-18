@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: March 31, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Olokwa"
@@ -54,7 +54,6 @@ itemShoes = 53
 -- Help
 "Help" -> inform("[Game Help] This NPC is Olokwa the Seer. Keyphrases: ancestor, seek advice, blindfold, Bragg-Thu, Kroch'Gurak, Norbuk Plateau."), "Ask Olokwa for tale about 'ancestor', or 'seek advice'.", state = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Olokwa der Seher. Schlüsselwörter: Ahnen, suche Rat, Augenbinde, Bragg-Thu, Kroch'Gurak, Norbuk Plateau."), "Frage Olokwa nach Geschichte von 'Ahnen' oder 'suche Rat'.", state = 0
-
 
 -- tales and storys of the ancestors
 "stop", english -> "Hrm, mes should tell anoter tale?", state = 0
@@ -113,7 +112,6 @@ itemShoes = 53
 "Cherga" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), "Cherga, die eisige Hexe! Führt die Toten durch das Nichts, die ewige Kluft zwischen den Welten, in das Land der Ahnen. Wenn ein Ork viele Gegner im Kampf besiegt hat und in seinem Leben stark war...", state = 1
 "weiter", state = 1 -> "...ist sein Ansehen dort groß, und seine Ahnen werden ihn ehren. Er bekommt viele Diener und Sklaven, und die Weiber werden ihn lieben...", state = 2
 "weiter", state = 2 -> "...War er schwach und feige, so wird er dort ein Dasein als Diener fristen müssen, wohlmöglich gar als Diener eines Menschen, Halblings oder Zwergen.", state = 0
-
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas!", "Greebs.. seeking advice, do you?", "#me wears a blindfold. Altough he truns his head to you. '%CHARNAME...'", "I knew you would come here..."
@@ -228,8 +226,8 @@ itemShoes = 53
 "Nein" -> "Viel zu lernen du hast, junger Orkling.", "#me klimpert mit der erloschenen Laterne in seinen Händen. 'Dein Schicksal vorherbestimmt ist.'", "Die eisige Hexe! Sie nennt alles beim wahren Namen! Nennt sie."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "I know, I know...", "I saw that comming.", "Your bones are jingling... better you sacrifice somtehing to your gods."
-".*", german, chance(20) -> "Ich weiß, ich weiß...", "Das hab ich kommen sehn...", "Ich könne hören deine Knochen klimpern... besser du Opfern etwas deinen Göttern."
+".*", english, chance(20.0) -> "I know, I know...", "I saw that comming.", "Your bones are jingling... better you sacrifice somtehing to your gods."
+".*", german, chance(20.0) -> "Ich weiß, ich weiß...", "Das hab ich kommen sehn...", "Ich könne hören deine Knochen klimpern... besser du Opfern etwas deinen Göttern."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

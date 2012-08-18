@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Linda Rabon"
@@ -70,7 +70,6 @@ itemShoes = 369
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If you want to order please talk to my mom.", "Oh hello. I'm very busy. I will have to talk to you later.", "Oh hello. I'm so tired. I feel like I'm going to pass out."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If you want to order please talk to my mom.", "Oh hello. I'm very busy. I will have to talk to you later.", "Oh hello. I'm so tired. I feel like I'm going to pass out."
-
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Farewell", "Bye", "Fare well", "See you" -> "Please come again. I will cook better next time, I promise.", "Oh, You're leaving already? Was the food bad?", "Thank you, come again."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -108,7 +107,7 @@ itemShoes = 369
 "Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards","queen", english -> "She is beautiful isn't she.", "My mom says that Rosaline is very smart.", "I want to be queen Rosaline when I grow up."
+"rosaline", "edwards", "queen", english -> "She is beautiful isn't she.", "My mom says that Rosaline is very smart.", "I want to be queen Rosaline when I grow up."
 "rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
@@ -163,8 +162,8 @@ itemShoes = 369
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "This discussion is not relevant to me", "Maybe say something like Quest or Task. People respond well to those words.", "I have no intention of buying your chicken."
-".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+".*", english, chance(20.0) -> "This discussion is not relevant to me", "Maybe say something like Quest or Task. People respond well to those words.", "I have no intention of buying your chicken."
+".*", chance(20.0) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

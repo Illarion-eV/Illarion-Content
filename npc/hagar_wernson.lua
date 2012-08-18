@@ -8,7 +8,7 @@
 -- Authors:  kormkormsen                                                      --
 --           Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 09, 2012                         easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -53,7 +53,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addCondition(npc.base.condition.race.race(3));
-talkEntry:addCondition(npc.base.condition.chance.chance(15));
+talkEntry:addCondition(npc.base.condition.chance.chance(15.0));
 talkEntry:addResponse("G'day... long-ear.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -67,7 +67,7 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addCondition(npc.base.condition.race.race(3));
-talkEntry:addCondition(npc.base.condition.chance.chance(15));
+talkEntry:addCondition(npc.base.condition.chance.chance(15.0));
 talkEntry:addResponse("N'guten...Langohr");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -79,7 +79,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.race.race(3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(15));
+talkEntry:addCondition(npc.base.condition.chance.chance(15.0));
 talkEntry:addResponse("G'day... long-ear.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -90,7 +90,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.race.race(3));
-talkEntry:addCondition(npc.base.condition.chance.chance(15));
+talkEntry:addCondition(npc.base.condition.chance.chance(15.0));
 talkEntry:addResponse("N'guten...Langohr");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -198,7 +198,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", "1));
 talkEntry:addResponse("G'day, %CHARNAME! Here's yer place! Fill yer up?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -213,7 +213,7 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("mit dir");
-talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", "1));
 talkEntry:addResponse("Moin, Moin, %CHARNAME! Komm ran! Hier kannste Dich vollkippen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -223,7 +223,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", "1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("G'day, %CHARNAME! Here's yer place! Fill yer up?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -234,7 +234,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", "1));
 talkEntry:addResponse("Moin, Moin, %CHARNAME! Komm ran! Hier kannste Dich vollkippen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1064,7 +1064,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("The gods may bless you.");
 talkEntry:addResponse("Have fun in my tavern.");
 talkEntry:addResponse("Aye.");
@@ -1074,7 +1074,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Dann sag ich mal Prost.");
 talkEntry:addResponse("Viel Spass in meiner Taverne!");
 talkEntry:addResponse("Aye.");
@@ -1106,10 +1106,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

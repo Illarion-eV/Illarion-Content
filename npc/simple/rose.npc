@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: April 02, 2012                          easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Rose"
@@ -274,8 +274,8 @@ itemShoes = 53
 "Nein" -> "Seid ihr sicher?", "Hm-hm."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "I see!", "Indeed?", "Well."
-".*", german, chance(20) -> "Ich verstehe.", "Achso?", "Aha?"
+".*", english, chance(20.0) -> "I see!", "Indeed?", "Well."
+".*", german, chance(20.0) -> "Ich verstehe.", "Achso?", "Aha?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

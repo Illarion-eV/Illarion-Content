@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Thud"
@@ -274,10 +274,10 @@ itemShoes = 53
 "Nein" -> "Was das zu bedeuten hat?", "Nein? Du sicher?", "Was immer auch... Thud es nix interessiert."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "#me thuds your head with his big club. 'Shut up!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
-".*", german, chance(20) -> "#me haut dir mit seiner Keule auf den Kopf. 'Halts Maul!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
-".*", english, chance(40) -> "Oh! Mes never thought about in that way!", "Is that so? Sound's silly.", "You mouth be filled with garbage and it falls out every time you open it."
-".*", german, chance(40) -> "Oh! So hat Thud das noch nie betrachtet.", "Das ist so? Klingt bekloppt. In meine Ohren.", "Dein Maul, voll mit Müll. Und er fällt heraus, jedesmal du machst auf."
+".*", english, chance(20.0) -> "#me thuds your head with his big club. 'Shut up!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
+".*", german, chance(20.0) -> "#me haut dir mit seiner Keule auf den Kopf. 'Halts Maul!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
+".*", english, chance(40.0) -> "Oh! Mes never thought about in that way!", "Is that so? Sound's silly.", "You mouth be filled with garbage and it falls out every time you open it."
+".*", german, chance(40.0) -> "Oh! So hat Thud das noch nie betrachtet.", "Das ist so? Klingt bekloppt. In meine Ohren.", "Dein Maul, voll mit Müll. Und er fällt heraus, jedesmal du machst auf."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

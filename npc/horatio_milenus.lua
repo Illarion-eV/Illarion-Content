@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Kawan Baxter, translation by Estralis Seborian                   --
 --                                                                            --
--- Last parsing: July 12, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -20,7 +20,6 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
-require("npc.base.guards_static")
 module("npc.horatio_milenus", package.seeall)
 
 function initNpc()
@@ -915,7 +914,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("I am the merely a guard of Cadomyr.");
 talkEntry:addResponse("Tell that somebody else.");
 talkEntry:addResponse("Move along.");
@@ -928,7 +927,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Ich bin in erster Linie der Wächter Cadomyrs.");
 talkEntry:addResponse("Erzählt das jemanden anderes.");
 talkEntry:addResponse("Geht weiter.");
@@ -972,34 +971,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker)
-	npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
-	mainNPC:receiveText(speaker, message);
-end;
-function nextCycle()
-	mainNPC:nextCycle();
-	if not guards_init then
-		-- init after 10 cycles
-		guards_init = 10;
-		gCount = 0;
-	end
-	if guards_init == 0 then
-		guards_init = -1;
-		npc.base.guards_static.Init(thisNPC, 1, position(114, 639, 0), 3, position(114, 634, 0));
-	elseif guards_init > 0 then
-		guards_init = guards_init - 1;
-	end
-	if guards_init == -1 then
-		if gCount == 4 then
-			gCount = 0;
-			npc.base.guards_static.CheckForEnemies(thisNPC);
-		else
-			gCount = gCount + 1;
-		end
-	end
-end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

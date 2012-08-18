@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Fosco Goodbarrel"
@@ -82,7 +82,7 @@ itemShoes = 53
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho!", "Howdy, dowdy!", "'Ello, 'ello!"
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho!", "Holldario.", "'allo, 'allo!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho!", "Howdy, dowdy!", "'Ello, 'ello!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho!","Holldario.", "'allo, 'allo!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho!", "Holldario.", "'allo, 'allo!"
 "Farewell", "Bye", "Fare well", "See you" -> "Ta-ta!", "Don't forget me!", "Stay outta trouble!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ta-da!", "Vergiss mich nicht!", "Halt dich von Ärger fern!"
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Ta-ta!", "Don't forget me!", "Stay outta trouble!"
@@ -90,7 +90,7 @@ itemShoes = 53
 "How are you", "How feel", "How do you do" -> "As fine as a hair upon my head.", "I'm dandy!", "Fine, just fine!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "So gut, wie ein Haar auf meinem Kopf.", "Mir geht's prima!", "Gut, einfach nur gut!"
 "your name", "who are you", "who art thou" -> "Fosco Goodbarrel, at your service!", "Fosco Goodbarrel, halfling extraordinaire!", "You don't know me?! I'm Fosco Goodbarrel!"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fosco Goodbarrel,zu Diensten","Fosco Goodbarrel,der außergewöhnliche Halbling.", "Du kennst mich nicht? Ich bin Fosco Goodbarrel."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fosco Goodbarrel,zu Diensten", "Fosco Goodbarrel,der außergewöhnliche Halbling.", "Du kennst mich nicht? Ich bin Fosco Goodbarrel."
 
 -- 1st quest: Bring Fosco's flute
 
@@ -170,9 +170,9 @@ itemShoes = 53
 "albar", english -> "Bo-ring.", "Humans are almost too easy. Almost.", "Albar...eh. Doesn't interest me."
 "albar" -> "Laaangweilig.", "Menschen sind fast zu lässig. Fast.", "Albar...ähm. Interessiert mich nicht."
 "gynk", "gync", english -> "Bo-ring.", "Humans are almost too easy. Almost.", "Gynk...eh. Doesn't interest me."
-"gync", "gynk" -> "Laaangweilig.", "Menschen sind fast zu lässig. Fast.","Gynk...ähm. Interessiert mich nicht."
+"gync", "gynk" -> "Laaangweilig.", "Menschen sind fast zu lässig. Fast.", "Gynk...ähm. Interessiert mich nicht."
 "salkama", english -> "Bo-ring.", "Humans are almost too easy. Almost.", "Salkamar...eh. Doesn't interest me."
-"salkama" ->"Laaangweilig.", "Menschen sind fast zu lässig. Fast.","Salkamar...ähm. Interessiert mich nicht."
+"salkama" -> "Laaangweilig.", "Menschen sind fast zu lässig. Fast.", "Salkamar...ähm. Interessiert mich nicht."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "To my mind there are two types of Gods: Ronagan, and the ones he steals from!", "If Ronagan's proud, I'm doing well.", "Have you been watching your purse? In the time we've been speaking, I've stolen it from you, and then returned it, completely full."
@@ -214,7 +214,7 @@ itemShoes = 53
 "what sell", "what buy", "list wares", "price of" -> "Tell you what: you hand me the money now, and I'll make sure to get the goods to you when I can.", "How about you give me your goods now, and I'll send the money to pay for them when I have it.", "I can't just be trading with any passerby! I've got a reputation to uphold!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich sag dir was: Du gibst mir dein Geld und ich bemühe mich so gut ich kann,dass die Waren bei dir ankommen.", "Wie waäre es damit? Du gibst mir deine Sachen und ich bezahl dich, wenn ich das Geld hab.", "Ich kann nicht mit jedem Handeln. Mein Ruf steht auf dem Spiel."
 "tell something" -> "Has anyone ever told you that you have a rather noticeable nose?", "While we've been standing here, I've stolen your purse, and then returned it, compeletely full. I know, it's amazing, thank you.", "If there is one thing I've learned during my travels, it's this: never trust a sober dwarf."
-"erzähl was", "erzähl etwas" -> "Hat dir schonmal einer gesagt, das du eine sehr auffällige Nase hast?","Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.", "Wenn ich auf meinen Reisen eines gelernt habe, dann flogendes, vertraue niemals einem nüchternen Zwerg."
+"erzähl was", "erzähl etwas" -> "Hat dir schonmal einer gesagt, das du eine sehr auffällige Nase hast?", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.", "Wenn ich auf meinen Reisen eines gelernt habe, dann flogendes, vertraue niemals einem nüchternen Zwerg."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Fosco", "Goodbarrel", english -> "Such a delightful name, don't you agree?", "Ahh...Fosco Goodbarrel. It just rolls off of the tongue.", "From here to Pennymill, that name will make any woman weak at the knees."
@@ -225,8 +225,8 @@ itemShoes = 53
 "Nein" -> "#me tappst ungeduldigt mit dem Fuß auf den Boden.", "Ich wusste du würdest das sagen!", "Ja.Ja. Du solltest deine Geldbörse weniger offensichtlich bei dir tagen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "#me taps his foot impatiently.", "I knew you were going to say that!", "Yes, yes. Whatever. You should keep your purse in a less obvious place."
-".*", german, chance(20) -> "#me tappst ungeduldigt mit dem Fuß auf den Boden.", "Ich wusste du würdest das sagen!", "Ja.Ja. Du solltest deine Geldbörse weniger offensichtlich bei dir tagen."
+".*", english, chance(20.0) -> "#me taps his foot impatiently.", "I knew you were going to say that!", "Yes, yes. Whatever. You should keep your purse in a less obvious place."
+".*", german, chance(20.0) -> "#me tappst ungeduldigt mit dem Fuß auf den Boden.", "Ich wusste du würdest das sagen!", "Ja.Ja. Du solltest deine Geldbörse weniger offensichtlich bei dir tagen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

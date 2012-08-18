@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 04, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -349,7 +349,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=>", 2));
-talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", "1));
 talkEntry:addResponse("Arr! Do you try to fool me? This isn't myn Peg Leg! Ch! Ch! Ch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -362,7 +362,7 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=>", 2));
-talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", "1));
 talkEntry:addResponse("Arr! Willste mich verscheißern!? Das is nich meen Holzbein! Ch! Ch! Ch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -372,7 +372,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=>", 2));
-talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", "1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Arr! Do you try to fool me? This isn't myn Peg Leg! Ch! Ch! Ch!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -383,7 +383,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=>", 2));
-talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", "1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Arr! Willste mich verscheißern!? Das is nich meen Holzbein! Ch! Ch! Ch!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1044,7 +1044,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("The dead be dead. Everywhere should it be that way.");
 talkEntry:addResponse("Argh-ch...");
 talkEntry:addResponse("...Lubber!.");
@@ -1055,7 +1055,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Die Toten sin' tot. Das sollte überall so sein.");
 talkEntry:addResponse("Argh-ch...");
 talkEntry:addResponse("...Landratte!");
@@ -1088,10 +1088,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

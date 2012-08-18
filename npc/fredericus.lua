@@ -5,9 +5,10 @@
 -- NPC Race: human                      NPC Position:  117, 618, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
--- Author:   Estralis Seborian                                                --
+-- Authors:  Estralis Seborian                                                --
+--           Martin Karing                                                    --
 --                                                                            --
--- Last parsing: August 15, 2012                         easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -18,12 +19,15 @@ VALUES (0, 117, 618, 0, 2, 'Fredericus', 'npc.fredericus', 0, 1, 1, 192, 107, 5,
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
+require("npc.base.trade")
 module("npc.fredericus", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -34,6 +38,26 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Fischer, Tanora."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("What sell");
+talkEntry:addTrigger("What buy");
+talkEntry:addTrigger("I want sell");
+talkEntry:addTrigger("I want buy");
+talkEntry:addResponse("Ya want to trade? Aye, have a look!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade());
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Was kauf");
+talkEntry:addTrigger("Was verkauf");
+talkEntry:addTrigger("Ich kauf");
+talkEntry:addTrigger("Ich verkauf");
+talkEntry:addResponse("Du willst handeln? Da schau her was ich hab!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade());
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,6 +690,55 @@ talkingNPC:addCycleText("Kauft noch einen Bückling, der schmeckt zwar nicht, häl
 talkingNPC:addCycleText("Beste Forellen!", "Best trouts!");
 talkingNPC:addCycleText("Leckere Heringe!", "Tasty herrings!");
 talkingNPC:addCycleText("Ein Pfund Makrelen, nur jetzt, nur für euch!", "A pound mackerels, only now, only for you!");
+tradingNPC:addItem(72,"sell");
+tradingNPC:addItem(126,"sell");
+tradingNPC:addItem(752,"sell");
+tradingNPC:addItem(753,"sell");
+tradingNPC:addItem(754,"sell");
+tradingNPC:addItem(755,"sell");
+tradingNPC:addItem(756,"sell");
+tradingNPC:addItem(757,"sell");
+tradingNPC:addItem(758,"sell");
+tradingNPC:addItem(759,"sell");
+tradingNPC:addItem(760,"sell");
+tradingNPC:addItem(761,"sell");
+tradingNPC:addItem(762,"sell");
+tradingNPC:addItem(763,"sell");
+tradingNPC:addItem(764,"sell");
+tradingNPC:addItem(765,"sell");
+tradingNPC:addItem(766,"sell");
+tradingNPC:addItem(767,"sell");
+tradingNPC:addItem(768,"sell");
+tradingNPC:addItem(769,"sell");
+tradingNPC:addItem(133,"sell");
+tradingNPC:addItem(134,"sell");
+tradingNPC:addItem(135,"sell");
+tradingNPC:addItem(136,"sell");
+tradingNPC:addItem(137,"sell");
+tradingNPC:addItem(138,"sell");
+tradingNPC:addItem(140,"sell");
+tradingNPC:addItem(141,"sell");
+tradingNPC:addItem(142,"sell");
+tradingNPC:addItem(143,"sell");
+tradingNPC:addItem(144,"sell");
+tradingNPC:addItem(145,"sell");
+tradingNPC:addItem(146,"sell");
+tradingNPC:addItem(148,"sell");
+tradingNPC:addItem(152,"sell");
+tradingNPC:addItem(153,"sell");
+tradingNPC:addItem(154,"sell");
+tradingNPC:addItem(155,"sell");
+tradingNPC:addItem(156,"sell");
+tradingNPC:addItem(157,"sell");
+tradingNPC:addItem(158,"sell");
+tradingNPC:addItem(159,"sell");
+tradingNPC:addItem(160,"sell");
+tradingNPC:addItem(161,"sell");
+tradingNPC:addItem(162,"sell");
+tradingNPC:addItem(163,"sell");
+tradingNPC:addItem(73,"sell");
+tradingNPC:addItem(355,"sell");
+tradingNPC:addItem(455,"sell");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
@@ -685,10 +758,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

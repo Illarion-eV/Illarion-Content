@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 15, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Advari Stonebog"
@@ -148,8 +148,8 @@ itemShoes = 326
 "Nein" -> "Fein-fein. Ein alter Zwerg wie ich findet sich einfach damit ab.", "Wenn's ihr so wollt.", "Damit kann ich leben. Ich hoffe, ihr auch."
 
 -- Absolutely last catch: Everything a player says and is not caught earlier
-".*", english, chance(20) -> "Aye, is that so? Never heard about.", "#me gives a throaty laugher and scratches his beard.", "Well, well.", "Arr!"
-".*", german, chance(20) -> "Aye, ist das so? Das ist mir neu.", "#me lacht kehlig und streicht sich über den Bart. 'Na gut, ist ja gut.'", "Arr!"
+".*", english, chance(20.0) -> "Aye, is that so? Never heard about.", "#me gives a throaty laugher and scratches his beard.", "Well, well.", "Arr!"
+".*", german, chance(20.0) -> "Aye, ist das so? Das ist mir neu.", "#me lacht kehlig und streicht sich über den Bart. 'Na gut, ist ja gut.'", "Arr!"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

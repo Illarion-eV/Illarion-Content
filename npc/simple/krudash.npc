@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: February 24, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Krudash"
@@ -159,8 +159,8 @@ itemShoes = 53
 "Nein" -> "Grâth! Bisst du sicher?", "Dann nicht, nicht wahr?", "#me kichert. 'Ist gut, is' gu-ht.'"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Taghta!", "Puny little Maggot.", "Uh-h?"
-".*", german, chance(20) -> "Taghta!", "Winzige kleine Made.", "Uh-h?"
+".*", english, chance(20.0) -> "Taghta!", "Puny little Maggot.", "Uh-h?"
+".*", german, chance(20.0) -> "Taghta!", "Winzige kleine Made.", "Uh-h?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

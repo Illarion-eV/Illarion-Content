@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: March 31, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,14 +31,13 @@ module("npc.olokwa", package.seeall)
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("seek advice");
 talkEntry:addCondition(npc.base.condition.money.money("=>", 2));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", "=>", 1));
-talkEntry:addCondition(npc.base.condition.item.item(314, "all", "=>", 1));
-talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", "=>", "1));
+talkEntry:addCondition(npc.base.condition.item.item(314, "all", "=>", "1));
+talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "=>", "1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("The old orc takes the items from you, now he seems ready to answer you any question."));
 talkEntry:addResponse("Hurr. Giv me the stuff... and now ask your question to tha ancestors.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
@@ -113,9 +112,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("suche rat");
 talkEntry:addCondition(npc.base.condition.money.money("=>", 2));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", "=>", 1));
-talkEntry:addCondition(npc.base.condition.item.item(314, "all", "=>", 1));
-talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", "=>", "1));
+talkEntry:addCondition(npc.base.condition.item.item(314, "all", "=>", "1));
+talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "=>", "1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Der alte Ork nimmt die Gegenstände von dir und scheint nun bereit dir eine beliebige Frage zu beantworten."));
 talkEntry:addResponse("Hurr. Gibb mir das Zeug... und stellen jetzt deine Frage an Vorfahren.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
@@ -182,8 +181,6 @@ talkEntry:addTrigger("suche rat");
 talkEntry:addResponse("Türlich! Aber Rat von Ahnen und mirr braucht Kupfermünzen... zwei! Gedärm und Asche von Lagerfeuer... uhm 'nd ja, ja ne Wurst brauchen wir auch, he he!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-
-
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -670,7 +667,6 @@ talkEntry:addResponse("...War er schwach und feige, so wird er dort ein Dasein a
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
@@ -1533,7 +1529,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("I know, I know...");
 talkEntry:addResponse("I saw that comming.");
 talkEntry:addResponse("Your bones are jingling... better you sacrifice somtehing to your gods.");
@@ -1543,7 +1539,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Ich weiß, ich weiß...");
 talkEntry:addResponse("Das hab ich kommen sehn...");
 talkEntry:addResponse("Ich könne hören deine Knochen klimpern... besser du Opfern etwas deinen Göttern.");
@@ -1576,10 +1572,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

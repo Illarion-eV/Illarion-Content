@@ -1,19 +1,18 @@
 --------------------------------------------------------------------------------
--- NPC Name: Lerghanis                                               Runewick --
--- NPC Job:  Mindsage                                                         --
+-- NPC Name: John Doe                                                    None --
+-- NPC Job:  Insert profession here                                           --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  0, 0, 0                --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Authors:  Regallo                                                          --
---           ...with a little help of Estralis Seborian                       --
+-- Author:   Insert your name here                                            --
 --                                                                            --
 -- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 0, 0, 0, 4, 'Lerghanis', 'npc.lerghanis', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 0, 0, 0, 4, 'John Doe', 'npc.john_doe', 0, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -21,7 +20,7 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
-module("npc.lerghanis", package.seeall)
+module("npc.john_doe", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -978,7 +977,7 @@ talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(3);
+mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is <Name> the <profession/function>.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");

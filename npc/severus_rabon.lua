@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 07, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -511,7 +511,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("This discussion is not relevant to me.");
 talkEntry:addResponse("Maybe say something like Quest or Task. People respond well to those words.");
 talkEntry:addResponse("I have no intention of buying your chicken.");
@@ -521,7 +521,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -529,13 +529,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("GERMAN.", "Charred sand rat is the perfect way to fill a stomach emptied from a trek across the desert. The meat is both fulfilling and tantalizing to the tongue.");
 talkingNPC:addCycleText("GERMAN.", "What will you be having tonight. I suggest a cool drink followed by a hot meal. Balance is the key to dining as it is in any other aspect of life.");
-talkingNPC:addCycleText("GERMAN.", "This place is a mess. I hope Rose doesn?t make me mop.");
-talkingNPC:addCycleText("GERMAN.", "I should check up on Linda. I hope she?s not too tired.");
+talkingNPC:addCycleText("GERMAN.", "This place is a mess. I hope Rose doesn't make me mop.");
+talkingNPC:addCycleText("GERMAN.", "I should check up on Linda. I hope she's not too tired.");
 talkingNPC:addCycleText("GERMAN.", "Maybe I should hire a gleeman. I bet the customers would enjoy a story teller.");
 talkingNPC:addCycleText("GERMAN.", "Real men tell the women in their lives how much they mean to them. Real men love.");
 talkingNPC:addCycleText("GERMAN.", "The hardest part of work is working.");
 talkingNPC:addCycleText("GERMAN.", "Please come again. We would like nothing better than to serve you another meal.");
-talkingNPC:addCycleText("GERMAN.", "I?m sorry it?s so hot in here. My wife won?t let me hire a bunch of girls to fan everyone. She said I could hire guys, but I would never allow that.");
+talkingNPC:addCycleText("GERMAN.", "I'm sorry it's so hot in here. My wife won't let me hire a bunch of girls to fan everyone. She said I could hire guys, but I would never allow that.");
 talkingNPC:addCycleText("GERMAN.", "Linda! Is everything alright in there?");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
@@ -556,10 +556,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

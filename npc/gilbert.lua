@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: April 05, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -340,7 +340,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("necklet");
 talkEntry:addTrigger("necklace");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "<", 1));
-talkEntry:addResponse("I always have an eye on the necklace. You can't trust my revolting half-sister. I think she's trying to sell our only heirloom!");
+talkEntry:addResponse("I always have an eye on the necklace. You can’t trust my revolting half-sister. I think she's trying to sell our only heirloom!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -362,7 +362,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sister");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "<", 1));
-talkEntry:addResponse("She is my half-sister. We have the same father, but never really liked each other. Everything she does is devious. I really don't want to know how she earns her money.");
+talkEntry:addResponse("She is my half-sister. We have the same father, but never really liked each other. Everything she does is devious. I really don’t want to know how she earns her money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -435,7 +435,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sister");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addResponse("You can't trust my revolting half-sister. I think she's trying to sell our only heirloom!");
+talkEntry:addResponse("You can’t trust my revolting half-sister. I think she's trying to sell our only heirloom!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,7 +443,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("#me (.+) necklet");
 talkEntry:addTrigger("#me (.+) necklace");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(222, "belt", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(222, "belt", "=>", "1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You place the faked necklace in Gilbert's bag. You don't have a bad conscience?"));
 talkEntry:addResponse("#me does not notice that a necklace is placed in his bag.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 1));
@@ -455,7 +455,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("#me (.+) kollier");
 talkEntry:addTrigger("#me (.+) amulett");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(222, "belt", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(222, "belt", "=>", "1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Du schmuggelst das falsche Kollier in Gilberts Tasche. Hast du kein schlechtes Gewissen?"));
 talkEntry:addResponse("#me bemerkt nicht, dass ihm ein Kollier in die Tasche gesteckt wird.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 1));
@@ -467,7 +467,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("necklet");
 talkEntry:addTrigger("necklace");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", "1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Put the necklace into your belt, if you are willing to place it into Gilbert's bag."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -476,7 +476,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("kollier");
 talkEntry:addTrigger("amulett");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", "1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Lege das Amuelett in deinen Gürtel, um es Gilbert unterzuscheieben."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1326,7 +1326,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -1336,7 +1336,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -1366,10 +1366,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

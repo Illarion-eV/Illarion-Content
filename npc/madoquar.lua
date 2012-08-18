@@ -8,7 +8,7 @@
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -337,8 +337,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(2946, "all", ">", 0));
-talkEntry:addCondition(npc.base.condition.item.item(104, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(2946, "all", ">", "0));
+talkEntry:addCondition(npc.base.condition.item.item(104, "all", ">", "0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 120 copper coins and a ruby amulet."));
 talkEntry:addResponse("You warriors are a gift. That's all the items except for one. Let me meditate for a moment and then come back to me.");
@@ -353,8 +353,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(2946, "all", ">", 0));
-talkEntry:addCondition(npc.base.condition.item.item(104, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(2946, "all", ">", "0));
+talkEntry:addCondition(npc.base.condition.item.item(104, "all", ">", "0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein Rubinamulett."));
 talkEntry:addResponse("Ihr Krieger seid eine Segen. Das sind alle Dinge, die ich brauche, außer eines. Lasst mich kurz meditieren und kommt dann zurück zu mir.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
@@ -1435,7 +1435,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("This discussion is not relevant to me.");
 talkEntry:addResponse("Maybe say something about quests or tasks. People respond well to those words.");
 talkEntry:addResponse("I have no intention of buying your chicken.");
@@ -1445,7 +1445,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Das geht mich nichts an.");
 talkEntry:addResponse("Erzählt doch mal etwas über Abenteuer und Aufgaben. Die Leute mögen sowas hören.");
 talkEntry:addResponse("Mir ist nicht danach, euch einen Bären aufzubinden.");
@@ -1483,10 +1483,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

@@ -5,9 +5,10 @@
 -- NPC Race: human                      NPC Position:  117, 618, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
--- Author:   Estralis Seborian                                                --
+-- Authors:  Estralis Seborian                                                --
+--           Martin Karing                                                    --
 --                                                                            --
--- Last parsing: August 15, 2012                         easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Fredericus"
@@ -24,6 +25,7 @@ defaultLanguage = common
 autointroduce = on
 
 author = "Estralis Seborian"
+author = "Martin Karing"
 
 lookatDE = "Dieser NPC ist der Fischer Fredericus."
 lookatUS = "This NPC is the fisherman Fredericus."
@@ -45,6 +47,12 @@ itemHands = 2295
 itemTrousers = 183
 itemShoes = 369
 
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 72, 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 73, 355, 455
 -- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
@@ -64,13 +72,13 @@ itemShoes = 369
 -- 5% Mushrooms: 158, 159, 160, 161, 162, 163
 -- 10% Fish: 73, 355, 455
 
--- sellItems: 72, 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 73, 355, 455
--- buyPrimaryItems: 72, 73, 355, 455
--- buySecondaryItems: 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163
-
 -- Help
 "Help" -> inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, fisherman, Tanora.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Fischer, Tanora.")
+
+-- Trade Hooks
+"What sell", "What buy", "I want sell", "I want buy" -> "Ya want to trade? Aye, have a look!", trade
+"Was kauf", "Was verkauf", "Ich kauf", "Ich verkauf" -> "Du willst handeln? Da schau her was ich hab!", trade
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"

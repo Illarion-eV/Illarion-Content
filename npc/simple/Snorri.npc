@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: February 09, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Snorri"
@@ -84,7 +84,7 @@ itemShoes = 369
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "fish", "smell", "stink" -> "#me sniffs pointedly. 'That's what a fresh fish should smell like!'", "The freshest fish in all of Galmair. Even the cook of Don Valerio Guillianni buys his fish from Snorri!", "By my beard, today's fish is fresh! Be careful or they might jump out of your bag!"
-"morri", "brother",english -> "Aye, Morri is my favourite brother.", "I am very happy that Morri and I are able to have this market stall together.", "Morri can be moody so it's my job to make him laugh again. *laughs* That's not easy as you think!"
+"morri", "brother", english -> "Aye, Morri is my favourite brother.", "I am very happy that Morri and I are able to have this market stall together.", "Morri can be moody so it's my job to make him laugh again. *laughs* That's not easy as you think!"
 "orc", "krudash", "sogg" -> "Aye, orcs, just two market stalls away. But whatever, we take what we can get.", "In Galmair, money rules, and it seems these orcs are somehow able to get enough money to pay the taxes for their market stall."
 "dwarf" -> "Aye, I am proud to be a dwarf! We are the smartest people and the most gifted craftsman", "Gold, we dwarfs love it!", "For a dwarf, his clan is the most important thing! May its wealth and size grow until eternity."
 "nose", "stud", "spoud" -> "#me rubs his nose. 'Aye, thats true. I broke it in a fight with an ogre. Now it's crooked, but I'll bet I can still smell an ogre 2 miles up wind!'", "ENGLISH2.", "ENGLISH3."
@@ -147,8 +147,8 @@ itemShoes = 369
 "Nein" -> "Solltet Ihr es Euch anders überlegen... ich bin hier.", "Damit muss ich mich wohl abfinden.", "Ah! Das dachte ich mir bereits."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Aye. Everything's alright.", "Hm-h. Do you wanna buy that big fish?", "That's waht she said!"
-".*", german, chance(20) -> "Aye. Alles klar.", "Hm-h? Ihr wollt den großen Fisch da?", "Wenn ihr das sagt, will ich zustimmen. *lacht*"
+".*", english, chance(20.0) -> "Aye. Everything's alright.", "Hm-h. Do you wanna buy that big fish?", "That's waht she said!"
+".*", german, chance(20.0) -> "Aye. Alles klar.", "Hm-h? Ihr wollt den großen Fisch da?", "Wenn ihr das sagt, will ich zustimmen. *lacht*"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

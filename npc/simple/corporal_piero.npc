@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 27, 2011                         easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Corporal Piero"
@@ -191,8 +191,8 @@ itemShoes = 53
 "Nein" -> "Verstanden.", "Oh... nun gut.", "#me nickt steif."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "I'm a guard. I guard people.", "Hmh - what? Pirates. Aha.", "Yes for sure. Proceed!"
-".*", german, chance(20) -> "Ich bin Wache. Ich be-Wache Leute.", "Hmh - was? Piraten. Aha.", "Ja Genau. - Weitermachen!"
+".*", english, chance(20.0) -> "I'm a guard. I guard people.", "Hmh - what? Pirates. Aha.", "Yes for sure. Proceed!"
+".*", german, chance(20.0) -> "Ich bin Wache. Ich be-Wache Leute.", "Hmh - was? Piraten. Aha.", "Ja Genau. - Weitermachen!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

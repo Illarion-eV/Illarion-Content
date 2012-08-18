@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Sam"
@@ -140,8 +140,8 @@ itemShoes = 53
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger / Response is only given 1/5 of the time
-".*", english, chance(20) -> "Why do you talk with me? I don't even know you!", "You talk like some smart ass elven girl.", "Shut up and bring me another beer!."
-".*", german, chance(20) -> "Warum quatscht Ihr misch su? Wir kenn'n unsch nich. Verschwindet!", "Du quaschelscht wie so'n neunmal kluges Elfnweib.", "Halt's Maul und bring mir noch 'n Bier!"
+".*", english, chance(20.0) -> "Why do you talk with me? I don't even know you!", "You talk like some smart ass elven girl.", "Shut up and bring me another beer!."
+".*", german, chance(20.0) -> "Warum quatscht Ihr misch su? Wir kenn'n unsch nich. Verschwindet!", "Du quaschelscht wie so'n neunmal kluges Elfnweib.", "Halt's Maul und bring mir noch 'n Bier!"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

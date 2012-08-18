@@ -8,7 +8,7 @@
 -- Authors:  Someone                                                          --
 --           & Rincewind                                                      --
 --                                                                            --
--- Last parsing: September 14, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -261,9 +261,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.item.item(23, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", "9));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", "9));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", ">", "0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."));
 talkEntry:addResponse("Arr, gut gemacht. Jetzt schau mir gut zu, damit du auch wat lernst!");
@@ -278,9 +278,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.item.item(23, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", "9));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", "9));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", ">", "0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something."));
 talkEntry:addResponse("Arr, good job. Now watch me, so that you actually learn something!");
@@ -295,9 +295,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.item.item(23, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", "10));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", "10));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", "<", "1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Arr, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nich helfen, ich sehe genau das du nich alles da hast wat ich haben wollte!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -306,9 +306,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.item.item(23, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", "10));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", "10));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", "<", "1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Arr, if you try to trick me, I won't help you. I see that this is not everything that I wanted.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -433,10 +433,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2536, "all", ">", 14));
-talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 4));
-talkEntry:addCondition(npc.base.condition.item.item(2699, "all", ">", 1));
-talkEntry:addCondition(npc.base.condition.item.item(122, "all", ">", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", ">", "14));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", "4));
+talkEntry:addCondition(npc.base.condition.item.item(2699, "all", ">", "1));
+talkEntry:addCondition(npc.base.condition.item.item(122, "all", ">", "1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."));
 talkEntry:addResponse("Sieht gut aus, alles da wat ich von dir verlangt hab, scheint als könnt aus dir doch nen richtiger Schmied werden.");
@@ -452,10 +452,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2536, "all", ">", 14));
-talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 4));
-talkEntry:addCondition(npc.base.condition.item.item(2699, "all", ">", 1));
-talkEntry:addCondition(npc.base.condition.item.item(122, "all", ">", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", ">", "14));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", "4));
+talkEntry:addCondition(npc.base.condition.item.item(2699, "all", ">", "1));
+talkEntry:addCondition(npc.base.condition.item.item(122, "all", ">", "1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You have feel like you really learned something."));
 talkEntry:addResponse("Looks good and it's even everything that I wanted ya to bring. Looks as if you could become a real smith after all.");
@@ -471,10 +471,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "<", 15));
-talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2699, "all", "=", 0));
-talkEntry:addCondition(npc.base.condition.item.item(122, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "<", "15));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", "5));
+talkEntry:addCondition(npc.base.condition.item.item(2699, "all", "=", "0));
+talkEntry:addCondition(npc.base.condition.item.item(122, "all", "=", "0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Wie mir scheint, kann man sich nich auf dich verlassen. Oder du bist dümmer als du aussiehst, denn es is nich besonders schwer 15 Kupfererz, 5 Eisenbarren, einen Schmelztiegel und einen Feinschmiedehammer zu besorgen!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -483,10 +483,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "<", 15));
-talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2699, "all", "=", 0));
-talkEntry:addCondition(npc.base.condition.item.item(122, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "<", "15));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", "5));
+talkEntry:addCondition(npc.base.condition.item.item(2699, "all", "=", "0));
+talkEntry:addCondition(npc.base.condition.item.item(122, "all", "=", "0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("It seems you're not trustworthy after all, or maybe you're just dumber that ya look, because you didn't bring me the 15 copper ore, 5 iron ingots, a crucible and a fine smith hammer.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -612,10 +612,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", ">", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.item.item(2172, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", ">", "3));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", "9));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", "9));
+talkEntry:addCondition(npc.base.condition.item.item(2172, "all", ">", "4));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."));
 talkEntry:addResponse("Endlich biste wieder zurück, ich hatte mir schon Sorgen gemacht. Nun pass aber auf wie ich die Erze kombiniere.");
@@ -631,10 +631,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", ">", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.item.item(2172, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", ">", "3));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", "9));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", "9));
+talkEntry:addCondition(npc.base.condition.item.item(2172, "all", ">", "4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something."));
 talkEntry:addResponse("Finally, you're back, I started to worry about ya. Now watch how I combine these materials.");
@@ -650,10 +650,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "<", 4));
-talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.item.item(2172, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "<", "4));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", "10));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", "10));
+talkEntry:addCondition(npc.base.condition.item.item(2172, "all", "<", "5));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Wenn du nix lernen willst, dann mach das du verschwindest! Wenn du nichtmal die kleinsten Aufträge erfüllen willst, wie willste da nen guter Schmied werden?!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -662,10 +662,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "<", 4));
-talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.item.item(2172, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "<", "4));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", "10));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", "10));
+talkEntry:addCondition(npc.base.condition.item.item(2172, "all", "<", "5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("If ya don't wanna learn anything, just go. Ya can't even complete the simplest task! How do ya think you'll become a good smith then?!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -790,10 +790,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14));
-talkEntry:addCondition(npc.base.condition.item.item(2675, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.item.item(2364, "all", ">", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", "14));
+talkEntry:addCondition(npc.base.condition.item.item(2675, "all", ">", "9));
+talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", "9));
+talkEntry:addCondition(npc.base.condition.item.item(2364, "all", ">", "1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."));
 talkEntry:addResponse("Sehr gut gemacht, ich wusste man kann sich auf dich verlassen. Nun sperr die Augen weit auf und beobachte wie ich dat Schwert schmiede!");
@@ -809,10 +809,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14));
-talkEntry:addCondition(npc.base.condition.item.item(2675, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.item.item(2364, "all", ">", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", "14));
+talkEntry:addCondition(npc.base.condition.item.item(2675, "all", ">", "9));
+talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", "9));
+talkEntry:addCondition(npc.base.condition.item.item(2364, "all", ">", "1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something."));
 talkEntry:addResponse("Good job. Now that I know I can count on you, watch closely here and see how this sword is made.");
@@ -828,10 +828,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", 15));
-talkEntry:addCondition(npc.base.condition.item.item(2675, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.item.item(226, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.item.item(2364, "all", "<", 2));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", "15));
+talkEntry:addCondition(npc.base.condition.item.item(2675, "all", "<", "10));
+talkEntry:addCondition(npc.base.condition.item.item(226, "all", "<", "10));
+talkEntry:addCondition(npc.base.condition.item.item(2364, "all", "<", "2));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Nay, ick red mit dir kein Wort mehr bist du mir nicht das bringst, was ich von dir haben wollte!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -840,10 +840,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", 15));
-talkEntry:addCondition(npc.base.condition.item.item(2675, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.item.item(226, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.item.item(2364, "all", "<", 2));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", "15));
+talkEntry:addCondition(npc.base.condition.item.item(2675, "all", "<", "10));
+talkEntry:addCondition(npc.base.condition.item.item(226, "all", "<", "10));
+talkEntry:addCondition(npc.base.condition.item.item(2364, "all", "<", "2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Nah, I won't talk to ya until ya bring me the things I asked you for.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1337,7 +1337,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Eh..what did you just say about my mother?");
 talkEntry:addResponse("What are you jabbering about?");
 talkEntry:addResponse("Nah, I don't wanna buy that!");
@@ -1347,7 +1347,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Eh..wat hast du grad über meine Mutter gesagt?");
 talkEntry:addResponse("Wat quasselst du da?");
 talkEntry:addResponse("Nay, ich will dat nich kaufen!");
@@ -1382,10 +1382,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: December 23, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -277,7 +277,7 @@ talkEntry:addTrigger("right");
 talkEntry:addTrigger("left");
 talkEntry:addTrigger("middle");
 talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
-talkEntry:addCondition(npc.base.condition.chance.chance(33));
+talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addResponse("#me lifts the nut. You see... a ball! You won twice your bet.");
 talkEntry:addResponse("We have a winner! Here, the ball was under your nut. Take your won money.");
 talkEntry:addResponse("#me curses as he lifts the nut and a ball can be seen. You win twice your bet!");
@@ -355,7 +355,7 @@ talkEntry:addTrigger("rechts");
 talkEntry:addTrigger("links");
 talkEntry:addTrigger("mitte");
 talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
-talkEntry:addCondition(npc.base.condition.chance.chance(33));
+talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addResponse("#me hebt die Nuﬂ. Du siehst... eine Kugel! Du hast deinen Einsatz verdoppelt.");
 talkEntry:addResponse("Wir haben einen Gewinner! Hier, die Kugel war unter deiner Nuﬂ. Nimm dein gewonnenes Geld.");
 talkEntry:addResponse("#me flucht als er die Nuﬂ anhebt und eine Kugel zum Vorschein kommt. Du gewinnst deinen doppelten Einsatz.");
@@ -977,10 +977,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

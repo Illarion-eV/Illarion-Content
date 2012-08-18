@@ -8,7 +8,7 @@
 -- Authors:  Ryan Williams/Alexander Knight                                   --
 --           supervising by Rincewind                                         --
 --                                                                            --
--- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -246,7 +246,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", "1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me takes the mug. 'Thank you. Right where to start... Ah! Well I was born in Salkamar city.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1));
@@ -259,7 +259,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("beer");
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", "1));
 talkEntry:addResponse("#me takes the mug. 'Thank you. Right where to start... Ah! Well I was born in Salkamar city.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 2));
@@ -270,7 +270,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", "1));
 talkEntry:addResponse("#me nimmt den Krug von dir entgegen. 'Habt Dank. Also wo soll ich beginnen? ... Ah! Nun ich ich wurde in der Stadt Salkamar geboren.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 2));
@@ -283,7 +283,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("bier");
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", "1));
 talkEntry:addResponse("#me nimmt den Krug von dir entgegen. 'Habt Dank. Also wo soll ich beginnen? ... Ah! Nun ich ich wurde in der Stadt Salkamar geboren.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 2));
@@ -353,7 +353,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", "1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Thank you. Now let me carry on the story. I fought the dirty Albarians for years, until we returned back to one of the nearby villages...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1));
@@ -366,7 +366,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("beer");
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", "1));
 talkEntry:addResponse("Thank you. Now let me carry on the story. I fought the dirty Albarians for years, until we returned back to one of the nearby villages...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 4));
@@ -377,7 +377,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", "1));
 talkEntry:addResponse("#me nimmt das Bier entgegen. 'Euch sei's gedankt, Fremder. Lasst mich nun fortfahren. Meine Kohorte kämpfte mehrere jahre gegen die dreckigen Albarianer, bis wir eines Tages zu einem Dorf an der Grenze kamen...'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 4));
@@ -390,7 +390,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("bier");
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", "1));
 talkEntry:addResponse("#me nimmt das Bier entgegen. 'Euch sei's gedankt, Fremder. Lasst mich nun fortfahren. Meine Kohorte kämpfte mehrere jahre gegen die dreckigen Albarianer, bis wir eines Tages zu einem Dorf an der Grenze kamen...'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 4));
@@ -460,7 +460,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", "1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Tales and Swords solved. - Uriel reaches for his belt and takes his sword. Then he puts it into your hands."));
 talkEntry:addResponse("#me drinks the beer, and seems much better after it. 'From then on I have not used my sword again. *pauses* I tell you what, since you have been so good as to hear me out. Take it with you. I won't need it anymore.'");
@@ -475,7 +475,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("beer");
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", "1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Tales and Swords solved. - Uriel reaches for his belt and takes his sword. Then he puts it into your hands."));
 talkEntry:addResponse("#me drinks the beer, and seems much better after it. 'From then on I have not used my sword again.' He pauses. 'I tell you what, since you have been so good as to hear me out. Take it with you. I won't need it anymore.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1));
@@ -487,7 +487,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", "1));
 talkEntry:addResponse("#me leert das Bier in einem Zug. 'Seit damals... habe ich mein Schwert niemals mehr gezogen.' Er hält einen Moment inne...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 6));
@@ -1129,7 +1129,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Are you from the Serinjah folks? - You like quite strange to me...");
 talkEntry:addResponse("Damn it, I hate Greenskins!");
 talkEntry:addResponse("Leave me alone...");
@@ -1139,7 +1139,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Seid ihr ein Serinjah? - Ihr seht wahrlich seltsam aus...");
 talkEntry:addResponse("Verdammt, ich hasse Grünhäute.");
 talkEntry:addResponse("Lasst mich in Frieden...");
@@ -1173,10 +1173,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

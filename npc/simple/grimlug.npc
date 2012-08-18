@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: April 22, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Grimlug"
@@ -190,8 +190,8 @@ itemShoes = 369
 "Nein" -> "Hrmpf. Vielleicht du änderst deine Meinung, eh?", "Ist das so'?", "Das glaub ich nicht, nein."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Châ. What you said?", "#me grunts and nods. 'Mh-hm.'", "Tagtha. - Tell mes more about that. Will you?"
-".*", german, chance(20) -> "Châ. Was du gesagt hast?", "#me grunzt und nickt. 'Mh-hm'", "Tagtha. - Erzähl mehr davon, tja-ha?"
+".*", english, chance(20.0) -> "Châ. What you said?", "#me grunts and nods. 'Mh-hm.'", "Tagtha. - Tell mes more about that. Will you?"
+".*", german, chance(20.0) -> "Châ. Was du gesagt hast?", "#me grunzt und nickt. 'Mh-hm'", "Tagtha. - Erzähl mehr davon, tja-ha?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

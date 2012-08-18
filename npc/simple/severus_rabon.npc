@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 07, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Severus Rabon"
@@ -46,8 +46,7 @@ itemHands = 0
 itemTrousers = 367
 itemShoes = 369
 
---stock 1908 (beer mug - empty),1909 (beer mug),2055 (glass),2057 (glass wine),2058 (glass water),2058 (glass mead),2059 ( glass cider),518 (bottle wine - empty),517 (bottle wine),2923 (onion stew ),2935 (bowl),454 (muffin)
-
+-- stock 1908 (beer mug - empty),1909 (beer mug),2055 (glass),2057 (glass wine),2058 (glass water),2058 (glass mead),2059 ( glass cider),518 (bottle wine - empty),517 (bottle wine),2923 (onion stew ),2935 (bowl),454 (muffin)
 
 -- Waiter: Severus Rabon
 -- Occupation: waiter
@@ -134,8 +133,8 @@ itemShoes = 369
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "This discussion is not relevant to me.", "Maybe say something like Quest or Task. People respond well to those words.", "I have no intention of buying your chicken."
-".*", german, chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+".*", english, chance(20.0) -> "This discussion is not relevant to me.", "Maybe say something like Quest or Task. People respond well to those words.", "I have no intention of buying your chicken."
+".*", german, chance(20.0) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

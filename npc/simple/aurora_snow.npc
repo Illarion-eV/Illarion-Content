@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Aurora Snow"
@@ -66,11 +66,12 @@ itemShoes = 0
 -- Help
 "Help" -> inform("[Game Help] This NPC is Aurora Snow the druid. Keyphrases: quest, Ushara, profession, gods, Aurora.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Aurora Show die Druidin. Schlüsselwörter: Auftrag, Ushara, Beruf, Götter, Aurora.")
+
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", sex = male -> "Greetings, my brother.", "Welcome, brother.", "Ah, yes. I was expecting you, my brother."
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", sex = female -> "Greetings, my sister.", "Welcome, sister.", "Ah, yes. I was expecting you, my sister."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", sex = male -> "Seid gegrüßt, mein Bruder.", "Willkommen, Bruder.", "Ah ja. Ich habe Euch erwartet mein Bruder."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", sex = female ->  "Seid gegrüßt, meine Schwester.", "Willkommen, Schwester.", "Ah ja. Ich habe Euch erwartet meine Schwester."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", sex = female -> "Seid gegrüßt, meine Schwester.", "Willkommen, Schwester.", "Ah ja. Ich habe Euch erwartet meine Schwester."
 "Hiho", "Hallo", "Hey", "Greeb", english, sex = male -> "Greetings, my brother.", "Welcome, brother.", "Ah, yes. I was expecting you, my brother."
 "Hiho", "Hallo", "Hey", "Greeb", english, sex = female -> "Greetings, my sister.", "Welcome, sister.", "Ah, yes. I was expecting you, my sister."
 "Hiho", "Hallo", "Hey", "Greeb", sex = male -> "Seid gegrüßt, mein Bruder.", "Willkommen, Bruder.", "Ah ja. Ich habe Euch erwatet mein Bruder."
@@ -90,7 +91,7 @@ itemShoes = 0
 
 -- Give out quest 1
 ".+", queststatus(322) = 5, english -> inform("[New quest] The Farmer's Wife: Part IV"), "Natiana appears to have the symptoms of corrupted blood. The illness is highly infectious and has been the cause of at least one known pandemic. Fortunately, I am aware of a potion to cure it. Will you help me gather the ingredients?", queststatus(322) = 6
-".+", queststatus(322) = 5 -> inform("[Neues Quest] Die Geistereiche I"),"Natiana zeigt Symtome von schlechtem Blut. Die Krankheit ist hochansteckend und war die Ursache für mindestens eine  uns bekannte Pandemie. Glücklicherweise, kenne ich einen Trank um sie zu heilen. Werdet Ihr mir helfen die Zutaten zu sammeln?", queststatus(322) = 6
+".+", queststatus(322) = 5 -> inform("[Neues Quest] Die Geistereiche I"), "Natiana zeigt Symtome von schlechtem Blut. Die Krankheit ist hochansteckend und war die Ursache für mindestens eine  uns bekannte Pandemie. Glücklicherweise, kenne ich einen Trank um sie zu heilen. Werdet Ihr mir helfen die Zutaten zu sammeln?", queststatus(322) = 6
 
 -- Quest 1 taken, information
 ".+", queststatus(322) = 6, english -> "Well, if you wish to help Miss Banius, then I shall need you to bring me the entrails of five wild animals and ten black thistles. I shall get to work preparing the potion.", queststatus(1337) = 7
@@ -132,7 +133,7 @@ itemShoes = 0
 
 -- Give out quest 3
 "quest", "mission", queststatus(322) = 11, queststatus(333) = 0, english -> inform("[New quest] Aurora's Staff: Part I"), "Natiana is slowly recovering, thanks to your efforts. I could use your help again, actually. I've left my staff in the possession of my apprentice, Madeline Clarbelis. If you could go to Runewick, collect and return it, I would be most grateful.", queststatus(333) = 2
-"quest", "mission", queststatus(322) = 11, queststatus(333) = 0 -> inform("[Neues Quest] Die Geistereiche III"),"Natiana ist dank Euch auf dem Wege der Besserung. Ich könnte jedoch erneut Eure Hilfe gebrauchen. Ich habe meinen Stab unter der Obhut meiner Schülerin Madeline Clarbelis gelassen. Wenn Ihr nach Runewick gehen und mir meinen Stab bringen könntet, wäre ich Euch ausgesprochen dankbar.", queststatus(333) = 2
+"quest", "mission", queststatus(322) = 11, queststatus(333) = 0 -> inform("[Neues Quest] Die Geistereiche III"), "Natiana ist dank Euch auf dem Wege der Besserung. Ich könnte jedoch erneut Eure Hilfe gebrauchen. Ich habe meinen Stab unter der Obhut meiner Schülerin Madeline Clarbelis gelassen. Wenn Ihr nach Runewick gehen und mir meinen Stab bringen könntet, wäre ich Euch ausgesprochen dankbar.", queststatus(333) = 2
 "task", "adventure", queststatus(322) = 11, queststatus(333) = 0 -> inform("[New quest] Aurora's Staff: Part I"), "Natiana is slowly recovering, thanks to your efforts. I could use your help again, actually. I've left my staff in the possession of my apprentice, Madeline Clarbelis. If you could go to Runewick, collect and return it, I would be most grateful.", queststatus(333) = 2
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 11, queststatus(333) = 0 -> inform("[Neues Quest] Die Geistereiche III"), "Natiana ist dank Euch auf dem Wege der Besserung. Ich könnte jedoch erneut Eure Hilfe gebrauchen.Ich habe meinen Stab unter der Obhut meiner Schülerin Madeline Clarbelis gelassen.Wenn Ihr nach Runewick gehen könntet und mir meinen Stab bringen könntet, wäre ich Euch ausgesprochen dankbar.", queststatus(333) = 2
 "staff", english -> "My staff is of little monetary worth, though it holds a great deal of spiritual and sentimental value to me."
@@ -182,7 +183,7 @@ itemShoes = 0
 "job", english -> "I am a priest of nature.", "I am a druid.", "I am a child of Ushara."
 "job" -> "Ich bin eine Priesterin der Natur.", "Ich bin eine Druidin.", "Ich bin ein Kind Usharas."
 "Gobaith", "Gobiath", english -> "That island often slipped into unbalance. My fellow druids were tasked with putting it right. They were unsuccessful, I fear.", "Like many things, Gobaith was beautiful upon appearances, but filled with hate and darkness upon closer inspection.", "My kind, druids, were common upon that island."
-"Gobaith", "Gobiath" ->  "Diese Insel stürzte oft ins Ungleichgewicht. Meine Mitstreiter unter den Druiden waren beaufragt das Gleichgewicht wieder herzustellen. Sie waren nicht sehr erfolgreich, fürchte ich.", "Wie viele Dinge war Gobaith auf den ersten Blick sehr schön, jedoch voll von Hass und Dunkelheit, wenn man  genauer hinschaute.","Druidnen, wie ich einer bin, waren weit verbeitet auf dieser Insel."
+"Gobaith", "Gobiath" -> "Diese Insel stürzte oft ins Ungleichgewicht. Meine Mitstreiter unter den Druiden waren beaufragt das Gleichgewicht wieder herzustellen. Sie waren nicht sehr erfolgreich, fürchte ich.", "Wie viele Dinge war Gobaith auf den ersten Blick sehr schön, jedoch voll von Hass und Dunkelheit, wenn man  genauer hinschaute.", "Druidnen, wie ich einer bin, waren weit verbeitet auf dieser Insel."
 "my name" -> "It is a true honour to meet you.", "Ah, yes. I see it now.", "I am most pleased to have met you."
 "mein Name" -> "Es ist für wahr eine Ehre Euch zu treffen.", "Ah jah, jetzt verstehe ich.", "Ich bin hoch erfeut Euch getroffen zu haben."
 "apprentice" -> "Madeline Clarbelis is my apprentice...she is talented, though impatient."
@@ -208,7 +209,7 @@ itemShoes = 0
 
 -- Main land factions
 "albar", english -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
-"albar" ->  "Hört, lasst uns nicht über solch unwichtige Dinge sprechen.", "Das ist kaum ein Ort, nichts von Wichtigkeit.", "Ich würde meinen Atem nicht verschwenden um über ein solches Thema zu sprechen."
+"albar" -> "Hört, lasst uns nicht über solch unwichtige Dinge sprechen.", "Das ist kaum ein Ort, nichts von Wichtigkeit.", "Ich würde meinen Atem nicht verschwenden um über ein solches Thema zu sprechen."
 "gynk", "gync", english -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
 "gync", "gynk" -> "Hört, lasst uns nicht über solch unwichtige Dinge sprechen.", "Das ist kaum ein Ort, nichts von Wichtigkeit.", "Ich würde meinen Atem nicht verschwenden um über ein solches Thema zu sprechen."
 "salkama", english -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
@@ -218,7 +219,7 @@ itemShoes = 0
 "god" -> "The Elder Gods created all that ever was, and all that ever will be, upon Illarion.", "I worship all five of the Elder Gods, though Ushara is of most importance to me.", "The Elder Gods control the five elements. These elements are the very roots of existence."
 "Gott", "Götter" -> "Die alte Götter erschufen alles was je jemals gab und alles was jemals sein wird in Illarion.", "Ich bete zu allen der Fünf alten Götter, wobei ich jedoch Ushara am nächsten stehe.", "Die alten Götter herrschen über die Fünf Elemente. Diese sind die Wurzel jeglicher Existenz."
 "Adron", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Adron" ->  "Ah ja. Einer der heiligen Vorfahren.", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
+"Adron" -> "Ah ja. Einer der heiligen Vorfahren.", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 "Bragon", "Brágon", english -> "There shall never be a warrior to match the strength of Bragon.", "Bragon holds dominion over the element of fire. Through Him, there is life.", "We must be thankful to the Five, our mothers and fathers."
 "Bragon", "Brágon" -> "Niemals wird ein Krieger sich mit der Stärke Bargons messen können.", "Bargon beherrscht das Element des Feuers. Durch ihn, ist leben.", "Wir müssen den Fünf, unseren Müttern und Vätern dankbar sein."
 "Cherga", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
@@ -244,7 +245,7 @@ itemShoes = 0
 "Sirani", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
 "Sirani" -> "Ah ja. Einer der heiligen Vorfahren..", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 "Tanora", "Zelphia", english -> "Though Tanora is the only Elder God who still walks this land, we sense the presence of each of the Five.", "Tanora holds dominion over the element of water. Through Her, there is life.", "We must be thankful to the Five, our mothers and fathers."
-"Tanora", "Zelphia" ->  "Tanora ist die einzige der alten Götter, die noch in diesem Land wandelt. Wir spüren die Gegenwart von jedem der Fünf.", "Tanora herrscht über die Wasser. Durch sie, ist Leben.", "Wir müssen den Fünf, unseren Müttern und Vätern dankbar sein."
+"Tanora", "Zelphia" -> "Tanora ist die einzige der alten Götter, die noch in diesem Land wandelt. Wir spüren die Gegenwart von jedem der Fünf.", "Tanora herrscht über die Wasser. Durch sie, ist Leben.", "Wir müssen den Fünf, unseren Müttern und Vätern dankbar sein."
 "Ushara", english -> "I have never met one so modest as the Mother Goddess.", "Ushara holds dominion over the element of earth. Through Her, there is life.", "We must be thankful to the Five, our mothers and fathers."
 "Ushara" -> "Ich traf niemals jemanden so bescheiden wie Ushara.", "Ushara herrscht über die Erde. Durch sie, ist Leben.", "Wir müssen den Fünf, unseren Müttern und Vätern dankbar sein."
 "Zhambra", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
@@ -258,7 +259,7 @@ itemShoes = 0
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 "corrupted blood" -> "Wow, really?"
-"schlechtes Blut" ->  "Wow, wirklich?"
+"schlechtes Blut" -> "Wow, wirklich?"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Aurora", "Snow", english -> "Let us communicate without words.", "Have you spoken with my apprentice?", "We must all learn to embrace nature and be one."
@@ -269,8 +270,8 @@ itemShoes = 0
 "Nein" -> "Lass und ohne Worte sprechen.", "Habt ihr mit meiner Schülerin gespochen?", "Wir alle müssen lernen eines mit der Natur zu werden."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "#me closes her eyes, nodding slowly.", "Time is just an illusion.", "Society is a mask."
-".*", german, chance(20) -> "#me schließt ihre Augen und nickt langsam.", "Zeit ist eine Illusion.", "Gesellschaft ist eine Fassade."
+".*", english, chance(20.0) -> "#me closes her eyes, nodding slowly.", "Time is just an illusion.", "Society is a mask."
+".*", german, chance(20.0) -> "#me schließt ihre Augen und nickt langsam.", "Zeit ist eine Illusion.", "Gesellschaft ist eine Fassade."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -278,7 +279,7 @@ itemShoes = 0
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me öffnet ihre Tasche und sortiert einige Käuter.", "#me opens her bag and sorts through a handful of herbs."
-cycletext  "#me's Blick wandert durch die Landschaft", "#me's gaze wanders across the scene before her."
+cycletext "#me's Blick wandert durch die Landschaft", "#me's gaze wanders across the scene before her."
 cycletext "#me hebt ihre Hand, in einer eleganten, fließenden Bewegung", "#me lifts her hand in a smooth, graceful movement."
 cycletext "#me senkt langsam den Kopf", "#me slowly bows her head."
 cycletext "#me schließt ihre Augen, während sie rhythmisch mit dem Kopf nickt.", "#me closes her eyes, while her head nods rhythmically."

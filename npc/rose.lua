@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: April 02, 2012                          easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -388,7 +388,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=>", "1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("She pays you 100 coppercoins. It feels good, doesn't it?"));
 talkEntry:addResponse("Oh, that's amazing! You really found it! This to compensate you for your effort.");
@@ -402,7 +402,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=>", "1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder?"));
 talkEntry:addResponse("Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.");
@@ -437,7 +437,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=", "1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("She pays you 100 coppercoins. It feels good, right?"));
 talkEntry:addResponse("Oh, that's amazing! You really found it! This to compensate you for your effort.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
@@ -452,7 +452,7 @@ talkEntry:addTrigger("amulett");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=", "1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder?"));
 talkEntry:addResponse("Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
@@ -486,7 +486,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=>", "1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Put the necklet into your belt, when you are willing to give it Rose."));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -496,7 +496,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=>", "1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Lege das Amuelett in deinen Gürtel, um es Rose zu geben."));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -509,7 +509,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", "1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Put the necklet into your belt, when you are willing to give it Rose."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -520,7 +520,7 @@ talkEntry:addTrigger("amulett");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", "1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Lege das Amuelett in deinen Gürtel, um es Rose zu geben."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1650,7 +1650,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("I see!");
 talkEntry:addResponse("Indeed?");
 talkEntry:addResponse("Well.");
@@ -1660,7 +1660,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Ich verstehe.");
 talkEntry:addResponse("Achso?");
 talkEntry:addResponse("Aha?");
@@ -1693,10 +1693,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
