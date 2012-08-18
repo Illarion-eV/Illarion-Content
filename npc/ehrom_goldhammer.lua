@@ -200,7 +200,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(1840, "all", ">", "4));
+talkEntry:addCondition(npc.base.condition.item.item(1840, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 500 copper coins."));
 talkEntry:addResponse("By Ronagan, you brought copper goblets. Take these silver coins as a small appreciation. But I could use your service again for another order.");
@@ -213,7 +213,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(1840, "all", ">", "4));
+talkEntry:addCondition(npc.base.condition.item.item(1840, "all", ">", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 500 Kupferstücke."));
 talkEntry:addResponse("Bei Ronagan, ihr habt tatsächlich die Kupferkelche gebracht. Nehmt diese Silberstücke als kleine Anerkennung. Allerdings könnte ich nochmal Eure Dienste bei einem Auftrag brauchen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
@@ -301,7 +301,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2390, "all", ">", "1));
+talkEntry:addCondition(npc.base.condition.item.item(2390, "all", ">", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 5000 copper coins."));
 talkEntry:addResponse("Aye aye, I have to say that you are getting better and better. These silver coins are yours now.");
@@ -314,7 +314,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2390, "all", ">", "1));
+talkEntry:addCondition(npc.base.condition.item.item(2390, "all", ">", 1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 5000 Kupferstücke."));
 talkEntry:addResponse("Aye aye, ich muß schon sagen, Ihr werdet immer besser. Diese Silberstücke gehören nun Euch.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
@@ -402,7 +402,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2420, "all", ">", "4));
+talkEntry:addCondition(npc.base.condition.item.item(2420, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a magical blackstone ring."));
 talkEntry:addResponse("It seems as if Ronagan is looking on you benevolently. My customer gave me this ring in advance, it is now yours.");
@@ -415,7 +415,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2420, "all", ">", "4));
+talkEntry:addCondition(npc.base.condition.item.item(2420, "all", ">", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen magischen Schwarzsteinring."));
 talkEntry:addResponse("As scheint, als wäre Ronagan Euch wohlgesonnen. Mein Auftraggeber gab mir diesen Ring als Anzahlung, er ist nun Euer.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2420, 5));
@@ -503,7 +503,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2785, "all", ">", "0));
+talkEntry:addCondition(npc.base.condition.item.item(2785, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a fire longsword."));
 talkEntry:addResponse("Ronagan's thanks... yes, this wand should be good enough. I just have this word for your, I want to get rid of it. Do not ask why and accept it.");
@@ -516,7 +516,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2785, "all", ">", "0));
+talkEntry:addCondition(npc.base.condition.item.item(2785, "all", ">", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Feuerlangschwert."));
 talkEntry:addResponse("Ronagans Dank... ja, dieser Zauberstab sollte gut genug sein. Ich habe nur dieses Schwert für euch, welches ich gerne loswerden würde. Fragt nicht, warum und nehmt es an.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2785, 1));

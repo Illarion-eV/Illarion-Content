@@ -47,7 +47,7 @@ talkEntry:addTrigger("What buy");
 talkEntry:addTrigger("I want sell");
 talkEntry:addTrigger("I want buy");
 talkEntry:addResponse("Ya want to trade? Aye, have a look!");
-talkEntry:addConsequence(npc.base.consequence.trade.trade());
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -57,7 +57,7 @@ talkEntry:addTrigger("Was verkauf");
 talkEntry:addTrigger("Ich kauf");
 talkEntry:addTrigger("Ich verkauf");
 talkEntry:addResponse("Du willst handeln? Da schau her was ich hab!");
-talkEntry:addConsequence(npc.base.consequence.trade.trade());
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

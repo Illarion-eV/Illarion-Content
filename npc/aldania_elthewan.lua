@@ -96,7 +96,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", "0));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Alas, it looks like you lost the pick-axe I gave you. Do not be so careless with your belongings! Here, have another. Take it into your hands, please.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
@@ -106,7 +106,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", "0));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
 talkEntry:addResponse("Ach herrje, es schaut aus, als hättet Ihr die Spitzhacke verloren, die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Nehmt sie bitte in die Hand.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -132,7 +132,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", "0));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Alas, it looks like you lost the pick-axe I gave you. Don't be so careless with your belongings! Here, have another one. Examine it, please.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
@@ -142,7 +142,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", "0));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
 talkEntry:addResponse("Ach herrje, es schaut aus als hättet Ihr die Spitzhacke verloren die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Untersucht sie einmal.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -168,7 +168,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", "0));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Without a light source, the darkness will engulf you sooner or later. I have given you another torch, be more careful with this one.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, 0));
@@ -178,7 +178,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", "0));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0));
 talkEntry:addResponse("Ohne eine Lichtquelle wird Euch die Dunkelheit früher oder später einhüllen. Ich habe Euch eine neue Fackel gegeben, bite seid vorsichtiger mit dieser.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);

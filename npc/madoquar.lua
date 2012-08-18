@@ -337,8 +337,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(2946, "all", ">", "0));
-talkEntry:addCondition(npc.base.condition.item.item(104, "all", ">", "0));
+talkEntry:addCondition(npc.base.condition.item.item(2946, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(104, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 120 copper coins and a ruby amulet."));
 talkEntry:addResponse("You warriors are a gift. That's all the items except for one. Let me meditate for a moment and then come back to me.");
@@ -353,8 +353,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(2946, "all", ">", "0));
-talkEntry:addCondition(npc.base.condition.item.item(104, "all", ">", "0));
+talkEntry:addCondition(npc.base.condition.item.item(2946, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(104, "all", ">", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein Rubinamulett."));
 talkEntry:addResponse("Ihr Krieger seid eine Segen. Das sind alle Dinge, die ich brauche, außer eines. Lasst mich kurz meditieren und kommt dann zurück zu mir.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));

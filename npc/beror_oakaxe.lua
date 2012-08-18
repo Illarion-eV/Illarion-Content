@@ -511,7 +511,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", "19));
+talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a brick mould. You advance in Queen Rosaline Edwards' favour."));
@@ -526,7 +526,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", "19));
+talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Ziegelform. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Rekrut! Stell dir mal vor, wir würden belagert werden und du brauchst wieder so lange, um ein paar gewöhnliche Ziegel zu besorgen! Nimm diese Ziegelform, damit du nächstes mal schneller bist!");
@@ -839,7 +839,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 15));
-talkEntry:addCondition(npc.base.condition.item.item(546, "all", ">", "19));
+talkEntry:addCondition(npc.base.condition.item.item(546, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a coppered dagger. You advance in Queen Rosaline Edwards' favour."));
@@ -854,7 +854,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 15));
-talkEntry:addCondition(npc.base.condition.item.item(546, "all", ">", "19));
+talkEntry:addCondition(npc.base.condition.item.item(546, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Kupferdolch. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Gut gemacht, Rekrut! Du hast heute eine gute Tat im Namen Cadomyrs und Malachíns vollbracht. Ich verleihe dir hiermit diesen Dolch, welcher dich als Verteidiger Cadomyr ausweist.");
@@ -951,9 +951,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 17));
-talkEntry:addCondition(npc.base.condition.item.item(334, "all", ">", "0));
-talkEntry:addCondition(npc.base.condition.item.item(2559, "all", ">", "0));
-talkEntry:addCondition(npc.base.condition.item.item(315, "all", ">", "0));
+talkEntry:addCondition(npc.base.condition.item.item(334, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(2559, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(315, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an enchanted knight shield. You advance in Queen Rosaline Edwards' favour."));
@@ -970,9 +970,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 17));
-talkEntry:addCondition(npc.base.condition.item.item(334, "all", ">", "0));
-talkEntry:addCondition(npc.base.condition.item.item(2559, "all", ">", "0));
-talkEntry:addCondition(npc.base.condition.item.item(315, "all", ">", "0));
+talkEntry:addCondition(npc.base.condition.item.item(334, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(2559, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(315, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen verzauberten Ritterschild. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Du bist wahrhaftig ein selbstloser Ritter Cadomyrs. Trage fortan das Wappen Cadomyrs auf deinem Schild, der Schild eines Ritters. Ich salutiere vor dir!");
