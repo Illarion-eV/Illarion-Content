@@ -33,8 +33,14 @@ function tradeNPC:addItem(item)
     end;
     
     if (item._type == "sell") then
+		if (self._sellItems == nil) then
+			self._sellItems = {};
+	    end;
         table.insert(self._sellItems, item);
     elseif (item._type == "buyPrimary" or item._type == "buySecondary") then
+		if (self._buyItems == nil) then
+			self._buyItems = {};
+	    end;
         table.insert(self._buyItems, item);
     end;
 end;
