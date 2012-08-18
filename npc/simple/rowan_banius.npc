@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Rowan Banius"
@@ -168,12 +168,11 @@ itemShoes = 53
 "animal", "livestock" -> "We have cows here sometimes. Their steak is quite sought after.", "There is always demand for meat. We sell to several cooks, who use them for their meat dishes. With a considerable markup, might I add.", "We sometimes raise pigs here. Their meat is cheaper than that of a cow, but they require far less trouble to raise, also."
 "crop" -> "There is always demand for whatever we grow here. Most meals involve at least a vegetable or two.", "We've grown just about everything here: carrots, grains, cabbage, onions.", "I'd have to say that tomatoes are my favourite vegetable. As hard as I try, I can't seem to get them to grow, though."
 "wife", "natiana" -> "My beloved wife is not feeling too well, unfortunately.", "Natiana is a true treasure. I feel terrible that I can't do much to improve her condition.", "I'm taking care of the farm and running the house, too, while my wife recovers."
-"Aurora",english -> "Aurora Snow is an old friend of my wife.", "Ah, yes, Aurora. She is quite a skilled druid.", "Aurora is a well-respected healer."
-
-"Hof","Bauernhof", "Farm" -> "Dieser Ort ist in Ordnung.", "Wir beide können den Hof gut bestellen. Allein ist es allerdings etwas anspruchsvoller.", "Mir gefälllt es hier. Der Frieden, die Stille, die frische Luft. Das Leben hier ist wunderbar."
-"Vieh","Tier" -> "Wir halten ab und an Kühe. Ihr Steak ist sehr gefragt.", "Es herrscht ständige Nachfrage nach Fleisch. Wir verkaufen an verschiedene Köche, die daraus Fleischgerichte kochen.Ich muss hinzufügen, sie zahlen natürlich einen großzügigen Aufschlag.", "Wir ziehen auch manchmal Schweine auf, ihr Fleisch ist billiger als Kuhfleisch, aber dafür ist die Haltung der Schweine weniger mühsam."
-"Früchte","Ernte" -> "Es herscht stetige Nachfrage nach allem was wir hier anbauen. In die meisten Gerichte gehören schließlich ein oder zwei Gemüsesorten.", "Wir bauen hier alles mögliche an: Möhren, Getreide,Kohl, Zwiebeln.", "Ich würdfe sagen, am liebsten mag ich Tomaten."
-"Frau","Natiana" -> "Meiner geliebten Frau geht es schlecht, leider.", "Natiana ist wirklich ein Schatz. Ich fühle mich schlecht, weil ich ihr nicht helfen kann.", "Ich kümmere mich um den Haushalt und den Hof, während meine Frau sich erholt."
+"Aurora", english -> "Aurora Snow is an old friend of my wife.", "Ah, yes, Aurora. She is quite a skilled druid.", "Aurora is a well-respected healer."
+"Hof", "Bauernhof", "Farm" -> "Dieser Ort ist in Ordnung.", "Wir beide können den Hof gut bestellen. Allein ist es allerdings etwas anspruchsvoller.", "Mir gefälllt es hier. Der Frieden, die Stille, die frische Luft. Das Leben hier ist wunderbar."
+"Vieh", "Tier" -> "Wir halten ab und an Kühe. Ihr Steak ist sehr gefragt.", "Es herrscht ständige Nachfrage nach Fleisch. Wir verkaufen an verschiedene Köche, die daraus Fleischgerichte kochen.Ich muss hinzufügen, sie zahlen natürlich einen großzügigen Aufschlag.", "Wir ziehen auch manchmal Schweine auf, ihr Fleisch ist billiger als Kuhfleisch, aber dafür ist die Haltung der Schweine weniger mühsam."
+"Früchte", "Ernte" -> "Es herscht stetige Nachfrage nach allem was wir hier anbauen. In die meisten Gerichte gehören schließlich ein oder zwei Gemüsesorten.", "Wir bauen hier alles mögliche an: Möhren, Getreide,Kohl, Zwiebeln.", "Ich würdfe sagen, am liebsten mag ich Tomaten."
+"Frau", "Natiana" -> "Meiner geliebten Frau geht es schlecht, leider.", "Natiana ist wirklich ein Schatz. Ich fühle mich schlecht, weil ich ihr nicht helfen kann.", "Ich kümmere mich um den Haushalt und den Hof, während meine Frau sich erholt."
 "Aurora" -> "Aurora Snow ist eine alte Freundin meiner Frau.", "Ah ja, Aurora Snow. Sie ist eine sehr fähige Druidin.", "Auroa ist eine hochangesehene Heilerin."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
@@ -204,9 +203,9 @@ itemShoes = 53
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
-"Gott" ->  "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
+"Gott" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
 "Adron", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
-"Adron" ->"Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
+"Adron" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
 "Bragon", "Brágon", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Bragon", "Brágon" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
 "Cherga", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
@@ -226,7 +225,7 @@ itemShoes = 53
 "Nargun", "Nargún", "Nargùn", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Nargun" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
 "Oldra", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
-"Oldra" ->"Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
+"Oldra" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
 "Ronagan", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Ronagan" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
 "Sirani", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
@@ -237,6 +236,7 @@ itemShoes = 53
 "Ushara" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
 "Zhambra", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Zhambra" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
+
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of", queststatus(1337) < 11 -> "My apologies, but I am in no mood to trade right now.", "I am sorry, but I cannot trade with you at the moment. I must be caring for my wife.", "I fear that I am too busy dealing with my wife at the moment."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Entschuldigt, aber ich bin nicht in der Stimmung zu Handeln.", "Es tut mir leid, aber ich kann gerade keinen Handel mit euch Abschließen, icg muss nicht um meine Frau kümmern.", "Ich fürchte ich bin zu beschäftigt mich um meine Frau zu kümmern, als dass ich mit Euch handeln könnte."
@@ -252,8 +252,9 @@ itemShoes = 53
 "Nein" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."
-".*", german, chance(20) -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
+".*", english, chance(20.0) -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."
+".*", german, chance(20.0) -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
+
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
