@@ -152,7 +152,7 @@ end;
 --  @param npcChar the NPC character
 function baseNPC:nextCycle(npcChar)
     if (self.initLanguages ~= nil) then
-        self:initLanguages();
+        self:initLanguages(npcChar);
     end;
     
     if (self._equipmentList ~= nil) then
