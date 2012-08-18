@@ -6,7 +6,7 @@ require("npc.base.autonpcfunctions")
 
 --Then, replace the receiveText function with this one. You are done!
 
-function receiveText(texttype, message, speaker) 
+function receiveText(thisNPC, texttype, message, speaker) 
 
 --ADDITTION BY ESTRALIS
     message=string.lower(message); --lower case MESSAGE -> message

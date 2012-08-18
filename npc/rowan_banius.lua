@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -49,7 +49,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Banius der Bauer. Schlüsselwörter: Auftrag, Beruf, Hof, Frau, was verkauft."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -74,9 +74,9 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("#me fährt sich mit einer Hand durchs zerzauste Haar und nickt kurz.");
+talkEntry:addResponse("#me blickt dich mit roten Augen an:'Ja, Grüße'.");
+talkEntry:addResponse("#me öffnet seinen Mund um mit leiser, müder Stimme zu antworten, 'Seid gegrüßt'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -97,9 +97,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("#me fährt sich mit einer Hand durchs zerzauste Haar und nickt kurz.");
+talkEntry:addResponse("#me blickt dich mit roten Augen an:'Ja, Grüße'.");
+talkEntry:addResponse("#me öffnet seinen Mund um mit leiser, müder Stimme zu antworten, 'Seid gegrüßt'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -119,9 +119,9 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Gebt auf euch Acht!.");
+talkEntry:addResponse("Bis Dann! Bedenkt meine Frau in Euren Gebeten!");
+talkEntry:addResponse("Mögen die Götter über Euch wachen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -142,9 +142,9 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Gebt auf euch Acht!");
+talkEntry:addResponse("Bis Dann! Bedenkt meine liebe Frau in Euren Gebeten!");
+talkEntry:addResponse("Mögen die Götter über Euch wachen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -163,9 +163,9 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Mir geht es gut. Meine arme Freu jedoch ist krank. Ich bräuchte dringend Hilfe.");
+talkEntry:addResponse("Ich bin unschlüssig. Meine Frau ist krank und uns gehen die Vorräte aus. Ich kann nicht riskieren das die Ernte verdirbt, wenn ich jetzt den Hof verlasse.");
+talkEntry:addResponse("Sorgt euch um meine Frau, nicht um mich. Ich benötige schrecklich dringend Hilfe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -184,9 +184,9 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich heiße Rowan Banius. Ich bin nur ein ärmlicher Bauer.");
+talkEntry:addResponse("Ich bin Rowan Banius. Dies ist meine geliebte Frau Natina. Bitte, kommt nicht näher heran.");
+talkEntry:addResponse("Rowan Banius, so heiße ich. Ich wünschrte wir hatten uns in einer weniger schweren Stunde getroffen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -206,7 +206,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ihr werde uns helfen? Oh, Ihr seid zu gütig. Ich bin wirklich dankbar. Wir haben nur noch wenig Vorräte im Haus und bald ist Erntezeit. Wenn Ihr mir 10 gekochte Schinken bringen könhntet, so werde ich bis zur Ernte genug Essen auf den Tisch bringen können.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -227,7 +227,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ihr werde uns helfen? Oh, Ihr seid zu gütig. Ich bin wirklich dankbar. Wir haben nur noch wenig Vorräte im Haus und bald ist Erntezeit. Wenn Ihr mir 10 gekochte Schinken bringen könhntet, so werde ich bis zur Ernte genug Essen auf den Tisch bringen können.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -247,7 +247,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ich benötige dringesnst besagte 10 Schinken.Meine Frau ist schon ganz bleich, ein anständiges Mahl wird ihr gut tun!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,7 +266,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ich benötige dringesnst besagte 10 Schinken.Meine Frau ist schon ganz bleich, ein anständiges Mahl wird ihr gut tun!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -288,8 +288,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(306, "all", ">", 9));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 40 Kupferstücke."));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 40 Kupferstücke und eimn Fleischgericht."));
+talkEntry:addResponse("Oh! Habt dank, habt Dank! Meine Frau wird dank euch eine anstängige Mahlzeit genießen können. Dies wird ihr sicher wieder auf die Beine helfen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(306, 10));
 talkEntry:addConsequence(npc.base.consequence.item.item(557, 1, 599, 0));
@@ -313,7 +313,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -334,7 +334,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken..");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -354,7 +354,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Meine arme Frau hatte etwas gutes Essen, aber sie zittert tag und nacht. Je eher Ihr den blauen Mantel besoregen könnt, um so besser.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -373,7 +373,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Meine arme Frau hatte etwas gutes Essen, aber sie zittert tag und nacht. Je eher Ihr den blauen Mantel besoregen könnt, um so besser..");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -395,8 +395,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2380, "all", ">", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein ITEM."));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein eine Sense."));
+talkEntry:addResponse("Ah, das ist ausgezeichnet. Ich danke euch, mein Freund. Ich hoffe dies ist eine angemessene Entschädigung.Hmm...hier, nehmt auch meine alte Sense.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2380, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 599, 0));
@@ -420,7 +420,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -441,7 +441,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -459,7 +459,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 5));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Habt Ihr mit der Druidin gesprochen? Aurora Snow erwartet euch am Druidenhaus.Bitte beeilt euch. Meiner armen Frau geht es noch immer nicht besser.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,7 +476,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 5));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Habt Ihr mit der Druidin gesprochen? Aurora Snow erwartet euch am Druidenhaus.Bitte beeilt euch. Meiner armen Frau geht es noch immer nicht besser.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -496,8 +496,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 10));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein VERY NICE ITEM."));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Schatzkarze und 10 Rangpunkte."));
+talkEntry:addResponse("Oh! Ich bin so froh euch zu sehen! Die Medizin! Vielen Dank! Ich hatte schon Sorge meine Frau würde die nächsten zwei Nächte nicht überleben Ich stehe auf Ewig in euer Schuld, mein Freund. Bitte, nehmt dies.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(6));
@@ -517,7 +517,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 11));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Meiner Frau geht dank euch es besser. Es wird noch eine Weile dauern bis sie wieder auf dem Hof arbeiten kann, aber sie ist am Leben und das ist mir das wichtigste.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -534,7 +534,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 11));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Meiner Frau geht dank euch es besser. Es wird noch eine Weile dauern bis sie wieder auf dem Hof arbeiten kann, aber sie ist am Leben und das ist mir das wichtigste.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -548,9 +548,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin ein Bauer. Aber vielleicht nicht mehr lange, wenn meimne Frau nicht bald wieder zu Kräften kommt.");
+talkEntry:addResponse("Ich betreibe diesen Hof gemeinsam mit meiner Frau. Zumindest war das so, bevor sie krank wurde.");
+talkEntry:addResponse("Ich bin ein Bauer, jedoch kümmere ich mich zur Zeit nur noch um meine kranke Frau.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -565,9 +565,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin ein Bauer. Aber vielleicht nicht mehr lange, wenn meimne Frau nicht bald wieder zu Kräften kommt.");
+talkEntry:addResponse("Ich betreibe diesen Hof gemeinsam mit meiner Frau. Zumindest war das so, bevor sie krank wurde.");
+talkEntry:addResponse("Ich bin ein Bauer, jedoch kümmere ich mich zur Zeit nur noch um meine kranke Frau.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -584,9 +584,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Dieses Land meinte es stets gut mit uns.");
+talkEntry:addResponse("Gobaith war eine wunderbare Insel.Dort stand nichts zwischen mir und meiner Frau, außer vielleicht mal einer Erkältung.");
+talkEntry:addResponse("Die Insel war reich und fruchtbar, wie gemacht für einen Mann mit meinem Beruf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -642,6 +642,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Aurora");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Aurora Snow is an old friend of my wife.");
 talkEntry:addResponse("Ah, yes, Aurora. She is quite a skilled druid.");
 talkEntry:addResponse("Aurora is a well-respected healer.");
@@ -649,42 +650,47 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER1");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Hof");
+talkEntry:addTrigger("Bauernhof");
+talkEntry:addTrigger("Farm");
+talkEntry:addResponse("Dieser Ort ist in Ordnung.");
+talkEntry:addResponse("Wir beide können den Hof gut bestellen. Allein ist es allerdings etwas anspruchsvoller.");
+talkEntry:addResponse("Mir gefälllt es hier. Der Frieden, die Stille, die frische Luft. Das Leben hier ist wunderbar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER2");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Vieh");
+talkEntry:addTrigger("Tier");
+talkEntry:addResponse("Wir halten ab und an Kühe. Ihr Steak ist sehr gefragt.");
+talkEntry:addResponse("Es herrscht ständige Nachfrage nach Fleisch. Wir verkaufen an verschiedene Köche, die daraus Fleischgerichte kochen.Ich muss hinzufügen, sie zahlen natürlich einen großzügigen Aufschlag.");
+talkEntry:addResponse("Wir ziehen auch manchmal Schweine auf, ihr Fleisch ist billiger als Kuhfleisch, aber dafür ist die Haltung der Schweine weniger mühsam.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER3");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Früchte");
+talkEntry:addTrigger("Ernte");
+talkEntry:addResponse("Es herscht stetige Nachfrage nach allem was wir hier anbauen. In die meisten Gerichte gehören schließlich ein oder zwei Gemüsesorten.");
+talkEntry:addResponse("Wir bauen hier alles mögliche an: Möhren, Getreide,Kohl, Zwiebeln.");
+talkEntry:addResponse("Ich würdfe sagen, am liebsten mag ich Tomaten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER4");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Frau");
+talkEntry:addTrigger("Natiana");
+talkEntry:addResponse("Meiner geliebten Frau geht es schlecht, leider.");
+talkEntry:addResponse("Natiana ist wirklich ein Schatz. Ich fühle mich schlecht, weil ich ihr nicht helfen kann.");
+talkEntry:addResponse("Ich kümmere mich um den Haushalt und den Hof, während meine Frau sich erholt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER5");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Aurora");
+talkEntry:addResponse("Aurora Snow ist eine alte Freundin meiner Frau.");
+talkEntry:addResponse("Ah ja, Aurora Snow. Sie ist eine sehr fähige Druidin.");
+talkEntry:addResponse("Auroa ist eine hochangesehene Heilerin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -841,9 +847,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Entschuldigt, aber ich bin in Gedanken gerade ganz wo anders.");
+talkEntry:addResponse("Es tut mir wirklich leid, aber meine Frau braucht meine Hilfe.");
+talkEntry:addResponse("Vielleicht können wir dieses Gespräch ein andermal fortsetzten, ich muss mich jetzt um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -860,9 +866,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Entschuldigt, aber ich bin in Gedanken gerade ganz wo anders.");
+talkEntry:addResponse("Es tut mir wirklich leid, aber meine Frau braucht meine Hilfe.");
+talkEntry:addResponse("Vielleicht können wir dieses Gespräch ein andermal fortsetzten, ich muss mich jetzt um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -877,9 +883,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Entschuldigt, aber ich bin in Gedanken gerade ganz wo anders.");
+talkEntry:addResponse("Es tut mir wirklich leid, aber meine Frau braucht meine Hilfe.");
+talkEntry:addResponse("Vielleicht können wir dieses Gespräch ein andermal fortsetzten, ich muss mich jetzt um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -893,10 +899,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
-talkEntry:addTrigger("Götter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -911,9 +916,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -930,9 +935,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -947,9 +952,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -964,9 +969,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -981,9 +986,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -998,9 +1003,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1015,9 +1020,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1033,10 +1038,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1051,9 +1055,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Bitte, zeigt meiner Fau gegenüber etwas mehr Respekt.");
+talkEntry:addResponse("Meine Frau und ich haben schon genug Sorgen, ohne das Ihr die Dunkelheit in unser Haus tragt.");
+talkEntry:addResponse("Hört, das ist nicht die rechte Zeit um über solch Böses zu sprechen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1070,11 +1074,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargún");
-talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1089,9 +1091,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1106,9 +1108,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1123,9 +1125,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1142,9 +1144,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1159,9 +1161,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1176,9 +1178,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.");
+talkEntry:addResponse("Bitte bedenke meine Frau in Euren Gebeten.");
+talkEntry:addResponse("Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1199,9 +1201,9 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Entschuldigt, aber ich bin nicht in der Stimmung zu Handeln.");
+talkEntry:addResponse("Es tut mir leid, aber ich kann gerade keinen Handel mit euch Abschließen, icg muss nicht um meine Frau kümmern.");
+talkEntry:addResponse("Ich fürchte ich bin zu beschäftigt mich um meine Frau zu kümmern, als dass ich mit Euch handeln könnte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1216,15 +1218,15 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es tut mir leid, aber ich bin nicht in der Stimmung etwas zu erzählen.");
+talkEntry:addResponse("Bitte entschuldigt, aber meine Frau bracht meine Hilfe.");
+talkEntry:addResponse("Es tut mir leid, ich bin zu besorgt, als dass ich jetzt ein gutes Gespräch führen könnte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rowan");
-talkEntry:addTrigger("Bannius");
+talkEntry:addTrigger("Banius");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hm? Please, I must take care of my wife.");
 talkEntry:addResponse("Forgive me, but my wife needs my care.");
@@ -1233,11 +1235,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Rowan");
+talkEntry:addTrigger("Banius");
+talkEntry:addResponse("Hm? Bitte, ich muss mich um meine Frau kümmern.");
+talkEntry:addResponse("Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.");
+talkEntry:addResponse("Es tut mir Leid, aber ich muss mich um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1251,9 +1253,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Hm? Bitte, ich muss mich um meine Frau kümmern.");
+talkEntry:addResponse("Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.");
+talkEntry:addResponse("Es tut mir Leid, aber ich muss mich um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1267,16 +1269,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Hm? Bitte, ich muss mich um meine Frau kümmern.");
+talkEntry:addResponse("Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.");
+talkEntry:addResponse("Es tut mir Leid, aber ich muss mich um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Hm? Please, I must take care of my wife.");
 talkEntry:addResponse("Forgive me, but my wife needs my care.");
 talkEntry:addResponse("I am sorry but I must be looking after my wife.");
@@ -1286,26 +1288,26 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addResponse("Hm? Bitte, ich muss mich um meine Frau kümmern.");
+talkEntry:addResponse("Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.");
+talkEntry:addResponse("Es tut mir Leid, aber ich muss mich um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "#me glances at his wife, smiling faintly.");
-talkingNPC:addCycleText("GERMAN.", "#me nods politely.");
-talkingNPC:addCycleText("GERMAN.", "Please dear, don't go overexerting yourself.");
-talkingNPC:addCycleText("GERMAN.", "Hmm...what to have for dinner tonight...");
-talkingNPC:addCycleText("GERMAN.", "#me peers out at the farm.");
-talkingNPC:addCycleText("GERMAN.", "#me raises a fist, stifling a cough.");
-talkingNPC:addCycleText("GERMAN.", "#me dabs at his wife's forehead with a damp cloth.");
-talkingNPC:addCycleText("GERMAN.", "watches his wife, releasing a quiet sigh.");
-talkingNPC:addCycleText("GERMAN.", "Now where do we keep the good mugs?");
-talkingNPC:addCycleText("GERMAN.", "#me closes his eyes, whispering a silent prayer.");
+talkingNPC:addCycleText("#me sieht seine Frau an und lächelt schwach.", "#me glances at his wife, smiling faintly.");
+talkingNPC:addCycleText("#me nickt höflich.", "#me nods politely.");
+talkingNPC:addCycleText("Bitte Liebling, überanstrenge dich nicht.", "Please dear, don't go overexerting yourself.");
+talkingNPC:addCycleText("Hmm...was essen wir heute Abend?", "Hmm...what to have for dinner tonight...");
+talkingNPC:addCycleText("#me blickt nach draußen auf den Hof.", "#me peers out at the farm.");
+talkingNPC:addCycleText("#me hebt eine Faust und unterdrückt ein Husten.", "#me raises a fist, stifling a cough.");
+talkingNPC:addCycleText("#me wischt mit einem nassen Lappen üder die Stirn seiner Frau.", "#me dabs at his wife's forehead with a damp cloth.");
+talkingNPC:addCycleText("#me betrachtet seine Frau und seuftzt leise.", "watches his wife, releasing a quiet sigh.");
+talkingNPC:addCycleText("Also, wo bewahren wir nochmal die guten Becher auf?", "Now where do we keep the good mugs?");
+talkingNPC:addCycleText("#me schließt seine Augen, er flüstert leise ein Gebet.", "#me closes his eyes, whispering a silent prayer.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is Rowan Banius the farmer.");
+mainNPC:setLookat("Dieser NPC ist Rowan Banius der Bauer.", "This NPC is Rowan Banius the farmer.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
@@ -1321,10 +1323,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

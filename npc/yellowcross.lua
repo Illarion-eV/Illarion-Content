@@ -4,7 +4,7 @@ require("base.common")
 
 module("npc.yellowcross", package.seeall)
 
-function nextCycle()
+function nextCycle(thisNPC)
 
     EffectArea = 3;
 
