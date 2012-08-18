@@ -212,22 +212,18 @@ end;
 --  @return true in case the text was handled properly by one of the receive text handlers
 function baseNPC:receiveText(npcChar, speaker, text)
     if (self._receiveTextFunctions == nil) then
-		speaker:inform("Cancled receive text: no receive text functions");
         return false;
     end;
     
     if not npcChar:isInRange(speaker, 2) then
-		speaker:inform("Cancled receive text: speaker out of range");
         return false;
     end;
 
     if (speaker.id == npcChar.id) then
-		speaker:inform("Cancled receive text: speaker and NPC have equal IDs");
         return false;
     end;
 
     if (speaker:getType() ~= 0) then
-		speaker:inform("Cancled receive text: speaker is not a player");
         return false;
     end;
 
@@ -237,7 +233,6 @@ function baseNPC:receiveText(npcChar, speaker, text)
     
     if not self:checkLanguageOK(speaker) then
         self:_displayLanguageConfusion(npcChar);
-		speaker:inform("Cancled receive text: language check failed");
         return false;
     end;
     npcChar.activeLanguage = speaker.activeLanguage;
@@ -248,8 +243,6 @@ function baseNPC:receiveText(npcChar, speaker, text)
             return true;
         end;
     end);
-	
-	speaker:inform("Cancled receive text: no handler found to process text: " .. text);
     
     return false;
 end;

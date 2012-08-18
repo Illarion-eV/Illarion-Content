@@ -163,7 +163,7 @@ function talkNPCEntry:execute(npcChar, player)
     	self._responses[selectedResponse] = string.gsub(self._responses[selectedResponse],"%%CHARNAME",player.name);
     	self._responses[selectedResponse] = string.gsub(self._responses[selectedResponse],"%%NPCNAME",npcChar.name);
     	
-		npcChartalk(Character.say, self._responses[selectedResponse]);
+		npcChar:talk(Character.say, self._responses[selectedResponse]);
     end;
     
 	table.foreach(self._consequences, function(_, consequence)
