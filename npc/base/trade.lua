@@ -119,7 +119,7 @@ end;
 
 function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
 	player:inform("Sell item to player! Index: " .. itemIndex);
-    local item = self._sellItems[itemIndex];
+    local item = self._sellItems[itemIndex + 1];
     if (item == nil) then
         base.common.InformNLS(player, "Ein Fehler ist beim Kauf des Items aufgetreten", "An error occurred while buying the item");
         return;
