@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           & Someone                                                        --
 --                                                                            --
--- Last parsing: September 25, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Borgate Northoff"
@@ -152,8 +152,8 @@ itemShoes = 53
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger /  Response is only given 1/5 of the time
-".*", english, chance(65) -> "#me nods slowly. 'Aha..?'", "#me slowy shakes his head. 'Hmpf.'", "#me starts to comb his long beard with his figners. 'Is that true?'", "#me wrinkles his big chubby nose. 'Ye-h. I just came to same conclusion.'", "#me takes a sip out of his beer mug. '... incrediple!'", "#me rises a brow. 'Honestly?'", "Aye, heared something similar once before. You wouldn't belive it.", "Honsetly? I'm amazed!", "#me crosses his hands behind the neck. 'Hm-hm.'", "If it's Irmoroms will...", "#me picks the hair of his beard with two fingers. 'That sounds kind of curious. Don't think so?'", "#me scratches his chin. 'Interesting, isn't it?'"
-".*", german, chance(65) -> "#me nickt langsam. 'Aha..?'", "#me legt den Kopf schief. 'Hmpf.'", "#me greift sich mit den Fingern in den langen Bart und zieht sie hindurch. 'Ist das so?'", "#me rümpft seine große felischige Nase. 'So etwas dachte ich mir schon.'", "#me nimmt einen Schluck von seinem Bierkrug. '... unglaublich!'", "Aye, so etwas ähnliches hab ich schonmal gehört. Das würde dich wundern.", "Tatsächlich!? Ich bin erstaunt.", "#me verschränkt die Hände im Nacken. 'Hm-hm.'", "Sodar es Irmoroms Wille ist...", "#me zupft mit zwei Fingern an seinem Bart. 'Das ist seltsam. Findest du das nicht auch?'", "#me hebt eine Augenbraue. 'Wirklich?'", "#me kratzt sich nachdenklich am Kinn. 'Was Ihr nicht sagt..?"
+".*", english, chance(65.0) -> "#me nods slowly. 'Aha..?'", "#me slowy shakes his head. 'Hmpf.'", "#me starts to comb his long beard with his figners. 'Is that true?'", "#me wrinkles his big chubby nose. 'Ye-h. I just came to same conclusion.'", "#me takes a sip out of his beer mug. '... incrediple!'", "#me rises a brow. 'Honestly?'", "Aye, heared something similar once before. You wouldn't belive it.", "Honsetly? I'm amazed!", "#me crosses his hands behind the neck. 'Hm-hm.'", "If it's Irmoroms will...", "#me picks the hair of his beard with two fingers. 'That sounds kind of curious. Don't think so?'", "#me scratches his chin. 'Interesting, isn't it?'"
+".*", german, chance(65.0) -> "#me nickt langsam. 'Aha..?'", "#me legt den Kopf schief. 'Hmpf.'", "#me greift sich mit den Fingern in den langen Bart und zieht sie hindurch. 'Ist das so?'", "#me rümpft seine große felischige Nase. 'So etwas dachte ich mir schon.'", "#me nimmt einen Schluck von seinem Bierkrug. '... unglaublich!'", "Aye, so etwas ähnliches hab ich schonmal gehört. Das würde dich wundern.", "Tatsächlich!? Ich bin erstaunt.", "#me verschränkt die Hände im Nacken. 'Hm-hm.'", "Sodar es Irmoroms Wille ist...", "#me zupft mit zwei Fingern an seinem Bart. 'Das ist seltsam. Findest du das nicht auch?'", "#me hebt eine Augenbraue. 'Wirklich?'", "#me kratzt sich nachdenklich am Kinn. 'Was Ihr nicht sagt..?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

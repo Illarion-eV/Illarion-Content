@@ -2,12 +2,12 @@
 -- NPC Name: Brassius Meres                                          Runewick --
 -- NPC Job:  Guard                                                            --
 --                                                                            --
--- NPC Race: human                      NPC Position:  844, 819, 0            --
+-- NPC Race: human                      NPC Position:  841, 819, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk & Estralis Seborian                                        --
 --                                                                            --
--- Last parsing: July 05, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1353,7 +1353,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("I should really be returning to my work.");
 talkEntry:addResponse("If the Archmage catches me chatting away, he will not be pleased.");
 talkEntry:addResponse("Please, you shall get me into trouble if I am caught standing here chatting.");
@@ -1363,7 +1363,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Ich sollte mich wieder um meinen Dienst kümmern.");
 talkEntry:addResponse("Wenn der Erzmagier mich dabei erwischt, wie ich herumklöne, wird er nicht zufrieden sein.");
 talkEntry:addResponse("Bitte, ich bekomme noch Ärger, wenn man mich hier tratschen sieht.");
@@ -1399,10 +1399,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

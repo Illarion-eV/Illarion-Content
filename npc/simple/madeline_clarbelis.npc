@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Madeline Clarbelis"
@@ -124,9 +124,9 @@ itemShoes = 53
 
 -- No more quests, just nice words of gratitude
 "quest", "mission", queststatus(334) = 2, english -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
-"quest", "mission", queststatus(334) = 2 ->  "Danke für Eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
+"quest", "mission", queststatus(334) = 2 -> "Danke für Eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
 "task", "adventure", queststatus(334) = 2 -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(334) = 2 ->  "Danke für Eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(334) = 2 -> "Danke für Eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I...I am training to be a druid.", "I am an apprentice druid.", "I will be a druid, one day."
@@ -172,7 +172,7 @@ itemShoes = 53
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I like to listen to the stories about the Younger Gods. Aurora says that I must learn more about the Elder Ones, though.", "The Elder Ones gave birth to everything...that's what Aurora tells me.", "Aurora talks a lot about Ushara, one of the Elder Gods."
-"Gott", "Götter" -> "Ich höre gerne Geschichte über die jungen Götter. Aurora sagt aber, dass ich mehr über die Alten lernen soll." ,"Die alten Götter haben alles erschaffen... das hat Aurora mir gesagt." ,"Aurora redet viel über Ushara, einen der alten Götter."
+"Gott", "Götter" -> "Ich höre gerne Geschichte über die jungen Götter. Aurora sagt aber, dass ich mehr über die Alten lernen soll.", "Die alten Götter haben alles erschaffen... das hat Aurora mir gesagt.", "Aurora redet viel über Ushara, einen der alten Götter."
 "Adron", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Adron" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
 "Bragon", "Brágon", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
@@ -180,7 +180,7 @@ itemShoes = 53
 "Cherga", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Cherga" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
 "Elara", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
-"Elara" ->"Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
+"Elara" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
 "Eldan", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Eldan" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
 "Findari", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
@@ -202,7 +202,7 @@ itemShoes = 53
 "Tanora", "Zelphia", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Tanora", "Zelphia" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
 "Ushara", english -> "Aurora always talks about Ushara. She is the Goddess of Earth.", "Aurora tells me that she has met Ushara. She must be so old.", "I have to learn a lot about Ushara. I wish it didn't take so long."
-"Ushara" ->  "Aurora redet immer über Ushara. Sie ist die Göttin der Erde.", "Aurora erzählte mir sie habe Ushara getroffen, sie muss so alt sein.", "Ich muss viel über Ushara lernen, ich wünschte es würde nicht so lange brauchen."
+"Ushara" -> "Aurora redet immer über Ushara. Sie ist die Göttin der Erde.", "Aurora erzählte mir sie habe Ushara getroffen, sie muss so alt sein.", "Ich muss viel über Ushara lernen, ich wünschte es würde nicht so lange brauchen."
 "Zhambra", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Zhambra" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
 
@@ -214,15 +214,15 @@ itemShoes = 53
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Madeline", "Clarbelis", english -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
-"Madeline", "Clarbelis" ->  "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
+"Madeline", "Clarbelis" -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
 "Yes" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
-"Ja" ->  "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
+"Ja" -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
 "No" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
-"Nein" ->  "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
+"Nein" -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
-".*", german, chance(20) ->  "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
+".*", english, chance(20.0) -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
+".*", german, chance(20.0) -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

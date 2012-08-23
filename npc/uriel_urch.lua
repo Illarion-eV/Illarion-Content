@@ -8,7 +8,7 @@
 -- Authors:  Ryan Williams/Alexander Knight                                   --
 --           supervising by Rincewind                                         --
 --                                                                            --
--- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1129,7 +1129,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Are you from the Serinjah folks? - You like quite strange to me...");
 talkEntry:addResponse("Damn it, I hate Greenskins!");
 talkEntry:addResponse("Leave me alone...");
@@ -1139,7 +1139,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Seid ihr ein Serinjah? - Ihr seht wahrlich seltsam aus...");
 talkEntry:addResponse("Verdammt, ich hasse Grünhäute.");
 talkEntry:addResponse("Lasst mich in Frieden...");
@@ -1173,10 +1173,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

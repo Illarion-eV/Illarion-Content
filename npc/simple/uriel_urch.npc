@@ -8,7 +8,7 @@
 -- Authors:  Ryan Williams/Alexander Knight                                   --
 --           supervising by Rincewind                                         --
 --                                                                            --
--- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Uriel Urch"
@@ -188,8 +188,8 @@ itemShoes = 699
 "Nein" -> "Na gut.", "Hrm, warum?", "Ehh... worum geht's?"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Are you from the Serinjah folks? - You like quite strange to me...", "Damn it, I hate Greenskins!", "Leave me alone..."
-".*", german, chance(20) -> "Seid ihr ein Serinjah? - Ihr seht wahrlich seltsam aus...", "Verdammt, ich hasse Grünhäute.", "Lasst mich in Frieden..."
+".*", english, chance(20.0) -> "Are you from the Serinjah folks? - You like quite strange to me...", "Damn it, I hate Greenskins!", "Leave me alone..."
+".*", german, chance(20.0) -> "Seid ihr ein Serinjah? - Ihr seht wahrlich seltsam aus...", "Verdammt, ich hasse Grünhäute.", "Lasst mich in Frieden..."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

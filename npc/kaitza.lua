@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -54,7 +54,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Kaitza> der Tempelwächter. Schlüsselwörter: Zelphia, Beruf, Gobaith, gods."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -79,9 +79,9 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ehre sei der Göttin.");
+talkEntry:addResponse("Grüssse, Landgänger.");
+talkEntry:addResponse("#me senkt seinen kopf respektvoll,'Greetingss'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -93,7 +93,7 @@ talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Glory to ze Goddessss.");
 talkEntry:addResponse("Greetingsss, landwalker.");
-talkEntry:addResponse("#me lowers his head respectfully, 'Greetingsss.'");
+talkEntry:addResponse("#me lowers his head respectfully, 'Greetingss'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -102,9 +102,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ehre sei der Göttin.");
+talkEntry:addResponse("Grüssse, Landgänger.");
+talkEntry:addResponse("#me neigt sein Haupt respektvoll,'Grüssse'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -124,9 +124,9 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ehre sssei der Göttin.");
+talkEntry:addResponse("Zzs. Möge Zelphina deine Wasser beruhig.");
+talkEntry:addResponse("#me neigt respektvoll das Haupt: 'Lebt wohl!'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -147,9 +147,9 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ehre sssei der Göttin.");
+talkEntry:addResponse("Zzs. Möge Zelphina deine Wasser beruhig.");
+talkEntry:addResponse("#me neigt respektvoll das Haupt: 'Lebt wohl!'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -168,9 +168,9 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Mir geht esss.... gut.");
+talkEntry:addResponse("Die Göttin wacht über mich. Zss.");
+talkEntry:addResponse("Zelpia beschützzt mich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -189,9 +189,9 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin Kaitza. Diener der Göttin. Zss.");
+talkEntry:addResponse("Mein Name issst Kaiza.");
+talkEntry:addResponse("Ich bin Kiatza, der Wächter dess Tempelssss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -211,7 +211,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Diessser Dolch? Er issst nicht zzzu kaufen. Zss. Aber...diesse Druidin Aurora Sssnow, ssie hat einen Emerald-Ring. Zss. Gebt mir den Ring und ich überlassse euch den Dolch. Zss.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -232,11 +232,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("german");
-talkEntry:addTrigger("german");
+talkEntry:addTrigger("stab");
+talkEntry:addTrigger("dolch");
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Diessser Dolch? Er issst nicht zzzu kaufen. Zss. Aber...diesse Druidin Aurora Sssnow, ssie hat einen Emerald-Ring. Zss. Gebt mir den Ring und ich überlassse euch den Dolch. Zss.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -254,7 +254,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 8));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Diessser Dolch issst wichtig für mich. Zss. Kaitza gibt ihn nur frot im Tausssch, gegen dem Emerald-Ring.Aurora Ssssnow besitzzt ihn. Ssssucht in <Stadt name>");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,7 +271,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 8));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Diessser Dolch issst wichtig für mich. Zss. Kaitza gibt ihn nur fort im Tausssch, gegen dem Emerald-Ring. Aurora Ssssnow besitzzt ihn. Ssssucht in <Stadt name>");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -293,7 +293,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 9));
 talkEntry:addCondition(npc.base.condition.item.item(281, "all", ">", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 80 Kupferstücke."));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ja...dasss issst er, der Dolch. Zss! Grosssartig... Hier isst Euer Doch wie versprochen. Zzs.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(281, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(190, 1, 499, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 10));
@@ -316,7 +316,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -337,7 +337,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -357,7 +357,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Zss. Sso Hungrig. Bring mir zzzehn Forellen. Kaitza zzzahlt dafür. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -376,7 +376,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Zss. Sso Hungrig. Bring mir zzzehn Forellen. Kaitza zzzahl dafür. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -398,7 +398,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ja... dass ist gut.Sssehr gut. Zss. Hier issst Euer Geld.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 80));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 2));
@@ -421,7 +421,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ja. Szzz. Die Forellen war ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bingt mir fünf Sssstück.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -442,7 +442,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ja. Szzz. Die Forellen war ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bingt mir fünf Sssstück.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -462,7 +462,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 5));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Bitte findet für Kaitza fünf ssschamckhafte Lachssse.Kocht sssie nicht. Sssie müsssen roh sssein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -481,7 +481,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 5));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Bitte findet für Kaitza fünf ssschamckhafte Lachssse. Kocht sssie nicht. Sssie müsssen roh sssein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -503,8 +503,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 4));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein VERY NICE ITEM."));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Schlangenschwert und 40 Kupferstücke."));
+talkEntry:addResponse("Der Lachsss sssieht gut uisss. Nemt diesss, alsss Bezzzahlung. Zss. Jetzzzt lasst mich in Ruhe essssen. Zss.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 5));
 talkEntry:addConsequence(npc.base.consequence.item.item(2788, 1, 799, 0));
@@ -525,7 +525,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 4));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Lassst mich allein. Kaitza möchte ssseine Fisssche in Ruhe esssen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -542,7 +542,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 4));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Lassst mich allein. Kaitza möchte ssseine Fisssche in Ruhe esssen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -767,9 +767,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zss. Ich weisss wenig über Menssschenstädte. Zss.");
+talkEntry:addResponse("Über diesssen Ort issst mir nichtss bekannt.");
+talkEntry:addResponse("Diesss intessierit Kaita nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -786,9 +786,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zss. Ich weisss wenig über Menssschenstädte. Zss.");
+talkEntry:addResponse("Über diesssen Ort issst mir nichtss bekannt.");
+talkEntry:addResponse("Diesss intessierit Kaita nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -803,9 +803,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zss. Ich weisss wenig über Menssschenstädte. Zss.");
+talkEntry:addResponse("Über diesssen Ort issst mir nichtss bekannt.");
+talkEntry:addResponse("Diesss intessierit Kaita nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -820,9 +820,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -837,9 +837,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -856,9 +856,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -873,9 +873,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -890,9 +890,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -907,9 +907,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -924,9 +924,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -941,9 +941,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -960,9 +960,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -977,9 +977,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -998,9 +998,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1015,9 +1015,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1032,9 +1032,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1049,9 +1049,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1068,9 +1068,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ehre sei der Göttin! Zss.");
+talkEntry:addResponse("Zss. Zelphia behütet mich.");
+talkEntry:addResponse("Dass Eiland der Ewigkeit erwatet mich. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1085,9 +1085,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1102,9 +1102,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.");
+talkEntry:addResponse("Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.");
+talkEntry:addResponse("Zss. Ich verehre einzzzig die Göttin alein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1124,9 +1124,9 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zss. Ich habe nichtsss zum handeln.");
+talkEntry:addResponse("Ich brache nichts zzu handeln.");
+talkEntry:addResponse("Entschuldigt, ich bin nicht am Handeln interessssiert.Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1141,9 +1141,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Vielleicht habe ich eine Aufgabe. Zss. Eine Aufgabe für Euch.");
+talkEntry:addResponse("Der Göttin zzzu dienen issst die grösssste Aufgabe im Leben. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1158,9 +1157,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kaitza");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zss. Kaitza mussss arbeiten.");
+talkEntry:addResponse("#me zischt leise.");
+talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1174,9 +1173,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zss. Kaitza mussss arbeiten.");
+talkEntry:addResponse("#me zischt leise.");
+talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1190,16 +1189,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zss. Kaitza mussss arbeiten.");
+talkEntry:addResponse("#me zischt leise.");
+talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Zss. Kaitza mussst be working.");
 talkEntry:addResponse("#me hisses quietly.");
 talkEntry:addResponse("Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time.");
@@ -1209,27 +1208,27 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addResponse("Zss. Kaitza mussss arbeiten.");
+talkEntry:addResponse("#me zischt leise.");
+talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "#me runs a finger along his blade.");
-talkingNPC:addCycleText("GERMAN.", "#me adjusts his armour.");
-talkingNPC:addCycleText("GERMAN.", "#me hoists up his shield.");
-talkingNPC:addCycleText("GERMAN.", "#me pushes his chest out.");
-talkingNPC:addCycleText("GERMAN.", "#me runs a clawed finger along his cheek.");
-talkingNPC:addCycleText("GERMAN.", "#me hisses quietly.");
-talkingNPC:addCycleText("GERMAN.", "#me closes his eyes for a few moments, breathing deeply.");
-talkingNPC:addCycleText("GERMAN.", "#me whispers a silent prayer.");
-talkingNPC:addCycleText("GERMAN.", "For ze Goddessss!");
-talkingNPC:addCycleText("GERMAN.", "Glory to ze Goddessss!");
+talkingNPC:addCycleText("#me fährt mit dem Finger an der Klinge seiner Waffe entlang.", "#me runs a finger along his blade.");
+talkingNPC:addCycleText("#me rückt seine Rüstung zurecht.", "#me adjusts his armour.");
+talkingNPC:addCycleText("#me hält sein Schild hoch.", "#me hoists up his shield.");
+talkingNPC:addCycleText("#me streckt die Brust raus.", "#me pushes his chest out.");
+talkingNPC:addCycleText("#me fährt sich mit einer Fingerkralle durchs Gesicht.", "#me runs a clawed finger along his cheek.");
+talkingNPC:addCycleText("#me zischt leise.", "#me hisses quietly.");
+talkingNPC:addCycleText("#me schließt  füreinen kurzen Momemt seine Augen und atmet tief ein.", "#me closes his eyes for a few moments, breathing deeply.");
+talkingNPC:addCycleText("#me flüsterte still ein Gebet.", "#me whispers a silent prayer.");
+talkingNPC:addCycleText("Für die Göttin! Zss!", "For ze Goddessss!");
+talkingNPC:addCycleText("Ehre sssei der Göttin!", "Glory to ze Goddessss!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(4);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is Kaitza the temple guard.");
-mainNPC:setUseMessage("Fasst mich nicht an!", "#me hisses sharply.");
+mainNPC:setLookat("Dieser NPC ist Kaitza der Tempelwächter.", "This NPC is Kaitza the temple guard.");
+mainNPC:setUseMessage("#me faucht drohend.", "#me hisses sharply.");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 2407);
@@ -1244,10 +1243,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

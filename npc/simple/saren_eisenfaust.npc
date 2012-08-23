@@ -8,7 +8,7 @@
 -- Authors:  Someone                                                          --
 --           & Rincewind                                                      --
 --                                                                            --
--- Last parsing: September 14, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Saren Eisenfaust"
@@ -229,8 +229,8 @@ itemShoes = 697
 "Nein" -> "Wat sachste, ich hoffe ich habe mich verhört?!", "Du sagst Nein...nein zu mir, wat denkst du mit wem du sprichst!", "Dann nich, so wird nie was aus dir!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Eh..what did you just say about my mother?", "What are you jabbering about?", "Nah, I don't wanna buy that!"
-".*", german, chance(20) -> "Eh..wat hast du grad über meine Mutter gesagt?", "Wat quasselst du da?", "Nay, ich will dat nich kaufen!"
+".*", english, chance(20.0) -> "Eh..what did you just say about my mother?", "What are you jabbering about?", "Nah, I don't wanna buy that!"
+".*", german, chance(20.0) -> "Eh..wat hast du grad über meine Mutter gesagt?", "Wat quasselst du da?", "Nay, ich will dat nich kaufen!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

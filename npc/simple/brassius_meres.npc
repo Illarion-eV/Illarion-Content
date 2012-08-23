@@ -2,12 +2,12 @@
 -- NPC Name: Brassius Meres                                          Runewick --
 -- NPC Job:  Guard                                                            --
 --                                                                            --
--- NPC Race: human                      NPC Position:  844, 819, 0            --
+-- NPC Race: human                      NPC Position:  841, 819, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk & Estralis Seborian                                        --
 --                                                                            --
--- Last parsing: July 05, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Brassius Meres"
@@ -256,8 +256,8 @@ itemShoes = 697
 "Nein" -> "Entschuldigt, aber ich bin im Dienst. Vielleicht kann euch jemand anderes helfen.", "Ich sollte wieder an meinen Dienst denken.", "Ich bin derzeit recht beschäftigt."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "I should really be returning to my work.", "If the Archmage catches me chatting away, he will not be pleased.", "Please, you shall get me into trouble if I am caught standing here chatting."
-".*", german, chance(20) -> "Ich sollte mich wieder um meinen Dienst kümmern.", "Wenn der Erzmagier mich dabei erwischt, wie ich herumklöne, wird er nicht zufrieden sein.", "Bitte, ich bekomme noch Ärger, wenn man mich hier tratschen sieht."
+".*", english, chance(20.0) -> "I should really be returning to my work.", "If the Archmage catches me chatting away, he will not be pleased.", "Please, you shall get me into trouble if I am caught standing here chatting."
+".*", german, chance(20.0) -> "Ich sollte mich wieder um meinen Dienst kümmern.", "Wenn der Erzmagier mich dabei erwischt, wie ich herumklöne, wird er nicht zufrieden sein.", "Bitte, ich bekomme noch Ärger, wenn man mich hier tratschen sieht."
 
 -- That stuff causes errors! pharse, fix that.
 -- [[ replace the receiveText and nextCycle functions:

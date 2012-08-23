@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 22, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Thomas Dalenus"
@@ -73,14 +73,14 @@ itemShoes = 53
 -- 5% Hats: 357, 358, 370, 371, 828, 829, 830, 831, 832
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the tailor Thomas Dalenus. Keyphrases: Hello, tailor.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schneider Thomas Dalenus. Schlüsselwörter: Hallo, Schneider.")
+"Help" -> inform("[Game Help] This NPC is the tailor Thomas Dalenus. Keyphrases: Hello, tailor, Cadomyr, needle, dye.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schneider Thomas Dalenus. Schlüsselwörter: Hallo, Schneider, Cadomyr, Nadel, Färben.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day.", "Greetings.", "Hello"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag.", "Seid gegrüßt.", "Hallo."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day.", "Greetings.", "Hello"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag.", "Seid gegrüßt.", "Hallo."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day. Do you need a coat?", "Greetings. How are you?", "Hello. I have all kinds of clothes."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag. Braucht ihr einen Umhang?", "Seid gegrüßt. Wie geht es euch?", "Hallo. Ich habe vielerlei Stoffe."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day. Do you need a coat?", "Greetings. How are you?", "Hello. I have all kinds of clothes."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag. Braucht ihr einen Umhang?", "Seid gegrüßt. Wie geht es euch?", "Hallo. Ich habe vielerlei Stoffe."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell, go with the gods.", "Good bye, my customer."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt euch wohl, geht mit den Göttern.", "Auf wiedersehen, mein Kunde."
 "Ciao", "Adieu", "Au revoir", english -> "Farewell, go with the gods.", "Good bye, my customer."
@@ -115,6 +115,8 @@ itemShoes = 53
 "färbe", "farbe" -> "Stoffe zu Färben ist aufwändig. Man braucht eine Reihe von Wirkstoffen, so wie Kräuter. Kauft besser gefärbte Stoffe direkt bei mir."
 "needle" -> "I can sell you a needle, but be careful, they are pointed."
 "Nadel" -> "Ich kann euch eine Nadel verkaufen, aber vorsichtig, sie ist spitz."
+"cloth" -> "I sell any kind of cloth."
+"Stoff" -> "Ich verkaufe vielerei Stoffe."
 
 -- Faction stuff
 "archmage" -> "You are talking about Elvaine Morgan, the archmage of Runewick? I keep forgetting his name.", "Who is that again?"

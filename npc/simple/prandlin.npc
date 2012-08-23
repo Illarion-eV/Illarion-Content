@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 29, 2011                         easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Prandlin"
@@ -56,14 +56,13 @@ itemShoes = 53
 -- queststatus(304)=3 ordered to get a fake to change it against the staff/pegleg. (ornate mage's staff 208)
 -- queststatus(304)=4 the staff/pegleg is stolen
 -- queststatus(304)=5 quest end. Jack got his leg.
-
 ".*", queststatus(304) = 1, german -> inform("'Dort! Prandlins Gehstock... er sieht aus als wäre er früher ein Holzbein gewesen! Das muss das Holzbein von Holzbein-Jack sein! Aber wie kann ich es nehmen ohne, dass der alte Halbling aufwacht?'"), "#me umklammert seinen Gehstock und zieht die Wolldecke hoch, ohne zu erwachen. Es ist ein kurzer schön verzierter Stab wie ihn Magier verwenden.", queststatus(304) = 2
 ".*", queststatus(304) = 1, english -> inform("'Look! Prandlins walking stick... it looks like it was once a peg leg. This must be the peg leg of Peg-Leg-Jack! How to steel it, without wake the old halflin up?'"), "#me's grabs the walking stick tight and pulls the blanket to his chin, still asleep. It's a short beautiful ornated staff, like a mage would use.", queststatus(304) = 2
 ".*", queststatus(304) = 2, german -> inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"), "#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke. ", queststatus(304) = 3
 ".*", queststatus(304) = 2, english -> inform("'If I provide a ornate mage's staff, it may be possible to replace it with old Prandlins walking stick, without wake him up."), "#me smiles happy and babbles and drools on his woollen blanket.", queststatus(304) = 3
 "Hilfe", queststatus(304) = 3 -> inform("[Spielhilfe] Es wird ein Emote benötigt um das Holzbein mit dem verzierten Magierstab auszutauschen, welcher ebenso mitgebracht werden muss.")
 "Help", queststatus(304) = 3 -> inform("[Game Help] A emote is needed to replace the peg leg with the ornate mage's staff, which need to be brought as well.")
-"#me (.+) stab", "#me (.+) bein", "#me (.+) Holzbein", "#me (.+) Magierstab","#me (.+) stäbe", queststatus(304) = 3, item(208, all, 0) => 1 -> inform("Großartig! Es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen."), "#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft selig weiter.", deleteItem(208, 1), item(208, 1, 944, 0), queststatus(304) = 4
+"#me (.+) stab", "#me (.+) bein", "#me (.+) Holzbein", "#me (.+) Magierstab", "#me (.+) stäbe", queststatus(304) = 3, item(208, all, 0) => 1 -> inform("Großartig! Es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen."), "#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft selig weiter.", deleteItem(208, 1), item(208, 1, 944, 0), queststatus(304) = 4
 "#me (.+) staff", "#me (.+) leg", queststatus(304) = 3, item(208, all, 0) => 1 -> inform("Awesome! It's done. Now I hold Prandlin's walking stick, which is in fact Jack's Peg Leg. Let's bring the Peg leg into the Pirate Bay."), "#me took no notice when his walking stick got replaced and sleeps along.", deleteItem(208, 1), item(208, 1, 944, 0), queststatus(304) = 4
 ".*", queststatus(304) = 3, german -> inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"), "#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke.", queststatus(304) = 3
 ".*", queststatus(304) = 3, english -> inform("'If I provide a ornate mage's staff, it may be possible to replace it with old Prandlins walking stick, without wake him up."), "#me smiles happy and babbles and drools on his woollen blanket."

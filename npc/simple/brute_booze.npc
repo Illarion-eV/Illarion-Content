@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: June 01, 2012                           easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Brute Booze"
@@ -192,8 +192,8 @@ itemShoes = 53
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger / Response is only given 1/5 of the time
-".*", english, chance(40) -> "But tell me, what do you want to have done, before you die?", "Yes. This is just like in those days, when I slayed the thorned bear of Kang-Arr.", "Hurr- hearing this, I am reminded of my own heroic deeds."
-".*", german, chance(40) -> "Aber, sahegt mir, was wollt ihr alles getan haben, seid ihr erst einmalig tot?", "Ja-ha. Das ist gleich wie damalsig. Als iche den Stachelbären Kang-Arr's zur strecke danieder brachte.", "Hurr - wenn iche das hörige muss ich an meine Heldentaten denkigen."
+".*", english, chance(40.0) -> "But tell me, what do you want to have done, before you die?", "Yes. This is just like in those days, when I slayed the thorned bear of Kang-Arr.", "Hurr- hearing this, I am reminded of my own heroic deeds."
+".*", german, chance(40.0) -> "Aber, sahegt mir, was wollt ihr alles getan haben, seid ihr erst einmalig tot?", "Ja-ha. Das ist gleich wie damalsig. Als iche den Stachelbären Kang-Arr's zur strecke danieder brachte.", "Hurr - wenn iche das hörige muss ich an meine Heldentaten denkigen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

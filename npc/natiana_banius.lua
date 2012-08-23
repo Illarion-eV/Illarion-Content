@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -42,7 +42,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Natiana Banius die Frau des Bauern. Schlüsselwörter: Auftrag"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -67,9 +67,9 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("#me bemüht sich ihre Augen zu öffnen um dich anzusehen.");
+talkEntry:addResponse("#me lächelt schwach.");
+talkEntry:addResponse("H...h...hallo.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -90,9 +90,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("#me bemüht sich ihre Augen zu öffnen um dich anzusehen.");
+talkEntry:addResponse("#me lächelt schwach.");
+talkEntry:addResponse("H...h...hallo.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -112,9 +112,9 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("P...passt auf E...Euch auf.");
+talkEntry:addResponse("#me drückt sanft deine Hand zur Bestätigung.");
+talkEntry:addResponse("#me neigt leicht ihren Kopf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -135,9 +135,9 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("P...passt auf E...Euch auf.");
+talkEntry:addResponse("#me drückt sanft deine Hand zur Bestätigung.");
+talkEntry:addResponse("#me neigt leicht ihren Kopf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -156,9 +156,9 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich...ich bin...s...sehr krank.");
+talkEntry:addResponse("D...der...Heiler, w...weiß nicht, was mit mir n...nicht stimmt.");
+talkEntry:addResponse("#me hustet in ein blutbeflecktes Taschentuch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -177,9 +177,8 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("I...Ich bin...Natiana...Banius.");
+talkEntry:addResponse("N...Natiana Banius. I...Ich... bin...Rowans...F...Frau.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -196,7 +195,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "<", 11));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("B...bitte...helft meinem Mann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -213,7 +212,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "<", 11));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("M..Mein...Mann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -228,7 +227,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 11));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("#me ringt sich ein Lächeln ab,'Habt Dank'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -248,9 +247,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,9 +275,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -296,9 +305,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -318,9 +332,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -531,9 +550,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -556,9 +580,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -579,9 +608,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -602,9 +636,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("B...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -625,9 +664,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -650,9 +694,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -673,9 +722,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -696,9 +750,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -742,9 +801,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -765,9 +829,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,9 +859,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -808,14 +882,6 @@ talkEntry:addResponse("I should...s...save...my breath.");
 talkEntry:addResponse("P...please...h...help...my husband.");
 talkEntry:addResponse("Rowan...n...needs help.");
 talkEntry:addResponse("#me coughs sharply, wincing in pain.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -840,9 +906,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -863,9 +934,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -886,9 +962,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -909,9 +990,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -934,9 +1020,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -957,9 +1048,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -980,9 +1076,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -995,7 +1096,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Aurora");
-talkEntry:addResponse("German");
+talkEntry:addResponse("#me ringt sich ein schwaches Lächen ab, als sie den Namen hört.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1021,9 +1122,14 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1044,9 +1150,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1067,11 +1178,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Natiana");
+talkEntry:addTrigger("Banius");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1091,9 +1207,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1113,16 +1234,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("F...forgive me...I...m...must rest.");
 talkEntry:addResponse("#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.");
 talkEntry:addResponse("P...please...let me...rest.");
@@ -1138,28 +1264,33 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addResponse("Ver...vergebt mir, ... ich muss ausruhen.");
+talkEntry:addResponse("#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.");
+talkEntry:addResponse("b...bitte, lasst mich ausruhen.");
+talkEntry:addResponse("#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.");
+talkEntry:addResponse("Ich... muss...mein...K...Kräfte...sparen.");
+talkEntry:addResponse("B..Bitte,...h..helft m...mein...Mann.");
+talkEntry:addResponse("Rowan...b...braucht...E...Eure Hilfe.");
+talkEntry:addResponse("#me hustet bellend/keuchend und zuckt vor Schmerz krampfhaft zu sammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "#me smiles weakly.");
-talkingNPC:addCycleText("GERMAN.", "#me coughs into a stained-red handkerchief.");
-talkingNPC:addCycleText("GERMAN.", "#me glances to her husband, a warm expression appearing upon her face.");
-talkingNPC:addCycleText("GERMAN.", "#me closes her eyes, drifting into a fitful sleep.");
-talkingNPC:addCycleText("GERMAN.", "#me sighs faintly.");
-talkingNPC:addCycleText("GERMAN.", "#me smiles at her husband.");
-talkingNPC:addCycleText("GERMAN.", "#me's eyes flicker a few times, before falling shut.");
-talkingNPC:addCycleText("GERMAN.", "#me turns her head slightly.");
-talkingNPC:addCycleText("GERMAN.", "#me nods weakly.");
-talkingNPC:addCycleText("GERMAN.", "#me lets out a sharp cough, wincing in pain.");
+talkingNPC:addCycleText("#me lächelt schwach.", "#me smiles weakly.");
+talkingNPC:addCycleText("#me hustet in ein blutgetränktes Taschentuch.", "#me coughs into a stained-red handkerchief.");
+talkingNPC:addCycleText("#me blickt mit frendlicher Mine zu ihrem Mann.", "#me glaces at her husband a warm expression on her face.");
+talkingNPC:addCycleText("#me schließt ihre Augen, und dämmert weg in unruhigen Schlaf.", "#me closes her eyes, drifting into a fitful sleep.");
+talkingNPC:addCycleText("#me seuftz schwach.", "#me sighs faintly.");
+talkingNPC:addCycleText("#me lächelt ihrem Mann zu.", "#me smiles at her husband.");
+talkingNPC:addCycleText("#me's Augenlieder flackern ein paar mal, dann schläft sie.", "#me's eyes flicker a few times, before falling shut.");
+talkingNPC:addCycleText("#me wendet ihren leicht.", "#me turns her head slightly.");
+talkingNPC:addCycleText("#me nickt schwach.", "#me nods weakly.");
+talkingNPC:addCycleText("#me hustet keuchend und zuckt vor Schmerz krampfhaft zusammen.", "#me lets out a sharp cough, wincing in pain.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is Natiana Banius the Farmer's Wife.");
-mainNPC:setUseMessage("Fasst mich nicht an!", "#me shivers, 'D...d...don't...get...t...too...close.'");
-mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me weakly shakes her head.");
+mainNPC:setLookat("Dieser NPC ist Natiana die Frau des Bauern.", "This NPC is Natiana Banius the Farmer's Wife.");
+mainNPC:setUseMessage("#me zittert, 'k...ko...komm mir n...nicht z..z..zu nahe.'", "#me shivers, 'D...d...don't...get...t...too...close.'");
+mainNPC:setConfusedMessage("#me schüttelt schwach ihren Kopf.", "#me weakly shakes her head.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 182);
 mainNPC:setEquipment(11, 0);
@@ -1173,10 +1304,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

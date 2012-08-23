@@ -30,15 +30,19 @@ function onLogin( player )
 					    
 		end
 
-		local callbackNewbie = function(dialogNewbie) end; --empty callback
+		if  player:isInRangeToPosition(position(31,22,100),7) then --only show the dialog if the char is close to the noob spawn
 		
-		if player:getPlayerLanguage() == 0 then		
-			dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie);
-		else		
-			dialogNewbie = MessageDialog("Welcome to Illarion!", "Welcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and teach you the controls of the game. You may skip the tutorial at any time by saying 'skip tutorial' to a NPC.", callbackNewbie);
-		end	
+		    local callbackNewbie = function(dialogNewbie) end; --empty callback
 		
-		player:requestMessageDialog(dialogNewbie); --showing the welcome text
+		    if player:getPlayerLanguage() == 0 then		
+			    dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du bist von Bord des Schiffes gegangen, welches dich zu den letzten sicheren Bastionen der Menscheit Illarions gebracht hat. Das edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen? Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie);
+		    else		
+			    dialogNewbie = MessageDialog("Welcome to Illarion!", "A long journey comes to an end. You disembarked the ship that brought you to Illarion's last save strongholds of mankind. Noble Cadomyr, wise Runewick or wealthy Galmair - which way will you chose? Welcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and teach you the controls of the game. You may skip the tutorial at any time by saying 'skip tutorial' to a NPC.", callbackNewbie);
+		    end	
+		
+		    player:requestMessageDialog(dialogNewbie); --showing the welcome text
+			
+		end --Dialog
 		
     end --Noobia end
 	

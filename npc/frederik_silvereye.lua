@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Frederik Silvereye                                       Cadomyr --
+-- NPC Name: Frederik Silvereye                                       Galmair --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  106, 553, 0            --
@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Ardian                                                           --
 --                                                                            --
--- Last parsing: February 22, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 106, 553, 0, 4, 'Frederik Silvereye', 'npc.frederik_silvereye', 0, 1, 0, 255, 250, 205, 245, 222, 179);
+VALUES (0, 106, 553, 0, 4, 'Frederik Silvereye', 'npc.frederik_silvereye', 0, 3, 5, 139, 0, 0, 245, 222, 179);
 ---]]
 
 require("npc.base.basic")
@@ -28,13 +28,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keyphrases: 'I want to become citizen', 'I want to exchange a decree', ('I want to buy an life insurance')"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Frederik Silvereye the notary. Keyphrases: 'I want to become citizen', 'I want to exchange a decree', ('I want to buy an life insurance')"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Ich möchte Bürger werden', 'Ich möchte ein Dekret einlösen', ('Ich möchte eine Lebensversicherung kaufen')"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Frederik Silvereye der Notar. Schlüsselwörter: 'Ich möchte Bürger werden', 'Ich möchte ein Dekret einlösen', ('Ich möchte eine Lebensversicherung kaufen')"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -158,9 +158,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("My name is Torina Scibrim, I take care of the new arrivals of this place.");
-talkEntry:addResponse("I'm Torina Scibrim, I am the notary of Cadomyr.");
-talkEntry:addResponse("You can call me Torina Scibrim, as notary of this town I could put you on the citizen list of this beautiful place.");
+talkEntry:addResponse("My name is Frederik Silvereye, I take care of the new arrivals of this place.");
+talkEntry:addResponse("I'm Frederik Silvereye, I am the notary of Galmair.");
+talkEntry:addResponse("You can call me Frederik Silvereye, as notary of this town I could put you on the citizen list of this beautiful place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,9 +169,9 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Mein Name ist Torina Scibrim, ich kümmere mich um die Neuankömmlinge dieses Ortes.");
-talkEntry:addResponse("Mein Name ist Torina Scibrim, ich bin die Notarin Cadomyrs.");
-talkEntry:addResponse("Man nennt mich Torina Scibrim, als Notarin kann Ich euch zum Bürger unseres schönen Ortes eintragen.");
+talkEntry:addResponse("Mein Name ist Frederik Silvereye, ich kümmere mich um die Neuankömmlinge dieses Ortes.");
+talkEntry:addResponse("Mein Name ist Frederik Silvereye, ich bin der Notar Galmairs.");
+talkEntry:addResponse("Man nennt mich Frederik Silvereye, als Notar kann Ich euch zum Bürger unseres schönen Ortes eintragen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -209,30 +209,30 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am the notary of Cadomyr and do all the stuff a notary does.");
-talkEntry:addResponse("I take care of the new arrivals in Cadomyr, I am the notary here.");
+talkEntry:addResponse("I am the notary of Galmair and do all the stuff a notary does.");
+talkEntry:addResponse("I take care of the new arrivals in Galmair, I am the notary here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin die Notarin Cadomyrs und tu all das was ein Notar so tut.");
-talkEntry:addResponse("Ich kümmere mich um die Neuankömmlinge in Cadomyr, ich bin hier die Notarin.");
+talkEntry:addResponse("Ich bin der Notar Galmairs und tu all das was ein Notar so tut.");
+talkEntry:addResponse("Ich kümmere mich um die Neuankömmlinge in Galmair, ich bin hier der Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I am the notary of Cadomyr and do all the stuff a notary does.");
-talkEntry:addResponse("I take care of the new arrivals in Cadomyr, I am the notary here.");
+talkEntry:addResponse("I am the notary of Galmair and do all the stuff a notary does.");
+talkEntry:addResponse("I take care of the new arrivals in Galmair, I am the notary here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin die Notarin Cadomyrs und tu all das was ein Notar so tut.");
-talkEntry:addResponse("Ich kümmere mich um die Neuankömmlinge in Cadomyr, ich bin hier die Notarin.");
+talkEntry:addResponse("Ich bin der Notar Galmairs und tu all das was ein Notar so tut.");
+talkEntry:addResponse("Ich kümmere mich um die Neuankömmlinge in Galmair, ich bin hier der Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -930,7 +930,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -940,7 +940,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -959,26 +959,26 @@ talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Torina Scibrim die Notarin.", "This NPC is Torina Scibrim the notary.");
+mainNPC:setLookat("Dieser NPC ist Frederik Silvereye der Notar.", "This NPC is Frederik Silvereye the notary.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 811);
+mainNPC:setEquipment(3, 813);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 822);
+mainNPC:setEquipment(9, 827);
 mainNPC:setEquipment(10, 326);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

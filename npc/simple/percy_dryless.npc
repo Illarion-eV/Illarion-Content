@@ -8,7 +8,7 @@
 -- Authors:  Estralis & Ardian                                                --
 --           Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 23, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Percy Dryless"
@@ -221,8 +221,8 @@ itemShoes = 53
 "Nein" -> "Nein? Wagst du etwa, zu widersprechen?", "#me bellt: 'Ich werde dich lehren, 'Nein' zu sagen!'"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Shut up, and keep working.", "Scum! - Obey!", "#me laughs diabolically.", "Mwahaha!"
-".*", german, chance(20) -> "Halt's Maul und arbeite weiter.", "Abschaum! - Gehorche!", "#me lacht dreckig.", "Mwahaha!"
+".*", english, chance(20.0) -> "Shut up, and keep working.", "Scum! - Obey!", "#me laughs diabolically.", "Mwahaha!"
+".*", german, chance(20.0) -> "Halt's Maul und arbeite weiter.", "Abschaum! - Gehorche!", "#me lacht dreckig.", "Mwahaha!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

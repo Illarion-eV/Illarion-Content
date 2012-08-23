@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 22, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -74,7 +74,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
-talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories don?t you?");
+talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories don't you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -152,7 +152,7 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Now that you?ve brought me wine, splendid.");
+talkEntry:addResponse("Now that you've brought me wine, splendid.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -994,7 +994,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zelphia");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("If you're looking for answers about Zelphia go find the lizardfolks, they?re always blabbing on and on about her.");
+talkEntry:addResponse("If you're looking for answers about Zelphia go find the lizardfolks, they're always blabbing on and on about her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1250,8 +1250,8 @@ talkEntry:addResponse("Wein ist fein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schwingt ein Weinglas und riecht daran.", "#me swings a wine glass and sniffles.");
-talkingNPC:addCycleText("Ich hab mal von einer Taverne gehört, die 'Happy Halfling' hieß. 'Happy Hassan', das wäre mal ein Name!", "I heard there?s a tavern called 'Happy Halfling'. I?d prefer Happy Hassan personally.");
-talkingNPC:addCycleText("Oh ja, ich bin wirklich wichtig. Ohne meine Dienste würde die Königin schwitzen! Und das wäre nicht gut...", "Oh yes, I am indeed an important man. Without my service, the queen would sweat, and we couldn?t have that could we?");
+talkingNPC:addCycleText("Ich hab mal von einer Taverne gehört, die 'Happy Halfling' hieß. 'Happy Hassan', das wäre mal ein Name!", "I heard there's a tavern called 'Happy Halfling'. I'd prefer Happy Hassan personally.");
+talkingNPC:addCycleText("Oh ja, ich bin wirklich wichtig. Ohne meine Dienste würde die Königin schwitzen! Und das wäre nicht gut...", "Oh yes, I am indeed an important man. Without my service, the queen would sweat, and we couldn't have that could we?");
 talkingNPC:addCycleText("#me knallt seine Faust auf den Tresen: 'Bedienung!'", "#me bangs his fist on the counter: 'I demand service!'");
 talkingNPC:addCycleText("#me tippt sich mit seinem Zeigefinger auf die Brust: 'Ich kenne die Königin! Ich bin eine sehr wichtige Person.'", "#me pokes his own chest with his index finger 'I know the Queen! I am a very important person!'");
 talkingNPC:addCycleText("Wie, ich soll für meine Getränke zahlen? Ihr solltet mich dafür bezahlen, dass ich hier trinke. Wißt ihr nicht, wer ich bin?", "What do you mean I have to pay for my drinks? You should be paying 'me' to drink here! Do you have any idea who I am?");
@@ -1279,10 +1279,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

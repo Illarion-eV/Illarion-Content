@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 28, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -47,7 +47,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addResponse("Good day potential customers. How may I assist you today?");
-talkEntry:addResponse("If you?re a regular please seat yourself. My business is your home.");
+talkEntry:addResponse("If you're a regular please seat yourself. My business is your home.");
 talkEntry:addResponse("Welcome to the Glass Spiegel");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -73,7 +73,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Good day potential customers. How may I assist you today?");
-talkEntry:addResponse("If you?re a regular please seat yourself. My business is your home.");
+talkEntry:addResponse("If you're a regular please seat yourself. My business is your home.");
 talkEntry:addResponse("Welcome to the Glass Spiegel");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -94,7 +94,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Oh won?t you please visit us again.");
+talkEntry:addResponse("Oh won't you please visit us again.");
 talkEntry:addResponse("Anytime you think of dining please do not forget the Glass Spiegel");
 talkEntry:addResponse("Goodbye beautiful person.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -117,7 +117,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oh won?t you please visit us again.");
+talkEntry:addResponse("Oh won't you please visit us again.");
 talkEntry:addResponse("Anytime you think of dining please do not forget the Glass Speigel");
 talkEntry:addResponse("Goodbye beautiful person.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -139,7 +139,7 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addResponse("Hahaha, I think I forgot what a real bad day looks like.");
 talkEntry:addResponse("I am enjoying my day and you?");
-talkEntry:addResponse("I think I?m a little bit sleepy, but how are you?");
+talkEntry:addResponse("I think I'm a little bit sleepy, but how are you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -227,7 +227,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glass Spiegel");
-talkEntry:addResponse("You?re at the glass Spiegel. I know this may sound boastful, but I think we have the best restaurant in Cadomyr.");
+talkEntry:addResponse("You're at the glass Spiegel. I know this may sound boastful, but I think we have the best restaurant in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -241,21 +241,21 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Husband");
 talkEntry:addTrigger("Severus");
-talkEntry:addResponse("I love him. He?s my life. This Restaurant is his dream and we built it together.");
+talkEntry:addResponse("I love him. He's my life. This Restaurant is his dream and we built it together.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Pal");
 talkEntry:addTrigger("Por");
-talkEntry:addResponse("He never speaks. It?s kind of weird. Don?t you think?");
+talkEntry:addResponse("He never speaks. It's kind of weird. Don't you think?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ouchpan");
 talkEntry:addTrigger("Yang");
-talkEntry:addResponse("He?s so big. He used to have to duck to enter this place. My husband is so nice though. He made the entrance taller.");
+talkEntry:addResponse("He's so big. He used to have to duck to enter this place. My husband is so nice though. He made the entrance taller.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -395,7 +395,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse(" I do not deserve it, I do not deserve it, I do not deserve it, but Sirani blessed me. I don?t know why. Somethimes at night when I think about how in love I am I start crying.");
+talkEntry:addResponse(" I do not deserve it, I do not deserve it, I do not deserve it, but Sirani blessed me. I don't know why. Somethimes at night when I think about how in love I am I start crying.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -455,13 +455,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He?s the only one that ever cared about me. I give him 10% of my earnings.");
+talkEntry:addResponse("He's the only one that ever cared about me. I give him 10% of my earnings.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("secret");
-talkEntry:addResponse("I?m too bland of a person to have any.");
+talkEntry:addResponse("I'm too bland of a person to have any.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -493,7 +493,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("I did not say anything.");
-talkEntry:addResponse("I don?t believe I asked a yes or no question.");
+talkEntry:addResponse("I don't believe I asked a yes or no question.");
 talkEntry:addResponse("Wait what?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -509,7 +509,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("I did not say anything.");
-talkEntry:addResponse("I don?t believe I asked a yes or no question.");
+talkEntry:addResponse("I don't believe I asked a yes or no question.");
 talkEntry:addResponse("Wait what?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -525,7 +525,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("This discussion is not relevant to me");
 talkEntry:addResponse("Maybe say something like Quest or Task. People respond well to those words.");
 talkEntry:addResponse("I have no intention of buying your chicken.");
@@ -534,13 +534,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("ENGLISH.", "If you have any questions please come to me. It is my job to answer them if that?s alright with you.");
+talkingNPC:addCycleText("ENGLISH.", "If you have any questions please come to me. It is my job to answer them if that's alright with you.");
 talkingNPC:addCycleText("ENGLISH.", "Welcome to the Glass Spiegel.");
 talkingNPC:addCycleText("ENGLISH.", "Please come visit us again at the Glass Spiegel. We miss your presence.");
 talkingNPC:addCycleText("ENGLISH.", "Here at the Glass Spiegel we have the best grilled sand rat in all of Globieth.");
@@ -569,10 +569,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

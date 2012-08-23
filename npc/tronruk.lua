@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: August 27, 2011                         easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1525,7 +1525,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 9));
-talkEntry:addResponse("Da Warlord spoke to da clan, ?Bruddahs and sistahs, rejoice! We habs captured da stumpie queen! Now she will face da trial ob da orcs, she will face our anger!?...Yubba, dat how it happened. Da Faddah appeared dat day and ordered dem to throw her from da holy mountain!");
+talkEntry:addResponse("Da Warlord spoke to da clan, ?Bruddahs and sistahs, rejoice! We habs captured da stumpie queen! Now she will face da trial ob da orcs, she will face our anger!'...Yubba, dat how it happened. Da Faddah appeared dat day and ordered dem to throw her from da holy mountain!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1547,7 +1547,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Da Warlord spoke to da clan, ?Bruddahs and sistahs, rejoice! We habs captured da stumpie queen! Now she will face da trial ob da orcs, she will face our anger!?...Yubba, dat how it happened. Da Faddah appeared dat day and ordered dem to throw her from dah holy mountain!");
+talkEntry:addResponse("Da Warlord spoke to da clan, ?Bruddahs and sistahs, rejoice! We habs captured da stumpie queen! Now she will face da trial ob da orcs, she will face our anger!'...Yubba, dat how it happened. Da Faddah appeared dat day and ordered dem to throw her from dah holy mountain!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -3893,7 +3893,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Meh tink it be betta now dat yoo go and annoy someone else.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -3901,7 +3901,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("Mich denken du besser gehen nun und anderen ärgern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -3934,10 +3934,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

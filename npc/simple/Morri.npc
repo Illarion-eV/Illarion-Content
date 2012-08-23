@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: February 21, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Morri"
@@ -143,8 +143,8 @@ itemShoes = 53
 "Nein" -> "Hrm, ist das Euer letztes Wort?", "Arr. Wenn Ihr's so wollt.", "Natürlich."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Arr.", "#me wrinkles his nose and shows his tongue in disgust: 'Do you smell that too?'", "#me turns around suddenly and grumbles: 'Snorri! Listen - the fish stinks like the breath of death'."
-".*", german, chance(20) -> "Arr.", "#me rümpft die Nase und streckt angewidert die Zunge heraus: 'Riecht ihr das auch?'", "#me dreht sich plötzlich um und grummelt: 'Snorri! Hör mir zu - der Fisch stinkt wie das Maul der Fischgesichter!"
+".*", english, chance(20.0) -> "Arr.", "#me wrinkles his nose and shows his tongue in disgust: 'Do you smell that too?'", "#me turns around suddenly and grumbles: 'Snorri! Listen - the fish stinks like the breath of death'."
+".*", german, chance(20.0) -> "Arr.", "#me rümpft die Nase und streckt angewidert die Zunge heraus: 'Riecht ihr das auch?'", "#me dreht sich plötzlich um und grummelt: 'Snorri! Hör mir zu - der Fisch stinkt wie das Maul der Fischgesichter!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

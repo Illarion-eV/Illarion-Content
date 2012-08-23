@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: February 25, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Sogg Beermug"
@@ -147,8 +147,8 @@ itemShoes = 369
 "Nein" -> "Gosch!", "Skeschmat! Gneh... is das den letztes Wort?", "#me rülpst."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Beer after Wine, is a no go. Better try Wine after Beer!", "Hurr hurr! That's it.", "Daily special... Bean's Booze!"
-".*", german, chance(20) -> "Bier auf Wein, lasch das sein! Aber Wein auf Bier, das rat isch dier!", "Hehe! So ist's.", "Heut empfehl isch... Bohnenschnaps!"
+".*", english, chance(20.0) -> "Beer after Wine, is a no go. Better try Wine after Beer!", "Hurr hurr! That's it.", "Daily special... Bean's Booze!"
+".*", german, chance(20.0) -> "Bier auf Wein, lasch das sein! Aber Wein auf Bier, das rat isch dier!", "Hehe! So ist's.", "Heut empfehl isch... Bohnenschnaps!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

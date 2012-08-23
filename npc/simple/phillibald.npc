@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Phillibald                                                   None --
--- NPC Job:  merchant                                                         --
+-- NPC Name: Phillibald                                                  None --
+-- NPC Job:  portalbook merchant                                              --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  1, 7, 0                --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
 --                                                                            --
--- Last parsing: March 12, 2012                          easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Phillibald"
@@ -73,11 +73,11 @@ itemShoes = 53
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho! Today is a fine day to travel."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Heute ist ein schöner Tag für eine Reise."
 "Farewell", "Bye", "Fare well", "See you" -> "Always keep moving!", "Toodles!", "Farewell."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Immer in Bewegung bleiben!","Tschüssi!", "Auf wiedersehen."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Immer in Bewegung bleiben!", "Tschüssi!", "Auf wiedersehen."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Always keep moving!", "Toodles!", "Farewell."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Immer in Bewegung bleiben!","Tschüssi!", "Auf wiedersehen."
-"How are you", "How feel", "How do you do" -> "I feel excited, thinking about all the places to travel to.","I'm itching to make another journey."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.","Es juckt mich in den Füßen, eine Reise zu machen."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Immer in Bewegung bleiben!", "Tschüssi!", "Auf wiedersehen."
+"How are you", "How feel", "How do you do" -> "I feel excited, thinking about all the places to travel to.", "I'm itching to make another journey."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.", "Es juckt mich in den Füßen, eine Reise zu machen."
 "your name", "who are you", "who art thou" -> "Phillibald, portalbook merchant. That's me.", "I am the merchant Phillibald.", "Phillibald is my name, I trade portalbooks."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Phillibald, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Phillibald", "Phillibald mein Name, ich handle mit Portalbüchern"
 
@@ -100,21 +100,19 @@ itemShoes = 53
 "mein Name" -> "Schön dich kennenzulernen. Wenn du eine Reise 'buch'-en willst, frag mich einfach, hihi.", "Ein netter Name."
 
 -- More small talk; add at least five triggers
-
-"family","siblings","sister","brother" -> "Me and my family like to hike and explore, I bet you can find my other siblings at other places if you just look closely!"
-"Familie","Geschwister","Schwester","Bruder","Brüder" -> "Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!"
+"family", "siblings", "sister", "brother" -> "Me and my family like to hike and explore, I bet you can find my other siblings at other places if you just look closely!"
+"Familie", "Geschwister", "Schwester", "Bruder", "Brüder" -> "Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!"
 
 -- Portalbooks; here's how they're sold
-
-"Ich kaufe ein Portalbuch nach Galmair", money>199 ->"Okay! Das macht 200 Kupferstücke!", money - 200, item(1061,1,1,01)
-"Ich kaufe ein Portalbuch nach Cadomyr", money>199 ->"Okay! Das macht 200 Kupferstücke!", money - 200, item(1061,1,1,02)
-"Ich kaufe ein Portalbuch nach Runewick", money>199 ->"Okay! Das macht 200 Kupferstücke!", money - 200, item(1061,1,1,03)
-"Ich kaufe ein Portalbuch nach Wilderland", money>199 ->"Okay! Das macht 200 Kupferstücke!", money - 200, item(1061,1,1,04)
-"Ich kaufe ein Portalbuch nach Safepoint 1", money>199 ->"Okay! Das macht 200 Kupferstücke!", money - 200, item(1061,1,1,05)
-"Ich kaufe ein Portalbuch nach Safepoint 2", money>199 ->"Okay! Das macht 200 Kupferstücke!", money - 200, item(1061,1,1,06)
-"Ich kaufe ein Portalbuch nach Safepoint 3", money>199 ->"Okay! Das macht 200 Kupferstücke!", money - 200, item(1061,1,1,07)
-"Ich kaufe ein Portalbuch nach Safepoint 4", money>199 ->"Okay! Das macht 200 Kupferstücke!", money - 200, item(1061,1,1,08)
-"Ich kaufe ein Portalbuch nach Safepoint 5", money>199 ->"Okay! Das macht 200 Kupferstücke!", money - 200, item(1061,1,1,09)
+"Ich kaufe ein Portalbuch nach Galmair", money > 199 -> "Okay! Das macht 200 Kupferstücke!", money - 200, item(1061, 1, 1, 1)
+"Ich kaufe ein Portalbuch nach Cadomyr", money > 199 -> "Okay! Das macht 200 Kupferstücke!", money - 200, item(1061, 1, 1, 2)
+"Ich kaufe ein Portalbuch nach Runewick", money > 199 -> "Okay! Das macht 200 Kupferstücke!", money - 200, item(1061, 1, 1, 3)
+"Ich kaufe ein Portalbuch nach Wilderland", money > 199 -> "Okay! Das macht 200 Kupferstücke!", money - 200, item(1061, 1, 1, 4)
+"Ich kaufe ein Portalbuch nach Safepoint 1", money > 199 -> "Okay! Das macht 200 Kupferstücke!", money - 200, item(1061, 1, 1, 5)
+"Ich kaufe ein Portalbuch nach Safepoint 2", money > 199 -> "Okay! Das macht 200 Kupferstücke!", money - 200, item(1061, 1, 1, 6)
+"Ich kaufe ein Portalbuch nach Safepoint 3", money > 199 -> "Okay! Das macht 200 Kupferstücke!", money - 200, item(1061, 1, 1, 7)
+"Ich kaufe ein Portalbuch nach Safepoint 4", money > 199 -> "Okay! Das macht 200 Kupferstücke!", money - 200, item(1061, 1, 1, 8)
+"Ich kaufe ein Portalbuch nach Safepoint 5", money > 199 -> "Okay! Das macht 200 Kupferstücke!", money - 200, item(1061, 1, 1, 9)
 
 -- Faction stuff
 "archmage" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
@@ -124,7 +122,7 @@ itemShoes = 53
 "Runewick", english -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
 "Runewick" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 "Valerio", "Guilianni", "Don", english -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
-"Valerio", "Guilianni", "Don" ->  "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
+"Valerio", "Guilianni", "Don" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 "Galmair", english -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
 "Galmair" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 "Queen" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
@@ -159,4 +157,4 @@ itemShoes = 53
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Ich kann euch an interessante Orte bringen.","I can take you to interesting places."
+cycletext "Ich kann euch an interessante Orte bringen.", "I can take you to interesting places."

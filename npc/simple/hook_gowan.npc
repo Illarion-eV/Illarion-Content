@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: December 23, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Hook Gowan"
@@ -137,8 +137,8 @@ itemShoes = 53
 "Nein" -> "Aye.", "Seid ihr sicher?", "Tatsächlich?"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Listen - If you don't ask any questions I will not lie to you. Agreed?", "Aha? Good to know.", "Oh, that's quite interessting."
-".*", german, chance(20) -> "Wenn Ihr keine Fragen stellt, werde ich Euch auch nicht belügen.", "Soso? - Gut zu wissen.", "Oh, das ist ja interessant.", "Ein Schritt im Schatten und Einer über die Rinne..."
+".*", english, chance(20.0) -> "Listen - If you don't ask any questions I will not lie to you. Agreed?", "Aha? Good to know.", "Oh, that's quite interessting."
+".*", german, chance(20.0) -> "Wenn Ihr keine Fragen stellt, werde ich Euch auch nicht belügen.", "Soso? - Gut zu wissen.", "Oh, das ist ja interessant.", "Ein Schritt im Schatten und Einer über die Rinne..."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -8,7 +8,7 @@
 -- Authors:  kormkormsen                                                      --
 --           Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 09, 2012                         easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Hagar Wernson"
@@ -59,10 +59,10 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dies ist NPC Hager Wernson der Wirt der 'Taverne zur geflügelten Sau'. Schlüsselwörter: Galmair, Ich bin 'dein Name'.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", race = elf, chance(15) -> "G'day... long-ear."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", race = elf, chance(15) -> "N'guten...Langohr"
-"Hiho", "Hallo", "Hey", "Greeb", race = elf, english, chance(15) -> "G'day... long-ear."
-"Hiho", "Hallo", "Hey", "Greeb", race = elf, chance(15) -> "N'guten...Langohr"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", race = elf, chance(15.0) -> "G'day... long-ear."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", race = elf, chance(15.0) -> "N'guten...Langohr"
+"Hiho", "Hallo", "Hey", "Greeb", race = elf, english, chance(15.0) -> "G'day... long-ear."
+"Hiho", "Hallo", "Hey", "Greeb", race = elf, chance(15.0) -> "N'guten...Langohr"
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", race = elf -> "Moin... long-ear."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", race = elf -> "Moin...Langohr"
 "Hiho", "Hallo", "Hey", "Greeb", race = elf, english -> "Moin... long-ear."
@@ -203,8 +203,8 @@ itemShoes = 369
 "Nein" -> "Aye!", "Was auch immer.", "Alles klar."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "The gods may bless you.", "Have fun in my tavern.", "Aye."
-".*", german, chance(20) -> "Dann sag ich mal Prost.", "Viel Spass in meiner Taverne!", "Aye."
+".*", english, chance(20.0) -> "The gods may bless you.", "Have fun in my tavern.", "Aye."
+".*", german, chance(20.0) -> "Dann sag ich mal Prost.", "Viel Spass in meiner Taverne!", "Aye."
 
 -- Cycletext
 

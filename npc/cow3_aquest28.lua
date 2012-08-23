@@ -7,7 +7,7 @@ require("quest.aquest28");    --the quest file
 module("npc.cow3_aquest28", package.seeall)
 			   
 
-function InitNPC()
+function InitNPC(thisNPC)
     if not InitDone then
         InitDone = true;
         CowID = 3; --id of this cow NEEDS TO BE CHANGED AT EACH COW
@@ -24,21 +24,21 @@ function InitNPC()
     end
 end 
 
-function useNPC(originator,counter,param)
+function useNPC(thisNPC,originator,counter,param)
   	User = getCharForId(originator.id);  --create a save copy of the char struct
   	
 	acttask3 = quest.aquest28.Cow_useNPC(User, CowID, acttask3,thisNPC);
 end
  
 
-function receiveText(texttype, message, originator)
+function receiveText(thisNPC,texttype, message, originator)
 	quest.aquest28.Cow_receiveText(originator,message, CowID,thisNPC);
 end                
 
-function nextCycle()
+function nextCycle(thisNPC)
 -- disabled, does not work
 
-    InitNPC();
+    InitNPC(thisNPC);
     
     acttask3 = quest.aquest28.Cow_NextCycle(User,acttask3,thisNPC);
 end

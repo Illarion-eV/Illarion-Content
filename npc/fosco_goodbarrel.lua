@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -54,7 +54,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Fosco Goodbarrel der spitzbübische Halbling. Schlüsselwörter: Auftrag, Beruf, Gobaith, Götter, Fosco."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -79,9 +79,9 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Hiho!");
+talkEntry:addResponse("Holldario.");
+talkEntry:addResponse("'allo, 'allo!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -102,9 +102,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Hiho!");
+talkEntry:addResponse("Holldario.");
+talkEntry:addResponse("'allo, 'allo!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -124,9 +124,9 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ta-da!");
+talkEntry:addResponse("Vergiss mich nicht!");
+talkEntry:addResponse("Halt dich von Ärger fern!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -147,9 +147,9 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ta-da!");
+talkEntry:addResponse("Vergiss mich nicht!");
+talkEntry:addResponse("Halt dich von Ärger fern!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -168,9 +168,9 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("So gut, wie ein Haar auf meinem Kopf.");
+talkEntry:addResponse("Mir geht's prima!");
+talkEntry:addResponse("Gut, einfach nur gut!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -189,9 +189,9 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Fosco Goodbarrel,zu Diensten");
+talkEntry:addResponse("Fosco Goodbarrel,der außergewöhnliche Halbling.");
+talkEntry:addResponse("Du kennst mich nicht? Ich bin Fosco Goodbarrel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,7 +201,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest update] Aurora's Staff: Part II"));
-talkEntry:addResponse("Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He?s in <town name>.");
+talkEntry:addResponse("Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He's in <town name>.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -211,7 +211,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ahh, der Stab! Nun, weil ich dich mag, gebe ich es dir für fünf Goldstücke. Ich sag' dir was: Ich habe ein Auge auf den goldenen Dolch des Echsenmenschen Kai'itza geworfen. Bring ihn mir, den Stab. ");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -222,7 +222,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("staff");
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest update] Aurora's Staff: Part II"));
-talkEntry:addResponse("Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He?s in <town name>.");
+talkEntry:addResponse("Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He's in <town name>.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -234,7 +234,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("german");
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ahh, der Stab! Nun, weil ich dich mag, gebe ich es dir für fünf Goldstücke. Ich sag' dir was: Ich habe ein Auge auf den goldenen Dolch des Echsenmenschen Kai'itza geworfen. Bring ihn mir, den Stab.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -252,7 +252,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Du möchtest den Stab, dann bringt mir meinem verzierten Dolch. Dabei hanldelt es sich um den Kai'tza. Ich bin in der Lage einen Betrug zubemerken. Du findest den Echsenmensch in <Stadtname>. Sie hat meine Flöte gestohlen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,7 +271,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("german");
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Du möchtest den Stab, dann bringt mir meinem verzierten Dolch. Dabei hanldelt es sich um den Kai'tza. Ich bin in der Lage einen Betrug zubemerken. Du findest den Echsenmensch in <Stadtname>. Sie hat meine Flöte gestohlen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -293,7 +293,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 10));
 talkEntry:addCondition(npc.base.condition.item.item(190, "all", ">", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 80 Kupferstücke."));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Das ist er! I hätte ja nicht gedacht, dass du das schaffst. Nun, ich bin ein Halbling der zu seinen worten steht. Hier hast du den Stab. Viel Spaß mit dem Stück Holz.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(190, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(209, 1, 499, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(13372, "=", 11));
@@ -316,7 +316,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Nun, da du fragst, ich bräuchte ein Kostüm für mein nächstes ...'Stück'. Ich werde die Rolle eines außländischen Halblingswürdenträgers spielen, den die Regierung großzügoig mit Geschenken überhäufen wird. Ich brauche einen schwarzen Mantel und ein Amulett.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -337,7 +337,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Nun, da du fragst, ich bräuchte ein Kostüm für mein nächstes ...'Stück'. Ich werde die Rolle eines außländischen Halblingswürdenträgers spielen, den die Regierung großzügoig mit Geschenken überhäufen wird. Ich brauche einen schwarzen Mantel und ein Amulett.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -357,7 +357,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ich möchte, dass du mir einen schwarzen Mantel findest. Keine Sorge, ich sorge schon dafür, dass du entschädigt wirst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -376,7 +376,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ich möchte, dass du mir einen schwarzen Mantel findest. Keine Sorge, ich sorge schon dafür, dass du entschädigt wirst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -395,7 +395,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Du hast mir den schwarzen Mantel gebracht, aber ich bräuchte da noch ein Amulett. Keine Sorge, ich werde dafür sorgen, dass du entschädigt wirst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -414,7 +414,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Du hast mir den schwarzen Mantel gebracht, aber ich bräuchte da noch ein Amulett. Keine Sorge, ich werde dafür sorgen, dass du entschädigt wirst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -439,8 +439,8 @@ talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2384, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.item.item(222, "all", ">", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 120 Kupferstücke und einen Erbbeerkuchen."));
+talkEntry:addResponse("Großartig! I werde die... Zuschauer sicherlich hereinlegen mit dieser Tarnung...ähm...mit diesem Kostüm. Ah, ja richelig. Nimm dein Geld! Und hier, davon musst du einen probieren! Schmeckt ganz wunderbar!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2384, 1));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 1));
@@ -462,7 +462,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 2));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ich muss meine neue Rolle lernen. Lebt wohl!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -479,7 +479,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 2));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Ich muss mich ranhalten und meine neue Rolle lernen. Lebt wohl!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -493,9 +493,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin ein entzückender Spitzbube!");
+talkEntry:addResponse("Wenn man so gut aussieht, bezahlen die Leute einen.");
+talkEntry:addResponse("Ich nehme von den Reichen. Ich nehme von den Armen. Und ich gebe alles an Fosco!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -510,9 +510,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin ein entzückender Spitzbube!");
+talkEntry:addResponse("Wenn man so gut aussieht, bezahlen die Leute einen.");
+talkEntry:addResponse("Ich nehme von den Reichen. Ich nehme von den Armen. Und ich gebe alles an Fosco!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -529,9 +529,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es war eine Insel umgeben von Wasser, da gibt's nichts weiter zu sagen.");
+talkEntry:addResponse("Viele Leute da hatten...wenig Durchblick.");
+talkEntry:addResponse("Der Name war seltsam. Das Land war seltsamer. Die Leute dort warem am seltsamsten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -545,9 +545,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ah, nun! GERMAN.");
+talkEntry:addResponse("Ich hab's mir gedacht!");
+talkEntry:addResponse("So hieß meine Mutter auch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,9 +704,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Laaangweilig.");
+talkEntry:addResponse("Menschen sind fast zu lässig. Fast.");
+talkEntry:addResponse("Albar...ähm. Interessiert mich nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -723,9 +723,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Laaangweilig.");
+talkEntry:addResponse("Menschen sind fast zu lässig. Fast.");
+talkEntry:addResponse("Gynk...ähm. Interessiert mich nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -740,9 +740,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Laaangweilig.");
+talkEntry:addResponse("Menschen sind fast zu lässig. Fast.");
+talkEntry:addResponse("Salkamar...ähm. Interessiert mich nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -757,9 +757,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -774,9 +774,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -793,9 +793,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -810,9 +810,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -827,9 +827,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -844,9 +844,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -861,9 +861,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -878,9 +878,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -897,9 +897,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -914,9 +914,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -935,9 +935,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -952,9 +952,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -969,9 +969,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -986,9 +986,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1005,9 +1005,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1022,9 +1022,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1039,9 +1039,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Für mich gibt es zwei Arten von Göttern: Ronagan und die jenigen die er bestiehlt.");
+talkEntry:addResponse("Wenn Ronagan sich freut, dann hab ich was richtig gut gemacht!");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1061,9 +1061,9 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich sag dir was: Du gibst mir dein Geld und ich bemühe mich so gut ich kann,dass die Waren bei dir ankommen.");
+talkEntry:addResponse("Wie waäre es damit? Du gibst mir deine Sachen und ich bezahl dich, wenn ich das Geld hab.");
+talkEntry:addResponse("Ich kann nicht mit jedem Handeln. Mein Ruf steht auf dem Spiel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1078,9 +1078,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Hat dir schonmal einer gesagt, das du eine sehr auffällige Nase hast?");
+talkEntry:addResponse("Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.");
+talkEntry:addResponse("Wenn ich auf meinen Reisen eines gelernt habe, dann flogendes, vertraue niemals einem nüchternen Zwerg.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1097,9 +1097,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fosco");
 talkEntry:addTrigger("Goodbarrel");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Welch ein entzückender Name, findest du nicht auch?");
+talkEntry:addResponse("Ahh...Fosco Goodbarrel. Das geht runter wie Honig!");
+talkEntry:addResponse("Von hier bis nach Pennymill, dieser Name lässt alle Frauen niederknien.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1113,9 +1113,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("#me tappst ungeduldigt mit dem Fuß auf den Boden.");
+talkEntry:addResponse("Ich wusste du würdest das sagen!");
+talkEntry:addResponse("Ja.Ja. Du solltest deine Geldbörse weniger offensichtlich bei dir tagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1129,16 +1129,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("#me tappst ungeduldigt mit dem Fuß auf den Boden.");
+talkEntry:addResponse("Ich wusste du würdest das sagen!");
+talkEntry:addResponse("Ja.Ja. Du solltest deine Geldbörse weniger offensichtlich bei dir tagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("#me taps his foot impatiently.");
 talkEntry:addResponse("I knew you were going to say that!");
 talkEntry:addResponse("Yes, yes. Whatever. You should keep your purse in a less obvious place.");
@@ -1148,27 +1148,27 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addResponse("#me tappst ungeduldigt mit dem Fuß auf den Boden.");
+talkEntry:addResponse("Ich wusste du würdest das sagen!");
+talkEntry:addResponse("Ja.Ja. Du solltest deine Geldbörse weniger offensichtlich bei dir tagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "#me performs a brief jig on the spot.");
-talkingNPC:addCycleText("GERMAN.", "#me glances at you out of the corner of his eye.");
-talkingNPC:addCycleText("GERMAN.", "#me laughs cheekily.");
-talkingNPC:addCycleText("GERMAN.", "#me grins slyly.");
-talkingNPC:addCycleText("GERMAN.", "#me kicks at the ground.");
-talkingNPC:addCycleText("GERMAN.", "#me leans back and yawns.");
-talkingNPC:addCycleText("GERMAN.", "#me scratches the back of his head.");
-talkingNPC:addCycleText("GERMAN.", "#me whistles a pleasant tune.");
-talkingNPC:addCycleText("GERMAN.", "#me licks his lips.");
-talkingNPC:addCycleText("GERMAN.", "#me pats his stomach, sighing faintly.");
+talkingNPC:addCycleText("#me vollführt einen kleinen Freudentanz auf der Stelle.", "#me performs a brief jig on the spot.");
+talkingNPC:addCycleText("#me beobachtete dich aus den Augenwinkeln.", "#me glances at you out of the corner of his eye.");
+talkingNPC:addCycleText("#me lacht vorwitzig.", "#me laughs cheekily.");
+talkingNPC:addCycleText("#me lächelt schüchtern.", "#me grins slyly.");
+talkingNPC:addCycleText("#me stampft auf dem Boden.", "#me kicks at the ground.");
+talkingNPC:addCycleText("#me lehnt sich zuürch und gähnt.", "#me leans back and yawns.");
+talkingNPC:addCycleText("#me kratzt sich am Hinterkopf.", "#me scratches the back of his head.");
+talkingNPC:addCycleText("#me pfeipft eine nette Melodie.", "#me whistles a pleasant tune.");
+talkingNPC:addCycleText("#me leckt sich die Lippen.", "#me licks his lips.");
+talkingNPC:addCycleText("#me klopft sich auf den Bauch und seuftzt schwach.", "#me pats his stomach, sighing faintly.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is Fosco Goodbarel the mischievous halfling.");
-mainNPC:setUseMessage("Fasst mich nicht an!", "I don't work like that!");
+mainNPC:setLookat("Dieser NPC ist Fosco Goodbarel der fiese Halbling.", "This NPC is Fosco Goodbarel the mischievous halfling.");
+mainNPC:setUseMessage("So arbeite ich nicht!", "I don't work like that!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 457);
@@ -1183,10 +1183,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

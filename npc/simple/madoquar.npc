@@ -8,7 +8,7 @@
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Madoquar"
@@ -319,8 +319,8 @@ itemShoes = 369
 "Nein" -> "Ich habe eigentlich nichts gesagt.", "Ich glaube nicht, dass ich eine Frage gestellt habe, die mit 'Ja' oder 'Nein' zu beantworten wäre.", "Moment, wie bitte?"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "This discussion is not relevant to me.", "Maybe say something about quests or tasks. People respond well to those words.", "I have no intention of buying your chicken."
-".*", german, chance(20) -> "Das geht mich nichts an.", "Erzählt doch mal etwas über Abenteuer und Aufgaben. Die Leute mögen sowas hören.", "Mir ist nicht danach, euch einen Bären aufzubinden."
+".*", english, chance(20.0) -> "This discussion is not relevant to me.", "Maybe say something about quests or tasks. People respond well to those words.", "I have no intention of buying your chicken."
+".*", german, chance(20.0) -> "Das geht mich nichts an.", "Erzählt doch mal etwas über Abenteuer und Aufgaben. Die Leute mögen sowas hören.", "Mir ist nicht danach, euch einen Bären aufzubinden."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

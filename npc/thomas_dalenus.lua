@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 27, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 22, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -27,13 +27,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the tailor Thomas Dalenus. Keyphrases: Hello, tailor."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the tailor Thomas Dalenus. Keyphrases: Hello, tailor, Cadomyr, needle, dye."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Schneider Thomas Dalenus. Schlüsselwörter: Hallo, Schneider."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Schneider Thomas Dalenus. Schlüsselwörter: Hallo, Schneider, Cadomyr, Nadel, Färben."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -44,9 +44,9 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Good day.");
-talkEntry:addResponse("Greetings.");
-talkEntry:addResponse("Hello");
+talkEntry:addResponse("Good day. Do you need a coat?");
+talkEntry:addResponse("Greetings. How are you?");
+talkEntry:addResponse("Hello. I have all kinds of clothes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -58,9 +58,9 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("Guten Tag.");
-talkEntry:addResponse("Seid gegrüßt.");
-talkEntry:addResponse("Hallo.");
+talkEntry:addResponse("Guten Tag. Braucht ihr einen Umhang?");
+talkEntry:addResponse("Seid gegrüßt. Wie geht es euch?");
+talkEntry:addResponse("Hallo. Ich habe vielerlei Stoffe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -70,9 +70,9 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Good day.");
-talkEntry:addResponse("Greetings.");
-talkEntry:addResponse("Hello");
+talkEntry:addResponse("Good day. Do you need a coat?");
+talkEntry:addResponse("Greetings. How are you?");
+talkEntry:addResponse("Hello. I have all kinds of clothes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -81,9 +81,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Guten Tag.");
-talkEntry:addResponse("Seid gegrüßt.");
-talkEntry:addResponse("Hallo.");
+talkEntry:addResponse("Guten Tag. Braucht ihr einen Umhang?");
+talkEntry:addResponse("Seid gegrüßt. Wie geht es euch?");
+talkEntry:addResponse("Hallo. Ich habe vielerlei Stoffe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -298,6 +298,18 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nadel");
 talkEntry:addResponse("Ich kann euch eine Nadel verkaufen, aber vorsichtig, sie ist spitz.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("cloth");
+talkEntry:addResponse("I sell any kind of cloth.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Stoff");
+talkEntry:addResponse("Ich verkaufe vielerei Stoffe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -605,10 +617,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

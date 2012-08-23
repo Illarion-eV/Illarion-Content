@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 24, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Iradona Goldschein"
@@ -82,16 +82,16 @@ itemShoes = 369
 "job" -> "Auskunftgeberin. Ich kann dir viele Dinge über Galmair erzählen. Frag nur nach Gebäude, Orte, Ereignisse, Leute, Geschichte oder Götter von Galmair. Zusätzlich hätte ich noch eine kleine Aufgabe."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"inform", english -> "I can give you information about buildings, locations, events, people, history and gods of Galmair. Just ask me!",inform("[Keywords] building, locations, event, people, history, god")
-"inform" -> "Ich kann dir Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte und Götter von Galmair geben. Frag einfach!",inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter")
-"question" -> "I can give you information about buildings, locations, events, people, history and gods of Galmair. Just ask me!",inform("[Keywords] building, locations, event, people, history, god")
-"Frage", "Auskunft" -> "Ich kann dir Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte und Götter von Galmair geben. Frag einfach!",inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter")
-"building" -> "Argh, be more precisely! Market, temple, teleport, donkey stable, library, Well of Dreams, Villa Goldvein, workshop, guardroom, Dark Ally, Galmair's Crest or the Scoria Mine?",inform("[Keywords] Market, temple, teleport, donkey stable, library, Well of Dreams, Villa Goldvein, workshop, guardroom, Dark Ally, Galmair Crest, Scoria Mine")
-"Gebäude" -> "Argh, etwas genauer! Markt, Tempel, Teleport, Eselstall, Bibliothek, Quelle der Träume, Villa Goldader, Werkstatt, Wachstube, Dunkle Gasse, Galmairs Krone oder die Schlackengrube?",inform("[Schlüsselwörter] Markt, Tempel, Teleport, Eselstall, Bibliothek, Quelle der Träume, Villa Goldader, Werkstatt, Wachstube, Dunkle Gasse, Galmairs Krone, Schlackengrube")
-"location" -> "I suggest you look for Lotta Medborgar if you want to know more than the Hinterlands. She is hunter and has explored several locations. Better to ask her. You can find her down at the Winged Sow Tavern.",inform("[Keywords] Hinterland, Lotta Medborgar")
-"Ort" -> "Ich empfehle du suchst nach Lotta Medborgar, wenn du mehr als die Hinterlande kennen lernen möchtest. Sie ist Jägerin und hat etliche Orte erkundet. Frag sie daher besser. Du kannst sie unten in der Taverne zur Geflügelten Sau.",inform("[Schlüsselwörter] Hinterland, Lotta Medborgar")
-"Lotta", "Medborgar", queststatus (630)<1, english -> "Is a hunter that has explored several locations. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Tir Draganfod and many others. You can find her down at the Winged Sow Tavern.", queststatus (630)=1, inform ([New Quest] Try to find Lotta Medborgar and get your reward.)
-"Lotta", "Medborgar", queststatus (630)<1 -> "Ist ne Jägerin und hat etliche Orte erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Tir Draganfod, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau.", queststatus (630)=1, inform ([Neues Quest] Finde Lotta Medborgar und erhalte deine Belohnung.)
+"inform", english -> inform("[Keywords] building, locations, event, people, history, god"), "I can give you information about buildings, locations, events, people, history and gods of Galmair. Just ask me!"
+"inform" -> inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter"), "Ich kann dir Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte und Götter von Galmair geben. Frag einfach!"
+"question" -> inform("[Keywords] building, locations, event, people, history, god"), "I can give you information about buildings, locations, events, people, history and gods of Galmair. Just ask me!"
+"Frage", "Auskunft" -> inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter"), "Ich kann dir Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte und Götter von Galmair geben. Frag einfach!"
+"building" -> inform("[Keywords] Market, temple, teleport, donkey stable, library, Well of Dreams, Villa Goldvein, workshop, guardroom, Dark Ally, Galmair Crest, Scoria Mine"), "Argh, be more precisely! Market, temple, teleport, donkey stable, library, Well of Dreams, Villa Goldvein, workshop, guardroom, Dark Ally, Galmair's Crest or the Scoria Mine?"
+"Gebäude" -> inform("[Schlüsselwörter] Markt, Tempel, Teleport, Eselstall, Bibliothek, Quelle der Träume, Villa Goldader, Werkstatt, Wachstube, Dunkle Gasse, Galmairs Krone, Schlackengrube"), "Argh, etwas genauer! Markt, Tempel, Teleport, Eselstall, Bibliothek, Quelle der Träume, Villa Goldader, Werkstatt, Wachstube, Dunkle Gasse, Galmairs Krone oder die Schlackengrube?"
+"location" -> inform("[Keywords] Hinterland, Lotta Medborgar"), "I suggest you look for Lotta Medborgar if you want to know more than the Hinterlands. She is hunter and has explored several locations. Better to ask her. You can find her down at the Winged Sow Tavern."
+"Ort" -> inform("[Schlüsselwörter] Hinterland, Lotta Medborgar"), "Ich empfehle du suchst nach Lotta Medborgar, wenn du mehr als die Hinterlande kennen lernen möchtest. Sie ist Jägerin und hat etliche Orte erkundet. Frag sie daher besser. Du kannst sie unten in der Taverne zur Geflügelten Sau."
+"Lotta", "Medborgar", queststatus(630) < 1, english -> inform("[New Quest] Try to find Lotta Medborgar and get your reward."), "Is a hunter that has explored several locations. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Tir Draganfod and many others. You can find her down at the Winged Sow Tavern.", queststatus(630) = 1
+"Lotta", "Medborgar", queststatus(630) < 1 -> inform("[Neues Quest] Finde Lotta Medborgar und erhalte deine Belohnung."), "Ist ne Jägerin und hat etliche Orte erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Tir Draganfod, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau.", queststatus(630) = 1
 "Lotta", "Medborgar", english -> "Is a hunter that has explored several locations. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Tir Draganfod and many others. You can find her down at the Winged Sow Tavern."
 "Lotta", "Medborgar" -> "Ist ne Jägerin und hat etliche Orte erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Tir Draganfod, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau."
 "people" -> "Argh, there were only dwarves here in the past. But nowadays we have all kind of folks here. Even orcs, which you can find in the Flicker Swale... Or do you like to meet Lotta? *grins*"
@@ -106,15 +106,14 @@ itemShoes = 369
 "Herrscher" -> "Wir hatten lediglich zwei Herrscher bisher. Unseren Don Valerio Guilianni und seinen Vater Tommaso Guilianni. Informationen über letzteren findest du in den Aufzeichnungen des Don, unserem neuem Geschichtsbuch."
 "market" -> "Argh, everything has to be explained to you. Just run through the town to the Well of Dreams and you will see it. You cannot miss it. *points the towngate*"
 "Markt" -> "Argh, alles muss man dir erklären. Lauf einfach durch die Stadt zur Quelle der Träume und du wirst ihn sehen. Du kannst ihn nicht verfehlen. *zeigt auf das Stadttor*"
-"temple" -> "We have temples for each of our three gods here: Tempel of Irmorom, Tempel of Ronagan and Temple of Nagrun.",inform("[Keywords] Tempel of Irmorom, Tempel of Ronagan, Temple of Nagrun")
-"Tempel" -> "Wir haben je einen Tempel für unsere drei Götter hier. Irmoromtempel, Ronagantempel und Nagruntempel.",inform("[Schlüsselwörter] Irmoromtempel, Ronagantempel, Nagruntempel")
+"temple" -> inform("[Keywords] Tempel of Irmorom, Tempel of Ronagan, Temple of Nagrun"), "We have temples for each of our three gods here: Tempel of Irmorom, Tempel of Ronagan and Temple of Nagrun."
+"Tempel" -> inform("[Schlüsselwörter] Irmoromtempel, Ronagantempel, Nagruntempel"), "Wir haben je einen Tempel für unsere drei Götter hier. Irmoromtempel, Ronagantempel und Nagruntempel."
 "teleport", english -> "With this teleporter here you can travel save and quick to Runewick, Cadomyr or the Hemp Necktie Inn."
 "teleport" -> "Mit diesen Teleporter hier kannst du sicher und schnell nach Runewick, Cadomyr oder zum Gasthof zur Hanfschlinge reisen."
 "Donkey stable", "stable" -> "Through the towngate and right then. *nods*"
 "Eselstall", "Stall" -> "Auf der rechten Seite nach dem Stadtor. *nickt*"
 "Donkey" -> "Weak people must and reach people can rent one at the donkey stable here."
 "Esel" -> "Schwache müssen und reiche Leute können sich einen hier im Eselstall ausleihen."
-
 "Well Dreams" -> "The Well of Dreams is at the other side of the town. Therefore, enter the town, pass the market and Villa Goldvein and you are there. But usually, people avoid this place. *smirks*"
 "Quelle Träume" -> "Die Quelle der Träume ist an der anderen Seite der Stadt. Daher rein mit dir, passiere den Markt und die Villa Goldader und du bist dort. Aber Leute vermeiden diesen Ort normal. *grinst*"
 "Villa Goldvein" -> "The Villa Goldvein is at the other side of the town, close to the Well of Dreams. It is a place for the richer ones among us."
@@ -125,11 +124,10 @@ itemShoes = 369
 "Wachstube" -> "Die Wachstube ist nache der Stadtmauer auf der rechten Seite nach der Dunklen Gasse. Du wirst dort auch jemand finden der dir helfen wird Dinge in Erinnerung zu halten. *grinst*"
 "Dark Alley" -> "The Dark Ally is behind the Donkey stable. Do I really have to explain you what you can do there? *smirks*"
 "Dunkle Gasse" -> "Die Dunkle Gasse ist hinter dem Eselstall. Muss ich dir wirklich erklären was du da hinten alles machen kannst? *grinst*"
-"Temple Irmorom","Irmorom Temple" -> "The Temple of Irmorom is close to Villa Goldvein. You can pray to Irmorom there and hope that you become a rich person."
-"Tempel Irmorom","Irmorom Tempel" -> "Der Tempel des Irmorom ist nahe der Villa Goldader. Du kannst dort zu Irmorom beten und hoffen, dass du reich wirst."
-
-"Galmair's Crest","Galmair Crest" -> "Galmair's Crest is the heart of Galmair and the residence of our Don. It is close to the market and you find there: Guilianni Residence, Don's Council Chamber, Golden Dreams, Treasury and Library.",inform("[Keywords] Guilianni Residence, Council Chamber, Golden Dreams, Treasury, Library")
-"Galmair Krone" -> "Galmairs Krone ist das Herz von Galmair und die Residenz unseres Don. Es ist nahe dem Markt und findest dort: Guilianni Residenz, Don's Konzil Kammer, Goldträume, Schatzkammer, Bibliothek.",inform("[Schlüsselwörter] Guilianni Residenz, Konzil Kammer, Goldträume, Schatzkammer, Bibliothek")
+"Temple Irmorom", "Irmorom Temple" -> "The Temple of Irmorom is close to Villa Goldvein. You can pray to Irmorom there and hope that you become a rich person."
+"Tempel Irmorom", "Irmorom Tempel" -> "Der Tempel des Irmorom ist nahe der Villa Goldader. Du kannst dort zu Irmorom beten und hoffen, dass du reich wirst."
+"Galmair's Crest", "Galmair Crest" -> inform("[Keywords] Guilianni Residence, Council Chamber, Golden Dreams, Treasury, Library"), "Galmair's Crest is the heart of Galmair and the residence of our Don. It is close to the market and you find there: Guilianni Residence, Don's Council Chamber, Golden Dreams, Treasury and Library."
+"Galmair Krone" -> inform("[Schlüsselwörter] Guilianni Residenz, Konzil Kammer, Goldträume, Schatzkammer, Bibliothek"), "Galmairs Krone ist das Herz von Galmair und die Residenz unseres Don. Es ist nahe dem Markt und findest dort: Guilianni Residenz, Don's Konzil Kammer, Goldträume, Schatzkammer, Bibliothek."
 "Library" -> "Our library in Galmair's Crest contains all our books. Among those are our history book, books about locations, gods, factions and so on. Just take a look there."
 "Bibliothek" -> "Unsere Bibliothek in Galmairs Krone enthällt all unsere Bücher. Unter diesen findest du unser Geschichtebuch, Bücher über Orte, Götter, Fraktionen und so weiter. Sieh einfach nach."
 "Guilianni Residence" -> "In this place in Galmair's Crest you will find and meet our Don."
@@ -140,34 +138,33 @@ itemShoes = 369
 "Goldträume" -> "Der Raum Goldträume in Galmairs Krone ist der private Raum des Don."
 "Treasury" -> "Ha, ha... of course you like to know more about this room in Galmair's Crest. Stop dreaming! I do not think that you will ever be in this room. *smirks*"
 "Schatzkammer" -> "Ha, ha... klar würdest du gerne mehr über diesen Raum in Galmairs Krone wissen. Denkste! Ich glaub kaum, dass du den je von innen sehen wirst. *kichert*"
-
-"Scoria Mine" -> "The Scoria Mine is after the market on the right side. You have to take the elevator to get down and you will find following shafts there: The Winged Sow Tavern, Flicker Swale, Hog Dens, Cameo Pit and Sewers.",inform("[Keywords] The Winged Sow Tavern, Flicker Swale, Hog Dens, Cameo Pit, Sewers.")
-"Schlackengrube" -> "Die Schlackengrube ist nach dem Markt auf der rechten Seite. Du musst den Aufzug verwenden um hinunter zu kommen. Du findest folgende Schächte dort: Taverne zur Geflügelten Sau, Schimmersenke, Schweinebaue, Gemmenschacht und Abwasserschächte.",inform("[Schlüsselwörter] Taverne zur Geflügelten Sau, Schimmersenke, Schweinebaue, Gemmenschacht, Abwasserschächte")
+"Scoria Mine" -> inform("[Keywords] The Winged Sow Tavern, Flicker Swale, Hog Dens, Cameo Pit, Sewers."), "The Scoria Mine is after the market on the right side. You have to take the elevator to get down and you will find following shafts there: The Winged Sow Tavern, Flicker Swale, Hog Dens, Cameo Pit and Sewers."
+"Schlackengrube" -> inform("[Schlüsselwörter] Taverne zur Geflügelten Sau, Schimmersenke, Schweinebaue, Gemmenschacht, Abwasserschächte"), "Die Schlackengrube ist nach dem Markt auf der rechten Seite. Du musst den Aufzug verwenden um hinunter zu kommen. Du findest folgende Schächte dort: Taverne zur Geflügelten Sau, Schimmersenke, Schweinebaue, Gemmenschacht und Abwasserschächte."
 "elevator" -> "The elevator will help you to get down into the Scoria Mine. From there you have access to all shafts in the Scoria Mine. You will find the elevator on the other side of the town."
 "Aufzug" -> "Der Aufzug wird dir helfen hinunter in die Schlackengrube zu kommen. Von dort hast du Zugang zu allen Schächten in der Schlackengrube. Du kannst den Aufzug auf der anderen Seite der Stadt finden."
 "Winged Sow Tavern" -> "This place in the Scoria Mine has two entrances. The main entrance is over the Scoria Mine elevator and the second one is over a ladder close before the elevator. Follow the signposts. However, you will find good beer and entertainment there."
 "Taverne Geflügelten Sau" -> "Dieser Ort in der Schlackengrube hat zwei Eingänge. Den Haupteingang über die Schlackengrube Aufzug und den zweiten über eine Leiter knapp vor dem Aufzug. Folge den Wegweisern. Wie dem auch sei, du wirst gutes Bier und Unterhaltung dort finden."
 "Tavern", english -> "This place in the Scoria Mine has two entrances. The main entrance is over the Scoria Mine elevator and the second one is over a ladder close before the elevator. Follow the signposts. However, you will find good beer and entertainment there."
 "Tavern" -> "Dieser Ort in der Schlackengrube hat zwei Eingänge. Den Haupteingang über die Schlackengrube Aufzug und den zweiten über eine Leiter knapp vor dem Aufzug. Folge den Wegweisern. Wie dem auch sei, du wirst gutes Bier und Unterhaltung dort finden."
-"Temple Ronagan","Ronagan Temple" -> "The Temple of Ronagan can be found in the Scoria Mine. Just follow the signposts, but keep in mind that it is flooded currently."
-"Tempel Ronagan","Ronagan Tempel" -> "Der Tempel von Ronagan kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern, aber beachte, dass er momentan überflutet ist."
-"Flicker Swale" -> "The Flicker Swale can be found in the Scoria Mine. Just follow the signposts. There you also find the Gameroom and the Temple of Nagrun.",inform ("[Keyword]Gameroom, Temple of Nagrun")
-"Schimmersenke" -> "Die Schimmersenke kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dort findest du auch den Spielraum und den Tempel des Nagrun.",inform ("[Schlüsselwort]Spielruam, Tempel des Nagrun")
+"Temple Ronagan", "Ronagan Temple" -> "The Temple of Ronagan can be found in the Scoria Mine. Just follow the signposts, but keep in mind that it is flooded currently."
+"Tempel Ronagan", "Ronagan Tempel" -> "Der Tempel von Ronagan kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern, aber beachte, dass er momentan überflutet ist."
+"Flicker Swale" -> inform("[Keyword]Gameroom, Temple of Nagrun"), "The Flicker Swale can be found in the Scoria Mine. Just follow the signposts. There you also find the Gameroom and the Temple of Nagrun."
+"Schimmersenke" -> inform("[Schlüsselwort]Spielruam, Tempel des Nagrun"), "Die Schimmersenke kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dort findest du auch den Spielraum und den Tempel des Nagrun."
 "Gameroom" -> "The Gameroom in the Flicker Swale offers you a great opportunity to get the money of others... or to lose your own! *smirks*"
 "Spielraum" -> "Der Spielraum in der Schlimmersenke ermöglicht dir das Geld anderer abzuknüpfen...oder dein eigenes zu verlieren. *kichert*"
-"Temple Nagrun","Nagrun Temple" -> "The Temple of Nagrun in the Flicker Swale is a place for all those who follow Nagrun. Obvious, isn't it?"
-"Tempel Nagrun","Nagrun Tempel" -> "Der Temepl des Nagrun in der Schimmersenke ist ein Ort für jene die Nagrun folgen. Klar, oder?"
+"Temple Nagrun", "Nagrun Temple" -> "The Temple of Nagrun in the Flicker Swale is a place for all those who follow Nagrun. Obvious, isn't it?"
+"Tempel Nagrun", "Nagrun Tempel" -> "Der Temepl des Nagrun in der Schimmersenke ist ein Ort für jene die Nagrun folgen. Klar, oder?"
 "Hog Dens" -> "The Hog Dens can be found in the Scoria Mine. Just follow the signposts. This place is manly used by our green friends - the orcs."
 "Schweinebaue" -> "Die Schweinebaue kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dieser Ort wird hauptsächlich von unseren grünen Freunden verwendet - den Orks."
 "Cameo Pit" -> "The Cameo Pit can be found in the Scoria Mine. Just follow the signposts. It contains the flats of those who have not enough money to live at Villa Goldvein."
 "Gemmenschacht" -> "Der Gemmenschacht kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Er beinhaltet die Wohnungen jener, welche nicht genügend Geld haben um in der Villa Goldader zu wohnen."
 "Sewers" -> "The Sewers can be found in the Scoria Mine. Just follow the signposts. At this place are leaving some ratemen and other creatures. You can try it there. *smirks*"
 "Abwassersch" -> "Die Abwasserschächte kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dort findest du Rattenmänner und andere Kreaturen. Versuchs einfach. *kichert*"
+
 -- "Rooms" -> "" --placeholder for rooms if they can be rent
 -- "Guild" -> ""
-
-"Hinterland", english -> "In the so called Hinterlands you can find: Sleepy Bujhaar Inn, Census office, Sport Hole, Malachite Mine, Miner's club, Miner's spring, Woodcorner, Stinky Fisherman, The Platform, Black Hole Mine, Farmland, Copperbridge and Blackbridge.",inform("[Keywords] Sleepy Bujhaar Inn, Census office, Sport Hole, Malachite Mine, Miner's club, Miner's spring, Woodcorner, Stinky Fisherman, The Platform, Black Hole Mine, Farmland, Copperbridge, Blackbridge")
-"Hinterland" -> "In dem sogenannten Hinterland findest du: Gasthof zum schläfrigen Bujhaar, Zensusbüro, Tollloch, Malachitmine, Schüfer Club, Schüfer Quelle, Waldeck, Stinkender Fischer, Plattform, Dunkellochmine, Ackerland, Kupferbrücke and Schwarzbrücke.",inform("[Schlüsselwörter] Gasthof zum schläfrigen Bujhaar, Zensusbüro, Tollloch, Malachitmine, Schürfer Club, Schürfer Quelle, Waldeck, Stinkender Fischer, Plattform, Dunkellochmine, Ackerland, Kupferbrücke, Schwarzbrücke.")
+"Hinterland", english -> inform("[Keywords] Sleepy Bujhaar Inn, Census office, Sport Hole, Malachite Mine, Miner's club, Miner's spring, Woodcorner, Stinky Fisherman, The Platform, Black Hole Mine, Farmland, Copperbridge, Blackbridge"), "In the so called Hinterlands you can find: Sleepy Bujhaar Inn, Census office, Sport Hole, Malachite Mine, Miner's club, Miner's spring, Woodcorner, Stinky Fisherman, The Platform, Black Hole Mine, Farmland, Copperbridge and Blackbridge."
+"Hinterland" -> inform("[Schlüsselwörter] Gasthof zum schläfrigen Bujhaar, Zensusbüro, Tollloch, Malachitmine, Schürfer Club, Schürfer Quelle, Waldeck, Stinkender Fischer, Plattform, Dunkellochmine, Ackerland, Kupferbrücke, Schwarzbrücke."), "In dem sogenannten Hinterland findest du: Gasthof zum schläfrigen Bujhaar, Zensusbüro, Tollloch, Malachitmine, Schüfer Club, Schüfer Quelle, Waldeck, Stinkender Fischer, Plattform, Dunkellochmine, Ackerland, Kupferbrücke and Schwarzbrücke."
 "Sleepy Bujhaar Inn" -> "The Sleepy Bjhaar Inn can be found on the road to the Malachite Mine after the Census office. Just look for signposts. You can rest and eat there if you want."
 "Gasthof Bujhaar" -> "Das Gasthaus zum Schlafenden Bujhaar kann an der Straße zur Malachitmine nach dem Zensusbüro gefunden werden. Folge einfach den Wegschildern. Du kannst dort essen oder rasten wenn du möchtest."
 "Census office" -> "The Census office can be found south on the way to the Malachite Mine close to the Sleepy Bujhaar Inn. You can register there to increase the treasury of the Don. *smirks*"
@@ -190,18 +187,18 @@ itemShoes = 369
 "Dunkellochmine" -> "Die Dunkellochmine ist weit im Norden. Du musst in den Osten gehen, über die Kupferbrücke, dann in den Norden über die Schwarzbrücke, beim Hafen vorbei und dann bist du dort. Du wirst Kohle dort finden."
 "Farmland" -> "The Farmland is just here. *points south*"
 "Ackerland" -> "Das Ackerland ist gleich hier. *zeigt in den Süden*"
-"Copperbridge" -> "The Copperbridge in the east leads you over the Malachite creek to Nagrun's Plain fist and then to the Hemp Necktie Inn, if you like to go to this location.",inform("[Keyword] location")
-"Kupferbrücke" -> "Die Kupferbrücke im Osten führt dich über den Malachit Bach zur Nagrun Ebene zuerst und dann zum Gasthof zur Hanfschlinge, falls du zu diesen Ort gehen möchtest.",inform("[Schlüsselwort] Ort")
-"Blackbridge" -> "The Blackbridge in the northeast leads you over the Bounding Stream to the Swamp and Northern Woods, if you like to go to this location.",inform("[Keyword] location")
-"Schwarzbrücke" -> "Die Schwarzbrücke im NOrdosten von hier führt dich über den Grenzstrom zum Sumpf und den Nördlichen Wäldern, falls du zu diesen Orten gehen möchtest.",inform("[Schlüsselwort] Ort")
+"Copperbridge" -> inform("[Keyword] location"), "The Copperbridge in the east leads you over the Malachite creek to Nagrun's Plain fist and then to the Hemp Necktie Inn, if you like to go to this location."
+"Kupferbrücke" -> inform("[Schlüsselwort] Ort"), "Die Kupferbrücke im Osten führt dich über den Malachit Bach zur Nagrun Ebene zuerst und dann zum Gasthof zur Hanfschlinge, falls du zu diesen Ort gehen möchtest."
+"Blackbridge" -> inform("[Keyword] location"), "The Blackbridge in the northeast leads you over the Bounding Stream to the Swamp and Northern Woods, if you like to go to this location."
+"Schwarzbrücke" -> inform("[Schlüsselwort] Ort"), "Die Schwarzbrücke im NOrdosten von hier führt dich über den Grenzstrom zum Sumpf und den Nördlichen Wäldern, falls du zu diesen Orten gehen möchtest."
 "Shadowland" -> "A dangerous place at the south end of the Malachite mine. Do not go alone there. For more information ask someone else."
 "Schattenland" -> "Ein gefährlicher Ort am südlichen Ende der Malachit Mine. Geh nicht alleine dort hin. Für mehr Information frage jemanden anderen."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
---"quest", "mission", english -> "IN PROGRESS."
---"quest", "mission" -> "IN ARBEIT."
---"task", "adventure", "order" -> "IN PROGRESS."
---"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+-- "quest", "mission", english -> "IN PROGRESS."
+-- "quest", "mission" -> "IN ARBEIT."
+-- "task", "adventure", "order" -> "IN PROGRESS."
+-- "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
 
 -- Faction stuff
 "archmage" -> "Arrgh! The ruler of Runewick and I do not care about him! Just bring his head to the Don."
@@ -286,8 +283,8 @@ itemShoes = 369
 "Nein" -> "Wie ich merke, kannst du schon ein Wort sagen. Aber wie sieht es mit einem ganzen Satz aus?"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "Huh, about what shall I give you information? Do you mind just to ask for help as a first step?"
-".*", german, chance(20) -> "Huh, über was wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
+".*", english, chance(20.0) -> "Huh, about what shall I give you information? Do you mind just to ask for help as a first step?"
+".*", german, chance(20.0) -> "Huh, über was wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

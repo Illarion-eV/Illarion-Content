@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 04, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Julio Canaille"
@@ -196,8 +196,8 @@ itemShoes = 0
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger /  Response is only given 1/5 of the time
-".*", english, chance(20) -> "The dead be dead. Everywhere should it be that way.", "Argh-ch...", "...Lubber!.", "Har-har-har-ha!"
-".*", german, chance(20) -> "Die Toten sin' tot. Das sollte überall so sein.", "Argh-ch...", "...Landratte!", "Har-har-har-ha!"
+".*", english, chance(20.0) -> "The dead be dead. Everywhere should it be that way.", "Argh-ch...", "...Lubber!.", "Har-har-har-ha!"
+".*", german, chance(20.0) -> "Die Toten sin' tot. Das sollte überall so sein.", "Argh-ch...", "...Landratte!", "Har-har-har-ha!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

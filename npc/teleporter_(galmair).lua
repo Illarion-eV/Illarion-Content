@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 19, 2011                      easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 424, 245, 0, 0, 'Teleporter (galmair)', 'npc.teleporter_(galmair)', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (0, 424, 245, 0, 0, 'Teleporter (Galmair)', 'npc.teleporter_(galmair)', 0, 0, 0, 255, 255, 255, 255, 255, 255);
 ---]]
 
 require("npc.base.basic")
@@ -126,13 +126,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Wilderland."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 mainNPC:addLanguage(0);
@@ -143,18 +143,18 @@ mainNPC:addLanguage(4);
 mainNPC:addLanguage(5);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland.");
-mainNPC:setUseMessage("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland.");
-mainNPC:setConfusedMessage("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland.");
+mainNPC:setLookat("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland.");
+mainNPC:setUseMessage("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland.");
+mainNPC:setConfusedMessage("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Wilderland.", "[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

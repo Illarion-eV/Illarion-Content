@@ -8,7 +8,7 @@
 -- Authors:  Faladron                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: July 04, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Fronita Emery"
@@ -199,8 +199,8 @@ itemShoes = 369
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger /  Response is only given 1/5 of the time
-".*", english, chance(20) -> "Listen, I don't want to be rude. Either you buy something or you leave, aye?", "If you go on rambling about like that you'll spoil my buisiness.", "Yes. Aye. Absolutely. And now buy my stuff!"
-".*", german, chance(20) -> "Hör mal, ich will nicht unhöflich sein. Aber entweder kaufste was oder verschwindest, aye?", "Wenn du hier weiter so rumbrabbelst vermiest du mir das Geschäft.", "Ja. Aye. Absolut. Und jetzt kauf mir was ab!"
+".*", english, chance(20.0) -> "Listen, I don't want to be rude. Either you buy something or you leave, aye?", "If you go on rambling about like that you'll spoil my buisiness.", "Yes. Aye. Absolutely. And now buy my stuff!"
+".*", german, chance(20.0) -> "Hör mal, ich will nicht unhöflich sein. Aber entweder kaufste was oder verschwindest, aye?", "Wenn du hier weiter so rumbrabbelst vermiest du mir das Geschäft.", "Ja. Aye. Absolut. Und jetzt kauf mir was ab!"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
