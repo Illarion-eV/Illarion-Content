@@ -41,9 +41,9 @@ module("item.id_10_teleportgate", package.seeall)
 
 function CharacterOnField( User )
     
-	if (User:getType() ~= 0) then -- only players, else end of script
+	--[[if (User:getType() ~= 0) then -- only players, else end of script
         return
-    end
+    end]]
 
     local SourceItem = world:getItemOnField( User.pos );
 
