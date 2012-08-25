@@ -99,21 +99,28 @@ local function isFittingItem(tradeItem, boughtItem)
 end;
 
 function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
+	-- Buying at special price
     for index, item in pairs(self._buyItems) do 
         if isFittingItem(item, boughtItem) then
             local price = item._price * boughtItem.number;
             if world:erase(boughtItem, boughtItem.number) then
                 base.money.GiveMoneyToChar(player, price);
             end;
-            break;
+            return;
         end;
-    end
+    end;
+	
+	-- Buying at default price
+	local price = world:getItemStatsFromId(boughtItem.id).Worth * boughtItem.number;
+	if world:erase(boughtItem, boughtItem.number) then
+		base.money.GiveMoneyToChar(player, price);
+	end;
 end;
 
 function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
-    local item = self._sellItems[itemIndex];
+    local item = self._sellItems[itemIndex + 1];
     if (item == nil) then
-        base.common.InformNLS(player, "Ein Fehler ist beim Kauf des Items aufgetreten", "And error occurred while buying the item");
+        base.common.InformNLS(player, "Ein Fehler ist beim Kauf des Items aufgetreten", "An error occurred while buying the item");
         return;
     end;
     

@@ -9,10 +9,7 @@ require("quest.enduranceCave")
 
 module("item.id_10_teleportgate", package.seeall)
 
-function InitializeGate(  )
-
-    if TargetCoor == nil then
-        TargetCoor={  };
+--[[
         --TargetName[ 1 ]="Galmair";
         TargetCoor[ 1 ]={ 424, 245, 0 };
 
@@ -40,138 +37,91 @@ function InitializeGate(  )
         --TargetName[ 9 ]="Safepoint 5";
         TargetCoor[ 9 ]={ 4, 7, 0 };
 
-    end
+]]
 
-end
-
---function UseItem( User, SourceItem, TargetItem, Counter, Param )
 function CharacterOnField( User )
-
-    --User:inform( "using teleport gate" )
-
-	if (User:getType() ~= 0) then
+    
+	--[[if (User:getType() ~= 0) then -- only players, else end of script
         return
-    end
-
-    InitializeGate(  );
+    end]]
 
     local SourceItem = world:getItemOnField( User.pos );
 
-    if( SourceItem.id == 10 ) then
+    destString = SourceItem:getData("destinationCords")
+	if destString ~= "" then
+	    a,b,destCord1,destCord2,destCord3=string.find(destString,"(%d+) (%d+) (%d+)")
+        destCord1 = tonumber(destCord1)		
+	    destCord2 = tonumber(destCord2)
+ 	    destCord3 = tonumber(destCord3)
+		dest = position(destCord1,destCord2,destCord3)
+	end	
+	
+    --check if we are in the endurance cave and change the destination if needed
+	local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
+	if (PlayerInCave) then
+		dest = t_dest;
+	end
 
-		--User:inform( "target id "..SourceItem.quality )
-        local gate = TargetCoor[ SourceItem.data ]
+	if dest == true then
 
-        --check if we are in the endurance cave and change the destination if needed
-		local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
-		if (PlayerInCave) then
-			gate = t_dest;
-		end
+        --check if we are at the teleporter in the forced labour camp
+		if User.pos == (position(-495, -484, -40)) then
+			if User:getQuestProgress(25)<1 then --user has finished quest
+				local ItemListe = {49,234,2536,22,21,2763};    --delete ores,coal, pickaxe,gold and bread
+				for i, Item in pairs(ItemListe) do
+					amount = User:countItem(ItemListe[i]);
+					User:eraseItem( ItemListe[i], amount);
+				end --items deleted;
 
-        if gate ~= nil then
-
-
-			--check if we are at the teleporter in the forced labour camp
-			if User.pos == (position(-495, -484, -40)) then
-			    if User:getQuestProgress(25)<1 then --user has finished quest
-					local ItemListe = {49,234,2536,22,21,2763};    --delete ores,coal, pickaxe,gold and bread
-					for i, Item in pairs(ItemListe) do
-						amount = User:countItem(ItemListe[i]);
-	            		User:eraseItem( ItemListe[i], amount);
-					end --items deleted;
-
-					local Faction = base.factions.get(User); -- lookup to which faction the Character belongs to
-					
-					if     Faction.tid == 1 then dest = position(140,630,0); --cadomyr
-					elseif Faction.tid == 2 then dest = position(788,826,0); --runewick
-					elseif Faction.tid == 3 then dest = position(424,245,0); --galmair
-					else dest = position(730, 226, 0); end --no town member teleport him to the Wilderland
-					SourceItem.wear = 255;
-					world:changeItem(SourceItem);
-				else
-	                base.common.InformNLS( User,
-	                "Du hast deine Strafe noch nicht abgearbeitet. Bring Percy was er verlangt, um freizukommen.",
-	                "You still haven't completed your punishment. Bring Percy what he requests, to get released." );
-	                return;
-				end
+				local Faction = base.factions.get(User); -- lookup to which faction the Character belongs to
+				
+				if     Faction.tid == 1 then dest = position(140,630,0); --cadomyr
+				elseif Faction.tid == 2 then dest = position(788,826,0); --runewick
+				elseif Faction.tid == 3 then dest = position(424,245,0); --galmair
+				else dest = position(730, 226, 0); end --no town member teleport him to the Wilderland
+				SourceItem.wear = 255;
+				world:changeItem(SourceItem);
+			else
+				base.common.InformNLS( User,
+				"Du hast deine Strafe noch nicht abgearbeitet. Bring Percy was er verlangt, um freizukommen.",
+				"You still haven't completed your punishment. Bring Percy what he requests, to get released." );
+				return;
 			end
-			-- Quest Special
-            allOK = true;
-            if (allOK) then
+		end
+		
+		world:makeSound( 4, dest )
+		world:gfx( 41, User.pos )
+		User:warp( dest );
+		world:gfx( 41, User.pos )
 
-				world:makeSound( 4, dest )
-                --world:gfx( 41, dest )
-                world:gfx( 41, User.pos )
-                User:warp( dest );
-                world:gfx( 41, User.pos )
+		base.common.InformNLS( User,
+		"Du machst eine magische Reise.",
+		"You travel by the realm of magic." );
 
-                base.common.InformNLS( User,
-                "Du machst eine magische Reise.",
-                "You travel by the realm of magic." );
-
-                if ( SourceItem.wear ~= 255 ) then
-                    if ( SourceItem.quality < 900 ) then
-                        if ( SourceItem.quality > 200 ) then
-                            SourceItem.quality = SourceItem.quality - 100;
-                            world:changeItem( SourceItem );
-                        else
-                            world:erase( SourceItem, SourceItem.number );
-                        end
-                    end
-                end
-            end
-        end
-    else
-        base.common.InformNLS( User,
-        "Ein Gegenstand stört die Magie des Portals.",
-        "Some item disturbs the magic of the portal." );
-    end
+		if ( SourceItem.wear ~= 255 ) then
+			if ( SourceItem.quality > 200 ) then
+					SourceItem.quality = SourceItem.quality - 100;
+					world:changeItem( SourceItem );
+			else
+				world:erase( SourceItem, SourceItem.number );
+			end
+		end	
+	end
 end
 
-
 function LookAtItem( User, Item )
-
-	if (Item.data==1) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Galmair", "Magical gate to Galmair" ) );
-end;
-
-if (Item.data==2) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Cadomyr", "Magical gate to Cadomyr" ) );
-end;
-
-if (Item.data==3) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Runewick", "Magical gate to Runewick" ) );
-end;
-
-
-if (Item.data==4) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Wilderland", "Magical gate to Wilderland" ) );
-end;
-
-
-if (Item.data==5) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 1", "Magical gate to Safepoint 1" ) );
-end;
-
-if (Item.data==6) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 2", "Magical gate to Safepoint 2" ) );
-end;
-
-if (Item.data==7) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 3", "Magical gate to Safepoint 3" ) );
-end;
-
-if (Item.data==8) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 4", "Magical gate to Safepoint 4" ) );
-end;
-
-if (Item.data==9) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal nach Safepoint 5", "Magical gate to Safepoint 5" ) );
-end;
-
-if (Item.data>9) or (Item.data==0) then
-
-world:itemInform( User,Item,base.common.GetNLS( User, "Magisches Portal", "Magical gate") );
-end;	
+destString = Item:getData("destinationCords")
 	
+	if destString == "" then -- empty, therefore no portal
+	   world:itemInform( User, Item, base.common.GetNLS( User, "Portal", "Portal" ) )
+    
+	elseif destString == "cord1 cord2 cord3" then
+	     world:itemInform( User, Item, base.common.GetNLS( User, "Portal nach ZIEL", "Portal to DESTINATION" ))
+	
+	elseif destString == "cord1 cord2 cord3" then
+	    world:itemInform( User, Item, base.common.GetNLS( User, "Portal nach ZIEL", "Portal to DESTINATION" ))
+		
+	else -- portal, but not defined look at for those coordinations
+	    world:itemInform( User, Item, base.common.GetNLS( User, "Portal mit unbekanntem Ziel", "Portal with unknown destination" ))
+	end	
 end

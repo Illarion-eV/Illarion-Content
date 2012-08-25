@@ -2,19 +2,19 @@
 -- NPC Name: Henning Broomshrub                                          Free --
 -- NPC Job:  Thimblerig                                                       --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  711, 308, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
+-- NPC Race: halfling                   NPC Position:  710, 324, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 21, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Henning Broomshrub"
 race = halfling
 sex = male
-position = 711, 308, 0
-direction = west
+position = 710, 324, 0
+direction = north
 affiliation = "Free"
 job = "Thimblerig"
 
@@ -74,8 +74,8 @@ itemShoes = 369
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "Let me see... I can send you on an epic quest to choose the right nut! Care to bet?", "No quest today, my money has gone away. The nuts stand forlorn, a symbol of the dawn.", "You are the hero, I am the thimblerig!"
 "quest", "mission" -> "Lass mich mal überlegen... Ich kann dich auf die epische Suche nach der richtigen Nuss schicken. Hast du Lust, zu wetten?", "Leider hab ich keine Abenteuer im Angebot. Wie wärs mit einer kleinen Wette?", "Du bist der Held, ich der Hütchenspieler!"
-"task", "adventure" -> "Let me see... I can send you on an epic quest to choose the right nut! Care to bet?", "No quest today, my money has gone away. The nuts stand forlorn, a symbol of the dawn.", "You are the hero, I am the thimblerig!"
-"Auftrag", "Aufgabe", "Abenteuer" -> "Lass mich mal überlegen... Ich kann dich auf die epische Suche nach der richtigen Nuss schicken. Hast du Lust, zu wetten?", "Leider hab ich keine Abenteuer im Angebot. Wie wärs mit einer kleinen Wette?", "Du bist der Held, ich der Hütchenspieler!"
+"task", "adventure", "order" -> "Let me see... I can send you on an epic quest to choose the right nut! Care to bet?", "No quest today, my money has gone away. The nuts stand forlorn, a symbol of the dawn.", "You are the hero, I am the thimblerig!"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Lass mich mal überlegen... Ich kann dich auf die epische Suche nach der richtigen Nuss schicken. Hast du Lust, zu wetten?", "Leider hab ich keine Abenteuer im Angebot. Wie wärs mit einer kleinen Wette?", "Du bist der Held, ich der Hütchenspieler!"
 
 -- Thimblerig!
 "bet", state ~= 0 -> "You already betted, choose a nut: Left, middle or right?", "You still have to choose a nut. Left, middle or maybe right?", "I await your decision. Under which nut might the ball be hidden?"

@@ -2,17 +2,17 @@
 -- NPC Name: Henning Broomshrub                                          Free --
 -- NPC Job:  Thimblerig                                                       --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  711, 308, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
+-- NPC Race: halfling                   NPC Position:  710, 324, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 21, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 711, 308, 0, 6, 'Henning Broomshrub', 'npc.henning_broomshrub', 0, 2, 0, 242, 182, 0, 225, 179, 137);
+VALUES (2, 710, 324, 0, 0, 'Henning Broomshrub', 'npc.henning_broomshrub', 0, 2, 0, 242, 182, 0, 225, 179, 137);
 ---]]
 
 require("npc.base.basic")
@@ -210,6 +210,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addResponse("Let me see... I can send you on an epic quest to choose the right nut! Care to bet?");
 talkEntry:addResponse("No quest today, my money has gone away. The nuts stand forlorn, a symbol of the dawn.");
 talkEntry:addResponse("You are the hero, I am the thimblerig!");
@@ -220,6 +221,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Lass mich mal überlegen... Ich kann dich auf die epische Suche nach der richtigen Nuss schicken. Hast du Lust, zu wetten?");
 talkEntry:addResponse("Leider hab ich keine Abenteuer im Angebot. Wie wärs mit einer kleinen Wette?");
 talkEntry:addResponse("Du bist der Held, ich der Hütchenspieler!");
