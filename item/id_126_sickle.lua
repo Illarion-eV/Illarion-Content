@@ -36,6 +36,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		myBookPos = base.common.GetFrontPosition(User, 1)
 	    myPortal = world:createItemFromId( 1061, 1, myBookPos, true, 933 ,0);
 		myPortal:setData("destinationCords",destString)
+		world:changeItem(myPortal)
 	end	
 	if (string.find(User.lastSpokenText,"create potion")~=nil) then 
 	   a,b,myId,myEffect,myQuali=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)") 

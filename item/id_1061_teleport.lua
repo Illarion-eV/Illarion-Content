@@ -9,7 +9,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	destString = SourceItem:getData("destinationCords")
 	if destString == "" then
 	    -- no portal book
-	     User:talkLanguage(Character.say, Player.german, "debug 1");
+	     base.common.InformNLS( User,"bug 1","bug 2" );
 	else -- it is a portal
 	    a,b,destCord1,destCord2,destCord3=string.find(destString,"(%d+) (%d+) (%d+)")
         destCord1 = tonumber(destCord1)		
@@ -30,6 +30,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				-- create a gate 
 				myPortal = world:createItemFromId( 10, 1, loc, true, 933 ,0);
 				myPortal:setData("destinationCords",destString)
+				world:changeItem(myPortal)
 				world:makeSound( 4, loc )
 
 				success = true;
