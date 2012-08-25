@@ -6,7 +6,7 @@ module("item.id_1061_teleport", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
-	destString = sourceItem:getData("destinationCords")
+	destString = SourceItem:getData("destinationCords")
 	if destString == "" then
 	    -- no portal book
 	
