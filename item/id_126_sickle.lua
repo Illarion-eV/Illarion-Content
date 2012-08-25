@@ -31,7 +31,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end 
 	
 	if (string.find(User.lastSpokenText,"portal")~=nil) then 
-	    a,b,destCord1,destCord2,destCord3=string.find(destString,"(%d+) (%d+) (%d+)")
+	    a,b,destCord1,destCord2,destCord3=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)")
 		destString = destCord1.." "..destCord2.." "..destCord3
 		myBookPos = base.common.GetFrontPosition(User, 1)
 	    myPortal = world:createItemFromId( 1061, 1, myBookPos, true, 933 ,0);
