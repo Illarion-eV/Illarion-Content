@@ -54,10 +54,10 @@ function LookAtItem( User, Item )
 	if destString == "" then -- empty, therefore nor portal book
 	   world:itemInform( User, Item, base.common.GetNLS( User, "Buch", "Book" ) )
     
-	elseif destString = "cord1 cord2 cord3" then
+	elseif destString == "cord1 cord2 cord3" then
 	     world:itemInform( User, Item, base.common.GetNLS( User, "Portal nach ZIEL", "Portal to DESTINATION" ))
 	
-	elseif destString = "cord1 cord2 cord3" then
+	elseif destString == "cord1 cord2 cord3" then
 	    world:itemInform( User, Item, base.common.GetNLS( User, "Portal nach ZIEL", "Portal to DESTINATION" ))
 		
 	else -- portal book, but not defined look at for those coordinations
