@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[S
 local NPC_REPLY_DE = "Jetzt gilt es erstmal sich der Königin vorzustellen. Komm zurück wenn du dies getan hast."
 local NPC_REPLY_EN = "Look for the Queen to introduce yourself. Come back if you have done that."
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

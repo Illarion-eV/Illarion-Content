@@ -11,7 +11,7 @@ local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[S
 local NPC_REPLY_DE = "Bitte bringt mir eine Pfeife und zehn Sibanac Blätter!"
 local NPC_REPLY_EN = "Please, bring me a pipe and ten sibanac leaves."
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -31,7 +31,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

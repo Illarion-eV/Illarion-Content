@@ -16,7 +16,7 @@ local NPC_REPLY_EN = "#me smiles and hands you a stone."
 local NPC_NOITEM_DE = "#me spannt ihren Bogen und zeigt zu dem Tor."
 local NPC_NOITEM_EN = "#me draws a bow and points to the door."
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if PLAYER:getType() == Character.player
     and ADDITIONALCONDITIONS(PLAYER)
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -36,7 +36,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
             if PLAYER:countItem(ITEM_ID)>=ITEM_AMNT then
-                thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+                npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
                 HANDLER(PLAYER)
             
@@ -44,7 +44,7 @@ function receiveText(type, text, PLAYER)
         
                 return true
             elseif (NPC_NOITEM_DE~="") then
-                thisNPC:talk(Character.say, getNLS(PLAYER, NPC_NOITEM_DE, NPC_NOITEM_EN))
+                npc:talk(Character.say, getNLS(PLAYER, NPC_NOITEM_DE, NPC_NOITEM_EN))
           
                 return true
             else

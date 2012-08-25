@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[S
 local NPC_REPLY_DE = "Für die nächste Aufgabe geht es zu den Grabsteinen beim Feuer des Triumph. Gefragt ist die Jahreszahl der angesprochenen Kampagne."
 local NPC_REPLY_EN = "For your next task you have to go north to the tombstones at the Fire of Triumph and tell me the year of the compaign noted there."
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

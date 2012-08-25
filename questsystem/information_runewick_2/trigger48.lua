@@ -11,7 +11,7 @@ local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[S
 local NPC_REPLY_DE = "Ihr sollt euch eure Belohnung abholen. Ich war so gemein und hab sie für euch verstecken lassen. Geht zur Fröhlichen Lichtung und blickt dort unter einem der Getreidebündel nach. *schmunzelt*"
 local NPC_REPLY_EN = "You should go for your reward. I was mean and let it hide for you. Go to Merryglade and look in one of the bundles of grain. *grins*"
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -31,7 +31,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

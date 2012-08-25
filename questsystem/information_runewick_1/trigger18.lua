@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Ff]ire"
 local NPC_REPLY_DE = "Feuer ist die richtige Antwort und hier gibt es ein Beil um eines zu machen. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei der Holzfäller Hütte."
 local NPC_REPLY_EN = "Fire is the right answer and here do have a hutchet to make one. A good place for one is at the firespot at the Woodcutter Hut."
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

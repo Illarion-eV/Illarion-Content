@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Ff]ate"
 local NPC_REPLY_DE = "Genau, eine Abmachung mit dem Schickal und hier ein Spiegel als Belohnung. Für die nächste Aufgabe geht es in Richtung Süden zum Tollloch. Finde raus was du bekommst wenn du den Don belügst."
 local NPC_REPLY_EN = "Exactly, a deal with your fate and here is a mirror as your reward. For your next task you have to go south to the Sport Hole. Find out what you get if you lie at the Don."
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

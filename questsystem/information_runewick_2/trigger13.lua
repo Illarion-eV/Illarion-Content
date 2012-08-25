@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "4|[Ff]our"
 local NPC_REPLY_DE = "Richtig, vier sind es. Hier habt ihr nun ein Horn. Geht damit zur Feurstelle am Nördlichen Außenposten und bläst mal ordentlich rein dort. Ich will etwas hören!"
 local NPC_REPLY_EN = "Right, there are four. There you have a horn. Go with the horn to the campfire at the Northern Outpost and blow into the horn there. I want to hear some noise!"
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

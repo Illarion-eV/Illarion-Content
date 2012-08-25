@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Ll]urnord"
 local NPC_REPLY_DE = "Auch richtig. Und nun die letzte Frage bevor wir mit ein paar Aufgaben beginnen. Wer kann dir hier mit Orten um Runewick behilflich sein? "
 local NPC_REPLY_EN = "Again correct. Now the last question before I give you some task. Whom can you ask if you want to know more about places around Runewick?"
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

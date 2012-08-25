@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Aa]methyst"
 local NPC_REPLY_DE = "Wieder richtig und deshalb noch mehr Münzen! Und nun, wem darfen man hier sein Gehör schenken?"
 local NPC_REPLY_EN = "Right again and therefore more coins for you! And now, whom do you have to obey here?"
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

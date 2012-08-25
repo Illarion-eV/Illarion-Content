@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Yy]oung|[Nn]oble"
 local NPC_REPLY_DE = "Genau, Zhambra erscheint oft als eine junger, nobler Krieger und hier ein Spiegel als Belohnung. Für die nächste Aufgabe geht in den Palast. Gefragt ist die Jahreszahl des Todes von Sir Reginald."
 local NPC_REPLY_EN = "Exactly, Zhambra appears often as a young, noble warrior and here is a mirror as your reward. For your next task you have to go the palace and tell me the year of the death of Sir Reginald."
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

@@ -10,7 +10,7 @@ local NPC_TRIGGER_EN = "[Ll]uvwick"
 local NPC_REPLY_DE = "Wieder richtig. Nun, wem haben wir im Halblings-Krieg besiegt?"
 local NPC_REPLY_EN = "Again correct. Well, whom did we beat in the Halfling-war?"
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -30,7 +30,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             
