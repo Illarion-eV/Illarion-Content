@@ -51,7 +51,7 @@ end
 function LookAtItem( User, Item )
     destString = Item:getData("destinationCords")
 	
-	if destString == "" -- empty, therefore nor portal book
+	if destString == "" then -- empty, therefore nor portal book
 	   world:itemInform( User, Item, base.common.GetNLS( User, "Buch", "Book" ) )
     
 	elseif destString = "cord1 cord2 cord3" then
