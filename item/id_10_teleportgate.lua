@@ -54,6 +54,7 @@ function CharacterOnField( User )
         destCord1 = tonumber(destCord1)		
 	    destCord2 = tonumber(destCord2)
  	    destCord3 = tonumber(destCord3)
+		User:talkLanguage(Character.say, Player.german, "debug 12: "..destCord1.." "..destCord2.." "..destCord3)
 		dest = position(destCord1,destCord2,destCord3)
 	end	
 	
@@ -89,7 +90,7 @@ function CharacterOnField( User )
 	end
 
 	if dest == true then -- destination was defined
-		User:talkLanguage(Character.say, Player.german, "debug 12")
+		User:talkLanguage(Character.say, Player.german, "debug 18")
 		world:makeSound( 4, dest )
 		world:gfx( 41, User.pos )
 		User:warp( dest );
