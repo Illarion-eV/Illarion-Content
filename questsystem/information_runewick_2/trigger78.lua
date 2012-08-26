@@ -11,7 +11,7 @@ local NPC_TRIGGER_EN = "."
 local NPC_REPLY_DE = "Gut, ihr habt gezeigt, dass ihr ein gewisses Maß an Gefahr bestehen könnt. Bevor die letzte Mission begonnen werden kann, habe ich noch eine Bitte. Und zwar eine Pfeife und zehn Sibanac Blätter!"
 local NPC_REPLY_EN = "Well, you have shown that you can manage some danger. But before you can start your final misison, I have a request. Please, bring me a pipe and ten sibanac leaves."
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -31,7 +31,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

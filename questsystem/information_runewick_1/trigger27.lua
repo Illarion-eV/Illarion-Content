@@ -11,7 +11,7 @@ local NPC_TRIGGER_EN = "18|[Ee]ighteen"
 local NPC_REPLY_DE = "Gut, 18 BS wurde Runewick gegründet. Hier ein letztes Geschenk. Für weiter Auskunft stehe ich gerne zur Verfügung. Für weitere Aufträge empfiehlt es sich herumzufragen. Zum Beispiel bei Numila."
 local NPC_REPLY_EN = "Good, 18 BS is the founding date of Runewick. Here your last gift. If you need more information, you can always ask me. For more tasks ask other folk. For example Numila."
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -31,7 +31,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

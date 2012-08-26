@@ -10,7 +10,7 @@ local NPC_TRIGGER_EN = "[Dd]ragon"
 local NPC_REPLY_DE = "Ihr kommt euren Preis näher. Wem zu Ehren wurde die Statue beim 'Feiglings letztes Gefecht' errichtet?"
 local NPC_REPLY_EN = "You are coming your reward closer. To whom refers the statue at 'Cowards last stand'?"
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -30,7 +30,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

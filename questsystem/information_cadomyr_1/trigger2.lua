@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Cc]adomyr"
 local NPC_REPLY_DE = "Sehr gut, hier nun die n‰chste Aufgabe. Wie heiﬂt die erste Villa gleich links vom Markt?"
 local NPC_REPLY_EN = "Very good, now your next task. What is the name of the first villa left of the market?"
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

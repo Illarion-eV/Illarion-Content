@@ -10,7 +10,7 @@ local NPC_TRIGGER_EN = "."
 local NPC_REPLY_DE = "Hübsch, hübsch. *schmunzelt* Nun bevor ich euch euren nächsten Auftrag anvertraue, beantwortet mir erst einmal ein paar Fragen. Erste Frage: Für was haben wir einst das Schattentor verwendet?"
 local NPC_REPLY_EN = "Handsome, handsome. *smiles* Well, answer first some questions before I send you for your next task. First Question: For what purpose did we use the Shadow Gate in the past?"
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -30,7 +30,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

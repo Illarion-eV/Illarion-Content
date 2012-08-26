@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Gg]almair"
 local NPC_REPLY_DE = "Nun eine Frage zu den Lokalitäten hier, insbesondere dem Hinterland. Wie heißt die Brücke die Runewick mit Eibental verbindet?"
 local NPC_REPLY_EN = "Now, a question about locations here. In particular the hinterland. What is the name of the bridge that connects Runewick with Yewdale?"
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Rr]unewick"
 local NPC_REPLY_DE = "Sehr gut, hier nun die nächste Aufgabe. Welchen Turm betritt man nach dem man den Turm des Feuer ostwärts verlassen hat?"
 local NPC_REPLY_EN = "Very good, now your next task. Which tower do you enter if you leave the Tower of Fire eastwards?"
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

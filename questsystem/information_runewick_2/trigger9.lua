@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Yy]ewdale"
 local NPC_REPLY_DE = "Richtig! Und meine neue Tinte scheint gut zu funktionieren mit dem Licht der Säule des Feuers. Hier habt ihr eure Belohnung und eine weitere Aufgabe. Geht eben nach Eibental, klettert auf den Leuchtturm, und zählt die Reiterstatuen auf dem Dach."
 local NPC_REPLY_EN = "Very good! Andmy new ink seems good to work with the light of the Column of Fire. Here your reward and a new task. Go to Yewdale, climb up the lighttower and count the riderstatues on the top."
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Mm]alachin"
 local NPC_REPLY_DE = "Richtig. Nun eine Frage zu unseren Gegnern. Welche Fraktion wird von Erzmagier Elvaine Morgan beherrscht?"
 local NPC_REPLY_EN = "Right. Now, a question about our enemies. Which faction is ruled by Archmage Elvaine Morgan?"
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             

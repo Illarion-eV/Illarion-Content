@@ -16,7 +16,7 @@ local NPC_REPLY_EN = "Are you the grapes-child? Nice, give them to me. You shall
 local NPC_NOITEM_DE = "Bist du das Traubenkind? Wie dem auch sei, ohne Trauben gibt es keine Belohnung."
 local NPC_NOITEM_EN = "Are you the grapes-child? Anyway, if you do not have the grapes you do not get your reward."
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if PLAYER:getType() == Character.player
     and ADDITIONALCONDITIONS(PLAYER)
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -36,7 +36,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
             if PLAYER:countItem(ITEM_ID)>=ITEM_AMNT then
-                thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+                npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
                 HANDLER(PLAYER)
             
@@ -44,7 +44,7 @@ function receiveText(type, text, PLAYER)
         
                 return true
             elseif (NPC_NOITEM_DE~="") then
-                thisNPC:talk(Character.say, getNLS(PLAYER, NPC_NOITEM_DE, NPC_NOITEM_EN))
+                npc:talk(Character.say, getNLS(PLAYER, NPC_NOITEM_DE, NPC_NOITEM_EN))
           
                 return true
             else

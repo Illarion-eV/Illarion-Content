@@ -12,7 +12,7 @@ local NPC_TRIGGER_EN = "[Ee]merald"
 local NPC_REPLY_DE = "Gut, aber wir haben noch einen zweiten. Ist der auch bekannt? Rubin, Amethyst oder Schwarzstein?"
 local NPC_REPLY_EN = "Good, but we have a second. Do you also know it? Ruby, Amethyst or Blackstone?"
 
-function receiveText(type, text, PLAYER)
+function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -32,7 +32,7 @@ function receiveText(type, text, PLAYER)
 
         if foundTrig then
       
-            thisNPC:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
             
             HANDLER(PLAYER)
             
