@@ -56,12 +56,14 @@ function CharacterOnField( User )
  	    destCord3 = tonumber(destCord3)
 		User:talkLanguage(Character.say, Player.german, "debug 12: "..destCord1.." "..destCord2.." "..destCord3)
 		dest = position(destCord1,destCord2,destCord3)
+	    destFound = true
 	end	
 	
     --check if we are in the endurance cave and change the destination if needed
 	local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
 	if (PlayerInCave) then
 		dest = t_dest;
+	    destFound = true
 	end
 
 	--check if we are at the teleporter in the forced labour camp
@@ -81,6 +83,7 @@ function CharacterOnField( User )
 			else dest = position(730, 226, 0); end --no town member teleport him to the Wilderland
 			SourceItem.wear = 255;
 			world:changeItem(SourceItem);
+		    destFound = true
 		else
 			base.common.InformNLS( User,
 			"Du hast deine Strafe noch nicht abgearbeitet. Bring Percy was er verlangt, um freizukommen.",
@@ -89,7 +92,7 @@ function CharacterOnField( User )
 		end
 	end
 
-	if dest == true then -- destination was defined
+	if destFound then -- destination was defined
 		User:talkLanguage(Character.say, Player.german, "debug 18")
 		world:makeSound( 4, dest )
 		world:gfx( 41, User.pos )
