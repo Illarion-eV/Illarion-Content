@@ -31,8 +31,8 @@ autointroduce = on
 
 author = "Zot, Faladron"
 
-lookatDE = "Ein NPC der toll aussieht."
-lookatUS = "A NPC who is looking good."
+lookatDE = "Dieser NPC ist Phillibald der Portalbuchhändler."
+lookatUS = "This NPC is Phillibald the portalbook merchant"
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Stop touching me!"
 wrongLangDE = "#me blickt dich verwirrt an."
