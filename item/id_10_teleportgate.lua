@@ -46,6 +46,10 @@ function CharacterOnField( User )
     end
 
     local SourceItem = world:getItemOnField( User.pos );
+	local destString
+	local destCord1; local destCord2; local destCord3
+	local des
+	local destFround = false
 
     destString = SourceItem:getData("destinationCords")
 	if destString ~= "" then
@@ -115,7 +119,7 @@ function CharacterOnField( User )
 end
 
 function LookAtItem( User, Item )
-destString = Item:getData("destinationCords")
+local destString = Item:getData("destinationCords")
 	
 	if destString == "" then -- empty, therefore no portal
 	   world:itemInform( User, Item, base.common.GetNLS( User, "Portal", "Portal" ) )

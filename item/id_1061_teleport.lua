@@ -5,7 +5,13 @@ require("base.common")
 module("item.id_1061_teleport", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-    
+    local destString
+	local destCord1; local destCord2; local destCord2
+	local loc
+	local success
+	local radius
+	local myPortal
+	
 	destString = SourceItem:getData("destinationCords")
 	if destString == "" then
 	    -- no portal book
@@ -16,9 +22,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    destCord2 = tonumber(destCord2)
  	    destCord3 = tonumber(destCord3)
 	
-        local loc;
-		local success = false;
-		local radius = 4;
+        success = false;
+		radius = 4;
 
 		for i = 1, 10 do
 			loc = position( User.pos.x - radius + math.random( 2*radius ), User.pos.y - radius + math.random( 2*radius ), User.pos.z )
@@ -50,7 +55,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 end
 
 function LookAtItem( User, Item )
-    destString = Item:getData("destinationCords")
+    local destString = Item:getData("destinationCords")
 	
 	if destString == "" then -- empty, therefore nor portal book
 	   world:itemInform( User, Item, base.common.GetNLS( User, "Buch", "Book" ) )
