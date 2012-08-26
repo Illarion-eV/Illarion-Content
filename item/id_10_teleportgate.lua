@@ -89,6 +89,7 @@ function CharacterOnField( User )
 	end
 
 	if dest == true then -- destination was defined
+		User:talkLanguage(Character.say, Player.german, "debug 12")
 		world:makeSound( 4, dest )
 		world:gfx( 41, User.pos )
 		User:warp( dest );
