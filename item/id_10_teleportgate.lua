@@ -49,7 +49,8 @@ function CharacterOnField( User )
 
     destString = SourceItem:getData("destinationCords")
 	if destString ~= "" then
-	    a,b,destCord1,destCord2,destCord3=string.find(destString,"(%d+) (%d+) (%d+)")
+	    User:talkLanguage(Character.say, Player.german, "debug 11")
+		a,b,destCord1,destCord2,destCord3=string.find(destString,"(%d+) (%d+) (%d+)")
         destCord1 = tonumber(destCord1)		
 	    destCord2 = tonumber(destCord2)
  	    destCord3 = tonumber(destCord3)
