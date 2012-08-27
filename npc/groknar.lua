@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -59,7 +59,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("skip");
 talkEntry:addTrigger("cancel");
 talkEntry:addTrigger("abort");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(35, 95, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -67,7 +67,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("überspring");
 talkEntry:addTrigger("abbrech");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln trittst."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(35, 95, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -133,7 +133,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hurr, you are prepared to face the threats of this world. Follow the road, Hammerfist is expecting you. Good travels, %CHARNAME!");
+talkEntry:addResponse("Hurr, you are prepared to face the threats of this world. Follow the road, Nargon Hammerfist is expecting you. Good travels, %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
