@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Insert your name here                                            --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "John Doe"
@@ -45,13 +45,25 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
--- Template Version 1.04, 07/12/2011 by Estralis Seborian
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 1, 2, 3
+buyPrimaryItems = 1
+buySecondaryItems = 2, 3
+
+-- Template Version 1.05, 08/28/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
 -- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
 
 -- MANDATORY TRIGGERS
 
@@ -75,6 +87,10 @@ itemShoes = 53
 
 -- OPTIONAL TRIGGERS
 
+-- Optional: Trade Hooks, use only for traders
+"sell", "buy", "wares", "price", "trade" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.", trade
+"kauf", "waren", "preis", "Handel" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", trade
+
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 "quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -86,6 +102,8 @@ itemShoes = 53
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -98,12 +116,6 @@ itemShoes = 53
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Optional: Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
