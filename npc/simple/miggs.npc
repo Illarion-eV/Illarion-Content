@@ -62,7 +62,7 @@ itemShoes = 326
 -- 22: Quest 3 solved, reward: steel gloves, +20 rankpoints
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Miggs, the henchman of Don Valerio. Keyphrases: Hello, henchman, quest, Don Valerio, rules.")
+"Help" -> inform("[Game Help] This NPC is Miggs, the henchman of Don Valerio. Keywords: Hello, henchman, quest, Don Valerio, rules.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Miggs, der Handlanger von Don Valerio. Schlüsselwörter: Hallo, Handlanger, Quest, Don Valerio, Regeln.")
 
 -- General speech
@@ -227,7 +227,7 @@ itemShoes = 326
 "privateer" -> "Did Mr Lynch send you?"
 "Freibeuter" -> "Schickt euch Mr. Lynch?"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Miggs", english -> "Aye?", "Shut it!", "What!"
 "Miggs" -> "Ja?", "Schnauze!", "Was!"
 "Yes" -> "Interesting. Now stop talking to me unless you want to work for the Don.", "Ah. So, what?", "You are a 'yes-man', aren't you? We need such people here in Galmair."

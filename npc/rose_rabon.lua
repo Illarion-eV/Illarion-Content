@@ -29,7 +29,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Rose Rabon the waiter. Keyphrases: Hello, Good day, Hi, Good morning, Pleasure to meet you"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Rose Rabon the waiter. Keywords: Hello, Good day, Hi, Good morning, Pleasure to meet you"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

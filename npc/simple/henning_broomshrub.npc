@@ -169,7 +169,7 @@ itemShoes = 369
 "tell something" -> "I don't tell no nothing, no!", "Who are you anyway, the town guard?", "I don't cheat! I would never, would I...?"
 "erzähl was", "erzähl etwas" -> "Ich erzähl hier gar nichts.", "Wer bist du, die Stadtwache?", "Ich betrüge nicht! Ich doch nicht..."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Henning", "Broomshrub", english -> "Henning, yes, that's me. My friends call me Henni.", "Who wants to know? Nevermind, let's play!", "Well, I am Henning. Are you happy now?"
 "Henning", "Broomshrub" -> "Henning, ja, das bin ich. Meine Freunde nennen mich Henni.", "Wer will das wissen? Ach, was solls, lass uns spielen.", "Also ich bin Henning. Bist du jetzt glücklich?"
 "Yes" -> "Yes? Fine, what was the question again? Anyway, if you want to play, say how many coins you want to bet."

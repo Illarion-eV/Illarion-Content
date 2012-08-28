@@ -226,7 +226,7 @@ itemShoes = 53
 "tell something" -> "Wine is divine."
 "erzähl was", "erzähl etwas" -> "Wein ist fein."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Hassan", english -> "So, who sent you?", "Yes, yes, I know, I should be in the palace.", "No."
 "Hassan" -> "So, wer schickt euch?", "Ja, ja, ich weiß, ich sollte im Palast sein.", "Nein."
 "Yes" -> "No.", "Not really.", "Peon!"

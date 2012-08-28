@@ -141,7 +141,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Prandlin the retired pirate hunter. Keyphrases: nothing specific."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Prandlin the retired pirate hunter. Keywords: nothing specific."));
 talkEntry:addResponse("#me is as old as the hills, he slumbers peacfully in front of the chimney, snuggling a ornate mage's staff.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

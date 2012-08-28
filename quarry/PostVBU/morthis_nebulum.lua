@@ -29,7 +29,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Morthis Nebulum the Necromancer. Keyphrases: Magic, Lor Angur, Necromany, Archmage, Blood."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Morthis Nebulum the Necromancer. Keywords: Magic, Lor Angur, Necromany, Archmage, Blood."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

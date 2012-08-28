@@ -42,7 +42,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hector Valerion the royal ambassador. Keyphrases: Ambassador, quest, despatch, seal, orders."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hector Valerion the royal ambassador. Keywords: Ambassador, quest, despatch, seal, orders."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

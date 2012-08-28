@@ -45,7 +45,7 @@ itemTrousers = 183
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Thomas Berryard the mason and dye mixer-slave. Fee: 1 silver coin each task. Keyphrases: make 15 buckets black/green/blue/red/yellow/white dye, make 10 pebbles, make 3 stone block.")
+"Help" -> inform("[Game Help] This NPC is Thomas Berryard the mason and dye mixer-slave. Fee: 1 silver coin each task. Keywords: make 15 buckets black/green/blue/red/yellow/white dye, make 10 pebbles, make 3 stone block.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thomas Berryard der Steinmetz und Farbmischer-Sklave. Gebühr: 1 Silberstück á Auftrag. Schlüsselwörter: mische 15 Eimer schwarze/grüne/blaue/rote/gelbe/weiße Farbe, mache 10 Kiesel, mache 3 Steinquader.")
 "%NUMBER Steinquader", money => 100, item(735, all) => expr( %NUMBER*1) -> "#me seufzt tief und steckt die erhaltene Silbermünze in seine Hosentasche, nach einer weile Arbeit hat er die Steine in schöne Quader gehauen.", money - 100, deleteItem(735, %NUMBER), item(733, %NUMBER, 333, 0)
 "%NUMBER Kiesel", money => 100, item(735, all) => expr( %NUMBER/5) -> "#me seufzt tief und steckt die erhaltene Silbermünze in seine Hosentasche, nach einer weile Arbeit hat er die Steine in handliche Kiesel Zerschlagen.", money - 100, deleteItem(735, expr( %NUMBER/5)), item(1266, %NUMBER, 333, 0)
@@ -279,7 +279,7 @@ itemTrousers = 183
 "tell something" -> "A long time ago, I was a fat and happy halfling. Then I borrowed money from deceptive people. The next thing I knew - I worked for these pigs here.", "At first it was bearable, but then I snuck away at night ... The suffering that followed, I will never forget. I've been shackled to this chain ever since.", "These orcs don't give me enough to eat! They think it's funny when my stomach growls. I've become really scrawny!"
 "erzähl was", "erzähl etwas" -> "Tja. Einst war ich ein fetter glücklicher Halbling. Aber dann hab ich mir von den falschen Leuten Geld geliehen und ehe ich mich umsehen konnte, arbeite ich hier für die Schweinenasen.", "Zu Anfang war es ja noch einigermaßen erträglich. Doch ich hab mich in der Nacht davon geschlichen... das gab einen Trubel, will ich mich gar nicht dran erinnern. Danach haben sie mich hier angekettet.", "Diese Orks geben mir nie genug zu Essen! Die finden das lustig, wenn mir der Magen knurrt. Ich bin jetzt ja schon ganz dürr!"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Thomas", "Berryard", "Berry", "Tom", "Thom", "snaga", english -> "Hm-h? Do you need any stones or dye?", "Yeh-hs. What do you want?"
 "Thomas", "Berryard", "Berry", "Tom", "Thom", "snaga" -> "Was ist? Brauchst du Steine, oder Farben?", "Jah-ah. Was willst du?"
 "slave", "halfer", "halfling" -> "Hm-h? Do you need any stones or dye?", "Yeh-hs. What do you want?"

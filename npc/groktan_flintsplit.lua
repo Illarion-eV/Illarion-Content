@@ -42,7 +42,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Groktan Flintsplit the 'reminder'. Keyphrases: Reminder, Don Valerio Guilianni, quest, gods, debt, money."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Groktan Flintsplit the 'reminder'. Keywords: Reminder, Don Valerio Guilianni, quest, gods, debt, money."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

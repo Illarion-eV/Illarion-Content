@@ -48,7 +48,7 @@ itemShoes = 53
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Half-hung Bryan the innkeeper of The Hemp Necktie Inn . Keyphrases: Inn, Necktie, Law, Farmer")
+"Help" -> inform("[Game Help] This NPC is Half-hung Bryan the innkeeper of The Hemp Necktie Inn . Keywords: Inn, Necktie, Law, Farmer")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Half-hung Bryan der Gastwirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Gasthof, Strick, Gesetz, Knecht")
 
 -- General speech
@@ -164,7 +164,7 @@ itemShoes = 53
 "tell something" -> "Everyone calls me Half-hung Bryan. Do you see the scar on my neck? That's from the noose.", "Hm. My neck wasn't always this crooked, but well..that was a long time ago.", "Years ago I was a servant in an Albarian court. I thought I had to leave and see the big world. Now my neck is snapped and people like you always want something from me."
 "erzähl was", "erzähl etwas" -> "Mann nennt mich Half-hung Bryan. Seht Ihr die Narbe an meinem Hals? Das war der Strick.", "Hm. Ich hatt nicht immer den schiefen Hals. Aber das war früher. Damals war viel anders.", "Früher war ich Knecht auf einem albarischem Hof. Und dann dachte ich ich muss ausziehen in die große Welt. Jetzt ist mein Hals schief und Leute wie Ihr wollen ständig etwas von mir."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Half-hung", "Bryan", english -> "Half-hung Bryan. That's my name.", "Hrm?"
 "Half-hung", "Bryan" -> "Half-hung Bryan. So lautet mein Name.", "#me krächzt kehlig. 'Hrm?'"
 "Yes" -> "No problem.", "That's all right.", "Then do it, if you must."

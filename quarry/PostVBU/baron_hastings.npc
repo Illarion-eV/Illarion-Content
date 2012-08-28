@@ -58,7 +58,7 @@ itemShoes = 53
 -- NPC by Cromballs
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Baron Hastings the Usurper. Keyphrases: Greetings, Queen, Baron, Nobles, Cadomyr, Throne, Quest, King Edwards, Usurper, Succession, Bastard.")
+"Help" -> inform("[Game Help] This NPC is Baron Hastings the Usurper. Keywords: Greetings, Queen, Baron, Nobles, Cadomyr, Throne, Quest, King Edwards, Usurper, Succession, Bastard.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Baron Hastings der Usurpator. Schlüsselwörter: Grüße, Baron, Adlige, Cadomyr, Thron, Auftrag, König Edwards, Usurpator, Erbfolge, Bastard.")
 
 -- QUEST TRIGGER ADDED FOR POSSIBLE FUTURE QUESTS; The answer is ambiguous until such quests are implemented.
@@ -186,7 +186,7 @@ itemShoes = 53
 "tell something" -> "I will tell you something. They day shall come when Cadomyr belongs to me! You would do well to remember that!"
 "erzähl was", "erzähl etwas" -> "Ich werde euch was erzählen. Es wird der Tagen kommen, an dem Cadomyr mein ist! Und Ihr würdet gut daran tun, Euch dessen zu erinnern."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "Excellent!", "Very good.", "I knew I could count on you."

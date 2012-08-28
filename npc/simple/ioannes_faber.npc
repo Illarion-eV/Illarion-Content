@@ -57,11 +57,11 @@ itemShoes = 53
 -- Dialogues by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keyphrases: Be greeted, treasurer, Gold.")
+"Help" -> inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keywords: Be greeted, treasurer, Gold.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Kämmerer, Gold.")
 
 -- Help Big Order Version
-"Help" -> inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keyphrases: Be greeted, treasurer, 'Do you have any orders for me?', 'I want to see order <number>', 'I want to get order <number>'.")
+"Help" -> inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keywords: Be greeted, treasurer, 'Do you have any orders for me?', 'I want to see order <number>', 'I want to get order <number>'.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Kämmerer, 'Habt ihr Aufträge für mich?', 'Ich möchte Auftrag <Nummer> ansehen', 'Ich möchte Auftrag <Nummer> annehmen'.")
 
 -- General speech
@@ -156,7 +156,7 @@ itemShoes = 53
 "tell something" -> "Let me tell you something: A whip can make people work. But a crown makes them obey."
 "erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein: Eine Peitsche bringt Leute zum arbeiten, aber eine Krohne bringt sie dazu, zu gehorchen."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Ioannes", "Faber", english -> "I am the royal treasurer Ioannes Faber. I obey her majesty and only her majesty."
 "Ioannes", "Faber" -> "Ich bin der königliche Kämmerer Ioannes Faber. Ich gehorche ihrer Majestät und nur ihrere Majestät."
 "Yes" -> "Good to hear.", "Pardon me?", "Indeed.", "I agree."

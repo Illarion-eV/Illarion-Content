@@ -70,7 +70,7 @@ itemShoes = 53
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the butcher Henry Darter. Keyphrases: Hello, quest, butcher.")
+"Help" -> inform("[Game Help] This NPC is the butcher Henry Darter. Keywords: Hello, quest, butcher.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schlachter Henry Darter. Schlüsselwörter: Hallo, Quest, Schlachter.")
 
 -- General speech
@@ -234,7 +234,7 @@ itemShoes = 53
 "tell something" -> "If you want to butcher, make sure that you're using a sharp knife.", "You better smoke meat rather than cook it.", "Work carefully with deer meat! It is expensive."
 "erzähl was", "erzähl etwas" -> "Wenn du Schlachten willst, stelle sicher, dass du ein scharfes Messer verwendest.", "Fleisch kann besser geräuchert werden als gekocht.", "Arbeite vorsichtig mit Wildfleich. Es ist kostbar."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Henry", "Darter", english -> "My mother once told me that she named my Henry because of a famous cook in Gynk. Strangely, I was never able to ask my unknown father about this."
 "Henry", "Darter" -> "Meine Mutter hat mir einst erzählt, dass ich nach einem berühmten Koch aus Gynk benannt wurde. Merkwürdigerweise konnte ich meinen unbekannten Vater nie über diese Dinge befragen."
 "mother", "father", "family", "shop" -> "My family - my mother and me - once had a shop here. But then, the water came... I am still here, though! And I won't yield!"

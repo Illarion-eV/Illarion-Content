@@ -56,7 +56,7 @@ itemShoes = 369
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Arimedus Dalahorn the librarian. Keyphrases: Hello, Runes, Magic, Library, Archmage Morgan.")
+"Help" -> inform("[Game Help] This NPC is Arimedus Dalahorn the librarian. Keywords: Hello, Runes, Magic, Library, Archmage Morgan.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Arimedus Dalahorn der Bibliothekar. Schlüsselwörter: Hallo, Runen, Magie, Bibliothek, Erzmagier Morgan.")
 
 -- General speech
@@ -201,7 +201,7 @@ itemShoes = 369
 "tell something" -> "I can tell you something about the meaning of the runes, if you like."
 "erzähl was", "erzähl etwas" -> "Ich kann euch etwas über die Bedeutung von Runen erzählen, wenn ihr mögt."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Arimedus", "Dalahorn", english -> "I study the runes of magic. State your business."
 "Arimedus", "Dalahorn" -> "Ich studiere die magischen Runen. Was begehrt ihr?"
 "Yes" -> "YES? I do not know that rune."

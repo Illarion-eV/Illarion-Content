@@ -34,7 +34,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addCondition(npc.base.condition.quest.quest(999, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Victor Tolenor a Cadomyr citizen. Keyphrases: Cadomyr."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Victor Tolenor a Cadomyr citizen. Keywords: Cadomyr."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -47,7 +47,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Victor Tolenor the henchman of Baron Hastings. Keyphrases: Quest, revolution, aunt."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Victor Tolenor the henchman of Baron Hastings. Keywords: Quest, revolution, aunt."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -64,7 +64,7 @@ itemShoes = 0
 ".+", queststatus(322) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Aurora Snow the druid. Keyphrases: quest, Ushara, profession, gods, Aurora.")
+"Help" -> inform("[Game Help] This NPC is Aurora Snow the druid. Keywords: quest, Ushara, profession, gods, Aurora.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Aurora Show die Druidin. Schlüsselwörter: Auftrag, Ushara, Beruf, Götter, Aurora.")
 
 -- General speech
@@ -261,7 +261,7 @@ itemShoes = 0
 "corrupted blood" -> "Wow, really?"
 "schlechtes Blut" -> "Wow, wirklich?"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Aurora", "Snow", english -> "Let us communicate without words.", "Have you spoken with my apprentice?", "We must all learn to embrace nature and be one."
 "Aurora", "Snow" -> "Lass und ohne Worte sprechen.", "Habt ihr mit meiner Schülerin gespochen?", "Wir alle müssen lernen eines mit der Natur zu werden."
 "Yes" -> "Let us communicate without words.", "Have you spoken with my apprentice?", "We must all learn to embrace nature and be one."

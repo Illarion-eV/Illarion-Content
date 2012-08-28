@@ -63,7 +63,7 @@ itemShoes = 53
 ".+", queststatus(333) > 12 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Madeline Clarbelis the apprentice druid. Keyphrases: quest, Aurora, profession, apprentice, Ushara.")
+"Help" -> inform("[Game Help] This NPC is Madeline Clarbelis the apprentice druid. Keywords: quest, Aurora, profession, apprentice, Ushara.")
 "Hilfe" -> inform("[Spielhilfe]  Dieser NPC ist Mabeline Clarbelis die Druiden-Schülerin. Schlüsselwörter: Auftrag, Aurora, Beruf, Lehrling, Ushara,")
 
 -- General speech
@@ -212,7 +212,7 @@ itemShoes = 53
 "tell something" -> "You should go for a walk through the forest. It's quiet, and very pretty. Watch out for wild animals, though.", "Sometimes you can find herbs that have blown across the land. Aurora gets me to pick them up for her.", "If you want to become a druid, you should find someone to take you as their apprentice. I don't recommend an Elf, though."
 "erzähl was", "erzähl etwas" -> "Ihr solltet im Wald spazieren gehen. Dort ist es ruhig und sehr schön. Gebt nur Acht auf wilde Tiere.", "Manchmal findet man Kräuter die der Wind über dem Land verstreut hat. Aurora lässt mich diese Kräuter für sie sammeln", "Wenn Ihr Druide werden wollt so such jemanden, er euch als Schüler annimmt. Ich rate euch, wählt keinen Elfen als Lehrmeister."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Madeline", "Clarbelis", english -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
 "Madeline", "Clarbelis" -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
 "Yes" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."

@@ -57,7 +57,7 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, empire, stones of power, quest. You will find more of these keyphrases during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)")
+"Help" -> inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keywords: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, empire, stones of power, quest. You will find more of these keywords during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder, Reiche, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)")
 "test" -> inform("test works"), "A", "B", "C"
 
@@ -303,7 +303,7 @@ itemShoes = 53
 "tell something" -> "*Chuckles* All I have is information, and I'll give that to you for free!", "I'm sorry, but I don't sell anything."
 "erzähl was", "erzähl etwas" -> "Von mir bekommst du nur Informationen, und die sind umsonst!", "Tut mir leid, aber ich verkaufe nichts."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here.
+-- Last catch: Think about keywords the player might say and that are not caught until here.
 "hummi", "olaficht", english -> "That's me! If your after information look no further!"
 "hummi", "olaficht" -> "Das bin ich und ich weiß viele wichtige Dinge."
 "Yes" -> "Yes?", "'Yes' is the opposite of 'no'. *Giggles*", "'Yes' means 'Ja' in the old language. *Giggles*"

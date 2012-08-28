@@ -28,7 +28,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Horatio Milenus the gate guardian. Keyphrases: Hello, Gate, Desert, Cadomyr, Guard."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Horatio Milenus the gate guardian. Keywords: Hello, Gate, Desert, Cadomyr, Guard."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

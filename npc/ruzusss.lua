@@ -35,7 +35,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Ruzusss the hunter. Keyphrases: Question, information, Cadomyr, places."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Ruzusss the hunter. Keywords: Question, information, Cadomyr, places."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

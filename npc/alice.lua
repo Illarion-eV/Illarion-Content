@@ -34,7 +34,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Alice the ore melting slave. Change a raw ore and a piece of coal into a melted ingot. Fee: 1 silver coin for each task. Keyphrases: smelt 5 gold, smelt 3 copper, smelt 17 silver, smelt 8 iron."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Alice the ore melting slave. Change a raw ore and a piece of coal into a melted ingot. Fee: 1 silver coin for each task. Keywords: smelt 5 gold, smelt 3 copper, smelt 17 silver, smelt 8 iron."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

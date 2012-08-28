@@ -57,7 +57,7 @@ itemShoes = 369
 -- QuestID=73
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the tailor Lilith and may need help in a task. Keyphrases: Hello, Quest, Needle, Tailor.")
+"Help" -> inform("[Game Help] This NPC is the tailor Lilith and may need help in a task. Keywords: Hello, Quest, Needle, Tailor.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Schneiderin Lilith. Sie könnte Hilfe bei einer Aufgabe gebrauchen. Schlüsselwörter: Hallo, Quest, Nadel, Schneider.")
 
 -- General speech

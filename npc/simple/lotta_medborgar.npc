@@ -56,7 +56,7 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Lotta Medborgar the hunter. Keyphrases: Question, information, Galmair, places.")
+"Help" -> inform("[Game Help] This NPC is Lotta Medborgar the hunter. Keywords: Question, information, Galmair, places.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lotta Medborgar die Jägerin. Schlüsselwörter: Auskunft, Information, Galmair, Plätze.")
 
 -- Mandatory: General speech
@@ -281,7 +281,7 @@ itemShoes = 369
 -- "Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 -- "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "My name sounds better! I hope your questions sound better!"
 "mein Name" -> "Mein Name klingt besser! Ich hoffe deine Fragen klingen besser!"
 "Lotta", "Medborgar", english -> "Yes, that is my name. About welche Plätze places do you want information?"

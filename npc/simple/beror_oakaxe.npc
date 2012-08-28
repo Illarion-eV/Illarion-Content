@@ -79,7 +79,7 @@ itemShoes = 770
 ".+", queststatus(111) > 18 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Beror Oakaxe the royal quartermaster. Keyphrases: Hello, Quest, Orders, Knight, Gate.")
+"Help" -> inform("[Game Help] This NPC is Beror Oakaxe the royal quartermaster. Keywords: Hello, Quest, Orders, Knight, Gate.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Beror Oakaxe der königliche Quartiermeister. Schlüsselwörter: Hallo, Quest, Befehle, Ritter, Tor.")
 
 -- General speech
@@ -320,7 +320,7 @@ itemShoes = 770
 "tell something" -> "I would really enjoy talking to you all day long about soap and flowers, but meanwhile, our enemies would massacre Cadomyr's children."
 "erzähl was", "erzähl etwas" -> "Ich würde ja gerne den ganzen Tag mit dir über Seife und Blumen reden, aber derweilen würden die Feinde die Kinder Cadomyrs abschlachten."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Beror", "Oakaxe", english -> "At your service?", "What is it?", "Is this supposed to be a report!?"
 "Beror", "Oakaxe" -> "Stets zu Diensten?", "Was gibt es?", "Soll das eine Meldung sein?"
 "Yes" -> "Acknowledged.", "Affirmative.", "Confirmed."

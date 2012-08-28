@@ -63,7 +63,7 @@ itemShoes = 53
 -- >7: ~Qusts solved
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Rose the Companion. Keyphrases: race, gods, company, adventure."), "Ask me about 'company','profession' or 'adventure', answering with 'yes' or 'no'.", queststatus(316) = 0
+"Help" -> inform("[Game Help] This NPC is Rose the Companion. Keywords: race, gods, company, adventure."), "Ask me about 'company','profession' or 'adventure', answering with 'yes' or 'no'.", queststatus(316) = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Rose die Gesellschafterin. Schlüsselwörter: Völker, Götter, Gesellschaft, Beruf, Abenteuer."), "Frage bei mir nach 'Gesellaschft','Beruf' oder 'Abenteuer', antworte eventuell mir mit 'ja' oder 'nein'.", queststatus(316) = 0
 
 -- trollop
@@ -263,7 +263,7 @@ itemShoes = 53
 "Gibb", german -> "Gibb Gibberson. Er besucht mich regelmäßig. Er lebt vermutlich irgendwo in Troll's Bane."
 "Gibberson", german -> "Gibb Gibberson. Er besucht mich regelmäßig. Er lebt vermutlich irgendwo in Troll's Bane."
 
--- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Nice to meet you."
 "mein Name" -> "Nett dich kennen zu lernen."
 "rose", german -> "Ja, so heiß ich. Empfehle meine Gesellschaft weiter!"

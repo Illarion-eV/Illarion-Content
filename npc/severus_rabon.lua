@@ -32,7 +32,7 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Severus Rabon the Waiter. Keyphrases: Hello, Good day, trade."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Severus Rabon the Waiter. Keywords: Hello, Good day, trade."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

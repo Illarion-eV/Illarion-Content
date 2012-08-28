@@ -76,7 +76,7 @@ buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 
 -- 10% Fish: 73, 355, 455
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, fisherman, Tanora, trade.")
+"Help" -> inform("[Game Help] This NPC is the fisherman Fredericus. Keywords: Hello, fisherman, Tanora, trade.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Fischer, Tanora, Handel.")
 
 -- General speech
@@ -168,7 +168,7 @@ buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 
 "tell something" -> "I swear I saw a sea serpent!", "If an evil spirit haunts a ship, all is lost."
 "erzähl was", "erzähl etwas" -> "Ich schwöre, ich habe ein Seeungeheuer gesehen!", "Wenn ein böser Geist auf einem Schiff sein Unwesen treibt, dann ist es meist bald verloren."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Fredericus", english -> "I am merely a humble fisherman. But I could tell you about the gods, shall I?"
 "Fredericus" -> "Ich bin nur ein einfacher Fischer, aber ich könnte euch etwas über die Götter erzählen, wenn ihr Zeit habt."
 "Yes" -> "Aye, aye, and a flounder in addition.", "Well, maybe a herring?", "That's good."

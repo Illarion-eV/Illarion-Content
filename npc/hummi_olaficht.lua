@@ -29,7 +29,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, empire, stones of power, quest. You will find more of these keyphrases during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keywords: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, empire, stones of power, quest. You will find more of these keywords during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

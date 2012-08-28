@@ -40,7 +40,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the poacher Eugene Burton. Keyphrases: Hello, quest, poacher, animals."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the poacher Eugene Burton. Keywords: Hello, quest, poacher, animals."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

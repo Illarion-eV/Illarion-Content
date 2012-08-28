@@ -33,7 +33,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the smuggler Ehrom Goldhammer. Keyphrases: Hello, quest, smuggler."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the smuggler Ehrom Goldhammer. Keywords: Hello, quest, smuggler."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

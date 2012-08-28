@@ -68,7 +68,7 @@ itemShoes = 53
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the miner Daerbur Wimbert. Keyphrases: Hello, quest, pick-axe, miner.")
+"Help" -> inform("[Game Help] This NPC is the miner Daerbur Wimbert. Keywords: Hello, quest, pick-axe, miner.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Bergarbeiter Daerbur Wimbert. Schlüsselwörter: Hallo, Quest, Spitzhacke, Bergarbeiter.")
 
 -- General speech
@@ -236,7 +236,7 @@ itemShoes = 53
 "tell something" -> "Once upon a time, in land far far away... I forgot the rest. But this line thrills me!", "And they all died happily ever after... I'm not a good story teller.", "What shall I tell you, fairytales? Better ask a fairy!"
 "erzähl was", "erzähl etwas" -> "Es war einmal in einem fernen Land, hinter den sieben Bergen... Den Rest hab ich vergessen, aber diese Zeile ist der Hammer.", "Und wenn sie nicht noch leben, sind sie wohl gestorben... Ich bin nicht gut darin, Geschichten zu erzählen.", "Was soll ich dir erzählen, Märchen? Frage lieber eine Fee danach."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Daerbur", "Wimbert", english -> "Us Wimberts have a long tradition as miners and gravediggers. Digging holes is our business!"
 "Daerbur", "Wimbert" -> "Wir Wimberts haben eine lange Tradition als Bergarbeiter und Totengräber. Löchergraben ist genau unser Ding!"
 "Yes" -> "What was first, yes or no? I mean, did people first think about how to agree or how to disagree?", "Indeed.", "Yes?"

@@ -28,7 +28,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Frederik Silvereye the notary. Keyphrases: 'I want to become citizen', 'I want to exchange a decree', ('I want to buy an life insurance')"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Frederik Silvereye the notary. Keywords: 'I want to become citizen', 'I want to exchange a decree', ('I want to buy an life insurance')"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

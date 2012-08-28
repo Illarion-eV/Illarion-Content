@@ -56,7 +56,7 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Cassandra Hestan the money changer. Keyphrases: Hello, money, Cadomyr, profession, Ronagan.")
+"Help" -> inform("[Game Help] This NPC is Cassandra Hestan the money changer. Keywords: Hello, money, Cadomyr, profession, Ronagan.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cassandra Hestan die Geldwechslerin. Schlüsselwörter: Hallo, Geld, Cadomyr, Beruf, Ronagan.")
 
 -- Mandatory: General speech

@@ -63,7 +63,7 @@ itemShoes = 697
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> "[Game Help] This NPC is the smith Saren Eisenfaust. Keyphrases: pickaxe, adventure, tell something, Sevenhill."
+"Help" -> "[Game Help] This NPC is the smith Saren Eisenfaust. Keywords: pickaxe, adventure, tell something, Sevenhill."
 "Hilfe" -> "[Spielhilfe] Dieser NPC ist der Schmied Saren Eisenfaust. Schlüsselwörter: Aufgaben, Spitzhacke, Erzähl was, Siebenberg."
 
 -- General speech
@@ -220,7 +220,7 @@ itemShoes = 697
 "tell something" -> "Do you know, Gremle Oxenlimb, my sister's husband? He affirms that he beats up a golem with his bare hands. Ga strak ja'ada! Such a fibed tale. ", "They say Eygir Goldmalt brews the best beer, but I prefer Yeseult Bockbrew's.", "Rustbeard Grimhilds-Cousin is a good friend of mine. But he can't bear even a half mug of beer. When drunken he sings bawdy songs and throws hatchets trageting young womens plaits."
 "erzähl was", "erzähl etwas" -> "Kennt ihr Gremle Ochsenschenkel, meinen Schwager? Er behauptet er würde einem Golem im Faustkampf besiegen. Ga strak ja'ada! So'ne erlogene Geschichte.", "Es heißt Eygir Goldmalz braut das beste Bier, aber mir schmeckt das von Yseult Bockbräu viel besser. ", "Rostbart Grimhilds-Vetter ist ein guter Bekannter von mir. Aber der verträgt kein Bier nicht. Hat der einen halben Humpen drin, fängt er an unflätig zu singen und mit Beilen nach den Zöpfen von jungn' Fraun zu werfn."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Saren", "Eisenfaust", english -> "What's up`?", "Aye?", "#me nods once and rises an eyebrow."
 "Saren", "Eisenfaust" -> "Aye?", "Was, gibt's?", "#me nickt dir zun und zieht eine Braue hoch."
 "Yes" -> "Aye, then go and collect those things I asked you for.", "If ya say so.", "Alright, have fun!"

@@ -56,7 +56,7 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Numila Irunnleh the scholar. Keyphrases: Question, information, Runewick, Places.")
+"Help" -> inform("[Game Help] This NPC is Numila Irunnleh the scholar. Keywords: Question, information, Runewick, Places.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Numila Irunnleh die Wissenschaftlerin. Schlüsselwörter: Auskunft, Information, Runewick, Plätze.")
 
 -- Mandatory: General speech
@@ -289,7 +289,7 @@ itemShoes = 369
 -- "Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 -- "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Hmm...you want some information? But about what?"
 "mein Name" -> "Hmm...und ihr wünscht nach Information? Aber welche?"
 "Numila", "Irunnleh", english -> "Yes, that is my name. About which places do you want information?"

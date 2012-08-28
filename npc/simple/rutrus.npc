@@ -68,7 +68,7 @@ itemShoes = 53
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the digger Rutrus. Keyphrases: Hello, quest, shovel, profession.")
+"Help" -> inform("[Game Help] This NPC is the digger Rutrus. Keywords: Hello, quest, shovel, profession.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Gräber Rutrus. Schlüsselwörter: Hallo, Quest, Schaufel, Beruf.")
 
 -- General speech
@@ -227,7 +227,7 @@ itemShoes = 53
 "tell something" -> "We have to be very thankful that the shovel allows us to work with it.", "Without shovel; no clay, without clay; no bricks, without bricks; no house! The shovel if the beginning of everything.", "Dig for sand next to rocks. You can find the best sand to make glass there."
 "erzähl was", "erzähl etwas" -> "Wir müssen dankbar sein, dass die Schaufel uns das Arbeiten mit ihr erlaubt.", "Ohne Schaufel kein Lehm, ohne Lehm keine Ziegel, ohne Ziegel kein Haus! Die Schaufel ist der Anfang von Allem.", "Grabe neben Steinen nach Sand. Da findet du den besten Sand zum Glasmachen."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Rutrus", english -> "Rutrus, that's me, most probably. State your business!"
 "Rutrus" -> "Rutrus, das bin wahrscheinlich ich. Was gibt es denn?"
 "Yes" -> "I do not agree.", "Indeed!", "Really?", "Why?", "Ah, yes.", "Whatever."

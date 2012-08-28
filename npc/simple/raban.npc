@@ -68,7 +68,7 @@ itemShoes = 369
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the hermit Raban. Keyphrases: Hello, quest, sickle, herbs.")
+"Help" -> inform("[Game Help] This NPC is the hermit Raban. Keywords: Hello, quest, sickle, herbs.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Einsiedler Raban. Schlüsselwörter: Hallo, Quest, Sichel, Kräuter.")
 
 -- General speech
@@ -239,7 +239,7 @@ itemShoes = 369
 "tell something" -> "Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.", "I did not make this place, nature did. But few honor the wonders of Ushara and Oldra.", "Tales of old I never witnessed. Seldom, travellers come here to tell me about foreign lands."
 "erzähl was", "erzähl etwas" -> "Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.", "Ich habe diesen Ort nicht geschaffen. Die Natur tat es. Aber nur wenige ehren die Wunder von Ushara und Oldra.", "Die Legenden alter Zeiten habe ich nie erlebt. Und nur selten kommen Wanderer hierher, um aus anderen Ländern zu berichten."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Raban", english -> "Raban... yes, that's how they uses to call me."
 "Raban" -> "Raban... ja, so hat man mich mal genannt."
 "Yes" -> "Yes?", "Probably.", "I thought so.", "Are you sure?", "Maybe.", "What makes you so sure about this?", "Definitely.", "Whatever..."

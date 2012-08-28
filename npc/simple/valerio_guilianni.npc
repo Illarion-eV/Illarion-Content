@@ -56,7 +56,7 @@ itemShoes = 697
 -- NPC by Faladron
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keyphrases: quest, task, gods, or faction.")
+"Help" -> inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keywords: quest, task, gods, or faction.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Don Valerio Guilianni von Galmair. Schlüsselwörter: Quest, Aufgabe, Götter, Fraktionen.")
 
 -- General speech
@@ -192,7 +192,7 @@ itemShoes = 697
 "tell something" -> "Money gets you everywhere in Galmair. Even those places you probably shouldn't be.", "My father once said: 'Son, stay honest and upright, you'll be rewarded.' Oh how we laughed that day.", "#me winks knowingly, 'If there's one habit I broke out of doing, it's telling others about something.'"
 "erzähl was", "erzähl etwas" -> "In Galmair bringt Geld euch überall hin. Wohl auch an Orte die ihr meiden solltet.", "Mein Vater sagte einmal: 'Sohn, bleib ehrbar und anständig, es wird dir gelohnt.' Oh was haben wir an diesem Tag gelacht.", "#me zwinkert wissend. 'Wenn es eine Sache gibt die ich mir abgewöhnt habe, dann anderen Dinge zu erzählen."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Valerio", "Guilianni", "Don", english -> "#me bows ever so slightly. 'That's me. How can I help you, %CHARNAME ?'", "You've heard about me I see very good, very good. Ask and the Don will help you.", "What do you want from him? Who sent you? Guards! Has this meat bag been searched for weapons?"
 "Valerio", "Guilianni", "Don" -> "#me deutet eine Verbeugung an. 'Das bin ich. Wie kann ich euch helfen, %CHARNAME ?'", "Ihr habt also von mir gehört. Sehr schön, sehr schön. Bittet und der Don wird euch helfen.", "Was wollt ihr von ihm? Wer hat euch geschickt? Wache! Wurde diese Person auf Waffen untersucht?"
 "Yes" -> "Good to hear, Good to hear.", "The Don approves."

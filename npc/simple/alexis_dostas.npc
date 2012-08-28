@@ -56,7 +56,7 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Alexis Dostas the mule seller. Keyphrases: Hello, mule, Cadomyr, profession, stables.")
+"Help" -> inform("[Game Help] This NPC is Alexis Dostas the mule seller. Keywords: Hello, mule, Cadomyr, profession, stables.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alexis Dostas der Maultierhändler. Schlüsselwörter: Hallo, Maultier, Cadomyr, Beruf, Stallungen.")
 
 -- Mandatory: General speech

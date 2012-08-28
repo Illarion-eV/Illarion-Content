@@ -42,7 +42,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Madoquar the millenian. Keyphrases: Hello, quest, harbour, humans, lizardmen, halflings."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Madoquar the millenian. Keywords: Hello, quest, harbour, humans, lizardmen, halflings."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -49,7 +49,7 @@ itemShoes = 53
 -- Template Version 1.03 by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Archmage Elvaine Morgan the ruler of Runewick. Keyphrases: Runewick, quest, gods, tower, magic.")
+"Help" -> inform("[Game Help] This NPC is Archmage Elvaine Morgan the ruler of Runewick. Keywords: Runewick, quest, gods, tower, magic.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Erzmagier Elvaine Morgan, der Herrscher über Runewick. Schlüsselwörter: Runewick, Quest, Götter, Türme, Magie.")
 
 -- General speech
@@ -186,7 +186,7 @@ itemShoes = 53
 "tell something" -> "The signs I observed are clear, soon they will be omens everywhere else.", "Only a fool ignores implausible possibilities and stays with only obvious facts.", "Sometimes I think... - If people could put rainbows in zoos, they'd do it."
 "erzähl was", "erzähl etwas" -> "Die Zeichen, die ich bemerkte sind eindeutig und schon bald werden sie auch weithin zu sehen sein.", "Nur der Narr ignoriert die unwahrscheinlichsten Möglichkeiten und versteift sich auf das was offensichtlich ist.", "An manchen Tagen denke ich... - Könnten die Leute Regenbögen in Zoos stecken, sie würden's glatt tun."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "archmage" -> "A word?", "You desire to speak?", "Please make it short."
 "Erzmagier" -> "Auf ein Wort?", "Welches Anliegen führt Euch zu mir?", "Bitte fasst Euch kurz."
 "Elvaine", "Morgan", english -> "A word?", "You desire to speak?", "Please make it short."

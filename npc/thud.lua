@@ -38,7 +38,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Thud the trophy collector. Keyphrases: trophy - answer with 'yes' or 'no'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Thud the trophy collector. Keywords: trophy - answer with 'yes' or 'no'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

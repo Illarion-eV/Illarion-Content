@@ -69,7 +69,7 @@ itemShoes = 369
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the fisherwoman Zerarisa. Keyphrases: Hello, quest, rod, fisher.")
+"Help" -> inform("[Game Help] This NPC is the fisherwoman Zerarisa. Keywords: Hello, quest, rod, fisher.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Fischerin Zerarisa. Schlüsselwörter: Hallo, Quest, Angelrute, Fischerin.")
 
 -- General speech
@@ -228,7 +228,7 @@ itemShoes = 369
 "tell something" -> "If you're interessted in a job, assk."
 "erzähl was", "erzähl etwas" -> "Habenss Lust auf Aufgabe, fragensss."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Zerarisa", english -> "Zerarisa have name, have claw, have tail! And you?"
 "Zerarisa" -> "Zerarisa habenss Namensss, habenss Klauensss, habensss Ssschwanzss. Und du?"
 "Dewy", "swamps" -> "Zss, Dewy Sswampss be Runewick landss. Go far, north, easst."

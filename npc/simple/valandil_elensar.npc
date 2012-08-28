@@ -69,7 +69,7 @@ itemShoes = 53
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the forester Valandil Elensar. Keyphrases: Hello, quest, hatchet, forester, wood.")
+"Help" -> inform("[Game Help] This NPC is the forester Valandil Elensar. Keywords: Hello, quest, hatchet, forester, wood.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Förster Valandil Elensar. Schlüsselwörter: Hallo, Quest, Beil, Förster, Holz.")
 
 -- General speech
@@ -236,7 +236,7 @@ itemShoes = 53
 "tell something" -> "Well, there is not much I could tell, Elstree forest is a rather peaceful place.", "I am no story-teller, if you want to gain information about the world you better ask one of the old elves or study the chronicles, that is more exciting than I could present it.", "Well. I am afraid I do not have anything to tell you."
 "erzähl was", "erzähl etwas" -> "Nun, es gibt nicht viel, das ich erzählen könnte, der Elsbaumwald ist ein eher ruhiger Ort.", "Ich bin kein Geschichtenerzähler, wenn ihr mehr über die Welt erfahren wollt, schlagt in den Chroniken nach, das ist aufregender, als ich es darstellen könnte.", "Nun, ich fürchte, ich habe nichts zu erzählen."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Valandil", "Elensar", english -> "Us elves have interesting names, don't we?"
 "Valandil", "Elensar" -> "Wir Elfen haben interessante Namen, nicht wahr?"
 "Yes" -> "Really?", "#me looks confused", "Can your repeat that?"

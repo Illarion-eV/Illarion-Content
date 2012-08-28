@@ -52,7 +52,7 @@ itemShoes = 53
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Borgate Northoff the innkeeper of The Hemp Necktie Inn . Keyphrases: Gods, Bragon, Adron")
+"Help" -> inform("[Game Help] This NPC is Borgate Northoff the innkeeper of The Hemp Necktie Inn . Keywords: Gods, Bragon, Adron")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Borgate Northoff der Wirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Götter, Bragon, Adron")
 
 -- General speech
@@ -141,7 +141,7 @@ itemShoes = 53
 "tell something" -> "Arr, Where shall I begin? I could tell you lots of what is spoken in this tavern, but if I would do that, no one would come back. No, I am not a traitor to my guests. Sorry!"
 "erzähl was", "erzähl etwas" -> "Ich höre viel und weiss eigentlich fast alles. Ich erzähl' dir aber nichts davon, das geht dich nunmal nichts an."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Borgate", "bar", "Northoff" -> "Indeed, I'm the bartender here. What's your order?"
 "Borgate", "wirt", "Northoff" -> "Genau, ich bin hier der Wirt. Was willst Du trinken?"
 "Yes" -> "Arr-h!", "That's the way it's supposed to be!", "Well then!"

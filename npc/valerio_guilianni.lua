@@ -32,7 +32,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keyphrases: quest, task, gods, or faction."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keywords: quest, task, gods, or faction."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

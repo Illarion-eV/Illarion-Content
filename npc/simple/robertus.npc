@@ -60,7 +60,7 @@ itemShoes = 53
 -- 10% Clay: 26
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keyphrases: Hello, builder.")
+"Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keywords: Hello, builder.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Baumeister Robertus. Schlüsselwörter: Hallo, Baumeister.")
 
 -- General speech
@@ -167,7 +167,7 @@ itemShoes = 53
 "bob the builder" -> "I prefer to be referred to as Robertus, please."
 "bob der baumeister" -> "Ich ziehe den Namen Robertus vor, bitte schön."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Yes" -> "It's good that you said this. Hail the queen!", "Really? I should tell the queen about this."
 "Ja" -> "Es ist gut, dass ihr dies gesagt habt. Lang lebe die Königin!", "Wirklich? Ich sollte dies der Königin mitteilen."
 "No" -> "Do you have any further information?", "You make me curious. Should I report to the queen?"

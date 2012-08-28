@@ -40,7 +40,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Grakamesh the shaman. Keyphrases: Greebas, quest, tomb, spook, Sir Reginald."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Grakamesh the shaman. Keywords: Greebas, quest, tomb, spook, Sir Reginald."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -74,7 +74,7 @@ itemShoes = 326
 ".+", queststatus(333) > 12 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Kaitza the temple guard. Keyphrases: quest, Zelphia, profession, Gobaith, gods.")
+"Help" -> inform("[Game Help] This NPC is Kaitza the temple guard. Keywords: quest, Zelphia, profession, Gobaith, gods.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Kaitza> der Tempelwächter. Schlüsselwörter: Zelphia, Beruf, Gobaith, gods.")
 
 -- General speech
@@ -229,7 +229,7 @@ itemShoes = 326
 "tell something" -> "Zss. What do you wisssh to know?", "Perhapsss I have a tasssk for you.", "Ssservice to ze Godsss isss ze most honourable life. Zss."
 "erzähl was", "erzähl etwas" -> "Vielleicht habe ich eine Aufgabe. Zss. Eine Aufgabe für Euch.", "Der Göttin zzzu dienen issst die grösssste Aufgabe im Leben. Zss."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Kaitza", english -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."
 "Kaitza" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss."
 "Yes" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."

@@ -82,7 +82,7 @@ itemShoes = 369
 ".+", queststatus(108) > 14 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hector Valerion the royal ambassador. Keyphrases: Ambassador, quest, despatch, seal, orders.")
+"Help" -> inform("[Game Help] This NPC is Hector Valerion the royal ambassador. Keywords: Ambassador, quest, despatch, seal, orders.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hector Valerion der königliche Botschafter. Schlüsselwörter: Botschafter, Quest, Depesche, Siegel, Befehle.")
 
 -- General speech
@@ -310,7 +310,7 @@ itemShoes = 369
 "tell something" -> "Let's be honest, you disturb me and I am an important person. So, if you do a royal mission for me, both of us would be happy."
 "erzähl was", "erzähl etwas" -> "Mal ehrlich, ihr stört mich und ich bin eine wichtige Persönlichkeit. Also würdet ihr uns beide glücklich machen, wenn ihr euch auf eine Mission für die Königin begeben würdet."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here.
+-- Last catch: Think about keywords the player might say and that are not caught until here.
 "Hector", "Valerion", english -> "I am proud of being a Valerion. Are you proud to be a...?", "Hector Valerion, at your service.", "I am the royal ambassador and my name is indeed Hector Valerion."
 "Hector", "Valerion" -> "Ich bin stolz darauf, ein Valerion zu sein. Seid ihr stolz darauf ein... was genau nochmal... zu sein?", "Hector Valerion, stets zu Diensten.", "Ich bin der königliche Botschafter und meine Name ist in der Tat Hector Valerion."
 "Yes" -> "Well, no.", "Alright, indeed.", "Who said this?", "#me shrugs.", "I am trying to read!", "#me sighs."

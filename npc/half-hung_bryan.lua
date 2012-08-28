@@ -28,7 +28,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Half-hung Bryan the innkeeper of The Hemp Necktie Inn . Keyphrases: Inn, Necktie, Law, Farmer"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Half-hung Bryan the innkeeper of The Hemp Necktie Inn . Keywords: Inn, Necktie, Law, Farmer"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

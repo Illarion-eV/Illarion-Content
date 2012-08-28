@@ -76,7 +76,7 @@ itemShoes = 369
 -- 10% Leather goods: 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the tailor Timotheus. Keyphrases: Hello, tailor.")
+"Help" -> inform("[Game Help] This NPC is the tailor Timotheus. Keywords: Hello, tailor.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schneider Timotheus. Schlüsselwörter: Hallo, Schneider.")
 
 -- General speech
@@ -159,7 +159,7 @@ itemShoes = 369
 "tell something" -> "Did you know only we from Runewick have such marvelous clothing? I wonder what rags the people of Galmair wear.", "My robes are the finest in the land!"
 "erzähl was", "erzähl etwas" -> "Wußtet ihr, dass nur wir in Runewick hier so feine Kleidung haben? Ich frage mich, in was für Lumpen die Leute in Galmair rumrennen.", "Meine Roben sind die besten im ganzen Land."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Timotheus", english -> "Yes, I am Timotheus. Ti-mo-the-us."
 "Timotheus" -> "Ja, ich bin Timotheus. Ti-mo-the-us."
 "Yes" -> "Yes? Yes to what?", "Yes? I'm happy you agree..."

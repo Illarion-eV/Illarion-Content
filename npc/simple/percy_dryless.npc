@@ -50,7 +50,7 @@ itemShoes = 53
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
 -- Help
-"Help" -> "[Game Help] This NPC is the prison guard Percy Dryless. Keyphrases: 'Release me, please','I am hungry' 'Give me a new pick axe' 'How much of my punishment is left?' and 'I want to deliver <resource>'."
+"Help" -> "[Game Help] This NPC is the prison guard Percy Dryless. Keywords: 'Release me, please','I am hungry' 'Give me a new pick axe' 'How much of my punishment is left?' and 'I want to deliver <resource>'."
 "Hilfe" -> "[Spielhilfe] Dieser NPC ist der Gefängnisaufseher Percy Dryless. Schlüsselwörter: 'Lass mich bitte frei','Ich bin hungrig','Gib mir bitte eine neue Spitzhacke', 'Wie hoch ist meine übrige Strafe?' und 'Ich möchte <Ressource> abliefern.'"
 
 -- Prison stuff
@@ -212,7 +212,7 @@ itemShoes = 53
 "tell something" -> "Shut up and work!", "No talking!", "Shut up and swing the pick, you punk!"
 "erzähl was", "erzähl etwas" -> "Halt deinen Mund und arbeite!", "Hier wird nicht geplaudert!", "Klappe halten, Hacke schwingen, du Gauner!"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Percy", "Dryless", english -> "I am your master from now on. Obey or be whipped. Your choice."
 "Percy", "Dryless" -> "Ich bin jetzt dein Herr und Meister. Gehorche oder werde ausgepeitscht. Du hast die Wahl."
 "Yes" -> "Yes? Fine, work on.", "Yes? You wanted to say 'Yes master'!"

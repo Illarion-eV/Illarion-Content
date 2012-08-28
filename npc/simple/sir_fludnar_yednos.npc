@@ -70,7 +70,7 @@ itemShoes = 369
 -- 40: Sir Fludnar Yedno - Quest done and Player rewarded
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the scholar Sir Fludnar Yednos. Keyphrases: Hello, quest, god, orc.")
+"Help" -> inform("[Game Help] This NPC is the scholar Sir Fludnar Yednos. Keywords: Hello, quest, god, orc.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Gelehrte Sir Fludnar Yednos. Schlüsselwörter: Hallo, Quest, Götter, Ork.")
 
 -- General speech
@@ -370,7 +370,7 @@ itemShoes = 369
 "tell something" -> "I am working and you are disturbing me!", "The gate is behind you.", "Have somebody ever told you that you are disturbing?"
 "erzähl was", "erzähl etwas" -> "Ich arbeite und ihr stört.", "Die Tür ist hinter euch.", "Hat euch jemals jemand erzählt, dass ihr störend seid?"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "sir", "fludnar", "yednos", english -> "That's my name.", "Impressing, you can pronounce my name correctly!"
 "sir", "fludnar", "yednos" -> "Das ist mein Name.", "Beeindruckend, ihr könnt meinen Namen richtig aussprechen!"
 "Yes" -> "And what shall I do now?", "Can you give a proper answer?"

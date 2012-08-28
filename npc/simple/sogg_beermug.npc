@@ -47,7 +47,7 @@ itemShoes = 369
 -- Beer: 1909, 1908
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keyphrases: Occupation, Runewick, Galmair, Cadomyr"), "Help? All ob us need help!...'hic'", state = 0
+"Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keywords: Occupation, Runewick, Galmair, Cadomyr"), "Help? All ob us need help!...'hic'", state = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Sogg Beermug der Alchimist. Schlüsselwörter: Beruf, Runewick, Galmair, Cadomyr"), "Hilfe brauschn wir alle!...'hick'", state = 0
 
 -- General speech
@@ -138,7 +138,7 @@ itemShoes = 369
 "tell something" -> "#me glances around the area with dull eyes.", "#me belches loudly.", "Bean's Booze..."
 "erzähl was", "erzähl etwas" -> "#me rülpst herzhaft.", "#me schmatzt und blickt sich mit trüben Augen um.", "Bohn'nschnaps... "
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "sogg", "beermug", english -> "Hurr-hurr... want a beer, eh?", "Hu!?... - Mesch Sogg Beermug, whut do you want?"
 "sogg", "beermug" -> "Hurr-hurr... wilscht n' Bier, eh?", "Hu!?... - Isch bin Sogg Beermug, wasch wollscht ihr von mir?"
 "Yes" -> "Skoal!", "Hurr-hurr. Should be good with me.", "Alrighty-right!"

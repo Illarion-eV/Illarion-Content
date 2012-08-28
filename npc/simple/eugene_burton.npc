@@ -74,7 +74,7 @@ itemShoes = 53
 ".+", queststatus(4) > 33 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the poacher Eugene Burton. Keyphrases: Hello, quest, poacher, animals.")
+"Help" -> inform("[Game Help] This NPC is the poacher Eugene Burton. Keywords: Hello, quest, poacher, animals.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Wilderer Eugene Burton. Schlüsselwörter: Hallo, Quest, Wilderer, Tiere.")
 
 -- General speech
@@ -262,7 +262,7 @@ itemShoes = 53
 "tell something" -> "I don't have the time to chat with you; my family is starving. Perhaps you can help me with a task?"
 "erzähl was", "erzähl etwas" -> "Ich habe nicht die Zeit, mit euch zu plaudern; meine Familie ist am Verhungern. Vielleicht könnt ihr mir bei einer Aufgabe helfen?"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Eugene", "Burton", english -> "Us Burtons aren't rich nor noble. And we refuse to be poor and dishonourable."
 "Eugene", "Burton" -> "Wir Burtons sind weder reich noch edel. Und wir weigern uns, arm und unredlich zu sein."
 "Yes" -> "Indeed?", "So, what?", "#me shakes his head slightly: 'Sorry, can you rephrase that?'"

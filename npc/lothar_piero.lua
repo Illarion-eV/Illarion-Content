@@ -29,7 +29,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Lothar Piero the timber merchant. Keyphrases: Hello, profession, poetry, Pennymill, Archmage Morgan."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Lothar Piero the timber merchant. Keywords: Hello, profession, poetry, Pennymill, Archmage Morgan."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

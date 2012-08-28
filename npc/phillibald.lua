@@ -30,7 +30,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the portal merchant Phillibald. Keyphrases: Hello, portals, books."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portals, books."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

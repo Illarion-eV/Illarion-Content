@@ -29,7 +29,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Bre Southstar the gate guardian. Keyphrases: Hello, Gavin, Galmair, Guard."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Bre Southstar the gate guardian. Keywords: Hello, Gavin, Galmair, Guard."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

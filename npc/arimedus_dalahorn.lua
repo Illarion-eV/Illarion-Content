@@ -28,7 +28,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Arimedus Dalahorn the librarian. Keyphrases: Hello, Runes, Magic, Library, Archmage Morgan."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Arimedus Dalahorn the librarian. Keywords: Hello, Runes, Magic, Library, Archmage Morgan."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

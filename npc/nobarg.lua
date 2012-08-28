@@ -237,7 +237,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the priest Nobarg. Keyphrases: Hello, quest, Bragon, god, information."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the priest Nobarg. Keywords: Hello, quest, Bragon, god, information."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

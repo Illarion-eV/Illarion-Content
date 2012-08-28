@@ -35,7 +35,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the hermit Raban. Keyphrases: Hello, quest, sickle, herbs."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the hermit Raban. Keywords: Hello, quest, sickle, herbs."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

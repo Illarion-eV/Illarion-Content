@@ -37,7 +37,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Rose the Companion. Keyphrases: race, gods, company, adventure."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Rose the Companion. Keywords: race, gods, company, adventure."));
 talkEntry:addResponse("Ask me about 'company','profession' or 'adventure', answering with 'yes' or 'no'.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);

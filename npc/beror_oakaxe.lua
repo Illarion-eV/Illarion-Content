@@ -41,7 +41,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Beror Oakaxe the royal quartermaster. Keyphrases: Hello, Quest, Orders, Knight, Gate."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Beror Oakaxe the royal quartermaster. Keywords: Hello, Quest, Orders, Knight, Gate."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

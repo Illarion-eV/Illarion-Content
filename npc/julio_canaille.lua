@@ -35,7 +35,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Julio Canaille the ghost. Keyphrases: Peg Leg, Quest, Gods, Tell something."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Julio Canaille the ghost. Keywords: Peg Leg, Quest, Gods, Tell something."));
 talkEntry:addResponse("Ask me for my 'peg leg'! If you need other things, its better to search a settlement and ask there. Lubber!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);

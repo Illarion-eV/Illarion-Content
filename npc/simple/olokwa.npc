@@ -52,7 +52,7 @@ itemShoes = 53
 "suche rat" -> "Türlich! Aber Rat von Ahnen und mirr braucht Kupfermünzen... zwei! Gedärm und Asche von Lagerfeuer... uhm 'nd ja, ja ne Wurst brauchen wir auch, he he!"
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Olokwa the Seer. Keyphrases: ancestor, seek advice, blindfold, Bragg-Thu, Kroch'Gurak, Norbuk Plateau."), "Ask Olokwa for tale about 'ancestor', or 'seek advice'.", state = 0
+"Help" -> inform("[Game Help] This NPC is Olokwa the Seer. Keywords: ancestor, seek advice, blindfold, Bragg-Thu, Kroch'Gurak, Norbuk Plateau."), "Ask Olokwa for tale about 'ancestor', or 'seek advice'.", state = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Olokwa der Seher. Schlüsselwörter: Ahnen, suche Rat, Augenbinde, Bragg-Thu, Kroch'Gurak, Norbuk Plateau."), "Frage Olokwa nach Geschichte von 'Ahnen' oder 'suche Rat'.", state = 0
 
 -- tales and storys of the ancestors
@@ -217,7 +217,7 @@ itemShoes = 53
 "what sell", "what buy", "list wares", "price of" -> "I sell the advice of your ancestors... Just 'seek advice' and bring some coppercoins."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkauf die Bootschaft deiner Ahnen... 'suche Rat' und vergiss die Kupfermünzn nich."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "olokwa", english -> "#me hisses: 'Youbba ask tha old orc?'"
 "olokwa" -> "#me zischt: 'Du frägst den alt, blind Ork?'"
 "Ja" -> "#me bohrt einen Finger ins Ohr. 'Is gut - is gut.", "Bist du sicher, junge Kerl?", "Ich wusste, du sagen das. - Weil ich Seher binne."

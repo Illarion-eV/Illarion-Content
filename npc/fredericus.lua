@@ -31,7 +31,7 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, fisherman, Tanora, trade."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the fisherman Fredericus. Keywords: Hello, fisherman, Tanora, trade."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -183,7 +183,7 @@ buySecondaryItems = 2, 3
 "Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

@@ -81,7 +81,7 @@ itemShoes = 369
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Bippi the peasant. Keyphrases: milk, cow, farmhand, quest, 'what is my task?'.")
+"Help" -> inform("[Game Help] This NPC is Bippi the peasant. Keywords: milk, cow, farmhand, quest, 'what is my task?'.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bippi der Bauer. Schlüsselwörter: Milch ,Kuh, Helfer, Aufgabe, 'Was ist meine Aufgabe?'.")
 
 -- General Speech
@@ -205,7 +205,7 @@ itemShoes = 369
 "tell something" -> "Well you don't look like a cattle breeder, otherwise I would talk about my work.", "My Greatgrandfather started this farm with his knowledge about cows, today I am the only one that knows all his secrets.", "Well currently I only have one thing on my mind, work. I could really use a farmhand if you're willing to help?"
 "erzähl was", "erzähl etwas" -> "Nun, ihr seht nicht aus wie ein Viehzüchter, sonst würde ich über die Arbeit sprechen.", "Mein Großgroßvater hat angefangen sein Wissen über Milchkühe weiterzugeben, heute bin ich der, der alle Geheimnisse kennt.", "Nun, wenn ihr so bittet. Ich glaube ich brauche Helfer um die Arbeit zu bewältigen, wie wäre es mit euch?"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Bippi", english -> "That's my name and milk is my business.", "Hiho!", "That's me! Ask me again, I'll tell ya the same."
 "Bippi" -> "Das ist mein Name und die Milch ist mein Geschäft.", "Hiho!", "Das bin ich! Frag mich erneut, und Ich erzähle dir das selbe."
 "Yes" -> "That's true! Let's have a glass of milk to celebrate.", "Absolutely! Even my cows understand.", "#me nods leisurely: 'My grandfather used to say that all the time.'"

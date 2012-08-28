@@ -36,7 +36,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the tailor Lilith and may need help in a task. Keyphrases: Hello, Quest, Needle, Tailor."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the tailor Lilith and may need help in a task. Keywords: Hello, Quest, Needle, Tailor."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

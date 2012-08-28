@@ -34,7 +34,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("hilfe");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Corporal Piero the guard. Keyphrases: Galmair, Runewick, Queen Rosaline. - Quest solved."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Corporal Piero the guard. Keywords: Galmair, Runewick, Queen Rosaline. - Quest solved."));
 talkEntry:addResponse("Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -43,7 +43,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("help");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Corporal Piero the guard. Keyphrases: Galmair, Runewick, Queen Rosaline. - Quest gelöst."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Corporal Piero the guard. Keywords: Galmair, Runewick, Queen Rosaline. - Quest gelöst."));
 talkEntry:addResponse("I'm a guard. I guard people. Long live the queen. Thanks for your help with the pirates. Zhambra shall guard you.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -51,7 +51,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Corporal Piero the guard. Keyphrases: Adventure, Queen Rosaline."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Corporal Piero the guard. Keywords: Adventure, Queen Rosaline."));
 talkEntry:addResponse("Help? I don't know how to help you. But you shoul dbe able to help me, as long as you are looking for an little 'adventure'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

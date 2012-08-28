@@ -188,7 +188,7 @@ itemShoes = 53
 "tell something" -> "The wine is marvellous, isn't it?"
 "erzähl was", "erzähl etwas" -> "Der Wein hier ist wunderbar, nicht wahr?"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Zaida", english -> "Zaida is my name. Zaida the Apprentice."
 "Zaida" -> "Zaida ist mein Name. Zaida, die Anwärterin."
 "Yes" -> "Pardon?", "Fine.", "Indeed?", "Really?"

@@ -49,7 +49,7 @@ itemShoes = 369
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Snorri the fishmonger. Keyphrases: fish, orc, morri, nose, dwarf.")
+"Help" -> inform("[Game Help] This NPC is Snorri the fishmonger. Keywords: fish, orc, morri, nose, dwarf.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Snorri der Fischhändler. Schlüsselwörter: Fisch, Ork, Morri, Nase, Zwerg.")
 
 -- General speech
@@ -138,7 +138,7 @@ itemShoes = 369
 "tell something" -> "Aye, I get all these fish from the harbour.", "Morri and I are brothers. We share this market stall. He may scowl but he is a nice guy.", "Once I got fish from the harbour and I swear they were so fresh that I had to tie them up."
 "erzähl was", "erzÃ¤hl etwas" -> "Aye, ich bekomm all die Fische jeden zweiten Tag, direkt vom Hafen.", "Morri und ich sind Brüder. Und wir teilen uns den Marktschuppen. Auch wenn er so finster drein schaut, er ist ein netter Kerl.", "Einmal, bekam ich einen Karren mit Fischen, vom Hafen, und ich schwöre bei meinem Bart, die Fische waren so frisch, ich musste sie mit Schnüren auf den Tisch fesseln, damit sie nicht weghüpfen konnten."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Snorri", english -> "Aye. What fish do you wanna buy?"
 "Snorri" -> "Aye. Welchen Fisch wollt ihr kaufen?"
 "Yes" -> "Aye. thats good!", "D'kraga...alright.", "Fine, fine, fine, that's how it should be."

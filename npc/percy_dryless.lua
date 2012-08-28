@@ -32,7 +32,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addResponse("[Game Help] This NPC is the prison guard Percy Dryless. Keyphrases: 'Release me, please','I am hungry' 'Give me a new pick axe' 'How much of my punishment is left?' and 'I want to deliver <resource>'.");
+talkEntry:addResponse("[Game Help] This NPC is the prison guard Percy Dryless. Keywords: 'Release me, please','I am hungry' 'Give me a new pick axe' 'How much of my punishment is left?' and 'I want to deliver <resource>'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

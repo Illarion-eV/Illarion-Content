@@ -57,7 +57,7 @@ itemShoes = 53
 -- QuestID=601
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is an old orc Tronruk. Keyphrases: Hello, story, orc, gods.")
+"Help" -> inform("[Game Help] This NPC is an old orc Tronruk. Keywords: Hello, story, orc, gods.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der alte Ork Tronruk. Schlüsselwörter: Hallo, Geschichte, ork, Götter.")
 
 -- General speech
@@ -486,7 +486,7 @@ itemShoes = 53
 "silverbrand" -> "Dat be Stumpie town in Gobaith wif Stumpie queen whub tink she be able smashing Warlord. *smirks*"
 "silberbrand" -> "Das sein Stumpiestadt in Gobaih mit Zwergenkönigin die glaubte Warlord besiegen können. *grinst frech*"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Tronruk", english -> "Yubba, dat mah name! *hits his chest and grunts*"
 "Tronruk" -> "Yubba, das mein Name! *schlägt sich auf die Brust*"
 "Yes" -> "Hurr! Hurr!"

@@ -68,7 +68,7 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the miner Bruno Blackhole. Keyphrases: Hello, quest, pick-axe, miner.")
+"Help" -> inform("[Game Help] This NPC is the miner Bruno Blackhole. Keywords: Hello, quest, pick-axe, miner.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Bergarbeiter Bruno Blackhole. Schlüsselwörter: Hallo, Quest, Spitzhacke, Bergarbeiter.")
 
 -- General speech
@@ -247,7 +247,7 @@ itemShoes = 53
 "tell something" -> "If you want to hear a story, ya in da wrong place.", "I'm here to work, not to tell stories.", "My gold nugget is my most precious posession."
 "erzähl was", "erzähl etwas" -> "Wenn du 'ne Geschichte hören wollt, biste am falschen Ort.", "Ich bin nicht zum Geschichtenerzählen hier, sondern zum Arbeiten.", "Mein Goldnugget ist mein wertvollster Besitz."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Bruno", "Blackhole", english -> "Aye, that's me I suppose!"
 "Bruno", "Blackhole" -> "Aye, dat bin ich!"
 "Yes" -> "Good for you.", "Aye, I see.", "Are you sure?", "If you say so."

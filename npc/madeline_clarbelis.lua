@@ -48,7 +48,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Madeline Clarbelis the apprentice druid. Keyphrases: quest, Aurora, profession, apprentice, Ushara."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Madeline Clarbelis the apprentice druid. Keywords: quest, Aurora, profession, apprentice, Ushara."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

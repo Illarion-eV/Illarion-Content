@@ -54,7 +54,7 @@ itemShoes = 369
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Queen Rosaline Edwards of Cadomyr. Keyphrases: Hail my queen, Cadomyr, enemies, Sir Reginald, tomb, grave.")
+"Help" -> inform("[Game Help] This NPC is Queen Rosaline Edwards of Cadomyr. Keywords: Hail my queen, Cadomyr, enemies, Sir Reginald, tomb, grave.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Königin Rosaline Edwards von Cadomyr. Schlüsselwörter: Es lebe die Königin, Cadomyr, Feinde, Sir Reginald, Gruft, Grab.")
 
 -- General speech
@@ -252,7 +252,7 @@ itemShoes = 369
 "tell something" -> "I will tell you something, my realm is named Cadomyr and I will do anything to make it prosper."
 "erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein; mein Reich nennt sich Cadomyr und ich werde alles in meiner Macht liegende tun, um es gedeihen zu lassen."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Yes" -> "Good.", "Wonderful.", "Right."
 "Ja" -> "Gut.", "Wunderbar.", "Recht so."
 "No" -> "You dare to disagree with me?", "'No'? That word is unfamiliar to me.", "Don't you mean: 'Yes, my queen!'"

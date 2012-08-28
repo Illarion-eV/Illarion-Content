@@ -29,7 +29,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Krudash the arms dealer. Keyphrases: Murgo, Er'hja, Kroch'Gurak, Alice, Tom"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: Murgo, Er'hja, Kroch'Gurak, Alice, Tom"));
 talkEntry:addResponse("Me, Krudash sell and buy lots of stuff! Taghta?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);

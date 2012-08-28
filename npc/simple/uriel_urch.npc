@@ -50,7 +50,7 @@ itemShoes = 699
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Uriel Urch the retired soldier. Keyphrases: tell something, Serinjah, Orcs, lizardman, elv.")
+"Help" -> inform("[Game Help] This NPC is Uriel Urch the retired soldier. Keywords: tell something, Serinjah, Orcs, lizardman, elv.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Uriel Urch der Veteran. Schlüsselwörter: erzähl etwas, Serinjah, Orks, Echsenmann, Elf.")
 
 -- - General speech
@@ -179,7 +179,7 @@ itemShoes = 699
 "what sell", "what buy", "list wares", "price of" -> "I don't sell anything. Just trying to have a quiet drink!", "Does I look like a damn huckster? Get rid!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Seh ich aus wie'n verdammter Hausierer? Verpiss dich!", "Ich verkauf nichts. - Will mir hier nur in Ruhe Bier rein-schütten."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Uriel", "Urch", english -> "Hrmpf? What do you want?", "That's me. What's the matter?", "#me sighs and peeks into his beer mug."
 "Uriel", "Urch" -> "Hrmpf? Was wollt Ihr?", "Das bin ich. Was ist?", "#me seufzt und wirft einen Blick in seinen Bierkrug."
 "Yes" -> "I see.", "Aha?", "Sure."

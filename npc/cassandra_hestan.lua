@@ -27,7 +27,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Cassandra Hestan the money changer. Keyphrases: Hello, money, Cadomyr, profession, Ronagan."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Cassandra Hestan the money changer. Keywords: Hello, money, Cadomyr, profession, Ronagan."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

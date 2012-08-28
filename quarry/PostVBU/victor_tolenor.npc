@@ -66,9 +66,9 @@ itemShoes = 53
 -- 4: Quest 1 Running, not yet done
 
 -- Help
-"Help", queststatus(999) = 0 -> inform("[Game Help] This NPC is Victor Tolenor a Cadomyr citizen. Keyphrases: Cadomyr.")
+"Help", queststatus(999) = 0 -> inform("[Game Help] This NPC is Victor Tolenor a Cadomyr citizen. Keywords: Cadomyr.")
 "Hilfe", queststatus(999) = 0 -> inform("[Spielhilfe] Dieser NPC ist Victor Tolenor ein Bürger Cadomyrs. Schlüsselwörter: Cadomyr.")
-"Help" -> inform("[Game Help] This NPC is Victor Tolenor the henchman of Baron Hastings. Keyphrases: Quest, revolution, aunt.")
+"Help" -> inform("[Game Help] This NPC is Victor Tolenor the henchman of Baron Hastings. Keywords: Quest, revolution, aunt.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Victor Tolenor der Handlanger Baron Hastings. Schlüsselwörter: Aufgabe, Revolution, Tante.")
 
 -- Status=0 NPC tells player to get lost
@@ -210,7 +210,7 @@ itemShoes = 53
 "task", "adventure" -> "Well infact there is something you could do.", "Well as you asked, indeed I do have a task for you."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Nun es gibt da wirklich etwas was ihr tun könnt.", "Wenn ihr so fragt, ja ich hätte da eine Aufgabe für euch."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Yes" -> "True! Uhm, what?", "Correct! But what are you talking about?", "Yes!? What!?"
 "Ja" -> "Genau! Ähh, was?", "Richtig! Aber... wovon sprichst du?", "Ja!? Was!?"
 "No" -> "Oh look right there, doubts ahead.", "No! Yes! To what?"

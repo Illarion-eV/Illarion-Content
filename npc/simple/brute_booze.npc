@@ -56,7 +56,7 @@ itemShoes = 53
 -- Borgate: 1908, 1909 beer, 2923 onion soup, 2456 mushroom soup
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Brute Booze an fameous orcish adventurer. Keyphrases: Hello, towns, heroic deeds, tell something")
+"Help" -> inform("[Game Help] This NPC is Brute Booze an fameous orcish adventurer. Keywords: Hello, towns, heroic deeds, tell something")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brute Booze ein berühmter orkischer Glücksritter. Schlüsselwörter: Hallo, Städte, Heldentaten, erzähl etwas")
 
 -- General speech
@@ -183,7 +183,7 @@ itemShoes = 53
 "tell something" -> "When I was a young orc, someone asked me, what I wanted to have done, before I die. And I said, I want to have drank a beer in even city of Illarion. The next day, I had alreasy broken up.", "Since I had left the Norbug Plateua back then, I have travelled many known countires. So if you are looking for knowledge, just ask me. I enjoy telling you about various, strange lands."
 "erzähl was", "erzähl etwas" -> "Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.", "Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Yes" -> "Truly of greatness!", "I am honoured.", "It is a pleasure."
 "Ja" -> "Wahrlich, von Größe!", "Iche binne geehrt.", "Es iset mir ein Vergnü-higen."
 "No" -> " Is that so?", "Really?", "Mh-hm."

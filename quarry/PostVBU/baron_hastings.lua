@@ -31,7 +31,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Baron Hastings the Usurper. Keyphrases: Greetings, Queen, Baron, Nobles, Cadomyr, Throne, Quest, King Edwards, Usurper, Succession, Bastard."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Baron Hastings the Usurper. Keywords: Greetings, Queen, Baron, Nobles, Cadomyr, Throne, Quest, King Edwards, Usurper, Succession, Bastard."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

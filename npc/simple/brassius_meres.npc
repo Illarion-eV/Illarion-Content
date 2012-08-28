@@ -73,7 +73,7 @@ itemShoes = 697
 ".+", queststatus(34) = 2 -> "GERMAN"
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Brassius Meres the Guard. Keyphrases: hello, quest, profession, Runewick, law, bridge, gods.")
+"Help" -> inform("[Game Help] This NPC is Brassius Meres the Guard. Keywords: hello, quest, profession, Runewick, law, bridge, gods.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brassius Meres der Wächter. Schlüsselwörter: Hallo, Auftrag, Berufung, Runewick, Brücke, Gesetze, Götter.")
 
 -- General speech
@@ -247,7 +247,7 @@ itemShoes = 697
 "tell something" -> "Hm. You look like you could wield a weapon. Perhaps the  Archmage would be interested in your services.", "Have you read the town's laws? It shouldn't be too hard finding a copy.", "I find the tower shield from Salkamar, my homeland, to be the most effective. Not too many weapons can find their way around or through one of them, I tell you."
 "erzähl was", "erzähl etwas" -> "Hm. Ihr seht aus, als wenn ihr eine Waffe tragen könntet. Vielleicht hat der Erzmagier ja Interesse an euren Diensten.", "Habt ihr schon die Gesetze der Stadt gelesen? Es sollte nicht sonderlich schwer sein, eine Ausgabe zu finden.", "Ich finde das die Turmschilde aus Salkamar, meiner Heimat, sehr effektiv sind. Um sie kommt kaum eine Waffe herum, geschweige denn hindurch."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Brassius", "Meres", english -> "My apologies, I am on duty. Perhaps someone else can help you.", "I should be getting back to my work.", "I am quite busy at the moment, sorry."
 "Brassius", "Meres" -> "Entschuldigt, aber ich bin im Dienst. Vielleicht kann euch jemand anderes helfen.", "Ich sollte wieder an meinen Dienst denken.", "Ich bin derzeit recht beschäftigt."
 "Yes" -> "My apologies, I am on duty. Perhaps someone else can help you.", "I should be getting back to my work.", "I am quite busy at the moment, sorry."
