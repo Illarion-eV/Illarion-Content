@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Insert your name here                                            --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -19,12 +19,15 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
+require("npc.base.trade")
 module("npc.john_doe", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -176,6 +179,31 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sell");
+talkEntry:addTrigger("buy");
+talkEntry:addTrigger("wares");
+talkEntry:addTrigger("price");
+talkEntry:addTrigger("trade");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("kauf");
+talkEntry:addTrigger("waren");
+talkEntry:addTrigger("preis");
+talkEntry:addTrigger("Handel");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -242,6 +270,23 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -322,45 +367,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("DEINTRIGGER5");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -976,6 +982,12 @@ talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);

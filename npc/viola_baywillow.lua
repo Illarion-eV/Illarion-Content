@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -65,14 +65,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("skip");
 talkEntry:addTrigger("cancel");
 talkEntry:addTrigger("abort");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You have already made it to the end of the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You have already made it to the end of the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("überspring");
 talkEntry:addTrigger("abbrech");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du bist bereits am Ende des Tutorials. Wähle nun bitte ein Reich als neue Heimat deines Charakters. Gehe hierzu durch ein Portal auf einer der drei Inseln."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du bist bereits am Ende des Tutorials. Wähle nun bitte ein Reich als neue Heimat deines Charakters. Gehe hierzu durch ein Portal auf einer der drei Inseln im Süden."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

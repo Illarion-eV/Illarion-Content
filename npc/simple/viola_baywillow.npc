@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Viola Baywillow"
@@ -59,8 +59,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir Informationen über die Spielwelt geben. Schlüsselwörter: Hilfe, Reiche, Götter, Rassen, Handwerke, Motive, Landschaften, Anführer, Gesetze."), "Hiho, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach."
 
 -- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You have already made it to the end of the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands.")
-"überspring", "abbrech" -> inform("[Tutorial] Du bist bereits am Ende des Tutorials. Wähle nun bitte ein Reich als neue Heimat deines Charakters. Gehe hierzu durch ein Portal auf einer der drei Inseln.")
+"skip", "cancel", "abort" -> inform("[Tutorial] You have already made it to the end of the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south.")
+"überspring", "abbrech" -> inform("[Tutorial] Du bist bereits am Ende des Tutorials. Wähle nun bitte ein Reich als neue Heimat deines Charakters. Gehe hierzu durch ein Portal auf einer der drei Inseln im Süden.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!", "Hiho, have we met before? There are so many new faces around, my apologies if we have. Let me tell about the realms of Cadomyr, Galmair and Runewick!", "Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!"
