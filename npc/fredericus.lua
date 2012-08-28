@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Martin Karing                                                    --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,33 +31,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, fisherman, Tanora."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, fisherman, Tanora, trade."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Fischer, Tanora."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("What sell");
-talkEntry:addTrigger("What buy");
-talkEntry:addTrigger("I want sell");
-talkEntry:addTrigger("I want buy");
-talkEntry:addResponse("Ya want to trade? Aye, have a look!");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Was kauf");
-talkEntry:addTrigger("Was verkauf");
-talkEntry:addTrigger("Ich kauf");
-talkEntry:addTrigger("Ich verkauf");
-talkEntry:addResponse("Du willst handeln? Da schau her was ich hab!");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Fischer, Tanora, Handel."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -194,6 +174,33 @@ talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Fredericus. Das bin ich.");
 talkEntry:addResponse("Ich bin der Fischer Fredericus.");
 talkEntry:addResponse("Fredericus ist mein Name, ich handel mit Fischen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sell");
+talkEntry:addTrigger("buy");
+talkEntry:addTrigger("wares");
+talkEntry:addTrigger("price");
+talkEntry:addTrigger("trade");
+talkEntry:addResponse("Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.");
+talkEntry:addResponse("I trade fish, do you need any?");
+talkEntry:addResponse("I trade what you need to catch fish and I even buy the fish you caught.");
+talkEntry:addResponse("Ya want to trade? Aye, have a look!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("kauf");
+talkEntry:addTrigger("waren");
+talkEntry:addTrigger("preis");
+talkEntry:addTrigger("Handel");
+talkEntry:addResponse("Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.");
+talkEntry:addResponse("Ich handel Fische, braucht ihr welche?");
+talkEntry:addResponse("Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.");
+talkEntry:addResponse("Du willst handeln? Da schau her was ich hab!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -582,28 +589,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Irmorom verhilft mir manches mal zu guten Geschäften, aber mein Leben liegt in Tanoras und Findaris Händen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.");
-talkEntry:addResponse("I trade fish, do you need any?");
-talkEntry:addResponse("I trade what you need to catch fish and I even buy the fish you caught.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.");
-talkEntry:addResponse("Ich handel Fische, braucht ihr welche?");
-talkEntry:addResponse("Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
