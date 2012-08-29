@@ -33,7 +33,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addResponse("[Game Help] This NPC is the tailor Aresilia Teleri. Keyphrases: Hello, quest, needle, adventure, stirring rod, cloth");
+talkEntry:addResponse("[Game Help] This NPC is the tailor Aresilia Teleri. Keywords: Hello, quest, needle, adventure, stirring rod, cloth");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

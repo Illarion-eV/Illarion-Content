@@ -56,7 +56,7 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keyphrases: Question, information, Runewick, building, mission.")
+"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keywords: Question, information, Runewick, building, mission.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Auftrag.")
 
 -- Mandatory: General speech
@@ -277,7 +277,7 @@ itemShoes = 369
 "Gobaith", "Gobiath", english -> "Hmm...ask someone else if you want know about it."
 "Gobaith", "Gobiath" -> "Hmm...fragt jemand anderen bezüglich dieses Ort."
 
--- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Hmm...you want some information? But about what?"
 "mein Name" -> "Hmm...und ihr wünscht nach Information? Aber welche?"
 "Elesil", "Daelwon", english -> "Yes, that is my name. About what do you want information?"

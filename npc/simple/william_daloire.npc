@@ -66,7 +66,7 @@ itemShoes = 53
 -- 10% Mushrooms: 158, 159, 160, 161, 162, 163
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
@@ -179,7 +179,7 @@ itemShoes = 53
 "tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

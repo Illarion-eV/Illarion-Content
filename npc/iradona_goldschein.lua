@@ -30,7 +30,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Iradona Goldschein the informant. Keyphrases: Question, information, Galmair, building, game, mission."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Iradona Goldschein the informant. Keywords: Question, information, Galmair, building, game, mission."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -58,7 +58,7 @@ itemShoes = 0
 -- queststatus=5 quest end. Jack got his leg. (reward: Rapier with Blackstone lv. 3 ),rankpoints(hometown)+17
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Julio Canaille the ghost. Keyphrases: Peg Leg, Quest, Gods, Tell something."), "Ask me for my 'peg leg'! If you need other things, its better to search a settlement and ask there. Lubber!", state = 0
+"Help" -> inform("[Game Help] This NPC is Julio Canaille the ghost. Keywords: Peg Leg, Quest, Gods, Tell something."), "Ask me for my 'peg leg'! If you need other things, its better to search a settlement and ask there. Lubber!", state = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Julio Canaille der Geist. Schlüsselwörter: Holzbein, Quest, Götter, Erzähl was."), "Frag mich nach meen 'Holzbein'! Wenn du andere Dinge brauchst gehst du besser zu ner Siedlung, deswegen. Landratte!", state = 0
 
 -- generall
@@ -185,7 +185,7 @@ itemShoes = 0
 "tell something" -> "ENGLISH1.", "Aye... 'n giant kraken ate my leg! It was big like the boat pulling it under the wather! Arr, but I never surrender - never did.", "Aye, sworn! I made love with five mermaids all in all.", "Each harbour a girl, each day another harbour. This' the sailor's live. Aye."
 "erzähl was", "erzähl etwas" -> "Aye... 'n rießiger Krake hat men Bein gefressn. Er war so groß das er das ganze Schiff in die See gezogen hat. Arr. Aber Ich hab nich aufgegeben. Das hab ich nie gemacht...", "Aye, geschworen! Ich hatte schon fünf Meerjungfrauen im Bett! Ch-ch...", "In jedem hafn n' Mädl, jaja. Das ist das Seemannsleben!"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Julio", "Canaille", english -> "Aye-aye! Whos don't know the fameous tales of Peg Leg-Jack? Ahoy, that's me! Also the god's called it a shame when they tied me to gallows."
 "Julio", "Canaille" -> "Aye-aye! Wer kenn nicht die Geschichtn vom berühmten Holzbein-Jack? Ahoi, das bin ich! Sogar die Götter fandens öd, als sie mich dann doch an den Galgen geknüpft haben."
 "Yes" -> "Ch-h!", "Aye! Get ready to board! Thie-hi!", "'Yes Captain!', you have to say! Got it?"

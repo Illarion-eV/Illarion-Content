@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Martin Karing                                                    --
 --                                                                            --
--- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 29, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Fredericus"
@@ -93,9 +93,9 @@ buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 
 "your name", "who are you", "who art thou" -> "Fredericus. That's me.", "I am the fisherman Fredericus.", "Fredericus is my name, I trade fish."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fredericus. Das bin ich.", "Ich bin der Fischer Fredericus.", "Fredericus ist mein Name, ich handel mit Fischen."
 
--- Trade Hooks
-"sell", "buy", "wares", "price", "trade" -> "Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.", "I trade fish, do you need any?", "I trade what you need to catch fish and I even buy the fish you caught.", "Ya want to trade? Aye, have a look!", trade
-"kauf", "waren", "preis", "Handel" -> "Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.", "Ich handel Fische, braucht ihr welche?", "Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.", "Du willst handeln? Da schau her was ich hab!", trade
+-- Optional: Trade Hooks, use only for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.", "I trade fish, do you need any?", "I trade what you need to catch fish and I even buy the fish you caught.", "Ya want to trade? Aye, have a look!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.", "Ich handel Fische, braucht ihr welche?", "Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.", "Du willst handeln? Da schau her was ich hab!", trade
 
 -- Catching quest triggers
 "quest", "mission", english -> "I do not issue any quests. But you can bring me fish and I'll pay you for your work."

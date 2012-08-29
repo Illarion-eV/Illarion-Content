@@ -36,7 +36,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the forester Valandil Elensar. Keyphrases: Hello, quest, hatchet, forester, wood."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the forester Valandil Elensar. Keywords: Hello, quest, hatchet, forester, wood."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

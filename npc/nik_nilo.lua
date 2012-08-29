@@ -28,7 +28,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This is 'Big Nik', he is a tool and supply trader. Keyphrases: Hello, profession, laws."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This is 'Big Nik', he is a tool and supply trader. Keywords: Hello, profession, laws."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

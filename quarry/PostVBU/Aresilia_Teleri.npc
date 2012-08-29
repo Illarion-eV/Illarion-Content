@@ -60,7 +60,7 @@ itemShoes = 53
 -- Cycletext:
 
 -- Help
-"Help" -> "[Game Help] This NPC is the tailor Aresilia Teleri. Keyphrases: Hello, quest, needle, adventure, stirring rod, cloth"
+"Help" -> "[Game Help] This NPC is the tailor Aresilia Teleri. Keywords: Hello, quest, needle, adventure, stirring rod, cloth"
 "Hilfe" -> "[Spielhilfe] Dieser NPC ist die Schneiderin Aresilia Teleri. Schlüsselwörter: Hallo, Quest, Aufgaben, Rührstab, Nadel, Stoff"
 
 -- General speech
@@ -267,7 +267,7 @@ itemShoes = 53
 "tell something" -> "I could tell a lot about sewing. But right now, I don't feel like doing that.", "If you are willing to help me with some tasks, I woul dbe glad to tell you about sewing. Just ask me for!", "No, no, no! I dilike telling you something. All the time people arive and ask for telling me something."
 "erzähl was", "erzähl etwas" -> "Über das Schneidern, darüber könnte ich dir einiges erzählen, aber gerade habe ich keine Lust.", "Wenn du mir bei einigen Aufgaben hilfst, erzähl ich dir gerne dies und das über das Schneidern, musst mich nur nach einem Auftrag fragen.", "Nein, ich will jetzt nichts erzählen. Ständig kommen Leute her und wollen das ich ihnen etwas erzähle, will ich aber nicht!"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Aresilia", "Teleri", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Aresilia", "Teleri" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "How great. Hush hush!", "Great. you are a big help.", "Awesome!"

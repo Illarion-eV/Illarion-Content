@@ -30,7 +30,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is an old orc Tronruk. Keyphrases: Hello, story, orc, gods."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is an old orc Tronruk. Keywords: Hello, story, orc, gods."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

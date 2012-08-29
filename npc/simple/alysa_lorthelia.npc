@@ -85,7 +85,7 @@ itemShoes = 53
 -- 10% Dishes: 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
@@ -158,7 +158,7 @@ itemShoes = 53
 "tell something" -> "I wish I were a fairy"
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "<NPC first name>", "<NPC last name>", english -> "That's me, Alysa Lorthelia"
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "Ok"

@@ -61,11 +61,11 @@ itemShoes = 53
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends. rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
 
 -- quest done
-"hilfe", queststatus(305) = 6 -> inform("[Game Help] This NPC is Corporal Piero the guard. Keyphrases: Galmair, Runewick, Queen Rosaline. - Quest solved."), "Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.", state = 0
-"help", queststatus(305) = 6 -> inform("[Game Help] This NPC is Corporal Piero the guard. Keyphrases: Galmair, Runewick, Queen Rosaline. - Quest gelöst."), "I'm a guard. I guard people. Long live the queen. Thanks for your help with the pirates. Zhambra shall guard you.", state = 0
+"hilfe", queststatus(305) = 6 -> inform("[Game Help] This NPC is Corporal Piero the guard. Keywords: Galmair, Runewick, Queen Rosaline. - Quest solved."), "Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.", state = 0
+"help", queststatus(305) = 6 -> inform("[Game Help] This NPC is Corporal Piero the guard. Keywords: Galmair, Runewick, Queen Rosaline. - Quest gelöst."), "I'm a guard. I guard people. Long live the queen. Thanks for your help with the pirates. Zhambra shall guard you.", state = 0
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Corporal Piero the guard. Keyphrases: Adventure, Queen Rosaline."), "Help? I don't know how to help you. But you shoul dbe able to help me, as long as you are looking for an little 'adventure'."
+"Help" -> inform("[Game Help] This NPC is Corporal Piero the guard. Keywords: Adventure, Queen Rosaline."), "Help? I don't know how to help you. But you shoul dbe able to help me, as long as you are looking for an little 'adventure'."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Corporal Piero der Wächter. Schlüsselwörter: Abenteuer, Königin Rosaline."), "Helfen? Ich weiß nicht wie ich Euch helfen soll. Aber Ihr könntet mir helfen, insofern ihr nach einem 'Abenteuer' sucht.", state = 0
 
 -- generall
@@ -182,7 +182,7 @@ itemShoes = 53
 "tell something" -> "Nowhere the codes of honour are followed like here in Cadomyr. For the colours of our town! Zhambra may bless it."
 "erzähl was", "erzähl etwas" -> "Nirgendwo hat man so viel Gespür für wahre Ehre wie wir, in Cadomyr. Bei den Farben unserer Stadt! Zhambra möge sie bewaren."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "<NPC first name>", "<NPC last name>", english -> "#me salutes."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "#me salutes."
 "Yes" -> "Proceed! Zak-zak!", "#me salutes.", "May be Zhambra with you."

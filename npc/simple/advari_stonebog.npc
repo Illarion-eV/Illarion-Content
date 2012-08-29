@@ -139,7 +139,7 @@ itemShoes = 326
 "tell something" -> "I administer the seeds of Galmair. A verry important task, which is commissioned only to the best man!", "Arr. I take care that the pignoses, arroun' the market, don't mess it up. They aren't that clever aren't they?", " Praise Irmorom and thank Ronagan the last week just went fine. And not a single piferer arround. Arr."
 "erzähl was", "erzähl etwas" -> "Ich verwalte das Saatgut von Galmair. Eine äußerst wichtige Aufgabe. Die der Don, nur den fähigsten Männern anvertraut.", "Arr. Ich pass auf das die Schweineschnauzen, hier am Markt, keinen Unsinn treiben! Sind ja so wie so nicht die klügsten, nicht wahr?", "Gepriesen sei Irmorom, und gedankt sei's Ronagan. Die letzte Woche lief ausgezeichnet, und kein einziger Langfinger in der Nähe. Arr."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "advari", "stonebog", english -> "Arr, pillownose! You think that's my real name? - Whatever... you like to sell somethin?"
 "advari", "stonebog" -> "Arr, Weichzwerg! So denkt Ihr das ich heiß, nicht war? Wie auch immer. Was wollt Ihr handeln?"
 "Yes" -> "Aye. I agree!", "Arr, that's the way I like it!", "Aargk... - tell me about."

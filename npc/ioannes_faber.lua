@@ -27,7 +27,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keyphrases: Be greeted, treasurer, Gold."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keywords: Be greeted, treasurer, Gold."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -39,7 +39,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keyphrases: Be greeted, treasurer, 'Do you have any orders for me?', 'I want to see order <number>', 'I want to get order <number>'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keywords: Be greeted, treasurer, 'Do you have any orders for me?', 'I want to see order <number>', 'I want to get order <number>'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

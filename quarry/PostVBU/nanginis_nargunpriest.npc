@@ -198,7 +198,7 @@ itemShoes = 326
 "what sell", "what buy", "list wares", "price of" -> "Pah! Do I look like a merchant? I carry enough rubbish around with me, in my head!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Pah! Seh ich so aus als wäre ich ein Händler? Ich trag genug Trödel mit mir herum, in meinem Kopf!"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 -- "<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 -- "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 -- "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

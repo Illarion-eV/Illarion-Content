@@ -82,7 +82,7 @@ itemShoes = 53
 -- Personality: Gentle, sweet, talented sales person, charismatic, outgoing on the outside, but lonely and self-conscious on the inside.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Francois Delacroix the Trader. Keyphrases: Hello, Markets, Buy, Sell, Agriculture.")
+"Help" -> inform("[Game Help] This NPC is Francois Delacroix the Trader. Keywords: Hello, Markets, Buy, Sell, Agriculture.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
@@ -152,7 +152,7 @@ itemShoes = 53
 "tell something" -> "What is there to tell? I'm Runewhick's number one agricultural trading pretty boy."
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Francois", "Delacroix", english -> "Do you need something? Chances are I selling it."
 "Francois", "Delacroix" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "Please be more specific. "

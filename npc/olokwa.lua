@@ -184,7 +184,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Olokwa the Seer. Keyphrases: ancestor, seek advice, blindfold, Bragg-Thu, Kroch'Gurak, Norbuk Plateau."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Olokwa the Seer. Keywords: ancestor, seek advice, blindfold, Bragg-Thu, Kroch'Gurak, Norbuk Plateau."));
 talkEntry:addResponse("Ask Olokwa for tale about 'ancestor', or 'seek advice'.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);

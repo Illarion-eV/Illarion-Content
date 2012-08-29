@@ -75,7 +75,7 @@ itemShoes = 53
 ".+", queststatus(333) > 12 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Fosco Goodbarrel the mischievous halfling. Keyphrases: quest, profession, Gobaith, gods, Fosco.")
+"Help" -> inform("[Game Help] This NPC is Fosco Goodbarrel the mischievous halfling. Keywords: quest, profession, Gobaith, gods, Fosco.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Fosco Goodbarrel der spitzbübische Halbling. Schlüsselwörter: Auftrag, Beruf, Gobaith, Götter, Fosco.")
 
 -- General speech
@@ -216,7 +216,7 @@ itemShoes = 53
 "tell something" -> "Has anyone ever told you that you have a rather noticeable nose?", "While we've been standing here, I've stolen your purse, and then returned it, compeletely full. I know, it's amazing, thank you.", "If there is one thing I've learned during my travels, it's this: never trust a sober dwarf."
 "erzähl was", "erzähl etwas" -> "Hat dir schonmal einer gesagt, das du eine sehr auffällige Nase hast?", "Hast du auf deinen Geldbeutel geachtet? Während wir hier reden, habe ich's gestohlen und zurückgelegt, natürlich ist es noch voll.", "Wenn ich auf meinen Reisen eines gelernt habe, dann flogendes, vertraue niemals einem nüchternen Zwerg."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Fosco", "Goodbarrel", english -> "Such a delightful name, don't you agree?", "Ahh...Fosco Goodbarrel. It just rolls off of the tongue.", "From here to Pennymill, that name will make any woman weak at the knees."
 "Fosco", "Goodbarrel" -> "Welch ein entzückender Name, findest du nicht auch?", "Ahh...Fosco Goodbarrel. Das geht runter wie Honig!", "Von hier bis nach Pennymill, dieser Name lässt alle Frauen niederknien."
 "Yes" -> "#me taps his foot impatiently.", "I knew you were going to say that!", "Yes, yes. Whatever. You should keep your purse in a less obvious place."

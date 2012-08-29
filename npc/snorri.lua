@@ -28,7 +28,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Snorri the fishmonger. Keyphrases: fish, orc, morri, nose, dwarf."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Snorri the fishmonger. Keywords: fish, orc, morri, nose, dwarf."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

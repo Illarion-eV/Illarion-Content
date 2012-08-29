@@ -34,7 +34,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Lotta Medborgar the hunter. Keyphrases: Question, information, Galmair, places."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Lotta Medborgar the hunter. Keywords: Question, information, Galmair, places."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -34,7 +34,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addResponse("[Game Help] This NPC is the cook Berni Grunweld. Keyphrases: Hello, quest, seed, adventure, hatchet, cooking spoon");
+talkEntry:addResponse("[Game Help] This NPC is the cook Berni Grunweld. Keywords: Hello, quest, seed, adventure, hatchet, cooking spoon");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

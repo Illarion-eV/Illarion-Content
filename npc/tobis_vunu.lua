@@ -35,7 +35,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Tobis Vunu the pirate. Keyphrases: Adventure, Gods."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Tobis Vunu the pirate. Keywords: Adventure, Gods."));
 talkEntry:addResponse("Help? I won't help you.  Get rid, Jack!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);

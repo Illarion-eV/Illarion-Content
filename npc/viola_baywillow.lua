@@ -45,7 +45,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keyphrases: Help, Realms, Gods, Races, Crafts, Motives, Landscapes, Leaders, Laws."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keywords: Help, Realms, Gods, Races, Crafts, Motives, Landscapes, Leaders, Laws."));
 talkEntry:addResponse("Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!");
 talkEntry:addResponse("Hiho, have we met before? There are so many new faces around, my apologies if we have. Let me tell about the realms of Cadomyr, Galmair and Runewick!");
 talkEntry:addResponse("Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!");

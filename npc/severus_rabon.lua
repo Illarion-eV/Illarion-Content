@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 29, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -32,7 +32,7 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Severus Rabon the Waiter. Keyphrases: Hello, Good day, trade."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Severus Rabon the Waiter. Keywords: Hello, Good day, trade."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -49,6 +49,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Please talk to my wife. She will seat you and then I will take your order.");
 talkEntry:addResponse("If you're a regular please seat yourself. My business is your home.");
 talkEntry:addResponse("If I may be of service I would recommend the sand rat. It's our signature dish.");
@@ -58,8 +59,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gr¸ﬂ");
 talkEntry:addTrigger("Gruﬂ");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
@@ -193,6 +196,7 @@ talkEntry:addTrigger("buy");
 talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
+talkEntry:addTrigger("purchase");
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -205,6 +209,8 @@ talkEntry:addTrigger("kauf");
 talkEntry:addTrigger("waren");
 talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
+talkEntry:addTrigger("ver‰uﬂer");
+talkEntry:addTrigger("erwerb");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");

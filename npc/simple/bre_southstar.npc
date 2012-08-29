@@ -115,7 +115,7 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Bre Southstar the gate guardian. Keyphrases: Hello, Gavin, Galmair, Guard.")
+"Help" -> inform("[Game Help] This NPC is Bre Southstar the gate guardian. Keywords: Hello, Gavin, Galmair, Guard.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bre Southstar die Torwächterin. Schlüsselwörter: Hallo, Gavin, Galmair, Wache.")
 
 -- Mandatory: General speech
@@ -206,7 +206,7 @@ itemShoes = 53
 "Gobaith", "Gobiath", english -> "What is that?"
 "Gobaith", "Gobiath" -> "Was soll das sein?"
 
--- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Is that you?", "Yes?", "Do you need something?"
 "mein Name" -> "Seid ihr das?", "Ja?", "Braucht ihr was?"
 "Bre", "Southstar", english -> "I am her."

@@ -48,7 +48,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Kaitza the temple guard. Keyphrases: quest, Zelphia, profession, Gobaith, gods."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Kaitza the temple guard. Keywords: quest, Zelphia, profession, Gobaith, gods."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

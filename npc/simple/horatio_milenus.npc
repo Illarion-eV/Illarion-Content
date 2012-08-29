@@ -107,7 +107,7 @@ itemShoes = 771
 -- Kawan Baxter.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Horatio Milenus the gate guardian. Keyphrases: Hello, Gate, Desert, Cadomyr, Guard.")
+"Help" -> inform("[Game Help] This NPC is Horatio Milenus the gate guardian. Keywords: Hello, Gate, Desert, Cadomyr, Guard.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Horatio Milenus der Torwächter. Schlüsselwörter: Hallo, Tor, Wüste, Cadomyr, Wache.")
 
 -- General speech
@@ -234,7 +234,7 @@ itemShoes = 771
 "tell something" -> "Always carry double the water you think you'll need.", "I'm on duty and I am not paid for small talk.", "I am a town guard, not a story teller."
 "erzähl was", "erzähl etwas" -> "Nehmt immer genau die zweifache Menge an Wasser mit, die ihr meint, zu brauchen.", "Ich bin im Dienst und werde nicht für eine nette Plauderei bezahlt.", "Ich bin eine Stadtwache und kein Geschichtenerzähler."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Horatio", "Milenus", english -> "That is I. State your business."
 "Horatio", "Milenus" -> "Das bin ich. Was ist euer Begehr?"
 "Yes" -> "Yes to what?", "Pardon?"

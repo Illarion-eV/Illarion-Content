@@ -42,7 +42,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the crusader Arenius Batavius. Keyphrases: Hello, quest, profession, crusader, order, orcs, cult, Cherga."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the crusader Arenius Batavius. Keywords: Hello, quest, profession, crusader, order, orcs, cult, Cherga."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

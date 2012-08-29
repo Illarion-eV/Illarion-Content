@@ -109,7 +109,7 @@ itemShoes = 369
 ".+", queststatus(112) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Madoquar the millenian. Keyphrases: Hello, quest, harbour, humans, lizardmen, halflings.")
+"Help" -> inform("[Game Help] This NPC is Madoquar the millenian. Keywords: Hello, quest, harbour, humans, lizardmen, halflings.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Madoquar die Uralte. Schlüsselwörter: Hallo, Quest, Hafen, Menschen, Echsen, Halblinge.")
 
 -- General speech
@@ -310,7 +310,7 @@ itemShoes = 369
 "dik", english -> "Dik-Diks are cute, aren't they?"
 "dik" -> "Dik-Diks sind süß, nicht wahr?"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Madoquar", english -> "Good day, how are you?", "The weather is fine today is it not?", "I think you might have dropped something, haha. I was kidding."
 "Madoquar" -> "Guten Tag, wie geht es euch?", "Das Wetter ist ganz nett, oder?", "Ich glaube, ihr habt da was verloren, haha."
 "Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"

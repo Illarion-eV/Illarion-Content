@@ -36,7 +36,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Natiana Banius the farmer's wife. Keyphrases: quest"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Natiana Banius the farmer's wife. Keywords: quest"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

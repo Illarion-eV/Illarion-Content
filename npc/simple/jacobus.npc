@@ -63,7 +63,7 @@ itemShoes = 771
 -- 5% Raw gems: 251, 252, 253, 254, 255, 256, 257
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the jeweller Jacobus. Keyphrases: Hello, jewellery.")
+"Help" -> inform("[Game Help] This NPC is the jeweller Jacobus. Keywords: Hello, jewellery.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Juwellier Jacobus. Schlüsselwörter: Hallo, Juwelen.")
 
 -- General speech
@@ -146,7 +146,7 @@ itemShoes = 771
 "tell something" -> "I cannot tell you any interesting stories, sorry."
 "erzähl was", "erzähl etwas" -> "Ich habe keine interessanten Geschichten zu erzählen."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Jacobus", english -> "Jacobus' jewellery is the best from here to Salkamar!"
 "Jacobus" -> "Die Geschmeide von Jakobus sind die besten von hier bis Salkamar!"
 "Yes" -> "Yes?", "Indeed.", "Interesting.", "Huh?", "But why?"

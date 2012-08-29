@@ -193,7 +193,7 @@ itemShoes = 53
 "tell something" -> "Moep."
 "erzähl was", "erzähl etwas" -> "Moep."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Cormac", english -> "So, you think you know my name? Did I tell it to you? Did I!?"
 "Cormac" -> "So, du denkst also, du kennst meinen Namen? Hab ich ihn dir gesagt? Hab ich etwas!?"
 "Yes" -> "Pardon?", "Fine.", "Moep.", "Got beer?"

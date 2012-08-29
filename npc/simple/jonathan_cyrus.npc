@@ -65,7 +65,7 @@ itemShoes = 770
 -- 5% Wax: 431
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the glass goods trader Jonathan Cyrus. Keyphrases: Hello, glass.")
+"Help" -> inform("[Game Help] This NPC is the glass goods trader Jonathan Cyrus. Keywords: Hello, glass.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Glaswarenhändler Jonathan Cyrus. Schlüsselwörter: Hallo, Glas.")
 
 -- General speech
@@ -150,7 +150,7 @@ itemShoes = 770
 "tell something" -> "Glass is fascinating. It looks like ice, sparkles like diamonds and is as hard as stone.", "The art of glassblowing is very demanding, but I will make sure it is never forgotten.", "It was reported to me once you could concentrate the rays of the sun with a glass into a lethal weapon. What a humbug!"
 "erzähl was", "erzähl etwas" -> "Glas ist faszinierend. Es sieht aus wie Eis, funkelt wie ein Diamant und ist so hart wie Stein.", "Die Kunst der Glasbläserei ist sehr anspruchsvoll, aber ich werde sicherstellen, dass sie nicht in Vergessenheit gerät.", "Man hat mir mal berichtet, dass man die Strahlen der Sonne mit Glas zu einer tödlichen Waffe bündeln könnte. Was für ein Humbug."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Jonathan", "Cyrus", english -> "No, my daughter is not called Miley."
 "Jonathan", "Cyrus" -> "Nein, meine Tochter heißt nicht Miley."
 "Yes" -> "The Queen's favourite word: 'Yes'.", "Fine.", "You may want to take a look at my goods."

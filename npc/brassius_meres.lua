@@ -79,7 +79,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Brassius Meres the Guard. Keyphrases: hello, quest, profession, Runewick, law, bridge, gods."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Brassius Meres the Guard. Keywords: hello, quest, profession, Runewick, law, bridge, gods."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

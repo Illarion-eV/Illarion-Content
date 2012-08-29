@@ -43,7 +43,7 @@ itemShoes = 53
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Morri the cook. Keyphrases: Fish, Nose, Snorri, Profession.")
+"Help" -> inform("[Game Help] This NPC is Morri the cook. Keywords: Fish, Nose, Snorri, Profession.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: Fisch, Nase, Snorri, Beruf.")
 
 -- General speech
@@ -134,7 +134,7 @@ itemShoes = 53
 "tell something" -> "I would give half of everything I own, if Snorri would fix his broken nose. But he is too stubborn. On the other hand, I cannot find someone to help with this.", "Snorri is a brave dwarf. I know, he is impatient to prove himself in a fight, but we are up to our ears with work, so I can afford to hire a mercenary soldier.", "I have said to Snorri, he should become a stonecutter. But he is the older one and he has to decide for himself. - I wish he had become a stonecutter."
 "erzähl was", "erzähl etwas" -> "Ich würde mein halbes Vermögen geben, damit Snorri seine kaputte Nase richten lässt. Aber er ist eben ein Sturkopf. Auf der anderen Seite finde ich auch kaum einen Heiler der sich damit auskennt.", "Snorri ist ein tapferer Zwerg. Ich weiß, er brennt darauf sich im Kampf zu beweißen, aber mit diesem Marktstand haben wir zu viel um die Ohren, als das wir als Söldner anheuern könnten.", "Ich hab Snorri gesagt, er soll Steinmetz werden. Aber er ist der Ältere also muss er das entscheiden. - Ich wünschte er wäre Steinmetz geworden."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "morri" -> "Arr. Bura'zak-ka! - Welches Essen wollt Ihr mir abkaufen?"
 "morri", english -> "Arr. Bura'zak-ka! - What meal would you like to buy?"
 "Yes" -> "Arr. It's good.", "D'kraga...so, and not otherwise!", "It should be fine by me."

@@ -28,7 +28,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Sam, a guest of The Hemp Necktie Inn . Keyphrases: tell something, who are you, Gobaith"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Sam, a guest of The Hemp Necktie Inn . Keywords: tell something, who are you, Gobaith"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

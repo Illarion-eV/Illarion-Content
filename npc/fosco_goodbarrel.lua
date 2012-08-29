@@ -48,7 +48,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Fosco Goodbarrel the mischievous halfling. Keyphrases: quest, profession, Gobaith, gods, Fosco."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Fosco Goodbarrel the mischievous halfling. Keywords: quest, profession, Gobaith, gods, Fosco."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

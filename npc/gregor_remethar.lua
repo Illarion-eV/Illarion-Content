@@ -34,7 +34,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This is NPC is the mortician Gregor Remethar. Keyphrases: Hello, quest, mortician, tomb, chambers, value of life."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This is NPC is the mortician Gregor Remethar. Keywords: Hello, quest, mortician, tomb, chambers, value of life."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

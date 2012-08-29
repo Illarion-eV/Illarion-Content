@@ -54,7 +54,7 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Sam, a guest of The Hemp Necktie Inn . Keyphrases: tell something, who are you, Gobaith")
+"Help" -> inform("[Game Help] This NPC is Sam, a guest of The Hemp Necktie Inn . Keywords: tell something, who are you, Gobaith")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Sam, ein Gast im Gasthof zur Hanfschlinge. Schlüsselwörter: erzähl etwas, wer seid ihr, Gobaith")
 
 -- General speech
@@ -131,7 +131,7 @@ itemShoes = 53
 "task", "adventure" -> "Do I look like someone who has work for you? Leave, you stupid farmer!"
 "Auftrag", "Aufgabe", "Abenteuer" -> "Sche ich scho auch als hhätt isch Arbeit für disch? Verschwinde du dummer Bauer."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Yes" -> "Eh-h?!", "Fiiiiiine.", "Yes-s!"
 "Ja" -> "Eh-h?!", "Isch jut.", "Ja-h!"
 "No" -> "Gn-hr...Just go away. Leave me alone!", "I don't care, and now leave me alone!", "So WHAT?"

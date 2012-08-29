@@ -44,7 +44,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Anthar Vilicon the chancellor. Keyphrases: Hello, Mission, Chancellor, Cadomyr, Elf."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Anthar Vilicon the chancellor. Keywords: Hello, Mission, Chancellor, Cadomyr, Elf."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -72,7 +72,7 @@ itemShoes = 53
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the cook Nana Winterbutter. Keyphrases: Hello, quest, bowl, cook, cooking.")
+"Help" -> inform("[Game Help] This NPC is the cook Nana Winterbutter. Keywords: Hello, quest, bowl, cook, cooking.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Köchin Nana Winterbutter. Schlüsselwörter: Hallo, Quest, Schüssel, Koch, Kochen.")
 
 -- General speech
@@ -280,7 +280,7 @@ itemShoes = 53
 -- Easteregg
 "Darkman" -> "Oh can you hear him coming, it's the darkman you better keep running."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Nana", "Winterbutter", english -> "That's me!", "Oh, indeed, I am Nana Winterbutter.", "At your service."
 "Nana", "Winterbutter" -> "Das bin ich!", "Oh, ja, ich bin Nana Winterbutter.", "Stets zu Diensten."
 "Yes" -> "Pardon, I don't understand what you are referring to.", "What do you mean with 'Yes'?"

@@ -71,7 +71,7 @@ itemShoes = 53
 -- 5% Helmets: 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the blacksmith Frobenius. Keyphrases: Hello, blacksmith, iron.")
+"Help" -> inform("[Game Help] This NPC is the blacksmith Frobenius. Keywords: Hello, blacksmith, iron.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmied Frobenius. Schlüsselwörter: Hallo, Schmied, Eisen.")
 
 -- General speech
@@ -158,7 +158,7 @@ itemShoes = 53
 "tell something" -> "I tell you: Sharpen you blade and commit deeds for the glory of Cadomyr."
 "erzähl was", "erzähl etwas" -> "Ich sag euch: Schärft eure Klinge und vollbringt Taten für die Ehre von Cadomyr."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Frobenius", english -> "That's me.", "Frobenius is my name and I am the local blacksmith.", "My weapons bring doom over the foes of Cadomyr."
 "Frobenius" -> "Das bin ich.", "Frobenius ist meine Name und ich bin der Schmied hier.", "Meine Waffen bringen Verderben über die Feinde Cadomyrs."
 "Yes" -> "What do you mean?", "What do you need?", "I have a good weapon for you."

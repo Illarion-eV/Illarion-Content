@@ -54,7 +54,7 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Bathelor the high priest of Brágon. Keyphrases: Hello, Brágon, Quest, Priest, Temple.")
+"Help" -> inform("[Game Help] This NPC is Bathelor the high priest of Brágon. Keywords: Hello, Brágon, Quest, Priest, Temple.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bathelor der Hohepriester Brágons. Schlüsselwörter: Hallo, Brágon, Quest, Priester, Tempel.")
 
 -- General speech
@@ -201,7 +201,7 @@ itemShoes = 53
 "tell something" -> "I am happy to tell you about the Five and in particular Brágon."
 "erzähl was", "erzähl etwas" -> "Gerne erzähle ich euch von den Fünf und Brágon im Besonderen."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Bathelor", english -> "My name is not that important, you can call me your 'Highness' or 'Excellency'."
 "Bathelor" -> "Mein Name ist nicht so wichtig, ihr könnt mich auch 'Durchlaucht' oder 'Exzellenz' nennen."
 "Yes" -> "Hail Brágon!", "Blessed be Brágon!", "Praise Brágon!", "Honour Brágon!"

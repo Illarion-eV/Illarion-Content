@@ -83,7 +83,7 @@ itemShoes = 771
 "set 0" -> inform("[Debugging] Quest status reset. Cheater!"), queststatus(120) = 0, queststatus(119) = 0
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Anthar Vilicon the chancellor. Keyphrases: Hello, Mission, Chancellor, Cadomyr, Elf.")
+"Help" -> inform("[Game Help] This NPC is Anthar Vilicon the chancellor. Keywords: Hello, Mission, Chancellor, Cadomyr, Elf.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Anthar Vilicon der Kanzler. Schlüsselwörter: Hallo, Mission, Kanzler, Cadomyr, Elf.")
 
 -- General speech
@@ -502,7 +502,7 @@ itemShoes = 771
 "tell something" -> "I could tell you a lot about Cadomyr, queen Rosaline and the palace."
 "erzähl was", "erzähl etwas" -> "Ich könnte euch etwas über Cadomyr, Königin Rosaline und den Palast erzählen."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Anthar", "Vilicon", english -> "I am the royal chancellor, Anthar Vilicon. Treat me with respect and I will treat you likewise. Treat me without respect and you'll end up beheaded.", "ENGLISH2.", "ENGLISH3."
 "Anthar", "Vilicon" -> "Ich bin der königliche Kanzler, Anthar Vilicon. Erweißt mir Respekt und ich werde euch entsprechend behandeln. Seid respektlos und ihr werdet geköpft."
 "Yes" -> "Very well.", "I assume you agree.", "What do you mean?", "Pardon?"

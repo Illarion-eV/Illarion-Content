@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 29, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Severus Rabon"
@@ -70,12 +70,12 @@ buySecondaryItems = 1908, 1909, 2055, 2056, 2057, 2058, 2059, 518, 517, 2923, 29
 -- Background: A poor man with a dream. He was born a single child. His parents loved and believed that he would be something, He lofted on this dream until hard reality smacked him in his face. When he finally was kicked out of his house he had no money and no skills. He tried random jobs around the city. He sucked at all of them and ended up homeless. For years he begged for money, until one day he had enough and found a way to make money for himself no matter how pathetic. He would go into the desert and gather sand rodents. He built a makeshift stand out of abandoned wood. This went over decent. He actually started to make quite a bit of money since he lived and worked out of a stand that cost him no money. He eventually used his money to pay dowry for a wife. He wanted a cute girl, any would have done. He chose the cheapest of the cute girls he could find, A women from a poor family that was elated to now have a business owner of a husband. He told her his lofty dreams and she worked hard to help him manage it. They eventually saved up enough to build an actual location to sell their sand rat, and that place grew into a general tavern. They have one daughter who cooks. They are now happily married and everything is great.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Severus Rabon the Waiter. Keyphrases: Hello, Good day, trade.")
+"Help" -> inform("[Game Help] This NPC is Severus Rabon the Waiter. Keywords: Hello, Good day, trade.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Severus Rabon der Ober. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Please talk to my wife. She will seat you and then I will take your order.", "If you're a regular please seat yourself. My business is your home.", "If I may be of service I would recommend the sand rat. It's our signature dish."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Please talk to my wife. She will seat you and then I will take your order.", "If you're a regular please seat yourself. My business is your home.", "If I may be of service I would recommend the sand rat. It's our signature dish."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Please talk to my wife. She will seat you and then I will take your order.", "If you're a regular please seat yourself. My business is your home.", "If I may be of service I would recommend the sand rat. It's our signature dish."
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Farewell", "Bye", "Fare well", "See you" -> "Thank you please come again.", "I would be most grateful if you would bless this institution with your presence once more.", "I hope you enjoyed your meal. Remember you can come back any time. The food is good here and the prices are so low the homeless can afford to it."
@@ -89,8 +89,8 @@ buySecondaryItems = 1908, 1909, 2055, 2056, 2057, 2058, 2059, 518, 517, 2923, 29
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.", trade
-"kauf", "waren", "preis", "Handel" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", trade
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I own this place here. So what would I call myself? Shop owner, Business man? I don't know, just call me Severus.", "Right Now I am the waiter and I used to be the cook, but my beautiful and talented daughter has been given a gift from the gods. She is now the cook. I wait on costumers and my wife waits at the door for wonderful people like you."
@@ -135,7 +135,7 @@ buySecondaryItems = 1908, 1909, 2055, 2056, 2057, 2058, 2059, 518, 517, 2923, 29
 "secret" -> "I'm too bland of a person to have any."
 "Geheimnis" -> "GERMAN."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Severus", "Rabon", english -> "Oh, did you need something?", "That is me.", "Hello. I am Severus Rabon. I would be glad to help you with anything that you need."
 "Severus", "Rabon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"

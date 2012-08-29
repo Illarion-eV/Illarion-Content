@@ -64,7 +64,7 @@ itemShoes = 53
 -- Intention of this sort of NPC is to act as a Safepoint to be discovered by players to allow quick travel to certain places in the wilderness (for a heavy price!).
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the portal merchant Phillibald. Keyphrases: Hello, portals, books.")
+"Help" -> inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portals, books.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuch Händler Phillibald. Schlüsselwörter: Hallo, Portale, Bücher.")
 
 -- General speech

@@ -46,7 +46,7 @@ itemTrousers = 823
 itemShoes = 53
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hook Gowan a trader of The Hemp Necktie Inn . Keyphrases: Nubris, Ronagan, King Edwards, tell something")
+"Help" -> inform("[Game Help] This NPC is Hook Gowan a trader of The Hemp Necktie Inn . Keywords: Nubris, Ronagan, King Edwards, tell something")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hook Gowan ein Händler im Gasthof zur Hanfschlinge. Schlüsselwörter: Nubris, Ronagan, König Edwards, erzähl etwas")
 
 -- General speech
@@ -127,7 +127,7 @@ itemShoes = 53
 "tell something" -> "Stop questioning, nobody likes a snoopy one.", "#me starts to smile braodly: 'Let me tell you I'm a bad lad. Years ago I have stolen the nightdress of old King Edwards.'", "Once I was citizen of Cadomyr, then I got banned. Obviously right after chopping my hand of."
 "erzähl was", "erzähl etwas" -> "Hört auf Fragen zu stellen, das sieht hier niemand gern.", "#me setzt ein lächeln auf und prahlt: 'Lasst Euch sagen, ich bin ein übler Bursche. Vor langer Zeit stahl ich das Nachthemd König Edwards.'", "Einst war ich Bürger Cadomyrs, doch man hat mich verbannt. Zuvor vergaß man allerdings nicht mir die Hand abzuhacken."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Gowan", "Hook", "hand", english -> "Yes, I got a hook instead of a hand. What'S the matter?", "No I'm not a pirat. I don't even like the sea. To much sway and swinging... makes me sick.", "The old king of Cadomyr chopped my hand of. True Story, lad."
 "Gowan", "Hook" -> "Ja, ich hab einen Haken an der Hand. Was wollt Ihr?", "Nein ich bin kein Pirat. Ich mag nicht mal das Meer, von zu viel Geschaukle wird mir nämlich immer übel.", "Der alte König, Cadomyrs hat mir damals noch die Hand abgehackt. Ist wahr - ist wahr."
 "haken", "hand" -> "Ja, ich hab einen Haken an der Hand. Was wollt Ihr?", "Nein ich bin kein Pirat. Ich mag nicht mal das Meer, von zu viel Geschaukle wird mir nämlich immer übel.", "Der alte König, Cadomyrs hat mir damals noch die Hand abgehackt. Ist wahr - ist wahr."

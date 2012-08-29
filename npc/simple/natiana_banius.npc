@@ -65,7 +65,7 @@ itemShoes = 53
 ".+", queststatus(322) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Natiana Banius the farmer's wife. Keyphrases: quest")
+"Help" -> inform("[Game Help] This NPC is Natiana Banius the farmer's wife. Keywords: quest")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Natiana Banius die Frau des Bauern. Schlüsselwörter: Auftrag")
 
 -- General speech.
@@ -171,7 +171,7 @@ itemShoes = 53
 "tell something" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
 "erzähl was", "erzähl etwas" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.", "Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.", "Rowan...b...braucht...E...Eure Hilfe.", "#me hustet keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Natiana", "Banius", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
 "Natiana", "Banius" -> "Ver...vergebt mir, ... ich muss ausruhen.", "#mes Augen zucken unruhig, bevor sie entgültig zufallen. Man kann gerade noch ihren schwachen Atem erahnen.", "b...bitte, lasst mich ausruhen.", "#me's head neigt sich langsam. Sie ist scheinbar zu unkonzentiert für ein Gespräch.", "Ich... muss...mein...K...Kräfte...sparen.", "B..Bitte,...h..helft m...mein...Mann.", "Rowan...b...braucht...E...Eure Hilfe.", "#me hustet keuchend und zuckt vor Schmerz krampfhaft zu sammen."
 "Yes" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."

@@ -28,7 +28,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Brute Booze an fameous orcish adventurer. Keyphrases: Hello, towns, heroic deeds, tell something"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Brute Booze an fameous orcish adventurer. Keywords: Hello, towns, heroic deeds, tell something"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

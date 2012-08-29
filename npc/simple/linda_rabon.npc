@@ -63,7 +63,7 @@ itemShoes = 369
 -- Background: She's a nine year old girl with both her parents. She grew up watching her father cook. At about 5 she started experimenting with the stove with the help of a ladder. Her parents were worried and especially freaked out after she burned her left hand at six. They banned her from the stove for a year; afterwards she badgered her mother who eventually let her back into the kitchen. She practiced cooking every day when the customers were not around. She soon outclassed her father in cooking skills and took over as the cook. Together all three of them make just enough money to get by, but it's a happy life, especially for Ce who has her parents and the esteem of being famous as the best cook in Cadomyr.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Linda Rabon the Cook. Keyphrases: Hello, Good day.")
+"Help" -> inform("[Game Help] This NPC is Linda Rabon the Cook. Keywords: Hello, Good day.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Linda Rabon die Köchin. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
@@ -153,7 +153,7 @@ itemShoes = 369
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Linda", "Rabon", english -> "Good day, how are you?", "Today is a great day for cooking.", "That is me. Do you want something."
 "Linda", "Rabon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"

@@ -76,7 +76,7 @@ itemShoes = 53
 ".+", queststatus(78) > 22 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Grakamesh the shaman. Keyphrases: Greebas, quest, tomb, spook, Sir Reginald.")
+"Help" -> inform("[Game Help] This NPC is Grakamesh the shaman. Keywords: Greebas, quest, tomb, spook, Sir Reginald.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schamane Grakamesh. Schlüsselwörter: Greebas, Quest, Gruft, Spuk, Sir Reginald.")
 
 -- General speech
@@ -236,7 +236,7 @@ itemShoes = 53
 "tell something" -> "Hab hear dat legend ob Reginald oomie? Dat be old chief ob Cadomyr. Honourable oomie. Died and now daughter be queen - nub usual, eh?"
 "erzähl was", "erzähl etwas" -> "Du gehört hast Legende von Oomie Reginald? Den alte Häuptling von Cadomyr. Ehrenhafter Oomie. Er gestorben, nun Tochter ist Häuptling - witzig, eh?"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here.
+-- Last catch: Think about keywords the player might say and that are not caught until here.
 "Grakamesh", english -> "Dat be mes, yubba!"
 "Grakamesh" -> "Das sein mir, yubba!"
 "Yes" -> "#me starts to dance wildly.", "#me grunts: 'Whub?'", "Whub?"

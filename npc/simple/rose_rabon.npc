@@ -62,7 +62,7 @@ itemShoes = 369
 -- Background:  Rose was one of three children. She was the only girl and helped her dad take care of her diseased stricken mother. That would have been her Life, except on a trip to the bazaar she caught the eye of a sand rat cook. Their eyes met. She smiled. It was random, but the next day she was shocked to see him at her front door bartering with her father about a dowry. They married the next week. Part of the marriage deal was that he needed to get a house. They made a small hut together with their hands, blasting sand, chopping wood and tying twine. It was a great bonding experience.  Taking care of her husband was even more work than taking care of her ill mother. Kay was a slob, but Rose did not care. Life with him was heaven. Through his dreams and money, and her practicality and both working hard they turned their stand into a shop and their shop into a tavern. Now Life with him and their daughter, Linda is great. Rose takes the position of hostess; she greets the people upon entering with a smile. She directs those who are lost and new.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Rose Rabon the waiter. Keyphrases: Hello, Good day, Hi, Good morning, Pleasure to meet you")
+"Help" -> inform("[Game Help] This NPC is Rose Rabon the waiter. Keywords: Hello, Good day, Hi, Good morning, Pleasure to meet you")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
@@ -125,7 +125,7 @@ itemShoes = 369
 "secret" -> "I'm too bland of a person to have any."
 "GERMAN" -> "GERMAN."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "<Linda>", "<Rabon>", english -> "Oh, did you need something?", "That is me.", "Hello. I am Rose Darknight. I would be glad to help you with anything that you need."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"

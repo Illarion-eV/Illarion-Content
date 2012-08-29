@@ -58,7 +58,7 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keyphrases: Hello, armourer, dwarves, Irmorom, repair, cost.")
+"Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keywords: Hello, armourer, dwarves, Irmorom, repair, cost.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparieren, Kosten.")
 
 -- Mandatory: General speech

@@ -65,7 +65,7 @@ itemShoes = 369
 -- Quest triggers currently blank, to be added at a later date
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Fronita Emery the merchant. Keyphrases: glas, wares, Runewick.")
+"Help" -> inform("[Game Help] This NPC is Fronita Emery the merchant. Keywords: glas, wares, Runewick.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Händlerin Fronita Emery. Schlüsselwörter: Glas, Waren, Runewick.")
 
 -- General speech
@@ -188,7 +188,7 @@ itemShoes = 369
 "tell something" -> "I'd love to live in a house of glass but alas, the summer heat would be unbearable inside.", "Metal corrodes away, but glass is here to stay."
 "erzähl was", "erzähl etwas" -> "Wäre die Hitze im Sommer nicht unerträglich, ich würde in einem Haus aus Glas wohnen.", "Metall rostet, aber Glas ist zeitlos."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Fronita", "Emery", english -> "...and did I mention I sell glass goods?", "Buy something or get...", "Fronita Emery, at your service."
 "Fronita", "Emery" -> "...und erwähnte ich, dass ich Glaswaren verkaufe?", "Kauf etwas oder...", "Fronita Emery, stets zu Diensten."
 "Yes" -> "Yes. True. Absolutely. And now buy my stuff!"

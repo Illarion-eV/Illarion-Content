@@ -43,7 +43,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Rowan Banius the farmer. Keyphrases: quest, profession, farm, wife, what sell."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Rowan Banius the farmer. Keywords: quest, profession, farm, wife, what sell."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

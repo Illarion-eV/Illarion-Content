@@ -98,7 +98,7 @@ itemShoes = 53
 "set 40" -> "Quest status set to 40", state = 0, queststatus(600) = 40
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the priest Nobarg. Keyphrases: Hello, quest, Bragon, god, information.")
+"Help" -> inform("[Game Help] This NPC is the priest Nobarg. Keywords: Hello, quest, Bragon, god, information.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Priester Nobarg. Schlüsselwörter: Hallo, Quest, Bragon, Götter, information.")
 
 -- General speech
@@ -203,7 +203,7 @@ itemShoes = 53
 "quest", "mission", "info", queststatus(600) > 20, english -> "There is nothing more to do."
 "quest", "mission", "info", queststatus(600) > 20 -> "Ich habe für euch nichts mehr zu tun."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "pure fire" -> "I really don't know where you can find pure fire. Ask in Runewick, there are people there that know many things."
 "reines feuer" -> "Ich habe wirklich keine Ahnung wo man reines Feuer findet. Fragt in Runewick. Die Leute dort wissen viele Dinge."
 "robe", english -> "You should ask a tailor. Best be off to Runewick or Cadomyr to find a worthy one."
@@ -313,7 +313,7 @@ itemShoes = 53
 "tell something" -> "In Brágon I believe.", "Another time maybe. Now I have to pray.", "It is not the time for stories, yet."
 "erzähl was", "erzähl etwas" -> "An Bragon glaube ich.", "Vielleicht ein andermal. Jetzt muss ich beten.", "Nun ist nicht die Zeit um Geschichten zu erzählen."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "<NPC first name>", "<NPC last name>", english -> "Yes? How can I help you? Do you like to know more about gods?"
 "<NPC-Vorname>", "<NPC-Nachname>" -> "Ja? Wie kann ich euch behilflich sein? Wollt ihr etwas über Götter wissen?"
 "Yes" -> "Very well. I feared you would say no."

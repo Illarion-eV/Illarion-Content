@@ -33,7 +33,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Queen Rosaline Edwards of Cadomyr. Keyphrases: Hail my queen, Cadomyr, enemies, Sir Reginald, tomb, grave."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Queen Rosaline Edwards of Cadomyr. Keywords: Hail my queen, Cadomyr, enemies, Sir Reginald, tomb, grave."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

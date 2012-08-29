@@ -32,7 +32,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Bathelor the high priest of Brágon. Keyphrases: Hello, Brágon, Quest, Priest, Temple."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Bathelor the high priest of Brágon. Keywords: Hello, Brágon, Quest, Priest, Temple."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

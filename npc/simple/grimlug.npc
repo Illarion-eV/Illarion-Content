@@ -48,7 +48,7 @@ itemShoes = 369
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Grimlug the Shaman. Keyphrases: tell something, Olokwa, creation, gods."), state = 0
+"Help" -> inform("[Game Help] This NPC is Grimlug the Shaman. Keywords: tell something, Olokwa, creation, gods."), state = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Grimlug der Schamane. Schlüsselwörter: erzähl was, Olokwa, Schöpfung, Götter."), state = 0
 
 -- General speech
@@ -181,7 +181,7 @@ itemShoes = 369
 "erzähl was", "erzähl etwas" -> "Grimlug wissigt viele Geschichtens! Von der Schöpfung, von G'rak und H'ref, von Geistern, von Schamanen oder den Göttern.", state = 0
 "tell something" -> "Ask Grimlug to tell about the Creation', G'rak and H'ref, the Spirits, Shamans or the gods.", state = 0
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "<NPC first name>", "<NPC last name>", english -> "How, the shaman 's able to help you?", "Hurr! What's your desire?"
 "<NPC-Vorname>", "<NPC-Nachname>" -> "Wie kann dir der Schamane helfigen?", "Hurr! Was issigt dein Begehr?"
 "Yes" -> "So shall it beings.", "Well then...", "Good - Mes feel the spirits arround you are kin of happy."

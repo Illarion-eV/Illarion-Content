@@ -63,7 +63,7 @@ itemShoes = 53
 -- 2: Quest 1 solved, reward: random, see below
 
 -- Help
-"Help" -> inform("[Game Help] This is NPC is the mortician Gregor Remethar. Keyphrases: Hello, quest, mortician, tomb, chambers, value of life.")
+"Help" -> inform("[Game Help] This is NPC is the mortician Gregor Remethar. Keywords: Hello, quest, mortician, tomb, chambers, value of life.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Leichenbestatter Gregor Remethar. Schlüsselwörter: Hallo, Quest, Leichenbestatter, Gruft, Kammern, Wert des Lebens.")
 
 -- General speech
@@ -219,7 +219,7 @@ itemShoes = 53
 "tell something" -> "We could talk about the tomb or my profession as mortician. I also have a task for you."
 "erzähl was", "erzähl etwas" -> "Wir könnten über die Gruft oder meinen Beruf reden. Ich habe auch eine Aufgabe für euch."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here.
+-- Last catch: Think about keywords the player might say and that are not caught until here.
 "Gregor", "Remethar", english -> "I am the local mortician. Nobody loves me, but everyone needs me - one day."
 "Gregor", "Remethar" -> "Ich bin hier der Leichenbestatter. Niemand liebt mich, aber jeder braucht mich - eines Tages."
 "Yes" -> "Really.", "By Cherga, could you put that differently?", "Honour the dead."

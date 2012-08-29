@@ -38,7 +38,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the miner Bruno Blackhole. Keyphrases: Hello, quest, pick-axe, miner."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the miner Bruno Blackhole. Keywords: Hello, quest, pick-axe, miner."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

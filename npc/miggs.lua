@@ -33,7 +33,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Miggs, the henchman of Don Valerio. Keyphrases: Hello, henchman, quest, Don Valerio, rules."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Miggs, the henchman of Don Valerio. Keywords: Hello, henchman, quest, Don Valerio, rules."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

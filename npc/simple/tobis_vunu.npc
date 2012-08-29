@@ -60,7 +60,7 @@ itemShoes = 369
 -- 4: Tobis vunu hands you 3 silver.  rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
 -- 5: Secret Message told.
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends.
-"Help" -> inform("[Game Help] This NPC is Tobis Vunu the pirate. Keyphrases: Adventure, Gods."), "Help? I won't help you.  Get rid, Jack!", state = 0
+"Help" -> inform("[Game Help] This NPC is Tobis Vunu the pirate. Keywords: Adventure, Gods."), "Help? I won't help you.  Get rid, Jack!", state = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tobis Vunu der Pirat. Schlüsselwörter: Abenteuer, Götter."), "Helfen? Ich werd dir nich helfen. Verschwinde Leichtmatrose!", state = 0
 
 -- create script at tobacco field. [[use 'lighted toarch' & 'tobaccofield tile = spawn flames (item wich disapear by time) over whole tobacco field tiles. + set queststauts=3 + inform( You destroyed the tabacco field. Well done. Talk to Tobis Vunu now. ) // inform( Du hast das Tabakfeld zerstört. gut gemacht. Spreche nun mit Tobis Vunu. ) ]]
@@ -191,7 +191,7 @@ itemShoes = 369
 "Gobaith", "Gobiath", english -> "Aye, I went there for a loot trip, once. But I don't think there's a ship sealing there, this days."
 "Gobaith", "Gobiath" -> "Aye, ich war dort mal auf Beutezug. Aber ich denke nicht das heutzutage da noch Schiffe hinsegeln."
 
--- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Ace name, matee!"
 "mein Name" -> "Spitzen Name, Kumpel!"
 "Tobis", "Vunu", english -> "Aye - that's me! What's up matee?"

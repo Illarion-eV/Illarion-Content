@@ -73,7 +73,7 @@ itemShoes = 697
 ".+", queststatus(3) > 21 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the orcish explorer Graznok. Keyphrases: Hello, quest, profession, explorer, clan, darkness, cave.")
+"Help" -> inform("[Game Help] This NPC is the orcish explorer Graznok. Keywords: Hello, quest, profession, explorer, clan, darkness, cave.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der orkische Kundschafter Graznok. Schlüsselwörter: Hallo, Quest, Beruf, Kundschafter, Clan, Dunkelheit, Höhle.")
 
 -- General speech
@@ -235,7 +235,7 @@ itemShoes = 697
 "tell something" -> "Dere once was orci. And dere was dragon. Dat orci hab smash dat dragon! Gud story, eh?"
 "erzähl was", "erzähl etwas" -> "Es gewesen Ork. Und gewesen Drache. Ork zermatscht Drache! Gutt Geschicht, eh?"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here.
+-- Last catch: Think about keywords the player might say and that are not caught until here.
 "Graznok", english -> "Hurr? Whub want!?"
 "Graznok" -> "Hurr? Wat woll?"
 "Yes", "yub" -> "Whub want, yoos?", "Whubeva.", "Mes nub understand whub yoos be meanin'."

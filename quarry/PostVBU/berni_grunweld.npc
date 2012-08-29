@@ -67,7 +67,7 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> "[Game Help] This NPC is the cook Berni Grunweld. Keyphrases: Hello, quest, seed, adventure, hatchet, cooking spoon"
+"Help" -> "[Game Help] This NPC is the cook Berni Grunweld. Keywords: Hello, quest, seed, adventure, hatchet, cooking spoon"
 "Hilfe" -> "[Spielhilfe] Dieser NPC ist der Koch Berni Grunweld. Schlüsselwörter: Hallo, Quest, Aufgaben, Samen, Beil, Kochlöffel "
 
 -- General speech
@@ -255,7 +255,7 @@ itemShoes = 53
 "tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "Great, hurry up.", "Fantastic, now run!", "Great, but pleace hurry up"

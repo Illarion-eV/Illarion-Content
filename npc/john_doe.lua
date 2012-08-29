@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Insert your name here                                            --
 --                                                                            --
--- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 29, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -48,6 +48,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -57,8 +58,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gr¸ﬂ");
 talkEntry:addTrigger("Gruﬂ");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
@@ -184,6 +187,7 @@ talkEntry:addTrigger("buy");
 talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
+talkEntry:addTrigger("purchase");
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -196,6 +200,8 @@ talkEntry:addTrigger("kauf");
 talkEntry:addTrigger("waren");
 talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
+talkEntry:addTrigger("ver‰uﬂer");
+talkEntry:addTrigger("erwerb");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");

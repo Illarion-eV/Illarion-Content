@@ -73,7 +73,7 @@ itemShoes = 53
 -- 22: Quest 3 solved, reward: ITEM2, +20 rankpoints
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the washer-woman Myrthe Mildthorn. Keyphrases: Hello, laundry, cave, quest.")
+"Help" -> inform("[Game Help] This NPC is the washer-woman Myrthe Mildthorn. Keywords: Hello, laundry, cave, quest.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist das Waschweib Myrthe Mildthorn. Schlüsselwörter: Hallo, Wäsche, Höhle, Quest.")
 
 -- General speech
@@ -233,7 +233,7 @@ itemShoes = 53
 "Ariel", "Sunil", "Persil", "Tandil", english -> "I prefer soap."
 "Ariel", "Sunil", "Persil", "Tandil" -> "Ich nehme lieber Seife."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here.
+-- Last catch: Think about keywords the player might say and that are not caught until here.
 "Myrthe", "Mildthorn", english -> "Yes, I am Myrthe. My last name is Mildthorn. Because my parents' name was also Mildthorn."
 "Myrthe", "Mildthorn" -> "Ja, ich bin die Myrthe. Mein Nachname ist Mildthorn. Das ist so, weil das auch der Nachname meiner Eltern war."
 "Yes" -> "Yes, no.", "Sure, clear.", "Everything is wonderful!"

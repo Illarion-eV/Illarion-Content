@@ -49,7 +49,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Aurora Snow the druid. Keyphrases: quest, Ushara, profession, gods, Aurora."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Aurora Snow the druid. Keywords: quest, Ushara, profession, gods, Aurora."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

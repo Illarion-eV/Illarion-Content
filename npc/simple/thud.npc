@@ -56,7 +56,7 @@ itemShoes = 53
 -- queststatus(301)= 250-254 sehr große belohnung >>queststate=1
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Thud the trophy collector. Keyphrases: trophy - answer with 'yes' or 'no'.")
+"Help" -> inform("[Game Help] This NPC is Thud the trophy collector. Keywords: trophy - answer with 'yes' or 'no'.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thud der Trophäensammler. Schlüsselwörter: Trophäe - Antworte mit 'Ja' oder 'Nein'.")
 
 -- skill(distance weapons)>=40
@@ -265,7 +265,7 @@ itemShoes = 53
 "tell something" -> "Thud like to thud things! With big club."
 "erzähl was", "erzähl etwas" -> "Ich bin Thud. Ich mögen wenn, große Kabums mit Keule.", "Thud ist neue Sprache. Heißt 'der große Kabums.' Das mein Name. Thud mag große Kabums!"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "thud", english -> "#me grunts. 'I thud! That me be. Yubba."
 "thud" -> "#me grunzt. 'Ich Thud! Das ich bin. Yubba.'"
 "Yes" -> "Uh? What you mean?", "Huh? What you talking about?", "Yubba. There we go."

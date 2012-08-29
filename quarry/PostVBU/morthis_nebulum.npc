@@ -76,7 +76,7 @@ itemShoes = 53
 -- NPC by Flux
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Morthis Nebulum the Necromancer. Keyphrases: Magic, Lor Angur, Necromany, Archmage, Blood.")
+"Help" -> inform("[Game Help] This NPC is Morthis Nebulum the Necromancer. Keywords: Magic, Lor Angur, Necromany, Archmage, Blood.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morthis Nebulum der Nekromant. Schlüsselwörter: Magie, Lor Angur, Nekromantie, Archmage, Erzmagier, Blut.")
 
 -- General speech
@@ -194,7 +194,7 @@ itemShoes = 53
 "task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

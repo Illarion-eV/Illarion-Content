@@ -55,7 +55,7 @@ itemShoes = 369
 -- converted to new Illarion by Rincewind
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hagar Wernson the keeper of 'The Winged Sow' Tavern. Keyphrases: Galmair, I am 'your name'.")
+"Help" -> inform("[Game Help] This NPC is Hagar Wernson the keeper of 'The Winged Sow' Tavern. Keywords: Galmair, I am 'your name'.")
 "Hilfe" -> inform("[Spielhilfe] Dies ist NPC Hager Wernson der Wirt der 'Taverne zur geflügelten Sau'. Schlüsselwörter: Galmair, Ich bin 'dein Name'.")
 
 -- General speech
@@ -194,7 +194,7 @@ itemShoes = 369
 "buy water" -> "ye can water yer cow outside! this ain't no stable here!"
 "wasser kauf", "kauf wasser" -> "Deine Kuh kannst du draussen tränken! Dies iss doch kein Stall!"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Hagar", "Wernson", english -> "Beer or wine?", "The usual?", "Hrmpf?"
 "Hagar", "Wernson", "Wirt" -> "Was darf's sein?", "S' übliche?", "Hrmpf?"
 "Yes" -> "Aye!", "Whatever.", "Alright."

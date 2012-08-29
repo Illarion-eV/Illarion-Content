@@ -57,7 +57,7 @@ itemShoes = 53
 -- Swords: 1, 25, 78, 84, 85, 98, 123, 204, 445 (Holzschert), 2658, 2701, 2731, 2757, 2775, 2778
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keyphrases: Murgo, Er'hja, Kroch'Gurak, Alice, Tom"), "Me, Krudash sell and buy lots of stuff! Taghta?", state = 0
+"Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: Murgo, Er'hja, Kroch'Gurak, Alice, Tom"), "Me, Krudash sell and buy lots of stuff! Taghta?", state = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: Murgo, Er'hja, Kroch'Gurak, Alice, Tom"), "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?", state = 0
 
 -- General speech
@@ -150,7 +150,7 @@ itemShoes = 53
 "tell something" -> "Gâsh! I learned the dealing in Gynk! Yp-Yp.", "Hrach! Do you know the blacksmith Frobenius? He sells swords, a horse farrier would be able to make them sharper.", "Murgo is my husband! Er'hja and Ol'hja are us whelps. Taghta?"
 "erzähl was", "erzähl etwas" -> "Gâsh! Ich hab das Handeln in Gynk gelernt! Yp-Yp.", "Hrach! Kennst' du den Schmied Frobenius? Er verkauft Schwerter, ein Hufschmied könnt sie schärfer machen!", "Murgo ist mein Mann! Er'hja und Ol'hja unsere Welpen. Taghta?"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Krudash", english -> "Hurr Hurr. Ciamar a'seibh! How goin?", "Hurr Hurr. Do you need an axe, huh?"
 "Krudash" -> "Hurr Hurr. Ciamar a'seibh! Wie geht's?", "Hurr Hurr. Brauchst ne Axt, hä?"
 "Yes" -> "Taghtha? Is good! Yes.", "There we go. Allrighty-right.", "Hurr, hurr. Wahtever you say."

@@ -73,7 +73,7 @@ itemShoes = 53
 -- 10% Wands: 323, 2782, 2783, 2784, 2785
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Lothar Piero the timber merchant. Keyphrases: Hello, profession, poetry, Pennymill, Archmage Morgan.")
+"Help" -> inform("[Game Help] This NPC is Lothar Piero the timber merchant. Keywords: Hello, profession, poetry, Pennymill, Archmage Morgan.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lothar Piero der Holzhändler. Schlüsselwörter: Hallo, Beruf, Poesie, Pfennigmühle, Erzmagier Morgan.")
 
 -- General speech
@@ -155,7 +155,7 @@ itemShoes = 53
 "tell something" -> "I love poetry. I really enjoy it, perhaps you feel likewise?", "My home is Pennymill, maybe you heard about it.", "I really adore sharing Runewick with the fair folk. Everywhere, you can feel this sparkling magic, I'd miss it elsewhere."
 "erzähl was", "erzähl etwas" -> "Ich liebe die Poesie. All zu gern lass ich mich davon betören. Liebt ihr die schönen Künste so sehr wie ich?", "Meine Heimat liegt in Pfennigmühle. Vielleicht kennt Ihr meine Heimat.", "Ich finde es im Allgemeinen sehr annehmlich, zusammen mit dem schönen Volk Runewick zu bewohnen. Immerzu ungiebt uns alle eine betörende und fantastische Magie, die ich nicht missen mag."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Lothar", "Piero", english -> "Hiho! What goods may I offer to you?"
 "Lothar", "Piero" -> "Hiho! Welche meiner Güter vermögen Euch zu begeistern?"
 "Yes" -> "Yes, very well.", "Indeed, just what I wanted to say.", "How marvellous, we have the same opinion."

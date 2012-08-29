@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Martin Karing                                                    --
 --                                                                            --
--- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 29, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -183,6 +183,7 @@ talkEntry:addTrigger("buy");
 talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
+talkEntry:addTrigger("purchase");
 talkEntry:addResponse("Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.");
 talkEntry:addResponse("I trade fish, do you need any?");
 talkEntry:addResponse("I trade what you need to catch fish and I even buy the fish you caught.");
@@ -196,6 +197,8 @@ talkEntry:addTrigger("kauf");
 talkEntry:addTrigger("waren");
 talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
+talkEntry:addTrigger("veräußer");
+talkEntry:addTrigger("erwerb");
 talkEntry:addResponse("Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.");
 talkEntry:addResponse("Ich handel Fische, braucht ihr welche?");
 talkEntry:addResponse("Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.");

@@ -67,7 +67,7 @@ itemShoes = 53
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the smuggler Ehrom Goldhammer. Keyphrases: Hello, quest, smuggler.")
+"Help" -> inform("[Game Help] This NPC is the smuggler Ehrom Goldhammer. Keywords: Hello, quest, smuggler.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmuggler Ehrom Goldhammer. Schlüsselwörter: Hallo, Quest, Schmuggler.")
 
 -- General speech
@@ -213,7 +213,7 @@ itemShoes = 53
 "tell something" -> "I don't have time to tell stories. Ronagan be my witness, I'm a dwarf of deeds not of words."
 "erzähl was", "erzähl etwas" -> "Ich habe keine Zeit Geschichten zu erzählen. Ronagan sei mein Zeug, ich bin ein Zwerg der Taten, nicht der Worte."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Ehrom", "Goldhammer", english -> "Ehrom Goldhammer is indeed my name. Who told you? Me?"
 "Ehrom", "Goldhammer" -> "Ehrom Goldhammer ist in der Tat mein Name. Wer hat euch den verraten? Ich etwa?"
 "Yes" -> "Pardon, I don't understand what you are referring to.", "What do you mean with 'Yes'?"

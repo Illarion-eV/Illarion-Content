@@ -72,7 +72,7 @@ itemShoes = 53
 -- 5% Stuff: 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 
 -- Help
-"Help" -> inform("[Game Help] This is 'Big Nik', he is a tool and supply trader. Keyphrases: Hello, profession, laws.")
+"Help" -> inform("[Game Help] This is 'Big Nik', he is a tool and supply trader. Keywords: Hello, profession, laws.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Werkzeug- und Rohstoffhändler 'Big Nik'. Schlüsselwörter: Hallo, Beruf, Gesetze.")
 
 -- General speech
@@ -161,7 +161,7 @@ itemShoes = 53
 "animal food" -> "No discount on that!"
 "tiernahrung" -> "Darauf gibt es hier keinen Rabatt!"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Nik", "Nilo", english -> "Everyone calls me Big Nik. Well, my friends do. Everyone is my friend here in Galmair."
 "Nik", "Nilo" -> "Jeder nennt mich Big Nik. Jedenfalls tun das meine Freunde. Und hier in Galmair ist jeder mein Freund."
 "Yes" -> "Aye, now come and buy my wares!"

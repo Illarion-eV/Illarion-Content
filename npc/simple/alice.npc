@@ -50,7 +50,7 @@ itemShoes = 53
 -- Galmair forge
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Alice the ore melting slave. Change a raw ore and a piece of coal into a melted ingot. Fee: 1 silver coin for each task. Keyphrases: smelt 5 gold, smelt 3 copper, smelt 17 silver, smelt 8 iron.")
+"Help" -> inform("[Game Help] This NPC is Alice the ore melting slave. Change a raw ore and a piece of coal into a melted ingot. Fee: 1 silver coin for each task. Keywords: smelt 5 gold, smelt 3 copper, smelt 17 silver, smelt 8 iron.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alice die versklavte Erzschmelzerin. Tausche ein Stück Kohle und einen Erzbrocken gegen einen eingeschmolzenen Barren. Gebühr: 1 Silberstück á Auftrag. Schlüsselwörter: schmelze 5 Gold, schmelze 3 Kupfer, schmelze 17 Silber, schmelze 8 Eisen.")
 
 -- oremelter
@@ -155,7 +155,7 @@ itemShoes = 53
 "tell something" -> "O-once, the fire di-died during melting. A-and Krudash saw it... *sighs*", "So-sometimes, if there's no business, I... - I j-just close my eyes and i-imagine I'm far far away."
 "erzähl was", "erzähl etwas" -> "E-einmal i-ist mir das Feuer während dem S-schmelzen ausgegangen. U-und Krudash hat es gesehen. *schnieft*", "Ma-manchmal wenn n-nichts zu tun ist, dann mach ich di-die Augen zu und d-denk mir, ich wäre wo anders."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Alice", "Snaga", english -> "#me jerks subtly. 'How m-may I h-help y-you?'"
 "Alice", "Snaga" -> "#me zuckt unmerklich zusammen. 'B-bitte, w-was soll i-ich machen?'"
 "Yes", sex = female -> "#me gives a humble nod. 'Y-yes... yes madam!"

@@ -36,7 +36,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addResponse("[Game Help] This NPC is the smith Saren Eisenfaust. Keyphrases: pickaxe, adventure, tell something, Sevenhill.");
+talkEntry:addResponse("[Game Help] This NPC is the smith Saren Eisenfaust. Keywords: pickaxe, adventure, tell something, Sevenhill.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

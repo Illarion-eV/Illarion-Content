@@ -37,7 +37,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the digger Rutrus. Keyphrases: Hello, quest, shovel, profession."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the digger Rutrus. Keywords: Hello, quest, shovel, profession."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

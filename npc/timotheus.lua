@@ -28,7 +28,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the tailor Timotheus. Keyphrases: Hello, tailor."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the tailor Timotheus. Keywords: Hello, tailor."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

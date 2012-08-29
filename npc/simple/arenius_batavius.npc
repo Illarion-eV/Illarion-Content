@@ -83,7 +83,7 @@ itemShoes = 53
 ".+", queststatus(104) > 35 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the crusader Arenius Batavius. Keyphrases: Hello, quest, profession, crusader, order, orcs, cult, Cherga.")
+"Help" -> inform("[Game Help] This NPC is the crusader Arenius Batavius. Keywords: Hello, quest, profession, crusader, order, orcs, cult, Cherga.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Kreuzritter Arenius Batavius. Schlüsselwörter: Hallo, Quest, Beruf, Kreuzritter, Orden, Orks, Kult, Cherga.")
 
 -- General speech
@@ -316,7 +316,7 @@ itemShoes = 53
 "tale", "story", "tell something" -> "I have an interesting tale to tell. It is about an evil cult of blood mages. Seen my wounds? They tell the story."
 "geschichte", "erzähl was", "erzähl etwas" -> "Ich habe eine interessante Geschichte zu erzählen, sie handelt von einem bösen Kult von Blutmagiern. Seht ihr meine Wunden? Sie erzählen die Geschichte."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here.
+-- Last catch: Think about keywords the player might say and that are not caught until here.
 "Arenius", "Batavius", english -> "I am a crusader of the Order of the Silver Dragon."
 "Arenius", "Batavius" -> "Ich bin ein Kreuzritter des Ordens der Silberdrachen."
 "Yes", "yub" -> "Pardon?", "What do you mean?", "I don't quite know..."

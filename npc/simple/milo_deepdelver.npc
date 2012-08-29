@@ -272,7 +272,7 @@ itemShoes = 369
 "tell something" -> "I could tell you a lot about herb lore - and my family, if you wish."
 "erzähl was", "erzähl etwas" -> "Ich könnte eine Menge über Kräuterkunde erzählen - und über meine Familie, wenn ihr wollt."
 
--- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name", english -> "My Name is Milo Deepdelver. I am a herbalist from Runewick. If the Gods are with me, I will be on my way home with this no good mule of mine!"
 "mein name" -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Esel hier!"
 "Milo", "Deepdelver", english -> "Yes, this is my name. If you need some information on the Gods or herb lore just talk to me."

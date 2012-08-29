@@ -56,7 +56,7 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Frizza the informant. Keyphrases: Question, information, Cadomyr, building, game, mission.")
+"Help" -> inform("[Game Help] This NPC is Frizza the informant. Keywords: Question, information, Cadomyr, building, game, mission.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frizza die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Cadomyr, Gebäude, Spiel, Auftrag.")
 
 -- Mandatory: General speech
@@ -234,7 +234,7 @@ itemShoes = 369
 "Gobaith", "Gobiath", english -> "I have never heard that name."
 "Gobaith", "Gobiath" -> "Ich habe diesssen Namen nie gehört."
 
--- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Nice to meet you. How can I help you?"
 "mein Name" -> "Ssschön dich zu kennenzulernen. Wie kann ich dir helfen?"
 "Frizza", english -> "Yes, that isss my name. About what do you want information?"

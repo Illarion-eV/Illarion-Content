@@ -76,7 +76,7 @@ itemShoes = 53
 ".+", queststatus(322) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Rowan Banius the farmer. Keyphrases: quest, profession, farm, wife, what sell.")
+"Help" -> inform("[Game Help] This NPC is Rowan Banius the farmer. Keywords: quest, profession, farm, wife, what sell.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Banius der Bauer. Schlüsselwörter: Auftrag, Beruf, Hof, Frau, was verkauft.")
 
 -- General speech
@@ -243,7 +243,7 @@ itemShoes = 53
 "tell something" -> "I am sorry, but I do not feel much like talking at the moment.", "I apologise, but my wife requires my help.", "I am sorry, but I am too upset to properly engage in conversation at the moment."
 "erzähl was", "erzähl etwas" -> "Es tut mir leid, aber ich bin nicht in der Stimmung etwas zu erzählen.", "Bitte entschuldigt, aber meine Frau bracht meine Hilfe.", "Es tut mir leid, ich bin zu besorgt, als dass ich jetzt ein gutes Gespräch führen könnte."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Rowan", "Banius", english -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."
 "Rowan", "Banius" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
 "Yes" -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."

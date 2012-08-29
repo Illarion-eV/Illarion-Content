@@ -30,7 +30,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Grimlug the Shaman. Keyphrases: tell something, Olokwa, creation, gods."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Grimlug the Shaman. Keywords: tell something, Olokwa, creation, gods."));
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;

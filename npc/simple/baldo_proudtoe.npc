@@ -56,7 +56,7 @@ itemShoes = 53
 -- Quest 118: Runewick Gardens / Die Gärten von Runewick
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Baldo Proudtoe the gardener. Keyphrases: Hello, Quest, Garden, Runewick, Loneliness.")
+"Help" -> inform("[Game Help] This NPC is Baldo Proudtoe the gardener. Keywords: Hello, Quest, Garden, Runewick, Loneliness.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Baldo Proudtoe der Gärtner. Schlüsselwörter: Hallo, Quest, Garten, Runewick, Einsamkeit.")
 
 -- General speech
@@ -185,7 +185,7 @@ itemShoes = 53
 "tell something" -> "I am not a storyteller; but I enjoy our communication! It is much better than talking to the hedges, all alone, you know..."
 "erzähl was", "erzähl etwas" -> "Ich bin nicht gerade der beste Geschichtenerzähler. Aber ich schätze eure Gesellschaft. Weit besser, als hier einsam Selbstgespräche zu führen..."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Last catch: Think about keywords the player might say and that are not caught until here
 "Baldo", "Proudtoe", english -> "Us Proudtoes are very proud of our toes!", "An ancestor of mine had a very big toe. Thus, my family has the name Proudtoe!", "I'm not proud of what I am or do - but I am proud of my toes!"
 "Baldo", "Proudtoe" -> "Wir Proudtoes sind sehr stolz auf unsere Zehen!", "Einer meiner Vorfahren hatte einen riesigen Zeh. Also ist der Name meiner Familie Proudtoe!", "Ich bin nicht stolz darauf, was ich bin oder mache - aber ich bin auf meine Zehen stolz!"
 "Yes" -> "Oh yes, indeed.", "Absolutely.", "I couldn't agree more!"

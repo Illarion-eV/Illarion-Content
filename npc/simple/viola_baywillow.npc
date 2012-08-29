@@ -55,7 +55,7 @@ itemShoes = 369
 "reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0, warp(31, 22, 100)
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keyphrases: Help, Realms, Gods, Races, Crafts, Motives, Landscapes, Leaders, Laws."), "Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!", "Hiho, have we met before? There are so many new faces around, my apologies if we have. Let me tell about the realms of Cadomyr, Galmair and Runewick!", "Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!"
+"Help" -> inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keywords: Help, Realms, Gods, Races, Crafts, Motives, Landscapes, Leaders, Laws."), "Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!", "Hiho, have we met before? There are so many new faces around, my apologies if we have. Let me tell about the realms of Cadomyr, Galmair and Runewick!", "Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!"
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Viola Baywillow. Sie kann dir Informationen über die Spielwelt geben. Schlüsselwörter: Hilfe, Reiche, Götter, Rassen, Handwerke, Motive, Landschaften, Anführer, Gesetze."), "Hiho, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Reiche Cadomyr, Galmair und Runewick wissen möchtest, frag mich einfach danach."
 
 -- Skipping
@@ -264,7 +264,7 @@ itemShoes = 369
 "tell something" -> "All I have is information about the realms, and I'll give that to you for free!"
 "erzähl was", "erzähl etwas" -> "Von mir bekommst du Informationen über die Reiche und die sind umsonst!"
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here.
+-- Last catch: Think about keywords the player might say and that are not caught until here.
 "Viola", "Baywillow", english -> "That's me! If your after information about the realms look no further!"
 "Viola", "Baywillow" -> "Das bin ich und ich weiß viele wichtige Dinge über die Reiche."
 
