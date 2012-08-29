@@ -70,32 +70,6 @@ function CharacterOnField( User )
 	    destFound = true
 	end
 
-	--check if we are at the teleporter in the forced labour camp
-	if User.pos == (position(-495, -484, -40)) then
-		if User:getQuestProgress(25)<1 then --user has finished quest
-			local ItemListe = {49,234,2536,22,21,2763};    --delete ores,coal, pickaxe,gold and bread
-			for i, Item in pairs(ItemListe) do
-				amount = User:countItem(ItemListe[i]);
-				User:eraseItem( ItemListe[i], amount);
-			end --items deleted;
-
-			local Faction = base.factions.get(User); -- lookup to which faction the Character belongs to
-			
-			if     Faction.tid == 1 then dest = position(140,630,0); --cadomyr
-			elseif Faction.tid == 2 then dest = position(788,826,0); --runewick
-			elseif Faction.tid == 3 then dest = position(424,245,0); --galmair
-			else dest = position(730, 226, 0); end --no town member teleport him to the Wilderland
-			SourceItem.wear = 255;
-			world:changeItem(SourceItem);
-		    destFound = true
-		else
-			base.common.InformNLS( User,
-			"Du hast deine Strafe noch nicht abgearbeitet. Bring Percy was er verlangt, um freizukommen.",
-			"You still haven't completed your punishment. Bring Percy what he requests, to get released." );
-			return;
-		end
-	end
-
 	if destFound then -- destination was defined
 		User:talkLanguage(Character.say, Player.german, "debug 18")
 		world:makeSound( 4, dest )
