@@ -2,6 +2,8 @@
 
 require("base.common")
 
+module("triggerfield.labour_camp_warp", package.seeall)
+
 function MoveToField(User)
     if User:getQuestProgress(25) > 0 then -- char wants to go, but his work isn't done; makes the labour camp leader grumpy
 	    local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),15)
