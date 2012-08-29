@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Martin Karing                                                    --
 --                                                                            --
--- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: August 29, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Fredericus"
@@ -76,7 +76,7 @@ buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 
 -- 10% Fish: 73, 355, 455
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the fisherman Fredericus. Keywords: Hello, fisherman, Tanora, trade.")
+"Help" -> inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, fisherman, Tanora, trade.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Fischer, Tanora, Handel.")
 
 -- General speech
@@ -93,9 +93,9 @@ buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 
 "your name", "who are you", "who art thou" -> "Fredericus. That's me.", "I am the fisherman Fredericus.", "Fredericus is my name, I trade fish."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fredericus. Das bin ich.", "Ich bin der Fischer Fredericus.", "Fredericus ist mein Name, ich handel mit Fischen."
 
--- Trade Hooks
-"sell", "buy", "wares", "price", "trade" -> "Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.", "I trade fish, do you need any?", "I trade what you need to catch fish and I even buy the fish you caught.", "Ya want to trade? Aye, have a look!", trade
-"kauf", "waren", "preis", "Handel" -> "Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.", "Ich handel Fische, braucht ihr welche?", "Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.", "Du willst handeln? Da schau her was ich hab!", trade
+-- Optional: Trade Hooks, use only for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.", "I trade fish, do you need any?", "I trade what you need to catch fish and I even buy the fish you caught.", "Ya want to trade? Aye, have a look!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.", "Ich handel Fische, braucht ihr welche?", "Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.", "Du willst handeln? Da schau her was ich hab!", trade
 
 -- Catching quest triggers
 "quest", "mission", english -> "I do not issue any quests. But you can bring me fish and I'll pay you for your work."
@@ -168,7 +168,7 @@ buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 
 "tell something" -> "I swear I saw a sea serpent!", "If an evil spirit haunts a ship, all is lost."
 "erzähl was", "erzähl etwas" -> "Ich schwöre, ich habe ein Seeungeheuer gesehen!", "Wenn ein böser Geist auf einem Schiff sein Unwesen treibt, dann ist es meist bald verloren."
 
--- Last catch: Think about keywords the player might say and that are not caught until here
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Fredericus", english -> "I am merely a humble fisherman. But I could tell you about the gods, shall I?"
 "Fredericus" -> "Ich bin nur ein einfacher Fischer, aber ich könnte euch etwas über die Götter erzählen, wenn ihr Zeit habt."
 "Yes" -> "Aye, aye, and a flounder in addition.", "Well, maybe a herring?", "That's good."
