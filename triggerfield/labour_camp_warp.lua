@@ -30,6 +30,6 @@ function MoveToField(User)
 		else 
 		    dest = position(730, 226, 0) --no town member teleport him to the Wilderland	
 		end
-		User:forceWarp(dest)
+		User:pageGM("This character did their work in the labour camp and left it now.")
 	end	
 end
