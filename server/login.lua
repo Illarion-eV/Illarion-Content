@@ -10,7 +10,7 @@ function onLogin( player )
 
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
-	base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
+	base.common.InformNLS(player,"[Login] Willkommenn auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
     
 	-- So let there be taxes!
 	payTaxes(player);
