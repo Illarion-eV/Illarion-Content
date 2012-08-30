@@ -319,7 +319,7 @@ mainNPC:setLookat("Dieser NPC ist Argentus Almsbag der Geldwechsler von Runewick
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 0);
+mainNPC:setEquipment(3, 182);
 mainNPC:setEquipment(11, 193);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
