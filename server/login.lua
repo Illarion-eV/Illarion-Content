@@ -345,7 +345,9 @@ function payTaxes(taxPayer)
 	lastTax=taxPayer:getQuestProgress(123);
 	if (lastTax~=nil) then
 		if lastTax<timeStmp then
-				taxPayer:inform("you better pay AGAIN, sucker!")
+			taxPayer:inform("you better pay AGAIN, sucker!")
+		else
+			taxPayer:inform("Already paid.")
 		end
 	else
 		taxPayer:inform("you better pay, sucker!")
