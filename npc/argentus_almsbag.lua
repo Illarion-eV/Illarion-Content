@@ -2,7 +2,7 @@
 -- NPC Name: Argentus Almsbag                                        Runewick --
 -- NPC Job:  Money changer                                                    --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  908, 812, 1            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 0, 0, 0, 4, 'Argentus Almsbag', 'npc.argentus_almsbag', 0, 2, 6, 36, 37, 34, 245, 180, 137);
+VALUES (0, 908, 812, 1, 4, 'Argentus Almsbag', 'npc.argentus_almsbag', 0, 2, 6, 36, 37, 34, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")

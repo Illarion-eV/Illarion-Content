@@ -2,7 +2,7 @@
 -- NPC Name: Laura Pepperbags                                         Galmair --
 -- NPC Job:  Money changer                                                    --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  361, 249, 0            --
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -13,7 +13,7 @@
 name = "Laura Pepperbags"
 race = human
 sex = female
-position = 0, 0, 0
+position = 361, 249, 0
 direction = east
 affiliation = "Galmair"
 job = "Money changer"
