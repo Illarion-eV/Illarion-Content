@@ -31,12 +31,12 @@ function MoveToField(User)
 		    dest = position(730, 226, 0) --no town member teleport him to the Wilderland	
 		end
 
+		User:pageGM("This character did their work in the labour camp and left it now.")
         -- Warp him home with some SFX and GFX		
 		world:gfx(41,User.pos);
 	    world:makeSound(13,User.pos);
 		User:forceWarp(dest);
         world:gfx(41,User.pos);
         world:makeSound(13,User.pos);
-
-	end	
+    end	
 end
