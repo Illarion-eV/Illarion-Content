@@ -345,10 +345,11 @@ function payTaxes(taxPayer)
 	lastTax=taxPayer:getQuestProgress(123);
 	if (lastTax~=nil) then
 		if lastTax<timeStmp then
-				taxPayer:inform("you better pay, sucker!")
+				taxPayer:inform("you better pay AGAIN, sucker!")
 		end
 	else
 		taxPayer:inform("you better pay, sucker!")
+		taxPayer:setQuestProgress(123,timeStmp);
 	end
 end
 
