@@ -10,7 +10,7 @@ function onLogin( player )
 
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
-	base.common.InformNLS(player,"[Login] Willkommenn auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcomenn to Illarion! There are "..table.getn(players).." players online."); --sending a message
+	base.common.InformNLS(player,"[Login] Willkomme auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
     
 	-- So let there be taxes!
 	payTaxes(player);
@@ -337,9 +337,11 @@ end
 
 
 function payTaxes(taxPayer)
+	taxPayer:inform("starting to pay taxes now");
 	yr=world:getTime("hour");
 	mon=world:getTime("minute");
 	timeStmp=yr*1000+mon;
+	taxPayer:inform("ts: "..timeStmp)
 	lastTax=taxPayer:getQuestProgress(123);
 	if (lastTax~=nil) then
 		if lastTax<timeStmp then
