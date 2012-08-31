@@ -1,6 +1,8 @@
 -- INSERT INTO triggerfields VALUES (891,390,0,'triggerfield.sacrificial_bowl')
 
 require("base.common")
+module("triggerfield.sacrificial_bowl", package.seeall)
+
 -- sacrificial bowl for the Mirror of Death
 -- here, the death counter is reduced 
 -- only money is accepted 
