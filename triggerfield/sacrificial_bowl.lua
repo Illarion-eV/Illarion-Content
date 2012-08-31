@@ -19,7 +19,7 @@ function PutItemOnField(Item,User)
     if (Item.id ~= 61) and (Item.id ~= 3076) and (Item.id ~= 3077) then -- no money, refuse of the sacrifice
         base.common.InformNLS(User,"Dein Opfer springt wie von selbst aus der Schüssel heraus. Dir ist, als hörst Du das Klimpern von Münzen. Vielleicht ein Hinweis."
 		                          ,"On its own, your sacrifice jumps out of the bowl. You think to hear jingling of coins. Maybe a hint. ")
-        world:createItemFromItem(Item,position(891,389,0) -- next to the bowl, we create the new item
+        world:createItemFromItem(Item,position(891,389,0)) -- next to the bowl, we create the new item
 		world:eraseItem(Item,Item.number) -- and delete the old one
 		
     else 
