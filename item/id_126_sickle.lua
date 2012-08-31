@@ -22,8 +22,17 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return		
 	end
 	
+	if (string.find(User.lastSpokenText,"labour")~=nil) then 
+	    local a,b,workLoad,byFaction=string.find(User.lastSpokenText,"(%d+) (%d+)") 
+		workLoad = tonumber(workLoad)
+		byFaction = tonumber(byFaction)
+		User:setQuestProgress(25,workLoad)
+		User:setQuestProgress(26,byFaction)
+		User:inform("workload: "..User:getQuestProgress(25).." and factionID: "..User:getQuestProgress(26))
+	end	
+		
 	if (string.find(User.lastSpokenText,"poison")~=nil) then 
-	    a,b,myPS=string.find(User.lastSpokenText,"(%d+)") 
+	    local a,b,myPS=string.find(User.lastSpokenText,"(%d+)") 
 		poisonChange = tonumber(myPS)
 		User:increaseAttrib("poisonvalue",poisonChange)
 		myPoisonMsg = "poison value is "..User:increaseAttrib("poisonvalue",0)
@@ -31,7 +40,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end 
 	
 	if (string.find(User.lastSpokenText,"portal")~=nil) then 
-	    a,b,destCord1,destCord2,destCord3=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)")
+	   local a,b,destCord1,destCord2,destCord3=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)")
 		destString = destCord1.." "..destCord2.." "..destCord3
 		myBookPos = base.common.GetFrontPosition(User, 1)
 	    myPortal = world:createItemFromId( 1061, 1, myBookPos, true, 933 ,0);
@@ -39,7 +48,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		world:changeItem(myPortal)
 	end	
 	if (string.find(User.lastSpokenText,"create potion")~=nil) then 
-	   a,b,myId,myEffect,myQuali=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)") 
+	    local a,b,myId,myEffect,myQuali=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)") 
 		nId = tonumber(myId)
 		nEffect = tonumber(myEffect)
 		nQuali = tonumber(myQuali)
