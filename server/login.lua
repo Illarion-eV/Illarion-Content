@@ -361,9 +361,10 @@ end
 function getPossessions(char)
 	char:inform("Testing possessions")
 	bag=char:getBackPack();
-	depot=char:getDepot(101); -- 101-104
+	%depot=char:getDepot(101); -- 101-104
 	char:inform("2")
 	if bag then
+	    char:inform("now counting bag:")
 		local cnt = 0;
 		local value = 0;
 		while bag:viewItemNr(cnt) do
