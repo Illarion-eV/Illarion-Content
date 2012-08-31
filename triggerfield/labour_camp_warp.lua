@@ -6,11 +6,11 @@ module("triggerfield.labour_camp_warp", package.seeall)
 
 function MoveToField(User)
     if User:getQuestProgress(25) > 0 then -- char wants to go, but his work isn't done; makes the labour camp leader grumpy
-	    local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),5) -- Estralis thinks that five tiles are enough as search radius
-        myNpc[1]:talkLanguage(Character.say,Caracter.german,"#me wendet seinen Blick wütend zum Teleporter und schreit los:")
-        myNpc[1]:talkLanguage(Character.say,Caracter.english,"#me looks with anger to the teleporter and starts to shout:")
-        myNpc[1]:talkLanguage(Character.yell,Caracter.german,"Mach gefälligst deine Arbeit, du fauler Hund!")
-        myNpc[1]:talkLanguage(Character.yell,Caracter.english,"Finish your work, you lazy bum!")
+	    local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),10)
+        myNpc[1]:talkLanguage(Character.say,Player.german,"#me wendet seinen Blick wütend zum Teleporter und schreit los:")
+        myNpc[1]:talkLanguage(Character.say,Player.english,"#me looks with anger to the teleporter and starts to shout:")
+        myNpc[1]:talkLanguage(Character.yell,Player.german,"Mach gefälligst deine Arbeit, du fauler Hund!")
+        myNpc[1]:talkLanguage(Character.yell,Player.english,"Finish your work, you lazy bum!")
 
 	else -- the char is allowed to leave
         local ItemListe = {49,234,2536,22,21,2763};    --delete ores, coal, pickaxe, gold nuggets and bread
