@@ -55,7 +55,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 
 	User:inform("Testing possessions")
 	bag=User:getBackPack();
-	%depot=User:getDepot(101); -- 101-104
+	--depot=User:getDepot(101); -- 101-104
 	User:inform("2")
 	if bag then
 	    User:inform("now counting bag:")
