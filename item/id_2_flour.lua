@@ -55,12 +55,24 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 
 	User:inform("Testing possessions")
 	bag=User:getBackPack();
-	--depot=User:getDepot(101); -- 101-104
-	User:inform("2")
 	val=0;
 	if bag then
-        val=val+bagValue(User,bag);
+        copper=bag:countItem(3076);
+        silver=bag:countItem(3077);
+        gold=bag:countItem(61);
+        val=copper+100*silver+10000*gold;
 	end
+    for depNr=101,104 do
+        depot=User:getDepot(depNr); -- 101-104
+        
+        copper=depot:countItem(3076);
+        silver=depot:countItem(3077);
+        gold=depot:countItem(61);
+        val=copper+100*silver+10000*gold;
+    end
+
+    User:inform("Sum: "..val);
+
 
     ScriptVars:set("MTest",43);
     there,hans=ScriptVars:find("MTest");
