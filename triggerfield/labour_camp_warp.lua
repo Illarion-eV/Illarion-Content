@@ -6,7 +6,7 @@ module("triggerfield.labour_camp_warp", package.seeall)
 
 function MoveToField(User)
     if User:getQuestProgress(25) > 0 then -- char wants to go, but his work isn't done; makes the labour camp leader grumpy
-	    local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),5) -- Estralis thinks that five tiles are enough as search radius
+	    local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),10)
         myNpc[1]:talkLanguage(Character.say,Caracter.german,"#me wendet seinen Blick wütend zum Teleporter und schreit los:")
         myNpc[1]:talkLanguage(Character.say,Caracter.english,"#me looks with anger to the teleporter and starts to shout:")
         myNpc[1]:talkLanguage(Character.yell,Caracter.german,"Mach gefälligst deine Arbeit, du fauler Hund!")
