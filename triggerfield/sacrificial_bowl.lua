@@ -10,10 +10,12 @@ module("triggerfield.sacrificial_bowl", package.seeall)
 -- item.id_2874_mirror
 
 function MoveToField(User) -- char dares to step on the sacrificial bowl
-    User:increaseAttrib("hitpoints",-500)
+    if User:getType() == 0 then -- only if a player the char gets damaged; no abuse for monsters
+	   User:increaseAttrib("hitpoints",-1000)
+	end   
 	world:gfx(44,User.pos)
-	User:move(6,true)
-	base.common.HighInformNLS(User,"Deine Füße brennen schmerzhaft und du springst schnell weg.","Your feet brun painfully and you leap aside.")
+	world:makeSound(5,User.pos)
+	base.common.HighInformNLS(User,"Deine Füße brennen schmerzhaft.","Your feet brun painfully.")
 end
 
 function PutItemOnField(Item,User)
