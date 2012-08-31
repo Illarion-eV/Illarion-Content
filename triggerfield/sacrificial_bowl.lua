@@ -51,7 +51,7 @@ function PutItemOnField(Item,User)
 			if newMoney < 500 then -- not enough donated yet
 			    base.common.InformNLS(User, "Die Münzen verschwinden, doch dich beschleicht das Gefühl noch nicht genug gespendet zu haben. Wirf einen Blick in den Spiegel.",
 				                            "The coins vansih, but you get the feeling that you may haven't sacrificed enough. Look in the mirror.")
-				local setMoney = ((quPrg - oldMoney + newMoney)						
+				local setMoney = (quPrg - oldMoney + newMoney)						
 		        User:setQuestProgress(666, setMoney)
 		
             else 
