@@ -52,6 +52,23 @@ end;
 
 
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
+
+	User:inform("Testing possessions")
+	bag=User:getBackPack();
+	%depot=User:getDepot(101); -- 101-104
+	User:inform("2")
+	if bag then
+	    User:inform("now counting bag:")
+		local cnt = 0;
+		local value = 0;
+		while bag:viewItemNr(cnt) do
+		    local _,TestItem = bag:viewItemNr(cnt);
+            value=value+TestItem.Worth;
+            User:inform("Value: "..value);
+			cnt = cnt+1;
+		end
+	end
+
     ScriptVars:set("MTest",43);
     there,hans=ScriptVars:find("MTest");
     if there then
