@@ -59,7 +59,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 	User:inform("2")
 	val=0;
 	if bag then
-        val=val+bagValue(bag);
+        val=val+bagValue(User,bag);
 	end
 
     ScriptVars:set("MTest",43);
@@ -70,8 +70,8 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     ScriptVars:save();
 end
 
-function bagValue(theBag)
-    User:inform("now counting bag:")
+function bagValue(chr,theBag)
+    chr:inform("now counting bag:")
 	local cnt = 0;
 	local value = 0;
 	nrSlots=theBag:getSlotCount()-1;
@@ -82,7 +82,7 @@ function bagValue(theBag)
             mult=TestItem.number;
             myIt=world:getItemStats(TestItem)
             value=value+(myIt.Worth)*mult;
-            User:inform("Value: "..value);
+            chr:inform("Value: "..value);
             if newBag~=nil then
                 value=value+bagValue(newBag);
             end
