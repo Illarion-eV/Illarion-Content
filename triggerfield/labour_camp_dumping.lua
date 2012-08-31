@@ -7,7 +7,7 @@ require("base.common")
 
 module("triggerfield.labour_camp_dumping", package.seeall)
 
-function PutItemInField(Item,User)
+function PutItemOnField(Item,User)
     -- coal, iron, copper, gold; more resources can be added
     if Item.id == 21 or Item.id == 22 or Item.id == 2536 or Item.id == 234 then
         
