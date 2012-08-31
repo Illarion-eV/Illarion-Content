@@ -375,9 +375,6 @@ function getPossessions(char)
 	end
 end
 
-	
-	
-end
 
 --Good/Bad days removed for the time being (confusing!!!)
 --[[function HowAreYouToday( Char )
