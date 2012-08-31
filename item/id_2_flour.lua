@@ -65,7 +65,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 		--while bag:viewItemNr(cnt) do
 		for cnt=0,8 do
 		    local fnd,TestItem = bag:viewItemNr(cnt);
-            if fnd
+            if fnd then
                 value=value+TestItem.Worth;
                 User:inform("Value: "..value);
             end
