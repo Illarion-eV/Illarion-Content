@@ -37,6 +37,7 @@ function PutItemOnField(Item,User)
 		local workLoad = User:getQuestProgress(25)
 		if (workLoad - Item.number) < 0 then
 		    User:setQuestProgress(25,0)
+		    User:setQuestProgress(26,0)
 		else
 		    User:setQuestProgress(25,workLoad-Item.number)
 		end
