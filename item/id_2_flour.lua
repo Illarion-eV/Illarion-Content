@@ -60,7 +60,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
         copper=bag:countItem(3076);
         silver=bag:countItem(3077);
         gold=bag:countItem(61);
-        val=copper+100*silver+10000*gold;
+        val=val+copper+100*silver+10000*gold;
 	end
     for depNr=101,104 do
         depot=User:getDepot(depNr); -- 101-104
@@ -68,9 +68,13 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
             copper=depot:countItem(3076);
             silver=depot:countItem(3077);
             gold=depot:countItem(61);
-            val=copper+100*silver+10000*gold;
+            val=val+copper+100*silver+10000*gold;
         end
     end
+    copper=User:countItemAt("all",3076);
+    silver=User:countItemAt("all",3077);
+    gold=User:countItemAt("all",61);
+    val=val+copper+100*silver+10000*gold;
 
     User:inform("Sum: "..val);
 
