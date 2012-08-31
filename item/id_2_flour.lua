@@ -66,7 +66,9 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 		for cnt=0,8 do
 		    local fnd,TestItem = bag:viewItemNr(cnt);
             if fnd then
-                value=value+TestItem.Worth;
+                mult=TestItem.number;
+                myIt=world:getItemStats(TestItem)
+                value=value+(myIt.Worth)*mult;
                 User:inform("Value: "..value);
             end
 
