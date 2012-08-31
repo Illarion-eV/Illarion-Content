@@ -337,21 +337,42 @@ end
 
 
 function payTaxes(taxPayer)
-	taxPayer:inform("starting to pay taxes now");
-	yr=world:getTime("hour");
-	mon=world:getTime("minute");
+	yr=world:getTime("year");
+	mon=world:getTime("month");
 	timeStmp=yr*1000+mon;
-	taxPayer:inform("ts: "..timeStmp)
 	lastTax=taxPayer:getQuestProgress(123);
 	if (lastTax~=nil) then
 		if lastTax<timeStmp then
 			taxPayer:inform("you better pay AGAIN, sucker!")
+			taxPayer:setQuestProgress(123,timeStmp);
+			getPossessions(taxPayer)
 		else
 			taxPayer:inform("Already paid.")
+			getPossessions(taxPayer)
 		end
 	else
 		taxPayer:inform("you better pay, sucker!")
 		taxPayer:setQuestProgress(123,timeStmp);
+		getPossessions(taxPayer)
+	end
+end
+
+
+function getPossessions(char)
+	char:inform("Testing possessions")
+	bag=char:getBackPack();
+	--depot=char:getDepot(101); -- 101-104
+	char:inform("2")
+	if bag then
+	    char:inform("now counting bag:")
+		local cnt = 0;
+		local value = 0;
+		while bag:viewItemNr(cnt) do
+		    local _,TestItem = bag:viewItemNr(cnt);
+            value=value+TestItem.Worth;
+            char:inform("Value: "..value);
+			cnt = cnt+1;
+		end
 	end
 end
 

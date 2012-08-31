@@ -52,10 +52,43 @@ end;
 
 
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
+
+	User:inform("Testing possessions")
+	bag=User:getBackPack();
+	--depot=User:getDepot(101); -- 101-104
+	User:inform("2")
+	val=0;
+	if bag then
+        val=val+bagValue(User,bag);
+	end
+
     ScriptVars:set("MTest",43);
     there,hans=ScriptVars:find("MTest");
     if there then
         User:inform("TESTVAR: "..hans);
     end
     ScriptVars:save();
+end
+
+function bagValue(chr,theBag)
+    chr:inform("now counting bag:")
+	local cnt = 0;
+	local value = 0;
+	nrSlots=theBag:getSlotCount()-1;
+	--while theBag:viewItemNr(cnt) do
+	for cnt=0,nrSlots do
+	    local fnd, TestItem, newBag = theBag:viewItemNr(cnt);
+        if fnd then
+            mult=TestItem.number;
+            myIt=world:getItemStats(TestItem)
+            value=value+(myIt.Worth)*mult;
+            chr:inform("Value: "..value);
+            if newBag~=nil then
+                value=value+bagValue(newBag);
+            end
+        end
+
+		--cnt = cnt+1;
+	end
+    return value
 end
