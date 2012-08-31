@@ -61,7 +61,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 	    User:inform("now counting bag:")
 		local cnt = 0;
 		local value = 0;
-		User:inform("number: "..#bag);
+		User:inform("number: "..# bag);
 		while bag:viewItemNr(cnt) do
 		    local _,TestItem = bag:viewItemNr(cnt);
             value=value+TestItem.Worth;
