@@ -91,7 +91,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     
     
     
-    gp,sp,cp=MoneyToCoins(totTax)
+    gp,sp,cp=base.money.MoneyToCoins(totTax)
     infText="You have thereby paid your monthly tribut. This month, it were "..gp.." gold, "..sp.." silver and "..cp.." copper, which result from a tribute rate of "..(taxHeight*100).."%";
 
     local closeTrib=function(onClose)
