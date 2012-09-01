@@ -93,6 +93,8 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 
     tax=math.round(val*0.1);
     
+    User:inform("trying to get from you: "..tax.."Depot1: "..valDepot[1].."Depot2: "..valDepot[2].."Body: "..valBody.."Bag: "..valBag);
+    
     -- try to get it from homedepot:
     if tax<=valDepot[1] then
         TakeMoneyFromDepot(User,tax,depNr[1]);
@@ -105,9 +107,12 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     else    -- last, but not least, get it from wherever you can!
         TakeMoneyFromDepot(User,valDepot[1],depNr[1]);
         tax=tax-valDepot[1];
+        User:inform("after d1: "..tax)
         TakeMoneyFromDepot(User,valDepot[2],depNr[2]);
         tax=tax-valDepot[2];
+        User:inform("after d2: "..tax)
         TakeMoneyFromChar(User,tax);
+        User:inform("User has left: "..CharCoinsToMoney(User))
     end
 
     ScriptVars:set("MTest",43);
