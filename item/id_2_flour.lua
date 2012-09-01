@@ -59,6 +59,8 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 --galmair = 103
 --gasthof = 104 (der ist aber unwichtig, da das keine stadt ist)
     
+    taxHeight=0.1;  -- 10% taxes for testing purposes
+    -- *** DEPOT-LIST HAS TO BE CHANGED ACCORDING TO FACTION MEMBERSHIP! ***
     depNr={101,104};
     valDepot={0,0};
     for i=1,2 do
@@ -66,14 +68,9 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     end
 
     valBody=base.money.CharCoinsToMoney(User);
-
     val=valBody+valDepot[1]+valDepot[2];
-
-    User:inform("Sum: "..val);
-
-    tax=math.floor(val*0.1);
-    
-    User:inform("trying to get from you: "..tax.."Depot1: "..valDepot[1].."Depot2: "..valDepot[2].."Body: "..valBody);
+    tax=math.floor(val*taxHeight);
+    totTax=tax;
     
     -- try to get it from homedepot:
     if tax<=valDepot[1] then
@@ -87,12 +84,31 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     else    -- last, but not least, get it from wherever you can!
         base.money.TakeMoneyFromDepot(User,valDepot[1],depNr[1]);
         tax=tax-valDepot[1];
-        User:inform("after d1: "..tax)
         base.money.TakeMoneyFromDepot(User,valDepot[2],depNr[2]);
         tax=tax-valDepot[2];
-        User:inform("after d2: "..tax)
         base.money.TakeMoneyFromChar(User,tax);
-        User:inform("User has left: "..base.money.CharCoinsToMoney(User))
+    end
+    
+    
+    
+    gp,sp,cp=MoneyToCoins(totTax)
+    infText="You have thereby paid your monthly tribut. This month, it were "..gp.." gold, "..sp.." silver and "..cp.." copper, which result from a tribute rate of "..(taxHeight*100).."%";
+
+    local closeTrib=function(onClose)
+    -- do nothing
+    end
+
+    local dialog=MessageDialog("Tribute information",infText,closeTrib);
+
+    User:requestMessageDialog(dialog);
+
+    -- *** TAX-VARIABLE HAS TO BE CHANGED ACCORDING TO FACTION MEMBERSHIP! ***
+    taxFound,taxTotal=ScriptVars:find("taxTotal");
+    if taxFound then
+        taxTotal=taxTotal+tax;
+        ScriptVars:set("taxTotal",taxTotal);
+    else
+        ScriptVars:set("taxTotal",tax);
     end
 
     ScriptVars:set("MTest",43);
@@ -100,5 +116,5 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     if there then
         User:inform("TESTVAR: "..hans);
     end
-    ScriptVars:save();
+    -- ScriptVars:save();
 end
