@@ -97,21 +97,21 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     
     -- try to get it from homedepot:
     if tax<=valDepot[1] then
-        TakeMoneyFromDepot(User,tax,depNr[1]);
+        base.money.TakeMoneyFromDepot(User,tax,depNr[1]);
     elseif tax<=valDepot[2] then    -- if not possible, just take it from the pub-depot:
-        TakeMoneyFromDepot(User,tax,depNr[2]);
+        base.money.TakeMoneyFromDepot(User,tax,depNr[2]);
     elseif tax<=valDepot[1]+valDepot[2] then    -- try both, for god's sake!
-        TakeMoneyFromDepot(User,valDepot[1],depNr[1]);
+        base.money.TakeMoneyFromDepot(User,valDepot[1],depNr[1]);
         tax=tax-valDepot[1];
-        TakeMoneyFromDepot(User,tax,depNr[2]);
+        base.money.TakeMoneyFromDepot(User,tax,depNr[2]);
     else    -- last, but not least, get it from wherever you can!
-        TakeMoneyFromDepot(User,valDepot[1],depNr[1]);
+        base.money.TakeMoneyFromDepot(User,valDepot[1],depNr[1]);
         tax=tax-valDepot[1];
         User:inform("after d1: "..tax)
-        TakeMoneyFromDepot(User,valDepot[2],depNr[2]);
+        base.money.TakeMoneyFromDepot(User,valDepot[2],depNr[2]);
         tax=tax-valDepot[2];
         User:inform("after d2: "..tax)
-        TakeMoneyFromChar(User,tax);
+        base.money.TakeMoneyFromChar(User,tax);
         User:inform("User has left: "..CharCoinsToMoney(User))
     end
 
