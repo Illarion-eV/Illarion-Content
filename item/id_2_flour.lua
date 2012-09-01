@@ -9,6 +9,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
     if 1 then
         UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
+        UseItemMartin2( User, SourceItem, TargetItem, counter, Param, ltstate )
         return
     end
 
@@ -51,8 +52,21 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 end;
 
 
-
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
+    taxFound,taxTotal=ScriptVars:find("taxTotal");
+    payFound,payerCount=ScriptVars:find("payerCount");
+    
+    if taxFound then
+        User:inform("Taxes paid so far: "..taxTotal)
+    end
+    
+    if payFound then
+        User:inform("Taxpayers so far: "..payerCount)
+    end
+end
+
+
+function UseItemMartin2( User, SourceItem, TargetItem, counter, Param, ltstate )
 
 --cadomyr = 101
 --runewick = 102 
@@ -88,9 +102,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
         tax=tax-valDepot[2];
         base.money.TakeMoneyFromChar(User,tax);
     end
-    
-    
-    
+        
     gp,sp,cp=base.money.MoneyToCoins(totTax)
     infText="You have thereby paid your monthly tribut. This month, it were "..gp.." gold, "..sp.." silver and "..cp.." copper, which result from a tribute rate of "..(taxHeight*100).."%";
 
@@ -104,11 +116,19 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 
     -- *** TAX-VARIABLE HAS TO BE CHANGED ACCORDING TO FACTION MEMBERSHIP! ***
     taxFound,taxTotal=ScriptVars:find("taxTotal");
+    payFound,payerCount=ScriptVars:find("payerCount");
     if taxFound then
         taxTotal=taxTotal+tax;
         ScriptVars:set("taxTotal",taxTotal);
     else
         ScriptVars:set("taxTotal",tax);
     end
+    
+    if payFound then
+        ScriptVars:set("payerCount",payerCount+1);
+    else
+        ScriptVars:set("payerCount",1);
+    end
+    
 
 end
