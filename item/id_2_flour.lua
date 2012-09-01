@@ -91,7 +91,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 
     User:inform("Sum: "..val);
 
-    tax=math.round(val*0.1);
+    tax=math.floor(val*0.1);
     
     User:inform("trying to get from you: "..tax.."Depot1: "..valDepot[1].."Depot2: "..valDepot[2].."Body: "..valBody.."Bag: "..valBag);
     
