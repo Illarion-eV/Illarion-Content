@@ -7,10 +7,10 @@ module("item.id_2_flour", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
-    if User.id==42 then
+    --if User.id==42 then
         UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
         return
-    end
+    --end
 
 
     list=world:LoS(User.pos,position(User.pos.x+5,User.pos.y,User.pos.z));
@@ -111,10 +111,4 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
         ScriptVars:set("taxTotal",tax);
     end
 
-    ScriptVars:set("MTest",43);
-    there,hans=ScriptVars:find("MTest");
-    if there then
-        User:inform("TESTVAR: "..hans);
-    end
-    -- ScriptVars:save();
 end
