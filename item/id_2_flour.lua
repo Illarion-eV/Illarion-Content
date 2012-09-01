@@ -1,5 +1,6 @@
 -- General Testscript
 require("handler.sendmessage")
+require("base.money")
 -- UPDATE common SET com_script='item.id_2_flour' WHERE com_itemid IN (2);
 
 module("item.id_2_flour", package.seeall)
@@ -53,31 +54,61 @@ end;
 
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 
+--cadomyr = 101
+--runewick = 102 
+--galmair = 103
+--gasthof = 104 (der ist aber unwichtig, da das keine stadt ist)
+
+
 	User:inform("Testing possessions")
 	bag=User:getBackPack();
-	val=0;
+	valB=0;
 	if bag then
         copper=bag:countItem(3076);
         silver=bag:countItem(3077);
         gold=bag:countItem(61);
-        val=val+copper+100*silver+10000*gold;
+        valBag=copper+100*silver+10000*gold;
 	end
-    for depNr=101,104 do
-        depot=User:getDepot(depNr); -- 101-104
+    
+    depNr={101,104};
+    valDepot={0,0};
+    for i=1,2 do
+        depot=User:getDepot(depNr[i]); -- 101-104
         if depot then
             copper=depot:countItem(3076);
             silver=depot:countItem(3077);
             gold=depot:countItem(61);
-            val=val+copper+100*silver+10000*gold;
+            valDepot[i]=copper+100*silver+10000*gold;
         end
     end
+
     copper=User:countItemAt("all",3076);
     silver=User:countItemAt("all",3077);
     gold=User:countItemAt("all",61);
-    val=val+copper+100*silver+10000*gold;
+    valBody=copper+100*silver+10000*gold;
+
+    val=valBag+valBody+valDepot[1]+valDepot[2];
 
     User:inform("Sum: "..val);
 
+    tax=math.round(val*0.1);
+    
+    -- try to get it from homedepot:
+    if tax<=valDepot[1] then
+        TakeMoneyFromDepot(User,tax,depNr[1]);
+    elseif tax<=valDepot[2] then    -- if not possible, just take it from the pub-depot:
+        TakeMoneyFromDepot(User,tax,depNr[2]);
+    elseif tax<=valDepot[1]+valDepot[2] then    -- try both, for god's sake!
+        TakeMoneyFromDepot(User,valDepot[1],depNr[1]);
+        tax=tax-valDepot[1];
+        TakeMoneyFromDepot(User,tax,depNr[2]);
+    else    -- last, but not least, get it from wherever you can!
+        TakeMoneyFromDepot(User,valDepot[1],depNr[1]);
+        tax=tax-valDepot[1];
+        TakeMoneyFromDepot(User,valDepot[2],depNr[2]);
+        tax=tax-valDepot[2];
+        TakeMoneyFromChar(User,tax);
+    end
 
     ScriptVars:set("MTest",43);
     there,hans=ScriptVars:find("MTest");
@@ -85,27 +116,4 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
         User:inform("TESTVAR: "..hans);
     end
     ScriptVars:save();
-end
-
-function bagValue(chr,theBag)
-    chr:inform("now counting bag:")
-	local cnt = 0;
-	local value = 0;
-	nrSlots=theBag:getSlotCount()-1;
-	--while theBag:viewItemNr(cnt) do
-	for cnt=0,nrSlots do
-	    local fnd, TestItem, newBag = theBag:viewItemNr(cnt);
-        if fnd then
-            mult=TestItem.number;
-            myIt=world:getItemStats(TestItem)
-            value=value+(myIt.Worth)*mult;
-            chr:inform("Value: "..value);
-            if newBag~=nil then
-                value=value+bagValue(newBag);
-            end
-        end
-
-		--cnt = cnt+1;
-	end
-    return value
 end
