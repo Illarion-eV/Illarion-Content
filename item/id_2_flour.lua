@@ -58,42 +58,22 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 --runewick = 102 
 --galmair = 103
 --gasthof = 104 (der ist aber unwichtig, da das keine stadt ist)
-
-
-	User:inform("Testing possessions")
-	bag=User:getBackPack();
-	valB=0;
-	if bag then
-        copper=bag:countItem(3076);
-        silver=bag:countItem(3077);
-        gold=bag:countItem(61);
-        valBag=copper+100*silver+10000*gold;
-	end
     
     depNr={101,104};
     valDepot={0,0};
     for i=1,2 do
-        depot=User:getDepot(depNr[i]); -- 101-104
-        if depot then
-            copper=depot:countItem(3076);
-            silver=depot:countItem(3077);
-            gold=depot:countItem(61);
-            valDepot[i]=copper+100*silver+10000*gold;
-        end
+        valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
     end
 
-    copper=User:countItemAt("all",3076);
-    silver=User:countItemAt("all",3077);
-    gold=User:countItemAt("all",61);
-    valBody=copper+100*silver+10000*gold;
+    valBody=base.money.CharCoinsToMoney(User);
 
-    val=valBag+valBody+valDepot[1]+valDepot[2];
+    val=valBody+valDepot[1]+valDepot[2];
 
     User:inform("Sum: "..val);
 
     tax=math.floor(val*0.1);
     
-    User:inform("trying to get from you: "..tax.."Depot1: "..valDepot[1].."Depot2: "..valDepot[2].."Body: "..valBody.."Bag: "..valBag);
+    User:inform("trying to get from you: "..tax.."Depot1: "..valDepot[1].."Depot2: "..valDepot[2].."Body: "..valBody);
     
     -- try to get it from homedepot:
     if tax<=valDepot[1] then
@@ -112,7 +92,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
         tax=tax-valDepot[2];
         User:inform("after d2: "..tax)
         base.money.TakeMoneyFromChar(User,tax);
-        User:inform("User has left: "..CharCoinsToMoney(User))
+        User:inform("User has left: "..base.money.CharCoinsToMoney(User))
     end
 
     ScriptVars:set("MTest",43);
