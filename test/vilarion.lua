@@ -115,6 +115,25 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         User:inform("start dialog")
         User:requestMerchantDialog(dialog)
     end
+
+    if (User.lastSpokenText == "select") then
+        local items = {1, 2, 2}
+        local names = {"Krasses Schwert", "Weizenmehl", "Roggenmehl"}
+        local callback = function(dialog)
+            success = dialog:getSuccess()
+            if success then
+                selected = dialog:getSelectedIndex()
+                User:inform("Success, selected index " .. selected .. ": '" .. names[selected+1] .. "' (Item ID " .. items[selected+1] .. ").")
+            else
+                User:inform("Selection aborted!")
+            end
+        end
+        local dialog = SelectionDialog("Selection 0",  callback)
+        for i=1,#items do
+            dialog:addOption(items[i], names[i])
+        end
+        User:requestSelectionDialog(dialog)
+    end
 end
 
 function useNPC(User,counter,param)
