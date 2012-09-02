@@ -53,6 +53,44 @@ function CharCoins(char)
         char:countItem(CopperCoinsID)
 end;
 
+--- This method returns the total amount of money in copper coins the char has
+--  in his depot. This method takes all three types of coins into
+--  consideration.
+--
+--  @param char - CharStruct - the char the money count is wanted from
+--  @param depNr - the ID of the depot to check
+--  @return number - the total amount of money in copper coins the player has
+function DepotCoinsToMoney(char,depNr)
+        depot=char:getDepot(depNr);
+        if depot then
+            copper=depot:countItem(CopperCoinsID);
+            silver=depot:countItem(SilverCoinsID);
+            gold=depot:countItem(GoldCoinsID);
+        else
+            return 0;
+        end
+    return CoinsToMoney(gold,silver, copper);
+end;
+
+--- Get the coins a character has in his Depot.
+--
+--  @param char - CharStruct - the char the money count is wanted from
+--  @param depNr - the ID of the depot to check
+--  @return number - the amount of gold coins the depot has
+--  @return number - the amount of silver coins the depot has
+--  @return number - the amount of copper coins the depot has
+function DepotCoins(char,depNr)
+        depot=char:getDepot(depNr);
+        if depot then
+            copper=depot:countItem(CopperCoinsID);
+            silver=depot:countItem(SilverCoinsID);
+            gold=depot:countItem(GoldCoinsID);
+        else
+            return 0,0,0;
+        end
+    return gold,silver,copper;
+end;
+
 --- Split of a total money value in copper coins into the three valid coin
 --  types.
 --
@@ -218,6 +256,43 @@ function TakeCoinsFromChar(char, gCoins, sCoins, cCoins)
     end;
 end;
 
+--- Take some coins from a character's depot. This function only does 
+--  something in case the depot has the required amount of coins.
+--
+--  @param char - CharStruct - the char the coins are taken from
+--  @param gCoins - number - the amount of gold coins taken
+--  @param sCoins - number - the amount of silver coins taken
+--  @param cCoins - number - the amount of copper coins taken
+--  @param depotId - number - the ID of the corresponding depot
+function TakeCoinsFromDepot(char, gCoins, sCoins, cCoins, depotId)
+    local charGold = 0;
+    local charSilver = 0;
+    local charCopper = 0;
+    charGold, charSilver, charCopper = DepotCoins(char,depotId);
+    
+    depot=char:getDepot(depotId);
+    if not depot then
+        return;
+    end
+    
+    if (gCoins > charGold or sCoins > charSilver or cCoins > charCopper) then
+        return;
+    end;
+    
+    if (gCoins > 0) then
+        depot:eraseItem(GoldCoinsID, gCoins);
+    end;
+    
+    if (sCoins > 0) then
+        depot:eraseItem(SilverCoinsID, sCoins);
+    end;
+    
+    if (cCoins > 0) then
+        depot:eraseItem(CopperCoinsID, cCoins);
+    end;
+    
+end;
+
 --- This method takes a certain amount of money from the player. It tries to
 --  take the least amount of coins possible. The method takes nothing in case
 --  the player does not have enougth money. Check this before calling this
@@ -293,4 +368,84 @@ function TakeMoneyFromChar(char, money)
     end;
     
     TakeCoinsFromChar(char, PayGold, PaySilver, PayCopper);
+end;
+
+--- This method takes a certain amount of money from the depot of a player. 
+--  It tries to take the least amount of coins possible. The method takes 
+--  nothing in case the depot does not have enougth money. Check this 
+--  before calling this method.
+--
+--  @param char - CharStruct - the char the money is taken from
+--  @param money - number - the amount of money taken from the char
+--  @param depotId - number - the ID of the depot to take the money from
+function TakeMoneyFromDepot(char, money, depotId)
+
+    if DepotCoinsToMoney(char, money, depotId)<money then
+        return;
+    end
+
+    local PayGold = 0;
+    local PaySilver = 0;
+    local PayCopper = 0;
+    local MissGold = 0;
+    local MissSilver = 0;
+    local MissCopper = 0;
+    MissGold, MissSilver, MissCopper = MoneyToCoins(money);
+    
+    local charGold = 0;
+    local charSilver = 0;
+    local charCopper = 0;
+    charGold, charSilver, charCopper = DepotCoins(char,depotId);
+    
+    local Amount = money;
+    
+    local GoldInCopper = 0;
+    local SilverInCopper = 0;
+    local GoldInSilver = 0;
+    
+    GoldInCopper = math.floor(charCopper / 10000);
+    GoldInCopper = math.min(MissGold, GoldInCopper);
+    PayCopper = GoldInCopper * 10000;
+    MissGold = MissGold - GoldInCopper;
+    charCopper = charCopper - PayCopper;
+    
+    GoldInCopper = math.floor(charCopper / 100);
+    GoldInSilver = 100 - GoldInCopper;
+    if ((MissGold > 0) and (GoldInCopper > 0) and
+        (charSilver >= GoldInSilver)) then
+        PayCopper = PayCopper + 100 * GoldInCopper;
+        PaySilver = PaySilver + GoldInSilver;
+        MissGold = MissGold - 1;
+        charCopper = charCopper - 100 * GoldInCopper;
+        charSilver = charSilver - GoldInSilver;
+    end;
+    
+    SilverInCopper = math.floor(charCopper / 100);
+    SilverInCopper = math.min(MissSilver, SilverInCopper);
+    PayCopper = PayCopper + SilverInCopper * 100;
+    MissSilver = MissSilver - SilverInCopper;
+    charCopper = charCopper - SilverInCopper * 100;
+    
+    if (charCopper >= MissCopper) then
+        PayCopper = PayCopper + MissCopper;
+    else
+        MissSilver = MissSilver + 1;
+        PayCopper = PayCopper + MissCopper - 100;
+    end;
+    
+    GoldInSilver = math.floor(charSilver / 100);
+    GoldInSilver = math.min(MissGold, GoldInSilver);
+    PaySilver = PaySilver + GoldInSilver * 100;
+    MissGold = MissGold - GoldInSilver;
+    charSilver = charSilver - GoldInSilver * 100;
+    
+    if (charSilver >= MissSilver) then
+        PayGold = MissGold;
+        PaySilver = PaySilver + MissSilver;
+    else
+        PayGold = MissGold + 1;
+        PaySilver = PaySilver + MissSilver - 100;
+    end;
+    
+    TakeCoinsFromDepot(char, PayGold, PaySilver, PayCopper,depotId);
 end;
