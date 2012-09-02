@@ -28,7 +28,7 @@ function MoveToField(User)
 		    User.effects:addEffect( myEffect )
 		end
 		
-		if noSpam = true then -- we don't spam
+		if noSpam == true then -- we don't spam
 			local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),10)
 			for i=1,#myNpc do
 				if myNpc[i].name = "Percy Dryless" then -- check if it is the camp leader  
