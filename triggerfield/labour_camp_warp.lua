@@ -31,7 +31,7 @@ function MoveToField(User)
 		if noSpam == true then -- we don't spam
 			local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),10)
 			for i=1,#myNpc do
-				if myNpc[i].name = "Percy Dryless" then -- check if it is the camp leader  
+				if myNpc[i].name == "Percy Dryless" then -- check if it is the camp leader  
 					myNpc[i]:talkLanguage(Character.say,Player.german,"#me wendet seinen Blick wütend zum Teleporter und schreit los:")
 					myNpc[i]:talkLanguage(Character.say,Player.english,"#me looks with anger to the teleporter and starts to shout:")
 					myNpc[i]:talkLanguage(Character.yell,Player.german,"Mach gefälligst deine Arbeit, du fauler Hund!")
