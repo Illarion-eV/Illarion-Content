@@ -4,7 +4,7 @@
 
 require("item.general.metal")
 require("base.common")
-
+require("scheduled.labour_camp_Resources")
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
@@ -21,6 +21,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
         return		
 	end
+	
+	if (string.find(User.lastSpokenText,"weg weg")~=nil) then 
+	    scheduled.labour_camp_Resources.RemoveResources()
+	    return
+    end		
 	
 	if (string.find(User.lastSpokenText,"labour")~=nil) then 
 	    local a,b,workLoad,byFaction=string.find(User.lastSpokenText,"(%d+) (%d+)") 

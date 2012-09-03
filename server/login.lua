@@ -15,9 +15,6 @@ function onLogin( player )
 	-- So let there be taxes!
 	payTaxes(player);
 
-
-
-
 	--Noobia handling
 	if (player.pos.z == 100) or (player.pos.z == 101) then --On Noobia	
 	
@@ -195,34 +192,6 @@ function onLogin( player )
 	
 	player:increaseAttrib("foodlevel",-1);
 	
-	-- Beasts of burden
-	local cowStatus = player:getQuestProgress(8);
-	if (player:getQuestProgress(8) ~= 0) then
-	    if (cowStatus == 1) then
-		    newPos = createCow( player );
-		else
-		    newPos = base.common.DataToPosition( cowStatus );
-
-			npcRace=50;
-			if (player.pos.z == 50) then
-				npcRace=30;
-			end
-
-		    if not world:createDynamicNPC("Lasttier",npcRace,newPos,0,"npc.lasttier") then
-		        newPos = false;
-		    end
-		end
-		if not newPos then
-			player:inform("[Error] Problem creating the beast of burden. Please inform a developer.");
-		else
-			Transporter = world:getCharacterOnField(newPos);
-			transport_effect = LongTimeEffect( 10, 500000 );
-			transport_effect:addValue("owner",player.id);
-			Transporter.effects:addEffect(transport_effect);
-		end
-	end
-	-- Beasts of burden done
-
 	-- Überprüfung für korrekt initiertes Regenerationsskript
 	find, reg_effect = player.effects:find(2);
 	if not find then
@@ -288,28 +257,6 @@ function onLogin( player )
 		end
 	else
     end
-
---[[
-	-- Langzeiteffekt für Magie
-	--
-	if ( ( player:getMagicType( ) == 0 ) and ( player:getMagicFlags( 0 ) > 0 ) ) then -- Charakter ist Magier
-		player:inform("Magie start");
-	    find, magicEffect = player.effects:find(600);
-	    player:inform("Effekt gesucht");
-            if not find then
-	    player:inform("Effekt nicht gefunden");
-		player.effects:addEffect( LongTimeEffect(600,10) );
-	    player:inform("Effekt gesetzt");
-	    end
-	    player:inform("Effekt gefunden.");
-	end
-]]
-
-	--Good/Bad days removed for the time being (confusing!!!)
-	--[[if not( player.pos.z == 100 or player.pos.z == 101 ) then
-		HowAreYouToday( player );
-	end]]
-	
 	return true;
 end
 
@@ -393,7 +340,8 @@ function payNow(User)
         
     gp,sp,cp=base.money.MoneyToCoins(totTax)
     infText="You have thereby paid your monthly tribut. This month, it were "..gp.." gold, "..sp.." silver and "..cp.." copper, which result from a tribute rate of "..(taxHeight*100).."%";
-
+    --Please add the information to which town the tribute was paid ~Estralis
+	
     local closeTrib=function(onClose)
     -- do nothing
     end
@@ -411,45 +359,3 @@ function payNow(User)
         ScriptVars:set("taxTotal",tax);
     end    
 end
-
-
---Good/Bad days removed for the time being (confusing!!!)
---[[function HowAreYouToday( Char )
-    if not listOfAttribs then
-        listOfAttribs = {"strength","dexterity","constitution","agility","willpower","perception","essence","intelligence"};
-    end
-    math.randomseed( Char.id + world:getTime("day") + world:getTime("month") + world:getTime("year") );
-
-    local firstAttrib = listOfAttribs[ math.random(1,8) ];
-    local secondAttrib = "";
-    repeat
-        secondAttrib = listOfAttribs[ math.random(1,8) ];
-    until( firstAttrib ~= secondAttrib );
-
-    local randomTry = math.random(0,10);
-    if( randomTry >= 0 ) and ( randomTry < 1 ) then
-        AttribMessage( Char, firstAttrib, 2 );
-    elseif( randomTry >= 1 ) and ( randomTry < 3 ) then
-        AttribMessage( Char, firstAttrib, 1 );
-    elseif( randomTry >= 3 ) and ( randomTry < 5 ) then
-        AttribMessage( Char, firstAttrib, -1 );
-    end
-
-    local randomTry = math.random(0,10);
-    if( randomTry >= 0 ) and ( randomTry < 1 ) then
-        AttribMessage( Char, secondAttrib, 2 );
-    elseif( randomTry >= 1 ) and ( randomTry < 3 ) then
-        AttribMessage( Char, secondAttrib, 1 );
-    elseif( randomTry >= 3 ) and ( randomTry < 5 ) then
-        AttribMessage( Char, secondAttrib, -1 );
-    end
-end
-
-function AttribMessage( Char, attrib, value )
-    Char:increaseAttrib( attrib, value );
-    local Race = Char:getRace();
-    local msg = content.dailymessage.GetMessage( Char:getPlayerLanguage(), attrib, Race, value );
-    if msg then
-		Char:inform( base.common.GetNLS( Char, "Deine heutige Verfassung: ", "Your condition today: " )..msg );
-    end
-end]]

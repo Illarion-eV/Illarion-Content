@@ -22,7 +22,7 @@ function PutItemOnField(Item,User)
 		end	
 
         if townTreasure ~= "" then -- only if the char as been sent to forced labour by a faction
-			local payToFaction = Item.number*Item.worth--*FACTOR ; replace FACTOR with a value, determing what perecentage of the item worth is payed to the faction
+			local payToFaction = Item.number*Item.Worth--*FACTOR ; replace FACTOR with a value, determing what perecentage of the item worth is payed to the faction
 			local foundTreasure, oldTreasure = ScriptVars:find(townTreasure)
 			if not foundTreasure then -- security check
 				oldTreasure = 0
