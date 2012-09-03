@@ -20,7 +20,8 @@ function RemoveResources()
 			else
                noCounter = noCounter + 1
             end				
-	    end
+	        world:gfx(46,myPosition)
+		end
     end
 end 
 
