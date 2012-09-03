@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 03, 2012                       easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Linda Rabon"
@@ -46,30 +46,26 @@ itemHands = 0
 itemTrousers = 0
 itemShoes = 369
 
--- Glass Spiegel is a Cadomyrian tavern known for the bullington board, where paying clients look for others capable of helping them with their problems. There are 20 npc's in this bar and there are three main rooms, the main gathering room, with the bar, sitting space and stage, the top room, a clearing where the top tier missions are placed on a special bullington board and there is the Dark BB a secret room in the basement where there is a buillington board of quests that generally go against common laws and mores.
-
--- Staff
-
--- Cook: human Ce(see) Darknight
+-- Linda Rabon
 -- Occupation: cook
--- Age: 9
+-- Age: 18
 -- Race: Human
 -- Skin:  very dark
 -- Hair: long black(Afro)
--- Hight: Normal, kid
+-- Hight: Normal
 -- Weight: petite
--- Clothes: cute light blue apron that says My kitchen in pink letters. Short sleeve black shirt. Brown Leather pants.
--- Personality: There is not much complexity to this nine year old. She is happy, confident and extremely polite. She is a sole minded individual focused entirely on the art of cooking.
--- Background: She's a nine year old girl with both her parents. She grew up watching her father cook. At about 5 she started experimenting with the stove with the help of a ladder. Her parents were worried and especially freaked out after she burned her left hand at six. They banned her from the stove for a year; afterwards she badgered her mother who eventually let her back into the kitchen. She practiced cooking every day when the customers were not around. She soon outclassed her father in cooking skills and took over as the cook. Together all three of them make just enough money to get by, but it's a happy life, especially for Ce who has her parents and the esteem of being famous as the best cook in Cadomyr.
+-- Clothes: cute light blue apron that says My kitchen in pink letters ;-). Short sleeve black shirt. Brown Leather pants.
+-- Personality: There is not much complexity to her. She is happy, confident and extremely polite. She is a sole minded individual focused entirely on the art of cooking.
+-- Background: She grew up watching her father cook. At about 5 she started experimenting with the stove with the help of a ladder. Her parents were worried and especially freaked out after she burned her left hand at six. They banned her from the stove for a year; afterwards she badgered her mother who eventually let her back into the kitchen. She practiced cooking every day when the customers were not around. She soon outclassed her father in cooking skills and took over as the cook. After her mother passed away, they make just enough money to get by, but it's a happy life, especially for Linda who has her father and the esteem of being famous as the best cook in Cadomyr.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Linda Rabon the Cook. Keywords: Hello, Good day.")
+"Help" -> inform("[Game Help] This NPC is Linda Rabon the Cook. Keywords: Good day, quest, cook.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Linda Rabon die Köchin. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If you want to order please talk to my mom.", "Oh hello. I'm very busy. I will have to talk to you later.", "Oh hello. I'm so tired. I feel like I'm going to pass out."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If you want to order please talk to my father.", "Oh hello. I'm very busy. I will have to talk to you later.", "Oh hello. I'm so tired. I feel like I'm going to pass out."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If you want to order please talk to my mom.", "Oh hello. I'm very busy. I will have to talk to you later.", "Oh hello. I'm so tired. I feel like I'm going to pass out."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If you want to order please talk to my father.", "Oh hello. I'm very busy. I will have to talk to you later.", "Oh hello. I'm so tired. I feel like I'm going to pass out."
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Farewell", "Bye", "Fare well", "See you" -> "Please come again. I will cook better next time, I promise.", "Oh, You're leaving already? Was the food bad?", "Thank you, come again."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -180,3 +176,13 @@ cycletext "ENGLISH.", "These people eat to fast Upstairs."
 cycletext "ENGLISH.", "What time is it? Shouldn't we be closing soon."
 cycletext "ENGLISH.", "Oh gods! Why is the chicken on fire again?"
 cycletext "ENGLISH", "I wonder if there are schools for cooking. I would be the best teacher ever."
+cycletext "ENGLISH.", "If you have any questions please come to me. It is my job to answer them if that's alright with you."
+cycletext "ENGLISH.", "Welcome to the Glass Spiegel."
+cycletext "ENGLISH.", "Please come visit us again at the Glass Spiegel. We miss your presence."
+cycletext "ENGLISH.", "Here at the Glass Spiegel we have the best grilled sand rat in all of Globieth."
+cycletext "ENGLISH.", "Here at the Glass Spiegel we offer sand rat in 22 different spices."
+cycletext "ENGLISH.", "This place is starting to be a mess. I should make Kay mop this place up."
+cycletext "ENGLISH.", "Pal Por plays such good music."
+cycletext "ENGLISH.", "Every time I smell a sand rat pie that Linda has cooked my heart smiles."
+cycletext "ENGLISH.", "Oh sorry excuse me. I did not mean to get in your way."
+cycletext "ENGLISH.", "I wonder what I should get Linda for her birthday."
