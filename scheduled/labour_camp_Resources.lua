@@ -18,7 +18,7 @@ function RemoveResources()
 			if myItem.id == 21 or myItem.id == 22 or myItem.id == 2536 or myItem.id == 234 then
 		        world:erase(Item,Item.number)
 			else
-                noCounter + 1
+               noCounter = noCounter + 1
             end				
 	    end
     end
