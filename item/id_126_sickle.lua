@@ -22,6 +22,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return		
 	end
 	
+	if (string.find(User.lastSpokenText,"weg weg")~=nil) then 
+	    scheduled.labour_camp_Resources.RemoveResources()
+	    return
+    end		
+	
 	if (string.find(User.lastSpokenText,"labour")~=nil) then 
 	    local a,b,workLoad,byFaction=string.find(User.lastSpokenText,"(%d+) (%d+)") 
 		workLoad = tonumber(workLoad)
