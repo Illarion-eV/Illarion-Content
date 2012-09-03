@@ -38,7 +38,7 @@ function CheckCharacter(myPosition)
 		        break      
 		    end
 		end	
-		if warpTo = false then -- no free field found, we just warp him to the field he's already standing on
+		if warpTo == false then -- no free field found, we just warp him to the field he's already standing on
 		    warpTo = myPerson.pos
 		end
 		
