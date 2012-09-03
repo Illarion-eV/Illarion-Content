@@ -1,20 +1,20 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Rose Rabon                                               Cadomyr --
+-- NPC Name: Linda Rabon                                              Cadomyr --
 -- NPC Job:  Cook                                                             --
 --                                                                            --
--- NPC Race: human                      NPC Position:  116, 582, 0            --
+-- NPC Race: human                      NPC Position:  116, 577, 0            --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 03, 2012                       easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
-name = "Rose Rabon"
+name = "Linda Rabon"
 race = human
 sex = female
-position = 116, 582, 0
+position = 116, 577, 0
 direction = west
 affiliation = "Cadomyr"
 job = "Cook"
@@ -46,51 +46,51 @@ itemHands = 0
 itemTrousers = 0
 itemShoes = 369
 
--- Name: Rose Rabon
--- Occupation: hostess
+-- Linda Rabon
+-- Occupation: cook
+-- Age: 18
 -- Race: Human
--- Age: 26
--- Skin: Very dark
--- Hair: long black (fro)
--- Height: average
--- Weight: Slim
-
--- Cloth: Long sleeve black shirt. Brown leather pants
-
--- Personality: Rose is meek, cheerful and practical. It's a weird combination. Her daughter missed the practical and meek bit, but it works for Rose.
-
--- Background:  Rose was one of three children. She was the only girl and helped her dad take care of her diseased stricken mother. That would have been her Life, except on a trip to the bazaar she caught the eye of a sand rat cook. Their eyes met. She smiled. It was random, but the next day she was shocked to see him at her front door bartering with her father about a dowry. They married the next week. Part of the marriage deal was that he needed to get a house. They made a small hut together with their hands, blasting sand, chopping wood and tying twine. It was a great bonding experience.  Taking care of her husband was even more work than taking care of her ill mother. Kay was a slob, but Rose did not care. Life with him was heaven. Through his dreams and money, and her practicality and both working hard they turned their stand into a shop and their shop into a tavern. Now Life with him and their daughter, Linda is great. Rose takes the position of hostess; she greets the people upon entering with a smile. She directs those who are lost and new.
+-- Skin:  very dark
+-- Hair: long black(Afro)
+-- Hight: Normal
+-- Weight: petite
+-- Clothes: cute light blue apron that says My kitchen in pink letters ;-). Short sleeve black shirt. Brown Leather pants.
+-- Personality: There is not much complexity to her. She is happy, confident and extremely polite. She is a sole minded individual focused entirely on the art of cooking.
+-- Background: She grew up watching her father cook. At about 5 she started experimenting with the stove with the help of a ladder. Her parents were worried and especially freaked out after she burned her left hand at six. They banned her from the stove for a year; afterwards she badgered her mother who eventually let her back into the kitchen. She practiced cooking every day when the customers were not around. She soon outclassed her father in cooking skills and took over as the cook. After her mother passed away, they make just enough money to get by, but it's a happy life, especially for Linda who has her father and the esteem of being famous as the best cook in Cadomyr.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Rose Rabon the waiter. Keywords: Hello, Good day, Hi, Good morning, Pleasure to meet you")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Linda Rabon the Cook. Keywords: Good day, quest, cook.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Linda Rabon die Köchin. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day potential customers. How may I assist you today?", "If you're a regular please seat yourself. My business is your home.", "Welcome to the Glass Spiegel"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If you want to order please talk to my father.", "Oh hello. I'm very busy. I will have to talk to you later.", "Oh hello. I'm so tired. I feel like I'm going to pass out."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day potential customers. How may I assist you today?", "If you're a regular please seat yourself. My business is your home.", "Welcome to the Glass Spiegel"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If you want to order please talk to my father.", "Oh hello. I'm very busy. I will have to talk to you later.", "Oh hello. I'm so tired. I feel like I'm going to pass out."
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Farewell", "Bye", "Fare well", "See you" -> "Oh won't you please visit us again.", "Anytime you think of dining please do not forget the Glass Spiegel", "Goodbye beautiful person."
+"Farewell", "Bye", "Fare well", "See you" -> "Please come again. I will cook better next time, I promise.", "Oh, You're leaving already? Was the food bad?", "Thank you, come again."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Oh won't you please visit us again.", "Anytime you think of dining please do not forget the Glass Speigel", "Goodbye beautiful person."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Please come again. I will cook better next time, I promise.", "Oh, You're leaving already? Was the food bad?", "Thank you, come again."
+"Farewell", "Bye", "Fare well", "See you" -> "Please come again. I will cook better next time, I promise.", "Oh, You're leaving already? Was the food bad?", "Thank you, come again."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel" -> "Hahaha, I think I forgot what a real bad day looks like.", "I am enjoying my day and you?", "I think I'm a little bit sleepy, but how are you?"
+"How are you", "How feel" -> "I feel like a thousand suns shineing upon a cloudless sky. Hehehhe, that's what daddy allways says.", "I'm very very very busy. No time to chit chat.", "AHH! The chicken is on fire! Why would you try to talk to me while I'm cooking."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Your name", "who are you", "who art thou" -> "I am Rose Rabon, the hostess for this restaurant.", "I am Rose Rabon, mother and wife.", "I am Rose the happy."
+"your name", "who are you", "who art thou" -> "I'm Linda Rabon I may not look it, but I am the best cook in Cadomyr.", "I am Linda. Hahhahahahaha. I'm sorry you made a funny face.", "I'm Linda I'll cook you something special if you ask."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "You want to know what I do? I am the hostess. I sit the costumers when they visit our restaurant.", "I am the hostess here. I use to be a waiter, but then this position became available. My husband took my old job, and I get to talk to customers all day without taking orders.", "I work as the hostess. Please see me if you would like to be seated or if you are lost."
+"profession" -> "I'm a cook. Well I'm the cook. I Can make hummus, boiled noodle leaf, breaded red sweet and my specialty is fried sand rat.", "I make the food that you all eat.", "Daddy says that I am part owner of this shop."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "You want to know what I do? I am the hostess. I sit the costumers when they visit our restaurant.", "I am the hostess here. I use to be a waiter, but then this position became available. My husband took my old job, and I get to talk to customers all day without taking orders.", "I work as the hostess. Please see me if you would like to be seated or if you are lost."
+"job", english -> "I'm a cook. Well I'm the cook. I Can make hummus, boiled noodle leaf, breaded red sweet and my specialty is fried sand rat.", "I make the food that you all eat.", "Daddy says that I am part owner of this shop."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "What opinion can I have on the entire world?"
+"Gobaith", "Gobiath", english -> "I think we live there.", "Is Cadomyr in Golbaith? I don't know."
 "Gobaith", "Gobiath" -> "GERMAN1", "GERMAN2.", "GERMAN3."
-"Glass Spiegel" -> "You're at the glass Spiegel. I know this may sound boastful, but I think we have the best restaurant in Cadomyr."
-"Daughter", "Linda" -> "My beautiful little girl. She takes so much after her father. Linda even followed him and became a cook"
-"Husband", "Severus" -> "I love him. He's my life. This Restaurant is his dream and we built it together."
-"Pal", "Por" -> "He never speaks. It's kind of weird. Don't you think?"
-"Ouchpan", "Yang" -> "He's so big. He used to have to duck to enter this place. My husband is so nice though. He made the entrance taller."
+
+-- Cadomyr
+"Glass Spiegal" -> "Daddy and Mommy built this place", "This place is called glass because sand turns to glass when it is cooked. And we cook in this place. Get it.. get it?", "I want to get married here."
+"Daddy", "Severus" -> "He says he is the best dad in Cadomyr. I agree with him. His is the best dad. And if anyone says he's not. Well, they get no dinner from me.", "I wonder what daddy's going to get me for my birthday?", "Daddy wishes he could be as good of a cook as me."
+"Mommy", "Rose" -> "Daddy used to be the cook and mommy the waitress, but since I am the best cook in Cadomyr. I am the cook, Daddy is the waitress, and Mommy greets people at the door.", "Mommy says when I grow Up I'm going to be beautiful.", "Mommy is too nice. She is even nice to mean people."
+"Pal", "Por" -> "He's cute, don't you think?", "I love when Pal plays. Even his songs are beautiful.", "I wish he would tell stories too, but Pal never talks."
+"Ouchpan", "yang" -> "He's soooooo big. He picked me up once. I felt like I was touching the stars.", "Did you know that Mr. Yang can play the Oboe. He plays it sometimes. You should ask him to play.", "Mr Yang is very nice. Him and my mother never get mad."
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -103,31 +103,55 @@ itemShoes = 369
 "Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "She should come try our food. I promise she will declare it the most delicious food in all of Cadomyr."
+"rosaline", "edwards", "queen", english -> "She is beautiful isn't she.", "My mom says that Rosaline is very smart.", "I want to be queen Rosaline when I grow up."
 "rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gods", "god" -> "gods?  There is Oldra, Sirani and Adron."
-"Oldra" -> "Olddra has to be the favorite god of any mother."
-"Sirani" -> " I do not deserve it, I do not deserve it, I do not deserve it, but Sirani blessed me. I don't know why. Somethimes at night when I think about how in love I am I start crying."
-"Adron" -> "My husband put up an alter to Adron In this tavern. I see it everyday. He has given us plenty."
 
 -- Main land factions
-"albar", english -> ""
+"albar", english -> "What is Albar?", "Which way do I have to walk to go too Albar?", "I'm too busy, stop telling me stuff I don't know."
 "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> ""
+"gynk", "gync", english -> "I don't know where that is.", "I'm trying to cook here, Yesh!", "What is gynk?"
 "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> ""
+"salkama", english -> "That place has a cool name, where is it?", "Nope I've never been to Saikama.", "I've never left cadomyr."
 "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"Irmorom", english -> "He's the only one that ever cared about me. I give him 10% of my earnings."
+"Adron", english -> "The God of festivities and wine? Did I get it right?"
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "He's a giant with a beard of fire. He is a good god."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "I don't like Cherga. He's scary."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "The goddess of wisdom. That's all I know about her."
+"Elara" -> ""
+"Eldan", english -> "Mommy told me he has many forms, but he always carries a wooden pole."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "The goddess of air. She is very beautiful."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "There is a picture of him over there *points to the wall*."
+"Malachin", "Malachín", english -> "He's the wolf god. I want a wolf. I'm going to ask daddy tonight if I can have a wolf."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "I'm not afraid of old bone head. If he ever walks through these doors. I will punch him in the nose. Pow! Pow!"
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "He is another bad one. People should make money honestly, like my mommya and daddy."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "I'm sorry I have not made it to that god yet."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "I'm sorry I have not made it to that god yet."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "I'm sorry I have not made it to that god yet."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "I'm sorry I have not made it to that god yet."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "I'm sorry I have not made it to that god yet."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "I'm sorry I have not made it to that god yet."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
-"secret" -> "I'm too bland of a person to have any."
-"GERMAN" -> "GERMAN."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"<Linda>", "<Rabon>", english -> "Oh, did you need something?", "That is me.", "Hello. I am Rose Darknight. I would be glad to help you with anything that you need."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Linda", "Rabon", english -> "Good day, how are you?", "Today is a great day for cooking.", "That is me. Do you want something."
+"Linda", "Rabon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "No" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
@@ -142,6 +166,16 @@ itemShoes = 369
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
+cycletext "ENGLISH.", "Suger, spice, everything nice, rat, cat everthings great."
+cycletext "ENGLISH.", "It's almost my birthday. I CAN'T WAIT!"
+cycletext "ENGLISH.", "Today I am cooking a unique dish. It requires snails lightly touched in flame, pepper from the black forest, juice from a sour fruit, and like three other things I can't tell you. Hahahahaha. This is going to be good."
+cycletext "ENGLISH.", "One of these days I'm going to try and learn to read a book. It's just that all my time goes to cooking. I mean all my cooking goes to time. Wait what?"
+cycletext "ENGLISH.", "Daddy can you bring up more chicken please."
+cycletext "ENGLISH.", "Mr. Yang!"
+cycletext "ENGLISH.", "These people eat to fast Upstairs."
+cycletext "ENGLISH.", "What time is it? Shouldn't we be closing soon."
+cycletext "ENGLISH.", "Oh gods! Why is the chicken on fire again?"
+cycletext "ENGLISH", "I wonder if there are schools for cooking. I would be the best teacher ever."
 cycletext "ENGLISH.", "If you have any questions please come to me. It is my job to answer them if that's alright with you."
 cycletext "ENGLISH.", "Welcome to the Glass Spiegel."
 cycletext "ENGLISH.", "Please come visit us again at the Glass Spiegel. We miss your presence."
