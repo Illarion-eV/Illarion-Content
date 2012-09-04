@@ -15,11 +15,13 @@ function RemoveResources()
         local noCounter = 0
 		for i=0,stackNumber do
 		    local myItem = myField:getStackItem(i+noCounter)
-			local theItemStats=world:getItemStats(myItem)
-			if myItem.id == 21 or myItem.id == 22 or myItem.id == 2536 or myItem.id == 234 then
-		        world:erase(myItem,theItemStats.number)
-			else
-               noCounter = noCounter + 1
+			if myItem ~= nil then	
+				local theItemStats=world:getItemStats(myItem)
+				if myItem.id == 21 or myItem.id == 22 or myItem.id == 2536 or myItem.id == 234 then
+					world:erase(myItem,theItemStats.number)
+				else
+				   noCounter = noCounter + 1
+				end		
             end				
 	        world:gfx(46,myPosition)
 		end
