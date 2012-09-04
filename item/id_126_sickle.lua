@@ -23,7 +23,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if (string.find(User.lastSpokenText,"weg weg")~=nil) then 
-	    scheduled.labour_camp_Resources.RemoveResources()
+	    scheduled.labour_camp_Resources.RemoveResources(User)
 	    return
     end		
 	
