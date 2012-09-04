@@ -15,7 +15,6 @@ function RemoveResources(User)
         local noCounter = 0
 		for i=0,stackNumber do
 		    local myItem = myField:getStackItem(i+noCounter)
-			User:inform("debug "..myPosition.x" "..myPosition.y)
 			if myItem ~= nil then	
 				User:inform("debug2 "..myItem.id)
 				local theItemStats=world:getItemStats(myItem)
