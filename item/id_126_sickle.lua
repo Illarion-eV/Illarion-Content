@@ -29,8 +29,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	if (string.find(User.lastSpokenText,"weg2")~=nil) then 
 	    myItem = base.common.GetFrontItem(User)
-		local theItemStats=world:getItemStats(myItem)
-		world:erase(myItem,1)
+		world:erase(myItem,myItem.number)
 	    return
 	end
 	
