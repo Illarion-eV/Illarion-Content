@@ -19,7 +19,7 @@ function RemoveResources(User)
 				User:inform("debug2 "..myItem.id)
 				if myItem.id == 21 or myItem.id == 22 or myItem.id == 2536 or myItem.id == 234 then
 					User:inform("debug3 "..myItem.id)
-					world:erase(myItem,1)
+					world:erase(myItem,myItem.number)
 				else
 				   noCounter = noCounter + 1
 				end		
