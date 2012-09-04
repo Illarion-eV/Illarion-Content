@@ -8,7 +8,8 @@ module("scheduled.labour_camp_Resources", package.seeall)
 function RemoveResources(User)
     depositPositions = {position(-492,-489,-40),position(-492,-488,-40),position(-491,-488,-40),position(-491,-489,-40)}
 	for i=1,4 do
-	    local myPosition = depositPositions[i] 
+	    User:inform("turn "..i)
+		local myPosition = depositPositions[i] 
 	    CheckCharacter(myPosition)
         local myField = world:getField(myPosition)
         local stackNumber = myField:countItems()
