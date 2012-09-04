@@ -16,7 +16,7 @@ function RemoveResources()
 		for i=0,stackNumber do
 		    local myItem = myField:getStackItem(i+noCounter)
 			if myItem.id == 21 or myItem.id == 22 or myItem.id == 2536 or myItem.id == 234 then
-		        world:erase(Item,Item.number)
+		        world:erase(myItem,Item.number)
 			else
                noCounter = noCounter + 1
             end				
