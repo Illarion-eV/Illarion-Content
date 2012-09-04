@@ -27,6 +27,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    return
     end		
 	
+	if (string.find(User.lastSpokenText,"weg2")~=nil) then 
+	    local myItem = base.common.GetFrontItem(User)
+		local theItemStats=world:getItemStats(myItem)
+		world:erase(myItem,theItemStats.number)
+	    return
+	end
+	
 	if (string.find(User.lastSpokenText,"labour")~=nil) then 
 	    local a,b,workLoad,byFaction=string.find(User.lastSpokenText,"(%d+) (%d+)") 
 		workLoad = tonumber(workLoad)
