@@ -13,7 +13,7 @@ function RemoveResources(User)
         local myField = world:getField(myPosition)
         local stackNumber = myField:countItems()
         local noCounter = 0
-		for i=0,stackNumber do
+		for i=0,stackNumber-1 do
 		    local myItem = myField:getStackItem(i+noCounter)
 			if myItem ~= 0 then	
 				User:inform("debug2 "..myItem.id)
