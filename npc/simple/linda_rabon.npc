@@ -80,7 +80,7 @@ itemShoes = 369
 "your name", "who are you", "who art thou" -> "I am Rose Rabon, the hostess for this restaurant.", "I am Rose Rabon, mother and wife.", "I am Rose the happy.", "I'm Linda Rabon I may not look it, but I am the best cook in Cadomyr.", "I am Linda. Haha, I'm sorry, you made a funny face.", "I'm Linda, I'll cook you something special if you ask."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- 1st quest: Gather 10 bundles of grain (249)
+-- 1st quest: Gather 15 cutlery (2647)
 "quest", "mission", queststatus(126) = 0, english -> inform("[New quest] A Noble Celebration I"), "As you might know, Cadomyr is not blessed with much fertile farmland. Hence, the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed.", queststatus(126) = 1
 "quest", "mission", queststatus(126) = 0 -> inform("[Neues Quest] Eine edle Feier I"), "Wie euch bekannt sein dürfte, ist Cadomyr nicht gerade mit fruchtbarem Ackerland gesegnet. Somit fehlt es in den Stallungen immer an Heu. Bringt ihr mir bitte zehn Bündel Getreide? Mein Dank ist euch gewiss.", queststatus(126) = 1
 "task", "adventure", "order", queststatus(126) = 0 -> inform("[New quest] A Noble Celebration I"), "As you might know, Cadomyr is not blessed with much fertile farmland. Hence, the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed.", queststatus(126) = 1
@@ -98,7 +98,7 @@ itemShoes = 369
 "task", "adventure", "order", queststatus(126) = 1 -> "The mounts urgently need hay. All I am asking for is that you get ten bundles of grain for them."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Befehl", queststatus(126) = 1 -> "Die Reittiere brauchen dringend neues Heu. Alles, was ich also von euch für sie erbitte, sind zehn Bündel Getreide."
 
--- 2nd quest: Gather 10 carrots (2493)
+-- 2nd quest: Gather 15 wine glasses (2457)
 "quest", "mission", queststatus(126) = 2, english -> inform("[New quest] A Noble Celebration II"), "Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?", queststatus(126) = 3
 "quest", "mission", queststatus(126) = 2 -> inform("[Neues Quest] Eine edle Feier II"), "Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?", queststatus(126) = 3
 "task", "adventure", "order", queststatus(126) = 2 -> inform("[New quest] A Noble Celebration II"), "Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?", queststatus(126) = 3
@@ -116,15 +116,15 @@ itemShoes = 369
 "task", "adventure", "order", queststatus(126) = 3 -> "The horses become nervous whenever I just mention the word 'carrot'. Perhaps you have the time to get ten carrots for them?"
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(126) = 3 -> "Die Pferde wiehern aufgeregt wenn ich nur das Wort 'Karotte' erwähne. Vielleicht findet ihr ja die Zeit, zehn Karotten für sie besorgen?"
 
--- 3rd quest: Gather 10 carrots (2493)
+-- 3rd quest: Gather 15 wooden plates (2952)
 "quest", "mission", queststatus(126) = 4, english -> inform("[New quest] A Noble Celebration II"), "Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?", queststatus(126) = 5
 "quest", "mission", queststatus(126) = 4 -> inform("[Neues Quest] Eine edle Feier II"), "Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?", queststatus(126) = 5
 "task", "adventure", "order", queststatus(126) = 4 -> inform("[New quest] A Noble Celebration II"), "Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?", queststatus(126) = 5
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(126) = 4 -> inform("[Neues Quest] Eine edle Feier II"), "Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?", queststatus(126) = 5
 
 -- 3rd quest solved, reward: 40cp, +15 rankpoints if Cadomyr
-".+", queststatus(126) = 5, item(2493, all) > 9, english, town = Cadomyr -> inform("[Quest solved] You are awarded fourty coppercoins. You advance in Queen Rosaline Edwards' favour."), "You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.", money + 40, deleteItem(2493, 10), queststatus(126) = 6, rankpoints(Cadomyr) + 10
-".+", queststatus(126) = 5, item(2493, all) > 9, town = Cadomyr -> inform("[Quest gelöst] Du erhältst vierzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.", money + 40, deleteItem(2493, 10), queststatus(126) = 6, rankpoints(Cadomyr) + 10
+".+", queststatus(126) = 5, item(2493, all) > 9, english, town = Cadomyr -> inform("[Quest solved] You are awarded fourty coppercoins. You advance in Queen Rosaline Edwards' favour."), "You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.", money + 40, deleteItem(2493, 10), queststatus(126) = 6, rankpoints(Cadomyr) + 15
+".+", queststatus(126) = 5, item(2493, all) > 9, town = Cadomyr -> inform("[Quest gelöst] Du erhältst vierzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.", money + 40, deleteItem(2493, 10), queststatus(126) = 6, rankpoints(Cadomyr) + 15
 ".+", queststatus(126) = 5, item(2493, all) > 9, english -> inform("[Quest solved] You are awarded fourty coppercoins."), "You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.", money + 40, deleteItem(2493, 10), queststatus(126) = 6
 ".+", queststatus(126) = 5, item(2493, all) > 9 -> inform("[Quest gelöst] Du erhältst vierzig Kupferstücke."), "Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.", money + 40, deleteItem(2493, 10), queststatus(126) = 6
 
@@ -141,13 +141,14 @@ itemShoes = 369
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(126) = 6 -> "Nun, es gibt nichts, was ich derzeit bräuchte. Vielleicht fragt ihr den Kanzler Anthar Vilicon nach Diensten, die ihr Cadomyr leisten könntet?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "You want to know what I do? I am the hostess. I sit the costumers when they visit our restaurant.", "I am the hostess here. I use to be a waiter, but then this position became available. My husband took my old job, and I get to talk to customers all day without taking orders.", "I work as the hostess. Please see me if you would like to be seated or if you are lost.", "I'm a cook. Well I'm the cook. I can make hummus, boiled noodle leaf, breaded red sweet and my specialty is fried sand rat.", "I make the food that you all eat.", "Daddy says that I am part owner of this shop."
+"profession" -> "You want to know what I do? I am the cook. I cook for the costumers when they visit our restaurant.", "I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.", "I'm a cook. Well I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.", "I make the food that you all eat.", "Father says that I am part owner of this tavern."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "You want to know what I do? I am the hostess. I sit the costumers when they visit our restaurant.", "I am the hostess here. I use to be a waiter, but then this position became available. My husband took my old job, and I get to talk to customers all day without taking orders.", "I work as the hostess. Please see me if you would like to be seated or if you are lost.", "I'm a cook. Well I'm the cook. I Can make hummus, boiled noodle leaf, breaded red sweet and my specialty is fried sand rat.", "I make the food that you all eat.", "Daddy says that I am part owner of this shop."
+"job", english -> "You want to know what I do? I am the cook. I cook for the costumers when they visit our restaurant.", "I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.", "I'm a cook. Well I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.", "I make the food that you all eat.", "Father says that I am part owner of this tavern."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Cadomyr
-"Glass Spiegal" -> "You're at the glass Spiegel. I know this may sound boastful, but I think we have the best restaurant in Cadomyr.", "Daddy and Mommy built this place", "This place is called glass because sand turns to glass when it is cooked. And we cook in this place. Get it.. get it?", "I want to get married here."
+"Unicorn", "Lion" -> "You're at the Unicorn Lion. I know this may sound boastful, but I think we have the best tavern in Cadomyr.", "Father and mother built this place.", "I want to get married here."
+"Einhörnig", "Löwe" -> ""
 "Daddy", "Severus" -> "I love him. He's my life. This Restaurant is his dream and we built it together.", "He says he is the best dad in Cadomyr. I agree with him. His is the best dad. And if anyone says he's not. Well, they get no dinner from me.", "I wonder what daddy's going to get me for my birthday?", "Daddy wishes he could be as good of a cook as me."
 "Mommy", "Rose" -> "Daddy used to be the cook and mommy the waitress, but since I am the best cook in Cadomyr. I am the cook, Daddy is the waitress, and Mommy greets people at the door.", "Mommy says when I grow Up I'm going to be beautiful.", "Mommy is too nice. She is even nice to mean people."
 "Pal", "Por" -> "He's cute, don't you think?", "I love when Pal plays. Even his songs are beautiful.", "I wish he would tell stories too, but Pal never talks."
@@ -200,8 +201,6 @@ itemShoes = 369
 "Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Zhambra", english -> "I'm sorry I have not made it to that god yet."
 "Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "Linda", "Rabon", english -> "Good day, how are you?", "Today is a great day for cooking.", "That is me. Do you want something.", "Oh, did you need something?", "That is me.", "Hello. I am Linda Rabon. I would be glad to help you with anything that you need."

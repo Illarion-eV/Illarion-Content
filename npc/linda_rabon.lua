@@ -527,7 +527,7 @@ talkEntry:addResponse("You really brought some carrots for Bette and the other m
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -541,7 +541,7 @@ talkEntry:addResponse("Ihr habt wirklich Karotten für Bette und die anderen Reit
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -644,12 +644,11 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("You want to know what I do? I am the hostess. I sit the costumers when they visit our restaurant.");
-talkEntry:addResponse("I am the hostess here. I use to be a waiter, but then this position became available. My husband took my old job, and I get to talk to customers all day without taking orders.");
-talkEntry:addResponse("I work as the hostess. Please see me if you would like to be seated or if you are lost.");
-talkEntry:addResponse("I'm a cook. Well I'm the cook. I can make hummus, boiled noodle leaf, breaded red sweet and my specialty is fried sand rat.");
+talkEntry:addResponse("You want to know what I do? I am the cook. I cook for the costumers when they visit our restaurant.");
+talkEntry:addResponse("I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.");
+talkEntry:addResponse("I'm a cook. Well I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.");
 talkEntry:addResponse("I make the food that you all eat.");
-talkEntry:addResponse("Daddy says that I am part owner of this shop.");
+talkEntry:addResponse("Father says that I am part owner of this tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -664,12 +663,11 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You want to know what I do? I am the hostess. I sit the costumers when they visit our restaurant.");
-talkEntry:addResponse("I am the hostess here. I use to be a waiter, but then this position became available. My husband took my old job, and I get to talk to customers all day without taking orders.");
-talkEntry:addResponse("I work as the hostess. Please see me if you would like to be seated or if you are lost.");
-talkEntry:addResponse("I'm a cook. Well I'm the cook. I Can make hummus, boiled noodle leaf, breaded red sweet and my specialty is fried sand rat.");
+talkEntry:addResponse("You want to know what I do? I am the cook. I cook for the costumers when they visit our restaurant.");
+talkEntry:addResponse("I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.");
+talkEntry:addResponse("I'm a cook. Well I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.");
 talkEntry:addResponse("I make the food that you all eat.");
-talkEntry:addResponse("Daddy says that I am part owner of this shop.");
+talkEntry:addResponse("Father says that I am part owner of this tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -682,11 +680,18 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Glass Spiegal");
-talkEntry:addResponse("You're at the glass Spiegel. I know this may sound boastful, but I think we have the best restaurant in Cadomyr.");
-talkEntry:addResponse("Daddy and Mommy built this place");
-talkEntry:addResponse("This place is called glass because sand turns to glass when it is cooked. And we cook in this place. Get it.. get it?");
+talkEntry:addTrigger("Unicorn");
+talkEntry:addTrigger("Lion");
+talkEntry:addResponse("You're at the Unicorn Lion. I know this may sound boastful, but I think we have the best tavern in Cadomyr.");
+talkEntry:addResponse("Father and mother built this place.");
 talkEntry:addResponse("I want to get married here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Einhörnig");
+talkEntry:addTrigger("Löwe");
+talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
