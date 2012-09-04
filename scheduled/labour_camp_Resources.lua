@@ -5,7 +5,7 @@ require("base.common")
 module("scheduled.labour_camp_Resources", package.seeall)
 
 
-function RemoveResources()
+function RemoveResources(User)
     depositPositions = {position(-492,-489,-40),position(-492,-488,-40),position(-491,-488,-40),position(-491,-489,-40)}
 	for i=1,4 do
 	    local myPosition = depositPositions[i] 
@@ -15,7 +15,9 @@ function RemoveResources()
         local noCounter = 0
 		for i=0,stackNumber do
 		    local myItem = myField:getStackItem(i+noCounter)
+			User:inform("debug "..myPosition.x" "..myPosition.y)
 			if myItem ~= nil then	
+				User:inform("debug2 "..myItem.id)
 				local theItemStats=world:getItemStats(myItem)
 				if myItem.id == 21 or myItem.id == 22 or myItem.id == 2536 or myItem.id == 234 then
 					world:erase(myItem,theItemStats.number)
