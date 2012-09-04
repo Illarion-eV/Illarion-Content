@@ -787,9 +787,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Was ist ein Albar?");
+talkEntry:addResponse("Wolang geht es denn nach Albar?");
+talkEntry:addResponse("Ich bin beschäftigt, erzählt mir nichts, was ich nicht weiß.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -798,7 +798,7 @@ talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I don't know where that is.");
-talkEntry:addResponse("I'm trying to cook here, Yesh!");
+talkEntry:addResponse("I'm trying to cook here, yesh!");
 talkEntry:addResponse("What is a Gynk?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -806,9 +806,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht, wo das ist.");
+talkEntry:addResponse("Ich versuche, zu kochen, verdammt.");
+talkEntry:addResponse("Was ist ein Gynk?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -816,16 +816,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("That place has a nice name, where is it?");
-talkEntry:addResponse("Nope, I've never been to Saikamar.");
+talkEntry:addResponse("Nope, I've never been to Salkamar.");
 talkEntry:addResponse("I've never left Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Das klingt nett, wo ist das?");
+talkEntry:addResponse("Ne, ich war noch nie in Salkamar.");
+talkEntry:addResponse("Ich habe Cadomyr noch nie verlassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -838,9 +838,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Der Gott der Feste und des Weines? Habe ich das richtig verstanden?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -855,9 +853,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Er ist ein Riese mit einem Feuerbart. Er ist ein guter Gott.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -883,22 +879,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("");
+talkEntry:addResponse("Die Göttin der Weisheit, mehr weiß ich nicht über sie.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Mommy told me he has many forms, but he always carries a wooden pole.");
+talkEntry:addResponse("Mother told me he has many forms, but he always carries a wooden pole.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Mutter hat mir einst gesagt, dass er in vielen Gestalten auftritt, aber immer einen Holzstab bei sich trägt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -911,16 +905,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Die Luftgöttin ist sehr schön.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There is a picture of him over there *points to the wall*.");
+talkEntry:addResponse("There is a picture of him over there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addResponse("Da drüben hängt ein Bild von ihm.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -928,31 +926,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He's the wolf god. I want a wolf. I'm going to ask daddy tonight if I can have a wolf.");
+talkEntry:addResponse("He's the wolf god. I want a wolf. I'm going to ask father tonight if I can have a wolf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Man nennt ihn auch den Wolfgott. Ich will auch einen Wolf. Ich frag Vater nachher, ob ich einen Wolf haben kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I'm not afraid of old bone head. If he ever walks through these doors. I will punch him in the nose. Pow! Pow!");
+talkEntry:addResponse("I'm not afraid of old bone head. If he ever walks through these doors, I will punch him in the nose.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich fürchte mich nicht vor dem ollen Knochenkopp. Wenn er jemals durch diese Tür kommt, kriegt er was auf die Nase.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1002,15 +996,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I do not deserve it, but Sirani blessed me. I don't know why. Somethimes at night when I think about how in love I am I start crying.");
+talkEntry:addResponse("I do not deserve it, but Sirani blessed me. I don't know why. Sometimes at night when I think about how in love I am I start crying.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich habe es nicht verdient, aber Sirani hat mich gesegnet. Ich weiß auch nicht, warum. Manchmal wache ich nachts auf und weine, weil ich so verliebt bin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
