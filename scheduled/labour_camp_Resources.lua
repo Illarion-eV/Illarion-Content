@@ -27,7 +27,7 @@ function RemoveResources(User)
 				end		
             end				
 	        world:gfx(46,myPosition)
-		end]]
+		end
     end
 end 
 
