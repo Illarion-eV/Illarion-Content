@@ -696,36 +696,72 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Father");
 talkEntry:addTrigger("Daddy");
+talkEntry:addResponse("He's my life. This Restaurant is his dream and we run it together.");
+talkEntry:addResponse("He says he is the best father in Cadomyr. And if anyone says he's not, well, they get no dinner from me.");
+talkEntry:addResponse("I wonder what father is going to get me for my birthday?");
+talkEntry:addResponse("Father wishes he could be as good of a cook as me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Vater");
+talkEntry:addTrigger("Papa");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Severus");
-talkEntry:addResponse("I love him. He's my life. This Restaurant is his dream and we built it together.");
-talkEntry:addResponse("He says he is the best dad in Cadomyr. I agree with him. His is the best dad. And if anyone says he's not. Well, they get no dinner from me.");
-talkEntry:addResponse("I wonder what daddy's going to get me for my birthday?");
-talkEntry:addResponse("Daddy wishes he could be as good of a cook as me.");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("He's my life. This Restaurant is his dream and we run it together.");
+talkEntry:addResponse("He says he is the best father in Cadomyr. And if anyone says he's not, well, they get no dinner from me.");
+talkEntry:addResponse("I wonder what father is going to get me for my birthday?");
+talkEntry:addResponse("Father wishes he could be as good of a cook as me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Severus");
+talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mommy");
+talkEntry:addTrigger("Mother");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Mama");
+talkEntry:addTrigger("Mutter");
+talkEntry:addResponse("");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rose");
-talkEntry:addResponse("Daddy used to be the cook and mommy the waitress, but since I am the best cook in Cadomyr. I am the cook, Daddy is the waitress, and Mommy greets people at the door.");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Father used to be the cook and mommy the waitress, but since I am the best cook in Cadomyr. I am the cook, Daddy is the waitress, and Mommy greets people at the door.");
 talkEntry:addResponse("Mommy says when I grow Up I'm going to be beautiful.");
 talkEntry:addResponse("Mommy is too nice. She is even nice to mean people.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Pal");
-talkEntry:addTrigger("Por");
-talkEntry:addResponse("He's cute, don't you think?");
-talkEntry:addResponse("I love when Pal plays. Even his songs are beautiful.");
-talkEntry:addResponse("I wish he would tell stories too, but Pal never talks.");
+talkEntry:addTrigger("Rose");
+talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hassan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("He's cute, don't you think?");
+talkEntry:addResponse("I wish he would tell stories too, but Hassan never talks.");
 talkEntry:addResponse("He rarely speaks. It's kind of weird. Don't you think?");
 talkEntry:addResponse("He's so big. He picked me up once. I felt like I was touching the stars.");
 talkEntry:addResponse("Did you know that Mr. Yang can play the Oboe. He plays it sometimes. You should ask him to play.");
