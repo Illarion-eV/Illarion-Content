@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 03, 2012                       easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -29,7 +29,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Linda Rabon the Cook. Keywords: Hello, Good day."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Linda Rabon the Cook. Keywords: Good day, quest, cook."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -46,7 +46,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("If you want to order please talk to my mom.");
+talkEntry:addResponse("If you want to order please talk to my father.");
 talkEntry:addResponse("Oh hello. I'm very busy. I will have to talk to you later.");
 talkEntry:addResponse("Oh hello. I'm so tired. I feel like I'm going to pass out.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -73,7 +73,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("If you want to order please talk to my mom.");
+talkEntry:addResponse("If you want to order please talk to my father.");
 talkEntry:addResponse("Oh hello. I'm very busy. I will have to talk to you later.");
 talkEntry:addResponse("Oh hello. I'm so tired. I feel like I'm going to pass out.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -778,6 +778,16 @@ talkingNPC:addCycleText("ENGLISH.", "These people eat to fast Upstairs.");
 talkingNPC:addCycleText("ENGLISH.", "What time is it? Shouldn't we be closing soon.");
 talkingNPC:addCycleText("ENGLISH.", "Oh gods! Why is the chicken on fire again?");
 talkingNPC:addCycleText("ENGLISH", "I wonder if there are schools for cooking. I would be the best teacher ever.");
+talkingNPC:addCycleText("ENGLISH.", "If you have any questions please come to me. It is my job to answer them if that's alright with you.");
+talkingNPC:addCycleText("ENGLISH.", "Welcome to the Glass Spiegel.");
+talkingNPC:addCycleText("ENGLISH.", "Please come visit us again at the Glass Spiegel. We miss your presence.");
+talkingNPC:addCycleText("ENGLISH.", "Here at the Glass Spiegel we have the best grilled sand rat in all of Globieth.");
+talkingNPC:addCycleText("ENGLISH.", "Here at the Glass Spiegel we offer sand rat in 22 different spices.");
+talkingNPC:addCycleText("ENGLISH.", "This place is starting to be a mess. I should make Kay mop this place up.");
+talkingNPC:addCycleText("ENGLISH.", "Pal Por plays such good music.");
+talkingNPC:addCycleText("ENGLISH.", "Every time I smell a sand rat pie that Linda has cooked my heart smiles.");
+talkingNPC:addCycleText("ENGLISH.", "Oh sorry excuse me. I did not mean to get in your way.");
+talkingNPC:addCycleText("ENGLISH.", "I wonder what I should get Linda for her birthday.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
