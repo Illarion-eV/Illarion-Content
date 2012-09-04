@@ -15,7 +15,7 @@ function RemoveResources(User)
         local stackNumber = myField:countItems()
         User:inform("stackNumber "..stackNumber)
 		local noCounter = 0
-		--[[for i=0,3 do
+		for i=0,base.common.Limit(stackNumber-1, 0, max) do
 		    local myItem = myField:getStackItem(i+noCounter)
 			if myItem ~= 0 then	
 				User:inform("debug2 "..myItem.id)
