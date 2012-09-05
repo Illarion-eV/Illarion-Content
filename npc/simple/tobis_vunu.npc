@@ -112,8 +112,8 @@ itemShoes = 369
 "Mesage", "task", "adventure", "mission", "money", "earn" -> "Take a Knife and take a Virgins as hostage! Arr. And then you put her at the place where the sun never shines! Get rid, Lubber."
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
 "Farewell", "Bye", "Fare well", "See you" -> "Don't get biten by seedogs!", "Aye.", "Good wind."

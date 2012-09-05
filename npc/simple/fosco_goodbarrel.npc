@@ -79,8 +79,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Fosco Goodbarrel der spitzbübische Halbling. Schlüsselwörter: Auftrag, Beruf, Gobaith, Götter, Fosco.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho!", "Howdy, dowdy!", "'Ello, 'ello!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho!", "Holldario.", "'allo, 'allo!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho!", "Howdy, dowdy!", "'Ello, 'ello!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho!", "Holldario.", "'allo, 'allo!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho!", "Howdy, dowdy!", "'Ello, 'ello!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho!", "Holldario.", "'allo, 'allo!"
 "Farewell", "Bye", "Fare well", "See you" -> "Ta-ta!", "Don't forget me!", "Stay outta trouble!"

@@ -67,8 +67,8 @@ itemShoes = 771
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Juwellier Jacobus. Schlüsselwörter: Hallo, Juwelen.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to Cadomyr.", "Be greeted.", "Hello, do you need a ruby necklace?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Willkommen in Cadomyr.", "Seid gegrüßt.", "Hallo, braucht ihr eine Rubinkette?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome to Cadomyr.", "Be greeted.", "Hello, do you need a ruby necklace?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen in Cadomyr.", "Seid gegrüßt.", "Hallo, braucht ihr eine Rubinkette?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Welcome to Cadomyr.", "Be greeted.", "Hello, do you need a ruby necklace?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen in Cadomyr.", "Seid gegrüßt.", "Hallo, braucht ihr eine Rubinkette?"
 "Farewell", "Bye", "Fare well", "See you" -> "I hope you'll recommend my goods.", "Good bye.", "Have a nice day."
@@ -83,8 +83,8 @@ itemShoes = 771
 -- Catching quest triggers
 "quest", "mission", english -> "I don't have a quest for you, sorry."
 "quest", "mission" -> "Ich habe keinen Auftrag für dich."
-"task", "adventure" -> "I don't have a quest for you, sorry."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe keinen Auftrag für dich."
+"task", "adventure", "order" -> "I don't have a quest for you, sorry."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keinen Auftrag für dich."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a jeweller. I also search for gems, but it is a hard job."

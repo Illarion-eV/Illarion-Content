@@ -72,8 +72,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Bergarbeiter Bruno Blackhole. Schlüsselwörter: Hallo, Quest, Spitzhacke, Bergarbeiter.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted ma friend!", "Welcome in da Malachite mine.", "Greetings I hope ya don't try to steal meh ma gold!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Tach mein Freund!", "Willkommen inner Malachitmine!", "Grüße, ich hoff' du versuchst nicht mein Gold zu stehlen!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted ma friend!", "Welcome in da Malachite mine.", "Greetings I hope ya don't try to steal meh ma gold!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach mein Freund!", "Willkommen inner Malachitmine!", "Grüße, ich hoff' du versuchst nicht mein Gold zu stehlen!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted ma friend!", "Welcome in da Malachite mine.", "Greetings I hope ya don't try to steal meh ma gold!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Tach mein Freund!", "Willkommen inner Malachitmine!", "Grüße, ich hoff' du versuchst nicht mein Gold zu stehlen!"
 "Farewell", "Bye", "Fare well", "See you" -> "May Irmorom guide ya on yar ways!", "Come back whenever ya miss the coolness of da mine.", "Farewell."

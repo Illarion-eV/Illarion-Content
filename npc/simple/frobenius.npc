@@ -75,8 +75,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmied Frobenius. Schlüsselwörter: Hallo, Schmied, Eisen.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Let's get to business, alright?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Lasst uns zum Geschäft kommen, ja?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Let's get to business, alright?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Lasst uns zum Geschäft kommen, ja?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Let's get to business, alright?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Lasst uns zum Geschäft kommen, ja?"
 "Farewell", "Bye", "Fare well", "See you" -> "Kill some scum with my weapons, will you?"
@@ -91,8 +91,8 @@ itemShoes = 53
 -- Catching quest triggers
 "quest", "mission", english -> "Your quest today: Defend Cadomyr with my weapons. You have to buy one first..."
 "quest", "mission" -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
-"task", "adventure" -> "Your quest today: Defend Cadomyr with my weapons. You have to buy one first..."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
+"task", "adventure", "order" -> "Your quest today: Defend Cadomyr with my weapons. You have to buy one first..."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a blacksmith. That means I craft weapons of death."

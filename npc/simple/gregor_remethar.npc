@@ -67,8 +67,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Leichenbestatter Gregor Remethar. Schlüsselwörter: Hallo, Quest, Leichenbestatter, Gruft, Kammern, Wert des Lebens.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, one of the living visits me. What brought you here - you want to honour your ancestors in the crypt?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ah, einer der Lebenden besucht mich. Was hat euch hergebracht - wollt ihr in der Gruft eure Vorfahren ehren?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, one of the living visits me. What brought you here - you want to honour your ancestors in the crypt?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, einer der Lebenden besucht mich. Was hat euch hergebracht - wollt ihr in der Gruft eure Vorfahren ehren?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Ah, one of the living visits me. What brought you here - you want to honour your ancestors in the crypt?"
 "Hiho", "Hallo", "Hey", "Greeb" -> ", einer der Lebenden besucht mich. Was hat euch hergebracht - wollt ihr in der Gruft eure Vorfahren ehren?"
 "Farewell", "Bye", "Fare well", "See you" -> "Go with the blessing of the Gods. And do not return again too soon, if you know what I mean."

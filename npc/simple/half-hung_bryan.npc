@@ -52,8 +52,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Half-hung Bryan der Gastwirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Gasthof, Strick, Gesetz, Knecht")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to my inn.", "Greetings, how may I help you?", "#me turns his stiff neck to look at you.'Greetings'."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid Willkommen in meinem Gasthof.", "Grüße, wie kann ich Euch helfen?", "#me blickt dich mit steifem Nacken an. 'Grüße'."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome to my inn.", "Greetings, how may I help you?", "#me turns his stiff neck to look at you.'Greetings'."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid Willkommen in meinem Gasthof.", "Grüße, wie kann ich Euch helfen?", "#me blickt dich mit steifem Nacken an. 'Grüße'."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Welcome to my inn.", "Greetings, how may I help you?", "#me nods 'Greetings'."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Seid Willkommen in meinem Gasthof.", "Grüße, wie kann ich Euch helfen?", "#me nickt grüßend."
 "Farewell", "Bye", "Farewell", "See you" -> "Au revoir.", "Farewell, and don't forget my inn!", "Take care!"
@@ -68,8 +68,8 @@ itemShoes = 53
 -- Catching quest triggers
 "quest", "mission", english -> "Half-hung Bryan doesn't have any work for you."
 "quest", "mission" -> "Half-hung Bryan hat keine Arbeit für Euch."
-"task", "adventure" -> "Half-hung Bryan doesn't have any work for you."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Half-hung Bryan hat keine Arbeit für Euch."
+"task", "adventure", "order" -> "Half-hung Bryan doesn't have any work for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Half-hung Bryan hat keine Arbeit für Euch."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Well, this nice and beautiful inn here in the wilderness is mine. The Hemp Necktie Inn always has a lot of customers.", "I care for my inn. Do you want to rent a room?"

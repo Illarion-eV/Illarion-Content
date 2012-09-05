@@ -61,8 +61,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der alte Ork Tronruk. Schlüsselwörter: Hallo, Geschichte, ork, Götter.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me nods slightly and closes his eyes again.", "Hurr? Yubbah, Yubbah.", "Greebas."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me nickt leicht und schließt seine Augen wieder.", "Hurr? Yubbah, Yubbah", "Grebbha."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me nods slightly and closes his eyes again.", "Hurr? Yubbah, Yubbah.", "Greebas."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me nickt leicht und schließt seine Augen wieder.", "Hurr? Yubbah, Yubbah", "Grebbha."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "#me nods slightly and closes his eyes again.", "Hurr? Yubbah, Yubbah.", "Greebas."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me nickt leicht und schließt seine Augen wieder.", "Hurr? Yubbah, Yubbah", "Grebbha."
 "Farewell", "Bye", "Fare well", "See you" -> "Fareebas."
@@ -79,8 +79,8 @@ itemShoes = 53
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "Nubba quest, but storeh meh tell."
 "quest", "mission" -> "Nix Mission, aber Geschicht mich erzähl."
-"task", "adventure" -> "Nubba task, but storeh meh tell."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Nix Aufgab, aber Geschicht mich erzähl."
+"task", "adventure", "order" -> "Nubba task, but storeh meh tell."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nix Aufgab, aber Geschicht mich erzähl."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Meh nub work annehmore.", "Sitting and telling old storehs", "#me burps."

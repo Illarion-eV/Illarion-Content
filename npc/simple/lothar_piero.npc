@@ -77,8 +77,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lothar Piero der Holzhändler. Schlüsselwörter: Hallo, Beruf, Poesie, Pfennigmühle, Erzmagier Morgan.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "May Oldra bless you. Do you need... wood?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Oldra mit Euch. Benötigt Ihr hölzernes Gut?", "#me neigt seinen Kopf: 'Weisheit und Ausgeglichenheit. Wie darf ich Euch behilfich sein?'", "Hiho! Womit kann ich dienlich sein?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "May Oldra bless you. Do you need... wood?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oldra mit Euch. Benötigt Ihr hölzernes Gut?", "#me neigt seinen Kopf: 'Weisheit und Ausgeglichenheit. Wie darf ich Euch behilfich sein?'", "Hiho! Womit kann ich dienlich sein?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "May Oldra bless you. Do you need... wood?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Das ist durchwegs salopp gesagt, aber ich bin nicht kleinlich. Seid gegrüßt.", "Ehre den Göttern, wollt ihr Bretter kaufen?", "Guten Tag. Im Namen aller Händler will ich Euch willkommen heißen."
 "Farewell", "Bye", "Fare well", "See you" -> "Sounds sloppy, but I'm not picky. Be greeted.", "Honour the gods, do you need boards?", "Good day. I welcome you on behalf of all my collegues."

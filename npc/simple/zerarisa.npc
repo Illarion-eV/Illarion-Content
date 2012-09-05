@@ -73,8 +73,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Fischerin Zerarisa. Schlüsselwörter: Hallo, Quest, Angelrute, Fischerin.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetingsss to you.", "Yess, greetingss.", "Blessingss of Mother upon you, greetingss."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you.", "Yess, greetingss.", "Blessingss of Mother upon you, greetingss."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greetingsss to you.", "Yess, greetingss.", "Greetsss."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
 "Farewell", "Bye", "Fare well", "See you" -> "May the rainsss be heavy and frequent.", "May the ssea-Mother watch your path.", "Farewell, zsss."

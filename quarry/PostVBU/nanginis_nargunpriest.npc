@@ -63,8 +63,8 @@ itemShoes = 326
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(63) > 1 -> "%CHARNAME! Ich habe einen Flo gefangen! Wollt ihr ihn sehen, er ist ganz zahm, hihihi. Nein? Wollt ihr nun doch den Segen empfangen?", begin
 "Hiho", "Hallo", "Hey", "Greeb", queststatus(63) > 1, english -> "%CHARNAME! I have caught a flea! Want to see it, he's really tame, hihihi. No? Well have you come back for the blessing then?", begin
 "Hiho", "Hallo", "Hey", "Greeb", queststatus(63) > 1 -> "%CHARNAME! Ich habe einen Flo gefangen! Wollt ihr ihn sehen, er ist ganz zahm, hihihi. Nein? Wollt ihr nun doch den Segen empfangen?", begin
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("Maybe you should ask him about the fish or atleast after his name."), "Huaaah! I bid you a glorious welcome. And a lot of fish!", begin
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> inform("Vielleicht solltest du ihn genauer nach dem Fisch fragen oder zumindest in Erfahrung bringen wie er heißt."), "Huaaah! Einen glorreichen Tag wünsche ich dir. Und viel Fisch!", begin
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> inform("Maybe you should ask him about the fish or atleast after his name."), "Huaaah! I bid you a glorious welcome. And a lot of fish!", begin
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("Vielleicht solltest du ihn genauer nach dem Fisch fragen oder zumindest in Erfahrung bringen wie er heißt."), "Huaaah! Einen glorreichen Tag wünsche ich dir. Und viel Fisch!", begin
 "Hiho", "Hallo", "Hey", "Greeb", english -> inform("Maybe you should ask him about the fish or atleast after his name."), "Huaaah! I bid you a glorious welcome. And a lot of fish!", begin
 "Hiho", "Hallo", "Hey", "Greeb" -> inform("Vielleicht solltest du ihn genauer nach dem Fisch fragen oder zumindest in Erfahrung bringen wie er heißt."), "Huaaah! Einen glorreichen Tag wünsche ich dir. Und viel Fisch!", begin
 "Farewell", "Bye", "Fare well", "See you", queststatus(63) = 3 -> "Pah! Boring. Does your mother know what a coward you are anyway?", queststatus(63) = 2, end
@@ -83,8 +83,8 @@ itemShoes = 326
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."
 "quest", "mission" -> "Derzeit habe ich alles, aber danke für eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."
-"task", "adventure" -> "I have no tasks for you right now, maybe another time."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe derzeit keine Aufgaben für euch, vielleicht aber wann anders."
+"task", "adventure", "order" -> "I have no tasks for you right now, maybe another time."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe derzeit keine Aufgaben für euch, vielleicht aber wann anders."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Hear the frogs, they are calling you, professional aswell! Hihi no, my profession is to preach the words of 'Nargun' and share his blessing with others."

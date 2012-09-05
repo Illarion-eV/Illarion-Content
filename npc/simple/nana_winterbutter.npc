@@ -76,8 +76,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Köchin Nana Winterbutter. Schlüsselwörter: Hallo, Quest, Schüssel, Koch, Kochen.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings! Maybe you could help me with a recipe."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings! Maybe you could help me with a recipe."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings! Maybe you could help me with a recipe."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell!", "Oldra's blessing!", "Come back soon!"

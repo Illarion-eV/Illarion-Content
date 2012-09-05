@@ -53,7 +53,7 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Snorri der Fischhändler. Schlüsselwörter: Fisch, Ork, Morri, Nase, Zwerg.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, how can I help you? - No, don't tell me, let me guess. You wanna buy some fish, right?", "Hello, Hello. How are you today? I haven't seen you for years. New haircut? It really suits you!", "Oh! Good day! It's nice to meet you!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho, how can I help you? - No, don't tell me, let me guess. You wanna buy some fish, right?", "Hello, Hello. How are you today? I haven't seen you for years. New haircut? It really suits you!", "Oh! Good day! It's nice to meet you!"
 "GrüßŸ", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho, wie kann ich Euch helfen? - Nein, sagt es nicht, ich weiß es schon, ihr wollt ein paar von meinen Fischen kaufen, nicht wahr?", "Tach, tach. Wie geht's denn heute so? Ihr habt Euch ja ewig nich ansehen lassen. Neue Frisur? Steht euch gut zu Gesicht!", "Oh! Guten Tach! Ist mir eine Freude Euch zu Begrüßen."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho, how can I help you? - No, don't tell me, let me guess. You wanna buy some fish, right?", "Hello, Hello. How are you today? I haven't seen you for years. New haircut? It really suits you!", "Oh! Good day! It's nice to meet you!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, wie kann ich Euch helfen? - Nein, sagt es nicht, ich weiß es schon, ihr wollt ein paar von meinen Fischen kaufen, nicht wahr?", "Tach, tach. Wie geht's denn heute so? Ihr habt Euch ja ewig nich ansehen lassen. Neue Frisur? Steht euch gut zu Gesicht!", "Oh! Guten Tach! Ist mir eine Freude Euch zu Begrüßen."
@@ -69,8 +69,8 @@ itemShoes = 369
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "I can't hire you, but if you want, I will buy every fish you bring to me. Just make sure it's all fresh. Be sure that I will smell it all very carefully!"
 "quest", "mission" -> "Ich kann Euch nicht einstellen, aber sodar ihr wollt, kauf ich Euch allen Fisch ab den ihr mir bringt. Solange er frisch ist natürlich. Ich werd sorgfältig riechen, seid Euch gewiss."
-"task", "adventure" -> "I can't hire you, but if you want, I will buy every fish you bring to me. Just make sure it's all fresh. Be sure that I will smell it all very carefully!"
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich kann Euch nicht einstellen, aber sodar ihr wollt, kauf ich Euch allen Fisch ab den ihr mir bringt. Solange er frisch ist natürlich. Ich werd sorgfältig riechen, seid Euch gewiss."
+"task", "adventure", "order" -> "I can't hire you, but if you want, I will buy every fish you bring to me. Just make sure it's all fresh. Be sure that I will smell it all very carefully!"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich kann Euch nicht einstellen, aber sodar ihr wollt, kauf ich Euch allen Fisch ab den ihr mir bringt. Solange er frisch ist natürlich. Ich werd sorgfältig riechen, seid Euch gewiss."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a fishmonger. But sometimes I take my fishing rod and catch some fish on my own. What's your profession?"

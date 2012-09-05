@@ -69,8 +69,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Händlerin Fronita Emery. Schlüsselwörter: Glas, Waren, Runewick.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "May Findari and Elara bless you! Do you want to have a look at my wares?", "Welcome. If you're looking for goods made of glass I can definately help you out."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Findari und Elara mit euch! Kann ich euch für meine Waren begeistern?", "Willkommen. Wenn ihr Glaswaren sucht seid ihr hier absolut richtig."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "May Findari and Elara bless you! Do you want to have a look at my wares?", "Welcome. If you're looking for goods made of glass I can definately help you out."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Findari und Elara mit euch! Kann ich euch für meine Waren begeistern?", "Willkommen. Wenn ihr Glaswaren sucht seid ihr hier absolut richtig."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "May Findari and Elara bless you! Do you want to have a look at my wares?", "Welcome. If you're looking for goods made of glass I can definately help you out."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Findari und Elara mit euch! Kann ich euch für meine Waren begeistern?", "Willkommen. Wenn ihr Glaswaren sucht seid ihr hier absolut richtig."
 "Farewell", "Bye", "Fare well", "See you" -> "Fair winds and clear sight to you!", "May Elara enlighten your path.", "Farewell. Don't forget about me, as glass is pretty frail!"
@@ -91,8 +91,8 @@ itemShoes = 369
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "I do not issue any quests, sorry."
 "quest", "mission" -> "Ich vergebe keine Questen, tut mir leid."
-"task", "adventure" -> "I do not issue any quests, sorry."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich vergebe keine Questen, tut mir leid."
+"task", "adventure", "order" -> "I do not issue any quests, sorry."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Questen, tut mir leid."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Well, why should I stand around here between all this glass? I'm selling it!", "I'm a glassblower and I sell my wares here"

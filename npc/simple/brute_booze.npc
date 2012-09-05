@@ -60,8 +60,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brute Booze ein berühmter orkischer Glücksritter. Schlüsselwörter: Hallo, Städte, Heldentaten, erzähl etwas")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings! Are you traveling too?", "Good day to you. Are you on a great journey? ", "I welcome you!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings! Are you traveling too?", "Good day to you. Are you on a great journey? ", "I welcome you!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings! Are you traveling too?", "Good day to you. Are you on a great journey?", "I welcome you!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
 "Farewell", "Bye", "Fare well", "See you" -> "Save Travel!", "...or like the southern lizard folk say: May clear waters surround you.", "May your feet walk in good shoes."

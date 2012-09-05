@@ -74,8 +74,8 @@ itemShoes = 53
 "%NUMBER eisen" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Eisenerz.'"
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me gives you a shy 'H-hello...'.", "#me nods in a frightened manner."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me gibt ein schhüchternes 'H-hallo...' von sich.", "#me nickt dir ängstlich zu."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me gives you a shy 'H-hello...'.", "#me nods in a frightened manner."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me gibt ein schhüchternes 'H-hallo...' von sich.", "#me nickt dir ängstlich zu."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "#me gives you a shy 'H-hello...'.", "#me nods in a frightened manner."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me gibt ein schhüchternes 'H-hallo...' von sich.", "#me nickt dir ängstlich zu."
 "Farewell", "Bye", "Fare well", "See you" -> "Uhm...hm.", "#me gives a quiet '...bye...'."
@@ -90,8 +90,8 @@ itemShoes = 53
 -- Catching quest triggers
 "quest", "mission", english -> "Y-you just can't help me. I h-have to w-work alone."
 "quest", "mission" -> "Ihr, ihr k-könnt mir einfach nicht helfen. I-Ich muss m-meine Arbeit s-selbst machen."
-"task", "adventure" -> "Y-you just can't help me. I h-have to w-work alone."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ihr, ihr k-könnt mir einfach nicht helfen. I-Ich muss m-meine Arbeit s-selbst machen."
+"task", "adventure", "order" -> "Y-you just can't help me. I h-have to w-work alone."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr, ihr k-könnt mir einfach nicht helfen. I-Ich muss m-meine Arbeit s-selbst machen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I m-melt all ores i-into ingots. G-gold. Copper, silver... a-and iron. A s-silver piece... each task."

@@ -71,8 +71,8 @@ itemShoes = 53
 "Hilfe" -> "[Spielhilfe] Dieser NPC ist der Koch Berni Grunweld. Schlüsselwörter: Hallo, Quest, Aufgaben, Samen, Beil, Kochlöffel "
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, take a seat next me if you are hungry.", "Huhu, sit next me I have something great to eat for you"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho du, setzt dich doch zu mir falls du Hunger hast.", "Huhu, schnapp dir ein Plätzchen neben mir, ich hab was ganz tolles zu essen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho, take a seat next me if you are hungry.", "Huhu, sit next me I have something great to eat for you"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho du, setzt dich doch zu mir falls du Hunger hast.", "Huhu, schnapp dir ein Plätzchen neben mir, ich hab was ganz tolles zu essen."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho, take a seat next me if you are hungry", "Huhu, sit next me I have something great to eat for you"
 "Hiho", "Hallo", "Hey", "Greeb", german -> "Hiho du, setzt dich doch zu mir falls du Hunger hast", "Huhu, schnapp dir ein Plätzchen neben mir, ich hab was ganz tolles zu essen."
 "Farewell", "good bye", "bye", "see you" -> "Bye, i hope you will visit me again", "Good day to you, if you are hungry, just come to me again."

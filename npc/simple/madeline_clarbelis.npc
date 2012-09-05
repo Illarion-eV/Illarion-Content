@@ -67,8 +67,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe]  Dieser NPC ist Mabeline Clarbelis die Druiden-Schülerin. Schlüsselwörter: Auftrag, Aurora, Beruf, Lehrling, Ushara,")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me blushes slightly, 'H...hello there.'", "#me glances toward her feet, 'Greetings.'", "G...greetings."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me wird leicht rot.,'H...Hallo.'", "#me schaut verlegen zu Boden 'G...Grüße '.", "G...Grüße."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me blushes slightly, 'H...hello there.'", "#me glances toward her feet, 'Greetings.'", "G...greetings."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me wird leicht rot.,'H...Hallo.'", "#me schaut verlegen zu Boden 'G...Grüße '.", "G...Grüße."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "#me blushes slightly, 'H...hello there.'", "#me glances toward her feet, 'Greetings.'", "G...greetings."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me wird leicht rot.,'H...Hallo.'", "#me schaut verlegen zu Boden 'G...Grüße '.", "G...Grüße."
 "Farewell", "Bye", "Fare well", "See you" -> "#me purses her lips, nodding once.", "Take care.", "Farewell."

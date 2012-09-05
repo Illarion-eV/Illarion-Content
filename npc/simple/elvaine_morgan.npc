@@ -53,8 +53,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Erzmagier Elvaine Morgan, der Herrscher über Runewick. Schlüsselwörter: Runewick, Quest, Götter, Türme, Magie.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Elara may be with you. Do you have a  request?", "Be greeted. What concern leads you to me?", "Good day. Why this desire to speak to me?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Elara sei mit Euch. Habt ihr ein Anliegen das Ihr vortragen wollt?", "Seid gegrüßt. Welches Anliegen führt Euch zu mir?", "Guten Tag. Wozu, wollt Ihr mit mir sprechen?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Elara may be with you. Do you have a  request?", "Be greeted. What concern leads you to me?", "Good day. Why this desire to speak to me?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Elara sei mit Euch. Habt ihr ein Anliegen das Ihr vortragen wollt?", "Seid gegrüßt. Welches Anliegen führt Euch zu mir?", "Guten Tag. Wozu, wollt Ihr mit mir sprechen?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Elara may be with you. Do you have a  request?", "Be greeted. What concern leads you to me?", "Good day. Why this desire to speak to me?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Elara sei mit Euch. Habt ihr ein Anliegen das Ihr vortragen wollt?", "Seid gegrüßt. Welches Anliegen führt Euch zu mir?", "Guten Tag. Wozu, wollt Ihr mit mir sprechen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell. I hope you found this conversation satisfying.", "Elara shall guard your way. May it be directed by wisdom and perspicuity", "See you soon! For sure the gods have woven our destinies together. Although it is just a thin thread."
@@ -75,8 +75,8 @@ itemShoes = 53
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "Regretfully, at the moment I don't feel like committing any tasks to you.", "For sure there are many things to be done, altough I won't assign any to you right now.", "Understand that there are many tasks to perform, but without any doubt you will fail at each single one of them. I have to take handle them in person."
 "quest", "mission" -> "Ich bedaure, zur Zeit möchte ich keine meiner Aufgaben Euch anvertrauen.", "Gewiss muss viel erledigt werden, aber an Euch werde ich im Moment nichts delegieren.", "Selbstverständlich habe ich eine Reihe an Aufgaben zu vergeben, aber zweifellos würdet Ihr an jeder einzellnen scheitern. Also muss ich mich persönlich damit befassen."
-"task", "adventure" -> "Regretfully, at the moment I don't feel like committing any tasks to you.", "For sure there are many things to be done, altough I won't assign any to you right now.", "Understand that there are many tasks to perform, but without any doubt you will fail at each single one of them. I have to take handle them in person."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich bedaure, zur Zeit möchte ich keine meiner Aufgaben Euch anvertrauen.", "Gewiss muss viel erledigt werden, aber an Euch werde ich im Moment nichts delegieren.", "Selbstverständlich habe ich eine Reihe an Aufgaben zu vergeben, aber zweifellos würdet Ihr an jeder einzellnen scheitern. Also muss ich mich persönlich damit befassen."
+"task", "adventure", "order" -> "Regretfully, at the moment I don't feel like committing any tasks to you.", "For sure there are many things to be done, altough I won't assign any to you right now.", "Understand that there are many tasks to perform, but without any doubt you will fail at each single one of them. I have to take handle them in person."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bedaure, zur Zeit möchte ich keine meiner Aufgaben Euch anvertrauen.", "Gewiss muss viel erledigt werden, aber an Euch werde ich im Moment nichts delegieren.", "Selbstverständlich habe ich eine Reihe an Aufgaben zu vergeben, aber zweifellos würdet Ihr an jeder einzellnen scheitern. Also muss ich mich persönlich damit befassen."
 
 -- Reward for quest 622
 "Mordak al Kharud", queststatus(622) > 0, queststatus(623) = 0, english, chance(10.0) -> "#me nods and hands you an item silently.", queststatus(623) = 1, treasure(1)

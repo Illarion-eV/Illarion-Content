@@ -194,8 +194,8 @@ itemTrousers = 183
 "farbe" -> "Ich rühre 'weiße Farbe', 'gelbe Farbe', 'rote Farbe', 'blaue Farbe', 'grüne Farbe' und 'schwarze Farbe' an... *seufzt* Und vergiß nicht, jeder Auftrag kostet eine Silbermünze."
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me gives an opressed and sarcastic 'Hihoo...'.", "#me gives a spiritless nod.", "Yes... Hello."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me gibt ein bedrückt, sarkastisches 'Hihoo...' von sich.", "#me nickt dir lustlos zu.", "Jah-h... Hallo."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me gives an opressed and sarcastic 'Hihoo...'.", "#me gives a spiritless nod.", "Yes... Hello."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me gibt ein bedrückt, sarkastisches 'Hihoo...' von sich.", "#me nickt dir lustlos zu.", "Jah-h... Hallo."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "#me gives an opressed and sarcastic 'Hihoo...'.", "#me gives a spiritless nod.", "Yes... Hello."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me gibt ein bedrückt, sarkastisches 'Hihoo...' von sich.", "#me nickt dir lustlos zu.", "Jah-h... Hallo."
 "Farewell", "Bye", "Fare well", "See you" -> "Good bye.", "Bye.", "Ciao...", "Adieu!"
@@ -210,8 +210,8 @@ itemTrousers = 183
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "#me smirks sarcastical. 'Find five dragon eggs. And than I broil them over the fire, all right?'"
 "quest", "mission" -> "#me lächelt sarkastisch. 'Bringe mir fünf Dracheneier. Und dann braten wir sie gemeinsam raus, ja?'"
-"task", "adventure" -> "#me smirks sarcastical. 'Find five dragon eggs. And than I broil them over the fire, all right?'"
-"Auftrag", "Aufgabe", "Abenteuer" -> "#me lächelt sarkastisch. 'Bringe mir fünf Dracheneier. Und dann braten wir sie gemeinsam raus, ja?'"
+"task", "adventure", "order" -> "#me smirks sarcastical. 'Find five dragon eggs. And than I broil them over the fire, all right?'"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me lächelt sarkastisch. 'Bringe mir fünf Dracheneier. Und dann braten wir sie gemeinsam raus, ja?'"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Do you see this chain? It's mine. My personal one. It's to stop me from sneaking away at night ... again. So my profession... yeah. I'm slave. Isn't it great? *sighs*", "I'm a mason. And I mix dye. Bring materials and one silver coin and I'll work for you."

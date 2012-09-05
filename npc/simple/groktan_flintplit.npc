@@ -83,8 +83,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Groktan Flintsplit der 'Erinnerer'. Schlüsselwörter: Erinnerer, Don Valerio Guilianni, Quest, Götter, Schulden, Geld.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "You're not here to pay a bill. So, what is it you want?", "Your account with the Don is balanced. Whatcha want?", "A good day to you, a good day for Galmair."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Du bist nicht hier, um eine Rechnung zu begleichen. Also, was gibt es?", "Du hast keine offenen Rechnungen mit dem Don. Was ist los?", "Einen guten Tag wünsche ich, einen guten Tag für Galmair."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "You're not here to pay a bill. So, what is it you want?", "Your account with the Don is balanced. Whatcha want?", "A good day to you, a good day for Galmair."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Du bist nicht hier, um eine Rechnung zu begleichen. Also, was gibt es?", "Du hast keine offenen Rechnungen mit dem Don. Was ist los?", "Einen guten Tag wünsche ich, einen guten Tag für Galmair."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "You're not here to pay a bill. So, what is it you want?", "Your account with the Don is balanced. Whatcha want?", "A good day to you, a good day for Galmair."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Du bist nicht hier, um eine Rechnung zu begleichen. Also, was gibt es?", "Du hast keine offenen Rechnungen mit dem Don. Was ist los?", "Einen guten Tag wünsche ich, einen guten Tag für Galmair."
 "Farewell", "Bye", "Fare well", "See you" -> "Come back with some money!", "Good bye; and always think what the Don would do to you if you disbehave.", "#me grunts: 'Aye, bye'."

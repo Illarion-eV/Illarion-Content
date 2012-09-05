@@ -207,8 +207,8 @@ itemShoes = 53
 -- Catching quest triggers
 "quest", english -> "Well infact there is something you could do.", "Well as you asked, indeed I do have a task for you."
 "quest", german -> "Nun es gibt da wirklich etwas was ihr tun könnt.", "Wenn ihr so fragt, ja ich hätte da eine Aufgabe für euch."
-"task", "adventure" -> "Well infact there is something you could do.", "Well as you asked, indeed I do have a task for you."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Nun es gibt da wirklich etwas was ihr tun könnt.", "Wenn ihr so fragt, ja ich hätte da eine Aufgabe für euch."
+"task", "adventure", "order" -> "Well infact there is something you could do.", "Well as you asked, indeed I do have a task for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun es gibt da wirklich etwas was ihr tun könnt.", "Wenn ihr so fragt, ja ich hätte da eine Aufgabe für euch."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "Yes" -> "True! Uhm, what?", "Correct! But what are you talking about?", "Yes!? What!?"

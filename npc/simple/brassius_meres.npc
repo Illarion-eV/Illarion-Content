@@ -77,8 +77,8 @@ itemShoes = 697
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brassius Meres der Wächter. Schlüsselwörter: Hallo, Auftrag, Berufung, Runewick, Brücke, Gesetze, Götter.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me bows his head politely: 'Be greeted.'", "Greetings to you.", "#me nods his head in greeting."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me deutet eine Verbeugung an: 'Seid gegrüßt.'", "Seid mir gegrüßt.", "#me nickt grüßend mit dem Kopf."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me bows his head politely: 'Be greeted.'", "Greetings to you.", "#me nods his head in greeting."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me deutet eine Verbeugung an: 'Seid gegrüßt.'", "Seid mir gegrüßt.", "#me nickt grüßend mit dem Kopf."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "#me frowns lightly, 'Yes, yes. Hello.'", "#me nods once.", "May I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me rümpft leicht die Nase: 'Ja, ja. Hallo.'", "#me nickt knapp.", "Kann ich euch helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Be well. And stay out of trouble.", "May Zhambra keep you safe from harm.", "#me raises his fist to his chest in salute."

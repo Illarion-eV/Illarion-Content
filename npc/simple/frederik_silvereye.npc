@@ -58,8 +58,8 @@ itemShoes = 326
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frederik Silvereye der Notar. Schlüsselwörter: 'Ich möchte Bürger werden', 'Ich möchte ein Dekret einlösen', ('Ich möchte eine Lebensversicherung kaufen')")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted.", "Greetings.", "Good day."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tag."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Good day."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tag."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted.", "Greetings.", "Good day."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tag."
 "Farewell", "Bye", "Fare well", "See you" -> "Malachin with you.", "Farewell.", "Goodbye."
@@ -74,8 +74,8 @@ itemShoes = 326
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."
 "quest", "mission" -> "Derzeit habe ich alles, aber danke für eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."
-"task", "adventure" -> "I have no tasks for you right now, maybe another time."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe derzeit keine Aufgaben für euch, vielleicht aber wann anders."
+"task", "adventure", "order" -> "I have no tasks for you right now, maybe another time."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe derzeit keine Aufgaben für euch, vielleicht aber wann anders."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the notary of Galmair and do all the stuff a notary does.", "I take care of the new arrivals in Galmair, I am the notary here."

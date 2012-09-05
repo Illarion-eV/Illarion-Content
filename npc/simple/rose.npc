@@ -157,8 +157,8 @@ itemShoes = 53
 "task", "adventure", "mission", "money", "earn", queststatus(316) < 2, queststatus(303) =< 1 -> "#w Do you want to earn some money?", queststatus(316) = 6, queststatus(303) = 1
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted, I'm seamstress %NPCNAME.", "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüß dich, ich bin die Näherin %NPCNAME.", "#me zwinkert dich verführerisch an.", "Grüße."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted, I'm seamstress %NPCNAME.", "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüß dich, ich bin die Näherin %NPCNAME.", "#me zwinkert dich verführerisch an.", "Grüße."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted, I'm seamstress %NPCNAME.", "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüß dich, ich bin die Näherin %NPCNAME.", "#me zwinkert dich verführerisch an.", "Grüße."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Good bye.", "Bye.", "Ciao", "Adieu", "Au revoir", "You're leaving? I'll miss you."

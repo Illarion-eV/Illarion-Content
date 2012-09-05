@@ -69,8 +69,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Natiana Banius die Frau des Bauern. Schlüsselwörter: Auftrag")
 
 -- General speech.
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me struggles to open her eyes, looking up at you.", "#me smiles weakly.", "H...h...hello."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me bemüht sich ihre Augen zu öffnen um dich anzusehen.", "#me lächelt schwach.", "H...h...hallo."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me struggles to open her eyes, looking up at you.", "#me smiles weakly.", "H...h...hello."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me bemüht sich ihre Augen zu öffnen um dich anzusehen.", "#me lächelt schwach.", "H...h...hallo."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "#me struggles to open her eyes, looking up at you.", "#me smiles weakly.", "H...h...hello."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me bemüht sich ihre Augen zu öffnen um dich anzusehen.", "#me lächelt schwach.", "H...h...hallo."
 "Farewell", "Bye", "Fare well", "See you" -> "T...t...take...care.", "#me lightly taps your hand in acknowledgment.", "#me slightly inclines her head."

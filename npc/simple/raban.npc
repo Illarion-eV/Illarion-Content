@@ -72,8 +72,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Einsiedler Raban. Schlüsselwörter: Hallo, Quest, Sichel, Kräuter.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, yes, an unsettled soul. Welcome to my grove.", "Who is there! Pardon me, I am not used to visitors.", "So, after all those summers, somebody comes here. I hope your intentions are good."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, yes, an unsettled soul. Welcome to my grove.", "Who is there! Pardon me, I am not used to visitors.", "So, after all those summers, somebody comes here. I hope your intentions are good."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Ah, yes, an unsettled soul. Welcome to my grove.", "Who is there! Pardon me, I am not used to visitors.", "So, after all those summers, somebody comes here. I hope your intentions are good."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
 "Farewell", "Bye", "Fare well", "See you" -> "Ushara may guide your way.", "Farewell.", "While leaving, do not stomp on any seedling, will you?"

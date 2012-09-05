@@ -90,7 +90,7 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, would you like some something to eat? I think the stuff I made is good.", " Nice to meet you, I am Alysa Lorthelia.", "Ah! You startled me, Hello, I'm sorry."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hello, would you like some something to eat? I think the stuff I made is good.", " Nice to meet you, I am Alysa Lorthelia.", "Ah! You startled me, Hello, I'm sorry."
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Farewell", "Bye", "Fare well", "See you" -> "Will I ever see you again? ", "Thank you so, so, so much for talking to me.", "Please have a good day. Can you visit again please?"

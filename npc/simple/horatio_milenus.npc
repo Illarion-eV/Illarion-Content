@@ -111,8 +111,8 @@ itemShoes = 771
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Horatio Milenus der Torwächter. Schlüsselwörter: Hallo, Tor, Wüste, Cadomyr, Wache.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "What?", "Welcome to Cadomyr.", "This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline.", "Hello.", "#me just gives a brief nod.", "Greetings to you."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Was?", "Willkommen in Cadomyr.", "Dies ist Cadomyr, Heimat der schönen und unglaublich weisen Königin Rosaline.", "Hallo.", "#me nickt nur kurz.", "Seid gegrüßt."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "What?", "Welcome to Cadomyr.", "This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline.", "Hello.", "#me just gives a brief nod.", "Greetings to you."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Was?", "Willkommen in Cadomyr.", "Dies ist Cadomyr, Heimat der schönen und unglaublich weisen Königin Rosaline.", "Hallo.", "#me nickt nur kurz.", "Seid gegrüßt."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "What?", "Welcome to Cadomyr.", "This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline.", "Hello.", "#me just gives a brief nod.", "Greetings to you."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Was?", "Willkommen in Cadomyr.", "Dies ist Cadomyr, Heimat der schönen und unglaublich weisen Königin Rosaline.", "Hallo.", "#me nickt nur kurz.", "Seid gegrüßt."
 "Farewell", "Bye", "Fare well", "See you" -> "Care, the desert can be quite unforgiving.", "Care, make no trouble.", "Care.", "Farewell.", "Good bye."
@@ -127,8 +127,8 @@ itemShoes = 771
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "Well, it is my mission to guard this gate. I do not know what your mission is; apart from serving her majesty, of course."
 "quest", "mission" -> "Nun, meine Aufgabe ist es, dieses Tor zu bewachen. Was eure Aufgabe ist, weiß ich nicht, Hauptsache, ihr dient ihrer Majestät."
-"task", "adventure" -> "Well, it is my mission to guard this gate. I do not know what your mission is; apart from serving her majesty, of course."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Nun, meine Aufgabe ist es, dieses Tor zu bewachen. Was eure Aufgabe ist, weiß ich nicht, Hauptsache, ihr dient ihrer Majestät."
+"task", "adventure", "order" -> "Well, it is my mission to guard this gate. I do not know what your mission is; apart from serving her majesty, of course."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun, meine Aufgabe ist es, dieses Tor zu bewachen. Was eure Aufgabe ist, weiß ich nicht, Hauptsache, ihr dient ihrer Majestät."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am Guard of Cadomyr.", "I serve this realm.", "I serve this mighty city.", "I am a town guard of Cadomyr.", "I serve the noble Queen as a town guard."

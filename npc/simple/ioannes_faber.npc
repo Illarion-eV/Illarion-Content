@@ -65,8 +65,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Kämmerer, 'Habt ihr Aufträge für mich?', 'Ich möchte Auftrag <Nummer> ansehen', 'Ich möchte Auftrag <Nummer> annehmen'.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hail and may Malachín bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Malachín zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Befehl benötigt."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail and may Malachín bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Malachín zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Befehl benötigt."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hail and may Malachín bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Malachín zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Befehl benötigt."
 "Farewell", "Bye", "Fare well", "See you" -> "Go forth and do as the queen tells you.", "Farewell and may your journey be a pleasant one.", "Good bye and don't forget to come back."
@@ -85,7 +85,7 @@ itemShoes = 53
 -- Catching quest triggers
 "quest", "mission", english -> "I do not issue quests. I issue orders of queen Rosaline. Obey them!"
 "quest", "mission" -> "Ich biete keine Abenteuer an, ich verteile Befehle von Königin Rosaline. Gehorcht ihnen!"
-"task", "adventure" -> "I do not issue quests. I issue orders of queen Rosaline. Obey them!"
+"task", "adventure", "order" -> "I do not issue quests. I issue orders of queen Rosaline. Obey them!"
 "Aufgabe", "Abenteuer" -> "Ich biete keine Abenteuer an, ich verteile Befehle von Königin Rosaline. Gehorcht ihnen!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!

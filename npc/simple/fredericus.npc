@@ -80,8 +80,8 @@ buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Fischer, Tanora, Handel.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ahoi! Frischer Fisch!", "Tag. Bin gerade von großer Fahrt zurück.", "Nur der beste Fisch, nur heute, nur für euch!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ahoi! Frischer Fisch!", "Tag. Bin gerade von großer Fahrt zurück.", "Nur der beste Fisch, nur heute, nur für euch!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ahoi! Frischer Fisch!", "Tag. Bin gerade von großer Fahrt zurück.", "Nur der beste Fisch, nur heute, nur für euch!"
 "Farewell", "Bye", "Fare well", "See you" -> "Good trip.", "Until next time, remember, a fish a day keeps the medico away.", "Farewell."

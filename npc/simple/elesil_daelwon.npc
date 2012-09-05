@@ -60,8 +60,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Auftrag.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hail Elara. *Closes her eyes*"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Heil Elara. *Schließt ihre Augen*"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail Elara. *Closes her eyes*"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Heil Elara. *Schließt ihre Augen*"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hail Elara. *Closes her eyes*"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Heil Elara. *Schließt ihre Augen*"
 "Farewell", "Bye", "Fare well", "See you" -> "Au revoir. *Closes her eyes*"

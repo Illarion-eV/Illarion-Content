@@ -56,8 +56,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Borgate Northoff der Wirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Götter, Bragon, Adron")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What do I have to make you?", "G'day, wanna beer?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?.", "Guten Tag. Was soll ich Dir machen?", "Tach, was darf's sein?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What do I have to make you?", "G'day, wanna beer?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?.", "Guten Tag. Was soll ich Dir machen?", "Tach, was darf's sein?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What do I have to make you?", "G'day, wanna beer?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?.", "Guten Tag. Was soll ich Dir machen?", "Tach, was darf's sein?"
 "Farewell", "Bye", "Fare well", "See you" -> "Have a nice day.", "Aye. Come back whenever you are thirsty.", "Good day!"
@@ -72,8 +72,8 @@ itemShoes = 53
 -- Catching quest triggers
 "quest", "mission", english -> "Nope, I didn't got a job for you."
 "quest", "mission" -> "Nee, ich habe keine Arbeit für dich."
-"task", "adventure" -> "Nope, I didn't got a job for you."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Nee, ich habe keine Arbeit für dich."
+"task", "adventure", "order" -> "Nope, I didn't got a job for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nee, ich habe keine Arbeit für dich."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm bartender. Tendering beer. - Mostly", "What do you think I have to do here? What a stupid question. Aaarh! Drink or eat something or leave!"

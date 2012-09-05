@@ -75,7 +75,7 @@ itemShoes = 369
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", item(333, all) => 1 -> "Moin, Moin, %CHARNAME! Komm ran! Hier kannste Dich vollkippen."
 "Hiho", "Hallo", "Hey", "Greeb", item(333, all) => 1, english -> "G'day, %CHARNAME! Here's yer place! Fill yer up?"
 "Hiho", "Hallo", "Hey", "Greeb", item(333, all) => 1 -> "Moin, Moin, %CHARNAME! Komm ran! Hier kannste Dich vollkippen."
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "G'day, be wellcome in the Winged Sow Tavern!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "G'day, be wellcome in the Winged Sow Tavern!"
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Moin, seid willkommen in der Taverne zur geflügelten Sau!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "G'day, be wellcome in the Winged Sow Tavern!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Moin, seid willkommen in der Taverne zur geflügelten Sau!"
@@ -93,8 +93,8 @@ itemShoes = 369
 -- Catching quest triggers
 "quest", english -> "I haven't any tasks for you."
 "quest", german -> "Ich hab keine Arbeit für Euch."
-"task", "adventure" -> "I haven't any tasks for you."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe keine Arbeit für Euch."
+"task", "adventure", "order" -> "I haven't any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Arbeit für Euch."
 
 -- Small talk + free beer:
 "profession" -> "I'm the inkeeper here.", "This is my tavern. 'The Winged Sow'"

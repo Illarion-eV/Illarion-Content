@@ -60,8 +60,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Iradona Goldschein die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Galmair, Gebäude, Spiel, Auftrag.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day, my dear. Can I help you with some information?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day, my dear. Can I help you with some information?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Good day, my dear. Can I help you with some information?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
 "Farewell", "Bye", "Fare well", "See you" -> "See ya soon."

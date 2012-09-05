@@ -52,8 +52,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Grimlug der Schamane. Schlüsselwörter: erzähl was, Olokwa, Schöpfung, Götter."), state = 0
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas! How, the shaman 's able to help you?", "Hurr! What's your desire?", "Hullo! - Greets to you."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Greebas! Wie kann dir der Schamane helfigen?", "Hurr! Was issigt dein Begehr?", "Hullo! - Sei gegrüßigt."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas! How, the shaman 's able to help you?", "Hurr! What's your desire?", "Hullo! - Greets to you."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas! Wie kann dir der Schamane helfigen?", "Hurr! Was issigt dein Begehr?", "Hullo! - Sei gegrüßigt."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greebas! How, the shaman 's able to help you?", "Hurr! What's your desire?", "Hullo! - Greets to you."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas! Wie kann dir der Schamane helfigen?", "Hurr! Was issigt dein Begehr?", "Hullo! - Sei gegrüßigt."
 "Farewell", "Bye", "Fare well", "See you" -> "Farebas!", "Blessings to youb.", "Good spirits shall guide your ways."
@@ -68,8 +68,8 @@ itemShoes = 369
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "The shaman has no quests for you, right now."
 "quest", "mission" -> "Der Schamane hat keinige Aufgaben für dich - im Moment."
-"task", "adventure" -> "The shaman has no quests for you, right now."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Der Schamane hat keinige Aufgaben für dich - im Moment."
+"task", "adventure", "order" -> "The shaman has no quests for you, right now."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Schamane hat keinige Aufgaben für dich - im Moment."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "Gobaith", "Gobiath", english -> "Gobaith! Hurr, the isle made the gods angry, now it have to bear it's desteny. Tagtha."

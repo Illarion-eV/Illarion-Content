@@ -68,8 +68,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuch Händler Phillibald. Schlüsselwörter: Hallo, Portale, Bücher.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho! Today is a fine day to travel."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho! Heute ist ein schöner Tag für eine Reise."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Today is a fine day to travel."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Heute ist ein schöner Tag für eine Reise."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho! Today is a fine day to travel."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Heute ist ein schöner Tag für eine Reise."
 "Farewell", "Bye", "Fare well", "See you" -> "Always keep moving!", "Toodles!", "Farewell."
@@ -84,8 +84,8 @@ itemShoes = 53
 -- Catching quest triggers
 "quest", "mission", english -> "I do not issue any quests. But I can sell you books to go to other places."
 "quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
-"task", "adventure" -> "I do not issue any quests. But I can sell you books to go to other places."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
+"task", "adventure", "order" -> "I do not issue any quests. But I can sell you books to go to other places."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
 
 -- Easter Egg
 

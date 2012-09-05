@@ -60,8 +60,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cassandra Hestan die Geldwechslerin. Schlüsselwörter: Hallo, Geld, Cadomyr, Beruf, Ronagan.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings. You came to me to change money, am I not right?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings. You came to me to change money, am I not right?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings. You came to me to change money, am I not right?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell and come back with more money."

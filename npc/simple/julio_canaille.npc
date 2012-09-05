@@ -62,8 +62,8 @@ itemShoes = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Julio Canaille der Geist. Schlüsselwörter: Holzbein, Quest, Götter, Erzähl was."), "Frag mich nach meen 'Holzbein'! Wenn du andere Dinge brauchst gehst du besser zu ner Siedlung, deswegen. Landratte!", state = 0
 
 -- generall
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Chhh.", "Greets!", "Aye!", "Arr!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Chhh.", "Grüsse!", "Aye!", "Arr!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Chhh.", "Greets!", "Aye!", "Arr!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Chhh.", "Grüsse!", "Aye!", "Arr!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Chhh.", "Greets!", "Aye!", "Arr!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Chhh.", "Grüsse!", "Aye!", "Arr!"
 "Farewell", "Bye", "Fare well", "See you" -> "Arr! Don't get bite by seadogs!", "Aye."

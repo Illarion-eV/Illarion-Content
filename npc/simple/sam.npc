@@ -128,8 +128,8 @@ itemShoes = 53
 -- Catching quest triggers
 "quest", english -> "Do I look like someone who has work for you? Leave, you stupid farmer!"
 "quest", german -> "Sche ich scho auch als hätt isch arbeit für disch? Verschwinde du dummer Bauer."
-"task", "adventure" -> "Do I look like someone who has work for you? Leave, you stupid farmer!"
-"Auftrag", "Aufgabe", "Abenteuer" -> "Sche ich scho auch als hhätt isch Arbeit für disch? Verschwinde du dummer Bauer."
+"task", "adventure", "order" -> "Do I look like someone who has work for you? Leave, you stupid farmer!"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Sche ich scho auch als hhätt isch Arbeit für disch? Verschwinde du dummer Bauer."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "Yes" -> "Eh-h?!", "Fiiiiiine.", "Yes-s!"

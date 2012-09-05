@@ -50,8 +50,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hook Gowan ein Händler im Gasthof zur Hanfschlinge. Schlüsselwörter: Nubris, Ronagan, König Edwards, erzähl etwas")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Coateed in shadows, be greeted.", "Good day, do you need something? I buy and sell exquisite third hand equipment.", "Be greeted and see over my goods."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Mit einem Fuß im Schatten, zum Gruße.", "Guten Tag, braucht ihr etwas? Ich kaufe und verkaufe erlesene Güter aus dritter Hand.", "Seid gegrüßt und kauft bei mir ein."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Coateed in shadows, be greeted.", "Good day, do you need something? I buy and sell exquisite third hand equipment.", "Be greeted and see over my goods."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Mit einem Fuß im Schatten, zum Gruße.", "Guten Tag, braucht ihr etwas? Ich kaufe und verkaufe erlesene Güter aus dritter Hand.", "Seid gegrüßt und kauft bei mir ein."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Coateed in shadows, be greeted.", "Good day, do you need something? I buy and sell exquisite third hand equipment.", "Be greeted and see over my goods."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Mit einem Fuß im Schatten, zum Gruße.", "Guten Tag, braucht ihr etwas? Ich kaufe und verkaufe erlesene Güter aus dritter Hand.", "Seid gegrüßt und kauft bei mir ein."
 "Farewell", "Bye", "Fare well", "See you" -> "May the shadows shelter you, adieu!", "Good bye.", "Save Travel, see you soon."
@@ -66,8 +66,8 @@ itemShoes = 53
 -- Catching quest triggers
 "quest", "mission", english -> "Hm-h. Honestly, I got plenty of people working for me. Therefore I can't hire you, I'm deeply sorry."
 "quest", "mission" -> "Hm-h. Ehrlich gesagt, hab ich schon ausreichend Leute die für mich arbeiten. Euch kann ich also nicht brauchen, tut mir Leid."
-"task", "adventure" -> "Hm-h. Honestly, I got plenty of people working for me. Therefore I can't hire you, I'm deeply sorry."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Hm-h. Ehrlich gesagt, hab ich schon ausreichend Leute die für mich arbeiten. Euch kann ich also nicht brauchen, tut mir Leid."
+"task", "adventure", "order" -> "Hm-h. Honestly, I got plenty of people working for me. Therefore I can't hire you, I'm deeply sorry."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hm-h. Ehrlich gesagt, hab ich schon ausreichend Leute die für mich arbeiten. Euch kann ich also nicht brauchen, tut mir Leid."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Once I was a thief myself. I stole whatever I needed to life. But nowadays I just sell the stuff. And nobody in this great Inn will ever try to forbid it."

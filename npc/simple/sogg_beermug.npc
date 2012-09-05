@@ -51,8 +51,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Sogg Beermug der Alchimist. Schlüsselwörter: Beruf, Runewick, Galmair, Cadomyr"), "Hilfe brauschn wir alle!...'hick'", state = 0
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas!", "Hurr! Greetings.", "#me grunts and waves a mug of beer.", "Skoal! Come over 'ere and drink with Sogg!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Greebas!", "Hurr! Grüße.", "#me grunzt und winkt mit einem Krug Bier.", "Prost! Kommst du her, und trinkst mit Sogg!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas!", "Hurr! Greetings.", "#me grunts and waves a mug of beer.", "Skoal! Come over 'ere and drink with Sogg!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas!", "Hurr! Grüße.", "#me grunzt und winkt mit einem Krug Bier.", "Prost! Kommst du her, und trinkst mit Sogg!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greebas!", "Hurr! Greetings.", "#me grunts and waves a mug of beer.", "Skoal! Come over 'ere and drink with Sogg!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas!", "Hurr! Grüße.", "#me grunzt und winkt mit einem Krug Bier.", "Prost! Kommst du her, und trinkst mit Sogg!"
 "Farewell", "Bye", "Fare well", "See you" -> "Farebaaaa...!"
@@ -67,8 +67,8 @@ itemShoes = 369
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "I havn't any tashks for you."
 "quest", "mission" -> "Isch abe kene Aufgabn für disch."
-"task", "adventure" -> "I havn't any tashks for you."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Isch abe kene Aufgabn für disch."
+"task", "adventure", "order" -> "I havn't any tashks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Isch abe kene Aufgabn für disch."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm Sogg Beermug. 'hic' Mes guarding tha barrels an' bottles! Uh!"

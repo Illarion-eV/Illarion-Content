@@ -69,8 +69,8 @@ itemShoes = 770
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Glaswarenhändler Jonathan Cyrus. Schlüsselwörter: Hallo, Glas.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings, in the name of our Queen Rosaline! Do you need any glasses, just ask.", "It is a wonderful day in Cadomyr, governed by our magnificient - and beautiful - queen.", "Hello."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt, bei unserer Königin Rosaline.", "Es ist ein wundervoller Tag in Cadomyr, regiert von unserer glorreichen - und wunderschönen - Königin.", "Hallo."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings, in the name of our Queen Rosaline! Do you need any glasses, just ask.", "It is a wonderful day in Cadomyr, governed by our magnificient - and beautiful - queen.", "Hello."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt, bei unserer Königin Rosaline.", "Es ist ein wundervoller Tag in Cadomyr, regiert von unserer glorreichen - und wunderschönen - Königin.", "Hallo."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings, in the name of our Queen Rosaline! Do you need any glasses, just ask.", "It is a wonderful day in Cadomyr, governed by our magnificient - and beautiful - queen.", "Hello."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt, bei unserer Königin Rosaline.", "Es ist ein wundervoller Tag in Cadomyr, regiert von unserer glorreichen - und wunderschönen - Königin.", "Hallo."
 "Farewell", "Bye", "Fare well", "See you" -> "Go with the blessing of the Queen.", "Fare thy well, and come back one day.", "One advises: Do not venture too far away, you will not find anything comparable with Cadomyr."
@@ -85,8 +85,8 @@ itemShoes = 770
 -- Catching quest triggers
 "quest", "mission", english -> "Adventures? Now, glassblowing is truly a learning adventure in itself."
 "quest", "mission" -> "Abenteuer? Nun, Glasblasen zu erlernen ist wirklich ein Abenteuer für sich."
-"task", "adventure" -> "Adventures? Now, glassblowing is truly a learning adventure in itself."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Abenteuer? Nun, Glasblasen zu erlernen ist wirklich ein Abenteuer für sich."
+"task", "adventure", "order" -> "Adventures? Now, glassblowing is truly a learning adventure in itself."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Abenteuer? Nun, Glasblasen zu erlernen ist wirklich ein Abenteuer für sich."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I trade glassware.", "I trade candles and glassware."

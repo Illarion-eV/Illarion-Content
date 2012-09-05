@@ -71,8 +71,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmuggler Ehrom Goldhammer. Schlüsselwörter: Hallo, Quest, Schmuggler.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings! Could it be that he send you to me to help me with my task?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ronagan zum Gruße! Könnte es sein, dass Ronagan Euch zu mir geschickt hat, um mir bei meiner Aufgabe zu helfen?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings! Could it be that he send you to me to help me with my task?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ronagan zum Gruße! Könnte es sein, dass Ronagan Euch zu mir geschickt hat, um mir bei meiner Aufgabe zu helfen?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings! Could it be that Ronagan sent you to me to help me with my task?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ronagan zum Gruße! Könnte es sein, dass Ronagan Euch zu mir geschickt hat, um mir bei meiner Aufgabe zu helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Ronagan's blessing! And watch your back."

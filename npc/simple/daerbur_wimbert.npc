@@ -72,8 +72,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Bergarbeiter Daerbur Wimbert. Schlüsselwörter: Hallo, Quest, Spitzhacke, Bergarbeiter.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?", "Häh?", "Höh?", "Hüh?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?", "Häh?", "Höh?", "Hüh?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?", "Häh?", "Höh?", "Hüh?"
 "Farewell", "Bye", "Fare well", "See you" -> "So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!", "Why did you come if you wanted to leave anyway? You like change to your life, I assume.", "Bye"

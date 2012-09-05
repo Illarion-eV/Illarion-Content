@@ -101,8 +101,8 @@ itemShoes = 53
 "übrige strafe", queststatus(25) < 1 -> "Du kannst gehen, Gauner. Bitte mich darum, dich freizulassen.", "Das reicht jetzt, ich denke, ich kann dich freilassen."
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "What do you want? Ah, I know: You want to feel my whip!", "Welcome to my realm, the realm of work, sweat and tears.", "Work, scum! Criminals deserve nothing more than pain.", "Tell me you are innocent and I will laugh for the rest of the day."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.", "Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.", "Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!", "Sag mir jetzt noch, du bist unschuldig und ich lache für den Rest des Tages."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "What do you want? Ah, I know: You want to feel my whip!", "Welcome to my realm, the realm of work, sweat and tears.", "Work, scum! Criminals deserve nothing more than pain.", "Tell me you are innocent and I will laugh for the rest of the day."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.", "Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.", "Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!", "Sag mir jetzt noch, du bist unschuldig und ich lache für den Rest des Tages."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "What do you want? Ah, I know: You want to feel my whip!", "Welcome to my realm, the realm of work, sweat and tears.", "Work, scum! Criminals deserve nothing more than pain.", "Tell me you are innocent and I will laugh for the rest of the day."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.", "Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.", "Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!", "Sag mir jetzt noch, du bist unschuldig und ich lache für den Rest des Tages."
 "Farewell", "Bye", "Fare well", "See you" -> "I don't think you're leaving right now.", "So you think you're leaving? Surprise! You're not!", "When you find the exit, send me a letter.", "Didn't anyone tell you that you have to stay a bit longer...?", "Nope. Work. Deliver things. Deliver even more things. Then you may get released."
@@ -117,8 +117,8 @@ itemShoes = 53
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "#me points his finger in your face and laughs out loud.", "Erm, no quest for you.", "My quest is to whip those who are lazy.", "Let me see... your quest is to work!"
 "quest", "mission" -> "#me zeigt mit dem Finger auf dich und lacht lauthals los.", "Äh, keine Queste für dich.", "Meine Bestimmung ist, die Faulen auszupeitschen.", "Wart mal... deine Bestimmung ist es, zu arbeiten."
-"task", "adventure" -> "#me points his finger in your face and laughs out loud.", "Erm, no quest for you.", "My quest is to whip those who are lazy.", "Let me see... your quest is to work!"
-"Auftrag", "Aufgabe", "Abenteuer" -> "#me zeigt mit dem Finger auf dich und lacht lauthals los.", "Äh, keine Queste für dich.", "Meine Bestimmung ist, die Faulen auszupeitschen.", "Wart mal... deine Bestimmung ist es, zu arbeiten."
+"task", "adventure", "order" -> "#me points his finger in your face and laughs out loud.", "Erm, no quest for you.", "My quest is to whip those who are lazy.", "Let me see... your quest is to work!"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me zeigt mit dem Finger auf dich und lacht lauthals los.", "Äh, keine Queste für dich.", "Meine Bestimmung ist, die Faulen auszupeitschen.", "Wart mal... deine Bestimmung ist es, zu arbeiten."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I take care that scum like you gets punished!"

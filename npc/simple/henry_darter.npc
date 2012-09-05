@@ -74,8 +74,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schlachter Henry Darter. Schlüsselwörter: Hallo, Quest, Schlachter.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings, my friend.", "Hello. A great day to butcher some pigs, isn't it?", "Hello, hello. Welcome to the Dewy Swamps."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüße, mein Freund.", "Hallo. Ein herrlicher Tag zum Schweineschlachten, nicht?", "Hallo, hallo. Willkommen im Morgentausumpf."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings, my friend.", "Hello. A great day to butcher some pigs, isn't it?", "Hello, hello. Welcome to the Dewy Swamps."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße, mein Freund.", "Hallo. Ein herrlicher Tag zum Schweineschlachten, nicht?", "Hallo, hallo. Willkommen im Morgentausumpf."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings. Do not waste your time with small talk!", "Be greeted.", "Greetings, my friend."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße. Verschwende deine Zeit nicht mit Plausch!", "Seid gegrüßt.", "Grüße, mein Freund."
 "Farewell", "Bye", "Fare well", "See you" -> "Have a nice day!", "Farewell.", "Goodbye, my friend."

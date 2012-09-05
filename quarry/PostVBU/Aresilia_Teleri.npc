@@ -64,8 +64,8 @@ itemShoes = 53
 "Hilfe" -> "[Spielhilfe] Dieser NPC ist die Schneiderin Aresilia Teleri. Schlüsselwörter: Hallo, Quest, Aufgaben, Rührstab, Nadel, Stoff"
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day as well.", "Be welcome.", "Greets, how are you today?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Einen wunderschönen Tag wünsch ich!", "Tagchen", "Grüße euch."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day as well.", "Be welcome.", "Greets, how are you today?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Einen wunderschönen Tag wünsch ich!", "Tagchen", "Grüße euch."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Good day as well.", "Be welcome.", "Greets, how are you today?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Wie? Ich höre nicht so gut, wie war das?", "Was..nein, sowas sagt man doch nicht!", "Gefällt mir nicht, sag was anderes!"
 "Farewell", "Bye", "Fare well", "See you" -> "Bye.", "Have a good day.", "Farewell."
