@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 03, 2012                       easyNPC Parser v1.2 --
+-- Last parsing: September 04, 2012                       easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -217,7 +217,7 @@ talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a gold nugget. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...");
+talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but long ago, a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10));
 talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
@@ -231,7 +231,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Goldnugget. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...");
+talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat vor langer Zeit ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10));
 talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
@@ -245,7 +245,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a gold nugget."));
-talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...");
+talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but long ago, a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10));
 talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
@@ -257,7 +257,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Goldnugget."));
-talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...");
+talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat vor langer Zeit ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10));
 talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
