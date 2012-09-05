@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 04, 2012                       easyNPC Parser v1.2 --
+-- Last parsing: September 05, 2012                       easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -111,8 +111,7 @@ talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Oh, won't you please visit us again.");
-talkEntry:addResponse("Anytime you think of dining please do not forget the Glass Spiegel");
-talkEntry:addResponse("Goodbye beautiful person.");
+talkEntry:addResponse("Anytime you think of dining please do not forget the Unicorn Lion.");
 talkEntry:addResponse("Please come again. I will cook better next time, I promise.");
 talkEntry:addResponse("Oh, you're leaving already? Was the food bad?");
 talkEntry:addResponse("Thank you, come again.");
@@ -124,9 +123,11 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Oh, kommt doch bitte bald wieder.");
+talkEntry:addResponse("Immer, wenn ihr Hunger verspürt, denkt doch an den Einhörnigen Löwen.");
+talkEntry:addResponse("Kommt doch bitte wieder, ich koche dann auch besser, versprochen.");
+talkEntry:addResponse("Ihr geht schon? War das Essen nicht gut?");
+talkEntry:addResponse("Danke, schaut doch wieder rein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -138,7 +139,6 @@ talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Oh, won't you please visit us again.");
 talkEntry:addResponse("Anytime you think of dining please do not forget the Glass Spiegel");
-talkEntry:addResponse("Goodbye beautiful person.");
 talkEntry:addResponse("Please come again. I will cook better next time, I promise.");
 talkEntry:addResponse("Oh, you're leaving already? Was the food bad?");
 talkEntry:addResponse("Thank you, come again.");
@@ -150,21 +150,22 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Oh, kommt doch bitte bald wieder.");
+talkEntry:addResponse("Immer, wenn ihr Hunger verspürt, denkt doch an den Einhörnigen Löwen.");
+talkEntry:addResponse("Kommt doch bitte wieder, ich koche dann auch besser, versprochen.");
+talkEntry:addResponse("Ihr geht schon? War das Essen nicht gut?");
+talkEntry:addResponse("Danke, schaut doch wieder rein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
-talkEntry:addResponse("Hahaha, I think I forgot what a real bad day looks like.");
+talkEntry:addResponse("Haha, I think I forgot what a real bad day looks like.");
 talkEntry:addResponse("I am enjoying my day and you?");
 talkEntry:addResponse("I think I'm a little bit sleepy, but how are you?");
-talkEntry:addResponse("I feel like a thousand suns shineing upon a cloudless sky. Hehe, that's what father always says.");
-talkEntry:addResponse("I'm very busy. No time to chit chat.");
-talkEntry:addResponse("AHH! The chicken is on fire! Why would you try to talk to me while I'm cooking.");
+talkEntry:addResponse("I feel like a thousand suns shineing upon a cloudless sky.");
+talkEntry:addResponse("I'm very busy. No time to chat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -173,9 +174,11 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Hach, ich weiß schon gar nicht mehr, wie sich ein schlechter Tag anfühlt.");
+talkEntry:addResponse("Heute ist ein toller Tag.");
+talkEntry:addResponse("Ich bin ein bisschen müde, wie geht es euch?");
+talkEntry:addResponse("Ich hab die Sonne im Herzen.");
+talkEntry:addResponse("Ich bin etwas beschäftigt und kann jetzt nicht plaudern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -183,10 +186,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am Rose Rabon, the hostess for this restaurant.");
-talkEntry:addResponse("I am Rose Rabon, mother and wife.");
-talkEntry:addResponse("I am Rose the happy.");
-talkEntry:addResponse("I'm Linda Rabon I may not look it, but I am the best cook in Cadomyr.");
+talkEntry:addResponse("I am Linda Rabon, the cook for this tavern.");
+talkEntry:addResponse("I am Linda Rabon, Severus' daughter.");
+talkEntry:addResponse("I'm Linda Rabon. I may not look it, but I am the best cook in Cadomyr.");
 talkEntry:addResponse("I am Linda. Haha, I'm sorry, you made a funny face.");
 talkEntry:addResponse("I'm Linda, I'll cook you something special if you ask.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -197,9 +199,11 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin Linda Rabon, die Köchin dieser Taverne.");
+talkEntry:addResponse("Ich bin Linda Rabon, die Tochter des Severus.");
+talkEntry:addResponse("Ich bin Linda Rabon. Es mag nicht so aussehen, aber ich bin Cadomyrs beste Köchin.");
+talkEntry:addResponse("Ich bin Linda. Haha, entschuldigt, aber ihr seht lustig aus.");
+talkEntry:addResponse("Ich bin Linda und ich koche euch was besonders gutes, wenn ihr darum bittet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -684,21 +688,21 @@ talkEntry:addTrigger("Unicorn");
 talkEntry:addTrigger("Lion");
 talkEntry:addResponse("You're at the Unicorn Lion. I know this may sound boastful, but I think we have the best tavern in Cadomyr.");
 talkEntry:addResponse("Father and mother built this place.");
-talkEntry:addResponse("I want to get married here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Einhörnig");
 talkEntry:addTrigger("Löwe");
-talkEntry:addResponse("");
+talkEntry:addResponse("Ihr befindet euch im Einhörnigen Löwen. Es mag vermessen klingen, aber dies ist die beste Taverne in Cadomyr.");
+talkEntry:addResponse("Vater und Mutter haben dieses Haus gebaut.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Father");
 talkEntry:addTrigger("Daddy");
-talkEntry:addResponse("He's my life. This Restaurant is his dream and we run it together.");
+talkEntry:addResponse("This tavern is his dream and we run it together.");
 talkEntry:addResponse("He says he is the best father in Cadomyr. And if anyone says he's not, well, they get no dinner from me.");
 talkEntry:addResponse("I wonder what father is going to get me for my birthday?");
 talkEntry:addResponse("Father wishes he could be as good of a cook as me.");
@@ -708,14 +712,17 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Vater");
 talkEntry:addTrigger("Papa");
-talkEntry:addResponse("");
+talkEntry:addResponse("Diese Taverne ist sein Traum und wir betreiben sie zusammen.");
+talkEntry:addResponse("Er sagt, er sei der beste Vater in Cadomyr. Und wenn jemand das Gegenteil behauptet, dann kriegt er von mir nichts zu essen.");
+talkEntry:addResponse("Ich frage mich, was ich von Vater zum Geburtstag kriege.");
+talkEntry:addResponse("Vater wünschte, er könne so gut kochen wie ich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Severus");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He's my life. This Restaurant is his dream and we run it together.");
+talkEntry:addResponse("This tavern is his dream and we run it together.");
 talkEntry:addResponse("He says he is the best father in Cadomyr. And if anyone says he's not, well, they get no dinner from me.");
 talkEntry:addResponse("I wonder what father is going to get me for my birthday?");
 talkEntry:addResponse("Father wishes he could be as good of a cook as me.");
@@ -724,14 +731,19 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Severus");
-talkEntry:addResponse("");
+talkEntry:addResponse("Diese Taverne ist sein Traum und wir betreiben sie zusammen.");
+talkEntry:addResponse("Er sagt, er sei der beste Vater in Cadomyr. Und wenn jemand das Gegenteil behauptet, dann kriegt er von mir nichts zu essen.");
+talkEntry:addResponse("Ich frage mich, was ich von Vater zum Geburtstag kriege.");
+talkEntry:addResponse("Vater wünschte, er könne so gut kochen wie ich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mommy");
 talkEntry:addTrigger("Mother");
-talkEntry:addResponse("");
+talkEntry:addResponse("Father used to be the cook and mother the waitress, but since mother is no more...");
+talkEntry:addResponse("Mother used to say when I grow up I'm going to be beautiful.");
+talkEntry:addResponse("Mother was too nice. She was even nice to mean people.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,9 +757,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rose");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Father used to be the cook and mommy the waitress, but since I am the best cook in Cadomyr. I am the cook, Daddy is the waitress, and Mommy greets people at the door.");
-talkEntry:addResponse("Mommy says when I grow Up I'm going to be beautiful.");
-talkEntry:addResponse("Mommy is too nice. She is even nice to mean people.");
+talkEntry:addResponse("Father used to be the cook and mother the waitress, but since mother is no more...");
+talkEntry:addResponse("Mother used to say when I grow up I'm going to be beautiful.");
+talkEntry:addResponse("Mother was too nice. She was even nice to mean people.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -761,7 +773,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hassan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("He's cute, don't you think?");
-talkEntry:addResponse("I wish he would tell stories too, but Hassan never talks.");
+talkEntry:addResponse("I wish he would tell stories, but Hassan never talks.");
 talkEntry:addResponse("He rarely speaks. It's kind of weird. Don't you think?");
 talkEntry:addResponse("He's so big. He picked me up once. I felt like I was touching the stars.");
 talkEntry:addResponse("Did you know that Mr. Yang can play the Oboe. He plays it sometimes. You should ask him to play.");
@@ -778,9 +790,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("She should come try our food. I promise she will declare it the most delicious food in all of Cadomyr.");
+talkEntry:addResponse("She is beautiful isn't she.");
+talkEntry:addResponse("My mother used to say that Rosaline is very smart.");
+talkEntry:addResponse("I want to be like queen Rosaline when I grow up.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -798,8 +811,8 @@ talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("She should come try our food. I promise she will declare it the most delicious food in all of Cadomyr.");
 talkEntry:addResponse("She is beautiful isn't she.");
-talkEntry:addResponse("My mom says that Rosaline is very smart.");
-talkEntry:addResponse("I want to be queen Rosaline when I grow up.");
+talkEntry:addResponse("My mother used to say that Rosaline is very smart.");
+talkEntry:addResponse("I want to be like queen Rosaline when I grow up.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
