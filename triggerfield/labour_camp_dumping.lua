@@ -40,7 +40,7 @@ function PutItemOnField(Item,User)
 				User:setQuestProgress(25,workLoad-Item.number)
 			end
 		end
-		world:gfx(Item.pos)
+		world:gfx(46,Item.pos)
 		world:erase(Item,Item.number)
 	end	
 end
