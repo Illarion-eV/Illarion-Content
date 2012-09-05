@@ -78,21 +78,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greet");
-talkEntry:addTrigger("Hail");
-talkEntry:addTrigger("Good day");
-talkEntry:addTrigger("Good morning");
-talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("If you want to order please talk to my father.");
-talkEntry:addResponse("Oh hello. I'm very busy. I will have to talk to you later.");
-talkEntry:addResponse("Oh hello. I'm so tired. I feel like I'm going to pass out.");
-talkEntry:addResponse("Good day potential customers. How may I assist you today?");
-talkEntry:addResponse("Welcome to the Unicorn Lion.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
