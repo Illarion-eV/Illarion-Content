@@ -14,11 +14,11 @@ function PutItemOnField(Item,User)
 		local FactionImpr = User:getQuestProgress(26) -- faction which imprisoned the char
 		local townTreasure = ""
 		if FactionImpr == 1 then 
-		    townTreasure = "CadomyrTreasure"
+		    townTreasure = "TreasureCadomyr"
 		elseif FactionImpr == 2 then 
-		    townTreasure = "RunewickTreasure"
+		    townTreasure = "TreasureRunewick"
 		elseif FactionImpr == 3 then 
-		    townTreasure = "GalamirTreasure"
+		    townTreasure = "TreasureGalmair"
 		end	
 
         if townTreasure ~= "" then -- only if the char as been sent to forced labour by a faction
@@ -40,8 +40,7 @@ function PutItemOnField(Item,User)
 				User:setQuestProgress(25,workLoad-Item.number)
 			end
 		end
-		
-		Item.wear = 255 -- players wouldn't be able to move it away. We remove the resoucres with a scheduled script
-		world:changeItem(Item)
+		world:gfx(Item.pos)
+		world:erase(Item,Item.number)
 	end	
 end
