@@ -22,6 +22,7 @@ tradeNPC = base.class.class(function(self, rootNPC)
     
     self["_buyItems"] = {};
     
+    self["_wrongItemMsg"] = base.messages.Messages();
     self["_notEnoughMoneyMsg"] = base.messages.Messages();
     self["_dialogClosedMsg"] = base.messages.Messages();
     self["_dialogClosedNoTradeMsg"] = base.messages.Messages();
@@ -37,6 +38,10 @@ function tradeNPC:addItem(item)
     elseif (item._type == "buyPrimary" or item._type == "buySecondary") then
         table.insert(self._buyItems, item);
     end;
+end;
+
+function tradeNPC:addWrongItemMsg(msgGerman, msgEnglish)
+    self._wrongItemMsg:addMessage(msgGerman, msgEnglish);
 end;
 
 function tradeNPC:addNotEnoughMoneyMsg(msgGerman, msgEnglish)
@@ -110,10 +115,11 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
         end;
     end;
 	
-	-- Buying at default price
-	local price = world:getItemStatsFromId(boughtItem.id).Worth * boughtItem.number;
-	if world:erase(boughtItem, boughtItem.number) then
-		base.money.GiveMoneyToChar(player, price);
+	-- Reject item
+	if (self._wrongItemMsg:hasMessages()) then    
+		local msgGerman, msgEnglish = self._wrongItemMsg:getRandomMessage();
+		npcChar:talkLanguage(Character.say, Player.german, msgGerman);
+		npcChar:talkLanguage(Character.say, Player.english, msgEnglish);
 	end;
 end;
 
