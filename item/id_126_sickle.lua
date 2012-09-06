@@ -21,7 +21,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return		
 	end
 	
-	if (string.find(User.lastSpokenText,"imprison")~=nil)
+	if (string.find(User.lastSpokenText,"imprison")~=nil) then
 	    local a,b,workLoad,byFaction=string.find(User.lastSpokenText,"(%d+) (%d+)") 
 		local lockThem = base.common.GetFrontCharacter(User)
 		workLoad = tonumber(workLoad)
