@@ -23,7 +23,6 @@ require("npc.base.condition.quest")
 require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
@@ -243,13 +242,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2647, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a gold nugget. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two hundred copper coins. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("Cutlery, great! I mean, shall noble men dine with their hands? Thank you! We don't have much, but take these coins as compensation.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -258,12 +257,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2647, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Goldnugget. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zweihundert Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese Münzen als Bezahlung.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -272,12 +271,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2647, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a gold nugget."));
-talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two hundred copper coins."));
+talkEntry:addResponse("Cutlery, great! I mean, shall noble men dine with their hands? Thank you! We don't have much, but take these coins as compensation.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -285,11 +284,11 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Goldnugget."));
-talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, 0));
+talkEntry:addCondition(npc.base.condition.item.item(2647, "all", ">", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zweihundert Kupferstücke."));
+talkEntry:addResponse("Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese Münzen als Bezahlung.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -299,7 +298,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The mounts urgently need hay. All I am asking for is that you get ten bundles of grain for them.");
+talkEntry:addResponse("The celebration of the noble men is anytime soon - please, we need the five sets of cutlery.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -307,7 +306,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 1));
-talkEntry:addResponse("Die Reittiere brauchen dringend neues Heu. Alles, was ich also von euch für sie erbitte, sind zehn Bündel Getreide.");
+talkEntry:addResponse("Die Feier der Edelleute ist schon bald - bitte, holt doch die fünf Gedecke Besteck.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +315,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 1));
-talkEntry:addResponse("The mounts urgently need hay. All I am asking for is that you get ten bundles of grain for them.");
+talkEntry:addResponse("The celebration of the noble men is anytime soon - please, we need the five sets of cutlery.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -327,7 +326,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addTrigger("Befehl");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 1));
-talkEntry:addResponse("Die Reittiere brauchen dringend neues Heu. Alles, was ich also von euch für sie erbitte, sind zehn Bündel Getreide.");
+talkEntry:addResponse("Die Feier der Edelleute ist schon bald - bitte, holt doch die fünf Gedecke Besteck.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -337,7 +336,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration II"));
-talkEntry:addResponse("Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?");
+talkEntry:addResponse("");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -378,13 +377,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2457, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded fourty coppercoins. You advance in Queen Rosaline Edwards' favour."));
 talkEntry:addResponse("You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -393,12 +392,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2457, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst vierzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -407,12 +406,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2457, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded fourty coppercoins."));
 talkEntry:addResponse("You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 5));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -420,11 +419,11 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2457, "all", ">", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst vierzig Kupferstücke."));
 talkEntry:addResponse("Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
