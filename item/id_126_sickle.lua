@@ -21,6 +21,18 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return		
 	end
 	
+	if (string.find(User.lastSpokenText,"imprison")~=nil)
+	    local a,b,workLoad,byFaction=string.find(User.lastSpokenText,"(%d+) (%d+)") 
+		local lockThem = base.common.GetFrontCharacter(User)
+		workLoad = tonumber(workLoad)
+		byFaction = tonumber(byFaction)
+		lockThem:setQuestProgress(25,workLoad)
+		lockThem:setQuestProgress(26,byFaction)
+		lockThem:inform("workload: "..lockThem:getQuestProgress(25).." and factionID: "..lockThem:getQuestProgress(26))
+	    if lockThem.pos.z ~= -40 then
+		    lockThem:forceWarp(position(-489,-484,-40))
+		end	
+	end	
 	if (string.find(User.lastSpokenText,"labour")~=nil) then 
 	    local a,b,workLoad,byFaction=string.find(User.lastSpokenText,"(%d+) (%d+)") 
 		workLoad = tonumber(workLoad)
