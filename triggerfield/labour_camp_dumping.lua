@@ -38,7 +38,7 @@ function PutItemOnField(Item,User)
 				    local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),10)
 			        for i=1,#myNpc do
 				        if myNpc[i].name == "Percy Dryless" then -- check if it is the camp leader  
-							myNpc[i]:talkLanguage(Character.say,Player.german,"So, du Wicht, du hast Deine Strafe abgearbeitet. Hau ab!")
+							myNpc[i]:talkLanguage(Character.say,Player.german,"So, du Wicht, du hast deine Strafe abgearbeitet. Hau ab!")
 							myNpc[i]:talkLanguage(Character.say,Player.english,"Now, you runt, you're done with your punishment. Get lost!")
 							break
 					    end
