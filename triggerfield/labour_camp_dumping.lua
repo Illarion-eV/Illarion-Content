@@ -48,7 +48,7 @@ function PutItemOnField(Item,User)
 				User:setQuestProgress(26,0)
 			else
 				User:setQuestProgress(25,workLoad-Item.number)
-			    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert.","You notice that the guard seems to take a short note." 
+			    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert.","You notice that the guard seems to take a short note.")
 			end
 		end
 		world:gfx(46,Item.pos)
