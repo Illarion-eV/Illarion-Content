@@ -58,9 +58,9 @@ itemShoes = 369
 -- Personality: There is not much complexity to her. She is happy, confident and extremely polite. She is a sole minded individual focused entirely on the art of cooking.
 -- Background: She grew up watching her father cook. At about 5 she started experimenting with the stove with the help of a ladder. Her parents were worried and especially freaked out after she burned her left hand at six. They banned her from the stove for a year; afterwards she badgered her mother who eventually let her back into the kitchen. She practiced cooking every day when the customers were not around. She soon outclassed her father in cooking skills and took over as the cook. After her mother passed away, they make just enough money to get by, but it's a happy life, especially for Linda who has her father and the esteem of being famous as the best cook in Cadomyr.
 
--- 1st quest: Gather 15 cutlery (2647)
--- 2nd quest: Gather 15 wine glasses (2457)
--- 3rd quest: Gather 15 wooden plates (2952)
+-- 1st quest: Gather 5 cutlery (2647), reward: 200 cp
+-- 2nd quest: Gather 5 wine glasses (2457), reward: 200 cp
+-- 3rd quest: Gather 5 wooden plates (2952), reward: Ruby amulet (67)
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Linda Rabon the Cook. Keywords: Good day, quest, cook, Unicorn Lion, Hassan.")
@@ -79,14 +79,14 @@ itemShoes = 369
 "your name", "who are you", "who art thou" -> "I am Linda Rabon, the cook for this tavern.", "I am Linda Rabon, Severus' daughter.", "I'm Linda Rabon. I may not look it, but I am the best cook in Cadomyr.", "I am Linda. Haha, I'm sorry, you made a funny face.", "I'm Linda, I'll cook you something special if you ask."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Linda Rabon, die Köchin dieser Taverne.", "Ich bin Linda Rabon, die Tochter des Severus.", "Ich bin Linda Rabon. Es mag nicht so aussehen, aber ich bin Cadomyrs beste Köchin.", "Ich bin Linda. Haha, entschuldigt, aber ihr seht lustig aus.", "Ich bin Linda und ich koche euch was besonders gutes, wenn ihr darum bittet."
 
--- BIS HIER
--- 1st quest: Gather 15 cutlery (2647)
-"quest", "mission", queststatus(126) = 0, english -> inform("[New quest] A Noble Celebration I"), "As you might know, Cadomyr is not blessed with much fertile farmland. Hence, the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed.", queststatus(126) = 1
-"quest", "mission", queststatus(126) = 0 -> inform("[Neues Quest] Eine edle Feier I"), "Wie euch bekannt sein dürfte, ist Cadomyr nicht gerade mit fruchtbarem Ackerland gesegnet. Somit fehlt es in den Stallungen immer an Heu. Bringt ihr mir bitte zehn Bündel Getreide? Mein Dank ist euch gewiss.", queststatus(126) = 1
-"task", "adventure", "order", queststatus(126) = 0 -> inform("[New quest] A Noble Celebration I"), "As you might know, Cadomyr is not blessed with much fertile farmland. Hence, the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed.", queststatus(126) = 1
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(126) = 0 -> inform("[Neues Quest] Eine edle Feier I"), "Wie euch bekannt sein dürfte, ist Cadomyr nicht gerade mit fruchtbarem Ackerland gesegnet. Somit fehlt es in den Stallungen immer an Heu. Bringt ihr mir bitte zehn Bündel Getreide? Mein Dank ist euch gewiss.", queststatus(126) = 1
+-- 1st quest: Gather 5 cutlery (2647)
+"quest", "mission", queststatus(126) = 0, english -> inform("[New quest] A Noble Celebration I"), "Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them.", queststatus(126) = 1
+"quest", "mission", queststatus(126) = 0 -> inform("[Neues Quest] Eine edle Feier I"), "Oh, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?", queststatus(126) = 1
+"task", "adventure", "order", queststatus(126) = 0 -> inform("[New quest] A Noble Celebration I"), "Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them.", queststatus(126) = 1
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(126) = 0 -> inform("[Neues Quest] Eine edle Feier I"), "Oj, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?", queststatus(126) = 1
 
--- 1st quest solved, reward: gold nugget (234), +5 rankpoints if Cadomyr
+-- BIS HIER
+-- 1st quest solved, reward: 200 cp, +5 rankpoints if Cadomyr
 ".+", queststatus(126) = 1, item(249, all) > 9, english, town = Cadomyr -> inform("[Quest solved] You are awarded a gold nugget. You advance in Queen Rosaline Edwards' favour."), "Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...", deleteItem(249, 10), item(234, 1, 699, 0), queststatus(126) = 2, rankpoints(Cadomyr) + 5
 ".+", queststatus(126) = 1, item(249, all) > 9, town = Cadomyr -> inform("[Quest gelöst] Du erhältst ein Goldnugget. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...", deleteItem(249, 10), item(234, 1, 699, 0), queststatus(126) = 2, rankpoints(Cadomyr) + 5
 ".+", queststatus(126) = 1, item(249, all) > 9, english -> inform("[Quest solved] You are awarded a gold nugget."), "Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...", deleteItem(249, 10), item(234, 1, 699, 0), queststatus(126) = 2
@@ -98,13 +98,13 @@ itemShoes = 369
 "task", "adventure", "order", queststatus(126) = 1 -> "The mounts urgently need hay. All I am asking for is that you get ten bundles of grain for them."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Befehl", queststatus(126) = 1 -> "Die Reittiere brauchen dringend neues Heu. Alles, was ich also von euch für sie erbitte, sind zehn Bündel Getreide."
 
--- 2nd quest: Gather 15 wine glasses (2457)
+-- 2nd quest: Gather 5 wine glasses (2457)
 "quest", "mission", queststatus(126) = 2, english -> inform("[New quest] A Noble Celebration II"), "Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?", queststatus(126) = 3
 "quest", "mission", queststatus(126) = 2 -> inform("[Neues Quest] Eine edle Feier II"), "Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?", queststatus(126) = 3
 "task", "adventure", "order", queststatus(126) = 2 -> inform("[New quest] A Noble Celebration II"), "Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?", queststatus(126) = 3
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(126) = 2 -> inform("[Neues Quest] Eine edle Feier II"), "Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?", queststatus(126) = 3
 
--- 2nd quest solved, reward: 40cp, +10 rankpoints if Cadomyr
+-- 2nd quest solved, reward: 200 cp, +10 rankpoints if Cadomyr
 ".+", queststatus(126) = 3, item(2493, all) > 9, english, town = Cadomyr -> inform("[Quest solved] You are awarded fourty coppercoins. You advance in Queen Rosaline Edwards' favour."), "You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.", money + 40, deleteItem(2493, 10), queststatus(126) = 4, rankpoints(Cadomyr) + 10
 ".+", queststatus(126) = 3, item(2493, all) > 9, town = Cadomyr -> inform("[Quest gelöst] Du erhältst vierzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.", money + 40, deleteItem(2493, 10), queststatus(126) = 4, rankpoints(Cadomyr) + 10
 ".+", queststatus(126) = 3, item(2493, all) > 9, english -> inform("[Quest solved] You are awarded fourty coppercoins."), "You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.", money + 40, deleteItem(2493, 10), queststatus(126) = 4
@@ -116,13 +116,13 @@ itemShoes = 369
 "task", "adventure", "order", queststatus(126) = 3 -> "The horses become nervous whenever I just mention the word 'carrot'. Perhaps you have the time to get ten carrots for them?"
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(126) = 3 -> "Die Pferde wiehern aufgeregt wenn ich nur das Wort 'Karotte' erwähne. Vielleicht findet ihr ja die Zeit, zehn Karotten für sie besorgen?"
 
--- 3rd quest: Gather 15 wooden plates (2952)
+-- 3rd quest: Gather 5 wooden plates (2952)
 "quest", "mission", queststatus(126) = 4, english -> inform("[New quest] A Noble Celebration II"), "Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?", queststatus(126) = 5
 "quest", "mission", queststatus(126) = 4 -> inform("[Neues Quest] Eine edle Feier II"), "Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?", queststatus(126) = 5
 "task", "adventure", "order", queststatus(126) = 4 -> inform("[New quest] A Noble Celebration II"), "Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?", queststatus(126) = 5
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(126) = 4 -> inform("[Neues Quest] Eine edle Feier II"), "Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?", queststatus(126) = 5
 
--- 3rd quest solved, reward: 40cp, +15 rankpoints if Cadomyr
+-- 3rd quest solved, reward: ruby amulet (2952), +15 rankpoints if Cadomyr
 ".+", queststatus(126) = 5, item(2493, all) > 9, english, town = Cadomyr -> inform("[Quest solved] You are awarded fourty coppercoins. You advance in Queen Rosaline Edwards' favour."), "You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.", money + 40, deleteItem(2493, 10), queststatus(126) = 6, rankpoints(Cadomyr) + 15
 ".+", queststatus(126) = 5, item(2493, all) > 9, town = Cadomyr -> inform("[Quest gelöst] Du erhältst vierzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.", money + 40, deleteItem(2493, 10), queststatus(126) = 6, rankpoints(Cadomyr) + 15
 ".+", queststatus(126) = 5, item(2493, all) > 9, english -> inform("[Quest solved] You are awarded fourty coppercoins."), "You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.", money + 40, deleteItem(2493, 10), queststatus(126) = 6
@@ -130,15 +130,15 @@ itemShoes = 369
 
 -- 3rd quest not solved, repeat the instructions
 "quest", "mission", queststatus(126) = 5, english -> "The horses become nervous whenever I just mention the word 'carrot'. Perhaps you have the time to get ten carrots for them?"
-"quest", "mission", queststatus(126) = 5 -> "Die Pferde wiehern aufgeregt wenn ich nur das Wort 'Karotte' erwähne. Vielleicht findet ihr ja die Zeit, zehn Karotten für sie besorgen?"
+"quest", "mission", queststatus(126) = 5 -> ""
 "task", "adventure", "order", queststatus(126) = 5 -> "The horses become nervous whenever I just mention the word 'carrot'. Perhaps you have the time to get ten carrots for them?"
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(126) = 5 -> "Die Pferde wiehern aufgeregt wenn ich nur das Wort 'Karotte' erwähne. Vielleicht findet ihr ja die Zeit, zehn Karotten für sie besorgen?"
 
 -- Final dialogue: No more quests, just nice hints
-"quest", "mission", queststatus(126) = 6, english -> "Well, there nothing I need at this moment. Perhaps you ask Anthar Vilicon, the chancellor for services you could do to Cadomyr?"
-"quest", "mission", queststatus(126) = 6 -> "Nun, es gibt nichts, was ich derzeit bräuchte. Vielleicht fragt ihr den Kanzler Anthar Vilicon nach Diensten, die ihr Cadomyr leisten könntet?"
-"task", "adventure", "order", queststatus(126) = 6 -> "Well, there nothing I need at this moment. Perhaps you ask Anthar Vilicon, the chancellor for services you could do to Cadomyr?"
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(126) = 6 -> "Nun, es gibt nichts, was ich derzeit bräuchte. Vielleicht fragt ihr den Kanzler Anthar Vilicon nach Diensten, die ihr Cadomyr leisten könntet?"
+"quest", "mission", queststatus(126) = 6, english -> "Oh, well, you cannot help me. But I can help you: ask father for a stew, it will taste goo to you."
+"quest", "mission", queststatus(126) = 6 -> "Oh, nun, ihr könnt mir nicht helfen. Aber ich kann euch helfen: Fragt Vater nach einem Eintopf, er wird euch schmecken."
+"task", "adventure", "order", queststatus(126) = 6 -> "Oh, well, you cannot help me. But I can help you: ask father for a stew, it will taste goo to you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(126) = 6 -> "Oh, nun, ihr könnt mir nicht helfen. Aber ich kann euch helfen: Fragt Vater nach einem Eintopf, er wird euch schmecken."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession", "cook" -> "You want to know what I do? I am the cook. I cook for the costumers when they visit our tavern.", "I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.", "I'm a cook. Well, I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.", "I make the food that you all eat.", "Father says that I am part owner of this tavern."
