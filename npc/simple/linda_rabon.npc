@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 05, 2012                       easyNPC Parser v1.2 --
+-- Last parsing: September 06, 2012                       easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Linda Rabon"
@@ -141,10 +141,10 @@ itemShoes = 369
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(126) = 6 -> "Nun, es gibt nichts, was ich derzeit bräuchte. Vielleicht fragt ihr den Kanzler Anthar Vilicon nach Diensten, die ihr Cadomyr leisten könntet?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "You want to know what I do? I am the cook. I cook for the costumers when they visit our restaurant.", "I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.", "I'm a cook. Well I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.", "I make the food that you all eat.", "Father says that I am part owner of this tavern."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "You want to know what I do? I am the cook. I cook for the costumers when they visit our restaurant.", "I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.", "I'm a cook. Well I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.", "I make the food that you all eat.", "Father says that I am part owner of this tavern."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"profession", "cook" -> "You want to know what I do? I am the cook. I cook for the costumers when they visit our tavern.", "I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.", "I'm a cook. Well, I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.", "I make the food that you all eat.", "Father says that I am part owner of this tavern."
+"beruf", "Koch", "Köchin" -> "Was ich mache? Ich bin die Köchin. Ich koche für die Gäste der Taverne.", "Ich bin hier die Köchin. Mein Vater bedient und ich kann den ganzen Tag mit der Kundschaft reden ohne Bestellungen aufnehmen zu müssen.", "Ich bin eine Köchin. Naja, ich bin die Köchin. Ich kann Suppen und Nudeln kochen, Panieren und meine Spezialität ist der Eintopf.", "Ich mach hier das Essen.", "Vater sagt, dass ich nun Teilhaber der Taverne bin."
+"job", english -> "You want to know what I do? I am the cook. I cook for the costumers when they visit our tavern.", "I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.", "I'm a cook. Well I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.", "I make the food that you all eat.", "Father says that I am part owner of this tavern."
+"job" -> "Was ich mache? Ich bin die Köchin. Ich koche für die Gäste der Taverne.", "Ich bin hier die Köchin. Mein Vater bedient und ich kann den ganzen Tag mit der Kundschaft reden ohne Bestellungen aufnehmen zu müssen.", "Ich bin eine Köchin. Naja, ich bin die Köchin. Ich kann Suppen und Nudeln kochen, Panieren und meine Spezialität ist der Eintopf.", "Ich mach hier das Essen.", "Vater sagt, dass ich nun Teilhaber der Taverne bin."
 "Unicorn", "Lion" -> "You're at the Unicorn Lion. I know this may sound boastful, but I think we have the best tavern in Cadomyr.", "Father and mother built this place."
 "Einhörnig", "Löwe" -> "Ihr befindet euch im Einhörnigen Löwen. Es mag vermessen klingen, aber dies ist die beste Taverne in Cadomyr.", "Vater und Mutter haben dieses Haus gebaut."
 "Father", "Daddy" -> "This tavern is his dream and we run it together.", "He says he is the best father in Cadomyr. And if anyone says he's not, well, they get no dinner from me.", "I wonder what father is going to get me for my birthday?", "Father wishes he could be as good of a cook as me."
@@ -152,17 +152,17 @@ itemShoes = 369
 "Severus", english -> "This tavern is his dream and we run it together.", "He says he is the best father in Cadomyr. And if anyone says he's not, well, they get no dinner from me.", "I wonder what father is going to get me for my birthday?", "Father wishes he could be as good of a cook as me."
 "Severus" -> "Diese Taverne ist sein Traum und wir betreiben sie zusammen.", "Er sagt, er sei der beste Vater in Cadomyr. Und wenn jemand das Gegenteil behauptet, dann kriegt er von mir nichts zu essen.", "Ich frage mich, was ich von Vater zum Geburtstag kriege.", "Vater wünschte, er könne so gut kochen wie ich."
 "Mommy", "Mother" -> "Father used to be the cook and mother the waitress, but since mother is no more...", "Mother used to say when I grow up I'm going to be beautiful.", "Mother was too nice. She was even nice to mean people."
-"Mama", "Mutter" -> ""
+"Mama", "Mutter" -> "Vater war der Koch und Mutter hat bedient, aber da Mutter nun von uns gegangen ist...", "Mutter hat immer gesagt, wenn ich mal groß bin, werde ich hübsch sein.", "Mutter war immer so nett, sie war sogar zu bösen Leuten nett."
 "Rose", english -> "Father used to be the cook and mother the waitress, but since mother is no more...", "Mother used to say when I grow up I'm going to be beautiful.", "Mother was too nice. She was even nice to mean people."
-"Rose" -> ""
-"Hassan", english -> "He's cute, don't you think?", "I wish he would tell stories, but Hassan never talks.", "He rarely speaks. It's kind of weird. Don't you think?", "He's so big. He picked me up once. I felt like I was touching the stars.", "Did you know that Mr. Yang can play the Oboe. He plays it sometimes. You should ask him to play.", "Mr Yang is very nice. Him and my mother never get mad.", "He's so big. He used to have to duck to enter this place. My husband is so nice though. He made the entrance taller."
-"Hassan" -> "GERMAN"
+"Rose" -> "Vater war der Koch und Mutter hat bedient, aber da Mutter nun von uns gegangen ist...", "Mutter hat immer gesagt, wenn ich mal groß bin, werde ich hübsch sein.", "Mutter war immer so nett, sie war sogar zu bösen Leuten nett."
+"Hassan", english -> "He's cute, don't you think?", "I wish he would tell stories, but Hassan never talks.", "He rarely speaks. It's kind of weird. Don't you think?", "He's so big. He picked me up once. I felt like I was touching the stars.", "He's so big. He used to have to duck to enter this place. My father is so nice though. He made the entrance taller."
+"Hassan" -> "Er ist süß, nicht wahr?", "Ich wünschte, er würde manchmal Geschichten erzählen, aber Hassan redet nicht gerne.", "Er spricht nur selten. Merkwürdig, oder?", "Er ist so groß! Er hat mich einmal hochgehoben. Es fühlte sich an, als könnte ich die Sterne berühren.", "Er ist so groß! Er mußte sich früher immer bücken, um durch die Tür zu kommen. Mein Vater hat dann netterweise den Türrahmen höher gemacht."
 
 -- Cadomyr
 "Queen" -> "She should come try our food. I promise she will declare it the most delicious food in all of Cadomyr.", "She is beautiful isn't she.", "My mother used to say that Rosaline is very smart.", "I want to be like queen Rosaline when I grow up."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Königin" -> "Sie sollte mal herkommen und bei uns essen. Ich bin mir sicher, sie wird uns zu Hoflieferanten ernennen.", "Sie ist ziemlich hübsch, nicht wahr?", "Meine Mutter hat immer gesagt, Rosaline ist ziemlich schlau.", "Ich will wie Königin Rosaline sein, wenn ich groß bin."
 "rosaline", "edwards", english -> "She should come try our food. I promise she will declare it the most delicious food in all of Cadomyr.", "She is beautiful isn't she.", "My mother used to say that Rosaline is very smart.", "I want to be like queen Rosaline when I grow up."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards" -> "Sie sollte mal herkommen und bei uns essen. Ich bin mir sicher, sie wird uns zu Hoflieferanten ernennen.", "Sie ist ziemlich hübsch, nicht wahr?", "Meine Mutter hat immer gesagt, Rosaline ist ziemlich schlau.", "Ich will wie Königin Rosaline sein, wenn ich groß bin."
 
 -- Main land factions
 "albar", english -> "What is Albar?", "Which way do I have to walk to go to Albar?", "I'm too busy, stop telling me stuff I don't know."

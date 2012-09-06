@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 05, 2012                       easyNPC Parser v1.2 --
+-- Last parsing: September 06, 2012                       easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -53,6 +53,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("If you want to order please talk to my father.");
 talkEntry:addResponse("Oh hello. I'm very busy. I will have to talk to you later.");
 talkEntry:addResponse("Oh hello. I'm so tired. I feel like I'm going to pass out.");
@@ -64,11 +65,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Falls ihr etwas bestellen wollt, sprecht mit meinem Vater.");
 talkEntry:addResponse("Oh, hallo, ich bin gerade beschäftigt. Wir können nachher noch miteinander reden.");
 talkEntry:addResponse("Oh hallo. Ich bin so müde. Ich kipp bald aus den Latschen.");
@@ -633,9 +637,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("You want to know what I do? I am the cook. I cook for the costumers when they visit our restaurant.");
+talkEntry:addTrigger("cook");
+talkEntry:addResponse("You want to know what I do? I am the cook. I cook for the costumers when they visit our tavern.");
 talkEntry:addResponse("I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.");
-talkEntry:addResponse("I'm a cook. Well I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.");
+talkEntry:addResponse("I'm a cook. Well, I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.");
 talkEntry:addResponse("I make the food that you all eat.");
 talkEntry:addResponse("Father says that I am part owner of this tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -643,16 +648,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Koch");
+talkEntry:addTrigger("Köchin");
+talkEntry:addResponse("Was ich mache? Ich bin die Köchin. Ich koche für die Gäste der Taverne.");
+talkEntry:addResponse("Ich bin hier die Köchin. Mein Vater bedient und ich kann den ganzen Tag mit der Kundschaft reden ohne Bestellungen aufnehmen zu müssen.");
+talkEntry:addResponse("Ich bin eine Köchin. Naja, ich bin die Köchin. Ich kann Suppen und Nudeln kochen, Panieren und meine Spezialität ist der Eintopf.");
+talkEntry:addResponse("Ich mach hier das Essen.");
+talkEntry:addResponse("Vater sagt, dass ich nun Teilhaber der Taverne bin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You want to know what I do? I am the cook. I cook for the costumers when they visit our restaurant.");
+talkEntry:addResponse("You want to know what I do? I am the cook. I cook for the costumers when they visit our tavern.");
 talkEntry:addResponse("I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.");
 talkEntry:addResponse("I'm a cook. Well I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.");
 talkEntry:addResponse("I make the food that you all eat.");
@@ -662,9 +671,11 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Was ich mache? Ich bin die Köchin. Ich koche für die Gäste der Taverne.");
+talkEntry:addResponse("Ich bin hier die Köchin. Mein Vater bedient und ich kann den ganzen Tag mit der Kundschaft reden ohne Bestellungen aufnehmen zu müssen.");
+talkEntry:addResponse("Ich bin eine Köchin. Naja, ich bin die Köchin. Ich kann Suppen und Nudeln kochen, Panieren und meine Spezialität ist der Eintopf.");
+talkEntry:addResponse("Ich mach hier das Essen.");
+talkEntry:addResponse("Vater sagt, dass ich nun Teilhaber der Taverne bin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -735,7 +746,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mama");
 talkEntry:addTrigger("Mutter");
-talkEntry:addResponse("");
+talkEntry:addResponse("Vater war der Koch und Mutter hat bedient, aber da Mutter nun von uns gegangen ist...");
+talkEntry:addResponse("Mutter hat immer gesagt, wenn ich mal groß bin, werde ich hübsch sein.");
+talkEntry:addResponse("Mutter war immer so nett, sie war sogar zu bösen Leuten nett.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -750,7 +763,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rose");
-talkEntry:addResponse("");
+talkEntry:addResponse("Vater war der Koch und Mutter hat bedient, aber da Mutter nun von uns gegangen ist...");
+talkEntry:addResponse("Mutter hat immer gesagt, wenn ich mal groß bin, werde ich hübsch sein.");
+talkEntry:addResponse("Mutter war immer so nett, sie war sogar zu bösen Leuten nett.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -761,15 +776,17 @@ talkEntry:addResponse("He's cute, don't you think?");
 talkEntry:addResponse("I wish he would tell stories, but Hassan never talks.");
 talkEntry:addResponse("He rarely speaks. It's kind of weird. Don't you think?");
 talkEntry:addResponse("He's so big. He picked me up once. I felt like I was touching the stars.");
-talkEntry:addResponse("Did you know that Mr. Yang can play the Oboe. He plays it sometimes. You should ask him to play.");
-talkEntry:addResponse("Mr Yang is very nice. Him and my mother never get mad.");
-talkEntry:addResponse("He's so big. He used to have to duck to enter this place. My husband is so nice though. He made the entrance taller.");
+talkEntry:addResponse("He's so big. He used to have to duck to enter this place. My father is so nice though. He made the entrance taller.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hassan");
-talkEntry:addResponse("GERMAN");
+talkEntry:addResponse("Er ist süß, nicht wahr?");
+talkEntry:addResponse("Ich wünschte, er würde manchmal Geschichten erzählen, aber Hassan redet nicht gerne.");
+talkEntry:addResponse("Er spricht nur selten. Merkwürdig, oder?");
+talkEntry:addResponse("Er ist so groß! Er hat mich einmal hochgehoben. Es fühlte sich an, als könnte ich die Sterne berühren.");
+talkEntry:addResponse("Er ist so groß! Er mußte sich früher immer bücken, um durch die Tür zu kommen. Mein Vater hat dann netterweise den Türrahmen höher gemacht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -784,9 +801,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Sie sollte mal herkommen und bei uns essen. Ich bin mir sicher, sie wird uns zu Hoflieferanten ernennen.");
+talkEntry:addResponse("Sie ist ziemlich hübsch, nicht wahr?");
+talkEntry:addResponse("Meine Mutter hat immer gesagt, Rosaline ist ziemlich schlau.");
+talkEntry:addResponse("Ich will wie Königin Rosaline sein, wenn ich groß bin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -804,9 +822,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Sie sollte mal herkommen und bei uns essen. Ich bin mir sicher, sie wird uns zu Hoflieferanten ernennen.");
+talkEntry:addResponse("Sie ist ziemlich hübsch, nicht wahr?");
+talkEntry:addResponse("Meine Mutter hat immer gesagt, Rosaline ist ziemlich schlau.");
+talkEntry:addResponse("Ich will wie Königin Rosaline sein, wenn ich groß bin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
