@@ -28,6 +28,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:setQuestProgress(25,workLoad)
 		User:setQuestProgress(26,byFaction)
 		User:inform("workload: "..User:getQuestProgress(25).." and factionID: "..User:getQuestProgress(26))
+	    if User.pos.z ~= -40 then
+		    User:forceWarp(position(-489,-484,-40))
+		end	
 	end	
 		
 	if (string.find(User.lastSpokenText,"poison")~=nil) then 
