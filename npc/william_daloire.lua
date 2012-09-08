@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: September 03, 2012                       easyNPC Parser v1.2 --
+-- Last parsing: September 08, 2012                       easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -162,8 +162,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I'm a merchant, I sell fresh herbs. I am called William Daloire.");
-talkEntry:addResponse("I'm William Daloire, at you service.");
+talkEntry:addResponse("I'm a merchant, I sell fresh herbs. I am called William Deloire.");
+talkEntry:addResponse("I'm William Deloire, at you service.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -172,8 +172,8 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Ich bin ein Händler der frische Kräuter verkauft. Ich werde William Daloire genannt.");
-talkEntry:addResponse("Ich heiße William Daloire, was kann ich für Euch tun?");
+talkEntry:addResponse("Ich bin ein Händler der frische Kräuter verkauft. Ich werde William Deloire genannt.");
+talkEntry:addResponse("Ich heiße William Deloire, was kann ich für Euch tun?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -709,16 +709,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("William");
-talkEntry:addTrigger("Daloire");
+talkEntry:addTrigger("Deloire");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Yes,that's me. I am William Daloire, at you service.");
+talkEntry:addResponse("Yes,that's me. I am William Deloire, at you service.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("William");
-talkEntry:addTrigger("Daloire");
-talkEntry:addResponse("Ja, das bin ich. William Daloire, was kann ich für Euch tun?");
+talkEntry:addTrigger("Deloire");
+talkEntry:addResponse("Ja, das bin ich. William Deloire, was kann ich für Euch tun?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
