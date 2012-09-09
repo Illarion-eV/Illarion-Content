@@ -1,0 +1,2 @@
+triggerfield,302,265,0,MoveToField,trigger1
+triggerfield,296,265,0,MoveToField,trigger2
