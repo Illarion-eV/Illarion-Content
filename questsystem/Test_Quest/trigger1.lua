@@ -4,7 +4,7 @@ module("questsystem.Illarion.trigger1", package.seeall)
 
 local QUEST_NUMBER = 13001
 local PRECONDITION_QUESTSTATE = 0
-local POSTCONDITION_QUESTSTATE = 0
+local POSTCONDITION_QUESTSTATE = 4
 
 
 function MoveToField( PLAYER )
@@ -22,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "", "Quest Start."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Quest Status 2", "Quest Status 2"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
