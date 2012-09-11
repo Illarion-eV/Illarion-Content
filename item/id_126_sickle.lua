@@ -13,14 +13,23 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    local boxOne = ""
 		local boxTwo = ""
 		
-		local callback1 = function(dialog1,boxOne)
+		local callback1 = function(dialog1)
 			if not dialog1:getSuccess() then 
 				User:inform("abbruch")
 			else
 				if dialog1:getInput() ~= "one" then
 				    User:inform("failure, input was not: one")
 				else
-				    User:inform("debug 12")
+				    User:inform("Here I am to save the day!")
+				end
+			end			
+	    end
+		local dialog1 = InputDialog("write: one", false, 255, callback1)
+		User:requestInputDialog(dialog1)
+	    return
+	 end	
+	--[[
+	User:inform("debug 12")
 					boxOne = "one"
 					local callback2 = function(dialog2,boxTwo)
 			            if not dialog2:getSuccess() then 
@@ -36,14 +45,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	                end
 		            local dialog2 = InputDialog("text schreiben!", false, 255, callback2)
 		            User:requestInputDialog(dialog2)
-				end
-			end			
-	    end
-		local dialog1 = InputDialog("write: one", false, 255, callback1)
-		User:requestInputDialog(dialog1)
-	    return
-	 end	
 	
+	
+	]]
 	if string.sub(User.lastSpokenText,1,9) == "inform me" then
 	    informNumber = tonumber(string.sub(User.lastSpokenText,10))
 		if informNumber == 1 then
