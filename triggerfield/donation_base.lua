@@ -11,7 +11,7 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 	
 	if ItemStats.Worth == 0 then -- worthless item -> inform
 	
-        base.common.InformNLS(User,"Arsch!","Asshole!"); -- Feedback!
+        base.common.InformNLS(User,"[Spende] Dieser Gegenstand ist wertlos.","[Donation] This item is worthless."); -- Feedback!
 		
 	else -- item with worth
 	
