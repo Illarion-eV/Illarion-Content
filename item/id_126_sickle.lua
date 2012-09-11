@@ -17,7 +17,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			if not dialog1:getSuccess() then 
 				User:inform("abbruch")
 			else
-				if dialog:getInput() ~= "one" then
+				if dialog1:getInput() ~= "one" then
 				    User:inform("failure, input was not: one")
 				else
 				    User:inform("debug 12")
