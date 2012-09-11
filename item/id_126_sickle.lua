@@ -35,12 +35,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			            end			
 	                end
 		            local dialog2 = InputDialog("text schreiben!", false, 255, callback2)
-		            User:requestInputDialog(dialog2)
+		            User:requestInputDialog(dialog2,boxTwo)
 				end
 			end			
 	    end
 		local dialog1 = InputDialog("write: one", false, 255, callback1)
-		User:requestInputDialog(dialog1)
+		User:requestInputDialog(dialog1,boxOne)
 	    return
 	 end	
 	
