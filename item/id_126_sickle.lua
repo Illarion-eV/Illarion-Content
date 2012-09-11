@@ -10,17 +10,39 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	--------- TESTING STUFF !!! ------------ Merung
 	if (string.find(User.lastSpokenText,"input")~=nil) then
-	    local callback = function(dialog)
-			if not dialog:getSuccess() then 
+	    local boxOne = ""
+		local boxTwo = ""
+		
+		local callback1 = function(dialog1)
+			if not dialog1:getSuccess() then 
 				User:inform("abbruch")
 			else
-				User:inform("you wrote: "..dialog:getInput())
+				if dialog1:getInput() ~= "one" then
+				    User:inform("failure, input was not: one")
+				else
+				    User:inform("debug 12")
+					boxOne = "one"
+					local callback2 = function(dialog2)
+			            if not dialog2:getSuccess() then 
+				            User:inform("abbruch")
+			            else
+				            if dialog2:getInput() ~= "two" then
+				                User:inform("failure, input was not: two")
+				            else
+				                boxTwo = "two"
+					            User:inform(""..boxOne.." and "..boxTwo)
+				            end
+			            end			
+	                end
+		            local dialog2 = InputDialog("text schreiben!", false, 255, callback2)
+		            User:requestInputDialog(dialog2)
+				end
 			end			
 	    end
-		local dialog = InputDialog("text schreiben!", false, 255, callback)
-		User:requestInputDialog(dialog)
+		local dialog1 = InputDialog("write: one", false, 255, callback1)
+		User:requestInputDialog(dialog1)
 	    return
-	end	
+	 end	
 	
 	if string.sub(User.lastSpokenText,1,9) == "inform me" then
 	    informNumber = tonumber(string.sub(User.lastSpokenText,10))
