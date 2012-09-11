@@ -24,7 +24,7 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 			ScriptVars:set(Treasury, oldTreasure+payToFaction) -- add acquired coins to the treasure		
 		end
 		
-        base.common.InformNLS(User,"[Spende] Du spendest Gegenstände im Gegenwert von "..payToFaction.." Kupferstücken in die Schatzkammer von "..FactionName..". "..LeaderName.." wird zufrieden sein."","[Donation] You donate items valued at "..payToFaction.." copper coins to the treasury of "..FactionName..". "..LeaderName.." will be pleased."); -- Feedback!		
+        base.common.InformNLS(User,"[Spende] Du spendest Gegenstände im Gegenwert von "..payToFaction.." Kupferstücken in die Schatzkammer von "..FactionName..". "..LeaderName.." wird zufrieden sein.","[Donation] You donate items valued at "..payToFaction.." copper coins to the treasury of "..FactionName..". "..LeaderName.." will be pleased."); -- Feedback!		
 		world:gfx(46,Item.pos);
 		world:erase(Item,Item.number); -- delete the item
 	
