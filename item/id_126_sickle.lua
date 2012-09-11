@@ -20,7 +20,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				if dialog1:getInput() ~= "one" then
 				    User:inform("failure, input was not: one")
 				else
-				    User:inform("Here I am to save the day!")
+				    boxOne = dialog1:getInput()
+					User:inform("boxeOne is "..boxOne)
 				end
 			end			
 	    end
