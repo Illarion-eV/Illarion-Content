@@ -40,25 +40,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    end
 		local dialog1 = InputDialog("write: one", false, 255, callback)
 		User:requestInputDialog(dialog1)
-	 end	
-	
-	if (string.find(User.lastSpokenText,"input")~=nil) then
-	    local callback2 = function(dialog2)
-			if not dialog2:getSuccess() then 
-				User:inform("abbruch")
-			else
-				if dialog2:getInput() ~= "two"
-				    User:inform("failure, input was not: two")
-				else
-				    boxTwo = "two"
-					User:inform(""..boxOne.." and "..boxTwo)
-				end
-			end			
-	    end
-		local dialog2 = InputDialog("text schreiben!", false, 255, callback)
-		User:requestInputDialog(dialog2)
 	    return
-	end	
+	 end	
 	
 	if string.sub(User.lastSpokenText,1,9) == "inform me" then
 	    informNumber = tonumber(string.sub(User.lastSpokenText,10))
