@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Jack Stout"
@@ -74,53 +74,53 @@ itemShoes = 53
 -- Verkauft/kauft: Suppenschüssel (2935)
 -- Verkauft/kauft: Seil (2760)
 -- Verkauft/kauft: Hobel (2715)
-"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", queststatus(302) =< 1 -> "Ja, ja. Ich könnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn überredest mir eine neue zu machen, kann ich dir ja auch aushelfen.", queststatus(302) = 1
-"quest", "job", "problem", queststatus(302) =< 1, german -> "Ja, ja. Ich könnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn überredest mir eine neue zu machen, kann ich dir ja auch aushelfen.", queststatus(302) = 1
-"quest", "job", "problem", queststatus(302) =< 1, english -> "Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something.", queststatus(302) = 1
-"task", "adventure", "mission", "money", "earn", "bow", queststatus(302) =< 1 -> "Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something.", queststatus(302) = 1
+queststatus(302) =< 1, "verdienen", "aufgabe", "abenteuer", "armbrust", "sehne" -> queststatus(302) = 1, "Ja, ja. Ich könnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn überredest mir eine neue zu machen, kann ich dir ja auch aushelfen."
+queststatus(302) =< 1, german, "quest", "job", "problem" -> queststatus(302) = 1, "Ja, ja. Ich könnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn überredest mir eine neue zu machen, kann ich dir ja auch aushelfen."
+queststatus(302) =< 1, english, "quest", "job", "problem" -> queststatus(302) = 1, "Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something."
+queststatus(302) =< 1, "task", "adventure", "mission", "money", "earn", "bow" -> queststatus(302) = 1, "Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something."
 
 -- go to NPC Mo'rurt and überzeuge ihn für Jack eine neue Bogensähne zu machen.
-"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", queststatus(302) = 3 -> "Hm? Mo' hat gesagt er macht mir die Sehne neu? Fantastisch.", queststatus(302) = 4
-"quest", "job", "problem", queststatus(302) = 3, german -> "Hm? Mo' hat gesagt er macht mir die Sehne neu? Fantastisch.", queststatus(302) = 4
-"quest", "job", "problem", queststatus(302) = 3, english -> "Hm? Mo' said he makes a new Bowstrong for me? Awesome.", queststatus(302) = 4
-"task", "adventure", "mission", "money", "earn", "bow", queststatus(302) = 3 -> "Hm? Mo' said he makes a new Bowstrong for me? Awesome.", queststatus(302) = 4
-"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", skill(carpentry) < 5, queststatus(302) = 4 -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.", skill(carpentry) + 10, queststatus(302) = 5
-"quest", "job", "problem", skill(carpentry) < 5, queststatus(302) = 4, german -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.", skill(carpentry) + 10, queststatus(302) = 5
-"quest", "job", "problem", skill(carpentry) < 5, queststatus(302) = 4, english -> "Oh... well. I owe you one. Let me show you how to make good arrows.", skill(carpentry) + 10, queststatus(302) = 5
-"task", "adventure", "mission", "money", "earn", "bow", skill(carpentry) < 5, queststatus(302) = 4 -> "Oh... well. I owe you one. Let me show you how to make good arrows.", skill(carpentry) + 10, queststatus(302) = 5
-"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", skill(carpentry) < 15, queststatus(302) = 4 -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.", skill(carpentry) + 5, queststatus(302) = 5
-"quest", "job", "problem", skill(carpentry) < 15, queststatus(302) = 4, german -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.", skill(carpentry) + 5, queststatus(302) = 5
-"quest", "job", "problem", skill(carpentry) < 15, queststatus(302) = 4, english -> "Oh... well. I owe you one. Let me show you how to make good arrows.", skill(carpentry) + 5, queststatus(302) = 5
-"task", "adventure", "mission", "money", "earn", "bow", skill(carpentry) < 15, queststatus(302) = 4 -> "Oh... well. I owe you one. Let me show you how to make good arrows.", skill(carpentry) + 5, queststatus(302) = 5
-"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", skill(carpentry) < 60, queststatus(302) = 4 -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Wenn du beim Schnitzen das Messer in etwa so hältst... ja genau. So ist es viel besser. Du wirst schon sehen.", skill(carpentry) + 2, queststatus(302) = 5
-"quest", "job", "problem", skill(carpentry) < 60, queststatus(302) = 4, german -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Wenn du beim Schnitzen das Messer in etwa so hältst... ja genau. So ist es viel besser. Du wirst schon sehen.", skill(carpentry) + 2, queststatus(302) = 5
-"quest", "job", "problem", skill(carpentry) < 60, queststatus(302) = 4, english -> "Oh... well. I owe you one. If you take the curvingkife like this... yes you got it! You will see it will work better.", skill(carpentry) + 2, queststatus(302) = 5
-"task", "adventure", "mission", "money", "earn", "bow", skill(carpentry) < 60, queststatus(302) = 4 -> "Oh... well. I owe you one. If you take the curvingkife like this... yes you got it! You will see it will work better.", skill(carpentry) + 2, queststatus(302) = 5
-"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", queststatus(302) = 4 -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Ich kann dir leider nichts beibringen... Aber nimm doch diese Pfeile hier!", item(322, 25, 333, 0), queststatus(302) = 5
-"quest", "job", "problem", queststatus(302) = 4, german -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Ich kann dir leider nichts beibringen... Aber nimm doch diese Pfeile hier!", item(322, 25, 333, 0), queststatus(302) = 5
-"quest", "job", "problem", queststatus(302) = 4, english -> "Oh... well. I owe you one. I can't teach you something. Whats about this bundle of arrows? Do you like?", item(322, 25, 333, 0), queststatus(302) = 5
-"task", "adventure", "mission", "money", "earn", "bow", queststatus(302) = 4 -> "Oh... well. I owe you one. I can't teach you something. Whats about this bundle of arrows? Do you like?", item(322, 25, 333, 0), queststatus(302) = 5
-"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", queststatus(302) = 5 -> "Danke für deine Hilfe, mit der Sehne."
-"quest", "job", "problem", queststatus(302) = 5, german -> "Danke für deine Hilfe, mit der Sehne."
-"quest", "job", "problem", queststatus(302) = 5, english -> "Thanks for your help with the Bowstring."
-"task", "adventure", "mission", "money", "earn", "bow", queststatus(302) = 5 -> "Thanks for your help with the Bowstring."
+queststatus(302) = 3, "verdienen", "aufgabe", "abenteuer", "armbrust", "sehne" -> queststatus(302) = 4, "Hm? Mo' hat gesagt er macht mir die Sehne neu? Fantastisch."
+queststatus(302) = 3, german, "quest", "job", "problem" -> queststatus(302) = 4, "Hm? Mo' hat gesagt er macht mir die Sehne neu? Fantastisch."
+queststatus(302) = 3, english, "quest", "job", "problem" -> queststatus(302) = 4, "Hm? Mo' said he makes a new Bowstrong for me? Awesome."
+queststatus(302) = 3, "task", "adventure", "mission", "money", "earn", "bow" -> queststatus(302) = 4, "Hm? Mo' said he makes a new Bowstrong for me? Awesome."
+skill(carpentry) < 5, queststatus(302) = 4, "verdienen", "aufgabe", "abenteuer", "armbrust", "sehne" -> skill(carpentry) + 10, queststatus(302) = 5, "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht."
+skill(carpentry) < 5, queststatus(302) = 4, german, "quest", "job", "problem" -> skill(carpentry) + 10, queststatus(302) = 5, "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht."
+skill(carpentry) < 5, queststatus(302) = 4, english, "quest", "job", "problem" -> skill(carpentry) + 10, queststatus(302) = 5, "Oh... well. I owe you one. Let me show you how to make good arrows."
+skill(carpentry) < 5, queststatus(302) = 4, "task", "adventure", "mission", "money", "earn", "bow" -> skill(carpentry) + 10, queststatus(302) = 5, "Oh... well. I owe you one. Let me show you how to make good arrows."
+skill(carpentry) < 15, queststatus(302) = 4, "verdienen", "aufgabe", "abenteuer", "armbrust", "sehne" -> skill(carpentry) + 5, queststatus(302) = 5, "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht."
+skill(carpentry) < 15, queststatus(302) = 4, german, "quest", "job", "problem" -> skill(carpentry) + 5, queststatus(302) = 5, "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht."
+skill(carpentry) < 15, queststatus(302) = 4, english, "quest", "job", "problem" -> skill(carpentry) + 5, queststatus(302) = 5, "Oh... well. I owe you one. Let me show you how to make good arrows."
+skill(carpentry) < 15, queststatus(302) = 4, "task", "adventure", "mission", "money", "earn", "bow" -> skill(carpentry) + 5, queststatus(302) = 5, "Oh... well. I owe you one. Let me show you how to make good arrows."
+skill(carpentry) < 60, queststatus(302) = 4, "verdienen", "aufgabe", "abenteuer", "armbrust", "sehne" -> skill(carpentry) + 2, queststatus(302) = 5, "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Wenn du beim Schnitzen das Messer in etwa so hältst... ja genau. So ist es viel besser. Du wirst schon sehen."
+skill(carpentry) < 60, queststatus(302) = 4, german, "quest", "job", "problem" -> skill(carpentry) + 2, queststatus(302) = 5, "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Wenn du beim Schnitzen das Messer in etwa so hältst... ja genau. So ist es viel besser. Du wirst schon sehen."
+skill(carpentry) < 60, queststatus(302) = 4, english, "quest", "job", "problem" -> skill(carpentry) + 2, queststatus(302) = 5, "Oh... well. I owe you one. If you take the curvingkife like this... yes you got it! You will see it will work better."
+skill(carpentry) < 60, queststatus(302) = 4, "task", "adventure", "mission", "money", "earn", "bow" -> skill(carpentry) + 2, queststatus(302) = 5, "Oh... well. I owe you one. If you take the curvingkife like this... yes you got it! You will see it will work better."
+queststatus(302) = 4, "verdienen", "aufgabe", "abenteuer", "armbrust", "sehne" -> item(322, 25, 333), queststatus(302) = 5, "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Ich kann dir leider nichts beibringen... Aber nimm doch diese Pfeile hier!"
+queststatus(302) = 4, german, "quest", "job", "problem" -> item(322, 25, 333), queststatus(302) = 5, "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Ich kann dir leider nichts beibringen... Aber nimm doch diese Pfeile hier!"
+queststatus(302) = 4, english, "quest", "job", "problem" -> item(322, 25, 333), queststatus(302) = 5, "Oh... well. I owe you one. I can't teach you something. Whats about this bundle of arrows? Do you like?"
+queststatus(302) = 4, "task", "adventure", "mission", "money", "earn", "bow" -> item(322, 25, 333), queststatus(302) = 5, "Oh... well. I owe you one. I can't teach you something. Whats about this bundle of arrows? Do you like?"
+queststatus(302) = 5, "verdienen", "aufgabe", "abenteuer", "armbrust", "sehne" -> "Danke für deine Hilfe, mit der Sehne."
+queststatus(302) = 5, german, "quest", "job", "problem" -> "Danke für deine Hilfe, mit der Sehne."
+queststatus(302) = 5, english, "quest", "job", "problem" -> "Thanks for your help with the Bowstring."
+queststatus(302) = 5, "task", "adventure", "mission", "money", "earn", "bow" -> "Thanks for your help with the Bowstring."
 
 -- saw logs--------------------------
-"saw %NUMBER apple", item(2560, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", deleteItem(2560, %NUMBER), item(2716, %NUMBER, 333, 0)
+item(2560, all) => expr( %NUMBER*1), "saw %NUMBER apple" -> deleteItem(2560, %NUMBER), item(2716, %NUMBER, 333), "#me starts to saw the wood, after a few moments he finishes the work."
 "saw %NUMBER apple" -> "I wowuld be glad to do so, but you havn't enough applewood."
-"säge %NUMBER apfel", "saege %NUMBER apfel", item(2560, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit.", deleteItem(2560, %NUMBER), item(2716, %NUMBER, 333, 0)
+item(2560, all) => expr( %NUMBER*1), "säge %NUMBER apfel", "saege %NUMBER apfel" -> deleteItem(2560, %NUMBER), item(2716, %NUMBER, 333), "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit."
 "säge %NUMBER apfel", "saege %NUMBER apfel" -> "Würd ich sofort machen. Aber du hast nicht genügend Apfelholz."
-"saw %NUMBER conifer", item(3, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", deleteItem(3, %NUMBER), item(2543, %NUMBER, 333, 0)
+item(3, all) => expr( %NUMBER*1), "saw %NUMBER conifer" -> deleteItem(3, %NUMBER), item(2543, %NUMBER, 333), "#me starts to saw the wood, after a few moments he finishes the work."
 "saw %NUMBER conifer" -> "I wowuld be glad to do so, but you havn't enough coniferwood."
-"säge %NUMBER nadel", "saege %NUMBER nadel", item(3, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit.", deleteItem(3, %NUMBER), item(2543, %NUMBER, 333, 0)
+item(3, all) => expr( %NUMBER*1), "säge %NUMBER nadel", "saege %NUMBER nadel" -> deleteItem(3, %NUMBER), item(2543, %NUMBER, 333), "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit."
 "säge %NUMBER nadel", "saege %NUMBER nadel" -> "Würd ich sofort machen. Aber du hast nicht genügend Nadelholz."
-"saw %NUMBER cherry", item(543, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", deleteItem(543, %NUMBER), item(545, %NUMBER, 333, 0)
+item(543, all) => expr( %NUMBER*1), "saw %NUMBER cherry" -> deleteItem(543, %NUMBER), item(545, %NUMBER, 333), "#me starts to saw the wood, after a few moments he finishes the work."
 "saw %NUMBER cherry" -> "I wowuld be glad to do so, but you havn't enough cherrywood."
-"säge %NUMBER kirsch", "saege %NUMBER kirsch", item(543, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit.", deleteItem(543, %NUMBER), item(545, %NUMBER, 333, 0)
+item(543, all) => expr( %NUMBER*1), "säge %NUMBER kirsch", "saege %NUMBER kirsch" -> deleteItem(543, %NUMBER), item(545, %NUMBER, 333), "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit."
 "säge %NUMBER kirsch", "saege %NUMBER kirsch" -> "Würd ich sofort machen. Aber du hast nicht genügend Kirschenholz."
-"saw %NUMBER naldor", item(544, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", deleteItem(544, %NUMBER), item(546, %NUMBER, 333, 0)
+item(544, all) => expr( %NUMBER*1), "saw %NUMBER naldor" -> deleteItem(544, %NUMBER), item(546, %NUMBER, 333), "#me starts to saw the wood, after a few moments he finishes the work."
 "saw %NUMBER naldor" -> "I wowuld be glad to do so, but you havn't enough Naldorwood."
-"säge %NUMBER naldor", "saege %NUMBER naldor", item(544, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit.", deleteItem(544, %NUMBER), item(546, %NUMBER, 333, 0)
+item(544, all) => expr( %NUMBER*1), "säge %NUMBER naldor", "saege %NUMBER naldor" -> deleteItem(544, %NUMBER), item(546, %NUMBER, 333), "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit."
 "säge %NUMBER naldor", "saege %NUMBER naldor" -> "Würd ich sofort machen. Aber du hast nicht genügend Naldorholz."
 "saw", "log", "wood", "board" -> "I 'saw applewood', 'saw cherrywood', 'saw coniferwood' and 'saw naldorwood. At least two logs."
 "säge", "saege", "holz", "brett" -> "Ich 'säge Apfelholz', 'säge Kirschholz', 'säge Nadelholz' und 'säge Naldorholz'. Mindestens 2 Stück."
@@ -128,13 +128,13 @@ itemShoes = 53
 -- generall
 "hallo", "gr[üue]+[sß]+e", "guten tag", "Gruß", "Seid gegrüßt", "Guten Abend", "Tach", "Moin", "Greb" -> "Hallo.", "#me ahmt lächelnd ein orkisches 'Greebas!' nach.", "Gruß."
 "good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "Hello.", "#me smiles and imitates an orcish 'Greebas!'.", "Greet."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hello.", "#me smiles and imitates an orcish 'Greebas!'.", "Greet."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Hallo.", "#me ahmt lächelnd ein orkisches 'Greebas' nach.", "Gruß."
+english, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Hello.", "#me smiles and imitates an orcish 'Greebas!'.", "Greet."
+german, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Hallo.", "#me ahmt lächelnd ein orkisches 'Greebas' nach.", "Gruß."
 "wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Eigentlich heiße ich %NPCNAME aber Orks sagen meißt einfach nur 'Stout' *er schmunzelt* Mir soll's recht sein."
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell.", "#me smiles and imitates an orcish 'Farebas!'.", "Good bye."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Tschüß.", "Wiedersehen.", "#me ahmt lächelnd ein orkisches 'Farebas!' nach."
-"Ciao", "Fareba", "Adieu", "Au revoir", english -> "Farewell.", "#me smiles and imitates an orcish 'Farebas!'.", "Good bye."
-"Ciao", "Fareba", "Adieu", "Au revoir", german -> "Tschüß.", "Wiedersehen.", "#me ahmt lächelnd ein orkisches 'Farebas!' nach."
+english, "Ciao", "Fareba", "Adieu", "Au revoir" -> "Farewell.", "#me smiles and imitates an orcish 'Farebas!'.", "Good bye."
+german, "Ciao", "Fareba", "Adieu", "Au revoir" -> "Tschüß.", "Wiedersehen.", "#me ahmt lächelnd ein orkisches 'Farebas!' nach."
 "How are you", "How feel", "How do you do" -> "Fein,fein. Ja wirklich! Ist ein gutes Leben hier.", "Wenn ich Glück habe bekomme ich eine Ork zur Frau! Das wäre fantastisch.", "Mo' behandelt mich ordentlich. Ich hab sogar eine Armbrust bekommen und gehe jetzt oft Jagen.", "Um nichts auf der Welt würde ich das hier eintauschen.", "Besser als Beryard, dem Trauerkloß. *lacht*"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Well,well. Promised! It's a good live here.", "If I shall be lucky, the give me an orcess as wife! Would be awesome.", "Mo' traets me well. I got an crossbow and hunt a lot.", "I wouldn't change my live against the greatest offers.", "Better then Beryard, this mope. *laughs*"
 "your name", "who are you", "who art thou" -> "Actually my name is %NPCNAME. But each orc calls me just 'Stout'. *smirks* I'm glad with."
@@ -142,13 +142,13 @@ itemShoes = 53
 "Ich bin" -> "Hab ich dich nich schon mal geshen?"
 
 -- Help
-"hilfe" -> "Ich 'säge' verschiedenes Holz und 'verkaufe' auch ein bisschen was.", state = 0
-"helfen" -> "Ich 'säge' verschiedenes Holz und 'verkaufe' auch ein bisschen was.", state = 0
-"help" -> "I 'saw' different wood and 'sell' a little bit.", state = 0
+"hilfe" -> state = 0, "Ich 'säge' verschiedenes Holz und 'verkaufe' auch ein bisschen was."
+"helfen" -> state = 0, "Ich 'säge' verschiedenes Holz und 'verkaufe' auch ein bisschen was."
+"help" -> state = 0, "I 'saw' different wood and 'sell' a little bit."
 
 -- smalltalk
-"murgo", english -> "Murgo? Nice guy!"
-"murgo", german -> "Murgo? Netter Kerl!"
+english, "murgo" -> "Murgo? Nice guy!"
+german, "murgo" -> "Murgo? Netter Kerl!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

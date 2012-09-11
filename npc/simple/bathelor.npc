@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Bathelor"
@@ -60,11 +60,11 @@ itemShoes = 53
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Brágon.", "Hail Brágon! What is it, my child?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Eure Pilgerfahrt hat eine Ende. Ihr habt den Tempel der Fünf gefunden.", "Seid gegrüßt im Namen Brágons.", "Was gibt es, mein Kind?"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Brágon.", "Hail Brágon! What is it, my child?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Brágon.", "Hail Brágon! What is it, my child?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Eure Pilgerfahrt hat eine Ende. Ihr habt den Tempel der Fünf gefunden.", "Seid gegrüßt im Namen Brágons.", "Was gibt es, mein Kind?"
 "Farewell", "Bye", "Fare well", "See you" -> "May Brágon speed you into the flames", "May the fire in you never be extinguished!", "Go with Brágon's blessing."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehet hin in Flammen.", "Und möge das Feuer in euch niemals erlöschen.", "Gehet mit Brágons Segen."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Go with Brágonspeed.", "And may the fire in you never faint!", "Go with Brágon's blessing."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with Brágonspeed.", "And may the fire in you never faint!", "Go with Brágon's blessing."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehet hin in Flammen.", "Und möge das Feuer in euch niemals erlöschen.", "Gehet mit Brágons Segen."
 "How are you", "How feel", "How do you do" -> "I feel enlightened."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich fühle mich erleuchtet."
@@ -72,77 +72,77 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bathelor, Hohepriester Brágons. Lobet Brágon!"
 
 -- 1st quest: Visit the shrines of the five
-"quest", "mission", queststatus(113) = 0, english -> inform("[New quest] A spark to a flame I"), "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them.", queststatus(113) = 1
-"quest", "mission", queststatus(113) = 0 -> inform("[Neues Quest] Feuer und Flamme I"), "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der Fünf seid, möchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der Fünf und ehret sie.", queststatus(113) = 1
-"task", "adventure", queststatus(113) = 0 -> inform("[New quest] A spark to a flame I"), "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them.", queststatus(113) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(113) = 0 -> inform("[Neues Quest] Feuer und Flamme I"), "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der Fünf seid, möchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der Fünf und ehret sie.", queststatus(113) = 1
+queststatus(113) = 0, english, "quest", "mission" -> inform("[New quest] A spark to a flame I"), queststatus(113) = 1, "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them."
+queststatus(113) = 0, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme I"), queststatus(113) = 1, "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der Fünf seid, möchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der Fünf und ehret sie."
+queststatus(113) = 0, "task", "adventure" -> inform("[New quest] A spark to a flame I"), queststatus(113) = 1, "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them."
+queststatus(113) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme I"), queststatus(113) = 1, "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der Fünf seid, möchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der Fünf und ehret sie."
 
 -- 1st quest solved, reward: 2 candles (43)
-".+", queststatus(113) = 2, english -> inform("[Quest solved] You are awarded five candles."), "Praise the Five, hail Brágon! Here, take these candles, for they will guide you through the darkest nights.", item(43, 5, 333, 0), queststatus(113) = 3
-".+", queststatus(113) = 2 -> inform("[Quest gelöst] Du erhältst fünf Kerzen."), "Lobet die Fünf, gepriesen sei Brágon! Hier, nehmt diese Kerzen, sie werden euch ein Licht in der Dunkelheit sein.", item(43, 5, 333, 0), queststatus(113) = 3
+queststatus(113) = 2, english, ".+" -> inform("[Quest solved] You are awarded five candles."), item(43, 5, 333), queststatus(113) = 3, "Praise the Five, hail Brágon! Here, take these candles, for they will guide you through the darkest nights."
+queststatus(113) = 2, ".+" -> inform("[Quest gelöst] Du erhältst fünf Kerzen."), item(43, 5, 333), queststatus(113) = 3, "Lobet die Fünf, gepriesen sei Brágon! Hier, nehmt diese Kerzen, sie werden euch ein Licht in der Dunkelheit sein."
 
 -- 1st quest taken but not solved, repeat the instructions
-"quest", "mission", queststatus(113) = 1, english -> "I told you to honour the five at their shrines. Move!"
-"quest", "mission", queststatus(113) = 1 -> "Ich habe gesagt, ihr sollt den Fünf die Ehre an ihren Schreinen erweisen. Los!"
-"task", "adventure", queststatus(113) = 1 -> "I told you to honour the five at their shrines. Move!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(113) = 1 -> "Ich habe gesagt, ihr sollt den Fünf die Ehre an ihren Schreinen erweisen. Los!"
+queststatus(113) = 1, english, "quest", "mission" -> "I told you to honour the five at their shrines. Move!"
+queststatus(113) = 1, "quest", "mission" -> "Ich habe gesagt, ihr sollt den Fünf die Ehre an ihren Schreinen erweisen. Los!"
+queststatus(113) = 1, "task", "adventure" -> "I told you to honour the five at their shrines. Move!"
+queststatus(113) = 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe gesagt, ihr sollt den Fünf die Ehre an ihren Schreinen erweisen. Los!"
 
 -- 2nd quest: Bring naldor wood (544) for a ritual
-"quest", "mission", queststatus(113) = 3, english -> inform("[New quest] A spark to a flame II"), "I appreciate your devotion. Rituals in honour of Brágon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?", queststatus(113) = 4
-"quest", "mission", queststatus(113) = 3 -> inform("[Neues Quest] Feuer und Flamme II"), "Ich würdige eure Hingabe. Rituale in Ehren an Brágon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gläubiger, würdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?", queststatus(113) = 4
-"task", "adventure", queststatus(113) = 3 -> inform("[New quest] A spark to a flame II"), "I appreciate your devotion. Rituals in honour of Brágon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?", queststatus(113) = 4
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(113) = 3 -> inform("[Neues Quest] Feuer und Flamme II"), "Ich würdige eure Hingabe. Rituale in Ehren an Brágon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gläubiger, würdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?", queststatus(113) = 4
+queststatus(113) = 3, english, "quest", "mission" -> inform("[New quest] A spark to a flame II"), queststatus(113) = 4, "I appreciate your devotion. Rituals in honour of Brágon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?"
+queststatus(113) = 3, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme II"), queststatus(113) = 4, "Ich würdige eure Hingabe. Rituale in Ehren an Brágon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gläubiger, würdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?"
+queststatus(113) = 3, "task", "adventure" -> inform("[New quest] A spark to a flame II"), queststatus(113) = 4, "I appreciate your devotion. Rituals in honour of Brágon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?"
+queststatus(113) = 3, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme II"), queststatus(113) = 4, "Ich würdige eure Hingabe. Rituale in Ehren an Brágon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gläubiger, würdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?"
 
 -- 2nd quest solved, reward: ruby ring (68)
-".+", queststatus(113) = 4, item(544, all) > 9, english -> inform("[Quest solved] You are awarded a ruby ring."), "Ah, the next ritual to honour Brágon can take place thanks to you. Take this ring as a sign of your faith.", deleteItem(544, 10), item(68, 1, 599, 0), queststatus(113) = 5
-".+", queststatus(113) = 4, item(544, all) > 9 -> inform("[Quest gelöst] Du erhältst einen Rubinring."), "Ah, das nächste Ritual zu Ehren Brágons kann dank euch stattfinden. Nehmt diesen Ring als Zeichen eures Glaubens.", deleteItem(544, 10), item(68, 1, 599, 0), queststatus(113) = 5
+queststatus(113) = 4, item(544, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a ruby ring."), deleteItem(544, 10), item(68, 1, 599), queststatus(113) = 5, "Ah, the next ritual to honour Brágon can take place thanks to you. Take this ring as a sign of your faith."
+queststatus(113) = 4, item(544, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst einen Rubinring."), deleteItem(544, 10), item(68, 1, 599), queststatus(113) = 5, "Ah, das nächste Ritual zu Ehren Brágons kann dank euch stattfinden. Nehmt diesen Ring als Zeichen eures Glaubens."
 
 -- 2nd quest taken but not solved, repeat the instructions
-"quest", "mission", queststatus(113) = 4, english -> "Naldor wood burns best and a Brágon ritual needs a lot of it to be burnt. Brágon will reward you for your dedication."
-"quest", "mission", queststatus(113) = 4 -> "Naldorholz brennt am besten und bei einem Brágonritual wird zumeist eine Menge verbrannt. Brágon wird euch für eure Hingabe entlohnen."
-"task", "adventure", queststatus(113) = 4 -> "Naldor wood burns best and a Brágon ritual needs a lot of it to be burnt. Brágon will reward you for your dedication."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(113) = 4 -> "Naldorholz brennt am besten und bei einem Brágonritual wird zumeist eine Menge verbrannt. Brágon wird euch für eure Hingabe entlohnen."
+queststatus(113) = 4, english, "quest", "mission" -> "Naldor wood burns best and a Brágon ritual needs a lot of it to be burnt. Brágon will reward you for your dedication."
+queststatus(113) = 4, "quest", "mission" -> "Naldorholz brennt am besten und bei einem Brágonritual wird zumeist eine Menge verbrannt. Brágon wird euch für eure Hingabe entlohnen."
+queststatus(113) = 4, "task", "adventure" -> "Naldor wood burns best and a Brágon ritual needs a lot of it to be burnt. Brágon will reward you for your dedication."
+queststatus(113) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> "Naldorholz brennt am besten und bei einem Brágonritual wird zumeist eine Menge verbrannt. Brágon wird euch für eure Hingabe entlohnen."
 
 -- 3rd quest: Become a Brágon devotee (queststatus(401) = 2)
-"quest", "mission", queststatus(113) = 5, english -> inform("[New quest] A spark to a flame III"), "I see you are really serious in your faith in Brágon. I think you are worthy to become a devotee of Brágon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings.", queststatus(113) = 6
-"quest", "mission", queststatus(113) = 5 -> inform("[Neues Quest] Feuer und Flamme III"), "Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Brágon. Ich denke, ihr seid würdig, einer seiner Anhänger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zurück, um meinen Segen zu empfangen.", queststatus(113) = 6
-"task", "adventure", queststatus(113) = 5 -> inform("[New quest] A spark to a flame III"), "I see you are really serious in your faith in Brágon. I think you are worthy to become a devotee of Brágon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings.", queststatus(113) = 6
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(113) = 5 -> inform("[Neues Quest] Feuer und Flamme III"), "Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Brágon. Ich denke, ihr seid würdig, einer seiner Anhänger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zurück, um meinen Segen zu empfangen.", queststatus(113) = 6
+queststatus(113) = 5, english, "quest", "mission" -> inform("[New quest] A spark to a flame III"), queststatus(113) = 6, "I see you are really serious in your faith in Brágon. I think you are worthy to become a devotee of Brágon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings."
+queststatus(113) = 5, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme III"), queststatus(113) = 6, "Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Brágon. Ich denke, ihr seid würdig, einer seiner Anhänger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zurück, um meinen Segen zu empfangen."
+queststatus(113) = 5, "task", "adventure" -> inform("[New quest] A spark to a flame III"), queststatus(113) = 6, "I see you are really serious in your faith in Brágon. I think you are worthy to become a devotee of Brágon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings."
+queststatus(113) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme III"), queststatus(113) = 6, "Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Brágon. Ich denke, ihr seid würdig, einer seiner Anhänger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zurück, um meinen Segen zu empfangen."
 
 -- 3rd quest solved, reward: red priest robe (2419)
-".+", queststatus(113) = 6, queststatus(401) = 2, english -> inform("[Quest solved] You are awarded a red priest robe."), "#me raises his hands and chants: 'Be blessed in the name of Brágon! Go forth and accomplish deeds in his name.'", item(2419, 1, 799, 0), queststatus(113) = 7
-".+", queststatus(113) = 6, queststatus(401) = 2 -> inform("[Quest gelöst] Du erhältst eine rote Priesterrobe."), "#me hebt seine Hände und singt: 'Seid gesegnet in Brágons Namen! Gehet hin und vollbringt Taten in seinem Namen.'", item(2419, 1, 799, 0), queststatus(113) = 7
+queststatus(113) = 6, queststatus(401) = 2, english, ".+" -> inform("[Quest solved] You are awarded a red priest robe."), item(2419, 1, 799), queststatus(113) = 7, "#me raises his hands and chants: 'Be blessed in the name of Brágon! Go forth and accomplish deeds in his name.'"
+queststatus(113) = 6, queststatus(401) = 2, ".+" -> inform("[Quest gelöst] Du erhältst eine rote Priesterrobe."), item(2419, 1, 799), queststatus(113) = 7, "#me hebt seine Hände und singt: 'Seid gesegnet in Brágons Namen! Gehet hin und vollbringt Taten in seinem Namen.'"
 
 -- 3rd quest taken but not solved, repeat the instructions
-"quest", "mission", queststatus(113) = 6, english -> "You hesitate to sacrifice your mudane wealth Brágon? It will go up in flames one day anyway, trust me!"
-"quest", "mission", queststatus(113) = 6 -> "Zögert ihr, euren weltlichen Besitz Brágon zu opfern? Er wird sowieso eines Tages in Flammen aufgehen, glaubt es mir."
-"task", "adventure", queststatus(113) = 6 -> "You hesitate to sacrifice your mudane wealth to Brágon? It will go up in flames one day anyway, trust me!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(113) = 6 -> "Zögert ihr, euren weltlichen Besitz Brágon zu opfern? Er wird sowieso eines Tages in Flammen aufgehen, glaubt es mir."
+queststatus(113) = 6, english, "quest", "mission" -> "You hesitate to sacrifice your mudane wealth Brágon? It will go up in flames one day anyway, trust me!"
+queststatus(113) = 6, "quest", "mission" -> "Zögert ihr, euren weltlichen Besitz Brágon zu opfern? Er wird sowieso eines Tages in Flammen aufgehen, glaubt es mir."
+queststatus(113) = 6, "task", "adventure" -> "You hesitate to sacrifice your mudane wealth to Brágon? It will go up in flames one day anyway, trust me!"
+queststatus(113) = 6, "Auftrag", "Aufgabe", "Abenteuer" -> "Zögert ihr, euren weltlichen Besitz Brágon zu opfern? Er wird sowieso eines Tages in Flammen aufgehen, glaubt es mir."
 
 -- No more quests, just nice words of gratitude
-"quest", "mission", queststatus(113) = 7, queststatus(401) = 2, english -> "I see your faith in Brágon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched."
-"quest", "mission", queststatus(113) = 7, queststatus(401) = 2 -> "Wie ich sehe, ist euer Glaube an Brágon noch immer stark. Entsagt ihm und er entsagt euch. Ihn kümmert es wenig, aber ihr werdet wohl versengt werden."
-"task", "adventure", queststatus(113) = 7, queststatus(401) = 2 -> "I see your faith in Brágon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(113) = 7, queststatus(401) = 2 -> "Wie ich sehe, ist euer Glaube an Brágon noch immer stark. Entsagt ihm und er entsagt euch. Ihn kümmert es wenig, aber ihr werdet wohl versengt werden."
+queststatus(113) = 7, queststatus(401) = 2, english, "quest", "mission" -> "I see your faith in Brágon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched."
+queststatus(113) = 7, queststatus(401) = 2, "quest", "mission" -> "Wie ich sehe, ist euer Glaube an Brágon noch immer stark. Entsagt ihm und er entsagt euch. Ihn kümmert es wenig, aber ihr werdet wohl versengt werden."
+queststatus(113) = 7, queststatus(401) = 2, "task", "adventure" -> "I see your faith in Brágon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched."
+queststatus(113) = 7, queststatus(401) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Wie ich sehe, ist euer Glaube an Brágon noch immer stark. Entsagt ihm und er entsagt euch. Ihn kümmert es wenig, aber ihr werdet wohl versengt werden."
 
 -- Not a Brágon devotee anymore!
-"quest", "mission", queststatus(113) = 7, english -> "Out of my sight, you traitor! Blasphemer! Infidel!"
-"quest", "mission", queststatus(113) = 7 -> "Aus meinen Augen, ihr Verräter! Gotteslästerer! Ungläubiger!"
-"task", "adventure", queststatus(113) = 7 -> "Out of my sight, you traitor! Blasphemer! Infidel!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(113) = 7 -> "Aus meinen Augen, ihr Verräter! Gotteslästerer! Ungläubiger!"
+queststatus(113) = 7, english, "quest", "mission" -> "Out of my sight, you traitor! Blasphemer! Infidel!"
+queststatus(113) = 7, "quest", "mission" -> "Aus meinen Augen, ihr Verräter! Gotteslästerer! Ungläubiger!"
+queststatus(113) = 7, "task", "adventure" -> "Out of my sight, you traitor! Blasphemer! Infidel!"
+queststatus(113) = 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Aus meinen Augen, ihr Verräter! Gotteslästerer! Ungläubiger!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the high priest of Brágon in these lands. Any donations or sacrifices to Brágon should be given to me."
 "beruf" -> "Ich bin der Hohepriester Brágons in diesen Ländereien. Jedwede Spenden oder Opfer an Brágon solltet ihr mir geben."
-"job", english -> "I am the high priest of Brágon in these lands. Any donations or sacrifices to Brágon should be given to me."
+english, "job" -> "I am the high priest of Brágon in these lands. Any donations or sacrifices to Brágon should be given to me."
 "job" -> "Ich bin der Hohepriester Brágons in diesen Ländereien. Jedwede Spenden oder Opfer an Brágon solltet ihr mir geben."
-"Gobaith", "Gobiath", english -> "The land of Gobaith is burnt."
+english, "Gobaith", "Gobiath" -> "The land of Gobaith is burnt."
 "Gobaith", "Gobiath" -> "Gobaithland ist abgebrannt."
 "my name" -> "So, are you a devout follower of Brágon, the eternal flame, the spark of life?"
 "mein Name" -> "Seid ihr ein frommer Anhänger Brágons, der ewigen Flamme, des Lebensfunkens?"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"priest", english -> "I am the high priest of Brágon. He speaks through my voice and acts with my hands. Ally with me and you ally with the Lord of Fire!"
+english, "priest" -> "I am the high priest of Brágon. He speaks through my voice and acts with my hands. Ally with me and you ally with the Lord of Fire!"
 "temple" -> "This is the temple of the Five. If you even dare to ask who the Five are, I will burn your body and feed the charred remains to the crows. Marvel at their magnificence!"
 "five", "old" -> "Eldan is the mind, Ushara is the body, Tanora is the blood and Findari is the breath, but Brágon is the heart!"
 "eleven", "young" -> "Imposters! All of them! Calling themselves gods, they do. They are nothing but minions, serfs!"
@@ -158,41 +158,41 @@ itemShoes = 53
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "What is his name again? Elvaine? What a stupid name for an infidel."
 "Erzmagier" -> "Wie hieß er noch gleich? Elvaine? Was für ein dämlicher Name, selbst für einen Ungläubigen."
-"Elvaine", "Morgan", english -> "What is his name again? Elvaine? What a stupid name for an infidel."
+english, "Elvaine", "Morgan" -> "What is his name again? Elvaine? What a stupid name for an infidel."
 "Elvaine", "Morgan" -> "Wie hieß er noch gleich? Elvaine? Was für ein dämlicher Name, selbst für einen Ungläubigen."
-"Runewick", english -> "Runewick, Runewick, Runewick. They claim to be wise, but instead of being crusaders in Eldan's way, the half heartely idolise Elara."
+english, "Runewick" -> "Runewick, Runewick, Runewick. They claim to be wise, but instead of being crusaders in Eldan's way, the half heartely idolise Elara."
 "Runewick" -> "Runewick, Runewick, Runewick. Sie meinen, weise zu sein, aber statt Kreuzritter im Geiste Eldans zu sein, vergöttern sie halbherzig Elara."
-"Valerio", "Guilianni", "Don", english -> "The infidel should burn!"
+english, "Valerio", "Guilianni", "Don" -> "The infidel should burn!"
 "Valerio", "Guilianni", "Don" -> "Der Ungläubige soll verbrennen!"
-"Galmair", english -> "Galmair is a place without gods. Because the gods give a smile about this pool of sins."
+english, "Galmair" -> "Galmair is a place without gods. Because the gods give a smile about this pool of sins."
 "Galmair" -> "Galmair ist ein gottloser Ort, denn die Götter scheren sich einen Dreck um diesen Sündenpfuhl."
 "Queen" -> "I must admit I do not quite understand the ways of 'her majesty'. On the one hand, she is known to worship Brágon with all of her heart, but all she spreads is faith in Malachín."
 "Königin" -> "Ich muss gestehen, dass ich die Wege 'ihrer Majestät' nicht ganz nachvollziehen kann. Einerseits ist es kein Geheimnis, dass sie Brágon mit ganzem Herzen verehrt, andererseits aber predigt sie den Glauben an Malachín."
-"rosaline", "edwards", english -> "I must admit I do not quite understand the ways of 'her majesty'. On the one hand, she is known to worship Brágon with all of her heart, but all she spreads is faith in Malachín."
+english, "rosaline", "edwards" -> "I must admit I do not quite understand the ways of 'her majesty'. On the one hand, she is known to worship Brágon with all of her heart, but all she spreads is faith in Malachín."
 "rosaline", "edwards" -> "Ich muss gestehen, dass ich die Wege 'ihrer Majestät' nicht ganz nachvollziehen kann. Einerseits ist es kein Geheimnis, dass sie Brágon mit ganzem Herzen verehrt, andererseits aber predigt sie den Glauben an Malachín."
-"Cadomyr", english -> "Brágon is well respected in Cadomyr, so I respect Cadomyr. The presence of the scorching sun might convince them of the omnipresence of Brágon."
+english, "Cadomyr" -> "Brágon is well respected in Cadomyr, so I respect Cadomyr. The presence of the scorching sun might convince them of the omnipresence of Brágon."
 "Cadomyr" -> "Brágon wird in Cadomyr geachtet, also achte ich Cadomyr. Die sengende Sonne scheint sie jeden Tag an die Allgegenwärtigkeit Brágons zu erinnern."
 
 -- Main land factions
-"albar", english -> "Ah, let us talk about Farfarawayland now? One can say whatever one wants about the Albarians: At least they honour the gods!"
+english, "albar" -> "Ah, let us talk about Farfarawayland now? One can say whatever one wants about the Albarians: At least they honour the gods!"
 "albar" -> "Ah, reden wir jetzt über Weitwegland? Man kann über die Albarier denken, was man will: Wenigstens sind sie fromm!"
-"gynk", "gync", english -> "One day, Gynk will burn. Be it due to a gnomish experiment with white liquids or be it the wrath of Brágon."
+english, "gynk", "gync" -> "One day, Gynk will burn. Be it due to a gnomish experiment with white liquids or be it the wrath of Brágon."
 "gync", "gynk" -> "Eines Tages wird Gynk in Flammen aufgehen. Sei es durch ein gnomisches Experiment mit weißen Flüssigkeiten oder sei es durch den Zorn Brágons."
-"salkama", english -> "Never trust nor believe a Salkamaerian. Respect them and their deeds, but do not have faith in them repeating what they did once."
+english, "salkama" -> "Never trust nor believe a Salkamaerian. Respect them and their deeds, but do not have faith in them repeating what they did once."
 "salkama" -> "Glaubt oder traut niemals einem Salkamaeriern. Respektiert sie, für das, was sie tun, aber legt keinen Glauben darein, dass sich ihre Taten wiederholen werden."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "There are five gods: Brágon, Eldan, Findari, Tanora and Ushara. If you didn't know before, drop dead now."
 "Gott", "Götter" -> "Es gibt fünf Götter: Brágon, Eldan, Findari, Tanora und Ushara. Wenn ihr das nicht wußtet, fallt bitte tot um."
-"Bragon", "Brágon", english -> "Brágon is the heart; whatever we do, we do it because our heart tells us to. Be it good, be it bad, Brágon is in all we do. He is the esteem that makes our life worthy."
+english, "Bragon", "Brágon" -> "Brágon is the heart; whatever we do, we do it because our heart tells us to. Be it good, be it bad, Brágon is in all we do. He is the esteem that makes our life worthy."
 "Bragon", "Brágon" -> "Brágon ist das Herz; was auch immer wir tun, wir tun es, weil es unser Herz gebietet. Sei es gut, sei es böse, Brágon ist in allem, was wir tun. Er ist Funke, der unser Leben lebenswert macht."
-"Eldan", english -> "Eldan is the mind."
+english, "Eldan" -> "Eldan is the mind."
 "Eldan" -> "Eldan ist der Geist."
-"Findari", english -> "Findari is the breath."
+english, "Findari" -> "Findari is the breath."
 "Findari" -> "Findari ist der Atem."
-"Tanora", "Zelphia", english -> "Tanora is the blood."
+english, "Tanora", "Zelphia" -> "Tanora is the blood."
 "Tanora", "Zelphia" -> "Tanora ist das Blut."
-"Ushara", english -> "Ushara is the body."
+english, "Ushara" -> "Ushara is the body."
 "Ushara" -> "Ushara ist der Leib."
 
 -- Catching typical NPC phrases
@@ -202,7 +202,7 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Gerne erzähle ich euch von den Fünf und Brágon im Besonderen."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Bathelor", english -> "My name is not that important, you can call me your 'Highness' or 'Excellency'."
+english, "Bathelor" -> "My name is not that important, you can call me your 'Highness' or 'Excellency'."
 "Bathelor" -> "Mein Name ist nicht so wichtig, ihr könnt mich auch 'Durchlaucht' oder 'Exzellenz' nennen."
 "Yes" -> "Hail Brágon!", "Blessed be Brágon!", "Praise Brágon!", "Honour Brágon!"
 "Ja" -> "Gelobet sei Brágon!", "Lobet Brágon!", "Ehret Brágon!"

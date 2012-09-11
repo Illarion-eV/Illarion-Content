@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Sam"
@@ -60,11 +60,11 @@ itemShoes = 53
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me raises his head slowly and looks around. 'Ew-h?'", "#me raises his hand with great effort and waves. 'Greetings...'", "#me exhales thickly. 'Greets.'"
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "#me hebt langsam den Kopf und blickt sich um. 'Ew-h?'", "#me hebt seine Hand schwerfällig und winkt. 'Grüße disch...'", "#me atmet erschöpft aus. 'H-h...Tag.'"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "#me raises his head slowly and looks around. 'Ew-h?'", "#me raises his hand with great effort and waves. 'Greetings...'", "#me exhales thickly. 'Greets.'"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "#me hebt langsam den Kopf und blickt sich um. 'Ew-h?'", "#me hebt seine Hand schwerfällig und winkt. 'Grüße disch...'", "#me atmet erschöpft aus. 'H-h...Tag.'"
+english, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "#me raises his head slowly and looks around. 'Ew-h?'", "#me raises his hand with great effort and waves. 'Greetings...'", "#me exhales thickly. 'Greets.'"
+german, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "#me hebt langsam den Kopf und blickt sich um. 'Ew-h?'", "#me hebt seine Hand schwerfällig und winkt. 'Grüße disch...'", "#me atmet erschöpft aus. 'H-h...Tag.'"
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "#me nods a bit. 'Gn-ha.'", "Bye...", "#me looks questioningly. 'Eh?'"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "#me nickt ein wenig. 'Gn-ha.'", "Tschüss...", "#me blickt fragend. 'Hä-h?'"
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "'#me nods a bit. 'Gn-ha.'", "Bye...", "#me looks questioningly. 'Eh?'"
+english, "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "'#me nods a bit. 'Gn-ha.'", "Bye...", "#me looks questioningly. 'Eh?'"
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "#me nickt ein wenig. 'Gn-ha.'", "Tschüss...", "#me blickt fragend. 'Hä-h?'"
 "How are you", "How feel", "How do you do" -> "#me raises his arms angrily and shouts drunkenly. 'I'm FINE!", "Nothing...it's nothing. Everything's alright.", "Ah-wh! My life is complete hellbriar! - You don't know what it's like!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "#me hebt zornig die Arme und ruft. 'Es geht mir GUT!'", "Nichts... es ist nichts. Allesch in beschter Ordnuch.", "Ah-wh! Mein Lebn ischt die reinste Qual! - Wischt Ihr wie daasch ischt?"
@@ -78,56 +78,56 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Wo? WO? Ischt die alte Zeit hin? Gern würd isch ihr folgn. Aber jetz - ertrink isch mein Leid mit Borgates Bier... guter alter Borgate.", "Ja. Damlas hatt isch men Laden in der Burg der graun Orden. Aber wie allesch ischt dasch jetzsch vorbei...", "#me macht eine verärgerte Handbewgung. 'Ewh-h! Lascht misch einfach in Friedn trinkn! Verschwind hier! Gnrh?'"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I a-am..eh...was a trader."
+"profession" -> trade, "I a-am..eh...was ar."
 "beruf" -> "Isch b-bin... eh war n' Händler."
-"job", english -> "I a-am..eh...was a trader."
+english, "job" -> trade, "I a-am..eh...was ar."
 "job" -> "Isch b-bin... eh war n' Händler."
-"Gobaith", "Gobiath", english -> "Yeah! Everything was pretty nice in Gobaith. Not so complicated like here!", "Argh! Go away! Don't bother me! I don't talk with strangers...", "I'll tell you, the Grey Orders decided about Gobaith. That didn't happen... and, good old Sam was in the middle of it!"
+english, "Gobaith", "Gobiath" -> "Yeah! Everything was pretty nice in Gobaith. Not so complicated like here!", "Argh! Go away! Don't bother me! I don't talk with strangers...", "I'll tell you, the Grey Orders decided about Gobaith. That didn't happen... and, good old Sam was in the middle of it!"
 "Gobaith", "Gobiath" -> "Jah! In Gobaith war allesch noch schön Ordnlisch. Nich so verworrn wie hie-r!", "Ärgh! Geh weg! Lasch misch in ruh! Ich sprech nisch mit Fremdn...", "Sag isch dir, die Grauen Orden, haben über Gobaith entschiedn. Da hatsch sonscht nicht gegeben und, der gute Sam war mittn drin!"
 "I am", "my name" -> "Yesh..!", "Leave me alone!", "Uargh. Never mind!"
 "Ich bin", "mein Name" -> "Jah...!", "Hau ab! Verschwind, Gsindel...", "Uargh. Wasch sollt misch dasch kümmern?"
 
 -- More small talk; add at least five triggers
-"Borgate", "barkeeper", "innkeeper", "Northoff", english -> "Borgate is an old chum. He always knows what he has to do. Eh-h. Borgate, me and Eliza are left. I heard she lives in the swamp now."
+english, "Borgate", "barkeeper", "innkeeper", "Northoff" -> "Borgate is an old chum. He always knows what he has to do. Eh-h. Borgate, me and Eliza are left. I heard she lives in the swamp now."
 "refuge", "grey" -> "The Order of the Grey Light and Grey Rose. Yessh! Once the most powerful knights and landowners. If I would have stayed at my store I would be dead now. Dead...but happy."
-"sam", english -> "Huh? Did someone call me?", "#me raises his head. 'I am Sam!'", " Ah-Leave me alone."
+english, "sam" -> "Huh? Did someone call me?", "#me raises his head. 'I am Sam!'", " Ah-Leave me alone."
 "market", "shop", "market", "store" -> "Yes, my old store is gone. Far away..and I am here and ... drunk. Who can tell what's happening there?!"
-"eliza", english -> "Awh-h. Eliza lives in the s-shh-swamp. Alone, you know? - We both lost our stores. But you can't do anything about it..it's too late...all too late. Isn't it?."
-"Borgate", "wirt", "Northoff", german -> "Borgate kenn isch von damalsch, alsch wir auf Gobaith warn. Wie immer hat er schein Ding gemacht, alsch wir alle weg muschten von dort. Eh-h. Wir zwe' und Eliza sin übrich gebliebn. Die soll jetz im Sumpf lebn."
+english, "eliza" -> "Awh-h. Eliza lives in the s-shh-swamp. Alone, you know? - We both lost our stores. But you can't do anything about it..it's too late...all too late. Isn't it?."
+german, "Borgate", "wirt", "Northoff" -> "Borgate kenn isch von damalsch, alsch wir auf Gobaith warn. Wie immer hat er schein Ding gemacht, alsch wir alle weg muschten von dort. Eh-h. Wir zwe' und Eliza sin übrich gebliebn. Die soll jetz im Sumpf lebn."
 "Zuflucht", "grau" -> "Der Orden desch graun Lischts und die Graue Rosche. Jeh-nau. Einst beschtimmten die mächtigsten Ritter und Meischter über deren Lande. Wer isch bei meinem Laden gebliebn, wär isch jetzt genau scho tot. Aber glücklisch."
 "laden", "schop", "Gesch[aeä]ft", "Markt" -> "Ja-h men alter Laden isch weg. Weit weg und isch bin hier und sauf. Wer kann schon sagen was jetz dort paschiert?"
 "sam" -> "Häh? Hat misch wer gerufn?", "#me hebt zackig seinen Kopf. 'Isch bin Sam!'", "Äh - Lascht misch in Friedn."
 "eliza" -> "Awh-h. Eliza soll irgendwo im Sumpf lebn. Gansch allein. Wischt du? - Wir habn beide unschern Laden verloren. Aber da kann man jetz nischt dagegen machen... Jetzsch nicht mehr. Oder?"
 
 -- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Ewh-h! Morgan is a self-important snob. That toad can eat my pants!"
+english, "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Ewh-h! Morgan is a self-important snob. That toad can eat my pants!"
 "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Ewh-h! Morgan ist n' aufgebalschener wischtigtuer. Dische Kröte kann mene Hoschn fressen!"
-"Runewick", english -> "A buncha s-shh-stuck up nobodies who would clean their butts with magic if they could! They can blow themselves up ... for all I care."
+english, "Runewick" -> "A buncha s-shh-stuck up nobodies who would clean their butts with magic if they could! They can blow themselves up ... for all I care."
 "Runewick" -> "Diescher arrogante Haufn, würd sich mit Zauber-hei n' Hintern abwischn, wenn siehs könntn! Von mir ausch solln sie sich selbst exschplodiern!"
-"Valerio", "Guilianni", "Don", english -> "Thissh ...uh...guy thinkssh he is some kind of half god. He's hyssh-terrrical!"
+english, "Valerio", "Guilianni", "Don" -> "Thissh ...uh...guy thinkssh he is some kind of half god. He's hyssh-terrrical!"
 "Valerio", "Guilianni", "Don" -> "Discher fene Pinkl von Zwerg tut alsch wär er n' halber Gott oder scho! Hysterisch issa, dasch allesch!"
-"Galmair", english -> "#me shuts his eyes tightly closed. 'Are you from Galmair?! Are you one of those cutthroats? I tell you - honest people like S-Sh-Sam don't want to deal with you Galmairians!'"
+english, "Galmair" -> "#me shuts his eyes tightly closed. 'Are you from Galmair?! Are you one of those cutthroats? I tell you - honest people like S-Sh-Sam don't want to deal with you Galmairians!'"
 "Galmair" -> "#me kneift die Augen zusammen. 'Komscht du aus Galmair?! Bischt du eina von den Halschabschnedern? Oder n' habgieriches Filzmaul? Isch sag dir einsch - aufrichtiche leute wie Sam wolln nichtsch mit euch Galmairern zu tu-hn habn!'"
-"rosaline", "königin", "queen", "edwards", english -> "This queen is so p-p-posh. She drags all of Cadomyr down with her! But what ever, they are all idiots. All of them!"
+english, "rosaline", "königin", "queen", "edwards" -> "This queen is so p-p-posh. She drags all of Cadomyr down with her! But what ever, they are all idiots. All of them!"
 "rosaline", "königin", "queen", "edwards" -> "Dische Könischin isch die Dekadenzsch in Person! Und gansch Cadomyr geht mit ihr schu Grunde! Aber wasch schollsch, sind sowiescho nur Dummköpfe. Allesamt!"
-"Cadomyr", english -> "...scumbags, pigs, horse's arses, slimeballs! Thats what I call the people of Cadomyr."
+english, "Cadomyr" -> "...scumbags, pigs, horse's arses, slimeballs! Thats what I call the people of Cadomyr."
 "Cadomyr" -> "...Dummköpfe, Sturschädl, Blauau'en, Ziechenbärte, Pferdeorhn! Scho will ich dasch Volk Cadomirsch nenn'."
 
 -- Main land factions
-"albar", english -> "Albarian scrumbags! Speared my father on the battlefield!."
-"albar", german -> "Albarische Drecksäcke! Habn mein' Papa aufn Schlachtfeld aufgeschpischt! Flusch! Jawohl - FLUSCH über 'n Könich Albarsch!"
-"gynk", "gync", english -> "Too hot there right now. - Actually , it's always too hot in Gynk. I heard it doesn't snow during winter there."
-"gync", "gynk", german -> "Isch Viel schu heisch dort, um die Jahreschzeit. - Eigntlisch um jede Jahreschzeit. Im Winter soll nischtmal Schnee falln."
-"salkama", english -> "I am from Salkamar. But why should I have stayed there? And why should I go back there? Do you know?"
-"salkama", german -> "Isch komm ausch Salkamar. Aber wasch sollt misch dort gehaltn habn? Und warum scholt isch zurückehrn? Wischt ihr's?"
+english, "albar" -> "Albarian scrumbags! Speared my father on the battlefield!."
+german, "albar" -> "Albarische Drecksäcke! Habn mein' Papa aufn Schlachtfeld aufgeschpischt! Flusch! Jawohl - FLUSCH über 'n Könich Albarsch!"
+english, "gynk", "gync" -> "Too hot there right now. - Actually , it's always too hot in Gynk. I heard it doesn't snow during winter there."
+german, "gync", "gynk" -> "Isch Viel schu heisch dort, um die Jahreschzeit. - Eigntlisch um jede Jahreschzeit. Im Winter soll nischtmal Schnee falln."
+english, "salkama" -> "I am from Salkamar. But why should I have stayed there? And why should I go back there? Do you know?"
+german, "salkama" -> "Isch komm ausch Salkamar. Aber wasch sollt misch dort gehaltn habn? Und warum scholt isch zurückehrn? Wischt ihr's?"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Eh-h? Do you think you're some kind of friend of mine or what? I don't know you! I only talk about gods with friends.", "Leave me alone! I don't wanna think about gods with you around."
 "Gott", "Götter" -> "Eh-h? Bischt du 'n freund von mir? Isch kenn disch nich, nur mit mein'n Freunden sprech isch über Götter.", "Hau ab! Isch will allein über die Götter grübeln."
 
 -- Catching quest triggers
-"quest", english -> "Do I look like someone who has work for you? Leave, you stupid farmer!"
-"quest", german -> "Sche ich scho auch als hätt isch arbeit für disch? Verschwinde du dummer Bauer."
+english, "quest" -> "Do I look like someone who has work for you? Leave, you stupid farmer!"
+german, "quest" -> "Sche ich scho auch als hätt isch arbeit für disch? Verschwinde du dummer Bauer."
 "task", "adventure", "order" -> "Do I look like someone who has work for you? Leave, you stupid farmer!"
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Sche ich scho auch als hhätt isch Arbeit für disch? Verschwinde du dummer Bauer."
 
@@ -140,8 +140,8 @@ itemShoes = 53
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger / Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Why do you talk with me? I don't even know you!", "You talk like some smart ass elven girl.", "Shut up and bring me another beer!."
-".*", german, chance(20.0) -> "Warum quatscht Ihr misch su? Wir kenn'n unsch nich. Verschwindet!", "Du quaschelscht wie so'n neunmal kluges Elfnweib.", "Halt's Maul und bring mir noch 'n Bier!"
+english, chance(20.0), ".*" -> "Why do you talk with me? I don't even know you!", "You talk like some smart ass elven girl.", "Shut up and bring me another beer!."
+german, chance(20.0), ".*" -> "Warum quatscht Ihr misch su? Wir kenn'n unsch nich. Verschwindet!", "Du quaschelscht wie so'n neunmal kluges Elfnweib.", "Halt's Maul und bring mir noch 'n Bier!"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: September 03, 2012                       easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -69,11 +69,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hello, hello!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -107,11 +107,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Adieu.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -129,7 +129,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I'm always happy when I can trade.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I'm always happy when I can.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -166,8 +167,8 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Ah, A costumer, be welcomned.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Ah, A costumer, be welcomned.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -178,8 +179,8 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("ver‰uﬂer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Ah, werte Kundschaft, seid willkommen.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Ah, werte Kundschaft, seid willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -196,8 +197,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("I like money. But I don't like my job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -210,7 +211,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Do you want to trade, or do you want to keep me from working by chattering?");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Do you want toor do you want to keep me from working by chattering?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -223,7 +225,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Do you want to trade, or do you want to keep me from working by chattering?");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Do you want toor do you want to keep me from working by chattering?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,10 +238,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Runewick is such a nice place. You can make lots of money here.");
-talkEntry:addResponse("Do you want to trade, or do you want to keep me from working by chattering?");
+talkEntry:addResponse("Do you want toor do you want to keep me from working by chattering?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -250,10 +254,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Galmair is full of corruption and dirt.");
-talkEntry:addResponse("Do you want to trade, or do you want to keep me from working by chattering?");
+talkEntry:addResponse("Do you want toor do you want to keep me from working by chattering?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -265,10 +270,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Cadomyr is Cadomyr.");
-talkEntry:addResponse("Do you want to trade, or do you want to keep me from working by chattering?");
+talkEntry:addResponse("Do you want toor do you want to keep me from working by chattering?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -280,8 +286,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Salkamar was my home. But I never liked it there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -293,10 +299,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Do you want to trade, or do you want to keep me from working by chattering?");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Do you want toor do you want to keep me from working by chattering?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

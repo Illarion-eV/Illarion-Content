@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Nobarg"
@@ -70,32 +70,32 @@ itemShoes = 53
 -- 40: Sir Fludnar Yedno - Quest done and Player rewarded
 
 -- Debugging
-"set 0" -> "Quest status set to 0", state = 0, queststatus(600) = 0
-"set 5" -> "Quest status set to 5", queststatus(600) = 5
-"set 6" -> "Quest status set to 6", queststatus(600) = 6
-"set 7" -> "Quest status set to 7", queststatus(600) = 7
-"set 8" -> "Quest status set to 8", queststatus(600) = 8
-"set 11" -> "Quest status set to 11", state = 1, queststatus(600) = 11
-"set 12" -> "Quest status set to 12", state = 1, queststatus(600) = 12
-"set 13" -> "Quest status set to 13", state = 1, queststatus(600) = 13
-"set 14" -> "Quest status set to 14", state = 1, queststatus(600) = 14
-"set 15" -> "Quest status set to 15", state = 1, queststatus(600) = 15
-"set 16" -> "Quest status set to 16", state = 1, queststatus(600) = 16
-"set 17" -> "Quest status set to 17", state = 1, queststatus(600) = 17
-"set 18" -> "Quest status set to 18", state = 1, queststatus(600) = 18
-"set 19" -> "Quest status set to 19", state = 1, queststatus(600) = 19
-"set 20" -> "Quest status set to 20", state = 1, queststatus(600) = 20
-"set 21" -> "Quest status set to 21", state = 1, queststatus(600) = 21
-"set 22" -> "Quest status set to 22", state = 1, queststatus(600) = 22
-"set 23" -> "Quest status set to 23", state = 1, queststatus(600) = 23
-"set 24" -> "Quest status set to 24", state = 1, queststatus(600) = 24
-"set 25" -> "Quest status set to 25", state = 1, queststatus(600) = 25
-"set 26" -> "Quest status set to 26", state = 1, queststatus(600) = 26
-"set 27" -> "Quest status set to 27", state = 1, queststatus(600) = 27
-"set 28" -> "Quest status set to 28", state = 1, queststatus(600) = 28
-"set 29" -> "Quest status set to 29", state = 1, queststatus(600) = 29
-"set 30" -> "Quest status set to 30", state = 1, queststatus(600) = 30
-"set 40" -> "Quest status set to 40", state = 0, queststatus(600) = 40
+"set 0" -> state = 0, queststatus(600) = 0, "Quest status set to 0"
+"set 5" -> queststatus(600) = 5, "Quest status set to 5"
+"set 6" -> queststatus(600) = 6, "Quest status set to 6"
+"set 7" -> queststatus(600) = 7, "Quest status set to 7"
+"set 8" -> queststatus(600) = 8, "Quest status set to 8"
+"set 11" -> state = 1, queststatus(600) = 11, "Quest status set to 11"
+"set 12" -> state = 1, queststatus(600) = 12, "Quest status set to 12"
+"set 13" -> state = 1, queststatus(600) = 13, "Quest status set to 13"
+"set 14" -> state = 1, queststatus(600) = 14, "Quest status set to 14"
+"set 15" -> state = 1, queststatus(600) = 15, "Quest status set to 15"
+"set 16" -> state = 1, queststatus(600) = 16, "Quest status set to 16"
+"set 17" -> state = 1, queststatus(600) = 17, "Quest status set to 17"
+"set 18" -> state = 1, queststatus(600) = 18, "Quest status set to 18"
+"set 19" -> state = 1, queststatus(600) = 19, "Quest status set to 19"
+"set 20" -> state = 1, queststatus(600) = 20, "Quest status set to 20"
+"set 21" -> state = 1, queststatus(600) = 21, "Quest status set to 21"
+"set 22" -> state = 1, queststatus(600) = 22, "Quest status set to 22"
+"set 23" -> state = 1, queststatus(600) = 23, "Quest status set to 23"
+"set 24" -> state = 1, queststatus(600) = 24, "Quest status set to 24"
+"set 25" -> state = 1, queststatus(600) = 25, "Quest status set to 25"
+"set 26" -> state = 1, queststatus(600) = 26, "Quest status set to 26"
+"set 27" -> state = 1, queststatus(600) = 27, "Quest status set to 27"
+"set 28" -> state = 1, queststatus(600) = 28, "Quest status set to 28"
+"set 29" -> state = 1, queststatus(600) = 29, "Quest status set to 29"
+"set 30" -> state = 1, queststatus(600) = 30, "Quest status set to 30"
+"set 40" -> state = 0, queststatus(600) = 40, "Quest status set to 40"
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the priest Nobarg. Keywords: Hello, quest, Bragon, god, information.")
@@ -104,11 +104,11 @@ itemShoes = 53
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me nods slightly and continues his prayer.", "Hmm? Yes, yes.", "Brágon with you."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me nickt leicht und betet weiter.", "Hmm? Ja, ja.", "Bragon mit euch."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "#me nods slightly and continues his prayer.", "Hmm? Yes, yes.", "Brágon with you."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me nods slightly and continues his prayer.", "Hmm? Yes, yes.", "Brágon with you."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me nickt leicht und betet weiter.", "Hmm? Ja, ja.", "Bragon mit euch."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Good bye.", "Brágon with you!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Aufwiedersehen.", "Bragon sei mit euch!"
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell.", "Good bye.", "Brágon with you!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Good bye.", "Brágon with you!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Lebt wohl.", "Aufwiedersehen.", "Bragon sei mit euch!"
 "How are you", "How feel", "How do you do" -> "If Brágon listens to me today, better.", "Would you pray with me?", "Fine, Brágon to honor of course!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Wenn Bragon mich heute erhört, besser.", "Möchtet ihr mit mir beten?", "Gut, Bragon zu Ehren!"
@@ -116,97 +116,97 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Nobarg", "Nobarg, Priester von Bragon"
 
 -- 1st quest: Bring 1 pure fire.
-"task", "adventure", "know", "question", queststatus(600) < 5 -> "I don't have to do anything for you."
-"Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", queststatus(600) < 5 -> "Ich habe für euch nichts zu tun."
-"quest", "mission", "info", queststatus(600) < 5, english -> "I don't have to do anything for you."
-"quest", "mission", "info", queststatus(600) < 5 -> "Ich habe für euch nichts zu tun."
-"task", "adventure", "know", "question", queststatus(600) > 10, queststatus(600) < 21 -> inform("Ask your question from Sir Fludnar Yednos"), "Hmm, you are seeking knowledge traveler? Well, what is your question?"
-"Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", queststatus(600) > 10, queststatus(600) < 21 -> inform("Stelle deine Frage von Sir Fludnar Yednos"), "Hmm, ihr möchtet etwas von mir wissen? Nun, was ist eure Frage?"
-"quest", "mission", "info", queststatus(600) > 10, queststatus(600) < 21, english -> inform("Ask your question from Sir Fludnar Yednos"), "Hmm, you are seeking knowledge traveler? Well, what is your question?"
-"quest", "mission", "info", queststatus(600) > 10, queststatus(600) < 21 -> inform("Stelle deine Frage von Sir Fludnar Yednos"), "Hmm, ihr möchtet etwas von mir wissen? Nun, was ist eure Frage?"
-"age", queststatus(600) = 11 -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Well, I know the answer but you have to bring me three things first. Start by bringing me a pure element of fire. Brágon with you!", queststatus(600) = 5
-"Zeitalter", queststatus(600) = 11 -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(600) = 5
-"support", queststatus(600) = 12 -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "The answer is within reach traveler but Brágon demands charity. Start by bringing me a pure element of fire. Brágon guide you!", queststatus(600) = 5
-"Unterstützung", queststatus(600) = 12 -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(600) = 5
-"Purge", queststatus(600) = 13 -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Well, I know the answer but only one worthy may acquire such knowledge. Start by bringing me a pure element of fire. Brágon will guide you!", queststatus(600) = 5
-"Vernichter", queststatus(600) = 13 -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(600) = 5
-"realized", "realised", queststatus(600) = 14 -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Answers will come once charity is given traveler. Start by bringing me a pure element of fire. Brágon with you!", queststatus(600) = 5
-"bemerkt hat", "erkannt hat", queststatus(600) = 14 -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(600) = 5
-"Sun", queststatus(600) = 15 -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Well, I know the answer you seek, but are you worthy? Bring me a pure element of fire to prove that worth. Brágon keep you!", queststatus(600) = 5
-"Sonne", queststatus(600) = 15 -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(600) = 5
-"remedy", queststatus(600) = 16 -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "If you seek answers start by bringing me a pure element of fire. Brágon with you!", queststatus(600) = 5
-"Wiedergutmachung", queststatus(600) = 16 -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(600) = 5
-"relationship", "relate", queststatus(600) = 17 -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Bring me a pure element of fire and you shall have your answers traveler. Brágon with you!", queststatus(600) = 5
-"verbindet", "verbindung", queststatus(600) = 17 -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(600) = 5
-"Summer", queststatus(600) = 18 -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Well, I know the answer you seek, but I will need test your worth. Start by bringing me a pure element of fire. Brágon with you!", queststatus(600) = 5
-"Sommer", queststatus(600) = 18 -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(600) = 5
-"pray", "praying", queststatus(600) = 19 -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "So many questions, but only a few have the answers. Bring me a  pure element of fire and I will give you the answers you seek. Brágon with you!", queststatus(600) = 5
-"beten", "gebet", queststatus(600) = 19 -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(600) = 5
-"Eternity", queststatus(600) = 20 -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Alright traveler but first  bring me a pure element of fire. Brágon with you!", queststatus(600) = 5
-"Ewigkeit", queststatus(600) = 20 -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(600) = 5
-"Tribunal", queststatus(600) = 20, english -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Ah, in search of answers traveler? To get them you will need to bring me a pure element of fire though. Brágon show you the path to righteousness!", queststatus(600) = 5
-"Tribunal", queststatus(600) = 20 -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(600) = 5
+queststatus(600) < 5, "task", "adventure", "know", "question" -> "I don't have to do anything for you."
+queststatus(600) < 5, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage" -> "Ich habe für euch nichts zu tun."
+queststatus(600) < 5, english, "quest", "mission", "info" -> "I don't have to do anything for you."
+queststatus(600) < 5, "quest", "mission", "info" -> "Ich habe für euch nichts zu tun."
+queststatus(600) > 10, queststatus(600) < 21, "task", "adventure", "know", "question" -> inform("Ask your question from Sir Fludnar Yednos"), "Hmm, you are seeking knowledge traveler? Well, what is your question?"
+queststatus(600) > 10, queststatus(600) < 21, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage" -> inform("Stelle deine Frage von Sir Fludnar Yednos"), "Hmm, ihr möchtet etwas von mir wissen? Nun, was ist eure Frage?"
+queststatus(600) > 10, queststatus(600) < 21, english, "quest", "mission", "info" -> inform("Ask your question from Sir Fludnar Yednos"), "Hmm, you are seeking knowledge traveler? Well, what is your question?"
+queststatus(600) > 10, queststatus(600) < 21, "quest", "mission", "info" -> inform("Stelle deine Frage von Sir Fludnar Yednos"), "Hmm, ihr möchtet etwas von mir wissen? Nun, was ist eure Frage?"
+queststatus(600) = 11, "age" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), queststatus(600) = 5, "Well, I know the answer but you have to bring me three things first. Start by bringing me a pure element of fire. Brágon with you!"
+queststatus(600) = 11, "Zeitalter" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), queststatus(600) = 5, "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!"
+queststatus(600) = 12, "support" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), queststatus(600) = 5, "The answer is within reach traveler but Brágon demands charity. Start by bringing me a pure element of fire. Brágon guide you!"
+queststatus(600) = 12, "Unterstützung" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), queststatus(600) = 5, "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!"
+queststatus(600) = 13, "Purge" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), queststatus(600) = 5, "Well, I know the answer but only one worthy may acquire such knowledge. Start by bringing me a pure element of fire. Brágon will guide you!"
+queststatus(600) = 13, "Vernichter" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), queststatus(600) = 5, "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!"
+queststatus(600) = 14, "realized", "realised" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), queststatus(600) = 5, "Answers will come once charity is given traveler. Start by bringing me a pure element of fire. Brágon with you!"
+queststatus(600) = 14, "bemerkt hat", "erkannt hat" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), queststatus(600) = 5, "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!"
+queststatus(600) = 15, "Sun" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), queststatus(600) = 5, "Well, I know the answer you seek, but are you worthy? Bring me a pure element of fire to prove that worth. Brágon keep you!"
+queststatus(600) = 15, "Sonne" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), queststatus(600) = 5, "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!"
+queststatus(600) = 16, "remedy" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), queststatus(600) = 5, "If you seek answers start by bringing me a pure element of fire. Brágon with you!"
+queststatus(600) = 16, "Wiedergutmachung" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), queststatus(600) = 5, "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!"
+queststatus(600) = 17, "relationship", "relate" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), queststatus(600) = 5, "Bring me a pure element of fire and you shall have your answers traveler. Brágon with you!"
+queststatus(600) = 17, "verbindet", "verbindung" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), queststatus(600) = 5, "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!"
+queststatus(600) = 18, "Summer" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), queststatus(600) = 5, "Well, I know the answer you seek, but I will need test your worth. Start by bringing me a pure element of fire. Brágon with you!"
+queststatus(600) = 18, "Sommer" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), queststatus(600) = 5, "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!"
+queststatus(600) = 19, "pray", "praying" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), queststatus(600) = 5, "So many questions, but only a few have the answers. Bring me a  pure element of fire and I will give you the answers you seek. Brágon with you!"
+queststatus(600) = 19, "beten", "gebet" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), queststatus(600) = 5, "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!"
+queststatus(600) = 20, "Eternity" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), queststatus(600) = 5, "Alright traveler but first  bring me a pure element of fire. Brágon with you!"
+queststatus(600) = 20, "Ewigkeit" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), queststatus(600) = 5, "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!"
+queststatus(600) = 20, english, "Tribunal" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), queststatus(600) = 5, "Ah, in search of answers traveler? To get them you will need to bring me a pure element of fire though. Brágon show you the path to righteousness!"
+queststatus(600) = 20, "Tribunal" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), queststatus(600) = 5, "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!"
 
 -- 2st quest: Bring 1 red priest robe.
-"task", "adventure", "know", "question", "fire", "thing", queststatus(600) = 5, item(2553, all) > 0 -> inform("[Quest 'pure fire' solved, Quest 'red priest robe' started] Bring him a red priest robe"), "Well done, you are ready for the next task. My red priest robes are in poor condition. Please bring me a new one.", deleteItem(2553, 1), queststatus(600) = 6
-"Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Feuer", "Ding", queststatus(600) = 5, item(2553, all) > 0 -> inform("[Quest 'reines Feuer' gelöst, Quest 'rote Priesterrobe' gestartet] Bringe ihm eine rote Priesterrobe"), "Gut gemacht, du bist bereit für die nächste Aufgabe. Nun, schaut auf meine rote Priester Robe... Sie ist schon alt. Bitte bringt mir eine neue.", deleteItem(2553, 1), queststatus(600) = 6
-"quest", "mission", "info", queststatus(600) = 5, item(2553, all) > 0, english -> inform("[Quest 'pure fire' solved, Quest 'red priest robe' solved] Bring him a red priest robe"), "Well done, you are ready for the next task. My red priest robes are in poor condition. Please bring me a new one.", deleteItem(2553, 1), queststatus(600) = 6
-"quest", "mission", "info", queststatus(600) = 5, item(2553, all) > 0 -> inform("[Quest 'reines Feuer' gelöst, Quest 'rote Priesterrobe' gestartet] Bringe ihm eine rote Priesterrobe"), "Gut gemacht, du bist bereit für die nächste Aufgabe. Nun, schaut auf meine rote Priester Robe... Sie ist schon alt. Bitte bringt mir eine neue.", deleteItem(2553, 1), queststatus(600) = 6
-"task", "adventure", "know", "question", "fire", "thing", queststatus(600) = 5, item(2553, all) = 0 -> "Please, do not interrupt me until you've gotten the pure fire!"
-"Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Feuer", "Ding", queststatus(600) = 5, item(2553, all) = 0 -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
-"quest", "mission", "info", queststatus(600) = 5, item(2553, all) = 0, english -> "Please, do not interrupt me until you've gotten the pure fire!"
-"quest", "mission", "info", queststatus(600) = 5, item(2553, all) = 0 -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
+queststatus(600) = 5, item(2553, all) > 0, "task", "adventure", "know", "question", "fire", "thing" -> inform("[Quest 'pure fire' solved, Quest 'red priest robe' started] Bring him a red priest robe"), deleteItem(2553, 1), queststatus(600) = 6, "Well done, you are ready for the next task. My red priest robes are in poor condition. Please bring me a new one."
+queststatus(600) = 5, item(2553, all) > 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Feuer", "Ding" -> inform("[Quest 'reines Feuer' gelöst, Quest 'rote Priesterrobe' gestartet] Bringe ihm eine rote Priesterrobe"), deleteItem(2553, 1), queststatus(600) = 6, "Gut gemacht, du bist bereit für die nächste Aufgabe. Nun, schaut auf meine rote Priester Robe... Sie ist schon alt. Bitte bringt mir eine neue."
+queststatus(600) = 5, item(2553, all) > 0, english, "quest", "mission", "info" -> inform("[Quest 'pure fire' solved, Quest 'red priest robe' solved] Bring him a red priest robe"), deleteItem(2553, 1), queststatus(600) = 6, "Well done, you are ready for the next task. My red priest robes are in poor condition. Please bring me a new one."
+queststatus(600) = 5, item(2553, all) > 0, "quest", "mission", "info" -> inform("[Quest 'reines Feuer' gelöst, Quest 'rote Priesterrobe' gestartet] Bringe ihm eine rote Priesterrobe"), deleteItem(2553, 1), queststatus(600) = 6, "Gut gemacht, du bist bereit für die nächste Aufgabe. Nun, schaut auf meine rote Priester Robe... Sie ist schon alt. Bitte bringt mir eine neue."
+queststatus(600) = 5, item(2553, all) = 0, "task", "adventure", "know", "question", "fire", "thing" -> "Please, do not interrupt me until you've gotten the pure fire!"
+queststatus(600) = 5, item(2553, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Feuer", "Ding" -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
+queststatus(600) = 5, item(2553, all) = 0, english, "quest", "mission", "info" -> "Please, do not interrupt me until you've gotten the pure fire!"
+queststatus(600) = 5, item(2553, all) = 0, "quest", "mission", "info" -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
 
 -- 3st quest: Bring 1 gold goblet.
-"task", "adventure", "know", "question", "thing", queststatus(600) = 6, item(2419, all) > 0 -> inform("[Quest 'red priest robe' solved, Quest 'golden goblet' started] Bring him a golden goblet"), "Very good! Well, I am also preparing a ritual for Brágon and I need a golden goblet. Please bring me one.", deleteItem(2419, 1), queststatus(600) = 7
-"Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Ding", queststatus(600) = 6, item(2419, all) > 0 -> inform("[Quest 'rote Priesterrobe' gelöst, Quest 'goldener Kelch' gestartet] Bringe ihm einen goldenen Kelch"), "Sehr gut! Ich bin am vorbereiten eines Rituals für Bragon and brauche einen Goldkelch hierfür. Bitte bringt mir einen.", deleteItem(2419, 1), queststatus(600) = 7
-"quest", "mission", "info", "robe", queststatus(600) = 6, item(2419, all) > 0, english -> inform("[Quest 'red priest robe' solved, Quest 'golden goblet' started] Bring him a golden goblet"), "Very good! Well, I am also preparing a ritual for Brágon and I need a golden goblet. Please bring me one.", deleteItem(2419, 1), queststatus(600) = 7
-"quest", "mission", "info", "Robe", queststatus(600) = 6, item(2419, all) > 0 -> inform("[Quest 'rote Priesterrobe' gelöst, Quest 'goldener Kelch' gestartet] Bringe ihm einen goldenen Kelch"), "Sehr gut! Ich bin am vorbereiten eines Rituals für Bragon and brauche einen Goldkelch hierfür. Bitte bringt mir einen.", deleteItem(2419, 1), queststatus(600) = 7
-"task", "adventure", "know", "question", "thing", queststatus(600) = 6, item(2419, all) = 0 -> "Please, do not interrupt me again unless you have that red priest robe."
-"Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Ding", queststatus(600) = 6, item(2419, all) = 0 -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
-"quest", "mission", "info", "robe", queststatus(600) = 6, item(2419, all) = 0, english -> "Please, do not interrupt me again unless you have that red priest robe."
-"quest", "mission", "info", "Robe", queststatus(600) = 6, item(2419, all) = 0 -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
+queststatus(600) = 6, item(2419, all) > 0, "task", "adventure", "know", "question", "thing" -> inform("[Quest 'red priest robe' solved, Quest 'golden goblet' started] Bring him a golden goblet"), deleteItem(2419, 1), queststatus(600) = 7, "Very good! Well, I am also preparing a ritual for Brágon and I need a golden goblet. Please bring me one."
+queststatus(600) = 6, item(2419, all) > 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Ding" -> inform("[Quest 'rote Priesterrobe' gelöst, Quest 'goldener Kelch' gestartet] Bringe ihm einen goldenen Kelch"), deleteItem(2419, 1), queststatus(600) = 7, "Sehr gut! Ich bin am vorbereiten eines Rituals für Bragon and brauche einen Goldkelch hierfür. Bitte bringt mir einen."
+queststatus(600) = 6, item(2419, all) > 0, english, "quest", "mission", "info", "robe" -> inform("[Quest 'red priest robe' solved, Quest 'golden goblet' started] Bring him a golden goblet"), deleteItem(2419, 1), queststatus(600) = 7, "Very good! Well, I am also preparing a ritual for Brágon and I need a golden goblet. Please bring me one."
+queststatus(600) = 6, item(2419, all) > 0, "quest", "mission", "info", "Robe" -> inform("[Quest 'rote Priesterrobe' gelöst, Quest 'goldener Kelch' gestartet] Bringe ihm einen goldenen Kelch"), deleteItem(2419, 1), queststatus(600) = 7, "Sehr gut! Ich bin am vorbereiten eines Rituals für Bragon and brauche einen Goldkelch hierfür. Bitte bringt mir einen."
+queststatus(600) = 6, item(2419, all) = 0, "task", "adventure", "know", "question", "thing" -> "Please, do not interrupt me again unless you have that red priest robe."
+queststatus(600) = 6, item(2419, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Ding" -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
+queststatus(600) = 6, item(2419, all) = 0, english, "quest", "mission", "info", "robe" -> "Please, do not interrupt me again unless you have that red priest robe."
+queststatus(600) = 6, item(2419, all) = 0, "quest", "mission", "info", "Robe" -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
 
 -- 4st quest: Question.
-"task", "adventure", "know", "question", "goblet", "thing", queststatus(600) = 7, item(224, all) > 0 -> inform("[Quest 'golden goblet' solved] Ask him your question from Sir Fludnar Yednos"), "You have done everything I've asked of you. Tell me what you seek?", deleteItem(224, 1), queststatus(600) = 8
-"Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Kelch", "Ding", queststatus(600) = 7, item(224, all) > 0 -> inform("[Quest 'goldener Kelch' gelöst] Frage ihn nun deine Frage von Sir Fludnar Yednos"), "Ihr habt alles getan, was ich haben wollte. Was ist eure Frage nun?", deleteItem(224, 1), queststatus(600) = 8
-"quest", "mission", "info", queststatus(600) = 7, item(224, all) > 0, english -> inform("[Quest 'golden goblet' solved] Ask him your question from Sir Fludnar Yednos"), "You have done everything I've asked of you. Tell me what you seek?", deleteItem(224, 1), queststatus(600) = 8
-"quest", "mission", "info", queststatus(600) = 7, item(224, all) > 0 -> inform("[Quest 'goldener Kelch' gelöst] Frage ihn nun deine Frage von Sir Fludnar Yednos"), "Ihr habt alles getan, was ich haben wollte. Was ist eure Frage nun?", deleteItem(224, 1), queststatus(600) = 8
-"task", "adventure", "know", "question", "goblet", "thing", queststatus(600) = 7, item(224, all) = 0 -> "Please, do not interrupt me until there is a golden goblet in your possession!"
-"Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Kelch", "Ding", queststatus(600) = 7, item(224, all) = 0 -> "Bitte stört mich nicht bis ihr den Goldkelch habt!"
-"quest", "mission", "info", queststatus(600) = 7, item(224, all) = 0, english -> "Please, do not interrupt me until there is a golden goblet in your possession!"
-"quest", "mission", "info", queststatus(600) = 7, item(224, all) = 0 -> "Bitte stört mich nicht bis ihr den Goldkelch habt!"
-"age", queststatus(600) = 8 -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), "That is not difficult, of course. It was in the Age of Concord! *sings a few lines to himself* The world is perfect. You cannot improve her. La, la,....well, I hope you are satisfied! Farewell! *lowers his head and starts praying*", queststatus(600) = 21
-"Zeitalter", queststatus(600) = 8 -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), "Das ist nicht schwierig, gewiss. Es war im Zeitalter der Eintracht! *singt einige Zeilen vor sich her* Die Welt ist perfekt. Man kann sie nicht verbessern. La, la,...nun gut, ich hoffe ihr seid zufrieden! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*", queststatus(600) = 21
-"support", queststatus(600) = 8 -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), "That is not difficult, of course. Brágon had hoped to comfort the Bloodgod in his loneliness through the creation of the orcs! …Well, there is your answer! Farewell! *lowers his head and starts praying*", queststatus(600) = 22
-"Unterstützung", queststatus(600) = 8 -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), "Das ist nicht schwierig, gewiss. Bragon hatte die Hoffnung den Blutgott in seiner Einsamkeit zu trösten durch die Erschaffung der Orks! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*", queststatus(600) = 22
-"Purge", queststatus(600) = 8 -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), "Of course, no problem. Brágon is the lifegiver, and purged of all impurity and weakness! …Well, that is all I have to say about that. *Lowers his head and starts praying.*", queststatus(600) = 23
-"Vernichter", queststatus(600) = 8 -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), "Das ist nicht schwierig, gewiss. Bragon ist der Lebensspender und Vernichter alles Unreinen und Schwachen! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*", queststatus(600) = 23
-"realized", "realised", queststatus(600) = 8 -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), "Not a difficult inquiry. It was in the Age of Discord! *sings a few lines to himself* Deep down, where loneliness and darkness reign...well,  I hope my singing satisfied you! Farewell! *lowers his head and starts praying*", queststatus(600) = 24
-"bemerkt hat", "erkannt hat", queststatus(600) = 8 -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), "Das ist nicht schwierig, gewiss. Es war im Zeitalter der Zwietracht! *singt einige Zeilen vor sich her* Tief unten, wo Einsamkeit und Dunkelheit herrschen...nun gut, ich hoffe ihr seid zufrieden! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*", queststatus(600) = 24
-"Sun", queststatus(600) = 8 -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), "Of course of course, the 'Daily sunmaker'! …All you needed to know farewell! *lowers his head and starts praying*", queststatus(600) = 25
-"Sonne", queststatus(600) = 8 -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), "Das ist nicht schwierig, gewiss. 'Täglich Sonnenmacher'! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*", queststatus(600) = 25
-"remedy", queststatus(600) = 8 -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), "Easy enough, he sent Dragons into the battle…well, I hope you are satisfied with my answer! Be well! *Lowers his head and starts praying.*", queststatus(600) = 26
-"Wiedergutmachung", queststatus(600) = 8 -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), "Das ist nicht schwierig, gewiss. Drachen! Er sendete Drachen in die Schlacht...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*", queststatus(600) = 26
-"relationship", "relate", queststatus(600) = 8 -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), "The answer is simple, Fire! There is a fire in both you must feel to understand. I hope that will suffice, be well. *Lowers his head and starts praying.*", queststatus(600) = 27
-"verbindet", "verbindung", queststatus(600) = 8 -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), "Das ist nicht schwierig, gewiss. Feuer! Da brennt ein Feuer in beiden, dass du bestimmt noch nicht gesehen hast wie ich annehme...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*", queststatus(600) = 27
-"Summer", queststatus(600) = 8 -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), "Not difficult, `'Strong in summer'! If that is all I will return to my prayers, be well! *Lowers his head and starts praying.*", queststatus(600) = 28
-"Sommer", queststatus(600) = 8 -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), "Das ist nicht schwierig, gewiss. 'Stark im Sommer'! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*", queststatus(600) = 28
-"pray", "praying", queststatus(600) = 8 -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), "The answer is rather simple,  orcs see Brágon as the one who gives life! …Well, I hope you are satisfied with this answer! Farewell! *Lowers his head and starts praying.*", queststatus(600) = 29
-"beten", "gebet", queststatus(600) = 8 -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), "Das ist nicht schwierig, gewiss. Die Orks sehen Bragon als denjenigen der das Leben schenkt! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*", queststatus(600) = 29
-"Eternity", queststatus(600) = 8 -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), "A noble inquiry, among other things Brágon will discern whether they lived for the purpose of the Holy Flame or not! Take my words as you will, good day. *Lowers his head and starts praying.*", queststatus(600) = 30
-"Ewigkeit", queststatus(600) = 8 -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), "Das ist nicht schwierig, gewiss. Unteranderem Brágon wird feststellen, ob sie gerecht und im Sinne der heiligen Flamme gelebt haben! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*", queststatus(600) = 30
-"Tribunal", queststatus(600) = 8, english -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), "This is not difficult to understand really. Among other things Brágon will discern whether they lived for the purpose of the Holy Flame or not! …Well, I hope you are satisfied with this answer! Farewell! *Lowers his head and starts praying.*", queststatus(600) = 30
-"Tribunal", queststatus(600) = 8 -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), "Das ist nicht schwierig, gewiss. Unteranderem Brágon wird feststellen, ob sie gerecht und im Sinne der heiligen Flamme gelebt haben! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*", queststatus(600) = 30
-"task", "adventure", "know", "question", queststatus(600) > 20 -> "There is nothing more to do."
-"Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", queststatus(600) > 20 -> "Ich habe für euch nichts mehr zu tun."
-"quest", "mission", "info", queststatus(600) > 20, english -> "There is nothing more to do."
-"quest", "mission", "info", queststatus(600) > 20 -> "Ich habe für euch nichts mehr zu tun."
+queststatus(600) = 7, item(224, all) > 0, "task", "adventure", "know", "question", "goblet", "thing" -> inform("[Quest 'golden goblet' solved] Ask him your question from Sir Fludnar Yednos"), deleteItem(224, 1), queststatus(600) = 8, "You have done everything I've asked of you. Tell me what you seek?"
+queststatus(600) = 7, item(224, all) > 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Kelch", "Ding" -> inform("[Quest 'goldener Kelch' gelöst] Frage ihn nun deine Frage von Sir Fludnar Yednos"), deleteItem(224, 1), queststatus(600) = 8, "Ihr habt alles getan, was ich haben wollte. Was ist eure Frage nun?"
+queststatus(600) = 7, item(224, all) > 0, english, "quest", "mission", "info" -> inform("[Quest 'golden goblet' solved] Ask him your question from Sir Fludnar Yednos"), deleteItem(224, 1), queststatus(600) = 8, "You have done everything I've asked of you. Tell me what you seek?"
+queststatus(600) = 7, item(224, all) > 0, "quest", "mission", "info" -> inform("[Quest 'goldener Kelch' gelöst] Frage ihn nun deine Frage von Sir Fludnar Yednos"), deleteItem(224, 1), queststatus(600) = 8, "Ihr habt alles getan, was ich haben wollte. Was ist eure Frage nun?"
+queststatus(600) = 7, item(224, all) = 0, "task", "adventure", "know", "question", "goblet", "thing" -> "Please, do not interrupt me until there is a golden goblet in your possession!"
+queststatus(600) = 7, item(224, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Kelch", "Ding" -> "Bitte stört mich nicht bis ihr den Goldkelch habt!"
+queststatus(600) = 7, item(224, all) = 0, english, "quest", "mission", "info" -> "Please, do not interrupt me until there is a golden goblet in your possession!"
+queststatus(600) = 7, item(224, all) = 0, "quest", "mission", "info" -> "Bitte stört mich nicht bis ihr den Goldkelch habt!"
+queststatus(600) = 8, "age" -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), queststatus(600) = 21, "That is not difficult, of course. It was in the Age of Concord! *sings a few lines to himself* The world is perfect. You cannot improve her. La, la,....well, I hope you are satisfied! Farewell! *lowers his head and starts praying*"
+queststatus(600) = 8, "Zeitalter" -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), queststatus(600) = 21, "Das ist nicht schwierig, gewiss. Es war im Zeitalter der Eintracht! *singt einige Zeilen vor sich her* Die Welt ist perfekt. Man kann sie nicht verbessern. La, la,...nun gut, ich hoffe ihr seid zufrieden! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*"
+queststatus(600) = 8, "support" -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), queststatus(600) = 22, "That is not difficult, of course. Brágon had hoped to comfort the Bloodgod in his loneliness through the creation of the orcs! …Well, there is your answer! Farewell! *lowers his head and starts praying*"
+queststatus(600) = 8, "Unterstützung" -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), queststatus(600) = 22, "Das ist nicht schwierig, gewiss. Bragon hatte die Hoffnung den Blutgott in seiner Einsamkeit zu trösten durch die Erschaffung der Orks! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*"
+queststatus(600) = 8, "Purge" -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), queststatus(600) = 23, "Of course, no problem. Brágon is the lifegiver, and purged of all impurity and weakness! …Well, that is all I have to say about that. *Lowers his head and starts praying.*"
+queststatus(600) = 8, "Vernichter" -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), queststatus(600) = 23, "Das ist nicht schwierig, gewiss. Bragon ist der Lebensspender und Vernichter alles Unreinen und Schwachen! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*"
+queststatus(600) = 8, "realized", "realised" -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), queststatus(600) = 24, "Not a difficult inquiry. It was in the Age of Discord! *sings a few lines to himself* Deep down, where loneliness and darkness reign...well,  I hope my singing satisfied you! Farewell! *lowers his head and starts praying*"
+queststatus(600) = 8, "bemerkt hat", "erkannt hat" -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), queststatus(600) = 24, "Das ist nicht schwierig, gewiss. Es war im Zeitalter der Zwietracht! *singt einige Zeilen vor sich her* Tief unten, wo Einsamkeit und Dunkelheit herrschen...nun gut, ich hoffe ihr seid zufrieden! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*"
+queststatus(600) = 8, "Sun" -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), queststatus(600) = 25, "Of course of course, the 'Daily sunmaker'! …All you needed to know farewell! *lowers his head and starts praying*"
+queststatus(600) = 8, "Sonne" -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), queststatus(600) = 25, "Das ist nicht schwierig, gewiss. 'Täglich Sonnenmacher'! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*"
+queststatus(600) = 8, "remedy" -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), queststatus(600) = 26, "Easy enough, he sent Dragons into the battle…well, I hope you are satisfied with my answer! Be well! *Lowers his head and starts praying.*"
+queststatus(600) = 8, "Wiedergutmachung" -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), queststatus(600) = 26, "Das ist nicht schwierig, gewiss. Drachen! Er sendete Drachen in die Schlacht...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*"
+queststatus(600) = 8, "relationship", "relate" -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), queststatus(600) = 27, "The answer is simple, Fire! There is a fire in both you must feel to understand. I hope that will suffice, be well. *Lowers his head and starts praying.*"
+queststatus(600) = 8, "verbindet", "verbindung" -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), queststatus(600) = 27, "Das ist nicht schwierig, gewiss. Feuer! Da brennt ein Feuer in beiden, dass du bestimmt noch nicht gesehen hast wie ich annehme...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*"
+queststatus(600) = 8, "Summer" -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), queststatus(600) = 28, "Not difficult, `'Strong in summer'! If that is all I will return to my prayers, be well! *Lowers his head and starts praying.*"
+queststatus(600) = 8, "Sommer" -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), queststatus(600) = 28, "Das ist nicht schwierig, gewiss. 'Stark im Sommer'! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*"
+queststatus(600) = 8, "pray", "praying" -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), queststatus(600) = 29, "The answer is rather simple,  orcs see Brágon as the one who gives life! …Well, I hope you are satisfied with this answer! Farewell! *Lowers his head and starts praying.*"
+queststatus(600) = 8, "beten", "gebet" -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), queststatus(600) = 29, "Das ist nicht schwierig, gewiss. Die Orks sehen Bragon als denjenigen der das Leben schenkt! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*"
+queststatus(600) = 8, "Eternity" -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), queststatus(600) = 30, "A noble inquiry, among other things Brágon will discern whether they lived for the purpose of the Holy Flame or not! Take my words as you will, good day. *Lowers his head and starts praying.*"
+queststatus(600) = 8, "Ewigkeit" -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), queststatus(600) = 30, "Das ist nicht schwierig, gewiss. Unteranderem Brágon wird feststellen, ob sie gerecht und im Sinne der heiligen Flamme gelebt haben! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*"
+queststatus(600) = 8, english, "Tribunal" -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"), queststatus(600) = 30, "This is not difficult to understand really. Among other things Brágon will discern whether they lived for the purpose of the Holy Flame or not! …Well, I hope you are satisfied with this answer! Farewell! *Lowers his head and starts praying.*"
+queststatus(600) = 8, "Tribunal" -> inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"), queststatus(600) = 30, "Das ist nicht schwierig, gewiss. Unteranderem Brágon wird feststellen, ob sie gerecht und im Sinne der heiligen Flamme gelebt haben! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*"
+queststatus(600) > 20, "task", "adventure", "know", "question" -> "There is nothing more to do."
+queststatus(600) > 20, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage" -> "Ich habe für euch nichts mehr zu tun."
+queststatus(600) > 20, english, "quest", "mission", "info" -> "There is nothing more to do."
+queststatus(600) > 20, "quest", "mission", "info" -> "Ich habe für euch nichts mehr zu tun."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "pure fire" -> "I really don't know where you can find pure fire. Ask in Runewick, there are people there that know many things."
 "reines feuer" -> "Ich habe wirklich keine Ahnung wo man reines Feuer findet. Fragt in Runewick. Die Leute dort wissen viele Dinge."
-"robe", english -> "You should ask a tailor. Best be off to Runewick or Cadomyr to find a worthy one."
+english, "robe" -> "You should ask a tailor. Best be off to Runewick or Cadomyr to find a worthy one."
 "robe" -> "Ihr solltet einen Schneider finden. Ihr solltet in der Lage sein einen in Runewick oder in Cadomyr zu finden."
 "goblet" -> "I'm sure a finesmith in Cadomyr or in Galmair can help forge you a goblet."
 "kelch" -> "Ich bin mir sicher ein Goldschmied in Cadomyr oder in Galmair kann euch bezüglich des Kelches helfen."
@@ -214,7 +214,7 @@ itemShoes = 53
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession", "work" -> "Priest of Brágon of course.", "Priest, perhaps you are inflicted traveler?", "Brágon's devotee is my profession."
 "beruf", "arbeit", "was mach" -> "Priest von Bragon natürlich.", "Priester, seht ihr das nicht?", "Bragon ist meine Leidenschaft."
-"job", english -> "Priest of Brágon of course.", "Priest, perhaps you are inflicted traveler?", "Brágon's devotee is my duty."
+english, "job" -> "Priest of Brágon of course.", "Priest, perhaps you are inflicted traveler?", "Brágon's devotee is my duty."
 "job" -> "Priest von Bragon natürlich.", "Priester, seht ihr das nicht?", "Bragon ist meine Leidenschaft."
 "I am", "my name" -> "Do you pray to Brágon too?", "Nice name, I like it.", "Well I hope you have offered you prayers to lord Brágon this day traveler."
 "Ich bin", "mein Name" -> "Betet ihr auch zu Bragon?", "Schöner Name, gefällt mir.", "Gut, aber nun kommt und lasst uns zu Bragon beten."
@@ -230,7 +230,7 @@ itemShoes = 53
 "furchtbar" -> "Der Untergang von Gobaith.", "Die letzten Tage von Gobaith.", "Ja, es war so...Ich habe keine Wörter um es besser zu beschreiben."
 "tot", "gestorben", "starben", "was ist passiert", "was ist geschehen" -> "Ja, viele sind gestorben.", "Ja, aber manche konnten fliehen. Ich denke ihr könnt sie hier irgendwo finden."
 "Drachen" -> "Diese Kreaturen sind Kinder von Bragon und werden geschützt von ihm!"
-"Gold", english -> "Brágon loves gold and I give him every gold that I have ever gotten."
+english, "Gold" -> "Brágon loves gold and I give him every gold that I have ever gotten."
 "Gold" -> "Bragon liebt Gold und ich gebe ihm alles Gold, dass ich habe."
 "five" -> "There are five elder gods and several younger gods. The elder gods are Bragon, Ushara, Eldan, Tanora and Findari. They, past one, have left us to another realm for our protection.", "Bragon, Ushara, Eldan, Tanora and Findari are their names. We have of each of them a statue here. Only exception is Eldan... So, take a look!"
 "fünf" -> "Es gibt fünf alte Götter und mehrere junge Götter. Die alten sind Bragon, Ushara, Eldan, Tanora und Findari. Sie haben uns in eine andere Ebene verlassen.", "Bragon, Ushara, Eldan, Tanora und Findari sind ihre Namen. Wir haben von jeden von ihnen eine Statue hier. Eldan ist die Ausnahme... Aber werft doch einen Blick auf sie!"
@@ -238,7 +238,7 @@ itemShoes = 53
 "Ebene" -> "Ja Ebene. Andere nennen sie auch Welt. Wie dem auch sei, Illarion ist unsere Ebene. Für mehr Information fragt jemand anderen."
 "Chapel" -> "Chapel of the Five? The name of this place. It has been built after one of the many wars between the factions to praise the Five for the pease. But don't ask after which war. I don't know."
 "Kapelle" -> "Kapelle der Fünf? Der Name dieses Orts. Sie wurde nach einem der vielen Kriege zwischen den Fraktionen erbaut um die Fünf für den Frieden zu huldigen. Aber ich habe keine Ahung nach welchem Krieg."
-"statue", english -> "If you take a look our statues here you will find representations of the Five."
+english, "statue" -> "If you take a look our statues here you will find representations of the Five."
 "statue" -> "Wenn ihr einen Blick auf die Statuen hier werft, werdet ihr die Fünf sehen."
 "four" -> "Four? Statues? Of course! There is no need for Eldan. We are surrounded by Eldan anyway."
 "vier" -> "Vier? Statuen? Natürlich! Es besteht kein Grund für Eldan. Wir sind ohnehin umgeben von Eldan."
@@ -246,27 +246,27 @@ itemShoes = 53
 -- Faction stuff
 "archmage" -> "Does he believe in Brágon? Then I do not care about him.", "He rules Runewick as far as I know.", "I think he knows many things about arcane magic."
 "Erzmagier" -> "Glaubt er an Bragon? Ansonsten interessiert er mich nicht.", "Er regiert Runewick soweit ich weiß.", "Ich denke er weiß viele Dinge über arkane Magie."
-"Elvaine", "Morgan", english -> "Does he believe in Brágon? Then I do not care about him.", "He rules Runewick as far as I know.", "I think he knows many things about arcane magic."
+english, "Elvaine", "Morgan" -> "Does he believe in Brágon? Then I do not care about him.", "He rules Runewick as far as I know.", "I think he knows many things about arcane magic."
 "Elvaine", "Morgan" -> "Glaubt er an Bragon? Ansonsten interessiert er mich nicht.", "Er regiert Runewick soweit ich weiß.", "Ich denke er weiß viele Dinge über arkane Magie."
-"Runewick", english -> "They are looking for wisdom. But I don't know why they are always looking for it in the west.", "They think they are wise, but I don't know if I shall agree.", "I can remember a blue and a red gate when you enter the town."
+english, "Runewick" -> "They are looking for wisdom. But I don't know why they are always looking for it in the west.", "They think they are wise, but I don't know if I shall agree.", "I can remember a blue and a red gate when you enter the town."
 "Runewick" -> "Die suchen nach Weisheit. Aber warum sie sie ständig im Westen suchen, weiß ich nicht.", "Die denken, dass sie weise sind, aber ich weiß nicht ob ich darin zustimmen soll.", "Ich kann mich an ein blaues und ein rotes Tor erinnern wenn man die Stadt betritt."
-"Valerio", "Guilianni", "Don", english -> "Does he believe in Brágon? Then I do not care about him.", "He is the richest man in Galmair.", "He is quite good with his daggers, particularly if he has your flank."
+english, "Valerio", "Guilianni", "Don" -> "Does he believe in Brágon? Then I do not care about him.", "He is the richest man in Galmair.", "He is quite good with his daggers, particularly if he has your flank."
 "Valerio", "Guilianni", "Don" -> "Glaubt er an Bragon? Ansonsten interessiert er mich nicht.", "Er ist der reichste Mann in Galmair.", "Er kann ganz gut mit Dolchen umgehen. Vor allem wenn er von hinten kommt."
-"Galmair", english -> "They are looking for coins and are not interested to sacrifice them to Brágon.", "Take care of your belongings if you are there.", "Do not trust anyone there."
+english, "Galmair" -> "They are looking for coins and are not interested to sacrifice them to Brágon.", "Take care of your belongings if you are there.", "Do not trust anyone there."
 "Galmair" -> "Die sind auf Geld aus und werden es bestimmt nicht Bragon spenden.", "Achtet auf euer Hab und Gut wenn ihr dort seid.", "Vertraut niemanden dort."
 "Queen" -> "Does she believe in Brágon? Then I do not care about her.", "She is on a quick road to ruin Cadomyr.", "Lovely face, but nothing more."
 "Königin" -> "Glaubt sie an Bragon? Ansonsten interessiert sie mich nicht.", "Sie stürzt Cadomyr in den Ruin.", "Nettes Gesicht, aber nicht mehr."
-"rosaline", "edwards", english -> "Does she believe in Brágon? Then I do not care about her.", "She is on a quick road to ruin Cadomyr.", "Lovely face, but nothing more."
+english, "rosaline", "edwards" -> "Does she believe in Brágon? Then I do not care about her.", "She is on a quick road to ruin Cadomyr.", "Lovely face, but nothing more."
 "rosaline", "edwards" -> "Glaubt sie an Bragon? Ansonsten interessiert sie mich nicht.", "Sie stürzt Cadomyr in den Ruin.", "Nettes Gesicht, aber nicht mehr."
-"Cadomyr", english -> "They live for their so called honor, and it is found to the east. Their troops often march by my temple.", "A very sandy town.", "I have no idea the exact route there."
+english, "Cadomyr" -> "They live for their so called honor, and it is found to the east. Their troops often march by my temple.", "A very sandy town.", "I have no idea the exact route there."
 "Cadomyr" -> "Die suchen nach Ehre, und anscheinend dürfte sie im Osten liegen, da ich schon öfters Truppen dieser Stadt diesen Tempel passieren gesehen habe.", "Eine sehr sandige Stadt.", "Ich habe keine Ahnung wie ihr dort hinkommt."
 
 -- Main land factions
-"albar", english -> "One of the big empires, but I have never been there.", "Who cares about this town?", "Hmm...I don't know if they pray to Brágon."
+english, "albar" -> "One of the big empires, but I have never been there.", "Who cares about this town?", "Hmm...I don't know if they pray to Brágon."
 "albar" -> "Eines der großen Reiche, aber ich war nie dort.", "Wer interessiert sich schon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
-"gynk", "gync", english -> "One of the big empires, but I have never been there.", "Who cares about this town?", "Hmm...I don't know if they pray to Brágon."
+english, "gynk", "gync" -> "One of the big empires, but I have never been there.", "Who cares about this town?", "Hmm...I don't know if they pray to Brágon."
 "gync", "gynk" -> "Eines der großen Reiche, aber ich war nie dort.", "Wer interessiert sich schon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
-"salkama", english -> "One of the big empires, but I have never been there.", "Who cares about this town?", "Hmm...I don't know if they pray to Brágon."
+english, "salkama" -> "One of the big empires, but I have never been there.", "Who cares about this town?", "Hmm...I don't know if they pray to Brágon."
 "salkama" -> "Eines der großen Reiche, aber ich war nie dort.", "Wer interessiert sich schon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
 
 -- Gods - use the triggers of the god the NPC worships or fights
@@ -274,37 +274,37 @@ itemShoes = 53
 -- Use ONE other response for the other gods i.e. "I don't worship that good much"
 "god" -> "Bragon, Bragon and again Bragon.", "I pray to Bragon, join me.", "I believe in Bragon and his fire."
 "Gott", "Götter" -> "Bragaon, Bragon und nochmals Bragon.", "Ich bete zu Bragon, bete mit mir.", "Ich glaube an Bragon und sein Feuer."
-"Adron", english -> "Yes, this god exists but is not interesting to me.", "I believe in Brágon and his fire, that it leads me not this one you speak.", "That's one of the younger gods, therefore, nothing compared to Brágon."
+english, "Adron" -> "Yes, this god exists but is not interesting to me.", "I believe in Brágon and his fire, that it leads me not this one you speak.", "That's one of the younger gods, therefore, nothing compared to Brágon."
 "Adron" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich glaube an Bragon und sein Feuer, dass es mir den rechten Weg zeige.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Brágon."
-"Bragon", "Brágon", english -> "Yes, this god exists, but he has left this level. I hope he is coming back one day.", "He is the elder god of fire and stands for a wisdom, strength, and nobility.", "One of the statues in the front of me represents him. Just take a look if you want to know how he could look like."
+english, "Bragon", "Brágon" -> "Yes, this god exists, but he has left this level. I hope he is coming back one day.", "He is the elder god of fire and stands for a wisdom, strength, and nobility.", "One of the statues in the front of me represents him. Just take a look if you want to know how he could look like."
 "Bragon", "Brágon" -> "Ja, dieser Gott existiert. Aber er hat diese Ebene verlassen. Ich hoffe er kommt zurück eines Tages. Das ist auch der Grund warum ich bete.", "Er ist einer der alten Götter und steht für eine weise, starke, noble und ansehnliche  Persönlichkeit.", "Eine der Statuen hinter mir repräsentiert ihn. Wirf einen Blick darauf wenn du wissen möchtest wie er aussehen könnte."
-"Cherga", english -> "Yes, this god exists but she does not interest me.", "I've heard about priests of this god, but I cannot remember their names.", "That's one of the younger gods, therefore, nothing compared to Brágon."
+english, "Cherga" -> "Yes, this god exists but she does not interest me.", "I've heard about priests of this god, but I cannot remember their names.", "That's one of the younger gods, therefore, nothing compared to Brágon."
 "Cherga" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
-"Elara", english -> "Yes, this god exists but is of no interest to me.", "I've heard priests of this goddess live in Runewick .", "That's one of the younger gods, therefore, beneath my lord, Brágon."
+english, "Elara" -> "Yes, this god exists but is of no interest to me.", "I've heard priests of this goddess live in Runewick .", "That's one of the younger gods, therefore, beneath my lord, Brágon."
 "Elara" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon."
-"Eldan", english -> "This is not a god I take much interest in.", "I once knew a priest of Eldan, but cannot recall his name.", "He is an elder god like my lord, Brágon."
+english, "Eldan" -> "This is not a god I take much interest in.", "I once knew a priest of Eldan, but cannot recall his name.", "He is an elder god like my lord, Brágon."
 "Eldan" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon."
-"Findari", english -> "I give little attention to this god.", "I cannot recall anyone I know worshipping her.", "Like Brágon she is an elder god.", "One of the statues behind me represents her. Just take a look if you want to know how she could look like."
+english, "Findari" -> "I give little attention to this god.", "I cannot recall anyone I know worshipping her.", "Like Brágon she is an elder god.", "One of the statues behind me represents her. Just take a look if you want to know how she could look like."
 "Findari" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon.", "Eine der Statuen hinter mir repräsentiert sie. Wirf einen Blick darauf wenn du wissen möchtest wie sie aussehen könnte."
-"Irmorom", english -> "Best speak with someone from Galmair about such a god.", "I do not know anyone personally that honors this god.", "Just one of many younger gods that cannot compare to Lord Brágon."
+english, "Irmorom" -> "Best speak with someone from Galmair about such a god.", "I do not know anyone personally that honors this god.", "Just one of many younger gods that cannot compare to Lord Brágon."
 "Irmorom" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
-"Malachin", "Malachín", english -> "I've heard travelers from Cadomyr utter his name.", "A god of war but cannot purge the field of battle like Lord Brágon.", "One of the younger gods I believe, I lose track of all of them some times."
+english, "Malachin", "Malachín" -> "I've heard travelers from Cadomyr utter his name.", "A god of war but cannot purge the field of battle like Lord Brágon.", "One of the younger gods I believe, I lose track of all of them some times."
 "Malachin", "Malachín" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
-"Moshran", english -> "I don't talk about this god.", "No priest should ever openly worship such a god!", "Do not utter the name of such a thief. He took some of my Lord's beloved dragons!"
+english, "Moshran" -> "I don't talk about this god.", "No priest should ever openly worship such a god!", "Do not utter the name of such a thief. He took some of my Lord's beloved dragons!"
 "Moshran" -> "Über diesen Gott spreche ich nicht.", "Es gibt Gerüchte, dass der Tempel ihm folgt.", "Er hat meinen Göttern die Drachen gestohlen."
-"Nargun", "Nargún", "Nargùn", english -> "The god of chaos they say, but he means little to me.", "How can you even consider a person who follows such a god a priest?", "Just one of the younger gods."
+english, "Nargun", "Nargún", "Nargùn" -> "The god of chaos they say, but he means little to me.", "How can you even consider a person who follows such a god a priest?", "Just one of the younger gods."
 "Nargun", "Nargún", "Nargùn" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
-"Oldra", english -> "Ask someone in Runewick about Oldra, not me.", "#me yawns, 'Another subject perhaps?'.", "A younger god living in the shadows of my Lord Brágon."
+english, "Oldra" -> "Ask someone in Runewick about Oldra, not me.", "#me yawns, 'Another subject perhaps?'.", "A younger god living in the shadows of my Lord Brágon."
 "Oldra" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
-"Ronagan", english -> "Go to Galmair to join his shadow.", "The only way to rid the world of his shadow is by the flame of Brágon.", "A mere younger god, ha, nothing to the Lord Brágon."
+english, "Ronagan" -> "Go to Galmair to join his shadow.", "The only way to rid the world of his shadow is by the flame of Brágon.", "A mere younger god, ha, nothing to the Lord Brágon."
 "Ronagan" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
-"Sirani", english -> "Yes, this god exists but she is not interesting to me.", "I heard about priests of this goddess, but I cannot remember their names.", "Oh, all this speak of younger gods bores me."
+english, "Sirani" -> "Yes, this god exists but she is not interesting to me.", "I heard about priests of this goddess, but I cannot remember their names.", "Oh, all this speak of younger gods bores me."
 "Sirani" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
-"Tanora", "Zelphia", english -> "She is of little interest to me.", "Search yourself a lizardman if you seek answers about her", "That's one of the elder gods like Brágon.", "One of the statues behind me represents her. Just take a look if you want to know how she could look like."
+english, "Tanora", "Zelphia" -> "She is of little interest to me.", "Search yourself a lizardman if you seek answers about her", "That's one of the elder gods like Brágon.", "One of the statues behind me represents her. Just take a look if you want to know how she could look like."
 "Tanora", "Zelphia" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon.", "Eine der Statuen hinter mir repräsentiert sie. Wirf einen Blick darauf wenn du wissen möchtest wie sie aussehen könnte."
-"Ushara", english -> "She is of little concern to me.", "Never heard of a priest dedicated to Ushara.", "She is an elder god but nothing compared to Brágon.", "One of the statues in front of me me represents her. Just take a look if you want to know how she could look like."
+english, "Ushara" -> "She is of little concern to me.", "Never heard of a priest dedicated to Ushara.", "She is an elder god but nothing compared to Brágon.", "One of the statues in front of me me represents her. Just take a look if you want to know how she could look like."
 "Ushara" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon.", "Eine der Statuen vor mir repräsentiert sie. Wirf einen Blick darauf wenn du wissen möchtest wie sie aussehen könnte."
-"Zhambra", english -> "#me looks disinterested, 'Perhaps another subject?'", "I don't know anyone that worships Zhambra.", "One of the many younger gods that serve Brágon."
+english, "Zhambra" -> "#me looks disinterested, 'Perhaps another subject?'", "I don't know anyone that worships Zhambra.", "One of the many younger gods that serve Brágon."
 "Zhambra" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich .", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
 
 -- Catching typical NPC phrases
@@ -314,7 +314,7 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "An Bragon glaube ich.", "Vielleicht ein andermal. Jetzt muss ich beten.", "Nun ist nicht die Zeit um Geschichten zu erzählen."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "Yes? How can I help you? Do you like to know more about gods?"
+english, "<NPC first name>", "<NPC last name>" -> "Yes? How can I help you? Do you like to know more about gods?"
 "<NPC-Vorname>", "<NPC-Nachname>" -> "Ja? Wie kann ich euch behilflich sein? Wollt ihr etwas über Götter wissen?"
 "Yes" -> "Very well. I feared you would say no."
 "Ja" -> "Sehr gut. Ich fürchtete ihr sagt nein."
@@ -322,8 +322,8 @@ itemShoes = 53
 "Nein" -> "Nein? Seid ihr sicher?"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Don't you think it is time for another pray now?"
-".*", german, chance(20.0) -> "Denkt ihr nicht es ist an der Zeit für ein weiteres Gebet?"
+english, chance(20.0), ".*" -> "Don't you think it is time for another pray now?"
+german, chance(20.0), ".*" -> "Denkt ihr nicht es ist an der Zeit für ein weiteres Gebet?"
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

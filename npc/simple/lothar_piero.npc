@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Lothar Piero"
@@ -79,29 +79,29 @@ itemShoes = 53
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "May Oldra bless you. Do you need... wood?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oldra mit Euch. Benötigt Ihr hölzernes Gut?", "#me neigt seinen Kopf: 'Weisheit und Ausgeglichenheit. Wie darf ich Euch behilfich sein?'", "Hiho! Womit kann ich dienlich sein?"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "May Oldra bless you. Do you need... wood?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "May Oldra bless you. Do you need... wood?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Das ist durchwegs salopp gesagt, aber ich bin nicht kleinlich. Seid gegrüßt.", "Ehre den Göttern, wollt ihr Bretter kaufen?", "Guten Tag. Im Namen aller Händler will ich Euch willkommen heißen."
 "Farewell", "Bye", "Fare well", "See you" -> "Sounds sloppy, but I'm not picky. Be greeted.", "Honour the gods, do you need boards?", "Good day. I welcome you on behalf of all my collegues."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen. Möge Oldra Eure Gärten und Felder hüten.", "Gehabt Euch wohl. Bis Bald.", "Adieu! Besucht mich wieder einmal."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Good bye. May Oldra bless your gardens and fields.", "Farewell and see you soon.", "Adieu! Come back anytime soon."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good bye. May Oldra bless your gardens and fields.", "Farewell and see you soon.", "Adieu! Come back anytime soon."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Möge Oldra Eure Gärten und Fälder hüten.", "Gehabt Euch wohl. Bis Bald.", "Adieu! Besucht mich wieder einmal."
 "How are you", "How feel", "How do you do" -> "Wonderful! Indeed, Oldra smiles upon me.", "Even if a cloud covers the sun, I know that it shines on my every day.", "A dark night is defeated by the sunrise."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ausgezeichnet. Ja, Oldra blickt wohlwollend auf mich herab.", "Auch wenn hier und dort eine Wolke die Sonne verdecken mag, ich weiß, dass sie trotzdem jeden neuen Tag am Himmel stehen wird.", "So finster Euch manche Nacht erscheinen kann, die Sonne wird erwachen und alles Finstere vertreiben."
-"your name", "who are you", "who art thou" -> "My name is Lothar Piero. Welcome to the market of Runewick.", "I am Lothar Piero and I trade... wood.", "Boards, shields, bows, what do you desire? I am Lothar Piero and I got wood!"
+"your name", "who are you", "who art thou" -> trade, "My name is Lothar Piero. Welcome to the market of Runewick.", "I am Lothar Piero and I... wood.", "Boards, shields, bows, what do you desire? I am Lothar Piero and I got wood!"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Lothar Piero. Seid mir willkommen am Markt von Runewick.", "Ich bin Lothar Piero und handle mit allerlei hölzernen Gut.", "Bretter, Schilde, Bögen, was wollt Ihr wohl mögen? Ich bin Lothar Piero und handle mit Holz."
 
 -- Catching quest triggers
-"quest", "mission", english -> "Sorry, I have no job for you."
+english, "quest", "mission" -> "Sorry, I have no job for you."
 "quest", "mission" -> "Es tut mir Leid, ich habe keine Arbeit für Euch."
 "task", "adventure", "order" -> "Sorry, I have no job for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es tut mir Leid, ich habe keine Arbeit für Euch."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Wood is good.", "I am a trader and thus, I trade wood. My wood makes me proud, hihi."
+"profession" -> trade, trade, "Wood is good.", "I am ar and thus, Iwood. My wood makes me proud, hihi."
 "beruf" -> "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!"
-"job", english -> "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!"
-"job" -> "Wood is good.", "I am a trader and thus, I trade wood. My wood makes me proud, hihi."
-"Gobaith", "Gobiath", english -> "Gobaith, isn't that a tiny a island in the ocean?", "Gobaith isn't important enough to attract Runewick's attention."
+english, "job" -> "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!"
+"job" -> trade, trade, "Wood is good.", "I am ar and thus, Iwood. My wood makes me proud, hihi."
+english, "Gobaith", "Gobiath" -> "Gobaith, isn't that a tiny a island in the ocean?", "Gobaith isn't important enough to attract Runewick's attention."
 "Gobaith", "Gobiath" -> "Gobaith, ist das nicht eine dieser winzigen Inseln im Splittermeer?", "Gobaith ist viel zu unwichtig, um die Aufmerksamkeit Runewicks Wert zu sein."
 "my name" -> "I am delighted. A pleasure to meet you.", "Well, I should remember that.", "Be greeted and be told: I won't betray you with my wood."
 "mein Name" -> "Sehr erfreut - sehr erfreut. Schön Euch kennen zu lernen.", "So, so? Das werde ich mir gut merken.", "Seid gegrüßt, und lasst Euch sagen, Lothar hat noch keinen Kunden übers Ohr geschlagen."
@@ -112,41 +112,41 @@ itemShoes = 53
 "Pfennigmühle" -> "In Pfennigmühle, ich will es Euch erzählen - kontrolliert die Miliz alle Tavernen und Gasthäuser des Hafenviertels. So braucht sich ein Halbling niemals vor Unruhestiftern und Grobianen fürchten.", "Die Straßen in Pfennigmühle werden stehts mit dicken Ölkerzen beleuchtet. Wenn man abends nach Hause geht, gibt es kein schattiges Plätzchen, wo sich Unholde verkreichen könnten.", "Nachts sind die Tore von Pfennigmühle geschlossen. Man kann sich so nur innerhalb der verschiedenen Viertel bewegen. So ist alles viel sicherer und kontrollierbar.", "Ich möchte nicht prahlen, doch in Pfennigmühle gibt es die saftigsten und riesigsten Melonen, Kürbisse und Tomaten Illarions!"
 "poetry" -> "Poetry, poetry. The carpenter's poetry's masterpiece is a harp. If you behold a true master carving the harp, you can almost hear the melody."
 "Poesie" -> "Poesie, Poesie. Das Schönste was ein Schreiner zu schaffen vermag, ist zweifelsfrei eine Harfe. Sehe ich einem Meister beim Schnitzen zu, glaube ich oft eine Melodie zu hören."
-"trader", "merchant", "collegue", "vendor", "market" -> "Us traders of Runewick always try to offer as many goods and wares as possible.", "The archmage asked us to import as few items as possible and rely on domestic goods.", "Hiho! The traders of Runewick stand united and the archmage backs us up."
+"trader", "merchant", "collegue", "vendor", "market" -> trade, trade, "Usrs of Runewick always try to offer as many goods and wares as possible.", "The archmage asked us to import as few items as possible and rely on domestic goods.", "Hiho! Thers of Runewick stand united and the archmage backs us up."
 "händler", "kollege", "höker", "markt" -> "Wir Händler Runewicks geben uns Mühe, ein möglichst großes Angebot an Waren und Güter für die Stadt bereitzustellen.", "Der Erzmagier persönlich hat uns Händlern aufgetragen, ausschließlich die nötigsten Güter zu importieren. Alles andere sind Güter aus Runewick.", "Hiho! Die Händler Runewicks stehen zusammen. Und der Erzmagier hinter uns."
 
 -- Faction stuff
 "archmage" -> "I'd never disagree with the archmage. Everyone knows he has the master plan!", "I trust Archmage Morgan, he is my guide. His able hands will forge Runewick's future.", "The archmage is the most wise person of all of us. Who dares to know it better?"
 "Erzmagier" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, dass sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weiseste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
-"Elvaine", "Morgan", english -> "I'd never disagree with the archmage. Everyone knows he has the master plan!", "I trust Archmage Morgan, he is my guide. His able hands will forge Runewick's future.", "The archmage is the most wise person of all of us. Who dares to know it better?"
+english, "Elvaine", "Morgan" -> "I'd never disagree with the archmage. Everyone knows he has the master plan!", "I trust Archmage Morgan, he is my guide. His able hands will forge Runewick's future.", "The archmage is the most wise person of all of us. Who dares to know it better?"
 "Elvaine", "Morgan" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weiseste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
-"Runewick", english -> "May Elara bless Runewick. The four towers are built to honour the gods and to demonstrate our might to our neighbours."
+english, "Runewick" -> "May Elara bless Runewick. The four towers are built to honour the gods and to demonstrate our might to our neighbours."
 "Runewick" -> "Elara möge Runewick bewahren. Die vier Türme sollen den Göttern schmeicheln und benachbarten Städten unsere Macht demonstrieren."
-"Valerio", "Guilianni", "Don", english -> "He is stubborn I was told. All he cares for is gold. It is only a matter time until another thug overtakes Galmair."
+english, "Valerio", "Guilianni", "Don" -> "He is stubborn I was told. All he cares for is gold. It is only a matter time until another thug overtakes Galmair."
 "Valerio", "Guilianni", "Don" -> "Ein wahrer Dickkopf, habe ich mir sagen lassen. Ihm ist nur daran gelegen Gold zu häufen. Es ist nur eine Frage der Zeit bis einer seiner Konkurenten das Ruder Galmairs aus seinen Händen reißt."
-"Galmair", english -> "Us trader have a proverb: Do not trust Galmair, gold opens the door of the stupid. But if you want to walk into the house of wisdom, you have to open a book instead."
+english, "Galmair" -> trade, "Usr have a proverb: Do not trust Galmair, gold opens the door of the stupid. But if you want to walk into the house of wisdom, you have to open a book instead."
 "Galmair" -> "Wir Händler haben ein Sprichwort: Traue Galmair nicht, dort schätzt man nur das Gold, von Gewicht. Doch willst du Weisheit tragen, sollt Ihr die Bücher befragen."
 "Queen" -> "Queen Rosaline rules on behalf of the gods Malachín and Zhambra. They do not care about wisdom, but is it wise to rule a town by sword and battle?"
 "Königin" -> "Königin Rosaline herrscht aufgrund der Götter Gnade. Malachín und Zhambra, doch sie schenken der Weisheit keinen Wert. Ist es weise eine Stadt mit Schwert und Schlachtenehre zu regieren?"
-"rosaline", "edwards", english -> "Queen Rosaline rules on behalf of the gods Malachín and Zhambra. They do not care about wisdom, but is it wise to rule a town by sword and battle?"
+english, "rosaline", "edwards" -> "Queen Rosaline rules on behalf of the gods Malachín and Zhambra. They do not care about wisdom, but is it wise to rule a town by sword and battle?"
 "rosaline", "edwards" -> "Königin Rosaline herrscht aufgrund der Götter Gnade. Malachín und Zhambra, doch sie schenken der Weisheit keinen Wert. Ist es weise eine Stadt mit Schwert und Schlachtenehre zu regieren?"
-"Cadomyr", english -> "Cadomyr is a sand pit, lots of barbarians that got too much sun on their heads. Who wins a duel takes it all, the loser standing small."
+english, "Cadomyr" -> "Cadomyr is a sand pit, lots of barbarians that got too much sun on their heads. Who wins a duel takes it all, the loser standing small."
 "Cadomyr" -> "Cadomyr ist eine Sandgrube, voller Barbaren die zu viel Sonne bekommen haben. Wer im Zweikampf obliegt, erfährt Ehre und Recht. Der Verlierer lebt in Schande."
 
 -- Main land factions
-"albar", english -> "Albar is a horrible place. Lucky you, you found Runewick."
+english, "albar" -> "Albar is a horrible place. Lucky you, you found Runewick."
 "albar" -> "Albar ist ein schrecklicher Ort. Seid froh, das ihr Euren Weg nach Runewick gefunden habt."
-"gynk", "gync", english -> "I overheard Valerio Guilianni came from Gynk to Galmair. He brought strange customs from that spoiled land. With the arrival of the Don, the pearl of the mountains went down the sewers."
+english, "gynk", "gync" -> "I overheard Valerio Guilianni came from Gynk to Galmair. He brought strange customs from that spoiled land. With the arrival of the Don, the pearl of the mountains went down the sewers."
 "gync", "gynk" -> "Ich hörte Valerio Guilianni sei einst aus Gynk nach Galmair gekommen. Mit sich brachte er alle vermeintlichen Tugenden aus seinem abschäulichen Land. Denn mit dem Don ist auch die Stadt in den Bergen verkommen."
-"salkama", english -> "Salkamar, you flourishing garden of mankind! If only all humans could live like the paladins of Salkamar."
+english, "salkama" -> "Salkamar, you flourishing garden of mankind! If only all humans could live like the paladins of Salkamar."
 "salkama" -> "Salkamar, du blühender Garten des Menschenvolkes! Würden sich doch alle Menschen besinnen und leben wie die Paladine Salkamars."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Hail Oldra and Elara. May they protect us from all evil from Galmair or Cadomyr."
 "Gott", "Götter" -> "Gepriesen sein Oldra und Elara. Mögen sie uns vor den Übeln aus Galmair und Cadomyr bewahren."
-"Elara", english -> "O Elara, guide archmage Morgan, for he may take the wisest step next."
+english, "Elara" -> "O Elara, guide archmage Morgan, for he may take the wisest step next."
 "Elara" -> "Elara, leite Erzmagier Morgan, damit er die weisesten Entscheidungen treffen mag."
-"Oldra", english -> "Oldra, I thank thee for my wood, for the trees and for all what is made from them."
+english, "Oldra" -> "Oldra, I thank thee for my wood, for the trees and for all what is made from them."
 "Oldra" -> "Oldra, ich danke für das Holz deiner Bäume, die meine Schilder so stark und die Instrumente so wohlklingend machen."
 
 -- Catching typical NPC phrases
@@ -156,7 +156,7 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Ich liebe die Poesie. All zu gern lass ich mich davon betören. Liebt ihr die schönen Künste so sehr wie ich?", "Meine Heimat liegt in Pfennigmühle. Vielleicht kennt Ihr meine Heimat.", "Ich finde es im Allgemeinen sehr annehmlich, zusammen mit dem schönen Volk Runewick zu bewohnen. Immerzu ungiebt uns alle eine betörende und fantastische Magie, die ich nicht missen mag."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Lothar", "Piero", english -> "Hiho! What goods may I offer to you?"
+english, "Lothar", "Piero" -> "Hiho! What goods may I offer to you?"
 "Lothar", "Piero" -> "Hiho! Welche meiner Güter vermögen Euch zu begeistern?"
 "Yes" -> "Yes, very well.", "Indeed, just what I wanted to say.", "How marvellous, we have the same opinion."
 "Ja" -> "Ja, das ist mir auch Recht.", "Bestimmt, das denke ich auch.", "Wie fantastisch, wir sind einer Meinung."
@@ -164,8 +164,8 @@ itemShoes = 53
 "Nein" -> "So denn ihr das für weise haltet.", "Das meine ich wie ich es sagte.", "Nein? Vielleicht sollten wir uns an Elaras Altar beratschlagen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Oldra's blessing for your gardens.", "Elara's wisdom may guide you.", "Hiho, that's funny!"
-".*", german, chance(20.0) -> "Oldras Segen über Eure Gärten.", "Elaras Weisheit sei mit Euch.", "Hiho, das gefällt mir."
+english, chance(20.0), ".*" -> "Oldra's blessing for your gardens.", "Elara's wisdom may guide you.", "Hiho, that's funny!"
+german, chance(20.0), ".*" -> "Oldras Segen über Eure Gärten.", "Elaras Weisheit sei mit Euch.", "Hiho, das gefällt mir."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

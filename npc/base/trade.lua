@@ -165,11 +165,11 @@ tradeNPCItem = base.class.class(function(self, id, itemType, nameDe, nameEn, pri
     
     if (price == nil) then
         if (itemType == "sell") then
-            self["_price"] = world:getItemStatsFromId(id).Worth * 100;
+            self["_price"] = world:getItemStatsFromId(id).Worth;
         elseif (itemType == "buyPrimary") then
-            self["_price"] = world:getItemStatsFromId(id).Worth * 10;
+            self["_price"] = world:getItemStatsFromId(id).Worth * 0.1;
         elseif (itemType == "buySecondary") then
-            self["_price"] = world:getItemStatsFromId(id).Worth * 5;
+            self["_price"] = world:getItemStatsFromId(id).Worth * 0.05;
         end;
     else
         self["_price"] = price;

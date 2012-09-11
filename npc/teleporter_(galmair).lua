@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -41,8 +41,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You are already in Galmair."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -54,27 +54,27 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.money.money("<", 100));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addTrigger("Wilderland");
-talkEntry:addCondition(npc.base.condition.money.money("<", 100));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You don't have enough money for this journey. The journey costs a silver coin."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.money.money("<", 100));
 talkEntry:addTrigger("Runewick");
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addTrigger("Wilderland");
-talkEntry:addCondition(npc.base.condition.money.money("<", 100));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr habt nicht genug Geld für diese Reise. Die Reise kostet ein Silberstück."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You make the teleporter open a portal to Runewick at a cost of one silver piece."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(788, 826, 0));
@@ -90,8 +90,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You make the teleporter open a portal to Cadomyr at a cost of one silver piece."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(127, 647, 0));
@@ -107,8 +107,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wilderland");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Wilderland");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You make the teleporter open a portal to Wilderland at a cost of one silver piece."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(684, 307, 0));
@@ -124,8 +124,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;

@@ -8,7 +8,7 @@
 -- Authors:  Someone                                                          --
 --           & Rincewind                                                      --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Saren Eisenfaust"
@@ -69,11 +69,11 @@ itemShoes = 697
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day, what do ya want?", "Irmorom with ya, do ya need anything?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach auch, wat gibts?", "Irmorom zum Gruße, brauchst du wat?"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "What do ya want, eh? We say greetings around here.", "Aye, whatever.", "You won't go far with that greeting around here."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "What do ya want, eh? We say greetings around here.", "Aye, whatever.", "You won't go far with that greeting around here."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Wat willste, eh? Dat heißt Tach!", "Aye, wat auch immer.", "Damit kommste hier nich weit, es heißt Tach!"
 "Farewell", "Bye", "Fare well", "See you" -> "Aye, take care.", "Irmorom with ya!", "Until next time!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Aye, machs gut.", "Irmorom mit dir!", "Man sieht sich."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Aye, take care.", "Irmorom with ya!", "Until next time!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye, take care.", "Irmorom with ya!", "Until next time!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye, machs gut.", "Irmorom mit dir!", "Man sieht sich."
 "How are you", "How feel", "How do you do" -> "Can't say anything's bothering me and ya?", "So-so, but I'm fine right now."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nich klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
@@ -81,79 +81,79 @@ itemShoes = 697
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Saren und wer bist du?", "Man nennt mich Saren, Saren Eisenfaust und wie nennt man dich?"
 
 -- 1st quest
-"quest", "mission", skill(smithing) =< 20, english -> "I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.", item(2763, 1, 399, 0), queststatus(81) = 1
-"quest", "mission", skill(smithing) =< 20, german -> "Ich kann dir helfen falls du Schmied werden willst, hol mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz und nen Hammer nich zu vergessen. Hier noch die Spitzhacke zum abbauen des Erzes.", item(2763, 1, 399, 0), queststatus(81) = 1
-"smith", "task", "adventure", skill(smithing) =< 20 -> "I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.", item(2763, 1, 399, 0), queststatus(81) = 1
-"Schmied", "Auftrag", "Aufgabe", "Abenteuer", skill(smithing) =< 20 -> "Ich kann dir helfen, falls du Schmied werden willst, dafür solltest du mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz bringen. Und hier eine Hacke um das Erz abzubauen.", item(2763, 1, 399, 0), queststatus(81) = 1
-"quest", "mission", queststatus(81) = 1, english -> "I want ya to get 10 lumps of coal and 10 chunks of iron ore, and don't forget the hammer!"
-"quest", "mission", queststatus(81) = 1, german -> "10 Brocken Kohle und 10 Klumpen Eisenerz will ich das du holst, vergiss aber auch nicht den Hammer"
-"task", "adventure", queststatus(81) = 1 -> "Aye, 10 lumps of coal and 10 chunks of iron ore and a hammer, that's what I want."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(81) = 1 -> "Aye, 10 Brocken Eisenerz, 10 Klumpen Kohle und nen Hammer is es wat ich haben will!"
-".+", queststatus(81) = 1, item(21, all) > 9, item(22, all) > 9, item(23, all) > 0, german -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."), "Arr, gut gemacht. Jetzt schau mir gut zu, damit du auch wat lernst!", skill(smithing) + 5, deleteItem(21, 10), deleteItem(22, 10), deleteItem(23, 1), queststatus(81) = 2
-".+", queststatus(81) = 1, item(21, all) > 9, item(22, all) > 9, item(23, all) > 0, english -> inform("[Quest finished!] You feel like you really learned something."), "Arr, good job. Now watch me, so that you actually learn something!", skill(smithing) + 5, deleteItem(21, 10), deleteItem(22, 10), deleteItem(23, 1), queststatus(81) = 2
-".+", queststatus(81) = 1, item(21, all) < 10, item(22, all) < 10, item(23, all) < 1, german -> "Arr, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nich helfen, ich sehe genau das du nich alles da hast wat ich haben wollte!"
-".+", queststatus(81) = 1, item(21, all) < 10, item(22, all) < 10, item(23, all) < 1, english -> "Arr, if you try to trick me, I won't help you. I see that this is not everything that I wanted."
+skill(smithing) =< 20, english, "quest", "mission" -> item(2763, 1, 399), queststatus(81) = 1, "I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore."
+skill(smithing) =< 20, german, "quest", "mission" -> item(2763, 1, 399), queststatus(81) = 1, "Ich kann dir helfen falls du Schmied werden willst, hol mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz und nen Hammer nich zu vergessen. Hier noch die Spitzhacke zum abbauen des Erzes."
+skill(smithing) =< 20, "smith", "task", "adventure" -> item(2763, 1, 399), queststatus(81) = 1, "I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore."
+skill(smithing) =< 20, "Schmied", "Auftrag", "Aufgabe", "Abenteuer" -> item(2763, 1, 399), queststatus(81) = 1, "Ich kann dir helfen, falls du Schmied werden willst, dafür solltest du mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz bringen. Und hier eine Hacke um das Erz abzubauen."
+queststatus(81) = 1, english, "quest", "mission" -> "I want ya to get 10 lumps of coal and 10 chunks of iron ore, and don't forget the hammer!"
+queststatus(81) = 1, german, "quest", "mission" -> "10 Brocken Kohle und 10 Klumpen Eisenerz will ich das du holst, vergiss aber auch nicht den Hammer"
+queststatus(81) = 1, "task", "adventure" -> "Aye, 10 lumps of coal and 10 chunks of iron ore and a hammer, that's what I want."
+queststatus(81) = 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Aye, 10 Brocken Eisenerz, 10 Klumpen Kohle und nen Hammer is es wat ich haben will!"
+queststatus(81) = 1, item(21, all) > 9, item(22, all) > 9, item(23, all) > 0, german, ".+" -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."), skill(smithing) + 5, deleteItem(21, 10), deleteItem(22, 10), deleteItem(23, 1), queststatus(81) = 2, "Arr, gut gemacht. Jetzt schau mir gut zu, damit du auch wat lernst!"
+queststatus(81) = 1, item(21, all) > 9, item(22, all) > 9, item(23, all) > 0, english, ".+" -> inform("[Quest finished!] You feel like you really learned something."), skill(smithing) + 5, deleteItem(21, 10), deleteItem(22, 10), deleteItem(23, 1), queststatus(81) = 2, "Arr, good job. Now watch me, so that you actually learn something!"
+queststatus(81) = 1, item(21, all) < 10, item(22, all) < 10, item(23, all) < 1, german, ".+" -> "Arr, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nich helfen, ich sehe genau das du nich alles da hast wat ich haben wollte!"
+queststatus(81) = 1, item(21, all) < 10, item(22, all) < 10, item(23, all) < 1, english, ".+" -> "Arr, if you try to trick me, I won't help you. I see that this is not everything that I wanted."
 
 -- 2nd quest
-"quest", "mission", skill(smithing) > 20, skill(smithing) =< 40, english -> "Aye, I have another task for ya. I need 15 copper ore, a new crucible, a fine smith hammer and 5 iron ingots!", queststatus(81) = 3
-"quest", skill(smithing) > 20, skill(smithing) =< 40, german -> "Aye, hab wieder wat für dich zu tun. 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren brauch ich!", queststatus(81) = 3
-"task", "adventure", skill(smithing) > 20, skill(smithing) =< 40 -> "Aye, I have another task for ya. I need 15 copper ore, a new crucible, a fine smith hammer and 5 iron ingots!", queststatus(81) = 3
-"Auftrag", "Aufgabe", "Abenteuer", skill(smithing) > 20, skill(smithing) =< 40 -> "Aye, hab wieder wat für dich zu tun. 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren brauch ich!", queststatus(81) = 3
-"quest", "mission", skill(smithing) =< 20, queststatus(81) = 2, english -> "Leave me be for now, I wanna do my own smithing for a change. Come back later, alright?"
-"quest", "mission", skill(smithing) =< 20, queststatus(81) = 2, german -> "Lass mich mal in Ruhe, will auch selber mal wat schmieden. Kannst ja später wieder kommen, nich?"
-"task", "adventure", skill(smithing) =< 20, queststatus(81) = 2 -> "Leave me be for now, I wanna do my own smithing for a change. Come back later, alright?"
-"Auftrag", "Aufgabe", "Abenteuer", skill(smithing) =< 20, queststatus(81) = 2 -> "Lass mich mal in Ruhe, will auch selber mal wat schmieden. Kannst ja später wieder kommen, nich?"
-"quest", "mission", queststatus(81) = 3, english -> "Arr! You're supposed to bring me 15 copper ore, a crucible, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?"
-"quest", "mission", queststatus(81) = 3, german -> "Du sollst mir 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren bringen, is das so schwer zu merken,eh?"
-"task", "adventure", queststatus(81) = 3 -> "Arr! You're supposed to bring me 15 copper ore, a crucible, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(81) = 3 -> "Du sollst mir 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren bringen, is das so schwer zu merken,eh?"
-".+", queststatus(81) = 3, item(2536, all) > 14, item(2535, all) > 4, item(2699, all) > 1, item(122, all) > 1, german -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."), "Sieht gut aus, alles da wat ich von dir verlangt hab, scheint als könnt aus dir doch nen richtiger Schmied werden.", skill(smithing) + 5, deleteItem(2536, 15), deleteItem(2535, 5), deleteItem(2699, 1), deleteItem(122, 1), queststatus(81) = 4
-".+", queststatus(81) = 3, item(2536, all) > 14, item(2535, all) > 4, item(2699, all) > 1, item(122, all) > 1, english -> inform("[Quest finished!] You have feel like you really learned something."), "Looks good and it's even everything that I wanted ya to bring. Looks as if you could become a real smith after all.", skill(smithing) + 5, deleteItem(2536, 15), deleteItem(2535, 5), deleteItem(2699, 1), deleteItem(122, 1), queststatus(81) = 4
-".+", queststatus(81) = 3, item(2536, all) < 15, item(2535, all) < 5, item(2699, all) = 0, item(122, all) = 0, german -> "Wie mir scheint, kann man sich nich auf dich verlassen. Oder du bist dümmer als du aussiehst, denn es is nich besonders schwer 15 Kupfererz, 5 Eisenbarren, einen Schmelztiegel und einen Feinschmiedehammer zu besorgen!"
-".+", queststatus(81) = 3, item(2536, all) < 15, item(2535, all) < 5, item(2699, all) = 0, item(122, all) = 0, english -> "It seems you're not trustworthy after all, or maybe you're just dumber that ya look, because you didn't bring me the 15 copper ore, 5 iron ingots, a crucible and a fine smith hammer."
+skill(smithing) > 20, skill(smithing) =< 40, english, "quest", "mission" -> queststatus(81) = 3, "Aye, I have another task for ya. I need 15 copper ore, a new crucible, a fine smith hammer and 5 iron ingots!"
+skill(smithing) > 20, skill(smithing) =< 40, german, "quest" -> queststatus(81) = 3, "Aye, hab wieder wat für dich zu tun. 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren brauch ich!"
+skill(smithing) > 20, skill(smithing) =< 40, "task", "adventure" -> queststatus(81) = 3, "Aye, I have another task for ya. I need 15 copper ore, a new crucible, a fine smith hammer and 5 iron ingots!"
+skill(smithing) > 20, skill(smithing) =< 40, "Auftrag", "Aufgabe", "Abenteuer" -> queststatus(81) = 3, "Aye, hab wieder wat für dich zu tun. 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren brauch ich!"
+skill(smithing) =< 20, queststatus(81) = 2, english, "quest", "mission" -> "Leave me be for now, I wanna do my own smithing for a change. Come back later, alright?"
+skill(smithing) =< 20, queststatus(81) = 2, german, "quest", "mission" -> "Lass mich mal in Ruhe, will auch selber mal wat schmieden. Kannst ja später wieder kommen, nich?"
+skill(smithing) =< 20, queststatus(81) = 2, "task", "adventure" -> "Leave me be for now, I wanna do my own smithing for a change. Come back later, alright?"
+skill(smithing) =< 20, queststatus(81) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Lass mich mal in Ruhe, will auch selber mal wat schmieden. Kannst ja später wieder kommen, nich?"
+queststatus(81) = 3, english, "quest", "mission" -> "Arr! You're supposed to bring me 15 copper ore, a crucible, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?"
+queststatus(81) = 3, german, "quest", "mission" -> "Du sollst mir 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren bringen, is das so schwer zu merken,eh?"
+queststatus(81) = 3, "task", "adventure" -> "Arr! You're supposed to bring me 15 copper ore, a crucible, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?"
+queststatus(81) = 3, "Auftrag", "Aufgabe", "Abenteuer" -> "Du sollst mir 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren bringen, is das so schwer zu merken,eh?"
+queststatus(81) = 3, item(2536, all) > 14, item(2535, all) > 4, item(2699, all) > 1, item(122, all) > 1, german, ".+" -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."), skill(smithing) + 5, deleteItem(2536, 15), deleteItem(2535, 5), deleteItem(2699, 1), deleteItem(122, 1), queststatus(81) = 4, "Sieht gut aus, alles da wat ich von dir verlangt hab, scheint als könnt aus dir doch nen richtiger Schmied werden."
+queststatus(81) = 3, item(2536, all) > 14, item(2535, all) > 4, item(2699, all) > 1, item(122, all) > 1, english, ".+" -> inform("[Quest finished!] You have feel like you really learned something."), skill(smithing) + 5, deleteItem(2536, 15), deleteItem(2535, 5), deleteItem(2699, 1), deleteItem(122, 1), queststatus(81) = 4, "Looks good and it's even everything that I wanted ya to bring. Looks as if you could become a real smith after all."
+queststatus(81) = 3, item(2536, all) < 15, item(2535, all) < 5, item(2699, all) = 0, item(122, all) = 0, german, ".+" -> "Wie mir scheint, kann man sich nich auf dich verlassen. Oder du bist dümmer als du aussiehst, denn es is nich besonders schwer 15 Kupfererz, 5 Eisenbarren, einen Schmelztiegel und einen Feinschmiedehammer zu besorgen!"
+queststatus(81) = 3, item(2536, all) < 15, item(2535, all) < 5, item(2699, all) = 0, item(122, all) = 0, english, ".+" -> "It seems you're not trustworthy after all, or maybe you're just dumber that ya look, because you didn't bring me the 15 copper ore, 5 iron ingots, a crucible and a fine smith hammer."
 
 -- 3rd quest
-"quest", "mission", skill(smithing) > 40, skill(smithing) =< 60, english -> "Arr! You're quite good now. It's time to teach ya something real. Bring me 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes, then I'll show ya what a smith can do.", queststatus(81) = 5
-"quest", "mission", skill(smithing) > 40, skill(smithing) =< 60, german -> "Du machst dich ganz gut. Nun wird es aber an der Zeit dir wat richtiges beizubringen. Bring mir zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken, dann siehst du selbst was ein Schmied so alles kann.", queststatus(81) = 5
-"task", "adventure", skill(smithing) > 40, skill(smithing) =< 60 -> "Arr! You're quite good now. It's time to teach ya something real. Bring me 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes, then I'll show ya what a smith can do.", queststatus(81) = 5
-"Auftrag", "Aufgabe", "Abenteuer", skill(smithing) > 40, skill(smithing) =< 60 -> "Du machst dich ganz gut. Nun wird es aber an der Zeit dir wat richtiges beizubringen. Bring mir zehn Eisenbarren, zehn Goldbarren, fünf Kupferbarren und vier große Schwertgriffe, dann siehst du selbst was ein Schmied so alles kann.", queststatus(81) = 5
-"quest", "mission", skill(smithing) =< 40, queststatus(81) = 4, english -> "Be gone, I have no time for ya right now since you didn't make any progress! Practice some more, then I'll show you how to smith some nice weapons."
-"quest", "mission", skill(smithing) =< 40, queststatus(81) = 4, german -> "Verschwinde, ich hab grad keine Zeit und so wie du aussiehst, hast du eh keine Fortschritte gemacht! Übe mehr, dann zeig ich dir auch wie man ne nette Waffe schmiedet."
-"task", "adventure", skill(smithing) =< 40, queststatus(81) = 4 -> "Be gone, I have no time for ya right now since you didn't make any progress! Practice some more, then I'll show you how to smith some nice weapons."
-"Auftrag", "Aufgabe", "Abenteuer", skill(smithing) =< 40, queststatus(81) = 4 -> "Verschwinde, ich hab grad keine Zeit und so wie du aussiehst, hast du eh keine Fortschritte gemacht! Übe mehr, dann zeig ich dir auch wie man ne nette Waffe schmiedet."
-"quest", "mission", queststatus(81) = 5, english -> "It's 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes I wanted from you."
-"quest", "mission", queststatus(81) = 5, german -> "Es waren zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken die ich haben wollt, aye!"
-"task", "adventure", queststatus(81) = 5 -> "It's 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes I wanted from you."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(81) = 5 -> "Es waren zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken die ich haben wollt, aye!"
-".+", queststatus(81) = 5, item(2763, all) > 3, item(2535, all) > 9, item(2550, all) > 9, item(2172, all) > 4, german -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."), "Endlich biste wieder zurück, ich hatte mir schon Sorgen gemacht. Nun pass aber auf wie ich die Erze kombiniere.", skill(smithing) + 5, deleteItem(2763, 4), deleteItem(2535, 10), deleteItem(2550, 10), deleteItem(2172, 5), queststatus(81) = 6
-".+", queststatus(81) = 5, item(2763, all) > 3, item(2535, all) > 9, item(2550, all) > 9, item(2172, all) > 4, english -> inform("[Quest finished!] You feel like you really learned something."), "Finally, you're back, I started to worry about ya. Now watch how I combine these materials.", skill(smithing) + 5, deleteItem(2763, 4), deleteItem(2535, 10), deleteItem(2550, 10), deleteItem(2172, 5), queststatus(81) = 6
-".+", queststatus(81) = 5, item(2763, all) < 4, item(2535, all) < 10, item(2550, all) < 10, item(2172, all) < 5, german -> "Wenn du nix lernen willst, dann mach das du verschwindest! Wenn du nichtmal die kleinsten Aufträge erfüllen willst, wie willste da nen guter Schmied werden?!"
-".+", queststatus(81) = 5, item(2763, all) < 4, item(2535, all) < 10, item(2550, all) < 10, item(2172, all) < 5, english -> "If ya don't wanna learn anything, just go. Ya can't even complete the simplest task! How do ya think you'll become a good smith then?!"
+skill(smithing) > 40, skill(smithing) =< 60, english, "quest", "mission" -> queststatus(81) = 5, "Arr! You're quite good now. It's time to teach ya something real. Bring me 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes, then I'll show ya what a smith can do."
+skill(smithing) > 40, skill(smithing) =< 60, german, "quest", "mission" -> queststatus(81) = 5, "Du machst dich ganz gut. Nun wird es aber an der Zeit dir wat richtiges beizubringen. Bring mir zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken, dann siehst du selbst was ein Schmied so alles kann."
+skill(smithing) > 40, skill(smithing) =< 60, "task", "adventure" -> queststatus(81) = 5, "Arr! You're quite good now. It's time to teach ya something real. Bring me 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes, then I'll show ya what a smith can do."
+skill(smithing) > 40, skill(smithing) =< 60, "Auftrag", "Aufgabe", "Abenteuer" -> queststatus(81) = 5, "Du machst dich ganz gut. Nun wird es aber an der Zeit dir wat richtiges beizubringen. Bring mir zehn Eisenbarren, zehn Goldbarren, fünf Kupferbarren und vier große Schwertgriffe, dann siehst du selbst was ein Schmied so alles kann."
+skill(smithing) =< 40, queststatus(81) = 4, english, "quest", "mission" -> "Be gone, I have no time for ya right now since you didn't make any progress! Practice some more, then I'll show you how to smith some nice weapons."
+skill(smithing) =< 40, queststatus(81) = 4, german, "quest", "mission" -> "Verschwinde, ich hab grad keine Zeit und so wie du aussiehst, hast du eh keine Fortschritte gemacht! Übe mehr, dann zeig ich dir auch wie man ne nette Waffe schmiedet."
+skill(smithing) =< 40, queststatus(81) = 4, "task", "adventure" -> "Be gone, I have no time for ya right now since you didn't make any progress! Practice some more, then I'll show you how to smith some nice weapons."
+skill(smithing) =< 40, queststatus(81) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> "Verschwinde, ich hab grad keine Zeit und so wie du aussiehst, hast du eh keine Fortschritte gemacht! Übe mehr, dann zeig ich dir auch wie man ne nette Waffe schmiedet."
+queststatus(81) = 5, english, "quest", "mission" -> "It's 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes I wanted from you."
+queststatus(81) = 5, german, "quest", "mission" -> "Es waren zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken die ich haben wollt, aye!"
+queststatus(81) = 5, "task", "adventure" -> "It's 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes I wanted from you."
+queststatus(81) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Es waren zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken die ich haben wollt, aye!"
+queststatus(81) = 5, item(2763, all) > 3, item(2535, all) > 9, item(2550, all) > 9, item(2172, all) > 4, german, ".+" -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."), skill(smithing) + 5, deleteItem(2763, 4), deleteItem(2535, 10), deleteItem(2550, 10), deleteItem(2172, 5), queststatus(81) = 6, "Endlich biste wieder zurück, ich hatte mir schon Sorgen gemacht. Nun pass aber auf wie ich die Erze kombiniere."
+queststatus(81) = 5, item(2763, all) > 3, item(2535, all) > 9, item(2550, all) > 9, item(2172, all) > 4, english, ".+" -> inform("[Quest finished!] You feel like you really learned something."), skill(smithing) + 5, deleteItem(2763, 4), deleteItem(2535, 10), deleteItem(2550, 10), deleteItem(2172, 5), queststatus(81) = 6, "Finally, you're back, I started to worry about ya. Now watch how I combine these materials."
+queststatus(81) = 5, item(2763, all) < 4, item(2535, all) < 10, item(2550, all) < 10, item(2172, all) < 5, german, ".+" -> "Wenn du nix lernen willst, dann mach das du verschwindest! Wenn du nichtmal die kleinsten Aufträge erfüllen willst, wie willste da nen guter Schmied werden?!"
+queststatus(81) = 5, item(2763, all) < 4, item(2535, all) < 10, item(2550, all) < 10, item(2172, all) < 5, english, ".+" -> "If ya don't wanna learn anything, just go. Ya can't even complete the simplest task! How do ya think you'll become a good smith then?!"
 
 -- 4th quest
-"quest", "mission", skill(smithing) > 60, skill(smithing) =< 80, english -> "Never thought I'd see your face again. But glad that you ask. I need 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.", queststatus(81) = 7
-"quest", "mission", skill(smithing) > 60, skill(smithing) =< 80, german -> "Das ich dich mal wieder zu Gesicht bekomme hätte ich nich gedacht. Aber jut das du fragst. 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische bräuchte ich von dir.", queststatus(81) = 7
-"task", "adventure", skill(smithing) > 60, skill(smithing) =< 80 -> "Never thought I'd see your face again. But glad that you ask. I need 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.", queststatus(81) = 7
-"Auftrag", "Aufgabe", skill(smithing) > 60, skill(smithing) =< 80 -> "Das ich dich mal wieder zu Gesicht bekomme hätte ich nich gedacht. Aber jut das du fragst. 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische bräuchte ich von dir.", queststatus(81) = 7
-"quest", "mission", skill(smithing) =< 60, queststatus(81) = 6, english -> "Come back later, I've no time for ya at the moment."
-"quest", "mission", skill(smithing) =< 60, queststatus(81) = 6, german -> "Komm später wieder, ich hab im Moment keine Zeit für dich."
-"task", "adventure", skill(smithing) =< 60, queststatus(81) = 6 -> "Come back later, I've no time for ya at the moment."
-"Auftrag", "Aufgabe", "Abenteuer", skill(smithing) =< 60, queststatus(81) = 6 -> "Komm später wieder, ich hab im Moment keine Zeit für dich."
-"quest", "mission", queststatus(81) = 7, english -> "You were supposed to bring me 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate."
-"quest", "mission", queststatus(81) = 7, german -> "Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische."
-"task", "adventure", queststatus(81) = 7 -> "You were supposed to bring me 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(81) = 7 -> "Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische."
-".+", queststatus(81) = 7, item(2550, all) > 14, item(2675, all) > 9, item(226, all) > 9, item(2364, all) > 1, german -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."), "Sehr gut gemacht, ich wusste man kann sich auf dich verlassen. Nun sperr die Augen weit auf und beobachte wie ich dat Schwert schmiede!", skill(smithing) + 5, deleteItem(2550, 15), deleteItem(2675, 10), deleteItem(226, 10), deleteItem(2364, 2), queststatus(81) = 8
-".+", queststatus(81) = 7, item(2550, all) > 14, item(2675, all) > 9, item(226, all) > 9, item(2364, all) > 1, english -> inform("[Quest finished!] You feel like you really learned something."), "Good job. Now that I know I can count on you, watch closely here and see how this sword is made.", skill(smithing) + 5, deleteItem(2550, 15), deleteItem(2675, 10), deleteItem(226, 10), deleteItem(2364, 2), queststatus(81) = 8
-".+", queststatus(81) = 7, item(2550, all) < 15, item(2675, all) < 10, item(226, all) < 10, item(2364, all) < 2, german -> "Nay, ick red mit dir kein Wort mehr bist du mir nicht das bringst, was ich von dir haben wollte!"
-".+", queststatus(81) = 7, item(2550, all) < 15, item(2675, all) < 10, item(226, all) < 10, item(2364, all) < 2, english -> "Nah, I won't talk to ya until ya bring me the things I asked you for."
+skill(smithing) > 60, skill(smithing) =< 80, english, "quest", "mission" -> queststatus(81) = 7, "Never thought I'd see your face again. But glad that you ask. I need 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate."
+skill(smithing) > 60, skill(smithing) =< 80, german, "quest", "mission" -> queststatus(81) = 7, "Das ich dich mal wieder zu Gesicht bekomme hätte ich nich gedacht. Aber jut das du fragst. 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische bräuchte ich von dir."
+skill(smithing) > 60, skill(smithing) =< 80, "task", "adventure" -> queststatus(81) = 7, "Never thought I'd see your face again. But glad that you ask. I need 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate."
+skill(smithing) > 60, skill(smithing) =< 80, "Auftrag", "Aufgabe" -> queststatus(81) = 7, "Das ich dich mal wieder zu Gesicht bekomme hätte ich nich gedacht. Aber jut das du fragst. 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische bräuchte ich von dir."
+skill(smithing) =< 60, queststatus(81) = 6, english, "quest", "mission" -> "Come back later, I've no time for ya at the moment."
+skill(smithing) =< 60, queststatus(81) = 6, german, "quest", "mission" -> "Komm später wieder, ich hab im Moment keine Zeit für dich."
+skill(smithing) =< 60, queststatus(81) = 6, "task", "adventure" -> "Come back later, I've no time for ya at the moment."
+skill(smithing) =< 60, queststatus(81) = 6, "Auftrag", "Aufgabe", "Abenteuer" -> "Komm später wieder, ich hab im Moment keine Zeit für dich."
+queststatus(81) = 7, english, "quest", "mission" -> "You were supposed to bring me 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate."
+queststatus(81) = 7, german, "quest", "mission" -> "Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische."
+queststatus(81) = 7, "task", "adventure" -> "You were supposed to bring me 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate."
+queststatus(81) = 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische."
+queststatus(81) = 7, item(2550, all) > 14, item(2675, all) > 9, item(226, all) > 9, item(2364, all) > 1, german, ".+" -> inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."), skill(smithing) + 5, deleteItem(2550, 15), deleteItem(2675, 10), deleteItem(226, 10), deleteItem(2364, 2), queststatus(81) = 8, "Sehr gut gemacht, ich wusste man kann sich auf dich verlassen. Nun sperr die Augen weit auf und beobachte wie ich dat Schwert schmiede!"
+queststatus(81) = 7, item(2550, all) > 14, item(2675, all) > 9, item(226, all) > 9, item(2364, all) > 1, english, ".+" -> inform("[Quest finished!] You feel like you really learned something."), skill(smithing) + 5, deleteItem(2550, 15), deleteItem(2675, 10), deleteItem(226, 10), deleteItem(2364, 2), queststatus(81) = 8, "Good job. Now that I know I can count on you, watch closely here and see how this sword is made."
+queststatus(81) = 7, item(2550, all) < 15, item(2675, all) < 10, item(226, all) < 10, item(2364, all) < 2, german, ".+" -> "Nay, ick red mit dir kein Wort mehr bist du mir nicht das bringst, was ich von dir haben wollte!"
+queststatus(81) = 7, item(2550, all) < 15, item(2675, all) < 10, item(226, all) < 10, item(2364, all) < 2, english, ".+" -> "Nah, I won't talk to ya until ya bring me the things I asked you for."
 
 -- Final dialogue: No more quests, just nice hints
-"quest", "mission", queststatus(81) = 8, english -> "Nah, you learned enough from me. You have to figure out everything else for yourself . That's what a good smith is all about."
-"quest", "mission", queststatus(81) = 8, german -> "Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!"
-"task", "adventure", queststatus(81) = 8 -> "Nah, you learned enough from me. You have to figure out everything else for yourself. That's what a good smith is all about."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(81) = 8 -> "Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!"
-"quest", "mission", english -> "Sorry, I only issue tasks to unexperienced smithes."
+queststatus(81) = 8, english, "quest", "mission" -> "Nah, you learned enough from me. You have to figure out everything else for yourself . That's what a good smith is all about."
+queststatus(81) = 8, german, "quest", "mission" -> "Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!"
+queststatus(81) = 8, "task", "adventure" -> "Nah, you learned enough from me. You have to figure out everything else for yourself. That's what a good smith is all about."
+queststatus(81) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!"
+english, "quest", "mission" -> "Sorry, I only issue tasks to unexperienced smithes."
 "quest", "mission" -> "Tut mir Leid, Kumpel. Aber ich geb nur unerfahrenen Schmieden Aufgaben auf."
 "smith", "task", "adventure", "order" -> "Sorry, I only issue tasks to unexperienced smithes."
 "Schmied", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Tut mir Leid, Kumpel. Aber ich geb nur unerfahrenen Schmieden Aufgaben auf."
@@ -161,9 +161,9 @@ itemShoes = 697
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "You ask what my profession is? I'm a smith, the best even.", "I'm a smith and you?"
 "beruf" -> "Du fragst nach meinem Beruf? Ich bin Schmied, einer der besten sogar.", "Von Beruf bin ich Schmied und du?"
-"job", english -> "You ask what my profession is? I'm a smith, the best even.", "I'm a smith and you?"
+english, "job" -> "You ask what my profession is? I'm a smith, the best even.", "I'm a smith and you?"
 "job" -> "Du fragst nach meinem Beruf? Ich bin Schmied, einer der besten sogar.", "Von Beruf bin ich Schmied und du?"
-"Gobaith", "Gobiath", english -> "Gobaith! Aye. My cousin fourth grade lived there down in Silverbrand, a while. But I say, Galmair is the bether choice to gain wealth for your clan."
+english, "Gobaith", "Gobiath" -> "Gobaith! Aye. My cousin fourth grade lived there down in Silverbrand, a while. But I say, Galmair is the bether choice to gain wealth for your clan."
 "Gobaith", "Gobiath" -> "Gobaith! Aye. Mein Cousin vierten Grades lebte ne Weile unten in Silverbrand. Aber ich sag, Galmair iss die bessere Wahl, wenn du Wohlstand anhäufn wills'."
 "my name" -> "Aye. It's a pleasure.", "Tehie? Well then. How may I help you?", "By Irmorom! And you like to become a smith, or what?"
 "mein Name" -> "Aye. Freut mich 'n Bekanntschaft zu machn.", "Soso? Na, dann - wie kann ich dir helfn?", "Bei Irmorom, iss mir ne Freude."
@@ -181,27 +181,27 @@ itemShoes = 697
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Don't know him, who's that supposed to be?"
 "Erzmagier" -> "Kenn ich nicht, wer soll denn das sein?"
-"Elvaine", "Morgan", english -> "Don't know him, who's that supposed to be?"
+english, "Elvaine", "Morgan" -> "Don't know him, who's that supposed to be?"
 "Elvaine", "Morgan" -> "Kenn ich nicht, wer soll denn das sein?"
-"Runewick", english -> "Runewick is the city full of them mage-folk right? Don't like them much."
+english, "Runewick" -> "Runewick is the city full of them mage-folk right? Don't like them much."
 "Runewick" -> "Runewick ist die Stadt mit diesem Magierpack, stimmts? Mag die nicht besonders."
-"Valerio", "Guilianni", "Don", english -> "Well, nothing much to say. He's the leader of Galmair and does a really good job."
+english, "Valerio", "Guilianni", "Don" -> "Well, nothing much to say. He's the leader of Galmair and does a really good job."
 "Valerio", "Guilianni", "Don" -> "Nun, gibt nicht viel zu sagen. Er ist der Anführer von Galmair und macht seine Arbeit sehr gut."
-"Galmair", english -> "Fine town, really fine town you know. But only if ya have enough silver coins in your pocket you know what I mean?"
+english, "Galmair" -> "Fine town, really fine town you know. But only if ya have enough silver coins in your pocket you know what I mean?"
 "Galmair" -> "Tolle Stadt, wirklich tolle Stadt weißt du. Aber nur wenn du genug Silbermünzen in der Tasche hast, weißt du was ich meine?"
 "Queen" -> "Don't know her personally but wouldn't mind if she really is as good looking as they say. Hear she's a harsh leader though."
 "Königin" -> "Kenn die nicht persönlich aber würde mich nicht weigern wenn sie wirklich so gut aussieht wie man sagt. Man sagt auch das sie eine taffe Herrscherin is."
-"rosaline", "edwards", english -> "Don't know her personally but wouldn't mind if she really is as good looking as they say. Hear she's a harsh leader though."
+english, "rosaline", "edwards" -> "Don't know her personally but wouldn't mind if she really is as good looking as they say. Hear she's a harsh leader though."
 "rosaline", "edwards" -> "Kenn die nicht persönlich aber würde mich nicht weigern wenn sie wirklich so gut aussieht wie man sagt. Man sagt auch das sie eine taffe Herrscherin is."
-"Cadomyr", english -> "Well, a little hot there but the queen is supposed to be good looking, wouldn't mind if she came here."
+english, "Cadomyr" -> "Well, a little hot there but the queen is supposed to be good looking, wouldn't mind if she came here."
 "Cadomyr" -> "Nun, ein bisschen warm dort, aber die Königin soll gutaussehen. Würde nichts dagegen haben, wenn sie mal herkommt."
 
 -- Main land factions
-"albar", english -> "Forgive me... I don't know about the human town's. But maybe you are interested to hear about the homeland of my clan, sevenhill!"
+english, "albar" -> "Forgive me... I don't know about the human town's. But maybe you are interested to hear about the homeland of my clan, sevenhill!"
 "albar" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber villeicht interssiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
-"gynk", "gync", english -> "Forgive me... I don't know about the human town's. But maybe you are interested to hear about the homeland of my clan, sevenhill!"
+english, "gynk", "gync" -> "Forgive me... I don't know about the human town's. But maybe you are interested to hear about the homeland of my clan, sevenhill!"
 "gync", "gynk" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber villeicht interssiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
-"salkama", english -> "Forgive me... I don't know about the human town's. But maybe you are interested to hear about the homeland of my clan, sevenhill!"
+english, "salkama" -> "Forgive me... I don't know about the human town's. But maybe you are interested to hear about the homeland of my clan, sevenhill!"
 "salkama" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber villeicht interssiert ihr Euch dafür über meine Heimat zu sprechen, Siebenberg."
 "sevenhill" -> "'Tunnel pigs' can also be found in Sevenhill. This is not an insulting term for lazy miners, but is rather a very large, fat, and nearly naked type of rodent. This animal is well known at most dwarven settlements and is considered a delicacy.", "Sevenhill, also known as Siebenberg, is one of the greatest dwarven mines and it's halls and wealth are legendary. The town is located in deep caverns under a range of seven mountains, but only dwarves know the exact location.", " Humans are not permitted in Sevenhill and only a few trusted lizardmen and elves have ever been welcomed into the city. Heavily armed dwarven squads guard every entrance.", "Many of the city's exits end in many mountain valleys where crops and livestock are farmed. The infamous 'dwarven cheese' is also produced here; an incredibly strong smelling kind of cheese, highly thought of by dwarves, but completely unpalatable to humans, halflings and elves.", "Sevenhill is home to seven dwarven clans. It is said that Irmorom blesses those dwarves who make a pilgramage to all of the four sanctuaries, located under Sevenhill. Many of the famous dwarves, are said to have been there as pilgrims."
 "siebenberg" -> "'Tunnelschwein',  daß ist kein Schimpfnamen für faule Minenarbeiter, sondern ‘n Nagetier. Erinnert an enorm große, fast nackte, fette Ratten. Dieses Tier ist in eigentlich unter allen Zwergen bekannt und oft delikat zubereitet.", "Siebenberg ist die Heimat von sieben Zwergenklans. Es wird gesagt, dass ein Zwerg, der zu allen vier Heiligtümern Siebenbergs pilgert und dort zu Irmorom betet, von diesem gesegnet wird.", "Siebenberg ist eine der größten bekannten Zwergenminen, ihre Hallen und deren Reichtum sind legendär. Die Stadt befindet sich in den tiefen Höhlen unter den Siebenhügelbergen, die genaue Lage ist nur Zwergen bekannt.", "Menschen finden keinen Einlass nach Siebenberg und nur wenige Echsenmenschen oder Elfen – von denen bekannt ist, dass sie nicht versuchen würden, glänzende Dinge aus kostbaren Verzierungen herauszubrechen.", "Es werden  Ziegen gehalten, deren Milch hauptsächlich zum  bekannten Zwergenkäse verarbeitet wird! Eine besonders übelriechende Käsesorte, die von uns Zwergen sehr geschätzt wird, aber die anderen Völker scheinen ihn nicht besonders zu schätzen."
@@ -209,9 +209,9 @@ itemShoes = 697
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I follow Irmorom, the father of the dwarven kind and hallow of the crafters. And Brágon, whose falmes melt the ores."
 "Gott", "Götter" -> "Irmorom.  Ich huldige dem Vater der Zwerge und Heiligem der Handwerker. Sowie Brágon, dessen Flammen die Metalle zum schmelzen bringen."
-"Bragon", "Brágon", english -> "The falme of Brágon brings dragons their fiere and warms the living. And it bends Steel, by heat it."
+english, "Bragon", "Brágon" -> "The falme of Brágon brings dragons their fiere and warms the living. And it bends Steel, by heat it."
 "Bragon", "Brágon" -> "Die Flamme Brágons haucht nicht nur Drachen ihr Feuer ein, sondern wärmt die Völker und macht Stahl biegsam."
-"Irmorom", english -> "Smithing is the craft of the dwarves. Irmorom teached us long time ago, that Brágons flame makes iron bendable and plastic.", "Irmorom the godly crafter, told the dwarven folk how to smith and after hundrets of years, they figured out how to put runes and gems into mighty weapons and armors.", "Irmorom himself was the first smith. He liked the hardwoking dwarves most, so he gave them the ability to smith."
+english, "Irmorom" -> "Smithing is the craft of the dwarves. Irmorom teached us long time ago, that Brágons flame makes iron bendable and plastic.", "Irmorom the godly crafter, told the dwarven folk how to smith and after hundrets of years, they figured out how to put runes and gems into mighty weapons and armors.", "Irmorom himself was the first smith. He liked the hardwoking dwarves most, so he gave them the ability to smith."
 "Irmorom" -> "Das Schmieden ist das Handwerk des Zwergenvolkes, Irmorom hat uns lange vor allen anderen gelehrt, dass Brágons Flammen härtes Eisen biegsam und formbar machen.", "Irmorom der göttliche Handwerker, lehrte einst den Zwergen das schmieden, und in hundert Jahr langer Geschichte sollten wir lernen Edelsteine und Runen in mächtigen Waffen und Rüstungen einzufassen.", "Irmorom war der erste Schmied und da ihm die fliessigen Zwerge das liebste Volk waren vermachte er dieses Handwerk den Zwergen."
 
 -- Catching typical NPC phrases
@@ -221,7 +221,7 @@ itemShoes = 697
 "erzähl was", "erzähl etwas" -> "Kennt ihr Gremle Ochsenschenkel, meinen Schwager? Er behauptet er würde einem Golem im Faustkampf besiegen. Ga strak ja'ada! So'ne erlogene Geschichte.", "Es heißt Eygir Goldmalz braut das beste Bier, aber mir schmeckt das von Yseult Bockbräu viel besser. ", "Rostbart Grimhilds-Vetter ist ein guter Bekannter von mir. Aber der verträgt kein Bier nicht. Hat der einen halben Humpen drin, fängt er an unflätig zu singen und mit Beilen nach den Zöpfen von jungn' Fraun zu werfn."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Saren", "Eisenfaust", english -> "What's up`?", "Aye?", "#me nods once and rises an eyebrow."
+english, "Saren", "Eisenfaust" -> "What's up`?", "Aye?", "#me nods once and rises an eyebrow."
 "Saren", "Eisenfaust" -> "Aye?", "Was, gibt's?", "#me nickt dir zun und zieht eine Braue hoch."
 "Yes" -> "Aye, then go and collect those things I asked you for.", "If ya say so.", "Alright, have fun!"
 "Ja" -> "Aye, dann mach dich auf dem Weg und sammel was ich von dir wollte!", "Na wenn du meinst", "Is gut, viel Vergnügen!"
@@ -229,8 +229,8 @@ itemShoes = 697
 "Nein" -> "Wat sachste, ich hoffe ich habe mich verhört?!", "Du sagst Nein...nein zu mir, wat denkst du mit wem du sprichst!", "Dann nich, so wird nie was aus dir!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Eh..what did you just say about my mother?", "What are you jabbering about?", "Nah, I don't wanna buy that!"
-".*", german, chance(20.0) -> "Eh..wat hast du grad über meine Mutter gesagt?", "Wat quasselst du da?", "Nay, ich will dat nich kaufen!"
+english, chance(20.0), ".*" -> "Eh..what did you just say about my mother?", "What are you jabbering about?", "Nah, I don't wanna buy that!"
+german, chance(20.0), ".*" -> "Eh..wat hast du grad über meine Mutter gesagt?", "Wat quasselst du da?", "Nay, ich will dat nich kaufen!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

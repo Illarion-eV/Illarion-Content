@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -32,7 +32,6 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("reset");
-talkEntry:addResponse("Noobia reset!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 0));
@@ -40,6 +39,7 @@ talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(314, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(31, 22, 100));
+talkEntry:addResponse("Noobia reset!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -73,73 +73,73 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "<", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and then initiating the attack with a click on the name of your enemy."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 2));
 talkEntry:addResponse("Hurr! Fresh meat! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Choose a weapon and crush three of those pigs over there.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "<", 2));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du die Charakterlite mit dem Hotkey XXX öffnest und dort mit einem Klick auf den Namen deines Feindes eine Attacke beginnst."));
-talkEntry:addResponse("Hurr! Frischfleisch! Ich bin Groknar, der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 2));
+talkEntry:addResponse("Hurr! Frischfleisch! Ich bin Groknar, der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "<", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You can attack other creatures by opening the character list with the hotkey XXX and then initiating the attack with a click on the name of your enemy."));
 talkEntry:addResponse("Hurr, you afraid of those puny pigs? Off! Kill at least three of them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "<", 5));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du die Charakterlite mit dem Hotkey XXX öffnest und dort mit einem Klick auf den Namen deines Feindes eine Attacke beginnst."));
 talkEntry:addResponse("Hurr, hast du Angst vor diesen erbärmlichen Schweinen? Geh! Töte mindestens drei von ihnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded a club."));
+talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 599, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 6));
 talkEntry:addResponse("Good. You might just survive out there. Here, take this club. It will crush good. Follow the road, Hammerfist is expecting you. Good travels, %CHARNAME!");
-talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 5));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst eine Keule."));
-talkEntry:addResponse("Gut. Vielleicht wirst du da draußen nun überleben. Hier, nimm diese Keule, sie wird dir gute Dienste leisten. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!");
-talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 6));
+talkEntry:addResponse("Gut. Vielleicht wirst du da draußen nun überleben. Hier, nimm diese Keule, sie wird dir gute Dienste leisten. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Hurr, you are prepared to face the threats of this world. Follow the road, Nargon Hammerfist is expecting you. Good travels, %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 6));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Hurr, du bist nun auf die Gefahren der Welt vorbereitet. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

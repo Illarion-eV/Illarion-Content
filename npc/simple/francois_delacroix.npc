@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Regallo                                                          --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Francois Delacroix"
@@ -86,27 +86,27 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day.", "How be you?", "It seems to be your lucky day, why? You have found me as your agricultural trader of choice."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> trade, "Good day.", "How be you?", "It seems to be your lucky day, why? You have found me as your agriculturalr of choice."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day sir, madam.", "How be you?", "It seems to be your lucky day, why? You have found me as your agricultural trader of choice."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> trade, "Good day sir, madam.", "How be you?", "It seems to be your lucky day, why? You have found me as your agriculturalr of choice."
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Farewell", "Bye", "Fare well", "See you" -> "Have a good day today. You are beautiful.", "Smile, see you later.", "Remember to tell your friends to come to Francois Delacroix for all their agricultural needs."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have a good day today. You are beautiful.", "Smile, see you later.", "Remember to tell your friends to come to Francois Delacroix for all their agricultural needs."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a good day today. You are beautiful.", "Smile, see you later.", "Remember to tell your friends to come to Francois Delacroix for all their agricultural needs."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "How are you", "How feel", "How do you do" -> "I'd feel better if You  brought something.", " I feel a lot better now that you've come.", "It's one of those days, you know?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "Francois Delacroix , Agricultural goods Trader", "My name is Francois. It's beyond a pleasure to be acquainted with you", " Francois Delacroix. It still feels weird every time I say it."
+"your name", "who are you", "who art thou" -> trade, "Francois Delacroix , Agricultural goodsr", "My name is Francois. It's beyond a pleasure to be acquainted with you", " Francois Delacroix. It still feels weird every time I say it."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I sell goods such as milk and farmer tools", "I sell that which you need.", "I'm a self made agricultural goods trader."
+"profession" -> trade, "I sell goods such as milk and farmer tools", "I sell that which you need.", "I'm a self made agricultural goodsr."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "I sell goods such as milk and farmer tools.", "I sell that which you need.", "I'm a self made agricultural goods trader."
+english, "job" -> trade, "I sell goods such as milk and farmer tools.", "I sell that which you need.", "I'm a self made agricultural goodsr."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "That's like asking what is the sky. Honestly I don't think I could answer it."
+english, "Gobaith", "Gobiath" -> "That's like asking what is the sky. Honestly I don't think I could answer it."
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"my name" -> "Francois Delacroix , Agricultural goods Trader", "My name is Francois. It's beyond a pleasure to be acquainted with you", " Francois Delacroix. It still feels weird every time I say it."
+"my name" -> trade, "Francois Delacroix , Agricultural goodsr", "My name is Francois. It's beyond a pleasure to be acquainted with you", " Francois Delacroix. It still feels weird every time I say it."
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
@@ -118,32 +118,32 @@ itemShoes = 53
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "I don't know much of the man, but I can't help appreciate him for keeping this city safe for all of us who live here."
 "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elvaine", "Morgan", english -> "I don't know much of the man, but I can't help appreciate him for keeping this city safe for all of us who live here."
+english, "Elvaine", "Morgan" -> "I don't know much of the man, but I can't help appreciate him for keeping this city safe for all of us who live here."
 "Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Runewick", english -> "When I was a kid I never thought I would be a city person, but the women here really are prettier."
+english, "Runewick" -> "When I was a kid I never thought I would be a city person, but the women here really are prettier."
 "Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Valerio", "Guilianni", "Don", english -> "Of course I heard the name, but I know nothing of Galmair or its people."
+english, "Valerio", "Guilianni", "Don" -> "Of course I heard the name, but I know nothing of Galmair or its people."
 "Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "I've never been."
+english, "Galmair" -> "I've never been."
 "Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Queen" -> "I grew up wanting to be like her."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "I grew up wanting to be like her."
+english, "rosaline", "edwards" -> "I grew up wanting to be like her."
 "rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "I've been. It's a little too dry and hot. I prefer the Runewick Breeze.", "They have quite a few jewelry makers. I think most of my collection is from Cadomyrian smiths."
+english, "Cadomyr" -> "I've been. It's a little too dry and hot. I prefer the Runewick Breeze.", "They have quite a few jewelry makers. I think most of my collection is from Cadomyrian smiths."
 "Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
-"albar", english -> "On the downside it is dangerously hot in the Albarian deserts. On the upside the Alberian women look dangerously hot."
+english, "albar" -> "On the downside it is dangerously hot in the Albarian deserts. On the upside the Alberian women look dangerously hot."
 "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "gynk", "gync" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "gync", "gynk" -> "Never been. I have no idea. People keep asking me about this. Maybe I should go someday."
-"salkama", english -> "I have lived in this land all my life. I don't love it, but being anywhere else is just uncomfortable."
+english, "salkama" -> "I have lived in this land all my life. I don't love it, but being anywhere else is just uncomfortable."
 "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I follow Irmorom, Of course. What kind of question is that."
-"Irmorom", english -> "He keeps me at the top of my craft, which makes me money, which gets all these girls to look my way. How can I not be content."
+english, "Irmorom" -> "He keeps me at the top of my craft, which makes me money, which gets all these girls to look my way. How can I not be content."
 "Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Catching typical NPC phrases
@@ -153,7 +153,7 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Francois", "Delacroix", english -> "Do you need something? Chances are I selling it."
+english, "Francois", "Delacroix" -> "Do you need something? Chances are I selling it."
 "Francois", "Delacroix" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "Please be more specific. "
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."

@@ -8,7 +8,7 @@
 -- Authors:  Estralis & Ardian                                                --
 --           Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Percy Dryless"
@@ -54,22 +54,22 @@ itemShoes = 53
 "Hilfe" -> "[Spielhilfe] Dieser NPC ist der Gefängnisaufseher Percy Dryless. Schlüsselwörter: 'Lass mich bitte frei','Ich bin hungrig','Gib mir bitte eine neue Spitzhacke', 'Wie hoch ist meine übrige Strafe?' und 'Ich möchte <Ressource> abliefern.'"
 
 -- Prison stuff
-"hunger", attrib(foodlevel) > 14999, english -> "You don't look hungry to me. Work some more!", "No food for lazy scum like you!"
-"hunger", attrib(foodlevel) < 15000, item(49, all) = 0, english -> "Here, have some moldy bread. Back to work!", item(49, 1, 333, 0)
-"hunger", attrib(foodlevel) < 15000, item(49, all) ~= 0, english -> "You think I'm giving bread away for nothing, eh? Get back to work or feel my whip."
-"hunger", attrib(foodlevel) > 14999, german -> "Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!", "Kein Futter für faulen Abschaum wie dich!"
-"hunger", attrib(foodlevel) < 15000, item(49, all) = 0, english -> "Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!", item(49, 1, 333, 0)
-"hunger", attrib(foodlevel) < 15000, item(49, all) ~= 0, english -> "Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche."
-"hungry", "food", attrib(foodlevel) > 14999 -> "You don't look hungry to me. Work some more!", "No food for lazy scum like you!"
-"hungry", "food", attrib(foodlevel) < 15000, item(49, all) = 0 -> "Here, have some moldy bread. Back to work!", item(49, 1, 333, 0)
-"hungry", "food", attrib(foodlevel) < 15000, item(49, all) ~= 0 -> "You think I'm giving bread away for nothing, eh? Get back to work or feel my whip."
-"hungrig", "essen", attrib(foodlevel) > 14999 -> "Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!", "Kein Futter für faulen Abschaum wie dich!"
-"hungrig", "essen", attrib(foodlevel) < 15000, item(49, all) = 0 -> "Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!", item(49, 1, 333, 0)
-"hungrig", "essen", attrib(foodlevel) < 15000, item(49, all) ~= 0 -> "Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche."
-"pick axe", "rock pick", "pick", item(2763, all) = 0 -> "So, you broke my pick? You lost it? Here, have this one, but pay more attention to it or I'll whip you.", item(2763, 1, 333, 0)
-"pick axe", "rock pick", "pick", item(2763, all) ~= 0 -> "What do you want with two picks? Two fisted stone hitting?"
-"spitzhacke", "hacke", item(2763, all) ~= 0 -> "Was willst du mit zwei Spitzhacken? BeidhÃ¤ndig auf die Steine eindreschen?"
-"spitzhacke", "hacke", item(2763, all) = 0 -> "So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus.", item(2763, 1, 333, 0)
+attrib(foodlevel) > 14999, english, "hunger" -> "You don't look hungry to me. Work some more!", "No food for lazy scum like you!"
+attrib(foodlevel) < 15000, item(49, all) = 0, english, "hunger" -> item(49, 1, 333), "Here, have some moldy bread. Back to work!"
+attrib(foodlevel) < 15000, item(49, all) ~= 0, english, "hunger" -> "You think I'm giving bread away for nothing, eh? Get back to work or feel my whip."
+attrib(foodlevel) > 14999, german, "hunger" -> "Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!", "Kein Futter für faulen Abschaum wie dich!"
+attrib(foodlevel) < 15000, item(49, all) = 0, english, "hunger" -> item(49, 1, 333), "Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!"
+attrib(foodlevel) < 15000, item(49, all) ~= 0, english, "hunger" -> "Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche."
+attrib(foodlevel) > 14999, "hungry", "food" -> "You don't look hungry to me. Work some more!", "No food for lazy scum like you!"
+attrib(foodlevel) < 15000, item(49, all) = 0, "hungry", "food" -> item(49, 1, 333), "Here, have some moldy bread. Back to work!"
+attrib(foodlevel) < 15000, item(49, all) ~= 0, "hungry", "food" -> "You think I'm giving bread away for nothing, eh? Get back to work or feel my whip."
+attrib(foodlevel) > 14999, "hungrig", "essen" -> "Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!", "Kein Futter für faulen Abschaum wie dich!"
+attrib(foodlevel) < 15000, item(49, all) = 0, "hungrig", "essen" -> item(49, 1, 333), "Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!"
+attrib(foodlevel) < 15000, item(49, all) ~= 0, "hungrig", "essen" -> "Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche."
+item(2763, all) = 0, "pick axe", "rock pick", "pick" -> item(2763, 1, 333), "So, you broke my pick? You lost it? Here, have this one, but pay more attention to it or I'll whip you."
+item(2763, all) ~= 0, "pick axe", "rock pick", "pick" -> "What do you want with two picks? Two fisted stone hitting?"
+item(2763, all) ~= 0, "spitzhacke", "hacke" -> "Was willst du mit zwei Spitzhacken? BeidhÃ¤ndig auf die Steine eindreschen?"
+item(2763, all) = 0, "spitzhacke", "hacke" -> item(2763, 1, 333), "So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus."
 
 -- "release",queststatus(25)>0 ->"No way.","You'd like that, wouldn't you?","Sure I'll release you. In a hundred years!","Shut up!","Hahahahaha!","Release you? Sure! What next, shall I wipe your boots?","No way. Work!","Wait, let me laugh first.","You want me to release you? You?","What kind of joker are you?"
 -- "release",queststatus(25)<1->"Until next time. They all come back!",deleteitem(2763,0),deleteitem(49,0),deleteitem(234,0),deleteitem(2536,0),deleteitem(22,0),deleteitem(21,0),state=-1
@@ -95,19 +95,19 @@ itemShoes = 53
 -- "eisen abliefern","ich liefer eisen ab",item(22,all)=0->"Machst du Witze? Du hast kein Eisenerz."
 -- "kohle abliefern","ich liefer kohle ab",item(21,all)>0->"Diese Kohle ist genauso dreckig wie du und so schwarz wie deine Seele. Bring mir mehr!",queststatus(25)-expr(item(21,all)), state(expr(item(21,all)),deleteitem(21,0)
 -- "kohle abliefern","ich liefer kohle ab",item(21,all)=0->"Wie zum... gedenkst du, mir etwas zu geben, was du nicht hast?"
-"remaining punishment", queststatus(25) > 0 -> "Pah! You still have to deliver %QUESTSTATUS shovels of resources.", "Bring me %QUESTSTATUS resources and I'll release you. Maybe.", "Mercy won't come before you bring me %QUESTSTATUS shovels of resources."
-"remaining punishment", queststatus(25) < 1 -> "You are free to go, punk. Ask me to release you.", "That was enough, I think I can release you."
-"übrige strafe", queststatus(25) > 0 -> "Pah! Du muÃŸt mir noch %QUESTSTATUS Schaufeln voll Ressourcen bringen.", "Bring mir noch %QUESTSTATUS Ressourcen und vielleicht lasse ich dich dann gehen.", "Gnade wird nicht eher gewaltet bevor du mir nicht %QUESTSTATUS Schaufeln voll Ressourcen bringst."
-"übrige strafe", queststatus(25) < 1 -> "Du kannst gehen, Gauner. Bitte mich darum, dich freizulassen.", "Das reicht jetzt, ich denke, ich kann dich freilassen."
+queststatus(25) > 0, "remaining punishment" -> "Pah! You still have to deliver %QUESTSTATUS shovels of resources.", "Bring me %QUESTSTATUS resources and I'll release you. Maybe.", "Mercy won't come before you bring me %QUESTSTATUS shovels of resources."
+queststatus(25) < 1, "remaining punishment" -> "You are free to go, punk. Ask me to release you.", "That was enough, I think I can release you."
+queststatus(25) > 0, "übrige strafe" -> "Pah! Du muÃŸt mir noch %QUESTSTATUS Schaufeln voll Ressourcen bringen.", "Bring mir noch %QUESTSTATUS Ressourcen und vielleicht lasse ich dich dann gehen.", "Gnade wird nicht eher gewaltet bevor du mir nicht %QUESTSTATUS Schaufeln voll Ressourcen bringst."
+queststatus(25) < 1, "übrige strafe" -> "Du kannst gehen, Gauner. Bitte mich darum, dich freizulassen.", "Das reicht jetzt, ich denke, ich kann dich freilassen."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "What do you want? Ah, I know: You want to feel my whip!", "Welcome to my realm, the realm of work, sweat and tears.", "Work, scum! Criminals deserve nothing more than pain.", "Tell me you are innocent and I will laugh for the rest of the day."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.", "Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.", "Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!", "Sag mir jetzt noch, du bist unschuldig und ich lache für den Rest des Tages."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "What do you want? Ah, I know: You want to feel my whip!", "Welcome to my realm, the realm of work, sweat and tears.", "Work, scum! Criminals deserve nothing more than pain.", "Tell me you are innocent and I will laugh for the rest of the day."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "What do you want? Ah, I know: You want to feel my whip!", "Welcome to my realm, the realm of work, sweat and tears.", "Work, scum! Criminals deserve nothing more than pain.", "Tell me you are innocent and I will laugh for the rest of the day."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.", "Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.", "Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!", "Sag mir jetzt noch, du bist unschuldig und ich lache für den Rest des Tages."
 "Farewell", "Bye", "Fare well", "See you" -> "I don't think you're leaving right now.", "So you think you're leaving? Surprise! You're not!", "When you find the exit, send me a letter.", "Didn't anyone tell you that you have to stay a bit longer...?", "Nope. Work. Deliver things. Deliver even more things. Then you may get released."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ich glaube kaum, dass du jetzt gehst.", "So, du glaubst also, du gehst jetzt? Überraschung! Du gehst nicht.", "Wenn du den Ausgang findest, schick mir einen Brief.", "Hat dir niemand gesagt, dass du für eine Weile hier bleibst?", "Nö. Arbeite. Liefer Dinge ab. Liefere noch mehr Dinge ab. Dann wirst du vielleicht entlassen."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "I don't think you're leaving right now.", "So you think you're leaving? Surprise! You're not!", "When you find the exit, send me a letter.", "Didn't anyone tell you that you have to stay a bit longer...?", "Nope. Work. Deliver things. Deliver even more things. Then you may get released."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I don't think you're leaving right now.", "So you think you're leaving? Surprise! You're not!", "When you find the exit, send me a letter.", "Didn't anyone tell you that you have to stay a bit longer...?", "Nope. Work. Deliver things. Deliver even more things. Then you may get released."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich glaube kaum, dass du jetzt gehst.", "So, du glaubst also, du gehst jetzt? Überraschung! Du gehst nicht.", "Wenn du den Ausgang findest, schick mir einen Brief.", "Hat dir niemand gesagt, dass du für eine Weile hier bleibst?", "Nö. Arbeite. Liefer Dinge ab. Liefere noch mehr Dinge ab. Dann wirst du vielleicht entlassen."
 "How are you", "How feel", "How do you do" -> "Mind your business.", "I would feel way better if you'd stop talking and get back to work!", "I feel like whipping you."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Das geht dich nichts an.", "Es würde mir weit besser gehen wenn du die Klappe hieltest und arbeiten würdest.", "Mir ist danach, dich auszupeitschen."
@@ -115,7 +115,7 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Du kannst mich 'Meister' nennen.", "Percy Dryless. Du wirst diesen Namen in deinen Alpträumen schreien.", "Wenigstens habe ich einen Namen, deinen wird man längst vergessen haben, wenn du entlassen wirst."
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "#me points his finger in your face and laughs out loud.", "Erm, no quest for you.", "My quest is to whip those who are lazy.", "Let me see... your quest is to work!"
+english, "quest", "mission" -> "#me points his finger in your face and laughs out loud.", "Erm, no quest for you.", "My quest is to whip those who are lazy.", "Let me see... your quest is to work!"
 "quest", "mission" -> "#me zeigt mit dem Finger auf dich und lacht lauthals los.", "Äh, keine Queste für dich.", "Meine Bestimmung ist, die Faulen auszupeitschen.", "Wart mal... deine Bestimmung ist es, zu arbeiten."
 "task", "adventure", "order" -> "#me points his finger in your face and laughs out loud.", "Erm, no quest for you.", "My quest is to whip those who are lazy.", "Let me see... your quest is to work!"
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me zeigt mit dem Finger auf dich und lacht lauthals los.", "Äh, keine Queste für dich.", "Meine Bestimmung ist, die Faulen auszupeitschen.", "Wart mal... deine Bestimmung ist es, zu arbeiten."
@@ -123,15 +123,15 @@ itemShoes = 53
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I take care that scum like you gets punished!"
 "beruf" -> "Ich kümmer mich drum, dass Abschaum wie du bestraft wird!"
-"job", english -> "I take care that bastards like you, get punished!"
+english, "job" -> "I take care that bastards like you, get punished!"
 "job" -> "Ich kümmer mich drum, dass Abschaum wie du bestraft wird!"
-"Gobaith", "Gobiath", english -> "Shut up and keep working."
+english, "Gobaith", "Gobiath" -> "Shut up and keep working."
 "Gobaith", "Gobiath" -> "Halt's Maul und arbeite weiter."
 "my name" -> "Actually I don't care about your name.", "Aha? - So... what?"
 "mein Name" -> "Tatsächlich interessiert mich dein Name weniger als der Dreck unter meinen Fingernägeln.", "Aha? - Also... was?"
 
 -- Easter egg
-"jingles", english -> "If I catch this stupid mouse, I will trample it!"
+english, "jingles" -> "If I catch this stupid mouse, I will trample it!"
 "jingles" -> "Wenn ich diese verdammte Maus erwische... zerquetsch ich sie!"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
@@ -147,73 +147,73 @@ itemShoes = 53
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Do you come frome Runewick? Seems Archmage Morgans sent you here."
 "Erzmagier" -> "Bist du aus Runewick? Dann hat dich vermutlich Erzmagier Morgan hergeschickt."
-"Elvaine", "Morgan", english -> "Do you come frome Runewick? Seems Archmage Morgans sent you here."
+english, "Elvaine", "Morgan" -> "Do you come frome Runewick? Seems Archmage Morgans sent you here."
 "Elvaine", "Morgan" -> "Bist du aus Runewick? Dann hat dich vermutlich Erzmagier Morgan hergeschickt."
-"Runewick", english -> "This prison gathers the scum of three nations! And now keep up working."
+english, "Runewick" -> "This prison gathers the scum of three nations! And now keep up working."
 "Runewick" -> "Hier versammelt sich der ganze Abschaum aus drei Nationen! Und jetzt arbeite weiter."
-"Valerio", "Guilianni", "Don", english -> "Do you come from Galmair? Seems Don Valerio sent you here."
+english, "Valerio", "Guilianni", "Don" -> "Do you come from Galmair? Seems Don Valerio sent you here."
 "Valerio", "Guilianni", "Don" -> "Bist du aus Galmair? Dann hat dich vermutlich Don Valerio hergeschickt."
-"Galmair", english -> "This prison gathers the scum of three nations! And now keep up working."
+english, "Galmair" -> "This prison gathers the scum of three nations! And now keep up working."
 "Galmair" -> "Hier versammelt sich der ganze Abschaum aus drei Nationen! Und jetzt arbeite weiter."
 "Queen" -> "Do you come frome Cadomyr? Seems Queen Rosaline sent you here."
 "Königin" -> "Bist du aus Cadomyr? Dann hat dich vermutlich Königin Edwards hergeschickt."
-"rosaline", "edwards", english -> "Do you come frome Cadomyr? Seems Queen Rosaline sent you here."
+english, "rosaline", "edwards" -> "Do you come frome Cadomyr? Seems Queen Rosaline sent you here."
 "rosaline", "edwards" -> "Bist du aus Cadomyr? Dann hat dich vermutlich Königin Edwards hergeschickt."
-"Cadomyr", english -> "This prison gathers the scum of three nations! And now keep up working."
+english, "Cadomyr" -> "This prison gathers the scum of three nations! And now keep up working."
 "Cadomyr" -> "Hier versammelt sich der ganze Abschaum aus drei Nationen! Und jetzt arbeite weiter."
 
 -- Main land factions
-"albar", english -> "#me cracks his whip. 'Back to work!'"
+english, "albar" -> "#me cracks his whip. 'Back to work!'"
 "albar" -> "#me lässt die Peitsche knallen. 'Weiter arbeiten!'"
-"gynk", "gync", english -> "#me cracks his whip. 'Back to work!'"
+english, "gynk", "gync" -> "#me cracks his whip. 'Back to work!'"
 "gync", "gynk" -> "#me lässt die Peitsche knallen. 'Weiter arbeiten!'"
-"salkama", english -> "#me cracks his whip. 'Back to work!'"
+english, "salkama" -> "#me cracks his whip. 'Back to work!'"
 "salkama" -> "#me lässt die Peitsche knallen. 'Weiter arbeiten!'"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I don't care about your gods. All I care about is that you get punished."
 "Gott", "Götter" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Adron", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Adron" -> "I don't care about your gods. All I care about is that you get punished."
 "Adron" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Bragon", "Brágon", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Bragon", "Brágon" -> "I don't care about your gods. All I care about is that you get punished."
 "Bragon", "Brágon" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Cherga", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Cherga" -> "I don't care about your gods. All I care about is that you get punished."
 "Cherga" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Elara", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Elara" -> "I don't care about your gods. All I care about is that you get punished."
 "Elara" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Eldan", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Eldan" -> "I don't care about your gods. All I care about is that you get punished."
 "Eldan" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Findari", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Findari" -> "I don't care about your gods. All I care about is that you get punished."
 "Findari" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Irmorom", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Irmorom" -> "I don't care about your gods. All I care about is that you get punished."
 "Irmorom" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Malachin", "Malachín", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Malachin", "Malachín" -> "I don't care about your gods. All I care about is that you get punished."
 "Malachin", "Malachín" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Moshran", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Moshran" -> "I don't care about your gods. All I care about is that you get punished."
 "Moshran" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Nargun", "Nargún", "Nargùn", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Nargun", "Nargún", "Nargùn" -> "I don't care about your gods. All I care about is that you get punished."
 "Nargun", "Nargún", "Nargùn" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Oldra", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Oldra" -> "I don't care about your gods. All I care about is that you get punished."
 "Oldra" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Ronagan", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Ronagan" -> "I don't care about your gods. All I care about is that you get punished."
 "Ronagan" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Sirani", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Sirani" -> "I don't care about your gods. All I care about is that you get punished."
 "Sirani" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Tanora", "Zelphia", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Tanora", "Zelphia" -> "I don't care about your gods. All I care about is that you get punished."
 "Tanora", "Zelphia" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Ushara", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Ushara" -> "I don't care about your gods. All I care about is that you get punished."
 "Ushara" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
-"Zhambra", english -> "I don't care about your gods. All I care about is that you get punished."
+english, "Zhambra" -> "I don't care about your gods. All I care about is that you get punished."
 "Zhambra" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
 
 -- Catching typical NPC phrases
-"what sell", "What buy", "list wares", "price of" -> "I could sell you some lashes from my whip. Interested!?", "I trade pain.", "Stop bartering and get to work before I lose my patience."
+"what sell", "What buy", "list wares", "price of" -> trade, "I could sell you some lashes from my whip. Interested!?", "Ipain.", "Stop bartering and get to work before I lose my patience."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kann dir ein paar Peitschenhiebe anbieten. Interesse?!", "Ich handel mit Schmerzen.", "Hör auf, rumzufeilschen und arbeite oder ich vergesse mich!"
 "tell something" -> "Shut up and work!", "No talking!", "Shut up and swing the pick, you punk!"
 "erzähl was", "erzähl etwas" -> "Halt deinen Mund und arbeite!", "Hier wird nicht geplaudert!", "Klappe halten, Hacke schwingen, du Gauner!"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Percy", "Dryless", english -> "I am your master from now on. Obey or be whipped. Your choice."
+english, "Percy", "Dryless" -> "I am your master from now on. Obey or be whipped. Your choice."
 "Percy", "Dryless" -> "Ich bin jetzt dein Herr und Meister. Gehorche oder werde ausgepeitscht. Du hast die Wahl."
 "Yes" -> "Yes? Fine, work on.", "Yes? You wanted to say 'Yes master'!"
 "Ja" -> "Ja? Gut. Arbeite weiter.", "Ja? Das heißt 'Ja, Meister'!"
@@ -221,8 +221,8 @@ itemShoes = 53
 "Nein" -> "Nein? Wagst du etwa, zu widersprechen?", "#me bellt: 'Ich werde dich lehren, 'Nein' zu sagen!'"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Shut up, and keep working.", "Scum! - Obey!", "#me laughs diabolically.", "Mwahaha!"
-".*", german, chance(20.0) -> "Halt's Maul und arbeite weiter.", "Abschaum! - Gehorche!", "#me lacht dreckig.", "Mwahaha!"
+english, chance(20.0), ".*" -> "Shut up, and keep working.", "Scum! - Obey!", "#me laughs diabolically.", "Mwahaha!"
+german, chance(20.0), ".*" -> "Halt's Maul und arbeite weiter.", "Abschaum! - Gehorche!", "#me lacht dreckig.", "Mwahaha!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

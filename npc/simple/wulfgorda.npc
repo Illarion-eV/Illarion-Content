@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Wulfgorda"
@@ -60,15 +60,15 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Wulfgorda die Jägerin. Schlüsselwörter: Auskunft, Information, Plätze.")
 
 -- Mandatory: General speech
-".*", queststatus(650) = 1, english -> "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have a silvercoin for that you found me.", item(3077, 1, 333, 0), queststatus(650) = 2
-".*", queststatus(650) = 1 -> "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.", item(3077, 1, 333, 0), queststatus(650) = 2
+queststatus(650) = 1, english, ".*" -> item(3077, 1, 333), queststatus(650) = 2, "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have a silvercoin for that you found me."
+queststatus(650) = 1, ".*" -> item(3077, 1, 333), queststatus(650) = 2, "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze."
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me tips her helmet."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me tippt auf ihren Helm."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "#me tips her helmet."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me tips her helmet."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me tippt auf ihren Helm."
 "Farewell", "Bye", "Fare well", "See you" -> "#me tips her helmet."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "#me tippt auf ihren Helm."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "#me tips her helmet."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me tips her helmet."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me tippt auf ihren Helm."
 "How are you", "How feel", "How do you do" -> "I have nothing to complain."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann mich nicht beschweren."
@@ -84,7 +84,7 @@ itemShoes = 369
 -- "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"inform", english -> inform("[Keywords] place"), "I have information about places here in the northeast for you if you want to know them."
+english, "inform" -> inform("[Keywords] place"), "I have information about places here in the northeast for you if you want to know them."
 "inform" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen über Plätze hier im Nordosten für dich wenn du wünscht."
 "question" -> inform("[Keywords] place"), "I have information about places here in the northeast for you if you want to know them."
 "Frage", "Auskunft" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen über Plätze hier im Nordosten für dich wenn du wünscht."
@@ -92,13 +92,13 @@ itemShoes = 369
 "Platz", "Plätz" -> inform("[Schlüsselwörter] Tir Draganfod, Nordosten, Nordwesten, Südwesten, Südosten"), "Plätze? Welche Plätze meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Tir Draganfod?"
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "IN PROGRESS."
+english, "quest", "mission" -> "IN PROGRESS."
 "quest", "mission" -> "IN ARBEIT."
 "task", "adventure", "order" -> "IN PROGRESS."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
 
 -- Places
-"Tir", "Draganfod", english -> inform("[Keywords] Sevenhill Mountains, northeast, northwest, southwest, southeast"), "This region is called Tir Draganfod and I devide it in northeast, northwest, southwest and southeast. Tir Draganfod is furthermore in the east from the Sevenhill Mountains."
+english, "Tir", "Draganfod" -> inform("[Keywords] Sevenhill Mountains, northeast, northwest, southwest, southeast"), "This region is called Tir Draganfod and I devide it in northeast, northwest, southwest and southeast. Tir Draganfod is furthermore in the east from the Sevenhill Mountains."
 "Tir", "Draganfod" -> inform("[Schlüsselwörter] Siebenhügel Berge, Nordosten, Nordwesten, Südwesten, Südosten"), "Diese Region wird Tir Draganfod genannt und ich unterteile sie in in Nordost, Nordwest, Südwest und Südost. Tir Draganfod liegt außerdem im Osten von den Siebenhügel Bergen."
 "northeast" -> inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock"), "I know following places: Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock."
 "Nordost" -> inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen"), "Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen."
@@ -198,19 +198,19 @@ itemShoes = 369
 -- Faction stuff
 "archmage" -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect Runewick against Galmair and Cadomyr."
 "Erzmagier" -> "Der Erzmagier besitzt zwei Steine der Macht. Einen Smaragd und einen Rubin. Die beschützen Runewick vor Galmair und Cadomyr."
-"Elvaine", "Morgan", english -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect Runewick against Galmair and Cadomyr."
+english, "Elvaine", "Morgan" -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect Runewick against Galmair and Cadomyr."
 "Elvaine", "Morgan" -> "Der Erzmagier besitzt zwei Steine der Macht. Einen Smaragd und einen Rubin. Die beschützen Runewick vor Galmair und Cadomyr."
-"Runewick", english -> "Runewick is in the southeast. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway."
+english, "Runewick" -> "Runewick is in the southeast. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway."
 "Runewick" -> "Runewick ist im Südosten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen."
-"Valerio", "Guilianni", "Don", english -> "The Don owns two stones of power. These are a Bluestone and a Blackstone. They protect Galmair against Runewick and Cadomyr."
+english, "Valerio", "Guilianni", "Don" -> "The Don owns two stones of power. These are a Bluestone and a Blackstone. They protect Galmair against Runewick and Cadomyr."
 "Valerio", "Guilianni", "Don" -> "Der Don besitzt zwei Steine der Macht. Einen Blaustein und einen Schwarzstein. Die beschützen Galmair vor Runewick und Cadomyr."
-"Galmair", english -> "Galmair is in the northwest. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway."
+english, "Galmair" -> "Galmair is in the northwest. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway."
 "Galmair" -> "Galmair ist im Nordwesten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen."
 "Queen" -> "The Queen owns two stones of power. These are a Topaz and an Amethyst. They protect Cadomyr against Galmair and Runewick."
 "Königin" -> "Der Königin besitzt zwei Steine der Macht. Einen Topas und einen Amethyst. Die beschützen Cadomyr vor Galmair und Runewick."
-"rosaline", "edwards", english -> "The Queen owns two stones of power. These are a Topaz and an Amethyst. They protect Cadomyr against Galmair and Runewick."
+english, "rosaline", "edwards" -> "The Queen owns two stones of power. These are a Topaz and an Amethyst. They protect Cadomyr against Galmair and Runewick."
 "rosaline", "edwards" -> "Der Königin besitzt zwei Steine der Macht. Einen Topas und einen Amethyst. Die beschützen Cadomyr vor Galmair und Runewick."
-"Cadomyr", english -> "Cadomyr is in the southwest. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway."
+english, "Cadomyr" -> "Cadomyr is in the southwest. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway."
 "Cadomyr" -> "Cadomyr ist im Südwesten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen."
 
 -- Optional: Catching typical NPC phrases
@@ -238,7 +238,7 @@ itemShoes = 369
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Hmm... you want some information? But about what?"
 "mein Name" -> "Hmm... und ihr wünscht nach Information? Aber welche?"
-"Numila", "Irunnleh", english -> "Yes, that is my name. About which places do you want information?"
+english, "Numila", "Irunnleh" -> "Yes, that is my name. About which places do you want information?"
 "Numila", "Irunnleh" -> "Ja, das ist mein Name. Über welche Plätze wollt ihr Information?"
 "Yes" -> "A bit more precise, please!"
 "Ja" -> "Etwas konkreter wenn ich bitten darf!"
@@ -246,8 +246,8 @@ itemShoes = 369
 "Nein" -> "Etwas konkreter wenn ich bitten darf!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Huh, about what places shall I give you information? Do you mind just to ask for help as a first step?"
-".*", german, chance(20.0) -> "Huh, über welche Plätze wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
+english, chance(20.0), ".*" -> "Huh, about what places shall I give you information? Do you mind just to ask for help as a first step?"
+german, chance(20.0), ".*" -> "Huh, über welche Plätze wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

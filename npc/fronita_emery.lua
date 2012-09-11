@@ -8,7 +8,7 @@
 -- Authors:  Faladron                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -22,6 +22,7 @@ require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 module("npc.fronita_emery", package.seeall)
 
@@ -48,6 +49,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("May Findari and Elara bless you! Do you want to have a look at my wares?");
 talkEntry:addResponse("Welcome. If you're looking for goods made of glass I can definately help you out.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -56,22 +58,25 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Findari und Elara mit euch! Kann ich euch für meine Waren begeistern?");
 talkEntry:addResponse("Willkommen. Wenn ihr Glaswaren sucht seid ihr hier absolut richtig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("May Findari and Elara bless you! Do you want to have a look at my wares?");
 talkEntry:addResponse("Welcome. If you're looking for goods made of glass I can definately help you out.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -110,11 +115,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Fair winds and clear sight to you!");
 talkEntry:addResponse("May Elara enlighten your path.");
 talkEntry:addResponse("Farewell. Don't forget about me, as glass is pretty frail!");
@@ -171,56 +176,56 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
 talkEntry:addTrigger("message");
 talkEntry:addTrigger("news");
 talkEntry:addTrigger("letter");
 talkEntry:addTrigger("scroll");
 talkEntry:addTrigger("parchment");
-talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."));
-talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
 talkEntry:addTrigger("nachricht");
 talkEntry:addTrigger("brief");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Schriftrolle");
 talkEntry:addTrigger("Pergament");
-talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."));
-talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Groktan");
-talkEntry:addTrigger("Flintsplit");
 talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."));
-talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Groktan");
 talkEntry:addTrigger("Flintsplit");
-talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."));
-talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
+talkEntry:addTrigger("Groktan");
+talkEntry:addTrigger("Flintsplit");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I do not issue any quests, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -235,6 +240,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addResponse("I do not issue any quests, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -243,6 +249,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Ich vergebe keine Questen, tut mir leid.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -262,8 +269,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("Well, why should I stand around here between all this glass? I'm selling it!");
 talkEntry:addResponse("I'm a glassblower and I sell my wares here");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -277,9 +284,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I'm just a humble crafter. Ask a scholar about that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -426,15 +433,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.");
 talkEntry:addResponse("Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("It's a great comfort to have such a smart man rule over Runewick.");
 talkEntry:addResponse("I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -443,14 +451,15 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.");
 talkEntry:addResponse("Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("What a wonderful town! You take some steps away from the furnace and the cool sea air refreshes you.");
 talkEntry:addResponse("We have the greenest meadows, the tastiest food and the best beer here in Rnewick!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -464,10 +473,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Imagine a little goblin with the beard of a dwarf. That's him.");
 talkEntry:addResponse("Even if I admire archmage Morgan, I don't understand why he doesn't do anything against this fiend!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -483,8 +492,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Galmair, bah! They don't need glass, they swig straight from the water hole!");
 talkEntry:addResponse("If you're robbed there and yell for help, only more people come to split the loot!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -512,9 +521,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("They say she can tell glass jewelry and real jewelry apart. By their smell!");
 talkEntry:addResponse("Two big childhood dreams combined: Queen of her own enormous sandbox.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -529,8 +538,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("I have to admit, there's better glassblowers than me there. But what else do you expect with all the sand there?");
 talkEntry:addResponse("I don't like them. There's always troubles everytime I try to gather sand from the dessert.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -544,8 +553,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("albar");
 talkEntry:addResponse("I'm glad I don't have to live there. They certainly wouldn't have let me learn glassblowing, as I am a woman.");
 talkEntry:addResponse("Brutal and agressive people, all of their culture is based on war and opression.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -559,9 +568,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Ugh! Let's talk about more pleasant things. My stock of wares for example.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -574,8 +583,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Once I've earned enough money I want to visit Salkamar.");
 talkEntry:addResponse("I once heard that they have colourful windows there with pictures made of glas that tell stories.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -604,8 +613,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Adron");
 talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -613,27 +622,27 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Bragon");
+talkEntry:addTrigger("Brágon");
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
 talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cherga");
 talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -645,8 +654,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("You have a lot of time to think about the important things of life when you stare at the furnace..");
 talkEntry:addResponse("My faith in Elara gives me peace of mind. Waiting for the glass to cool off is a form of meditation for me.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -660,8 +669,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Eldan");
 talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -673,8 +682,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Findari");
 talkEntry:addResponse("If you literally need air to survive, like me, it is obvious who you should be grateful to.");
 talkEntry:addResponse("Findari guides my hand on the bellows, so the fire never dies.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -688,8 +697,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -701,9 +710,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -716,8 +725,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Who knows what he would've become, had he entrusted himself to Elara.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -729,10 +738,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -742,25 +751,25 @@ talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Oldra");
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -772,8 +781,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Sirani");
 talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -781,27 +790,27 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
 talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ushara");
 talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -813,8 +822,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -859,9 +868,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Fronita");
 talkEntry:addTrigger("Emery");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("...and did I mention I sell glass goods?");
 talkEntry:addResponse("Buy something or get...");
 talkEntry:addResponse("Fronita Emery, at your service.");
@@ -908,9 +917,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Listen, I don't want to be rude. Either you buy something or you leave, aye?");
 talkEntry:addResponse("If you go on rambling about like that you'll spoil my buisiness.");
 talkEntry:addResponse("Yes. Aye. Absolutely. And now buy my stuff!");
@@ -918,9 +927,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Hör mal, ich will nicht unhöflich sein. Aber entweder kaufste was oder verschwindest, aye?");
 talkEntry:addResponse("Wenn du hier weiter so rumbrabbelst vermiest du mir das Geschäft.");
 talkEntry:addResponse("Ja. Aye. Absolut. Und jetzt kauf mir was ab!");

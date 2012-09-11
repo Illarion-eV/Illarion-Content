@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -18,10 +18,8 @@ VALUES (0, 133, 581, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 1, 3, 180, 3
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
-require("base.common")
-require("npc.base.autonpcfunctions")
-
 module("npc.simeon_ureses", package.seeall)
 
 function initNpc()
@@ -47,6 +45,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Good day. Shall I repair your equipment?");
 talkEntry:addResponse("Hello. Come with broken things and you will go with fixed ones.");
 talkEntry:addResponse("Pardon me, could you come back in a minute or two? I have to fix this first.");
@@ -56,11 +55,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Guten Tag. Soll ich eure Ausrüstung reparieren?");
 talkEntry:addResponse("Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.");
 talkEntry:addResponse("Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren.");
@@ -68,11 +70,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Good day. Shall I repair your equipment?");
 talkEntry:addResponse("Hello. Come with broken things and you will go with fixed ones.");
 talkEntry:addResponse("Pardon me, could you come back in a minute or two? I have to fix this first.");
@@ -113,11 +115,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.");
 talkEntry:addResponse("Gehabt euch wohl und kommt bald wieder.");
 talkEntry:addResponse("Ich wünsche euch was.");
@@ -174,9 +176,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Do I look like I'd issue quests?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -218,8 +220,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("I am the royal armourer. So, whenever your sword turns blunt, come to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -245,9 +247,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hastings");
 talkEntry:addTrigger("Baron");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hush! Not in public.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -275,7 +277,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
-talkEntry:addResponse("I am not a trader but I can repair your items.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I am not ar but I can repair your items.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,9 +304,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Brágon grants me the fire for forging but he does not grant the hammer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -316,9 +319,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
 talkEntry:addTrigger("Oldra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -331,9 +334,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("So, I am with Cadomyr so I have to pray to Malachín? You need to learn a lot...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -358,9 +361,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I serve the queen because she is the queen. Did I make myself clear?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -373,8 +376,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("The wellbeing of Cadomyr is my only concern. I will not do anything against Cadomyr, regardless of my personal opinion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -413,80 +416,7 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(npcChar, texttype, message, speaker) 
-
---ADDITTION BY ESTRALIS
-    message=string.lower(message); --lower case MESSAGE -> message
-	
-    if base.common.BasicNPCChecks(speaker,2,npcChar) and (string.find(message,"price") or string.find(message,"cost") or string.find(message,"preis") or string.find(message,"koste") or string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand")) then --initiate repairing with triggers
-
-		--Full repair is the same as buying half a new one. Just worth it with special (e.g. gemmed) items. Price may change if the players overdo it.
-		--Round prices to prevent prices like "1273 cp" and to prevent exact durability determination via repairing.
-
-		if string.find(message,"price") or string.find(message,"cost") or string.find(message,"repair") or string.find(message,"fix") then --english triggers
-            language = 1; --english
-		else
-		    language = 2; --german
-		end
- 
-		theItem=base.common.GetFrontItem(npcChar); --What item shall be repaired?
-		
-		if theItem then
-            theItemStats=world:getItemStats(theItem); --reading its stats
-		end
-		
-		if not theItem then --nothing there!
-			message1={"Please put the item I shall repair on the table.","Packt den Gegenstand, den ich instandsetzen soll, einfach auf den Tisch."}; --No item found
-		    npcChar:talk(Character.say, message1[language]); --Message 1
-		end
-		
-		if theItem then
-			durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
-		    toRepair=99-durability; --the amount of durability points that has to repaired
-		    price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
-		
-            if theItem.id == 0 or theItem.id == 320 or theItem.id == nil then --there is nothing on the table!
-		
-	            message1={"Please put the item I shall repair on the table.","Packt den Gegenstand, den ich instandsetzen soll, einfach auf den Tisch."}; --No item found
-		        npcChar:talk(Character.say, message1[language]); --Message 1
-			
-		    elseif theItemStats.Worth == 0 or theItemStats.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
-		
-	            message2={"I cannot repair this, sorry.","Entschuldigt, aber das kann ich nicht reparieren."}; --Priceless, perfect or stackable item
-		        npcChar:talk(Character.say, message2[language]); --Message 2
-			
-		    else -- I can repair it!
-	
-	            if string.find(message,"price") or string.find(message,"cost") or  string.find(message,"preis") or string.find(message,"koste") then --player just wants to know the price
-			    
-				    message3={"For repairing this item, I demand "..price.." copper coins.","Die Reparatur dieses Gegenstandes würde "..price.." Kupferstücke kosten."}; --Saying the price
-		            npcChar:talk(Character.say, message3[language]); --Message 3
-				
-                elseif string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand") then --player wants to repair the item
-			
-			        if not npc.base.autonpcfunctions.CheckMoney(speaker,price) then --player is broke
-				
-			            message4={"You don't have enough money I suppose. I demand "..price.." copper coins for repairing this item.","Ihr habt anscheinend nicht genug Geld. Die Reparatur würde "..price.." Kupferstücke kosten."}; --Player is broke
-		                npcChar:talk(Character.say, message4 [language]); --Message 4
-					
-			        else --he has the money
-				
-			            message5={"#me repairs the item at a cost of "..price.." copper coins.","#me setzt den Gegenstand für "..price.." Kupferstücke in Stand."};	--...
-                        npcChar:talk(Character.say, message5 [language]); --Message 5
-                        npc.base.autonpcfunctions.PayTheNPC(speaker,price); --pay!
-                        theItem.quality=theItem.quality+toRepair; --repair!
-                        world:changeItem(theItem);
-					
-				    end --broke/wealthy	
-			    end --price/repair
-		    end --there is an item
-        end --item exists
-	else
-        mainNPC:receiveText(npcChar, speaker, message); 
-	end
---ADDITION END
-end;
-
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
 function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
