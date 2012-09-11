@@ -17,7 +17,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			if not dialog1:getSuccess() then 
 				User:inform("abbruch")
 			else
-				if dialog:getInput() ~= "one"
+				if dialog:getInput() ~= "one" then
 				    User:inform("failure, input was not: one")
 				else
 				    boxOne = "one"
@@ -25,7 +25,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			            if not dialog2:getSuccess() then 
 				            User:inform("abbruch")
 			            else
-				            if dialog2:getInput() ~= "two"
+				            if dialog2:getInput() ~= "two" then
 				                User:inform("failure, input was not: two")
 				            else
 				                boxTwo = "two"
