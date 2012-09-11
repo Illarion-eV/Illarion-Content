@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Daerbur Wimbert"
@@ -74,11 +74,11 @@ itemShoes = 53
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?", "Häh?", "Höh?", "Hüh?"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?", "Häh?", "Höh?", "Hüh?"
 "Farewell", "Bye", "Fare well", "See you" -> "So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!", "Why did you come if you wanted to leave anyway? You like change to your life, I assume.", "Bye"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "So, du gehst also. Das ist interessant, denn das bedeutet, dass du woanders hingehst. Wie spanned!", "Wieso bist du überhaupt gekommen, wenn du eh wieder gehen wolltest? Du magst Veränderungen in deinem Leben, richtig?", "Tschüß!"
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!", "Why did you come if you wanted to leave anyway? You like change to your life, I assume.", "Bye."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!", "Why did you come if you wanted to leave anyway? You like change to your life, I assume.", "Bye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "So, du gehst also. Das ist interessant, denn das bedeutet, dass du woanders hingehst. Wie spanned!", "Wieso bist du überhaupt gekommen, wenn du eh wieder gehen wolltest? Du magst Veränderungen in deinem Leben, richtig?", "Tschüß!"
 "How are you", "How feel", "How do you do" -> "Good and bad at once I feel. Sometimes, I feel a bit more bad than good, sometimes vice versa.", "I feel just like you, maybe a bit more sad or lucky, who knows.", "Wie fühlst du dich denn so? Ach, warum haben Leute kein Gefühlssinn, dann würde das dusselige Fragen entfallen."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Gut und schlecht gleichzeitig, so fühl ich mich. Manchmal ein bisschen mehr schlecht als gut, manchmal genau anders herum.", "Ich fühl mich genauso wie du, vielleicht ein wenig schlechter oder besser, wer weiß das schon.", "How do you feel? Alas, why don't we all have a sense for feelings, then, all these stupid questions would be unnecessary."
@@ -87,95 +87,95 @@ itemShoes = 53
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- Quest 108: A message from Hector Valerion
-"message", "news", "letter", "scroll", "parchment", queststatus(108) = 9 -> inform("[Quest status] Delayed Mail IV: You deliver the message from Hector Valerion to Daerbur Wimbert."), "#me turns the scroll around twice: 'Gems, she wants, the queen. That makes them queengems for the gemqueen! That makes me the queengemdeliverer, jidah!'", queststatus(108) = 10
-"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(108) = 9 -> inform("[Queststatus] Späte Post IV: Du überbringst Daerbur Wimbert die Nachricht von Hector Valerion."), "#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'", queststatus(108) = 10
-"Hector", "Valerion", queststatus(108) = 9, english -> inform("[Quest status] Delayed Mail IV: You deliver the message from Hector Valerion to Daerbur Wimbert."), "#me turns the scroll around twice: 'Gems, she wants, the queen. That makes them queengems for the gemqueen! That makes me the queengemdeliverer, jida!'", queststatus(108) = 10
-"Hector", "Valerion", queststatus(108) = 9 -> inform("[Queststatus] Späte Post IV: Du überbringst Daerbur Wimbert die Nachricht von Hector Valerion."), "#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'", queststatus(108) = 10
+queststatus(108) = 9, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] Delayed Mail IV: You deliver the message from Hector Valerion to Daerbur Wimbert."), queststatus(108) = 10, "#me turns the scroll around twice: 'Gems, she wants, the queen. That makes them queengems for the gemqueen! That makes me the queengemdeliverer, jidah!'"
+queststatus(108) = 9, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Späte Post IV: Du überbringst Daerbur Wimbert die Nachricht von Hector Valerion."), queststatus(108) = 10, "#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'"
+queststatus(108) = 9, english, "Hector", "Valerion" -> inform("[Quest status] Delayed Mail IV: You deliver the message from Hector Valerion to Daerbur Wimbert."), queststatus(108) = 10, "#me turns the scroll around twice: 'Gems, she wants, the queen. That makes them queengems for the gemqueen! That makes me the queengemdeliverer, jida!'"
+queststatus(108) = 9, "Hector", "Valerion" -> inform("[Queststatus] Späte Post IV: Du überbringst Daerbur Wimbert die Nachricht von Hector Valerion."), queststatus(108) = 10, "#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'"
 
 -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
-"quest", "mission", queststatus(68) = 0, english -> inform("[New quest] Dark Hole Mine I"), "Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?", item(2763, 1, 399, 0), queststatus(68) = 1
-"quest", "mission", queststatus(68) = 0 -> inform("[Neues Quest] Dunkellochmine I"), "Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?", item(2763, 1, 399, 0), queststatus(68) = 1
-"task", "adventure", "order", queststatus(68) = 0 -> inform("[New quest] Dark Hole Mine I"), "Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?", item(2763, 1, 399, 0), queststatus(68) = 1
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Befehl", queststatus(68) = 0 -> inform("[Neues Quest] Dunkellochmine I"), "Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?", item(2763, 1, 399, 0), queststatus(68) = 1
-"quest", "mission", queststatus(68) = 1, item(733, all) < 10, english -> "Away with those rocks! Bring me ten stone blocks and I'll reward you."
-"quest", "mission", queststatus(68) = 1, item(733, all) < 10 -> "Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich."
-"task", "adventure", "order", queststatus(68) = 1, item(733, all) < 10 -> "Away with those rocks! Bring me ten stone blocks and I'll reward you."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(68) = 1, item(733, all) < 10 -> "Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich."
-".+", skill(mining) < 90, queststatus(68) = 1, item(733, all) > 9, english, town = Galmair -> inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.", skill(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2, rankpoints(Galmair) + 5
-".+", queststatus(68) = 1, item(733, all) > 9, english, town = Galmair -> inform("[Quest solved] You are awarded 50 copper coins. You advance in Don Valerio Guilianni's favour."), "Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.", money + 50, deleteItem(733, 10), queststatus(68) = 2, rankpoints(Galmair) + 5
-".+", skill(mining) < 90, queststatus(68) = 1, item(733, all) > 9, town = Galmair -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.", skill(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2, rankpoints(Galmair) + 5
-".+", queststatus(68) = 1, item(733, all) > 9, town = Galmair -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.", money + 50, deleteItem(733, 10), queststatus(68) = 2, rankpoints(Galmair) + 5
-".+", skill(mining) < 90, queststatus(68) = 1, item(733, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases."), "Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.", skill(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2
-".+", queststatus(68) = 1, item(733, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins."), "Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.", money + 50, deleteItem(733, 10), queststatus(68) = 2
-".+", skill(mining) < 90, queststatus(68) = 1, item(733, all) > 9 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt."), "Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.", skill(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2
-".+", queststatus(68) = 1, item(733, all) > 9 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke."), "Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.", money + 50, deleteItem(733, 10), queststatus(68) = 2
+queststatus(68) = 0, english, "quest", "mission" -> inform("[New quest] Dark Hole Mine I"), item(2763, 1, 399), queststatus(68) = 1, "Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?"
+queststatus(68) = 0, "quest", "mission" -> inform("[Neues Quest] Dunkellochmine I"), item(2763, 1, 399), queststatus(68) = 1, "Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?"
+queststatus(68) = 0, "task", "adventure", "order" -> inform("[New quest] Dark Hole Mine I"), item(2763, 1, 399), queststatus(68) = 1, "Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?"
+queststatus(68) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Befehl" -> inform("[Neues Quest] Dunkellochmine I"), item(2763, 1, 399), queststatus(68) = 1, "Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?"
+queststatus(68) = 1, item(733, all) < 10, english, "quest", "mission" -> "Away with those rocks! Bring me ten stone blocks and I'll reward you."
+queststatus(68) = 1, item(733, all) < 10, "quest", "mission" -> "Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich."
+queststatus(68) = 1, item(733, all) < 10, "task", "adventure", "order" -> "Away with those rocks! Bring me ten stone blocks and I'll reward you."
+queststatus(68) = 1, item(733, all) < 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich."
+skill(mining) < 90, queststatus(68) = 1, item(733, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), skill(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2, rankpoints(Galmair) + 5, "Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward."
+queststatus(68) = 1, item(733, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 50 copper coins. You advance in Don Valerio Guilianni's favour."), money + 50, deleteItem(733, 10), queststatus(68) = 2, rankpoints(Galmair) + 5, "Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward."
+skill(mining) < 90, queststatus(68) = 1, item(733, all) > 9, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), skill(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2, rankpoints(Galmair) + 5, "Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung."
+queststatus(68) = 1, item(733, all) > 9, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 50, deleteItem(733, 10), queststatus(68) = 2, rankpoints(Galmair) + 5, "Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung."
+skill(mining) < 90, queststatus(68) = 1, item(733, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases."), skill(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2, "Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward."
+queststatus(68) = 1, item(733, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 50 copper coins."), money + 50, deleteItem(733, 10), queststatus(68) = 2, "Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward."
+skill(mining) < 90, queststatus(68) = 1, item(733, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt."), skill(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2, "Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung."
+queststatus(68) = 1, item(733, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke."), money + 50, deleteItem(733, 10), queststatus(68) = 2, "Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung."
 
 -- 2nd quest: Gather 20 different raw materials for 100cp.
-"quest", "mission", queststatus(68) = 2, english -> inform("[New quest] Dark Hole Mine II"), "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?", queststatus(68) = 3
-"quest", "mission", queststatus(68) = 2 -> inform("[Neues Quest] Dunkellochmine II"), "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?", queststatus(68) = 3
-"task", "adventure", "order", queststatus(68) = 2 -> inform("[New quest] Dark Hole Mine II"), "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?", queststatus(68) = 3
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(68) = 2 -> inform("[Neues Quest] Dunkellochmine II"), "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?", queststatus(68) = 3
-"quest", "mission", queststatus(68) = 3, item(21, all) < 20, english -> "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
-"quest", "mission", queststatus(68) = 3, item(21, all) < 20 -> "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
-"task", "adventure", "order", queststatus(68) = 3, item(21, all) < 20 -> "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(68) = 3, item(21, all) < 20 -> "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
-".+", skill(mining) < 90, queststatus(68) = 3, item(21, all) > 19, english, town = Galmair -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.", skill(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4, rankpoints(Galmair) + 10
-".+", queststatus(68) = 3, item(21, all) > 19, english, town = Galmair -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Don Valerio Guilianni's favour."), "How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.", money + 100, deleteItem(21, 20), queststatus(68) = 4, rankpoints(Galmair) + 10
-".+", skill(mining) < 90, queststatus(68) = 3, item(21, all) > 19, town = Galmair -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.", skill(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4, rankpoints(Galmair) + 10
-".+", queststatus(68) = 3, item(21, all) > 19, town = Galmair -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.", money + 100, deleteItem(21, 20), queststatus(68) = 4, rankpoints(Galmair) + 10
-".+", skill(mining) < 90, queststatus(68) = 3, item(21, all) > 19, english -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."), "How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.", skill(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4
-".+", queststatus(68) = 3, item(21, all) > 19, english -> inform("[Quest solved] You are awarded 100 copper coins."), "How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.", money + 100, deleteItem(21, 20), queststatus(68) = 4
-".+", skill(mining) < 90, queststatus(68) = 3, item(21, all) > 19 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."), "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.", skill(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4
-".+", queststatus(68) = 3, item(21, all) > 19 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.", money + 100, deleteItem(21, 20), queststatus(68) = 4
+queststatus(68) = 2, english, "quest", "mission" -> inform("[New quest] Dark Hole Mine II"), queststatus(68) = 3, "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
+queststatus(68) = 2, "quest", "mission" -> inform("[Neues Quest] Dunkellochmine II"), queststatus(68) = 3, "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
+queststatus(68) = 2, "task", "adventure", "order" -> inform("[New quest] Dark Hole Mine II"), queststatus(68) = 3, "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
+queststatus(68) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Dunkellochmine II"), queststatus(68) = 3, "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
+queststatus(68) = 3, item(21, all) < 20, english, "quest", "mission" -> "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
+queststatus(68) = 3, item(21, all) < 20, "quest", "mission" -> "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
+queststatus(68) = 3, item(21, all) < 20, "task", "adventure", "order" -> "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
+queststatus(68) = 3, item(21, all) < 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
+skill(mining) < 90, queststatus(68) = 3, item(21, all) > 19, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), skill(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4, rankpoints(Galmair) + 10, "How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once."
+queststatus(68) = 3, item(21, all) > 19, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Don Valerio Guilianni's favour."), money + 100, deleteItem(21, 20), queststatus(68) = 4, rankpoints(Galmair) + 10, "How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once."
+skill(mining) < 90, queststatus(68) = 3, item(21, all) > 19, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), skill(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4, rankpoints(Galmair) + 10, "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus."
+queststatus(68) = 3, item(21, all) > 19, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 100, deleteItem(21, 20), queststatus(68) = 4, rankpoints(Galmair) + 10, "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus."
+skill(mining) < 90, queststatus(68) = 3, item(21, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."), skill(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4, "How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once."
+queststatus(68) = 3, item(21, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), money + 100, deleteItem(21, 20), queststatus(68) = 4, "How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once."
+skill(mining) < 90, queststatus(68) = 3, item(21, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."), skill(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4, "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus."
+queststatus(68) = 3, item(21, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), money + 100, deleteItem(21, 20), queststatus(68) = 4, "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus."
 
 -- 3rd quest: Gather 5 rare raw materials for 100cp.
-"quest", "mission", queststatus(68) = 4, english -> inform("[New quest] Dark Hole Mine III"), "Hey-ho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.", queststatus(68) = 5
-"quest", "mission", queststatus(68) = 4 -> inform("[Neues Quest] Dunkellochmine III"), "Hey-ho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig.", queststatus(68) = 5
-"task", "adventure", "order", queststatus(68) = 4 -> inform("[New quest] Dark Hole Mine III"), "Heydiho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.", queststatus(68) = 5
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(68) = 4 -> inform("[Neues Quest] Dunkellochmine III"), "Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig", queststatus(68) = 5
-"quest", "mission", queststatus(68) = 5, item(252, all) < 5, english -> "Bring me five raw blackstones and you get money. I'm so excited!"
-"quest", "mission", queststatus(68) = 5, item(252, all) < 5 -> "Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
-"task", "adventure", "order", queststatus(68) = 5, item(252, all) < 5 -> "Bring me five raw blackstones and you get money. I'm so excited!"
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(68) = 5, item(252, all) < 5 -> "Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
-".+", skill(mining) < 90, queststatus(68) = 5, item(252, all) > 4, english, town = Galmair -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!", skill(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6, rankpoints(Galmair) + 15
-".+", queststatus(68) = 5, item(252, all) > 4, english, town = Galmair -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Don Valerio Guilianni's favour."), "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!", money + 100, deleteItem(252, 5), queststatus(68) = 6, rankpoints(Galmair) + 15
-".+", skill(mining) < 90, queststatus(68) = 5, item(252, all) > 4, town = Galmair -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!", skill(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6, rankpoints(Galmair) + 15
-".+", queststatus(68) = 5, item(252, all) > 4, town = Galmair -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!", money + 100, deleteItem(252, 5), queststatus(68) = 6, rankpoints(Galmair) + 15
-".+", skill(mining) < 90, queststatus(68) = 5, item(252, all) > 4, english -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."), "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!", skill(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6
-".+", queststatus(68) = 5, item(252, all) > 4, english -> inform("[Quest solved] You are awarded 100 copper coins."), "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!", money + 100, deleteItem(252, 5), queststatus(68) = 6
-".+", skill(mining) < 90, queststatus(68) = 5, item(252, all) > 4 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."), "Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!", skill(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6
-".+", queststatus(68) = 5, item(252, all) > 4 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!", money + 100, deleteItem(252, 5), queststatus(68) = 6
+queststatus(68) = 4, english, "quest", "mission" -> inform("[New quest] Dark Hole Mine III"), queststatus(68) = 5, "Hey-ho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously."
+queststatus(68) = 4, "quest", "mission" -> inform("[Neues Quest] Dunkellochmine III"), queststatus(68) = 5, "Hey-ho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig."
+queststatus(68) = 4, "task", "adventure", "order" -> inform("[New quest] Dark Hole Mine III"), queststatus(68) = 5, "Heydiho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously."
+queststatus(68) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Dunkellochmine III"), queststatus(68) = 5, "Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig"
+queststatus(68) = 5, item(252, all) < 5, english, "quest", "mission" -> "Bring me five raw blackstones and you get money. I'm so excited!"
+queststatus(68) = 5, item(252, all) < 5, "quest", "mission" -> "Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
+queststatus(68) = 5, item(252, all) < 5, "task", "adventure", "order" -> "Bring me five raw blackstones and you get money. I'm so excited!"
+queststatus(68) = 5, item(252, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
+skill(mining) < 90, queststatus(68) = 5, item(252, all) > 4, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), skill(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6, rankpoints(Galmair) + 15, "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!"
+queststatus(68) = 5, item(252, all) > 4, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Don Valerio Guilianni's favour."), money + 100, deleteItem(252, 5), queststatus(68) = 6, rankpoints(Galmair) + 15, "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!"
+skill(mining) < 90, queststatus(68) = 5, item(252, all) > 4, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), skill(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6, rankpoints(Galmair) + 15, "Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!"
+queststatus(68) = 5, item(252, all) > 4, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 100, deleteItem(252, 5), queststatus(68) = 6, rankpoints(Galmair) + 15, "Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!"
+skill(mining) < 90, queststatus(68) = 5, item(252, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."), skill(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6, "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!"
+queststatus(68) = 5, item(252, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), money + 100, deleteItem(252, 5), queststatus(68) = 6, "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!"
+skill(mining) < 90, queststatus(68) = 5, item(252, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."), skill(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6, "Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!"
+queststatus(68) = 5, item(252, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), money + 100, deleteItem(252, 5), queststatus(68) = 6, "Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!"
 
 -- 4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
-"quest", "mission", queststatus(68) = 6, english -> inform("[New quest] Dark Hole Mine IV"), "Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.", queststatus(68) = 7
-"quest", "mission", queststatus(68) = 6 -> inform("[Neues Quest] Dunkellochmine IV"), "Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.", queststatus(68) = 7
-"task", "adventure", "order", queststatus(68) = 6 -> inform("[New quest] Dark Hole Mine IV"), "Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.", queststatus(68) = 7
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(68) = 6 -> inform("[Neues Quest] Dunkellochmine IV"), "Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.", queststatus(68) = 7
-"quest", "mission", queststatus(68) = 7, item(3, all) < 10, english -> "Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood."
-"quest", "mission", queststatus(68) = 7, item(3, all) < 10 -> "Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen."
-"task", "adventure", "order", queststatus(68) = 7, item(3, all) < 10 -> "Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(68) = 7, item(3, all) < 10 -> "Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen."
-".+", skill(mining) < 90, queststatus(68) = 7, item(3, all) > 9, english, town = Galmair -> inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.", skill(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8, rankpoints(Galmair) + 20
-".+", queststatus(68) = 7, item(3, all) > 9, english, town = Galmair -> inform("[Quest solved] You are awarded 200 copper coins. You advance in Don Valerio Guilianni's favour."), "Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.", money + 200, deleteItem(3, 10), queststatus(68) = 8, rankpoints(Galmair) + 20
-".+", skill(mining) < 90, queststatus(68) = 7, item(3, all) > 9, town = Galmair -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.", skill(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8, rankpoints(Galmair) + 20
-".+", queststatus(68) = 7, item(3, all) > 9, town = Galmair -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.", money + 200, deleteItem(3, 10), queststatus(68) = 8, rankpoints(Galmair) + 20
-".+", skill(mining) < 90, queststatus(68) = 7, item(3, all) > 9, english -> inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases."), "Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.", skill(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8
-".+", queststatus(68) = 7, item(3, all) > 9, english -> inform("[Quest solved] You are awarded 200 copper coins."), "Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.", money + 200, deleteItem(3, 10), queststatus(68) = 8
-".+", skill(mining) < 90, queststatus(68) = 7, item(3, all) > 9 -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt."), "Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.", skill(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8
-".+", queststatus(68) = 7, item(3, all) > 9 -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), "Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.", money + 200, deleteItem(3, 10), queststatus(68) = 8
+queststatus(68) = 6, english, "quest", "mission" -> inform("[New quest] Dark Hole Mine IV"), queststatus(68) = 7, "Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest."
+queststatus(68) = 6, "quest", "mission" -> inform("[Neues Quest] Dunkellochmine IV"), queststatus(68) = 7, "Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald."
+queststatus(68) = 6, "task", "adventure", "order" -> inform("[New quest] Dark Hole Mine IV"), queststatus(68) = 7, "Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest."
+queststatus(68) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Dunkellochmine IV"), queststatus(68) = 7, "Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald."
+queststatus(68) = 7, item(3, all) < 10, english, "quest", "mission" -> "Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood."
+queststatus(68) = 7, item(3, all) < 10, "quest", "mission" -> "Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen."
+queststatus(68) = 7, item(3, all) < 10, "task", "adventure", "order" -> "Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood."
+queststatus(68) = 7, item(3, all) < 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen."
+skill(mining) < 90, queststatus(68) = 7, item(3, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), skill(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8, rankpoints(Galmair) + 20, "Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't."
+queststatus(68) = 7, item(3, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 200 copper coins. You advance in Don Valerio Guilianni's favour."), money + 200, deleteItem(3, 10), queststatus(68) = 8, rankpoints(Galmair) + 20, "Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't."
+skill(mining) < 90, queststatus(68) = 7, item(3, all) > 9, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), skill(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8, rankpoints(Galmair) + 20, "Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf."
+queststatus(68) = 7, item(3, all) > 9, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 200, deleteItem(3, 10), queststatus(68) = 8, rankpoints(Galmair) + 20, "Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf."
+skill(mining) < 90, queststatus(68) = 7, item(3, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases."), skill(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8, "Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't."
+queststatus(68) = 7, item(3, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 200 copper coins."), money + 200, deleteItem(3, 10), queststatus(68) = 8, "Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't."
+skill(mining) < 90, queststatus(68) = 7, item(3, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt."), skill(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8, "Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf."
+queststatus(68) = 7, item(3, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), money + 200, deleteItem(3, 10), queststatus(68) = 8, "Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf."
 
 -- Final dialogue: No more quests, just nice hints
-"quest", "mission", queststatus(68) = 8, english -> "I thank you for all you did, you made the world a better place. Or you changed nothing, but got money."
-"quest", "mission", queststatus(68) = 8 -> "Ich danke dir, für alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert."
-"task", "adventure", "order", queststatus(68) = 8 -> "I thank you for all you did, you made the world a better place. Or you changed nothing, but got money."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(68) = 8 -> "Ich danke dir, für alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert."
+queststatus(68) = 8, english, "quest", "mission" -> "I thank you for all you did, you made the world a better place. Or you changed nothing, but got money."
+queststatus(68) = 8, "quest", "mission" -> "Ich danke dir, für alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert."
+queststatus(68) = 8, "task", "adventure", "order" -> "I thank you for all you did, you made the world a better place. Or you changed nothing, but got money."
+queststatus(68) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich danke dir, für alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a professional finder of things!"
 "beruf" -> "Ich bin ein professioneller Dingefinder!"
-"job", english -> "I am a professional finder of things!"
+english, "job" -> "I am a professional finder of things!"
 "job" -> "Ich bin ein professioneller Dingefinder!"
-"Gobaith", "Gobiath", english -> "Islands are none of business."
+english, "Gobaith", "Gobiath" -> "Islands are none of business."
 "Gobaith", "Gobiath" -> "Ich schere mich nicht um Inseln."
 "my name" -> "Oh, how great!"
 "mein Name" -> "Oh wie schön!"
@@ -183,61 +183,61 @@ itemShoes = 53
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "miner" -> "I dig for gems, metals, and holes.", "Once, I dug a hole and some stinky, black fluid squirted out. Bah!", "If you find any gems, well, do not pick them up or nobody else can find them anymore."
 "Bergarbeiter" -> "Ich grabe nach Edelsteinen, Metallen und Löchern.", "Einmal hab ich ein Loch gegraben und da spritze so eine schwarze, stinkende Flüssigkeit raus. Bah!", "Wenn du Edelsteine findest, lass sie doch liegen, sonst kann sie kein anderer mehr finden."
-"dark hole", english -> "It is not dark down here, you just need a torch.", "A nice mine, isn't it? All mine in this mine, hehe."
+english, "dark hole" -> "It is not dark down here, you just need a torch.", "A nice mine, isn't it? All mine in this mine, hehe."
 "Dunkelloch" -> "Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.", "Eine schöne Mine, nicht wahr? Alles meins hier unten!"
-"mine", english -> "It is not dark down here, you just need a torch.", "A nice mine, isn't it? All mine in this mine, hehe."
+english, "mine" -> "It is not dark down here, you just need a torch.", "A nice mine, isn't it? All mine in this mine, hehe."
 "Mine" -> "Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.", "Eine schöne Mine, nicht wahr? Alles meins hier unten!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "He reminds me of a girl that I once knew."
 "Erzmagier" -> "Er erinnert mich an ein Mädchen, das ich einst kannte."
-"Elvaine", "Morgan", english -> "He reminds me of a girl that I once knew."
+english, "Elvaine", "Morgan" -> "He reminds me of a girl that I once knew."
 "Elvaine", "Morgan" -> "Er erinnert mich an ein Mädchen, das ich einst kannte."
-"Runewick", english -> "Runewick, that makes me sick!"
+english, "Runewick" -> "Runewick, that makes me sick!"
 "Runewick" -> "In Runewick, da sind sie dick!"
-"Valerio", "Guilianni", "Don", english -> "I think I owe the Don something. Was it the content of a hole?"
+english, "Valerio", "Guilianni", "Don" -> "I think I owe the Don something. Was it the content of a hole?"
 "Valerio", "Guilianni", "Don" -> "Ich befürchte, ich schulde dem Don noch etwas. War es etwa der Inhalt eines Loches?"
-"Galmair", english -> "Yes, Galmair, that is here!"
+english, "Galmair" -> "Yes, Galmair, that is here!"
 "Galmair" -> "Ja, Galmair, das ist hier!"
 "Queen" -> "Do not tell me you were sent to fetch gems for the queen. Not again!"
 "Königin" -> "Jetzt sag nicht, dass du geschickt wurdest, um Edelsteine für die Königin abzuholen. Nicht schon wieder!"
-"rosaline", "edwards", english -> "Do not tell me you were sent to fetch gems for the queen. Not again!"
+english, "rosaline", "edwards" -> "Do not tell me you were sent to fetch gems for the queen. Not again!"
 "rosaline", "edwards" -> "Jetzt sag nicht, dass du geschickt wurdest, um Edelsteine für die Königin abzuholen. Nicht schon wieder!"
-"Cadomyr", english -> "Cadomyr, won't come here!"
+english, "Cadomyr" -> "Cadomyr, won't come here!"
 "Cadomyr" -> "Cadomyr, das verbitt' ich mir!"
 
 -- Main land factions
-"albar", english -> "I wish I could dig a hole to throw in the whole albarian kingdom."
+english, "albar" -> "I wish I could dig a hole to throw in the whole albarian kingdom."
 "albar" -> "Ich wünschte, ich könnte ein Loch graben, das groß genug ist, um ganz Albar darein zu werfen!"
-"gynk", "gync", english -> "Immigrants from Gynk you can easily recognize by the size of their purse before and after they go to a dark alley. It is bigger afterwards."
+english, "gynk", "gync" -> "Immigrants from Gynk you can easily recognize by the size of their purse before and after they go to a dark alley. It is bigger afterwards."
 "gync", "gynk" -> "Einwanderer aus Gynk erkennt man leicht an der Größe ihrer Geldbörse, bevor und nachdem sie durch eine dunkle Gasse gehen. Hinterher ist sie prall gefüllt."
-"salkama", english -> "They do not care about stones there!"
+english, "salkama" -> "They do not care about stones there!"
 "salkama" -> "Sie sorgen sich nicht um Steine in Salkamar."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I want to become god one day, too. Just like Irmorom, Nargún or Ushara."
 "Gott", "Götter" -> "Ich möchte auch mal ein Gott werden, genauso wie Irmorom, Nargún und Ushara."
-"Irmorom", english -> "I have a beard and a pick axe and I dig for gems. Guess what I think about Irmorom!"
+english, "Irmorom" -> "I have a beard and a pick axe and I dig for gems. Guess what I think about Irmorom!"
 "Irmorom" -> "Ich habe einen Bart und eine Spitzhacke und ich grabe nach Edelsteinen. Also, was halte ich wohl von Irmorom?"
-"Nargun", "Nargún", "Nargùn", english -> "I hereby declare officially that I do not - I repeat - do not worship Nargún. Not today, at least."
+english, "Nargun", "Nargún", "Nargùn" -> "I hereby declare officially that I do not - I repeat - do not worship Nargún. Not today, at least."
 "Nargun", "Nargún", "Nargùn" -> "Ich verkünde hiermit feierlich und an Eides statt, dass ich nicht - ich wiederhole - nicht ein Anhänger Nargúns bin. Zumindestens heute nicht."
-"Ushara", english -> "Ushi is really a nice goddess, isn't she?"
+english, "Ushara" -> "Ushi is really a nice goddess, isn't she?"
 "Ushara" -> "Die Uschi ist echt 'ne klasse Göttin, nicht wahr?"
 
 -- Tool hints
-"pick", queststatus(68) = 0 -> "You look like somebody who can swing a pick. Everybody does, at least I think so. Perhaps you can do a task for me."
-"hacke", queststatus(68) = 0 -> "Du siehst aus wie jemand, der eine Spitzhacke schwingen kann. Naja, jeder sieht so aus, denk ich. Vielleicht kannst du einen Auftrag für mich ausführen."
+queststatus(68) = 0, "pick" -> "You look like somebody who can swing a pick. Everybody does, at least I think so. Perhaps you can do a task for me."
+queststatus(68) = 0, "hacke" -> "Du siehst aus wie jemand, der eine Spitzhacke schwingen kann. Naja, jeder sieht so aus, denk ich. Vielleicht kannst du einen Auftrag für mich ausführen."
 "pick" -> "Need a pick, it has a nick. In Galmair, you get a new one."
 "hacke" -> "Brauchst 'ne Hacke, war die letzte kacke. In Galmair kriegst du eine neue."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I sell nothing to you, you sell nothing to me. Everyone keeps his property, fine.", "You have enough, I have enough, so why trade?", "Bartering is so stupid, don't we all want to betray each other?"
+"what sell", "what buy", "list wares", "price of" -> trade, "I sell nothing to you, you sell nothing to me. Everyone keeps his property, fine.", "You have enough, I have enough, so why?", "Bartering is so stupid, don't we all want to betray each other?"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe dir nichts, du verkaufst mir nichts. Jeder behält, was er hat, gut, nicht?", "Du hast genug, ich hab genug, also warum handeln?", "Feilschen ist ziemlich dusselig, will doch jeder nur den anderen hehupsen."
 "tell something" -> "Once upon a time, in land far far away... I forgot the rest. But this line thrills me!", "And they all died happily ever after... I'm not a good story teller.", "What shall I tell you, fairytales? Better ask a fairy!"
 "erzähl was", "erzähl etwas" -> "Es war einmal in einem fernen Land, hinter den sieben Bergen... Den Rest hab ich vergessen, aber diese Zeile ist der Hammer.", "Und wenn sie nicht noch leben, sind sie wohl gestorben... Ich bin nicht gut darin, Geschichten zu erzählen.", "Was soll ich dir erzählen, Märchen? Frage lieber eine Fee danach."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Daerbur", "Wimbert", english -> "Us Wimberts have a long tradition as miners and gravediggers. Digging holes is our business!"
+english, "Daerbur", "Wimbert" -> "Us Wimberts have a long tradition as miners and gravediggers. Digging holes is our business!"
 "Daerbur", "Wimbert" -> "Wir Wimberts haben eine lange Tradition als Bergarbeiter und Totengräber. Löchergraben ist genau unser Ding!"
 "Yes" -> "What was first, yes or no? I mean, did people first think about how to agree or how to disagree?", "Indeed.", "Yes?"
 "Ja" -> "Was war wohl zuerst da, ja oder nein? Ich meine, haben sich die Leute zuerst überlegt, zuzustimmen oder abzulehnen?", "Jawohl.", "Ja?"

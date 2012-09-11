@@ -8,7 +8,7 @@
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -46,6 +46,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Good day. I hope you are doing well.");
 talkEntry:addResponse("This is Galmair, have a pleasant time.");
 talkEntry:addResponse("I'm happy that you decided to choose this gate. Please have a pleasant trip.");
@@ -55,11 +56,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Guten Tag, ich hoffe, es geht euch gut.");
 talkEntry:addResponse("Dies hier ist Galmair, genießt euren Aufenthalt.");
 talkEntry:addResponse("Es freut mich, dass ihr dieses Tor gewählt habt. Eine gute Reise wünsche ich.");
@@ -67,11 +71,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Good day. I hope you are doing well.");
 talkEntry:addResponse("This is Galmair, have a pleasant time.");
 talkEntry:addResponse("I'm happy that you decided to choose this gate. Please have a pleasant trip.");
@@ -112,11 +116,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("May Justice and peace make your day merry.");
 talkEntry:addResponse("I will see you later.");
 talkEntry:addResponse("Have a good day, please walk in peace wherever you step.");
@@ -177,9 +181,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I don't need anything right now. Thank you though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -225,8 +229,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("I'm a Galmairian Gateguard.");
 talkEntry:addResponse("I am a Silverstone rank in the Civil Watch.");
 talkEntry:addResponse("I guard gates and smash people in the face with my ball and chain, but not often.");
@@ -242,8 +246,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gavin");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Gavin");
 talkEntry:addResponse("She is the prettiest, strongest, smartest person I know.");
 talkEntry:addResponse("She rescued me from being homeless.");
 talkEntry:addResponse("Gavin is too tall for a girl.");
@@ -402,8 +406,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Elara");
 talkEntry:addResponse("I serve Elara because that is my sister's chosen god.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -415,8 +419,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("I hear that there is an enormous bridge that stretches across a large sea just to get to the city. The image in my head is very pretty. Don't you think?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -428,9 +432,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I hear he is a strong mage user, but honestly. Magic is nothing compared to a strong blow from a dwarven great axe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -455,10 +459,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I hear he is the worst womanizer, but he pays my salary, so I work for him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -472,8 +476,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("The streets are cold, the men are rude, but this is where my sister is and my job. I love it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -485,8 +489,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("I made Gavin promise she would take me there. She said on her next day off. That was two years ago.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -498,9 +502,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I hear she is the meanest witch, even compared to the ugly ferocious women of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -525,8 +529,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("albar");
 talkEntry:addResponse("Outside of Galmair I know nothing, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -538,9 +542,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I think that is what this place is like, but I really don't know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -553,8 +557,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("I've never even heard that word before.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -566,9 +570,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("What is that?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -597,9 +601,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bre");
 talkEntry:addTrigger("Southstar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I am her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -638,9 +642,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("I am the merely a guard of Galmair.");
 talkEntry:addResponse("Tell that somebody else.");
 talkEntry:addResponse("Move along.");
@@ -651,9 +655,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Ich bin in erster Linie eine Wache Galmairs.");
 talkEntry:addResponse("Erzählt das irgendwem, nur nicht mir.");
 talkEntry:addResponse("Weitergehen.");

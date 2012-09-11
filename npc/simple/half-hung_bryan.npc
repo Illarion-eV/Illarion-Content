@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Half-hung Bryan"
@@ -54,11 +54,11 @@ itemShoes = 53
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome to my inn.", "Greetings, how may I help you?", "#me turns his stiff neck to look at you.'Greetings'."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid Willkommen in meinem Gasthof.", "Grüße, wie kann ich Euch helfen?", "#me blickt dich mit steifem Nacken an. 'Grüße'."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Welcome to my inn.", "Greetings, how may I help you?", "#me nods 'Greetings'."
+english, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Welcome to my inn.", "Greetings, how may I help you?", "#me nods 'Greetings'."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Seid Willkommen in meinem Gasthof.", "Grüße, wie kann ich Euch helfen?", "#me nickt grüßend."
 "Farewell", "Bye", "Farewell", "See you" -> "Au revoir.", "Farewell, and don't forget my inn!", "Take care!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Au revoir. Und vergeßt nicht, mein Gasthof steht Euch immer offen.", "Macht's gut."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Au revoir.", "Farewell, and don't forget my inn!", "Take care!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir.", "Farewell, and don't forget my inn!", "Take care!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. Und vergeßt nicht, mein Gasthof steht Euch immer offen.", "Macht's gut."
 "How are you", "How feel", "How do you do" -> "It's hard to breath...", "#me hisses slightly. 'My neck hurts.'", "#me touches his neck with a thoughtfull gaze. 'Hm-hm... How's your neck?'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "#me macht einen kehlig würgendes Geräusch. 'Ich habe Nackenschmerzen...'", "#me inhaliert mit einem rasselnden Laut die stickige Luft. 'Das Atmen fällt mir Schwer...'", "#me betastet nachdenklich die dunkel verfärbte Narbe quer über seinem Hals: 'Hm-hm... - Und Euch? Wie fühlt sich Euer Hals an?'"
@@ -66,7 +66,7 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bryan. Und das ist mein Gasthof. Der Gasthof zur Hanfschlinge. Gefällt Euch der Name?", "Ich bin Half-hung Bryan. Was wollt Ihr?"
 
 -- Catching quest triggers
-"quest", "mission", english -> "Half-hung Bryan doesn't have any work for you."
+english, "quest", "mission" -> "Half-hung Bryan doesn't have any work for you."
 "quest", "mission" -> "Half-hung Bryan hat keine Arbeit für Euch."
 "task", "adventure", "order" -> "Half-hung Bryan doesn't have any work for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Half-hung Bryan hat keine Arbeit für Euch."
@@ -74,20 +74,20 @@ itemShoes = 53
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Well, this nice and beautiful inn here in the wilderness is mine. The Hemp Necktie Inn always has a lot of customers.", "I care for my inn. Do you want to rent a room?"
 "beruf" -> "Mir gehört dieser schmucke Gasthof, mitten in der Wildnis. Und doch! - Der Gasthof zur Hanfschlinge hat immer viele Gäste.", "Einst hab ich einfach am feld geschuftet. Dann wurde ich n'Galgenvogel und danach, hatt ich Glück und könnte mir den Gasthof kaufen.", "Ich kümmere mich um meinen Gasthof. Wollt Ihr ein Zimmer mieten?"
-"job", english -> "Well, this nice and beautiful inn here in the wilderness is mine. The Hemp Necktie Inn always has a lot of customers.", "I care for my inn. Do you want to rent a room?"
+english, "job" -> "Well, this nice and beautiful inn here in the wilderness is mine. The Hemp Necktie Inn always has a lot of customers.", "I care for my inn. Do you want to rent a room?"
 "job" -> "Mir gehört dieser schmucke Gasthof, mitten in der Wildnis. Und doch! - Der Gasthof zur Hanfschlinge hat immer viele Gäste.", "Einst hab ich einfach am feld geschuftet. Dann wurde ich n'Galgenvogel und danach, hatt ich Glück und könnte mir den Gasthof kaufen.", "Ich kümmere mich um meinen Gasthof. Wollt Ihr ein Zimmer mieten?"
-"Gobaith", "Gobiath", english -> "What did you say?", " Gobaith? Never heard of it."
+english, "Gobaith", "Gobiath" -> "What did you say?", " Gobaith? Never heard of it."
 "Gobaith", "Gobiath" -> "Bitte was?", "Gobaith? Hab ich noch nie davon gehört."
 "my name" -> "Good. What do you want?", "#me laughs a bit: 'And I am Bryan. They tried to hang me two times and yet here I stand in front of you.'"
 "mein Name" -> "Gut. Was wollt Ihr von mir?", "#me krächzt lachend: 'Und ich bin Bryan. Man hat mich zwei Mal gehängt und trotzdem steh ich vor Euch.'"
 
 -- More small talk; add at least five triggers
-"Borgate", "Northoff", english -> "Borgate pours the beer. A good guy. Do you want something to drink? Then ask Borgate!"
+english, "Borgate", "Northoff" -> "Borgate pours the beer. A good guy. Do you want something to drink? Then ask Borgate!"
 "barkeeper", "innkeeper" -> "Borgate pours the beer. A good guy. Do you want something to drink? Then ask Borgate!"
 "inn", "guesthouse", "tavern", "necktie" -> "The inn is a free and independent place. City laws are of no interest here. The only law that counts is the law of Half-hung Bryan."
 "hang", "hung", "hemp", "neck", "gibbet" -> "The first time the rope broke. The second time the branch snapped."
-"Gowan", "Sam", "brute", "Booze", "hook", english -> "Here in my inn, no one asks questions. That's my law - the only law that counts this far away from the cities."
-"knecht", "bauer", "farmer", english -> "I once was a farmer. And during war times farmers become soldiers. Farmers live long, soldiers don't. I deserted and the punishment for that was the noose."
+english, "Gowan", "Sam", "brute", "Booze", "hook" -> "Here in my inn, no one asks questions. That's my law - the only law that counts this far away from the cities."
+english, "knecht", "bauer", "farmer" -> "I once was a farmer. And during war times farmers become soldiers. Farmers live long, soldiers don't. I deserted and the punishment for that was the noose."
 "law" -> "Rule one, don't ask questions. Rule two, don't ask any questions. Rule three, Half-hung Bryan rents room to anyone he wants to rent rooms to. Rule four, Half-hung Bryan does what Half-hung Bryan wants to do."
 "Borgate", "Northoff", "wirt" -> "Borgate schenkt das Bier aus. Ein anständiger Kerl. Wollt ihr etwas trinken? Dann geht zu ihm."
 "Gasthof", "Taverne", "hof", "Hanfschlinge" -> "Mein Hof war, zuerst nicht mehr als eine Scheune. Hab sie leer gefunden und darin übernachtet. Seit dem gehörte sie mir.", "Klar die Ersten Jahre wahren hart. Allerlei Untier läuft hier draußen rum, weit weg von den Städten. Aber ich bin nur mir selbst verpflichtet.", "Der Gasthof zur Hanfschlinge, ist keiner Stadt verpflichtet. Auch wenn das jemanden nicht gefällt, hier gelten Bryans Regeln."
@@ -99,63 +99,63 @@ itemShoes = 53
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
 "Erzmagier" -> "Wer ist auf dieser Seite? wer ist auf jener Seite? Half-hung Bryan ist auf seiner eigenen Seite. So wars schon immer und so wirds immer sein. Davon lebt der Gasthof und alle wissen woran sie mit mir sind.", "Hier in mitten der Wildnis, ist mein Hof unabhängig von allen politischen Intrigen. Das ist fast ein Segen, aber man muss selbst sehen wo man bleibt wenn die Wilden hier einfallen.", "Auf meinem Gasthof werden keine Fragen gestellt. Ich will nicht wissen wo Ihr herkommt, was ihr macht und was ihr vorhabt schon gar nicht."
-"Elvaine", "Morgan", english -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
+english, "Elvaine", "Morgan" -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
 "Elvaine", "Morgan" -> "Wer ist auf dieser Seite? wer ist auf jener Seite? Half-hung Bryan ist auf seiner eigenen Seite. So wars schon immer und so wirds immer sein. Davon lebt der Gasthof und alle wissen woran sie mit mir sind.", "Hier in mitten der Wildnis, ist mein Hof unabhängig von allen politischen Intrigen. Das ist fast ein Segen, aber man muss selbst sehen wo man bleibt wenn die Wilden hier einfallen.", "Auf meinem Gasthof werden keine Fragen gestellt. Ich will nicht wissen wo Ihr herkommt, was ihr macht und was ihr vorhabt schon gar nicht."
-"Runewick", english -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
+english, "Runewick" -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
 "Runewick" -> "Wer ist auf dieser Seite? Wer ist auf jener Seite? Half-hung Bryan ist auf seiner eigenen Seite. So wars schon immer und so wirds immer sein. Davon lebt der Gasthof und alle wissen woran sie mit mir sind.", "Hier in mitten der Wildnis, ist mein Hof unabhängig von allen politischen Intrigen. Das ist fast ein Segen, aber man muss selbst sehen wo man bleibt wenn die Wilden hier einfallen.", "Auf meinem Gasthof werden keine Fragen gestellt. Ich will nicht wissen wo Ihr herkommt, was ihr macht und was ihr vorhabt schon gar nicht."
-"Valerio", "Guilianni", "Don", english -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
+english, "Valerio", "Guilianni", "Don" -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
 "Valerio", "Guilianni", "Don" -> "Wer ist auf dieser Seite? Wer ist auf jener Seite? Half-hung Bryan ist auf seiner eigenen Seite. So wars schon immer und so wirds immer sein. Davon lebt der Gasthof und alle wissen woran sie mit mir sind.", "Hier in mitten der Wildnis, ist mein Hof unabhängig von allen politischen Intrigen. Das ist fast ein Segen, aber man muss selbst sehen wo man bleibt wenn die Wilden hier einfallen.", "Auf meinem Gasthof werden keine Fragen gestellt. Ich will nicht wissen wo Ihr herkommt, was ihr macht und was ihr vorhabt schon gar nicht."
-"Galmair", english -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
+english, "Galmair" -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
 "Galmair" -> "Wer ist auf dieser Seite? wer ist auf jener Seite? Half-hung Bryan ist auf seiner eigenen Seite. So wars schon immer und so wirds immer sein. Davon lebt der Gasthof und alle wissen woran sie mit mir sind.", "Hier in mitten der Wildnis, ist mein Hof unabhängig von allen politischen Intrigen. Das ist fast ein Segen, aber man muss selbst sehen wo man bleibt wenn die Wilden hier einfallen.", "Auf meinem Gasthof werden keine Fragen gestellt. Ich will nicht wissen wo Ihr herkommt, was ihr macht und was ihr vorhabt schon gar nicht."
 "Queen" -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
 "Königin" -> "Wer ist auf dieser Seite? Wer ist auf jener Seite? Half-hung Bryan ist auf seiner eigenen Seite. So wars schon immer und so wirds immer sein. Davon lebt der Gasthof und alle wissen woran sie mit mir sind.", "Hier in mitten der Wildnis, ist mein Hof unabhängig von allen politischen Intrigen. Das ist fast ein Segen, aber man muss selbst sehen wo man bleibt wenn die Wilden hier einfallen.", "Auf meinem Gasthof werden keine Fragen gestellt. Ich will nicht wissen wo Ihr herkommt, was ihr macht und was ihr vorhabt schon gar nicht."
-"rosaline", "edwards", english -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
+english, "rosaline", "edwards" -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
 "rosaline", "edwards" -> "Wer ist auf dieser Seite? Wer ist auf jener Seite? Half-hung Bryan ist auf seiner eigenen Seite. So wars schon immer und so wirds immer sein. Davon lebt der Gasthof und alle wissen woran sie mit mir sind.", "Hier in mitten der Wildnis, ist mein Hof unabhängig von allen politischen Intrigen. Das ist fast ein Segen, aber man muss selbst sehen wo man bleibt wenn die Wilden hier einfallen.", "Auf meinem Gasthof werden keine Fragen gestellt. Ich will nicht wissen wo Ihr herkommt, was ihr macht und was ihr vorhabt schon gar nicht."
-"Cadomyr", english -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
+english, "Cadomyr" -> "Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.", "Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.", "We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do."
 "Cadomyr" -> "Wer ist auf dieser Seite? Wer ist auf jener Seite? Half-hung Bryan ist auf seiner eigenen Seite. So wars schon immer und so wirds immer sein. Davon lebt der Gasthof und alle wissen woran sie mit mir sind.", "Hier in mitten der Wildnis, ist mein Hof unabhängig von allen politischen Intrigen. Das ist fast ein Segen, aber man muss selbst sehen wo man bleibt wenn die Wilden hier einfallen.", "Auf meinem Gasthof werden keine Fragen gestellt. Ich will nicht wissen wo Ihr herkommt, was ihr macht und was ihr vorhabt schon gar nicht."
 
 -- Main land factions
-"albar", english -> "Albar - My homeland. Sometimes I miss the hard work in the fields...A man who has his hands deep in the dirt knows that he is doing honest work."
+english, "albar" -> "Albar - My homeland. Sometimes I miss the hard work in the fields...A man who has his hands deep in the dirt knows that he is doing honest work."
 "albar" -> "Albar - Meine Heimat. Es gibt Tage an denen vermisse ich es mir den Rücken krum zu schuften, die harte Erde des Ackers zu Pflügen... Wenn ein Mann seine Finger tief im Dreck hat, weiß er, dass er eine gute Arbeit tut."
-"gynk", "gync", english -> "What shall I tell you about Gynk? Snakes everywhere, the farmers grow sibanac instead of vegetables and the weather is bad."
+english, "gynk", "gync" -> "What shall I tell you about Gynk? Snakes everywhere, the farmers grow sibanac instead of vegetables and the weather is bad."
 "gync", "gynk" -> "Was soll man über Gynk schon sagen? Die Erde dort ist voller Schlangen, die Bauern ernten Sibanac anstelle von ordentlichem Gemüse und das Wetter ist schrecklich."
-"salkama", english -> "Once my old feudal lord told Bryan to fight in the war against Salkamar. I tried to run away - that's why I got hanged, twice. Once for treason against the king, once again for desertion."
+english, "salkama" -> "Once my old feudal lord told Bryan to fight in the war against Salkamar. I tried to run away - that's why I got hanged, twice. Once for treason against the king, once again for desertion."
 "salkama" -> "Als mein alter Lehnsherr in den Krieg gegen Salkamar zog, befahl er auch den tapferen Bryan zum Soldaten. Aber ich versuchte zu fliehen, darauf hin ließ er mich hängen, zwei Mal. Je einmal für Fahnenflucht und für Verrat am König."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Gott", "Götter" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Adron", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Adron" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Adron" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Bragon", "Brágon", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Bragon", "Brágon" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Bragon", "Brágon" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Cherga", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Cherga" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Cherga" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Elara", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Elara" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Elara" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Eldan", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Eldan" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Eldan" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Findari", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Findari" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Findari" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Irmorom", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Irmorom" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Irmorom" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Malachin", "Malachín", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Malachin", "Malachín" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Malachin", "Malachín" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Moshran", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Moshran" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Moshran" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Nargun", "Nargún", "Nargùn", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Nargun", "Nargún", "Nargùn" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Nargun", "Nargún", "Nargùn" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Oldra", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Oldra" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Oldra" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Ronagan", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Ronagan" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Ronagan" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Sirani", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Sirani" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Sirani" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Tanora", "Zelphia", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Tanora", "Zelphia" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Tanora", "Zelphia" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Ushara", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Ushara" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Ushara" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
-"Zhambra", english -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
+english, "Zhambra" -> "#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'"
 "Zhambra" -> "#me räuspert sich mit schief gelegtem Kopf. 'Über die Götter spreche ich nur mit zwei Personen dieser Welt. Und keine davon seid Ihr.'"
 
 -- Catching typical NPC phrases
@@ -165,7 +165,7 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Mann nennt mich Half-hung Bryan. Seht Ihr die Narbe an meinem Hals? Das war der Strick.", "Hm. Ich hatt nicht immer den schiefen Hals. Aber das war früher. Damals war viel anders.", "Früher war ich Knecht auf einem albarischem Hof. Und dann dachte ich ich muss ausziehen in die große Welt. Jetzt ist mein Hals schief und Leute wie Ihr wollen ständig etwas von mir."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Half-hung", "Bryan", english -> "Half-hung Bryan. That's my name.", "Hrm?"
+english, "Half-hung", "Bryan" -> "Half-hung Bryan. That's my name.", "Hrm?"
 "Half-hung", "Bryan" -> "Half-hung Bryan. So lautet mein Name.", "#me krächzt kehlig. 'Hrm?'"
 "Yes" -> "No problem.", "That's all right.", "Then do it, if you must."
 "Ja" -> "#me zuckt zaghaft mit den Schultern. 'Geht klar.'", "Von mir aus.", "Geht in Ordnung.", "Na meinetwegen."
@@ -173,8 +173,8 @@ itemShoes = 53
 "Nein" -> "Hr-hrm.", "Was sollte mich das kümmern?", "#me räuspert sich kehlig. 'Das ist mir Wurst wie Käse.'"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Half-hung Bryan doesn't ask any questions.", "Half-hung Bryan does what he wants.", "Half-hung Bryan rents rooms to anyone he likes."
-".*", german, chance(20.0) -> "Half-hung Bryan stellt keine Fragen.", "Half-hung Bryan tut was auch immer Half-hung Brayn tut.", "Half-hung Bryan vermietet Zimmer an wen und wie er will."
+english, chance(20.0), ".*" -> "Half-hung Bryan doesn't ask any questions.", "Half-hung Bryan does what he wants.", "Half-hung Bryan rents rooms to anyone he likes."
+german, chance(20.0), ".*" -> "Half-hung Bryan stellt keine Fragen.", "Half-hung Bryan tut was auch immer Half-hung Brayn tut.", "Half-hung Bryan vermietet Zimmer an wen und wie er will."
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

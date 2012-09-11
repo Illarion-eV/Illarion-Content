@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -19,6 +19,7 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.advari_stonebog", package.seeall)
 
@@ -45,6 +46,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Hiho, traveler.");
 talkEntry:addResponse("Abundance and Wealth, my friend.");
 talkEntry:addResponse("Hail Irmorom.");
@@ -56,11 +58,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Hiho, Reisender.");
 talkEntry:addResponse("Wohlstand und profitable Geschäfte, mein Freund.");
 talkEntry:addResponse("Heil Irmorom.");
@@ -70,11 +75,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hiho, traveler.");
 talkEntry:addResponse("Abundance and Wealth, my friend.");
 talkEntry:addResponse("Hail Irmorom.");
@@ -120,11 +125,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("G'hruk. Farewell.");
 talkEntry:addResponse("Abundance and Wealth, my friend.");
 talkEntry:addResponse("Arr.");
@@ -184,9 +189,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I don't got any tasks for you. Better ask the Don. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -201,6 +206,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addResponse("I don't got any tasks for you. Better ask the Don. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -209,13 +215,15 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Ich hab keine Arbeit für dich, frag lieber den Don. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Iwith seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -226,9 +234,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there.");
+talkEntry:addTrigger("job");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Iwith seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -239,9 +248,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Gobaith? Drhg'hgin! Nobody's allowed to speak that way about my granny! Get rid!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -277,31 +286,31 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("or[ck]");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("or[ck]");
 talkEntry:addResponse("Arr the don gave two markt stalls to the pignoses. Now I have to guard their actions.");
 talkEntry:addResponse("You see the Orc opponent - over there? J'uk, he lolls the whole long day, guzzling the own goods. The beer tastes like piss, don't ask me where he got it - in no case by dwarves thats for sure.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("name");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("name");
 talkEntry:addResponse("A true dwarf like me... doesn't tell his name to everybody. This defends us dwarves against bad magic frippery! And such rubbish, got it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hagar");
 talkEntry:addTrigger("wernson");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Us dwarves brew his beer. Lucky man, otherwise nobody would guzzle down there, in the Winged Sow Inn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gold");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("gold");
 talkEntry:addResponse("#me starts to sing with a deep throaty voice.'Gooold! Gold, Gold, Gold. Gold... Gold, Gold, Gold!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -364,9 +373,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Arr. For sure each dwarf knows - magic is frippery and dangerous to public safety! And this Elvaine Morgan should listen to us dwarves!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -379,8 +388,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Drhg'hgin! A hotped of sin^if my opinion counts. The play with magic there, can't take that for a joke! Hopefully the explode themselves, D'rkza... Fools.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -392,10 +401,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Aye the Don is the law. Don't mess up with him, he's the richest dwarf here... could be the last thing you did.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -409,8 +418,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Galmair, Galmair! That's the name. Here's the best stone and a rich dwarf is well respected. What a life, thanks to Irmorom!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -434,9 +443,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Kra'gstuck! We dwarves don't care about 'blue' blood! Wealth is the thing, bring you prestige. Big rich clans, are those who rule the nation!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -449,8 +458,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Cadomyr? They are ruled by this underbred brat, aren't they? She seems not to have the sligthest clue about business. Aye, in dwarves society only the most clever heads rule the land.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -462,8 +471,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("albar");
 talkEntry:addResponse("About Albar, you desire to speak? Please a well suited dwarf does no busniess over there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -475,9 +484,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Gynk, ye-ye! There are mines! Selfunderstood not comparable to the mines of the dwarves and filled with fainaiguers, but what else's to expect from humans?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -490,8 +499,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Sunny, shining Salkamar. overfilled with Wizard-riffraff. By only thinking of it my eyes are burning. Such a country isn't made for us dwarves.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -516,8 +525,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Hail Irmorom. Respect my clan, deep down in the halls, made of stone. They are far away they but noone will ever seperate us.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -529,8 +538,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("Aye, I sacrifice a good part of my income the Lord of the shadows. In opposite train I'll be untroubled by larcenous riffraff! Arr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -577,9 +586,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("advari");
 talkEntry:addTrigger("stonebog");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Arr, pillownose! You think that's my real name? - Whatever... you like to sell somethin?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -624,9 +633,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Aye, is that so? Never heard about.");
 talkEntry:addResponse("#me gives a throaty laugher and scratches his beard.");
 talkEntry:addResponse("Well, well.");
@@ -635,9 +644,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Aye, ist das so? Das ist mir neu.");
 talkEntry:addResponse("#me lacht kehlig und streicht sich über den Bart. 'Na gut, ist ja gut.'");
 talkEntry:addResponse("Arr!");

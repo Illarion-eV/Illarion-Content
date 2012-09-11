@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Regallo                                                          --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Alysa Lorthelia"
@@ -91,11 +91,11 @@ itemShoes = 53
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, would you like some something to eat? I think the stuff I made is good.", " Nice to meet you, I am Alysa Lorthelia.", "Ah! You startled me, Hello, I'm sorry."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Hello, would you like some something to eat? I think the stuff I made is good.", " Nice to meet you, I am Alysa Lorthelia.", "Ah! You startled me, Hello, I'm sorry."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, would you like some something to eat? I think the stuff I made is good.", " Nice to meet you, I am Alysa Lorthelia.", "Ah! You startled me, Hello, I'm sorry."
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Farewell", "Bye", "Fare well", "See you" -> "Will I ever see you again? ", "Thank you so, so, so much for talking to me.", "Please have a good day. Can you visit again please?"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Will I ever see you again? ", "Thank you so, so, so much for talking to me.", "Please have a good day. Can you visit again please?"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Will I ever see you again? ", "Thank you so, so, so much for talking to me.", "Please have a good day. Can you visit again please?"
 "Farewell", "Bye", "Fare well", "See you" -> "Will I ever see you again? ", "Thank you so, so, so much for talking to me.", "Please have a good day. Can you visit again please?"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "How are you", "How feel", "How do you do" -> "I don't feel so good today. My stomach hurts. But it's not because of my food! Please don't think my food is bad!", "My head is dizzy.", "I think I ate too much. I shouldn't eat for another two days."
@@ -106,9 +106,9 @@ itemShoes = 53
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I bake all kinds of foods.", "I sell people the food that I and old man John Sights bake.", "I started working as a baker a several moons ago."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "I bake all kinds of foods.", "I sell people the food that I and old man John Sights bake.", "I started working as a baker a several moons ago."
+english, "job" -> "I bake all kinds of foods.", "I sell people the food that I and old man John Sights bake.", "I started working as a baker a several moons ago."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "There were fairies somewhere in that world.", "I would love to meet a fairy. I know they lived there.", "Maybe a fairy can cast a spell on me, one that would make me a fairy."
+english, "Gobaith", "Gobiath" -> "There were fairies somewhere in that world.", "I would love to meet a fairy. I know they lived there.", "Maybe a fairy can cast a spell on me, one that would make me a fairy."
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "my name" -> "Alysa Lorthelia, A regular baker I guess?"
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -126,27 +126,27 @@ itemShoes = 53
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "The Arch Mage only uses enchanted weapons made by Asha Lorthelia, my mother."
 "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elvaine", "Morgan", english -> "Who?"
+english, "Elvaine", "Morgan" -> "Who?"
 "Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Runewick", english -> "I live here. I don't think anything else about it."
+english, "Runewick" -> "I live here. I don't think anything else about it."
 "Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Valerio", "Guilianni", "Don", english -> "My mother does not care for him. I don't know why."
+english, "Valerio", "Guilianni", "Don" -> "My mother does not care for him. I don't know why."
 "Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "I've been several times with my mother and father. It's a dirty place and that's a lot coming from a dwarf."
+english, "Galmair" -> "I've been several times with my mother and father. It's a dirty place and that's a lot coming from a dwarf."
 "Galmair" -> "GERMAN1"
 "Queen" -> "She's too pretty. The gods were a lot more fare to her than to me."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "She's too pretty. The gods were a lot more fare to her than to me."
+english, "rosaline", "edwards" -> "She's too pretty. The gods were a lot more fare to her than to me."
 "rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "Too much sun for a dwarf like me, but I enjoyed visiting Glass Spiegel."
+english, "Cadomyr" -> "Too much sun for a dwarf like me, but I enjoyed visiting Glass Spiegel."
 "Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
-"albar", english -> "My father says that only the stupid care about faction related strife."
+english, "albar" -> "My father says that only the stupid care about faction related strife."
 "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "My father says that only the stupid care about faction related strife."
+english, "gynk", "gync" -> "My father says that only the stupid care about faction related strife."
 "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "My father says that only the stupid care about faction related strife."
+english, "salkama" -> "My father says that only the stupid care about faction related strife."
 "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Gods - use the triggers of the god the NPC worships or fights
@@ -159,7 +159,7 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "That's me, Alysa Lorthelia"
+english, "<NPC first name>", "<NPC last name>" -> "That's me, Alysa Lorthelia"
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "Ok"
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -167,8 +167,8 @@ itemShoes = 53
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "That has nothing to do with me. I'm sorry"
-".*", german, chance(20.0) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, chance(20.0), ".*" -> "That has nothing to do with me. I'm sorry"
+german, chance(20.0), ".*" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

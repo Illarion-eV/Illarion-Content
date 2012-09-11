@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 28, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -32,7 +32,6 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("reset");
-talkEntry:addResponse("Noobia reset!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 0));
@@ -40,6 +39,7 @@ talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(314, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(31, 22, 100));
+talkEntry:addResponse("Noobia reset!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -73,145 +73,145 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "<", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Please make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."));
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 2));
 talkEntry:addResponse("Be greeted, %CHARNAME. My name is Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with the basics, equipping. I have just given you a pick-axe, hold it in your hands, please.");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "<", 2));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Ziehe die Spitzhacke mit gedrückter linker Maustaste in ein leeres Handfeld in deinem Inventar."));
-talkEntry:addResponse("Seid gegrüßt, %CHARNAME. Mein Name ist Aldania Elthewan und ich bin hier, um Euch beizubringen, wie man sich mit Gegenständen ausrüstet, sie untersucht und benutzt. Lasst uns mit dem wichtigsten anfangen: dem Ausrüsten. Ich habe Euch soeben eine Spitzhacke gegeben, bitte nehmt sie in die Hand.");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 2));
+talkEntry:addResponse("Seid gegrüßt, %CHARNAME. Mein Name ist Aldania Elthewan und ich bin hier, um Euch beizubringen, wie man sich mit Gegenständen ausrüstet, sie untersucht und benutzt. Lasst uns mit dem wichtigsten anfangen: dem Ausrüsten. Ich habe Euch soeben eine Spitzhacke gegeben, bitte nehmt sie in die Hand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkEntry:addResponse("Alas, it looks like you lost the pick-axe I gave you. Do not be so careless with your belongings! Here, have another. Take it into your hands, please.");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkEntry:addResponse("Ach herrje, es schaut aus, als hättet Ihr die Spitzhacke verloren, die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Nehmt sie bitte in die Hand.");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."));
 talkEntry:addResponse("Please place the pick-axe into your hands. Learning how to equip items is important, just imagine if you should face a dragon and could not even draw your sword!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Ziehe die Spitzhacke mit gedrückter linker Maustaste in ein leeres Handfeld in deinem Inventar."));
 talkEntry:addResponse("Bitte nehmt die Spitzhacke in die Hand. Zu lernen wie man Gegenstände ausrüstet ist wichtig. Stellt Euch nur vor, Ihr würdet auf einen Drachen stoßen und könntet nichtmal Euer Schwert ziehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkEntry:addResponse("Alas, it looks like you lost the pick-axe I gave you. Don't be so careless with your belongings! Here, have another one. Examine it, please.");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkEntry:addResponse("Ach herrje, es schaut aus als hättet Ihr die Spitzhacke verloren die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Untersucht sie einmal.");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Click the pick-axe with the left mouse button to examine it."));
 talkEntry:addResponse("In order to examine an item, you simply have to click on it once. Learning about your belongings is as vital as acquiring them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Klick mit der linken Maustaste auf die Spitzhacke um sie zu untersuchen."));
 talkEntry:addResponse("Um einen Gegenstand zu untersuchen, müsst Ihr es einfach nur einmal anklicken. Etwas über sein Hab und Gut zu lernen, ist mindestens so wichtig, wie es zu erlangen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0, ));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
 talkEntry:addResponse("Without a light source, the darkness will engulf you sooner or later. I have given you another torch, be more careful with this one.");
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0, ));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
 talkEntry:addResponse("Ohne eine Lichtquelle wird Euch die Dunkelheit früher oder später einhüllen. Ich habe Euch eine neue Fackel gegeben, bite seid vorsichtiger mit dieser.");
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. You can perform a double click on an item to use it. Double click the torch to ignite it."));
 talkEntry:addResponse("What is the purpose of owning an item if you cannot use it properly? Ignite the torch I gave you with a double click. Light sources are quite important when travelling by night.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Du kannst einen Gegenstand mit einerm Doppelklick benutzen. Doppelklick die Fackel, um sie zu entzünden."));
 talkEntry:addResponse("Was ist der Nutzen von einem Gegenstand, wenn man ihn nicht richtig benutzen kann? Entzündet die Fackel, welche ich Euch gab, mit einem Doppelklick. Wenn man Nachts unterwegs ist, sind Lichtquellen sehr wichtig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("This is where we part company, %CHARNAME. You have done well enough. Run along to that savage, Groknar, further down the road. He will train you in the art of fighting.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 5));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Dies ist der Zeitpunkt, um getrennte Wege zu gehen, %CHARNAME. Ihr habt euch wacker geschlagen. Geht nur weiter die Straße entlang zu diesem Wilden: Groknar. Er wird Euch in der Kunst des Kampfes unterrichten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

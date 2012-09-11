@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Kawan Baxter, translation by Estralis Seborian                   --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -19,6 +19,7 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.horatio_milenus", package.seeall)
 
@@ -45,6 +46,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("What?");
 talkEntry:addResponse("Welcome to Cadomyr.");
 talkEntry:addResponse("This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline.");
@@ -57,11 +59,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Was?");
 talkEntry:addResponse("Willkommen in Cadomyr.");
 talkEntry:addResponse("Dies ist Cadomyr, Heimat der schönen und unglaublich weisen Königin Rosaline.");
@@ -72,11 +77,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("What?");
 talkEntry:addResponse("Welcome to Cadomyr.");
 talkEntry:addResponse("This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline.");
@@ -127,11 +132,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Care, the desert can be quite unforgiving.");
 talkEntry:addResponse("Care, make no trouble.");
 talkEntry:addResponse("Care.");
@@ -204,9 +209,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Well, it is my mission to guard this gate. I do not know what your mission is; apart from serving her majesty, of course.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -221,6 +226,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addResponse("Well, it is my mission to guard this gate. I do not know what your mission is; apart from serving her majesty, of course.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -229,6 +235,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Nun, meine Aufgabe ist es, dieses Tor zu bewachen. Was eure Aufgabe ist, weiß ich nicht, Hauptsache, ihr dient ihrer Majestät.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -254,8 +261,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("I am Guard of Cadomyr.");
 talkEntry:addResponse("I serve this realm.");
 talkEntry:addResponse("I serve this mighty city.");
@@ -275,9 +282,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Gob... what?");
 talkEntry:addResponse("I don't know no Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -320,9 +327,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hastings");
 talkEntry:addTrigger("Baron");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I swear, on the day that the gods decide, that man's head will be fell by my blade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -347,8 +354,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tomb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Tomb");
 talkEntry:addResponse("The resting place of the greatest of our people is the tomb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -424,9 +431,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("He's quite a merry fellow.");
 talkEntry:addResponse("The towers the archmage of Runewick built must be easy to defend.");
 talkEntry:addResponse("The archmage of Runewick; I better keep my mouth shut now.");
@@ -443,8 +450,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Runewick is a stronghold of magicians, consisting of four magnificent towers, built in the ocean.");
 talkEntry:addResponse("Runewick is a strong city, but the inhabitants have no honour. They do whatever it takes to get what they want.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -458,10 +465,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I overheard the crest of the Don is a pig. That fits!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -475,8 +482,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Galmair is a dirty town where money washes hands clean from any sin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -500,9 +507,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("If Cadomyr is my heart then Queen Rosaline is my soul.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -515,8 +522,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("My home and my heart: Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -540,8 +547,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Reginald");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Reginald");
 talkEntry:addResponse("Reginald, he greatest king of the last generation. All honest men in Cadomyr aspire to be like him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -553,8 +560,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("albar");
 talkEntry:addResponse("I am Albarian, yes.");
 talkEntry:addResponse("You aren't in Albar. Look with your eyes.");
 talkEntry:addResponse("Please do not disturb me. I am at work.");
@@ -570,9 +577,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I hear on occasion that they are a foul nation, but one can never fully trust the words of outsiders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -585,8 +592,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("I have never been in Salkamar. I know nothing of them.");
 talkEntry:addResponse("Salkamar does not concern my attention.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -600,8 +607,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gods");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("gods");
 talkEntry:addResponse("The ones I serve are Adron, Malachin and Zhambra.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -614,8 +621,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Adron");
 talkEntry:addResponse("My queen loves Adron, the god of festivities.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -627,9 +634,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I respect Brágon. But there is too much fire in this world.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -642,8 +649,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cherga");
 talkEntry:addResponse("I will not meet Cherga, but through the fulfillment of my duty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -655,8 +662,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Elara");
 talkEntry:addResponse("Elara is not cared for much in this country. I have never sought her guidance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -668,8 +675,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Eldan");
 talkEntry:addResponse("Eldan is the father of Elara and hence, as useless as her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -681,8 +688,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Findari");
 talkEntry:addResponse("Findari brings rain, but also sand storms. That is all I have to say of her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -694,8 +701,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Irmorom was never kind to my mother. I live well, but have no lo- Stop asking me questions and move along.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -707,9 +714,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Malachín, the god of battle has saved my life on many occasions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -722,8 +729,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Moshran");
 talkEntry:addResponse("Quiet now! Or I shall remove your tongue?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -735,10 +742,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I do not serve this god.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -752,8 +759,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("Oldra has forsaken us. It is through our own hands that we grow food in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -765,8 +772,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("You can serve Ronagan and end up a lowly thief or you can serve a just god and end up like me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -778,8 +785,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Sirani");
 talkEntry:addResponse("We do not serve Sirani here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -791,9 +798,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("We don't see Tanora often in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -806,8 +813,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ushara");
 talkEntry:addResponse("Ushara is one of the five. That's it for now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -819,8 +826,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zhambra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zhambra");
 talkEntry:addResponse("It is through Zhambra that I am able to serve Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -836,9 +843,11 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I buy only the safety of the realm and I sell only the crushing of Cadomyr's enemies.");
-talkEntry:addResponse("I am no trader.");
-talkEntry:addResponse("If you are looking for a trader, go to the market place.");
+talkEntry:addResponse("I am nor.");
+talkEntry:addResponse("If you are looking for ar, go to the market place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -871,9 +880,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Horatio");
 talkEntry:addTrigger("Milenus");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("That is I. State your business.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -912,9 +921,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("I am the merely a guard of Cadomyr.");
 talkEntry:addResponse("Tell that somebody else.");
 talkEntry:addResponse("Move along.");
@@ -925,9 +934,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Ich bin in erster Linie der Wächter Cadomyrs.");
 talkEntry:addResponse("Erzählt das jemanden anderes.");
 talkEntry:addResponse("Geht weiter.");

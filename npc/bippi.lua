@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Ardian/Faladron/Rincewind                                        --
 --                                                                            --
--- Last parsing: September 09, 2012                       easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -20,6 +20,7 @@ require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.state")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.bippi", package.seeall)
 
@@ -40,13 +41,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addTrigger("Hello");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Milk sounds like a wonderful idea, but you better ask him what kind of milk he has first."));
 talkEntry:addResponse("Oh greetings, traveler! How nice of you to drop by, can I offer you some fresh 'milk'?");
 talkEntry:addResponse("Hey there! No offense but you sure look tired traveler. May I offer you some milk, it's deliciously replenishing!");
@@ -55,6 +56,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
 talkEntry:addTrigger("Guten Tag");
@@ -62,7 +64,6 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Milch hört sich jetzt sehr verlockend an, aber du fragst ihn besser vorher um was für eine Milch es sich handelt."));
 talkEntry:addResponse("Oh Grüße, Reisender! Besuch freut mich immer, darf ich Euch eine Schale 'Milch' anbieten?");
 talkEntry:addResponse("Hallo da! Oh ihr seht aber müde aus. Darf ich Euch eine Schale Milch aufwarten, als Stärkung?");
@@ -71,12 +72,12 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Milk sounds like a wonderful idea, but you better ask him what kind of milk he has first."));
 talkEntry:addResponse("Oh greetings, traveler! How nice of you to drop by, can I offer you some of my refreshing 'milk'?");
 talkEntry:addResponse("Hello there! Oh you sure look tired, may I offer you some of my delicious milk, it's replenishing!");
@@ -85,11 +86,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Milch hört sich jetzt sehr verlockend an, aber du fragst ihn besser vorher um was für eine Milch es sich handelt."));
 talkEntry:addResponse("Oh Grüße, Reisender! Besuch freut mich immer, darf ich Euch eine Schale 'Milch' anbieten?");
 talkEntry:addResponse("Hallo da! Oh ihr seht aber müde aus. Darf ich Euch eine Schale Milch aufwarten, als Stärkung?");
@@ -129,11 +130,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Oh you're back, that's nice! I think there's a new task waiting for you, but I might be wrong.");
 talkEntry:addResponse("Good to see you again! Let's check if there's something to do for you.");
 talkEntry:addResponse("Welcome, the cows have already inquired about you.");
@@ -174,11 +175,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Fare thee well and come back soon!");
 talkEntry:addResponse("Goodbye, and don't forget to tell your friends about ole Bippi and his milk!");
 talkEntry:addResponse("Oh, leaving already? A pity, good luck to ya in all your travels!");
@@ -221,8 +222,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I'm Bippi and my cows have the tastiest milk for miles.");
-talkEntry:addResponse("Call me Bippi, peasant by trade, I tend to this dairy farm you see.");
+talkEntry:addResponse("Call me Bippi, peasant byI tend to this dairy farm you see.");
 talkEntry:addResponse("My name ya say? Try tah speak up, I'm no spring chicken, but most call me Bippi, and everyone from here to Cadomyr knows I have the best milk! *Coughs*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -239,59 +241,60 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'I help you' if you want to help him."));
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("If you can help me tend to these cows I'll share some of my milk from my personal stock.");
 talkEntry:addResponse("Well I could use some sturdy hands, if ya got the strength, will ya help me?");
 talkEntry:addResponse("Could ya help me? I can't pay much but it'd mean a lot to me. The cows are all I got, and I can't tend to them like I used to.");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sag 'Ich helfe Euch' wenn du ihm helfen möchtest."));
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Wenn Ihr Euch um meine Kühe kümmert, könnt Ihr auch etwas Milch haben. Helft Ihr mir?");
 talkEntry:addResponse("Nun, ich könnte Hände die zupacken können gebrauchen. Wollt Ihr mir helfen?");
 talkEntry:addResponse("Könntet Ihr mir helfen? Ich kann Euch nicht viel dafür geben aber es würde mir viel bedeuten und mir einige Sorgen abnehmen.");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'I help you' if you want to help him."));
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("If you can help me tend to these cows I'll share some of my milk from my personal stock.");
 talkEntry:addResponse("Well I could use some sturdy hands, if ya got the strength, will ya help me?");
 talkEntry:addResponse("Could ya help me? I can't pay much but it'd mean a lot to me. The cows are all I got, and I can't tend to them like I used to.");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sag 'Ich helfe Euch' wenn du ihm helfen möchtest."));
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Wenn Ihr Euch um meine Kühe kümmert, könnt Ihr auch etwas Milch haben. Helft Ihr mir?");
 talkEntry:addResponse("Nun, ich könnte Hände die zupacken können gebrauchen. Wollt Ihr mir helfen?");
 talkEntry:addResponse("Könntet Ihr mir helfen? Ich kann Euch nicht viel dafür geben aber es würde mir viel bedeuten und mir einige Sorgen abnehmen.");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I raise dairy cattle in order to sell their milk.");
-talkEntry:addResponse("I'm a peasant by trade and specialize in tending to dairy cows.");
+talkEntry:addResponse("I'm a peasant byand specialize in tending to dairy cows.");
 talkEntry:addResponse("I live and work on this farm breeding the best dairy cattle from here to Cadoymr. I sell their milk with great pride!.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -305,10 +308,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I raise dairy cattle in order to sell their milk.");
-talkEntry:addResponse("I'm a peasant by trade and specialize in tending to dairy cows.");
+talkEntry:addResponse("I'm a peasant byand specialize in tending to dairy cows.");
 talkEntry:addResponse("I live and work here breeding the best dairy cattle from here to Cadoymr. I sell their milk with great pride!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -322,9 +326,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Never heard of it, are there cows there?");
 talkEntry:addResponse("Gobaith sounds lush somehow, like a meadow of the greenest grass. Nothing better for cows you know?");
 talkEntry:addResponse("Gobaith you say, I've no clue where that is. Gotta be honest, I've never been one for travel I find it too scary.");
@@ -357,16 +361,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Milk");
 talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
+talkEntry:addTrigger("Milk");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You want to know more about the cows."));
 talkEntry:addResponse("Why of course, help yourself! Good, isn't it? My 'cows' give extraordinarily delicious milk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cow");
 talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
+talkEntry:addTrigger("Cow");
 talkEntry:addResponse("I'm proud of my cows! I earn my living with their milk. If only I had someone to help me with all the work...");
 talkEntry:addResponse("I'm getting older and the work is getting harder to do by myself. I could really use some help in the stable, but who would care for a task like that...");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -381,30 +385,30 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addTrigger("work");
 talkEntry:addTrigger("stablehand");
 talkEntry:addTrigger("farmhand");
-talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'I help you' if you want to help him."));
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Once you tend to my cows, I'll give you some delicious milk. Will you help me?");
 talkEntry:addResponse("Well, I could use some sturdy hands. Will you help me?");
 talkEntry:addResponse("Could you help me? I can't pay you much but it'd mean a lot to me and ease me of some worries.");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Milch");
 talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
+talkEntry:addTrigger("Milch");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Du möchtest mehr über die Kühe erfahren."));
 talkEntry:addResponse("Aber bitte nehmt nur und bedient Euch! Schmeckts? Meine 'Kühe' geben eine besonders wohlschmeckende Milch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addTrigger("Kuh");
 talkEntry:addTrigger("Kühe");
-talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addResponse("Meine Kühe sind mein ganzer Stolz! Außerdem sichern sie mir meine Existenz. Wenn ich nur jemanden hätte der mir mit all der Arbeit hilft...");
 talkEntry:addResponse("Ich werde alt und die Arbeit mit den Kühen wird für mich immer schwerer. Ich könnte Hilfe im Stall gebrauchen aber wer nimmt sich schon so einer Aufgabe an...");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -419,14 +423,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addTrigger("Arbeit");
 talkEntry:addTrigger("helfer");
-talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sag 'Ich helfe Euch' wenn du ihm helfen möchtest."));
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Wenn Ihr Euch um meine Kühe kümmert, könnt Ihr auch etwas Milch haben. Helft Ihr mir?");
 talkEntry:addResponse("Nun, ich könnte Hände die zupacken können gebrauchen. Wollt Ihr mir helfen?");
 talkEntry:addResponse("Könntet Ihr mir helfen? Ich kann Euch nicht viel dafür geben aber es würde mir viel bedeuten und mir einige Sorgen abnehmen.");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,9 +448,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nana");
 talkEntry:addTrigger("Winterbutter");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Nana over there is the local cook. I overheard she might need help with a recipe of her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -473,9 +477,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I am proud to say that archmage Morgan never starts a day without a glass of my milk!");
 talkEntry:addResponse("They say when the archmage is doing research the only signs of life are the empty milk bottles and dishes he summons to the front of his chambers.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -490,8 +494,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("What would you call a town full of weak mages and bad bone structure? I call it paradise!");
 talkEntry:addResponse("Runewick, by far most of my customers live there!");
 talkEntry:addResponse("An impressive place, I would've moved there already, but alas, the cows don't take the sea breeze there well.");
@@ -507,10 +511,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("The Don doesn't care about milk. Luckily, Runewick is near enough not to be offered the Dons 'protection'.");
 talkEntry:addResponse("He never buys from me, but if ya ever see him I swear it looks like he drinks milk day and night. *Chuckles*");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -526,8 +530,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Few years back Galmair forced me to yield over my cattle. Poor Bessies I doubt they lasted a week without grass in those dismal caves.");
 talkEntry:addResponse("Aaah, those folks in Galmair need to take better care of themselves by drinking my nutritious milk, instead, they choose to buy alcohol. What a pity.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -555,9 +559,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("A pity the queen swears on donkey milk to use in her bath.");
 talkEntry:addResponse("If my cows were mules, all I would do is produce milk for the bath of the queen and I would be rich!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -572,8 +576,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("*Sighs* I wish Cadomyr wasn't so hot it's too hard to keep good milk there. Only a chosen few appreciate my milk from those parts.");
 talkEntry:addResponse("Folks that know what's good for them and have the coin gladly transport my milk back to Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -587,8 +591,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("albar");
 talkEntry:addResponse("I've heard cows are treated better than peasants there, scares the cow pies right out of me!");
 talkEntry:addResponse("Children in Albar are said to be weaned from breast milk very early. Milk is a symbol for weakness there, they say.");
 talkEntry:addResponse("A lot of milk in Albar is wasted on making smelly cheese, that's just awful!");
@@ -604,9 +608,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("If you want to order milk in Gynka, you'll only get it in a dirty glass.");
 talkEntry:addResponse("Gynk people don't care that much about milk.");
 talkEntry:addResponse("I heard many cows get sick there because of all the swamps nearby.");
@@ -623,8 +627,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Some 'scholars' of Salkamar are rumored to be working on creating milk out of plants. How could they!?");
 talkEntry:addResponse("I've heard stories about the rolling hills of lush green grass covering the Salkamaerian countryside, and it makes me wonder what kind of milk their cows make.");
 talkEntry:addResponse("A traveler from Salkamar told me he'd never lie with a woman named Sam again. Whatever that means? *Shrugs*");
@@ -658,8 +662,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Adron");
 talkEntry:addResponse("After a long feast there's nothing better to get on track than a glass of milk, even Adron knows that!");
 talkEntry:addResponse("Adron loves beverages, milk is a beverage, I love milk, and thus we share a love for milk.");
 talkEntry:addResponse("A long time ago, I became very ill, and as I lay shivering with fever a wanderer came. He stayed weeks with me and nursed me back to health then without a trace he vanished. To this very day I know Adron was that wanderer!");
@@ -675,9 +679,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I'm sorry. I don't pray to that deity so I can't say much about him.");
 talkEntry:addResponse("I trust Adron and Oldra to take care of my farm and bless me with success, I'm not that familiar with other deities.");
 talkEntry:addResponse("Hmm. I can't say much about that one. I usually pray to Adron and Oldra.");
@@ -694,8 +698,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cherga");
 talkEntry:addResponse("The name sounds familiar, I'm pretty sure she is a goddess of sorts, but past that I can't help ya.");
 talkEntry:addResponse("One of the younger gods I think. I look to Adron and Oldra to take care of my farm and me, I'm not that familiar with other deities.");
 talkEntry:addResponse("Hmm. I can't say much about that one. I usually pray to Adron and Oldra.");
@@ -711,8 +715,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Elara");
 talkEntry:addResponse("Not a clue on that one traveler.");
 talkEntry:addResponse("Sounds like a pretty name for a girl, perhaps if... naah I'm too old. *Chuckles*");
 talkEntry:addResponse("Uh... Elara? Who's that?");
@@ -728,8 +732,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Eldan");
 talkEntry:addResponse("Eldan? Who's that?");
 talkEntry:addResponse("Eldan... Eldan... sounds familiar. *Shrugs*");
 talkEntry:addResponse("You think Eldan would like some milk?");
@@ -745,8 +749,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Findari");
 talkEntry:addResponse("Now that is a pretty name, Findari!");
 talkEntry:addResponse("Pretty sure she is one of the elder gods.");
 talkEntry:addResponse("My mum always said I never paid attention, I think she is a god of sorts but... *Shrugs*");
@@ -762,8 +766,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("I've heard a dwarf mention his name a time or two, is he their king?.");
 talkEntry:addResponse("Not a clue who Irm- whatever is but I've heard a dwarf say his name before.");
 talkEntry:addResponse("What was that name again?.");
@@ -779,9 +783,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I've heard those folks from Cadomyr mention his name, that's about all I can tell you.");
 talkEntry:addResponse("Malachin, I think he lives in Cadomyr.");
 talkEntry:addResponse("I think you should ask someone in Cadomyr about him.");
@@ -798,8 +802,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Moshran");
 talkEntry:addResponse("Oh stop talking about that one! Else the milk will turn sour.");
 talkEntry:addResponse("*Cringes* I don't like that name at all and refuse to talk about him.");
 talkEntry:addResponse("I am hospitable, but there is nothing in the world worth giving him a glass of milk!");
@@ -815,9 +819,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Nargun... Nargun... nope never heard that name before.");
 talkEntry:addResponse("Sounds like a plant.");
 talkEntry:addResponse("I gotta be honest I am just a simple peasant I don't know such things.");
@@ -834,8 +838,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("Thanks to her, plants grow, my cows have something to eat, and I have milk to drink!");
 talkEntry:addResponse("Oldra, blessed be her name. We have many thanks to give to her! Without her there'd be no creation or crops to grow.");
 talkEntry:addResponse("She is the goddess of life and fer-Fert... fertileness, without her we could not eat or mate!");
@@ -851,8 +855,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("Runagain? Afraid you are mistaken I never run, too old. *Chuckles*");
 talkEntry:addResponse("Name sounds familiar, but that's about it.");
 talkEntry:addResponse("Can't say I know who that is, friend of yours?");
@@ -868,8 +872,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Sirani");
 talkEntry:addResponse("Oh, that is a nice name.");
 talkEntry:addResponse("There was a group of half dressed women that stopped by the farm shouting her name a few months back. If you ask me I hope she is a seamstress.");
 talkEntry:addResponse("Heard that name a few times, every one of them human, and if you ask me a bit strange.");
@@ -885,9 +889,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Tanora? Never heard that name before.");
 talkEntry:addResponse("Apologies but I am just a simple peasant not the best source for information.");
 talkEntry:addResponse("What was that name again?");
@@ -904,8 +908,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ushara");
 talkEntry:addResponse("I don't have a clue who that is honestly.");
 talkEntry:addResponse("I'm sorry were you talking to me?");
 talkEntry:addResponse("*Yawns* Who?");
@@ -921,8 +925,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zhambra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zhambra");
 talkEntry:addResponse("Now I know I've heard that name before, ask me again later when I've had a moment to think.");
 talkEntry:addResponse("Zhambra... Zhambra... oh, that is one of the younger gods.");
 talkEntry:addResponse("I think he is the god of thorns or friends... one of the two.");
@@ -977,8 +981,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bippi");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Bippi");
 talkEntry:addResponse("That's my name and milk is my business.");
 talkEntry:addResponse("Hiho!");
 talkEntry:addResponse("That's me! Ask me again, I'll tell ya the same.");

@@ -8,7 +8,7 @@
 -- Authors:  Estralis & Ardian                                                --
 --           Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -23,6 +23,7 @@ require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.item")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.percy_dryless", package.seeall)
 
@@ -43,156 +44,156 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hunger");
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", ">", 14999));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("hunger");
 talkEntry:addResponse("You don't look hungry to me. Work some more!");
 talkEntry:addResponse("No food for lazy scum like you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hunger");
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, ));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("hunger");
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkEntry:addResponse("Here, have some moldy bread. Back to work!");
-talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hunger");
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, ));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("hunger");
 talkEntry:addResponse("You think I'm giving bread away for nothing, eh? Get back to work or feel my whip.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hunger");
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", ">", 14999));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("hunger");
 talkEntry:addResponse("Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!");
 talkEntry:addResponse("Kein Futter für faulen Abschaum wie dich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hunger");
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, ));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("hunger");
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
-talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hunger");
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, ));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("hunger");
 talkEntry:addResponse("Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", ">", 14999));
 talkEntry:addTrigger("hungry");
 talkEntry:addTrigger("food");
-talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", ">", 14999));
 talkEntry:addResponse("You don't look hungry to me. Work some more!");
 talkEntry:addResponse("No food for lazy scum like you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, ));
 talkEntry:addTrigger("hungry");
 talkEntry:addTrigger("food");
-talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkEntry:addResponse("Here, have some moldy bread. Back to work!");
-talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, ));
 talkEntry:addTrigger("hungry");
 talkEntry:addTrigger("food");
-talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0));
 talkEntry:addResponse("You think I'm giving bread away for nothing, eh? Get back to work or feel my whip.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", ">", 14999));
 talkEntry:addTrigger("hungrig");
 talkEntry:addTrigger("essen");
-talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", ">", 14999));
 talkEntry:addResponse("Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!");
 talkEntry:addResponse("Kein Futter für faulen Abschaum wie dich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, ));
 talkEntry:addTrigger("hungrig");
 talkEntry:addTrigger("essen");
-talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
-talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, ));
 talkEntry:addTrigger("hungrig");
 talkEntry:addTrigger("essen");
-talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0));
 talkEntry:addResponse("Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
 talkEntry:addTrigger("pick axe");
 talkEntry:addTrigger("rock pick");
 talkEntry:addTrigger("pick");
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkEntry:addResponse("So, you broke my pick? You lost it? Here, have this one, but pay more attention to it or I'll whip you.");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "~=", 0, ));
 talkEntry:addTrigger("pick axe");
 talkEntry:addTrigger("rock pick");
 talkEntry:addTrigger("pick");
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "~=", 0));
 talkEntry:addResponse("What do you want with two picks? Two fisted stone hitting?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "~=", 0, ));
 talkEntry:addTrigger("spitzhacke");
 talkEntry:addTrigger("hacke");
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "~=", 0));
 talkEntry:addResponse("Was willst du mit zwei Spitzhacken? BeidhÃ¤ndig auf die Steine eindreschen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
 talkEntry:addTrigger("spitzhacke");
 talkEntry:addTrigger("hacke");
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkEntry:addResponse("So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus.");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("remaining punishment");
 talkEntry:addCondition(npc.base.condition.quest.quest(25, ">", 0));
+talkEntry:addTrigger("remaining punishment");
 talkEntry:addResponse("Pah! You still have to deliver %QUESTSTATUS shovels of resources.");
 talkEntry:addResponse("Bring me %QUESTSTATUS resources and I'll release you. Maybe.");
 talkEntry:addResponse("Mercy won't come before you bring me %QUESTSTATUS shovels of resources.");
@@ -200,16 +201,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("remaining punishment");
 talkEntry:addCondition(npc.base.condition.quest.quest(25, "<", 1));
+talkEntry:addTrigger("remaining punishment");
 talkEntry:addResponse("You are free to go, punk. Ask me to release you.");
 talkEntry:addResponse("That was enough, I think I can release you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("übrige strafe");
 talkEntry:addCondition(npc.base.condition.quest.quest(25, ">", 0));
+talkEntry:addTrigger("übrige strafe");
 talkEntry:addResponse("Pah! Du muÃ?t mir noch %QUESTSTATUS Schaufeln voll Ressourcen bringen.");
 talkEntry:addResponse("Bring mir noch %QUESTSTATUS Ressourcen und vielleicht lasse ich dich dann gehen.");
 talkEntry:addResponse("Gnade wird nicht eher gewaltet bevor du mir nicht %QUESTSTATUS Schaufeln voll Ressourcen bringst.");
@@ -217,8 +218,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("übrige strafe");
 talkEntry:addCondition(npc.base.condition.quest.quest(25, "<", 1));
+talkEntry:addTrigger("übrige strafe");
 talkEntry:addResponse("Du kannst gehen, Gauner. Bitte mich darum, dich freizulassen.");
 talkEntry:addResponse("Das reicht jetzt, ich denke, ich kann dich freilassen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -231,6 +232,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("What do you want? Ah, I know: You want to feel my whip!");
 talkEntry:addResponse("Welcome to my realm, the realm of work, sweat and tears.");
 talkEntry:addResponse("Work, scum! Criminals deserve nothing more than pain.");
@@ -241,11 +243,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.");
 talkEntry:addResponse("Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.");
 talkEntry:addResponse("Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!");
@@ -254,11 +259,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("What do you want? Ah, I know: You want to feel my whip!");
 talkEntry:addResponse("Welcome to my realm, the realm of work, sweat and tears.");
 talkEntry:addResponse("Work, scum! Criminals deserve nothing more than pain.");
@@ -305,11 +310,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I don't think you're leaving right now.");
 talkEntry:addResponse("So you think you're leaving? Surprise! You're not!");
 talkEntry:addResponse("When you find the exit, send me a letter.");
@@ -374,9 +379,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me points his finger in your face and laughs out loud.");
 talkEntry:addResponse("Erm, no quest for you.");
 talkEntry:addResponse("My quest is to whip those who are lazy.");
@@ -397,6 +402,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addResponse("#me points his finger in your face and laughs out loud.");
 talkEntry:addResponse("Erm, no quest for you.");
 talkEntry:addResponse("My quest is to whip those who are lazy.");
@@ -408,6 +414,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("#me zeigt mit dem Finger auf dich und lacht lauthals los.");
 talkEntry:addResponse("Äh, keine Queste für dich.");
 talkEntry:addResponse("Meine Bestimmung ist, die Faulen auszupeitschen.");
@@ -428,8 +435,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("I take care that bastards like you, get punished!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -441,9 +448,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Shut up and keep working.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -470,8 +477,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("jingles");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("jingles");
 talkEntry:addResponse("If I catch this stupid mouse, I will trample it!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -557,9 +564,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Do you come frome Runewick? Seems Archmage Morgans sent you here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -572,8 +579,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("This prison gathers the scum of three nations! And now keep up working.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -585,10 +592,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Do you come from Galmair? Seems Don Valerio sent you here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -602,8 +609,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("This prison gathers the scum of three nations! And now keep up working.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -627,9 +634,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Do you come frome Cadomyr? Seems Queen Rosaline sent you here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -642,8 +649,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("This prison gathers the scum of three nations! And now keep up working.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -655,8 +662,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("albar");
 talkEntry:addResponse("#me cracks his whip. 'Back to work!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -668,9 +675,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me cracks his whip. 'Back to work!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -683,8 +690,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me cracks his whip. 'Back to work!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -709,8 +716,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Adron");
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -718,27 +725,27 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addResponse("Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Bragon");
+talkEntry:addTrigger("Brágon");
+talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
 talkEntry:addResponse("Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cherga");
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -750,8 +757,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Elara");
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -759,25 +766,25 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addResponse("Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Eldan");
+talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
 talkEntry:addResponse("Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Findari");
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -789,8 +796,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -802,9 +809,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -817,8 +824,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Moshran");
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -826,6 +833,15 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addResponse("Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Nargun");
+talkEntry:addTrigger("Nargún");
+talkEntry:addTrigger("Nargùn");
+talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -833,22 +849,13 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargún");
-talkEntry:addTrigger("Nargùn");
 talkEntry:addResponse("Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -860,8 +867,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -873,8 +880,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Sirani");
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -886,9 +893,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -901,8 +908,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ushara");
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -914,8 +921,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I don't care about your gods. All I care about is that you get punished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -931,8 +938,9 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("What buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I could sell you some lashes from my whip. Interested!?");
-talkEntry:addResponse("I trade pain.");
+talkEntry:addResponse("Ipain.");
 talkEntry:addResponse("Stop bartering and get to work before I lose my patience.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -966,9 +974,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Percy");
 talkEntry:addTrigger("Dryless");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I am your master from now on. Obey or be whipped. Your choice.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1009,9 +1017,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Shut up, and keep working.");
 talkEntry:addResponse("Scum! - Obey!");
 talkEntry:addResponse("#me laughs diabolically.");
@@ -1020,9 +1028,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Halt's Maul und arbeite weiter.");
 talkEntry:addResponse("Abschaum! - Gehorche!");
 talkEntry:addResponse("#me lacht dreckig.");

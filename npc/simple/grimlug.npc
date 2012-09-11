@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Grimlug"
@@ -54,11 +54,11 @@ itemShoes = 369
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas! How, the shaman 's able to help you?", "Hurr! What's your desire?", "Hullo! - Greets to you."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas! Wie kann dir der Schamane helfigen?", "Hurr! Was issigt dein Begehr?", "Hullo! - Sei gegrüßigt."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Greebas! How, the shaman 's able to help you?", "Hurr! What's your desire?", "Hullo! - Greets to you."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas! How, the shaman 's able to help you?", "Hurr! What's your desire?", "Hullo! - Greets to you."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas! Wie kann dir der Schamane helfigen?", "Hurr! Was issigt dein Begehr?", "Hullo! - Sei gegrüßigt."
 "Farewell", "Bye", "Fare well", "See you" -> "Farebas!", "Blessings to youb.", "Good spirits shall guide your ways."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Farebas!", "Segen über dich.", "Gute Geister soll'n über deine Wege wachigen."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farebas!", "Blessings to youb.", "Good spirits shall guide your ways."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebas!", "Blessings to youb.", "Good spirits shall guide your ways."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebas!", "Segen über dich.", "Gute Geister soll'n über deine Wege wachigen."
 "How are you", "How feel", "How do you do" -> "#me nods slowly. 'I'm fienest. Yubba honored the gods today?'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "#me nickt langsam. 'Ich binne bestens. Hast du heute die Götter geehret?'"
@@ -66,123 +66,123 @@ itemShoes = 369
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich binne Grimlug. Wer seist du?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "The shaman has no quests for you, right now."
+english, "quest", "mission" -> "The shaman has no quests for you, right now."
 "quest", "mission" -> "Der Schamane hat keinige Aufgaben für dich - im Moment."
 "task", "adventure", "order" -> "The shaman has no quests for you, right now."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Schamane hat keinige Aufgaben für dich - im Moment."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"Gobaith", "Gobiath", english -> "Gobaith! Hurr, the isle made the gods angry, now it have to bear it's desteny. Tagtha."
+english, "Gobaith", "Gobiath" -> "Gobaith! Hurr, the isle made the gods angry, now it have to bear it's desteny. Tagtha."
 "Gobaith", "Gobiath" -> "Gobaith! Hurr, die Insel hat erzürnt die Götter. Nun es sein Schicksal tragen muß. Tagtha."
 "my name" -> "The gods warmly pleasured to welcome youb here."
 "mein Name" -> "Die Götter warmlich geerht, dich willkommen zu heißen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"stop", english -> "Hrm, Grimlug should tell anoter tale?", state = 0
-"stop" -> "Hrm, Grimlug soll erzähligen etwas anderes?", state = 0
-"continue", state = 0 -> "Wich tale mes should tell?"
-"weiter", state = 0 -> "Welche Geschichte Grimlug, soll erzählen?"
-"Creation" -> inform("Say 'continue' to progress the tale or 'stop'."), "Long tiem ago, dha gods become bored. So Bragon, dha older broddher ob Moshran our Faddha walked to him and let cut obb dha Bragons arm. Bodh collectad Bragons blood and modeled dha sun....", state = 1
-"continue", state = 1 -> "...Dha arm droped down, and become land. Wibh dha hand ob Bragon dhat beh left, Bragon took H'ref, the sun, and whipped it ober dha Arm, G'rak like it beh child...", state = 2
-"continue", state = 2 -> "...Furthermore dha odha gods took parts of dham and creatad dha folk. Dheh dhrew dham on G'rak to see, ib dheh beh worthe to be. The folk beh cold and lifeless beh. Like G'rak...", state = 3
-"continue", state = 3 -> "...But dha Faddha hub some of Bragons blood left. So he spilled all ob it ober G'rak. Dhen dha folk become warm in dhea bodehs. But some folk he forgat, so dheh beh still cold...", state = 4
-"continue", state = 4 -> "...When dha Faddha slept his former female Cherga, dha iceh witch, she bewitched G'rak. Whub Moshran alwahs took whib him. G'rak budges and strains. Dha iceh witch received him. So dha spirit infest dha folk.", state = 0
-"Schoepfung", "Schöpfung" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), "Vor lange Zeit, den Göttern die Zeit zu lang wurde. Bragon, der ältere Bruder Moshrans gegangen zu ihm und ließ sich seinen Arm abhacken. Sie sammelten das Blut und geformten die Sonne...", state = 1
-"weiter", state = 1 -> "...Der Arm fiel runter und gewurde zum Land. Mit der verbleibenden Hand nahmigte Bragon sie Sonne, H'ref und schaukelt sie, als gewäse sie sein Kind, über seinen Arm, G'rak...", state = 2
-"weiter", state = 2 -> "...Darauf hin gingigen die anderen Götter her und nahmen Dinge von ihren Körpern um die Völker zu schaffen. Sie wurfen sie auf G'rak um zu besehen ob sie auch würding sind da zu sein...", state = 3
-"weiter", state = 3 -> "...Die Völker waren kalt und lebloßig. Wie G'rak. Aber Moshran behatte noch ein wenig von Bragons Blut übrig. Er verschüttete alles über G'rak. Darauf hinig wurde den Völkern wohlwarm in den Körpern...", state = 4
-"weiter", state = 4 -> "...Aber manche Völker vergaßet er. Sie sind kalt gebliebigt. Als Moshran, seinem damaligen Weib Cherga dazulag, der eisigen Hexe, verzauberte sie G'rak. Den Moshran immerstets mit sich trug...", state = 5
-"weiter", state = 5 -> "...G'rak regte sich und reckte sich. Und die eisige Hexe empfing ihn. So wurden die Völker vom Geist befallen.", state = 0
-"Grak", "Href", "G'rak", "H'ref", "G rak", "H ref", english -> inform("Say 'continue' to progress the tale or 'stop'."), "G'rak beh beauteful and strong. And H'ref chooses him. She became dha female ob him. Dheh neba leave each other. And in dha night, when H'ref beh nub able to see her male...", state = 7
-"continue", state = 7 -> "...she huse shineh mirror ob ore to hub a eye at G'rak. Dhat beh dha Moon. It rains when H'ref and G'rak lie dogetha. Ofta you hear dham gasp and yell. Dhat beh dha dhunda...", state = 8
-"continue", state = 8 -> "...In dhat way dheh beget spirits. Whub beh here, from now on. Dhat beh dha bolts. And bolts beh dhea, whea dha power ob dha spirits beh bereh mighte.", state = 0
-"Grak", "Href", "G'rak", "H'ref", "G rak", "H ref" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), "G'rak warig sehr schön und stark. Und H'ref aussuchte ihn. Sie wurdigte sein Weib. Nie gehen sie weg von einander. Und in der Nacht, wenn H'ref ihren Mann nicht ansehen kann...", state = 7
-"weiter", state = 7 -> "...hielt sie einen glänzigen Spiegel aus Erz so das sie nicht von ihm lassen muss. Das ist der Mond. Es regnet wenn G'rak und H'ref zusammenliegen. Oft hört man sie keuchen und rufen...", state = 8
-"weiter", state = 8 -> "...Das issigt der Donner. Und dabei zeugen sie Geister, die von nun an da sinnid. Das sind die Blitze. Und Blitze immer dort sind, wo die Kraft von Geistern besonders groß ist.", state = 0
-"spirit" -> inform("Say 'continue' to progress the tale or 'stop'."), "Nub all spirit be dha same. Most beh mixed. In Orc, dhea beh spirit of his ancestor. It is Moshrans spirit. It helps and protects broddhas and sistahs. It beh mighte, ib our skin honor and...", state = 10
-"continue", state = 10 -> "...worship thea ancestors and dha Faddha. Ib it beh weak as Ommies, green skin earn resentment and bad luck. Furtha, in dha Orcs beh dha spirit ob Bragon. He makes dha bodeh warm...", state = 11
-"continue", state = 11 -> "...Ib broddha or sistah dies, dha spirit beh brought ober dha eternal rift between G'rak and dha land ob dha ancestors. Dha Faddhas spirit beh leaved at G'rak, as long dha descendant praise dhea ancestors...", state = 12
-"continue", state = 12 -> "...And in dhat waeh dha tie beh bind. Beh broddha or sistha calling ancestors, dham beh able to hear and help. Broddhas and sisthas also hub dha Chergas spirit. It beh dha voices yoo hear whispering in yoo...", state = 13
-"continue", state = 13 -> "...Ib it beh berreh strong, dha broddha become shaman.", state = 0
-"Geist" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), "Nicht alle Geister gleich sinnid. Viele sind vermischt. Im Ork ist der Geist von seinem Ahnen. Es ist Moshrans Geist. Er hilft, und beschützt den Ork. Stets ist er stark, wenn...", state = 10
-"weiter", state = 10 -> "...die Ahnen und Moshran geehrt werden. Ist er schwach, werden dem Ork Unglück und Missgunst erfahren. Im Ork ist auch der Geist von Bragon. Er macht die Wärme im Körper. Wenn ein Ork stibt, dieser...", state = 11
-"weiter", state = 11 -> "...Geist wird gebracht durch ewige Kluft zwischen G'rak und Land der Ahnen. Moshrans Geist verbleibt aber auf G'rak, solange er von seinen Erben bedacht wird. Und so das Seil verknüpfigt ist...", state = 12
-"weiter", state = 12 -> "...Ruft ein Ork nach seinen Ahnen können sie ihn so hören und zuseite sein. Im Ork ist auch der Geist von Cherga. Es der Geist du hörst flüstern in dir. Ist er besonders stark, der Ork wird zum Schamane.", state = 0
-"shaman", "profession" -> inform("Say 'continue' to progress the tale or 'stop'."), "Dha shaman knows about dha spirit in green skin. And use it. Shamans spirit beh huge and mighte. Dha ancestors listen to dha voice ob descendant...", state = 15
-"job", english -> inform("Say 'continue' to progress the tale or 'stop'."), "Dha shaman knows about dha spirit in green skin. And use it. Shamans spirit beh huge and mighte. Dha ancestors listen to dha voice ob descendant...", state = 15
-"continue", state = 15 -> "...But onleh shamans beh able contact mighte and unkonwn spirits. So he helps ill broddhas and sisthas. And dheafore shamans beh fulfill his predestiantion...", state = 16
-"continue", state = 16 -> "...It beh important, dhat dha green skin spirit beh strong, big. And dha green skin will beh healthe and strong ib he praise dha ancestors and spirits beh surround.", state = 0
-"Schaman", "beruf" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), "Der Schamane, weiß über die Geister im Ork. Und nutzt sie. Sein Geist ist groß und stark. Die Ahnen hören die Stimme von ihren Erben. Aber nur Schamanen werdigen, mächtige fremde Geister um Hilfe bittigen...", state = 15
-"job" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), "Der Schamane, weiß über die Geister im Ork. Und nutzt sie. Sein Geist ist groß und stark. Die Ahnen hören die Stimme von ihren Erben. Aber nur Schamanen werdigen, mächtige fremde Geister um Hilfe bittigen...", state = 15
-"weiter", state = 15 -> "...Und so, er hilft kranke Orks. Und tut sein Wirken als Schamane.  So ist es wichtig, das die Stärke des Orkes Geist, ist groß. Er wird gesund und stark sein wenn....", state = 16
-"weiter", state = 16 -> "...Ork ehrt seine Ahnen und die Geister um ihn im herum.", state = 0
-"olokwa", german -> "Uh, Olokwa! Er alte blind Ork ist. Aba viel klugg. Viel Weiß.", "Olokwa Seher ist. Yubba. Is beeindruckend... aba imma bisschen gruselig.", "Wenn mir getroffen Olokwa, erstes mal, er erraten mein Name! Er gesehen hat. Ahnen, es ihm geflüstert haben.", "Olokwa große Kraft von Wissenheit hatt. Von geistiges Aug. Er blindt. Aber sehen mehr als viele andere."
-"olokwa", english -> "Uh, Olokwa! He be old blind orc is. Very smart 'nd prudent.", "Olokwa be a seer. Yubba. As impressive is... it still kind ob scary.", "First tjem mes met Olokwa, 'e guessed mes Name. He saw it...Tha ancestors told 'im.", "Olokwa hab great powa ob wisdom. Ob ghostly eye. Altough he blind, he see more than most othas."
+english, "stop" -> state = 0, "Hrm, Grimlug should tell anoter tale?"
+"stop" -> state = 0, "Hrm, Grimlug soll erzähligen etwas anderes?"
+state = 0, "continue" -> "Wich tale mes should tell?"
+state = 0, "weiter" -> "Welche Geschichte Grimlug, soll erzählen?"
+"Creation" -> inform("Say 'continue' to progress the tale or 'stop'."), state = 1, "Long tiem ago, dha gods become bored. So Bragon, dha older broddher ob Moshran our Faddha walked to him and let cut obb dha Bragons arm. Bodh collectad Bragons blood and modeled dha sun...."
+state = 1, "continue" -> state = 2, "...Dha arm droped down, and become land. Wibh dha hand ob Bragon dhat beh left, Bragon took H'ref, the sun, and whipped it ober dha Arm, G'rak like it beh child..."
+state = 2, "continue" -> state = 3, "...Furthermore dha odha gods took parts of dham and creatad dha folk. Dheh dhrew dham on G'rak to see, ib dheh beh worthe to be. The folk beh cold and lifeless beh. Like G'rak..."
+state = 3, "continue" -> state = 4, "...But dha Faddha hub some of Bragons blood left. So he spilled all ob it ober G'rak. Dhen dha folk become warm in dhea bodehs. But some folk he forgat, so dheh beh still cold..."
+state = 4, "continue" -> state = 0, "...When dha Faddha slept his former female Cherga, dha iceh witch, she bewitched G'rak. Whub Moshran alwahs took whib him. G'rak budges and strains. Dha iceh witch received him. So dha spirit infest dha folk."
+"Schoepfung", "Schöpfung" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), state = 1, "Vor lange Zeit, den Göttern die Zeit zu lang wurde. Bragon, der ältere Bruder Moshrans gegangen zu ihm und ließ sich seinen Arm abhacken. Sie sammelten das Blut und geformten die Sonne..."
+state = 1, "weiter" -> state = 2, "...Der Arm fiel runter und gewurde zum Land. Mit der verbleibenden Hand nahmigte Bragon sie Sonne, H'ref und schaukelt sie, als gewäse sie sein Kind, über seinen Arm, G'rak..."
+state = 2, "weiter" -> state = 3, "...Darauf hin gingigen die anderen Götter her und nahmen Dinge von ihren Körpern um die Völker zu schaffen. Sie wurfen sie auf G'rak um zu besehen ob sie auch würding sind da zu sein..."
+state = 3, "weiter" -> state = 4, "...Die Völker waren kalt und lebloßig. Wie G'rak. Aber Moshran behatte noch ein wenig von Bragons Blut übrig. Er verschüttete alles über G'rak. Darauf hinig wurde den Völkern wohlwarm in den Körpern..."
+state = 4, "weiter" -> state = 5, "...Aber manche Völker vergaßet er. Sie sind kalt gebliebigt. Als Moshran, seinem damaligen Weib Cherga dazulag, der eisigen Hexe, verzauberte sie G'rak. Den Moshran immerstets mit sich trug..."
+state = 5, "weiter" -> state = 0, "...G'rak regte sich und reckte sich. Und die eisige Hexe empfing ihn. So wurden die Völker vom Geist befallen."
+english, "Grak", "Href", "G'rak", "H'ref", "G rak", "H ref" -> inform("Say 'continue' to progress the tale or 'stop'."), state = 7, "G'rak beh beauteful and strong. And H'ref chooses him. She became dha female ob him. Dheh neba leave each other. And in dha night, when H'ref beh nub able to see her male..."
+state = 7, "continue" -> state = 8, "...she huse shineh mirror ob ore to hub a eye at G'rak. Dhat beh dha Moon. It rains when H'ref and G'rak lie dogetha. Ofta you hear dham gasp and yell. Dhat beh dha dhunda..."
+state = 8, "continue" -> state = 0, "...In dhat way dheh beget spirits. Whub beh here, from now on. Dhat beh dha bolts. And bolts beh dhea, whea dha power ob dha spirits beh bereh mighte."
+"Grak", "Href", "G'rak", "H'ref", "G rak", "H ref" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), state = 7, "G'rak warig sehr schön und stark. Und H'ref aussuchte ihn. Sie wurdigte sein Weib. Nie gehen sie weg von einander. Und in der Nacht, wenn H'ref ihren Mann nicht ansehen kann..."
+state = 7, "weiter" -> state = 8, "...hielt sie einen glänzigen Spiegel aus Erz so das sie nicht von ihm lassen muss. Das ist der Mond. Es regnet wenn G'rak und H'ref zusammenliegen. Oft hört man sie keuchen und rufen..."
+state = 8, "weiter" -> state = 0, "...Das issigt der Donner. Und dabei zeugen sie Geister, die von nun an da sinnid. Das sind die Blitze. Und Blitze immer dort sind, wo die Kraft von Geistern besonders groß ist."
+"spirit" -> inform("Say 'continue' to progress the tale or 'stop'."), state = 10, "Nub all spirit be dha same. Most beh mixed. In Orc, dhea beh spirit of his ancestor. It is Moshrans spirit. It helps and protects broddhas and sistahs. It beh mighte, ib our skin honor and..."
+state = 10, "continue" -> state = 11, "...worship thea ancestors and dha Faddha. Ib it beh weak as Ommies, green skin earn resentment and bad luck. Furtha, in dha Orcs beh dha spirit ob Bragon. He makes dha bodeh warm..."
+state = 11, "continue" -> state = 12, "...Ib broddha or sistah dies, dha spirit beh brought ober dha eternal rift between G'rak and dha land ob dha ancestors. Dha Faddhas spirit beh leaved at G'rak, as long dha descendant praise dhea ancestors..."
+state = 12, "continue" -> state = 13, "...And in dhat waeh dha tie beh bind. Beh broddha or sistha calling ancestors, dham beh able to hear and help. Broddhas and sisthas also hub dha Chergas spirit. It beh dha voices yoo hear whispering in yoo..."
+state = 13, "continue" -> state = 0, "...Ib it beh berreh strong, dha broddha become shaman."
+"Geist" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), state = 10, "Nicht alle Geister gleich sinnid. Viele sind vermischt. Im Ork ist der Geist von seinem Ahnen. Es ist Moshrans Geist. Er hilft, und beschützt den Ork. Stets ist er stark, wenn..."
+state = 10, "weiter" -> state = 11, "...die Ahnen und Moshran geehrt werden. Ist er schwach, werden dem Ork Unglück und Missgunst erfahren. Im Ork ist auch der Geist von Bragon. Er macht die Wärme im Körper. Wenn ein Ork stibt, dieser..."
+state = 11, "weiter" -> state = 12, "...Geist wird gebracht durch ewige Kluft zwischen G'rak und Land der Ahnen. Moshrans Geist verbleibt aber auf G'rak, solange er von seinen Erben bedacht wird. Und so das Seil verknüpfigt ist..."
+state = 12, "weiter" -> state = 0, "...Ruft ein Ork nach seinen Ahnen können sie ihn so hören und zuseite sein. Im Ork ist auch der Geist von Cherga. Es der Geist du hörst flüstern in dir. Ist er besonders stark, der Ork wird zum Schamane."
+"shaman", "profession" -> inform("Say 'continue' to progress the tale or 'stop'."), state = 15, "Dha shaman knows about dha spirit in green skin. And use it. Shamans spirit beh huge and mighte. Dha ancestors listen to dha voice ob descendant..."
+english, "job" -> inform("Say 'continue' to progress the tale or 'stop'."), state = 15, "Dha shaman knows about dha spirit in green skin. And use it. Shamans spirit beh huge and mighte. Dha ancestors listen to dha voice ob descendant..."
+state = 15, "continue" -> state = 16, "...But onleh shamans beh able contact mighte and unkonwn spirits. So he helps ill broddhas and sisthas. And dheafore shamans beh fulfill his predestiantion..."
+state = 16, "continue" -> state = 0, "...It beh important, dhat dha green skin spirit beh strong, big. And dha green skin will beh healthe and strong ib he praise dha ancestors and spirits beh surround."
+"Schaman", "beruf" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), state = 15, "Der Schamane, weiß über die Geister im Ork. Und nutzt sie. Sein Geist ist groß und stark. Die Ahnen hören die Stimme von ihren Erben. Aber nur Schamanen werdigen, mächtige fremde Geister um Hilfe bittigen..."
+"job" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), state = 15, "Der Schamane, weiß über die Geister im Ork. Und nutzt sie. Sein Geist ist groß und stark. Die Ahnen hören die Stimme von ihren Erben. Aber nur Schamanen werdigen, mächtige fremde Geister um Hilfe bittigen..."
+state = 15, "weiter" -> state = 16, "...Und so, er hilft kranke Orks. Und tut sein Wirken als Schamane.  So ist es wichtig, das die Stärke des Orkes Geist, ist groß. Er wird gesund und stark sein wenn...."
+state = 16, "weiter" -> state = 0, "...Ork ehrt seine Ahnen und die Geister um ihn im herum."
+german, "olokwa" -> "Uh, Olokwa! Er alte blind Ork ist. Aba viel klugg. Viel Weiß.", "Olokwa Seher ist. Yubba. Is beeindruckend... aba imma bisschen gruselig.", "Wenn mir getroffen Olokwa, erstes mal, er erraten mein Name! Er gesehen hat. Ahnen, es ihm geflüstert haben.", "Olokwa große Kraft von Wissenheit hatt. Von geistiges Aug. Er blindt. Aber sehen mehr als viele andere."
+english, "olokwa" -> "Uh, Olokwa! He be old blind orc is. Very smart 'nd prudent.", "Olokwa be a seer. Yubba. As impressive is... it still kind ob scary.", "First tjem mes met Olokwa, 'e guessed mes Name. He saw it...Tha ancestors told 'im.", "Olokwa hab great powa ob wisdom. Ob ghostly eye. Altough he blind, he see more than most othas."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "He's this wizard, this elf... Hurr! Me feel his powers from far away. Gâsh."
 "Erzmagier" -> "Er dieser Zauberer ist, von den Elfen... Hurr! Ich spühre seine Kräfte von weit weg, noch. Gâsh."
-"Elvaine", "Morgan", english -> "He's this wizard, this elf... Hurr! Me feel his powers from far away. Gâsh."
+english, "Elvaine", "Morgan" -> "He's this wizard, this elf... Hurr! Me feel his powers from far away. Gâsh."
 "Elvaine", "Morgan" -> "Er dieser Zauberer ist, von den Elfen... Hurr! Ich spühre seine Kräfte von weit weg, noch. Gâsh."
-"Runewick", english -> "Châ, in Runewick there's no good spirit. It's mashed by bad magjic and foolish things. Avoid travelin there. Is not good for you."
+english, "Runewick" -> "Châ, in Runewick there's no good spirit. It's mashed by bad magjic and foolish things. Avoid travelin there. Is not good for you."
 "Runewick" -> "Châ, in Runewick, dort sind keine guten Geister. Verseucht es ist, von bößer Magie und dummen Sachen. Geh dort nicht hin, nein. - Ist nicht gut für dich."
-"Valerio", "Guilianni", "Don", english -> "He iss the Don. That means he's the mightiest dwarf arround. Grockthâ."
+english, "Valerio", "Guilianni", "Don" -> "He iss the Don. That means he's the mightiest dwarf arround. Grockthâ."
 "Valerio", "Guilianni", "Don" -> "Er issigt der Don. Dass meint, er ist der mächtigste Zwerg hier. Grockthâ."
-"Galmair", english -> "Galmair! Actually it's the buildings above us heads, in fresh air. This - down here is just'n old mine. Named Scoria Mine."
+english, "Galmair" -> "Galmair! Actually it's the buildings above us heads, in fresh air. This - down here is just'n old mine. Named Scoria Mine."
 "Galmair" -> "Galmair! Eign'tlich das die Häuser ober uns sind, an der frischigen Luft. Dies - hier unten einfach nur eine alte Miene ist. Die Schlackengrube."
 "Queen" -> "The humanz and thier kingens. Scheschnacks! The strongest one should be the chief! Nub just inherit privileges to decide."
 "Königin" -> "Die Menschenz und ihre Königens. Scheschnacks! Der stärkste sollt der Häuptling sein! Nich einfach das Recht erben, nicht."
-"rosaline", "edwards", english -> "The humanz and thier kingens. Scheschnacks! The strongest one should be the chief! Nub just inherit privileges to decide."
+english, "rosaline", "edwards" -> "The humanz and thier kingens. Scheschnacks! The strongest one should be the chief! Nub just inherit privileges to decide."
 "rosaline", "edwards" -> "Die Menschenz und ihre Königens. Scheschnacks! Der stärkste sollt der Häuptling sein! Nich einfach das Recht erben, nicht."
-"Cadomyr", english -> "There're Orks in Cadomyr. But hurr, they are weaklings! They nub worth to be called Ork. Mes hate them. Gôsch!"
+english, "Cadomyr" -> "There're Orks in Cadomyr. But hurr, they are weaklings! They nub worth to be called Ork. Mes hate them. Gôsch!"
 "Cadomyr" -> "Es gibt Orks in Cadomyr. Aber sie Schwächlinge sind! Sie es nicht Wert sind, genannt werden - Ork. Ich hassen sie alle, gôsch!"
 
 -- Main land factions
-"albar", english -> "This is land of Oomies... -humanz. Orcs don't have to care about such stuff. Better ask mes about Kroch'Gurak! Where Orcs come frome!"
+english, "albar" -> "This is land of Oomies... -humanz. Orcs don't have to care about such stuff. Better ask mes about Kroch'Gurak! Where Orcs come frome!"
 "albar" -> "Das is Menschnzland... Orks sich nicht kümmern darum. Du besser fragst nach Kroch'Gurak! Wo Orks herkommen!"
-"gynk", "gync", english -> "Scheschnacks! They say there are Orks in Gynk as well! But mes say those monkeys arn't orcs when they never seen the Norbuk Plateau."
+english, "gynk", "gync" -> "Scheschnacks! They say there are Orks in Gynk as well! But mes say those monkeys arn't orcs when they never seen the Norbuk Plateau."
 "gync", "gynk" -> "Scheschnacks! S' heißt dort sind Orkse in Gynk. Aber ich sag, diese Affen sind keine echten Orks, solang sie nichtmal das Norbuk Plateau gesehn habn."
-"salkama", english -> "This is land of Oomies... -humanz. Orcs don't have to care about such stuff. Better ask mes about Kroch'Gurak! Where Orcs come frome!"
+english, "salkama" -> "This is land of Oomies... -humanz. Orcs don't have to care about such stuff. Better ask mes about Kroch'Gurak! Where Orcs come frome!"
 "salkama" -> "Das is Menschnzland... Orks sich nicht kümmern darum. Du besser fragst nach Kroch'Gurak! Wo Orks herkommen!"
-"wo her", "kroch gurak", "Kroch'Gurak", english -> "Kroch'gurak! Is where most ob us orcs come from. This be the big wintercamp at Norbuk Plateau be!", "Kroch'Gurak is located in the West of the Plateau and in winter a lot of tribes gather there to camp. It's a big town of natural and diged caves, filled with many flocks and ressources.", "The winter's good time for the young orclings. They do pigshunt and wrestling and choose females! He-he!", "Kroch'Gurak! This is THE Ork twon! Filled with orcs and orcs and goats and pigs and much more orcs! You should here the 'Bragg-Thu' And the drums!"
+english, "wo her", "kroch gurak", "Kroch'Gurak" -> "Kroch'gurak! Is where most ob us orcs come from. This be the big wintercamp at Norbuk Plateau be!", "Kroch'Gurak is located in the West of the Plateau and in winter a lot of tribes gather there to camp. It's a big town of natural and diged caves, filled with many flocks and ressources.", "The winter's good time for the young orclings. They do pigshunt and wrestling and choose females! He-he!", "Kroch'Gurak! This is THE Ork twon! Filled with orcs and orcs and goats and pigs and much more orcs! You should here the 'Bragg-Thu' And the drums!"
 "where com", "kroch gurak", "Kroch'Gurak" -> "Kroch'gruak! Ist, wo meißte Orks von uns komme her von. Es das große Winterlager vom Norbuk Plateau ist!", "Kroch'Gurak ist im Westen von der Hochebene und im Winter viele Stämme versammeln sich dort. Es ist ne große Stadt aus gegrabenen Höhln und natürlichn, befüllt mit vieln Vorätn.", "D'Winter is ne gute Zeit für junge Orklinge. Sie machn Scheinshatz und Ringkampf und suchn sich Weiber! Hä-hä!", "Kroch'Gurak! Das's DIE Orkstadt! Überfüllt mit Orksen und Orkse und Ziegn und Schweine und noch viel mehr Orks! Du solltest hören wie die Trommln zum 'Bragg-Thu' schlagn!"
-"Norbuk", english -> "Hurr, long time gone, orcs traveling to Norbuk, the 'Strong Land'. It's big Plateau, splitted by the Black Current. - Cause his water is black in spring.", "Once a falcon appeard and led Grubuk Thunderhand, seer of the Bloody Skull Clan down the path to a the 'Strong Land'. Since these days, this land is orc land.", "After spans of life of crusader, the old orc tribes found a big strong land. It's surrounded by Armon's Mountains. There's Kroch'Gurak the big winter camp."
+english, "Norbuk" -> "Hurr, long time gone, orcs traveling to Norbuk, the 'Strong Land'. It's big Plateau, splitted by the Black Current. - Cause his water is black in spring.", "Once a falcon appeard and led Grubuk Thunderhand, seer of the Bloody Skull Clan down the path to a the 'Strong Land'. Since these days, this land is orc land.", "After spans of life of crusader, the old orc tribes found a big strong land. It's surrounded by Armon's Mountains. There's Kroch'Gurak the big winter camp."
 "Norbuk" -> "Hurr, es lange her gewesen, da Ork wandern nach Norbuk das 'Starke Land'. Es ein große Ebene ist, und es durschnitten vom Schwarzstrom. - Weil seine Wasser sind schwarz im Frühjahr.", "Einst ein Falke ist erschienen und er wieß Grubuk Donnerhand, Seher des Bloody-Skull-Clans den Weg, hurr. Den Weg zum Starken Land. Seit diesen Tagen, das Land ein Orkland ist.", "Nach Lebensspannen auf Wanderschaft, die alten Orkstämme gefunden haben ein großes strakes Land. Es umkreist ist von Armon's Bergen. Dort liegt Kroch'Gurak, das große Winterlager."
-"Bragg-Thu", "Bragg Thu", english -> "In winter orks do the poetry! Growling tales about their ancestors! In rythm to drums, the poet, following plenty of comlipcated rules. This be called the Bragg-Thuu!", "Bragg-Thuu is about rythm of words, not about melody or rhyme. It's done according to heavy slow drums and tells about tales and legends of the ancestors.", "Bragg-Thuu sounds easy to you. But mes never saw a non-ork doin it right. There's plenty of rules you have to follow. Yubba."
+english, "Bragg-Thu", "Bragg Thu" -> "In winter orks do the poetry! Growling tales about their ancestors! In rythm to drums, the poet, following plenty of comlipcated rules. This be called the Bragg-Thuu!", "Bragg-Thuu is about rythm of words, not about melody or rhyme. It's done according to heavy slow drums and tells about tales and legends of the ancestors.", "Bragg-Thuu sounds easy to you. But mes never saw a non-ork doin it right. There's plenty of rules you have to follow. Yubba."
 "Bragg-Thu", "Bragg Thu" -> "Im Winter Orks, widemen sich der Dichtung! Sie Lobgesänge gröhlen auf ihre Vorfahren. Im Rythmus von Trommeln, d' Dichter folgt viele komplizierte Regeln. Das ist das Bragg-Thuu!", "Bragg-Thuu, es geht um Rythmus von Wörter, nicht um Melodie und Reim. Es wird begeleited von großen schweren Trommeln und erzählt von Legenden und Taten der Ahnen.", "Bragg-Thuu leicht aussehn mag, aber es gibt ungezählt viele regeln die man foglen muss. Yubba, hab noch nie nen nicht-Ork gesehn der's richtig hingekriegt hat."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Grimlug talks about 'Cherga' and 'Moshran' and 'Bragon'."
 "Gott", "Götter" -> "Grimlug erzählt von 'Cherga' und 'Moshran' und 'Bragon'."
-"Cherga", english -> inform("Say 'continue' to progress the tale or 'stop'."), "Cherga, dha iceh witch, escorts dha ghost drough dha nubbing, the eternal rift between dha worlds, into dha land ob dha ancestors...", state = 18
-"ice witch", "icy witch" -> inform("Say 'continue' to progress the tale or 'stop'."), "Cherga, dha iceh witch, escorts dha ghost drough dha nubbing, the eternal rift between dha worlds, into dha land ob dha ancestors...", state = 18
-"continue", state = 18 -> "...Ib a broddha or sistha hub smashed maneh enemies in dha battle and beh strong in his lifetime, his reputation dhea will be vast. And his ancestors will honor him...", state = 19
-"continue", state = 19 -> "...Like he honored dham before. He will hub maneh servants and slaves, and dha women will love him. Ib broddha or sistah beh weak and cowardly, dha broddha or sistha will serve.", state = 0
-"Cherga" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), "Cherga, die eisige Hexe, bringlicht die Geister durch das Nichts, die ewige Kluft zwischen den Welten, in das Land der Ahnen. Wenn ein Ork viele Gegner im Kampf anbesiegt hat...", state = 18
-"eis Hex", "eisige Hexe", "eishex" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), "Cherga, die eisige Hexe, bringlicht die Geister durch das Nichts, die ewige Kluft zwischen den Welten, in das Land der Ahnen. Wenn ein Ork viele Gegner im Kampf besiegt hat...", state = 18
-"weiter", state = 18 -> "...Und in seinem Leben stark war, ist sein Ansehen dort groß. Seine Ahnen werden ihn ehren, wie er gehrt sie zuvorig...", state = 19
-"weiter", state = 19 -> "...Er bekommt viele Diener und Sklaven. Die Weiber werden ihn lieben.  Wenn er schwach und feige war, wird er dort selbst dienen.", state = 0
-"Moshran", english -> inform("Say 'continue' to progress the tale or 'stop'."), "Moshran. He beh dha war bringer. Dha bone crusher. Dha blood lord. He beh dha Faddher ob ebbreh Orc...", state = 21
-"bone crusher", "war bringer", "blood lord", "father", "Faddha" -> inform("Say 'continue' to progress the tale or 'stop'."), "Moshran. He beh dha war bringer. Dha bone crusher. Dha blood lord. He beh dha Faddher ob ebbreh Orc...", state = 21
-"continue", state = 21 -> "...Cause it beh dha Faddhas blood, inherited, which strengthen dha Orc and fortify dha spirit. His spirit beh in dha Orc, dha tie to ancestor...", state = 22
-"continue", state = 22 -> "...He will provide untamable blood frenzy in battle. But he become also quick angreh. Dhat for onle Shamans use his name.", state = 0
-"Moshran" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), "Moshran. Er ist der Schlachtenwüterich. Der Knochenbrecher. Der Blutgott. Er ist der Vater von jedem Ork, gleich wie der Ork der die Mutter belegen hat...", state = 21
-"Knochbrecher", "Schlachtenwüter", "Blutgott", "Vater" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), "Moshran. Er ist der Schlachtenwüterich. Der Knochenbrecher. Der Blutgott. Er ist der Vater von jedem Ork, gleich wie der Ork der die Mutter belegen hat...", state = 21
-"weiter", state = 21 -> "...Denn es issigt Moshrans Blut, das ererbt, dem Ork stärkt und den Geist kräftiget. Sein Geist ist im Ork. Er, ist das Seil zu den Ahnen...", state = 22
-"weiter", state = 22 -> "...Er bringigt dem Krieger den Blutrausch, in der Schlacht, doch ist er auch schnell erzürnt. Dies der Grund ist,  nur Schamanen sprechen seinen Namen", state = 0
-"Bragon", english -> inform("Say 'continue' to progress the tale or 'stop'."), "Bragon, beh dha sun bringer, dha life provida. He Stong-in-Summer beh. He rules ober dha strong and weak, he provide dha beautiful and precious...", state = 24
-"continue", state = 24 -> "... Bragon beh god of holeh flames. His childdren beh dha dragons. Dragons standing whib green skin. Or burst and burn the cureless on dhea bodies.", state = 0
-"Bragon" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), "Bragon, ist der Sonnenbringer, der Lebenspender. Er ist Stark-im-Sommer.  Er gebietet über die Starken und Schwachen, er bringigt das Schöne und Edle...", state = 24
-"weiter", state = 24 -> "...Bragon ist Gott der heiligen Flammen. Seine Kinder sind die Drachen. Drachen die dem Ork zur Seite stehen, oder ihnen das Unheilbare auf den Leib brennen.", state = 0
+english, "Cherga" -> inform("Say 'continue' to progress the tale or 'stop'."), state = 18, "Cherga, dha iceh witch, escorts dha ghost drough dha nubbing, the eternal rift between dha worlds, into dha land ob dha ancestors..."
+"ice witch", "icy witch" -> inform("Say 'continue' to progress the tale or 'stop'."), state = 18, "Cherga, dha iceh witch, escorts dha ghost drough dha nubbing, the eternal rift between dha worlds, into dha land ob dha ancestors..."
+state = 18, "continue" -> state = 19, "...Ib a broddha or sistha hub smashed maneh enemies in dha battle and beh strong in his lifetime, his reputation dhea will be vast. And his ancestors will honor him..."
+state = 19, "continue" -> state = 0, "...Like he honored dham before. He will hub maneh servants and slaves, and dha women will love him. Ib broddha or sistah beh weak and cowardly, dha broddha or sistha will serve."
+"Cherga" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), state = 18, "Cherga, die eisige Hexe, bringlicht die Geister durch das Nichts, die ewige Kluft zwischen den Welten, in das Land der Ahnen. Wenn ein Ork viele Gegner im Kampf anbesiegt hat..."
+"eis Hex", "eisige Hexe", "eishex" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), state = 18, "Cherga, die eisige Hexe, bringlicht die Geister durch das Nichts, die ewige Kluft zwischen den Welten, in das Land der Ahnen. Wenn ein Ork viele Gegner im Kampf besiegt hat..."
+state = 18, "weiter" -> state = 19, "...Und in seinem Leben stark war, ist sein Ansehen dort groß. Seine Ahnen werden ihn ehren, wie er gehrt sie zuvorig..."
+state = 19, "weiter" -> state = 0, "...Er bekommt viele Diener und Sklaven. Die Weiber werden ihn lieben.  Wenn er schwach und feige war, wird er dort selbst dienen."
+english, "Moshran" -> inform("Say 'continue' to progress the tale or 'stop'."), state = 21, "Moshran. He beh dha war bringer. Dha bone crusher. Dha blood lord. He beh dha Faddher ob ebbreh Orc..."
+"bone crusher", "war bringer", "blood lord", "father", "Faddha" -> inform("Say 'continue' to progress the tale or 'stop'."), state = 21, "Moshran. He beh dha war bringer. Dha bone crusher. Dha blood lord. He beh dha Faddher ob ebbreh Orc..."
+state = 21, "continue" -> state = 22, "...Cause it beh dha Faddhas blood, inherited, which strengthen dha Orc and fortify dha spirit. His spirit beh in dha Orc, dha tie to ancestor..."
+state = 22, "continue" -> state = 0, "...He will provide untamable blood frenzy in battle. But he become also quick angreh. Dhat for onle Shamans use his name."
+"Moshran" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), state = 21, "Moshran. Er ist der Schlachtenwüterich. Der Knochenbrecher. Der Blutgott. Er ist der Vater von jedem Ork, gleich wie der Ork der die Mutter belegen hat..."
+"Knochbrecher", "Schlachtenwüter", "Blutgott", "Vater" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), state = 21, "Moshran. Er ist der Schlachtenwüterich. Der Knochenbrecher. Der Blutgott. Er ist der Vater von jedem Ork, gleich wie der Ork der die Mutter belegen hat..."
+state = 21, "weiter" -> state = 22, "...Denn es issigt Moshrans Blut, das ererbt, dem Ork stärkt und den Geist kräftiget. Sein Geist ist im Ork. Er, ist das Seil zu den Ahnen..."
+state = 22, "weiter" -> state = 0, "...Er bringigt dem Krieger den Blutrausch, in der Schlacht, doch ist er auch schnell erzürnt. Dies der Grund ist,  nur Schamanen sprechen seinen Namen"
+english, "Bragon" -> inform("Say 'continue' to progress the tale or 'stop'."), state = 24, "Bragon, beh dha sun bringer, dha life provida. He Stong-in-Summer beh. He rules ober dha strong and weak, he provide dha beautiful and precious..."
+state = 24, "continue" -> state = 0, "... Bragon beh god of holeh flames. His childdren beh dha dragons. Dragons standing whib green skin. Or burst and burn the cureless on dhea bodies."
+"Bragon" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), state = 24, "Bragon, ist der Sonnenbringer, der Lebenspender. Er ist Stark-im-Sommer.  Er gebietet über die Starken und Schwachen, er bringigt das Schöne und Edle..."
+state = 24, "weiter" -> state = 0, "...Bragon ist Gott der heiligen Flammen. Seine Kinder sind die Drachen. Drachen die dem Ork zur Seite stehen, oder ihnen das Unheilbare auf den Leib brennen."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Mes don't sell anything, knucklehead!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich nix verkauf irgendwas, Schwachkopf!"
-"erzähl was", "erzähl etwas" -> "Grimlug wissigt viele Geschichtens! Von der Schöpfung, von G'rak und H'ref, von Geistern, von Schamanen oder den Göttern.", state = 0
-"tell something" -> "Ask Grimlug to tell about the Creation', G'rak and H'ref, the Spirits, Shamans or the gods.", state = 0
+"erzähl was", "erzähl etwas" -> state = 0, "Grimlug wissigt viele Geschichtens! Von der Schöpfung, von G'rak und H'ref, von Geistern, von Schamanen oder den Göttern."
+"tell something" -> state = 0, "Ask Grimlug to tell about the Creation', G'rak and H'ref, the Spirits, Shamans or the gods."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "How, the shaman 's able to help you?", "Hurr! What's your desire?"
+english, "<NPC first name>", "<NPC last name>" -> "How, the shaman 's able to help you?", "Hurr! What's your desire?"
 "<NPC-Vorname>", "<NPC-Nachname>" -> "Wie kann dir der Schamane helfigen?", "Hurr! Was issigt dein Begehr?"
 "Yes" -> "So shall it beings.", "Well then...", "Good - Mes feel the spirits arround you are kin of happy."
 "Ja" -> "So es sein solle.", "Gut....", "Ich spüre die Geister um dich herum... sie heiter sind."
@@ -190,8 +190,8 @@ itemShoes = 369
 "Nein" -> "Hrmpf. Vielleicht du änderst deine Meinung, eh?", "Ist das so'?", "Das glaub ich nicht, nein."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Châ. What you said?", "#me grunts and nods. 'Mh-hm.'", "Tagtha. - Tell mes more about that. Will you?"
-".*", german, chance(20.0) -> "Châ. Was du gesagt hast?", "#me grunzt und nickt. 'Mh-hm'", "Tagtha. - Erzähl mehr davon, tja-ha?"
+english, chance(20.0), ".*" -> "Châ. What you said?", "#me grunts and nods. 'Mh-hm.'", "Tagtha. - Tell mes more about that. Will you?"
+german, chance(20.0), ".*" -> "Châ. Was du gesagt hast?", "#me grunzt und nickt. 'Mh-hm'", "Tagtha. - Erzähl mehr davon, tja-ha?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

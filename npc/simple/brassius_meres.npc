@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk & Estralis Seborian                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Brassius Meres"
@@ -64,13 +64,13 @@ itemShoes = 697
 -- 6: Quest 3 solved, reward: legionaire's tower shield (2448), (10 rank points)
 
 -- Debugging
-".+", queststatus(109) > 6 -> inform("[Error] Something went wrong, please inform a developer.")
+queststatus(109) > 6, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Runewick New Player Quest
-".+", queststatus(34) = 1, english -> inform("Congratulations! You have just earned your first rank points! Rank points are a measure of your personal standing within a faction. You will often be rewarded with rank points for completing quests for members of a particular faction."), "Ah...Elegor sent you, did he? Very good. I am Brassius Meres, town guard of Runewick. It is a true honour to be able to welcome you into our beloved town. I can already tell that you shall be a valuable member of our society. Return to Elegor, now, and he will help you along.", queststatus(34) = 2, rankpoints(Runewick) + 5
-".+", queststatus(34) = 1 -> inform("GERMAN"), "GERMAN", queststatus(34) = 2, rankpoints(Runewick) + 5
-".+", queststatus(34) = 2, english -> "Go speak with Elegor Ningwil once again. He is waiting for you beside the teleporter, remember?"
-".+", queststatus(34) = 2 -> "GERMAN"
+queststatus(34) = 1, english, ".+" -> inform("Congratulations! You have just earned your first rank points! Rank points are a measure of your personal standing within a faction. You will often be rewarded with rank points for completing quests for members of a particular faction."), queststatus(34) = 2, rankpoints(Runewick) + 5, "Ah...Elegor sent you, did he? Very good. I am Brassius Meres, town guard of Runewick. It is a true honour to be able to welcome you into our beloved town. I can already tell that you shall be a valuable member of our society. Return to Elegor, now, and he will help you along."
+queststatus(34) = 1, ".+" -> inform("GERMAN"), queststatus(34) = 2, rankpoints(Runewick) + 5, "GERMAN"
+queststatus(34) = 2, english, ".+" -> "Go speak with Elegor Ningwil once again. He is waiting for you beside the teleporter, remember?"
+queststatus(34) = 2, ".+" -> "GERMAN"
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Brassius Meres the Guard. Keywords: hello, quest, profession, Runewick, law, bridge, gods.")
@@ -79,11 +79,11 @@ itemShoes = 697
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me bows his head politely: 'Be greeted.'", "Greetings to you.", "#me nods his head in greeting."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me deutet eine Verbeugung an: 'Seid gegrüßt.'", "Seid mir gegrüßt.", "#me nickt grüßend mit dem Kopf."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "#me frowns lightly, 'Yes, yes. Hello.'", "#me nods once.", "May I help you?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me frowns lightly, 'Yes, yes. Hello.'", "#me nods once.", "May I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me rümpft leicht die Nase: 'Ja, ja. Hallo.'", "#me nickt knapp.", "Kann ich euch helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Be well. And stay out of trouble.", "May Zhambra keep you safe from harm.", "#me raises his fist to his chest in salute."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Es möge euch gut ergehen und all Ärger fern von euch bleiben.", "Zhambra möge euch von jedem Leid bewahren.", "#me hebt seine Faust vor die Brust zum Gruß."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Aye. Be off with you.", "Stay out of trouble, I have enough work already.", "Be gone, then."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye. Be off with you.", "Stay out of trouble, I have enough work already.", "Be gone, then."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ja, nun geht schon.", "Haltet euch aus Keilereien raus, ich habe schon genug zu tun.", "Dann mal los."
 "How are you", "How feel", "How do you do" -> "I am well, thank you.", "Zhambra keeps me safe and in good health.", "I can not complain, the Gods care for me."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht es gut, danke der Nachfrage.", "Zhambra schützt mich und erhält mein Leben.", "Ich kann mich nicht beklagen, die Götter sorgen für mich."
@@ -94,71 +94,71 @@ itemShoes = 697
 -- 1st quest: Bring five APPLES (15)
 
 -- Give out quest 1
-"quest", "mission", queststatus(109) = 0, english -> inform("[New quest] Eating on the Job"), "Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles.", queststatus(109) = 1
-"quest", "mission", queststatus(109) = 0 -> inform("[Neues Quest] Speisen im Dienst"), "Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen.", queststatus(109) = 1
-"task", "adventure", queststatus(109) = 0 -> inform("[New quest] Eating on the Job"), "Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles.", queststatus(109) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 0 -> inform("[Neues Quest] Speisen im Dienst"), "Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen.", queststatus(109) = 1
+queststatus(109) = 0, english, "quest", "mission" -> inform("[New quest] Eating on the Job"), queststatus(109) = 1, "Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles."
+queststatus(109) = 0, "quest", "mission" -> inform("[Neues Quest] Speisen im Dienst"), queststatus(109) = 1, "Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen."
+queststatus(109) = 0, "task", "adventure" -> inform("[New quest] Eating on the Job"), queststatus(109) = 1, "Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles."
+queststatus(109) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Speisen im Dienst"), queststatus(109) = 1, "Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen."
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(109) = 1, item(15, all) < 5, english -> "#me's stomach rumbles: 'I could really do with those five apples, if you've got a few moments to spare.'"
-"quest", "mission", queststatus(109) = 1, item(15, all) < 5 -> "#me' Magen knurrt: 'Mit fünf Äpfeln im Magen würde es mir weit besser gehen, wenn ihr einen Moment Zeit dafür habt.'"
-"task", "adventure", queststatus(109) = 1, item(15, all) < 5 -> "#me's stomach rumbles: 'I could really do with those five apples, if you've got a few moments to spare.'"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 1, item(15, all) < 5 -> "#me' Magen knurrt: 'Mit fünf Äpfeln im Magen würde es mir weit besser gehen, wenn ihr einen Moment Zeit dafür habt.'"
+queststatus(109) = 1, item(15, all) < 5, english, "quest", "mission" -> "#me's stomach rumbles: 'I could really do with those five apples, if you've got a few moments to spare.'"
+queststatus(109) = 1, item(15, all) < 5, "quest", "mission" -> "#me' Magen knurrt: 'Mit fünf Äpfeln im Magen würde es mir weit besser gehen, wenn ihr einen Moment Zeit dafür habt.'"
+queststatus(109) = 1, item(15, all) < 5, "task", "adventure" -> "#me's stomach rumbles: 'I could really do with those five apples, if you've got a few moments to spare.'"
+queststatus(109) = 1, item(15, all) < 5, "Auftrag", "Aufgabe", "Abenteuer" -> "#me' Magen knurrt: 'Mit fünf Äpfeln im Magen würde es mir weit besser gehen, wenn ihr einen Moment Zeit dafür habt.'"
 
 -- Quest 1 solved, reward: 30cp
-".+", queststatus(109) = 1, item(15, all) > 4, english -> inform("[Quest solved] You are awarded 30 copper coins."), "#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the apples into his bag as he chews.", money + 30, deleteItem(15, 5), queststatus(109) = 2
-".+", queststatus(109) = 1, item(15, all) > 4 -> inform("[Quest gelöst] Du erhältst 30 Kupferstücke."), "#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel.", money + 30, deleteItem(15, 5), queststatus(109) = 2
+queststatus(109) = 1, item(15, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 30 copper coins."), money + 30, deleteItem(15, 5), queststatus(109) = 2, "#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the apples into his bag as he chews."
+queststatus(109) = 1, item(15, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 30 Kupferstücke."), money + 30, deleteItem(15, 5), queststatus(109) = 2, "#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel."
 
 -- 2nd quest: Bring 10 ARROWS (64)
 
 -- Give out quest 2
-"quest", "mission", queststatus(109) = 2, english -> inform("[New quest] Resupply"), "Those apples were delicious, thank you once again. I could use some more help. My supply of arrows is running low, if you bring me ten more, then I have something that might interest you.", queststatus(109) = 3
-"quest", "mission", queststatus(109) = 2 -> inform("[Neues Quest] Nachschub"), "Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil.", queststatus(109) = 3
-"task", "adventure", queststatus(109) = 2 -> inform("[New quest] Resupply"), "Those apples were delicious, thank you once again. I could use some more help. My supply of arrows is running low, if you bring me ten more, then I have something that might interest you.", queststatus(109) = 3
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 2 -> inform("[Neues Quest] Nachschub"), "Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil.", queststatus(109) = 3
+queststatus(109) = 2, english, "quest", "mission" -> inform("[New quest] Resupply"), queststatus(109) = 3, "Those apples were delicious, thank you once again. I could use some more help. My supply of arrows is running low, if you bring me ten more, then I have something that might interest you."
+queststatus(109) = 2, "quest", "mission" -> inform("[Neues Quest] Nachschub"), queststatus(109) = 3, "Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil."
+queststatus(109) = 2, "task", "adventure" -> inform("[New quest] Resupply"), queststatus(109) = 3, "Those apples were delicious, thank you once again. I could use some more help. My supply of arrows is running low, if you bring me ten more, then I have something that might interest you."
+queststatus(109) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Nachschub"), queststatus(109) = 3, "Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil."
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(109) = 3, item(64, all) < 10, english -> "#me glances at his empty quiver, frowning lightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'"
-"quest", "mission", queststatus(109) = 3, item(64, all) < 10 -> "#me starrt naserümpfend auf seinen leeren Köcher: 'Ich brauche dringend zehn Pfeile, wenn es euch nichts ausmacht."
-"task", "adventure", queststatus(109) = 3, item(64, all) < 10 -> "#me glances at his empty quiver, frowning lightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 3, item(64, all) < 10 -> "#me starrt naserümpfend auf seinen leeren Köcher: 'Ich brauche dringend zehn Pfeile, wenn es euch nichts ausmacht."
+queststatus(109) = 3, item(64, all) < 10, english, "quest", "mission" -> "#me glances at his empty quiver, frowning lightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'"
+queststatus(109) = 3, item(64, all) < 10, "quest", "mission" -> "#me starrt naserümpfend auf seinen leeren Köcher: 'Ich brauche dringend zehn Pfeile, wenn es euch nichts ausmacht."
+queststatus(109) = 3, item(64, all) < 10, "task", "adventure" -> "#me glances at his empty quiver, frowning lightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'"
+queststatus(109) = 3, item(64, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "#me starrt naserümpfend auf seinen leeren Köcher: 'Ich brauche dringend zehn Pfeile, wenn es euch nichts ausmacht."
 
 -- Quest 2 solved, reward: 100cp
-".+", queststatus(109) = 3, item(64, all) > 9, english -> inform("[Quest solved] You are awarded 100 copper coins."), "#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'", money + 100, deleteItem(64, 10), queststatus(109) = 4
-".+", queststatus(109) = 3, item(64, all) > 9 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung.", money + 100, deleteItem(64, 10), queststatus(109) = 4
+queststatus(109) = 3, item(64, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), money + 100, deleteItem(64, 10), queststatus(109) = 4, "#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'"
+queststatus(109) = 3, item(64, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), money + 100, deleteItem(64, 10), queststatus(109) = 4, "#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung."
 
 -- 3rd quest: Bring 10 FUR (2586)
 
 -- Give out quest 3
-"quest", "mission", queststatus(109) = 4, english -> inform("[New quest] Wild Animals"), "I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, Runewick shall be in your debt.", queststatus(109) = 5
-"quest", "mission", queststatus(109) = 4 -> inform("[Neues Quest] Wilde Tiere"), "Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld.", queststatus(109) = 5
-"task", "adventure", queststatus(109) = 4 -> inform("[New quest] Wild Animals"), "I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, the town shall be in your debt.", queststatus(109) = 5
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 4 -> inform("[Neues Quest] Wilde Tiere"), "Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld.", queststatus(109) = 5
+queststatus(109) = 4, english, "quest", "mission" -> inform("[New quest] Wild Animals"), queststatus(109) = 5, "I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, Runewick shall be in your debt."
+queststatus(109) = 4, "quest", "mission" -> inform("[Neues Quest] Wilde Tiere"), queststatus(109) = 5, "Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld."
+queststatus(109) = 4, "task", "adventure" -> inform("[New quest] Wild Animals"), queststatus(109) = 5, "I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, the town shall be in your debt."
+queststatus(109) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Wilde Tiere"), queststatus(109) = 5, "Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld."
 
 -- Quest 3 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(109) = 5, item(2586, all) < 10, english -> "I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised."
-"quest", "mission", queststatus(109) = 5, item(2586, all) < 10 -> "Nahezu täglich hört man von Tierangriffen. Ihr müßt die Bürger von Eibenthal beschützen, indem ihr die Tiere erschlagt. Wenn ihr mir zehn Felle bringt, werde ich sicherstellen, dass man an höchster Stelle von euren Anstrengungen hört."
-"task", "adventure", queststatus(109) = 5, item(2586, all) < 10 -> "I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 5, item(2586, all) < 10 -> "Nahezu täglich hört man von Tierangriffen. Ihr müßt die Bürger von Eibenthal beschützen, indem ihr die Tiere erschlagt. Wenn ihr mir zehn Felle bringt, werde ich sicherstellen, dass man an höchster Stelle von euren Anstrengungen hört."
+queststatus(109) = 5, item(2586, all) < 10, english, "quest", "mission" -> "I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised."
+queststatus(109) = 5, item(2586, all) < 10, "quest", "mission" -> "Nahezu täglich hört man von Tierangriffen. Ihr müßt die Bürger von Eibenthal beschützen, indem ihr die Tiere erschlagt. Wenn ihr mir zehn Felle bringt, werde ich sicherstellen, dass man an höchster Stelle von euren Anstrengungen hört."
+queststatus(109) = 5, item(2586, all) < 10, "task", "adventure" -> "I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised."
+queststatus(109) = 5, item(2586, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "Nahezu täglich hört man von Tierangriffen. Ihr müßt die Bürger von Eibenthal beschützen, indem ihr die Tiere erschlagt. Wenn ihr mir zehn Felle bringt, werde ich sicherstellen, dass man an höchster Stelle von euren Anstrengungen hört."
 
 -- Quest 3 solved, reward: legionaire's tower shield (2448), (10 rank points)
-".+", queststatus(109) = 5, item(2586, all) > 9, english, town = Runewick -> inform("[Quest solved] You are awarded a legionaire's tower shield. You advance in Archmage Elvaine Morgan's favour."), "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.", deleteItem(2586, 10), item(2448, 1, 799, 0), queststatus(109) = 6, rankpoints(Runewick) + 10
-".+", queststatus(109) = 5, item(2586, all) > 9, town = Runewick -> inform("[Quest gelöst] Du erhältst einen Legionärsschild. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.", deleteItem(2586, 10), item(2448, 1, 799, 0), queststatus(109) = 6, rankpoints(Runewick) + 10
-".+", queststatus(109) = 5, item(2586, all) > 9, english -> inform("[Quest solved] You are awarded a legionaire's tower shield."), "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.", deleteItem(2586, 10), item(2448, 1, 799, 0), queststatus(109) = 6
-".+", queststatus(109) = 5, item(2586, all) > 9 -> inform("[Quest gelöst] Du erhältst einen Legionärsschild."), "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.", deleteItem(2586, 10), item(2448, 1, 799, 0), queststatus(109) = 6
+queststatus(109) = 5, item(2586, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a legionaire's tower shield. You advance in Archmage Elvaine Morgan's favour."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints(Runewick) + 10, "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took."
+queststatus(109) = 5, item(2586, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst einen Legionärsschild. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints(Runewick) + 10, "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt."
+queststatus(109) = 5, item(2586, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a legionaire's tower shield."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took."
+queststatus(109) = 5, item(2586, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst einen Legionärsschild."), deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt."
 
 -- No more quests, just nice words of gratitude
-"quest", "mission", queststatus(109) = 6, english -> "I shall not be needing your help at the moment, my friend. Go, rest. You have certainly earned it."
-"quest", "mission", queststatus(109) = 6 -> "Derzeit benötige ich eure Hilfe nicht. Ihr könnt euch ausruhen, das habt ihr euch verdient."
-"task", "adventure", queststatus(109) = 6 -> "I shall not be needing your help at the moment, my friend. Go, rest. You have certainly earned it."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 6 -> "Derzeit benötige ich eure Hilfe nicht. Ihr könnt euch ausruhen, das habt ihr euch verdient."
+queststatus(109) = 6, english, "quest", "mission" -> "I shall not be needing your help at the moment, my friend. Go, rest. You have certainly earned it."
+queststatus(109) = 6, "quest", "mission" -> "Derzeit benötige ich eure Hilfe nicht. Ihr könnt euch ausruhen, das habt ihr euch verdient."
+queststatus(109) = 6, "task", "adventure" -> "I shall not be needing your help at the moment, my friend. Go, rest. You have certainly earned it."
+queststatus(109) = 6, "Auftrag", "Aufgabe", "Abenteuer" -> "Derzeit benötige ich eure Hilfe nicht. Ihr könnt euch ausruhen, das habt ihr euch verdient."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a town guard. I take care of troublemakers.", "I keep order 'round here, and make sure the citizens are safe.", "I'm a soldier, serving here as a town guard."
 "beruf" -> "Ich bin ein Wächter. Ich kümmere mich um Aufrührer.", "Ich sorge für Ordnung hier und stelle sicher, dass die Bürger sicher schlafen können.", "Ich bin ein Soldat, der hier Dienst als Wächter schiebt."
-"job", english -> "I am a town guard.", "I protect Runewick and its citizens.", "It's my job to keep the people safe and out of trouble."
+english, "job" -> "I am a town guard.", "I protect Runewick and its citizens.", "It's my job to keep the people safe and out of trouble."
 "job" -> "Ich bin ein Wächter.", "Ich beschütze Runewick und seine Bürger.", "Es ist meine Aufgabe, die Leute zu beschützen und das Böse abzuwehren."
-"Gobaith", "Gobiath", english -> "The people of this island were a hardy folk. Not much seemed to faze them in the past.", "I liked it there. It was peaceful when it needed to be, but excitement was always just around the corner.", "That island was a breeding ground for crime and sins, unfortunately."
+english, "Gobaith", "Gobiath" -> "The people of this island were a hardy folk. Not much seemed to faze them in the past.", "I liked it there. It was peaceful when it needed to be, but excitement was always just around the corner.", "That island was a breeding ground for crime and sins, unfortunately."
 "Gobaith", "Gobiath" -> "Das Volk dieser Insel war hart im Nehmen. Nichts hat sie früher aus der Fassung gebracht.", "Es war schön dort. Friedlich, aber das Abenteuer lauerte hinter jeder Hausecke.", "Diese Insel war leider ein Nährboden für Verbrechen und Sünden."
 "my name" -> "An honour to meet you.", "A pleasure.", "#me bows his head respectfully: 'Well met.'"
 "mein Name" -> "Es ist mir eine Ehre, eure Bekanntschaft zu machen.", "Das Vergnügen ist auf meiner Seite.", "#me neigt respektvoll den Kopf: 'Angenehm.'"
@@ -170,7 +170,7 @@ itemShoes = 697
 "quiet", "bored", "peace" -> "Trouble is always just around the corner.", "Don't go thinking that you have to be the one to make some noise.", "They say that it's always quiet before the storm."
 "Yewdale" -> "Yewdale is a small community of peasants. Just across the bridge, follow the road. You cannot miss it."
 "Bridge" -> "I guard this bridge and with it, I guard Runewick. The teleporter over there is the only way into town."
-"Teleport", english -> "Do you see that teleporter in the west? It takes you to Runewick, the most magnificient set of boulders in the ocean."
+english, "Teleport" -> "Do you see that teleporter in the west? It takes you to Runewick, the most magnificient set of boulders in the ocean."
 "Gesetz" -> "Die Gesetze hier sind streng, aber gerecht.", "Schaut mal in der Bibliothek vorbei, es sollte nicht schwierig sein, die Gesetze dort zu finden.", "Die Gesetze sind leicht zu erhalten. Schaut euch nur in der Stadt um, sie umgeben euch!"
 "Wache", "Wächter" -> "Ein Wächter Runewicks zu sein ist ein lohenswerter Beruf. Man hilft den Bürgern und die Bezahlung stimmt auch.", "Es gibt keinen besseren Weg meinen Göttern zu dienen als Leute zu beschützen.", "Ein Wächter zu werden erschien mir als das einzig richtige. Ich habe nichts außer zu Kämpfen in meinem Leben gelernt."
 "Kriminell", "Dieb", "Verbrech", "Angriff", "Stehlen" -> "Es ist verdächtig ruhig dieser Tage, kaum Aufruhr.", "Wenn ihr Opfer oder Zeuge eines Verbrechens werdet, so stellt bitte eine formale Eingabe an den Erzmagier.", "Der Erzmagier entscheidet darüber, wer einem Verbrechen nachgeht. Redet mit ihm, wenn ihr Probleme habt."
@@ -182,73 +182,73 @@ itemShoes = 697
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "The archmage does his best to keep Runewick safe. And I do my little share by guarding this bridge.", "Elvaine Morgan is a good leader. He has a vision and if you are interested, he tells it to you. Takes a while, though.", "I overheard some people make jokes about the first name of the Archmage, Elvaine. I would not make jokes about a magician, as powerful as him, if I were you."
 "Erzmagier" -> "Der Erzmagier tut alles, um Runewick zu einem sicheren Ort zu machen. Und auch ich trage meinen kleinen Teil dazu bei, indem ich diese Brücke bewache.", "Elvaine Morgan ist ein guter Anführer. Er hat eine Vision und wenn es euch interessiert, wird er sie euch erzählen. Wird allerdings eine Weile in Anspruch nehmen.", "Ich habe gehört, dass einige Leute Witze über den Vornamen des Erzmagiers, Elvaine, machen. Wenn ich ihr wäre, würde ich keine Witze über so einen mächtigen Magier machen."
-"Elvaine", "Morgan", english -> "The archmage does his best to keep Runewick safe. And I do my little share by guarding this bridge.", "Elvaine Morgan is a good leader. He has a vision and if you are interested, he tells it to you. Takes a while, though.", "I overheard some people make jokes about the first name of the Archmage, Elvaine. I would not make jokes about a magician, as powerful as him, if I were you."
+english, "Elvaine", "Morgan" -> "The archmage does his best to keep Runewick safe. And I do my little share by guarding this bridge.", "Elvaine Morgan is a good leader. He has a vision and if you are interested, he tells it to you. Takes a while, though.", "I overheard some people make jokes about the first name of the Archmage, Elvaine. I would not make jokes about a magician, as powerful as him, if I were you."
 "Elvaine", "Morgan" -> "Der Erzmagier tut alles, um Runewick zu einem sicheren Ort zu machen. Und auch ich trage meinen kleinen Teil dazu bei, indem ich diese Brücke bewache.", "Elvaine Morgan ist ein guter Anführer. Er hat eine Vision und wenn es euch interessiert, wird er sie euch erzählen. Wird allerdings eine Weile in Anspruch nehmen.", "Ich habe gehört, dass einige Leute Witze über den Vornamen des Erzmagiers, Elvaine, machen. Wenn ich ihr wäre, würde ich keine Witze über so einen mächtigen Magier machen."
-"Runewick", english -> "Runewick is firm like a rock. No wonder, it was made of rocks.", "Runewick became my new home. I was born in Salkamar and spent my youth on an island called Gobaith. But that is no more...", "Runewick, well, look east and tell me what you see there. That is Runewick!"
+english, "Runewick" -> "Runewick is firm like a rock. No wonder, it was made of rocks.", "Runewick became my new home. I was born in Salkamar and spent my youth on an island called Gobaith. But that is no more...", "Runewick, well, look east and tell me what you see there. That is Runewick!"
 "Runewick" -> "Runewick ist wie ein Fels in der Brandung. Kein Wunder, denn es wurde aus Steinen gebaut.", "Runewick ist meine neue Heimat. Ich wurde in Salkamar geboren und habe meine Jugend auf einer Insel namens Gobaith verbracht. Aber das war einmal...", "Runewick, nun, schaut doch mal nach Osten und sagt mir, was ihr da seht. Das ist Runewick!"
-"Valerio", "Guilianni", "Don", english -> "I overheard the real name of the Don's father is John. That makes the Don a John-son, har, har!"
+english, "Valerio", "Guilianni", "Don" -> "I overheard the real name of the Don's father is John. That makes the Don a John-son, har, har!"
 "Valerio", "Guilianni", "Don" -> "Ich habe gehört der echte Name des Vaters des Dons wäre John. Das macht aus dem Don einen Johnson, har, har!"
-"Galmair", english -> "Galmair is far away. And that's good."
+english, "Galmair" -> "Galmair is far away. And that's good."
 "Galmair" -> "Galmair ist fern von hier. Und das ist auch gut so."
 "Queen" -> "The Queen of Cadomyr became queen because she was born. The Archmage became our leader because he is the best!"
 "Königin" -> "Die Königin von Cadomyr wurde Königin, weil sie dazu geboren wurde. Der Erzmagier ist unser Anführer, weil er einfach der beste Mann ist!"
-"rosaline", "edwards", english -> "Die Königin von Cadomyr wurde Königin, weil sie dazu geboren wurde. Der Erzmagier ist unser Anführer, weil er einfach der beste Mann ist!"
+english, "rosaline", "edwards" -> "Die Königin von Cadomyr wurde Königin, weil sie dazu geboren wurde. Der Erzmagier ist unser Anführer, weil er einfach der beste Mann ist!"
 "rosaline", "edwards" -> "Die Königin von Cadomyr wurde Königin, weil sie dazu geboren wurde. Der Erzmagier ist unser Anführer, weil er einfach der beste Mann ist!"
-"Cadomyr", english -> "Cadomyr's people is inequitably, despiteous, dastard and blasphemous. But besides, the town is nice."
+english, "Cadomyr" -> "Cadomyr's people is inequitably, despiteous, dastard and blasphemous. But besides, the town is nice."
 "Cadomyr" -> "Cadomyrs Volk ist ungerecht, unbarmherzig, niederträchtig und gotteslästernd. Aber ansonsten ist es eine schöne Stadt."
 
 -- Main land factions
-"albar", english -> "I've been to Albar once before. I found it to be a rather... backward place.", "Albar is a very corrupt land, from what I've heard.", "Albarian commoners seem pleasant enough. Their women are rather reserved though."
+english, "albar" -> "I've been to Albar once before. I found it to be a rather... backward place.", "Albar is a very corrupt land, from what I've heard.", "Albarian commoners seem pleasant enough. Their women are rather reserved though."
 "albar" -> "Ich war früher einmal in Albar. Es machte auf mich einen ziemlich... rückständigen Eindruck.", "Albar ist ein sehr korruptes Land, so sagt man.", "Albarisches Landvolk ist eigenlich recht genügsam. Ihre Frauen sind allerdings recht zugeknöpft."
-"gynk", "gync", english -> "Ah, yes... Gynk, the 'Pool of Sin'.", "I've never been to Gynk. They tell me that you will never see more criminals running 'round than there, though.", "The Thieves' Guilds of Gynk have far too much influence for my liking. Power must be held by the authorities, not by criminals."
+english, "gynk", "gync" -> "Ah, yes... Gynk, the 'Pool of Sin'.", "I've never been to Gynk. They tell me that you will never see more criminals running 'round than there, though.", "The Thieves' Guilds of Gynk have far too much influence for my liking. Power must be held by the authorities, not by criminals."
 "gync", "gynk" -> "Ah, ja, Gynk, der Sündenpfuhl.", "Ich war noch nie in Gynk. Man sagte mir, dass man dort so viele Gauner herumstreunern sieht wie nirgens anders.", "Die Diebesgilden von Gynk haben für meinen Geschmack viel zu viel Einfluß. Die Macht muss bei der Obrigkeit verbleiben, nicht bei Strolchdieben."
-"salkama", english -> "Ahh... Salkamar. It is my homeland, did you know?", "I was born and raised in the lands of Salkamar. You will struggle to find a more honourable and loyal people than we.", "You will never find a greater army than that of Salkamar. Its leaders are cunning, its men loyal, and its ranks ordered."
+english, "salkama" -> "Ahh... Salkamar. It is my homeland, did you know?", "I was born and raised in the lands of Salkamar. You will struggle to find a more honourable and loyal people than we.", "You will never find a greater army than that of Salkamar. Its leaders are cunning, its men loyal, and its ranks ordered."
 "salkama" -> "Ah... Salkamar, meine Heimat. Wußtet ihr, dass ich von dort stamme?", "Ich wurde in Salkamar geboren und erzogen. Ihr werdet niemals ehrenhaftere und loyalere Menschen als uns finden.", "Ihr werdet niemals eine großartigere Armee finden als die Salkamars. Die Heerführer sind intelligent, die Männer loyal und es herrscht Ordnung."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Zhambra and Malachín are my patron deities.", "I am protected by the Lords Malachín and Zhambra in battle. They have kept me safe so far.", "I worship Zhambra and Malachín."
 "Gott", "Götter" -> "Zhambra und Malachín sind meine Schutzgötter.", "Die Herren Malachín und Zhambra wachen über mich in der Schlacht. Bis jetzt haben sie ihre Sache gut gemacht.", "Ich diene Zhambra und Malachín."
-"Adron", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Adron. I hear his followers frequent the tavern, though.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
+english, "Adron" -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Adron. I hear his followers frequent the tavern, though.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
 "Adron" -> "Ich respektiere seine Anhänger, aber ich bin keiner von ihnen.", "Ich muss zugeben, ich weiß nur wenig über Adron. Man sagt, seine Anhänger feiern heiligen Messen nur in Tavernen.", "Ihr solltet lieber mit jemand anderem über diesen Gott reden, ich bin mir sicher, ihr werdet jemanden finden."
-"Bragon", "Brágon", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about the God of Fire.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
+english, "Bragon", "Brágon" -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about the God of Fire.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
 "Bragon", "Brágon" -> "Ich respektiere seine Anhänger, aber ich bin keiner von ihnen.", "Ich muss zugeben, ich weiß nur wenig über den Gott des Feuers.", "Ihr solltet lieber mit jemand anderem über diesen Gott reden, ich bin mir sicher, ihr werdet jemanden finden."
-"Cherga", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Cherga or those who worship Her.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+english, "Cherga" -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Cherga or those who worship Her.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
 "Cherga" -> "Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.", "Ich muss zugeben, ich weiß nur wenig über Cherga oder ihre Anhänger.", "Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden."
-"Elara", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Elara.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+english, "Elara" -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Elara.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
 "Elara" -> "Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.", "Ich muss zugeben, ich weiß nur wenig über Elara, außer, dass sie einen guten Kleidergeschmack haben soll.", "Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden."
-"Eldan", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Eldan.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
+english, "Eldan" -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Eldan.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
 "Eldan" -> "Ich respektiere seine Anhänger, aber ich bin keiner von ihnen.", "Ich muss zugeben, ich weiß nur wenig über Eldan.", "Ihr solltet lieber mit jemand anderem über diesen Gott reden, ich bin mir sicher, ihr werdet jemanden finden."
-"Findari", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Findari.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+english, "Findari" -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Findari.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
 "Findari" -> "Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.", "Ich muss zugeben, ich weiß nur wenig über Findari.", "Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden."
-"Irmorom", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Irmorom. Speak to some Dwarves, that would be your best bet.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
+english, "Irmorom" -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Irmorom. Speak to some Dwarves, that would be your best bet.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
 "Irmorom" -> "Ich respektiere seine Anhänger, aber ich bin keiner von ihnen.", "Ich muss zugeben, ich weiß nur wenig über Irmorom. Redet mit den Zwergen, das ist mein Ratschlag-", "Ihr solltet lieber mit jemand anderem über diesen Gott reden, ich bin mir sicher, ihr werdet jemanden finden."
-"Malachin", "Malachín", english -> "Malachín is the God of Battle. He watches over all those who fight with honour.", "#me closes his eyes and tilts his head upward, whispering a silent prayer.", "The God of Battle is one of my patron Gods. It is He who ensures that my blade swings true."
+english, "Malachin", "Malachín" -> "Malachín is the God of Battle. He watches over all those who fight with honour.", "#me closes his eyes and tilts his head upward, whispering a silent prayer.", "The God of Battle is one of my patron Gods. It is He who ensures that my blade swings true."
 "Malachin", "Malachín" -> "Malachín ist der Gott der Schlacht. Er wacht über die, die ehrenhaft kämpfen.", "#me schließt die Augen und legt seinen Kopf in den Nacken um leise ein Gebet zu sprechen.", "Der Gott der Schlachten ist einer meiner Schutzgötter. Er ist es, der mein Schwert führt um Gerechtigkeit walten zu lassen."
-"Moshran", english -> "#me spits on the ground, expressing his distaste.", "The followers of the Blood-God deserve whatever cruel, twisted fate awaits them.", "I would not mention that name so freely, if I were you."
+english, "Moshran" -> "#me spits on the ground, expressing his distaste.", "The followers of the Blood-God deserve whatever cruel, twisted fate awaits them.", "I would not mention that name so freely, if I were you."
 "Moshran" -> "#me spuckt voll Missachtung auf den Boden.", "Die Gefolgschaft des Blutgottes möge ein grausames Schicksal haben.", "Ihr solltet diesen Namen nicht so freimütig aussprechen."
-"Nargun", "Nargún", "Nargùn", english -> "His followers are all fools and madmen.", "I do not have time for the worshippers of Nargún.", "Order is something that I greatly value. And something that the God of Chaos does not provide."
+english, "Nargun", "Nargún", "Nargùn" -> "His followers are all fools and madmen.", "I do not have time for the worshippers of Nargún.", "Order is something that I greatly value. And something that the God of Chaos does not provide."
 "Nargun", "Nargún", "Nargùn" -> "Seine Anhänger sind Idioten und Schwachsinnige.", "Mir ist meine Zeit zu kostbar, um sie mit Anhängern Nargúns zu verschwenden.", "Ich liebe Ordnung. Was habe ich also für den Gott des Chaos übrig?"
-"Oldra", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Oldra. Perhaps a druid could inform you better.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+english, "Oldra" -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Oldra. Perhaps a druid could inform you better.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
 "Oldra" -> "Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.", "Ich muss zugeben, ich weiß nur wenig über Oldra. Vielleicht kann euch ein Druide weiterhelfen.", "Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden."
-"Ronagan", english -> "#me frowns lightly: 'His followers are thieves, petty criminals. Nothing but lowlife scum.'", "Ah, the God of Thieves. Not a supporter of my work, as I understand it. He keeps me in a job though, I suppose.", "I am paid to deal with Ronagan's followers. You'll find plenty of them behind bars. He causes far more harm than good, in my humble opinion."
+english, "Ronagan" -> "#me frowns lightly: 'His followers are thieves, petty criminals. Nothing but lowlife scum.'", "Ah, the God of Thieves. Not a supporter of my work, as I understand it. He keeps me in a job though, I suppose.", "I am paid to deal with Ronagan's followers. You'll find plenty of them behind bars. He causes far more harm than good, in my humble opinion."
 "Ronagan" -> "#me rümpft die Nase: 'Seine Anhänger sind Diebe und gemeine Gauner. Nichts als Abschaum!", "Ah, der Gott der Diebe. Er ist nicht gerade ein Förderer meiner Arbeit, möchte man meinen. Aber gleichzeitig sichert er mir auch meinen Posten.", "Ich werde dafür bezahlt, um mich mit Ronagans Anhängern rumzuplagen. Viele von ihnen landen hinter Gittern. Andere... nicht, falls ihr mich versteht."
-"Sirani", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Sirani.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+english, "Sirani" -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Sirani.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
 "Sirani" -> "Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.", "Ich muss zugeben, ich weiß nur wenig über Sirani.", "Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden."
-"Tanora", "Zelphia", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about that Goddess.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+english, "Tanora", "Zelphia" -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about that Goddess.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
 "Tanora", "Zelphia" -> "Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.", "Ich muss zugeben, ich weiß nur wenig über diese Göttin.", "Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden."
-"Ushara", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Ushara. I recommend speaking with an Elf about such matters", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+english, "Ushara" -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Ushara. I recommend speaking with an Elf about such matters", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
 "Ushara" -> "Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.", "Ich muss zugeben, ich weiß nur wenig über Ushara. Ich empfehle euch mit einem Elf über dieserlei Dinge zu reden.", "Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden."
-"Zhambra", english -> "The God of Friendship and Loyalty is one of my patron deities. He keeps me safe, provided I stay faithful.", "I worship Zhambra and eagerly await the day He leads me to the paradise.", "Loyalty is vital for a man in my position. Lord Zhambra keeps me honest."
+english, "Zhambra" -> "The God of Friendship and Loyalty is one of my patron deities. He keeps me safe, provided I stay faithful.", "I worship Zhambra and eagerly await the day He leads me to the paradise.", "Loyalty is vital for a man in my position. Lord Zhambra keeps me honest."
 "Zhambra" -> "Der Gott der Freundschaft und Loyalität ist einer meiner Schutzgötter. Er hält seine schützende Hand über mich, solange ich fromm bleibe.", "Ich verehre Zhambra und kann es kaum erwarten, dass er mich eines Tages in die Ewigkeit geleiten wird.", "Loyalität ist unerläßlich für einen Mann in meiner Position. Und der Herr Zhambra leitet meine Hand."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "My apologies, but I am on duty. I cannot trade with you at the moment.", "I do not wish to trade with you.", "#me holds his hand up, shaking his head: 'Not while I'm on duty, thank you.'"
+"what sell", "what buy", "list wares", "price of" -> trade, trade, "My apologies, but I am on duty. I cannotwith you at the moment.", "I do not wish towith you.", "#me holds his hand up, shaking his head: 'Not while I'm on duty, thank you.'"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Entschuldigt, ich bin im Dienst, ich kann nicht mit euch handeln.", "Ich möchte nicht mit euch handeln.", "#me hebt die Hand und schüttelt mit dem Kopf: 'Nicht solange ich im Dienst bin.'"
 "tell something" -> "Hm. You look like you could wield a weapon. Perhaps the  Archmage would be interested in your services.", "Have you read the town's laws? It shouldn't be too hard finding a copy.", "I find the tower shield from Salkamar, my homeland, to be the most effective. Not too many weapons can find their way around or through one of them, I tell you."
 "erzähl was", "erzähl etwas" -> "Hm. Ihr seht aus, als wenn ihr eine Waffe tragen könntet. Vielleicht hat der Erzmagier ja Interesse an euren Diensten.", "Habt ihr schon die Gesetze der Stadt gelesen? Es sollte nicht sonderlich schwer sein, eine Ausgabe zu finden.", "Ich finde das die Turmschilde aus Salkamar, meiner Heimat, sehr effektiv sind. Um sie kommt kaum eine Waffe herum, geschweige denn hindurch."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Brassius", "Meres", english -> "My apologies, I am on duty. Perhaps someone else can help you.", "I should be getting back to my work.", "I am quite busy at the moment, sorry."
+english, "Brassius", "Meres" -> "My apologies, I am on duty. Perhaps someone else can help you.", "I should be getting back to my work.", "I am quite busy at the moment, sorry."
 "Brassius", "Meres" -> "Entschuldigt, aber ich bin im Dienst. Vielleicht kann euch jemand anderes helfen.", "Ich sollte wieder an meinen Dienst denken.", "Ich bin derzeit recht beschäftigt."
 "Yes" -> "My apologies, I am on duty. Perhaps someone else can help you.", "I should be getting back to my work.", "I am quite busy at the moment, sorry."
 "Ja" -> "Entschuldigt, aber ich bin im Dienst. Vielleicht kann euch jemand anderes helfen.", "Ich sollte wieder an meinen Dienst denken.", "Ich bin derzeit recht beschäftigt."
@@ -256,8 +256,8 @@ itemShoes = 697
 "Nein" -> "Entschuldigt, aber ich bin im Dienst. Vielleicht kann euch jemand anderes helfen.", "Ich sollte wieder an meinen Dienst denken.", "Ich bin derzeit recht beschäftigt."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "I should really be returning to my work.", "If the Archmage catches me chatting away, he will not be pleased.", "Please, you shall get me into trouble if I am caught standing here chatting."
-".*", german, chance(20.0) -> "Ich sollte mich wieder um meinen Dienst kümmern.", "Wenn der Erzmagier mich dabei erwischt, wie ich herumklöne, wird er nicht zufrieden sein.", "Bitte, ich bekomme noch Ärger, wenn man mich hier tratschen sieht."
+english, chance(20.0), ".*" -> "I should really be returning to my work.", "If the Archmage catches me chatting away, he will not be pleased.", "Please, you shall get me into trouble if I am caught standing here chatting."
+german, chance(20.0), ".*" -> "Ich sollte mich wieder um meinen Dienst kümmern.", "Wenn der Erzmagier mich dabei erwischt, wie ich herumklöne, wird er nicht zufrieden sein.", "Bitte, ich bekomme noch Ärger, wenn man mich hier tratschen sieht."
 
 -- That stuff causes errors! pharse, fix that.
 -- [[ replace the receiveText and nextCycle functions:
