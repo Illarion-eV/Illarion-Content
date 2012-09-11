@@ -13,7 +13,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    local boxOne = ""
 		local boxTwo = ""
 		
-		local callback1 = function(dialog1)
+		local callback1 = function(dialog1,boxOne)
 			if not dialog1:getSuccess() then 
 				User:inform("abbruch")
 			else
@@ -22,7 +22,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				else
 				    User:inform("debug 12")
 					boxOne = "one"
-					local callback2 = function(dialog2)
+					local callback2 = function(dialog2,boxTwo)
 			            if not dialog2:getSuccess() then 
 				            User:inform("abbruch")
 			            else
@@ -35,12 +35,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			            end			
 	                end
 		            local dialog2 = InputDialog("text schreiben!", false, 255, callback2)
-		            User:requestInputDialog(dialog2,boxTwo)
+		            User:requestInputDialog(dialog2)
 				end
 			end			
 	    end
 		local dialog1 = InputDialog("write: one", false, 255, callback1)
-		User:requestInputDialog(dialog1,boxOne)
+		User:requestInputDialog(dialog1)
 	    return
 	 end	
 	
