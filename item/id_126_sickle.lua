@@ -10,15 +10,53 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	--------- TESTING STUFF !!! ------------ Merung
 	if (string.find(User.lastSpokenText,"input")~=nil) then
-	    local callback = function(dialog)
-			if not dialog:getSuccess() then 
+	    local boxOne = ""
+		local boxTwo = ""
+		
+		local callback1 = function(dialog1)
+			if not dialog1:getSuccess() then 
 				User:inform("abbruch")
 			else
-				User:inform("you wrote: "..dialog:getInput())
+				if dialog:getInput() ~= "one"
+				    User:inform("failure, input was not: one")
+				else
+				    boxOne = "one"
+					local callback2 = function(dialog2)
+			            if not dialog2:getSuccess() then 
+				            User:inform("abbruch")
+			            else
+				            if dialog2:getInput() ~= "two"
+				                User:inform("failure, input was not: two")
+				            else
+				                boxTwo = "two"
+					            User:inform(""..boxOne.." and "..boxTwo)
+				            end
+			            end			
+	                end
+		            local dialog2 = InputDialog("text schreiben!", false, 255, callback)
+		            User:requestInputDialog(dialog2)
+				end
 			end			
 	    end
-		local dialog = InputDialog("text schreiben!", false, 255, callback)
-		User:requestInputDialog(dialog)
+		local dialog1 = InputDialog("write: one", false, 255, callback)
+		User:requestInputDialog(dialog1)
+	 end	
+	
+	if (string.find(User.lastSpokenText,"input")~=nil) then
+	    local callback2 = function(dialog2)
+			if not dialog2:getSuccess() then 
+				User:inform("abbruch")
+			else
+				if dialog2:getInput() ~= "two"
+				    User:inform("failure, input was not: two")
+				else
+				    boxTwo = "two"
+					User:inform(""..boxOne.." and "..boxTwo)
+				end
+			end			
+	    end
+		local dialog2 = InputDialog("text schreiben!", false, 255, callback)
+		User:requestInputDialog(dialog2)
 	    return
 	end	
 	
