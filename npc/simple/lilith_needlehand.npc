@@ -61,8 +61,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Schneiderin Lilith. Sie könnte Hilfe bei einer Aufgabe gebrauchen. Schlüsselwörter: Hallo, Quest, Nadel, Schneider.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho! You must have come to help me!", "Oh my, hello there! You are here to assist me, I assume?", "#me gives a charming smile: 'Are you here to help me?'"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho! Du bist sicher hier, um mir zu helfen!", "Oh, hallo!", "#me lächelt freundlich."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! You must have come to help me!", "Oh my, hello there! You are here to assist me, I assume?", "#me gives a charming smile: 'Are you here to help me?'"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Du bist sicher hier, um mir zu helfen!", "Oh, hallo!", "#me lächelt freundlich."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho! You must have come to help me!", "Oh my, hello there! You are here to assist me, I assume?", "#me gives a charming smile: 'Are you here to help me?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Du bist sicher hier, um mir zu helfen!", "Oh, hallo! Du kannst mir bestimmt helfen.", "#me lächelt freundlich."
 "Farewell", "Bye", "Fare well", "See you" -> "#me waves excitedly.", "Good Bye!", "Come back soon and maybe we can have some cake!", "#me turns back to the sheep, saying over her shoulder 'Farewell' as she pets one."

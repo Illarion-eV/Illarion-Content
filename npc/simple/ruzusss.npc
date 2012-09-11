@@ -62,8 +62,8 @@ itemShoes = 369
 -- Mandatory: General speech
 ".*", queststatus(640) = 1, english -> "Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have a sssilvercoin for that you found me.", item(3077, 1, 333, 0), queststatus(640) = 2
 ".*", queststatus(640) = 1 -> "Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdiente Münze.", item(3077, 1, 333, 0), queststatus(640) = 2
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetingsss, can I help you?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüsssse, kann ich helfen?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss, can I help you?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüsssse, kann ich helfen?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greetingsss, can I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüsssse, kann ich helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Sssee you again if you need more information."

@@ -60,8 +60,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Arimedus Dalahorn der Bibliothekar. Schlüsselwörter: Hallo, Runen, Magie, Bibliothek, Erzmagier Morgan.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings in the name of Elara. Can I help you?", "Hush! This is a library, not a tavern.", "Please do not adress me informally."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Elara zum Gruße. Kann ich euch behilflich sein?", "Scht! Dies ist eine Bücherei, keine Taverne.", "Ich möchte euch bitten mich nicht so unformell anzusprechen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings in the name of Elara. Can I help you?", "Hush! This is a library, not a tavern.", "Please do not adress me informally."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Elara zum Gruße. Kann ich euch behilflich sein?", "Scht! Dies ist eine Bücherei, keine Taverne.", "Ich möchte euch bitten mich nicht so unformell anzusprechen."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings in the name of Elara. Can I help you?", "Hush! This is a library, not a tavern.", "Please do not adress me informally."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Elara zum Gruße. Kann ich euch behilflich sein?", "Scht! Dies ist eine Bücherei, keine Taverne.", "Ich möchte euch bitten mich nicht so unformell anzusprechen."
 "Farewell", "Bye", "Fare well", "See you" -> "May Elara guide your way.", "Farewell and best of luck for your further studies."
@@ -76,8 +76,8 @@ itemShoes = 369
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "I am not here to entertain you."
 "quest", "mission" -> "Es ist nicht meine Aufgabe, euch zu beschäftigen."
-"task", "adventure" -> "I am not here to entertain you."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Es ist nicht meine Aufgabe, euch zu beschäftigen."
+"task", "adventure", "order" -> "I am not here to entertain you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es ist nicht meine Aufgabe, euch zu beschäftigen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "You see, I work on some papers. I write on a elaboration about the meaning of all runes."

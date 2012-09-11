@@ -77,8 +77,8 @@ itemShoes = 697
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der orkische Kundschafter Graznok. Schlüsselwörter: Hallo, Quest, Beruf, Kundschafter, Clan, Dunkelheit, Höhle.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas! Yoos be lookin' like yoos could help mes in mes mission."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Greebas! Du sehen aus. Wie helfen mirr, bei Aufgabs meine."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas! Yoos be lookin' like yoos could help mes in mes mission."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas! Du sehen aus. Wie helfen mirr, bei Aufgabs meine."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greebas! Yoos be lookin' like yoos could help mes in mes mission."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas! Du sehen aus. Wie helfen mirr, bei Aufgabs meine."
 "Farewell", "Bye", "Fare well", "See you" -> "Go wid dat Moshi. And when come back, den bring lotsa shinies fer mes, hurr, hurr."

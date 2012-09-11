@@ -60,8 +60,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alexis Dostas der Stallmeister. Schlüsselwörter: Hallo, Quest, Cadomyr, Beruf, Stallungen.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted. You came here for a mount I suppose.", "Welcome to the stables.", "If you need a mount, you came to the right place."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt. Ihr seid hier eines Reittiers wegen, nehme ich an.", "Willkommen in den Stallungen.", "Falls ihr ein Lasttier benötigt seid ihr hier richtig."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. You came here for a mount I suppose.", "Welcome to the stables.", "If you need a mount, you came to the right place."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Ihr seid hier eines Reittiers wegen, nehme ich an.", "Willkommen in den Stallungen.", "Falls ihr ein Lasttier benötigt seid ihr hier richtig."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted. You came here for a mount I suppose.", "Welcome to the stables.", "If you need a beast of burden, you came to the right place."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt. Ihr seid hier eines Reittiers wegen, nehme ich an.", "Willkommen in den Stallungen.", "Falls ihr ein Reittier benötigt seid ihr hier richtig."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell. And come back alive."

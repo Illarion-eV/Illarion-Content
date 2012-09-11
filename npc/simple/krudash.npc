@@ -61,8 +61,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: Murgo, Er'hja, Kroch'Gurak, Alice, Tom"), "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?", state = 0
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Greebas. Brauchst du was, hä?", "Hurr! Sei gegrüßt.", "Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math! Grüße-Grüße, sag ich.", "Sei willkommen, in 'Krudash's Hacken und Plündern'!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas. Brauchst du was, hä?", "Hurr! Sei gegrüßt.", "Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math! Grüße-Grüße, sag ich.", "Sei willkommen, in 'Krudash's Hacken und Plündern'!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Brauchst du was, hä?", "Hurr! Sei gegrüßt.", "Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math! Grüße-Grüße, sag ich.", "Sei willkommen, in 'Krudash's Hacken und Plündern'!"
 "Farewell", "Bye", "Fare well", "See you" -> "Farebas. Have a good sackin'!", "Slàn leibhslàn! - Would say the orcs tounge. Tagtha?"
@@ -77,8 +77,8 @@ itemShoes = 53
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "I trade... and my snagas do all the work. So there is nothing for a maggot like you to do!"
 "quest", "mission" -> "Ich handle... und meine Snagas machen alle Arbeit. Also gibt's nix zu tun für ne Made wie dich!"
-"task", "adventure" -> "I trade... and my snagas do all the work. So there is nothing for a maggot like you to do!"
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich handle... und meine Snagas machen alle Arbeit. Also gibt's nix zu tun für ne Made wie dich!"
+"task", "adventure", "order" -> "I trade... and my snagas do all the work. So there is nothing for a maggot like you to do!"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich handle... und meine Snagas machen alle Arbeit. Also gibt's nix zu tun für ne Made wie dich!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm the arms dealer in this town! And all those Snagas follow my command! Groch!"

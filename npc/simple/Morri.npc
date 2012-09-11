@@ -47,8 +47,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: Fisch, Nase, Snorri, Beruf.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hrm...Greetings. How can I help you?", "#me grumbles moodily: 'Good day'.", "Hail Irmorom. Do you want to buy something?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hrm...Greetings. How can I help you?", "#me grumbles moodily: 'Good day'.", "Hail Irmorom. Do you want to buy something?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hrm...Greetings. How can I help you?", "#me grumbles moodily: 'Good day'.", "Hail Irmorom. Do you want to buy something?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Bye and enjoy your meal.", "Arr... See you soon.", "Fare thee well and come again soon!"
@@ -63,8 +63,8 @@ itemShoes = 53
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "I don't employ anyone. That is my brother Snorri's task, he is the older one of us. He's the one to ask."
 "quest", "mission" -> "Ich stelle niemanden ein. Das macht mein Bruder Snorri, er ist der Ältere von uns Beiden. Fragt ihn, darum."
-"task", "adventure" -> "I don't employ anyone. That is my brother Snorri's task, he is the older one of us. He's the one to ask."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich stelle niemanden ein. Das macht mein Bruder Snorri, er ist der Ältere von uns Beiden. Fragt ihn, darum."
+"task", "adventure", "order" -> "I don't employ anyone. That is my brother Snorri's task, he is the older one of us. He's the one to ask."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich stelle niemanden ein. Das macht mein Bruder Snorri, er ist der Ältere von uns Beiden. Fragt ihn, darum."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Actually, I am a cook. For a few years I have cooked at my cousin's tavern. But now I am dealing with all kinds of food here in Galmair. What is your daily task?"

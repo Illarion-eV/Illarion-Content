@@ -67,8 +67,8 @@ itemShoes = 697
 "Hilfe" -> "[Spielhilfe] Dieser NPC ist der Schmied Saren Eisenfaust. Schlüsselwörter: Aufgaben, Spitzhacke, Erzähl was, Siebenberg."
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day, what do ya want?", "Irmorom with ya, do ya need anything?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Tach auch, wat gibts?", "Irmorom zum Gruße, brauchst du wat?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day, what do ya want?", "Irmorom with ya, do ya need anything?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach auch, wat gibts?", "Irmorom zum Gruße, brauchst du wat?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "What do ya want, eh? We say greetings around here.", "Aye, whatever.", "You won't go far with that greeting around here."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Wat willste, eh? Dat heißt Tach!", "Aye, wat auch immer.", "Damit kommste hier nich weit, es heißt Tach!"
 "Farewell", "Bye", "Fare well", "See you" -> "Aye, take care.", "Irmorom with ya!", "Until next time!"
@@ -155,8 +155,8 @@ itemShoes = 697
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(81) = 8 -> "Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!"
 "quest", "mission", english -> "Sorry, I only issue tasks to unexperienced smithes."
 "quest", "mission" -> "Tut mir Leid, Kumpel. Aber ich geb nur unerfahrenen Schmieden Aufgaben auf."
-"smith", "task", "adventure" -> "Sorry, I only issue tasks to unexperienced smithes."
-"Schmied", "Auftrag", "Aufgabe", "Abenteuer" -> "Tut mir Leid, Kumpel. Aber ich geb nur unerfahrenen Schmieden Aufgaben auf."
+"smith", "task", "adventure", "order" -> "Sorry, I only issue tasks to unexperienced smithes."
+"Schmied", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Tut mir Leid, Kumpel. Aber ich geb nur unerfahrenen Schmieden Aufgaben auf."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "You ask what my profession is? I'm a smith, the best even.", "I'm a smith and you?"

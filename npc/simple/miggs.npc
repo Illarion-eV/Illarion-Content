@@ -66,8 +66,8 @@ itemShoes = 326
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Miggs, der Handlanger von Don Valerio. Schlüsselwörter: Hallo, Handlanger, Quest, Don Valerio, Regeln.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "G'day, did the Don send you?", "So, you are the next bigshot of Galmair? Something makes me doubt that.", "What?! Make it quick."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Tach, hat euch der Don geschickt?", "So, ihr seid also der nächste Stern am Himmel Galmairs? Irgendwie kann ich das nicht recht glauben.", "Was!? Sprecht schnell."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "G'day, did the Don send you?", "So, you are the next bigshot of Galmair? Something makes me doubt that.", "What?! Make it quick."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach, hat euch der Don geschickt?", "So, ihr seid also der nächste Stern am Himmel Galmairs? Irgendwie kann ich das nicht recht glauben.", "Was!? Sprecht schnell."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "G'day, did the Don send you?", "So, you are the next bigshot of Galmair? Something makes me doubt that.", "What?! Make it quick."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Tach, hat euch der Don geschickt?", "So, ihr seid also der nächste Stern am Himmel Galmairs? Irgendwie kann ich das nicht recht glauben.", "Was!? Sprecht schnell."
 "Farewell", "Bye", "Fare well", "See you" -> "Go and come back. But not too soon.", "Off!", "Get lost."

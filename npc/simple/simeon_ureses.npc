@@ -62,8 +62,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparieren, Kosten.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag. Soll ich eure Ausrüstung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag. Soll ich eure Ausrüstung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag. Soll ich eure Ausrüstung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
 "Farewell", "Bye", "Fare well", "See you" -> "Good bye. And do some adventures for me.", "Farewell and come back soon.", "I bid you farewell."

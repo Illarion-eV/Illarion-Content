@@ -64,8 +64,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Baumeister Robertus. Schlüsselwörter: Hallo, Baumeister.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building material for me?", "Be greeted, in the name of the queen."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ah, ihr müßt der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.", "Willkommen, Fremdling. Habt ihr Baumaterial für mich?", "Seid im Namen der Königin gegrüßt."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building material for me?", "Be greeted, in the name of the queen."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, ihr müßt der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.", "Willkommen, Fremdling. Habt ihr Baumaterial für mich?", "Seid im Namen der Königin gegrüßt."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building material for me?", "Be greeted, in the name of the queen."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Auf wiedersehen.", "Bis zum nächsten mal.", "Gehet in Frieden."
 "Farewell", "Good bye", "Bye", "Fare well", "see you" -> "Farewell.", "Good bye.", "Until next time."
@@ -86,8 +86,8 @@ itemShoes = 53
 -- Catching quest triggers
 "quest", "mission", english -> "So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me."
 "quest", "mission" -> "Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen."
-"task", "adventure" -> "So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen."
+"task", "adventure", "order" -> "So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am Robertus, the royal builder. The queen relies on me to build her a grave that will last for ages.", "Construction is my business. Behold the tavern: My work for the queen. I am not proud of it, but proud to serve queen Rosaline.", "I am the builder of Cadomyr."

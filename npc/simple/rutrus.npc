@@ -72,8 +72,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Gräber Rutrus. Schlüsselwörter: Hallo, Quest, Schaufel, Beruf.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hello, Hello.", "You greet me and I greet back: Greetings!", "Good day.", "Welcome to this sandy area."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hallo, Hallo.", "Du grüßt mich und ich grüße zurück: Grüße!", "Guten Tag.", "Willkommen in dieser sandigen Gegend."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello, Hello.", "You greet me and I greet back: Greetings!", "Good day.", "Welcome to this sandy area."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, Hallo.", "Du grüßt mich und ich grüße zurück: Grüße!", "Guten Tag.", "Willkommen in dieser sandigen Gegend."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hello, Hello.", "You greet me and I greet back: Greetings!", "Good day.", "Welcome to this sandy area."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, Hallo.", "Du grüßt mich und ich grüße zurück: Grüße!", "Guten Tag.", "Willkommen in dieser sandigen Gegend."
 "Farewell", "Bye", "Fare well", "See you" -> "Have a nice day!", "Goodbye, goodbye, come back soon!", "Farewell, you friendly being!"

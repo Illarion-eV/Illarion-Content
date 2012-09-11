@@ -78,8 +78,8 @@ itemShoes = 326
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Kaitza> der Tempelwächter. Schlüsselwörter: Zelphia, Beruf, Gobaith, gods.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Glory to ze Goddessss.", "Greetingsss, landwalker.", "#me lowers his head respectfully, 'Greetingsss.'"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ehre sei der Göttin.", "Grüssse, Landgänger.", "#me senkt seinen kopf respektvoll,'Greetingss'."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Glory to ze Goddessss.", "Greetingsss, landwalker.", "#me lowers his head respectfully, 'Greetingsss.'"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ehre sei der Göttin.", "Grüssse, Landgänger.", "#me senkt seinen kopf respektvoll,'Greetingss'."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Glory to ze Goddessss.", "Greetingsss, landwalker.", "#me lowers his head respectfully, 'Greetingss'."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ehre sei der Göttin.", "Grüssse, Landgänger.", "#me neigt sein Haupt respektvoll,'Grüssse'."
 "Farewell", "Bye", "Fare well", "See you" -> "Glory to ze Goddessss.", "Zss. May Zelphia keep your watersss calm.", "#me bows his head respectfully, 'Zss. Farewell.'"

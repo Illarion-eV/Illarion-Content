@@ -62,8 +62,8 @@ itemShoes = 369
 -- Mandatory: General speech
 ".*", queststatus(620) = 1, english -> "Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers a silvercoin and turns back to her book*", item(3077, 1, 333, 0), queststatus(620) = 2
 ".*", queststatus(620) = 1 -> "Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht eine Silbermünze und wendet sich wieder ihrem Buch zu*", item(3077, 1, 333, 0), queststatus(620) = 2
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hail Oldra. *Turns back to her book*"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail Oldra. *Turns back to her book*"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hail Oldra. *Turns back to her book*"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
 "Farewell", "Bye", "Fare well", "See you" -> "Au revoir. *Turns back to her book*"

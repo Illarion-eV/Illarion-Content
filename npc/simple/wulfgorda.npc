@@ -62,8 +62,8 @@ itemShoes = 369
 -- Mandatory: General speech
 ".*", queststatus(650) = 1, english -> "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have a silvercoin for that you found me.", item(3077, 1, 333, 0), queststatus(650) = 2
 ".*", queststatus(650) = 1 -> "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.", item(3077, 1, 333, 0), queststatus(650) = 2
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me tips her helmet."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me tippt auf ihren Helm."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me tips her helmet."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me tippt auf ihren Helm."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "#me tips her helmet."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me tippt auf ihren Helm."
 "Farewell", "Bye", "Fare well", "See you" -> "#me tips her helmet."

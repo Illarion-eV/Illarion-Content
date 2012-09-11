@@ -80,8 +80,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schneider Timotheus. Schlüsselwörter: Hallo, Schneider.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome wise one.", "Why greetings to you!", "Greetings elevated one."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Willkommen, mein weiser Freund.", "Wie jetzt, seid gegrüßt!", "Grüße, mein Großer."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome wise one.", "Why greetings to you!", "Greetings elevated one."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen, mein weiser Freund.", "Wie jetzt, seid gegrüßt!", "Grüße, mein Großer."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Not so informal!", "Well... Greetings.", "Is that the way they talk on the street nowadays?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Na, nicht so schnodderig.", "Nun... seid gegrüßt.", "Redet man heutzutage so auf der Straße?"
 "Farewell", "Bye", "Fare well", "See you" -> "May Elara protect your knowledge!", "Insightful journey to you!", "Farewell now!"
@@ -96,8 +96,8 @@ itemShoes = 369
 -- Catching quest triggers
 "quest", english -> "I only sell goods, my apologies. Quests are for the courageous and the air-heads."
 "quest" -> "Ich bin nur ein Händler, entschuldigt. Abenteuer sind für die mutigen und törichten."
-"task", "adventure" -> "Adventures? I'm pretty happy with my robes thank you."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Abenteuer? Ich bin ziemlich glücklich mit meinen Roben, danke."
+"task", "adventure", "order" -> "Adventures? I'm pretty happy with my robes thank you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Abenteuer? Ich bin ziemlich glücklich mit meinen Roben, danke."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a tailor. I sell tailor goods, and even make some myself!", "Profession, my life, whatever you prefer, it's tailoring!"

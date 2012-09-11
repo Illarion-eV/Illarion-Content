@@ -190,8 +190,8 @@ itemShoes = 53
 "troph", german -> "Thud sammeln Trophäe! Sammelt Fell! Horn! Salkamarischer Paladinhelm! Dolch, verziert! Zwergenaxt! Elben-Kompositlangbogen!"
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas!", "Hurr!", "Hullo!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Greebas!", "Hurr!", "Hullo!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas!", "Hurr!", "Hullo!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas!", "Hurr!", "Hullo!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greebas!", "Hurr!", "Hullo!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas!", "Hurr!", "Hullo!"
 "Farewell", "Bye", "Fare well", "See you" -> "Farebba!"
@@ -206,8 +206,8 @@ itemShoes = 53
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. - If you bring him enough trophies, he will reward you."), "You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr."
 "quest", "mission" -> inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. - Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."), "Du bringst Thud alle Trophäe du hast! Yubba?"
-"task", "adventure" -> inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. - If you bring him enough trophies, he will reward you."), "You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr."
-"Auftrag", "Aufgabe", "Abenteuer" -> inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. - Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."), "Du bringst Thud alle Trophäe du hast! Yubba?"
+"task", "adventure", "order" -> inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. - If you bring him enough trophies, he will reward you."), "You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. - Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."), "Du bringst Thud alle Trophäe du hast! Yubba?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I thud things. - With my club.", "I collect trophy. Bring all of them here."

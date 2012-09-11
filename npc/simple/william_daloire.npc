@@ -64,11 +64,11 @@ itemShoes = 53
 -- 10% Writing stuff: 463, 2745
 -- 10% Mushrooms: 158, 159, 160, 161, 162, 163
 
-sellItems = <58, 1008, 429, 126, 43, 391, 52, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769,133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163>
-buyPrimaryItems = <58, 1008, 429, 126, 43, 391, 52, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769,133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163>
-tradeNotEnoughMoneyMsg "<Oh, ich fürchte Ihr könnt Euch das nicht leisten.>", "<Oh, I fear, you can not afford that.>"
-tradeFinishedMsg "<Vielen Dank, beehrt mich bald wieder!>", "<Thank you, please come again!>"
-tradeFinishedWithoutTradingMsg "<Auf Bald!>", "<Farewell!>"
+sellItems = 58, 1008, 429, 126, 43, 391, 52, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769,133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163
+buyPrimaryItems = 58, 1008, 429, 126, 43, 391, 52, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769,133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
 
 -- Help
 "Help" -> inform("[Game Help]This NPC is William Daloire the herbalist. Keywords: buy, sell, greetings, profession, tell something.")

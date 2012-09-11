@@ -76,8 +76,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Werkzeug- und Rohstoffhändler 'Big Nik'. Schlüsselwörter: Hallo, Beruf, Gesetze.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me grins as he waves: 'What can I do for you?'", "#me lifts his head: 'Hello there, you here to buy or sell?'", "Hello, you look like someone who knows a good price for tools, thats why your here, right?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me grinst und winkt: 'Was kann ich für euch tun?'", "#me hebt den Kopf: 'Heda, wollt ihr etwas kaufen oder loswerden?'", "Hallo, ihr seht aus wie jemand, dem ich einen guten Preis für Werkzeuge machen kann. Deshalb seid ihr doch hier?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grins as he waves: 'What can I do for you?'", "#me lifts his head: 'Hello there, you here to buy or sell?'", "Hello, you look like someone who knows a good price for tools, thats why your here, right?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me grinst und winkt: 'Was kann ich für euch tun?'", "#me hebt den Kopf: 'Heda, wollt ihr etwas kaufen oder loswerden?'", "Hallo, ihr seht aus wie jemand, dem ich einen guten Preis für Werkzeuge machen kann. Deshalb seid ihr doch hier?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Yeh, yeh you here to buy or sell?", "#me scratches his cheek as he looks over: 'Want to see my wares?'", "Hello and all that, why don't you spend some of that coin you have with me!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Jaja, wollt ihr nun etwas kaufen oder loswerden?", "#me kratzt sich am Kinn und schaut umher: 'Seid ihr wegen meinen Waren hier?'", "Hallo und so, warum gebt ihr nicht einfach etwas Geld bei mir aus!"
 "Farewell", "Bye", "Fare well", "See you" -> "Aye... another time.", "Come back again now!", "#me chuckles: 'I'll be seeing you again I hope.'"

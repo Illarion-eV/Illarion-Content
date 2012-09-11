@@ -191,8 +191,8 @@ itemShoes = 53
 -- Catching quest triggers
 "quest", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "quest", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

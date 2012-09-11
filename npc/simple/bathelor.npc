@@ -58,8 +58,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bathelor der Hohepriester Brágons. Schlüsselwörter: Hallo, Brágon, Quest, Priester, Tempel.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Brágon.", "Hail Brágon! What is it, my child?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Eure Pilgerfahrt hat eine Ende. Ihr habt den Tempel der Fünf gefunden.", "Seid gegrüßt im Namen Brágons.", "Was gibt es, mein Kind?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Brágon.", "Hail Brágon! What is it, my child?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Eure Pilgerfahrt hat eine Ende. Ihr habt den Tempel der Fünf gefunden.", "Seid gegrüßt im Namen Brágons.", "Was gibt es, mein Kind?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Brágon.", "Hail Brágon! What is it, my child?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Eure Pilgerfahrt hat eine Ende. Ihr habt den Tempel der Fünf gefunden.", "Seid gegrüßt im Namen Brágons.", "Was gibt es, mein Kind?"
 "Farewell", "Bye", "Fare well", "See you" -> "May Brágon speed you into the flames", "May the fire in you never be extinguished!", "Go with Brágon's blessing."

@@ -119,8 +119,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bre Southstar die Torwächterin. Schlüsselwörter: Hallo, Gavin, Galmair, Wache.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day. I hope you are doing well.", "This is Galmair, have a pleasant time.", "I'm happy that you decided to choose this gate. Please have a pleasant trip."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag, ich hoffe, es geht euch gut.", "Dies hier ist Galmair, genießt euren Aufenthalt.", "Es freut mich, dass ihr dieses Tor gewählt habt. Eine gute Reise wünsche ich."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. I hope you are doing well.", "This is Galmair, have a pleasant time.", "I'm happy that you decided to choose this gate. Please have a pleasant trip."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag, ich hoffe, es geht euch gut.", "Dies hier ist Galmair, genießt euren Aufenthalt.", "Es freut mich, dass ihr dieses Tor gewählt habt. Eine gute Reise wünsche ich."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Good day. I hope you are doing well.", "This is Galmair, have a pleasant time.", "I'm happy that you decided to choose this gate. Please have a pleasant trip."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag, ich hoffe, es geht euch gut.", "Dies hier ist Galmair, genießt euren Aufenthalt.", "Es freut mich, dass ihr dieses Tor gewählt habt. Eine gute Reise wünsche ich."
 "Farewell", "Bye", "Fare well", "See you" -> "May justice and peace make your day merry.", "I will see you later.", "Have a good day, please walk in peace wherever you step."

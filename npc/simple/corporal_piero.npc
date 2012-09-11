@@ -69,8 +69,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Corporal Piero der Wächter. Schlüsselwörter: Abenteuer, Königin Rosaline."), "Helfen? Ich weiß nicht wie ich Euch helfen soll. Aber Ihr könntet mir helfen, insofern ihr nach einem 'Abenteuer' sucht.", state = 0
 
 -- generall
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hello.", "Zhambras greets.", "Be greeted.", "Zhambra may bless the queen."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hallo.", "Seid gegrüßt.", "Zhambra zum Gruße.", "Lang lebe Königin Rosaline Edwards."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello.", "Zhambras greets.", "Be greeted.", "Zhambra may bless the queen."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo.", "Seid gegrüßt.", "Zhambra zum Gruße.", "Lang lebe Königin Rosaline Edwards."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hello.", "Zhambras greets.", "Be greeted.", "Zhambra may bless the queen."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo.", "Seid gegrüßt.", "Zhambra zum Gruße.", "Lang lebe Königin Rosaline Edwards."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Have a good day.", "Good bye.", "Zhambra shall be with you."

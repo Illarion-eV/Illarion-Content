@@ -62,8 +62,8 @@ itemShoes = 369
 -- Mandatory: General speech
 ".*", queststatus(630) = 1, english -> "Good day. Finally you found me! Iradona has already informed me about your visit. There you have a silvercoin for that you found me.", item(3077, 1, 333, 0), queststatus(630) = 2
 ".*", queststatus(630) = 1 -> "Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.", item(3077, 1, 333, 0), queststatus(630) = 2
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day, my dear. Can I help you with some information?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day, my dear. Can I help you with some information?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Good day, my dear. Can I help you with some information?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
 "Farewell", "Bye", "Fare well", "See you" -> "See ya soon."

@@ -56,8 +56,8 @@ itemShoes = 326
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. Zwerg, Bier, Orks, Name.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk. - would I say and means good day.", "H'druk g'har. This's my cottage. Do you like to buy something?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk. - would I say and means good day.", "H'druk g'har. This's my cottage. Do you like to buy something?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk. - would I say and means good day.", "H'druk g'har. This's my cottage. Do you like to buy something?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
 "Farewell", "Bye", "Fare well", "See you" -> "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
@@ -72,8 +72,8 @@ itemShoes = 326
 -- Catching quest triggers
 "quest", "mission", english -> "I don't got any tasks for you. Better ask the Don. Aye?"
 "quest", "mission" -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
-"task", "adventure" -> "I don't got any tasks for you. Better ask the Don. Aye?"
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
+"task", "adventure", "order" -> "I don't got any tasks for you. Better ask the Don. Aye?"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there."

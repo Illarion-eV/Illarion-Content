@@ -57,8 +57,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Kräuterkundige Milo Deepdelver. Er weiß ein paar Dinge über die Götter und Kräuterkunde.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings my friend and may the Gods be with you. I don't have much time, as this bullheaded mule of mine doesn't take a step forward. But if you know anything about mules lent me a hand, will you?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ich grüße euch mein Freund und mögen die Götter mit euch sein. Ich habe leider nicht sehr viel Zeit, weil mein starrsinniger Esel keine Schritt mehr tut. Aber falls ihr etwas von Eseln versteht, dann könnt ihr mir gerne zur Hand gehen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings my friend and may the Gods be with you. I don't have much time, as this bullheaded mule of mine doesn't take a step forward. But if you know anything about mules lent me a hand, will you?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ich grüße euch mein Freund und mögen die Götter mit euch sein. Ich habe leider nicht sehr viel Zeit, weil mein starrsinniger Esel keine Schritt mehr tut. Aber falls ihr etwas von Eseln versteht, dann könnt ihr mir gerne zur Hand gehen."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings my friend and may the Gods be with you. I don't have much time, as this bullheaded mule of mine doesn't take a step forward. But if you know anything about mules lent me a hand, will you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ich grüße euch mein Freund und mögen die Götter mit euch sein. Ich habe leider nicht sehr viel Zeit, weil mein starrsinniger Esel keine Schritt mehr tut. Aber falls ihr etwas von Eseln versteht, dann könnt ihr mir gerne zur Hand gehen."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell my friend. May Oldra guide your ways where ever you go."

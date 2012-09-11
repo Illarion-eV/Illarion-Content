@@ -58,8 +58,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist ein Hütchenspieler. Er schiebt in einer Tour drei Nüße hin und her. Sag 'Ich wette.' um um ein Silberstück zu spielen. Sage dann 'rechts', 'links' oder 'mitte' um eine Nuss zu wählen.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho! Time for gambling, right?", "Shh, want to play with me?", "Hey, you look like somebody who is used to winning. Want to play?", "Hello. Thimblerig is my business. Want to bet, stranger?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho! Zeit zum Zocken, nicht wahr?", "Shh, willst du mit mir spielen?", "Hey, du siehtst aus wie jemand, der gerne gewinnt. Willst du wetten?", "Hallo. Das Hütchenspiel ist mein Handwerk. Willst du was setzen, Fremder?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Time for gambling, right?", "Shh, want to play with me?", "Hey, you look like somebody who is used to winning. Want to play?", "Hello. Thimblerig is my business. Want to bet, stranger?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Zeit zum Zocken, nicht wahr?", "Shh, willst du mit mir spielen?", "Hey, du siehtst aus wie jemand, der gerne gewinnt. Willst du wetten?", "Hallo. Das Hütchenspiel ist mein Handwerk. Willst du was setzen, Fremder?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho! Time for gambling, right?", "Shh, want to play with me?", "Hey, you look like somebody who is used to winning. Want to play?", "Hello. Thimblerig is my business. Want to bet, stranger?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Zeit zum Zocken, nicht wahr?", "Shh, willst du mit mir spielen?", "Hey, du siehtst aus wie jemand, der gerne gewinnt. Willst du wetten?", "Hallo. Das Hütchenspiel ist mein Handwerk. Willst du was setzen, Fremder?"
 "Farewell", "Bye", "Fare well", "See you" -> "Yes, yes, and come back with more money!", "Bye! May your purse fill again.", "Goodbye and please don't tell what I am doing here.", "Ronagan may bless you."

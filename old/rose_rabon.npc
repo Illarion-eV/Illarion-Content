@@ -66,8 +66,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day potential customers. How may I assist you today?", "If you're a regular please seat yourself. My business is your home.", "Welcome to the Glass Spiegel"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day potential customers. How may I assist you today?", "If you're a regular please seat yourself. My business is your home.", "Welcome to the Glass Spiegel"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Good day potential customers. How may I assist you today?", "If you're a regular please seat yourself. My business is your home.", "Welcome to the Glass Spiegel"
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Farewell", "Bye", "Fare well", "See you" -> "Oh won't you please visit us again.", "Anytime you think of dining please do not forget the Glass Spiegel", "Goodbye beautiful person."

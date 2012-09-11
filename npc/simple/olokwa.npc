@@ -114,8 +114,8 @@ itemShoes = 53
 "weiter", state = 2 -> "...War er schwach und feige, so wird er dort ein Dasein als Diener fristen müssen, wohlmöglich gar als Diener eines Menschen, Halblings oder Zwergen.", state = 0
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas!", "Greebs.. seeking advice, do you?", "#me wears a blindfold. Altough he truns his head to you. '%CHARNAME...'", "I knew you would come here..."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Greebas!", "Greebs.. suchst du Rat? Tust du?", "#me's Augen sind verbunden, dennoch dreht er den Kopf in deine Richtung. '%CHARNAME...'", "Ich wusste du herkommst, hier."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas!", "Greebs.. seeking advice, do you?", "#me wears a blindfold. Altough he truns his head to you. '%CHARNAME...'", "I knew you would come here..."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas!", "Greebs.. suchst du Rat? Tust du?", "#me's Augen sind verbunden, dennoch dreht er den Kopf in deine Richtung. '%CHARNAME...'", "Ich wusste du herkommst, hier."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Greebas!", "Greebs.. seeking advice, do you?", "#me wears a blindfold. Altough he truns his head to you. '%CHARNAME...'", "I knew you would come here..."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas!", "Greebs.. suchst du Rat? Tust du?", "#me's Augen sind verbunden, dennoch dreht er den Kopf in deine Richtung. '%CHARNAME...'", "Ich wusste du herkommst, hier."
 "Farewell", "Bye", "Fare well", "See you" -> "Farebas.", "May the ancestors guide your steps.", "Hurr... mes keep n' dull eye on you."
@@ -130,8 +130,8 @@ itemShoes = 53
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "Honor your ancestors. It's a task, which will takes you your whole live."
 "quest", "mission" -> "Ehre deine Ahnen. Dies Aufgabe ist, welche dauert dein Leben lang."
-"task", "adventure" -> "Honor your ancestors. It's a task, which will takes you your whole live."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ehre deine Ahnen. Dies Aufgabe ist, welche dauert dein Leben lang."
+"task", "adventure", "order" -> "Honor your ancestors. It's a task, which will takes you your whole live."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ehre deine Ahnen. Dies Aufgabe ist, welche dauert dein Leben lang."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I Olokwa the seer is! My Eye only see black and murk, although Olokwa see more than every other."

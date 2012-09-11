@@ -34,10 +34,21 @@ function PutItemOnField(Item,User)
 			-- reduce work load of char
 			local workLoad = User:getQuestProgress(25)
 			if (workLoad - Item.number) <= 0 then
+				if workLoad > 0 then -- the char was actually still forced to work, inform him that he's free
+				    local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),10)
+			        for i=1,#myNpc do
+				        if myNpc[i].name == "Percy Dryless" then -- check if it is the camp leader  
+							myNpc[i]:talkLanguage(Character.say,Player.german,"So, du Wicht, du hast deine Strafe abgearbeitet. Hau ab!")
+							myNpc[i]:talkLanguage(Character.say,Player.english,"Now, you runt, you're done with your punishment. Get lost!")
+							break
+					    end
+					end	
+				end
 				User:setQuestProgress(25,0)
 				User:setQuestProgress(26,0)
 			else
 				User:setQuestProgress(25,workLoad-Item.number)
+			    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert.","You notice that the guard seems to take a short note.")
 			end
 		end
 		world:gfx(46,Item.pos)

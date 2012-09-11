@@ -80,8 +80,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Banius der Bauer. Schlüsselwörter: Auftrag, Beruf, Hof, Frau, was verkauft.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me runs a hand through his ruffled hair, nodding once.", "#me glances at you with red eyes, 'Aye, greetings.'", "#me opens his mouth to speak, his voice quiet and weary, 'Be greeted.'"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me fährt sich mit einer Hand durchs zerzauste Haar und nickt kurz.", "#me blickt dich mit roten Augen an:'Ja, Grüße'.", "#me öffnet seinen Mund um mit leiser, müder Stimme zu antworten, 'Seid gegrüßt'."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me runs a hand through his ruffled hair, nodding once.", "#me glances at you with red eyes, 'Aye, greetings.'", "#me opens his mouth to speak, his voice quiet and weary, 'Be greeted.'"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me fährt sich mit einer Hand durchs zerzauste Haar und nickt kurz.", "#me blickt dich mit roten Augen an:'Ja, Grüße'.", "#me öffnet seinen Mund um mit leiser, müder Stimme zu antworten, 'Seid gegrüßt'."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "#me runs a hand through his ruffled hair, nodding once.", "#me glances at you with red eyes, 'Aye, greetings.'", "#me opens his mouth to speak, his voice quiet and weary, 'Be greeted.'"
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me fährt sich mit einer Hand durchs zerzauste Haar und nickt kurz.", "#me blickt dich mit roten Augen an:'Ja, Grüße'.", "#me öffnet seinen Mund um mit leiser, müder Stimme zu antworten, 'Seid gegrüßt'."
 "Farewell", "Bye", "Fare well", "See you" -> "Take care.", "Aye, so long. Please keep my wife in your prayers.", "May the Gods watch over you."
