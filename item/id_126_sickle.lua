@@ -20,7 +20,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				if dialog:getInput() ~= "one" then
 				    User:inform("failure, input was not: one")
 				else
-				    boxOne = "one"
+				    User:inform("debug 12")
+					boxOne = "one"
 					local callback2 = function(dialog2)
 			            if not dialog2:getSuccess() then 
 				            User:inform("abbruch")
