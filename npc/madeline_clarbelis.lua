@@ -370,7 +370,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(153, "all", "<", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(153, "all", "<", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -380,7 +380,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(153, "all", "<", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(153, "all", "<", 4, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Ihr soltete mir wirklich noch die vier Fussblatt bringen.");
@@ -389,7 +389,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(153, "all", "<", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(153, "all", "<", 4, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("I really need you to bring me those four foot leaves.");
@@ -398,7 +398,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(153, "all", "<", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(153, "all", "<", 4, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -408,7 +408,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 2, ));
+talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -418,7 +418,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 2, ));
+talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 2, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Ihr habt mir vier Fussblatt gegeben. Jetzt sucht mir noch zwei Firnisblüten.");
@@ -427,7 +427,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 2, ));
+talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 2, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("You've got the four foot leaves, but I also need you to bring me those two firnis blossoms.");
@@ -436,7 +436,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 2, ));
+talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 2, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -446,8 +446,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(153, "all", ">", 3, ));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(153, "all", ">", 3, nil));
+talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins."));
@@ -461,8 +461,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(153, "all", ">", 3, ));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(153, "all", ">", 3, nil));
+talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 1, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));

@@ -209,8 +209,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1, ));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -220,8 +220,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1, ));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Maul halt und gibst mir Fackl! Hurr!");
@@ -230,8 +230,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1, ));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("Shuddup and bring mes torch! Hurr!");
@@ -240,8 +240,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1, ));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -251,7 +251,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a piece of pork. Tasty..."));
@@ -264,7 +264,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Stück Schweinefleich. Lecker..."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 1, nil));
@@ -276,7 +276,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(392, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a piece of pork. Tasty..."));
@@ -289,7 +289,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(392, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Stück Schweinefleich. Lecker..."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(392, 1, nil));

@@ -56,7 +56,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", 1, nil));
 talkEntry:addTrigger("Hello");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
@@ -68,7 +68,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", 1, nil));
 talkEntry:addTrigger("Grüße");
 talkEntry:addTrigger("Gruß");
 talkEntry:addTrigger("Seid gegrüßt");
@@ -83,7 +83,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
@@ -94,7 +94,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(333, "all", "=>", 1, nil));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");

@@ -95,7 +95,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
@@ -105,7 +105,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkEntry:addResponse("Ach herrje, es schaut aus, als hättet Ihr die Spitzhacke verloren, die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Nehmt sie bitte in die Hand.");
@@ -131,7 +131,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
@@ -141,7 +141,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkEntry:addResponse("Ach herrje, es schaut aus als hättet Ihr die Spitzhacke verloren die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Untersucht sie einmal.");
@@ -167,7 +167,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
@@ -177,7 +177,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
 talkEntry:addResponse("Ohne eine Lichtquelle wird Euch die Dunkelheit früher oder später einhüllen. Ich habe Euch eine neue Fackel gegeben, bite seid vorsichtiger mit dieser.");

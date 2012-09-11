@@ -34,9 +34,9 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.money.money("=>", 2));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", "=>", 1, ));
-talkEntry:addCondition(npc.base.condition.item.item(314, "all", "=>", 1, ));
-talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", "=>", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(314, "all", "=>", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "=>", 1, nil));
 talkEntry:addTrigger("seek advice");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("The old orc takes the items from you, now he seems ready to answer you any question."));
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
@@ -111,9 +111,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.money.money("=>", 2));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", "=>", 1, ));
-talkEntry:addCondition(npc.base.condition.item.item(314, "all", "=>", 1, ));
-talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", "=>", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(314, "all", "=>", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "=>", 1, nil));
 talkEntry:addTrigger("suche rat");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Der alte Ork nimmt die Gegenstände von dir und scheint nun bereit dir eine beliebige Frage zu beantworten."));
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));

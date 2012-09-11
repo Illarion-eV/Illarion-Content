@@ -255,7 +255,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -271,7 +271,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -287,7 +287,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -302,7 +302,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -317,7 +317,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your peasantry skill increases."));
@@ -331,7 +331,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins."));
@@ -345,7 +345,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
@@ -358,7 +358,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
@@ -483,7 +483,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -499,7 +499,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -515,7 +515,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -530,7 +530,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -545,7 +545,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases."));
@@ -559,7 +559,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
@@ -573,7 +573,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
@@ -586,7 +586,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
@@ -703,7 +703,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -719,7 +719,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -735,7 +735,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -750,7 +750,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -765,7 +765,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases."));
@@ -779,7 +779,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
@@ -793,7 +793,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
@@ -806,7 +806,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
@@ -938,7 +938,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -954,7 +954,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -970,7 +970,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -985,7 +985,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -1000,7 +1000,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins and your peasantry skill increases."));
@@ -1014,7 +1014,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins."));
@@ -1028,7 +1028,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
@@ -1041,7 +1041,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
@@ -1112,7 +1112,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 10, nil));
 talkEntry:addTrigger("salmon");
 talkEntry:addResponse("Salmon? Yes, that could be the name of the fish. Now that you mention it. I think Zerarisa mentioned that name. But I need ten salmons for my recipe.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1120,7 +1120,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 10, nil));
 talkEntry:addTrigger("Lachs");
 talkEntry:addResponse("Lachs? Ja, das könnte der Name des Fisches sein. Jetzt wo Ihr es erwähnt. Ich denke Zerarisa hat mal diesen Namen erwähnt. Aber ich brauche zehn Lachse für mein Rezept.");
 talkingNPC:addTalkingEntry(talkEntry);

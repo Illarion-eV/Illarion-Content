@@ -192,7 +192,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(141, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(141, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -202,7 +202,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(141, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(141, "all", "<", 10, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("GERMAN.");
@@ -211,7 +211,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(141, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(141, "all", "<", 10, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("You must bring me those ten black thistles, Miss Banius may not have much time left.");
@@ -220,7 +220,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(141, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(141, "all", "<", 10, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -230,8 +230,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, ));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -241,8 +241,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, ));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", "<", 5, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Ihr habt 10 schwarze Disteln, aber wir benötigen noch fünf Eingeweide. Um Frau Willen, so beeilt euch!");
@@ -251,8 +251,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, ));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", "<", 5, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("You have ten black thistles, but we still need five entrails also. Hurry, Miss Banius may not have much time left.");
@@ -261,8 +261,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, ));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", "<", 5, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -272,8 +272,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, ));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
@@ -287,8 +287,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, ));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
@@ -343,7 +343,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(1317, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(1317, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -353,7 +353,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(1317, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(1317, "all", "=", 0, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Ich benötige eine kleine leere Flasche. Natianas Leben hängt davon ab.");
@@ -362,7 +362,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(1317, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(1317, "all", "=", 0, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("I need that empty bottle urgently. Natiana's life depends upon it.");
@@ -371,7 +371,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(1317, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(1317, "all", "=", 0, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -381,7 +381,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(1317, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(1317, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You have received Natiana's medicine and 20 coppers."));
@@ -395,7 +395,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(1317, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(1317, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Kupferstücke und Natianas Medizin."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
@@ -655,7 +655,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 11));
-talkEntry:addCondition(npc.base.condition.item.item(209, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(209, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You have received a magical serinjah-sword and 200 coppers."));
@@ -669,7 +669,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 11));
-talkEntry:addCondition(npc.base.condition.item.item(209, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(209, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Kupferstücke und ein magisches Serinjah-Schwert."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));

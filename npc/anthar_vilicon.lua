@@ -356,7 +356,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(151, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(151, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -372,7 +372,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(151, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(151, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -387,7 +387,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(151, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(151, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -398,7 +398,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(151, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(151, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -408,7 +408,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(151, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(151, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -419,7 +419,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(151, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(151, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -484,7 +484,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(316, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(316, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -500,7 +500,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(316, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(316, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Schaufel. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -515,7 +515,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(316, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(316, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -526,7 +526,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(316, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(316, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -536,7 +536,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(316, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(316, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -547,7 +547,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(316, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(316, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -612,7 +612,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(46, "all", ">", 2, ));
+talkEntry:addCondition(npc.base.condition.item.item(46, "all", ">", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -628,7 +628,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(46, "all", ">", 2, ));
+talkEntry:addCondition(npc.base.condition.item.item(46, "all", ">", 2, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst sechsig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -643,7 +643,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(46, "all", "<", 3, ));
+talkEntry:addCondition(npc.base.condition.item.item(46, "all", "<", 3, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -654,7 +654,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(46, "all", "<", 3, ));
+talkEntry:addCondition(npc.base.condition.item.item(46, "all", "<", 3, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -664,7 +664,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(46, "all", "<", 3, ));
+talkEntry:addCondition(npc.base.condition.item.item(46, "all", "<", 3, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -675,7 +675,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(46, "all", "<", 3, ));
+talkEntry:addCondition(npc.base.condition.item.item(46, "all", "<", 3, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -740,7 +740,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(545, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(545, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -756,7 +756,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(545, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(545, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einhundert Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -771,7 +771,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(545, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(545, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -782,7 +782,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(545, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(545, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -792,7 +792,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(545, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(545, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -803,7 +803,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(545, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(545, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -868,7 +868,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(852, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(852, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -884,7 +884,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(852, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(852, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen goldenen Ring. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -899,7 +899,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(852, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(852, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -910,7 +910,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(852, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(852, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -920,7 +920,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(852, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(852, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -931,7 +931,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(852, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(852, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -996,7 +996,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -1012,7 +1012,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Tasche. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -1027,7 +1027,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2588, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(2588, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -1038,7 +1038,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2588, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(2588, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -1048,7 +1048,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2588, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(2588, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -1059,7 +1059,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2588, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(2588, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -1124,7 +1124,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2701, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2701, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -1140,7 +1140,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2701, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2701, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einhundertzwanzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -1155,7 +1155,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2701, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2701, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -1166,7 +1166,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2701, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2701, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -1176,7 +1176,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2701, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2701, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -1187,7 +1187,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2701, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2701, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -1252,7 +1252,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 8));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 14, ));
+talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -1268,7 +1268,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 8));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 14, ));
+talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Pilzsuppe. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -1283,7 +1283,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 8));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 15, ));
+talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -1294,7 +1294,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 8));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 15, ));
+talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -1304,7 +1304,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 8));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 15, ));
+talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -1315,7 +1315,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 8));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 15, ));
+talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -1380,7 +1380,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -1396,7 +1396,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst vierzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -1411,7 +1411,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -1422,7 +1422,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -1432,7 +1432,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -1443,7 +1443,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -1508,7 +1508,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(429, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(429, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -1524,7 +1524,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(429, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(429, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst sechszig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -1539,7 +1539,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(429, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(429, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -1550,7 +1550,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(429, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(429, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -1560,7 +1560,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(429, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(429, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -1571,7 +1571,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(429, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(429, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -1636,7 +1636,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 11));
-talkEntry:addCondition(npc.base.condition.item.item(2935, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(2935, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -1652,7 +1652,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 11));
-talkEntry:addCondition(npc.base.condition.item.item(2935, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(2935, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen vergoldeten Dolch. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -1667,7 +1667,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 11));
-talkEntry:addCondition(npc.base.condition.item.item(2935, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(2935, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -1678,7 +1678,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 11));
-talkEntry:addCondition(npc.base.condition.item.item(2935, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(2935, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -1688,7 +1688,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 11));
-talkEntry:addCondition(npc.base.condition.item.item(2935, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(2935, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -1699,7 +1699,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 11));
-talkEntry:addCondition(npc.base.condition.item.item(2935, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(2935, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -1764,7 +1764,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 12));
-talkEntry:addCondition(npc.base.condition.item.item(336, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(336, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -1780,7 +1780,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 12));
-talkEntry:addCondition(npc.base.condition.item.item(336, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(336, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst siebzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -1795,7 +1795,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 12));
-talkEntry:addCondition(npc.base.condition.item.item(336, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(336, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -1806,7 +1806,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 12));
-talkEntry:addCondition(npc.base.condition.item.item(336, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(336, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -1816,7 +1816,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 12));
-talkEntry:addCondition(npc.base.condition.item.item(336, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(336, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -1827,7 +1827,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 12));
-talkEntry:addCondition(npc.base.condition.item.item(336, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(336, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -1892,7 +1892,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 13));
-talkEntry:addCondition(npc.base.condition.item.item(2719, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2719, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -1908,7 +1908,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 13));
-talkEntry:addCondition(npc.base.condition.item.item(2719, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2719, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Pfeife. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -1923,7 +1923,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 13));
-talkEntry:addCondition(npc.base.condition.item.item(2719, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2719, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -1934,7 +1934,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 13));
-talkEntry:addCondition(npc.base.condition.item.item(2719, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2719, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -1944,7 +1944,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 13));
-talkEntry:addCondition(npc.base.condition.item.item(2719, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2719, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -1955,7 +1955,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 13));
-talkEntry:addCondition(npc.base.condition.item.item(2719, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2719, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -2020,7 +2020,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 14));
-talkEntry:addCondition(npc.base.condition.item.item(2708, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2708, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -2036,7 +2036,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 14));
-talkEntry:addCondition(npc.base.condition.item.item(2708, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2708, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst achtzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -2051,7 +2051,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 14));
-talkEntry:addCondition(npc.base.condition.item.item(2708, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2708, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -2062,7 +2062,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 14));
-talkEntry:addCondition(npc.base.condition.item.item(2708, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2708, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -2072,7 +2072,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 14));
-talkEntry:addCondition(npc.base.condition.item.item(2708, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2708, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -2083,7 +2083,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 14));
-talkEntry:addCondition(npc.base.condition.item.item(2708, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2708, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -2148,7 +2148,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 15));
-talkEntry:addCondition(npc.base.condition.item.item(237, "all", ">", 99, ));
+talkEntry:addCondition(npc.base.condition.item.item(237, "all", ">", 99, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -2164,7 +2164,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 15));
-talkEntry:addCondition(npc.base.condition.item.item(237, "all", ">", 99, ));
+talkEntry:addCondition(npc.base.condition.item.item(237, "all", ">", 99, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Ebenholzbogen. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -2179,7 +2179,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 15));
-talkEntry:addCondition(npc.base.condition.item.item(237, "all", "<", 100, ));
+talkEntry:addCondition(npc.base.condition.item.item(237, "all", "<", 100, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -2190,7 +2190,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 15));
-talkEntry:addCondition(npc.base.condition.item.item(237, "all", "<", 100, ));
+talkEntry:addCondition(npc.base.condition.item.item(237, "all", "<", 100, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -2200,7 +2200,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 15));
-talkEntry:addCondition(npc.base.condition.item.item(237, "all", "<", 100, ));
+talkEntry:addCondition(npc.base.condition.item.item(237, "all", "<", 100, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -2211,7 +2211,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 15));
-talkEntry:addCondition(npc.base.condition.item.item(237, "all", "<", 100, ));
+talkEntry:addCondition(npc.base.condition.item.item(237, "all", "<", 100, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -2276,7 +2276,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 16));
-talkEntry:addCondition(npc.base.condition.item.item(554, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(554, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -2292,7 +2292,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 16));
-talkEntry:addCondition(npc.base.condition.item.item(554, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(554, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zweihundertzwanzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -2307,7 +2307,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 16));
-talkEntry:addCondition(npc.base.condition.item.item(554, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(554, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -2318,7 +2318,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 16));
-talkEntry:addCondition(npc.base.condition.item.item(554, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(554, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -2328,7 +2328,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 16));
-talkEntry:addCondition(npc.base.condition.item.item(554, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(554, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -2339,7 +2339,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 16));
-talkEntry:addCondition(npc.base.condition.item.item(554, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(554, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -2404,7 +2404,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 17));
-talkEntry:addCondition(npc.base.condition.item.item(843, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(843, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -2420,7 +2420,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 17));
-talkEntry:addCondition(npc.base.condition.item.item(843, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(843, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Topas. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -2435,7 +2435,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 17));
-talkEntry:addCondition(npc.base.condition.item.item(843, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(843, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -2446,7 +2446,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 17));
-talkEntry:addCondition(npc.base.condition.item.item(843, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(843, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -2456,7 +2456,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 17));
-talkEntry:addCondition(npc.base.condition.item.item(843, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(843, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -2467,7 +2467,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 17));
-talkEntry:addCondition(npc.base.condition.item.item(843, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(843, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -2532,7 +2532,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 18));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 14, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -2548,7 +2548,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 18));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 14, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einhundert Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -2563,7 +2563,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 18));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 15, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -2574,7 +2574,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 18));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 15, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -2584,7 +2584,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 18));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 15, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -2595,7 +2595,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 18));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 15, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 15, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -2660,7 +2660,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 19));
-talkEntry:addCondition(npc.base.condition.item.item(94, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(94, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -2676,7 +2676,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 19));
-talkEntry:addCondition(npc.base.condition.item.item(94, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(94, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Goldbarren. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -2691,7 +2691,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 19));
-talkEntry:addCondition(npc.base.condition.item.item(94, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(94, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -2702,7 +2702,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 19));
-talkEntry:addCondition(npc.base.condition.item.item(94, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(94, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -2712,7 +2712,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 19));
-talkEntry:addCondition(npc.base.condition.item.item(94, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(94, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -2723,7 +2723,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 19));
-talkEntry:addCondition(npc.base.condition.item.item(94, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(94, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -2788,7 +2788,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 20));
-talkEntry:addCondition(npc.base.condition.item.item(234, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
@@ -2804,7 +2804,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 20));
-talkEntry:addCondition(npc.base.condition.item.item(234, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünfzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -2819,7 +2819,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 20));
-talkEntry:addCondition(npc.base.condition.item.item(234, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
@@ -2830,7 +2830,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 20));
-talkEntry:addCondition(npc.base.condition.item.item(234, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -2840,7 +2840,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 20));
-talkEntry:addCondition(npc.base.condition.item.item(234, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -2851,7 +2851,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(119, "=", 20));
-talkEntry:addCondition(npc.base.condition.item.item(234, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");

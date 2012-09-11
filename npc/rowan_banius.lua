@@ -239,7 +239,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -249,7 +249,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Ich benötige dringesnst besagte 10 Schinken.Meine Frau ist schon ganz bleich, ein anständiges Mahl wird ihr gut tun!");
@@ -258,7 +258,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("I am in urgent need of those ten hams. My poor wife is looking awfully pale, and would do well with a proper meal.");
@@ -267,7 +267,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -277,7 +277,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(306, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(306, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 40 copper coins and a meat dish."));
@@ -291,7 +291,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(306, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(306, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 40 Kupferstücke und eimn Fleischgericht."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
@@ -346,7 +346,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -356,7 +356,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Meine arme Frau hatte etwas gutes Essen, aber sie zittert tag und nacht. Je eher Ihr den blauen Mantel besoregen könnt, um so besser.");
@@ -365,7 +365,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better.");
@@ -374,7 +374,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -384,7 +384,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2380, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2380, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 60 copper coins and a SCYTHE."));
@@ -398,7 +398,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2380, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2380, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein eine Sense."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
@@ -487,7 +487,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a treasure map and 10 rankpoints."));

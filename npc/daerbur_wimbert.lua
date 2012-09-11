@@ -300,7 +300,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(733, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -310,7 +310,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(733, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", "<", 10, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich.");
@@ -319,7 +319,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(733, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", "<", 10, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -329,7 +329,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(733, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", "<", 10, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -341,7 +341,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
@@ -357,7 +357,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
@@ -373,7 +373,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
@@ -388,7 +388,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
@@ -403,7 +403,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases."));
@@ -417,7 +417,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins."));
@@ -431,7 +431,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
@@ -444,7 +444,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
@@ -500,7 +500,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -510,7 +510,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
@@ -519,7 +519,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -529,7 +529,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -541,7 +541,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
@@ -557,7 +557,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
@@ -573,7 +573,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
@@ -588,7 +588,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
@@ -603,7 +603,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."));
@@ -617,7 +617,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
@@ -631,7 +631,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
@@ -644,7 +644,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
@@ -700,7 +700,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -710,7 +710,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!");
@@ -719,7 +719,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -729,7 +729,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -741,7 +741,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
@@ -757,7 +757,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
@@ -773,7 +773,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
@@ -788,7 +788,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
@@ -803,7 +803,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."));
@@ -817,7 +817,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
@@ -831,7 +831,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
@@ -844,7 +844,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
@@ -900,7 +900,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -910,7 +910,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", "<", 10, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen.");
@@ -919,7 +919,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", "<", 10, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -929,7 +929,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", "<", 10, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -941,7 +941,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
@@ -957,7 +957,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
@@ -973,7 +973,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
@@ -988,7 +988,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
@@ -1003,7 +1003,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases."));
@@ -1017,7 +1017,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins."));
@@ -1031,7 +1031,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "mining", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
@@ -1044,7 +1044,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));

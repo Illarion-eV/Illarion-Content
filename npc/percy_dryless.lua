@@ -54,7 +54,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hunger");
 talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
@@ -64,7 +64,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hunger");
 talkEntry:addResponse("You think I'm giving bread away for nothing, eh? Get back to work or feel my whip.");
@@ -82,7 +82,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hunger");
 talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
@@ -92,7 +92,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hunger");
 talkEntry:addResponse("Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche.");
@@ -110,7 +110,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addTrigger("hungry");
 talkEntry:addTrigger("food");
 talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
@@ -120,7 +120,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, nil));
 talkEntry:addTrigger("hungry");
 talkEntry:addTrigger("food");
 talkEntry:addResponse("You think I'm giving bread away for nothing, eh? Get back to work or feel my whip.");
@@ -138,7 +138,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addTrigger("hungrig");
 talkEntry:addTrigger("essen");
 talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
@@ -148,7 +148,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
-talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, nil));
 talkEntry:addTrigger("hungrig");
 talkEntry:addTrigger("essen");
 talkEntry:addResponse("Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche.");
@@ -156,7 +156,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addTrigger("pick axe");
 talkEntry:addTrigger("rock pick");
 talkEntry:addTrigger("pick");
@@ -166,7 +166,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "~=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "~=", 0, nil));
 talkEntry:addTrigger("pick axe");
 talkEntry:addTrigger("rock pick");
 talkEntry:addTrigger("pick");
@@ -175,7 +175,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "~=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "~=", 0, nil));
 talkEntry:addTrigger("spitzhacke");
 talkEntry:addTrigger("hacke");
 talkEntry:addResponse("Was willst du mit zwei Spitzhacken? BeidhÃ¤ndig auf die Steine eindreschen?");
@@ -183,7 +183,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addTrigger("spitzhacke");
 talkEntry:addTrigger("hacke");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));

@@ -245,7 +245,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -257,7 +257,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("beer");
@@ -269,7 +269,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
@@ -280,7 +280,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -352,7 +352,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -364,7 +364,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("beer");
@@ -376,7 +376,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
@@ -387,7 +387,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -459,7 +459,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -473,7 +473,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("beer");
@@ -487,7 +487,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 6));

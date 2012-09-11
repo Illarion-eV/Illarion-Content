@@ -316,7 +316,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a ruby ring."));
@@ -329,7 +329,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Rubinring."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(544, 10, nil));

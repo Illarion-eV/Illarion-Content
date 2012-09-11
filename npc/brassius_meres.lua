@@ -275,7 +275,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -285,7 +285,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("#me' Magen knurrt: 'Mit fünf Äpfeln im Magen würde es mir weit besser gehen, wenn ihr einen Moment Zeit dafür habt.'");
@@ -294,7 +294,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("#me's stomach rumbles: 'I could really do with those five apples, if you've got a few moments to spare.'");
@@ -303,7 +303,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", "<", 5, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -313,7 +313,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 30 copper coins."));
@@ -326,7 +326,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 30 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 30));
@@ -380,7 +380,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -390,7 +390,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("#me starrt naserümpfend auf seinen leeren Köcher: 'Ich brauche dringend zehn Pfeile, wenn es euch nichts ausmacht.");
@@ -399,7 +399,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("#me glances at his empty quiver, frowning lightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'");
@@ -408,7 +408,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(64, "all", "<", 10, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -418,7 +418,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(64, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(64, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
@@ -431,7 +431,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(64, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(64, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
@@ -485,7 +485,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -495,7 +495,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Nahezu täglich hört man von Tierangriffen. Ihr müßt die Bürger von Eibenthal beschützen, indem ihr die Tiere erschlagt. Wenn ihr mir zehn Felle bringt, werde ich sicherstellen, dass man an höchster Stelle von euren Anstrengungen hört.");
@@ -504,7 +504,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised.");
@@ -513,7 +513,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10, ));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", "<", 10, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -523,7 +523,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -538,7 +538,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Legionärsschild. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -552,7 +552,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a legionaire's tower shield."));
@@ -565,7 +565,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Legionärsschild."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 10, nil));

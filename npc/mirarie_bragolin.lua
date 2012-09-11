@@ -907,7 +907,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -917,7 +917,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 5, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("GERMAN.");
@@ -926,7 +926,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 5, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("message");
@@ -936,7 +936,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 5, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -948,7 +948,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
@@ -963,7 +963,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins."));
@@ -976,7 +976,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."));
@@ -990,7 +990,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));

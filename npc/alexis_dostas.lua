@@ -216,7 +216,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
@@ -231,7 +231,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Goldnugget. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -245,7 +245,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a gold nugget."));
@@ -258,7 +258,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Goldnugget."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
@@ -351,7 +351,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
@@ -366,7 +366,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst vierzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -380,7 +380,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded fourty coppercoins."));
@@ -393,7 +393,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst vierzig Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));

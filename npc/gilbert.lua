@@ -446,7 +446,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(222, "belt", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(222, "belt", "=>", 1, nil));
 talkEntry:addTrigger("#me (.+) necklet");
 talkEntry:addTrigger("#me (.+) necklace");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You place the faked necklace in Gilbert's bag. You don't have a bad conscience?"));
@@ -458,7 +458,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(222, "belt", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(222, "belt", "=>", 1, nil));
 talkEntry:addTrigger("#me (.+) kollier");
 talkEntry:addTrigger("#me (.+) amulett");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Du schmuggelst das falsche Kollier in Gilberts Tasche. Hast du kein schlechtes Gewissen?"));
@@ -470,7 +470,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", 1, nil));
 talkEntry:addTrigger("necklet");
 talkEntry:addTrigger("necklace");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Put the necklace into your belt, if you are willing to place it into Gilbert's bag."));
@@ -479,7 +479,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", 1, nil));
 talkEntry:addTrigger("kollier");
 talkEntry:addTrigger("amulett");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Lege das Amuelett in deinen Gürtel, um es Gilbert unterzuscheieben."));

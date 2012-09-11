@@ -229,7 +229,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -245,7 +245,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -261,7 +261,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -276,7 +276,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Nadel. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -291,7 +291,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a needle and your tailoring skill increases."));
@@ -305,7 +305,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a needle."));
@@ -319,7 +319,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
@@ -332,7 +332,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Nadel."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20, nil));
@@ -425,7 +425,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, ));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -441,7 +441,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, ));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -457,7 +457,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, ));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -472,7 +472,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, ));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein blaues Kleid. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -487,7 +487,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, ));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a blue dress and your tailoring skill increases."));
@@ -501,7 +501,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, ));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a blue dress."));
@@ -515,7 +515,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, ));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
@@ -528,7 +528,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, ));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein blaues Kleid."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15, nil));
@@ -621,7 +621,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -637,7 +637,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -653,7 +653,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -668,7 +668,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Meistermagierrobe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -683,7 +683,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a master mage robe and your tailoring skill increases."));
@@ -697,7 +697,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a master mage robe."));
@@ -711,7 +711,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "tailoring", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
@@ -724,7 +724,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Meistermagierrobe."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));

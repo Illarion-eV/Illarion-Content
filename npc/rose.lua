@@ -387,7 +387,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
@@ -401,7 +401,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
@@ -433,7 +433,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=", 1, nil));
 talkEntry:addTrigger("necklet");
 talkEntry:addTrigger("necklace");
 talkEntry:addTrigger("task");
@@ -449,7 +449,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(79, "belt", "=", 1, nil));
 talkEntry:addTrigger("kollier");
 talkEntry:addTrigger("amulett");
 talkEntry:addTrigger("aufgabe");
@@ -485,7 +485,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
@@ -495,7 +495,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=>", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
@@ -505,7 +505,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", 1, nil));
 talkEntry:addTrigger("necklet");
 talkEntry:addTrigger("necklace");
 talkEntry:addTrigger("task");
@@ -517,7 +517,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(79, "all", "=", 1, nil));
 talkEntry:addTrigger("kollier");
 talkEntry:addTrigger("amulett");
 talkEntry:addTrigger("aufgabe");

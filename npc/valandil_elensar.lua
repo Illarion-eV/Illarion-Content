@@ -235,7 +235,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your lumberjacking skill increases."));
@@ -249,7 +249,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins."));
@@ -263,7 +263,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Holzfällerfertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "lumberjacking", "+", 1));
@@ -276,7 +276,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
@@ -373,7 +373,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(543, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(543, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your lumberjacking skill increases."));
@@ -387,7 +387,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(543, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(543, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
@@ -401,7 +401,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(543, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(543, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Holzfällerfertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "lumberjacking", "+", 1));
@@ -414,7 +414,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(543, "all", ">", 19, ));
+talkEntry:addCondition(npc.base.condition.item.item(543, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
@@ -511,7 +511,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2786, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(2786, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your lumberjacking skill increases."));
@@ -525,7 +525,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2786, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(2786, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
@@ -539,7 +539,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2786, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(2786, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Holzfällerfertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "lumberjacking", "+", 1));
@@ -552,7 +552,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2786, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(2786, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
@@ -649,7 +649,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Holzfällerfertigkeit steigt."));
@@ -663,7 +663,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke."));
@@ -677,7 +677,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins and your lumberjacking skill increases."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "lumberjacking", "+", 1));
@@ -690,7 +690,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, ));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));

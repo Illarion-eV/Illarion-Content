@@ -386,7 +386,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(2560, "all", "=>", function(number) return (number*1); end, ));
+talkEntry:addCondition(npc.base.condition.item.item(2560, "all", "=>", function(number) return (number*1); end, nil));
 talkEntry:addTrigger("saw (%d+) apple");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2560, "%NUMBER", nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2716, "%NUMBER", 333, nil));
@@ -401,7 +401,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(2560, "all", "=>", function(number) return (number*1); end, ));
+talkEntry:addCondition(npc.base.condition.item.item(2560, "all", "=>", function(number) return (number*1); end, nil));
 talkEntry:addTrigger("säge (%d+) apfel");
 talkEntry:addTrigger("saege (%d+) apfel");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2560, "%NUMBER", nil));
@@ -418,7 +418,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", "=>", function(number) return (number*1); end, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", "=>", function(number) return (number*1); end, nil));
 talkEntry:addTrigger("saw (%d+) conifer");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, "%NUMBER", nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2543, "%NUMBER", 333, nil));
@@ -433,7 +433,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(3, "all", "=>", function(number) return (number*1); end, ));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", "=>", function(number) return (number*1); end, nil));
 talkEntry:addTrigger("säge (%d+) nadel");
 talkEntry:addTrigger("saege (%d+) nadel");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, "%NUMBER", nil));
@@ -450,7 +450,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(543, "all", "=>", function(number) return (number*1); end, ));
+talkEntry:addCondition(npc.base.condition.item.item(543, "all", "=>", function(number) return (number*1); end, nil));
 talkEntry:addTrigger("saw (%d+) cherry");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(543, "%NUMBER", nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(545, "%NUMBER", 333, nil));
@@ -465,7 +465,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(543, "all", "=>", function(number) return (number*1); end, ));
+talkEntry:addCondition(npc.base.condition.item.item(543, "all", "=>", function(number) return (number*1); end, nil));
 talkEntry:addTrigger("säge (%d+) kirsch");
 talkEntry:addTrigger("saege (%d+) kirsch");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(543, "%NUMBER", nil));
@@ -482,7 +482,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(544, "all", "=>", function(number) return (number*1); end, ));
+talkEntry:addCondition(npc.base.condition.item.item(544, "all", "=>", function(number) return (number*1); end, nil));
 talkEntry:addTrigger("saw (%d+) naldor");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(544, "%NUMBER", nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(546, "%NUMBER", 333, nil));
@@ -497,7 +497,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(544, "all", "=>", function(number) return (number*1); end, ));
+talkEntry:addCondition(npc.base.condition.item.item(544, "all", "=>", function(number) return (number*1); end, nil));
 talkEntry:addTrigger("säge (%d+) naldor");
 talkEntry:addTrigger("saege (%d+) naldor");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(544, "%NUMBER", nil));

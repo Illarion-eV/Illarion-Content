@@ -77,7 +77,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which must be held in your hands. Note that not every rock will yield coal."));
@@ -89,7 +89,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."));
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 599, nil));
@@ -119,7 +119,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded a ruby."));
@@ -133,7 +133,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst einen Rubin."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5, nil));
@@ -145,7 +145,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 599, nil));
@@ -155,7 +155,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 599, nil));
 talkEntry:addResponse("Was? Du hast deine Spitzhacke verloren? Wie denkste denn reich zu werden, wenn du deine Sachen verlierst? Nimm die als Ersatz und ab mir dir in die Mine!");
@@ -164,7 +164,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe, which must be held in your hands. Note that not every rock yields coal."));
@@ -174,7 +174,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 5, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 5, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."));
 talkEntry:addResponse("Nun, nun. Harte Arbeit ist harte Arbeit. Harr. Bring mir bitte mindestens fünf Brocken Kohle. Wenn du keine Kohle in der einen Ecke der Mine finden kannst, versuch es in 'ner Anderen.");

@@ -681,7 +681,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 0, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("know");
@@ -697,7 +697,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 0, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -714,7 +714,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -728,7 +728,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 0, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("info");
@@ -741,7 +741,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("know");
@@ -754,7 +754,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -768,7 +768,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -779,7 +779,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("info");
@@ -789,7 +789,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", ">", 0, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("know");
@@ -804,7 +804,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", ">", 0, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -820,7 +820,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -835,7 +835,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", ">", 0, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("info");
@@ -849,7 +849,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("know");
@@ -861,7 +861,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -874,7 +874,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -886,7 +886,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("info");
@@ -897,7 +897,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(224, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(224, "all", ">", 0, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("know");
@@ -913,7 +913,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(224, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(224, "all", ">", 0, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -930,7 +930,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(224, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(224, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -944,7 +944,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(224, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(224, "all", ">", 0, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("info");
@@ -957,7 +957,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(224, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(224, "all", "=", 0, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("know");
@@ -970,7 +970,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(224, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(224, "all", "=", 0, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -984,7 +984,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(224, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(224, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -995,7 +995,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(224, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(224, "all", "=", 0, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("info");

@@ -68,7 +68,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addTrigger("Hello");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
@@ -106,7 +106,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
@@ -141,7 +141,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
@@ -175,7 +175,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
 talkEntry:addTrigger("Guten Tag");
@@ -214,7 +214,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
@@ -283,7 +283,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
@@ -330,7 +330,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -359,7 +359,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen.");
@@ -387,7 +387,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("question");
@@ -417,7 +417,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Frage");
@@ -436,7 +436,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
@@ -450,7 +450,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Hassan will now answer your questions."));
@@ -462,7 +462,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten. Dein Ansehen bei Königin Rosaline Edwards steigt."));
@@ -475,7 +475,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1, nil));
@@ -486,7 +486,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
@@ -495,7 +495,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addResponse("Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen.");
 talkingNPC:addTalkingEntry(talkEntry);

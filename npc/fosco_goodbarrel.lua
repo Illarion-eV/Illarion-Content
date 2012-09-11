@@ -281,7 +281,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(190, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(190, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest updated] Aurora's Staff: Part II."));
@@ -294,7 +294,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(190, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(190, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 80 Kupferstücke."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(190, 1, nil));
@@ -348,7 +348,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -358,7 +358,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Ich möchte, dass du mir einen schwarzen Mantel findest. Keine Sorge, ich sorge schon dafür, dass du entschädigt wirst.");
@@ -367,7 +367,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("I need you to find me one black coat. Don't worry, I'll see to it that you are compensated.");
@@ -376,7 +376,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -386,7 +386,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -396,7 +396,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Du hast mir den schwarzen Mantel gebracht, aber ich bräuchte da noch ein Amulett. Keine Sorge, ich werde dafür sorgen, dass du entschädigt wirst.");
@@ -405,7 +405,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("You've got one black coat for me, but I also need one amulet. Don't worry, I'll see to it that you are compensated.");
@@ -414,7 +414,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1, ));
+talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -424,8 +424,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2384, "all", ">", 0, ));
-talkEntry:addCondition(npc.base.condition.item.item(222, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2384, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.item.item(222, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 120 copper coins and a strawberry cake."));
@@ -440,8 +440,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2384, "all", ">", 0, ));
-talkEntry:addCondition(npc.base.condition.item.item(222, "all", ">", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2384, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.item.item(222, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 120 Kupferstücke und einen Erbbeerkuchen."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));

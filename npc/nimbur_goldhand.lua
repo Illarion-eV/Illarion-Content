@@ -98,7 +98,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 2, ));
+talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded an iron goblet."));
@@ -111,7 +111,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 2, ));
+talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 2, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst einen Eisenkelch."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 3, nil));
@@ -123,7 +123,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 599, nil));
@@ -133,7 +133,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 599, nil));
 talkEntry:addResponse("Bah! Ohne 'nen Hammer kannste nicht schmieden. Deinen Hammer zu verlieren, ist der erste Schritt im Staub zu landen. Zum Glück hab' ich noch einen für dich.");
@@ -142,7 +142,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(2535, 1, 599, nil));
@@ -152,7 +152,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "=", 0, ));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "=", 0, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.item.item(2535, 1, 599, nil));
 talkEntry:addResponse("Ich sehe, du hast die ganzen Barren aufgebraucht, die ich dir gegeben habe - keine gute Quote, aye? Hier haste noch einen Barren, aber du musst mir versprechen, dass du jetzt drei Sätze Nägel schmiedest. Geh und fang an!");
@@ -161,7 +161,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 3, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 3, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Blacksmithing requires you to stand in front of an anvil and use a hammer, which must be held in your hands. Then, choose the desired product from the menu to start working on it."));
@@ -171,7 +171,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 3, ));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 3, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schmieden, stell dich vor einen Amboss und benutze den in der Hand gehaltenen Hammer. Wähle dann ein Produkt aus dem Menü aus, um anzufangen es zu fertigen."));
 talkEntry:addResponse("Probleme mit dem Schmieden? Einfach mit dem Hammer auf das heiße Metall schlagen, bis es die gewünschte Form annimmt. Ganz einfach. Harr! Ich brauche drei Sätze Nägel und ich bin mir sicher, dass auch du das schaffen kannst!");
