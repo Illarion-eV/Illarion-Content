@@ -20,7 +20,7 @@ function InitWegweiser()
     
 	--Noobia
 	--ToDo
-	AddWeg({35,23,100},"[Tutorial] Willkommen auf Illarion!","[Tutorial] Welcome to Illarion!",0,0);
+	AddWeg({35,23,100},"[Tutorial] Willkommen auf Illarion!","[Tutorial] Welcome to Illarion!",2,0);
 	
 	--SW/Cadomyr map
     AddWeg({42,634,0},"Piratenbucht","Pirate Cove",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
