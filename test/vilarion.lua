@@ -29,6 +29,23 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         User:pageGM("test ticket")
     end
 
+    if (User.lastSpokenText == "item") then
+        User:createItem(1, 1, 333, 12);
+		User:inform("Item erzeugt!");
+		local count = User:countItemAt("all", 1, 12);
+		if (count > 0) then
+			User:inform("Item gefunden");
+		else
+			User:inform("Item nicht gefunden");
+		end;
+		count = User:eraseItem(1, 1, 12);
+		if (count > 0) then
+			User:inform("Item gelöscht");
+		else
+			User:inform("Item nicht gelöscht");
+		end;
+    end
+
     if (User.lastSpokenText == "die") then
         User:increaseAttrib("hitpoints",-10000);
     end
