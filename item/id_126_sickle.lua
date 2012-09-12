@@ -10,7 +10,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	--------- TESTING STUFF !!! ------------ Merung
 	if (string.find(User.lastSpokenText,"testp")~=nil) then
-	    User:createItem(59,1,444,{potionEffectId=95555555})
+	    User:createItem(59,1,444,{"potionEffectId"=95555555})
 	    return
 	end	
 	if string.sub(User.lastSpokenText,1,9) == "inform me" then
