@@ -5,8 +5,21 @@
 require("item.general.metal")
 require("base.common")
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
-function BoxTwo(boxOne,User)
-	 User:inform("1_boxeOne is "..boxOne)
+function BoxTwo(boxOne,boxTwo,User)
+	local callback2 = function(dialog1)
+		if not dialog3:getSuccess() then 
+			User:inform("abbruch")
+		else
+			if dialog3:getInput() ~= "two" then
+				User:inform("failure, input was not: two")
+			else
+				boxtwo = dialog2:getInput()
+				User:inform(""..boxOne.." and "..boxTwo)
+			end
+		end			
+	end
+	local dialog3 = InputDialog("write: one", false, 255, callback2)
+	User:requestInputDialog(dialog2) 
 end	
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
@@ -23,7 +36,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				    User:inform("failure, input was not: one")
 				else
 				    boxOne = dialog1:getInput()
-					BoxTwo(boxOne,User)
+					BoxTwo(boxOne,boxTwo,User)
 				end
 			end			
 	    end
