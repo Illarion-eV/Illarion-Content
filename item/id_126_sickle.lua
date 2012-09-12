@@ -5,7 +5,9 @@
 require("item.general.metal")
 require("base.common")
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
-
+function BoxTwo(boxOne)
+	 User:inform("1_boxeOne is "..boxOne)
+end	
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	--------- TESTING STUFF !!! ------------ Merung
@@ -21,14 +23,16 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				    User:inform("failure, input was not: one")
 				else
 				    boxOne = dialog1:getInput()
-					User:inform("boxeOne is "..boxOne)
+					BoxTwo(boxOne,User)
 				end
 			end			
 	    end
 		local dialog1 = InputDialog("write: one", false, 255, callback1)
 		User:requestInputDialog(dialog1)
-	    return
+	    User:inform("2_boxeOne is "..boxOne)
+		return
 	 end	
+	
 	--[[
 	User:inform("debug 12")
 					boxOne = "one"
