@@ -24,6 +24,9 @@ function InitWegweiser()
 	AddWeg({41,49,100},"[Tutorial] Die Mine - Sammeln","[Tutorial] The mine - gathering",2,0);
     AddWeg({38,49,100},"[Tutorial] Der Sumpf - Kampf","[Tutorial] The swamp - fighting",6,0);
     AddWeg({40,57,100},"[Tutorial] Die Schmiede - Handwerk","[Tutorial] The forge - crafting",4,0);
+    AddWeg({42,98,100},"[Tutorial] Dies ist der Weg nach Cadomyr, dem Reich von Ruhm und Ehre.","[Tutorial] This is the way to Cadomyr, realm of honour and glory.",2,0);	
+    AddWeg({35,105,100},"[Tutorial] Dies ist der Weg nach Galmair, dem Reich des aufstrebenden Wohlstands.","[Tutorial] This is the way to Galmair, realm of prosperity and wealth.",4,0);	
+    AddWeg({30,102,100},"[Tutorial] Dies ist der Weg nach Runewick, dem Reich der Weiﬂheit und Magie.","[Tutorial] This is the way to Runewick, realm of wisdom and magic.",6,0);	
 	
 	--SW/Cadomyr map
     AddWeg({42,634,0},"Piratenbucht","Pirate Cove",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
