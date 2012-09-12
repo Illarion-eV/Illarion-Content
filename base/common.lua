@@ -1085,10 +1085,10 @@ end
     Encodes a position into a value that would fit into the data value of a item
     Use DataToPosition to get the PositionStruct again
     @param PositionStruct - The position that should be encoded
-    @return integer - The value that contains the position
+    @return table - Table containing x,y,z positions 
 ]]
 function PositionToData(posi)
-    return 1048576 * (posi.x) + 1024 * (posi.y) + (posi.z+500);
+    return {["MapPosX"]=posi.x,["MapPosY"]=posi.y,["MapPosZ"]=posi.z}
 end;
 
 --[[

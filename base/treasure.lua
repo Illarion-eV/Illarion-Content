@@ -191,7 +191,8 @@ module("base.treasure", package.seeall)
     end
 
     function getDistance( User, Item )
-        local RealTarget = base.common.DataToPosition( Item.data );
+        local MapData = {Item:getData("MapPosX"),Item:getData("MapPosY"),Item:getData("MapPosZ")}
+		local RealTarget = base.common.DataToPosition( Item.data );
         local TargetLocation = modPosition( User, RealTarget );
         if not TargetLocation then
             return false;
