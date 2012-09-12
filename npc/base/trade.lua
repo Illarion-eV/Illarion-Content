@@ -179,6 +179,10 @@ tradeNPCItem = base.class.class(function(self, id, itemType, nameDe, nameEn, pri
         self["_stack"] = stack;
     else
         self["_stack"] = world:getItemStatsFromId(id).BuyStack;
+		if (self["_stack"] == nil) then
+			debug("_stack is NIL, the server failed! Hard.");
+			self["_stack"] = 1;
+		end;
     end;
     
 	if (itemType == "sell" and quality ~= nil) then
