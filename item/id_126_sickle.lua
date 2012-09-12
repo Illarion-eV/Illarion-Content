@@ -5,7 +5,7 @@
 require("item.general.metal")
 require("base.common")
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
-function BoxTwo(boxOne)
+function BoxTwo(boxOne,User)
 	 User:inform("1_boxeOne is "..boxOne)
 end	
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
