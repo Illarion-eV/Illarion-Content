@@ -10,43 +10,7 @@ function onLogout( theChar )
 
     world:gfx(31,theChar.pos); --A nice GFX that announces clearly: A player logged out.
     
-	-- begin cow transporter
-	local setQP = true;
-	if (theChar:getQuestProgress(8) ~= 0) then -- Der hat eine Kuh
-        found_cow = false;
-        npcs = world:getNPCSInRangeOf(theChar.pos,7); -- Suchen wir mal alle npcs
-        for i, npc in pairs(npcs) do
-            find_transporter, effect_transporter = npc.effects:find(10); -- hat eine unsere Transporter Effekt?
-            if find_transporter then -- Tatsache!
-                find_owner,value_owner = effect_transporter:findValue("owner"); -- Wem sie gehoert?
-                if find_owner then
-                    if (value_owner == theChar.id) then -- Unserem Char!
-                        npcpos = npc.pos;
-                        theChar:setQuestProgress(8,base.common.PositionToData( npcpos ));
-                        world:deleteNPC( npc.id ); -- Dann weg mit der Kuh
-                        for i=-1,1 do
-                            for k=-1,1 do
-                                checkpos = position( npcpos.x+i, npcpos.y+k, npcpos.z );
-                                if world:isItemOnField( checkpos ) then
-                                    checkitem = world:getItemOnField( checkpos );
-                                    if ( ( checkitem.id == 321 ) and ( checkitem.quality == 111 ) and ( checkitem.data == theChar.id ) ) then
-                                        world:erase( checkitem, 1 );
-                                    end
-                                end
-                            end
-                        end
-                        setQP = false;
-                    end
-                end
-            end
-        end
-    end
-    if setQP then
-		theChar:setQuestProgress(8,0);
-	end
-	-- end cow transporter
-	
-    -- begin newbie island
+	-- begin newbie island
     if (theChar:getQuestProgress(2) == 320) then -- Der Char. ist ein Newb und befindet sich gerade auf der Newbieinsel am Kaempfen
 		theChar:setQuestProgress(2,322);
 
