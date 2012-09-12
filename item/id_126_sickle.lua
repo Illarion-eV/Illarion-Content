@@ -29,8 +29,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    end
 		local dialog1 = InputDialog("write: one", false, 255, callback1)
 		User:requestInputDialog(dialog1)
-	    User:inform("2_boxeOne is "..boxOne)
-		return
+	    return
 	 end	
 	
 	--[[
