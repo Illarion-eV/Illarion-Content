@@ -1094,16 +1094,11 @@ end;
 --[[
     DataToPosition
     Converts a value encoded with PositionToData back to the PositionStruct
-    @param integer - The value that contains the encoded position
-    @return PositionStruct - The PositionStruct that was encoded in the value
+    @param posList - List: {Item:getData("MapPosX"),Item:getData("MapPosY"),Item:getData("MapPosZ")}
+    @return PositionStruct - The PositionStruct that was encoded in the list
 ]]
-function DataToPosition(value)
-    local z = math.mod(value, 1024) - 500;
-    value = math.floor(value / 1024);
-    local y = math.mod(value, 1024);
-    value = math.floor(value / 1024);
-    local x = math.mod(value, 1024);
-    return position(x,y,z);
+function DataToPosition(posList)
+    position(tonumber(posList[1]),tonumber(posList[2]),tonumber(posList[3])
 end;
 
 --[[
