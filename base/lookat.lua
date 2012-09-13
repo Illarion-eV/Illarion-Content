@@ -18,6 +18,8 @@ GenericDuraEn[2]={"brand new","new"     ,"almost new","used","slightly scratched
 GenericDuraEn[3]={"brand new","new"     ,"almost new","used","slightly torn"     ,"torn"     ,"highly torn"     ,"old","threadbare","torn"          };
 GenericDuraEn[4]={"sparkling","shiny"    ,"glittery","used","slightly scraped","scraped"  ,"highly scraped"  ,"old","tarnished" ,"fragile"};
 
+GenericDuraLm={90,80,70,60,50,40,30,15,0};
+
 NONE = 0;
 METAL = 1;
 WOOD = 2;
