@@ -31,9 +31,9 @@ function lookAtItem(player, item)
 	
 	local usedDescription;
 	if (player:getPlayerLanguage() == Player.german) then
-		usedDescription = item:getData("itemDescriptionDe");
+		usedDescription = item:getData("descriptionDe");
 	else
-		usedDescription = item:getData("itemDescriptionEn");
+		usedDescription = item:getData("descriptionEn");
 	end;
 	
 	if (usedDescription ~= nil) then

@@ -67,9 +67,9 @@ function GenerateLookAt(user, item, material)
 	
 	local usedDescription;
 	if (isGerman) then
-		usedDescription = item:getData("itemDescriptionDe");
+		usedDescription = item:getData("descriptionDe");
 	else
-		usedDescription = item:getData("itemDescriptionEn");
+		usedDescription = item:getData("descriptionEn");
 	end;
 	
 	if (usedDescription ~= nil) then
@@ -129,7 +129,11 @@ function GetGemLevel(item, dataEntry)
 		return 0;
 	end;
 	
-	return value;
+	if ((value < 0) or (value > 10)) then
+		return 0;
+	else
+		return value;
+	end;
 end;
 
 function GetItemDescription(User, Item, material, Weapon, Priest)
