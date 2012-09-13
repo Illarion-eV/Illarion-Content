@@ -37,7 +37,7 @@ function lookAtItem(player, item)
 	end;
 	
 	if (usedDescription ~= nil) then
-		lookAt.description = descriptionData;
+		lookAt.description = usedDescription;
 	end;
 	
 	if (itemCommon.AgeingSpeed < 255) then
