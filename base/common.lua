@@ -1098,7 +1098,7 @@ end;
     @return PositionStruct - The PositionStruct that was encoded in the list
 ]]
 function DataToPosition(posList)
-    position(tonumber(posList[1]),tonumber(posList[2]),tonumber(posList[3]))
+    return position(tonumber(posList[1]),tonumber(posList[2]),tonumber(posList[3]))
 end;
 
 --[[
