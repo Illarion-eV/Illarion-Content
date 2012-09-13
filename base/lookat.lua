@@ -85,8 +85,8 @@ function GenerateLookAt(user, item, material)
 		lookAt.weight = itemCommon.Weight;
 		lookAt.worth = itemCommon.Worth;
 		
-		local itemDura = math.mod(Item.quality, 100);
-		local itemQual = (Item.quality - itemDura) / 100;
+		local itemDura = math.mod(item.quality, 100);
+		local itemQual = (item.quality - itemDura) / 100;
 		
 		local duraIndex;
 		for i, duraLimit in pairs(GenericDuraLm) do
