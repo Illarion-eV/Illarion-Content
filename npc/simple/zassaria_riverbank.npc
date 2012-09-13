@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Zassaria Riverbank                                      Runewick --
--- NPC Job:  Messaege quest giver                                             --
+-- NPC Name: Zassaeria Riverbank                                     Runewick --
+-- NPC Job:  Money changer                                                    --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  908, 812, 1            --
--- NPC Sex:  female                     NPC Direction: east                   --
+-- NPC Race: lizzard      NPC Position:  900, 800, 1 (Runewick marekt place)  --
+-- NPC Sex:  female       NPC Direction: east                                 --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: August 30, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 name = "Zassaria Riverbank"
@@ -35,7 +35,7 @@ radius = 5
 hairID = 3
 beardID = 0
 colorHair = 70, 77, 0
-colorSkin = 70, 52, 0
+colorSkin = 70, 52,0
 itemHead = 0
 itemChest = 0
 itemCoat = 196
@@ -44,6 +44,11 @@ itemSecondHand = 0
 itemHands = 52
 itemTrousers = 0
 itemShoes = 0
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
 
 -- sellItems = 61, 3076, 3077
 
@@ -69,13 +74,13 @@ itemShoes = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zassaria Riverbank. Schlüsselwörter: Quest, Misson, Auftrag.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you.", "Be greeted. Would you like to change your copper coins into silver coins?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt.", "Grüße. Mögt ihre euren Kupfer nicht gegen Silber eintauschen?"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo!"
-"Farewell", "Bye", "Fare well", "See you" -> "Fare well."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Auf Bald!"
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you. Zss."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßsst."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Greetingsss to you.", "me hisses"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßsst.", "#me zischt"
+"Farewell", "Bye", "Fare well", "See you" -> "Ssss. Zzzelphia be with you. Zss."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ssss. Zzzelphia sssei mit Euch. Zss."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Ssss. Zzzelphia be with you. Zss."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia sssei mit Euch. Zss."
 "How are you", "How feel", "How do you do" -> "I'm feeling very good. Sss. Exss...Extraordinary."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es sssehr gut. Ausssgezzeichnet. Sss."
@@ -85,7 +90,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Tsss! I ate all my fisssch. I'll chatch new fisssch ssson."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Tsss! I ate all my fisssch. I'll chatch new fisssch sssoon."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Tsss! Ich aß all meinen Fisssch. Ich werde ssschnellssstmöglich neuen fangen."
 
 -- A Messege Quest
@@ -96,55 +101,55 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you
 -- Of course there can be more than two persons be involved
 
 -- 1st quest: Talk to someone
-queststatus(701) = 0, english, "quest", "mission" -> inform("[New quest] Ask for me I"), queststatus(701) = 1, "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?"
-queststatus(701) = 0, "quest", "mission" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 1, "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
-queststatus(701) = 0, "task", "adventure", "order" -> inform("[New quest] Frag für mich I"), queststatus(701) = 1, "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?"
-queststatus(701) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 1, "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
+"quest", "mission", queststatus(701) = 0, english -> inform("[New quest] Ask for me I"), "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?", queststatus(701) = 1
+"quest", "mission", queststatus(701) = 0 -> inform("[Neues Quest] Frag für mich I"), "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.", queststatus(701) = 1
+"task", "adventure", "order", queststatus(701) = 0 -> inform("[New quest] Frag für mich I"), "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?", queststatus(701) = 1
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(701) = 0 -> inform("[Neues Quest] Frag für mich I"),"Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.", queststatus(701) = 1
 
 -- 1st quest solved, reward sabre(25)
-queststatus(701) = 2, english, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), item(25, 1, 345), queststatus(701) = 3, "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss..."
-queststatus(701) = 2, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), item(25, 1, 345), queststatus(701) = 3, "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss..."
+".+", queststatus(701) = 2, english -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25,1,345,0), queststatus(701) = 3
+".+", queststatus(701) = 2 -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25,1,345,0), queststatus(701) = 3
 
 -- 1st quest not solved, repeat the instructions
-queststatus(701) = 1, english, "quest", "mission" -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
-queststatus(701) = 1, "quest", "mission" -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
-queststatus(701) = 1, "task", "adventure", "order" -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
-queststatus(701) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Can you tell him he ssshould talk to me?"
+"quest", "mission", queststatus(701) = 1, english -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
+"quest", "mission", queststatus(701) = 1 -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
+"task", "adventure", "order", queststatus(701) = 1 -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(701) = 1 -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Can you tell him he ssshould talk to me?"
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(701) = 2, english, "quest", "mission" -> "Thank you. Zss."
-queststatus(701) = 2, "quest", "mission" -> "Danke ssschön. Zss."
-queststatus(701) = 2, "task", "adventure", "order" -> "Thank you. Zss."
-queststatus(701) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke ssschön. Zss."
+"quest", "mission", queststatus(701) = 2, english -> "Thank you. Zss."
+"quest", "mission", queststatus(701) = 2 -> "Danke ssschön. Zss."
+"task", "adventure", "order", queststatus(701) = 2 -> "Thank you. Zss."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(701) = 2 -> "Danke ssschön. Zss."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I work asss a fisssher. It'sss fun. Zss."
 "beruf" -> "Ich arbeite alsss Fischerin. Esss macht Spaßsss. Zss."
-english, "job" -> "I work asss a fisssher. It'sss fun. Zss."
+"job", english -> "I work asss a fisssher. It'sss fun. Zss."
 "job" -> "Ich arbeite alsss Fischerin. Esss macht Spaßsss. Zss."
 "tell something" -> "Do you know there'sss a diffrentce between Zsss, Tsss and Ssss?", "Usssually marriages between my people are arranged by the partentsss. Sss. Usually."
-"erzähl was", "erzähl etwas", "erzähl mir was", "erzählt mir was" -> "Wissst ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?", "Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweise."
+"erzähl was", "erzähl etwas", "erzähl mir was", "erzählt mir was" -> "Wissst ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?","Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweise."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Lizzardsss pray to Zzzelphia. To whom do you pray?"
 "Gott", "Götter" -> "Echsssenmenschen beten zzzu Zzzelphia. Zzzu wem betet Ihr? Sss"
-english, "Tanora", "Zelphia" -> "She'sss to godesss of the water and the sssea.", "You call her Tanora, thisss iss not a word eassy tp pronoucsse for usss.", "ENGLISH3."
-"Tanora", "Zelphia" -> "ssssie isssst die Göttin desss Wassers und dess Meereess.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "She'sss to godesss of the water and the sssea.", "You call her Tanora, thisss iss not a word eassy tp pronoucsse for usss.", "ENGLISH3."
+"Tanora", "Zelphia" -> "Sssie isssst die Göttin desss Wassers und dess Meereess.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Faction stuff
-english, "Runewick" -> "???"
+"Runewick", english -> "???"
 "Runewick" -> "???"
-english, "Galmair" -> "???"
+"Galmair", english -> "???"
 "Galmair" -> "???"
-english, "Cadomyr" -> "???"
+"Cadomyr", english -> "???"
 "Cadomyr" -> "???"
 
 -- Optional: Main land factions
-english, "salkama" -> "??"
+"salkama", english -> "??"
 "salkama" -> "??"
 
 -- Optional: Gobaith
-english, "Gobaith", "Gobiath" -> "?"
+"Gobaith", "Gobiath", english -> "?"
 "Gobaith", "Gobiath" -> "?"
 
 ------------------------------------------------------------------------------AC
