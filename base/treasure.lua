@@ -319,7 +319,7 @@ module("base.treasure", package.seeall)
             return false;
         end
 
-        local mapPosCheck = ""..Item:getData("MapPosX").." "..Item:getData("MapPosY").." "..Item:getData("MapPosZ")
+        local mapPosCheck = ""..mapItem:getData("MapPosX").." "..mapItem:getData("MapPosY").." "..mapItem:getData("MapPosZ")
         if diggingOutMsg and not foundTreasureAt[mapPosCheck] then
             User:inform( diggingOutMsg );
             foundTreasureAt[mapPosCheck] = true;
