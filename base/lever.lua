@@ -24,7 +24,10 @@ function Lever:findType(lpos)                   -- returns leverstate, levertype
     if (world:isItemOnField(lpos)==true) then
         leverItem=world:getItemOnField(lpos);
         itemid=leverItem.id;
-        itemData=leverItem.data;
+        itemData=tonumber(leverItem:getData("leverMvTo"))
+		if itemData = nil then 
+		    itemData = 0
+		end	
         mvTo=itemData;                          -- default: 0 (moves standard), else 1. Shouldn't happen, as the mapeditor can't set data, but who knows.
         if (itemid>=434 and itemid<=436) then   -- NS-lever
             if (itemid==436) then mvTo=1 end;   -- set moveTo;
@@ -91,7 +94,7 @@ function Lever:switchLever(Char)                    -- switch the lever; return 
                                                         -- now actually perform the switching!
             leverItem=world:getItemOnField(self.pos);
             leverItem.id=newItemid;
-            leverItem.data=newMovingTo;
+            leverItem:setData("leverMvTo",newMovingTo)
             world:changeItem(leverItem);
                                                         -- loop through bindings?
             key=self.pos.x*1024*1024+self.pos.y*1024+self.pos.z;
