@@ -212,10 +212,8 @@ module("base.treasure", package.seeall)
     end
 
     function getDirection( User, Item )
-        User:inform(""..Item:getData("MapPosX"))
-		local RealTarget = base.common.DataToPosition( {Item:getData("MapPosX"),Item:getData("MapPosY"),Item:getData("MapPosZ")} );
-        User:inform(""..RealTarget.x.." "..RealTarget.y.." "..RealTarget.z)
-		local TargetLocation = modPosition( User, RealTarget );
+        local RealTarget = base.common.DataToPosition( {Item:getData("MapPosX"),Item:getData("MapPosY"),Item:getData("MapPosZ")} );
+        local TargetLocation = modPosition( User, RealTarget );
         if not TargetLocation then
             return false;
         end
@@ -380,11 +378,11 @@ module("base.treasure", package.seeall)
         local theDiff;
         local thePart;
         local neededPosition = TargetPosition
-		local MapData = {Item:getData("MapPosX"),Item:getData("MapPosY"),Item:getData("MapPosZ")}
-		local MapPosition = base.common.DataToPosition( MapData )
-        for i=1,17 do
+		for i=1,17 do
             myItem = User:getItemAt( i );
-            if ( myItem.id == 505 and MapPosition == neededData ) then
+            local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
+		    local MapPosition = base.common.DataToPosition( MapData )
+			if ( myItem.id == 505 and MapPosition == neededData ) then
                 return true, myItem, 0;
             end
         end
@@ -401,7 +399,9 @@ module("base.treasure", package.seeall)
             i = i + 1;
             worked,myItem,thisCont=theBackpack:viewItemNr(i);
             if worked then
-                if ( myItem.id == 505 and MapPosition == neededData  ) then
+                local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
+		        local MapPosition = base.common.DataToPosition( MapData )
+				if ( myItem.id == 505 and MapPosition == neededData  ) then
                     return true, myItem, i;
                 end
             end
