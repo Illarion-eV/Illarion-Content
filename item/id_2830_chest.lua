@@ -12,12 +12,12 @@ end
 
 function UseItem(User,SourceItem)
 
-    level=SourceItem.data;
-    posi=SourceItem.pos;
+    local level=tonumber(SourceItem:getData("trsCat"))
+    local posi=SourceItem.pos;
 
     base.common.InformNLS(User, "Du öffnest die Schatzkiste...", "You open the treasure chest...");
 	world:erase(SourceItem,1);
-	if SourceItem.data ~= 0 and SourceItem.data < 10 then
+	if (level ~= nil) and (level < 10) then
         world:gfx(16,posi);
         world:makeSound(13,posi);
         base.treasure.SpawnTreasure( level, posi );

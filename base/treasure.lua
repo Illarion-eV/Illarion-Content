@@ -319,7 +319,7 @@ module("base.treasure", package.seeall)
             return false;
         end
 
-        local mapPosCheck = ""..Item:getData("MapPosX").." "..Item:getData("MapPosY").." "..Item:getData("MapPosZ")
+        local mapPosCheck = ""..mapItem:getData("MapPosX").." "..mapItem:getData("MapPosY").." "..mapItem:getData("MapPosZ")
         if diggingOutMsg and not foundTreasureAt[mapPosCheck] then
             User:inform( diggingOutMsg );
             foundTreasureAt[mapPosCheck] = true;
@@ -339,9 +339,9 @@ module("base.treasure", package.seeall)
         fndTreasure, treasureEff = User.effects:find(16);
         if not fndTreasure then --User:inform("Effect given");
             treasureEff=LongTimeEffect(16,1);
-            treasureEff:addValue("posX",mapItem:getData("MapPosX"));
-            treasureEff:addValue("posY",mapItem:getData("MapPosY"))
-			treasureEff:addValue("posZ",mapItem:getData("MapPosZ"))
+            treasureEff:addValue("posX",tonumber(mapItem:getData("MapPosX")))
+            treasureEff:addValue("posY",tonumber(mapItem:getData("MapPosY")))
+			treasureEff:addValue("posZ",tonumber(mapItem:getData("MapPosZ")))
 			treasureEff:addValue("category",treasureLevel);
             User.effects:addEffect(treasureEff);
         else
@@ -383,7 +383,7 @@ module("base.treasure", package.seeall)
             if myItem.id == 505 then
 			    local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
 		        local MapPosition = base.common.DataToPosition( MapData )
-			    if ( MapPosition == neededData ) then
+			    if MapPosition == neededPosition then
                     return true, myItem, 0;
                 end
 			end
@@ -404,7 +404,7 @@ module("base.treasure", package.seeall)
                 if myItem.id == 505 then
 					local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
 					local MapPosition = base.common.DataToPosition( MapData )
-				    if MapPosition == neededData then
+				    if MapPosition == neededPosition then
                         return true, myItem, i;
                     end
                 end
