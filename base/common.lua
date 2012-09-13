@@ -1094,7 +1094,7 @@ end;
 --[[
     DataToPosition
     Converts a value encoded with PositionToData back to the PositionStruct
-    @param posList - List: {Item:getData("MapPosX"),Item:getData("MapPosY"),Item:getData("MapPosZ")}
+    @param posList - List containig x,y,z
     @return PositionStruct - The PositionStruct that was encoded in the list
 ]]
 function DataToPosition(posList)

@@ -213,7 +213,8 @@ module("base.treasure", package.seeall)
 
     function getDirection( User, Item )
         local RealTarget = base.common.DataToPosition( {Item:getData("MapPosX"),Item:getData("MapPosY"),Item:getData("MapPosZ")} );
-        local TargetLocation = modPosition( User, RealTarget );
+        User:inform(""..RealTarget.x.." "..RealTarget.y.." "..RealTarget.z)
+		local TargetLocation = modPosition( User, RealTarget );
         if not TargetLocation then
             return false;
         end
