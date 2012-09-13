@@ -203,13 +203,14 @@ ChestId:
 ]]
 
 function AddTreasureChest(ChestId, ChestData, ChestX, ChestY, ChestZ)
-	local pos = position(ChestX,ChestY,ChestZ);
+	-- DEACTIVATED until I know what the data is for. Merung
+	--[[local pos = position(ChestX,ChestY,ChestZ);
 	local item = world:getItemOnField(pos);
 	if item.id==ChestId then
 		item.data = ChestData;
 		world:changeItem(item);
 	else
 		world:createItemFromId(ChestId,1,pos,false,333,ChestData);
-	end
+	end]]
 end
 
