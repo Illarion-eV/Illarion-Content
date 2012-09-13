@@ -35,7 +35,7 @@ function GenerateLookAt(user, item, material)
 		return;
 	end;
 	
-	if ((material < NONE) or (meterial > JEWELERY)) then
+	if ((material < NONE) or (material > JEWELERY)) then
 		debug("Sanity check failed, no valid material supplied.");
 	end;
 	
