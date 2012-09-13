@@ -1,5 +1,7 @@
 -- Default look-at script
 
+require("base.common");
+
 module("base.lookat", package.seeall)
 
 -- init german descriptions
@@ -52,7 +54,7 @@ function GenerateLookAt(user, item, material)
 	else
 		usedName = item:getData("nameEn");
 	end;
-	if ((usedName == nil) or (usedName == "")) then
+	if base.common.IsNilOrEmpty(usedName) then
 		usedName = world:getItemName(item.id, user:getPlayerLanguage());
 	end;
 	lookAt.name = usedName;
@@ -74,13 +76,13 @@ function GenerateLookAt(user, item, material)
 		usedDescription = item:getData("descriptionEn");
 	end;
 	
-	if ((usedDescription == nil) or (usedDescription == "")) then
+	if base.common.IsNilOrEmpty(usedDescription) then
 		lookAt.description = usedDescription;
 	end;
 	
 	if ((itemCommon.AgeingSpeed < 255) and (material > NONE)) then
 		local craftedByData = item:getData("craftedBy");
-		if (craftedByData ~= nil) then
+		if base.common.IsNilOrEmpty(craftedByData) then
 			lookAt.craftedBy = craftedByData;
 		end;
 		
