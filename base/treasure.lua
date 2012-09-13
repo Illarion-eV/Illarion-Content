@@ -380,11 +380,13 @@ module("base.treasure", package.seeall)
         local neededPosition = TargetPosition
 		for i=1,17 do
             myItem = User:getItemAt( i );
-            local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
-		    local MapPosition = base.common.DataToPosition( MapData )
-			if ( myItem.id == 505 and MapPosition == neededData ) then
-                return true, myItem, 0;
-            end
+            if myItem.id == 505 then
+			    local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
+		        local MapPosition = base.common.DataToPosition( MapData )
+			    if ( MapPosition == neededData ) then
+                    return true, myItem, 0;
+                end
+			end
         end
 
         -- backpack
@@ -399,12 +401,14 @@ module("base.treasure", package.seeall)
             i = i + 1;
             worked,myItem,thisCont=theBackpack:viewItemNr(i);
             if worked then
-                local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
-		        local MapPosition = base.common.DataToPosition( MapData )
-				if ( myItem.id == 505 and MapPosition == neededData  ) then
-                    return true, myItem, i;
+                if myItem.id == 505 then
+					local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
+					local MapPosition = base.common.DataToPosition( MapData )
+				    if MapPosition == neededData then
+                        return true, myItem, i;
+                    end
                 end
-            end
+		   end
         until not worked;
         return false,0,0;
     end
