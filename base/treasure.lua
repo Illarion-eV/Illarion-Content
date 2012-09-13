@@ -383,7 +383,7 @@ module("base.treasure", package.seeall)
             if myItem.id == 505 then
 			    local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
 		        local MapPosition = base.common.DataToPosition( MapData )
-			    if ( MapPosition == neededData ) then
+			    if MapPosition == neededPosition then
                     return true, myItem, 0;
                 end
 			end
@@ -404,7 +404,7 @@ module("base.treasure", package.seeall)
                 if myItem.id == 505 then
 					local MapData = {myItem:getData("MapPosX"),myItem:getData("MapPosY"),myItem:getData("MapPosZ")}
 					local MapPosition = base.common.DataToPosition( MapData )
-				    if MapPosition == neededData then
+				    if MapPosition == neededPosition then
                         return true, myItem, i;
                     end
                 end
