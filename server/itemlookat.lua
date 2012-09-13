@@ -34,7 +34,7 @@ function lookAtItem(player, item)
 		lookAt.description = descriptionData;
 	end;
 	
-	if (itemCommon.AgingSpeed < 255) then
+	if (itemCommon.AgeingSpeed < 255) then
 		local craftedByData = item:getData("craftedBy");
 		if (craftedByData ~= nil) then
 			lookAt.craftedBy = craftedByData;
