@@ -73,7 +73,7 @@ function GenerateLookAt(user, item, material)
 	end;
 	
 	if (usedDescription ~= nil) then
-		lookAt.description = descriptionData;
+		lookAt.description = usedDescription;
 	end;
 	
 	if ((itemCommon.AgeingSpeed < 255) and (material > NONE)) then
