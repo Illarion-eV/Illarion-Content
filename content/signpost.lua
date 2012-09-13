@@ -18,6 +18,16 @@ function InitWegweiser()
     -- 4 = south
     -- 6 = west
     
+	--Noobia
+	--ToDo
+	AddWeg({35,23,100},"[Tutorial] Willkommen auf Illarion!","[Tutorial] Welcome to Illarion!",2,0);
+	AddWeg({41,49,100},"[Tutorial] Die Mine - Sammeln","[Tutorial] The mine - gathering",2,0);
+    AddWeg({38,49,100},"[Tutorial] Der Sumpf - Kampf","[Tutorial] The swamp - fighting",6,0);
+    AddWeg({40,57,100},"[Tutorial] Die Schmiede - Handwerk","[Tutorial] The forge - crafting",4,0);
+    AddWeg({42,98,100},"[Tutorial] Dies ist der Weg nach Cadomyr, dem Reich von Ruhm und Ehre.","[Tutorial] This is the way to Cadomyr, realm of honour and glory.",2,0);	
+    AddWeg({35,105,100},"[Tutorial] Dies ist der Weg nach Galmair, dem Reich des aufstrebenden Wohlstands.","[Tutorial] This is the way to Galmair, realm of prosperity and wealth.",4,0);	
+    AddWeg({30,102,100},"[Tutorial] Dies ist der Weg nach Runewick, dem Reich der Weißheit und Magie.","[Tutorial] This is the way to Runewick, realm of wisdom and magic.",6,0);	
+	
 	--SW/Cadomyr map
     AddWeg({42,634,0},"Piratenbucht","Pirate Cove",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
     AddWeg({50,640,0},"Fabers Wache","Faber's Guardhouse",6,0); -- <Name hier> Zerstörter Außenposten -- <name here> ruin of a outpost
@@ -103,9 +113,9 @@ function InitWegweiser()
     AddWeg({394,273,0},"Zensusbüro","Census office",2,0);
     AddWeg({398,305,0},"Tollloch","Sporthole",2,0);
     AddWeg({387,346,0},"Galmair","Galmair",0,0);
-    AddWeg({387,347,0},"Schürfer Club, Malachitmine","Miners Club, Malachite Mine",2,0);
+    AddWeg({387,347,0},"Schürferclub, Malachitmine","Miners' Club, Malachite Mine",2,0);
     AddWeg({386,346,0},"Fort Schnellbeil, Goldener Rumil","Fort Schnellbeil, Golden Rumil",6,0);
-    AddWeg({417,357,0},"Schürfer Club","Miners Club",0,0);
+    AddWeg({417,357,0},"Schürferclub","Miners' Club",0,0);
     AddWeg({418,357,0},"Malachitmine","Malachite Mine",2,0);
     AddWeg({464,253,0},"Die Plattform","The Platform",0,0);
 
@@ -153,7 +163,6 @@ function InitWegweiser()
     AddWeg({851,816,0},"Vierbeiniger Roter Vogel; Hafen; Bauernhöfe; Cadomyr; Galmair; ...","Quadruped Red Bird; Harbour; Farmland; Cadomyr; Galmair; ...",6,0);
     AddWeg({856,819,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
     
-
     --NE/Neutral-map
     AddWeg({680,311,0},"Galmair","Galmair",6,0);
     AddWeg({685,317,0},"Gasthof zur Hanfschlinge","The Hemp Necktie Inn",2,0);

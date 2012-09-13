@@ -24,13 +24,15 @@ function callEffect(trsEff, trsHunter)
     local fnd;
     local trsPosition;
     local cat;
-    fnd, trsPosition=trsEff:findValue("pos");
-
-    if not fnd then
+    fndX, trsPositionX=trsEff:findValue("posX")
+    fndY, trsPositionY=trsEff:findValue("posY")
+	fndZ, trsPositionZ=trsEff:findValue("posZ")
+	trsPosition = position(trsPositionX,trsPositionY,trsPositionZ)
+	
+    if not (fndX and fndY and fndZ) then
         return false;       -- treasure lost!
     end
 
-    trsPosition = base.common.DataToPosition( trsPosition );
     if not trsHunter:isInRangeToPosition( trsPosition, 40 ) then
         base.common.InformNLS( trsHunter,
         "Der Schatz ist für immer verloren. Die Wächter haben euch in die Flucht geschlagen.",

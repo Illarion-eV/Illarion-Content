@@ -19,18 +19,18 @@ end;
 
 -- Default: Medium priority
 function InformNLS(User, textInDe, textInEn)
-    User:inform(GetNLS(User, textInDe, textInEn),Player.mediumPriority);
-end;
+    User:inform(textInDe, textInEn)
+end
 
 -- Temp: Low priority
 function TempInformNLS(User, textInDe, textInEn)
-    User:inform(GetNLS(User, textInDe, textInEn),Player.lowPriority);
-end;
+    User:inform(textInDe, textInEn, Player.lowPriority)
+end
 
 -- High: High priority
 function HighInformNLS(User, textInDe, textInEn)
-    User:inform(GetNLS(User, textInDe, textInEn),Player.highPriority);
-end;
+    User:inform(textInDe, textInEn, Player.highPriority)
+end
 
 --- Triggers a multi language talking for a character
 -- In case there is no player in range who could hear the talking nothing is
