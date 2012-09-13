@@ -17,13 +17,13 @@ function LookAtItem(player, item)
     lookAt.qualityText = "supercharged"
     lookAt.durabilityText = "eternal"
     lookAt.durabilityValue = 100
-    lookAt.diamondLevel = 10
-    lookAt.emeraldLevel = 10
-    lookAt.rubyLevel =10
-    lookAt.sapphireLevel = 10
-    lookAt.amethystLevel = 10
-    lookAt.obsidianLevel = 10
-    lookAt.topazLevel = 10
+    lookAt.diamondLevel = 1
+    lookAt.emeraldLevel = 1
+    lookAt.rubyLevel =1
+    lookAt.sapphireLevel = 1
+    lookAt.amethystLevel = 1
+    lookAt.obsidianLevel = 1
+    lookAt.topazLevel = 1
     lookAt.bonus = 255
 
     world:itemInform(player, item, lookAt)
