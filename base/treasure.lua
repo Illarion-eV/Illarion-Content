@@ -339,9 +339,9 @@ module("base.treasure", package.seeall)
         fndTreasure, treasureEff = User.effects:find(16);
         if not fndTreasure then --User:inform("Effect given");
             treasureEff=LongTimeEffect(16,1);
-            treasureEff:addValue("posX",mapItem:getData("MapPosX"));
-            treasureEff:addValue("posY",mapItem:getData("MapPosY"))
-			treasureEff:addValue("posZ",mapItem:getData("MapPosZ"))
+            treasureEff:addValue("posX",tonumber(mapItem:getData("MapPosX")))
+            treasureEff:addValue("posY",tonumber(mapItem:getData("MapPosY")))
+			treasureEff:addValue("posZ",tonumber(mapItem:getData("MapPosZ")))
 			treasureEff:addValue("category",treasureLevel);
             User.effects:addEffect(treasureEff);
         else
