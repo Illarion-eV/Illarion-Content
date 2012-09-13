@@ -19,18 +19,18 @@ end;
 
 -- Default: Medium priority
 function InformNLS(User, textInDe, textInEn)
-    User:inform(GetNLS(User, textInDe, textInEn),Player.mediumPriority);
-end;
+    User:inform(textInDe, textInEn)
+end
 
 -- Temp: Low priority
 function TempInformNLS(User, textInDe, textInEn)
-    User:inform(GetNLS(User, textInDe, textInEn),Player.lowPriority);
-end;
+    User:inform(textInDe, textInEn, Player.lowPriority)
+end
 
 -- High: High priority
 function HighInformNLS(User, textInDe, textInEn)
-    User:inform(GetNLS(User, textInDe, textInEn),Player.highPriority);
-end;
+    User:inform(textInDe, textInEn, Player.highPriority)
+end
 
 --- Triggers a multi language talking for a character
 -- In case there is no player in range who could hear the talking nothing is
@@ -1085,25 +1085,20 @@ end
     Encodes a position into a value that would fit into the data value of a item
     Use DataToPosition to get the PositionStruct again
     @param PositionStruct - The position that should be encoded
-    @return integer - The value that contains the position
+    @return table - Table containing x,y,z positions 
 ]]
 function PositionToData(posi)
-    return 1048576 * (posi.x) + 1024 * (posi.y) + (posi.z+500);
+    return {["MapPosX"]=posi.x,["MapPosY"]=posi.y,["MapPosZ"]=posi.z}
 end;
 
 --[[
     DataToPosition
     Converts a value encoded with PositionToData back to the PositionStruct
-    @param integer - The value that contains the encoded position
-    @return PositionStruct - The PositionStruct that was encoded in the value
+    @param posList - List: {Item:getData("MapPosX"),Item:getData("MapPosY"),Item:getData("MapPosZ")}
+    @return PositionStruct - The PositionStruct that was encoded in the list
 ]]
-function DataToPosition(value)
-    local z = math.mod(value, 1024) - 500;
-    value = math.floor(value / 1024);
-    local y = math.mod(value, 1024);
-    value = math.floor(value / 1024);
-    local x = math.mod(value, 1024);
-    return position(x,y,z);
+function DataToPosition(posList)
+    position(tonumber(posList[1]),tonumber(posList[2]),tonumber(posList[3]))
 end;
 
 --[[

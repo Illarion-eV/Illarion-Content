@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 12, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Jonathan Cyrus"
@@ -59,7 +59,7 @@ itemShoes = 770
 
 -- 5% Tools (Candle maker): 429
 -- 10% Tools (Glass blower): 311, 312
--- 10% Glass products: 75, 164, 292, 315, 1317, 1908, 2055, 2457, 2498
+-- 10% Glass products: 164, 315, 1317, 1908, 2055, 2457, 2498
 -- 10% Glass resources: 41, 314, 316, 726
 -- 5% Candles, torches: 43, 391
 -- 5% Wax: 431

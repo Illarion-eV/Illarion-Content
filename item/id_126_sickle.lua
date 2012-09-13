@@ -9,46 +9,10 @@ module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	--------- TESTING STUFF !!! ------------ Merung
-	if (string.find(User.lastSpokenText,"input")~=nil) then
-	    local boxOne = ""
-		local boxTwo = ""
-		
-		local callback1 = function(dialog1)
-			if not dialog1:getSuccess() then 
-				User:inform("abbruch")
-			else
-				if dialog1:getInput() ~= "one" then
-				    User:inform("failure, input was not: one")
-				else
-				    boxOne = dialog1:getInput()
-					User:inform("boxeOne is "..boxOne)
-				end
-			end			
-	    end
-		local dialog1 = InputDialog("write: one", false, 255, callback1)
-		User:requestInputDialog(dialog1)
+	if (string.find(User.lastSpokenText,"testp")~=nil) then
+	    User:createItem(59,1,444,{["potionEffectId"]=95555555})
 	    return
-	 end	
-	--[[
-	User:inform("debug 12")
-					boxOne = "one"
-					local callback2 = function(dialog2,boxTwo)
-			            if not dialog2:getSuccess() then 
-				            User:inform("abbruch")
-			            else
-				            if dialog2:getInput() ~= "two" then
-				                User:inform("failure, input was not: two")
-				            else
-				                boxTwo = "two"
-					            User:inform(""..boxOne.." and "..boxTwo)
-				            end
-			            end			
-	                end
-		            local dialog2 = InputDialog("text schreiben!", false, 255, callback2)
-		            User:requestInputDialog(dialog2)
-	
-	
-	]]
+	end	
 	if string.sub(User.lastSpokenText,1,9) == "inform me" then
 	    informNumber = tonumber(string.sub(User.lastSpokenText,10))
 		if informNumber == 1 then
