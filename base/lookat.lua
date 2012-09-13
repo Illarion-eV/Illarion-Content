@@ -52,7 +52,7 @@ function GenerateLookAt(user, item, material)
 	else
 		usedName = item:getData("nameEn");
 	end;
-	if (usedName == nil) then
+	if ((usedName == nil) or (usedName == "")) then
 		usedName = world:getItemName(item.id, user:getPlayerLanguage());
 	end;
 	lookAt.name = usedName;
@@ -74,7 +74,7 @@ function GenerateLookAt(user, item, material)
 		usedDescription = item:getData("descriptionEn");
 	end;
 	
-	if (usedDescription ~= nil) then
+	if ((usedDescription == nil) or (usedDescription == "")) then
 		lookAt.description = usedDescription;
 	end;
 	
