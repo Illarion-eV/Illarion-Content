@@ -25,7 +25,7 @@ function Lever:findType(lpos)                   -- returns leverstate, levertype
         leverItem=world:getItemOnField(lpos);
         itemid=leverItem.id;
         itemData=tonumber(leverItem:getData("leverMvTo"))
-		if itemData = nil then 
+		if itemData == nil then 
 		    itemData = 0
 		end	
         mvTo=itemData;                          -- default: 0 (moves standard), else 1. Shouldn't happen, as the mapeditor can't set data, but who knows.
