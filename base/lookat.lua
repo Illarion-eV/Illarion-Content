@@ -1,6 +1,6 @@
 -- Default look-at script
 
-module("base.lookat", package.seeall, package.seeall(content.bonusitems))
+module("base.lookat", package.seeall)
 
 -- init german descriptions
 GenericQualDe={"perfekt","exzellent","sehr gut","gut","normal","m‰ﬂig","schlecht","sehr schlecht","schrecklich","furchtbar"};
