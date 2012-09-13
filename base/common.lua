@@ -154,8 +154,11 @@ function IsLookingAt(User, Location)
                 ((Location.y < User.pos.y) or (Location.x < User.pos.x))));
 end;
 
+--- Check if a character sequence (string) is nil or empty.
+-- @param the variable to check
+-- @return true in case the text is nil or equal to a empty string
 function IsNilOrEmpty(text)
-	return ((text == nil) || (text == ""));
+	return ((text == nil) or (text == ""));
 end;
 
 --- Determine the direction from one position to another one
