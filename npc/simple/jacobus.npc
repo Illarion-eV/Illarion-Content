@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Jacobus"
@@ -69,11 +69,11 @@ itemShoes = 771
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome to Cadomyr.", "Be greeted.", "Hello, do you need a ruby necklace?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen in Cadomyr.", "Seid gegrüßt.", "Hallo, braucht ihr eine Rubinkette?"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Welcome to Cadomyr.", "Be greeted.", "Hello, do you need a ruby necklace?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Welcome to Cadomyr.", "Be greeted.", "Hello, do you need a ruby necklace?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen in Cadomyr.", "Seid gegrüßt.", "Hallo, braucht ihr eine Rubinkette?"
 "Farewell", "Bye", "Fare well", "See you" -> "I hope you'll recommend my goods.", "Good bye.", "Have a nice day."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ich hoffe, ihr werdet meine Waren weiterempfehlen.", "Auf wiedersehen.", "Einen schönen Tag noch."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "I hope you'll recommend my goods.", "Good bye.", "Have a nice day."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I hope you'll recommend my goods.", "Good bye.", "Have a nice day."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich hoffe, ihr werdet meine Waren weiterempfehlen.", "Auf wiedersehen.", "Einen schönen Tag noch."
 "How are you", "How feel", "How do you do" -> "I feel like selling gems."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir ist danach, Edelsteine zu verkaufen."
@@ -81,7 +81,7 @@ itemShoes = 771
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Jacobus der Juwelier.", "Jacobus.", "Jacobus. Und nennt mich nicht Jack."
 
 -- Catching quest triggers
-"quest", "mission", english -> "I don't have a quest for you, sorry."
+english, "quest", "mission" -> "I don't have a quest for you, sorry."
 "quest", "mission" -> "Ich habe keinen Auftrag für dich."
 "task", "adventure", "order" -> "I don't have a quest for you, sorry."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keinen Auftrag für dich."
@@ -89,9 +89,9 @@ itemShoes = 771
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a jeweller. I also search for gems, but it is a hard job."
 "beruf" -> "Ich bin ein Juwellier, manchmal suche ich auch nach Edelsteinen. Aber das ist ein Knochenjob."
-"job", english -> "I am a jeweller. I also search for gems, but it is a hard job."
+english, "job" -> "I am a jeweller. I also search for gems, but it is a hard job."
 "job" -> "Ich bin ein Juwellier, manchmal suche ich auch nach Edelsteinen. Aber das ist ein Knochenjob."
-"Gobaith", "Gobiath", english -> "Gobaith was said to be a gem in the ocean. Now it is... a gem in the water."
+english, "Gobaith", "Gobiath" -> "Gobaith was said to be a gem in the ocean. Now it is... a gem in the water."
 "Gobaith", "Gobiath" -> "Man sagt, Gobaith war ein Edelstein im Ozean. Nun ist es ein... Edelstein im Wasser."
 "my name" -> "Good to know, do you want a ring?"
 "mein Name" -> "Gut zu wissen, benötigt ihr einen Ring?"
@@ -99,7 +99,7 @@ itemShoes = 771
 -- More small talk; add at least five triggers
 "Thief" -> "Thieves are a horrible scourge of society."
 "Dieb" -> "Diebe sind eine schreckliche Plage."
-"Gold", english -> "Gold is a fascinating material. Although it is soft, it still does not corrode in a thousand years."
+english, "Gold" -> "Gold is a fascinating material. Although it is soft, it still does not corrode in a thousand years."
 "Gold" -> "Gold ist ein faszinierendes Material. Es ist zwar recht weich, aber es verrottet in tausend Jahren nicht."
 "jewel" -> "My jewels are the best you can get within a thousand miles and I have never travelled beyond that.", "I can sell you any kinds of jewels, and if you have any gems, I'll gladly purchase them."
 "Juwel" -> "Meine Juwelen sind die besten, die man innerhalb von tausend Meilen bekommen kann. Und ich war noch nie weiter weg.", "Ich kann euch allerlei Juwelen anbieten. Wenn ihr Edelsteine habt, so würde ich sie gerne erwerben."
@@ -109,35 +109,35 @@ itemShoes = 771
 -- Faction stuff
 "archmage" -> "The Archmage hides behind his books instead of ruling Runewick. I am so glad we have our queen."
 "Erzmagier" -> "Der Erzmagier versteckt sich lieber hinter seinen Büchern als Runewick zu führen. Ich bin so glücklich, dass wir unsere Königin haben."
-"Elvaine", "Morgan", english -> "The Archmage hides behind his books instead of ruling Runewick. I am so glad we have our queen."
+english, "Elvaine", "Morgan" -> "The Archmage hides behind his books instead of ruling Runewick. I am so glad we have our queen."
 "Elvaine", "Morgan" -> "Der Erzmagier versteckt sich lieber hinter seinen Büchern als Runewick zu führen. Ich bin so glücklich, dass wir unsere Königin haben."
-"Runewick", english -> "Runewick is far to the east. You have to walk through a dense forest."
+english, "Runewick" -> "Runewick is far to the east. You have to walk through a dense forest."
 "Runewick" -> "Runewick ist weit im Osten. Ihr müßt durch einen tiefen Wald gehen, um dorthin zu gelangen."
-"Valerio", "Guilianni", "Don", english -> "I once had to craft a ring for the Don. It was such a horrifying experience to give to this filthy man."
+english, "Valerio", "Guilianni", "Don" -> "I once had to craft a ring for the Don. It was such a horrifying experience to give to this filthy man."
 "Valerio", "Guilianni", "Don" -> "Ich musste einst einen Ring für den Don fertigen. Es war ein schreckliches Erlebnis, den Ring diesem dreckigem Kerl zu überlassen."
-"Galmair", english -> "Galmair is far to the north, but better don't go there with too much money."
+english, "Galmair" -> "Galmair is far to the north, but better don't go there with too much money."
 "Galmair" -> "Galmair ist weit im Norden, aber nehmt besser nicht zuviel Geld mit, wenn ihr dorthin geht."
 "Queen" -> "All of us like queen Rosaline, she rules Cadomyr like nobody else could."
 "Königin" -> "Jederman liebt die Königin Rosaline, sie regiert Cadomyr wie es niemand sonst könnte."
-"rosaline", "edwards", english -> "All of us like queen Rosaline, she rules Cadomyr like nobody else could."
+english, "rosaline", "edwards" -> "All of us like queen Rosaline, she rules Cadomyr like nobody else could."
 "rosaline", "edwards" -> "Jederman liebt die Königin Rosaline, sie regiert Cadomyr wie es niemand sonst könnte."
-"Cadomyr", english -> "This is our home: Cadomyr. Do you smell the sea? Do you feel the honour?"
+english, "Cadomyr" -> "This is our home: Cadomyr. Do you smell the sea? Do you feel the honour?"
 "Cadomyr" -> "Dies ist unsere Heimat: Cadomyr. Riecht ihr die See? Spürt ihr das Ehrgefühl?"
 
 -- Main land factions
-"albar", english -> "I hear only the best about Albar, but I have never even been there."
+english, "albar" -> "I hear only the best about Albar, but I have never even been there."
 "albar" -> "Ich höre nur das beste über Albar, aber ich war noch nie selbst dort."
-"gynk", "gync", english -> "Something is wrong in Gynk. If they only steal from each other, how do you imagine they replace broken things?", "Gynk is a filthy place.", "If you go to Gynk, well, do not expect to return with any gold."
+english, "gynk", "gync" -> "Something is wrong in Gynk. If they only steal from each other, how do you imagine they replace broken things?", "Gynk is a filthy place.", "If you go to Gynk, well, do not expect to return with any gold."
 "gync", "gynk" -> "Irgendwas ist doch falsch in Gynk. Wenn die nur voneinander stehlen, wie ersetzen sie dann Zerbrochenes?", "Gynk ist ein dreckiger Ort.", "Wenn ihr nach Gynk geht, nun, denkt nicht, ihr kommt mit Gold zurück."
-"salkama", english -> "I hear only bad things about Salkamar, but I have never been there."
+english, "salkama" -> "I hear only bad things about Salkamar, but I have never been there."
 "salkama" -> "Ich höre nur schlimme Dinge über Salkamar, aber ich war noch nie selbst dort."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
 "god" -> "Why don't you ask me about Zhambra? Might result in a special offer for you!"
 "Gott", "Götter" -> "Warum fragt ihr mich nicht nach Zhambra? Ich hätte da vielleicht ein Sonderangebot für euch."
-"Ronagan", english -> "Oh, Ronagan! Well, he may just like gems as much as I do and he guarantees that people will buy new ones... still, I cannot honour a god who promotes crimes."
+english, "Ronagan" -> "Oh, Ronagan! Well, he may just like gems as much as I do and he guarantees that people will buy new ones... still, I cannot honour a god who promotes crimes."
 "Ronagan" -> "Oh, Ronagan! Nun, er mag Edelsteine genauso gerne wie ich und er sorgt dafür, dass die Leute auch immerwieder neue kaufen... dennoch kann ich keinem Gott huldigen, der Diebstahl fördert."
-"Zhambra", english -> "Zhambra is the god of friendship, and what token is more suitable to seal a friendship than a ring. I have a special offer for you..."
+english, "Zhambra" -> "Zhambra is the god of friendship, and what token is more suitable to seal a friendship than a ring. I have a special offer for you..."
 "Zhambra" -> "Zhambra ist der Gott der Freundschaft. Und was ist besser geeignet, um Freundschaft zu besiegeln, als ein Ring? Ich hätte da gerade einen im Angebot..."
 
 -- Catching typical NPC phrases
@@ -147,7 +147,7 @@ itemShoes = 771
 "erzähl was", "erzähl etwas" -> "Ich habe keine interessanten Geschichten zu erzählen."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Jacobus", english -> "Jacobus' jewellery is the best from here to Salkamar!"
+english, "Jacobus" -> "Jacobus' jewellery is the best from here to Salkamar!"
 "Jacobus" -> "Die Geschmeide von Jakobus sind die besten von hier bis Salkamar!"
 "Yes" -> "Yes?", "Indeed.", "Interesting.", "Huh?", "But why?"
 "Ja" -> "Ja?", "In der Tat.", "Interessant.", "Huh?", "Aber wieso?"

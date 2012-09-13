@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -28,6 +28,7 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.skill")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.baldo_proudtoe", package.seeall)
 
@@ -54,6 +55,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Ah, hello and welcome to my garden.");
 talkEntry:addResponse("Do not stomp on the flowers, will you? You came here to help me, right?");
 talkEntry:addResponse("Oh, hiho! I was lost in thoughts - my garden is so beautiful that one tends to forget about the rest of this cruel world.");
@@ -63,11 +65,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Ah, hallo, willkommen in meinem Garten.");
 talkEntry:addResponse("Trampelt bitte nicht auf den Blumen herum, danke. Ihr seid hier um mir zu helfen, richtig?");
 talkEntry:addResponse("Oh, hiho! Ich muss geträumt haben, mein Garten ist so schön, dass man leicht mal die grausame Welt da draußen vergisst.");
@@ -75,11 +80,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Ah, hello and welcome to my garden.");
 talkEntry:addResponse("Do not stomp on the flowers, will you? You came here to help me, right?");
 talkEntry:addResponse("Oh, hiho! I was lost in thoughts - my garden is so beautiful that one tends to forget about the rest of this cruel world.");
@@ -120,11 +125,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Have a nice day! And do not stomp on any flowers.");
 talkEntry:addResponse("You are always welcome in my garden... so will you come back?");
 talkEntry:addResponse("Oh, you have to leave? That's sad! I don't get visitors here that often.");
@@ -185,368 +190,368 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Runewick Gardens I"));
-talkEntry:addResponse("Ah, you want to help me? Look, I'd like to plant some apple trees in my garden. But for that, I need apple seeds. So, please, bring me ten apples!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Gärten von Runewick I"));
-talkEntry:addResponse("Ah, ihr wollt mir also helfen? Ich würde gerne einige Apfelbäume in meinem Garten pflanzen. Aber dafür brauche ich Apfelsamen. Also bringt mir doch bitte zehn Äpfel!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Runewick Gardens I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 1));
+talkEntry:addResponse("Ah, you want to help me? Look, I'd like to plant some apple trees in my garden. But for that, I need apple seeds. So, please, bring me ten apples!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Gärten von Runewick I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 1));
+talkEntry:addResponse("Ah, ihr wollt mir also helfen? Ich würde gerne einige Apfelbäume in meinem Garten pflanzen. Aber dafür brauche ich Apfelsamen. Also bringt mir doch bitte zehn Äpfel!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Runewick Gardens I"));
-talkEntry:addResponse("Ah, you want to help me? Look, I'd like to plant some apple trees in my garden. But for that, I need apple seeds. So, please, bring me ten apples!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 1));
+talkEntry:addResponse("Ah, you want to help me? Look, I'd like to plant some apple trees in my garden. But for that, I need apple seeds. So, please, bring me ten apples!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Gärten von Runewick I"));
-talkEntry:addResponse("Ah, ihr wollt mir also helfen? Ich würde gerne einige Apfelbäume in meinem Garten pflanzen. Aber dafür brauche ich Apfelsamen. Also bringt mir doch bitte zehn Äpfel!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 1));
+talkEntry:addResponse("Ah, ihr wollt mir also helfen? Ich würde gerne einige Apfelbäume in meinem Garten pflanzen. Aber dafür brauche ich Apfelsamen. Also bringt mir doch bitte zehn Äpfel!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a goblet with cider. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("How marvellous! Now I can plant new friends for me. You know, I love cider, it makes me forget... Have one goblet with me!");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(1844, 1, 699, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(1844, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addResponse("How marvellous! Now I can plant new friends for me. You know, I love cider, it makes me forget... Have one goblet with me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Krug Cidre. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Wie wunderbar! Jetzt kann ich mir neue Freunde pflanzen. Wisst ihr, ich liebe Cidre, er hilft mir zu vergessen... Hebt einen Krug mit mir!");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(1844, 1, 699, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(1844, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addResponse("Wie wunderbar! Jetzt kann ich mir neue Freunde pflanzen. Wisst ihr, ich liebe Cidre, er hilft mir zu vergessen... Hebt einen Krug mit mir!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a goblet with cider."));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(1844, 1, 699, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 2));
 talkEntry:addResponse("How marvellous! Now I can plant new friends for me. You know, I love cider, it makes me forget... Have one goblet with me!");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(1844, 1, 699, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 9, nil));
+talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Krug Cidre."));
-talkEntry:addResponse("Wie wunderbar! Jetzt kann ich mir neue Freunde pflanzen. Wisst ihr, ich liebe Cidre, er hilft mir zu vergessen... Hebt einen Krug mit mir!");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(1844, 1, 699, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(1844, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 2));
+talkEntry:addResponse("Wie wunderbar! Jetzt kann ich mir neue Freunde pflanzen. Wisst ihr, ich liebe Cidre, er hilft mir zu vergessen... Hebt einen Krug mit mir!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addResponse("Some new trees would be so fine, please, get me ten apples so I can plant new friends for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 1));
 talkEntry:addResponse("Ein paar neue Bäume wären so fein, bitte, holt mir zehn Äpfel, damit ich mir neue Freund pflanzen kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 1));
 talkEntry:addResponse("Some new trees would be so fine, please, get me ten apples so I can plant new friends for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addTrigger("Befehl");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 1));
 talkEntry:addResponse("Ein paar neue Bäume wären so fein, bitte, holt mir zehn Äpfel, damit ich mir neue Freund pflanzen kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Runewick Gardens II"));
-talkEntry:addResponse("I am honest: I enjoy sweet fruits once in a whiles. Makes me feel... alive. Could you bring me ten grapes? That'd be so nice!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Gärten von Runewick II"));
-talkEntry:addResponse("Ich bin ganz offen: Ich nasche gerne süße Früchte. Dann fühl ich mich irgendwie lebendig. Könntet ihr mir zehn Trauben bringen? Das wäre so nett!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Runewick Gardens II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 3));
+talkEntry:addResponse("I am honest: I enjoy sweet fruits once in a whiles. Makes me feel... alive. Could you bring me ten grapes? That'd be so nice!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Gärten von Runewick II"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 3));
+talkEntry:addResponse("Ich bin ganz offen: Ich nasche gerne süße Früchte. Dann fühl ich mich irgendwie lebendig. Könntet ihr mir zehn Trauben bringen? Das wäre so nett!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Runewick Gardens II"));
-talkEntry:addResponse("I am honest: I enjoy sweet fruits once in a whiles. Makes me feel... alive. Could you bring me ten grapes? That'd be so nice!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 3));
+talkEntry:addResponse("I am honest: I enjoy sweet fruits once in a whiles. Makes me feel... alive. Could you bring me ten grapes? That'd be so nice!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Gärten von Runewick II"));
-talkEntry:addResponse("Ich bin ganz offen: Ich nasche gerne süße Früchte. Dann fühl ich mich irgendwie lebendig. Könntet ihr mir zehn Trauben bringen? Das wäre so nett!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 3));
+talkEntry:addResponse("Ich bin ganz offen: Ich nasche gerne süße Früchte. Dann fühl ich mich irgendwie lebendig. Könntet ihr mir zehn Trauben bringen? Das wäre so nett!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded twenty coppercoins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while. And this time, I can share my joy!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addResponse("Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while. And this time, I can share my joy!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded twenty coppercoins. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while. And this time, I can share my joy!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addResponse("Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while. And this time, I can share my joy!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke und deine Ackerbaufähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Lecker, lecker, lecker! Ihr macht mich froh, wirklich! So hab ich mich schon lange nicht mehr gefühlt und diesmal ist sogar jemand da, mit dem ich meine Freude teilen kann!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addResponse("Lecker, lecker, lecker! Ihr macht mich froh, wirklich! So hab ich mich schon lange nicht mehr gefühlt und diesmal ist sogar jemand da, mit dem ich meine Freude teilen kann!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Lecker, lecker, lecker! Ihr macht mich froh, wirklich! So hab ich mich schon lange nicht mehr gefühlt und diesmal ist sogar jemand da, mit dem ich meine Freude teilen kann!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addResponse("Lecker, lecker, lecker! Ihr macht mich froh, wirklich! So hab ich mich schon lange nicht mehr gefühlt und diesmal ist sogar jemand da, mit dem ich meine Freude teilen kann!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded twenty coppercoins and your peasantry skill increases."));
-talkEntry:addResponse("Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while. And this time, I can share my joy!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded twenty coppercoins."));
 talkEntry:addResponse("Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while. And this time, I can share my joy!");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded twenty coppercoins."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
+talkEntry:addResponse("Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while. And this time, I can share my joy!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.skill.skill(2, "peasantry", "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9, nil));
+talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke und deine Ackerbaufähigkeit steigt."));
-talkEntry:addResponse("Lecker, lecker, lecker! Ihr macht mich froh, wirklich! So hab ich mich schon lange nicht mehr gefühlt und diesmal ist sogar jemand da, mit dem ich meine Freude teilen kann!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke."));
 talkEntry:addResponse("Lecker, lecker, lecker! Ihr macht mich froh, wirklich! So hab ich mich schon lange nicht mehr gefühlt und diesmal ist sogar jemand da, mit dem ich meine Freude teilen kann!");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(388, "all", ">", 9, nil));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
+talkEntry:addResponse("Lecker, lecker, lecker! Ihr macht mich froh, wirklich! So hab ich mich schon lange nicht mehr gefühlt und diesmal ist sogar jemand da, mit dem ich meine Freude teilen kann!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Please, I do not enjoy many things in life anymore, but some grapes could really relieve my heart.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
 talkEntry:addResponse("Bitte, es gibt nicht mehr viele Dinge im Leben, die mich erfreuen. Einige Trauben könnten mich jetzt echt erheitern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
 talkEntry:addResponse("Please, I do not enjoy many things in life anymore, but some grapes could really relieve my heart.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 3));
 talkEntry:addResponse("Bitte, es gibt nicht mehr viele Dinge im Leben, die mich erfreuen. Einige Trauben könnten mich jetzt echt erheitern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addResponse("You can help me by... staying. Stay a little longer, that's all I ask for. Please!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 4));
 talkEntry:addResponse("Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 4));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 4));
 talkEntry:addResponse("You can help me by... staying. Stay a little longer, that's all I ask for. Please!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 4));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addCondition(npc.base.condition.quest.quest(118, "=", 4));
 talkEntry:addResponse("Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -564,8 +569,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("I am the gardener here, can't you see? Oh, sorry, I didn't mean to be rude.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -577,9 +582,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Sorry, what did you say?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -681,9 +686,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("The archmage is my friend! He talked to me years ago about my garden, but I still feel that he thinks about me from time to time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -696,8 +701,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Runewick is a nice place to be. But some of its citizens are so... snobby!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -709,10 +714,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Who's that? Tell me more about this person.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -726,8 +731,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Ich weiß absolut nichts über Galmair, außer, dass es weit weg ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -751,9 +756,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Queen Rosaline is a witch! Hear what I say: A witch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -766,8 +771,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Cadomyr, that is arid and dry land. Who would like to settle there!?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -779,8 +784,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("albar");
 talkEntry:addResponse("One day, I'll move to Albar I guess. Maybe I'll get some more attention there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -792,9 +797,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I do not know anything about Gynk, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -807,8 +812,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("I heard they have nice gardens in Salkamar. But that is all I heard; people do not talk much to me these days.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -833,8 +838,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Adron");
 talkEntry:addResponse("Oh yes, hehe, I really adore Adron. You got me. But you'd drink a little wine or more either, being as lonely as me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -846,8 +851,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("I guess without Oldra and her wonders, I'd have gone insane by now. Beholding the plants grow compensates for my sorrows.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -859,9 +864,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Tanora sends the rain, so I should thank her from time to time. But not too often, hihi.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -874,8 +879,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ushara");
 talkEntry:addResponse("Ushara, did you know that some call her Ushi, hihi? Actually, I respect the Five elder gods, but I do not really know whether they care for me or not.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -891,7 +896,8 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I am just the gardener here. If you want to trade things, go to the market place of Runewick.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I am just the gardener here. If you want tothings, go to the market place of Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -918,9 +924,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Baldo");
 talkEntry:addTrigger("Proudtoe");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Us Proudtoes are very proud of our toes!");
 talkEntry:addResponse("An ancestor of mine had a very big toe. Thus, my family has the name Proudtoe!");
 talkEntry:addResponse("I'm not proud of what I am or do - but I am proud of my toes!");
@@ -969,8 +975,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Samwise");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Samwise");
 talkEntry:addResponse("How comes everyone asks me about a 'Samwise'?");
 talkEntry:addResponse("My name is not 'Samwise'! Who is that, anyway?");
 talkEntry:addResponse("Pardon me? 'Samwise', who's that? ");

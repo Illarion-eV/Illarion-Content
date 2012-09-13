@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 03, 2012                       easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Severus Rabon"
@@ -76,11 +76,11 @@ buySecondaryItems = 1908, 1909, 2055, 2056, 2057, 2058, 2059, 518, 517, 2923, 29
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Please talk to my daughter. She will seat you and then I will take your order.", "If you're a regular please seat yourself. My tavern is your home.", "If I may be of service I would recommend the stew. It's our signature dish."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Redet doch bitte mit meiner Tochter. Sie wird euch einen Platz zeigen und ich nehme dann eure Bestellung entgegen.", "Als Stammgast dürft ihr euch natürlich einen Platz aussuchen. Fühlt euch wie zuhause.", "Wenn ich euch etwas empfehlen dürfte, der Eintopf ist heute vorzüglich. Er ist das Stammessen hier."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Please talk to my daughter. She will seat you and then I will take your order.", "If you're a regular please seat yourself. My business is your home.", "If I may be of service I would recommend the stew. It's our signature dish."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Please talk to my daughter. She will seat you and then I will take your order.", "If you're a regular please seat yourself. My business is your home.", "If I may be of service I would recommend the stew. It's our signature dish."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Redet doch bitte mit meiner Tochter. Sie wird euch einen Platz zeigen und ich nehme dann eure Bestellung entgegen.", "Als Stammgast dürft ihr euch natürlich einen Platz aussuchen. Fühlt euch wie zuhause.", "Wenn ich euch etwas empfehlen dürfte, der Eintopf ist heute vorzüglich. Er ist das Stammessen hier."
 "Farewell", "Bye", "Fare well", "See you" -> "Thank you, please come again.", "I would be most grateful if you would bless this institution with your presence once more.", "I hope you enjoyed your meal. Remember you can come back any time. The food is good here and the prices are so low the homeless can afford to it."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Danke, kommt doch gerne wieder.", "Ich wäre euch zu Dank verpflichtet, wenn ihr dieser Einrichtung erneut mit eurer Anwesenheit erfreuen würdet.", "Ich hoffe, es hat geschmeckt. Denkt daran, ihr seid hier immer willkommen. Das Essen ist lecker und die Preise können sich selbst Obdachlose leisten."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Thank you please come again.", "I would be most grateful if you would bless this institution with your presence once more.", "I hope you enjoyed your meal. Remember you can come back any time. The food is good here and the prices are so low the homeless can afford to it."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you please come again.", "I would be most grateful if you would bless this institution with your presence once more.", "I hope you enjoyed your meal. Remember you can come back any time. The food is good here and the prices are so low the homeless can afford to it."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Danke, kommt doch gerne wieder.", "Ich wäre euch zu Dank verpflichtet, wenn ihr dieser Einrichtung erneut mit eurer Anwesenheit erfreuen würdet.", "Ich hoffe, es hat geschmeckt. Denkt daran, ihr seid hier immer willkommen. Das Essen ist lecker und die Preise können sich selbst Obdachlose leisten."
 "How are you", "How feel" -> "I wish Linda would take a break more often. She looks so tired.", "I feel Linda is working too hard. Maybe I should hire an extra hostess.", "May I take your order?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich wünschte, Linda würde öfter mal eine Pause machen. Sie sieht so müde aus.", "Linda arbeitet eindach zu hart. Ich sollte noch eine Kellnerin einstellen.", "Ihre Bestellung, bitte?"
@@ -88,39 +88,39 @@ buySecondaryItems = 1908, 1909, 2055, 2056, 2057, 2058, 2059, 518, 517, 2923, 29
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Severus Rabon, Vater und Tavernenbesitzer.", "Ich bin Severus Rabon, Vater von Cadomyrs berühmtester Köchin, Linda Rabon.", "Ich bin Severus. Dies hier ist meine Tavern, der Einhörnige Löwe. Ich und meine Frau haben sie aus dem Nichts aufgebaut, sie ist unsere Heimat. Setzt euch, esst was und werdet Teil der Familie."
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Your order, please?", "What can I serve you today?", "Yes?", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ihre Bestellung, bitte.", "Was kann ich ihnen bringen?", "Jawohl?", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Your order, please?", "What can I serve you today?", "Yes?"
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ihre Bestellung, bitte.", "Was kann ich ihnen bringen?", "Jawohl?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I own this place here. So what would I call myself? Bartender, waiter? I don't know, just call me Severus.", "Right now I am the waiter and I used to be the cook, but my beautiful and talented daughter has been given a gift from the gods. She is now the cook."
 "beruf" -> "Mir gehört diese Taverne. Was bin ich also - ein Barmann, ein Ober? Eigentlich auch egal, nennt mich Severus.", "Ich bin hier der Ober, ich war auch mal der Koch, aber meine schöne und talentierte Tochter ist von den Göttern gesegnet. Sie ist nun die Köchin."
-"job", english -> "I own this place here. So what would I call myself. Bartender, waiter? I don't know, just call me Severus.", "Right now I am the waiter and I used to be the cook, but my beautiful and talented daughter has been given a gift from the gods. She is now the cook."
+english, "job" -> "I own this place here. So what would I call myself. Bartender, waiter? I don't know, just call me Severus.", "Right now I am the waiter and I used to be the cook, but my beautiful and talented daughter has been given a gift from the gods. She is now the cook."
 "job" -> "Mir gehört diese Taverne. Was bin ich also - ein Barmann, ein Ober? Eigentlich auch egal, nennt mich Severus.", "Ich bin hier der Ober, ich war auch mal der Koch, aber meine schöne und talentierte Tochter ist von den Göttern gesegnet. Sie ist nun die Köchin."
 "Lion", "Unicorn" -> "It started out as a stand. I only sold stew back then. After I got married I opened up this place. Now it is run by me and my beautiful daughter alone..."
 "Löwe", "Einhorn", "Einhörnig" -> "All dies hat mal als kleiner Markstand angefangen, damals gab es nur Eintopf. Nach meiner Hochzeit habe ich diese Taverne eröffnet. Nun führen sie nur noch meine schöne Tochter und ich..."
 "Daughter" -> "Linda is all that remains for me. After my wife passed away, I realised that Rose continues to life through Linda."
 "Tochter" -> "Linda ist alles, was mir geblieben ist. Nachdem meine Frau gestorben war, habe ich realisiert, dass sie durch Linda weiterlebt."
-"Linda", english -> "Linda is all that remains for me. After my wife passed away, I realised that Rose continues to life through Linda."
+english, "Linda" -> "Linda is all that remains for me. After my wife passed away, I realised that Rose continues to life through Linda."
 "Linda" -> "Linda ist alles, was mir geblieben ist. Nachdem meine Frau gestorben war, habe ich realisiert, dass sie durch Linda weiterlebt."
 "wife" -> "She went from wife, to lover to part of my soul. My wife Rose is no more, but I have my daughter Linda."
 "Frau" -> "Aus einer Ehefrau wurde eine Geliebte und aus ihr ein Teil meiner Seele. Meine Frau Rose ist nicht mehr, aber ich habe ja meine Tochter Linda."
-"Rose", english -> "She went from wife, to lover to part of my soul. My wife Rose is no more, but I have my daughter Linda."
+english, "Rose" -> "She went from wife, to lover to part of my soul. My wife Rose is no more, but I have my daughter Linda."
 "Rose" -> "Aus einer Ehefrau wurde eine Geliebte und aus ihr ein Teil meiner Seele. Meine Frau Rose ist nicht mehr, aber ich habe ja meine Tochter Linda."
-"Hassan", english -> "This fellow brings life to this place. He's so quiet himself though. Maybe he will open up someday.", "Hassan is too nice. Too nice to be a fan waiver. He's big though, and each of us have our place."
+english, "Hassan" -> "This fellow brings life to this place. He's so quiet himself though. Maybe he will open up someday.", "Hassan is too nice. Too nice to be a fan waiver. He's big though, and each of us have our place."
 "Hassan" -> "Der Kerl bring Leben in die Bude. Er ist zwar etwas schweigsam, aber vielleicht öffnet er sich ja doch noch.", "Hassan ist wirklich nett. Eigentlich viel zu nett, um ein Fächelwedler zu sein. Er ist recht groß und wir alle haben unsere Bestimmung."
 "Queen" -> "I await the day when the queen graces our tavern with a visit."
 "Königin" -> "Ich kann es kaum erwarten, dass die Königin meiner Taverne ihre Anwesenheit schenkt und ihr einen Besuch abstattet."
-"rosaline", "edwards", english -> "I await the day when the queen graces our tavern with a visit."
+english, "rosaline", "edwards" -> "I await the day when the queen graces our tavern with a visit."
 "rosaline", "edwards" -> "Ich kann es kaum erwarten, dass die Königin meiner Taverne ihre Anwesenheit schenkt und ihr einen Besuch abstattet."
 
 -- Main land factions
-"albar", english -> "Haha. I guess since I'm a business man now, I should look at things like maps. Someday."
+english, "albar" -> "Haha. I guess since I'm a business man now, I should look at things like maps. Someday."
 "albar" -> "Haha, nun, da ich ein Geschäftsmann bin, sollte ich wohl mal auf sowas wie Landkarten gucken. Oder auch nicht."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "gods" -> "Irmorom. I respect Irmorom, only."
 "Götter", "Gott" -> "Irmorom. Ich ehre nur Irmorom."
-"Irmorom", english -> "He's the only one that ever cared about me. I give him ten percent of my all the money I make."
+english, "Irmorom" -> "He's the only one that ever cared about me. I give him ten percent of my all the money I make."
 "Irmorom" -> "Er ist der einzige, der sich um mich scherte. Daher gebe ich ihm zehn Prozent aller Einnahmen."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
@@ -128,7 +128,7 @@ buySecondaryItems = 1908, 1909, 2055, 2056, 2057, 2058, 2059, 518, 517, 2923, 29
 "Geheimnis" -> "Ich bin nur ein einfacher Mann und habe keine Geheimnisse."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Severus", "Rabon", english -> "Oh, do you need something?", "That is me.", "Hello. I am Severus Rabon. I would be glad to help you with anything that you need."
+english, "Severus", "Rabon" -> "Oh, do you need something?", "That is me.", "Hello. I am Severus Rabon. I would be glad to help you with anything that you need."
 "Severus", "Rabon" -> "Oh, braucht ihr etwas?", "Das bin ich.", "Hallo. Ich bin Severus Rabon. Ich bin euch gerne behilflich, wenn ihr etwas benötigt."
 "Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait, what?"
 "Ja" -> "Hab ich was gesagt?", "Ich glaube nicht, dass ich recht verstehe, um was es geht.", "Wie bitte?"
@@ -136,8 +136,8 @@ buySecondaryItems = 1908, 1909, 2055, 2056, 2057, 2058, 2059, 518, 517, 2923, 29
 "Nein" -> "Hab ich was gesagt?", "Ich glaube nicht, dass ich recht verstehe, um was es geht.", "Wie bitte?"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "This discussion is not relevant to me.", "Maybe talk about something like adventures or missions. People respond well to those words.", "I have no intention of buying your chicken."
-".*", german, chance(20.0) -> "Irgendwie interessiert mich das nicht.", "Redet doch über Aufgaben oder Abenteuer. Die Leute reden gerne über sowas.", "Ich kaufe keine Hühner."
+english, chance(20.0), ".*" -> "This discussion is not relevant to me.", "Maybe talk about something like adventures or missions. People respond well to those words.", "I have no intention of buying your chicken."
+german, chance(20.0), ".*" -> "Irgendwie interessiert mich das nicht.", "Redet doch über Aufgaben oder Abenteuer. Die Leute reden gerne über sowas.", "Ich kaufe keine Hühner."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -148,13 +148,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     --SourceItem.data = 1;
 
 	Init();
-	if SourceItem.data==3 then --blay's testitem
-		User:setAttrib("willpower", 30);
-		User:setAttrib("essence", 30);
-		User:setAttrib("intelligence", 30);
-		return;
-	end
-	
 	
 	local TargetItem = base.common.GetTargetItem(User, SourceItem);
 	if not TargetItem then
@@ -205,7 +198,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             end
         end
 		if (string.find(User.lastSpokenText,"field")~=nil) then
-			UseItemWighField(User, SourceItem, User.pos, Counter, Param);
+			UseItemWithField(User, SourceItem, User.pos, Counter, Param);
 		end
 		if (string.find(User.lastSpokenText,"count (%d+)")~=nil) then
 			a,b,countID=string.find(User.lastSpokenText,"count (%d+)");

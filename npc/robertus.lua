@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -20,6 +20,7 @@ require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.robertus", package.seeall)
 
@@ -46,6 +47,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.");
 talkEntry:addResponse("Welcome, stranger. Do you have any building material for me?");
 talkEntry:addResponse("Be greeted, in the name of the queen.");
@@ -55,11 +57,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Ah, ihr müßt der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.");
 talkEntry:addResponse("Willkommen, Fremdling. Habt ihr Baumaterial für mich?");
 talkEntry:addResponse("Seid im Namen der Königin gegrüßt.");
@@ -67,11 +72,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.");
 talkEntry:addResponse("Welcome, stranger. Do you have any building material for me?");
 talkEntry:addResponse("Be greeted, in the name of the queen.");
@@ -113,10 +118,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Farewell.");
 talkEntry:addResponse("Good bye.");
 talkEntry:addResponse("Until next time.");
@@ -175,57 +180,58 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
 talkEntry:addTrigger("message");
 talkEntry:addTrigger("news");
 talkEntry:addTrigger("letter");
 talkEntry:addTrigger("scroll");
 talkEntry:addTrigger("parchment");
-talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
-talkEntry:addResponse("Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkEntry:addResponse("Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
 talkEntry:addTrigger("nachricht");
 talkEntry:addTrigger("brief");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Schriftrolle");
 talkEntry:addTrigger("Pergament");
-talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
-talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hector");
-talkEntry:addTrigger("Valerion");
 talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
-talkEntry:addResponse("Oh, my majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hector");
 talkEntry:addTrigger("Valerion");
-talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
-talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkEntry:addResponse("Oh, my majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
+talkEntry:addTrigger("Hector");
+talkEntry:addTrigger("Valerion");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -239,7 +245,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me.");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -247,6 +255,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -268,8 +277,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("I am Robertus, the royal builder. The queen relies on me to build her a grave that will last for ages.");
 talkEntry:addResponse("Construction is my business. Behold the tavern: My work for the queen. I am not proud of it, but proud to serve queen Rosaline.");
 talkEntry:addResponse("I am the builder of Cadomyr.");
@@ -285,8 +294,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Gobaith");
 talkEntry:addResponse("I never heard of this place before. Cadomyr is my home and I do everything to make it prosper.");
 talkEntry:addResponse("Bless you.");
 talkEntry:addResponse("Pardon me?");
@@ -383,8 +392,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("pyramid");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("pyramid");
 talkEntry:addResponse("A pyramide as grave? Who would do such a folish thing?");
 talkEntry:addResponse("The queen prefers a cube, but the drawing is not done yet.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -398,8 +407,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hastings");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("hastings");
 talkEntry:addResponse("Baron Hastings? A traitor, he is, indeed!");
 talkEntry:addResponse("The head of the baron will soon throne on a pike!");
 talkEntry:addResponse("A bastard, he is, the baron Hastings! The queen will judge him.");
@@ -427,8 +436,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tavern");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("tavern");
 talkEntry:addResponse("I build the tavern; well, I commanded the workers, sometimes, with the whip.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -470,9 +479,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Archmage Morgan, he calls himself. He's a bastard of impure blood.");
 talkEntry:addResponse("He hides in his chamber, pretending to study. I assume he tends his whores there!");
 talkEntry:addResponse("An arrogant person, he is. Never trust a mage, I say.");
@@ -489,8 +498,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("A wicked place! Witches and conjurers dwell there.");
 talkEntry:addResponse("Runewick is a place of pure lameness and boredom... until the magicians are on the prowl.");
 talkEntry:addResponse("One should burn down Runewick better today than tomorrow. I think all those books burn quite well.");
@@ -506,10 +515,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("One thing Don Guilianni is capable of: He knows how to control his minions.");
 talkEntry:addResponse("Don Guilianni is a coward. But that is not a wonder, a son of a whore he is.");
 talkEntry:addResponse("I bet five copper the Don will be stabbed by one of his own men one day.");
@@ -527,8 +536,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("A pool of sins! Galmair knows no law, no habits, no customs!");
 talkEntry:addResponse("Galmair... never venture there alone, please. You might find a dagger in your back even before you enter the town.");
 talkEntry:addResponse("Galmair cannot be fixed. A lost case.");
@@ -560,9 +569,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("My queen. Speak her name with glee!");
 talkEntry:addResponse("One bad word about her majesty and you will find your tongue nailed on the gate of the palace.");
 talkEntry:addResponse("Hail queen Rosaline Edwards of Cadomyr!");
@@ -579,8 +588,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Cadomyr is my home, my everything. And all of us must work together to make it prosper under the guidance of our queen.");
 talkEntry:addResponse("Cadomyr rules!");
 talkEntry:addResponse("I swore an oath and I hope you will also do anything to serve Cadomyr and queen Rosaline.");
@@ -596,8 +605,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("albar");
 talkEntry:addResponse("We remember our roots, our ancestors. Cadomyr stands alone, but this is not a reason to forget about the old customs.");
 talkEntry:addResponse("Albar... ages ago, the people of Cadomyr set out from Albar.");
 talkEntry:addResponse("I wish I could visit an albarian slave market. There is so much work that need to be done.");
@@ -613,9 +622,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me spits on the ground.");
 talkEntry:addResponse("Gync?! A pool of sins! No habits! Just like Galmair... Coincidence?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -630,8 +639,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("#me laughs out loud.");
 talkEntry:addResponse("Salkablabla - all they do is talk. Changes need actions, they'll never understand.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -658,8 +667,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Irmorom shall protect us from any accidents during the construction.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -671,8 +680,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cherga");
 talkEntry:addResponse("I'll never let Cherga take away our queen. If she departs from this world, I will follow.");
 talkEntry:addResponse("I do not fear Cherga. I will meet Cherga, side by side with the queen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -690,8 +699,10 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I trade building materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.");
-talkEntry:addResponse("Bricks, stone blocks, marble... I trade all the workers need.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Ibuilding materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.");
+talkEntry:addResponse("Bricks, stone blocks, marble... Iall the workers need.");
 talkEntry:addResponse("I can sell you the tools you need to serve the queen. On, on!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -802,8 +813,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Robertus");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Robertus");
 talkEntry:addResponse("Indeed, I am Robertus, the royal builder. And no, I don't have a nickname.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

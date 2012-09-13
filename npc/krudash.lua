@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -20,6 +20,7 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.state")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.krudash", package.seeall)
 
@@ -30,16 +31,16 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: Murgo, Er'hja, Kroch'Gurak, Alice, Tom"));
-talkEntry:addResponse("Me, Krudash sell and buy lots of stuff! Taghta?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Me, Krudash sell and buy lots of stuff! Taghta?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: Murgo, Er'hja, Kroch'Gurak, Alice, Tom"));
-talkEntry:addResponse("Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -50,6 +51,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Greebas. Do you need sumthing?");
 talkEntry:addResponse("Hurr! Be greeted.");
 talkEntry:addResponse("Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!");
@@ -60,11 +62,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Greebas. Brauchst du was, hä?");
 talkEntry:addResponse("Hurr! Sei gegrüßt.");
 talkEntry:addResponse("Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!");
@@ -74,11 +79,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Greebas. Do you need sumthing?");
 talkEntry:addResponse("Hurr! Be greeted.");
 talkEntry:addResponse("Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!");
@@ -120,11 +125,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Farebas. Have a good sackin'!");
 talkEntry:addResponse("Slàn leibhslàn! - Would say the orcs tounge. Tagtha?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -179,10 +184,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I trade... and my snagas do all the work. So there is nothing for a maggot like you to do!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I... and my snagas do all the work. So there is nothing for a maggot like you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -196,7 +202,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("I trade... and my snagas do all the work. So there is nothing for a maggot like you to do!");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I... and my snagas do all the work. So there is nothing for a maggot like you to do!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -204,6 +212,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Ich handle... und meine Snagas machen alle Arbeit. Also gibt's nix zu tun für ne Made wie dich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -221,8 +230,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("I'm the arms dealer in this town! And all those Snagas follow my command! Groch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -234,9 +243,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hrmpf! What else is there to say?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -261,8 +270,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("murgo");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("murgo");
 talkEntry:addResponse("#me grunts. 'Murgo is my husband. And he does what his wife command! Hrâch!'");
 talkEntry:addResponse("Ch-h! Where's my husband, huh? For sure, he got another one of his nutty ideas! He's like a big rock, mes say. Jûk, difficult to move, but if it's rolling noone is able to stop it.");
 talkEntry:addResponse("Hurr! Murgo is a good husband. He care much about the orclings and be strong warrior.");
@@ -280,10 +289,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("er hja");
 talkEntry:addTrigger("erhja");
 talkEntry:addTrigger("er'hja");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Oh-h! Er'hja will be my little orcling forever. *grunts happily* Yes, she's fiendishly clever. I will be her proud mommy forever!");
 talkEntry:addResponse("#me nods. 'Tagtha. Er'hja is my daughter. - She have a sister also, yes. Ol'hja, strangers get them mixed up.'");
 talkEntry:addResponse("#me laughs hoarsely. 'Ha-hr. Orclings like Er'hja 'nd Ol'hja cause much trouble for their mommies and daddies...'");
@@ -301,9 +310,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("ali[czs]");
 talkEntry:addTrigger("ali[czs]e");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Gâsh! Aliz' this weepy flimsy snaga! She complained again, huh? Listen! She's Krudash dirty Snaga, that for she has to follow Krudash's orders. And I'm Krudash!");
 talkEntry:addResponse("Don't worry about the girl. She isn't worth it. She has to become strong and proud, do a good job. Ye-hs. But shes just going around crying like the puniest orclings...");
 talkEntry:addResponse("I bought her for a few coins. Wasn't much money, no. But now she's sniveling and doesn't do a good job.");
@@ -336,11 +345,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("tom");
 talkEntry:addTrigger("berry");
 talkEntry:addTrigger("thomas");
 talkEntry:addTrigger("berryard");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Ha-ha! I caught this puny loudmouth on my own. Now he has to work, although he's not happy about it. Thomas Berryard is my snaga now!");
 talkEntry:addResponse("#me smashes her fist upon the table angrily. 'Scheschnak! This sneaky dirty swine Berryar'! Once he tried to mix broken glass into my food.'");
 talkEntry:addResponse("Choar! This seedy halfer escaped one day and got lost in the mountains. Now 'e hab to batter stones.");
@@ -361,10 +370,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("ol hja");
 talkEntry:addTrigger("olhja");
 talkEntry:addTrigger("ol'hja");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hurr, its difficult to get good job. But Ol'hja became a scout. For a band of mercenaries. Kj'at, thats a good job for an orc!");
 talkEntry:addResponse("Tagtha, have you met Ol'hja recently? She's a good orc, isn't she? All men want to become her husband, but she's very stubborn. A pighead, like a donkey! But her mommy is very proud, yes I am. Yes.");
 talkEntry:addResponse("Me Krudash isn't very skillful in the wild far away from town. Where would a gynkesh learn it, anyway? Ol'hja was taught by Mo'rurt, he 's a great hunter. I would bet the best. Taghta?");
@@ -382,10 +391,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("kroch");
 talkEntry:addTrigger("Gurak");
 talkEntry:addTrigger("Kroch'Gurak");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Kroch'Gurak isn't a town, actually. No. But in winter, uncounted orc tribes wander there. Then the whole west Norbuk Plateau lives in the giant Caves there. And there's pig hunting and wrestling.");
 talkEntry:addResponse("Mes dropped my daughters at isle Gobaith. And as soon as they were big enough, their father decided, they should live in Kroch'Gurak. So they were able to grow up among other orcs.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -401,8 +410,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("snaga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("snaga");
 talkEntry:addResponse("Snagas! Those are monkeys... - basically. And weak puny orcs who need to be told what to do! A mighty orc like me, Krudash has many Snagas. Gâsh! Not for nothing, I'm the smartest here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -414,9 +423,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("where com");
 talkEntry:addTrigger("krochgurak");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hrach. I come frome Khenserra. But most orcs come frome Kroch'gurak where the Clans camp in winter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -441,9 +450,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Pfft! Astute wizard... Runewick rat!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -456,8 +465,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Gnarh! Those are loathsome ...*grunt*... Scheschnaks! Maggots should eat their figgin!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -469,10 +478,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Glushdâsh! He is a damn dwarf! But he is good for business, yeah, yeah?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -486,8 +495,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Why!? Gol-gol! There's a rich orcess that does whatever she wants! And all snagas do what I say. Hurr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -511,9 +520,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hroar! I heard the queen's guards are nothing but monkeys wearing pants! Har!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -526,8 +535,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("If pigs walked on two legs... even the gods couldn't tell them apart from the Cadomyrs. Gosch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -539,8 +548,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("albar");
 talkEntry:addResponse("Hurr. There are lots of Snagas. But only the humanz are allowed to order those Snails. Grot.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -552,9 +561,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Apart from Kroch'Gurak, Gynk is the best place for people. *grunts*... Although the sun is hot there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -567,8 +576,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Scheschnaks. Those are all dirty scheschnak-monkeys. Gosch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -593,35 +602,35 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("moshran");
 talkEntry:addTrigger("god");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Gosh! Nub say tha name! Better talk to Shaman about tha fatha.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("moshran");
 talkEntry:addTrigger("god");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Gosh! Du niemals sagst diesen Namen! Besser fragen Schamane über Vatha.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("cherga");
 talkEntry:addTrigger("icy witch");
 talkEntry:addTrigger("eis Hex");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hurr. Tha icy witch, be god ob ancestors. Just ask Grimlug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("cherga");
 talkEntry:addTrigger("icy witch");
 talkEntry:addTrigger("eis Hex");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Hurr. Eisig Hexe, Gottin von Ahnen ist. Du fragst Grimlug!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -664,8 +673,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Krudash");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Krudash");
 talkEntry:addResponse("Hurr Hurr. Ciamar a'seibh! How goin?");
 talkEntry:addResponse("Hurr Hurr. Do you need an axe, huh?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -711,9 +720,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Taghta!");
 talkEntry:addResponse("Puny little Maggot.");
 talkEntry:addResponse("Uh-h?");
@@ -721,9 +730,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Taghta!");
 talkEntry:addResponse("Winzige kleine Made.");
 talkEntry:addResponse("Uh-h?");

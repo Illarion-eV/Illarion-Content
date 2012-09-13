@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Ruggero Bloom"
@@ -77,117 +77,117 @@ itemShoes = 53
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends.
 
 -- language: human, common
-".*", state = 5, english -> "#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want to see you again here!'", state = 6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
-".*", state = 5, german -> "#me schlägt dir seine Faust in den Magen. 'Hast du Käse zwischen den Ohren? Ich will dich hier nicht mehr sehn!'", state = 6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
-".*", state = 6, english -> "#me's face becomes red like a tomato and he gives you a proper beating.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
-".*", state = 6, german -> "#me läuft Rot an wie eine Tomate und verprügelt dich, wie's im Lehrbuch steht.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
+state = 5, english, ".*" -> state = 6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1, "#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want to see you again here!'"
+state = 5, german, ".*" -> state = 6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1, "#me schlägt dir seine Faust in den Magen. 'Hast du Käse zwischen den Ohren? Ich will dich hier nicht mehr sehn!'"
+state = 6, english, ".*" -> state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1, "#me's face becomes red like a tomato and he gives you a proper beating."
+state = 6, german, ".*" -> state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1, "#me läuft Rot an wie eine Tomate und verprügelt dich, wie's im Lehrbuch steht."
 
 -- shirtcheck +++ warpsprung hinter den NPC +++place a waptile behind him.
-"zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer", item(356, body) => 1, item(182, body) => 1 -> "Aye, du darfst vorbei, Kumpel!", state = 0
+item(356, body) => 1, item(182, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> state = 0, "Aye, du darfst vorbei, Kumpel!"
 
 -- Warp
-"quest", "job", "problem", item(356, body) => 1, item(182, body) => 1, german -> "Aye, du darfst vorbei, Kumpel!", state = 0
+item(356, body) => 1, item(182, body) => 1, german, "quest", "job", "problem" -> state = 0, "Aye, du darfst vorbei, Kumpel!"
 
 -- Warp
-"quest", "job", "problem", item(356, body) => 1, item(182, body) => 1, english -> "Aye, You may pass matee!", state = 0
+item(356, body) => 1, item(182, body) => 1, english, "quest", "job", "problem" -> state = 0, "Aye, You may pass matee!"
 
 -- Warp
-"open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn", item(356, body) => 1, item(182, body) => 1 -> "Aye, You may pass matee!", state = 0
+item(356, body) => 1, item(182, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> state = 0, "Aye, You may pass matee!"
 
 -- Warp
-"zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer", item(356, body) => 1, item(181, body) => 1 -> "Aye, du darfst vorbei, Kumpel!", state = 0
+item(356, body) => 1, item(181, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> state = 0, "Aye, du darfst vorbei, Kumpel!"
 
 -- Warp
-"quest", "job", "problem", item(356, body) => 1, item(181, body) => 1, german -> "Aye, du darfst vorbei, Kumpel!", state = 0
+item(356, body) => 1, item(181, body) => 1, german, "quest", "job", "problem" -> state = 0, "Aye, du darfst vorbei, Kumpel!"
 
 -- Warp
-"quest", "job", "problem", item(356, body) => 1, item(181, body) => 1, english -> "Aye, You may pass matee!", state = 0
+item(356, body) => 1, item(181, body) => 1, english, "quest", "job", "problem" -> state = 0, "Aye, You may pass matee!"
 
 -- Warp
-"open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn", item(356, body) => 1, item(181, body) => 1 -> "Aye, You may pass matee!", state = 0
+item(356, body) => 1, item(181, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> state = 0, "Aye, You may pass matee!"
 
 -- Warp
-"zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer", item(356, body) => 1, item(457, body) => 1 -> "Aye, du darfst vorbei, Kumpel!", state = 0
+item(356, body) => 1, item(457, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> state = 0, "Aye, du darfst vorbei, Kumpel!"
 
 -- Warp
-"quest", "job", "problem", item(356, body) => 1, item(457, body) => 1, german -> "Aye, du darfst vorbei, Kumpel!", state = 0
+item(356, body) => 1, item(457, body) => 1, german, "quest", "job", "problem" -> state = 0, "Aye, du darfst vorbei, Kumpel!"
 
 -- Warp
-"quest", "job", "problem", item(356, body) => 1, item(457, body) => 1, english -> "Aye, You may pass matee!", state = 0
+item(356, body) => 1, item(457, body) => 1, english, "quest", "job", "problem" -> state = 0, "Aye, You may pass matee!"
 
 -- Warp
-"open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn", item(356, body) => 1, item(457, body) => 1 -> "Aye, You may pass matee!", state = 0
+item(356, body) => 1, item(457, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> state = 0, "Aye, You may pass matee!"
 
 -- Warp
-"zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer", item(356, body) => 1, item(180, body) => 1 -> "Aye, du darfst vorbei, Kumpel!", state = 0
+item(356, body) => 1, item(180, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> state = 0, "Aye, du darfst vorbei, Kumpel!"
 
 -- Warp
-"quest", "job", "problem", item(356, body) => 1, item(180, body) => 1, german -> "Aye, du darfst vorbei, Kumpel!", state = 0
+item(356, body) => 1, item(180, body) => 1, german, "quest", "job", "problem" -> state = 0, "Aye, du darfst vorbei, Kumpel!"
 
 -- Warp
-"quest", "job", "problem", item(356, body) => 1, item(180, body) => 1, english -> "Aye, You may pass matee!", state = 0
+item(356, body) => 1, item(180, body) => 1, english, "quest", "job", "problem" -> state = 0, "Aye, You may pass matee!"
 
 -- Warp
-"open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn", item(356, body) => 1, item(180, body) => 1 -> "Aye, You may pass matee!", state = 0
+item(356, body) => 1, item(180, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> state = 0, "Aye, You may pass matee!"
 
 -- Warp
-"zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer", item(356, body) => 1, item(195, body) => 1 -> "Aye, du darfst vorbei, Kumpel!", state = 0
+item(356, body) => 1, item(195, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> state = 0, "Aye, du darfst vorbei, Kumpel!"
 
 -- Warp
-"quest", "job", "problem", item(356, body) => 1, item(195, body) => 1, german -> "Aye, du darfst vorbei, Kumpel!", state = 0
+item(356, body) => 1, item(195, body) => 1, german, "quest", "job", "problem" -> state = 0, "Aye, du darfst vorbei, Kumpel!"
 
 -- Warp
-"quest", "job", "problem", item(356, body) => 1, item(195, body) => 1, english -> "Aye, You may pass matee!", state = 0
+item(356, body) => 1, item(195, body) => 1, english, "quest", "job", "problem" -> state = 0, "Aye, You may pass matee!"
 
 -- Warp
-"open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn", item(356, body) => 1, item(195, body) => 1 -> "Aye, You may pass matee!", state = 0
+item(356, body) => 1, item(195, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> state = 0, "Aye, You may pass matee!"
 
 -- Warp
-"zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."), "Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel Trommel auf deinem Gesicht.", state + 1
-"quest", "job", "problem", german -> inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."), "Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel Trommel auf deinem Gesicht.", state + 1
-"quest", "job", "problem", english -> inform("Such a rude person. Be careful!"), "No entrance for people like you. Get out or I will use your face as a drum.", state + 1
-"open", "way", "entrance", "pas", "tobacco", "task", "adventure", "mission", "money", "earn" -> inform("Such a rude person. Be careful!"), "No entrance for people like you. Get out or I will use your face as a drum.", state + 1
+"zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."), state + 1, "Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel Trommel auf deinem Gesicht."
+german, "quest", "job", "problem" -> inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."), state + 1, "Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel Trommel auf deinem Gesicht."
+english, "quest", "job", "problem" -> inform("Such a rude person. Be careful!"), state + 1, "No entrance for people like you. Get out or I will use your face as a drum."
+"open", "way", "entrance", "pas", "tobacco", "task", "adventure", "mission", "money", "earn" -> inform("Such a rude person. Be careful!"), state + 1, "No entrance for people like you. Get out or I will use your face as a drum."
 
 -- generall
 "hallo", "gr[üue]+[sß]+e", "guten tag", "Gruß", "Seid gegrüßt", "Guten Abend", "Tach", "Moin", "Greb" -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
 "good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "Hey land lubber !", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hey land lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
+english, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Hey land lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
+german, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
 "wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin Ruggero Bloom. Bei meinen wankenden Masten!"
 "your name", "who are you", "who art thou" -> "I am Ruggero Bloom. Shiver me timbers!"
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Aye.", "Good wind."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Aye.", "Gut Wind."
-"Ciao", "Fareba", "Adieu", "Au revoir", english -> "Aye.", "Good wind."
-"Ciao", "Fareba", "Adieu", "Au revoir", german -> "Aye.", "Gut Wind."
+english, "Ciao", "Fareba", "Adieu", "Au revoir" -> "Aye.", "Good wind."
+german, "Ciao", "Fareba", "Adieu", "Au revoir" -> "Aye.", "Gut Wind."
 "How are you", "How feel", "How do you do" -> "No strangers passing."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Kein Fremder kommt an mir vorbei."
 "I am", "I'm" -> "Aye."
 "Ich bin" -> "Aye."
-"Tobis", "Vunu", german -> "Aye Tobis Vunu ist'n guter Kumpel von mir! Arr."
-"Tobis", "Vunu", english -> "Aye Tobis Vunu is my matee! Arr."
-"Piero", german -> "So ne Landratte! Wie ich se noch nie zuvor gesehn hab. Er ist Corporal von Cadomyr und versucht die Piratebay zu zerschlagen... seit Jahren. har-har."
-"Piero", english -> "I never saw such a land lubber.. He's Corporal of Cadomyr and has been trying to bash the pirate bay for years. Har-har."
+german, "Tobis", "Vunu" -> "Aye Tobis Vunu ist'n guter Kumpel von mir! Arr."
+english, "Tobis", "Vunu" -> "Aye Tobis Vunu is my matee! Arr."
+german, "Piero" -> "So ne Landratte! Wie ich se noch nie zuvor gesehn hab. Er ist Corporal von Cadomyr und versucht die Piratebay zu zerschlagen... seit Jahren. har-har."
+english, "Piero" -> "I never saw such a land lubber.. He's Corporal of Cadomyr and has been trying to bash the pirate bay for years. Har-har."
 
 -- Help
-"hilfe" -> "Helfen? Ich werd dir nich helfen. Verschwinde Leichtmatrose!", state = 0
-"helfen" -> "Helfen? ich werd dir nich helfen. Verschwinde Leichtmatrose!", state = 0
-"help" -> "Help? I won't help you. Get out, Jack!", state = 0
+"hilfe" -> state = 0, "Helfen? Ich werd dir nich helfen. Verschwinde Leichtmatrose!"
+"helfen" -> state = 0, "Helfen? ich werd dir nich helfen. Verschwinde Leichtmatrose!"
+"help" -> state = 0, "Help? I won't help you. Get out, Jack!"
 
 -- smalltalk
-"murgo", english -> "Not even Murgo's here to save you land lubber! Get out!", state + 1
-"murgo", german -> "Nich mal Murgo könnt dir hier helfen. Verschwinde!", state + 1
-"what sell", "what buy", "list wares", "price of" -> "Are you bull headed or what? I told you to leave!", state + 1
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Biste ein Esel oder wie? Ich hab gesagt du sollt verschwinden!", state + 1
-"tell something" -> "My fist... and your face will be friends soon, fool.", state + 1
-"erzähl was" -> "Meine Faust und dein Gesicht, werden bald dicke Freunde, du Scherzbold.", state + 1
+english, "murgo" -> state + 1, "Not even Murgo's here to save you land lubber! Get out!"
+german, "murgo" -> state + 1, "Nich mal Murgo könnt dir hier helfen. Verschwinde!"
+"what sell", "what buy", "list wares", "price of" -> state + 1, "Are you bull headed or what? I told you to leave!"
+"was verkauf", "was kauf", "warenliste", "preis von" -> state + 1, "Biste ein Esel oder wie? Ich hab gesagt du sollt verschwinden!"
+"tell something" -> state + 1, "My fist... and your face will be friends soon, fool."
+"erzähl was" -> state + 1, "Meine Faust und dein Gesicht, werden bald dicke Freunde, du Scherzbold."
 "profession" -> "I bash people who want to enter our tobacco fields. Are you willing to enter?"
 "beruf" -> "Ich verprügel Leute die zu unseren Tabakfeldern wollen. Willst du zu unseren Tabakfeldern?"
-"job", german -> "Ich verprügel Leute die zu unseren Tabakfeldern wollen. Willst du zu unseren Tabakfeldern?"
-"job", english -> "I bash people who want to enter our tobacco fields. Are you willing to enter?"
-"Gobaith", english -> "Better not annoy me...seadog.", state + 1
-"Gobaith", german -> "Besser ist's du gehst mir nich auf die Nerven.", state + 1
-".*", english -> "Listen... I won't talk to you. Get out of here, or I will shove my boot up your butt. Got it?", "I won't tell you again. GET OUT!", state + 1
-".*", german -> "Hör zu... ich will nicht mit dir sprechen. Verschwinde hier, oder ich bohr dir meine Stiefel ins Hinterteil.", "Ich sags nicht nochmal. VERSCHWINDE!", state + 1
+german, "job" -> "Ich verprügel Leute die zu unseren Tabakfeldern wollen. Willst du zu unseren Tabakfeldern?"
+english, "job" -> "I bash people who want to enter our tobacco fields. Are you willing to enter?"
+english, "Gobaith" -> state + 1, "Better not annoy me...seadog."
+german, "Gobaith" -> state + 1, "Besser ist's du gehst mir nich auf die Nerven."
+english, ".*" -> state + 1, "Listen... I won't talk to you. Get out of here, or I will shove my boot up your butt. Got it?", "I won't tell you again. GET OUT!"
+german, ".*" -> state + 1, "Hör zu... ich will nicht mit dir sprechen. Verschwinde hier, oder ich bohr dir meine Stiefel ins Hinterteil.", "Ich sags nicht nochmal. VERSCHWINDE!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

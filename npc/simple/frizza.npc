@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Frizza"
@@ -62,11 +62,11 @@ itemShoes = 369
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss, can I help you?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüsssse, kann ich helfen?"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Greetingsss, can I help you?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss, can I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüsssse, kann ich helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Sssee you again if you need more information."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Wir sssehen unsss wenn mehr Information benötigt wird."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Sssee you again if you need more information."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sssee you again if you need more information."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Wir sssehen unsss wenn mehr Information benötigt wird."
 "How are you", "How feel", "How do you do" -> "Very good, jussst won another game."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sssehr gut, gerade wieder ein Ssspiel gewonnen."
@@ -82,7 +82,7 @@ itemShoes = 369
 "erzähl was", "erzähl etwas" -> "Ich kann dir viele Dinge über Cadomyr erzählen. Frag nur nach Gebäude, Orte, Ereignissse, Leute, Gessschichte oder Götter von Cadomyr. Zusssätzlich hätte ich noch eine kleine Aufgabe."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"inform", english -> inform("[Keywords] building, locations, event, people, history, god"), "I have information about buildingsss, locationsss, eventsss, people, hissstory, lawsss and godsss of Cadomyr. Just asssk me!"
+english, "inform" -> inform("[Keywords] building, locations, event, people, history, god"), "I have information about buildingsss, locationsss, eventsss, people, hissstory, lawsss and godsss of Cadomyr. Just asssk me!"
 "inform" -> inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter"), "Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte, Gesetze und Götter von Cadomyr geben. Frag einfach!"
 "question" -> inform("[Keywords] building, locations, event, people, history, god"), "I have information about buildings, locationsss, eventsss, people, hissstory and godsss of Cadomyr. Just asssk me!"
 "Frage", "Auskunft" -> inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter"), "Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte und Götter von Cadomyr geben. Frag einfach!"
@@ -90,9 +90,9 @@ itemShoes = 369
 "Gebäude" -> inform("[Schlüsselwörter] Palast, Taverne Einhörniger Löwe, Gasthaus Seeufer, Stadtmauer, Villa, Quartiermeister Laden, Wohnungsquartier, Sir Reginald Gruft, Markt, Bibliothek, Tempel, Zensusbüro, Teleporter, Eselstall"), "Wir haben folgende Gebäude: Palast, Taverne Einhörniger Löwe, Gasthaus Seeufer, Stadtmauer, Villa, Quartiermeister Laden, Wohnungsquartier und Sir Reginald Gruft, sowie Markt, Bibliothek, Tempel, Zensusbüro, Teleporter und Eselstall."
 "location" -> inform("[Keywords] Ruzusss"), "If you like to know anything about locationsss outssside, like Katanbi Desert, Western Katanbi Desert, Katanbi Delta, Tir Draganfod or Shadowland just asssk Ruzusss behind the towngate."
 "Ort" -> inform("[Schlüsselwort] Ruzusss"), "Wenn du etwas über die Orte außerhalb wie Katanbi Wüste, Westliche Katanbi Wüste, Katanbi Delta, Tir Draganfod oder Schattenland wisssen möchtessst, dann frage Ruzusss hinter dem Stadttor."
-"Ruzusss", queststatus(640) < 1, english -> inform("[New Quest] Try to find Ruzusss and get your reward."), "You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*", queststatus(640) = 1
-"Ruzusss", queststatus(640) < 1 -> inform("[Neues Quest] Finde Ruzusss und erhalte deine Belohnung."), "Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*", queststatus(640) = 1
-"Ruzusss", english -> "You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*"
+queststatus(640) < 1, english, "Ruzusss" -> inform("[New Quest] Try to find Ruzusss and get your reward."), queststatus(640) = 1, "You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*"
+queststatus(640) < 1, "Ruzusss" -> inform("[Neues Quest] Finde Ruzusss und erhalte deine Belohnung."), queststatus(640) = 1, "Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*"
+english, "Ruzusss" -> "You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*"
 "Ruzusss" -> "Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*"
 "people" -> "Many people leaving here. Many people from different placesss. Most are jussst passsing me when the travel. It ssseemsss they are in thoughtsss of a god."
 "Leute" -> "Viele Leute wohnen hier. Viele Leute von verssschiedenen Orten. Viele gehen wortlosss an mir vorbei wenn herumreisen. Esss ssscheint die sssind in Gedanken an irgendwelche Götter. "
@@ -108,7 +108,7 @@ itemShoes = 369
 "Markt" -> "Der Markt ist hinter dieser Ssstadtmauer hier. Einfach das Stadttor und den Quartiermeister Laden durchqueren. Du kannst dort viele Dinge kaufen."
 "temple" -> "We have one temple here. The temple of Zambra. Other temples are outside of Cadomyr, but I have no idea where. However, the temple of Zambra is on the right ssside between palace and market."
 "Tempel" -> "Wir haben einen Tempel hier und dasss issst der Zambratempel. Andere Tempeln sssind außerhalb von Cadomyr, aber ich weiß nicht wo. Egal auch, den Zambratempel findessst du auf der rechten Ssseite zwischen Palassst und Markt."
-"teleport", english -> "A possiblity to teleport to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points the teleporter*"
+english, "teleport" -> "A possiblity to teleport to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points the teleporter*"
 "teleport" -> "Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man hier wie du sssehen sssolltessst. *Zeigt auf den Teleporter*"
 "Census office" -> "The Census office can be found in front of the palace on the left ssside. There you register yourssself and become one of usss "
 "Zensusbüro" -> "Dasss Zensusbüro kann vor dem Palassst auf der linken Ssseite gefunden werden. Dort kann man sssich registrieren lasssen und einer von unsss werden."
@@ -134,13 +134,13 @@ itemShoes = 369
 "Wachstube" -> "Unsssere Wachstube issst an linken Ssseite unssserer Ssstadtmauer. Ssso, geh in die Ssstadtmauer und dann linksss."
 "Civic Hall" -> "Our Civic Hall is above the Quartermaster's Store. Enter the town and climb up the firssst ladder."
 "Stadtsaal" -> "Unssser Stadtsaal issst über Quartiermeister Laden. Rein in die Ssstadt und die erssste Leiter hoch."
-"Villa Edward", english -> "The Villa Edward isss the sssecond building left to the market. It isss behind Villa Rosaline. It isss an object for honourable memberss of our sssociety."
+english, "Villa Edward" -> "The Villa Edward isss the sssecond building left to the market. It isss behind Villa Rosaline. It isss an object for honourable memberss of our sssociety."
 "Villa Edward" -> "Die Villa Edward issst dasss zweite Gebäude linksss vom Markt. Esss issst hinter der Villa Rosaline. Esss issst gedacht für die ehrenhaften in unssserer Gesssellssschaft."
-"Villa Rosaline", english -> "The Villa Rosaline isss the firssst buidling left to the market. It isss infront of Villa Edward. It isss an object for honourable memberss of our sssociety."
+english, "Villa Rosaline" -> "The Villa Rosaline isss the firssst buidling left to the market. It isss infront of Villa Edward. It isss an object for honourable memberss of our sssociety."
 "Villa Rosaline" -> "Die Villa Rosaline issst dasss erssste Gebäude linksss vom Markt. Esss issst vor der Villa Edward. Esss issst gedacht für die ehrenhaften in unssserer Gesssellssschaft."
-"Villa Reginald", english -> "The Villa Reginald isss the building next to the census office. It isss an object for honourable memberss of our sssociety."
+english, "Villa Reginald" -> "The Villa Reginald isss the building next to the census office. It isss an object for honourable memberss of our sssociety."
 "Villa Reginald" -> "Die Villa Reginald issst dasss Gebäude neben dem Zensusbüro. Esss issst gedacht für die ehrenhaften in unssserer Gesssellssschaft."
-"Villa", english -> inform("[Keywords] Villa Edward, Villa Rosaline, Villa Reginald"), "Which villa you mean? We have three of them: Villa Edward, Villa Rosaline and Villa Reginald."
+english, "Villa" -> inform("[Keywords] Villa Edward, Villa Rosaline, Villa Reginald"), "Which villa you mean? We have three of them: Villa Edward, Villa Rosaline and Villa Reginald."
 "Villa" -> inform("[Schlüsselwörter] Villa Edward, Villa Rosaline, Villa Reginald"), "Welche issst gemeint? Wir haben drei von ihnen: Villa Edward, Villa Rosaline und Villa Reginald."
 "Quartermaster's Store" -> "The Quartermaster's Store isss right of the town entrance and you can asssk for sssome misssions there."
 "Quartiermeister Laden" -> "Der Quartiermeister Laden issst rechtsss vom Ssstadteingang und du kannssst dort nach Befehlen fragen."
@@ -163,19 +163,19 @@ itemShoes = 369
 -- Faction stuff
 "archmage" -> "Morgan? Zzzz. That isss an evil sorcerer in Runewick and rulesss there."
 "Erzmagier" -> "Morgan? Zzzz. Dasss issst ein bössser Zauberer in Runewick der auch dort herrssscht."
-"Elvaine", "Morgan", english -> "Morgan? Zzzz. That isss an evil sorcerer in Runewick and rulesss there."
+english, "Elvaine", "Morgan" -> "Morgan? Zzzz. That isss an evil sorcerer in Runewick and rulesss there."
 "Elvaine", "Morgan" -> "Morgan? Zzzz. Dasss issst ein bössser Zauberer in Runewick der auch dort herrssscht."
-"Runewick", english -> "That isss a wired place, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find sssome there."
+english, "Runewick" -> "That isss a wired place, but if you look for Alchemists, Candle makers, Carpenters, Lumberjacks, Cooks, Bakers, Farmers, Herb gatherers, or Tailors, Tanners and Dyers you will find sssome there."
 "Runewick" -> "Dasss issst ein verrückter Ort, aber wenn man Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst man dort welche finden."
-"Valerio", "Guilianni", "Don", english -> "Don? Zzzz. That thief rulesss in Galmair."
+english, "Valerio", "Guilianni", "Don" -> "Don? Zzzz. That thief rulesss in Galmair."
 "Valerio", "Guilianni", "Don" -> "Don? Zzzz. Diessser Dieb herrssscht in Galmair."
-"Galmair", english -> "That isss a sssneaky place, but if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers you will find sssome there."
+english, "Galmair" -> "That isss a sssneaky place, but if you look for Blacksmiths, Brick makers, Masons, Miners, and Brewers you will find sssome there."
 "Galmair" -> "Dasss issst ein hinterhältiger Ort, aber wenn man einen Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer sssuchst, findessst man den dort."
 "Queen" -> "Our nice Queen Rosaline Edwards hasss been ruling for many years now. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in."
 "Königin" -> "Unsere nette Königin Rosaline Edwards herrssscht nun ssschon ssseit einigen Jahren. Sssie ist mutig, ssschlau und ssschön. Man findet sssie in ihrem Palassst auf der anderen Ssseite der Ssstadt. Einfach rein gehen."
-"rosaline", "edwards", english -> "Our nice Queen Rosaline Edwards has been ruling for many years now. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in."
+english, "rosaline", "edwards" -> "Our nice Queen Rosaline Edwards has been ruling for many years now. Ssshe is brave and smart and beautiful. Ssss. You find her in her palace on the other ssside of the town. Jussst go in."
 "rosaline", "edwards" -> "Unsere nette Königin Rosaline Edwards herrssscht nun ssschon ssseit einigen Jahren. Sssie ist mutig, ssschlau und ssschön. Man findet sssie in ihrem Palassst auf der anderen Ssseite der Ssstadt. Einfach rein gehen."
-"Cadomyr", english -> "Here at Cadomyr, we are interesssted in Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders."
+english, "Cadomyr" -> "Here at Cadomyr, we are interesssted in Fishermen, Glass blowers, Diggers, Finesmiths, and Gem grinders."
 "Cadomyr" -> "Hier in Cadomyr sssuchen wir immer nach Fischer, Glasblässer, Gräber, Goldschmied oder Edelsteinschleifer."
 
 -- Optional: Catching typical NPC phrases
@@ -187,39 +187,37 @@ itemShoes = 369
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Primarly, we pray to three godsss in Cadomyr. They are Malachin, Zhambra and Sirani. But I pray to Zelphia, mother of my race"
 "Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Cadomyr an. Die wären Malachin, Zhambra und Sirani. Aber ich bette zu Zelphia, der Mutter meiner Rassse."
-"Adron", english -> "One of the unimportant, younger godsss. You can find fellowsss in Runewick."
+english, "Adron" -> "One of the unimportant, younger godsss. You can find fellowsss in Runewick."
 "Adron" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Runewick finden."
-"Bragon", "Brágon", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+english, "Bragon", "Brágon" -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
 "Bragon", "Brágon" -> "Einer der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
-"Cherga", english -> "Goddess of Spirits and the Underworld. Cherga is the one who collects the dead ones, and brings them to the realms they belong to."
+english, "Cherga" -> "Goddess of Spirits and the Underworld. Cherga is the one who collects the dead ones, and brings them to the realms they belong to."
 "Cherga" -> "Die Göttin der Geister und der Unterwelt. Sie ist jene, welche die Toten begleitet und in ihre vorbestimmten Reiche führt."
-"Elara", english -> "One of the unimportant, younger gods. You can find fellowsss in Runewick."
+english, "Elara" -> "One of the unimportant, younger gods. You can find fellowsss in Runewick."
 "Elara" -> "Eine der  unwichtigen, jüngeren Götter. Du kann Anhänger in Runewick finden."
-"Eldan", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+english, "Eldan" -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
 "Eldan" -> "Einer der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
-"Findari", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+english, "Findari" -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
 "Findari" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
-"Irmorom", english -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
+english, "Irmorom" -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
 "Irmorom" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Galmair finden."
-"Malachin", "Malachín", english -> "Many follow the honourable Malachín. Soldiers and knights pray for protection in battles, hunters for a good hunt and protection while hunting, paladins for protection and a powerful fist against the evil."
+english, "Malachin", "Malachín" -> "Many follow the honourable Malachín. Soldiers and knights pray for protection in battles, hunters for a good hunt and protection while hunting, paladins for protection and a powerful fist against the evil."
 "Malachin", "Malachín" -> "Viele folgen dem ehrenwerten Malachin. Soldaten und Ritter beten zu ihm, um Schutz in schweren Kämpfen zu erhalten; Jäger, um den erfolgreichen Ausgang einer Jagd; Paladine allgemein für den Schutz im Kampf gegen das Böse."
-"Moshran", english -> "Sssss, I do not like thisss God. Yoo better avoid thisss name. People should kill you for usssing thisss name!", "#s Helpsss! We have potential fellow of the bloodgod here! Head up!"
+english, "Moshran" -> "Sssss, I do not like thisss God. Yoo better avoid thisss name. People should kill you for usssing thisss name!", "#s Helpsss! We have potential fellow of the bloodgod here! Head up!"
 "Moshran" -> "Sssss, I do not like thisss God. Yoo better avoid thisss name. People should kill you for usssing thisss name!", "#s Hilfe! Wir haben einen potentiellen Anhänger desss Blutgott hier! Kopf ab!"
-"Nargun", "Nargún", "Nargùn", english -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
+english, "Nargun", "Nargún", "Nargùn" -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
 "Nargun", "Nargún", "Nargùn" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Galmair finden."
-"Oldra", english -> "One of the unimportant, younger gods. You can find fellows in Runewick."
+english, "Oldra" -> "One of the unimportant, younger gods. You can find fellows in Runewick."
 "Oldra" -> "Eine der unwichtigen, jüngeren Götter. Du kann Anhänger in Runewick finden."
-"Ronagan", english -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
+english, "Ronagan" -> "One of the unimportant, younger gods. You can find fellowsss in Galmair."
 "Ronagan" -> "Einer der unwichtigen, jüngeren Götter. Du kann Anhänger in Galmair finden."
-"Sirani", english -> "Many young females pray to her for advice in love or simple beauty tips. Most Sirani priests are good healers. Her followers believe in peace and harmony, and most of them don't like weapons or violence."
+english, "Sirani" -> "Many young females pray to her for advice in love or simple beauty tips. Most Sirani priests are good healers. Her followers believe in peace and harmony, and most of them don't like weapons or violence."
 "Sirani" -> "Viele junge Frauen beten zu Ihr, der Liebe wegen oder um Schönheit zu erlangen. Die meisten Priester Siranis sind gute Heiler und glauben wie alle Ihre Anhänger an ein Leben in Friede und Harmonie. Sie verabscheuen Gewalt und Waffen."
-"Tanora", "Zelphia", race = lizardman, english -> "One of the elder gods, but except of our race noone cares about this god here. You can find a temple at the Temple of the five, far in the North."
-"Tanora", "Zelphia", race = lizardman -> "Eine der alten Götter, aber ausgenohmen von unserer Rasse niemand kümmert sich hier nicht um diese Gottheit. Du kannst einen Tempel hoch im Norden bei den Tempel der Fünf finden.."
-"Tanora", "Zelphia", english -> "One of the elder gods, but except of me and my race noone cares about this god here. So, better do not waste your time with this god."
+english, "Tanora", "Zelphia" -> "One of the elder gods, but except of me and my race noone cares about this god here. So, better do not waste your time with this god."
 "Tanora", "Zelphia" -> "Eine der alten Götter, aber ausgenohmen von mir und meiner Rasse niemand kümmert sich hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
-"Ushara", english -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
+english, "Ushara" -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
 "Ushara" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
-"Zhambra", english -> "The followers of Zhambra are righteous and loyal ones who believe in honor and law. They often try to rescue others, and fight against the evil. Zhambra is worshipped by nobles and knights, paladins, and many soldiers."
+english, "Zhambra" -> "The followers of Zhambra are righteous and loyal ones who believe in honor and law. They often try to rescue others, and fight against the evil. Zhambra is worshipped by nobles and knights, paladins, and many soldiers."
 "Zhambra" -> "Die Anhänger Zhambras sind geradlinig und ergebene Gefolgsleute, die an Ehre und Recht glauben. Sie versuchen häufig, Andere zu retten und stehen im Kampf gegen das Böse. Zhambra wird gehuldigt von Adligen, Rittern, Höflingen und von vielen Kriegern."
 
 -- Optional: Main land factions
@@ -231,13 +229,13 @@ itemShoes = 369
 -- "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gobaith
-"Gobaith", "Gobiath", english -> "I have never heard that name."
+english, "Gobaith", "Gobiath" -> "I have never heard that name."
 "Gobaith", "Gobiath" -> "Ich habe diesssen Namen nie gehört."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Nice to meet you. How can I help you?"
 "mein Name" -> "Ssschön dich zu kennenzulernen. Wie kann ich dir helfen?"
-"Frizza", english -> "Yes, that isss my name. About what do you want information?"
+english, "Frizza" -> "Yes, that isss my name. About what do you want information?"
 "Frizza" -> "Ja, dasss ist mein Name. Über wasss wollt ihr Information?"
 "Yes" -> "A bit more concrete, pleassse!"
 "Ja" -> "Etwas konkreter wenn ich bitten darf!"
@@ -245,8 +243,8 @@ itemShoes = 369
 "Nein" -> "Etwas konkreter wenn ich bitten darf!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Huh, about what ssshall I give you information? Do you mind just to asssk for help asss a firssst ssstep?"
-".*", german, chance(20.0) -> "Huh, über wasss wünssscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
+english, chance(20.0), ".*" -> "Huh, about what ssshall I give you information? Do you mind just to asssk for help asss a firssst ssstep?"
+german, chance(20.0), ".*" -> "Huh, über wasss wünssscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Kawan Baxter, translation by Estralis Seborian                   --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Horatio Milenus"
@@ -113,11 +113,11 @@ itemShoes = 771
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "What?", "Welcome to Cadomyr.", "This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline.", "Hello.", "#me just gives a brief nod.", "Greetings to you."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Was?", "Willkommen in Cadomyr.", "Dies ist Cadomyr, Heimat der schönen und unglaublich weisen Königin Rosaline.", "Hallo.", "#me nickt nur kurz.", "Seid gegrüßt."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "What?", "Welcome to Cadomyr.", "This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline.", "Hello.", "#me just gives a brief nod.", "Greetings to you."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "What?", "Welcome to Cadomyr.", "This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline.", "Hello.", "#me just gives a brief nod.", "Greetings to you."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Was?", "Willkommen in Cadomyr.", "Dies ist Cadomyr, Heimat der schönen und unglaublich weisen Königin Rosaline.", "Hallo.", "#me nickt nur kurz.", "Seid gegrüßt."
 "Farewell", "Bye", "Fare well", "See you" -> "Care, the desert can be quite unforgiving.", "Care, make no trouble.", "Care.", "Farewell.", "Good bye."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Nehmt euch in Acht, die Wüste kann unerbitterlich sein.", "Nehmt euch in Acht und macht keinen Ärger.", "Nehmt euch in Acht.", "Auf Wiedersehen.", "Bis zum nächsten Mal."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Care, the desert can be quite unforgiving.", "Care, make no trouble.", "Care.", "Farewell.", "Good bye."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Care, the desert can be quite unforgiving.", "Care, make no trouble.", "Care.", "Farewell.", "Good bye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Nehmt euch in Acht, die Wüste kann unerbitterlich sein.", "Nehmt euch in Acht und macht keinen Ärger.", "Nehmt euch in Acht.", "Auf Wiedersehen.", "Bis zum nächsten Mal."
 "How are you", "How feel", "How do you do" -> "Don't ask me such silly questions.", "Don't ask me such silly qu- Actually today is a pretty good day.", "I guard, I don't feel.", "I'm on duty. How should I feel?", "Everyday it's the same anyway."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Fragt nicht so ein dummes Zeug.", "Fragt nicht so ein dummes - also genau genommen geht es mir heute recht gut.", "Ich bin ein Wächter, ich habe keine Gefühle.", "Ich bin im Dienst. Wie soll es mir da gehen?", "Ist jeden Tag sowieso immer dasselbe."
@@ -125,7 +125,7 @@ itemShoes = 771
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Horatio Milenus, Wächter des Reiches.", "Ich bin Horation Milenus, der Beschützer Cadomyrs.", "Dies ist Cadomyr. Ich bin Cadomyr.", "Mein  Name ist Horatio Milenus. Ich bewache diesen Eingang Stadt.", "Ich bin Horatio Milenus, Stadtwache von Cadomyr."
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "Well, it is my mission to guard this gate. I do not know what your mission is; apart from serving her majesty, of course."
+english, "quest", "mission" -> "Well, it is my mission to guard this gate. I do not know what your mission is; apart from serving her majesty, of course."
 "quest", "mission" -> "Nun, meine Aufgabe ist es, dieses Tor zu bewachen. Was eure Aufgabe ist, weiß ich nicht, Hauptsache, ihr dient ihrer Majestät."
 "task", "adventure", "order" -> "Well, it is my mission to guard this gate. I do not know what your mission is; apart from serving her majesty, of course."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun, meine Aufgabe ist es, dieses Tor zu bewachen. Was eure Aufgabe ist, weiß ich nicht, Hauptsache, ihr dient ihrer Majestät."
@@ -133,9 +133,9 @@ itemShoes = 771
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am Guard of Cadomyr.", "I serve this realm.", "I serve this mighty city.", "I am a town guard of Cadomyr.", "I serve the noble Queen as a town guard."
 "beruf" -> "Ich bin ein Wächter Cadomyrs.", "Ich diene dem Reich.", "Ich diene dieser mächtigen Stadt.", "Ich bin ein Stadtwächter von Cadomyr.", "Ich diene der edlen Königin als ein Stadtwächter."
-"job", english -> "I am Guard of Cadomyr.", "I serve this realm.", "I serve this mighty city.", "I am a town guard of Cadomyr.", "I serve the noble Queen as a town guard."
+english, "job" -> "I am Guard of Cadomyr.", "I serve this realm.", "I serve this mighty city.", "I am a town guard of Cadomyr.", "I serve the noble Queen as a town guard."
 "job" -> "Ich bin ein Wächter Cadomyrs.", "Ich diene dem Reich.", "Ich diene dieser mächtigen Stadt.", "Ich bin ein Stadtwächter von Cadomyr.", "Ich diene der edlen Königin als ein Stadtwächter."
-"Gobaith", "Gobiath", english -> "Gob... what?", "I don't know no Gobaith."
+english, "Gobaith", "Gobiath" -> "Gob... what?", "I don't know no Gobaith."
 "Gobaith", "Gobiath" -> "Gob... was?", "Ich kenne kein Gobaith."
 "my name" -> "Nice to meet you. Pass along.", "Very well.", "Pass along."
 "mein Name" -> "Freut mich euch kennenzulernen. Weitergehen.", "Na wunderbar.", "Weitergehen."
@@ -143,11 +143,11 @@ itemShoes = 771
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Gate" -> "Anyone or anything that passes between these walls are under my eyes. Remember that."
 "Tor" -> "Nichts und niemand, der durch dieses Tor geht, entgeht meinen Augen. Denkt immer daran."
-"Hastings", "Baron", english -> "I swear, on the day that the gods decide, that man's head will be fell by my blade."
+english, "Hastings", "Baron" -> "I swear, on the day that the gods decide, that man's head will be fell by my blade."
 "Hastings", "Baron" -> "Ich schwöre, dass so wahr mir die Götter helfen, eines Tages wird der Kopf dieses Mannes durch mein Schwert rollen."
 "Desert" -> "I am but this realm's second greatest protector, the sand is it's first."
 "Wüste" -> "Ich bin nur der zweitgrößte Beschützer dieses Reiches, die Wüste ist der wichtigste."
-"Tomb", english -> "The resting place of the greatest of our people is the tomb."
+english, "Tomb" -> "The resting place of the greatest of our people is the tomb."
 "Gruft" -> "Die letzte Ruhestätte der größten Helden unseres Volkes ist die Gruft."
 "Family" -> "Mind your business."
 "Familie" -> "Das geht euch nichts an."
@@ -163,79 +163,79 @@ itemShoes = 771
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "He's quite a merry fellow.", "The towers the archmage of Runewick built must be easy to defend.", "The archmage of Runewick; I better keep my mouth shut now."
 "Erzmagier" -> "Er ist ein ziemlich freundlicher Kerl.", "Die Türme, die der Erzmagier von Runewick hat bauen lassen, sind wohl recht einfach zu verteidigen.", "Der Erzmagier von Runewick; ich sag jetzt besser nichts mehr."
-"Elvaine", "Morgan", english -> "He's quite a merry fellow.", "The towers the archmage of Runewick built must be easy to defend.", "The archmage of Runewick; I better keep my mouth shut now."
+english, "Elvaine", "Morgan" -> "He's quite a merry fellow.", "The towers the archmage of Runewick built must be easy to defend.", "The archmage of Runewick; I better keep my mouth shut now."
 "Elvaine", "Morgan" -> "Er ist ein ziemlich freundlicher Kerl.", "Die Türme, die der Erzmagier von Runewick hat bauen lassen, sind wohl recht einfach zu verteidigen.", "Der Erzmagier von Runewick; ich sag jetzt besser nichts mehr."
-"Runewick", english -> "Runewick is a stronghold of magicians, consisting of four magnificent towers, built in the ocean.", "Runewick is a strong city, but the inhabitants have no honour. They do whatever it takes to get what they want."
+english, "Runewick" -> "Runewick is a stronghold of magicians, consisting of four magnificent towers, built in the ocean.", "Runewick is a strong city, but the inhabitants have no honour. They do whatever it takes to get what they want."
 "Runewick" -> "Runewick ist eine Feste der Magie, vier mächtige Türme, die in das Meer gebaut wurden.", "Runewick ist eine beeindruckende Stadt, aber ihre Einwohner sind ehrlos. Sie tun, was immer nötig ist, um ihre Ziele zu erreichen."
-"Valerio", "Guilianni", "Don", english -> "I overheard the crest of the Don is a pig. That fits!"
+english, "Valerio", "Guilianni", "Don" -> "I overheard the crest of the Don is a pig. That fits!"
 "Valerio", "Guilianni", "Don" -> "Ich habe gehört, dass Wappen des Dons zeigt ein Schwein. Wie passend!"
-"Galmair", english -> "Galmair is a dirty town where money washes hands clean from any sin."
+english, "Galmair" -> "Galmair is a dirty town where money washes hands clean from any sin."
 "Galmair" -> "Galmair ist eine dreckige Stadt wo Gold eines jeden Hände von den Sünden reinwäscht."
 "Queen" -> "If Cadomyr is my heart then Queen Rosaline is my soul."
 "Königin" -> "Wenn Cadomyr mein Herz ist, dann ist Königin Rosaline mein Herz."
-"rosaline", "edwards", english -> "If Cadomyr is my heart then Queen Rosaline is my soul."
+english, "rosaline", "edwards" -> "If Cadomyr is my heart then Queen Rosaline is my soul."
 "rosaline", "edwards" -> "Wenn Cadomyr mein Herz ist, dann ist Königin Rosaline mein Herz."
-"Cadomyr", english -> "My home and my heart: Cadomyr."
+english, "Cadomyr" -> "My home and my heart: Cadomyr."
 "Cadomyr" -> "Mein ein und alles: Cadomyr."
 
 -- Even more small talk
 "King" -> "Reginald, the greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
 "König" -> "Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein."
-"Reginald", english -> "Reginald, he greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
+english, "Reginald" -> "Reginald, he greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
 "Reginald" -> "Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein."
 
 -- Main land factions
-"albar", english -> "I am Albarian, yes.", "You aren't in Albar. Look with your eyes.", "Please do not disturb me. I am at work."
+english, "albar" -> "I am Albarian, yes.", "You aren't in Albar. Look with your eyes.", "Please do not disturb me. I am at work."
 "albar" -> "Ich bin in der Tat Albarier.", "Ihr seid nicht in Albar, schaut euch doch mal um.", "Stört mich bitte nicht, ich bin im Dienst."
-"gynk", "gync", english -> "I hear on occasion that they are a foul nation, but one can never fully trust the words of outsiders."
+english, "gynk", "gync" -> "I hear on occasion that they are a foul nation, but one can never fully trust the words of outsiders."
 "gync", "gynk" -> "Ich hörte einst, dass sie ein Volk von Verruchten sind, aber was kann man schon auf das Wort eines Fremden geben."
-"salkama", english -> "I have never been in Salkamar. I know nothing of them.", "Salkamar does not concern my attention."
+english, "salkama" -> "I have never been in Salkamar. I know nothing of them.", "Salkamar does not concern my attention."
 "salkama" -> "Ich war nie in Salkamar, also weiß ich auch nichts darüber.", "Salkamar interessiert mich nicht."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"gods", english -> "The ones I serve are Adron, Malachin and Zhambra."
+english, "gods" -> "The ones I serve are Adron, Malachin and Zhambra."
 "Gott", "Götter" -> "Ich diene den Göttern Adron, Malachín und Zhambra."
-"Adron", english -> "My queen loves Adron, the god of festivities."
+english, "Adron" -> "My queen loves Adron, the god of festivities."
 "Adron" -> "Meine Königin verehrt Adron, den Gott der Festgelage."
-"Bragon", "Brágon", english -> "I respect Brágon. But there is too much fire in this world."
+english, "Bragon", "Brágon" -> "I respect Brágon. But there is too much fire in this world."
 "Bragon", "Brágon" -> "Ich respektiere Brágon, aber gibt es nicht schon genug Feuer in dieser Welt?"
-"Cherga", english -> "I will not meet Cherga, but through the fulfillment of my duty."
+english, "Cherga" -> "I will not meet Cherga, but through the fulfillment of my duty."
 "Cherga" -> "Ich werde Cherga nur gegenübertreten, wenn ich in Erfüllung meiner Pflicht falle. "
-"Elara", english -> "Elara is not cared for much in this country. I have never sought her guidance."
+english, "Elara" -> "Elara is not cared for much in this country. I have never sought her guidance."
 "Elara" -> "Man schert sich in diesem Reich nicht sonderlich um Elara. Auch ich habe sie nie um Beistand angebetet."
-"Eldan", english -> "Eldan is the father of Elara and hence, as useless as her."
+english, "Eldan" -> "Eldan is the father of Elara and hence, as useless as her."
 "Eldan" -> "Eldan ist Elaras Vater und daher genauso nutzlos wie sie."
-"Findari", english -> "Findari brings rain, but also sand storms. That is all I have to say of her."
+english, "Findari" -> "Findari brings rain, but also sand storms. That is all I have to say of her."
 "Findari" -> "Findari bringt zwar den Regen, aber auch Sandstürme. Das ist, was ich über sie zu sagen habe."
-"Irmorom", english -> "Irmorom was never kind to my mother. I live well, but have no lo- Stop asking me questions and move along."
+english, "Irmorom" -> "Irmorom was never kind to my mother. I live well, but have no lo- Stop asking me questions and move along."
 "Irmorom" -> "Irmorom hat es nicht gut mit meiner Mutter gemeint. Mir ist es gut ergangen, aber... Fragt mich nicht nach sowas und geht weiter."
-"Malachin", "Malachín", english -> "Malachín, the god of battle has saved my life on many occasions."
+english, "Malachin", "Malachín" -> "Malachín, the god of battle has saved my life on many occasions."
 "Malachin", "Malachín" -> "Malachín, der Gott der Schlachten, hat mein Leben schon so einige male verschont."
-"Moshran", english -> "Quiet now! Or I shall remove your tongue?"
+english, "Moshran" -> "Quiet now! Or I shall remove your tongue?"
 "Moshran" -> "Seid still! Oder muss ich euch die Zunge herausschneiden?"
-"Nargun", "Nargún", "Nargùn", english -> "I do not serve this god."
+english, "Nargun", "Nargún", "Nargùn" -> "I do not serve this god."
 "Nargun", "Nargún", "Nargùn" -> "Ich diene diesem Gott nicht."
-"Oldra", english -> "Oldra has forsaken us. It is through our own hands that we grow food in Cadomyr."
+english, "Oldra" -> "Oldra has forsaken us. It is through our own hands that we grow food in Cadomyr."
 "Oldra" -> "Oldra hat uns im Stich gelassen. Die Nahrung, die wir zu uns nehmen, ist die Ernte unserer Hände."
-"Ronagan", english -> "You can serve Ronagan and end up a lowly thief or you can serve a just god and end up like me."
+english, "Ronagan" -> "You can serve Ronagan and end up a lowly thief or you can serve a just god and end up like me."
 "Ronagan" -> "Ihr könnt euch Ronagan verschreiben und endet als erbärmlicher Gauner oder ihr verschreibt euch einem gerechten Gott und ihr werdet wie ich."
-"Sirani", english -> "We do not serve Sirani here."
+english, "Sirani" -> "We do not serve Sirani here."
 "Sirani" -> "Wir dienen hier nicht der Sirani."
-"Tanora", "Zelphia", english -> "We don't see Tanora often in Cadomyr."
+english, "Tanora", "Zelphia" -> "We don't see Tanora often in Cadomyr."
 "Tanora", "Zelphia" -> "Sonderlich häufig haben wir Tanora noch nicht in Cadomyr begrüßen dürfen."
-"Ushara", english -> "Ushara is one of the five. That's it for now."
+english, "Ushara" -> "Ushara is one of the five. That's it for now."
 "Ushara" -> "Ushara ist eine der Fünf. Das muss nun genügen."
-"Zhambra", english -> "It is through Zhambra that I am able to serve Cadomyr."
+english, "Zhambra" -> "It is through Zhambra that I am able to serve Cadomyr."
 "Zhambra" -> "Zhambra ermöglicht es mir, Cadomyr zu dienen."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I buy only the safety of the realm and I sell only the crushing of Cadomyr's enemies.", "I am no trader.", "If you are looking for a trader, go to the market place."
+"what sell", "what buy", "list wares", "price of" -> trade, trade, "I buy only the safety of the realm and I sell only the crushing of Cadomyr's enemies.", "I am nor.", "If you are looking for ar, go to the market place."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich erkaufe lediglich die Sicherheit des Reiches und biete die Niederschlagung der Feinde Cadomyrs an.", "Ich bin kein Händler.", "Wenn Ihr einen Händler sucht, dann geht zum Marktplatz."
 "tell something" -> "Always carry double the water you think you'll need.", "I'm on duty and I am not paid for small talk.", "I am a town guard, not a story teller."
 "erzähl was", "erzähl etwas" -> "Nehmt immer genau die zweifache Menge an Wasser mit, die ihr meint, zu brauchen.", "Ich bin im Dienst und werde nicht für eine nette Plauderei bezahlt.", "Ich bin eine Stadtwache und kein Geschichtenerzähler."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Horatio", "Milenus", english -> "That is I. State your business."
+english, "Horatio", "Milenus" -> "That is I. State your business."
 "Horatio", "Milenus" -> "Das bin ich. Was ist euer Begehr?"
 "Yes" -> "Yes to what?", "Pardon?"
 "Ja" -> "Ja?", "Pardon?"
@@ -243,8 +243,8 @@ itemShoes = 771
 "Nein" -> "Geht nun oder ich werde euch unter Arrest stellen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "I am the merely a guard of Cadomyr.", "Tell that somebody else.", "Move along.", "Pass along", "Do not loiter!", "In or out?"
-".*", german, chance(20.0) -> "Ich bin in erster Linie der Wächter Cadomyrs.", "Erzählt das jemanden anderes.", "Geht weiter.", "Weitergehen.", "Lungert hier nicht herum.", "Rein oder raus?"
+english, chance(20.0), ".*" -> "I am the merely a guard of Cadomyr.", "Tell that somebody else.", "Move along.", "Pass along", "Do not loiter!", "In or out?"
+german, chance(20.0), ".*" -> "Ich bin in erster Linie der Wächter Cadomyrs.", "Erzählt das jemanden anderes.", "Geht weiter.", "Weitergehen.", "Lungert hier nicht herum.", "Rein oder raus?"
 
 -- Causes errors, pharse! Fix plz!
 -- [[ replace the receiveText and nextCycle functions:

@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Martin Karing                                                    --
 --                                                                            --
--- Last parsing: August 29, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -19,6 +19,7 @@ VALUES (0, 117, 618, 0, 2, 'Fredericus', 'npc.fredericus', 0, 1, 1, 192, 107, 5,
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.talkstate")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -48,6 +49,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Ahoy! Fresh fish!");
 talkEntry:addResponse("G'day. I just came ashore.");
 talkEntry:addResponse("Only the best fish, only today, only for you!");
@@ -57,11 +59,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Ahoi! Frischer Fisch!");
 talkEntry:addResponse("Tag. Bin gerade von großer Fahrt zurück.");
 talkEntry:addResponse("Nur der beste Fisch, nur heute, nur für euch!");
@@ -69,11 +74,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Ahoy! Fresh fish!");
 talkEntry:addResponse("G'day. I just came ashore.");
 talkEntry:addResponse("Only the best fish, only today, only for you!");
@@ -114,11 +119,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Good trip.");
 talkEntry:addResponse("Until next time, remember, a fish a day keeps the medico away.");
 talkEntry:addResponse("Farewell.");
@@ -160,9 +165,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Fredericus. That's me.");
 talkEntry:addResponse("I am the fisherman Fredericus.");
-talkEntry:addResponse("Fredericus is my name, I trade fish.");
+talkEntry:addResponse("Fredericus is my name, Ifish.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -184,11 +190,15 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.");
-talkEntry:addResponse("I trade fish, do you need any?");
-talkEntry:addResponse("I trade what you need to catch fish and I even buy the fish you caught.");
-talkEntry:addResponse("Ya want to trade? Aye, have a look!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Fish, fish, fish. Ifish. And also herbs, if you need any to spice up your dishes.");
+talkEntry:addResponse("Ifish, do you need any?");
+talkEntry:addResponse("Iwhat you need to catch fish and I even buy the fish you caught.");
+talkEntry:addResponse("Ya want to? Aye, have a look!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -199,18 +209,18 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.");
 talkEntry:addResponse("Ich handel Fische, braucht ihr welche?");
 talkEntry:addResponse("Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.");
 talkEntry:addResponse("Du willst handeln? Da schau her was ich hab!");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I do not issue any quests. But you can bring me fish and I'll pay you for your work.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -258,8 +268,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("I'm a fisherman. A hard job, but a honest and honourable job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -271,9 +281,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I once sailed to Gobaith, the natives tossed onions at each other!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -300,8 +310,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zerarisa");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zerarisa");
 talkEntry:addResponse("I think Zerarisa is one of the lizards, living at Cape Farewell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -315,7 +325,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cape");
 talkEntry:addTrigger("Farewell");
-talkEntry:addResponse("Cape Farewell is to the south and west, land's end, one could say.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Cape Farewell is to the south and west, land'sone could say.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -359,7 +370,8 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addResponse("Here, at the marketplace, there are many traders. You can buy many goods here in Cadomyr.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Here, at the marketplace, there are manyrs. You can buy many goods here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -387,9 +399,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me snorts angrily.");
 talkEntry:addResponse("Better avoid Runewick's leader. Whatever you say, it is wrong. Whatever you do, it is wrong.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -404,8 +416,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("If I were you, I'd never go to Runewick. They might be nice, but also, false and not honest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -417,10 +429,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I'd like to toss some smelly fish at the Don. I will never understand how such a... villain can become leader of a community.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -434,8 +446,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Galmair is not a safe place. The Don does not want it to be, so he can demand money for protection.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -459,9 +471,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Queen Rosaline, well, she is the best thing that could happen to Cadomyr. I say that and I mean it, the best woman is better than the worst man.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -474,8 +486,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Cadomyr is my home, where I return to after setting sails.");
 talkEntry:addResponse("I love Cadomyr as I love the sea.");
 talkEntry:addResponse("Cadomyr's best, forget the rest!");
@@ -491,8 +503,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("albar");
 talkEntry:addResponse("Oh, Albar, how much I desire to sail there. A land of justice and honour");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -504,9 +516,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("What did you say?");
 talkEntry:addResponse("I did not understand you.");
 talkEntry:addResponse("Pardon me?");
@@ -525,8 +537,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Arrogant wisenheimers they are. And a hard working fisherman does not matter to the oh-so-noble people there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -551,9 +563,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that crash my boat.");
 talkEntry:addResponse("Hail the goddess!");
 talkEntry:addResponse("I obey Tanora, but if you want to meet perons who adore her, go to Cape Farewell.");
@@ -570,8 +582,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Findari");
 talkEntry:addResponse("Findari grants the devastating storm or the wind that blows the sail; depending on her mood.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -583,8 +595,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Irmorom helps me doing good business, but my fate is in the hand of Tanora and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -611,8 +623,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Fredericus");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Fredericus");
 talkEntry:addResponse("I am merely a humble fisherman. But I could tell you about the gods, shall I?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
