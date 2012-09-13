@@ -1,5 +1,7 @@
 -- Default look-at script
 
+require("base.common");
+
 module("base.lookat", package.seeall)
 
 -- init german descriptions
@@ -17,6 +19,8 @@ GenericDuraEn[1]={"brand new","new"     ,"almost new","used","slightly scraped" 
 GenericDuraEn[2]={"brand new","new"     ,"almost new","used","slightly scratched","scratched","highly scratched","old","rotten"    ,"nearly decayed"};
 GenericDuraEn[3]={"brand new","new"     ,"almost new","used","slightly torn"     ,"torn"     ,"highly torn"     ,"old","threadbare","torn"          };
 GenericDuraEn[4]={"sparkling","shiny"    ,"glittery","used","slightly scraped","scraped"  ,"highly scraped"  ,"old","tarnished" ,"fragile"};
+
+GenericDuraLm={90,80,70,60,50,40,30,15,0};
 
 NONE = 0;
 METAL = 1;
@@ -50,7 +54,7 @@ function GenerateLookAt(user, item, material)
 	else
 		usedName = item:getData("nameEn");
 	end;
-	if (usedName == nil) then
+	if base.common.IsNilOrEmpty(usedName) then
 		usedName = world:getItemName(item.id, user:getPlayerLanguage());
 	end;
 	lookAt.name = usedName;
@@ -72,21 +76,21 @@ function GenerateLookAt(user, item, material)
 		usedDescription = item:getData("descriptionEn");
 	end;
 	
-	if (usedDescription ~= nil) then
-		lookAt.description = descriptionData;
+	if base.common.IsNilOrEmpty(usedDescription) then
+		lookAt.description = usedDescription;
 	end;
 	
 	if ((itemCommon.AgeingSpeed < 255) and (material > NONE)) then
 		local craftedByData = item:getData("craftedBy");
-		if (craftedByData ~= nil) then
+		if base.common.IsNilOrEmpty(craftedByData) then
 			lookAt.craftedBy = craftedByData;
 		end;
 		
 		lookAt.weight = itemCommon.Weight;
 		lookAt.worth = itemCommon.Worth;
 		
-		local itemDura = math.mod(Item.quality, 100);
-		local itemQual = (Item.quality - itemDura) / 100;
+		local itemDura = math.mod(item.quality, 100);
+		local itemQual = (item.quality - itemDura) / 100;
 		
 		local duraIndex;
 		for i, duraLimit in pairs(GenericDuraLm) do
