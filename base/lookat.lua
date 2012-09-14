@@ -143,3 +143,137 @@ end;
 function GetItemDescription(User, Item, material, Weapon, Priest)
 	return GenerateLookAt(User, Item, material);
 end;
+
+--- Apply a special name to a item. The name is stored in the data values.
+--  This function does NOT call world:changeItem()! You have to do this yourself.
+--
+-- @param item the item that is supposed to receive the new values
+-- @param german the german name this item is supposed to display
+-- @param english the english name this item is supposed to display
+function SetSpecialName(item, german, english)	
+	if (item == nil) then
+		debug("Sanity check failed, no valid item supplied.");
+		return;
+	end;
+	
+	if ((german == nil) or (english == nil)) then
+		debug("Sanity check failed, no valid item names supplied.");
+		return;
+	end;
+	
+	item:setData("nameDe", german);
+	item:setData("nameEn", english);
+end;
+
+--- Remove the special name from a item. This changes the data values of the item.
+--  This function does NOT call world:changeItem()! You have to do this yourself.
+--
+-- @param item the item that is supposed to receive the new values
+function UnsetSpecialName(item)
+	if (item == nil) then
+		debug("Sanity check failed, no valid item supplied.");
+		return;
+	end;
+	
+	item:setData("nameDe", "");
+	item:setData("nameEn", "");
+end;
+
+--- Apply a special description to the item. The description is stored in the data values.
+--  This function does NOT call world:changeItem()! You have to do this yourself.
+--
+-- @param item the item that is supposed to receive the new values
+-- @param german the german description this item is supposed to display
+-- @param english the english description this item is supposed to display
+function SetSpecialDescription(item, german, english)	
+	if (item == nil) then
+		debug("Sanity check failed, no valid item supplied.");
+		return;
+	end;
+	
+	if ((german == nil) or (english == nil)) then
+		debug("Sanity check failed, no valid item descriptions supplied.");
+		return;
+	end;
+	
+	item:setData("descriptionDe", german);
+	item:setData("descriptionEn", english);
+end;
+
+--- Remove the special description from a item. This changes the data values of the item.
+--  This function does NOT call world:changeItem()! You have to do this yourself.
+--
+-- @param item the item that is supposed to receive the new values
+function UnsetSpecialDescription(item)
+	if (item == nil) then
+		debug("Sanity check failed, no valid item supplied.");
+		return;
+	end;
+	
+	item:setData("descriptionDe", "");
+	item:setData("descriptionEn", "");
+end;
+
+--- Change the rareness of a item. The rareness value is stored in the data values.
+--  This function does NOT call world:changeItem()! You have to do this yourself.
+--
+-- @param item the item that is supposed to receive the new values
+-- @param rare the rareness value, valid values are: ItemLookAt.commonItem, ItemLookAt.uncommonItem, ItemLookAt.rareItem, ItemLookAt.epicItem
+function SetItemRareness(item, rare)	
+	if (item == nil) then
+		debug("Sanity check failed, no valid item supplied.");
+		return;
+	end;
+	
+	if ((rare ~= ItemLookAt.commonItem) and (rare ~= ItemLookAt.uncommonItem) and (rare ~= ItemLookAt.rareItem) and (rare ~= ItemLookAt.epicItem)) then
+		debug("Sanity check failed, no valid item rareness supplied");
+		return;
+	end;
+	
+	item:setData("rareness", rare);
+end;
+
+--- Set the item rareness back to its default value. This changes the data values of the item.
+--  This function does NOT call world:changeItem()! You have to do this yourself.
+--
+-- @param item the item that is supposed to receive the new values
+function UnsetItemRareness(item)
+	if (item == nil) then
+		debug("Sanity check failed, no valid item supplied.");
+		return;
+	end;
+	
+	item:setData("rareness", "");
+end;
+
+--- Set or change the name of the crafter who created this item. The rareness value is stored in the data values.
+--  This function does NOT call world:changeItem()! You have to do this yourself.
+--
+-- @param item the item that is supposed to receive the new values
+-- @param name the name of the person who created this item
+function SetItemCraftedBy(item, name)	
+	if (item == nil) then
+		debug("Sanity check failed, no valid item supplied.");
+		return;
+	end;
+	
+	if (name == nil) then
+		debug("Sanity check failed, no valid crafter name supplied.");
+		return;
+	end;
+	
+	item:setData("craftedBy", name);
+end;
+
+--- Remove the name of the person who created this item from the item. This changes the data values of the item.
+--  This function does NOT call world:changeItem()! You have to do this yourself.
+--
+-- @param item the item that is supposed to receive the new values
+function UnsetItemCraftedBy(item)
+	if (item == nil) then
+		debug("Sanity check failed, no valid item supplied.");
+		return;
+	end;
+	
+	item:setData("craftedBy", "");
+end;
