@@ -8,14 +8,11 @@ module("item.keys", package.seeall)
 function UseItem(User,SourceItem,TargetItem,counter,param)
     local WALLPOS = position(-470,241,0);
     local DoorItem = base.common.GetFrontItem( User );
-    if DoorItem == nil or DoorItem.id == 0 then
-		-- try to sentence a character
-		local targetChar = base.common.GetFrontCharacter(User);
-		if targetChar then
-			SentenceCharacter(User,SourceItem,targetChar,counter,param);
-		end
-        return;
-    end
+    
+	if SourceItem:getData("prisonKeyOf") ~= "" then 
+	    -- sentence char to forced labour
+		SentenceCharacter(User,SourceItem)
+	end	
 
     if SourceItem.data == 7300 and DoorItem.id == 287 and DoorItem.pos == WALLPOS then
 
@@ -37,7 +34,41 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
     end
 end
 
-function SentenceCharacter(User,SourceItem,TargetChar,Counter,Param)
+function SentenceCharacter(User,SourceItem)
+	
+	--[[if User:isAdmin() == false then 
+	    return -- for now only GMs are supposed to use the keys
+	end	
+	
+	local myTown = SourceItem:getData("prisonKeyOf")
+	local townId
+	if myTown == "Cadomyr" then
+	    townId = 1
+	elseif myTown == "Runewick" then
+        townId = 2
+    elseif myTown == "Galmair" then
+        townId = 3
+    else
+        User:inform("Key does not belong to any town.")
+        return
+    end		
+	
+	local myPrisoner 
+	
+	
+	local myPrisoner
+	local workLoad
+	local callback = function(dialog)
+	    if not dialog:getSuccess() then
+		    User:inform("Abortion. No one was sentenced to anything.")
+			return
+		else 
+            -- stuff
+        end 			
+	end
+	local dialog = InputDialog("Insert: [name|id] [workload]",false,255,callback)
+	User:requestInputDialog(dialog)
+	
 	if prisonPosition == nil then
 		prisonPosition = {};
 		prisonPosition[1] = position(122, 520, 0); -- cadomyr (queen rosaline)
@@ -60,7 +91,7 @@ function SentenceCharacter(User,SourceItem,TargetChar,Counter,Param)
           world:gfx(41,TargetChar.pos); 
      else 
           base.common.InformNLS( User, "Du scheiterst dabei, den Gauner zu verurteilen. Dies ist nur mit gefesselten Strolchen im Beisein des Anführers möglich.", "You failed to sentence the thug. This works only with tied up rogues in presence of the leader.");
-     end
+     end]]
      
 end
 
