@@ -104,7 +104,7 @@ function GenerateLookAt(user, item, material)
 			lookAt.qualityText = GenericQualDe[itemQual];
 			lookAt.durabilityText = GenericDuraDe[material][duraIndex];
 		else
-			lookAt.qualityText = GenericQualEn[itemData];
+			lookAt.qualityText = GenericQualEn[itemQual];
 			lookAt.durabilityText = GenericDuraEn[material][duraIndex];
 		end;
 		lookAt.durabilityValue = itemDura + 1;
