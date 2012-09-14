@@ -82,9 +82,9 @@ function SentenceCharacter(User,SourceItem)
           TargetChar:setQuestProgress(25,(Counter*10)); 
           TargetChar:setQuestProgress(26, SourceItem.data); --sets the town the char got arrested from as imprisoner id
           
-          --[[filepoint,errmsg,errno=io.open("/home/SOMEWHERE/SOMETHING","w+"); 
+          filepoint,errmsg,errno=io.open("/home/SOMEWHERE/SOMETHING","w+"); 
           filepoint:write(os.date()..":"..user.name.." sentenced "..character.." to "..counter*10.."resources."); 
-          filepoint:close();  ]]--
+          filepoint:close();  
           world:gfx(41,TargetChar.pos); 
           world:makeSound(1,TargetChar.pos); 
           TargetChar:warp( position(-492,-484,-40) );    --position of the forced labour camp
