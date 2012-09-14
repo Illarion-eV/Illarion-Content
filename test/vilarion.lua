@@ -25,7 +25,8 @@ function LookAtItem(player, item)
     lookAt.obsidianLevel = 1
     lookAt.topazLevel = 1
     lookAt.bonus = 255
-
+item:getData("bla")
+world:changeItem(item)
     world:itemInform(player, item, lookAt)
     return true    
 end
