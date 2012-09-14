@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           ...with a little help of Estralis Seborian                       --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 09, 2012                       easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -28,7 +28,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: Warsage, Water, God, Hero, Ice."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -70,11 +70,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Welcome to our temple.");
 talkEntry:addResponse("Great morning isnt it?");
 talkEntry:addResponse("Hey! How may I help you?");
@@ -115,11 +115,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Have a good day.");
 talkEntry:addResponse("If you ever need something I will be here.");
 talkEntry:addResponse("I will see you later, ok.");
@@ -141,7 +141,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Even in my old age. I can feel the energy all around me. I feel Great.");
+talkEntry:addResponse("Even in my old age. I can feel energy all around me. I feel Great.");
 talkEntry:addResponse("I truly am happy.");
 talkEntry:addResponse("Very bored at the moment.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -162,7 +162,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Chal Pal");
+talkEntry:addResponse("Chazhek");
 talkEntry:addResponse("Chal The Aquasage");
 talkEntry:addResponse("I am Chal of the Reed 13, former Hero and leader of Paltaka Village.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -196,8 +196,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I am one of the seven Warsages.");
 talkEntry:addResponse("I am a Warsage and part time adventurer, yes even now.");
 talkEntry:addResponse("I am the Aquasage, A Warsage that uses aqua magic and the tagik fighting style, a most explosive combination if I do say so myself.");
@@ -239,6 +239,12 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tagik");
+talkEntry:addResponse("A lizardman origionated fighting style where every hit is basically a kick to the face.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hero");
 talkEntry:addResponse("Back in my prime. I saved my village from the evil Bandit Keith. It was all thanks to the many teachers I met along the way.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -246,7 +252,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Skysage");
-talkEntry:addResponse("Once the skysage challenged me and Fo to a batttle. He wanted us to fight together even knowing that when the flame and aquasage fight toghether we are stronger than any two individual fighters. Neeless to say, We handed him his arse.");
+talkEntry:addResponse("Once the skysage challenged me and Fondura to a batttle. He wanted us to fight together even knowing that when the flame and aquasage fight toghether we are stronger than any two fighters. Needless to say, we handed him his arse.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -306,9 +312,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("It sadly dissapeared.");
 talkEntry:addResponse("If only that island had a hero.");
 talkEntry:addResponse("I wish we could have saved it.");
@@ -339,9 +345,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("<Chal>");
 talkEntry:addTrigger("<Pal>");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, Here I am, Do you need me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -359,11 +365,11 @@ talkingNPC:addCycleText("GERMAN.", "I bet you can't swim faster than me.");
 talkingNPC:addCycleText("GERMAN.", "Yes, I am probably the deadliest grandma in existance.");
 talkingNPC:addCycleText("GERMAN.", "Aqua is my magic. Kicking people is my past time.");
 talkingNPC:addCycleText("GERMAN.", "hahahahahahahaha.");
-talkingNPC:addCycleText("GERMAN.", "I love to hear the leers play the tunes of my past hero days.");
+talkingNPC:addCycleText("GERMAN.", "I love to hear the lute players strum the tunes of my past hero days.");
 talkingNPC:addCycleText("GERMAN.", "Maybe someday I will give up this gig and become a full time adventurer.");
 talkingNPC:addCycleText("GERMAN.", "I'm so hungry. Meat, give me meat.");
-talkingNPC:addCycleText("GERMAN.", "Fo needs to be more social. He gives orcs a bad name, hahahaha.");
-talkingNPC:addCycleText("GERMAN.", "I'm going to die soon. I'm just kidding I'm not human, hahahaha");
+talkingNPC:addCycleText("GERMAN.", "Fondura needs to be more social. He gives orcs a bad name, hahahaha.");
+talkingNPC:addCycleText("GERMAN.", "I'm going to die soon. I'm just kidding, I'm not human, hahahaha");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(4);
 mainNPC:setDefaultLanguage(0);
