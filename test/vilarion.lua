@@ -8,9 +8,9 @@ module("test.vilarion", package.seeall)
 function LookAtItem(player, item)
     local lookAt = ItemLookAt()
 
-    lookAt.name = "Vilarion's Test Item"
+    lookAt.name = "Vilarion's Test Item of pwnage with a microwave"
     lookAt.rareness = ItemLookAt.epicItem;
-    lookAt.description = "This item has an evil presence"
+    lookAt.description = "This item has an evil presence. Also it creates cookies. But they all look like Vilarion."
     lookAt.craftedBy = "Vilarion"
     lookAt.weight = 1
     lookAt.worth = 666666
