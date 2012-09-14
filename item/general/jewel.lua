@@ -12,5 +12,5 @@ module("item.general.jewel", package.seeall)
 -- UPDATE common SET com_script='item.general.jewel' WHERE com_itemid IN ();
 
 function LookAtItem(user, item)
-    world:itemInform(user, item, base.lookat.GenerateLookAt(user, item, base.lookat.JEWELERY);
+    world:itemInform(user, item, base.lookat.GenerateLookAt(user, item, base.lookat.JEWELERY));
 end;
