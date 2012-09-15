@@ -6,46 +6,9 @@ require("item.general.metal")
 require("base.common")
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
--- dialog test by merung
-function dialogOne(User)
-    local callback = function(dialog)
-		if not dialog:getSuccess() then
-			User:inform("abortion")
-		else
-			local informOne="".. dialog:getInput()
-			User:inform("debug 1: "..informOne)
-			return informOne
-			--local informTwo = dialogTwo(User)
-			--return informOne,informTwo
-		end
-	end
-	local dialog = InputDialog("Insert name or id", false, 255, callback)
-	User:requestInputDialog(dialog)
-end
-
-function dialogTwo(User)
-    
-	local callback = function(dialog)
-		if not dialog:getSuccess() then
-			User:inform("abortion")
-		else
-			informTwo =""..dialog:getInput()
-			return informTwo
-		end
-	end
-	local dialog = InputDialog("workload", false, 255, callback)
-	User:requestInputDialog(dialog)
-end
-
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	--------- TESTING STUFF !!! ------------ Merung
-	if (string.find(User.lastSpokenText,"testdialog")~=nil) then
-	    local informOne--[[, informTwo]] = dialogOne(User)
-		User:inform("informOne says: "..informOne)
-		User:inform("informTwo says: "..informTwo)
-	end
-	
 	if (string.find(User.lastSpokenText,"testp")~=nil) then
 	    User:createItem(59,1,444,{["potionEffectId"]=95555555})
 	    return
