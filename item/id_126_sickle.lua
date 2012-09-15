@@ -8,35 +8,31 @@ module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 -- dialog test by merung
 function dialogOne(User)
-    if (User.lastSpokenText == "input") then
-		local callback = function(dialog)
-			if not dialog:getSuccess() then
-				User:inform("abortion")
-			else
-				local informOne="".. dialog:getInput()
-				local informTwo = dialogTwo(User)
-				return informOne,informTwo
-			end
+    local callback = function(dialog)
+		if not dialog:getSuccess() then
+			User:inform("abortion")
+		else
+			local informOne="".. dialog:getInput()
+			local informTwo = dialogTwo(User)
+			return informOne,informTwo
 		end
-		local dialog = InputDialog("Insert name or id", false, 255, callback)
-		User:requestInputDialog(dialog)
 	end
+	local dialog = InputDialog("Insert name or id", false, 255, callback)
+	User:requestInputDialog(dialog)
 end
 
 function dialogTwo(User)
-    if (User.lastSpokenText == "input") then
-		local callback = function(dialog)
-			if not dialog:getSuccess() then
-				User:inform("abortion")
-			else
-				informTwo =""..dialog:getInput()
-			    return informTwo
-			end
+    
+	local callback = function(dialog)
+		if not dialog:getSuccess() then
+			User:inform("abortion")
+		else
+			informTwo =""..dialog:getInput()
+			return informTwo
 		end
-		local dialog = InputDialog("workload", false, 255, callback)
-		User:requestInputDialog(dialog)
-		return
 	end
+	local dialog = InputDialog("workload", false, 255, callback)
+	User:requestInputDialog(dialog)
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
