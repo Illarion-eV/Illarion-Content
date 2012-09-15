@@ -14,8 +14,9 @@ function dialogOne(User)
 		else
 			local informOne="".. dialog:getInput()
 			User:inform("debug 1: "..informOne)
-			local informTwo = dialogTwo(User)
-			return informOne,informTwo
+			return informOne
+			--local informTwo = dialogTwo(User)
+			--return informOne,informTwo
 		end
 	end
 	local dialog = InputDialog("Insert name or id", false, 255, callback)
@@ -40,7 +41,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	--------- TESTING STUFF !!! ------------ Merung
 	if (string.find(User.lastSpokenText,"testdialog")~=nil) then
-	    local informOne, informTwo = dialogOne(User)
+	    local informOne--[[, informTwo]] = dialogOne(User)
 		User:inform("informOne says: "..informOne)
 		User:inform("informTwo says: "..informTwo)
 	end
