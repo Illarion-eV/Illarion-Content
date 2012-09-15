@@ -13,6 +13,7 @@ function dialogOne(User)
 			User:inform("abortion")
 		else
 			local informOne="".. dialog:getInput()
+			User:inform("debug 1: "..informOne)
 			local informTwo = dialogTwo(User)
 			return informOne,informTwo
 		end
