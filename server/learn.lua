@@ -28,8 +28,8 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 	normalAP=50; --How many movepoints does a 'normal' action take? Default=50
 	--Constants - end
 	
-    skillValue=user:getSkill(skill);
-	minorSkill=user:getMinorSkill(skill); --made that one up, dunno how to access the minor skill from lua
+    skillValue=user:getSkill(skill); --reading the skill points
+	minorSkill=user:getMinorSkill(skill); --reading the minor skill points; 10000=1 skill point
 	MCvalue=math.max(lowerBorder,user:getMentalCapacity()); --below 0.5% of time spent online, no additional bonus is granted
 
     if skillValue<opponent+20 and skillValue<100 then --you only learn when your skill is lower than the skill of the opponent +20 and your skill is <100
@@ -62,7 +62,7 @@ end
 
 function reduceMC( user )
 
-    if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
+    if user:idleTime() < 180 then --Has the user done any action or spoken anything within the last three minutes?
      	user:increaseMentalCapacity(-1*math.floor(user:getMentalCapacity()*0.00025+0.5)); --reduce MC-points by 0.025%, rounded correctly.
 	end
 	

@@ -166,12 +166,3 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         "You need to carry a broth plant in your hands."
     );
 end
-
-
-function LookAtItem(User,Item)
-    if (User:getPlayerLanguage()==0) then
-        world:itemInform(User,Item,"Du siehst einen Kupferkessel.")
-    else
-        world:itemInform(User,Item,"You look at a copper kettle.")        
-    end
-end

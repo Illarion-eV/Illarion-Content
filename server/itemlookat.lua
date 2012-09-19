@@ -21,17 +21,23 @@ function lookAtItem(player, item)
 		-- Valid values:
 		--  ItemLookAt.commonItem
 		--  ItemLookAt.uncommonItem
-		--  ItemLookAt.rarecommonItem
-		--  ItemLookAt.epiccommonItem
+		--  ItemLookAt.rareItem
+		--  ItemLookAt.epicItem
 		local value = tonumber(rarenessData);
 		if (value ~= nil) then
 			lookAt.rareness = value;
 	    end;
 	end;
 	
-	local descriptionData = item:getData("itemDescription");
-	if (descriptionData ~= nil) then
-		lookAt.description = descriptionData;
+	local usedDescription;
+	if (player:getPlayerLanguage() == Player.german) then
+		usedDescription = item:getData("descriptionDe");
+	else
+		usedDescription = item:getData("descriptionEn");
+	end;
+	
+	if (usedDescription ~= nil) then
+		lookAt.description = usedDescription;
 	end;
 	
 	if (itemCommon.AgeingSpeed < 255) then

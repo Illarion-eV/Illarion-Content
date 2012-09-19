@@ -2,122 +2,15 @@ require("base.lookat")
 
 module("item.general.jewel", package.seeall)
 
+-- Normal Items:
 -- UPDATE common SET com_script='item.general.jewel' WHERE com_itemid IN (225, 1840, 1858);
 
-function LookAtItem(User,Item)
-    if (Item.id == 225) then
-        if (Item.data == 122) then
-            if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Krone der Nordmark");
-            else
-                world:itemInform(User,Item,"crown of the Northmark");
-            end
-            return true;
-        elseif ( Item.data == 121 ) then
-            if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Krone von Greenbriar");
-            else
-                world:itemInform(User,Item,"crown of Greenbriar");
-            end
-            return true;
-        elseif ( Item.data == 120 ) then
-            if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Krone von Varshikars");
-            else
-                world:itemInform(User,Item,"crown of Varshikars");
-            end
-            return true;
-        elseif ( Item.data == 119 ) then
-            if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Krone der Grauen");
-            else
-                world:itemInform(User,Item,"crown of the Greys");
-            end
-            return true;
-        elseif ( Item.data == 118 ) then
-            if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Krone von Trolls Bane");
-            else
-                world:itemInform(User,Item,"crown of Trolls Bane");
-            end
-            return true;
-        elseif ( Item.data == 123 ) then
-            if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Krone des Königs von Silberbrand");
-            else
-                world:itemInform(User,Item,"crown of the king of Silverbrand");
-            end
-            return true;
-        elseif ( Item.data == 201 ) then
-            if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Alte zerbrochene Goldkrone");
-            else
-                world:itemInform(User,Item,"old broken gold crown");
-            end
-            return true;
-        elseif ( Item.data == 202 ) then
-            if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Vollständig edelsteinbestückte Goldkrone");
-            else
-                world:itemInform(User,Item,"fully jeweled gold crown");
-            end
-            return true;
-		elseif ( Item.data == 666 ) then
-            if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Silbrig schimmernde, halb durchsichtige Krone.");
-            else
-                world:itemInform(User,Item,"silver shimmering, half-transperent crown.");
-            end
-            return true;
-        elseif ( Item.data == 10000 ) then
-            if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Auffällige Krone");            
-            else
-                world:itemInform(User,Item,"peculiar crown");
-            end
-            return true;
-        end
-    end
-    local desc = base.lookat.GetItemDescription(User,Item,4,false,false );
-    if ( Item.data == 1 ) then
-        world:itemInform(User,Item,base.lookat.GetItemDescription(User,Item,4,false,false )..base.common.GetNLS(User, " mit Gravur Troll's Bane", " with gravure Trolls Bane"));
-    elseif ( Item.data == 2 ) then
-        world:itemInform(User,Item,base.common.GetNLS(User, "Siegelring der Grauen Rose", "signet ring of the Grey Rose"));
-    elseif ( Item.data == 3 ) then
-        world:itemInform(User,Item,base.common.GetNLS(User, "Siegelring von Greenbriar", "signet ring of Greenbriar"));
-    elseif ( Item.data == 4 ) then
-        world:itemInform(User,Item,base.common.GetNLS(User, desc.." mit dem Wappen der Littlethorns", desc.." with the coat of arms of the Littlethorns"));
-    elseif ( Item.data == 5 ) then
-        world:itemInform(User,Item,base.common.GetNLS(User, "exzellenter Topasring mit der Gravur Faladron Furnir", " excellent topas ring with gravure Faladron Furnir"));
-    elseif ( Item.data == 6 ) then
-        world:itemInform(User,Item,base.common.GetNLS(User, "exzellenter Topasring mit der Gravur Fayne Furnir", " excellent topas ring with gravure Fayne Furnir"));
-    elseif ( Item.data == 7 ) then
-        world:itemInform(User,Item,base.common.GetNLS(User, desc.." mit der Gravur einer angebissenen Mandarine und eines sich in den Schwanz beissenden Panthers", desc.." with the gravure of a partly eaten tangerine and a panther biting his own tail"));
-    elseif ( Item.data == 8 ) then
-        world:itemInform(User,Item,base.common.GetNLS(User, desc.." mit dem Wappen der Heneghans", desc.." with the Heneghan crest"));
-    else
-        world:itemInform(User,Item,desc);
-    end
-end
+-- Priest Items:
+-- UPDATE common SET com_script='item.general.jewel' WHERE com_itemid IN (62,67,71,82,83,334,463,465);
 
-function MoveItemBeforeMove( Character, SourceItem, TargetItem)
-        if (Character:increaseAttrib("sex",0) == 0) then
-            gText  = "seiner";
-            eText  = "his";
-			gText2 = "er";
-			eText2 = "he";
-        else
-            gText  = "ihrer";
-            eText  = "her";
-            gText2 = "sie";
-            eText2 = "she";
-        end
+-- Weapon Items:
+-- UPDATE common SET com_script='item.general.jewel' WHERE com_itemid IN ();
 
-	if ( SourceItem.data == 666 ) then
-		Character:talkLanguage( Character.say, Player.german, "#me fährt mit "..gText.." Hand direkt durch die Krone hindurch. "..gText2.." scheint nicht in der Lage zu sein das Metall zu berühren.");
-        Character:talkLanguage( Character.say, Player.english, "#me run's with "..eText.." hand directly through the crown. It seems, that "..eText2.."'s not able to touch the metal.");
-        return false;
-	end
-	return true;
-end
-
+function LookAtItem(user, item)
+    world:itemInform(user, item, base.lookat.GenerateLookAt(user, item, base.lookat.JEWELERY));
+end;

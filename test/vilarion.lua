@@ -8,24 +8,25 @@ module("test.vilarion", package.seeall)
 function LookAtItem(player, item)
     local lookAt = ItemLookAt()
 
-    lookAt.name = "Vilarion's Test Item"
+    lookAt.name = "Vilarion's Test Item of pwnage with a microwave"
     lookAt.rareness = ItemLookAt.epicItem;
-    lookAt.description = "This item has an evil presence"
+    lookAt.description = "This item has an evil presence. Also it creates cookies. But they all look like Vilarion."
     lookAt.craftedBy = "Vilarion"
     lookAt.weight = 1
     lookAt.worth = 666666
     lookAt.qualityText = "supercharged"
     lookAt.durabilityText = "eternal"
     lookAt.durabilityValue = 100
-    lookAt.diamondLevel = 10
-    lookAt.emeraldLevel = 10
-    lookAt.rubyLevel =10
-    lookAt.sapphireLevel = 10
-    lookAt.amethystLevel = 10
-    lookAt.obsidianLevel = 10
-    lookAt.topazLevel = 10
+    lookAt.diamondLevel = 1
+    lookAt.emeraldLevel = 1
+    lookAt.rubyLevel =1
+    lookAt.sapphireLevel = 1
+    lookAt.amethystLevel = 1
+    lookAt.obsidianLevel = 1
+    lookAt.topazLevel = 1
     lookAt.bonus = 255
-
+item:getData("bla")
+world:changeItem(item)
     world:itemInform(player, item, lookAt)
     return true    
 end
