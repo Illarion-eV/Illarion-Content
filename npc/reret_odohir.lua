@@ -31,13 +31,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Retret Odohir the Notary of Runewick. Keywords: Buy decree, exchange decree, Key, become citizen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: Buy decree, exchange decree, Key, become citizen."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform(""[Spielhilfe] Dieser NPC ist Retret Odohir die Notar von Runewick. Schlüsselwörter: Dekret kaufen,Dekret einlösen,Schlüßel,Bürger werden"."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notar von Cadomyr. Schlüsselwörter: Dekret kaufen,Dekret einlösen, Schlüssel,Bürger werden."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
