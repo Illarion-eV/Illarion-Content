@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 19, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -152,16 +152,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Click the pick-axe with the left mouse button to examine it."));
-talkEntry:addResponse("In order to examine an item, you simply have to click on it once. Learning about your belongings is as vital as acquiring them.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Move the mouse cursor over the pick-axe in order to examine it."));
+talkEntry:addResponse("In order to examine an item, you simply have to move your mouse cursor over it. Learning about your belongings is as vital as acquiring them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 3));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Klick mit der linken Maustaste auf die Spitzhacke um sie zu untersuchen."));
-talkEntry:addResponse("Um einen Gegenstand zu untersuchen, müsst Ihr es einfach nur einmal anklicken. Etwas über sein Hab und Gut zu lernen, ist mindestens so wichtig, wie es zu erlangen.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Bewege den Mauszeiger über die Spitzhacke um sie zu untersuchen."));
+talkEntry:addResponse("Um einen Gegenstand zu untersuchen, müsst Ihr einfach nur den Mauszeiger über ihn platzieren. Etwas über sein Hab und Gut zu lernen, ist mindestens so wichtig, wie es zu erlangen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

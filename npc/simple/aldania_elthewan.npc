@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 19, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Aldania Elthewan"
@@ -82,8 +82,8 @@ queststatus(310) = 3, item(2763, all) = 0, english, ".*" -> item(2763, 1, 333), 
 queststatus(310) = 3, item(2763, all) = 0, ".*" -> item(2763, 1, 333), "Ach herrje, es schaut aus als hättet Ihr die Spitzhacke verloren die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Untersucht sie einmal."
 
 -- Player seems to have a problem with examining
-queststatus(310) = 3, english, ".*" -> inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Click the pick-axe with the left mouse button to examine it."), "In order to examine an item, you simply have to click on it once. Learning about your belongings is as vital as acquiring them."
-queststatus(310) = 3, ".*" -> inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Klick mit der linken Maustaste auf die Spitzhacke um sie zu untersuchen."), "Um einen Gegenstand zu untersuchen, müsst Ihr es einfach nur einmal anklicken. Etwas über sein Hab und Gut zu lernen, ist mindestens so wichtig, wie es zu erlangen."
+queststatus(310) = 3, english, ".*" -> inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Move the mouse cursor over the pick-axe in order to examine it."), "In order to examine an item, you simply have to move your mouse cursor over it. Learning about your belongings is as vital as acquiring them."
+queststatus(310) = 3, ".*" -> inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Bewege den Mauszeiger über die Spitzhacke um sie zu untersuchen."), "Um einen Gegenstand zu untersuchen, müsst Ihr einfach nur den Mauszeiger über ihn platzieren. Etwas über sein Hab und Gut zu lernen, ist mindestens so wichtig, wie es zu erlangen."
 
 -- Player lost his torch. We will remove farmed torches at the end of the tutorial.
 queststatus(310) = 4, item(391, all) = 0, english, ".*" -> item(391, 1, 333), "Without a light source, the darkness will engulf you sooner or later. I have given you another torch, be more careful with this one."
