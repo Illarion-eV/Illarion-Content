@@ -28,7 +28,8 @@ function PutItemOnField(Item,User)
 			if not foundTreasure then -- security check
 				oldTreasure = 0
 			else
-				ScriptVars:set(townTreasure, oldTreasure+payToFaction) -- add acquired coins to the treasure		
+				ScriptVars:set(townTreasure, oldTreasure+payToFaction) -- add acquired coins to the treasure	
+                ScriptVars:save();				
 			end
 			
 			-- reduce work load of char

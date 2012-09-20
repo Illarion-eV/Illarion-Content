@@ -30,7 +30,8 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 	    if not foundTreasure then -- security check
 			oldTreasure = 0
 		else
-			ScriptVars:set(Treasury, oldTreasure+payToFaction) -- add acquired coins to the treasure		
+			ScriptVars:set(Treasury, oldTreasure+payToFaction) -- add acquired coins to the treasure	
+            ScriptVars:save();			
 		end
 		
 		gp,sp,cp=base.money.MoneyToCoins(payToFaction); -- split the amount into copper coins, silver coins and gold coins
