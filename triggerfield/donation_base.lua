@@ -35,7 +35,24 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 		
 		gp,sp,cp=base.money.MoneyToCoins(payToFaction); -- split the amount into copper coins, silver coins and gold coins
 		
-        base.common.InformNLS(User,"[Spende] Du spendest Gegenstände im Gegenwert von "..gp.." Goldstücken, "..sp.." Silberstücken und "..cp.." Kupferstücken in die Schatzkammer von "..FactionName..". "..LeaderName.." wird zufrieden sein.","[Donation] You donate items valued at "..gp.." gold coins, "..sp.." silver coins and "..cp.." copper coins to the treasury of "..FactionName..". "..LeaderName.." will be pleased."); -- Feedback!		
+		if payToFaction >= 10000 then -- at least one gold coin
+	
+	        estring=" "..gp.." gold coins, "..sp.." silver coins and "..cp.." copper coins";
+		    gstring=" "..gp.." Goldstücken, "..sp.." Silberstücken und "..cp.." Kupferstücken"; --what a name for a variable...
+
+        elseif payToFaction >= 100 then -- at least one silver coin
+	
+		    estring=" "..sp.." silver coins and "..cp.." copper coins";
+		    gstring=" "..sp.." Silberstücken und "..cp.." Kupferstücken"; --what a name for a variable...
+		
+	    else -- just copper coins
+	
+		    estring=" "..cp.." copper coins";
+		    gstring=" "..cp.." Kupferstücken"; --what a name for a variable...
+		
+	    end
+	
+        base.common.InformNLS(User,"[Spende] Du spendest Gegenstände im Gegenwert von"..gstring.." in die Schatzkammer von "..FactionName..". "..LeaderName.." wird zufrieden sein.","[Donation] You donate items valued at"..estring.." to the treasury of "..FactionName..". "..LeaderName.." will be pleased."); -- Feedback!		
 		world:gfx(46,Item.pos); -- nice GFX
 		world:erase(Item,Item.number); -- delete the item
 	
