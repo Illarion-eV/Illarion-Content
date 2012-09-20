@@ -82,12 +82,12 @@ function SentenceCharacter(User,SourceItem)
 				for i=1,#onlineChars do
 					local checkChar = onlineChars[i]
 					if myPrisonerId then
-					    if checkChar.id = myPrisonerId then
+					    if checkChar.id == myPrisonerId then
 						    thePrisoner = checkChar
 				            break
 						end	
 			        else 
-         			    if checkChar.name = myPrisonerName then
+         			    if checkChar.name == myPrisonerName then
 		                    thePrisoner = checkChar
 				            break
 						end
