@@ -27,18 +27,16 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 		
 		foundTreasure, oldTreasure = ScriptVars:find(Treasury); -- Reading the old treasure amount
 				
-	    --if not foundTreasure then -- security check
-		--	oldTreasure = 0;
-		--else
-		    User:inform("Old: "..oldTreasure.."!");
-		    oldTreasure=tonumber(oldTreasure); --Converting the string to a number
-		    newTreasure=tostring(oldTreasure+payToFaction); --scriptVars are strings :-(
-		    User:inform("New: "..newTreasure.."!");
-			ScriptVars:set(Treasury, newTreasure); -- add acquired coins to the treasure	
-            ScriptVars:save();			
-		--end
+	    if not foundTreasure then -- security check
+		    oldTreasure = "0";
+		end
 		
-		
+		User:inform("Old: "..oldTreasure.."!");
+		oldTreasure=tonumber(oldTreasure); --Converting the string to a number
+		newTreasure=tostring(oldTreasure+payToFaction); --scriptVars are strings :-(
+		User:inform("New: "..newTreasure.."!");
+		ScriptVars:set(Treasury, newTreasure); -- add acquired coins to the treasure	
+        ScriptVars:save(); --Saving the scriptVars
 		
 		gp,sp,cp=base.money.MoneyToCoins(payToFaction); -- split the amount into copper coins, silver coins and gold coins
 		
