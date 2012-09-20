@@ -377,7 +377,9 @@ function payNow(User)
     if taxFound then
         taxTotal=taxTotal+tax;
         ScriptVars:set("taxTotal",taxTotal);
+		ScriptVars:save();
     else
         ScriptVars:set("taxTotal",tax);
+		ScriptVars:save();
     end    
 end
