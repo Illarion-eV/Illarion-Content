@@ -118,7 +118,7 @@ end
 
 
 function LookAtItem(User,Item)
-    local DataVal=Item.data;
+   --[[ local DataVal=Item.data;
     if (specialnames==nil) then
         specialnames={};
         specialnames[3001]={"Zwergenschlüssel","dwarven key"};
@@ -155,7 +155,7 @@ function LookAtItem(User,Item)
         else
             world:itemInform(User,Item,world:getItemName(Item.id,1));
         end
-    end
+    end]]
 end
 
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
