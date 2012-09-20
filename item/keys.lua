@@ -12,6 +12,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 	if SourceItem:getData("prisonKeyOf") ~= "" then 
 	    -- sentence char to forced labour
 		SentenceCharacter(User,SourceItem)
+	    return
 	end	
 
     if SourceItem.data == 7300 and DoorItem.id == 287 and DoorItem.pos == WALLPOS then
@@ -58,7 +59,8 @@ function SentenceCharacter(User,SourceItem)
 		    User:inform("Abortion. No one was sentenced to anything.")
 			return
 		else 
-            local myString = dialog:getInput()
+            User:inform("debug 0.5")
+			local myString = dialog:getInput()
 			local myPrisonerId
 			local myPrisonerName
 	        local workLoad
@@ -68,16 +70,18 @@ function SentenceCharacter(User,SourceItem)
 			    a,b,myPrisonerId,workLoad = string.find(myString,"(%d+) (%d+)")
                 myPrisonerId = tonumber(myPrisonerId); workLoad = tonumber(workLoad)
 				allFound = true
+			    --User:inform("debug 1")
 			elseif string.find(myString,"(%d+)") then
 			    a,b,workLoad = string.find(myString,"(%d+)")
                 workLoad = tonumber(workLoad)
 				if a-2 > 1 then 
 					myPrisonerName=string.sub (myString, 1,a-2)
                     allFound = true
-                end
+                    --User:inform("debug 2")
+				end
 			end
             if allFound then
-			    local onlineChars = world:getPlayerOnline()
+			    local onlineChars = world:getPlayersOnline()
 				local thePrisoner
 				for i=1,#onlineChars do
 					local checkChar = onlineChars[i]
@@ -115,7 +119,7 @@ end
 
 
 function LookAtItem(User,Item)
-    local DataVal=Item.data;
+   --[[ local DataVal=Item.data;
     if (specialnames==nil) then
         specialnames={};
         specialnames[3001]={"Zwergenschlüssel","dwarven key"};
@@ -152,7 +156,7 @@ function LookAtItem(User,Item)
         else
             world:itemInform(User,Item,world:getItemName(Item.id,1));
         end
-    end
+    end]]
 end
 
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
