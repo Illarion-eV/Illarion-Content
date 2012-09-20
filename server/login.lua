@@ -115,6 +115,7 @@ function onLogin( player )
 		messageG[58]="[Tipp] Der Illarion-Chat ist auf der Homepage verlinkt. Du erhältst dort technische Unterstützung oder kannst einfach andere Spieler kennenlernen.";
 		messageG[59]="[Tipp] Der Vollbildmodus kann im Optionsmenü des Clients aktiviert werden.";
 		messageG[60]="[Tipp] Wenn ein neuer Spieler deinem Reich beitritt erhältst du eine kurze Mitteilung. Heiße ihn doch gleich willkommen!";
+		messageG[61]="[Tipp] Um der Staatskasse deines Reiches etwas zu spenden, lege es einfach auf das Spendenfeld in der Nähe deines Anführers."
 		
 		--English
 		messageE={};
@@ -178,7 +179,8 @@ function onLogin( player )
 		messageE[58]="[Hint] The Illarion chat is linked on the homepage. It is useful for technical assistance and for simply getting to know your fellow players.";
 		messageE[59]="[Hint] Fullscreen mode can be activated from the settings menu when the client is started.";
 		messageE[60]="[Hint] You will receive a notification when a new player chooses to join your realm. Give them a friendly welcome!";
-
+        messageE[61]="[Hint] In order to donate something to your realm's treasury, just place the item on the donation square close to your leader.";
+		
 	    dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	    base.common.InformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
     end
@@ -340,8 +342,27 @@ function payNow(User)
     end
         
     gp,sp,cp=base.money.MoneyToCoins(totTax)
-    infText="You have thereby paid your monthly tribut. This month, it were "..gp.." gold, "..sp.." silver and "..cp.." copper, which result from a tribute rate of "..(taxHeight*100).."%";
+	
+	if totTax >= 10000 then -- at least one gold coin
+	
+	    estring=" "..gp.." gold coins, "..sp.." silver coins and "..cp.." copper coins";
+		gstring=" "..gp.." Goldstücke, "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
+
+    elseif totTax >= 100 then -- at least one silver coin
+	
+		estring=" "..sp.." silver coins and "..cp.." copper coins";
+		gstring=" "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
+		
+	else -- just copper coins
+	
+		estring=" "..cp.." copper coins";
+		gstring=" "..cp.." Kupferstücke"; --what a name for a variable...
+		
+	end
+		
+    infText="You have thereby paid your monthly tribut. This month, it were"..estring..", which result from a tribute rate of "..(taxHeight*100).."%";
     --Please add the information to which town the tribute was paid ~Estralis
+	--German translation is missing ~Estralis
 	
     local closeTrib=function(onClose)
     -- do nothing
@@ -356,7 +377,9 @@ function payNow(User)
     if taxFound then
         taxTotal=taxTotal+tax;
         ScriptVars:set("taxTotal",taxTotal);
+		ScriptVars:save();
     else
         ScriptVars:set("taxTotal",tax);
+		ScriptVars:save();
     end    
 end
