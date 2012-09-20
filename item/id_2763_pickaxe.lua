@@ -61,7 +61,7 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 		for i, Aldania in pairs(NPCList) do
 		    base.common.TalkNLS(Aldania, Character.say, "Sehr gut, nun weißt du, wie man mit Ausrüstung umgeht. Helme, Schuhe und ähnliches werden genauso angelegt. In meiner nächsten Lektion wirst du lernen, noch mehr über einen Gegenstand zu erfahren, beispielweise seinen Zustand oder die handwerkliche Güte. Untersuche bitte die Spitzhacke, um ihre Qualität einzuschätzen.", "Very good, you know how to properly handle your equipment now. Helmets, shoes and the like are equipped in the same way. My next lesson will allow you to learn more information about your items, such as how damaged and how well-crafted they are. To see the quality of your pick-axe, please examine it now.");
 	    end
-		base.common.InformNLS( User,"[Tutorial] Stelle sicher, dass die Chatbox deaktiviert ist und drücke 'I' um das Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Klicke mit der linken Maustaste auf die Spitzhacke um sie zu untersuchen.","[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Click with the left mouse button to examine the pick-axe." );
+		base.common.InformNLS( User,"[Tutorial] Stelle sicher, dass die Chatbox deaktiviert ist und drücke 'I' um das Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Bewege den Mauszeiger über die Spitzhacke um sie zu untersuchen.","[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Move the mouse cursor over the pick-axe in order to examine it." );
 	end
 
 --Noobia end

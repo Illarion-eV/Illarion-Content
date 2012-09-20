@@ -1,5 +1,6 @@
 -- called after every player login
 require("base.common")
+require("base.money")
 require("content.dailymessage")
 
 module("server.login", package.seeall);
@@ -308,7 +309,7 @@ function payNow(User)
 --galmair = 103
 --gasthof = 104 (der ist aber unwichtig, da das keine stadt ist)
     
-    taxHeight=0.1;  -- 10% taxes for testing purposes
+    taxHeight=0.05;  -- 5% taxes for testing purposes
     -- *** DEPOT-LIST HAS TO BE CHANGED ACCORDING TO FACTION MEMBERSHIP! ***
     depNr={101,104};
     valDepot={0,0};

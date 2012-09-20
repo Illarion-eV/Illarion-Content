@@ -133,23 +133,26 @@ itemShoes = 0
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Lizzardsss pray to Zzzelphia. To whom do you pray?"
 "Gott", "Götter" -> "Echsssenmenschen beten zzzu Zzzelphia. Zzzu wem betet Ihr? Sss"
-"Tanora", "Zelphia", english -> "She'sss to godesss of the water and the sssea.", "You call her Tanora, thisss iss not a word eassy tp pronoucsse for usss.", "ENGLISH3."
-"Tanora", "Zelphia" -> "Sssie isssst die Göttin desss Wassers und dess Meereess.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "She'sss to godesss of the water and the sssea.", "You call her Tanora, thisss iss not a word eassy tp pronoucsse for usss."
+"Tanora", "Zelphia" -> "Sssie isssst die Göttin desss Wassers und dess Meereess.", "Ihr nennt sssie Tanora, dasss issst kein Wort ausss unssserer Ssssprache."
 
 -- Optional: Faction stuff
-"Runewick", english -> "???"
+"Runewick", english -> "There isss no place like thisss under the sssea. Zss."
 "Runewick" -> "???"
-"Galmair", english -> "???"
+"Galmair", english -> "There isss no place like thisss under the sssea. Zss."
 "Galmair" -> "???"
-"Cadomyr", english -> "???"
+"Cadomyr", english -> "There isss no place like thisss under the sssea. Zss."
 "Cadomyr" -> "???"
 
 -- Optional: Main land factions
-"salkama", english -> "??"
+"albar", english -> "There isss no place like thisss under the sssea. Zss."
+"albar" -> "..."
+"gynk", "gync", english -> "There isss no place like thisss under the sssea. Zss."
+"gync", "gynk" -> "..."
+"salkama", english -> "There isss no place like thisss under the sssea. Zss."
 "salkama" -> "??"
-
 -- Optional: Gobaith
-"Gobaith", "Gobiath", english -> "?"
+"Gobaith", "Gobiath", english -> "There isss no place like thisss under the sssea. Zss."
 "Gobaith", "Gobiath" -> "?"
 
 ------------------------------------------------------------------------------AC
