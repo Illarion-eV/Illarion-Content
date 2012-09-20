@@ -53,6 +53,8 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 		
 	    end
 	
+	    base.common.InformNLS(User,"[Spende] OldTreasure="..oldTreasure..".","[Donation] OldTreasure="..oldTreasure.."."); -- Feedback!		
+
         base.common.InformNLS(User,"[Spende] Du spendest Gegenstände im Gegenwert von"..gstring.." in die Schatzkammer von "..FactionName..". "..LeaderName.." wird zufrieden sein.","[Donation] You donate items valued at"..estring.." to the treasury of "..FactionName..". "..LeaderName.." will be pleased."); -- Feedback!		
 		world:gfx(46,Item.pos); -- nice GFX
 		world:erase(Item,Item.number); -- delete the item
