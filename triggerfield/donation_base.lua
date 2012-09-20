@@ -31,10 +31,8 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 		    oldTreasure = "0";
 		end
 		
-		User:inform("Old: "..oldTreasure.."!");
 		oldTreasure=tonumber(oldTreasure); --Converting the string to a number
 		newTreasure=tostring(oldTreasure+payToFaction); --scriptVars are strings :-(
-		User:inform("New: "..newTreasure.."!");
 		ScriptVars:set(Treasury, newTreasure); -- add acquired coins to the treasure	
         ScriptVars:save(); --Saving the scriptVars
 		
