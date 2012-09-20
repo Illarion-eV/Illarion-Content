@@ -30,10 +30,10 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 	    if not foundTreasure then -- security check
 			oldTreasure = 0;
 		else
-		    User:inform(oldTreasure);
+		    User:inform("Old: "..oldTreasure.."!");
 		    oldTreasure=tonumber(oldTreasure); --Converting the string to a number
 		    newTreasure=tostring(oldTreasure+payToFaction); --scriptVars are strings :-(
-			User:inform(newTreasure);
+		    User:inform("New: "..newTreasure.."!");
 			ScriptVars:set(Treasury, newTreasure); -- add acquired coins to the treasure	
             ScriptVars:save();			
 		end
