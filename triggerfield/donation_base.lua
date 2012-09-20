@@ -26,11 +26,13 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 		end
 		
 		foundTreasure, oldTreasure = ScriptVars:find(Treasury); -- Reading the old treasure amount
-		
+				
 	    if not foundTreasure then -- security check
 			oldTreasure = 0;
 		else
-			ScriptVars:set(Treasury, oldTreasure+payToFaction); -- add acquired coins to the treasure	
+		    oldTreasure=tonumber(oldTreasure); --Converting the string to a number
+		    newTreasure=tostring(oldTreasure+payToFaction); --scriptVars are strings :-(
+			ScriptVars:set(Treasury, newTreasure); -- add acquired coins to the treasure	
             ScriptVars:save();			
 		end
 		
