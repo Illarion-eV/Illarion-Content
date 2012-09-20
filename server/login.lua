@@ -340,8 +340,27 @@ function payNow(User)
     end
         
     gp,sp,cp=base.money.MoneyToCoins(totTax)
-    infText="You have thereby paid your monthly tribut. This month, it were "..gp.." gold, "..sp.." silver and "..cp.." copper, which result from a tribute rate of "..(taxHeight*100).."%";
+	
+	if totTax >= 10000 then -- at least one gold coin
+	
+	    estring=" "..gp.." gold coins, "..sp.." silver coins and "..cp.." copper coins";
+		gstring=" "..gp.." Goldstücke, "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
+
+    elseif totTax >= 100 then -- at least one silver coin
+	
+		estring=" "..sp.." silver coins and "..cp.." copper coins";
+		gstring=" "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
+		
+	else -- just copper coins
+	
+		estring=" "..cp.." copper coins";
+		gstring=" "..cp.." Kupferstücke"; --what a name for a variable...
+		
+	end
+		
+    infText="You have thereby paid your monthly tribut. This month, it were"..estring..", which result from a tribute rate of "..(taxHeight*100).."%";
     --Please add the information to which town the tribute was paid ~Estralis
+	--German translation is missing ~Estralis
 	
     local closeTrib=function(onClose)
     -- do nothing
