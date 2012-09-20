@@ -32,6 +32,9 @@ world:changeItem(item)
 end
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
+    if (User.lastSpokenText == "set") then
+        ScriptVars:set("xq10", "bla123")
+    end
 
     found, value = ScriptVars:find("xq10")
     if found then
