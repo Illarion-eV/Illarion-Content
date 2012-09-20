@@ -32,6 +32,13 @@ world:changeItem(item)
 end
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
+
+    found, value = ScriptVariables:find("xq10")
+    if found then
+        User:inform("Value for xq10: " .. value)
+    else
+        User:inform("Value for xq10 not found")
+    end
     
     -- setting quest status
     local a, b, quest, status
