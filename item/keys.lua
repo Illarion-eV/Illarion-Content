@@ -12,6 +12,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 	if SourceItem:getData("prisonKeyOf") ~= "" then 
 	    -- sentence char to forced labour
 		SentenceCharacter(User,SourceItem)
+	    return
 	end	
 
     if SourceItem.data == 7300 and DoorItem.id == 287 and DoorItem.pos == WALLPOS then
