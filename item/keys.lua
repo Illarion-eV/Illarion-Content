@@ -77,7 +77,7 @@ function SentenceCharacter(User,SourceItem)
                 end
 			end
             if allFound then
-			    local onlineChars = world:getPlayerOnline()
+			    local onlineChars = world:getPlayersOnline()
 				local thePrisoner
 				for i=1,#onlineChars do
 					local checkChar = onlineChars[i]
