@@ -33,7 +33,7 @@ end
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
-    found, value = ScriptVariables:find("xq10")
+    found, value = ScriptVars:find("xq10")
     if found then
         User:inform("Value for xq10: " .. value)
     else
