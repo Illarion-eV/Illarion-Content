@@ -59,7 +59,8 @@ function SentenceCharacter(User,SourceItem)
 		    User:inform("Abortion. No one was sentenced to anything.")
 			return
 		else 
-            local myString = dialog:getInput()
+            User:inform("debug 0.5")
+			local myString = dialog:getInput()
 			local myPrisonerId
 			local myPrisonerName
 	        local workLoad
