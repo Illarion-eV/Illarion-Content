@@ -67,14 +67,17 @@ function SentenceCharacter(User,SourceItem)
 			local allFound = false
 			local a; local b
 			if string.find(myString,"(%d+) (%d+)") then
-			    a,b,myPrisonerId,workLoad = string.find(myString,"(%d+) (%d+)")
+			    User:inform("debug 1")
+				a,b,myPrisonerId,workLoad = string.find(myString,"(%d+) (%d+)")
                 myPrisonerId = tonumber(myPrisonerId); workLoad = tonumber(workLoad)
 				allFound = true
 			    --User:inform("debug 1")
 			elseif string.find(myString,"(%d+)") then
-			    a,b,workLoad = string.find(myString,"(%d+)")
+			    User:inform("debug 2")
+				a,b,workLoad = string.find(myString,"(%d+)")
                 workLoad = tonumber(workLoad)
 				if a-2 > 1 then 
+					User:inform("debug 3")
 					myPrisonerName=string.sub (myString, 1,a-2)
                     allFound = true
                     --User:inform("debug 2")
