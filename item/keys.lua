@@ -105,12 +105,12 @@ function SentenceCharacter(User,SourceItem)
 					world:gfx(41,thePrisoner.pos)
 				    
 					local callbackLabour = function(dialogLabour) end
-		            if player:getPlayerLanguage() == 0 then		
+		            if thePrisoner:getPlayerLanguage() == 0 then		
 			            dialogNewbie = MessageDialog("Arbeitslager","Du wurdest verurteilt "..workLoad.." Rohstoffe aus der Mine abzubauen. Erfülle deine Strafe und du darfst wieder gehen. Spitzhacke und Essen bekommst Du beim Aufseher.", callbackLabour)
 		            else		
 			            dialogNewbie = MessageDialog("Labour camp" ,"You have been sentenced to collect "..workLoad.." resources in the mine. If you have served your sentence, you are free to go. You can get a pickaxe and food from the keeper.", callbackLabour)
 		            end	
-		            player:requestMessageDialog(dialogLabour)
+		            thePrisoner:requestMessageDialog(dialogLabour)
 				end
 			else
                 User:inform("You haven't put in all necessary informations.")
