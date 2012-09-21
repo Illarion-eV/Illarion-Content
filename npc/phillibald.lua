@@ -258,10 +258,19 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("handeln");
-talkEntry:addTrigger("verkaufen");
+talkEntry:addTrigger("handel");
+talkEntry:addTrigger("verkauf");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Hiho, lass und handeln!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("trade");
+talkEntry:addTrigger("sell");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Hiho, let's!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -479,7 +488,9 @@ talkEntry:addResponse("Ich und meine Familie wandern und entdecken gern. Ich bin
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Ich kann euch an interessante Orte bringen.", "I can take you to interesting places.");
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1060,"sell","Portalbuch nach Cadomyr","portal book to Cadomyr",nil,nil,nil,nil));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1060,"sell","Portalbuch nach Galmair","portal book to Galmair",nil,nil,nil,nil));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1060,"sell","Portalbuch nach Runewick","portal book to Runewick",nil,nil,nil,nil));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(10);
 mainNPC:addLanguage(2);

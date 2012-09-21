@@ -63,7 +63,9 @@ itemShoes = 53
 -- S/he and the others of their family will be sprawled across the map, also selling portal books to the location they are at.
 -- Intention of this sort of NPC is to act as a Safepoint to be discovered by players to allow quick travel to certain places in the wilderness (for a heavy price!).
 
-sellitem = id(1060), de("Portalbuch nach Galmair"), en("portal book to Galmair"), price (200), stack(1), quality(333), data("destinationCords"="424 245 0")
+sellitem = id(1060), de("Portalbuch nach Cadomyr"), en("portal book to Cadomyr"), price (2000), stack(1), quality(333), data("destinationCords"="127 647 0")
+sellitem = id(1060), de("Portalbuch nach Galmair"), en("portal book to Galmair"), price (2000), stack(1), quality(333), data("destinationCords"="424 245 0")
+sellitem = id(1060), de("Portalbuch nach Runewick"), en("portal book to Runewick"), price (2000), stack(1), quality(333), data("destinationCords"="788 826 0")
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portals, books.")
@@ -101,7 +103,8 @@ sellitem = id(1060), de("Portalbuch nach Galmair"), en("portal book to Galmair")
 "my name" -> "Nice to meet you. If you want to 'book' a travel just ask me, hihi.", "A nice name, indeed."
 "mein Name" -> "Schön dich kennenzulernen. Wenn du eine Reise 'buch'-en willst, frag mich einfach, hihi.", "Ein netter Name."
 
-"handeln","verkaufen" -> "Hiho, lass und handeln!", trade
+"handel","verkauf" -> "Hiho, lass und handeln!", trade
+"trade","sell" -> "Hiho, let's trade!", trade
 
 -- More small talk; add at least five triggers
 "family", "siblings", "sister", "brother" -> "Me and my family like to hike and explore, I bet you can find my other siblings at other places if you just look closely!"
