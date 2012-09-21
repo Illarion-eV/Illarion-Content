@@ -32,15 +32,24 @@ world:changeItem(item)
 end
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
-    if (User.lastSpokenText == "set") then
+    if (User.lastSpokenText == "ltenull") then
+        foundEffect, myEffect = User.effects:find(3243)
+        if not foundEffect then
+            User.effects:addEffect( myEffect )
+        end
+    end
+
+    if (User.lastSpokenText == "setvar") then
         ScriptVars:set("xq10", "bla123")
     end
 
-    found, value = ScriptVars:find("xq10")
-    if found then
-        User:inform("Value for xq10: " .. value)
-    else
-        User:inform("Value for xq10 not found")
+    if (User.lastSpokenText == "getvar") then
+        found, value = ScriptVars:find("xq10")
+        if found then
+            User:inform("Value for xq10: " .. value)
+        else
+            User:inform("Value for xq10 not found")
+        end
     end
     
     -- setting quest status
