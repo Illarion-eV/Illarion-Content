@@ -37,6 +37,10 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         end
     end
 
+    if (User.lastSpokenText == "diagnil") then
+        User:requestInputDialog( nil )
+    end
+
     if (User.lastSpokenText == "ltenil") then
         User.effects:addEffect( nil )
     end
