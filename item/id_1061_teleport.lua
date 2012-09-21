@@ -14,6 +14,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	destCordX = SourceItem:getData("destinationCordsX")
 	destCordY = SourceItem:getData("destinationCordsY")
 	destCordZ = SourceItem:getData("destinationCordsZ")
+	User:inform(""..destCordX)
 	if (destCordX ~= "") and (destCordY ~= "") and (destCordZ ~= "") then
 	    
 		success = false;
