@@ -13,7 +13,7 @@ function LookAtItem(player, item)
     lookAt.description = "This item has an evil presence. Also it creates cookies. But they all look like Vilarion."
     lookAt.craftedBy = "Vilarion"
     lookAt.weight = 1
-    lookAt.worth = 666666
+    lookAt.worth = 13333320
     lookAt.qualityText = "supercharged"
     lookAt.durabilityText = "eternal"
     lookAt.durabilityValue = 100
@@ -25,22 +25,33 @@ function LookAtItem(player, item)
     lookAt.obsidianLevel = 1
     lookAt.topazLevel = 1
     lookAt.bonus = 255
-item:getData("bla")
-world:changeItem(item)
     world:itemInform(player, item, lookAt)
     return true    
 end
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
-    if (User.lastSpokenText == "set") then
+    if (User.lastSpokenText == "ltenull") then
+        foundEffect, myEffect = User.effects:find(3243)
+        if not foundEffect then
+            User.effects:addEffect( myEffect )
+        end
+    end
+
+    if (User.lastSpokenText == "ltenil") then
+        User.effects:addEffect( nil )
+    end
+
+    if (User.lastSpokenText == "setvar") then
         ScriptVars:set("xq10", "bla123")
     end
 
-    found, value = ScriptVars:find("xq10")
-    if found then
-        User:inform("Value for xq10: " .. value)
-    else
-        User:inform("Value for xq10 not found")
+    if (User.lastSpokenText == "getvar") then
+        found, value = ScriptVars:find("xq10")
+        if found then
+            User:inform("Value for xq10: " .. value)
+        else
+            User:inform("Value for xq10 not found")
+        end
     end
     
     -- setting quest status
