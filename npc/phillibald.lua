@@ -491,6 +491,7 @@ talkingNPC:addCycleText("Ich kann euch an interessante Orte bringen.", "I can ta
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1060,"sell","Portalbuch nach Cadomyr","portal book to Cadomyr",nil,nil,nil,nil));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1060,"sell","Portalbuch nach Galmair","portal book to Galmair",nil,nil,nil,nil));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1060,"sell","Portalbuch nach Runewick","portal book to Runewick",nil,nil,nil,nil));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1060,"sell","Portalbuch zum Hamp Necktie Inn","portal book to the Hamp Necktie Inn",nil,nil,nil,nil));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(10);
 mainNPC:addLanguage(2);

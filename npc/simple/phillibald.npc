@@ -66,6 +66,7 @@ itemShoes = 53
 sellitem = id(1060), de("Portalbuch nach Cadomyr"), en("portal book to Cadomyr"), price (2000), stack(1), quality(333), data("destinationCords"="127 647 0")
 sellitem = id(1060), de("Portalbuch nach Galmair"), en("portal book to Galmair"), price (2000), stack(1), quality(333), data("destinationCords"="424 245 0")
 sellitem = id(1060), de("Portalbuch nach Runewick"), en("portal book to Runewick"), price (2000), stack(1), quality(333), data("destinationCords"="788 826 0")
+sellitem = id(1060), de("Portalbuch zum Hamp Necktie Inn"), en("portal book to the Hamp Necktie Inn"), price (2000), stack(1), quality(333), data("destinationCords"="684 308 0")
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portals, books.")
