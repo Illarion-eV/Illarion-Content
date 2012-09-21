@@ -671,6 +671,29 @@ function NormalRnd2(minVal, maxVal, count)
     return math.ceil(base / 10) + minVal;
 end;
 
+--- Create 2 normally distributed (independent!) numbers with the Box-Muller method
+--- If you only need 1, then just ignore one return value
+-- @param mean The mean of the normal distribution
+-- @param sdev The standard deviation of the normal distribution
+-- @return 2 independent random numbers
+function NormalBoxMuller(mean, sdev)
+    local U = 1 - math.random(); -- samples are in [0,1), but it has to be (0,1]
+    local V = 1 - math.random();
+    -- hack: if only U==1 then both samples are the mean, 
+    -- but if only V==1 then only the second sample is the mean! So switch them
+    if (U==1) then
+        U = V;
+        V = 1;
+    end
+    local a = math.sqrt(-2*math.log(U));
+    local b = 2*math.pi*V;
+    -- X,Y normally distributed with m=0 and sdev=1
+    local X = a*math.cos(b);
+    local Y = a*math.sin(b);
+    -- convert to given mean and sdev
+    return (mean+sdev*X), (mean+sdev*Y);
+end
+
 --[[
     GetItemsOnField
     Get a list of all items on a field
