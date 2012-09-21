@@ -100,18 +100,19 @@ function SentenceCharacter(User,SourceItem)
 				            break
 						end
                     end	
-                    if not thePrisoner then 
-					    User:inform("Character has not been found.")
-			        else
-				        thePrisoner:setQuestProgress(25,workLoad)
-				        thePrisoner:setQuestProgress(26,townId)
-						world:gfx(41,thePrisoner.pos); 
-					    world:makeSound(1,thePrisoner.pos); 
-					    thePrisoner:warp( position(-492,-484,-40) )
-					    world:gfx(41,thePrisoner.pos)
-				    end
+                end    
+				if not thePrisoner then 
+					User:inform("Character has not been found.")
+				else
+					User:inform("debug 5")
+					thePrisoner:setQuestProgress(25,workLoad)
+					thePrisoner:setQuestProgress(26,townId)
+					world:gfx(41,thePrisoner.pos); 
+					world:makeSound(1,thePrisoner.pos); 
+					thePrisoner:warp( position(-492,-484,-40) )
+					world:gfx(41,thePrisoner.pos)
 				end
-            else
+			else
                 User:inform("You haven't put in all necessary informations.")
             end
 		end	
