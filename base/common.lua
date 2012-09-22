@@ -1593,28 +1593,29 @@ end
 
 --[[
     \fn:    Shuffle
-    \brief: Shuffles the elements of a number list random
+    \brief: Shuffles the elements of a list (with consecutively number indices, no key strings!) using the modern Fisher-Yates algorithm.
     \usage: list = {5,2,7,9,1};
          list = Shuffle(list) shuffles the list and could return: list ={1,7,5,9,2}
    
-   @param NumberList - the number list that shall be shuffled
-    @return list - the shuffled number list
+   @param List The list that shall be shuffled
+    @return The shuffled list
 ]]
-function Shuffle(NumberList)
-   
+function Shuffle(List)
 	local temp = 0
-	local ReplaceIdx = 0;
-   
-   for i = 1, table.getn(NumberList) do -- shuffle all elements
-   
-      ReplaceIdx = math.random(1, table.getn(NumberList));
-      temp = NumberList[i];
-      NumberList[i] = NumberList[ReplaceIdx];   
-      NumberList[ReplaceIdx] = temp;   
-   
-   end
-   
-   return list;
+	local j = 0;
+	local minIndex = 1;
+	local maxIndex = table.getn(List);
+	if (List[0] ~= nil) then -- check if zero index is used
+		minIndex = 0;
+		maxIndex = maxIndex - 1;
+	end
+	for i = maxIndex, minIndex+1, -1 do -- shuffle all elements
+		j = math.random(minIndex, i);
+		temp = List[i];
+		List[i] = List[j];   
+		List[j] = temp;   
+	end
+	return List;
 end
 
 --[[
