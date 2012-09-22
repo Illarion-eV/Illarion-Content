@@ -23,13 +23,16 @@ function PutItemOnField(Item,User)
 
         if townTreasure ~= "" then -- only if the char as been sent to forced labour by a faction
 			local theItemStats=world:getItemStats(Item)
-			local payToFaction = Item.number*theItemStats.Worth--*FACTOR ; replace FACTOR with a value, determing what perecentage of the item worth is payed to the faction
+			itemNumberPay = base.common.Limit(workLoad-Item.number,0,nil) -- we do only count the items a char has to deliver
+			local payToFaction = itemNumberPay*theItemStats.Worth--*FACTOR ; replace FACTOR with a value, determing what perecentage of the item worth is payed to the faction
 			local foundTreasure, oldTreasure = ScriptVars:find(townTreasure)
 			if not foundTreasure then -- security check
 				oldTreasure = 0
 			else
-				ScriptVars:set(townTreasure, oldTreasure+payToFaction) -- add acquired coins to the treasure		
-			end
+				oldTreasure = tonumber(oldTreasure)
+			end	
+			ScriptVars:set(townTreasure, tostring(oldTreasure+payToFaction)) -- add acquired coins to the treasure	
+			ScriptVars:save()				
 			
 			-- reduce work load of char
 			local workLoad = User:getQuestProgress(25)
@@ -43,7 +46,9 @@ function PutItemOnField(Item,User)
 							break
 					    end
 					end	
-				end
+				else
+				    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher kopfschüttelnd zu dir blickt. Deine Strafe ist doch schon längst abgearbeitet.","You notice that the guard looks at you, shaking his head. You are already done!")
+				end	
 				User:setQuestProgress(25,0)
 				User:setQuestProgress(26,0)
 			else

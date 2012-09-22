@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 21, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -17,16 +17,16 @@ VALUES (2, 1, 7, 0, 0, 'Phillibald', 'npc.phillibald', 0, 1, 1, 123, 62, 9, 245,
 
 require("npc.base.basic")
 require("npc.base.condition.language")
-require("npc.base.condition.money")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.item")
-require("npc.base.consequence.money")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
+require("npc.base.trade")
 module("npc.phillibald", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -47,6 +47,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Hiho! Today is a fine day to travel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -54,21 +55,24 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Hiho! Heute ist ein schöner Tag für eine Reise.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hiho! Today is a fine day to travel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -105,11 +109,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Always keep moving!");
 talkEntry:addResponse("Toodles!");
 talkEntry:addResponse("Farewell.");
@@ -149,9 +153,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Phillibald, portalbook merchant. That's me.");
 talkEntry:addResponse("I am the merchant Phillibald.");
-talkEntry:addResponse("Phillibald is my name, I trade portalbooks.");
+talkEntry:addResponse("Phillibald is my name, Iportalbooks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -167,9 +172,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I do not issue any quests. But I can sell you books to go to other places.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -184,6 +189,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addResponse("I do not issue any quests. But I can sell you books to go to other places.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -192,6 +198,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -209,8 +216,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("I am a merchant of portalbooks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -222,9 +229,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("With a little luck I can get a book to take you there! Nah, not realy just kidding.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -251,6 +258,23 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("handel");
+talkEntry:addTrigger("verkauf");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Hiho, lass und handeln!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("trade");
+talkEntry:addTrigger("sell");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Hiho, let's!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("family");
 talkEntry:addTrigger("siblings");
 talkEntry:addTrigger("sister");
@@ -270,87 +294,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Galmair");
-talkEntry:addCondition(npc.base.condition.money.money(">", 199));
-talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
-talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Cadomyr");
-talkEntry:addCondition(npc.base.condition.money.money(">", 199));
-talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
-talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 2));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Runewick");
-talkEntry:addCondition(npc.base.condition.money.money(">", 199));
-talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
-talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Wilderland");
-talkEntry:addCondition(npc.base.condition.money.money(">", 199));
-talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
-talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Safepoint 1");
-talkEntry:addCondition(npc.base.condition.money.money(">", 199));
-talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
-talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 5));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Safepoint 2");
-talkEntry:addCondition(npc.base.condition.money.money(">", 199));
-talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
-talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 6));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Safepoint 3");
-talkEntry:addCondition(npc.base.condition.money.money(">", 199));
-talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
-talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 7));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Safepoint 4");
-talkEntry:addCondition(npc.base.condition.money.money(">", 199));
-talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
-talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 8));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich kaufe ein Portalbuch nach Safepoint 5");
-talkEntry:addCondition(npc.base.condition.money.money(">", 199));
-talkEntry:addResponse("Okay! Das macht 200 Kupferstücke!");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
-talkEntry:addConsequence(npc.base.consequence.item.item(1061, 1, 1, 9));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -363,9 +306,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -378,8 +321,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -387,6 +330,15 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -394,22 +346,13 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
 talkEntry:addResponse("Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -433,9 +376,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -448,8 +391,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -461,8 +404,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Oh, Albar, I've seen much of it on earlier journeys.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -474,9 +417,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("You have to see it for yourself to believe it...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -489,8 +432,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Nice place. They got some very tasty food there too.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -545,6 +488,10 @@ talkEntry:addResponse("Ich und meine Familie wandern und entdecken gern. Ich bin
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Ich kann euch an interessante Orte bringen.", "I can take you to interesting places.");
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Cadomyr","portal book to Cadomyr",nil,nil,nil,nil));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Galmair","portal book to Galmair",nil,nil,nil,nil));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Runewick","portal book to Runewick",nil,nil,nil,nil));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch zum Hamp Necktie Inn","portal book to the Hamp Necktie Inn",nil,nil,nil,nil));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(10);
 mainNPC:addLanguage(2);
@@ -554,7 +501,7 @@ mainNPC:addLanguage(1);
 mainNPC:addLanguage(5);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein NPC der toll aussieht.", "A NPC who is looking good.");
+mainNPC:setLookat("Dieser NPC ist Phillibald der Portalbuchhändler.", "This NPC is Phillibald the portalbook merchant");
 mainNPC:setUseMessage("Fass mich nicht an!", "Stop touching me!");
 mainNPC:setConfusedMessage("#me blickt dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 829);

@@ -1,4 +1,7 @@
--- INSERT INTO triggerfields VALUES (0,0,0,'triggerfield.galmair');
+-- INSERT INTO triggerfields VALUES (340,216,0,'triggerfield.donation_galmair');
+-- INSERT INTO triggerfields VALUES (340,217,0,'triggerfield.donation_galmair');
+-- INSERT INTO triggerfields VALUES (339,216,0,'triggerfield.donation_galmair');
+-- INSERT INTO triggerfields VALUES (339,217,0,'triggerfield.donation_galmair');
 
 require("base.common")
 require("triggerfield.donation_base")

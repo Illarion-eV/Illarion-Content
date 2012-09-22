@@ -671,6 +671,29 @@ function NormalRnd2(minVal, maxVal, count)
     return math.ceil(base / 10) + minVal;
 end;
 
+--- Create 2 normally distributed (independent!) numbers with the Box-Muller method
+--- If you only need 1, then just ignore one return value
+-- @param mean The mean of the normal distribution
+-- @param sdev The standard deviation of the normal distribution
+-- @return 2 independent random numbers
+function NormalBoxMuller(mean, sdev)
+    local U = 1 - math.random(); -- samples are in [0,1), but it has to be (0,1]
+    local V = 1 - math.random();
+    -- hack: if only U==1 then both samples are the mean, 
+    -- but if only V==1 then only the second sample is the mean! So switch them
+    if (U==1) then
+        U = V;
+        V = 1;
+    end
+    local a = math.sqrt(-2*math.log(U));
+    local b = 2*math.pi*V;
+    -- X,Y normally distributed with m=0 and sdev=1
+    local X = a*math.cos(b);
+    local Y = a*math.sin(b);
+    -- convert to given mean and sdev
+    return (mean+sdev*X), (mean+sdev*Y);
+end
+
 --[[
     GetItemsOnField
     Get a list of all items on a field
@@ -1570,28 +1593,29 @@ end
 
 --[[
     \fn:    Shuffle
-    \brief: Shuffles the elements of a number list random
+    \brief: Shuffles the elements of a list (with consecutively number indices, no key strings!) using the modern Fisher-Yates algorithm.
     \usage: list = {5,2,7,9,1};
          list = Shuffle(list) shuffles the list and could return: list ={1,7,5,9,2}
    
-   @param NumberList - the number list that shall be shuffled
-    @return list - the shuffled number list
+   @param List The list that shall be shuffled
+    @return The shuffled list
 ]]
-function Shuffle(NumberList)
-   
+function Shuffle(List)
 	local temp = 0
-	local ReplaceIdx = 0;
-   
-   for i = 1, table.getn(NumberList) do -- shuffle all elements
-   
-      ReplaceIdx = math.random(1, table.getn(NumberList));
-      temp = NumberList[i];
-      NumberList[i] = NumberList[ReplaceIdx];   
-      NumberList[ReplaceIdx] = temp;   
-   
-   end
-   
-   return list;
+	local j = 0;
+	local minIndex = 1;
+	local maxIndex = table.getn(List);
+	if (List[0] ~= nil) then -- check if zero index is used
+		minIndex = 0;
+		maxIndex = maxIndex - 1;
+	end
+	for i = maxIndex, minIndex+1, -1 do -- shuffle all elements
+		j = math.random(minIndex, i);
+		temp = List[i];
+		List[i] = List[j];   
+		List[j] = temp;   
+	end
+	return List;
 end
 
 --[[

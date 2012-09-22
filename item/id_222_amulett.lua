@@ -3,7 +3,7 @@
 require("item.priest.jewel")
 require("base.common")
 
-module("item.id_222_amulett", package.seeall, package.seeall(item.priest.jewel))
+module("item.id_222_amulett", package.seeall)
 
 function MoveItemBeforeMove( who, sourceItem, targetItem )
     fnd, eff = who.effects:find(9)
