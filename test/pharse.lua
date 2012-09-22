@@ -76,7 +76,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 							User:increaseSkill(skillGroup, skillName, skillValue-curSkill);
 						end
 					end
-					User:requestInputDialog(InputDialog("Chosen skill name: " .. skillName .. ", now enter the skill value:", false, 255, cbSkillName));
+					User:requestInputDialog(InputDialog("Chosen skill name: " .. skillName .. ", now enter the skill value:", false, 255, cbSkillValue));
 				end
 			end
 			User:requestInputDialog(InputDialog("Chosen skill group: " .. groupNames[skillGroup] .. ", now enter the skill name:", false, 255, cbSkillName));
