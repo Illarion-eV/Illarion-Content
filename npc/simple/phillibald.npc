@@ -62,10 +62,10 @@ itemShoes = 53
 -- S/he and the others of their family will be sprawled across the map, also selling portal books to the location they are at.
 -- Intention of this sort of NPC is to act as a Safepoint to be discovered by players to allow quick travel to certain places in the wilderness (for a heavy price!).
 
-sellItem = id(1061), de("Portalbuch nach Cadomyr"), en("portal book to Cadomyr"), price (2000), stack(1), quality(333), data("destinationCordsX"="127","destinationCordsY"="647","destinationCordsZ"="0")
-sellItem = id(1061), de("Portalbuch nach Galmair"), en("portal book to Galmair"), price (2000), stack(1), quality(333), data("destinationCordsX"="424","destinationCordsY"="245","destinationCordsZ"="0")
-sellItem = id(1061), de("Portalbuch nach Runewick"), en("portal book to Runewick"), price (2000), stack(1), quality(333), data("destinationCordsX"="788","destinationCordsY"="826","destinationCordsZ"="0")
-sellItem = id(1061), de("Portalbuch zum Hamp Necktie Inn"), en("portal book to the Hamp Necktie Inn"), price (2000), stack(1), quality(333), data("destinationCordsX"="648","destinationCordsY"="308","destinationCordsZ"="0")
+sellItem = id(1061), de("Portalbuch nach Cadomyr"), en("portal book to Cadomyr"), price (2000), stack(1), quality(333), data("destinationCoordsX"="127","destinationCoordsY"="647","destinationCoordsZ"="0")
+sellItem = id(1061), de("Portalbuch nach Galmair"), en("portal book to Galmair"), price (2000), stack(1), quality(333), data("destinationCoordsX"="424","destinationCoordsY"="245","destinationCoordsZ"="0")
+sellItem = id(1061), de("Portalbuch nach Runewick"), en("portal book to Runewick"), price (2000), stack(1), quality(333), data("destinationCoordsX"="788","destinationCoordsY"="826","destinationCoordsZ"="0")
+sellItem = id(1061), de("Portalbuch zum Hamp Necktie Inn"), en("portal book to the Hamp Necktie Inn"), price (2000), stack(1), quality(333), data("destinationCoordsX"="648","destinationCoordsY"="308","destinationCoordsZ"="0")
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portals, books.")

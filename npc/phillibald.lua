@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
 --                                                                            --
--- Last parsing: September 21, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 22, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
