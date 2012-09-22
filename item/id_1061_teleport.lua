@@ -16,7 +16,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	destCordZ = SourceItem:getData("destinationCordsZ")
 	User:inform(""..destCordX)
 	if (destCordX ~= "") and (destCordY ~= "") and (destCordZ ~= "") then
-	    
+	    User:inform("debug 10")
 		success = false;
 		radius = 4;
 
@@ -49,6 +49,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			
         world:erase( SourceItem, 1 );
     else
-	    -- no portal book
+	    User:inform("debug 22")
+		-- no portal book
 	end	
 end
