@@ -55,9 +55,9 @@ function CharacterOnField( User )
 	destCoordY = SourceItem:getData("destinationCoordsY")
 	destCoordZ = SourceItem:getData("destinationCoordsZ")
 	if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
-	    destCoordX = tonumber(destCoordX); User:inform(""..destCoordX)		
-	    destCoordY = tonumber(destCoordY); User:inform(""..destCoordY)		
- 	    destCoordZ = tonumber(destCoordZ); User:inform(""..destCoordZ)		
+	    destCoordX = tonumber(destCoordX)	
+	    destCoordY = tonumber(destCoordY)		
+ 	    destCoordZ = tonumber(destCoordZ)
 		dest = position(destCoordX,destCoordY,destCoordZ)
 	    destFound = true
 	end	
