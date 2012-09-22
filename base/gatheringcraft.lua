@@ -207,7 +207,7 @@ function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
         skill = math.min(100,math.max(0,skill));
     end
     -- mean of the gaussian is determined by the skill
-    local mean = minTime + (maxTime-minTime)*skill/100;
+    local mean = maxTime - (maxTime-minTime)*skill/100;
     
     local minSdev = (maxTime-minTime)/10;
     local maxSdev = (maxTime-minTime)/5;
@@ -218,10 +218,10 @@ function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
     -- scale standard deviation according to attribute value, which should be in [0,20]
     local sdev = (maxSdev-minSdev)*attrib/20;
     if (sdev<0) then
-        -- time is subtracted, so use a smaller sdev
+        -- time is subtracted => large sdev is good
         sdev = minSdev + sdev;
     else
-        -- time is added, so use a larger sdev
+        -- time is added => small sdev is good
         sdev = maxSdev - sdev;
     end
     
