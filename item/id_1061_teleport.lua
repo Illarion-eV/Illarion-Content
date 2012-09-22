@@ -5,17 +5,16 @@ require("base.common")
 module("item.id_1061_teleport", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-    local destCordX; local destCordY; local destCordZ
+    local destCoordX; local destCoordY; local destCoordZ
 	local loc
 	local success
 	local radius
 	local myPortal
 	
-	destCordX = SourceItem:getData("destinationCordsX")
-	destCordY = SourceItem:getData("destinationCordsY")
-	destCordZ = SourceItem:getData("destinationCordsZ")
-	User:inform(""..destCordX)
-	if (destCordX ~= "") and (destCordY ~= "") and (destCordZ ~= "") then
+	destCoordX = SourceItem:getData("destinationCoordsX")
+	destCoordY = SourceItem:getData("destinationCoordsY")
+	destCoordZ = SourceItem:getData("destinationCoordsZ")
+	if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
 	    User:inform("debug 10")
 		success = false;
 		radius = 4;
@@ -29,9 +28,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 				-- create a gate 
 				myPortal = world:createItemFromId( 10, 1, loc, true, 933 ,nil);
-				myPortal:setData("destinationCordsX",destCordX)
-				myPortal:setData("destinationCordsY",destCordY)
-				myPortal:setData("destinationCordsZ",destCordZ)
+				myPortal:setData("destinationCoordsX",destCoordX)
+				myPortal:setData("destinationCoordsY",destCoordY)
+				myPortal:setData("destinationCoordsZ",destCoordZ)
 				world:changeItem(myPortal)
 				world:makeSound( 4, loc )
 

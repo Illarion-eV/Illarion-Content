@@ -47,18 +47,18 @@ function CharacterOnField( User )
 
     local SourceItem = world:getItemOnField( User.pos );
 	local destString
-	local destCordX; local destCordY; local destCordZ
+	local destCoordX; local destCoordY; local destCoordZ
 	local des
 	local destFround = false
 
-    destCordX = SourceItem:getData("destinationCordsX")
-	destCordY = SourceItem:getData("destinationCordsY")
-	destCordZ = SourceItem:getData("destinationCordsZ")
-	if (destCordX ~= "") and (destCordY ~= "") and (destCordZ ~= "") then
-	    destCordX = tonumber(destCordX)		
-	    destCordZ = tonumber(destCordY)
- 	    destCordZ = tonumber(destCordZ)
-		dest = position(destCordX,destCordY,destCordZ)
+    destCoordX = SourceItem:getData("destinationCoordsX")
+	destCoordY = SourceItem:getData("destinationCoordsY")
+	destCoordZ = SourceItem:getData("destinationCoordsZ")
+	if (destCooordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
+	    destCoordX = tonumber(destCoordX)		
+	    destCoordZ = tonumber(destCoordY)
+ 	    destCoordZ = tonumber(destCoordZ)
+		dest = position(destCoordX,destCoordY,destCoordZ)
 	    destFound = true
 	end	
 	
