@@ -136,7 +136,8 @@ function GatheringCraft:FindRandomItem(User)
 		-- shuffle it
 		local shuffledIndices = base.common.Shuffle(itemIndexList);
 		-- check for each item
-		for it = 1, table.maxn(shuffledIndices), 1 do 
+		--for it = 1, table.maxn(shuffledIndices), 1 do 
+		for it = 1, 1, 1 do 
 			local ind = shuffledIndices[it];
 			if (math.random() <= self.RandomItems[ind].Probability) then
 				base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
@@ -235,5 +236,5 @@ function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
         workTime = workTime/2;
     end
     
-    return workTime;
+    return math.floor(workTime);
 end
