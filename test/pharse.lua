@@ -102,7 +102,9 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 				User:requestInputDialog(inputDialog);
 				return;
 			elseif (input == "set skill") then
-				User:requestInputDialog(InputDialog("For setting a skill value, first enter the skill group:  1=Language,  2=Craftsmanship,  3=Magic,  4=Other,  5=Fighting,  6=Druid,7=Priest, 8=Bard"), false, 255, cbSetSkill);
+				User:requestInputDialog(InputDialog("For setting a skill value, first enter the skill group:  1=Language,  2=Craftsmanship,  3=Magic,  4=Other,  5=Fighting,  6=Druid,7=Priest, 8=Bard", false, 255, cbSetSkill));
+			elseif (input == "get skill") then
+				User:requestInputDialog(InputDialog("For getting a skill value, enter the skill name:", false, 255, cbGetSkill));
 			else
 				User:inform("Sorry, I didn't understand you.");
 			end
