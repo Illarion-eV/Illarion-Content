@@ -25,33 +25,35 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	blubber, blib, 
 	blab da , bab
 	]];
+	
+	local cbRemoveAll = function (dialog)
+		if (dialog:getSuccess()) then
+			_,_,num = string.find(dialog:getInput(), "(%d+)");
+			if (num~="") then
+				num = num+0;
+				User:eraseItem(num, User:countItem(num));
+			else
+				User:inform("You have not entered a number that could be used as item ID.");
+			end
+		end
+	end
+	
+	local cbChooseOne = function (dialog)
+		if (dialog:getSuccess()) then
+			local input = dialog:getInput();
+			if (input == "remove all") then
+				local inputDialog = InputDialog("Enter an item ID you want to remove", false, 255, cbRemoveAll);
+				User:requestInputDialog(inputDialog);
+				return;
+			end
+		end
+	end
+	
 	local msgDialog = MessageDialog("Your possibilities:", possibilities, nil);
     local inputDialog = InputDialog("What do you want to do?", false, 255, cbChooseOne);
+	
 	User:requestMessageDialog(msgDialog);
     User:requestInputDialog(inputDialog);
-end
-
-function cbChooseOne(dialog)
-	if (dialog:getSuccess()) then
-		local input = dialog:getInput();
-		if (input == "remove all") then
-			local inputDialog = InputDialog("Enter an item ID you want to remove", false, 255, cbRemoveAll);
-			User:requestInputDialog(inputDialog);
-			return;
-		end
-	end
-end
-
-function cbRemoveAll(dialog)
-	if (dialog:getSuccess()) then
-		_,_,num = string.find(dialog:getInput(), "(%d+)");
-		if (num!="") then
-			num = num+0;
-			User:eraseItem(num, User:countItem(num));
-		else
-			User:inform("You have not entered a number that could be used as item ID.");
-		end
-	end
 end
 
 function UseItem_deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
