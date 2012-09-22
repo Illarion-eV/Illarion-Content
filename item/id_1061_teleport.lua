@@ -5,24 +5,19 @@ require("base.common")
 module("item.id_1061_teleport", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-    local destString
-	local destCord1; local destCord2; local destCord2
+    local destCordX; local destCordY; local destCordZ
 	local loc
 	local success
 	local radius
 	local myPortal
 	
-	destString = SourceItem:getData("destinationCords")
-	if destString == "" then
-	    -- no portal book
-	     base.common.InformNLS( User,"bug 1","bug 2" );
-	else -- it is a portal
-	    a,b,destCord1,destCord2,destCord3=string.find(destString,"(%d+) (%d+) (%d+)")
-        destCord1 = tonumber(destCord1)		
-	    destCord2 = tonumber(destCord2)
- 	    destCord3 = tonumber(destCord3)
-	
-        success = false;
+	destCordX = SourceItem:getData("destinationCordsX")
+	destCordY = SourceItem:getData("destinationCordsY")
+	destCordZ = SourceItem:getData("destinationCordsZ")
+	User:inform(""..destCordX)
+	if (destCordX ~= "") and (destCordY ~= "") and (destCordZ ~= "") then
+	    
+		success = false;
 		radius = 4;
 
 		for i = 1, 10 do
@@ -33,8 +28,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			if not world:isCharacterOnField( loc ) and not world:isItemOnField( loc ) and (world:getField( loc ):tile()~=6) then
 
 				-- create a gate 
-				myPortal = world:createItemFromId( 10, 1, loc, true, 933 ,0);
-				myPortal:setData("destinationCords",destString)
+				myPortal = world:createItemFromId( 10, 1, loc, true, 933 ,nil);
+				myPortal:setData("destinationCordsX",destCordX)
+				myPortal:setData("destinationCordsY",destCordY)
+				myPortal:setData("destinationCordsZ",destCordZ)
 				world:changeItem(myPortal)
 				world:makeSound( 4, loc )
 
@@ -51,22 +48,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end	
 			
         world:erase( SourceItem, 1 );
-    end
-end
-
-function LookAtItem( User, Item )
-    local destString = Item:getData("destinationCords")
-	
-	if destString == "" then -- empty, therefore nor portal book
-	   world:itemInform( User, Item, base.common.GetNLS( User, "Buch", "Book" ) )
-    
-	elseif destString == "cord1 cord2 cord3" then
-	     world:itemInform( User, Item, base.common.GetNLS( User, "Portal nach ZIEL", "Portal to DESTINATION" ))
-	
-	elseif destString == "cord1 cord2 cord3" then
-	    world:itemInform( User, Item, base.common.GetNLS( User, "Portal nach ZIEL", "Portal to DESTINATION" ))
-		
-	else -- portal book, but not defined look at for those coordinations
-	    world:itemInform( User, Item, base.common.GetNLS( User, "Portal mit unbekanntem Ziel", "Portal with unknown destination" ))
+    else
+	    -- no portal book
 	end	
 end

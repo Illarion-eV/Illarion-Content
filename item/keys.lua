@@ -59,33 +59,26 @@ function SentenceCharacter(User,SourceItem)
 		    User:inform("Abortion. No one was sentenced to anything.")
 			return
 		else 
-            User:inform("debug 0.5")
-			local myString = dialog:getInput()
+            local myString = dialog:getInput()
 			local myPrisonerId
 			local myPrisonerName
 	        local workLoad
 			local allFound = false
 			local a; local b
 			if string.find(myString,"(%d+) (%d+)") then
-			    User:inform("debug 1")
-				a,b,myPrisonerId,workLoad = string.find(myString,"(%d+) (%d+)")
+			    a,b,myPrisonerId,workLoad = string.find(myString,"(%d+) (%d+)")
                 myPrisonerId = tonumber(myPrisonerId); workLoad = tonumber(workLoad)
 				allFound = true
-			    --User:inform("debug 1")
 			elseif string.find(myString,"(%d+)") then
-			    User:inform("debug 2")
-				a,b,workLoad = string.find(myString,"(%d+)")
+			    a,b,workLoad = string.find(myString,"(%d+)")
                 workLoad = tonumber(workLoad)
 				if a-2 > 1 then 
-					User:inform("debug 3")
 					myPrisonerName=string.sub (myString, 1,a-2)
                     allFound = true
-                    --User:inform("debug 2")
-				end
+                end
 			end
             if allFound then
-			    User:inform("debug 4")
-				local onlineChars = world:getPlayersOnline()
+			    local onlineChars = world:getPlayersOnline()
 				local thePrisoner
 				for i=1,#onlineChars do
 					local checkChar = onlineChars[i]
@@ -104,13 +97,20 @@ function SentenceCharacter(User,SourceItem)
 				if not thePrisoner then 
 					User:inform("Character has not been found.")
 				else
-					User:inform("debug 5")
 					thePrisoner:setQuestProgress(25,workLoad)
 					thePrisoner:setQuestProgress(26,townId)
 					world:gfx(41,thePrisoner.pos); 
 					world:makeSound(1,thePrisoner.pos); 
-					thePrisoner:warp( position(-492,-484,-40) )
+					thePrisoner:warp( position(-495,-484,-40) )
 					world:gfx(41,thePrisoner.pos)
+				    
+					local callbackLabour = function(dialogLabour) end
+		            if thePrisoner:getPlayerLanguage() == 0 then		
+			            dialogLabour = MessageDialog("Arbeitslager","Du wurdest verurteilt "..workLoad.." Rohstoffe aus der Mine abzubauen. Erfülle deine Strafe und du darfst wieder gehen. Spitzhacke und Essen bekommst Du beim Aufseher.", callbackLabour)
+		            else		
+			            dialogLabour = MessageDialog("Labour camp" ,"You have been sentenced to collect "..workLoad.." resources in the mine. If you have served your sentence, you are free to go. You can get a pickaxe and food from the guard.", callbackLabour)
+		            end	
+		            thePrisoner:requestMessageDialog(dialogLabour)
 				end
 			else
                 User:inform("You haven't put in all necessary informations.")

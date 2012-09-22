@@ -13,7 +13,7 @@ function LookAtItem(player, item)
     lookAt.description = "This item has an evil presence. Also it creates cookies. But they all look like Vilarion."
     lookAt.craftedBy = "Vilarion"
     lookAt.weight = 1
-    lookAt.worth = 666666
+    lookAt.worth = 13333320
     lookAt.qualityText = "supercharged"
     lookAt.durabilityText = "eternal"
     lookAt.durabilityValue = 100
@@ -25,8 +25,6 @@ function LookAtItem(player, item)
     lookAt.obsidianLevel = 1
     lookAt.topazLevel = 1
     lookAt.bonus = 255
-item:getData("bla")
-world:changeItem(item)
     world:itemInform(player, item, lookAt)
     return true    
 end
@@ -37,6 +35,14 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         if not foundEffect then
             User.effects:addEffect( myEffect )
         end
+    end
+
+    if (User.lastSpokenText == "diagnil") then
+        User:requestInputDialog( nil )
+    end
+
+    if (User.lastSpokenText == "ltenil") then
+        User.effects:addEffect( nil )
     end
 
     if (User.lastSpokenText == "setvar") then
