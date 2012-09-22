@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
 --                                                                            --
--- Last parsing: September 19, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 22, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,13 +31,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: Buy decree, exchange decree, Key, become citizen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: Buy decree, exchange decree, key, become citizen."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notar von Cadomyr. Schlüsselwörter: Dekret kaufen,Dekret einlösen, Schlüssel,Bürger werden."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notar von Cadomyr. Schlüsselwörter: Dekret kaufen, Dekret einlösen, Schlüssel, Bürger werden."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -70,7 +70,7 @@ talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Seid grüßt.");
 talkEntry:addResponse("Grüße.");
 talkEntry:addResponse("Grüße %CHARNAME, schön Euch mal wieder hier zu sehen.");
-talkEntry:addResponse("Zum Gruße, ich bin die Notarin dieser Stadt, bei mir könnt ihr Dekrete kaufen und einlösen.Außerdem kannst Ihr Euch hier Schlüssel kaufen und Euch als Bürger anmelden.");
+talkEntry:addResponse("Zum Gruße, ich bin die Notarin dieser Stadt, bei mir könnt ihr Dekrete kaufen und einlösen.Außerdem könnst Ihr Euch hier Schlüssel kaufen und Euch als Bürger anmelden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -83,6 +83,7 @@ talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Be greeted.");
 talkEntry:addResponse("Greetings.");
 talkEntry:addResponse("Greetings %CHARNAME, nice to see you again");
+talkEntry:addResponse("Be greeted, I am the notary of this town. You can buy here decrees or exchange them. Also I can register you as citizen or sell you a key.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -93,6 +94,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Seid grüßt.");
 talkEntry:addResponse("Grüße.");
+talkEntry:addResponse("Be greeted, I am the notary of this town. You can buy here decrees or exchange them. Also I can register you as citizen or sell you a key.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -204,7 +206,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich verkaufe Dekrete und Schlüssel, außerdem könnt ihr bei mir Dekrete einlösen und euch als Bürger eintragen lassen.");
+talkEntry:addResponse("Ich verkaufe Dekrete und Schlüssel, außerdem könnt Ihr bei mir Dekrete einlösen und Euch als Bürger eintragen lassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -223,14 +225,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("...");
+talkEntry:addResponse("Sand can be used to make glass, but I like it just the way it is. This place is full of sand, it is on the streets, inside my shoes, even the air is filled with sand if the wind is blowing. If you don't like sand, don't go to the desert.");
+talkEntry:addResponse("I really like sand. Especially quarz sand ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("...");
+talkEntry:addResponse("Sand kann man nutzen um Glas daraus zu machen, aber ich mag Sand so wie er ist. Dieser Ort ist voll von Sand, er ist auf den Straßen, in meinen Schuhen, selbst in der Luft ist Sand, wenn der Wind weht. Wer keinen Sand mag, sollte nicht in die Wüste gehen. ");
+talkEntry:addResponse("Ich mag Sand sehr gerne, besonders Quartzsand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -256,7 +260,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,7 +275,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -284,7 +288,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -297,7 +301,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -310,7 +314,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -323,7 +327,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -336,7 +340,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -351,7 +355,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -364,7 +368,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt nicht willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt nicht willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -381,7 +385,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addTrigger("Nargún");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -394,7 +398,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -407,7 +411,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -420,7 +424,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -435,7 +439,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -448,7 +452,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -461,7 +465,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Anhänger diese Gottheit sind in der Stadt willkommen.");
+talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -473,7 +477,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Ich habe gehört, der erzmagier tut nichts außer Bücher zu lesen und die aranen Künste zu studiere. Wenn das stimmt, dann muss er fast tot vor Hunger sein.");
+talkEntry:addResponse("Ich habe gehört, der Erzmagier tut nichts außer Bücher zu lesen und die arkanen Künste zu studiere. Wenn das stimmt, dann muss er fast tot vor Hunger sein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -495,8 +499,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("I dont like it there. It's a cold and boring place.");
-talkEntry:addResponse("There are many book there. But not very interestion ones...");
+talkEntry:addResponse("I don't like it there. It's a cold and boring place.");
+talkEntry:addResponse("There are many book there. But not very interesting ones.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -512,7 +516,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Valerio Guilianni is the ruler of Galmair.");
+talkEntry:addResponse("Valerio Guilianni is the ruler of Galmair. He is not living in Cadomyr of course.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -520,14 +524,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Valerio Guilianni ist der Herrscher von Galmair.");
+talkEntry:addResponse("Valerio Guilianni ist der Herrscher von Galmair. Und natürlich lebt er nicht in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair is only half as nice as Cadomyr. They don't have Sand there.");
+talkEntry:addResponse("Galmair is only half as nice as Cadomyr. They don't have sand there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -555,7 +559,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("She is the noble and rightfull rule of Cadomyr.");
+talkEntry:addResponse("She is the noble and rightful rule of Cadomyr.");
 talkEntry:addResponse("Honor to our Queen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -563,7 +567,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("She ist die edle und rechtmäßige herrscherin von Cadomyr.");
+talkEntry:addResponse("Sie ist die edle und rechtmäßige Herrscherin von Cadomyr.");
 talkEntry:addResponse("Ehre der Königin!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -571,15 +575,15 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("I really love hot weather, and you?");
+talkEntry:addResponse("I really love hot weather here, and you?");
 talkEntry:addResponse("Each Town has power germs, but ours, the ones of Cadomyr are the most beautifull of all!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Ich liebe warmes Wetter, und Ihr?");
-talkEntry:addResponse("Jede Stadt besitz magische Edelsteine, aber unsere, die von Cadomyr, sind die schönsten von allen!");
+talkEntry:addResponse("Ich liebe warmes Wetter hier, und Ihr?");
+talkEntry:addResponse("Jede Stadt besitzt magische Edelsteine, aber unsere, die von Cadomyr, sind die schönsten von allen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -601,7 +605,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Manyrs come from Gync, al least that's my impression.");
+talkEntry:addResponse("Manyrs come from Gync, at least that's my impression.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -615,13 +619,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("My Grandpatents live in Salkamar. It's a nice place. I loves to vist them when I was a child.");
+talkEntry:addResponse("My grandparents live in Salkamar. It's a nice place. I loved to vist them when I was a child.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Meine Großeltern leben in Slakamar. Es ist ein schöner Ort. Ich hade sie als Kind immer gerne besucht.");
+talkEntry:addResponse("Meine Großeltern leben in Salkamar. Es ist ein schöner Ort. Ich habe sie als Kind immer gerne besucht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -648,7 +652,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Freut mich %CHARNAME, ich bin Redet Odohir. Und wer seid Ihr");
+talkEntry:addResponse("Freut mich %CHARNAME, ich bin Redet Odohir. Und wer seid Ihr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -669,7 +673,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("#me smilies.");
+talkEntry:addResponse("#me smiles.");
 talkEntry:addResponse("That what I expected to hear from you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -699,7 +703,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Welcome to Cadomyr.Do you want to become a citizen?");
+talkEntry:addResponse("Welcome to Cadomyr. Do you want to become a citizen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -710,11 +714,11 @@ talkEntry:addTrigger(".*");
 talkEntry:addResponse("Willkommen in Cadomyr. Möchtet Ihr hier Bürger werden?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me unterzeichnet ein Dokument.", "#me signs a Document.");
-talkingNPC:addCycleText("#me besetigt ein Siegel an einem Brief.", "#me puts a seal under a letter.");
+talkingNPC:addCycleText("#me unterzeichnet ein Dokument.", "#me signs a document.");
+talkingNPC:addCycleText("#me befestigt ein Siegel an einem Brief.", "#me puts a seal under a letter.");
 talkingNPC:addCycleText("#me lächelt", "#me smilies");
 talkingNPC:addCycleText("#me macht sich ein paar Notizen.", "#me takes some notes.");
-talkingNPC:addCycleText("#me summt eine Melodie.", "#me humms a melodie.");
+talkingNPC:addCycleText("#me summt eine Melodie.", "#me hums a melody.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));

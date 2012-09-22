@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Zassaeria Riverbank                                     Runewick --
--- NPC Job:  Money changer                                                    --
+-- NPC Job:  Questgiver                                                   --
 --                                                                            --
 -- NPC Race: lizzard      NPC Position:  900, 800, 1 (Runewick marekt place)  --
 -- NPC Sex:  female       NPC Direction: east                                 --
@@ -138,22 +138,22 @@ itemShoes = 0
 
 -- Optional: Faction stuff
 "Runewick", english -> "There isss no place like thisss under the sssea. Zss."
-"Runewick" -> "???"
+"Runewick" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
 "Galmair", english -> "There isss no place like thisss under the sssea. Zss."
-"Galmair" -> "???"
+"Galmair" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
 "Cadomyr", english -> "There isss no place like thisss under the sssea. Zss."
-"Cadomyr" -> "???"
+"Cadomyr" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
 
 -- Optional: Main land factions
 "albar", english -> "There isss no place like thisss under the sssea. Zss."
-"albar" -> "..."
+"albar" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
 "gynk", "gync", english -> "There isss no place like thisss under the sssea. Zss."
-"gync", "gynk" -> "..."
+"gync", "gynk" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
 "salkama", english -> "There isss no place like thisss under the sssea. Zss."
-"salkama" -> "??"
+"salkama" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
 -- Optional: Gobaith
 "Gobaith", "Gobiath", english -> "There isss no place like thisss under the sssea. Zss."
-"Gobaith", "Gobiath" -> "?"
+"Gobaith", "Gobiath" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
