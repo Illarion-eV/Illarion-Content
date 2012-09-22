@@ -127,29 +127,20 @@ function GatheringCraft:FindRandomItem(User)
 		end
 	end
 	
-	if(table.maxn(self.RandomItems) > 0) then
-		local itemIndexList = {};
-		-- just create a list with all indices
-		for it = 1, table.maxn(self.RandomItems), 1 do
-			table.insert(itemIndexList, it);
-		end
-		-- shuffle it
-		local shuffledIndices = base.common.Shuffle(itemIndexList);
-		-- check for each item
-		--for it = 1, table.maxn(shuffledIndices), 1 do 
-		for it = 1, 1, 1 do 
-			local ind = shuffledIndices[it];
-			if (math.random() <= self.RandomItems[ind].Probability) then
-				base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
-				local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
-				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-					world:createItemFromId( self.RandomItems[ind].ID, notCreated, User.pos, true, self.RandomItems[ind].Quality, self.RandomItems[ind].Data );
-					base.common.InformNLS(User,
-					"Du kannst nichts mehr halten.",
-					"You can't carry any more.");
-				end
-				return true;
+	if (table.maxn(self.RandomItems) > 0) then
+		-- pick a random item
+		local ind = math.random(1,table.getn(self.RandomItems));
+		-- check for probability
+		if (math.random() <= self.RandomItems[ind].Probability) then
+			base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
+			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
+			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+				world:createItemFromId( self.RandomItems[ind].ID, notCreated, User.pos, true, self.RandomItems[ind].Quality, self.RandomItems[ind].Data );
+				base.common.InformNLS(User,
+				"Du kannst nichts mehr halten.",
+				"You can't carry any more.");
 			end
+			return true;
 		end
 	end
 	return false;
