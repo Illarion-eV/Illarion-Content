@@ -21,19 +21,37 @@ wMirror = false;
 testPos = position(0,0,0)
 
 function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
-    if User.lastSpokenText == "remove grain" then
-        User:eraseItem(259, User:countItem(259));
-        return;
-    end
-    local callback = function(dialog)
-        if not dialog:getSuccess() then
-            User:inform("You canceled! How dare you?")
-        else
-            User:inform("You wrote: " .. dialog:getInput())
-        end
-    end
-    local dialog = InputDialog("Insert some text!", false, 255, callback)
-    User:requestInputDialog(dialog)
+	possibilities = [[remove all, bla, blub, 
+	blubber, blib, 
+	blab da , bab
+	]];
+	local msgDialog = MessageDialog("Your possibilities:", possibilities, nil);
+    local inputDialog = InputDialog("What do you want to do?", false, 255, cbChooseOne);
+	User:requestMessageDialog(msgDialog);
+    User:requestInputDialog(inputDialog);
+end
+
+function cbChooseOne(dialog)
+	if (dialog:getSuccess()) then
+		local input = dialog:getInput();
+		if (input == "remove all") then
+			local inputDialog = InputDialog("Enter an item ID you want to remove", false, 255, cbRemoveAll);
+			User:requestInputDialog(inputDialog);
+			return;
+		end
+	end
+end
+
+function cbRemoveAll(dialog)
+	if (dialog:getSuccess()) then
+		_,_,num = string.find(dialog:getInput(), "(%d+)");
+		if (num!="") then
+			num = num+0;
+			User:eraseItem(num, User:countItem(num));
+		else
+			User:inform("You have not entered a number that could be used as item ID.");
+		end
+	end
 end
 
 function UseItem_deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
