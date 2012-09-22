@@ -7,9 +7,8 @@ RandomItem = {
 	ID = 0,
     Quantity = 1,
     Quality = 333,
-    Data = 0,
-	MinProb = 0,
-	MaxProb = 0,
+    Data = {},
+	Probability = 0,
     MessageDE = nil,
 	MessageEN = nil,
 };
@@ -82,16 +81,7 @@ function GatheringCraft:AddMonster(MonsterID, Probability, MessageDE, MessageEN,
 end
 
 function GatheringCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN)
-	local minr;
-	local maxr;
-	if(table.maxn(self.RandomItems) > 0) then
-		minr = self.RandomItems[table.maxn(self.RandomItems)].MaxProb;
-		maxr = minr + Probability * 1000;
-	else
-		minr = 0;
-		maxr = Probability * 1000;
-	end
-	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["MinProb"] = minr, ["MaxProb"] = maxr, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN});
+	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN});
 	return;
 end
 
@@ -138,16 +128,26 @@ function GatheringCraft:FindRandomItem(User)
 	end
 	
 	if(table.maxn(self.RandomItems) > 0) then
-		local p = math.random(100000);
+		local itemIndexList = {};
+		-- just create a list with all indices
 		for it = 1, table.maxn(self.RandomItems), 1 do
-			if(p >= self.RandomItems[it].MinProb and p <= self.RandomItems[it].MaxProb) then
-                base.common.InformNLS(User, self.RandomItems[it].MessageDE, self.RandomItems[it].MessageEN);
-				local notcreated = User:createItem(self.RandomItems[it].ID, self.RandomItems[it].Quantity, self.RandomItems[it].Quality, self.RandomItems[it].Data);
-				if(notcreated > 0) then
-					world:createItemFromId(self.RandomItems[it].ID, notcreated, User.pos, true, self.RandomItems[it].Quality, self.RandomItems[it].Data);
-					base.common.InformNLS(User, "Du kannst nichts mehr halten!", "You can't carry anymore!");
+			table.insert(itemIndexList, it);
+		end
+		-- shuffle it
+		local shuffledIndices = base.common.Shuffle(itemIndexList);
+		-- check for each item
+		for it = 1, table.maxn(shuffledIndices), 1 do 
+			local ind = shuffledIndices[it];
+			if (math.random() <= self.RandomItems[ind].Probability) then
+				base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
+				local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
+				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+					world:createItemFromId( self.RandomItems[ind].ID, notCreated, User.pos, true, self.RandomItems[ind].Quality, self.RandomItems[ind].Data );
+					base.common.InformNLS(User,
+					"Du kannst nichts mehr halten.",
+					"You can't carry any more.");
 				end
-                return true;
+				return true;
 			end
 		end
 	end

@@ -100,9 +100,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	world:gfx(11,TargetPos);
 	world:makeSound(9,TargetPos);
 	
-	local notCreated = User:createItem( fishID, amount, 333 ,0); -- create the new produced items
+	local notCreated = User:createItem( fishID, amount, 333 ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( fishID, notCreated, User.pos, true, 333 ,0);
+		world:createItemFromId( fishID, notCreated, User.pos, true, 333 );
 		base.common.InformNLS(User,
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
