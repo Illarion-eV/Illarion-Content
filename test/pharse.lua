@@ -20,20 +20,76 @@ wMirror = false;
 
 testPos = position(0,0,0)
 
+function String2Number(str)
+	_,_,num = string.find(str, "(%d+)");
+	if (num~="") then
+		num = num+0;
+		return num, true;
+	end
+	return 0, false;
+end
+
 function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
-	possibilities = [[remove all, bla, blub, 
-	blubber, blib, 
-	blab da , bab
+	possibilities = [[remove all
+	set skill
+	get skill
 	]];
 	
 	local cbRemoveAll = function (dialog)
 		if (dialog:getSuccess()) then
-			_,_,num = string.find(dialog:getInput(), "(%d+)");
-			if (num~="") then
-				num = num+0;
+			local num, okay = String2Number(dialog:getInput());
+			if (okay) then
 				User:eraseItem(num, User:countItem(num));
 			else
 				User:inform("You have not entered a number that could be used as item ID.");
+			end
+		end
+	end
+	
+	local cbSetSkill = function (dialog)
+		if (dialog:getSuccess()) then
+			local skillGroup, okay = String2Number(dialog:getInput());
+			if (not okay) then
+				User:inform("no number");
+				return;
+			end
+			local groupNames = { "Language", "Craftsmanship", "Magic", "Other", "Fighting", "Druid", "Priest", "Bard"};
+			if (skillGroup < 1 or skillGroup > 8) then
+				User:inform("Skill group number has to be between 1 and 8 (incl.)");
+				return;
+			end
+			local cbSkillName = function (dialog)
+				if (dialog:getSuccess()) then
+					local skillName = dialog:getInput();
+					local cbSkillValue = function (dialog)
+						if (dialog:getSuccess()) then
+							local skillValue, okay = String2Number(dialog:getInput());
+							if (not okay) then
+								User:inform("no number");
+								return;
+							end
+							if (skillValue < 0 or skillValue > 100) then
+								User:inform("value has to be between 0 and 100 (incl.)");
+								return;
+							end
+							local curSkill = User:getSkill(skillName);
+							User:increaseSkill(skillGroup, skillName, skillValue-curSkill);
+						end
+					end
+					User:requestInputDialog(InputDialog("Chosen skill name: " .. skillName .. ", now enter the skill value:", false, 255, cbSkillValue));
+				end
+			end
+			User:requestInputDialog(InputDialog("Chosen skill group: " .. groupNames[skillGroup] .. ", now enter the skill name:", false, 255, cbSkillName));
+		end
+	end
+	
+	local cbGetSkill = function (dialog)
+		if (dialog:getSuccess()) then
+			local val = User:getSkill(dialog:getInput());
+			if (val~=nil) then
+				User:inform("Value of " .. dialog:getInput() .. ": " .. val);
+			else
+				User:inform("something went wrong");
 			end
 		end
 	end
@@ -45,6 +101,12 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 				local inputDialog = InputDialog("Enter an item ID you want to remove", false, 255, cbRemoveAll);
 				User:requestInputDialog(inputDialog);
 				return;
+			elseif (input == "set skill") then
+				User:requestInputDialog(InputDialog("For setting a skill value, first enter the skill group:  1=Language,  2=Craftsmanship,  3=Magic,  4=Other,  5=Fighting,  6=Druid,7=Priest, 8=Bard", false, 255, cbSetSkill));
+			elseif (input == "get skill") then
+				User:requestInputDialog(InputDialog("For getting a skill value, enter the skill name:", false, 255, cbGetSkill));
+			else
+				User:inform("Sorry, I didn't understand you.");
 			end
 		end
 	end

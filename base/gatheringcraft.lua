@@ -89,8 +89,8 @@ end
 function GatheringCraft:FindRandomItem(User)
     -- DEACTIVATED: only interrupt if something happens. Don't annoy the player...
     -- if base.common.IsInterrupted(User) then
-		-- if(table.maxn(self.InterruptMsg) > 0) then
-			-- local m = math.random(table.maxn(self.InterruptMsg));
+		-- if(table.getn(self.InterruptMsg) > 0) then
+			-- local m = math.random(table.getn(self.InterruptMsg));
 			-- base.common.InformNLS(User, self.InterruptMsg[m][1], self.InterruptMsg[m][2]);
 			-- return false
 		-- end
@@ -110,13 +110,13 @@ function GatheringCraft:FindRandomItem(User)
 		end
 	end
 	
-	if (table.maxn(self.Monsters) > 0) then
-		local ra = math.random(table.maxn(self.Monsters));
+	if (table.getn(self.Monsters) > 0) then
+		local ra = math.random(table.getn(self.Monsters));
 		local pa = math.random();
 		if(pa < self.Monsters[ra].Probability) then
 			local TargetPos = base.common.GetFrontPosition(User);
 			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
-			for g = 0, table.maxn(self.Monsters[ra].GFX), 1 do
+			for g = 0, table.getn(self.Monsters[ra].GFX), 1 do
 				world:gfx(self.Monsters[ra].GFX[g], TargetPos);
 			end
 			if(self.Monsters[ra].Sound ~= nil) then
@@ -127,16 +127,35 @@ function GatheringCraft:FindRandomItem(User)
 		end
 	end
 	
-	if(table.maxn(self.RandomItems) > 0) then
+	if(table.getn(self.RandomItems) > 0) then
+		-- choose only one item and check for probability
+		--[[
+		-- pick a random item
+		local ind = math.random(1,table.getn(self.RandomItems));
+		-- check for probability
+		if (math.random() <= self.RandomItems[ind].Probability) then
+			base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
+			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
+			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+				world:createItemFromId( self.RandomItems[ind].ID, notCreated, User.pos, true, self.RandomItems[ind].Quality, self.RandomItems[ind].Data );
+				base.common.InformNLS(User,
+				"Du kannst nichts mehr halten.",
+				"You can't carry any more.");
+			end
+			return true;
+		end]]
+		
+		-- check each item independently in a random order
+		--
 		local itemIndexList = {};
 		-- just create a list with all indices
-		for it = 1, table.maxn(self.RandomItems), 1 do
+		for it = 1, table.getn(self.RandomItems), 1 do
 			table.insert(itemIndexList, it);
 		end
 		-- shuffle it
 		local shuffledIndices = base.common.Shuffle(itemIndexList);
 		-- check for each item
-		for it = 1, table.maxn(shuffledIndices), 1 do 
+		for it = 1, table.getn(shuffledIndices), 1 do 
 			local ind = shuffledIndices[it];
 			if (math.random() <= self.RandomItems[ind].Probability) then
 				base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
@@ -150,6 +169,31 @@ function GatheringCraft:FindRandomItem(User)
 				return true;
 			end
 		end
+		
+		
+		-- check all items with same random number and choose any possible item again randomly
+		--[[
+		local itemIndexList = {};
+		local rand = math.random();
+		-- list all items that are possible
+		for it = 1, table.getn(self.RandomItems), 1 do
+			if (rand <= self.RandomItems[it].Probability) then
+				table.insert(itemIndexList, it);
+			end
+		end
+		local ind = itemIndexList[math.random(1,table.getn(itemIndexList))];
+		if (math.random() <= self.RandomItems[ind].Probability) then
+			base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
+			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
+			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+				world:createItemFromId( self.RandomItems[ind].ID, notCreated, User.pos, true, self.RandomItems[ind].Quality, self.RandomItems[ind].Data );
+				base.common.InformNLS(User,
+				"Du kannst nichts mehr halten.",
+				"You can't carry any more.");
+			end
+			return true;
+		end
+		]]
 	end
 	return false;
 end
@@ -207,7 +251,7 @@ function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
         skill = math.min(100,math.max(0,skill));
     end
     -- mean of the gaussian is determined by the skill
-    local mean = minTime + (maxTime-minTime)*skill/100;
+    local mean = maxTime - (maxTime-minTime)*skill/100;
     
     local minSdev = (maxTime-minTime)/10;
     local maxSdev = (maxTime-minTime)/5;
@@ -218,10 +262,10 @@ function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
     -- scale standard deviation according to attribute value, which should be in [0,20]
     local sdev = (maxSdev-minSdev)*attrib/20;
     if (sdev<0) then
-        -- time is subtracted, so use a smaller sdev
+        -- time is subtracted => large sdev is good
         sdev = minSdev + sdev;
     else
-        -- time is added, so use a larger sdev
+        -- time is added => small sdev is good
         sdev = maxSdev - sdev;
     end
     
@@ -235,5 +279,5 @@ function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
         workTime = workTime/2;
     end
     
-    return workTime;
+    return math.floor(workTime);
 end

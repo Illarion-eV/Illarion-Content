@@ -72,9 +72,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		local wtime = fishing:GenWorkTime(User,nil,false);
-		fishing.SavedWorkTime[User.id] = wtime;
-		User:inform("work time: " .. fishing.SavedWorkTime[User.id] .. ", original: " .. wtime);
+		fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil,false);
 		User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		User:talkLanguage( Character.say, Player.german, "#me beginnt zu fischen.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to fish."); 
@@ -86,13 +84,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if fishing:FindRandomItem(User) then
 		return
 	end
-	User:inform("use time for learning: " .. fishing.SavedWorkTime[User.id]);
 	User:learn( fishing.LeadSkill, fishing.LeadSkillGroup, fishing.SavedWorkTime[User.id], 100, User:increaseAttrib(fishing.LeadAttribute,0) );
 	local amount = 1; -- set the amount of items that are produced
 	local fishID = 0; 
 	local chance = math.random(1,10);
 	-- 40% for salmon, 60% for trout
-	if (chance <= 3) then 
+	if (chance <= 4) then 
 		fishID = 73; -- salmon
 	else
 		fishID = 355; -- trout;
@@ -109,9 +106,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
 	else -- character can still carry something
-		local wtime = fishing:GenWorkTime(User,nil,false);
-		fishing.SavedWorkTime[User.id] = wtime;
-		User:inform("work time: " .. fishing.SavedWorkTime[User.id] .. ", original: " .. wtime);
+		fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil,false);
 		User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end
 
