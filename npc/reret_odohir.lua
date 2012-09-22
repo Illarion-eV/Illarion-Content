@@ -17,8 +17,15 @@ VALUES (0, 898, 760, 1, 0, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 
 
 require("npc.base.basic")
 require("npc.base.condition.chance")
+require("npc.base.condition.item")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.condition.town")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
+require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -195,6 +202,189 @@ talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
 talkEntry:addResponse("Ick verkauf nur Dekrete und Schlüssel.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("No, sorry. I have nothing to do for you. Why don't you just enjoy your stay in Cadomyr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Nein, tut mir leid. Ich habe keinen Auftrag für Euch. Warum genießt Ihr nicht einfach Eure Aufenthalt in Cadomyr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("No, sorry. I have nothing to do for you. Why don't you just enjoy your stay in Cadomyr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Nein, tut mir leid. Ich habe keinen Auftrag für Euch. Warum genießt Ihr nicht einfach Eure Aufenthalt in Cadomyr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 1));
+talkEntry:addResponse("I'd like to send my Grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschenk aus Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
+talkEntry:addResponse("Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüsenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 1));
+talkEntry:addResponse("I'd like to send my Grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschenk aus Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
+talkEntry:addResponse("Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüsenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(0, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 16, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] INFORM ..."));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 7));
+talkEntry:addResponse("Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(0, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 16, nil));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] INFORM..."));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 7));
+talkEntry:addResponse("Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("I'm still busy working, so could I ask you to go and find fifteen desert sky capsule for me, please?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten fünfzehn Wüstenhimmelskapseln für mich zu finden?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("I'm still busy working, so could I ask you to go and find fifteen desert sky capsule for me, please?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten fünfzehn Wüstenhimmelskapseln für mich zu finden?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Be carefull, not only the desert os full of dangers. Most places are.");
+talkEntry:addResponse("Thanks again for your help.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Seid vorsichtig, nicht nur die Wüste wird von Monstern bevölkert. Sondern auch die meisten abderen Orte.");
+talkEntry:addResponse("Danke nochmals für Eure Hilfe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("Be carefull, not only the desert os full of dangers. Most places are.");
+talkEntry:addResponse("Thanks again for your help.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Seid vorsichtig, nicht nur die Wüste wird von Monstern bevölkert. Sondern auch die meisten abderen Orte.");
+talkEntry:addResponse("Danke nochmals für Eure Hilfe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
