@@ -11,9 +11,6 @@ module("item.id_1005_beehive", package.seeall)
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
 	local honeygathering = content.gathering.honeygathering;
-	
-	-- is the target position needed?
-	local TargetPos = base.common.GetFrontPosition(User);
 
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- Arbeit unterbrochen
