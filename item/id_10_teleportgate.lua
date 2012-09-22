@@ -54,7 +54,7 @@ function CharacterOnField( User )
     destCoordX = SourceItem:getData("destinationCoordsX")
 	destCoordY = SourceItem:getData("destinationCoordsY")
 	destCoordZ = SourceItem:getData("destinationCoordsZ")
-	if (destCooordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
+	if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
 	    destCoordX = tonumber(destCoordX)		
 	    destCoordZ = tonumber(destCoordY)
  	    destCoordZ = tonumber(destCoordZ)
