@@ -16,7 +16,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local TargetPos = base.common.GetFrontPosition(User);
 
 	base.common.ResetInterruption( User, ltstate );
-	if ( ltstate == Action.abort ) then -- Arbeit unterbrochen
+	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
 			eText = "his";
@@ -39,22 +39,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"You need to hold the fishing rod in your hand!" );
 		return
 	end
-	
-	-- any other checks?
-	
-	if (world:getField(TargetPos):tile() ~= 6) then -- fishing only possible on water tiles
-		base.common.InformNLS(User,
-		"Die Chance im Wasser einen Fisch zu fangen ist bedeutend höher als auf dem Land.",
-		"The chance to catch a fish is much higher in the water than on the land.");
-		return
-	end
-	
-	if (TargetPos.z < 0) then -- fishing underground is not possible
-		base.common.InformNLS(User, 
-		"In unterirdischen Wasserlöchern wird das Angeln kaum erfolgreich sein.", 
-		"Fishing in underground waterholes wouldn't be successful.");
-		return
-	end
 
 	if base.common.Encumbrence(User) then
 		base.common.InformNLS( User,
@@ -69,6 +53,20 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	if not base.common.IsLookingAt( User, TargetPos ) then -- check looking direction
 		base.common.TurnTo( User, TargetPos ); -- turn if necessary
+	end
+	
+	if (world:getField(TargetPos):tile() ~= 6) then -- fishing only possible on water tiles
+		base.common.InformNLS(User,
+		"Die Chance im Wasser einen Fisch zu fangen ist bedeutend höher als auf dem Land.",
+		"The chance to catch a fish is much higher in the water than on the land.");
+		return
+	end
+	
+	if (TargetPos.z < 0) then -- fishing underground is not possible
+		base.common.InformNLS(User, 
+		"In unterirdischen Wasserlöchern wird das Angeln kaum erfolgreich sein.", 
+		"Fishing in underground waterholes wouldn't be successful.");
+		return
 	end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
@@ -103,8 +101,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( fishID, notCreated, User.pos, true, 333, nil );
 		base.common.InformNLS(User,
-		"Du kannst nichts mehr halten.",
-		"You can't carry any more.");
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
 		fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil,false);
 		User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0);

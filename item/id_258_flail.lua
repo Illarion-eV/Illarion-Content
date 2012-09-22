@@ -15,7 +15,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local farming = content.gathering.farming;
 
 	base.common.ResetInterruption( User, ltstate );
-	if ( ltstate == Action.abort ) then -- Arbeit unterbrochen
+	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
 			eText = "his";
@@ -72,13 +72,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	User:learn( farming.LeadSkill, farming.LeadSkillGroup, farming.SavedWorkTime[User.id], 100, User:increaseAttrib(farming.LeadAttribute,0) );
 	User:eraseItem( 249, 1 ); -- erase the item we're working on
-	local amount = GenAmount(User); -- set the amount of items that are produced
+	local amount = math.random(1,4); -- set the amount of items that are produced
 	local notCreated = User:createItem( 259, amount, 333 ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 259, notCreated, User.pos, true, 333 );
 		base.common.InformNLS(User,
-		"Du kannst nichts mehr halten.",
-		"You can't carry any more.");
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
 		if (User:countItemAt("all",249)>0) then  -- there are still items we can work on
 			farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,SourceItem,true);
@@ -96,14 +96,4 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Your old flail breaks.");
 		return
 	end
-end
-
--- generates the amount of grain that is created, at least 1, at most 4
-function GenAmount(User)
-    local Skill  = math.min(100, math.max(0, User:getSkill( content.gathering.farming.LeadSkill )));
-    local Attrib = math.min(20, math.max(0, User:increaseAttrib( content.gathering.farming.LeadAttribute, 0 )));
-    -- amount is normally distributed, mean ~ skill, standard deviation ~ attrib
-    local sdev = 5 + 10*Attrib/20;
-    local chance = math.min(100, math.max(1, base.common.NormalBoxMuller(Skill, sdev))); -- no zero please, at least 1 is returned
-    return math.ceil(chance/25);
 end

@@ -11,52 +11,57 @@ require("content.gathering")
 
 module("item.id_24_shovel", package.seeall, package.seeall(item.general.metal))
 
-function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
-    base.common.ResetInterruption( User, ltstate );
-    if (StoneList==nil) then
-        StoneList={ 914, 915, 1245, 1246, 1273, 1276 };
-        foundTreasureAt = {};
-		content.gathering.InitGathering();
-    end
-
-	-- old Illarion: graveyard
-    -- if equapos( position( 99, 40, 0 ), TargetPos ) then
-        -- User:warp( position( 99, 40, -3 ) );
-        -- base.common.InformNLS(User,
-        -- "Du gräbst ein Loch und der Boden bricht unter dir weg und so fällst du in eine Höhle",
-        -- "You dig a hole and the ground under you collapses and you fall into a cave..." );
-        -- return
-    -- end
-
-    local groundTile = world:getField( TargetPos ):tile();
-    local GroundType = base.common.GetGroundType( groundTile );
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	content.gathering.InitGathering();
+	-- the craft has to be determined according to ground type, see below
+	
+	local TargetPos = base.common.GetFrontPosition(User);
+	local groundTile = world:getField( TargetPos ):tile();
+    local groundType = base.common.GetGroundType( groundTile );
 	local gt = base.common.GroundType;
 
-    if ( ltstate == Action.abort ) then
-        if (User:increaseAttrib("sex",0) == 0) then
-            gText = "seine";
-            eText = "his";
-        else
-            gText = "ihre";
-            eText = "her";
-        end
-        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-        return
-    end
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
+		end
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
+	end
 
-    if ( SourceItem:getType() ~= 4 ) then
-        base.common.InformNLS( User,
-        "Nimm die Schaufel fest in beide Hände.",
-        "Take the shovel firmly in your hands." );
-        return
-    end
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
+		return
+	end
+	
+	if (SourceItem:getType() ~= 4) then -- tool in Hand
+		base.common.InformNLS( User,
+		"Du musst die Schaufel in der Hand haben!",
+		"You need to hold the shovel in your hand!" );
+		return
+	end
 
-    if not base.common.CheckItem( User, SourceItem ) then
-        return
-    end
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich beim Graben.",
+		"Your armour disturbes you when digging." );
+		return
+	end
 
-    if (GroundType ~= gt.rocks) and
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+
+	if not base.common.IsLookingAt( User, PLACEHOLDER ) then -- check looking direction
+		base.common.TurnTo( User, PLACEHOLDER ); -- turn if necessary
+	end
+	
+	-- first check for a treasure
+	if (GroundType ~= gt.rocks) and
 			base.treasure.DigForTreasure( User, TargetPos, (User:getSkill("mining")/10)+1,
 			base.common.GetNLS( User,
 				"Du gräbst mit deiner Schaufel in den Boden und stößt auf etwas hartes, von dem ein hölzerner Klang ausgeht. Noch einmal graben und du hältst den Schatz in deinen Händen.",
@@ -64,7 +69,7 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
 			false ) then
 		return;
     end
-
+	
 	-- neither sand nor dirt => find nothing
     if (( GroundType ~= gt.sand ) and ( GroundType ~= gt.dirt )) then
         if ( GroundType == gt.field ) then
@@ -94,87 +99,71 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
         end
         return
     end
-
-    if base.common.ToolBreaks( User, SourceItem, true) then
-        base.common.InformNLS(User,
-        "Die alte und abgenutzte Schaufel in deinen Händen zerbricht.",
-        "The old and used shovel in your hands breaks.");
-        return
-    end
-
-    if not base.common.IsLookingAt( User, TargetPos ) then
-        base.common.TurnTo( User, TargetPos );
-    end
-    if not LocationCheck(TargetPos,GroundType, User) then
+	
+	-- since we're here, we're digging in sand or dirt
+	
+	-- check location, only succeed if there is a stone / water nearby
+	if not LocationCheck(TargetPos,GroundType, User) then
         if ( GroundType == gt.sand ) then
             base.common.InformNLS( User,
-            "Der Wind hat hier allen Sand fortgeweht.",
-            "The wind has blown away the whole sand." );
+            "Der Wind hat hier allen Sand fortgeweht. Vielleicht solltest du es in der Nähe eines Steins versuchen.",
+            "The wind has blown away the whole sand. Maybe you should try it somewhere near a rock." );
             return
         else
             base.common.InformNLS( User,
-            "Der Boden ist hier nicht feucht genug.",
-            "The ground is not wet enough here." );
+            "Der Boden ist hier nicht feucht genug. Vielleicht solltest du es in der Nähe von Wasser versuchen.",
+            "The ground is not wet enough here. Maybe you should try it somewhere near water." );
             return
         end
     end
 	
 	local theCraft;
-	if ( GroundType == gt.sand ) then
+	local digForDE, digForEN, digForID;
+	if ( groundType == gt.sand ) then
 		theCraft = content.gathering.sanddigging;
+		digForDE = "Sand";
+		digForEN = "sand";
+		digForID = 726;
 	else
 		theCraft = content.gathering.claydigging;
+		digForDE = "Lehm";
+		digForEN = "clay";
+		digForID = 26;
 	end
-	
-    if ( ltstate == Action.none ) then
-        theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
+
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem,false);
 		User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
-        if ( GroundType == gt.sand ) then
-            User:talkLanguage( Character.say, Player.german, "#me beginnt nach Sand zu graben.");
-            User:talkLanguage( Character.say, Player.english, "#me starts to dig for sand.");
-        else
-            User:talkLanguage( Character.say, Player.german, "#me beginnt nach Lehm zu graben.");
-            User:talkLanguage( Character.say, Player.english, "#me starts to dig for clay.");
-        end
-        return
-    end
-	
-	if not theCraft:FindRandomItem(User) then
-		return;
+		User:talkLanguage( Character.say, Player.german, "#me beginnt nach " .. digForDE .. "zu graben.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to dig for " .. digForEN .. "."); 
+		return
 	end
 
-	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.SavedWorkTime[User.id], 50, User:increaseAttrib(theCraft.LeadAttribute,0) );
-	theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
-	
-    if math.random(1,100) <= 15 then
-        User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
-        return
-    end
-    local numberSand=math.random(1,4);
-    if ( world:getField( TargetPos ):tile() == 3 ) then
-        ItemID = 726;
-    else
-        ItemID = 26;
-    end
-    local left = User:createItem(ItemID,numberSand,333,0);
-    if (left<0) then
-        world:createItemFromId( ItemID, numberSand, User.pos, true, 333 ,0);
-        if ( world:getField( TargetPos ):tile() == 3 ) then
-            base.common.InformNLS(User,
-            "Du kannst nicht noch mehr Sand halten und er rieselt zu Boden.",
-            "You can't carry more sand and it falls to the ground.");
-        else
-            base.common.InformNLS(User,
-            "Du kannst nicht noch mehr Lehm halten und er fällt zu Boden.",
-            "You can't carry more clay and it falls to the ground.");
-        end
-    end
-    User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
-end
+	-- since we're here, we're working
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	if theCraft:FindRandomItem(User) then
+		return
+	end
 
-	UseShovelWithField( User, SourceItem, base.common.GetFrontPosition( User ), ltstate );
+	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.SavedWorkTime[User.id], 100, User:increaseAttrib(theCraft.LeadAttribute,0) );
+	local amount = math.random(1,4); -- set the amount of items that are produced
+	local notCreated = User:createItem( digForID, amount, 333 ); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( digForID, notCreated, User.pos, true, 333 );
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten.",
+		"You can't carry any more.");
+	else -- character can still carry something
+		theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
+		User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
+	end
+
+	if base.common.ToolBreaks( User, SourceItem, true ) then -- damage and possibly break the tool
+		base.common.InformNLS(User,
+		"Deine alte Schaufel zerbricht.",
+		"Your old shovel breaks.");
+		return
+	end
 end
 
 function LocationCheck(TargetPos,DigginType, User)

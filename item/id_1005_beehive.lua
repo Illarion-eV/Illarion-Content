@@ -13,7 +13,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local honeygathering = content.gathering.honeygathering;
 
 	base.common.ResetInterruption( User, ltstate );
-	if ( ltstate == Action.abort ) then -- Arbeit unterbrochen
+	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
 			eText = "his";
@@ -65,8 +65,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2529, notCreated, User.pos, true, 333 );
 		base.common.InformNLS(User,
-		"Du kannst nichts mehr halten.",
-		"You can't carry any more.");
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
 		honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil,false);
 		User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
