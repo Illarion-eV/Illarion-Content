@@ -45,7 +45,7 @@ end
 function cbRemoveAll(dialog)
 	if (dialog:getSuccess()) then
 		_,_,num = string.find(dialog:getInput(), "(%d+)");
-		if (num!="") then
+		if (num~="") then
 			num = num+0;
 			User:eraseItem(num, User:countItem(num));
 		else
