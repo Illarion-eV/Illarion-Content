@@ -534,7 +534,7 @@ end;
 -- @return true if the cooldown is expired (or there was none yet) and new one has been set;
 -- false if the cooldown is still valid
 function ItemCooldown(Item, dataKey, cooldownDuration)
-    local timeNow = GetCurrentTimeStamp()
+    local timeNow = GetCurrentTimestamp()
 	local timeThen = tonumber(Item:getData(dataKey))
 	if (timeThen == nil) or ((timeNow - timeThen) >= cooldownDuration) then
 	    Item:setData(dataKey,cooldownDuration)
