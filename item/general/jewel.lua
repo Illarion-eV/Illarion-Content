@@ -22,7 +22,7 @@ function UseJewel_67 (User, SourceItem)
 
    if ( SourceItem:getData("BragonAmulettCircle") == "true" ) then
 	  -- use the function CreateCircle , radius 1 and call funktion Event (posi) and cetate a flameillusion cricle
-	  base.common.CreateCircle(User.pos, 1, function(posi) world:createItemFromId(359,1,posi,true,45,nil end))
+	  base.common.CreateCircle(User.pos, 1, function(posi) world:createItemFromId(359,1,posi,true,45,nil) end)
    end
 end
 
