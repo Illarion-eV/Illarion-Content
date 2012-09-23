@@ -21,7 +21,7 @@ end;
 function UseJewel_67 (User, SourceItem)
 
    if ( SourceItem:getData("BragonAmuletCircle") == "true" ) then
-	    if base.common.ItemCooldown(SourceItem,"BragonAmuletCircleCooldown",15) then
+	    if base.common.ItemCooldown(User,SourceItem,"BragonAmuletCircleCooldown",15) then
 	        base.common.CreateCircle(User.pos, 1, function(posi) world:createItemFromId(359,1,posi,true,45,nil) end)
 		else
 		    User:inform("Das Amulett leuchtet kurz schwach auf.","For a short time, the amulett lights weakly up.")
