@@ -526,6 +526,25 @@ function ToolBreaks(User, theItem, fast)
     return false;
 end;
 
+-- Check if a cooldown for an item is expired (e.g. if using it)
+-- Set a new cooldown if the old one is expired (or none set yet)
+-- @param Item the item to be checked
+-- @param dataKey the key of the data the timestamp is saved in (and the new one is saved in if cooldown ran up)
+-- @param cooldownDuration length of the cooldown in seconds
+-- @return true if the cooldown is expired (or there was none yet) and new one has been set;
+-- false if the cooldown is still valid
+function ItemCoolDown(Item, dataKey, cooldownDuration)
+    local timeNow = GetCurrentTimeStamp()
+	local timeThen = tonumber(Item:getData(dataKey))
+	if (timeThen == nil) or ((timeNow - timeThen) >= cooldownDuration) then
+	    Item:setData(dataKey,cooldownDuration)
+		world:changeItem(Item)
+		return true
+	else
+        return false
+    end		
+end
+
 --- Get a timestamp based on the current server time. Resolution in RL seconds.
 -- @return The current timestamp
 function GetCurrentTimestamp()
