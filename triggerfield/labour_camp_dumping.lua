@@ -21,7 +21,8 @@ function PutItemOnField(Item,User)
 		    townTreasure = "TreasureGalmair"
 		end	
 
-        if townTreasure ~= "" then -- only if the char as been sent to forced labour by a faction
+        local workLoad = User:getQuestProgress(25)
+		if townTreasure ~= "" then -- only if the char as been sent to forced labour by a faction
 			local theItemStats=world:getItemStats(Item)
 			itemNumberPay = base.common.Limit(workLoad-Item.number,0,nil) -- we do only count the items a char has to deliver
 			local payToFaction = itemNumberPay*theItemStats.Worth--*FACTOR ; replace FACTOR with a value, determing what perecentage of the item worth is payed to the faction
@@ -38,7 +39,6 @@ function PutItemOnField(Item,User)
 			User:inform("new treasure: "..newTreasure)
 			
 			-- reduce work load of char
-			local workLoad = User:getQuestProgress(25)
 			if (workLoad - Item.number) <= 0 then
 				if workLoad > 0 then -- the char was actually still forced to work, inform him that he's free
 				    local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),10)
