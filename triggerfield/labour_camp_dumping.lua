@@ -85,7 +85,7 @@ function MoveToField(User)
 		User.effects:addEffect( myEffect )
 	end
 	
-	if noSpam = true then
+	if noSpam == true then
 	    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert. Scheinbar noch nicht deine letzte Ladung."
 		                          ,"You notice that the guard seems to take a short note. Obviously, not your last charge.")
     end
