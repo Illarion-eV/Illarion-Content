@@ -31,8 +31,11 @@ function PutItemOnField(Item,User)
 			else
 				oldTreasure = tonumber(oldTreasure)
 			end	
+			User:inform("old treasure: "..oldTreasure)
 			ScriptVars:set(townTreasure, tostring(oldTreasure+payToFaction)) -- add acquired coins to the treasure	
-			ScriptVars:save()				
+			ScriptVars:save()
+			local foundTreasure, newTreasure = ScriptVars:find(townTreasure)
+			User:inform("new treasure: "..newTreasure)
 			
 			-- reduce work load of char
 			local workLoad = User:getQuestProgress(25)
@@ -46,6 +49,7 @@ function PutItemOnField(Item,User)
 							break
 					    end
 					end	
+				    base.common.InformNLS(User,"Freiheit!","Freedom!")
 				else
 				    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher kopfschüttelnd zu dir blickt. Deine Strafe ist doch schon längst abgearbeitet.","You notice that the guard looks at you, shaking his head. You are already done!")
 				end	
@@ -53,10 +57,39 @@ function PutItemOnField(Item,User)
 				User:setQuestProgress(26,0)
 			else
 				User:setQuestProgress(25,workLoad-Item.number)
-			    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert.","You notice that the guard seems to take a short note.")
+			    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert. Scheinbar noch nicht deine letzte Ladung.","You notice that the guard seems to take a short note. Obviously, not your last charge.")
 			end
 		end
 		world:gfx(46,Item.pos)
 		world:erase(Item,Item.number)
 	end	
+end
+
+function MoveToField(User)
+    
+	-- check for spam and put a new spam marker in case it is no spam
+	local noSpam = false
+	local foundEffect, myEffect = User.effects:find(55)
+	if foundEffect then
+		local findCounter,spamProtection_1 = Effect:findValue("spamProtection_1")
+		if findCounter then
+			if spamProtection_1 < 1 then
+				noSpam = true
+				myEffect:addValue("spamProtection_2",4)
+			end
+		else
+			noSpam = true
+			myEffect:addValue("spamProtection_2",4)
+		end
+	else 
+		noSpam = true
+		local myEffect=LongTimeEffect(55,5)
+		myEffect:addValue("spamProtection_3",4)
+		User.effects:addEffect( myEffect )
+	end
+	
+	if noSpam == true then
+	    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert. Scheinbar noch nicht deine letzte Ladung."
+		                          ,"You notice that the guard seems to take a short note. Obviously, not your last charge.")
+    end
 end
