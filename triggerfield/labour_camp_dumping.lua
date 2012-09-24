@@ -21,7 +21,8 @@ function PutItemOnField(Item,User)
 		    townTreasure = "TreasureGalmair"
 		end	
 
-        if townTreasure ~= "" then -- only if the char as been sent to forced labour by a faction
+        local workLoad = User:getQuestProgress(25)
+		if townTreasure ~= "" then -- only if the char as been sent to forced labour by a faction
 			local theItemStats=world:getItemStats(Item)
 			itemNumberPay = base.common.Limit(workLoad-Item.number,0,nil) -- we do only count the items a char has to deliver
 			local payToFaction = itemNumberPay*theItemStats.Worth--*FACTOR ; replace FACTOR with a value, determing what perecentage of the item worth is payed to the faction
@@ -38,7 +39,6 @@ function PutItemOnField(Item,User)
 			User:inform("new treasure: "..newTreasure)
 			
 			-- reduce work load of char
-			local workLoad = User:getQuestProgress(25)
 			if (workLoad - Item.number) <= 0 then
 				if workLoad > 0 then -- the char was actually still forced to work, inform him that he's free
 				    local myNpc = world:getNPCSInRangeOf(position(-495,-484,-40),10)
@@ -71,9 +71,9 @@ function MoveToField(User)
 	local noSpam = false
 	local foundEffect, myEffect = User.effects:find(55)
 	if foundEffect then
-		local findCounter,spamProtection_1 = Effect:findValue("spamProtection_1")
+		local findCounter,spamProtection_2 = Effect:findValue("spamProtection_2")
 		if findCounter then
-			if spamProtection_1 < 1 then
+			if spamProtection_2 < 1 then
 				noSpam = true
 				myEffect:addValue("spamProtection_2",4)
 			end
@@ -84,12 +84,12 @@ function MoveToField(User)
 	else 
 		noSpam = true
 		local myEffect=LongTimeEffect(55,5)
-		myEffect:addValue("spamProtection_3",4)
+		myEffect:addValue("spamProtection_2",4)
 		User.effects:addEffect( myEffect )
 	end
 	
 	if noSpam == true then
-	    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert. Scheinbar noch nicht deine letzte Ladung."
-		                          ,"You notice that the guard seems to take a short note. Obviously, not your last charge.")
+	    base.common.InformNLS(User,"Ein seltsames Kribbeln erfüllt dich. Auf dieser Plattform müssen die Rohstoffe scheinbar abgelegt werden."
+		                          ,"You feel a strange prickling. This platform is the place where you have to bring the resources to.")
     end
 end
