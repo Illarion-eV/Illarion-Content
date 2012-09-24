@@ -71,9 +71,9 @@ function MoveToField(User)
 	local noSpam = false
 	local foundEffect, myEffect = User.effects:find(55)
 	if foundEffect then
-		local findCounter,spamProtection_1 = Effect:findValue("spamProtection_1")
+		local findCounter,spamProtection_2 = Effect:findValue("spamProtection_2")
 		if findCounter then
-			if spamProtection_1 < 1 then
+			if spamProtection_2 < 1 then
 				noSpam = true
 				myEffect:addValue("spamProtection_2",4)
 			end
@@ -84,7 +84,7 @@ function MoveToField(User)
 	else 
 		noSpam = true
 		local myEffect=LongTimeEffect(55,5)
-		myEffect:addValue("spamProtection_3",4)
+		myEffect:addValue("spamProtection_2",4)
 		User.effects:addEffect( myEffect )
 	end
 	
