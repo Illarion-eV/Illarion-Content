@@ -89,7 +89,7 @@ function MoveToField(User)
 	end
 	
 	if noSpam == true then
-	    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert. Scheinbar noch nicht deine letzte Ladung."
-		                          ,"You notice that the guard seems to take a short note. Obviously, not your last charge.")
+	    base.common.InformNLS(User,"Ein seltsames Kribbeln erfüllt dich. Auf dieser Plattform müssen die Rohstoffe scheinbar abgelegt werden."
+		                          ,"You feel a strange prickling. This platform is the place where you have to bring the resources to.")
     end
 end
