@@ -433,7 +433,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if ( AreaID == false ) then
         base.common.InformNLS(User,
         "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
-        "The area doesn't look like a sensible place to mine.");
+        "The area doesn't look like a good place to mine.");
         return
     end
 
