@@ -31,8 +31,11 @@ function PutItemOnField(Item,User)
 			else
 				oldTreasure = tonumber(oldTreasure)
 			end	
+			User:inform("old treasure: "..oldTreasure)
 			ScriptVars:set(townTreasure, tostring(oldTreasure+payToFaction)) -- add acquired coins to the treasure	
-			ScriptVars:save()				
+			ScriptVars:save()
+			local foundTreasure, newTreasure = ScriptVars:find(townTreasure)
+			User:inform("new treasure: "..newTreasure)
 			
 			-- reduce work load of char
 			local workLoad = User:getQuestProgress(25)
