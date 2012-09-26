@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Alice"
@@ -54,33 +54,33 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alice die versklavte Erzschmelzerin. Tausche ein Stück Kohle und einen Erzbrocken gegen einen eingeschmolzenen Barren. Gebühr: 1 Silberstück á Auftrag. Schlüsselwörter: schmelze 5 Gold, schmelze 3 Kupfer, schmelze 17 Silber, schmelze 8 Eisen.")
 
 -- oremelter
-"%NUMBER gold", money => 100, item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), english -> "#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.", money - 100, deleteItem(234, %NUMBER), deleteItem(21, %NUMBER), item(236, %NUMBER, 333, 0)
-"%NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), english -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'"
-"%NUMBER gold", english -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-didn't b-bring enough coal and gold nuggets.'"
-"%NUMBER gold", money => 100, item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", money - 100, deleteItem(234, %NUMBER), deleteItem(21, %NUMBER), item(236, %NUMBER, 333, 0)
-"%NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
+money => 100, item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), english, "%NUMBER gold" -> money - 100, deleteItem(234, %NUMBER), deleteItem(21, %NUMBER), item(236, %NUMBER, 333), "#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work."
+item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), english, "%NUMBER gold" -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'"
+english, "%NUMBER gold" -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-didn't b-bring enough coal and gold nuggets.'"
+money => 100, item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), "%NUMBER gold" -> money - 100, deleteItem(234, %NUMBER), deleteItem(21, %NUMBER), item(236, %NUMBER, 333), "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit."
+item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), "%NUMBER gold" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
 "%NUMBER gold" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Goldnuggets.'"
-"%NUMBER copper", money => 100, item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.", money - 100, deleteItem(2536, %NUMBER), deleteItem(21, %NUMBER), item(2550, %NUMBER, 333, 0)
-"%NUMBER copper", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'"
+money => 100, item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), "%NUMBER copper" -> money - 100, deleteItem(2536, %NUMBER), deleteItem(21, %NUMBER), item(2550, %NUMBER, 333), "#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work."
+item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), "%NUMBER copper" -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'"
 "%NUMBER copper" -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-didn't b-bring enough coal and copper ore.'"
-"%NUMBER kupfer", money => 100, item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", money - 100, deleteItem(2536, %NUMBER), deleteItem(21, %NUMBER), item(2550, %NUMBER, 333, 0)
-"%NUMBER kupfer", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
+money => 100, item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), "%NUMBER kupfer" -> money - 100, deleteItem(2536, %NUMBER), deleteItem(21, %NUMBER), item(2550, %NUMBER, 333), "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit."
+item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), "%NUMBER kupfer" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
 "%NUMBER kupfer" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Kupfererz.'"
-"%NUMBER iron", money => 100, item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.", money - 100, deleteItem(22, %NUMBER), deleteItem(21, %NUMBER), item(2535, %NUMBER, 333, 0)
-"%NUMBER iron", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'"
+money => 100, item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), "%NUMBER iron" -> money - 100, deleteItem(22, %NUMBER), deleteItem(21, %NUMBER), item(2535, %NUMBER, 333), "#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work."
+item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), "%NUMBER iron" -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'"
 "%NUMBER iron" -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-didn't b-bring enough coal and iron ore.'"
-"%NUMBER eisen", money => 100, item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", money - 100, deleteItem(22, %NUMBER), deleteItem(21, %NUMBER), item(2535, %NUMBER, 333, 0)
-"%NUMBER eisen", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
+money => 100, item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), "%NUMBER eisen" -> money - 100, deleteItem(22, %NUMBER), deleteItem(21, %NUMBER), item(2535, %NUMBER, 333), "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit."
+item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), "%NUMBER eisen" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
 "%NUMBER eisen" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Eisenerz.'"
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me gives you a shy 'H-hello...'.", "#me nods in a frightened manner."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me gibt ein schhüchternes 'H-hallo...' von sich.", "#me nickt dir ängstlich zu."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "#me gives you a shy 'H-hello...'.", "#me nods in a frightened manner."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me gives you a shy 'H-hello...'.", "#me nods in a frightened manner."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me gibt ein schhüchternes 'H-hallo...' von sich.", "#me nickt dir ängstlich zu."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me gives you a shy 'H-hello...'.", "#me nods in a frightened manner."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me gibt ein schhüchternes 'H-hallo...' von sich.", "#me nickt dir ängstlich zu."
 "Farewell", "Bye", "Fare well", "See you" -> "Uhm...hm.", "#me gives a quiet '...bye...'."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "#me gibt ein leises '...tschüß...' von sich.", "Uhm, hm."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Uhm...hm.", "#me gives a quiet '...bye...'."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Uhm...hm.", "#me gives a quiet '...bye...'."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me gibt ein leises '...tschüß...' von sich.", "Uhm, hm."
 "How are you", "How feel", "How do you do" -> "I-I'm f-fine. H-h-haven't d-done some-something wrong, h-have I?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "G-gut! M-Mir geht-gehts g-gut. I-ich h-hab doch n-nichts falsch g-gemacht, o-oder?"
@@ -88,24 +88,24 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "I-ich b-bin Alice..."
 
 -- Catching quest triggers
-"quest", "mission", english -> "Y-you just can't help me. I h-have to w-work alone."
+english, "quest", "mission" -> "Y-you just can't help me. I h-have to w-work alone."
 "quest", "mission" -> "Ihr, ihr k-könnt mir einfach nicht helfen. I-Ich muss m-meine Arbeit s-selbst machen."
-"task", "adventure" -> "Y-you just can't help me. I h-have to w-work alone."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ihr, ihr k-könnt mir einfach nicht helfen. I-Ich muss m-meine Arbeit s-selbst machen."
+"task", "adventure", "order" -> "Y-you just can't help me. I h-have to w-work alone."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr, ihr k-könnt mir einfach nicht helfen. I-Ich muss m-meine Arbeit s-selbst machen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I m-melt all ores i-into ingots. G-gold. Copper, silver... a-and iron. A s-silver piece... each task."
 "beruf" -> "I-ch schmelze a-alle Erze z-zu Barren. G-gold. Kupfer, Silber... u-und Eisen. E-ein Silberstück pr-pro Auftrag."
-"job", english -> "I m-melt all ores i-into ingots. G-gold. Copper, silver... a-and iron. A s-silver piece... each task."
+english, "job" -> "I m-melt all ores i-into ingots. G-gold. Copper, silver... a-and iron. A s-silver piece... each task."
 "job" -> "I-ch schmelze a-alle Erze z-zu Barren. G-gold. Kupfer, Silber... u-und Eisen. E-ein Silberstück pr-pro Auftrag."
-"Gobaith", "Gobiath", english -> "E-excuse m-me. I never heard of it."
+english, "Gobaith", "Gobiath" -> "E-excuse m-me. I never heard of it."
 "Gobaith", "Gobiath" -> "E-entschuldigung. I-ich hab nie davon gehört."
 "my name" -> "H-how m-may I help you?"
 "mein Name" -> "W-was soll i-ich machen?"
 
 -- More small talk; add at least five triggers
 "Slave" -> "#me jerks subtly. 'How m-may I h-help y-you?'"
-"Krudash", "Murgo", "er hja", "erhja", "er'hja", english -> "I h-have to do w-what the orcs say. I must not cry and h-have to be st-st-strong."
+english, "Krudash", "Murgo", "er hja", "erhja", "er'hja" -> "I h-have to do w-what the orcs say. I must not cry and h-have to be st-st-strong."
 "orc" -> "I g-grew up w-with orcs my whole l-life. I c-can't remember a t-time when it was different...."
 "Sklave" -> "#me zuckt unmerklich zusammen. 'B-bitte, w-was soll i-ich machen?'"
 "Krudash", "Murgo", "er hja", "erhja", "er'hja" -> "I-ich muss h-hören was d-die Orks mir sagen. I-ich darf n-nicht j-jammern und m-muss t-tüchtig sein."
@@ -114,39 +114,39 @@ itemShoes = 53
 -- Faction stuff
 "archmage" -> "Th-the Leader of Runewick. H-he should be a mighty and smart wizard."
 "Erzmagier" -> "D-der Anführer v-von Runewick. E-er soll ein m-mächtiger u-und weiser Zauberer."
-"Elvaine", "Morgan", english -> "Th-the Leader of Runewick. H-he should be a mighty and smart wizard."
+english, "Elvaine", "Morgan" -> "Th-the Leader of Runewick. H-he should be a mighty and smart wizard."
 "Elvaine", "Morgan" -> "D-der Anführer v-von Runewick. E-er soll ein m-mächtiger u-und weiser Zauberer."
-"Runewick", english -> "R-runewick. They count on s-smart people. I th-think... I w-would fit in g-good there."
+english, "Runewick" -> "R-runewick. They count on s-smart people. I th-think... I w-would fit in g-good there."
 "Runewick" -> "R-runewick. D-dort schätzen sie die Klugen. I-Ich glaube ich k-könnte es dort z-zu mehr bringen, als hier."
-"Valerio", "Guilianni", "Don", english -> "Th-the ch-chieftain o-of Galmair. I hear... - heard he's a dangerous person."
+english, "Valerio", "Guilianni", "Don" -> "Th-the ch-chieftain o-of Galmair. I hear... - heard he's a dangerous person."
 "Valerio", "Guilianni", "Don" -> "D-der H-häuptling von Galmair. Ich h-hab ge-gehört... er ist sehr g-gefählich."
-"Galmair", english -> "G-galmair. Th-the name of the t-town here. Th-the life is hard and the work i-is difficult."
+english, "Galmair" -> "G-galmair. Th-the name of the t-town here. Th-the life is hard and the work i-is difficult."
 "Galmair" -> "G-galmair. D-das ist d-diese Stadt hier. D-das Leben ist hart u-und man muss v-viel arbeiten."
 "queen" -> "I... - I heard sh-she is a beautiful and mighty q-queen. N-nobody w-would be rude to h-her."
 "königin" -> "I-ich... - Ich habe gehört sie ist eine schöne und mächtige K-königin. N-niemand w-würde sie f-falsch behandeln."
-"rosaline", "edwards", english -> "I... - I heard sh-she is a beautiful and mighty q-queen. N-nobody w-would be rude to h-her."
+english, "rosaline", "edwards" -> "I... - I heard sh-she is a beautiful and mighty q-queen. N-nobody w-would be rude to h-her."
 "rosaline", "edwards" -> "I-ich... - Ich habe gehört sie ist eine schöne und mächtige K-königin. N-niemand w-würde sie f-falsch behandeln."
-"Cadomyr", english -> "C-cadomyr? Th-they told me it's horrible there. B-but c-could it be worse than here?"
+english, "Cadomyr" -> "C-cadomyr? Th-they told me it's horrible there. B-but c-could it be worse than here?"
 "Cadomyr" -> "C-cadomyr? M-man hat mir gesagt, d-dort ist es grauenhaft. A-aber k-kann es irgendwo schlimmer s-sein als hier, wo i-ich eine Slkavin s-sein muss?"
 
 -- Main land factions
-"albar", english -> "#me sighs. 'E-excuse me. I d-don't know about these things. I've b-been a s-slave for m-my whole life.'"
+english, "albar" -> "#me sighs. 'E-excuse me. I d-don't know about these things. I've b-been a s-slave for m-my whole life.'"
 "albar" -> "#me schluchzt. 'E-entschulidge, a-aber von s-solchen S-sachen w-weiß ich f-fast nichts. I-ich bin d-doch s-schon mein ganzes L-leben lang Sklave.'"
-"gynk", "gync", english -> "#me sighs. 'E-excuse me. I d-don't know about these things. I've b-been a s-slave for m-my whole life.'"
+english, "gynk", "gync" -> "#me sighs. 'E-excuse me. I d-don't know about these things. I've b-been a s-slave for m-my whole life.'"
 "gync", "gynk" -> "#me schluchzt. 'E-entschulidge, a-aber von s-solchen S-sachen w-weiß ich f-fast nichts. I-ich bin d-doch s-schon mein ganzes L-leben lang Sklave.'"
-"salkama", english -> "#me sighs. 'E-excuse me. I d-don't know about these things. I've b-been a s-slave for m-my whole life.'"
+english, "salkama" -> "#me sighs. 'E-excuse me. I d-don't know about these things. I've b-been a s-slave for m-my whole life.'"
 "salkama" -> "#me schluchzt. 'E-entschulidge, a-aber von s-solchen S-sachen w-weiß ich f-fast nichts. I-ich bin d-doch s-schon mein ganzes L-leben lang Sklave.'"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I'm s-sorry, I know just a l-little bit about the gods of I-Illarion. B-but I will you tell what th-the orcs t-told me."
 "Gott", "Götter" -> "Es tut m-mir Leid, ich weiß so w-wenig über d-die Götter I-Illairons. A-aber ich will E-euch sagen was m-mir die Orks g-gesagt haben."
-"Bragon", "Brágon", english -> "M-my owner said Brágon is th-the 'daily–sun–maker'. H-he is th-the big lord of the fire orcs. A-and oh I d-don't know."
+english, "Bragon", "Brágon" -> "M-my owner said Brágon is th-the 'daily–sun–maker'. H-he is th-the big lord of the fire orcs. A-and oh I d-don't know."
 "Bragon", "Brágon" -> "M-mein Besitzer sagt Brágon ist der 'täglich–Sonnen–Macher'. Er i-ist der g-große Herr der Flammenorks. U-und ich w-weiß nicht mehr."
-"Cherga", english -> "Th-the icy witch. It's w-what the orcs call her. B-But just their shaman's seem to talk a-about her."
+english, "Cherga" -> "Th-the icy witch. It's w-what the orcs call her. B-But just their shaman's seem to talk a-about her."
 "Cherga" -> "D-die eisige Hexe. S-so n-nennen sie die Orks. A-Aber nur d-die S-schamanen scheinen darüber zu s-sprechen."
-"Irmorom", english -> "Th-the dwarves, h-here all arround pray t-to Irm-irmorom. There's a temple i-in the town. B-but I don't know anything about him."
+english, "Irmorom" -> "Th-the dwarves, h-here all arround pray t-to Irm-irmorom. There's a temple i-in the town. B-but I don't know anything about him."
 "Irmorom" -> "D-die Zwerge hier ü-überal b-beten zu ihm. Und es g-gibt auch einen T-tempel i-in der Stadt. A-aber ich weiß n-nichts über ihn."
-"Moshran", english -> "#me jerks horrible: 'I-It is f-forbidden to s-say - say this n-name!'"
+english, "Moshran" -> "#me jerks horrible: 'I-It is f-forbidden to s-say - say this n-name!'"
 "Moshran" -> "#me zuckt schrecklich zusammen: 'E-es ist v-verboten diesen - diesen Namen z-zu sagen!'"
 
 -- Catching typical NPC phrases
@@ -156,18 +156,16 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "E-einmal i-ist mir das Feuer während dem S-schmelzen ausgegangen. U-und Krudash hat es gesehen. *schnieft*", "Ma-manchmal wenn n-nichts zu tun ist, dann mach ich di-die Augen zu und d-denk mir, ich wäre wo anders."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Alice", "Snaga", english -> "#me jerks subtly. 'How m-may I h-help y-you?'"
+english, "Alice", "Snaga" -> "#me jerks subtly. 'How m-may I h-help y-you?'"
 "Alice", "Snaga" -> "#me zuckt unmerklich zusammen. 'B-bitte, w-was soll i-ich machen?'"
-"Yes", sex = female -> "#me gives a humble nod. 'Y-yes... yes madam!"
 "Yes" -> "#me gives a humble nod. 'Y-yes... yes sir!"
 "Ja" -> "#me nickt zaghaft. 'Z-zu... zu Befehl!'"
-"No", sex = female -> "#me gives a humble nod. 'Y-yes... yes madam!"
 "No" -> "#me gives a humble nod. 'Y-yes... yes sir!"
 "Nein" -> "#me nickt zaghaft. 'Z-zu... zu Befehl!'"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "I-I'm sorry!", "E-excuse m-me.", "Y-yes. I w-will work h-harder from n-now on..."
-".*", german, chance(20.0) -> "E-es tut m-mir Leid!", "E-entschuldigung.", "J-ja. I-ich werde m-mir mehr Mü-mühe geben."
+english, chance(20.0), ".*" -> "I-I'm sorry!", "E-excuse m-me.", "Y-yes. I w-will work h-harder from n-now on..."
+german, chance(20.0), ".*" -> "E-es tut m-mir Leid!", "E-entschuldigung.", "J-ja. I-ich werde m-mir mehr Mü-mühe geben."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

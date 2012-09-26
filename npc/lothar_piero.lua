@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -20,6 +20,7 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.lothar_piero", package.seeall)
 
@@ -46,6 +47,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("May Oldra bless you. Do you need... wood?");
 talkEntry:addResponse("#me nods slowly: 'Wisdom and patience. How can I help you?'");
 talkEntry:addResponse("Hiho! How can I help you?");
@@ -55,11 +57,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Oldra mit Euch. Benötigt Ihr hölzernes Gut?");
 talkEntry:addResponse("#me neigt seinen Kopf: 'Weisheit und Ausgeglichenheit. Wie darf ich Euch behilfich sein?'");
 talkEntry:addResponse("Hiho! Womit kann ich dienlich sein?");
@@ -67,11 +72,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("May Oldra bless you. Do you need... wood?");
 talkEntry:addResponse("#me nods slowly: 'Wisdom and patience. How can I help you?'");
 talkEntry:addResponse("Hiho! How can I help you?");
@@ -112,11 +117,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Good bye. May Oldra bless your gardens and fields.");
 talkEntry:addResponse("Farewell and see you soon.");
 talkEntry:addResponse("Adieu! Come back anytime soon.");
@@ -159,8 +164,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("My name is Lothar Piero. Welcome to the market of Runewick.");
-talkEntry:addResponse("I am Lothar Piero and I trade... wood.");
+talkEntry:addResponse("I am Lothar Piero and I... wood.");
 talkEntry:addResponse("Boards, shields, bows, what do you desire? I am Lothar Piero and I got wood!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -177,9 +183,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Sorry, I have no job for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -210,8 +216,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Wood is good.");
-talkEntry:addResponse("I am a trader and thus, I trade wood. My wood makes me proud, hihi.");
+talkEntry:addResponse("I am ar and thus, Iwood. My wood makes me proud, hihi.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -222,23 +230,25 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Wood is good.");
-talkEntry:addResponse("I am a trader and thus, I trade wood. My wood makes me proud, hihi.");
+talkEntry:addResponse("I am ar and thus, Iwood. My wood makes me proud, hihi.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Gobaith, isn't that a tiny a island in the ocean?");
 talkEntry:addResponse("Gobaith isn't important enough to attract Runewick's attention.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -304,9 +314,11 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addResponse("Us traders of Runewick always try to offer as many goods and wares as possible.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Usrs of Runewick always try to offer as many goods and wares as possible.");
 talkEntry:addResponse("The archmage asked us to import as few items as possible and rely on domestic goods.");
-talkEntry:addResponse("Hiho! The traders of Runewick stand united and the archmage backs us up.");
+talkEntry:addResponse("Hiho! Thers of Runewick stand united and the archmage backs us up.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,9 +350,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I'd never disagree with the archmage. Everyone knows he has the master plan!");
 talkEntry:addResponse("I trust Archmage Morgan, he is my guide. His able hands will forge Runewick's future.");
 talkEntry:addResponse("The archmage is the most wise person of all of us. Who dares to know it better?");
@@ -357,8 +369,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("May Elara bless Runewick. The four towers are built to honour the gods and to demonstrate our might to our neighbours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -370,10 +382,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("He is stubborn I was told. All he cares for is gold. It is only a matter time until another thug overtakes Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -387,9 +399,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Us trader have a proverb: Do not trust Galmair, gold opens the door of the stupid. But if you want to walk into the house of wisdom, you have to open a book instead.");
+talkEntry:addTrigger("Galmair");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Usr have a proverb: Do not trust Galmair, gold opens the door of the stupid. But if you want to walk into the house of wisdom, you have to open a book instead.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -412,9 +425,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Queen Rosaline rules on behalf of the gods Malachín and Zhambra. They do not care about wisdom, but is it wise to rule a town by sword and battle?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -427,8 +440,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Cadomyr is a sand pit, lots of barbarians that got too much sun on their heads. Who wins a duel takes it all, the loser standing small.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -440,8 +453,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("albar");
 talkEntry:addResponse("Albar is a horrible place. Lucky you, you found Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -453,9 +466,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I overheard Valerio Guilianni came from Gynk to Galmair. He brought strange customs from that spoiled land. With the arrival of the Don, the pearl of the mountains went down the sewers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -468,8 +481,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Salkamar, you flourishing garden of mankind! If only all humans could live like the paladins of Salkamar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -494,8 +507,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Elara");
 talkEntry:addResponse("O Elara, guide archmage Morgan, for he may take the wisest step next.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -507,8 +520,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("Oldra, I thank thee for my wood, for the trees and for all what is made from them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -559,9 +572,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Lothar");
 talkEntry:addTrigger("Piero");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hiho! What goods may I offer to you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -606,9 +619,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Oldra's blessing for your gardens.");
 talkEntry:addResponse("Elara's wisdom may guide you.");
 talkEntry:addResponse("Hiho, that's funny!");
@@ -616,9 +629,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Oldras Segen über Eure Gärten.");
 talkEntry:addResponse("Elaras Weisheit sei mit Euch.");
 talkEntry:addResponse("Hiho, das gefällt mir.");

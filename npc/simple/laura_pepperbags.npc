@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: August 30, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Laura Pepperbags"
@@ -76,11 +76,11 @@ sellItems = 61, 3076, 3077
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeting to you. Did you come here for exchanging money?", "Greetings. Do you need money?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt. Seid ihr hier um Geld zu wechseln?", "Grüße. Braucht ihr Geld?"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings.", "Hello."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings.", "Hello."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße.", "Hallo."
 "Farewell", "Bye", "Fare well", "See you" -> "Save Paths.", "Fare well."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Sichere Pfade.", "Lebt Wohl."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Save Paths.", "Fare well."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save Paths.", "Fare well."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sichere Pfade.", "Lebt Wohl."
 "How are you", "How feel", "How do you do" -> "I'm fine. Thank you. Do you want to change money?"
 "Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage. Möchtet Ihr Geld eintauchen?"
@@ -90,13 +90,13 @@ sellItems = 61, 3076, 3077
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I'm a money changer. Want to change?", "You can change your money here.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich bin Geldwechsler. Mögt Ihr wechseln?", "Ihr könnt hier Münzen eintauschen.", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I'm a money changer. Want to change?", "You can change your money here."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich bin Geldwechsler. Mögt Ihr wechseln?", "Ihr könnt hier Münzen eintauschen."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I like my job. I like money."
 "beruf" -> "Ich mag meinen Beruf. Ich mag Geld."
-"job", english -> "I like my job. I like money."
+english, "job" -> "I like my job. I like money."
 "job" -> "Ich mag meinen Beruf. Ich mag Geld."
 "tell something" -> "I like my job. I like money."
 "erzähl was", "erzähl etwas" -> "Ich mag meinen Beruf. Ich mag Geld."
@@ -104,23 +104,23 @@ sellItems = 61, 3076, 3077
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Most people do only pray to one or two gods."
 "Gott", "Götter" -> "Die meisten Leute beten zu einem oder zwei Göttern."
-"Ronagan", english -> "Ronagan is almost as evil as the Unnamed one, but that's just my personal opinion."
+english, "Ronagan" -> "Ronagan is almost as evil as the Unnamed one, but that's just my personal opinion."
 "Ronagan" -> "Ronagan ist fast so schlimm wie der Ungenannte, aber das ist bloß meine Meinung."
 
 -- Optional: Faction stuff
-"Runewick", english -> "Runewick? That are five towers filled with thoses crazy spellcasters."
+english, "Runewick" -> "Runewick? That are five towers filled with thoses crazy spellcasters."
 "Runewick" -> "Runewick? Das sind fünf Türme voll mit so verrückten Zauberern."
-"Galmair", english -> "Yes, here you are in Galmair."
+english, "Galmair" -> "Yes, here you are in Galmair."
 "Galmair" -> "Ganz recht, hier seid Ihr in Galmair."
-"Cadomyr", english -> "Cadomyr is Cadomyr, right?"
+english, "Cadomyr" -> "Cadomyr is Cadomyr, right?"
 "Cadomyr" -> "Cadomyr ist halt Cadomyr, nich'?"
 
 -- Optional: Main land factions
-"gynk", "gync", english -> "I was born in Gynk. It's nice there."
+english, "gynk", "gync" -> "I was born in Gynk. It's nice there."
 "gync", "gynk" -> "I wurde in Gync geboren. Dort ist es hübsch."
 
 -- Optional: Gobaith
-"Gobaith", "Gobiath", english -> "Where shall this place be?", "I've never heard of that place."
+english, "Gobaith", "Gobiath" -> "Where shall this place be?", "I've never heard of that place."
 "Gobaith", "Gobiath" -> "Wo soll das denn sein?", "Davon hab ich noch nie gehört."
 
 ------------------------------------------------------------------------------AC

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: August 30, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Argentus Almsbag"
@@ -76,13 +76,13 @@ sellItems = 61, 3076, 3077
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you.", "Be greeted. Would you like to change your copper coins into silver coins?"
 "GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt.", "Grüße. Mögt ihre euren Kupfer nicht gegen Silber eintauschen?"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Hello, hello!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo!"
 "Farewell", "Bye", "Fare well", "See you" -> "Fare well."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Auf Bald!"
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Adieu."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
-"How are you", "How feel", "How do you do" -> "I'm always happy when I can trade."
+"How are you", "How feel", "How do you do" -> trade, "I'm always happy when I can."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es immer gut, wenn ich mit jemandem handeln kann."
 "your name", "who are you", "who art thou" -> "I am Argentus Almsbag. Don't you know me?"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Argentus Almsbag. Kennt Ihr mich etwa nicht?"
@@ -90,35 +90,35 @@ sellItems = 61, 3076, 3077
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, A costumer, be welcomned.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, werte Kundschaft, seid willkommen.", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, A costumer, be welcomned."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, werte Kundschaft, seid willkommen."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I like money. But I don't like my job."
 "beruf" -> "Ich mag Geld, aber ich mag meinen Beruf nicht."
-"job", english -> "I like money. But I don't like my job."
+english, "job" -> "I like money. But I don't like my job."
 "job" -> "Ich mag Geld, aber ich mag meinen Beruf nicht."
-"tell something" -> "Do you want to trade, or do you want to keep me from working by chattering?"
+"tell something" -> trade, "Do you want toor do you want to keep me from working by chattering?"
 "erzähl was", "erzähl etwas" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Do you want to trade, or do you want to keep me from working by chattering?"
+"god" -> trade, "Do you want toor do you want to keep me from working by chattering?"
 "Gott", "Götter" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Faction stuff
-"Runewick", english -> "Runewick is such a nice place. You can make lots of money here.", "Do you want to trade, or do you want to keep me from working by chattering?"
+english, "Runewick" -> trade, "Runewick is such a nice place. You can make lots of money here.", "Do you want toor do you want to keep me from working by chattering?"
 "Runewick" -> "Runwick ist ein sehr schöner ort, man kann hier viel Geld machen.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
-"Galmair", english -> "Galmair is full of corruption and dirt.", "Do you want to trade, or do you want to keep me from working by chattering?"
+english, "Galmair" -> trade, "Galmair is full of corruption and dirt.", "Do you want toor do you want to keep me from working by chattering?"
 "Galmair" -> "Galmair ist voll von Korruption und Dreck.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
-"Cadomyr", english -> "Cadomyr is Cadomyr.", "Do you want to trade, or do you want to keep me from working by chattering?"
+english, "Cadomyr" -> trade, "Cadomyr is Cadomyr.", "Do you want toor do you want to keep me from working by chattering?"
 "Cadomyr" -> "Cadomyr ist Cadomyr.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Main land factions
-"salkama", english -> "Salkamar was my home. But I never liked it there."
+english, "salkama" -> "Salkamar was my home. But I never liked it there."
 "salkama" -> "Salkamar war meine Heimat. Aber dort hat es mir nicht gefallen."
 
 -- Optional: Gobaith
-"Gobaith", "Gobiath", english -> "Do you want to trade, or do you want to keep me from working by chattering?"
+english, "Gobaith", "Gobiath" -> trade, "Do you want toor do you want to keep me from working by chattering?"
 "Gobaith", "Gobiath" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 ------------------------------------------------------------------------------AC

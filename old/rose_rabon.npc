@@ -1,0 +1,154 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Rose Rabon                                               Cadomyr --
+-- NPC Job:  Cook                                                             --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  116, 582, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
+--                                                                            --
+-- Authors:  Regallo                                                          --
+--           Estralis Seborian                                                --
+--                                                                            --
+-- Last parsing: September 04, 2012                       easyNPC Parser v1.2 --
+--------------------------------------------------------------------------------
+
+name = "Rose Rabon"
+race = human
+sex = female
+position = 116, 582, 0
+direction = west
+affiliation = "Cadomyr"
+job = "Cook"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Regallo"
+author = "Estralis Seborian"
+
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+hairID = 1
+beardID = 0
+colorHair = 238, 118, 33
+colorSkin = 139, 90, 43
+itemHead = 0
+itemChest = 803
+itemCoat = 0
+itemMainHand = 227
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 0
+itemShoes = 369
+
+-- Name: Rose Rabon
+-- Occupation: hostess
+-- Race: Human
+-- Age: 26
+-- Skin: Very dark
+-- Hair: long black (fro)
+-- Height: average
+-- Weight: Slim
+
+-- Cloth: Long sleeve black shirt. Brown leather pants
+
+-- Personality: Rose is meek, cheerful and practical. It's a weird combination. Her daughter missed the practical and meek bit, but it works for Rose.
+
+-- Background:  Rose was one of three children. She was the only girl and helped her dad take care of her diseased stricken mother. That would have been her Life, except on a trip to the bazaar she caught the eye of a sand rat cook. Their eyes met. She smiled. It was random, but the next day she was shocked to see him at her front door bartering with her father about a dowry. They married the next week. Part of the marriage deal was that he needed to get a house. They made a small hut together with their hands, blasting sand, chopping wood and tying twine. It was a great bonding experience.  Taking care of her husband was even more work than taking care of her ill mother. Kay was a slob, but Rose did not care. Life with him was heaven. Through his dreams and money, and her practicality and both working hard they turned their stand into a shop and their shop into a tavern. Now Life with him and their daughter, Linda is great. Rose takes the position of hostess; she greets the people upon entering with a smile. She directs those who are lost and new.
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Rose Rabon the waiter. Keywords: Hello, Good day, Hi, Good morning, Pleasure to meet you")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day potential customers. How may I assist you today?", "If you're a regular please seat yourself. My business is your home.", "Welcome to the Glass Spiegel"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day potential customers. How may I assist you today?", "If you're a regular please seat yourself. My business is your home.", "Welcome to the Glass Spiegel"
+"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Bye", "Fare well", "See you" -> "Oh won't you please visit us again.", "Anytime you think of dining please do not forget the Glass Spiegel", "Goodbye beautiful person."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Oh won't you please visit us again.", "Anytime you think of dining please do not forget the Glass Speigel", "Goodbye beautiful person."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel" -> "Hahaha, I think I forgot what a real bad day looks like.", "I am enjoying my day and you?", "I think I'm a little bit sleepy, but how are you?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Your name", "who are you", "who art thou" -> "I am Rose Rabon, the hostess for this restaurant.", "I am Rose Rabon, mother and wife.", "I am Rose the happy."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "You want to know what I do? I am the hostess. I sit the costumers when they visit our restaurant.", "I am the hostess here. I use to be a waiter, but then this position became available. My husband took my old job, and I get to talk to customers all day without taking orders.", "I work as the hostess. Please see me if you would like to be seated or if you are lost."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "You want to know what I do? I am the hostess. I sit the costumers when they visit our restaurant.", "I am the hostess here. I use to be a waiter, but then this position became available. My husband took my old job, and I get to talk to customers all day without taking orders.", "I work as the hostess. Please see me if you would like to be seated or if you are lost."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "What opinion can I have on the entire world?"
+"Gobaith", "Gobiath" -> "GERMAN1", "GERMAN2.", "GERMAN3."
+"Glass Spiegel" -> "You're at the glass Spiegel. I know this may sound boastful, but I think we have the best restaurant in Cadomyr."
+"Daughter", "Linda" -> "My beautiful little girl. She takes so much after her father. Linda even followed him and became a cook"
+"Husband", "Severus" -> "I love him. He's my life. This Restaurant is his dream and we built it together."
+"Pal", "Por" -> "He never speaks. It's kind of weird. Don't you think?"
+"Ouchpan", "Yang" -> "He's so big. He used to have to duck to enter this place. My husband is so nice though. He made the entrance taller."
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> ""
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "She should come try our food. I promise she will declare it the most delicious food in all of Cadomyr."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gods", "god" -> "gods?  There is Oldra, Sirani and Adron."
+"Oldra" -> "Olddra has to be the favorite god of any mother."
+"Sirani" -> " I do not deserve it, I do not deserve it, I do not deserve it, but Sirani blessed me. I don't know why. Somethimes at night when I think about how in love I am I start crying."
+"Adron" -> "My husband put up an alter to Adron In this tavern. I see it everyday. He has given us plenty."
+
+-- Main land factions
+"albar", english -> ""
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> ""
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> ""
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"Irmorom", english -> "He's the only one that ever cared about me. I give him 10% of my earnings."
+
+-- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
+"secret" -> "I'm too bland of a person to have any."
+"GERMAN" -> "GERMAN."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+"<Linda>", "<Rabon>", english -> "Oh, did you need something?", "That is me.", "Hello. I am Rose Darknight. I would be glad to help you with anything that you need."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
+"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"No" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
+"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20.0) -> "This discussion is not relevant to me", "Maybe say something like Quest or Task. People respond well to those words.", "I have no intention of buying your chicken."
+".*", chance(20.0) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "ENGLISH.", "If you have any questions please come to me. It is my job to answer them if that's alright with you."
+cycletext "ENGLISH.", "Welcome to the Glass Spiegel."
+cycletext "ENGLISH.", "Please come visit us again at the Glass Spiegel. We miss your presence."
+cycletext "ENGLISH.", "Here at the Glass Spiegel we have the best grilled sand rat in all of Globieth."
+cycletext "ENGLISH.", "Here at the Glass Spiegel we offer sand rat in 22 different spices."
+cycletext "ENGLISH.", "This place is starting to be a mess. I should make Kay mop this place up."
+cycletext "ENGLISH.", "Pal Por plays such good music."
+cycletext "ENGLISH.", "Every time I smell a sand rat pie that Linda has cooked my heart smiles."
+cycletext "ENGLISH.", "Oh sorry excuse me. I did not mean to get in your way."
+cycletext "ENGLISH.", "I wonder what I should get Linda for her birthday."

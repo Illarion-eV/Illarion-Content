@@ -28,8 +28,8 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 	normalAP=50; --How many movepoints does a 'normal' action take? Default=50
 	--Constants - end
 	
-    skillValue=user:getSkill(skill);
-	minorSkill=user:getMinorSkill(skill); --made that one up, dunno how to access the minor skill from lua
+    skillValue=user:getSkill(skill); --reading the skill points
+	minorSkill=user:getMinorSkill(skill); --reading the minor skill points; 10000=1 skill point
 	MCvalue=math.max(lowerBorder,user:getMentalCapacity()); --below 0.5% of time spent online, no additional bonus is granted
 
     if skillValue<opponent+20 and skillValue<100 then --you only learn when your skill is lower than the skill of the opponent +20 and your skill is <100
@@ -41,19 +41,16 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
             MCfactor=normalMC/(math.max(MCvalue,1)); --5% of time spent online is considered "normal" -> MCfactor is 1
             attributeFactor=0.5+0.5*(leadAttrib/10); --0.5 to 1.5, depending on attribute
 			actionpointFactor=(actionPoints/normalAP); --An action with 50AP is "normal"
-			minorIncrease=math.min(10000,math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor));
-            --user:inform("Success! minorIncrease="..minorIncrease..".");
-			--user:inform("scalingFactor: "..scalingFactor..", attributeFactor: "..attributeFactor..", actionpointFactor: "..actionpointFactor..", MCFactor: "..MCfactor.."!");
+			minorIncrease=math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor);
 
             if minorSkill+minorIncrease<10000 then
                 user:increaseMinorSkill(skillGroup,skill,minorIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
             else
      			user:increaseMinorSkill(skillGroup,skill,minorIncrease);
-				base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit steigt von "..skillValue.." auf "..(skillValue+1).."!","[Level up] Your skill '"..skill.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
+				base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit steigt von "..skillValue.." auf "..(user:getSkill(skill)).."!","[Level up] Your skill '"..skill.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
 				world:gfx(13,user.pos); --swirly!           
 		    end
-        else
-		    --user:inform("No skill gained.");
+
 		end
         user:increaseMentalCapacity(amplification*actionPoints);
     end
@@ -65,7 +62,7 @@ end
 
 function reduceMC( user )
 
-    if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
+    if user:idleTime() < 180 then --Has the user done any action or spoken anything within the last three minutes?
      	user:increaseMentalCapacity(-1*math.floor(user:getMentalCapacity()*0.00025+0.5)); --reduce MC-points by 0.025%, rounded correctly.
 	end
 	

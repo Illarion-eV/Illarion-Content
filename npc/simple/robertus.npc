@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Robertus"
@@ -64,13 +64,13 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Baumeister Robertus. Schlüsselwörter: Hallo, Baumeister.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building material for me?", "Be greeted, in the name of the queen."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ah, ihr müßt der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.", "Willkommen, Fremdling. Habt ihr Baumaterial für mich?", "Seid im Namen der Königin gegrüßt."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building material for me?", "Be greeted, in the name of the queen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building material for me?", "Be greeted, in the name of the queen."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, ihr müßt der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.", "Willkommen, Fremdling. Habt ihr Baumaterial für mich?", "Seid im Namen der Königin gegrüßt."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building material for me?", "Be greeted, in the name of the queen."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Auf wiedersehen.", "Bis zum nächsten mal.", "Gehet in Frieden."
 "Farewell", "Good bye", "Bye", "Fare well", "see you" -> "Farewell.", "Good bye.", "Until next time."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf wiedersehen.", "Bis zum nächsten mal.", "Gehet in Frieden."
-"Ciao", "Adieu", "Au revoir", english -> "Farewell.", "Good bye.", "Until next time."
+english, "Ciao", "Adieu", "Au revoir" -> "Farewell.", "Good bye.", "Until next time."
 "Ciao", "Adieu", "Au revoir" -> "Auf wiedersehen.", "Bis zum nächsten mal.", "Gehet in Frieden."
 "How are you", "How feel", "How do you do" -> "As long as the queen is content, I am happy. And I do anything to please her.", "I just need to finish this calculation, then we can talk.", "Every day is a day to serve queen Rosaline."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Solange die Königin zufrieden ist, bin ich es auch. Und ich werde alles tun, um sie zufrieden zu stellen.", "Ich muss nur noch grad diese Berechnung abschließen, dann können wir reden.", "Jeder Tag ist der richtige, um Königin Rosaline zu dienen."
@@ -78,23 +78,23 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Robertus.", "Mein Name ist Robertus, ich bin der königliche Baumeister. Ich diene der Königin mit jeder Faser meines Körpers.", "Man nennt mich Robertus. Ich bin der königliche Baumeister Cadomyrs, stets der Königin ergeben."
 
 -- Quest 108: A message from Hector Valerion
-"message", "news", "letter", "scroll", "parchment", queststatus(108) = 3 -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), "Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!", queststatus(108) = 4
-"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(108) = 3 -> inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."), "Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!", queststatus(108) = 4
-"Hector", "Valerion", queststatus(108) = 3, english -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), "Oh, my majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!", queststatus(108) = 4
-"Hector", "Valerion", queststatus(108) = 3 -> inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."), "Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!", queststatus(108) = 4
+queststatus(108) = 3, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), queststatus(108) = 4, "Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!"
+queststatus(108) = 3, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."), queststatus(108) = 4, "Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!"
+queststatus(108) = 3, english, "Hector", "Valerion" -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), queststatus(108) = 4, "Oh, my majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!"
+queststatus(108) = 3, "Hector", "Valerion" -> inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."), queststatus(108) = 4, "Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!"
 
 -- Catching quest triggers
-"quest", "mission", english -> "So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me."
+english, "quest", "mission" -> trade, "So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me."
 "quest", "mission" -> "Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen."
-"task", "adventure" -> "So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen."
+"task", "adventure", "order" -> trade, "So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am Robertus, the royal builder. The queen relies on me to build her a grave that will last for ages.", "Construction is my business. Behold the tavern: My work for the queen. I am not proud of it, but proud to serve queen Rosaline.", "I am the builder of Cadomyr."
 "Beruf" -> "Ich bin Robertus, der königliche Baumeister. Die Königin vertraute mir an, ihr ein Grab zu bauen, welches die Zeiten übersteht.", "Bauwerke sind mein Geschäft. Seht euch die Taverne an: Meine Tat für die Königin. Ich bin nicht stolz auf die Taverne, ich bin stolz, der Königin zu dienen.", "Ich bin der Baumeister von Cadomyr."
-"job", english -> "I am Robertus, the royal builder. The queen relies on me to build her a grave that will last for ages.", "Construction is my business. Behold the tavern: My work for the queen. I am not proud of it, but proud to serve queen Rosaline.", "I am the builder of Cadomyr."
+english, "job" -> "I am Robertus, the royal builder. The queen relies on me to build her a grave that will last for ages.", "Construction is my business. Behold the tavern: My work for the queen. I am not proud of it, but proud to serve queen Rosaline.", "I am the builder of Cadomyr."
 "job" -> "Ich bin Robertus, der königliche Baumeister. Die Königin vertraute mir an, ihr ein Grab zu bauen, welches die Zeiten übersteht.", "Bauwerke sind mein Geschäft. Seht euch die Taverne an: Meine Tat für die Königin. Ich bin nicht stolz auf die Taverne, ich bin stolz, der Königin zu dienen.", "Ich bin der Baumeister von Cadomyr."
-"Gobaith", english -> "I never heard of this place before. Cadomyr is my home and I do everything to make it prosper.", "Bless you.", "Pardon me?"
+english, "Gobaith" -> "I never heard of this place before. Cadomyr is my home and I do everything to make it prosper.", "Bless you.", "Pardon me?"
 "Gobaith" -> "Von diesem Ort habe ich noch nie gehört. Cadomyr ist meine Heimat und ich werde alles tun, um es gedeihen zu lassen.", "Gesundheit.", "Pardon?"
 "my name" -> "Do yourself a favour: If you want to make your name matter, make it known to the queen by obeying her orders."
 "mein Name" -> "Tut euch selbst einen Gefallen: Wenn ihr wollt, dass euer Name Gewicht bekommt, so macht euch bei der Königin beliebt, in dem ihr ihre Befehle ausführt."
@@ -108,13 +108,13 @@ itemShoes = 53
 "königinreich", "königreich" -> "Cadomyr ist wirklich ein Königinreich. Nie wird die Königin einen Gemahl nehmen, sie dient nur ihrem Volke."
 "grave" -> "I am the one who's service for queen Rosaline will stand the test of time, for I build her grave.", "The grave is taking progress, we need more marble, though.", "I think I should let the workers clad the grave chamber of her majesty with gold."
 "grab" -> "Ich bin derjenige, dessen Dienst für Königin Rosaline die Zeiten überstehen wird, denn ich baue ihr Grab.", "Das Grab macht Fortschritte, wir brauchen nur mehr Marmor.", "Ich denke, ich sollte die Arbeiter anweisen, die Grabkammer ihrer Majestät mit Gold auszukleiden."
-"pyramid", english -> "A pyramide as grave? Who would do such a folish thing?", "The queen prefers a cube, but the drawing is not done yet."
+english, "pyramid" -> "A pyramide as grave? Who would do such a folish thing?", "The queen prefers a cube, but the drawing is not done yet."
 "pyramid" -> "Eine Pyramide als Grabmal? Wer würde denn so etwas törichtes tun?", "Die Königin bevorzugt einen Kubus, denke ich. Aber der Bauplan ist noch nicht fertig."
-"hastings", english -> "Baron Hastings? A traitor, he is, indeed!", "The head of the baron will soon throne on a pike!", "A bastard, he is, the baron Hastings! The queen will judge him."
+english, "hastings" -> "Baron Hastings? A traitor, he is, indeed!", "The head of the baron will soon throne on a pike!", "A bastard, he is, the baron Hastings! The queen will judge him."
 "hastings" -> "Baron Hastings? Ein Verräter ist er, jawohl.", "Der Kopf des Barons wird bald auf einem Spieß stecken.", "Ein Unmensch ist er, der Baron Hastings! Doch die Königin wird über ihn richten."
 "cube" -> "How creative our marvellous queen is! A cube as grave! How brilliant!"
 "kubus" -> "Wie kreativ unsere wunderbare Königin ist! Ein Kubus als Grab! Wie brilliant!"
-"tavern", english -> "I build the tavern; well, I commanded the workers, sometimes, with the whip."
+english, "tavern" -> "I build the tavern; well, I commanded the workers, sometimes, with the whip."
 "tavern" -> "Ich habe die Taverne erbaut; nun, ich habe die Arbeiter befehligt, manchmal auch mit der Peitsche."
 "sklave" -> "Sklaven, nun, ich bevorzugen den Begriff Arbeiter. Es ist doch eine Ehre, der Königin zu dienen.", "Eine Peitsche ist ein wichtiges Werkzeug. Ich verstehe wohl nie, warum einige Arbeiter nicht spuren. Es ist doch eine Ehre, für die Königin zu arbeiten."
 "slave" -> "Slaves, well, I prefer the term workers. It is an honor to work for the queen afterall.", "A whip is an important tool. I'll never understand why some workers do not obey. It is an honor to work for the queen."
@@ -122,39 +122,39 @@ itemShoes = 53
 -- Faction stuff
 "archmage" -> "Archmage Morgan, he calls himself. He's a bastard of impure blood.", "He hides in his chamber, pretending to study. I assume he tends his whores there!", "An arrogant person, he is. Never trust a mage, I say."
 "Erzmagier" -> "Erzmagier Morgan, so nennt er sich. Er ist ein Bastard unreinen Blutes.", "Er versteckt sich in seiner Kammer und tut so, als wenn er die Schriften studieren würde. Ich glaube, er kümmert sich dort mehr um seine Huren!", "Eine solch arrogante Person. Traut niemals einem Magier, hört meine Worte."
-"Elvaine", "Morgan", english -> "Archmage Morgan, he calls himself. He's a bastard of impure blood.", "He hides in his chamber, pretending to study. I assume he tends his whores there!", "An arrogant person, he is. Never trust a mage, I say."
+english, "Elvaine", "Morgan" -> "Archmage Morgan, he calls himself. He's a bastard of impure blood.", "He hides in his chamber, pretending to study. I assume he tends his whores there!", "An arrogant person, he is. Never trust a mage, I say."
 "Elvaine", "Morgan" -> "Erzmagier Morgan, so nennt er sich. Er ist ein Bastard unreinen Blutes.", "Er versteckt sich in seiner Kammer und tut so, als wenn er die Schriften studieren würde. Ich glaube, er kümmert sich dort mehr um seine Huren!", "Eine solch arrogante Person. Traut niemals einem Magier, hört meine Worte."
-"Runewick", english -> "A wicked place! Witches and conjurers dwell there.", "Runewick is a place of pure lameness and boredom... until the magicians are on the prowl.", "One should burn down Runewick better today than tomorrow. I think all those books burn quite well."
+english, "Runewick" -> "A wicked place! Witches and conjurers dwell there.", "Runewick is a place of pure lameness and boredom... until the magicians are on the prowl.", "One should burn down Runewick better today than tomorrow. I think all those books burn quite well."
 "Runewick" -> "Ein verwunschener Ort! Hexen und Beschwörer reichen sich dort die Hände.", "Runewick ist ein öder und langweiliger Ort... Bis die Magier ihr Unwesen treiben.", "Man sollte Runewick lieber heute als morgen niederbrennen. Ich bin mir sicher, dass all diese Bücher gut brennen."
-"Valerio", "Guilianni", "Don", english -> "One thing Don Guilianni is capable of: He knows how to control his minions.", "Don Guilianni is a coward. But that is not a wonder, a son of a whore he is.", "I bet five copper the Don will be stabbed by one of his own men one day."
+english, "Valerio", "Guilianni", "Don" -> "One thing Don Guilianni is capable of: He knows how to control his minions.", "Don Guilianni is a coward. But that is not a wonder, a son of a whore he is.", "I bet five copper the Don will be stabbed by one of his own men one day."
 "Valerio", "Guilianni", "Don" -> "Eines kann man Don Guilianni nicht abstreiten: Er hat seine Männer im Griff.", "Don Guilianni ist ein Feigling. Aber das ist nicht überraschend bei einem solchen Hurensohn.", "Ich wette fünf Kupfermünzen, dass der Don eines Tage von einem seiner eigenen Männer erdolcht wird."
-"Galmair", english -> "A pool of sins! Galmair knows no law, no habits, no customs!", "Galmair... never venture there alone, please. You might find a dagger in your back even before you enter the town.", "Galmair cannot be fixed. A lost case."
+english, "Galmair" -> "A pool of sins! Galmair knows no law, no habits, no customs!", "Galmair... never venture there alone, please. You might find a dagger in your back even before you enter the town.", "Galmair cannot be fixed. A lost case."
 "Galmair" -> "Ein Sündenpfuhl! Galmair kennt keine Gesetze, keine Sitten, keine Gebräuche!", "Galmair... geht dort nie alleine hin. Ihr habt wohlmöglich einen Dolch in eurem Rücken, bevor ihr durch das Stadttor geht.", "Galmair kann man nicht mehr helfen. Eine verlorene Stadt."
 "Queen" -> "My queen. Speak her name with glee!", "One bad word about her majesty and you will find your tongue nailed on the gate of the palace.", "Hail queen Rosaline Edwards of Cadomyr!"
 "Königin" -> "Meine Königin. Sprecht ihren Namen mit Freude aus!", "Ein schlechtes Wort über ihre Majestät und eure Zunge wird an das Palasttor genagelt.", "Hoch lebe Königin Rosaline Edwards von Cadomyr!"
-"rosaline", "edwards", english -> "My queen. Speak her name with glee!", "One bad word about her majesty and you will find your tongue nailed on the gate of the palace.", "Hail queen Rosaline Edwards of Cadomyr!"
+english, "rosaline", "edwards" -> "My queen. Speak her name with glee!", "One bad word about her majesty and you will find your tongue nailed on the gate of the palace.", "Hail queen Rosaline Edwards of Cadomyr!"
 "rosaline", "edwards" -> "Meine Königin. Sprecht ihren Namen mit Freude aus!", "Ein schlechtes Wort über ihre Majestät und eure Zunge wird an das Palasttor genagelt.", "Hoch lebe Königin Rosaline Edwards von Cadomyr!"
-"Cadomyr", english -> "Cadomyr is my home, my everything. And all of us must work together to make it prosper under the guidance of our queen.", "Cadomyr rules!", "I swore an oath and I hope you will also do anything to serve Cadomyr and queen Rosaline."
+english, "Cadomyr" -> "Cadomyr is my home, my everything. And all of us must work together to make it prosper under the guidance of our queen.", "Cadomyr rules!", "I swore an oath and I hope you will also do anything to serve Cadomyr and queen Rosaline."
 "Cadomyr" -> "Cadomyr ist meine Heimat, mein ein und alles. Wir alle müssen zusammen arbeiten, um es gedeihen zu lassen, vereint unter der Führung unserer Königin.", "Cadomyr ist stark!", "Ich habe einen Eid geschworen und ich hoffe, dass auch ihr alles tun werdet, um Cadomyr und Königin Rosaline zu dienen."
 
 -- Main land factions
-"albar", english -> "We remember our roots, our ancestors. Cadomyr stands alone, but this is not a reason to forget about the old customs.", "Albar... ages ago, the people of Cadomyr set out from Albar.", "I wish I could visit an albarian slave market. There is so much work that need to be done."
+english, "albar" -> "We remember our roots, our ancestors. Cadomyr stands alone, but this is not a reason to forget about the old customs.", "Albar... ages ago, the people of Cadomyr set out from Albar.", "I wish I could visit an albarian slave market. There is so much work that need to be done."
 "albar" -> "Wir halten unsere Wurzeln und Ahnen in Ehren. Cadomyr steht nun alleine dar, aber dies ist kein Grund, die alten Sitten zu vergessen.", "Albar... vor langer Zeit zog das Volk von Cadomyr aus, um Albar zu verlassen.", "Ich wünschte, ich könnte einen albarischen Sklavenmarkt aufsuchen. So viel Arbeit ist hier zu tun."
-"gynk", "gync", english -> "#me spits on the ground.", "Gync?! A pool of sins! No habits! Just like Galmair... Coincidence?"
+english, "gynk", "gync" -> "#me spits on the ground.", "Gync?! A pool of sins! No habits! Just like Galmair... Coincidence?"
 "gync", "gynk" -> "#me spuckt auf den Boden.", "Gynk? Ein Sündenpfuhl! Keine Sitten! Fast wie Galmair... welch Zufall!"
-"salkama", english -> "#me laughs out loud.", "Salkablabla - all they do is talk. Changes need actions, they'll never understand."
+english, "salkama" -> "#me laughs out loud.", "Salkablabla - all they do is talk. Changes need actions, they'll never understand."
 "salkama" -> "#me lacht verächtlich auf.", "Salkablabla - die können nur reden! Wann begreifen die endlich, dass Taten einer starken Hand bedürfen?"
 
 -- Gods; each NPC should at react on one god, being a follower of said god
 "god" -> "I pray to Irmorom - and to queen Rosaline."
 "Gott", "Götter" -> "Ich bete Irmorom an - und auch Königin Rosaline."
-"Irmorom", english -> "Irmorom shall protect us from any accidents during the construction."
+english, "Irmorom" -> "Irmorom shall protect us from any accidents during the construction."
 "Irmorom" -> "Irmorom möge uns vor Unfällen während der Bauarbeiten behüten."
-"Cherga", english -> "I'll never let Cherga take away our queen. If she departs from this world, I will follow.", "I do not fear Cherga. I will meet Cherga, side by side with the queen."
+english, "Cherga" -> "I'll never let Cherga take away our queen. If she departs from this world, I will follow.", "I do not fear Cherga. I will meet Cherga, side by side with the queen."
 "Cherga" -> "Niemals werde ich Cherga unsere Königin rauben lassen. Sollte sie dennoch diese Welt verlassen, so werde ich folgen.", "Ich fürchte Cherga nicht. Ich werde ihr, Seite an Seite mit der Königin, gegenübertreten."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I trade building materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... I trade all the workers need.", "I can sell you the tools you need to serve the queen. On, on!"
+"what sell", "what buy", "list wares", "price of" -> trade, trade, "Ibuilding materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... Iall the workers need.", "I can sell you the tools you need to serve the queen. On, on!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!"
 "tell something" -> "Shh, don't speak about this in public, but we're actually building the queen's grave.", "I wonder where all the refugees came from. More hands for the queen!", "Never venture to the mountains alone. Dragons were reported to roam there."
 "erzähl was", "erzähl etwas" -> "Shh, redet nicht davon in der Öffentlichkeit, aber wir bauen das Grab der Königin", "Ich frage mich nur, wo die Flüchtlinge alle herkamen. Ach, mehr Hände für die Königin!", "Wagt es niemals, alleine in die Berge zu gehen. Angeblich treiben dort Drachen ihr Unwesen."
@@ -174,7 +174,7 @@ itemShoes = 53
 "Nein" -> "Habt ihr weitere Informationen?", "Ihr macht mich neugierig. Sollte ich dies der Königin berichten?"
 "ass", "arse" -> "Same to you."
 "arsch" -> "Ihr mich auch."
-"Robertus", english -> "Indeed, I am Robertus, the royal builder. And no, I don't have a nickname."
+english, "Robertus" -> "Indeed, I am Robertus, the royal builder. And no, I don't have a nickname."
 "Robertus" -> "Fürwahr, ich bin Robertus, der königliche Baumeister. Und nein, ich habe keinen Spitznamen."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.

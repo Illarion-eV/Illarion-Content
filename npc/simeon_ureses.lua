@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 26, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -15,13 +15,13 @@ INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto",
 VALUES (0, 133, 581, 0, 4, 'Simeon Ureses', 'npc.simeon_ureses', 0, 1, 3, 180, 35, 35, 160, 80, 45);
 ---]]
 
+require("base.common")
+require("npc.base.autonpcfunctions")
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
-require("base.common")
-require("npc.base.autonpcfunctions")
-
 module("npc.simeon_ureses", package.seeall)
 
 function initNpc()
@@ -47,6 +47,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Good day. Shall I repair your equipment?");
 talkEntry:addResponse("Hello. Come with broken things and you will go with fixed ones.");
 talkEntry:addResponse("Pardon me, could you come back in a minute or two? I have to fix this first.");
@@ -56,11 +57,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Guten Tag. Soll ich eure Ausrüstung reparieren?");
 talkEntry:addResponse("Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.");
 talkEntry:addResponse("Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren.");
@@ -68,11 +72,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Good day. Shall I repair your equipment?");
 talkEntry:addResponse("Hello. Come with broken things and you will go with fixed ones.");
 talkEntry:addResponse("Pardon me, could you come back in a minute or two? I have to fix this first.");
@@ -113,11 +117,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.");
 talkEntry:addResponse("Gehabt euch wohl und kommt bald wieder.");
 talkEntry:addResponse("Ich wünsche euch was.");
@@ -174,9 +178,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Do I look like I'd issue quests?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -218,8 +222,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("I am the royal armourer. So, whenever your sword turns blunt, come to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -245,9 +249,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hastings");
 talkEntry:addTrigger("Baron");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hush! Not in public.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -275,7 +279,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
-talkEntry:addResponse("I am not a trader but I can repair your items.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I am not ar but I can repair your items.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,9 +306,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Brágon grants me the fire for forging but he does not grant the hammer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -316,9 +321,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
 talkEntry:addTrigger("Oldra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -331,9 +336,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("So, I am with Cadomyr so I have to pray to Malachín? You need to learn a lot...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -358,9 +363,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I serve the queen because she is the queen. Did I make myself clear?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -373,8 +378,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("The wellbeing of Cadomyr is my only concern. I will not do anything against Cadomyr, regardless of my personal opinion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

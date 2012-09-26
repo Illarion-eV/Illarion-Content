@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian/Ardian                                         --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Ioannes Faber"
@@ -65,13 +65,13 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Kämmerer, 'Habt ihr Aufträge für mich?', 'Ich möchte Auftrag <Nummer> ansehen', 'Ich möchte Auftrag <Nummer> annehmen'.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hail and may Malachín bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Malachín zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Befehl benötigt."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Hail and may Malachín bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail and may Malachín bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Malachín zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Befehl benötigt."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail and may Malachín bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Malachín zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Befehl benötigt."
 "Farewell", "Bye", "Fare well", "See you" -> "Go forth and do as the queen tells you.", "Farewell and may your journey be a pleasant one.", "Good bye and don't forget to come back."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehet hin und tut, wie die Königin euch geheißt.", "Gehabt euch wohl und möge eure Reise eine angenehme sein.", "Auf wiedersehen und vergesst nicht, zurückzukehren."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Go forth and do as the queen tells you.", "Farewell and may your journey be a pleasant one.", "Good bye and don't forget to come back."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go forth and do as the queen tells you.", "Farewell and may your journey be a pleasant one.", "Good bye and don't forget to come back."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehet hin und tut, wie die Königin euch geheißt.", "Gehabt euch wohl und möge eure Reise eine angenehme sein.", "Auf wiedersehen und vergesst nicht, zurückzukehren."
 "How are you", "How feel", "How do you do" -> "The grin of the queen makes me spin, spinning within.", "Every word of the queen is like caress."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Das Lächeln der Königin macht mich ganz wuschig im Inneren.", "Jedes Wort der Königin ist wie eine Liebkosung."
@@ -83,26 +83,26 @@ itemShoes = 53
 "Befehl", "Auftrag", "Aufträge" -> "Derzeit habe ich keine Befehle für euch."
 
 -- Catching quest triggers
-"quest", "mission", english -> "I do not issue quests. I issue orders of queen Rosaline. Obey them!"
+english, "quest", "mission" -> "I do not issue quests. I issue orders of queen Rosaline. Obey them!"
 "quest", "mission" -> "Ich biete keine Abenteuer an, ich verteile Befehle von Königin Rosaline. Gehorcht ihnen!"
-"task", "adventure" -> "I do not issue quests. I issue orders of queen Rosaline. Obey them!"
+"task", "adventure", "order" -> "I do not issue quests. I issue orders of queen Rosaline. Obey them!"
 "Aufgabe", "Abenteuer" -> "Ich biete keine Abenteuer an, ich verteile Befehle von Königin Rosaline. Gehorcht ihnen!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the royal treasurer. The queen entrusted me the wealth of Cadomyr; and I am not the one who will disappoint her. Will you?"
 "beruf" -> "Ich bin der königliche Kämmerer. Die Königin hat mir den Reichtum Cadomyrs anvertraut; und ich bin keiner von denen, die sie enttäuschen wird. Ihr etwa?"
-"job", english -> "I am the royal treasurer. The queen entrusted me the wealth of Cadomyr; and I am not the one who will disappoint her. Will you?"
+english, "job" -> "I am the royal treasurer. The queen entrusted me the wealth of Cadomyr; and I am not the one who will disappoint her. Will you?"
 "job" -> "Ich bin der königliche Kämmerer. Die Königin hat mir den Reichtum Cadomyrs anvertraut; und ich bin keiner von denen, die sie enttäuschen wird. Ihr etwa?"
-"Gobaith", "Gobiath", english -> "Well, I heard many refugees came from Gobaith to Cadomyr. But I do not deal that much with refugees, I have to admit."
+english, "Gobaith", "Gobiath" -> "Well, I heard many refugees came from Gobaith to Cadomyr. But I do not deal that much with refugees, I have to admit."
 "Gobaith", "Gobiath" -> "Nun, ich hörte, dass viele Flüchtlinge von Gobaith nach Cadomyr gekommen sind. Aber ich muss gestehen, ich schere mich nicht sonderlich um Flüchtlinge."
 "my name" -> "Welcome to the palace. I hope you didn't come here to rob from the treasury."
 "mein Name" -> "Willkommen im Palast. Ich hoffe, ihr seid nicht hier, um die Schatzkammer zu plündern."
 
 -- More small talk; add at least five triggers
 "treasurer", "treasury" -> "The office of treasurere requires loyality, integrity and meekness. And you won't find anyone of Cadomyr who suits the office better than Ioannes Faber."
-"gold", english -> "Gold is important for Cadomyr's wealth, but more important is our honour. For honour, you cannot buy but just sell."
+english, "gold" -> "Gold is important for Cadomyr's wealth, but more important is our honour. For honour, you cannot buy but just sell."
 "jewels" -> "Jewels, gems, diamonds, only the brightest ones for the crown of Cadomyr. Got some?"
-"glas", english -> "The queen uses to have banquets with her nobley from time to time. Thus, finest tableware is needed frequently."
+english, "glas" -> "The queen uses to have banquets with her nobley from time to time. Thus, finest tableware is needed frequently."
 "wealth" -> "I hold the keys to the treasury. And there is nothing even Baron Hastings could offer me to betray my queen. I'd rather die... like my wife."
 "honor", "honour" -> "Honour is what shapes a man and crafted Cadomyr."
 "bribe", "corrupt" -> "Hold your tongue!"
@@ -119,45 +119,45 @@ itemShoes = 53
 -- Faction stuff
 "archmage" -> "The archmage seems to be quite a charismatic person. I can't explain elsewise how such a honourless person gathered so many followers."
 "Erzmagier" -> "Der Erzmagier scheint mir eine charismatische Persönlichkeit zu sein. Wie anders ist es zu erklären, dass so eine ehrlose Person so viele Anhänger um sich schart."
-"Elvaine", "Morgan", english -> "The archmage seems to be quite a charismatic person. I can't explain elsewise how such a honourless person gathered so many followers."
+english, "Elvaine", "Morgan" -> "The archmage seems to be quite a charismatic person. I can't explain elsewise how such a honourless person gathered so many followers."
 "Elvaine", "Morgan" -> "Der Erzmagier scheint mir eine charismatische Persönlichkeit zu sein. Wie anders ist es zu erklären, dass so eine ehrlose Person so viele Anhänger um sich schart."
-"Runewick", english -> "What makes me wonder: Runewick is admittedly a magnificent town, but they don't really care about mudane wealth there. That... simply does not fit."
+english, "Runewick" -> "What makes me wonder: Runewick is admittedly a magnificent town, but they don't really care about mudane wealth there. That... simply does not fit."
 "Runewick" -> "Worüber ich mich wundere: Runewick ist zugegebenermaßen eine prunkvolle Stadt, aber sie scheren sich nicht um weltlichen Reichtum dort. Das... passt irgendwie nicht zusammen."
-"Valerio", "Guilianni", "Don", english -> "There is a difference between me and the Don; he keeps all his wealth for himself, and I keep it for the queen."
+english, "Valerio", "Guilianni", "Don" -> "There is a difference between me and the Don; he keeps all his wealth for himself, and I keep it for the queen."
 "Valerio", "Guilianni", "Don" -> "Was mich und den Don unterscheidet ist, dass der seinen ganzen Reichtum für sich selber hortet und ich den Reichtum Cadomyrs für die Königin verwahre."
-"Galmair", english -> "I'd be king of Galmair if I claim all the treasury of Cadomyr for myself. But I am rather an honourable serf than a heinous lord."
+english, "Galmair" -> "I'd be king of Galmair if I claim all the treasury of Cadomyr for myself. But I am rather an honourable serf than a heinous lord."
 "Galmair" -> "Ich wäre König von Galmair, wenn ich den Inhalt der Schatzkammer Cadomyrs an mich reißen würde. Aber ich bin lieber ein ehrbarer Diener als ein ruchloser Herr."
 "Queen" -> "Since my wife died, queen Rosaline is the only woman in my life. I serve her with every fibre of my body."
 "Königin" -> "Seitdem meine Frau nicht mehr ist, ist Königin Rosaline die einzige Frau in meinem Leben. Ich diene ihr mit jeder Faser meines Körpers."
-"rosaline", "edwards", english -> "Since my wife died, queen Rosaline is the only woman in my life. I serve her with every fibre of my body."
+english, "rosaline", "edwards" -> "Since my wife died, queen Rosaline is the only woman in my life. I serve her with every fibre of my body."
 "rosaline", "edwards" -> "Seitdem meine Frau nicht mehr ist, ist Königin Rosaline die einzige Frau in meinem Leben. Ich diene ihr mit jeder Faser meines Körpers."
-"Cadomyr", english -> "Cadomyr is a glorious realm, founded by honourable men of albarian origin. Be proud to stand here!"
+english, "Cadomyr" -> "Cadomyr is a glorious realm, founded by honourable men of albarian origin. Be proud to stand here!"
 "Cadomyr" -> "Cadomyr ist ein glorreiches Reich, gegründet von ehrbaren Männern albarischen Geblüts. Seid stolz, hier sein zu dürfen!"
 
 -- Main land factions
-"albar", english -> "Albar, Albar, Albar. Cadomyr! I respect our ancestors, but Cadomyr is independent and even more honourable than Albar."
+english, "albar" -> "Albar, Albar, Albar. Cadomyr! I respect our ancestors, but Cadomyr is independent and even more honourable than Albar."
 "albar" -> "Albar, Albar, Albar. Cadomyr! Ich ehre unsere Vorväter, aber Cadomyr ist eigenständig und noch ehrbarer als Albar."
-"gynk", "gync", english -> "They are no people and no tribe. What are they, anyway - besides smugglers?"
+english, "gynk", "gync" -> "They are no people and no tribe. What are they, anyway - besides smugglers?"
 "gync", "gynk" -> "Sie sind kein Volk und kein Stamm. Was sind sie eigentlich - außer Schmuggler?"
-"salkama", english -> "Warmongers! Men cannot recall true peace between Salkamar and Albar. Why? Because of them!"
+english, "salkama" -> "Warmongers! Men cannot recall true peace between Salkamar and Albar. Why? Because of them!"
 "salkama" -> "Kriegstreiber! Die Menschheit kann sich an keinen dauerhaften Frieden zwischen Albar und Salkamar erinnern. Warum? Ihretwegen!"
 
 -- Gods; each NPC should at react on one god, being a follower of said god
 "god" -> "I pray to Malachín. And only to Malachín!"
 "Gott", "Götter" -> "Ich bete zu Malachín - und nur zu Malachín!"
-"Malachin", "Malachín", english -> "Malachín is the patron of Cadomyr. Never displease him nor the queen and you will have a long life."
+english, "Malachin", "Malachín" -> "Malachín is the patron of Cadomyr. Never displease him nor the queen and you will have a long life."
 "Malachin", "Malachín" -> "Malachín ist der Schutzgott von Cadomyr. Enttäuscht weder ihn noch die Königin und ihr werdet euch eines langen Lebens erfreuen."
-"Irmorom", english -> "The dwarves pray to Irmorom to gain wealth; so far, so good. But I pray to Malachín to help me guard the wealth of Cadomyr with my sword."
+english, "Irmorom" -> "The dwarves pray to Irmorom to gain wealth; so far, so good. But I pray to Malachín to help me guard the wealth of Cadomyr with my sword."
 "Irmorom" -> "Die Zwerge beten zu Irmorom um Reichtümer anzuhäufen, soweit, so gut. Aber ich bete zu Malachín, damit er mir hilft, die Reichtümer Cadomyrs mit dem Schwert zu verteidigen."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I'm not a trader, I am the royal treasurere. If you obey the orders of the queen, you might get a reward."
+"what sell", "what buy", "list wares", "price of" -> trade, "I'm not ar, I am the royal treasurere. If you obey the orders of the queen, you might get a reward."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler, ich bin der königliche Kämmerer. Wenn ihr den Befehlen der Königin gehorcht, dann werdet ihr vielleicht entlohnt."
 "tell something" -> "Let me tell you something: A whip can make people work. But a crown makes them obey."
 "erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein: Eine Peitsche bringt Leute zum arbeiten, aber eine Krohne bringt sie dazu, zu gehorchen."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Ioannes", "Faber", english -> "I am the royal treasurer Ioannes Faber. I obey her majesty and only her majesty."
+english, "Ioannes", "Faber" -> "I am the royal treasurer Ioannes Faber. I obey her majesty and only her majesty."
 "Ioannes", "Faber" -> "Ich bin der königliche Kämmerer Ioannes Faber. Ich gehorche ihrer Majestät und nur ihrere Majestät."
 "Yes" -> "Good to hear.", "Pardon me?", "Indeed.", "I agree."
 "Ja" -> "Gut zu wissen.", "Entschuldigt?", "So, so.", "Meine vollste Zustimmung."

@@ -8,7 +8,7 @@
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Bre Southstar"
@@ -119,13 +119,13 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bre Southstar die Torwächterin. Schlüsselwörter: Hallo, Gavin, Galmair, Wache.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day. I hope you are doing well.", "This is Galmair, have a pleasant time.", "I'm happy that you decided to choose this gate. Please have a pleasant trip."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag, ich hoffe, es geht euch gut.", "Dies hier ist Galmair, genießt euren Aufenthalt.", "Es freut mich, dass ihr dieses Tor gewählt habt. Eine gute Reise wünsche ich."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day. I hope you are doing well.", "This is Galmair, have a pleasant time.", "I'm happy that you decided to choose this gate. Please have a pleasant trip."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. I hope you are doing well.", "This is Galmair, have a pleasant time.", "I'm happy that you decided to choose this gate. Please have a pleasant trip."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag, ich hoffe, es geht euch gut.", "Dies hier ist Galmair, genießt euren Aufenthalt.", "Es freut mich, dass ihr dieses Tor gewählt habt. Eine gute Reise wünsche ich."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day. I hope you are doing well.", "This is Galmair, have a pleasant time.", "I'm happy that you decided to choose this gate. Please have a pleasant trip."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag, ich hoffe, es geht euch gut.", "Dies hier ist Galmair, genießt euren Aufenthalt.", "Es freut mich, dass ihr dieses Tor gewählt habt. Eine gute Reise wünsche ich."
 "Farewell", "Bye", "Fare well", "See you" -> "May justice and peace make your day merry.", "I will see you later.", "Have a good day, please walk in peace wherever you step."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mögen Gerechtigkeit und Frieden euren Tag versüßen.", "Wir sehen uns noch.", "Einen schönen Tag noch, gehet hin in Frieden."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "May Justice and peace make your day merry.", "I will see you later.", "Have a good day, please walk in peace wherever you step."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Justice and peace make your day merry.", "I will see you later.", "Have a good day, please walk in peace wherever you step."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Mögen Gerechtigkeit und Frieden euren Tag versüßen.", "Wir sehen uns noch.", "Einen schönen Tag noch, gehet hin in Frieden."
 "How are you", "How feel", "How do you do" -> "I'm doing great, can't really explain why.", "Today is a good day, well I guess everyday is a good day.", "I'm in utter peace... or at least I think I am."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, auch wenn ich gar nicht weiß, wieso.", "Heute ist ein guter Tag, eigentlich ist jeder neue Tag ein guter.", "Ich bin mit mir im Einklang... denke ich."
@@ -135,7 +135,7 @@ itemShoes = 53
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "I don't need anything right now. Thank you though."
+english, "quest", "mission" -> "I don't need anything right now. Thank you though."
 "quest", "mission" -> "Ich brauche gerade nichts, danke."
 "task", "adventure", "order" -> "I don't need anything right now. Thank you though."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich brauche gerade nichts, danke."
@@ -143,11 +143,11 @@ itemShoes = 53
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a Galmairian Gateguard.", "I am a Silverstone rank in the Civil Watch.", "I guard gates and smash people in the face with my ball and chain, but not often."
 "beruf" -> "Ich bin eine Torwache Galmairs.", "Ich habe den Rang eines Silbersteins in der Bürgerwehr.", "Ich bewache Tore und schlag Leuten, wenn nötig, das Gesicht ein. Das kommt aber nicht so oft vor."
-"job", english -> "I'm a Galmairian Gateguard.", "I am a Silverstone rank in the Civil Watch.", "I guard gates and smash people in the face with my ball and chain, but not often."
+english, "job" -> "I'm a Galmairian Gateguard.", "I am a Silverstone rank in the Civil Watch.", "I guard gates and smash people in the face with my ball and chain, but not often."
 "job" -> "Ich bin eine Torwache Galmairs.", "Ich habe den Rang eines Silbersteins in der Bürgerwehr.", "Ich bewache Tore und schlag Leuten, wenn nötig, das Gesicht ein. Das kommt aber nicht so oft vor."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"Gavin", english -> "She is the prettiest, strongest, smartest person I know.", "She rescued me from being homeless.", "Gavin is too tall for a girl.", "Gavin of the other gate is my sister."
+english, "Gavin" -> "She is the prettiest, strongest, smartest person I know.", "She rescued me from being homeless.", "Gavin is too tall for a girl.", "Gavin of the other gate is my sister."
 "Sister" -> "She is the prettiest, strongest, smartest person I know.", "She rescued me from being homeless.", "Gavin is too tall for a girl.", "Gavin of the other gate is my sister."
 "Homeless" -> "It is no place for a girl... I can tell you that."
 "Peace", "Justice" -> "Gavin keeps telling me I need to do everything in peace and justice. I tell her that she needs to do everything in fun and sunshine."
@@ -173,43 +173,43 @@ itemShoes = 53
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I serve Elara because that is my sister's chosen god."
 "Gott", "Götter" -> "Ich diene Elara, denn meine Schwester tut das auch."
-"Elara", english -> "I serve Elara because that is my sister's chosen god."
+english, "Elara" -> "I serve Elara because that is my sister's chosen god."
 "Elara" -> "Ich diene Elara, denn meine Schwester tut das auch."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"Runewick", english -> "I hear that there is an enormous bridge that stretches across a large sea just to get to the city. The image in my head is very pretty. Don't you think?"
+english, "Runewick" -> "I hear that there is an enormous bridge that stretches across a large sea just to get to the city. The image in my head is very pretty. Don't you think?"
 "Runewick" -> "Ich hörte, dass die Stadt mit einer riesigen Brücke über das Meer mit dem Festland verbunden ist. Das klingt doch wunderschön, oder?"
-"Elvaine", "Morgan", english -> "I hear he is a strong mage user, but honestly. Magic is nothing compared to a strong blow from a dwarven great axe."
+english, "Elvaine", "Morgan" -> "I hear he is a strong mage user, but honestly. Magic is nothing compared to a strong blow from a dwarven great axe."
 "Elvaine", "Morgan" -> "Ich hörte, er weiß, mit der Magie umzugehen. Aber mal im Ernst: Was ist schon Magie gegen den Hieb einer Zwergenaxt?"
 "Archmage" -> "I hear he is a strong mage user, but honestly. Magic is nothing compared to a strong blow from a dwarven great axe."
 "Erzmagier" -> "Ich hörte, er weiß, mit der Magie umzugehen. Aber mal im Ernst: Was ist schon Magie gegen den Hieb einer Zwergenaxt?"
-"Valerio", "Guilianni", "Don", english -> "I hear he is the worst womanizer, but he pays my salary, so I work for him."
+english, "Valerio", "Guilianni", "Don" -> "I hear he is the worst womanizer, but he pays my salary, so I work for him."
 "Valerio", "Guilianni", "Don" -> "Ich hörte, er ist der schlimmste Weiberhgeld, aber da er mein Gehalt zahlt, arbeite ich für ihn."
-"Galmair", english -> "The streets are cold, the men are rude, but this is where my sister is and my job. I love it."
+english, "Galmair" -> "The streets are cold, the men are rude, but this is where my sister is and my job. I love it."
 "Galmair" -> "Die Straßen sind kalt, die Leute ungehobelt aber hier ist meine Schwester und meine Aufgabe, also liebe ich es."
-"Cadomyr", english -> "I made Gavin promise she would take me there. She said on her next day off. That was two years ago."
+english, "Cadomyr" -> "I made Gavin promise she would take me there. She said on her next day off. That was two years ago."
 "Cadomyr" -> "Ich habe Gavin dazu gebracht, mir zu versprechen, dass wir dort mal hingehen. Sie meinte, dass wir das an ihrem nächsten freien Tag machen. Das war vor zwei Jahren."
-"rosaline", "edwards", english -> "I hear she is the meanest witch, even compared to the ugly ferocious women of Cadomyr."
+english, "rosaline", "edwards" -> "I hear she is the meanest witch, even compared to the ugly ferocious women of Cadomyr."
 "rosaline", "edwards" -> "Ich hörte, sie ist die böseste Hexe unter den gräßlichen Frauen Cadomyrs."
 "Queen" -> "I hear she is the meanest witch, even compared to the ugly ferocious women of Cadomyr."
 "Königin" -> "Ich hörte, sie ist die böseste Hexe unter den gräßlichen Frauen Cadomyrs."
 
 -- Optional: Main land factions
-"albar", english -> "Outside of Galmair I know nothing, sorry."
+english, "albar" -> "Outside of Galmair I know nothing, sorry."
 "albar" -> "Über die Welt ausserhalb Galmairs weiß ich nicht viel."
-"gynk", "gync", english -> "I think that is what this place is like, but I really don't know."
+english, "gynk", "gync" -> "I think that is what this place is like, but I really don't know."
 "gync", "gynk" -> "Ich meine, dort ist es so ähnlich wie hier, aber ich weiß es nicht genau."
-"salkama", english -> "I've never even heard that word before."
+english, "salkama" -> "I've never even heard that word before."
 "salkama" -> "Das Wort habe ich ja noch nie gehört."
 
 -- Optional: Gobaith
-"Gobaith", "Gobiath", english -> "What is that?"
+english, "Gobaith", "Gobiath" -> "What is that?"
 "Gobaith", "Gobiath" -> "Was soll das sein?"
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Is that you?", "Yes?", "Do you need something?"
 "mein Name" -> "Seid ihr das?", "Ja?", "Braucht ihr was?"
-"Bre", "Southstar", english -> "I am her."
+english, "Bre", "Southstar" -> "I am her."
 "Bre", "Southstar" -> "Das bin ich."
 "Yes" -> "Yes to what?", "Pardon?"
 "Ja" -> "Ja?", "Pardon?"
@@ -217,8 +217,8 @@ itemShoes = 53
 "Nein" -> "Entschuldigt, ich habe gar nicht gefragt."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "I am the merely a guard of Galmair.", "Tell that somebody else.", "Move along.", "Pass along", "Do not loiter!", "In or out?"
-".*", german, chance(20.0) -> "Ich bin in erster Linie eine Wache Galmairs.", "Erzählt das irgendwem, nur nicht mir.", "Weitergehen.", "Geht weiter.", "Lungert hier nicht so rum!", "Rein oder raus?"
+english, chance(20.0), ".*" -> "I am the merely a guard of Galmair.", "Tell that somebody else.", "Move along.", "Pass along", "Do not loiter!", "In or out?"
+german, chance(20.0), ".*" -> "Ich bin in erster Linie eine Wache Galmairs.", "Erzählt das irgendwem, nur nicht mir.", "Weitergehen.", "Geht weiter.", "Lungert hier nicht so rum!", "Rein oder raus?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

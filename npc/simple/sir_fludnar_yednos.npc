@@ -74,8 +74,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Gelehrte Sir Fludnar Yednos. Schlüsselwörter: Hallo, Quest, Götter, Ork.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Could you lower your voice? But be greeted anyway!", "Hmm...Can I help you?", "Be greeted as well, but now let me continue my research."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!", "Hmm...Kann ich euch helfen?.", "Seid auch gegrüßt, aber nun last mich doch weiter forschen!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Could you lower your voice? But be greeted anyway!", "Hmm...Can I help you?", "Be greeted as well, but now let me continue my research."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!", "Hmm...Kann ich euch helfen?.", "Seid auch gegrüßt, aber nun last mich doch weiter forschen!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Are you lost?", "Leave me alone!", "Who is disturbing my work?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Habt ihr euch verlaufen?", "Raus hier aber schnell!", "Wer stört mich hier bei der Arbeit?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Good bye.", "Don't forget to close the door!"

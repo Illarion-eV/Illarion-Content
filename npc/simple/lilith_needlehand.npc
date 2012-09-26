@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Lilith Needlehand"
@@ -61,13 +61,13 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Schneiderin Lilith. Sie könnte Hilfe bei einer Aufgabe gebrauchen. Schlüsselwörter: Hallo, Quest, Nadel, Schneider.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho! You must have come to help me!", "Oh my, hello there! You are here to assist me, I assume?", "#me gives a charming smile: 'Are you here to help me?'"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho! Du bist sicher hier, um mir zu helfen!", "Oh, hallo!", "#me lächelt freundlich."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho! You must have come to help me!", "Oh my, hello there! You are here to assist me, I assume?", "#me gives a charming smile: 'Are you here to help me?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! You must have come to help me!", "Oh my, hello there! You are here to assist me, I assume?", "#me gives a charming smile: 'Are you here to help me?'"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Du bist sicher hier, um mir zu helfen!", "Oh, hallo!", "#me lächelt freundlich."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! You must have come to help me!", "Oh my, hello there! You are here to assist me, I assume?", "#me gives a charming smile: 'Are you here to help me?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Du bist sicher hier, um mir zu helfen!", "Oh, hallo! Du kannst mir bestimmt helfen.", "#me lächelt freundlich."
 "Farewell", "Bye", "Fare well", "See you" -> "#me waves excitedly.", "Good Bye!", "Come back soon and maybe we can have some cake!", "#me turns back to the sheep, saying over her shoulder 'Farewell' as she pets one."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "#me winkt freudig zum Abschied.", "Auf wiedersehen!", "Komm bald zurück und dann essen wir Kuchen!", "#me wendet sich wieder den Schafen zu."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "#me waves excitedly.", "Good Bye!", "Come back soon and maybe we can have some cake!", "#me turns back to the sheep, saying over her shoulder 'Farewell' as she pets one."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me waves excitedly.", "Good Bye!", "Come back soon and maybe we can have some cake!", "#me turns back to the sheep, saying over her shoulder 'Farewell' as she pets one."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me winkt freudig zum Abschied.", "Auf wiedersehen!", "Komm bald zurück und dann essen wir Kuchen!", "#me wendet sich wieder den Schafen zu."
 "How are you", "How feel", "How do you do" -> "I'm in a hurry! The archmage ordered a robe and I didn't finish it yet."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin in Eile. Der Erzmagier hat eine Robe bestellt und ich habe sie noch nicht fertig."
@@ -75,71 +75,71 @@ itemShoes = 369
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Lilith Needlehand und ich bin eine Schneiderin. Es ist schön, deine Bekanntschaft zu machen."
 
 -- 1st quest: Gather 20 wool
-"quest", "mission", queststatus(73) = 0, english -> inform("[New quest] The Lazy Tailoress I"), "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty pieces of wool, I am short on that.", queststatus(73) = 1
-"quest", "mission", queststatus(73) = 0 -> inform("[Neues Quest] Das faule Schneiderlein I"), "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.", queststatus(73) = 1
-"task", "adventure", "order", queststatus(73) = 0 -> inform("[New quest] The Lazy Tailoress I"), "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty pieces of wool, I am short on that.", queststatus(73) = 1
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(73) = 0 -> inform("[Neues Quest] Das faule Schneiderlein I"), "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.", queststatus(73) = 1
-".+", skill(tailoring) < 90, queststatus(73) = 1, item(170, all) > 19, english, town = Runewick -> inform("[Quest solved] You are awarded a needle and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."), "Why thank you! I don't have a real reward for you, but you can have my spare needle.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(73) = 2, rankpoints(Runewick) + 5
-".+", queststatus(73) = 1, item(170, all) > 19, english, town = Runewick -> inform("[Quest solved] You are awarded a needle. You advance in Archmage Elvaine Morgan's favour."), "Why thank you! I don't have a real reward for you, but you can have my spare needle.", deleteItem(170, 20), item(47, 1, 999, 0), queststatus(73) = 2, rankpoints(Runewick) + 5
-".+", skill(tailoring) < 90, queststatus(73) = 1, item(170, all) > 19, town = Runewick -> inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(73) = 2, rankpoints(Runewick) + 5
-".+", queststatus(73) = 1, item(170, all) > 19, town = Runewick -> inform("[Quest gelöst] Du erhältst eine Nadel. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben.", deleteItem(170, 20), item(47, 1, 999, 0), queststatus(73) = 2, rankpoints(Runewick) + 5
-".+", skill(tailoring) < 90, queststatus(73) = 1, item(170, all) > 19, english -> inform("[Quest solved] You are awarded a needle and your tailoring skill increases."), "Why thank you! I don't have a real reward for you, but you can have my spare needle.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(73) = 2
-".+", queststatus(73) = 1, item(170, all) > 19, english -> inform("[Quest solved] You are awarded a needle."), "Why thank you! I don't have a real reward for you, but you can have my spare needle.", deleteItem(170, 20), item(47, 1, 999, 0), queststatus(73) = 2
-".+", skill(tailoring) < 90, queststatus(73) = 1, item(170, all) > 19 -> inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt."), "Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(73) = 2
-".+", queststatus(73) = 1, item(170, all) > 19 -> inform("[Quest gelöst] Du erhältst eine Nadel."), "Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben.", deleteItem(170, 20), item(47, 1, 999, 0), queststatus(73) = 2
-"quest", "mission", queststatus(73) = 1, english -> "Did you forget? I need twenty bundles of wool! Oh please, I need to finish this robe for the Archmage in time."
-"quest", "mission", queststatus(73) = 1 -> "Hast du es schon vergessen? Ich brauche zwanzig Wollballen. Bitte, ich muss die Robe für den Erzmagier rechtzeitig fertig kriegen."
-"task", "adventure", "order", queststatus(73) = 1 -> "Did you forget? I need twenty bundles of wool! Oh please, I need to finish this robe for the Archmage in time."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(73) = 1 -> "Hast du es schon vergessen? Ich brauche zwanzig Wollballen. Bitte, ich muss die Robe für den Erzmagier rechtzeitig fertig kriegen."
+queststatus(73) = 0, english, "quest", "mission" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty pieces of wool, I am short on that."
+queststatus(73) = 0, "quest", "mission" -> inform("[Neues Quest] Das faule Schneiderlein I"), queststatus(73) = 1, "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr."
+queststatus(73) = 0, "task", "adventure", "order" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty pieces of wool, I am short on that."
+queststatus(73) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Das faule Schneiderlein I"), queststatus(73) = 1, "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr."
+skill(tailoring) < 90, queststatus(73) = 1, item(170, all) > 19, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a needle and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."), skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999), queststatus(73) = 2, rankpoints(Runewick) + 5, "Why thank you! I don't have a real reward for you, but you can have my spare needle."
+queststatus(73) = 1, item(170, all) > 19, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a needle. You advance in Archmage Elvaine Morgan's favour."), deleteItem(170, 20), item(47, 1, 999), queststatus(73) = 2, rankpoints(Runewick) + 5, "Why thank you! I don't have a real reward for you, but you can have my spare needle."
+skill(tailoring) < 90, queststatus(73) = 1, item(170, all) > 19, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999), queststatus(73) = 2, rankpoints(Runewick) + 5, "Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben."
+queststatus(73) = 1, item(170, all) > 19, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst eine Nadel. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), deleteItem(170, 20), item(47, 1, 999), queststatus(73) = 2, rankpoints(Runewick) + 5, "Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben."
+skill(tailoring) < 90, queststatus(73) = 1, item(170, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded a needle and your tailoring skill increases."), skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999), queststatus(73) = 2, "Why thank you! I don't have a real reward for you, but you can have my spare needle."
+queststatus(73) = 1, item(170, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded a needle."), deleteItem(170, 20), item(47, 1, 999), queststatus(73) = 2, "Why thank you! I don't have a real reward for you, but you can have my spare needle."
+skill(tailoring) < 90, queststatus(73) = 1, item(170, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt."), skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999), queststatus(73) = 2, "Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben."
+queststatus(73) = 1, item(170, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst eine Nadel."), deleteItem(170, 20), item(47, 1, 999), queststatus(73) = 2, "Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben."
+queststatus(73) = 1, english, "quest", "mission" -> "Did you forget? I need twenty bundles of wool! Oh please, I need to finish this robe for the Archmage in time."
+queststatus(73) = 1, "quest", "mission" -> "Hast du es schon vergessen? Ich brauche zwanzig Wollballen. Bitte, ich muss die Robe für den Erzmagier rechtzeitig fertig kriegen."
+queststatus(73) = 1, "task", "adventure", "order" -> "Did you forget? I need twenty bundles of wool! Oh please, I need to finish this robe for the Archmage in time."
+queststatus(73) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du es schon vergessen? Ich brauche zwanzig Wollballen. Bitte, ich muss die Robe für den Erzmagier rechtzeitig fertig kriegen."
 
 -- 2nd quest: Gather 15 thread
-"quest", "mission", queststatus(73) = 2, english -> inform("[New quest] The Lazy Tailoress II"), "Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.", queststatus(73) = 3
-"quest", "mission", queststatus(73) = 2 -> inform("[Neues Quest] Das faule Schneiderlein II"), "Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen.", queststatus(73) = 3
-"task", "adventure", "order", queststatus(73) = 2 -> inform("[New quest] The Lazy Tailoress II"), "Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.", queststatus(73) = 3
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(73) = 2 -> inform("[Neues Quest] Das faule Schneiderlein II"), "Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen.", queststatus(73) = 3
-".+", skill(tailoring) < 90, queststatus(73) = 3, item(50, all) > 14, english, town = Runewick -> inform("[Quest solved] You are awarded a blue dress and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."), "Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.", skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999, 0), queststatus(73) = 4, rankpoints(Runewick) + 10
-".+", queststatus(73) = 3, item(50, all) > 14, english, town = Runewick -> inform("[Quest solved] You are awarded a blue dress. You advance in Archmage Elvaine Morgan's favour."), "Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.", deleteItem(50, 15), item(385, 1, 999, 0), queststatus(73) = 4, rankpoints(Runewick) + 10
-".+", skill(tailoring) < 90, queststatus(73) = 3, item(50, all) > 14, town = Runewick -> inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.", skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999, 0), queststatus(73) = 4, rankpoints(Runewick) + 10
-".+", queststatus(73) = 3, item(50, all) > 14, town = Runewick -> inform("[Quest gelöst] Du erhältst ein blaues Kleid. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.", deleteItem(50, 15), item(385, 1, 999, 0), queststatus(73) = 4, rankpoints(Runewick) + 10
-".+", skill(tailoring) < 90, queststatus(73) = 3, item(50, all) > 14, english -> inform("[Quest solved] You are awarded a blue dress and your tailoring skill increases."), "Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.", skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999, 0), queststatus(73) = 4
-".+", queststatus(73) = 3, item(50, all) > 14, english -> inform("[Quest solved] You are awarded a blue dress."), "Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.", deleteItem(50, 15), item(385, 1, 999, 0), queststatus(73) = 4
-".+", skill(tailoring) < 90, queststatus(73) = 3, item(50, all) > 14 -> inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt."), "Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.", skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999, 0), queststatus(73) = 4
-".+", queststatus(73) = 3, item(50, all) > 14 -> inform("[Quest gelöst] Du erhältst ein blaues Kleid."), "Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.", deleteItem(50, 15), item(385, 1, 999, 0), queststatus(73) = 4
-"quest", "mission", queststatus(73) = 3, english -> "Thread, thread, my dear, I lack thread and you don't have enough!"
-"quest", "mission", queststatus(73) = 3 -> "Garn, Garn, ohje, mir ist das Garn ausgegangen und du hast auch nicht genug!"
-"task", "adventure", "order", queststatus(73) = 3 -> "Thread, thread, my dear, I lack thread and you don't have enough!"
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(73) = 3 -> "Garn, Garn, ohje, mir ist das Garn ausgegangen und du hast auch nicht genug!"
+queststatus(73) = 2, english, "quest", "mission" -> inform("[New quest] The Lazy Tailoress II"), queststatus(73) = 3, "Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please."
+queststatus(73) = 2, "quest", "mission" -> inform("[Neues Quest] Das faule Schneiderlein II"), queststatus(73) = 3, "Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen."
+queststatus(73) = 2, "task", "adventure", "order" -> inform("[New quest] The Lazy Tailoress II"), queststatus(73) = 3, "Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please."
+queststatus(73) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Das faule Schneiderlein II"), queststatus(73) = 3, "Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen."
+skill(tailoring) < 90, queststatus(73) = 3, item(50, all) > 14, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a blue dress and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."), skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999), queststatus(73) = 4, rankpoints(Runewick) + 10, "Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation."
+queststatus(73) = 3, item(50, all) > 14, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a blue dress. You advance in Archmage Elvaine Morgan's favour."), deleteItem(50, 15), item(385, 1, 999), queststatus(73) = 4, rankpoints(Runewick) + 10, "Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation."
+skill(tailoring) < 90, queststatus(73) = 3, item(50, all) > 14, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999), queststatus(73) = 4, rankpoints(Runewick) + 10, "Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung."
+queststatus(73) = 3, item(50, all) > 14, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst ein blaues Kleid. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), deleteItem(50, 15), item(385, 1, 999), queststatus(73) = 4, rankpoints(Runewick) + 10, "Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung."
+skill(tailoring) < 90, queststatus(73) = 3, item(50, all) > 14, english, ".+" -> inform("[Quest solved] You are awarded a blue dress and your tailoring skill increases."), skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999), queststatus(73) = 4, "Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation."
+queststatus(73) = 3, item(50, all) > 14, english, ".+" -> inform("[Quest solved] You are awarded a blue dress."), deleteItem(50, 15), item(385, 1, 999), queststatus(73) = 4, "Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation."
+skill(tailoring) < 90, queststatus(73) = 3, item(50, all) > 14, ".+" -> inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt."), skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999), queststatus(73) = 4, "Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung."
+queststatus(73) = 3, item(50, all) > 14, ".+" -> inform("[Quest gelöst] Du erhältst ein blaues Kleid."), deleteItem(50, 15), item(385, 1, 999), queststatus(73) = 4, "Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung."
+queststatus(73) = 3, english, "quest", "mission" -> "Thread, thread, my dear, I lack thread and you don't have enough!"
+queststatus(73) = 3, "quest", "mission" -> "Garn, Garn, ohje, mir ist das Garn ausgegangen und du hast auch nicht genug!"
+queststatus(73) = 3, "task", "adventure", "order" -> "Thread, thread, my dear, I lack thread and you don't have enough!"
+queststatus(73) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Garn, Garn, ohje, mir ist das Garn ausgegangen und du hast auch nicht genug!"
 
 -- 3rd quest: Gather 5 red cloth.
-"quest", "mission", queststatus(73) = 4, english -> inform("[New quest] The Lazy Tailoress III"), "I'm short on red cloth, but I need some for the robe I'm making for Archmage Elvaine Morgan. Can you please get me five panels?", queststatus(73) = 5
-"quest", "mission", queststatus(73) = 4 -> inform("[Neues Quest] Das faule Schneiderlein III"), "Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte?", queststatus(73) = 5
-"task", "adventure", "order", queststatus(73) = 4 -> inform("[New quest] The Lazy Tailoress III"), "I'm short on red cloth, but I need some for the robe I'm making for Archmage Elvaine Morgan. Can you please get me five panels?", queststatus(73) = 5
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(73) = 4 -> inform("[Neues Quest] Das faule Schneiderlein III"), "Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte", queststatus(73) = 5
-".+", skill(tailoring) < 90, queststatus(73) = 5, item(174, all) > 4, english, town = Runewick -> inform("[Quest solved] You are awarded a master mage robe and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."), "Thank you, that is exactly what I needed! Now I can finish the robe for Archmage Morgan. Here, take my last attempt he sent it back it was too tight for him.", skill(tailoring) + 1, deleteItem(174, 5), item(558, 1, 999, 0), queststatus(73) = 6, rankpoints(Runewick) + 20
-".+", queststatus(73) = 5, item(174, all) > 4, english, town = Runewick -> inform("[Quest solved] You are awarded a master mage robe. You advance in Archmage Elvaine Morgan's favour."), "Thank you, that is exactly what I needed! Now I can finish the robe for Archmage Morgan. Here, take my last attempt he sent it back it was too tight for him.", deleteItem(174, 5), item(558, 1, 999, 0), queststatus(73) = 6, rankpoints(Runewick) + 20
-".+", skill(tailoring) < 90, queststatus(73) = 5, item(174, all) > 4, town = Runewick -> inform("[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.", skill(tailoring) + 1, deleteItem(174, 5), item(558, 1, 999, 0), queststatus(73) = 6, rankpoints(Runewick) + 20
-".+", queststatus(73) = 5, item(174, all) > 4, town = Runewick -> inform("[Quest gelöst] Du erhältst eine Meistermagierrobe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.", deleteItem(174, 5), item(558, 1, 999, 0), queststatus(73) = 6, rankpoints(Runewick) + 20
-".+", skill(tailoring) < 90, queststatus(73) = 5, item(174, all) > 4, english -> inform("[Quest solved] You are awarded a master mage robe and your tailoring skill increases."), "Thank you, that is exactly what I needed! Now I can finish the robe for Archmage Morgan. Here, take my last attempt he sent it back it was too tight for him.", skill(tailoring) + 1, deleteItem(174, 5), item(558, 1, 999, 0), queststatus(73) = 6
-".+", queststatus(73) = 5, item(174, all) > 4, english -> inform("[Quest solved] You are awarded a master mage robe."), "Thank you, that is exactly what I needed! Now I can finish the robe for Archmage Morgan. Here, take my last attempt he sent it back it was too tight for him.", deleteItem(174, 5), item(558, 1, 999, 0), queststatus(73) = 6
-".+", skill(tailoring) < 90, queststatus(73) = 5, item(174, all) > 4 -> inform("[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt."), "Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.", skill(tailoring) + 1, deleteItem(174, 5), item(558, 1, 999, 0), queststatus(73) = 6
-".+", queststatus(73) = 5, item(174, all) > 4 -> inform("[Quest gelöst] Du erhältst eine Meistermagierrobe."), "Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.", deleteItem(174, 5), item(558, 1, 999, 0), queststatus(73) = 6
-"quest", "mission", queststatus(73) = 5, english -> "Hrm... I need a little more red cloth. Otherwise, I cannot finish the robe for Archmage Morgan."
-"quest", "mission", queststatus(73) = 5 -> "Uhm... ich brauche mehr roten Stoff. Anderenfalls kann ich die Robe für den Erzmagier Morgan nicht fertigstellen."
-"task", "adventure", "order", queststatus(73) = 5 -> "Hrm... I need a little more red cloth. Otherwise, I cannot finish the robe for Archmage Morgan."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(73) = 5 -> "Uhm... ich brauche mehr roten Stoff. Anderenfalls kann ich die Robe für den Erzmagier Morgan nicht fertigstellen."
+queststatus(73) = 4, english, "quest", "mission" -> inform("[New quest] The Lazy Tailoress III"), queststatus(73) = 5, "I'm short on red cloth, but I need some for the robe I'm making for Archmage Elvaine Morgan. Can you please get me five panels?"
+queststatus(73) = 4, "quest", "mission" -> inform("[Neues Quest] Das faule Schneiderlein III"), queststatus(73) = 5, "Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte?"
+queststatus(73) = 4, "task", "adventure", "order" -> inform("[New quest] The Lazy Tailoress III"), queststatus(73) = 5, "I'm short on red cloth, but I need some for the robe I'm making for Archmage Elvaine Morgan. Can you please get me five panels?"
+queststatus(73) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Das faule Schneiderlein III"), queststatus(73) = 5, "Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte"
+skill(tailoring) < 90, queststatus(73) = 5, item(174, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a master mage robe and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."), skill(tailoring) + 1, deleteItem(174, 5), item(558, 1, 999), queststatus(73) = 6, rankpoints(Runewick) + 20, "Thank you, that is exactly what I needed! Now I can finish the robe for Archmage Morgan. Here, take my last attempt he sent it back it was too tight for him."
+queststatus(73) = 5, item(174, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a master mage robe. You advance in Archmage Elvaine Morgan's favour."), deleteItem(174, 5), item(558, 1, 999), queststatus(73) = 6, rankpoints(Runewick) + 20, "Thank you, that is exactly what I needed! Now I can finish the robe for Archmage Morgan. Here, take my last attempt he sent it back it was too tight for him."
+skill(tailoring) < 90, queststatus(73) = 5, item(174, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), skill(tailoring) + 1, deleteItem(174, 5), item(558, 1, 999), queststatus(73) = 6, rankpoints(Runewick) + 20, "Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng."
+queststatus(73) = 5, item(174, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst eine Meistermagierrobe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), deleteItem(174, 5), item(558, 1, 999), queststatus(73) = 6, rankpoints(Runewick) + 20, "Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng."
+skill(tailoring) < 90, queststatus(73) = 5, item(174, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded a master mage robe and your tailoring skill increases."), skill(tailoring) + 1, deleteItem(174, 5), item(558, 1, 999), queststatus(73) = 6, "Thank you, that is exactly what I needed! Now I can finish the robe for Archmage Morgan. Here, take my last attempt he sent it back it was too tight for him."
+queststatus(73) = 5, item(174, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded a master mage robe."), deleteItem(174, 5), item(558, 1, 999), queststatus(73) = 6, "Thank you, that is exactly what I needed! Now I can finish the robe for Archmage Morgan. Here, take my last attempt he sent it back it was too tight for him."
+skill(tailoring) < 90, queststatus(73) = 5, item(174, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt."), skill(tailoring) + 1, deleteItem(174, 5), item(558, 1, 999), queststatus(73) = 6, "Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng."
+queststatus(73) = 5, item(174, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst eine Meistermagierrobe."), deleteItem(174, 5), item(558, 1, 999), queststatus(73) = 6, "Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng."
+queststatus(73) = 5, english, "quest", "mission" -> "Hrm... I need a little more red cloth. Otherwise, I cannot finish the robe for Archmage Morgan."
+queststatus(73) = 5, "quest", "mission" -> "Uhm... ich brauche mehr roten Stoff. Anderenfalls kann ich die Robe für den Erzmagier Morgan nicht fertigstellen."
+queststatus(73) = 5, "task", "adventure", "order" -> "Hrm... I need a little more red cloth. Otherwise, I cannot finish the robe for Archmage Morgan."
+queststatus(73) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Uhm... ich brauche mehr roten Stoff. Anderenfalls kann ich die Robe für den Erzmagier Morgan nicht fertigstellen."
 
 -- Final dialogue: No more quests, just nice hints
-"quest", "mission", queststatus(73) = 6, english -> "I don't need anything else, but thank you! You saved the day!"
-"quest", "mission", queststatus(73) = 6 -> "Ich brauche nichts weiter, aber danke nochmal! Du hast mir ganz schön aus der Patsche geholfen."
-"task", "adventure", "order", queststatus(73) = 6 -> "I don't need anything else, but thank you! You saved the day!"
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(73) = 6 -> "Ich brauche nichts weiter, aber danke nochmal! Du hast mir ganz schön aus der Patsche geholfen!"
+queststatus(73) = 6, english, "quest", "mission" -> "I don't need anything else, but thank you! You saved the day!"
+queststatus(73) = 6, "quest", "mission" -> "Ich brauche nichts weiter, aber danke nochmal! Du hast mir ganz schön aus der Patsche geholfen."
+queststatus(73) = 6, "task", "adventure", "order" -> "I don't need anything else, but thank you! You saved the day!"
+queststatus(73) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich brauche nichts weiter, aber danke nochmal! Du hast mir ganz schön aus der Patsche geholfen!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "As a tailor, I use wool, thread, and dye to create clothes. Some people only wear armor, but for a fancy evening nothing beats a fancy robe or dress."
 "beruf" -> "Als Schneiderin mache ich Kleidung aus Wolle, Garn und Färbemittel. Einige Leute tragen den ganzen Tag ihre Rüstung, aber für einen schönen Abend gibt es nichts feineres als ein tolles Kleid."
-"job", english -> "As a tailor, I use wool, thread, and dye to create clothes. Some people only wear armor, but for a fancy evening nothing beats a fancy robe or dress."
+english, "job" -> "As a tailor, I use wool, thread, and dye to create clothes. Some people only wear armor, but for a fancy evening nothing beats a fancy robe or dress."
 "job" -> "Als Schneiderin mache ich Kleidung aus Wolle, Garn und Färbemittel. Einige Leute tragen den ganzen Tag ihre Rüstung, aber für einen schönen Abend gibt es nichts feineres als ein tolles Kleid."
-"Gobaith", "Gobiath", english -> "Oh, what was that for a funny word? Grobi-at?"
+english, "Gobaith", "Gobiath" -> "Oh, what was that for a funny word? Grobi-at?"
 "Gobaith", "Gobiath" -> "Oh, was war das denn für ein lustiges Wort? Grobi-at?"
 "my name" -> "Hui! How exciting to meet you."
 "mein Name" -> "Hui! Wie toll, dich kennenzulernen."
@@ -149,7 +149,7 @@ itemShoes = 369
 "Schneider" -> "Als Schneiderin mache ich Kleidung aus Wolle, Garn und Färbemittel. Einige Leute tragen den ganzen Tag ihre Rüstung, aber für einen schönen Abend gibt es nichts feineres als ein tolles Kleid."
 "order" -> "Oh dear, the Archmage ordered a new robe. I totally forgot working on it! Maybe you can help me with this task."
 "Bestellung" -> "Ohje, der Erzmagier hat eine neue Robe bestellt. Ich hab vollkommen vergessen, daran zu arbeiten. Vielleicht kannst du mir mit dieser Aufgabe helfen."
-"robe", english -> "Oh dear, the Archmage ordered a new robe. I totally forgot working on it! Maybe you can help me with this task."
+english, "robe" -> "Oh dear, the Archmage ordered a new robe. I totally forgot working on it! Maybe you can help me with this task."
 "Robe" -> "Ohje, der Erzmagier hat eine neue Robe bestellt. Ich hab vollkommen vergessen, daran zu arbeiten. Vielleicht kannst du mir mit dieser Aufgabe helfen."
 
 -- Tool hints
@@ -161,38 +161,38 @@ itemShoes = 369
 -- Faction stuff
 "archmage" -> "Archmage Morgan, yes, I think he ordered a new robe. I should work on it!"
 "Erzmagier" -> "Erzmagier Morgan, ja, der hat eine neue Robe bei mir bestellt. Ich sollte besser mal an ihr arbeiten."
-"Elvaine", "Morgan", english -> "Archmage Morgan, yes, I think he ordered a new robe. I should work on it!"
+english, "Elvaine", "Morgan" -> "Archmage Morgan, yes, I think he ordered a new robe. I should work on it!"
 "Elvaine", "Morgan" -> "Erzmagier Morgan, ja, der hat eine neue Robe bei mir bestellt. Ich sollte besser mal an ihr arbeiten."
-"Runewick", english -> "This is Runewick! I personally enjoy it here."
+english, "Runewick" -> "This is Runewick! I personally enjoy it here."
 "Runewick" -> "Dies hier ist Runewick. Mir gefällt es hier."
-"Valerio", "Guilianni", "Don", english -> "Ui, they have no law in Galmair, but everyone knows the Don is the boss."
+english, "Valerio", "Guilianni", "Don" -> "Ui, they have no law in Galmair, but everyone knows the Don is the boss."
 "Valerio", "Guilianni", "Don" -> "Ui, es gibt kein Gesetz in Galmair, aber jeder weiß, dass der Don der Boss ist."
-"Galmair", english -> "Galmair is funny. I used to live there, but here, it is more pleasant."
+english, "Galmair" -> "Galmair is funny. I used to live there, but here, it is more pleasant."
 "Galmair" -> "Galmair ist echt komisch. Ich hab da früher mal gelebt, aber hier ist es schöner."
 "Queen" -> "A woman rules Cadomyr. That is so funny!"
 "Königin" -> "Eine Frau regiert Cadomyr. Das ist so lustig!"
-"rosaline", "edwards", english -> "A woman rules Cadomyr. That is so funny!"
+english, "rosaline", "edwards" -> "A woman rules Cadomyr. That is so funny!"
 "rosaline", "edwards" -> "Eine Frau regiert Cadomyr. Das ist so lustig!"
-"Cadomyr", english -> "Cadomyr is far away, somewhere in the west I think. They don't like women there, but are ruled by a queen. Strange, eh?"
+english, "Cadomyr" -> "Cadomyr is far away, somewhere in the west I think. They don't like women there, but are ruled by a queen. Strange, eh?"
 "Cadomyr" -> "Cadomyr ist weit weg, irgendwo im Westen meine ich. Die mögen keine Frauen da, aber trotzdem regiert da eine Königin. Komisch, oder?"
 
 -- Main land factions
-"albar", english -> "They are mad, those albarians."
+english, "albar" -> "They are mad, those albarians."
 "albar" -> "Die spinnen, die Albarier."
-"gynk", "gync", english -> "My aunt lives near Gynk. I always write her a letter, each month."
+english, "gynk", "gync" -> "My aunt lives near Gynk. I always write her a letter, each month."
 "gync", "gynk" -> "Meine Tante lebt bei Gynk. Ich schreibe ihr jeden Monat einen Brief."
-"salkama", english -> "The Archmage talks a lot about Salkamar, I know nothing about that."
+english, "salkama" -> "The Archmage talks a lot about Salkamar, I know nothing about that."
 "salkama" -> "Der Erzmagier redet viel über Salkamar, ich weiß da nichts drüber."
 
 -- Gods; each NPC should at react on one god, being a follower of said god
 "god" -> "Irmorom is the best god to worship for a tailor, believe me!"
 "Gott", "Götter" -> "Irmorom ist der beste Gott für einen Schneiderin. Glaube mir!"
-"Irmorom", english -> "Irmorom guides my needle. Sometimes, he's angry and I sting myself."
+english, "Irmorom" -> "Irmorom guides my needle. Sometimes, he's angry and I sting myself."
 "Irmorom" -> "Irmorom führt meine Nadel. Manchmal ist er böse auf mich und dann picks ich mich."
 "Cherga", "Moshran" -> "Eeek!"
 
 -- Catching typical NPC phrases
-"Lilith", "Needlehand", english -> "That's me! Lilith! Do you like my name?"
+english, "Lilith", "Needlehand" -> "That's me! Lilith! Do you like my name?"
 "Lilith", "Needlehand" -> "Lilith, das bin ich! Magst du meinen Namen?"
 "what sell", "what buy", "list wares", "price of" -> "I am not currently selling or buying anything. I need to finish an order first."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kaufe oder verkaufe derzeit nichts. Ich muss erstmal eine Bestellung fertig bekommen."

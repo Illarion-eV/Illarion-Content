@@ -78,8 +78,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Wilderer Eugene Burton. Schlüsselwörter: Hallo, Quest, Wilderer, Tiere.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Shh! Not so loud! You'll scare away my game!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Psst, nicht so laut, ihr verscheucht ja das ganze Wild."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Shh! Not so loud! You'll scare away my game!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Psst, nicht so laut, ihr verscheucht ja das ganze Wild."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Shh! Not so loud! You'll scare away my game!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Psst, nicht so laut, ihr verscheucht ja das ganze Wild."
 "Farewell", "Bye", "Fare well", "See you" -> "Go forth with Malachin's blessing. May you never starve."

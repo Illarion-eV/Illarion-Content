@@ -2,16 +2,16 @@
 -- NPC Name: Rose                                                     Galmair --
 -- NPC Job:  Companion                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  404, 292, 0            --
+-- NPC Race: halfling                   NPC Position:  404, 292, 0            --
 -- NPC Sex:  female                     NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Rose"
-race = human
+race = halfling
 sex = female
 position = 404, 292, 0
 direction = southwest
@@ -63,107 +63,107 @@ itemShoes = 53
 -- >7: ~Qusts solved
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Rose the Companion. Keywords: race, gods, company, adventure."), "Ask me about 'company','profession' or 'adventure', answering with 'yes' or 'no'.", queststatus(316) = 0
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Rose die Gesellschafterin. Schlüsselwörter: Völker, Götter, Gesellschaft, Beruf, Abenteuer."), "Frage bei mir nach 'Gesellaschft','Beruf' oder 'Abenteuer', antworte eventuell mir mit 'ja' oder 'nein'.", queststatus(316) = 0
+"Help" -> inform("[Game Help] This NPC is Rose the Companion. Keywords: race, gods, company, adventure."), queststatus(316) = 0, "Ask me about 'company','profession' or 'adventure', answering with 'yes' or 'no'."
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Rose die Gesellschafterin. Schlüsselwörter: Völker, Götter, Gesellschaft, Beruf, Abenteuer."), queststatus(316) = 0, "Frage bei mir nach 'Gesellaschft','Beruf' oder 'Abenteuer', antworte eventuell mir mit 'ja' oder 'nein'."
 
 -- trollop
-"gesellschaft" -> "Du möchtest das ich dir Gesellschaft leiste?", queststatus(316) = 3
-"compan" -> "Do you want me to keep you company?", queststatus(316) = 3
-"beruf", "deine aufgabe", "eure aufgabe", "t[äae]+tigkeit", "was tust du", "was tut ihr" -> "Ich bin Näherin. Hast du Löcher in deinen Socken die ich stopfen soll?", queststatus(316) = 3
-"profession", "what you do", "occupation" -> "I'm a seamstress. Do you have holes in your socks which I can help with?", queststatus(316) = 3
+"gesellschaft" -> queststatus(316) = 3, "Du möchtest das ich dir Gesellschaft leiste?"
+"compan" -> queststatus(316) = 3, "Do you want me to keep you company?"
+"beruf", "deine aufgabe", "eure aufgabe", "t[äae]+tigkeit", "was tust du", "was tut ihr" -> queststatus(316) = 3, "Ich bin Näherin. Hast du Löcher in deinen Socken die ich stopfen soll?"
+"profession", "what you do", "occupation" -> queststatus(316) = 3, "I'm a seamstress. Do you have holes in your socks which I can help with?"
 "was verkauf", "warenliste" -> "Ich verkaufe meine Gesellschaft, Schätzchen!"
 "what sell", "list wares" -> "I sell my company, sweety!"
-"ja", queststatus(316) = 3 -> "Fein, ich will aber 250 Kupfermünzen dafür haben. In Ordnung?", queststatus(316) = 4
-"yes", queststatus(316) = 3 -> "Great, But you have to give me 250 coppercoins?", queststatus(316) = 4
-"nein", queststatus(316) = 3 -> "Gut, komm wieder falls du doch noch möchtest.", queststatus(316) = 1
-"no", queststatus(316) = 3 -> "Allright, come again if you change your mind.", queststatus(316) = 1
-"nein", queststatus(316) = 4 -> "Nein? Was soll das heißen? Du kommst dir wohl zu fein für meine Gesellschaft vor!", queststatus(316) = 1
-"no", queststatus(316) = 4 -> "No? What are you trying to say? I'm not good enough for you?!", queststatus(316) = 1
-"ja", money => 250, queststatus(316) = 4 -> "Fantastisch, komm wir suchen uns ein ruhiges Plätzchen.", money - 250, queststatus(316) = 1
+queststatus(316) = 3, "ja" -> queststatus(316) = 4, "Fein, ich will aber 250 Kupfermünzen dafür haben. In Ordnung?"
+queststatus(316) = 3, "yes" -> queststatus(316) = 4, "Great, But you have to give me 250 coppercoins?"
+queststatus(316) = 3, "nein" -> queststatus(316) = 1, "Gut, komm wieder falls du doch noch möchtest."
+queststatus(316) = 3, "no" -> queststatus(316) = 1, "Allright, come again if you change your mind."
+queststatus(316) = 4, "nein" -> queststatus(316) = 1, "Nein? Was soll das heißen? Du kommst dir wohl zu fein für meine Gesellschaft vor!"
+queststatus(316) = 4, "no" -> queststatus(316) = 1, "No? What are you trying to say? I'm not good enough for you?!"
+money => 250, queststatus(316) = 4, "ja" -> money - 250, queststatus(316) = 1, "Fantastisch, komm wir suchen uns ein ruhiges Plätzchen."
 
 -- +teleport des Char nach (424,293,-3), +add Flitzläuse
-"yes", money => 250, queststatus(316) = 4 -> "Awesome, come on, lets go somewhere more... quiet.", money - 250, queststatus(316) = 1
+money => 250, queststatus(316) = 4, "yes" -> money - 250, queststatus(316) = 1, "Awesome, come on, lets go somewhere more... quiet."
 
 -- +teleport des Char nach (424,293,-3), +add Flitzläuse
-"ja", queststatus(316) = 4 -> "Schätzchen, du hast ja gar nicht geügend Münzen. Geh schnell welche hohlen, ich warte auf dich!", queststatus(316) = 1
-"yes", queststatus(316) = 4 -> "Sorry sweetheart, you havn't enough coins. Go fetch them, I'll wait for you!", queststatus(316) = 1
-"ja", queststatus(316) = 3, queststatus(303) > 7 -> "Fein und weil ich dich gern hab will ich nur 200 Kupfermünzen dafür haben. In Ordnung?", queststatus(316) = 5
-"yes", queststatus(316) = 3, queststatus(303) > 7 -> "Great, its just 200 coppercoins. A special price for my honey!", queststatus(316) = 5
-"ja", money => 200, queststatus(316) = 5 -> "Fantastisch, komm wir suchen uns ein ruhiges Plätzchen.", money - 200, queststatus(316) = 1
+queststatus(316) = 4, "ja" -> queststatus(316) = 1, "Schätzchen, du hast ja gar nicht geügend Münzen. Geh schnell welche hohlen, ich warte auf dich!"
+queststatus(316) = 4, "yes" -> queststatus(316) = 1, "Sorry sweetheart, you havn't enough coins. Go fetch them, I'll wait for you!"
+queststatus(316) = 3, queststatus(303) > 7, "ja" -> queststatus(316) = 5, "Fein und weil ich dich gern hab will ich nur 200 Kupfermünzen dafür haben. In Ordnung?"
+queststatus(316) = 3, queststatus(303) > 7, "yes" -> queststatus(316) = 5, "Great, its just 200 coppercoins. A special price for my honey!"
+money => 200, queststatus(316) = 5, "ja" -> money - 200, queststatus(316) = 1, "Fantastisch, komm wir suchen uns ein ruhiges Plätzchen."
 
 -- +teleport des Char nach (424,293,-3), +add Flitzläuse
-"yes", money => 200, queststatus(316) = 5 -> "Awesome, lets go somewhere more quiet.", money - 200, queststatus(316) = 1
+money => 200, queststatus(316) = 5, "yes" -> money - 200, queststatus(316) = 1, "Awesome, lets go somewhere more quiet."
 
 -- +teleport des Char nach (424,293,-3), +add Flitzläuse
-"ja", queststatus(316) = 5 -> "Schätzchen, du hast ja gar nicht geügend Münzen. Geh schnell welche hohlen, ich warte auf dich!", queststatus(316) = 1
-"yes", queststatus(316) = 5 -> "Sweetie, you havn't enough coins. Go get them, I'll wait for you!", queststatus(316) = 1
-"nein", queststatus(316) = 5 -> "Nein? Was soll das heißen? Du kommst dir wohl zu fein für meine Gesellschaft vor!", queststatus(316) = 1
-"no", queststatus(316) = 5 -> "No? What are you trying to say? Do you think I'm not good enough for you?", queststatus(316) = 1
+queststatus(316) = 5, "ja" -> queststatus(316) = 1, "Schätzchen, du hast ja gar nicht geügend Münzen. Geh schnell welche hohlen, ich warte auf dich!"
+queststatus(316) = 5, "yes" -> queststatus(316) = 1, "Sweetie, you havn't enough coins. Go get them, I'll wait for you!"
+queststatus(316) = 5, "nein" -> queststatus(316) = 1, "Nein? Was soll das heißen? Du kommst dir wohl zu fein für meine Gesellschaft vor!"
+queststatus(316) = 5, "no" -> queststatus(316) = 1, "No? What are you trying to say? Do you think I'm not good enough for you?"
 
 -- quest necklet thief
-"verkauf", "was kauft", "was kaufst", queststatus(316) < 2, queststatus(303) => 8 -> "#w Für deine 'Wahre' musst du einen professionellen 'Händler' finden."
-"sell", "what buy", queststatus(316) < 2, queststatus(303) => 8 -> "#w you have to find a professional 'trader' to sell your 'goods'."
-"yes", queststatus(316) = 6, queststatus(303) = 1 -> "#w Do you think, you have the ability to 'find' an item which is already in someone else's possession?", queststatus(316) = 7
-"ja", queststatus(316) = 6, queststatus(303) = 1 -> "#w Denkst du, du kannst nach einem Gegenstand suchen der im Momment einer anderen Person gehört?", queststatus(316) = 7
-"no", queststatus(316) = 6, queststatus(303) = 1 -> "Don't worry, I'll find someone else", queststatus(316) = 1
-"nein", queststatus(316) = 6, queststatus(303) = 1 -> "In Ordnung, dann muss ich mir jemand anderen dafür suchen.", queststatus(316) = 1
-"yes", queststatus(316) = 7, queststatus(303) = 1 -> "#w Allright, listen to me. I'm searching a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Ask me for 'information' if you need me to repeat it for you.  Search the mearchant in Varshikar. His name is Gilbert. Do not listen to him, he will just lie to you. Well, good luck, I am waiting for you.", queststatus(303) = 2
-"ja", queststatus(316) = 7, queststatus(303) = 1 -> "#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Frage mich wenn nach 'Informationen' wenn ich die Details wiederholen soll.   Suche den Händler in Varshikar, sein Name ist Gilbert. Am Besten hörst du ihm gar nicht zu was er sagt, er würde dich nur belügen. Viel Glück! Ich warte hier auf dich.", queststatus(303) = 2
-"no", queststatus(316) = 7, queststatus(303) = 1 -> "I'll ask someone else", queststatus(316) = 1
-"nein", queststatus(316) = 7, queststatus(303) = 1 -> "In Ordnung, dann muss ich mir jemand anderen dafür suchen.", queststatus(316) = 1
-"info", "quest", "job", "detail", queststatus(303) = 2, english -> "#w Allright, listen to me. I'm searching for a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Search the mearchant in Varshikar. His name is Gilbert."
-"task", "adventure", "mission", queststatus(303) = 2 -> "#w Allright, listen to me. I'm searching for a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Search the mearchant in Varshikar. His name is Gilbert."
-"aufgabe", "abenteuer", queststatus(303) = 2 -> "#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Suche den Händler in Varshikar, sein Name ist Gilbert."
-"info", "quest", "job", "detail", queststatus(303) = 2, german -> "#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Suche den Händler in Varshikar, sein Name ist Gilbert."
-"job", "quest", queststatus(303) = 3, item(79, belt) => 1, english -> inform("She pays you 100 coppercoins. It feels good, doesn't it?"), "Oh, that's amazing! You really found it! This to compensate you for your effort.", money + 100, deleteItem(79, 1), queststatus(303) = 4
-"job", "quest", queststatus(303) = 3, item(79, belt) => 1, german -> inform("Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder?"), "Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.", money + 100, deleteItem(79, 1), queststatus(303) = 4
-"job", "quest", queststatus(303) = 3, english -> "Yes? You found it? Amazing... but hey where is it? You havn't the necklace with you."
-"job", "quest", queststatus(303) = 3, german -> "Ja? Du hast es gefunden? Fantastisch... aber wo hast du's? Du hast das Kollier nicht bei dir."
-"necklet", "necklace", "task", "adventure", "mission", queststatus(303) = 3, item(79, belt) = 1 -> inform("She pays you 100 coppercoins. It feels good, right?"), "Oh, that's amazing! You really found it! This to compensate you for your effort.", money + 100, deleteItem(79, 1), queststatus(303) = 4
-"kollier", "amulett", "aufgabe", "abenteuer", queststatus(303) = 3, item(79, belt) = 1 -> inform("Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder?"), "Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.", money + 100, deleteItem(79, 1), queststatus(303) = 4
-"necklet", "necklace", "task", "adventure", "mission", queststatus(303) = 3 -> "Yes? You found it? Amazing... but hey where is it? Bring it with you next time"
-"kollier", "amulett", "aufgabe", "abenteuer", queststatus(303) = 3 -> "Ja? Du hast es gefunden? Fantastisch... aber wo hast du's? Du hast das Kollier nicht bei dir."
-"job", "quest", queststatus(303) = 3, item(79, all) => 1, english -> inform("Put the necklet into your belt, when you are willing to give it Rose.")
-"job", "quest", queststatus(303) = 3, item(79, all) => 1, german -> inform("Lege das Amuelett in deinen Gürtel, um es Rose zu geben.")
-"necklet", "necklace", "task", "adventure", "mission", queststatus(303) = 3, item(79, all) = 1 -> inform("Put the necklet into your belt, when you are willing to give it Rose.")
-"kollier", "amulett", "aufgabe", "abenteuer", queststatus(303) = 3, item(79, all) = 1 -> inform("Lege das Amuelett in deinen Gürtel, um es Rose zu geben.")
+queststatus(316) < 2, queststatus(303) => 8, "verkauf", "was kauft", "was kaufst" -> "#w Für deine 'Wahre' musst du einen professionellen 'Händler' finden."
+queststatus(316) < 2, queststatus(303) => 8, "sell", "what buy" -> trade, "#w you have to find a professional 'r' to sell your 'goods'."
+queststatus(316) = 6, queststatus(303) = 1, "yes" -> queststatus(316) = 7, "#w Do you think, you have the ability to 'find' an item which is already in someone else's possession?"
+queststatus(316) = 6, queststatus(303) = 1, "ja" -> queststatus(316) = 7, "#w Denkst du, du kannst nach einem Gegenstand suchen der im Momment einer anderen Person gehört?"
+queststatus(316) = 6, queststatus(303) = 1, "no" -> queststatus(316) = 1, "Don't worry, I'll find someone else"
+queststatus(316) = 6, queststatus(303) = 1, "nein" -> queststatus(316) = 1, "In Ordnung, dann muss ich mir jemand anderen dafür suchen."
+queststatus(316) = 7, queststatus(303) = 1, "yes" -> queststatus(303) = 2, "#w Allright, listen to me. I'm searching a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Ask me for 'information' if you need me to repeat it for you.  Search the mearchant in Varshikar. His name is Gilbert. Do not listen to him, he will just lie to you. Well, good luck, I am waiting for you."
+queststatus(316) = 7, queststatus(303) = 1, "ja" -> queststatus(303) = 2, "#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Frage mich wenn nach 'Informationen' wenn ich die Details wiederholen soll.   Suche den Händler in Varshikar, sein Name ist Gilbert. Am Besten hörst du ihm gar nicht zu was er sagt, er würde dich nur belügen. Viel Glück! Ich warte hier auf dich."
+queststatus(316) = 7, queststatus(303) = 1, "no" -> queststatus(316) = 1, "I'll ask someone else"
+queststatus(316) = 7, queststatus(303) = 1, "nein" -> queststatus(316) = 1, "In Ordnung, dann muss ich mir jemand anderen dafür suchen."
+queststatus(303) = 2, english, "info", "quest", "job", "detail" -> "#w Allright, listen to me. I'm searching for a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Search the mearchant in Varshikar. His name is Gilbert."
+queststatus(303) = 2, "task", "adventure", "mission" -> "#w Allright, listen to me. I'm searching for a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Search the mearchant in Varshikar. His name is Gilbert."
+queststatus(303) = 2, "aufgabe", "abenteuer" -> "#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Suche den Händler in Varshikar, sein Name ist Gilbert."
+queststatus(303) = 2, german, "info", "quest", "job", "detail" -> "#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Suche den Händler in Varshikar, sein Name ist Gilbert."
+queststatus(303) = 3, item(79, belt) => 1, english, "job", "quest" -> inform("She pays you 100 coppercoins. It feels good, doesn't it?"), money + 100, deleteItem(79, 1), queststatus(303) = 4, "Oh, that's amazing! You really found it! This to compensate you for your effort."
+queststatus(303) = 3, item(79, belt) => 1, german, "job", "quest" -> inform("Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder?"), money + 100, deleteItem(79, 1), queststatus(303) = 4, "Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe."
+queststatus(303) = 3, english, "job", "quest" -> "Yes? You found it? Amazing... but hey where is it? You havn't the necklace with you."
+queststatus(303) = 3, german, "job", "quest" -> "Ja? Du hast es gefunden? Fantastisch... aber wo hast du's? Du hast das Kollier nicht bei dir."
+queststatus(303) = 3, item(79, belt) = 1, "necklet", "necklace", "task", "adventure", "mission" -> inform("She pays you 100 coppercoins. It feels good, right?"), money + 100, deleteItem(79, 1), queststatus(303) = 4, "Oh, that's amazing! You really found it! This to compensate you for your effort."
+queststatus(303) = 3, item(79, belt) = 1, "kollier", "amulett", "aufgabe", "abenteuer" -> inform("Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder?"), money + 100, deleteItem(79, 1), queststatus(303) = 4, "Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe."
+queststatus(303) = 3, "necklet", "necklace", "task", "adventure", "mission" -> "Yes? You found it? Amazing... but hey where is it? Bring it with you next time"
+queststatus(303) = 3, "kollier", "amulett", "aufgabe", "abenteuer" -> "Ja? Du hast es gefunden? Fantastisch... aber wo hast du's? Du hast das Kollier nicht bei dir."
+queststatus(303) = 3, item(79, all) => 1, english, "job", "quest" -> inform("Put the necklet into your belt, when you are willing to give it Rose.")
+queststatus(303) = 3, item(79, all) => 1, german, "job", "quest" -> inform("Lege das Amuelett in deinen Gürtel, um es Rose zu geben.")
+queststatus(303) = 3, item(79, all) = 1, "necklet", "necklace", "task", "adventure", "mission" -> inform("Put the necklet into your belt, when you are willing to give it Rose.")
+queststatus(303) = 3, item(79, all) = 1, "kollier", "amulett", "aufgabe", "abenteuer" -> inform("Lege das Amuelett in deinen Gürtel, um es Rose zu geben.")
 
 -- Quest 2 place the fake
-"kollier", "amulett", "aufgabe", "abenteuer", queststatus(303) = 4 -> "#w Oh ja, jetzt müssen wir dafür sorgen, dass Gilbert nicht auf falsche Ideen kommt. Kannst du diese Fälschung in seine Tasche stecken, ohne dass er es bemerkt?", queststatus(316) = 9
-"job", "quest", queststatus(303) = 4, german -> "#w Oh ja, jetzt müssen wir dafür sorgen, dass Gilbert nicht auf falsche Ideen kommt. Kannst du diese Fälschung in seine Tasche stecken, ohne dass er es bemerkt?", queststatus(316) = 9
-"necklet", "necklace", "task", "adventure", "mission", queststatus(303) = 4 -> "#w Hmm, now we have to take care, that Gilbert doesn't get false ideas. Could you place this fake into his bag without getting caught?", queststatus(316) = 9
-"job", "quest", queststatus(303) = 4, english -> "#w Hmm, now we have to care, taht Gilbert don't get false ideas. Could you place this fake into his bag without getting caught?", queststatus(316) = 9
-"Ja", queststatus(316) = 9, queststatus(303) = 4 -> inform("Sie legt dir ein Bündel gerollten Stoff in die Hände. Darinn findest du ein Kollier."), "#w Großartig, nimm dieses gefälschte Kollier und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken. Frage mich wenn nach 'Infromationen' wenn ich die Details wiederholen soll.", item(222, 1, 333, 0), queststatus(303) = 5
-"Nein", queststatus(316) = 9, queststatus(303) = 4 -> "In Ordnung, dann muss ich mir jemand anderen dafür suchen.", queststatus(316) = 1
-"Yes", queststatus(316) = 9, queststatus(303) = 4 -> inform("She places a bundle of cloth in your hands. Inside you are able to feel a necklace."), "#w Awesome, take this fake necklace and put it unnoticed into Gilbert's bag. He shouldn't notice any difference. Ask me for 'information' if I should repeat the details.", item(222, 1, 333, 0), queststatus(303) = 5
-"No", queststatus(316) = 9, queststatus(303) = 4 -> "Allrigth, so I have to ask another one.", queststatus(316) = 1
-"info", "quest", "job", "detail", queststatus(303) = 5, english -> "#w Allright, listen to me. Take the fake necklace and put it unnoticed into Gilbert's bag, who stays at Varshikar. He will not realise what happened"
-"task", "adventure", "mission", queststatus(303) = 5 -> "#w Allright, listen to me. Take the fake necklace and put it unnoticed into Gilbert's bag, who stays at Varshikar. He will not realise what happened."
-"aufgabe", "abenteuer", queststatus(303) = 5 -> "#w In Ordnung, hör zu. Nimm dieses gefälschte Kollier, gehe nach Varshikar und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken."
-"info", "quest", "job", "detail", queststatus(303) = 5, german -> "#w In Ordnung, hör zu. Nimm dieses gefälschte Kollier, gehe nach Varshikar und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken."
-"job", "quest", queststatus(303) = 7, english -> inform("She pays you again 100 coppercoins. It feels also feels good, right?"), "Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!", money + 100, queststatus(303) = 8
-"necklet", "necklace", "task", "adventure", "mission", queststatus(303) = 7 -> inform("She pays you again 100 coppercoins. It feels also feels good, right?"), "Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!!", money + 100, queststatus(303) = 8
-"job", "quest", queststatus(303) = 7, german -> inform("She pays you again 100 coppercoins. It feels again good, agree?"), "Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.", money + 100, queststatus(303) = 8
-"kollier", "amulett", "aufgabe", "abenteuer", queststatus(303) = 7 -> inform("Sie bezahlt dir abermals 100 Kupferlinge. Das fühlt sich abermals gut an, oder?"), "Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.", money + 100, queststatus(303) = 8
-"job", "quest", "info", queststatus(303) => 8, english -> inform("Gibberson, you should remember this name. Maybe you'll meet him someday."), "I'm sorry my dear, I havn't any more tasks for you. A lot of thanks for helping with the necklace. But if you really need a job, why you don't ask the Gibberson for it?"
-"necklet", "necklace", "task", "adventure", "mission", queststatus(303) => 8 -> inform("Gibberson, you should remember this name. Maybe you'll meet him someday."), "I'm sorry my dear, I havn't any more tasks for you. A lot of thanks for helping with the necklace. But if you really need a job, why you don't ask the Gibberson for it?"
-"job", "quest", "info", queststatus(303) => 8, german -> inform("Gibberson, den Namen solltest du dir merken. Vielleicht triffst du diese Person eines Tages."), "Es tut mir Leid mein Schatz, ich habe keine weiteren Aufgaben für dich. Danke für die Hilfe mit dem Kollier. Aber wenn du so unbedingt Geld brauchst, warum fragst du dann nicht den Gibberson?"
-"kollier", "amulett", "aufgabe", "abenteuer", queststatus(303) => 8 -> inform("Gibberson, den Namen solltest du dir merken. Vielleicht triffst du diese Person eines Tages."), "Es tut mir Leid mein Schatz, ich habe keine weiteren Aufgaben für dich. Danke für die Hilfe mit dem Kollier. Aber wenn du so unbedingt Geld brauchst, warum fragst du dann nicht den Gibberson?"
-"sell", "what buy", queststatus(316) < 2, queststatus(303) =< 1 -> inform("Maybe you should ask more 'Rose' more about the quest."), "#w you have to find a professional 'trader' to sell your 'goods'. But I could offer you a quest if you are in need of money?"
-"verkauf", "was kauft", "was kaufst", queststatus(316) < 2, queststatus(303) =< 1 -> inform("Vielleicht solltest du 'Rose' über die Aufgabe befragen."), "#w Für deine 'Wahre' musst du einen professionellen 'Händler' finden, aber ich hätte eine Aufgabe für dich wenn du dir etwas verdienen möchtest?"
-"quest", "job", queststatus(316) < 2, queststatus(303) =< 1, german -> "#w Möchtest du etwas Geld verdienen?", queststatus(316) = 6, queststatus(303) = 1
-"verdienen", "aufgabe", "abenteuer", queststatus(316) < 2, queststatus(303) =< 1 -> "#w Möchtest du etwas Geld verdienen?", queststatus(316) = 6, queststatus(303) = 1
-"quest", "job", queststatus(316) < 2, queststatus(303) =< 1, english -> "#w Do you want to earn some money?", queststatus(316) = 6, queststatus(303) = 1
-"task", "adventure", "mission", "money", "earn", queststatus(316) < 2, queststatus(303) =< 1 -> "#w Do you want to earn some money?", queststatus(316) = 6, queststatus(303) = 1
+queststatus(303) = 4, "kollier", "amulett", "aufgabe", "abenteuer" -> queststatus(316) = 9, "#w Oh ja, jetzt müssen wir dafür sorgen, dass Gilbert nicht auf falsche Ideen kommt. Kannst du diese Fälschung in seine Tasche stecken, ohne dass er es bemerkt?"
+queststatus(303) = 4, german, "job", "quest" -> queststatus(316) = 9, "#w Oh ja, jetzt müssen wir dafür sorgen, dass Gilbert nicht auf falsche Ideen kommt. Kannst du diese Fälschung in seine Tasche stecken, ohne dass er es bemerkt?"
+queststatus(303) = 4, "necklet", "necklace", "task", "adventure", "mission" -> queststatus(316) = 9, "#w Hmm, now we have to take care, that Gilbert doesn't get false ideas. Could you place this fake into his bag without getting caught?"
+queststatus(303) = 4, english, "job", "quest" -> queststatus(316) = 9, "#w Hmm, now we have to care, taht Gilbert don't get false ideas. Could you place this fake into his bag without getting caught?"
+queststatus(316) = 9, queststatus(303) = 4, "Ja" -> inform("Sie legt dir ein Bündel gerollten Stoff in die Hände. Darinn findest du ein Kollier."), item(222, 1, 333), queststatus(303) = 5, "#w Großartig, nimm dieses gefälschte Kollier und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken. Frage mich wenn nach 'Infromationen' wenn ich die Details wiederholen soll."
+queststatus(316) = 9, queststatus(303) = 4, "Nein" -> queststatus(316) = 1, "In Ordnung, dann muss ich mir jemand anderen dafür suchen."
+queststatus(316) = 9, queststatus(303) = 4, "Yes" -> inform("She places a bundle of cloth in your hands. Inside you are able to feel a necklace."), item(222, 1, 333), queststatus(303) = 5, "#w Awesome, take this fake necklace and put it unnoticed into Gilbert's bag. He shouldn't notice any difference. Ask me for 'information' if I should repeat the details."
+queststatus(316) = 9, queststatus(303) = 4, "No" -> queststatus(316) = 1, "Allrigth, so I have to ask another one."
+queststatus(303) = 5, english, "info", "quest", "job", "detail" -> "#w Allright, listen to me. Take the fake necklace and put it unnoticed into Gilbert's bag, who stays at Varshikar. He will not realise what happened"
+queststatus(303) = 5, "task", "adventure", "mission" -> "#w Allright, listen to me. Take the fake necklace and put it unnoticed into Gilbert's bag, who stays at Varshikar. He will not realise what happened."
+queststatus(303) = 5, "aufgabe", "abenteuer" -> "#w In Ordnung, hör zu. Nimm dieses gefälschte Kollier, gehe nach Varshikar und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken."
+queststatus(303) = 5, german, "info", "quest", "job", "detail" -> "#w In Ordnung, hör zu. Nimm dieses gefälschte Kollier, gehe nach Varshikar und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken."
+queststatus(303) = 7, english, "job", "quest" -> inform("She pays you again 100 coppercoins. It feels also feels good, right?"), money + 100, queststatus(303) = 8, "Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!"
+queststatus(303) = 7, "necklet", "necklace", "task", "adventure", "mission" -> inform("She pays you again 100 coppercoins. It feels also feels good, right?"), money + 100, queststatus(303) = 8, "Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!!"
+queststatus(303) = 7, german, "job", "quest" -> inform("She pays you again 100 coppercoins. It feels again good, agree?"), money + 100, queststatus(303) = 8, "Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe."
+queststatus(303) = 7, "kollier", "amulett", "aufgabe", "abenteuer" -> inform("Sie bezahlt dir abermals 100 Kupferlinge. Das fühlt sich abermals gut an, oder?"), money + 100, queststatus(303) = 8, "Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe."
+queststatus(303) => 8, english, "job", "quest", "info" -> inform("Gibberson, you should remember this name. Maybe you'll meet him someday."), "I'm sorry my dear, I havn't any more tasks for you. A lot of thanks for helping with the necklace. But if you really need a job, why you don't ask the Gibberson for it?"
+queststatus(303) => 8, "necklet", "necklace", "task", "adventure", "mission" -> inform("Gibberson, you should remember this name. Maybe you'll meet him someday."), "I'm sorry my dear, I havn't any more tasks for you. A lot of thanks for helping with the necklace. But if you really need a job, why you don't ask the Gibberson for it?"
+queststatus(303) => 8, german, "job", "quest", "info" -> inform("Gibberson, den Namen solltest du dir merken. Vielleicht triffst du diese Person eines Tages."), "Es tut mir Leid mein Schatz, ich habe keine weiteren Aufgaben für dich. Danke für die Hilfe mit dem Kollier. Aber wenn du so unbedingt Geld brauchst, warum fragst du dann nicht den Gibberson?"
+queststatus(303) => 8, "kollier", "amulett", "aufgabe", "abenteuer" -> inform("Gibberson, den Namen solltest du dir merken. Vielleicht triffst du diese Person eines Tages."), "Es tut mir Leid mein Schatz, ich habe keine weiteren Aufgaben für dich. Danke für die Hilfe mit dem Kollier. Aber wenn du so unbedingt Geld brauchst, warum fragst du dann nicht den Gibberson?"
+queststatus(316) < 2, queststatus(303) =< 1, "sell", "what buy" -> inform("Maybe you should ask more 'Rose' more about the quest."), trade, "#w you have to find a professional 'r' to sell your 'goods'. But I could offer you a quest if you are in need of money?"
+queststatus(316) < 2, queststatus(303) =< 1, "verkauf", "was kauft", "was kaufst" -> inform("Vielleicht solltest du 'Rose' über die Aufgabe befragen."), "#w Für deine 'Wahre' musst du einen professionellen 'Händler' finden, aber ich hätte eine Aufgabe für dich wenn du dir etwas verdienen möchtest?"
+queststatus(316) < 2, queststatus(303) =< 1, german, "quest", "job" -> queststatus(316) = 6, queststatus(303) = 1, "#w Möchtest du etwas Geld verdienen?"
+queststatus(316) < 2, queststatus(303) =< 1, "verdienen", "aufgabe", "abenteuer" -> queststatus(316) = 6, queststatus(303) = 1, "#w Möchtest du etwas Geld verdienen?"
+queststatus(316) < 2, queststatus(303) =< 1, english, "quest", "job" -> queststatus(316) = 6, queststatus(303) = 1, "#w Do you want to earn some money?"
+queststatus(316) < 2, queststatus(303) =< 1, "task", "adventure", "mission", "money", "earn" -> queststatus(316) = 6, queststatus(303) = 1, "#w Do you want to earn some money?"
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted, I'm seamstress %NPCNAME.", "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüß dich, ich bin die Näherin %NPCNAME.", "#me zwinkert dich verführerisch an.", "Grüße."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted, I'm seamstress %NPCNAME.", "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted, I'm seamstress %NPCNAME.", "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüß dich, ich bin die Näherin %NPCNAME.", "#me zwinkert dich verführerisch an.", "Grüße."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted, I'm seamstress %NPCNAME.", "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüß dich, ich bin die Näherin %NPCNAME.", "#me zwinkert dich verführerisch an.", "Grüße."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Good bye.", "Bye.", "Ciao", "Adieu", "Au revoir", "You're leaving? I'll miss you."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Tschüß.", "Tschüss.", "Wiedersehen.", "Auf bald", "Gehabt euch wohl.", "Ciao", "Adieu", "Au revoir.", "Mach's gut!"
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell.", "Good bye.", "Bye.", "Ciao", "Adieu", "Au revoir", "You're leaving? I'll miss you."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Good bye.", "Bye.", "Ciao", "Adieu", "Au revoir", "You're leaving? I'll miss you."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Tschüß.", "Tschüss.", "Wiedersehen.", "Auf bald", "Gehabt euch wohl.", "Ciao", "Adieu", "Au revoir.", "Mach's gut!"
 "How are you", "How feel", "How do you do" -> "I'm fine.", "Great, and you?", "Pfff!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Pfff!", "Danke, gut.", "Ja, ja, und dir?"
@@ -176,78 +176,68 @@ itemShoes = 53
 "nähen" -> "Das musst du wohl selbst herausfinden."
 "sewing" -> "You have to find this on your own."
 "socke" -> "Socken zieht man über den Fuß damit man keine kalten Zechen bekommt."
-"sock", english -> "Socks, wear it to avoid cold feet."
+english, "sock" -> "Socks, wear it to avoid cold feet."
 "loch" -> "Was soll ich dazu sagen?"
 "hole" -> " What should I say now?"
 "race", "folk" -> "Ask me about humans, dwarves, elves, orcs, pixies, gnomes, goblins, halfings and lizards."
 "rasse", "Volk", "Völker" -> "BEfrage mich über Menschen, Zwerge, Elfen, Orks, Feen, Gnomen, Goblins, Halblingen und Echsen."
-"elf", race = elf, german -> "Ach, ich weiß eigentlich wenig von Elfen. Warum erzählst du nicht einfach über dich?"
-"elf", "elv", race = elf, english -> "Oh, I know very little about elves. Could you tell me something?"
-"elf", german -> "#me kichert 'Du würdest nicht glauben was ich über Elfen erzählen könnte.'"
-"elf", "elv", english -> "#me giggles. 'You wouln't belive what I could tell you about them.'"
-"mensch", race = human -> "Menschen, so wie du und ich, verstehst du?"
-"human", race = human -> "Humans, like you and me, allright?"
+german, "elf" -> "#me kichert 'Du würdest nicht glauben was ich über Elfen erzählen könnte.'"
+english, "elf", "elv" -> "#me giggles. 'You wouln't belive what I could tell you about them.'"
 "mensch" -> "Also ich bin abgesehen von meiner überragenden Klug-und Schönheit, ein ganz durchschnittlicher Mensch"
 "human" -> "I'm an average human, apart from my awesome cleverness and beauty."
-"zwerg", race = dwarf -> "Wenn du meine Gesellschaft möchtest musst du deine Kettenhosen aber ausziehen."
-"dwarf", "dwarv", race = dwarf -> "If you want my company you have to pull down your chain trousers."
 "zwerg" -> "#me grinst. 'Du weißt ja was man über Zwerge sagt.'"
 "dwarf", "dwarv" -> "#me grinses. 'Sure, you know what they say about dwarfs.'"
-"orc", race = orc -> "I your woman if coin! You not make me 'smack-smack'."
-"ork", race = orc -> "Ich dein Frau, wenn Münze! Du mich nicht machen 'happa-happa'."
 "ork" -> "Weißt du was man über Zwerge sagt? Bei Orks stimmt es."
 "orc" -> "Do you know waht they say about dwarves? With orcs is it the truth!"
-"fee", german -> "Die Feen sind sehr mysteriös, nicht wahr?"
+german, "fee" -> "Die Feen sind sehr mysteriös, nicht wahr?"
 "fairy" -> "Fairies are very mysterious, do you agree?"
 "pixie" -> "Pixies are very mysterious, don't you agree?"
-"gnom", german -> "Gnome zahlen mir meistens eine 'zusätzliche Gebühr.'"
-"gnome", english -> "Gnomes pay mostly a 'supplemental fee' to me."
-"goblin", german -> "Goblins brauchen immer eine, äh... besondere Behandlung."
-"goblin", english -> "Goblins allways need, uhm.. speacial treatment."
+german, "gnom" -> "Gnome zahlen mir meistens eine 'zusätzliche Gebühr.'"
+english, "gnome" -> "Gnomes pay mostly a 'supplemental fee' to me."
+german, "goblin" -> "Goblins brauchen immer eine, äh... besondere Behandlung."
+english, "goblin" -> "Goblins allways need, uhm.. speacial treatment."
 "echse" -> "Kennst du die Geschichten in denen der Held mit einer riesigen Schlange kämpfen muss?"
 "lizard" -> "Do you know the stories, where the hero has to fight a giant snake?"
-"half[l ]ing", race = halfling -> "We have to wash your feet before we begin."
-"halbling", race = halfling -> "Deine Füße werden wir aber waschen, bevor es losgeht."
 "halbling" -> "Halblinge, manche überraschen andere weniger."
 "halfi[l ]ng" -> "Halfings, some suprise and other don't."
 "god" -> "Elara, Oldra, Adron, Irmorom, Ronagan, Nargun, Malachin, Zhambra and Sirani. Ushara, Bragon, Eldan and Findari. What do you want to know?"
 "Gott", "Götter" -> "Elara, Oldra, Adron, Irmorom, Ronagan, Nargun, Malachin, Zhambra and Sirani. Ushara, Bragon, Eldan und Findari. Über wen, sollen wir sprechen?"
-"Ushara", german -> "Ushara ist die Göttin der Erde. Gibt nicht viele die sie verehren glaub ich. Nur ein paar Druiden und Elfen."
-"Br[áàa]gon", german -> "Brágon ist der Gott des Feuers. Er hat Illarion vor langer Zeit schon verlassen."
-"Eldan", german -> "Eldan ist der Gott des Geistes. Die meisten seiner Anhänger sind Magier."
-"Tanora", german -> "Tanora ist die Göttin des Wassers. Die Echsenmenschen verehren sie. Bei ihnen ist sie als Zelphia bekannt."
-"Zelphia", german -> "Zelphia ist der Name von Tanora, der bei den Echsenmenschen üblich ist."
-"Findari", german -> "Findari ist die Göttin der Luft. Barden sollen sie verehren hab ich gehört."
-"Narg[úùu]n", german -> "Nargún ist der Gott des Chaos. Die die ihn verehren sind ausschlieslich irgendwelche Spinner."
-"Elara", german -> "Elara ist die Göttin des Wissens und der Weisheit. Viele Gelehrte beten sie an."
-"Adron", german -> "Adron ist der Gott des Weines und der Feste. Wenn man von einem Gott eine volle Taverne erbitten will, dann von Adron."
-"Oldra", german -> "Oldra ist die Göttin der Fruchtbarkeit und des Lebens. Viele Bauern beten sie an, die Halblinge besonders."
-"Cherga", german -> "Cherga ist die Göttin der Geister. Sie sorgt dafür das die Seele in die Nächste Welt kommt, wenn man diese hier verlässt."
-"Malachin", german -> "Malachin ist der Gott der Jagd. Die Graue Rose die ihre Burg im Norden von Trollsbane hat, hat sich dem Glauben an ihm verschrieben. Dort erfahrt ihr sicher mehr über Malachin."
-"Irmorom", german -> "Irmorom ist der Gott des Handwerks. Die Zwerge beten ihn an und können dir sicher alles über ihn erzählen, wenn wir du paar Krüge Bier ausgiebst."
-"Sirani", german, sex = male -> "Sirani ist die Göttin der Liebe und der Freude. Wenn ihr mehr über sie wissen wollt, solltet ihr eine Sirani Priesterin suchen. Sie kann euch sicher sehr genau zeigen was es bedeutet Sirani anzubeten. Sehr genau."
-"Sirani", german, sex = female -> "Sirani ist die Göttin der Liebe und der Freude. Wenn ihr mehr über sie wissen wollt, solltet ihr eine Sirani Priesterin suchen."
-"Zhambra", german -> "Zhambra ist der Gott der Freundschaft und Treue. Zhrambra Anhänger sind meistens die verlässligsten Freunde die man finden kann."
-"Ronagan", german -> "Ronagan ist der Gott der Diebe und Schatten. Viele die im Schatten der Gesellschaft leben beten zu ihm, wie ich."
-"Moshran", german -> "Moshran ist der Blut Gott. Der ist böse. Durch und durch. Genau wie seine Anhänger. Mit denen sollte man sich nicht einlassen."
-"Ushara", english -> "Ushara is the goddess of earth. There are not many who pray to her. Only some druids and elves"
-"Br[áàa]gon", english -> "Brágon is the god of fire. He left Illarion a long time ago."
-"Eldan", english -> "Eldan is the god of spirit. Most of his followers are mages."
-"Tanora", english -> "Tanora is the goddess of water. The lizards pray to her. They call her Zelphia."
-"Zelphia", english -> "Zelphia is the Name of Tanora the lizards use."
-"Findari", english -> "Findari is the goddess of air. Her followers are bards."
-"Narg[úùu]n", english -> "Nargún is the god of chaos. Those who follow him are mad. All of them."
-"Elara", english -> "Elara is the goddess of knowledge and wisdom."
-"Adron", english -> "Adron is the god of wine and festivals. Owners of Taverns follow him."
-"Oldra", english -> "Oldra is the goddess of life. Many halflings follow her."
-"Cherga", english -> "Cherga is the goddess of death. She takes care that your soul travels safely into the next world. After your life ends."
-"Malachin", english -> "Malachin is the god of hunting. The Grey Rose who live in the castle north of Trollsbane follow him. There you get more information about Malachin for sure."
-"Irmorom", english -> "Irmorom is the god of the crafts. The dwarfs follow him and can tell you everything about him if you give them some beer."
-"Sirani", english, sex = male -> "Sirani is the godness of love and joy. If you want to know more about her you should search a Sirani Priestess. She can show you very exactly what is means to follow Sirani. Very exactly."
-"Sirani", english, sex = female -> "Sirani is the godness of love and joy. If you want to know more about her you should search a Sirani Priestess."
-"Zhambra", english -> "Zhambra is the god of friendship. Followers of Zhambras are the best friends you can find."
-"Ronagan", english -> "Ronagan is the god of the thieves and shadows. Most people who like living in the shadows of life pray to him, like me."
-"Moshran", english -> "Moshran is the blood god. He is evil. Really evily evil. As his followers are. Do not trust any of them."
+german, "Ushara" -> "Ushara ist die Göttin der Erde. Gibt nicht viele die sie verehren glaub ich. Nur ein paar Druiden und Elfen."
+german, "Br[áàa]gon" -> "Brágon ist der Gott des Feuers. Er hat Illarion vor langer Zeit schon verlassen."
+german, "Eldan" -> "Eldan ist der Gott des Geistes. Die meisten seiner Anhänger sind Magier."
+german, "Tanora" -> "Tanora ist die Göttin des Wassers. Die Echsenmenschen verehren sie. Bei ihnen ist sie als Zelphia bekannt."
+german, "Zelphia" -> "Zelphia ist der Name von Tanora, der bei den Echsenmenschen üblich ist."
+german, "Findari" -> "Findari ist die Göttin der Luft. Barden sollen sie verehren hab ich gehört."
+german, "Narg[úùu]n" -> "Nargún ist der Gott des Chaos. Die die ihn verehren sind ausschlieslich irgendwelche Spinner."
+german, "Elara" -> "Elara ist die Göttin des Wissens und der Weisheit. Viele Gelehrte beten sie an."
+german, "Adron" -> "Adron ist der Gott des Weines und der Feste. Wenn man von einem Gott eine volle Taverne erbitten will, dann von Adron."
+german, "Oldra" -> "Oldra ist die Göttin der Fruchtbarkeit und des Lebens. Viele Bauern beten sie an, die Halblinge besonders."
+german, "Cherga" -> "Cherga ist die Göttin der Geister. Sie sorgt dafür das die Seele in die Nächste Welt kommt, wenn man diese hier verlässt."
+german, "Malachin" -> "Malachin ist der Gott der Jagd. Die Graue Rose die ihre Burg im Norden von Trollsbane hat, hat sich dem Glauben an ihm verschrieben. Dort erfahrt ihr sicher mehr über Malachin."
+german, "Irmorom" -> "Irmorom ist der Gott des Handwerks. Die Zwerge beten ihn an und können dir sicher alles über ihn erzählen, wenn wir du paar Krüge Bier ausgiebst."
+german, sex = male, "Sirani" -> "Sirani ist die Göttin der Liebe und der Freude. Wenn ihr mehr über sie wissen wollt, solltet ihr eine Sirani Priesterin suchen. Sie kann euch sicher sehr genau zeigen was es bedeutet Sirani anzubeten. Sehr genau."
+german, sex = female, "Sirani" -> "Sirani ist die Göttin der Liebe und der Freude. Wenn ihr mehr über sie wissen wollt, solltet ihr eine Sirani Priesterin suchen."
+german, "Zhambra" -> "Zhambra ist der Gott der Freundschaft und Treue. Zhrambra Anhänger sind meistens die verlässligsten Freunde die man finden kann."
+german, "Ronagan" -> "Ronagan ist der Gott der Diebe und Schatten. Viele die im Schatten der Gesellschaft leben beten zu ihm, wie ich."
+german, "Moshran" -> "Moshran ist der Blut Gott. Der ist böse. Durch und durch. Genau wie seine Anhänger. Mit denen sollte man sich nicht einlassen."
+english, "Ushara" -> "Ushara is the goddess of earth. There are not many who pray to her. Only some druids and elves"
+english, "Br[áàa]gon" -> "Brágon is the god of fire. He left Illarion a long time ago."
+english, "Eldan" -> "Eldan is the god of spirit. Most of his followers are mages."
+english, "Tanora" -> "Tanora is the goddess of water. The lizards pray to her. They call her Zelphia."
+english, "Zelphia" -> "Zelphia is the Name of Tanora the lizards use."
+english, "Findari" -> "Findari is the goddess of air. Her followers are bards."
+english, "Narg[úùu]n" -> "Nargún is the god of chaos. Those who follow him are mad. All of them."
+english, "Elara" -> "Elara is the goddess of knowledge and wisdom."
+english, "Adron" -> "Adron is the god of wine and festivals. Owners of Taverns follow him."
+english, "Oldra" -> "Oldra is the goddess of life. Many halflings follow her."
+english, "Cherga" -> "Cherga is the goddess of death. She takes care that your soul travels safely into the next world. After your life ends."
+english, "Malachin" -> "Malachin is the god of hunting. The Grey Rose who live in the castle north of Trollsbane follow him. There you get more information about Malachin for sure."
+english, "Irmorom" -> "Irmorom is the god of the crafts. The dwarfs follow him and can tell you everything about him if you give them some beer."
+english, sex = male, "Sirani" -> "Sirani is the godness of love and joy. If you want to know more about her you should search a Sirani Priestess. She can show you very exactly what is means to follow Sirani. Very exactly."
+english, sex = female, "Sirani" -> "Sirani is the godness of love and joy. If you want to know more about her you should search a Sirani Priestess."
+english, "Zhambra" -> "Zhambra is the god of friendship. Followers of Zhambras are the best friends you can find."
+english, "Ronagan" -> "Ronagan is the god of the thieves and shadows. Most people who like living in the shadows of life pray to him, like me."
+english, "Moshran" -> "Moshran is the blood god. He is evil. Really evily evil. As his followers are. Do not trust any of them."
 "eagle" -> "Do You think I'm a fool? Thats just a stupid bird."
 "adler" -> "Hältst du mich für Blöd? Das ist nur so ein dummer Vogel."
 "hawk" -> "Do You think I'm a fool? Thats just a stupid bird."
@@ -258,24 +248,24 @@ itemShoes = 53
 "mole" -> "Am I a farmer or what? No Idea!"
 "hase" -> "Sie sin sooo süß! Hey, was isst du da?"
 "rabbit" -> "They are sooo cute! Ey, what are you eating there?"
-"gilbert", "bruder", german -> "Ja, mein Bruder ist ja so einfältig! Gilbert ist in Varshikar zu finden, denke ich."
-"gilbert", "brother", english -> "Yes, my brother is a fool. Gilbert lives at Varshikar, I think."
-"Gibb", german -> "Gibb Gibberson. Er besucht mich regelmäßig. Er lebt vermutlich irgendwo in Troll's Bane."
-"Gibberson", german -> "Gibb Gibberson. Er besucht mich regelmäßig. Er lebt vermutlich irgendwo in Troll's Bane."
+german, "gilbert", "bruder" -> "Ja, mein Bruder ist ja so einfältig! Gilbert ist in Varshikar zu finden, denke ich."
+english, "gilbert", "brother" -> "Yes, my brother is a fool. Gilbert lives at Varshikar, I think."
+german, "Gibb" -> "Gibb Gibberson. Er besucht mich regelmäßig. Er lebt vermutlich irgendwo in Troll's Bane."
+german, "Gibberson" -> "Gibb Gibberson. Er besucht mich regelmäßig. Er lebt vermutlich irgendwo in Troll's Bane."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Nice to meet you."
 "mein Name" -> "Nett dich kennen zu lernen."
-"rose", german -> "Ja, so heiß ich. Empfehle meine Gesellschaft weiter!"
-"rose", english -> "Yes, thats my Name. Recommend my company to others!"
+german, "rose" -> "Ja, so heiß ich. Empfehle meine Gesellschaft weiter!"
+english, "rose" -> "Yes, thats my Name. Recommend my company to others!"
 "Yes" -> "Alright.", "Well then."
 "Ja" -> "Alles klar.", "In Ordnung."
 "No" -> "Are you shure?", "Hm-hm."
 "Nein" -> "Seid ihr sicher?", "Hm-hm."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "I see!", "Indeed?", "Well."
-".*", german, chance(20.0) -> "Ich verstehe.", "Achso?", "Aha?"
+english, chance(20.0), ".*" -> "I see!", "Indeed?", "Well."
+german, chance(20.0), ".*" -> "Ich verstehe.", "Achso?", "Aha?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

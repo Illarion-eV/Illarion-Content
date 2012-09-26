@@ -1,0 +1,239 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Victor Tolenor                                              None --
+-- NPC Job:  Insert profession here                                           --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  0, 0, 0                --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Insert your name here                                            --
+--                                                                            --
+-- Last parsing: July 03, 2011                           easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Victor Tolenor"
+race = halfling
+sex = male
+position = 0, 0, 0
+direction = south
+affiliation = "None"
+job = "Insert profession here"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Insert your name here"
+
+lookatDE = "Dieser NPC ist <Name> der <Beruf/Funktion>."
+lookatUS = "This NPC is <Name> the <profession/function>."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 2
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- Please assign an ID if you use queststatus(999). Do not use an ID twice unless intended.
+
+-- NPC by Faladron
+
+-- queststatus(999) Overview
+-- QuestID=999
+-- 0: NPC tells player to get lost
+-- 1: Player has the codeword given by Baron Hastings
+-- 2: NPC is willing to talk to player
+-- 3: Quest 1
+-- 4: Quest 1 Running, not yet done
+
+-- Help
+"Help", queststatus(999) = 0 -> inform("[Game Help] This NPC is Victor Tolenor a Cadomyr citizen. Keywords: Cadomyr.")
+"Hilfe", queststatus(999) = 0 -> inform("[Spielhilfe] Dieser NPC ist Victor Tolenor ein Bürger Cadomyrs. Schlüsselwörter: Cadomyr.")
+"Help" -> inform("[Game Help] This NPC is Victor Tolenor the henchman of Baron Hastings. Keywords: Quest, revolution, aunt.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Victor Tolenor der Handlanger Baron Hastings. Schlüsselwörter: Aufgabe, Revolution, Tante.")
+
+-- Status=0 NPC tells player to get lost
+
+-- General speech
+
+-- Status=0 or 1 First player starts talking to NPC
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(999) < 2, idle -> "Be brief, I am in a hurry.", begin
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", queststatus(999) < 2, idle -> "Fasst euch kurz, ich bin in Eile.", begin
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", queststatus(999) < 2, english, idle -> "Be brief, I am in a hurry.", begin
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", queststatus(999) < 2, german, idle -> "Fasst euch kurz, ich bin in Eile.", begin
+
+-- Second player tries to talk to NPC
+-- NPC tells him to wait
+".*", english, busy -> "Oh no, even more people pestering me. Leave me alone!"
+".*", german, busy -> "Oh nein, noch mehr Nervensägen. Lasst mich in Ruhe!"
+
+-- Before Quest: First player ends talk
+"Farewell", "Good bye", "Bye", "Fare thee well", queststatus(999) < 2 -> inform("The man doesn't seem to like company."), "Good, now leave me alone!", end
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl", queststatus(999) < 2 -> inform("Der Mann scheint keine Gesellschaft zu mögen."), "Gut, jetzt lasst mich in Ruhe!", end
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", queststatus(999) < 2, english -> inform("The man doesn't seem to like company."), "Good, now leave me alone!", end
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", queststatus(999) < 2 -> inform("Der Mann scheint keine Gesellschaft zu mögen."), "Gut, jetzt lasst mich in Ruhe!", end
+"Cadomyr", queststatus(999) < 2, english -> inform("Something's fishy about the man, he isn't willing to talk and you can't change his mind upon that."), "I love Cadomyr! And now excuse me, I have things to do.", end
+"Cadomyr", queststatus(999) < 2 -> inform("Der Mann kommt dir seltsam vor, er ist nicht bereit mit dir zu sprechen und lässt sich nicht umstimmen."), "Ich liebe Cadomyr! Und jetzt entschuldigt mich, ich habe zu tun.", end
+"Secret Handshake", queststatus(999) = 1 -> "#w Shh! Lower your bloody voice! You support the baron? Good, good, we have much to do.", queststatus(999) = 2
+"Geheimer Handschlag", queststatus(999) = 1 -> "#w Shh! Sei gefälligst leiser! Ihr unterstützt also den Baron? Gut gut, es gibt viel zu tun.", queststatus(999) = 2
+".*", queststatus(999) = 0, english, chance(80) -> inform("The man doesn't seem to like company."), "Leave me alone!", end
+".*", queststatus(999) = 0, german, chance(80) -> inform("Der Mann scheint keine Gesellschaft zu mögen."), "Lasst mich in Ruhe!", end
+".*", queststatus(999) = 0, english -> inform("Ouch! He bumped into you, better leave that man alone..."), "I told you to leave me alone!", attrib(hitpoints) - 3000, attrib(hitpoints) + 1, end
+".*", queststatus(999) = 0, german -> inform("Aua! Er hat dich angerempelt, du lässt ihn besser in Ruhe..."), "Ich sagte lass mich in Ruhe!'", attrib(hitpoints) - 3000, attrib(hitpoints) + 1, end
+
+-- Quest Initiated first player starts talking to NPC
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening", idle -> "#w Ah you're back. Do you bring new instructions?", "You're back. And here I thought we made a mistake in trusting you.", "A glorious day to you in the wonderful city of Cadomyr! Haha, yeah right.", begin
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", idle -> "#w Ah ihr seid es wieder. Habt ihr neue Anweisungen?", "Ihr seid zurück. Ich dachte schon wir hätten uns in euch getäuscht.", "Einen glorreichen Tag im wunderbaren Cadomyr wünsche ich euch! Haha, ja genau.", begin
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english, idle -> "#w Ah you're back. Do you bring new instructions?", "You're back. And here I thought we made a mistake in trusting you.", "A glorious day to you in the wonderful city of Cadomyr! Haha, yeah right.", begin
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german, idle -> "#w Ah ihr seid es wieder. Habt ihr neue Anweisungen?", "Ihr seid zurück. Ich dachte schon wir hätten uns in euch getäuscht.", "Einen glorreichen Tag im wunderbaren Cadomyr wünsche ich euch! Haha, ja genau.", begin
+
+-- First player ends talk
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Tell my aunt I send her my dearest regards if you see her.", "Don't forget to greet Baron Has...lints Barton Haslints in my name.", "See you soon. I am counting on you, using both hands and feet.", end
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Richtet meiner Tante schöne Grüße aus wenn ihr sie seht.", "Vergesst nicht Baron Has...lints, Barton Haslints von mir zu grüßen.", "Bis bald. Ich zähle auf euch. Mit beiden Händen und Füßen.", end
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Tell my aunt I send her my dearest regards if you see her.", "Don't forget to greet Baron Has...lints Barton Haslints in my name.", "See you soon. I am counting on you, using both hands and feet.", end
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Richtet meiner Tante schöne Grüße aus wenn ihr sie seht.", "Vergesst nicht Baron Has...lints. Barton Haslints von mir zu grüßen.", "Bis bald. Ich verlasse mich auf euch.", end
+"How are you", "How feel", "How do you do" -> "I am fine. I bought new wares for my uh... sick aunt.", "I am worried sick about my aunt Hastings... uhh Hastines! Do you bear news from her?", "#w Cut that out and let's get down to buisiness. I think we're being watched.", end
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht es gut. Ich habe neue Waren für meine uh... kranke Tante eingekauft.", "Ich sorge mich sehr um meine Tante Hastings... ähh Hastines! Bringt ihr Neuigkeiten?", "#w Könnt ihr euch das sparen und zum Geschäftlichen kommen? Ich glaube wir werden beobachtet.", end
+"your name", "who are you", "who art thou" -> "I am Victor Tolenor, proud citizen of Cadomyr!", "Is that realy important? Tell me friend, what news do you bring of my aunt?", "Victor Tolenor is my name, gods shave... uh, save the queen!", end
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Victor Tolenor, ein stolzer Bürger Cadomyrs!", "Ist das wirklich so wichtig? Komm Freund, erzähl mir lieber ob meine Tante wohlauf ist.", "Victor Tolenor mein Name, die Götter mögen die Königin stutzen, ähh stützen.", end
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I buy a lot of things but the source has to be reliable, I won't buy from you!", "I am responsible for the 'acquisition' of things to strenghten our cause.", "I don't sell things. I buy them and accord them to our cause."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kaufe so einiges, aber ich muss mich auf die Quelle verlassen können, von dir kauf ich nix!", "Ich bin dafür zuständig Dinge die unserer Sache nutzen zu 'akquirieren'.", "Ich verkaufe nichts. Ich kaufe Vorräte und lasse sie unserer Sache zukommen."
+"tell something" -> "Soon, very soon I'll be living in a palace!", "I'd rather you tell me some news about my aunt.", "I think I have some nasty wounds from all this sand. Do you want to see my feet to check?"
+"erzähl was", "erzähl etwas" -> "Bald, sehr bald werde ich in einem Palast wohnen!", "Solltet ihr mir nicht etwas von meiner Tante erzählen?", "Ich glaube ich habe vom vielen Sand offene Wunden an den Füßen, wollt ihr sie sehen?"
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I'm an honest, hard working citizen of Cadomyr. What I work as? Uhh...", "My aunt sometimes sends me a coin or two.", "#w What I do here? The same thing I do everyday. I'm trying to pave the roads for Baron Hastings big return!"
+"beruf" -> "Ich bin ein ehrlicher, hart arbeitender Bürger Cadomyrs. Was ich mache? Ähh...", "Meine Tante schickt mir manchmal die eine oder andere Münze.", "#w Was ich hier mache? Das selbe wie jeden Tag. Ich versuche den Weg für Baron Hastings zu ebnen."
+"job", english -> "I'm an honest, hard working citizen of Cadomyr. What I work as? Uhh...", "My aunt sometimes sends me a coin or two.", "#w What I do here? The same thing I do everyday. I'm trying to pave the roads for Baron Hastings big return!"
+"job" -> "Ich bin ein ehrlicher, hart arbeitender Bürger Cadomyrs. Was ich mache? Ähh...", "Meine Tante schickt mir manchmal die eine oder andere Münze.", "#w Was ich hier mache? Das selbe wie jeden Tag. Ich versuche den Weg für Baron Hastings zu ebnen."
+"Gobaith", "Gobiath", english -> "Go bathe? My personal hygiene shouldn't be of your concern!", "Gobaith? Oh right! Wasn't that the place where... together with... and afterwards... oh you had to be there, right?", "At first we wanted to settle down there but oh boy that would've been a long swim back."
+"Gobaith", "Gobiath" -> ".", "Geh baden? Meine Körperhygiene geht nur mich etwas an!", "Gobaith? Oh richtig! Ja das war doch diese... mit der... und dann... oh man hätte dabei sein sollen nicht?", "Zuerst wollten wir uns dort niederlassen aber Juuunge da wären wir schön baden gegangen."
+"I am", "my name" -> "Don't bother, I'll forget that name straight away, it's for the better.", "Oh yeah? Good, should they ever torture me atleast I have a name to give now.", "Pleased to meet you. My aunt's friends are my friends."
+"Ich bin", "mein Name" -> "Bemüht euch nicht, es ist besser ich vergesse ihn gleich wieder.", "Oh wirklich? Schön, wenn sie mich jemals foltern kann ich jetzt wenigstens Namen nennen.", "Freut mich eure Bekanntschaft zu machen. Freunde meiner Tante sind auch meine Freunde."
+
+-- More small talk; add at least five triggers
+"our cause" -> "The improvement of our living conditions in Cadomyr of course!", "As if my aunt didn't tell you already.", "ENGLISH3."
+"revolution", "rebellion" -> "Yes. Sadly everyone seems happy to be at the mercy of a woman."
+"aunt" -> "My aunt could rule Cadomyr even better than the queen.", "You know who I'm talking about."
+"torture", "jail" -> "You should've thought about that earlier.", "#me shrugs passively: 'All I have to do is run faster than you once they come for us. And I will'"
+"Hastings", "baron" -> "Yes, shout it out realy loud.", "Hey there guards! This one's plotting against the queen!"
+"reward" -> "I'm a simple man with a simple taste. Gold, jewelry, a small fiefdom.", "Once the garbage is removed those that were labourous will be rewarded!"
+"unsere Sache" -> "Die Verbesserung unserer Lebensbedingungen in Cadomyr natürlich!", "Als ob euch das meine Tante nicht schon gesagt hätte.", "GERMAN3."
+"Revolution", "rebellion" -> "Ja. Leider scheinen alle zufrieden damit nach der Pfeife einer Frau zu tanzen."
+"Tante" -> "Meine Tante könnte Cadomyr noch besser regieren als die Königin.", "Ihr wisst schon wen ich meine."
+"Folter", "Gefängnis" -> "Darüber hättet ihr vorher nachdenken sollen.", "#me zuckt teilnahmslos mit den Schultern: 'Ich renne schneller als ihr wenn sie uns holen.'"
+"Hastings", "Baron" -> "Ohja erwähnt diesen Namen nur schön laut.", "He da, Wache! Hier wird gegen die Königin konspiriert!"
+"Belohnung" -> "Ich bin ein einfacher Mann mit einem einfachen Geschmack. Gold, Schmuck, ein kleines Lehen.", "Wenn hier erstmal aufgeräumt wurde werden die tüchtigen belohnt, ohja!"
+
+-- Faction stuff
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "I heard his robes are moving as if there's a light breeze at all times, even with no wind.", "What a goof, but damn, I want to know where he gets his clothes tailored."
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Angeblich sollen seine Roben immer wie in leichtem Wind wallen, auch wenn gar kein Wind weht.", "Ein Armleuchter, aber verdammt ich möchte wissen wo er seine Sachen schneidern lässt."
+"Runewick", english -> "Ironic how they think they're better than us. Did you see their slums?", "Common people there are worse off than here. We know we're being oppressed, they're lied to."
+"Runewick" -> "Ironisch wie sie sich für was besseres halten. Habt ihr ihr Elendsviertel gesehen?", "Dem Pöbel dort geht es schlechter als hier. Hier weiß man, man wird ausgebeutet dort wird man belogen!"
+"Valerio", "Guilianni", "Don", english -> "Hah! Fearless man, I must admit.", "Back when he proposed for Rosalines hand, hah! His face didn't even smirk, what a scaundrel!"
+"Valerio", "Guilianni", "Don" -> "Hah! Mut hat er das muss man ihm lassen.", "Als er damals um Rosalines Hand angehalten hat, hah! Nichteinmal geschmunzelt, was für ein Schurke."
+"Galmair", english -> "If only we had their ores and weapons. Cadomyr would be ours in no time.", "Not much more than a hole in a mountain. But a hole high quality ores and weapons come from.."
+"Galmair" -> "Wenn wir nur ihre Erze und Waffen hätten. Cadomyr wäre im Handstreich unser.", "Nicht viel mehr als ein Loch im Berg. Aber eines aus dem hochwertige Erze und Waffen kommen."
+"rosaline", "königin", "queen", "edwards", english -> "My mother told me not to speak about certain things. Flatulence for example.", "A spoiled princess who toys with us as one would with dolls!"
+"rosaline", "königin", "queen", "edwards" -> "Meine Mutter hat mir gesagt dass man über gewisse Dinge wie Blähungen nicht sprechen soll.", "Eine verzogene Prinzessin die mit uns wie mit Puppen spielt!"
+"Cadomyr", english -> "This town needs a man's touch in its ruling class!", "Look at me! Who doesn't like to live in a pile of sand?"
+"Cadomyr" -> "Was dieser Stadt fehlt ist die starke Hand eines männlichen Herrschers!", "Seht mich an! Wer lebt nicht gerne in einem Haufen Sand?"
+
+-- Main land factions
+"albar", english -> "If we were in Albar this queen nonsense would be over already.", "#w Better try to be the biggest fish in the pond than some fish in the sea. We'll stay in Cadomyr instead."
+"albar", german -> "Wären wir in Albar hätte dieser Königinnen Unfug schon längst ein Ende.", "#w Besser versuchen der größte Fisch im Teich zu sein als ein kleiner im Meer. Wir bleiben in Cadomyr."
+"gynk", "gync", english -> "All in all I can be happy with my current job. Working in Gynka would be more dangerous.", "Who knows? Maybe I'll start a buisiness there from the reward I will get."
+"gync", "gynk", german -> "Alles in allem ist mein jetziger Beruf sicherer als in Gynka zu arbeiten.", "Wer weiß? Vielleicht bau ich mir von meiner Belohnung dort etwas auf."
+"salkama", english -> "They have great ideals, but the weak are being trampled upon same as everywhere.", "Everyone has a say. Pah. It's your count that votes! Same as everywhere."
+"salkama", german -> "Ihre Ideale mögen zwar schön klingen, aber Schwächere werden hier wie dort ausgebeutet.", "Jeder darf mitbestimmen. Jeder mit genug Geld und Titeln eher, so wie überall."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Ach gods. After everything that happened to me I can only believe in Nargun.", "Hmm. If there's one important god influencing my life it's Nargun. Both for better or worse."
+"Gott", "Götter" -> "Ach Götter. Nach allem Geschick das mir widerfahren ist kann ich nurnoch an Nargun glauben.", "Hmm. Wenn einer mein Leben bestimmt dann Nargun. Ob gut oder schlecht sei dahingestellt."
+"Adron", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Adron" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Bragon", "Brágon", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Bragon", "Brágon" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Cherga", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Cherga" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Elara", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Elara" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Eldan", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Eldan" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Findari", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Findari" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Irmorom", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Irmorom" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Malachin", "Malachín", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Malachin", "Malachín" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Moshran", english -> "If you know what's good for your soul you'd better not say that again!", "#w Fool! Do you want them to torture *and* burn us? Silence!"
+"Moshran" -> "Wenn ihr wisst was gut für eure Seele ist würde ich das nicht nochmal sagen!", "#w Narr! Sollen sie uns nicht nur Foltern sondern auch noch verbrennen? Schweigt!"
+"Nargun", "Nargún", english -> "Nargun is the only just god. He pulls his pranks on everyone.", "Nobody can fight fate, no noble no beggar everyone is equal infront of Narguns dice."
+"Nargun", "Nargún" -> "Nargun ist der einzig gerechte Gott. Er treibt mit jedem seine Späße.", "Niemand ist vor dem Schicksal geschützt, ob Edelmann ob Bettler vor seinem Würfel sind alle gleich."
+"Oldra", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Oldra" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Ronagan", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Ronagan" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Sirani", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Sirani" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Tanora", "Zelphia", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Tanora", "Zelphia" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Ushara", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Ushara" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+"Zhambra", english -> "Of course this deity may have followers but I am not one of them.", "Ohwell, I have tried to pray to this deity but I've never been answered."
+"Zhambra" -> "Diese Gottheit hat sicher ihre Anhänger, aber ich bin keiner davon.", "Ach, ich habe versucht zu dieser Gottheit zu beten aber gehört wurde ich nie."
+
+-- Catching quest triggers
+"quest", english -> "Well infact there is something you could do.", "Well as you asked, indeed I do have a task for you."
+"quest", german -> "Nun es gibt da wirklich etwas was ihr tun könnt.", "Wenn ihr so fragt, ja ich hätte da eine Aufgabe für euch."
+"task", "adventure", "order" -> "Well infact there is something you could do.", "Well as you asked, indeed I do have a task for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun es gibt da wirklich etwas was ihr tun könnt.", "Wenn ihr so fragt, ja ich hätte da eine Aufgabe für euch."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+"Yes" -> "True! Uhm, what?", "Correct! But what are you talking about?", "Yes!? What!?"
+"Ja" -> "Genau! Ähh, was?", "Richtig! Aber... wovon sprichst du?", "Ja!? Was!?"
+"No" -> "Oh look right there, doubts ahead.", "No! Yes! To what?"
+"Nein" -> "Ach sieh an, da kommen die Zweifel.", "Nein! Ja! Was eigentlich?"
+
+-- Absolutely last catch: Everything a player says and is not caught earlier
+-- This response should give the player a hint about what to ask the NPC
+-- Optional Trigger /  Response is only given 1/5 of the time
+
+-- ".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+-- ".*",german,chance(20)->"GERMAN1.","GERMAN2.","GERMAN3."
+
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me klopft sich verärgert etwas Sand aus der Kleidung.", "#me pats some sand from his clothes with a frown."
+cycletext "#me wimmert und reibt sich die Augen: 'Sandkörner... aua.'.", "#me wimpers and rubs his eyes: 'Sand... ouch.'"
+cycletext "#me stolpert fast über einen Haufen Sand und flucht.", "#me nearly trips over a pile of sand and curses."
+cycletext "#me wischt sich über die Stirn und sieht sich um.", "#me wipes his forehead and looks around."
+cycletext "#me murmelt still zu sich selbst.", "#me mutters quietly towards himself."
+cycletext "Bald... sehr bald.", "Soon... very soon."
+cycletext "#me lächelt gequält: 'Wie schön es ist, einer Frau zu dienen!", "#me forces a smile: 'Oh what joy to serve a woman!'"

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 22, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Thomas Dalenus"
@@ -77,13 +77,13 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schneider Thomas Dalenus. Schlüsselwörter: Hallo, Schneider, Cadomyr, Nadel, Färben.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day. Do you need a coat?", "Greetings. How are you?", "Hello. I have all kinds of clothes."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag. Braucht ihr einen Umhang?", "Seid gegrüßt. Wie geht es euch?", "Hallo. Ich habe vielerlei Stoffe."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day. Do you need a coat?", "Greetings. How are you?", "Hello. I have all kinds of clothes."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. Do you need a coat?", "Greetings. How are you?", "Hello. I have all kinds of clothes."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag. Braucht ihr einen Umhang?", "Seid gegrüßt. Wie geht es euch?", "Hallo. Ich habe vielerlei Stoffe."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day. Do you need a coat?", "Greetings. How are you?", "Hello. I have all kinds of clothes."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag. Braucht ihr einen Umhang?", "Seid gegrüßt. Wie geht es euch?", "Hallo. Ich habe vielerlei Stoffe."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell, go with the gods.", "Good bye, my customer."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt euch wohl, geht mit den Göttern.", "Auf wiedersehen, mein Kunde."
-"Ciao", "Adieu", "Au revoir", english -> "Farewell, go with the gods.", "Good bye, my customer."
+english, "Ciao", "Adieu", "Au revoir" -> "Farewell, go with the gods.", "Good bye, my customer."
 "Ciao", "Adieu", "Au revoir" -> "Gehabt euch wohl, geht mit den Göttern.", "Auf wiedersehen, mein Kunde."
 "How are you", "How feel", "How do you do" -> "I just finished this robe. Maybe you want to take a look at it?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich habe gerade diese Robe fertiggestellt. Wollt ihr sie euch ansehen?"
@@ -91,17 +91,17 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Thomas, Thomas Dalenus. Ich bin ein Schneider.", "Dalenus Schneiderwaren - das ist mein Geschäft.", "Thomas Dalenus. Und nennt mich nicht Tom, sonst stech ich euch die Augen mit meiner Nadel aus."
 
 -- Catching quest triggers
-"quest", "mission", english -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help."
+english, "quest", "mission" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help."
 "quest", "mission" -> "Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht."
-"task", "adventure" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht."
+"task", "adventure", "order" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a tailor, I even made a dress for the queen once."
 "beruf" -> "Ich bin Schneider, einst habe ich sogar ein Kleid für die Königin geschneidert."
-"job", english -> "I'm a tailor, I even made a dress for the queen once."
+english, "job" -> "I'm a tailor, I even made a dress for the queen once."
 "job" -> "Ich bin Schneider, einst habe ich sogar ein Kleid für die Königin geschneidert."
-"Gobaith", "Gobiath", english -> "Let's not talk about sad things, please."
+english, "Gobaith", "Gobiath" -> "Let's not talk about sad things, please."
 "Gobaith", "Gobiath" -> "Lasst uns doch bitte nicht von traurigen Dingen reden."
 "my name" -> "And I am Thomas Dalenus; you could use a new coat if you ask me."
 "mein Name" -> "Und ich bin Thomas Dalenus; ihr könntet einen neuen Mantel vertragen."
@@ -109,7 +109,7 @@ itemShoes = 53
 -- More small talk; add at least five triggers
 "tailor" -> "When I made the dress of queen Rosaline, I worked all day and night. It was such a honour! Is there anything I can tailor for you?"
 "Schneider" -> "Als ich das Kleid der Königin Rosaline gefertigt habe, hab ich den ganzen Tag und die ganze Nacht gearbeitet. Es war so eine Ehre! Gibt es etwas, was ich für dich schneidern kann?"
-"trader", "merchant", "collegue", "vendor", "market" -> "The amount of goods, traded on this marketplace, is magnificient. We're not a people of traders, but everyone needs something sometimes."
+"trader", "merchant", "collegue", "vendor", "market" -> trade, trade, "The amount of goods,d on this marketplace, is magnificient. We're not a people ofrs, but everyone needs something sometimes."
 "händler", "kollege", "höker", "markt" -> "Die Menge an Waren, die auf diesem Markt gehandelt werden, sind schon beeindruckend. Wir sind zwar kein Volk von Händlern, aber jeder braucht mal etwas."
 "dye" -> "To dye clothes is tricky. You need various ingredients like herbs. Better buy dyed clothes from me instead of wasting your time."
 "färbe", "farbe" -> "Stoffe zu Färben ist aufwändig. Man braucht eine Reihe von Wirkstoffen, so wie Kräuter. Kauft besser gefärbte Stoffe direkt bei mir."
@@ -121,41 +121,41 @@ itemShoes = 53
 -- Faction stuff
 "archmage" -> "You are talking about Elvaine Morgan, the archmage of Runewick? I keep forgetting his name.", "Who is that again?"
 "Erzmagier" -> "Ihr redet von Elvaine Morgan, dem Erzmagier von Runewick? Ich vergesse immer wieder seinen Namen.", "Wer war das nochmal?"
-"Elvaine", "Morgan", english -> "You are talking about Elvaine Morgan, the archmage of Runewick? I keep forgetting his name.", "Who is that again?"
+english, "Elvaine", "Morgan" -> "You are talking about Elvaine Morgan, the archmage of Runewick? I keep forgetting his name.", "Who is that again?"
 "Elvaine", "Morgan" -> "Ihr redet von Elvaine Morgan, dem Erzmagier von Runewick? Ich vergesse immer wieder seinen Namen.", "Wer war das nochmal?"
-"Runewick", english -> "I was told they prefer silk in Runewick.", "Runewick, well, trading with Runewick takes too long, all this talking."
+english, "Runewick" -> "I was told they prefer silk in Runewick.", "Runewick, well, trading with Runewick takes too long, all this talking."
 "Runewick" -> "Mir wurde erzählt, dass man in Runewick Seide bevorzugt.", "Runewick, nun, ein Handel mit Runewick dauert immer so lange, immer dieses Gelaber."
-"Valerio", "Guilianni", "Don", english -> "The Don once ordered trousers for his ruffians from me. I refused, of course."
+english, "Valerio", "Guilianni", "Don" -> "The Don once ordered trousers for his ruffians from me. I refused, of course."
 "Valerio", "Guilianni", "Don" -> "Der Don hat einst Hosen für seine Schlägertrupps bei mir bestellt. Ich hab abgelehnt, wie sich von selbst versteht."
-"Galmair", english -> "I am honest; I do not like Galmair. I prefer to trade with honourable men."
+english, "Galmair" -> trade, "I am honest; I do not like Galmair. I prefer towith honourable men."
 "Galmair" -> "Ich bin ganz ehrlich; ich mag Galmair nicht. Ich ziehe es vor, mit ehrbahren Leuten zu handeln."
 "Queen" -> "Did you notice the blue dress the queen wears from time to mine? My work!"
 "Königin" -> "Habt ihr das blaue Kleid bemerkt, welches die Königin manchmal trägt? Mein Meisterwerk!"
-"rosaline", "edwards", english -> "Did you notice the blue dress the queen wears from time to mine? My work!"
+english, "rosaline", "edwards" -> "Did you notice the blue dress the queen wears from time to mine? My work!"
 "rosaline", "edwards" -> "Habt ihr das blaue Kleid bemerkt, welches die Königin manchmal trägt? Mein Meisterwerk!"
-"Cadomyr", english -> "I tailor for the queen, I tailor for every noble man of Cadomyr. And for every woman, of course."
+english, "Cadomyr" -> "I tailor for the queen, I tailor for every noble man of Cadomyr. And for every woman, of course."
 "Cadomyr" -> "Ich schneidere für die Königin, ich schneider für jeden Edelmann von Cadomyr. Und für jede Dame, wie sich von selbst versteht."
 
 -- Main land factions
-"albar", english -> "Once, the lords of Albar ordered a shipment of clothes. But somehow, they never payed me. I suspect Galmairian thugs are behind this!"
+english, "albar" -> "Once, the lords of Albar ordered a shipment of clothes. But somehow, they never payed me. I suspect Galmairian thugs are behind this!"
 "albar" -> "Einst bestellten die Herren von Albar eine Ladung Stoffe. Aber irgendwie wurde ich nie entlohnt. Ich vermute, dass Halunken aus Galmair dahinterstecken."
-"gynk", "gync", english -> "I will never trade with anyone from Gynk. They never fulfill a contract."
+english, "gynk", "gync" -> trade, "I will neverwith anyone from Gynk. They never fulfill a contract."
 "gync", "gynk" -> "Ich werde niemals mit jemanden aus Gynk handeln. Die halten sich nicht an geschlossene Verträge."
-"salkama", english -> "The women of Salkamar are too thin, I was told. Who can tailor a dress for a dash?"
+english, "salkama" -> "The women of Salkamar are too thin, I was told. Who can tailor a dress for a dash?"
 "salkama" -> "Die Damen aus Salkamar sind alle zu dünn, sagt man. Wie soll man für einen Strich in der Landschaft ein Kleid schneidern?"
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
 "god" -> "When I don't work, I sometimes pray to Irmorom; but with little effects as it seems."
 "Gott", "Götter" -> "Wenn ich mal nicht arbeite, bete ich manchmal zu Irmorom; viel hats bis jetzt nicht gebracht."
-"Irmorom", english -> "Irmorom guides my hands while stitching. I wonder why I sting myself that often with the needle!"
+english, "Irmorom" -> "Irmorom guides my hands while stitching. I wonder why I sting myself that often with the needle!"
 "Irmorom" -> "Irmorom führt meine Hand, wenn ich sticke. Ich frag mich, warum ich mich trotzdem so oft mit der Nadel steche."
-"Malachin", "Malachín", english -> "Malachin is the god of battles and hunting. I'd like to fight and hunt, too, but I'm better at tailoring."
+english, "Malachin", "Malachín" -> "Malachin is the god of battles and hunting. I'd like to fight and hunt, too, but I'm better at tailoring."
 "Malachin", "Malachín" -> "Malachin ist der Gott der Schlachten und der Jagd. Ich würde auch gerne Kämpfen und Jagen, aber ich bin besser in der Schneiderei."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Robes, dresses, capes, shirts, trousers... what do you need, I have everything."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Roben, Kleider, Umhänge, Hemden, Hosen,... was braucht ihr, ich habe alles."
-"tell something" -> "Never trade with Galmair. Just saying."
+"tell something" -> trade, "Neverwith Galmair. Just saying."
 "erzähl was", "erzähl etwas" -> "Handelt niemals mit Galmair, sage ich."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
@@ -163,7 +163,7 @@ itemShoes = 53
 "Ja" -> "Pardon?", "Ich hab das nicht verstanden.", "Entschuldigt?"
 "No" -> "What?", "How...", "Could you rephrase that?"
 "Nein" -> "Was?", "Wie jetzt...", "Könntet ihr das anders beschreiben?"
-"Thomas", "Dalenus", english -> "There are many by the name of Thomas, but few of the name Dalenus. And only one Thomas Dalenus, best tailor of Cadomyr!"
+english, "Thomas", "Dalenus" -> "There are many by the name of Thomas, but few of the name Dalenus. And only one Thomas Dalenus, best tailor of Cadomyr!"
 "Thomas", "Dalenus" -> "Es gibt viele, die Thomas heißen, aber nur wenige namens Dalenus. Und nur einen Thomas Dalenus, den besten Schneider Cadomyrs!"
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.

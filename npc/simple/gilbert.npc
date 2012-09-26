@@ -2,16 +2,16 @@
 -- NPC Name: Gilbert                                                  Cadomyr --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: human                      NPC Position:  87, 609, 0             --
+-- NPC Race: orc                        NPC Position:  87, 609, 0             --
 -- NPC Sex:  male                       NPC Direction: southeast              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Gilbert"
-race = human
+race = orc
 sex = male
 position = 87, 609, 0
 direction = southeast
@@ -66,26 +66,26 @@ itemShoes = 53
 -- 8:Quest 'place the fake'solved.
 
 -- Help
-"hilfe", queststatus(303) = 2 -> inform("Vieleicht solltest du einfach versuchen, das Kolier aus Gilberts Tasche zu stehelen."), "Mir können nichteinmal die Götter helfen.", state = 0
-"helfen", queststatus(303) = 2 -> inform("Vieleicht solltest du einfach versuchen, das Kolier aus Gilbert's Tasche zu stehlen."), "Mir können nichteinmal die Götter helfen.", state = 0
-"help", queststatus(303) = 2 -> inform("Maybe you should try out, to pick the necklet out of Gilberts bag."), "Even the gods are not able to help me.", state = 0
-"helfen", queststatus(303) = 5 -> inform("Vieleicht solltest du einfach versuchen, das Kolier in Gilberts Tasche zu schieben."), "Mir können nichteinmal die Götter helfen.", state = 0
-"help", queststatus(303) = 5 -> inform("Maybe you should try out, to place the necklet into Gilbert's bag, carefully."), "Even the gods are not able to help me.", state = 0
-"hilfe", queststatus(303) = 5 -> inform("Vieleicht solltest du einfach versuchen, das Kolier in Gilberts Tasche zu schieben."), "Mir können nichteinmal die Götter helfen.", state = 0
-"hilfe" -> inform("Warum ist er bloß so 'traurig'?"), "Mir können nichteinmal die Götter helfen.", state = 0
-"helfen" -> inform("Warum ist er bloß so 'traurig'?"), "Mir können nichteinmal die Götter helfen.", state = 0
-"help" -> inform("Why for he is so 'dumpish'?"), "Even the gods are not able to help me.", state = 0
+queststatus(303) = 2, "hilfe" -> inform("Vieleicht solltest du einfach versuchen, das Kolier aus Gilberts Tasche zu stehelen."), state = 0, "Mir können nichteinmal die Götter helfen."
+queststatus(303) = 2, "helfen" -> inform("Vieleicht solltest du einfach versuchen, das Kolier aus Gilbert's Tasche zu stehlen."), state = 0, "Mir können nichteinmal die Götter helfen."
+queststatus(303) = 2, "help" -> inform("Maybe you should try out, to pick the necklet out of Gilberts bag."), state = 0, "Even the gods are not able to help me."
+queststatus(303) = 5, "helfen" -> inform("Vieleicht solltest du einfach versuchen, das Kolier in Gilberts Tasche zu schieben."), state = 0, "Mir können nichteinmal die Götter helfen."
+queststatus(303) = 5, "help" -> inform("Maybe you should try out, to place the necklet into Gilbert's bag, carefully."), state = 0, "Even the gods are not able to help me."
+queststatus(303) = 5, "hilfe" -> inform("Vieleicht solltest du einfach versuchen, das Kolier in Gilberts Tasche zu schieben."), state = 0, "Mir können nichteinmal die Götter helfen."
+"hilfe" -> inform("Warum ist er bloß so 'traurig'?"), state = 0, "Mir können nichteinmal die Götter helfen."
+"helfen" -> inform("Warum ist er bloß so 'traurig'?"), state = 0, "Mir können nichteinmal die Götter helfen."
+"help" -> inform("Why for he is so 'dumpish'?"), state = 0, "Even the gods are not able to help me."
 "Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hallo.", "Grüße.", "Guten Tag.", "Gruß.", "Seid gegrüßt."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo.", "Grüße.", "Guten Tag.", "Gruß.", "Seid gegrüßt."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo.", "Grüße.", "Guten Tag.", "Gruß.", "Seid gegrüßt."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Good bye.", "Bye.", "Ciao.", "Adieu...", "You leave?"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Tschüß.", "Tschüss.", "Wiedersehen.", "Auf bald", "Gehabt euch wohl.", "Adieu...", "Au revoir..."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell.", "Good bye.", "Bye.", "Ciao.", "Adieu...", "You leave?"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Good bye.", "Bye.", "Ciao.", "Adieu...", "You leave?"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Tschüß.", "Tschüss.", "Wiedersehen.", "Auf bald", "Gehabt euch wohl.", "Adieu...", "Au revoir..."
 "How are you", "How feel", "How do you do" -> "I'm fine.", "Great, and you?", "Pfff!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Pfff!", "Danke,nicht gut.", "Schlecht und dir?"
@@ -93,58 +93,56 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin %NPCNAME."
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "quest", "mission" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- quest necklace thief
-"geschichte", "trauer", "traurig", "melancholisch", queststatus(303) < 1 -> "Als meine Mutter starb vermachte sie mir ein wertvolles Kollier. Ich hab das nie jemanden erzählt, doch vor kurzem hat meine schreckliche Halbschwester herausgefunden das ich es habe. Und jetzt fürchte ich sie will es mir wegnehmen. Was soll ich tun? Ich trage es die ganze Zeit in meiner Tasche, nur da ist es sicher."
-"story", "tale", "dol[e,or,our]", "dumpish", "melanch", queststatus(303) < 1 -> "When my mother passed away, she bequeathed a precious necklace to me. I never told anyone about it, but a few days ago, my dreadful half-sister discovered that I hold the necklace. Now I am worried that she'll try to take it from me. What should I do ? I have it in my bag at all times. It is the only safe place I think."
-"necklet", "necklace", queststatus(303) < 1 -> "I always have an eye on the necklace. You cant trust my revolting half-sister. I think she's trying to sell our only heirloom!"
-"kollier", "amulett", queststatus(303) < 1 -> "Ich darf das Kollier nie aus den Augen lassen! Meiner hinterhältigen Halbschwester ist nicht zu trauen. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
-"schwester", queststatus(303) < 1 -> "Sie ist meine Halbschwester. Wir haben den selben Vater und haben uns nie richig gemocht. Ständig ist sie unaufrichtig und belügt die Leute. Ich möchte gar nicht wissen wie sie ihr Geld verdient."
-"sister", queststatus(303) < 1 -> "She is my half-sister. We have the same father, but never really liked each other. Everything she does is devious. I really dont want to know how she earns her money."
-"#me (.+) necklet", "#me (.+) necklace", queststatus(303) = 2 -> inform("You pick Gilbert's necklace out of his bag. You don't have a bad conscience?"), "#me is not aware that the necklace is nicked from his bag.", item(79, 1, 333, 0), queststatus(303) = 3
-"#me (.+) kollier", "#me (.+) amulett", queststatus(303) = 2 -> inform("Du stiehlst das Kollier aus Gilberts Tasche. Hast du kein schlechtes Gewissen?"), "#me bemerkt nicht wie ihm das Kollie aus der Tasche gestohlen wird.", item(79, 1, 333, 0), queststatus(303) = 3
-"geschichte", "trauer", "traurig", "melancholisch", queststatus(303) = 3 -> "Ich hab das Erbstück meiner Mutter verloren! Ein sehr wervolles Kollier, es muss mir auf den Boden gafallen sein. Hilfst du mir suchen?"
-"story", "tale", "dol[e,or,our]", "dumpish", "melanch", queststatus(303) = 3 -> "I lost the heirloom of my mother! It is a very, very precious necklace! I must have dropped it on the ground. Could you help me find it?"
-"necklet", "necklace", queststatus(303) = 3 -> "What a mess! Especially now, while my horrible half-sister's trying to take it from me. I hope I find it before she arrives."
-"kollier", "amulett", queststatus(303) = 3 -> "Was für eine Schande! Gerade jetzt, wo meine grauenvolle Halbschwester versucht es mir wegzunehmen. Hoffentlich finde ich das Kollier bevor sie hier her kommt."
-"schwester", queststatus(303) = 3 -> "Meiner hinterhältigen Halbschwester ist nicht zu trauen. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
-"sister", queststatus(303) = 3 -> "You cant trust my revolting half-sister. I think she's trying to sell our only heirloom!"
+queststatus(303) < 1, "geschichte", "trauer", "traurig", "melancholisch" -> "Als meine Mutter starb vermachte sie mir ein wertvolles Kollier. Ich hab das nie jemanden erzählt, doch vor kurzem hat meine schreckliche Halbschwester herausgefunden das ich es habe. Und jetzt fürchte ich sie will es mir wegnehmen. Was soll ich tun? Ich trage es die ganze Zeit in meiner Tasche, nur da ist es sicher."
+queststatus(303) < 1, "story", "tale", "dol[e,or,our]", "dumpish", "melanch" -> "When my mother passed away, she bequeathed a precious necklace to me. I never told anyone about it, but a few days ago, my dreadful half-sister discovered that I hold the necklace. Now I am worried that she'll try to take it from me. What should I do ? I have it in my bag at all times. It is the only safe place I think."
+queststatus(303) < 1, "necklet", "necklace" -> "I always have an eye on the necklace. You cant trust my revolting half-sister. I think she's trying to sell our only heirloom!"
+queststatus(303) < 1, "kollier", "amulett" -> "Ich darf das Kollier nie aus den Augen lassen! Meiner hinterhältigen Halbschwester ist nicht zu trauen. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
+queststatus(303) < 1, "schwester" -> "Sie ist meine Halbschwester. Wir haben den selben Vater und haben uns nie richig gemocht. Ständig ist sie unaufrichtig und belügt die Leute. Ich möchte gar nicht wissen wie sie ihr Geld verdient."
+queststatus(303) < 1, "sister" -> "She is my half-sister. We have the same father, but never really liked each other. Everything she does is devious. I really dont want to know how she earns her money."
+queststatus(303) = 2, "#me (.+) necklet", "#me (.+) necklace" -> inform("You pick Gilbert's necklace out of his bag. You don't have a bad conscience?"), item(79, 1, 333), queststatus(303) = 3, "#me is not aware that the necklace is nicked from his bag."
+queststatus(303) = 2, "#me (.+) kollier", "#me (.+) amulett" -> inform("Du stiehlst das Kollier aus Gilberts Tasche. Hast du kein schlechtes Gewissen?"), item(79, 1, 333), queststatus(303) = 3, "#me bemerkt nicht wie ihm das Kollie aus der Tasche gestohlen wird."
+queststatus(303) = 3, "geschichte", "trauer", "traurig", "melancholisch" -> "Ich hab das Erbstück meiner Mutter verloren! Ein sehr wervolles Kollier, es muss mir auf den Boden gafallen sein. Hilfst du mir suchen?"
+queststatus(303) = 3, "story", "tale", "dol[e,or,our]", "dumpish", "melanch" -> "I lost the heirloom of my mother! It is a very, very precious necklace! I must have dropped it on the ground. Could you help me find it?"
+queststatus(303) = 3, "necklet", "necklace" -> "What a mess! Especially now, while my horrible half-sister's trying to take it from me. I hope I find it before she arrives."
+queststatus(303) = 3, "kollier", "amulett" -> "Was für eine Schande! Gerade jetzt, wo meine grauenvolle Halbschwester versucht es mir wegzunehmen. Hoffentlich finde ich das Kollier bevor sie hier her kommt."
+queststatus(303) = 3, "schwester" -> "Meiner hinterhältigen Halbschwester ist nicht zu trauen. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
+queststatus(303) = 3, "sister" -> "You cant trust my revolting half-sister. I think she's trying to sell our only heirloom!"
 
 -- quest2 place the fake
-"#me (.+) necklet", "#me (.+) necklace", queststatus(303) = 5, item(222, belt) => 1 -> inform("You place the faked necklace in Gilbert's bag. You don't have a bad conscience?"), "#me does not notice that a necklace is placed in his bag.", deleteItem(222, 1), queststatus(303) = 7
-"#me (.+) kollier", "#me (.+) amulett", queststatus(303) = 5, item(222, belt) => 1 -> inform("Du schmuggelst das falsche Kollier in Gilberts Tasche. Hast du kein schlechtes Gewissen?"), "#me bemerkt nicht, dass ihm ein Kollier in die Tasche gesteckt wird.", deleteItem(222, 1), queststatus(303) = 7
-"necklet", "necklace", queststatus(303) = 5, item(79, all) = 1 -> inform("Put the necklace into your belt, if you are willing to place it into Gilbert's bag.")
-"kollier", "amulett", queststatus(303) = 5, item(79, all) = 1 -> inform("Lege das Amuelett in deinen Gürtel, um es Gilbert unterzuscheieben.")
-"geschichte", "trauer", "traurig", "melancholisch", queststatus(303) > 6 -> "Das gesuchte Kollier war die ganze Zeit in meiner Tasche! Ich hab es nur nicht gesehen. Aber jetzt wird wohl bald meine Halbschwester Rose hier auftauchen und es mir wegnehmen."
-"story", "tale", "dol[e,or,our]", "dumpish", "melanch", queststatus(303) > 6 -> "This priceless necklace was in my bag all along! I just didn't notice it. But now my half-sister Rose will visit me and steal it."
-"necklet", "necklace", queststatus(303) > 6 -> "I'm so happy that I found the necklace but also a litte sad, because now Rose has another chance to get it."
-"kollier", "amulett", queststatus(303) > 6 -> "Ich bin sehr glücklich dass ich das Kollier gefunden habe. Auf der anderen Seite hat nun Rose abermals die Möglichkeit es zu bekommen."
-"schwester", queststatus(303) > 6 -> "Rose ist meine Halbschwester. Ständig ist sie unaufrichtig und belügt die Leute. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
-"sister", queststatus(303) > 6 -> "Rose is my half-sister. Everything she does is devious. I think she's trying to sell our only heirloom!"
-"rose", queststatus(303) > 6, german -> "Rose ist meine Halbschwester. Ständig ist sie unaufrichtig und belügt die Leute. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
-"rose", queststatus(303) > 6, english -> "Rose is my half-sister. Everything she does is devious. I think she's trying to sell our only heirloom!"
+queststatus(303) = 5, item(222, belt) => 1, "#me (.+) necklet", "#me (.+) necklace" -> inform("You place the faked necklace in Gilbert's bag. You don't have a bad conscience?"), deleteItem(222, 1), queststatus(303) = 7, "#me does not notice that a necklace is placed in his bag."
+queststatus(303) = 5, item(222, belt) => 1, "#me (.+) kollier", "#me (.+) amulett" -> inform("Du schmuggelst das falsche Kollier in Gilberts Tasche. Hast du kein schlechtes Gewissen?"), deleteItem(222, 1), queststatus(303) = 7, "#me bemerkt nicht, dass ihm ein Kollier in die Tasche gesteckt wird."
+queststatus(303) = 5, item(79, all) = 1, "necklet", "necklace" -> inform("Put the necklace into your belt, if you are willing to place it into Gilbert's bag.")
+queststatus(303) = 5, item(79, all) = 1, "kollier", "amulett" -> inform("Lege das Amuelett in deinen Gürtel, um es Gilbert unterzuscheieben.")
+queststatus(303) > 6, "geschichte", "trauer", "traurig", "melancholisch" -> "Das gesuchte Kollier war die ganze Zeit in meiner Tasche! Ich hab es nur nicht gesehen. Aber jetzt wird wohl bald meine Halbschwester Rose hier auftauchen und es mir wegnehmen."
+queststatus(303) > 6, "story", "tale", "dol[e,or,our]", "dumpish", "melanch" -> "This priceless necklace was in my bag all along! I just didn't notice it. But now my half-sister Rose will visit me and steal it."
+queststatus(303) > 6, "necklet", "necklace" -> "I'm so happy that I found the necklace but also a litte sad, because now Rose has another chance to get it."
+queststatus(303) > 6, "kollier", "amulett" -> "Ich bin sehr glücklich dass ich das Kollier gefunden habe. Auf der anderen Seite hat nun Rose abermals die Möglichkeit es zu bekommen."
+queststatus(303) > 6, "schwester" -> "Rose ist meine Halbschwester. Ständig ist sie unaufrichtig und belügt die Leute. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
+queststatus(303) > 6, "sister" -> "Rose is my half-sister. Everything she does is devious. I think she's trying to sell our only heirloom!"
+queststatus(303) > 6, german, "rose" -> "Rose ist meine Halbschwester. Ständig ist sie unaufrichtig und belügt die Leute. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
+queststatus(303) > 6, english, "rose" -> "Rose is my half-sister. Everything she does is devious. I think she's trying to sell our only heirloom!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "job" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Gobaith", "Gobiath" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "my name" -> "Nice to meet you."
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 -- smalltalk
-"murgo", race = orc, english -> "Yes! Murgo is a big strong warrior! Everybody is afraid of him!"
-"murgo", race = orc -> "Jaah! Murgo ist ein großer starker Krieger! Alle haben Angst vor ihm!"
-"murgo", english -> "He bothered you too? These orcs are a plague."
+english, "murgo" -> "He bothered you too? These orcs are a plague."
 "murgo" -> "Hat er dich auch belästigt? Diese Orks sind eine Plage."
-"Otto", "Martin", "Sauerteig", english -> "Oh my! These halfers are rather uncaring..."
+english, "Otto", "Martin", "Sauerteig" -> "Oh my! These halfers are rather uncaring..."
 "Otto", "Martin", "Sauerteig" -> "Ach! Diese Halblinge sind doch so unbekümmert..."
 "YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -160,63 +158,63 @@ itemShoes = 53
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Elvaine", "Morgan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Runewick" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Valerio", "Guilianni", "Don" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Galmair" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "rosaline", "edwards" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Cadomyr" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "albar" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "gynk", "gync" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "salkama" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Adron" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Bragon", "Brágon" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Cherga" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Elara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Eldan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Findari" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Irmorom" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Malachin", "Malachín" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Moshran" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Nargun", "Nargún", "Nargùn" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Oldra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Ronagan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Sirani" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Tanora", "Zelphia" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Ushara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Zhambra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Catching typical NPC phrases
@@ -226,7 +224,7 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "<NPC first name>", "<NPC last name>" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -234,8 +232,8 @@ itemShoes = 53
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-".*", german, chance(20.0) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, chance(20.0), ".*" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+german, chance(20.0), ".*" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

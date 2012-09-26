@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Madeline Clarbelis"
@@ -59,21 +59,21 @@ itemShoes = 53
 -- Position, direction, affiliation
 
 -- Debugging
-".+", queststatus(334) > 2 -> inform("[Error] Something went wrong, please inform a developer.")
-".+", queststatus(333) > 12 -> inform("[Error] Something went wrong, please inform a developer.")
+queststatus(334) > 2, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
+queststatus(333) > 12, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Madeline Clarbelis the apprentice druid. Keywords: quest, Aurora, profession, apprentice, Ushara.")
 "Hilfe" -> inform("[Spielhilfe]  Dieser NPC ist Mabeline Clarbelis die Druiden-Schülerin. Schlüsselwörter: Auftrag, Aurora, Beruf, Lehrling, Ushara,")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me blushes slightly, 'H...hello there.'", "#me glances toward her feet, 'Greetings.'", "G...greetings."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me wird leicht rot.,'H...Hallo.'", "#me schaut verlegen zu Boden 'G...Grüße '.", "G...Grüße."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "#me blushes slightly, 'H...hello there.'", "#me glances toward her feet, 'Greetings.'", "G...greetings."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me blushes slightly, 'H...hello there.'", "#me glances toward her feet, 'Greetings.'", "G...greetings."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me wird leicht rot.,'H...Hallo.'", "#me schaut verlegen zu Boden 'G...Grüße '.", "G...Grüße."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me blushes slightly, 'H...hello there.'", "#me glances toward her feet, 'Greetings.'", "G...greetings."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me wird leicht rot.,'H...Hallo.'", "#me schaut verlegen zu Boden 'G...Grüße '.", "G...Grüße."
 "Farewell", "Bye", "Fare well", "See you" -> "#me purses her lips, nodding once.", "Take care.", "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "#me schützt ihre Lippen, nickt einer mal kurz.", "Gebt Acht.", "Lebt wohl."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "#me purses her lips, nodding once.", "Take care.", "Farewell."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me purses her lips, nodding once.", "Take care.", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me schützt ihre Lippen, nickt einer mal kurz.", "Gebt Acht.", "Lebt wohl."
 "How are you", "How feel", "How do you do" -> "I...I am fine.", "Well...of course. Why would I be otherwise?", "#me fidgets nervously, 'I cannot complain.'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "I...Ich, mir geht es gut.", "Gut... natürlich. Warum sollte es mir schlecht gehen?", "#me zappelt nervös. 'Ich kann nicht klagen'."
@@ -83,137 +83,137 @@ itemShoes = 53
 -- 1st quest: Deliver 'Aurora's staff': receive long staff handle
 
 -- Give out quest 1
-"quest", "mission", queststatus(333) = 2, english -> inform("[Quest Update] Aurora's Staff: Part I"), "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.", item(401, 1, 599, 0), queststatus(333) = 3
-"quest", "mission", queststatus(333) = 2 -> inform("[Neues Quest] Die Geistereiche I"), "#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit.", item(40, 1, 599, 0), queststatus(333) = 3
-"task", "adventure", queststatus(333) = 2 -> inform("[New quest] Aurora's Staff: Part I"), "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.", item(40, 1, 599, 0), queststatus(333) = 3
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(333) = 2 -> inform("[Neues Quest] Die Geistereiche I"), "#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit.", item(40, 1, 599, 0), queststatus(333) = 3
+queststatus(333) = 2, english, "quest", "mission" -> inform("[Quest Update] Aurora's Staff: Part I"), item(401, 1, 599), queststatus(333) = 3, "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it."
+queststatus(333) = 2, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche I"), item(40, 1, 599), queststatus(333) = 3, "#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit."
+queststatus(333) = 2, "task", "adventure" -> inform("[New quest] Aurora's Staff: Part I"), item(40, 1, 599), queststatus(333) = 3, "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it."
+queststatus(333) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche I"), item(40, 1, 599), queststatus(333) = 3, "#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit."
 
 -- Give out quest 1
-"quest", "mission", queststatus(333) = 5, english -> inform("[Quest Update] Aurora's Staff: Part II"), "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here.", queststatus(333) = 6
-"quest", "mission", queststatus(333) = 5 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(333) = 6
-"task", "adventure", "staff", queststatus(333) = 5 -> inform("[Quest Update] Aurora's Staff: Part II"), "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here.", queststatus(333) = 6
-"Auftrag", "Aufgabe", "Abenteuer", "Stab", queststatus(333) = 5 -> inform("[Neues Quest] Die Geistereiche I"), "Es tut mir wirklich leid. Ich hätte nicht lügen sollen. Ein Halbling, Fosco Goodbarrel hat mich rein gelegt, so dass ich ihm den Stab gegeben habe. Er sagte, er könne mich zu einem mächtigeren Druiden machen. Ich wollte nicht das man mich für dumm hält. Ihr findet ihn im Wald westlich von hier.", queststatus(333) = 6
+queststatus(333) = 5, english, "quest", "mission" -> inform("[Quest Update] Aurora's Staff: Part II"), queststatus(333) = 6, "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here."
+queststatus(333) = 5, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(333) = 6, "GERMAN."
+queststatus(333) = 5, "task", "adventure", "staff" -> inform("[Quest Update] Aurora's Staff: Part II"), queststatus(333) = 6, "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here."
+queststatus(333) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Stab" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(333) = 6, "Es tut mir wirklich leid. Ich hätte nicht lügen sollen. Ein Halbling, Fosco Goodbarrel hat mich rein gelegt, so dass ich ihm den Stab gegeben habe. Er sagte, er könne mich zu einem mächtigeren Druiden machen. Ich wollte nicht das man mich für dumm hält. Ihr findet ihn im Wald westlich von hier."
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(333) = 6, english -> "You should go find the Halfling, Fosco Goodbarrel. He is in the forest west of here. He has Aurora's staff."
-"quest", "mission", queststatus(333) = 6 -> "Ihr sollt gehen und den Halbling Fosca Goodbarrel finden. Er hat Auroras Stab."
-"task", "adventure", "staff", queststatus(333) = 6 -> "You should go find the Halfling, Fosco Goodbarrel. He is in the forest west of here. He has Aurora's staff."
-"Auftrag", "Aufgabe", "Abenteuer", "Stab", queststatus(333) = 6 -> "Ihr sollt gehen und den Halbling Fosca Goodbarrel finden. Er hat Auroras Stab."
+queststatus(333) = 6, english, "quest", "mission" -> "You should go find the Halfling, Fosco Goodbarrel. He is in the forest west of here. He has Aurora's staff."
+queststatus(333) = 6, "quest", "mission" -> "Ihr sollt gehen und den Halbling Fosca Goodbarrel finden. Er hat Auroras Stab."
+queststatus(333) = 6, "task", "adventure", "staff" -> "You should go find the Halfling, Fosco Goodbarrel. He is in the forest west of here. He has Aurora's staff."
+queststatus(333) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Stab" -> "Ihr sollt gehen und den Halbling Fosca Goodbarrel finden. Er hat Auroras Stab."
 
 -- 2nd quest: Bring 10 RESOURCES
 
 -- Give out quest 2
-"quest", "mission", queststatus(334) = 0, english -> inform("[New quest] The Lazy Apprentice"), "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.", queststatus(334) = 1
-"quest", "mission", queststatus(334) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten", queststatus(334) = 1
-"task", "adventure", queststatus(334) = 0 -> inform("[New quest] The Lazy Apprentice"), "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.", queststatus(334) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(334) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten", queststatus(334) = 1
+queststatus(334) = 0, english, "quest", "mission" -> inform("[New quest] The Lazy Apprentice"), queststatus(334) = 1, "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms."
+queststatus(334) = 0, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(334) = 1, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten"
+queststatus(334) = 0, "task", "adventure" -> inform("[New quest] The Lazy Apprentice"), queststatus(334) = 1, "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms."
+queststatus(334) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(334) = 1, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten"
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(334) = 1, item(153, all) < 4, english -> "I really need you to bring me those four foot leaves."
-"quest", "mission", queststatus(334) = 1, item(153, all) < 4 -> "Ihr soltete mir wirklich noch die vier Fussblatt bringen."
-"task", "adventure", queststatus(334) = 1, item(153, all) < 4 -> "I really need you to bring me those four foot leaves."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(334) = 1, item(153, all) < 4 -> "Ihr soltete mir wirklich noch die vier Fussblatt bringen."
-"quest", "mission", queststatus(334) = 1, item(148, all) < 2, english -> "You've got the four foot leaves, but I also need you to bring me those two firnis blossoms."
-"quest", "mission", queststatus(334) = 1, item(148, all) < 2 -> "Ihr habt mir vier Fussblatt gegeben. Jetzt sucht mir noch zwei Firnisblüten."
-"task", "adventure", queststatus(334) = 1, item(148, all) < 2 -> "You've got the four foot leaves, but I also need you to bring me those two firnis blossoms."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(334) = 1, item(148, all) < 2 -> "Ihr habt mir vier Fussblatt gegeben. Jetzt sucht mir noch zwei Firnisblüten."
+queststatus(334) = 1, item(153, all) < 4, english, "quest", "mission" -> "I really need you to bring me those four foot leaves."
+queststatus(334) = 1, item(153, all) < 4, "quest", "mission" -> "Ihr soltete mir wirklich noch die vier Fussblatt bringen."
+queststatus(334) = 1, item(153, all) < 4, "task", "adventure" -> "I really need you to bring me those four foot leaves."
+queststatus(334) = 1, item(153, all) < 4, "Auftrag", "Aufgabe", "Abenteuer" -> "Ihr soltete mir wirklich noch die vier Fussblatt bringen."
+queststatus(334) = 1, item(148, all) < 2, english, "quest", "mission" -> "You've got the four foot leaves, but I also need you to bring me those two firnis blossoms."
+queststatus(334) = 1, item(148, all) < 2, "quest", "mission" -> "Ihr habt mir vier Fussblatt gegeben. Jetzt sucht mir noch zwei Firnisblüten."
+queststatus(334) = 1, item(148, all) < 2, "task", "adventure" -> "You've got the four foot leaves, but I also need you to bring me those two firnis blossoms."
+queststatus(334) = 1, item(148, all) < 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Ihr habt mir vier Fussblatt gegeben. Jetzt sucht mir noch zwei Firnisblüten."
 
 -- Quest 2 solved, reward: 5 small healing potions
-".+", queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1, english -> inform("[Quest solved] You are awarded 200 copper coins."), "Oh wonderful, thank you! Mistress Snow shall be so pleased with me! Here, take this as payment.", money + 200, deleteItem(153, 4), deleteItem(148, 2), queststatus(334) = 2
-".+", queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1 -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), "Oh, wunderbar, vielen Dank! Meine Lehrerin Frau Shnow wird so stolz auf mich sein! Hier, nehmt dies zu Dank.", money + 200, deleteItem(153, 4), deleteItem(148, 2), queststatus(334) = 2
+queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1, english, ".+" -> inform("[Quest solved] You are awarded 200 copper coins."), money + 200, deleteItem(153, 4), deleteItem(148, 2), queststatus(334) = 2, "Oh wonderful, thank you! Mistress Snow shall be so pleased with me! Here, take this as payment."
+queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), money + 200, deleteItem(153, 4), deleteItem(148, 2), queststatus(334) = 2, "Oh, wunderbar, vielen Dank! Meine Lehrerin Frau Shnow wird so stolz auf mich sein! Hier, nehmt dies zu Dank."
 
 -- No more quests, just nice words of gratitude
-"quest", "mission", queststatus(334) = 2, english -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
-"quest", "mission", queststatus(334) = 2 -> "Danke für Eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
-"task", "adventure", queststatus(334) = 2 -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(334) = 2 -> "Danke für Eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
+queststatus(334) = 2, english, "quest", "mission" -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
+queststatus(334) = 2, "quest", "mission" -> "Danke für Eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
+queststatus(334) = 2, "task", "adventure" -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
+queststatus(334) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Danke für Eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I...I am training to be a druid.", "I am an apprentice druid.", "I will be a druid, one day."
 "beruf" -> "I...Ich lerne um eine Druidin zu werden.", "Ich bin ein angehender Druide.", "I werde eines Tages eine Druidin sein."
-"job", english -> "I...I am training to be a druid.", "I am an apprentice druid.", "I will be a druid, one day."
+english, "job" -> "I...I am training to be a druid.", "I am an apprentice druid.", "I will be a druid, one day."
 "job" -> "I...Ich lerne um eine Druidin zu werden.", "Ich bin ein angehender Druide.", "I werde eines Tages eine Druidin sein."
-"Gobaith", "Gobiath", english -> "That island was...dull.", "The people there were so...nosy.", "I liked Gobaith, I suppose."
+english, "Gobaith", "Gobiath" -> "That island was...dull.", "The people there were so...nosy.", "I liked Gobaith, I suppose."
 "Gobaith", "Gobiath" -> "Die Insel war ….totlangweilg.", "Die Leute hier waren so … laut.", "Ich mochte Gobiath, glaub ich."
 "my name" -> "I...it is nice to meet you.", "A p...pleasure to meet you.", "I am glad to meet you."
 "mein Name" -> "F...freut mich Euch kennen zu lernen.", "I...Ich freu mich euch zu treffen.", "E... Es ist eine Freude Euch zu terffen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"druid", english -> "Yes, one day I shall be a druid! I cannot wait for that day to come!", "I am only learning the ways of the druids at the moment. But soon I hope to be one myself!", "#me sighs faintly, 'It takes a long time to learn the true ways of nature.'"
-"aurora", english -> "Aurora was kind enough to choose me as her apprentice. She is very slow to teach me, though.", "Mistress Aurora is teaching me the ways of the druids. I wish she would hurry up...", "Aurora tells me that I need to learn patience. I wish she would hurry up and teach me it."
+english, "druid" -> "Yes, one day I shall be a druid! I cannot wait for that day to come!", "I am only learning the ways of the druids at the moment. But soon I hope to be one myself!", "#me sighs faintly, 'It takes a long time to learn the true ways of nature.'"
+english, "aurora" -> "Aurora was kind enough to choose me as her apprentice. She is very slow to teach me, though.", "Mistress Aurora is teaching me the ways of the druids. I wish she would hurry up...", "Aurora tells me that I need to learn patience. I wish she would hurry up and teach me it."
 "Druid" -> "Ja, eines Tages werde ich Druidin sein! Ich kann den Tag kaum erwarten!", "Ich lerne  noch ein Druide zu sein, aber ich hoffe schon jetzt, dass ich eines Tages selbst eine Druidin sein werde.", "#me seufzt leise. 'Es wird noch lange dauern, die Wege der Natur zu ergründen.'"
 "Aurora" -> "Aurora war so freundlich mich als ihre Schülerin aufzunehmen. Aber sie unterrichtet sehr langsam.", "Meine Lehrerin Aurora bringt mir bei ein Druide zu sein, ich wünschte nur sie würde sich etwas mehr beeilen."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Mistress Aurora says that he is missing something. I wonder what she means.", "I hear that the Archmage is the most powerful mage to ever step foot on these lands.", "I wonder if he takes as long to teach magic as Mistress Aurora does to teach me the ways of a druid."
 "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elvaine", "Morgan", english -> "Mistress Aurora says that he is missing something. I wonder what she means.", "I hear that the Archmage is the most powerful mage to ever step foot on these lands.", "I wonder if he takes as long to teach magic as Mistress Aurora does to teach me the ways of a druid."
+english, "Elvaine", "Morgan" -> "Mistress Aurora says that he is missing something. I wonder what she means.", "I hear that the Archmage is the most powerful mage to ever step foot on these lands.", "I wonder if he takes as long to teach magic as Mistress Aurora does to teach me the ways of a druid."
 "Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Runewick", english -> "There are so many books in Runewick. Can you read? I can.", "Mistress Aurora says that I should spend lots of time in Runewick, if I want to become wise like she is.", "Sometimes I can't understand what the people in Runewick are saying. They speak with really big words."
+english, "Runewick" -> "There are so many books in Runewick. Can you read? I can.", "Mistress Aurora says that I should spend lots of time in Runewick, if I want to become wise like she is.", "Sometimes I can't understand what the people in Runewick are saying. They speak with really big words."
 "Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Valerio", "Guilianni", "Don", english -> "They say he has a lot of money.", "Mistress Aurora says that money isn't important. The Don has a lot of it, though.", "The Don rules the town of Galmair."
+english, "Valerio", "Guilianni", "Don" -> "They say he has a lot of money.", "Mistress Aurora says that money isn't important. The Don has a lot of it, though.", "The Don rules the town of Galmair."
 "Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "Mistress Aurora says that the people who live there are small-minded.", "People say that Galmair reminds them of Gynk. I've never been to Gynk, though.", "The town of Galmair is ruled by the Don."
+english, "Galmair" -> "Mistress Aurora says that the people who live there are small-minded.", "People say that Galmair reminds them of Gynk. I've never been to Gynk, though.", "The town of Galmair is ruled by the Don."
 "Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Queen" -> "Mistress Aurora doesn't tell me too much about the Queen.", "Queen Rosaline is very pretty.", "Queen Rosaline is the ruler of Cadomyr."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "Mistress Aurora doesn't tell me too much about the Queen.", "Queen Rosaline is very pretty.", "Queen Rosaline is the ruler of Cadomyr."
+english, "rosaline", "edwards" -> "Mistress Aurora doesn't tell me too much about the Queen.", "Queen Rosaline is very pretty.", "Queen Rosaline is the ruler of Cadomyr."
 "rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "I think the people who live in Cadomyr are very nice.", "Mistress Aurora says that very good lessons can be learned from the people of Cadomyr. She won't tell me what the lessons are, though.", "The town of Cadomyr is ruled by the Queen Rosaline."
+english, "Cadomyr" -> "I think the people who live in Cadomyr are very nice.", "Mistress Aurora says that very good lessons can be learned from the people of Cadomyr. She won't tell me what the lessons are, though.", "The town of Cadomyr is ruled by the Queen Rosaline."
 "Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
-"albar", english -> "I don't know much about Albar.", "I hear that they don't respect women in Albar. Is that true?", "People tell me that Albar is a corrupt land. Aurora tells me that it is none of my concern, though."
+english, "albar" -> "I don't know much about Albar.", "I hear that they don't respect women in Albar. Is that true?", "People tell me that Albar is a corrupt land. Aurora tells me that it is none of my concern, though."
 "albar" -> "Ich weiß nicht viel über Albar.", "Die Leute sagen, dass ma in Albar die Frauen nicht respektiert. Stimmt das?", "Die Leute sagten mir, Albar sei in korruptes Land. Aurora sagte mir das solle ich mich nicht bekümmern."
-"gynk", "gync", english -> "I don't know much about Gynk.", "I've never been to Gynk. Do you think it's nice?", "Mistress Aurora says that society is like a mask. Society doesn't make me laugh, though."
+english, "gynk", "gync" -> "I don't know much about Gynk.", "I've never been to Gynk. Do you think it's nice?", "Mistress Aurora says that society is like a mask. Society doesn't make me laugh, though."
 "gync", "gynk" -> "Ich weiß nicht viel über Gynk.", "Ich war noch nie in Gynk. Glaubt Ihr es ist schön dort?", "Gesellschaft ist eine Fassade, sagt meine Lehrerin Aurora. Ich frage mich, was man wohl erblickt, wenn man dahinter schaut?"
-"salkama", english -> "I don't know much about Salkamar.", "I used to enjoy listening to stories about the heroes from Salkamar.", "Mistress Aurora says that society is like a mask. Society doesn't make me laugh, though."
+english, "salkama" -> "I don't know much about Salkamar.", "I used to enjoy listening to stories about the heroes from Salkamar.", "Mistress Aurora says that society is like a mask. Society doesn't make me laugh, though."
 "salkama" -> "Ich weiß nicht viel über Salkamar.", "Früher hörte ich gern Geschichten über Helden aus Salkamar.", "Gesellschaft ist eine Fassade, sagt meine Leherin Aurora. Ich frage mich, was man wohl erblickt, wenn man dahinter schaut?"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I like to listen to the stories about the Younger Gods. Aurora says that I must learn more about the Elder Ones, though.", "The Elder Ones gave birth to everything...that's what Aurora tells me.", "Aurora talks a lot about Ushara, one of the Elder Gods."
 "Gott", "Götter" -> "Ich höre gerne Geschichte über die jungen Götter. Aurora sagt aber, dass ich mehr über die Alten lernen soll.", "Die alten Götter haben alles erschaffen... das hat Aurora mir gesagt.", "Aurora redet viel über Ushara, einen der alten Götter."
-"Adron", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Adron" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Adron" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Bragon", "Brágon", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Bragon", "Brágon" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Bragon", "Brágon" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Cherga", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Cherga" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Cherga" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Elara", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Elara" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Elara" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Eldan", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Eldan" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Eldan" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Findari", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Findari" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Findari" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Irmorom", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Irmorom" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Irmorom" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Malachin", "Malachín", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Malachin", "Malachín" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Moshran", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Moshran" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Moshran" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Nargun", "Nargún", "Nargùn", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Nargun", "Nargún", "Nargùn" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Nargun", "Nargún", "Nargùn" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Oldra", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Oldra" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Oldra" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Ronagan", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Ronagan" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Ronagan" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Sirani", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Sirani" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Sirani" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Tanora", "Zelphia", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Tanora", "Zelphia" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Tanora", "Zelphia" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
-"Ushara", english -> "Aurora always talks about Ushara. She is the Goddess of Earth.", "Aurora tells me that she has met Ushara. She must be so old.", "I have to learn a lot about Ushara. I wish it didn't take so long."
+english, "Ushara" -> "Aurora always talks about Ushara. She is the Goddess of Earth.", "Aurora tells me that she has met Ushara. She must be so old.", "I have to learn a lot about Ushara. I wish it didn't take so long."
 "Ushara" -> "Aurora redet immer über Ushara. Sie ist die Göttin der Erde.", "Aurora erzählte mir sie habe Ushara getroffen, sie muss so alt sein.", "Ich muss viel über Ushara lernen, ich wünschte es würde nicht so lange brauchen."
-"Zhambra", english -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
+english, "Zhambra" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Zhambra" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I don't want to trade.", "I don't wish to trade today, thank you.", "Sorry, but Aurora tells me that I cannot be enticed by material possessions."
+"what sell", "what buy", "list wares", "price of" -> trade, trade, "I don't want to.", "I don't wish totoday, thank you.", "Sorry, but Aurora tells me that I cannot be enticed by material possessions."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich möchte nicht handeln.", "Ich wünsche heute nicht zu handeln, habt Dank.", "Entschuldigt, aber Aurora hat gesagt ich solle mich nicht von materiellen Dingen verführen lassen."
 "tell something" -> "You should go for a walk through the forest. It's quiet, and very pretty. Watch out for wild animals, though.", "Sometimes you can find herbs that have blown across the land. Aurora gets me to pick them up for her.", "If you want to become a druid, you should find someone to take you as their apprentice. I don't recommend an Elf, though."
 "erzähl was", "erzähl etwas" -> "Ihr solltet im Wald spazieren gehen. Dort ist es ruhig und sehr schön. Gebt nur Acht auf wilde Tiere.", "Manchmal findet man Kräuter die der Wind über dem Land verstreut hat. Aurora lässt mich diese Kräuter für sie sammeln", "Wenn Ihr Druide werden wollt so such jemanden, er euch als Schüler annimmt. Ich rate euch, wählt keinen Elfen als Lehrmeister."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Madeline", "Clarbelis", english -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
+english, "Madeline", "Clarbelis" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
 "Madeline", "Clarbelis" -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
 "Yes" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
 "Ja" -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
@@ -221,8 +221,8 @@ itemShoes = 53
 "Nein" -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
-".*", german, chance(20.0) -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
+english, chance(20.0), ".*" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
+german, chance(20.0), ".*" -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

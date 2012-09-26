@@ -1,0 +1,287 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Aresilia Teleri                                             None --
+-- NPC Job:  quest                                                            --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  896, 803, 1            --
+-- NPC Sex:  female                     NPC Direction: south                  --
+--                                                                            --
+-- Author:   Zot & RIncewind                                                  --
+--                                                                            --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Aresilia Teleri"
+race = human
+sex = female
+position = 896, 803, 1
+direction = south
+affiliation = "None"
+job = "quest"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Zot & RIncewind"
+
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 847
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 827
+itemShoes = 53
+
+-- queststatus(83) Overview
+
+-- 0: No Quest taken
+-- 1: Quest 1 taken - gather 10 raw materials of two different kinds and 1 needed tools for +5 skill while skill<=20
+-- 2: Quest 1 solved
+-- 3: Quest 2 taken - gather 15 raw materials, 2 differnt tools and 5 semi finished products for +5 skill while 20<skill<=40
+-- 4: Quest 2 solved
+-- 5: Quest 3 taken - gather 4 needed tools, 10 semi finished products of 2 kinds and 5 easy finished products for +5 skill while 40<skill<=60
+-- 6: Quest 3 solved
+-- 7: Quest 4 taken - gather 15 semi finished products, 10 easy finished products of 2 kinds and 5 advanced finished products for skill+5 while 60<skill<=80
+-- 8: Quest 4 solved
+
+-- Cycletext:
+
+-- Help
+"Help" -> "[Game Help] This NPC is the tailor Aresilia Teleri. Keywords: Hello, quest, needle, adventure, stirring rod, cloth"
+"Hilfe" -> "[Spielhilfe] Dieser NPC ist die Schneiderin Aresilia Teleri. Schlüsselwörter: Hallo, Quest, Aufgaben, Rührstab, Nadel, Stoff"
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day as well.", "Be welcome.", "Greets, how are you today?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Einen wunderschönen Tag wünsch ich!", "Tagchen", "Grüße euch."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day as well.", "Be welcome.", "Greets, how are you today?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Wie? Ich höre nicht so gut, wie war das?", "Was..nein, sowas sagt man doch nicht!", "Gefällt mir nicht, sag was anderes!"
+"Farewell", "Bye", "Fare well", "See you" -> "Bye.", "Have a good day.", "Farewell."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf wiedersehen.", "Einen schönen Tag wünsch ich noch.", "Ja, tschüss."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Excuse me?", "Yes. I think so.", "I hear that randomly. But what's the meaning about?"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Das höre ich oft, aber was heißt denn das?", "Ja, ich glaub es dir!", "Wie bitte?"
+"How are you", "How feel", "How do you do" -> "Oh, I'm mainly good. How are you?", "I'm allright, thanks for askening. What's about you?", "Uff, I got a little stomachache, seem I ate something wrong."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ach gerade fühl ich mich ganz gut und du?", "Mir geht es gut, danke der Nachfrage. Wie geht es dir?", "Uff, etwas Bauchschmerzen, könnte sein dass ich wieder etwas schlechtes gegessen hab."
+"your name", "who are you", "who art thou" -> "I am %NPCNAME and who are you?", "I am %NPCNAME a excellent tailoress.", "%NPCNAME is my name and I never saw you before I guess. Who are you?"
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin die Aresilia und wer bist du?", "Ich bin Aresilia Teleri, eine sehr gute Schnederin.", "Aresilia Teleri ist mein Name, dich habe ich hier aber noch nie gesehen, wer bist du denn?"
+
+-- Tool hints
+"needle", queststatus(83) = 0 -> "A needle is getable by each blacksmith, ask at a forge. They are able to make one."
+"Nadel", queststatus(83) = 0 -> "Eine Nadel kriegst du von jedem Schmied, frag einen bei der Werkstatt. Der kann dir bestimmt eine schmieden."
+"dy rod" -> "Are you looking for a dying rod? A carpenter shoul dable to help you."
+"Rührstab" -> "Wenn du einen Rührstab suchst, wäre mein Tipp für dich an einen Schreiner zu wenden, der kann dir da sicher weiter helfen."
+"cloth", queststatus(83) = 0 -> "Take a scissor for sheep-shearing, next take the wool and work them to cloth. To make them white, place them into the sun."
+"Stoff", queststatus(83) = 0 -> "Du solltest mittels einer Schere ein Schaf scheren, anschließend aus der Wolle die Wollknäuele herstellen und zu guter letzt Stoffe daraus machen. Wenn du weiße Stoffe willst, solltest du vielleicht die Stoffe in der Sonne liegen lassen."
+
+-- 1st quest
+"quest", "mission", skill(tailoring) =< 20, english -> "Finally someone asks me for that. I was working on some shirts but I'm out of resurces. Gather ten threads an ten white cloth and hand them to me. Furthermore I will need a needle as well. Here... I will give you a scissor for sheep-shearing.", item(74, 1, 399, 0), queststatus(83) = 1
+"quest", "mission", skill(tailoring) =< 20 -> "Endlich bittet mich jemand danach. Ich wollte ein paar Hemden herstellen, aber mir fehlen zehn Rollen Garn sowie zehn weiße Stoffe. Falls ihr mir dabei zuschauen wollt, bringt mir auch eine Nadel mit bitte. Hier habt ihr eine Schere um die Schafe zu scheren.", item(6, 1, 399, 0), queststatus(83) = 1
+"task", "adventure", skill(tailoring) =< 20 -> "Finally someone asks me for that. I was working on some shirts but I'm out of resurces. Gather ten threads an ten white cloth and hand them to me. Furthermore I will need a needle as well. Here... I will give you a scissor for sheep-shearing.", item(74, 1, 399, 0), queststatus(83) = 1
+"Auftrag", "Aufgabe", "Abenteuer", skill(tailoring) =< 20 -> "Endlich bittet mich jemand danach. Ich wollte ein paar Hemden herstellen, aber mir fehlen zehn Rollen Garn sowie zehn weiße Stoffe. Falls ihr mir dabei zuschauen wollt, bringt mir auch eine Nadel mit bitte. Hier habt ihr eine Schere um die Schafe zu scheren.", item(6, 1, 399, 0), queststatus(83) = 1
+"quest", "mission", queststatus(83) = 1, english -> "Gather ten threads and ten white cloth and a needle. After hand them to me I will teach you something."
+"quest", "mission", queststatus(83) = 1 -> "Der Auftrag lautet mir zehn Garnrollen, zehn weiße Stoffe und desweiteren noch eine Nadel zu bringen, falls ihr was von mir lernen wollt."
+"task", "adventure", queststatus(83) = 1 -> "Gather ten threads and ten white cloth and a needle. After hand them to me I will teach you something."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(83) = 1 -> "Der Auftrag lautet mir zehn Garnrollen, zehn weiße Stoffe und desweiteren noch eine Nadel zu bringen, falls ihr was von mir lernen wollt."
+".+", queststatus(83) = 1, item(178, all) > 9, item(50, all) > 9, item(47, all) > 0 -> "Großartig,ihr seid aber schnell zurück. So..jetzt werden die Hemden hergestellt, Augen auf!", skill(tailoring) + 5, deleteItem(178, 10), deleteItem(50, 10), deleteItem(47, 1), queststatus(83) = 2
+".+", queststatus(83) = 1, item(178, all) > 9, item(50, all) > 9, item(47, all) > 0, english -> "Awesome, you are really fast. So... now I will sew the shirts. Look and learn!", skill(tailoring) + 5, deleteItem(178, 10), deleteItem(50, 10), deleteItem(47, 1), queststatus(83) = 2
+".+", queststatus(83) = 1, item(178, all) < 10, item(50, all) < 10, item(47, all) < 1 -> "Euch scheint noch etwas zu fehlen, bringt mir das noch sonst kann ich die Hemden nicht fertigen."
+".+", queststatus(83) = 1, item(178, all) < 10, item(50, all) < 10, item(47, all) < 1, english -> "Hm. You don't got all materials I asked for. Gather ten threads and ten white cloth and a needle."
+
+-- 2nd quest
+"quest", "mission", skill(tailoring) > 20, skill(tailoring) =< 40, english -> "Do you want to learn again something? Allright, you have to gather 15 leather a dying rod and a scrissor for me. And five blue shirts you createt by your own.", queststatus(83) = 3
+"quest", "mission", skill(tailoring) > 20, skill(tailoring) =< 40 -> "Du willst schon wieder etwas lernen? Gut, aber du musst mir mal wieder einige Dinge bringen. Und zwar 15 Lederlagen, einen Rührstab und eine Schere, das wichtigste für einen Schneider und natürlich fünf von dir hergestellte blaue Hemden.", queststatus(83) = 3
+"task", "adventure", skill(tailoring) > 20, skill(tailoring) =< 40 -> "Do you want to learn again something? Allright, you have to gather 15 leather a dying rod and a scrissor for me. And five blue shirts you createt by your own.", queststatus(83) = 3
+"Auftrag", "Aufgabe", "Abenteuer", skill(tailoring) > 20, skill(tailoring) =< 40 -> "Du willst schon wieder etwas lernen? Gut, aber du musst mir mal wieder einige Dinge bringen. Und zwar 15 Lederlagen, einen Rührstab und eine Schere, das wichtigste für einen Schneider und natürlich fünf von dir hergestellte blaue Hemden.", queststatus(83) = 3
+"quest", "mission", skill(tailoring) =< 20, queststatus(83) = 2, english -> "Thanks, but I have no idea, where you could with. maybee later."
+"quest", "mission", skill(tailoring) =< 20, queststatus(83) = 2 -> "Danke, aber ich weiß gerade nichts, wobei du mir helfen könntet."
+"task", "adventure", skill(tailoring) =< 20, queststatus(83) = 2 -> "Thanks, but I have no idea, where you could with. maybee later."
+"Auftrag", "Aufgabe", "Abenteuer", skill(tailoring) =< 20, queststatus(83) = 2 -> "Danke, aber ich weiß gerade nichts, wobei du mir helfen könntet."
+"quest", "mission", queststatus(83) = 3, english -> "Let' me check my list... yes. You have to gather 15 leather a dying rod and a scrissor for me. And five blue shirts you createt by your own."
+"quest", "mission", queststatus(83) = 3 -> "Lasst mich eben auf die Liste schauen...ja, richtig. Es waren 15 Lederlagen, eine Schere und ein Rührstab das du mir bringen solltest und wie du dich noch erinnern kannst fünf von dir hergestellte blaue Hemden."
+"task", "adventure", queststatus(83) = 3 -> "Let' me check my list... yes. You have to gather 15 leather a dying rod and a scrissor for me. And five blue shirts you createt by your own."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(83) = 3 -> "Lasst mich eben auf die Liste schauen...ja, richtig. Es waren 15 Lederlagen, eine Schere und ein Rührstab das du mir bringen solltest und wie du dich noch erinnern kannst fünf von dir hergestellte blaue Hemden."
+".+", queststatus(83) = 3, item(2547, all) > 14, item(181, all) > 4, item(6, all) > 1, item(2781, all) > 1 -> "Sehr gut, du hast alles dabei und ein großes Lob an dich, die Hemden sehen wirklich gut aus. Aber nun schau mal zu wie ich folgenden Mantel herstelle, es wird dir sicher weiterhelfen um beim Schneidern voranzkommen.", skill(tailoring) + 5, deleteItem(2547, 15), deleteItem(181, 5), deleteItem(6, 1), deleteItem(2781, 1), queststatus(83) = 4
+".+", queststatus(83) = 3, item(2547, all) > 14, item(181, all) > 4, item(6, all) > 1, item(2781, all) > 1, english -> "Very good! You got all things I asked for. The shirts are well done. And now... watch me making this coats, I'm sure you are able to learn something about.", skill(tailoring) + 5, deleteItem(2547, 15), deleteItem(181, 5), deleteItem(6, 1), deleteItem(2781, 1), queststatus(83) = 4
+".+", queststatus(83) = 3, item(2547, all) < 15, item(181, all) < 5, item(6, all) = 0, item(2781, all) = 0 -> "Du hast nicht alles mit was ich wollte, komm später wieder."
+".+", queststatus(83) = 3, item(2543, all) < 15, item(2719, all) < 5, item(9, all) = 0, item(2752, all) = 0, english -> "Hm. You don't got all materials I asked for.You have to gather 15 leather a dying rod and a scrissor and five blue shirts for me."
+
+-- 3rd quest
+"quest", "mission", skill(tailoring) > 40, skill(tailoring) =< 60, english -> "Good you are asking for. Actually there's a task for you. Gather four buckets with blue colour and ten green cloth, ten grey cloth, five fur.", queststatus(83) = 5
+"quest", "mission", skill(tailoring) > 40, skill(tailoring) =< 60 -> "Gute Frage, ich hätte wirklich was für dich zu tun. Bring mir doch bitte vier Eimer mit blauer Farbe, zehn grüne sowie zehn graue Stoffe, als auch fünf Felllagen.", queststatus(83) = 5
+"task", "adventure", skill(tailoring) > 40, skill(tailoring) =< 60 -> "Good you are asking for. Actually there's a task for you. Gather four buckets with blue colour and ten green cloth, ten grey cloth, five fur.", queststatus(83) = 5
+"Auftrag", "Aufgabe", "Abenteuer", skill(tailoring) > 40, skill(tailoring) =< 60 -> "Gute Frage, ich hätte wirklich was für dich zu tun. Bring mir doch bitte vier Eimer mit blaue Farbe, zehn grüner sowie zehn graue Stoffe, als auch fünf Felllagen.", queststatus(83) = 5
+"quest", "mission", skill(tailoring) =< 40, queststatus(83) = 4, english -> "Ah... I'm quite busy right now. Ask me later again."
+"quest", "mission", skill(tailoring) =< 40, queststatus(83) = 4 -> "Ich habe grad einiges um die Ohren, besuch mich doch bitte ein ander mal."
+"task", "adventure", skill(tailoring) =< 40, queststatus(83) = 4 -> "Ah... I'm quite busy right now. Ask me later again."
+"Auftrag", "Aufgabe", "Abenteuer", skill(tailoring) =< 40, queststatus(83) = 4 -> "Ich habe grad einiges um die Ohren, besuch mich doch bitte ein ander mal."
+"quest", "mission", queststatus(83) = 5, english -> "Your task is to gather four buckets with blue colour and ten green cloth, ten grey cloth, five fur."
+"quest", "mission", queststatus(83) = 5 -> "Der Auftrag hieß, du sollst mir vier Eimer mit blauer Farbe bringen, zehn grüne Stoffe, zehn graue Stoffe und natürlich fünf Fellagen."
+"task", "adventure", queststatus(83) = 5 -> "Your task is to gather four buckets with blue colour and ten green cloth, ten grey cloth, five fur."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(83) = 5 -> "Der Auftrag hieß, du sollst mir vier Eimer mit blauer Farbe bringen, zehn grüne Stoffe, zehn graue Stoffe und natürlich fünf Fellagen."
+".+", queststatus(83) = 5, item(2680, all) > 3, item(54, all) > 9, item(176, all) > 9, item(2586, all) > 4 -> "Wunderbar, das ging schneller als gedacht, nun schau mir aber genau auf die Finger, denn das zeig ich dir nur einmal.", skill(tailoring) + 5, deleteItem(2680, 4), deleteItem(54, 10), deleteItem(176, 10), deleteItem(2586, 5), queststatus(83) = 6
+".+", queststatus(83) = 5, item(2680, all) > 3, item(54, all) > 9, item(176, all) > 9, item(2586, all) > 4, english -> "Wonderfull, you got everything. Now, watch my figners I will show it only once.", skill(tailoring) + 5, deleteItem(2680, 4), deleteItem(54, 10), deleteItem(176, 10), deleteItem(2586, 5), queststatus(83) = 6
+".+", queststatus(83) = 5, item(2680, all) < 4, item(54, all) < 10, item(176, all) < 10, item(2586, all) < 5 -> "Bring mir noch die restlichen Dinge die fehlen, dann bring ich dir was neues bei."
+".+", queststatus(83) = 5, item(2680, all) < 4, item(54, all) < 10, item(176, all) < 10, item(2586, all) < 5, english -> "There is something missing. Gather all things, and I will teach you something."
+
+-- 4th quest
+"quest", "mission", skill(tailoring) > 60, skill(tailoring) =< 80, english -> "There is a last task for you. So we will see if you are gifted in this craft. Create following goods and bring them here. 15 ropes, ten leather gloves, ten leaher boots and five light hunting armors.", queststatus(83) = 7
+"quest", "mission", skill(tailoring) > 60, skill(tailoring) =< 80 -> "Eine letzte Aufgabe habe ich noch für dich, um zu sehen ob du wirklich Talent hast. Bring mir folgende von dir hergestellen Dinge, dies wären 15 Seile, zehn paar Lederhandschuhe und Lederstiefel und zu guter letzt fünf leichte Jagdrüstungen.", queststatus(83) = 7
+"task", "adventure", skill(tailoring) > 60, skill(tailoring) =< 80 -> "There is a last task for you. So we will see if you are gifted in this craft. Create following goods and bring them here. 15 ropes, ten leather gloves, ten leaher boots and five light hunting armors.", queststatus(83) = 7
+"Auftrag", "Aufgabe", "Abenteuer", skill(tailoring) > 60, skill(tailoring) =< 80 -> "Eine letzte Aufgabe habe ich noch für dich, um zu sehen ob du wirklich Talent hast. Bring mir folgende von dir hergestellen Dinge, dies wären 15 Seile, zehn paar Lederhandschuhe und Lederstiefel und zu guter letzt fünf leichte Jagdrüstungen.", queststatus(83) = 7
+"quest", "mission", skill(tailoring) =< 60, queststatus(83) = 6, english -> "You should practice more, after that I will have a special task for you."
+"quest", "mission", skill(tailoring) =< 60, queststatus(83) = 6 -> "Du solltest weiter üben, dann hab ich später sicher noch etwas für dich zu erledigen."
+"task", "adventure", skill(tailoring) =< 60, queststatus(83) = 6 -> "You should practice more, after that I will have a special task for you."
+"Auftrag", "Aufgabe", "Abenteuer", skill(tailoring) =< 60, queststatus(83) = 6 -> "Du solltest weiter üben, dann hab ich später sicher noch etwas für dich zu erledigen."
+"quest", "mission", queststatus(83) = 7, english -> "The last task contains to create following goods and bring them here. 15 ropes, ten leather gloves, ten leaher boots and five light hunting armors."
+"quest", "mission", queststatus(83) = 7 -> "Der letzte Auftrag lautete mir einige selbst hergestelle Dinge zu bringen. Es waren 15 Seile, zehn paar Lederhandschuhe, zehn paar Lederstiefel und natürlich fünf der besten leichten Jagdrüstungen die du herstellen kannst."
+"task", "adventure", queststatus(83) = 7 -> "The last task contains to create following goods and bring them here. 15 ropes, ten leather gloves, ten leaher boots and five light hunting armors."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(83) = 7 -> "Der letzte Auftrag lautete mir einige selbst hergestelle Dinge zu bringen. Es waren 15 Seile, zehn paar Lederhandschuhe, zehn paar Lederstiefel und natürlich fünf der besten leichten Jagdrüstungen die du herstellen kannst."
+".+", queststatus(83) = 7, item(2760, all) > 14, item(48, all) > 9, item(53, all) > 9, item(364, all) > 4 -> "Ausgezeichnet, sieht alles wirklich klasse aus. Gute Arbeit, nun zeig ich dir zum Abschluss noch etwas, also schau genau zu.", skill(tailoring) + 5, deleteItem(2760, 15), deleteItem(48, 10), deleteItem(53, 10), deleteItem(364, 5), queststatus(83) = 8
+".+", queststatus(83) = 7, item(2760, all) > 14, item(48, all) > 9, item(53, all) > 9, item(364, all) > 4, english -> "Awesome. it looks great! Very well done. Let me show you a final trick.", skill(tailoring) + 5, deleteItem(2760, 15), deleteItem(48, 10), deleteItem(53, 10), deleteItem(364, 5), queststatus(83) = 8
+".+", queststatus(83) = 7, item(2760, all) < 15, item(48, all) < 10, item(53, all) < 10, item(364, all) < 5 -> "Bring mir noch den Rest der Sachen die ich wollte, wenn du nichtmal die simpelsten Sachen erledigen kannst, wie willst du dann jemals so gut wie ich werden?!"
+".+", queststatus(83) = 7, item(2760, all) < 15, item(48, all) < 10, item(53, all) < 10, item(364, all) < 5, english -> "Gather the rest of the things I asked for. How to become a tailor without solving the simplest tasks?"
+
+-- Final dialogue: No more quests, just nice hints
+"quest", "mission", queststatus(83) = 8, english -> "Now it's your turn. I teached you enough. Trie to work on your own from now on and become a great tailor."
+"quest", "mission", queststatus(83) = 8 -> "Jetzt liegt alles an dir, ich hab dir genug gezeigt. Wenn wirklich was aus dir werden soll, versuch von nun an alleine auszukommen."
+"task", "adventure", queststatus(83) = 8 -> "Now it's your turn. I teached you enough. Trie to work on your own from now on and become a great tailor."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(83) = 8 -> "Jetzt liegt alles an dir, ich hab dir genug gezeigt. Wenn wirklich was aus dir werden soll, versuch von nun an alleine auszukommen."
+
+-- Small talk
+"profession" -> "I'm tailoress, thats what I am good in.", "I work with cloth. Several colours and also leather, so I'm a tailoress."
+"Beruf" -> "Ich bin Schneiderin, das kann ich am besten.", "Ich arbeite gerne mit Stoffen in den verschiedensten Farben und auch mit Leder, daher bin ich eine Schneiderin."
+"job", english -> "I'm tailoress, thats what I am good in.", "I work with cloth. Several colours and also leather, so I'm a tailoress."
+"job" -> "Ich bin Schneiderin, das kann ich am besten.", "Ich arbeite gerne mit Stoffen in den verschiedensten Farben und auch mit Leder, daher bin ich eine Schneiderin."
+"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- own location
+"where am" -> "You are in Runewick. This is the marketplace."
+"where are we" -> "You are In Runewick. This is the marketplace."
+"wo bin" -> "Ihr sei din Runewick, am Marktplatz."
+"wo sind" -> "Ihr sei din Runewick, am Marktplatz."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- geographical stuff
+"salkamar", english -> "That's far, far in the southwest."
+"salkamar" -> "Das ist weit, weit im Südwesten."
+"albar", english -> "That is far to the west."
+"albar" -> "Das ist weit im Westen."
+"gynk", english -> "Far in the south. A dirty harbor with djungle, swamp, mosquitos and crocodiles!"
+"gynk" -> "Weit im Süden. Ein dreckiger Hafen mit viel Dschungel, Sumpf, Mücken und Krokodilen!"
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "There are several gods people believe in. Different races have different beliefs."
+"Ushara", english -> "That's one of the elven gods, the god of earth i believe."
+"Br[áàa]gon", english -> "A fire-god. Ask an elf about these."
+"Eldan", english -> "An ancient elven god of the mind."
+"Tanora", english -> "I know that one. it's the Lizard goddess, they call her 'Zelphia' ! She's the goddess of the sea. Sailors pray to her too."
+"Zelphia", english -> "That's the Lizard name for Tanora, goddess of water."
+"Findari", english -> "An ancient wind goddess."
+"Narg[úùu]n", english -> "The gambler, the jester, the two-faced god of insanity and sanity? Hmh."
+"Elara", english -> "That's the goddess of Wisdom!"
+"Adron", english -> "He is the god of wine and festivities."
+"Oldra", english -> "Goddess of fertility and harvesting!"
+"Cherga", english -> "The Grey Lady brings the spirits of the dead to where they belong, and takes care that their rotting bodies rest in peace. And stay in their coffins!"
+"Malachin", english -> "The green hunter, god of forests, hunt, bravery, battle and strength. Many noble Knights and Paladins pray to Malachin."
+"Irmorom", english -> "The Lord of trade and craftsmenship! He is the main god of the dwarves."
+"Sirani", english -> "Goddess of Love and trust."
+"Zhambra", english -> "The god of friendship, bravery and loyality. Usually the Patron of Paladins. He's one of the main gods in Salkamar."
+"Ronagan", english -> "The God of Shadows, stealth and trickery. Patron of every thieve's guild, or even assassins, if there is any."
+"Moshran", english -> "PSSSHHH! Are you insane ? Don't say that name aloud ! You might attract his wrath ! We call him the bone lord."
+"bone lord" -> "The god of slaughter, rage, bloody revenge and war."
+"blood god" -> "The god of slaughter, rage, bloody revenge and war."
+"bjolmur", english -> "The whispering darkness... One of the three evil demigods created by the bone lord. A mere curse to the world, it is said that her mouth never lost a single true word."
+"cherass", english -> "The undead king - the worst lich ever. He's one of the three evil demigods created by the bone lord."
+"drargorog", english -> "The third evil demigod. He's the reaver of meat. Demons, twisted black dragons... Insane, evil warriors are said to... no, let us change the theme."
+"Gott", "Götter" -> "Es gibt verschiedene Götter, an die die Leute glauben. Verschiedene Völker verehren verschiedene Götter."
+"Ushara" -> "Eine der Elfischen Götter, Erde glaub'ich."
+"Br[áàa]gon" -> "Ein Feuergott. Fraget einen Elben danach!"
+"Eldan" -> "Ein uralter elbischer Gott des Geistes."
+"Tanora" -> "Den Namen kenne ich. Das ist die Echsen-Göttin, sie nennen sie Zelphia! Sie ist die Göttin des Meeres. Seeleute verehren sie ebenfalls."
+"Zelphia" -> "Das ist der Echsen-Name für Tanora, die Göttin des Wassers."
+"Findari" -> "Eine uralte Wind-Göttin."
+"Narg[úùu]n" -> "Der Spieler, der Narr, der zweigesichtige Gott des Sinns und des Wahnsinns ? Hmh."
+"Elara" -> "Das ist die Göttin der Weisheit!"
+"Adron" -> "Er ist der Gott des Weines und des Feierns."
+"Oldra" -> "Göttin der Fruchtbarkeit und der Ernte!"
+"Cherga" -> "Die graue Dame bringt die Geister der Toten dahin, wo sie hingehören und sorgt dafür, daß ihre verfaulenden gebeine in Frieden Ruhen - und in ihren Särgen bleiben !"
+"Malachin" -> "Der grüne Jäger, Gott der Wälder, der Jagd, des Kampfes, des Mutes und der Stärke. Viele noble Ritter und Paladine beten zu Malachin."
+"Irmorom" -> "Der Herr des Handels und des Handwerks! Er ist der Hauptgott des Zwergenvolkes."
+"Sirani" -> "Die Göttin der Liebe und des Vertrauens."
+"Zhambra" -> "Der Gott der Freundschaft, der Tapferkeit und der Loyalität. Üblicherweise der Patron von Paladinen. Er ist einer der Hauptgötter in Salkamar."
+"Ronagan" -> "Der Gott der Schatten, der Heimlichkeit und der Tricks. Schutzherr jeder Diebesgilde, falls es sowas gibt. Oder von Assassinen."
+"Moshran" -> "PSSSSST ! Seid ihr des Wahnsinns! Sprecht diesen Namen nicht laut. Ihr werdet seinen Zorn heraufbeschwören! Wir nennen ihn den Knochenlord."
+"knochenlord" -> "Der Gott des Schlachtens, der Raserei, der blutigen Rache und des Krieges."
+"blutgott" -> "Der Gott des Schlachtens, der Raserei, der blutigen Rache und des Krieges."
+"bjolmur" -> "Die flüsternde Finsternis... Eine der drei bösen Halbgötter, die der Blutgott schuf.Ein Fluch für die Welt, es heißt daß noch nie auch nur ein einziges wahres Wort über ihre Lippen gekommen sei!"
+"cherass" -> "Der untote König - der schlimmste Lich, den es je gab. Er ist einer der drei bösartigen Halbgötter, die der Knochenlord erschuf."
+"drargorog" -> "Der dritte böse Halbgott. Er ist der Reißer des Fleisches. Dämonen, rasende schwarze Drachen... Es heißt daß irre, böse Krieger... nein, lasst uns das Thema wechseln."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I do not trade, all at all. Ask some other one.", "No, I cant help you. Actually I doesn't look like a merchant.", "By trading I got a headache. So I don't buy and sell anything."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich handle mit nichts, frag jemand anderen.", "Nein, da kann ich dir nicht weiterhelfen. Ich sehe doch auch garnicht wie eine Händlerin aus!", "Vom handeln krieg ich nur Kopfschmerzen, also kauf- und verkaufe ich auch nichts."
+"tell something" -> "I could tell a lot about sewing. But right now, I don't feel like doing that.", "If you are willing to help me with some tasks, I woul dbe glad to tell you about sewing. Just ask me for!", "No, no, no! I dilike telling you something. All the time people arive and ask for telling me something."
+"erzähl was", "erzähl etwas" -> "Über das Schneidern, darüber könnte ich dir einiges erzählen, aber gerade habe ich keine Lust.", "Wenn du mir bei einigen Aufgaben hilfst, erzähl ich dir gerne dies und das über das Schneidern, musst mich nur nach einem Auftrag fragen.", "Nein, ich will jetzt nichts erzählen. Ständig kommen Leute her und wollen das ich ihnen etwas erzähle, will ich aber nicht!"
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+"Aresilia", "Teleri", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Aresilia", "Teleri" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "How great. Hush hush!", "Great. you are a big help.", "Awesome!"
+"Ja" -> "Toll, dann auf auf!", "Wunderbar, du bist mir eine große Hile", "Ausgezeichnet!"
+"No" -> "How sad.", "Why not? What could be such important?", "No? waht shoul dthat mean? First you ask for a task... an then you are not willing to help, tzk, tzk, tzk."
+"Nein" -> "Zu schade, aber da kann man nichts machen.", "Wieso denn nicht, hast du etwas besseres zu tun?!", "Wie nein, erstmal nach Arbeit fragen und dann nicht wollen, tzk, tzk, tzk."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me nimmt ein Tuch zur Hand und wischt sich etwas Blut von der Fingerspitze weg.", "#me takes a rag and catches a drop of blood from her finger."
+cycletext "#me streicht ihre Robe glatt.", "#me brunishes her robe."
+cycletext "#me pustet einige Haarsträhnen aus ihrem Gesicht.", "#me puffs some strand of hair out of her face."
+cycletext "#me schaut sich gelangweilt um.", "#me haves a bored look to the surrounding area."
+cycletext "#me kichert leise, als sie die Wolken am Himmel beobachtet.", "#me giggles quietly during glancing the fluffy clouds in to the sky."

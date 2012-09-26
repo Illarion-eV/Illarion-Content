@@ -47,19 +47,18 @@ function CharacterOnField( User )
 
     local SourceItem = world:getItemOnField( User.pos );
 	local destString
-	local destCord1; local destCord2; local destCord3
+	local destCoordX; local destCoordY; local destCoordZ
 	local des
 	local destFround = false
 
-    destString = SourceItem:getData("destinationCords")
-	if destString ~= "" then
-	    User:talkLanguage(Character.say, Player.german, "debug 11")
-		a,b,destCord1,destCord2,destCord3=string.find(destString,"(%d+) (%d+) (%d+)")
-        destCord1 = tonumber(destCord1)		
-	    destCord2 = tonumber(destCord2)
- 	    destCord3 = tonumber(destCord3)
-		User:talkLanguage(Character.say, Player.german, "debug 12: "..destCord1.." "..destCord2.." "..destCord3)
-		dest = position(destCord1,destCord2,destCord3)
+    destCoordX = SourceItem:getData("destinationCoordsX")
+	destCoordY = SourceItem:getData("destinationCoordsY")
+	destCoordZ = SourceItem:getData("destinationCoordsZ")
+	if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
+	    destCoordX = tonumber(destCoordX)	
+	    destCoordY = tonumber(destCoordY)		
+ 	    destCoordZ = tonumber(destCoordZ)
+		dest = position(destCoordX,destCoordY,destCoordZ)
 	    destFound = true
 	end	
 	
@@ -71,7 +70,6 @@ function CharacterOnField( User )
 	end
 
 	if destFound then -- destination was defined
-		User:talkLanguage(Character.say, Player.german, "debug 18")
 		world:makeSound( 4, dest )
 		world:gfx( 41, User.pos )
 		User:warp( dest );
@@ -90,21 +88,4 @@ function CharacterOnField( User )
 			end
 		end	
 	end
-end
-
-function LookAtItem( User, Item )
-local destString = Item:getData("destinationCords")
-	
-	if destString == "" then -- empty, therefore no portal
-	   world:itemInform( User, Item, base.common.GetNLS( User, "Portal", "Portal" ) )
-    
-	elseif destString == "cord1 cord2 cord3" then
-	     world:itemInform( User, Item, base.common.GetNLS( User, "Portal nach ZIEL", "Portal to DESTINATION" ))
-	
-	elseif destString == "cord1 cord2 cord3" then
-	    world:itemInform( User, Item, base.common.GetNLS( User, "Portal nach ZIEL", "Portal to DESTINATION" ))
-		
-	else -- portal, but not defined look at for those coordinations
-	    world:itemInform( User, Item, base.common.GetNLS( User, "Portal mit unbekanntem Ziel", "Portal with unknown destination" ))
-	end	
 end

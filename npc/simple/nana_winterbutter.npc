@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Magdha Tiefenerz                                                 --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Nana Winterbutter"
@@ -76,13 +76,13 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Köchin Nana Winterbutter. Schlüsselwörter: Hallo, Quest, Schüssel, Koch, Kochen.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings! Maybe you could help me with a recipe."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings! Maybe you could help me with a recipe."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings! Maybe you could help me with a recipe."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings! Maybe you could help me with a recipe."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell!", "Oldra's blessing!", "Come back soon!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen!", "Oldras Segen!", "Kommt bald wieder!"
-"Ciao", "Adieu", "Au revoir", english -> "Farewell!", "Oldra's blessing!", "Come back soon!"
+english, "Ciao", "Adieu", "Au revoir" -> "Farewell!", "Oldra's blessing!", "Come back soon!"
 "Ciao", "Adieu", "Au revoir" -> "Auf Wiedersehen!", "Oldras Segen!", "Kommt bald wieder!"
 "How are you", "How feel", "How do you do" -> "I'm fine.", "Thank you very much!", "Well, I have this recipe in mind, which I would like to try."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut.", "Vielen Dank!", "Nun, ich habe dieses Rezept im Kopf, welches ich gerne ausprobieren würde."
@@ -90,127 +90,127 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Nana Winterbutter.", "Ich bin eine Köchin, wie Ihr vielleicht bereits bemerkt habt. Und eine gute, wenn ich das hinzufügen darf."
 
 -- Tool hints
-"recipe", queststatus(70) = 0 -> "I have this special recipe in mind. I don't want to reveal too much about it but I would be grateful if you could help me with a quest."
-"Rezept", queststatus(70) = 0 -> "Ich habe dieses besondere Rezept im Kopf. Ich möchte nicht zu viel darüber verraten, aber ich wäre dankbar, wenn Ihr mir bei einer Aufgabe helfen würdet."
-"bowl", queststatus(70) = 0 -> "I'm preparing some dough but it won't last. Maybe you can help me with this quest."
-"Schüssel", queststatus(70) = 0 -> "Ich rühre etwas Teig an aber der wird nicht reichen. Vielleicht könnt Ihr mir ja bei dieser Aufgabe helfen."
+queststatus(70) = 0, "recipe" -> "I have this special recipe in mind. I don't want to reveal too much about it but I would be grateful if you could help me with a quest."
+queststatus(70) = 0, "Rezept" -> "Ich habe dieses besondere Rezept im Kopf. Ich möchte nicht zu viel darüber verraten, aber ich wäre dankbar, wenn Ihr mir bei einer Aufgabe helfen würdet."
+queststatus(70) = 0, "bowl" -> "I'm preparing some dough but it won't last. Maybe you can help me with this quest."
+queststatus(70) = 0, "Schüssel" -> "Ich rühre etwas Teig an aber der wird nicht reichen. Vielleicht könnt Ihr mir ja bei dieser Aufgabe helfen."
 
 -- 1st quest: Take a tool and gather 10 bundles of grain for 50cp
-"quest", "mission", queststatus(70) = 0, english -> inform("[New quest] Yewdale I"), "For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself.", item(271, 1, 399, 0), queststatus(70) = 1
-"quest", "mission", queststatus(70) = 0 -> inform("[Neues Quest] Eibenthal I"), "Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen.", item(271, 1, 399, 0), queststatus(70) = 1
-"task", "adventure", "order", queststatus(70) = 0 -> inform("[New quest] Yewdale I"), "For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself.", item(271, 1, 399, 0), queststatus(70) = 1
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(70) = 0 -> inform("[Neues Quest] Eibenthal I"), "Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen.", item(271, 1, 399, 0), queststatus(70) = 1
+queststatus(70) = 0, english, "quest", "mission" -> inform("[New quest] Yewdale I"), item(271, 1, 399), queststatus(70) = 1, "For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself."
+queststatus(70) = 0, "quest", "mission" -> inform("[Neues Quest] Eibenthal I"), item(271, 1, 399), queststatus(70) = 1, "Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen."
+queststatus(70) = 0, "task", "adventure", "order" -> inform("[New quest] Yewdale I"), item(271, 1, 399), queststatus(70) = 1, "For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself."
+queststatus(70) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eibenthal I"), item(271, 1, 399), queststatus(70) = 1, "Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen."
 
 -- Quest 1 solved
-".+", skill(peasantry) < 90, queststatus(70) = 1, item(249, all) > 9, english, town = Runewick -> inform("[Quest solved] You are awarded 50 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."), "Yes, this should give plenty of fine grain. Thank you very much! Please take these copper coins as a sign of my gratitude.", skill(peasantry) + 1, money + 50, deleteItem(249, 10), queststatus(70) = 2, rankpoints(Runewick) + 5
-".+", queststatus(70) = 1, item(249, all) > 9, english, town = Runewick -> inform("[Quest solved] You are awarded 50 copper coins. You advance in Archmage Elvaine Morgan's favour."), "Yes, this should give plenty of fine grain. Thank you very much! Please take these copper coins as a sign of my gratitude.", money + 50, deleteItem(249, 10), queststatus(70) = 2, rankpoints(Runewick) + 5
-".+", skill(peasantry) < 90, queststatus(70) = 1, item(249, all) > 9, town = Runewick -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.", skill(peasantry) + 1, money + 50, deleteItem(249, 10), queststatus(70) = 2, rankpoints(Runewick) + 5
-".+", queststatus(70) = 1, item(249, all) > 9, town = Runewick -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.", money + 50, deleteItem(249, 10), queststatus(70) = 2, rankpoints(Runewick) + 5
-".+", skill(peasantry) < 90, queststatus(70) = 1, item(249, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins and your peasantry skill increases."), "Yes, this should give plenty of fine grain. Thank you very much! Please take these copper coins as a sign of my gratitude.", skill(peasantry) + 1, money + 50, deleteItem(249, 10), queststatus(70) = 2
-".+", queststatus(70) = 1, item(249, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins."), "Yes, this should give plenty of fine grain. Thank you very much! Please take these copper coins as a sign of my gratitude.", money + 50, deleteItem(249, 10), queststatus(70) = 2
-".+", skill(peasantry) < 90, queststatus(70) = 1, item(249, all) > 9 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."), "Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.", skill(peasantry) + 1, money + 50, deleteItem(249, 10), queststatus(70) = 2
-".+", queststatus(70) = 1, item(249, all) > 9 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke."), "Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.", money + 50, deleteItem(249, 10), queststatus(70) = 2
+skill(peasantry) < 90, queststatus(70) = 1, item(249, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 50 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."), skill(peasantry) + 1, money + 50, deleteItem(249, 10), queststatus(70) = 2, rankpoints(Runewick) + 5, "Yes, this should give plenty of fine grain. Thank you very much! Please take these copper coins as a sign of my gratitude."
+queststatus(70) = 1, item(249, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 50 copper coins. You advance in Archmage Elvaine Morgan's favour."), money + 50, deleteItem(249, 10), queststatus(70) = 2, rankpoints(Runewick) + 5, "Yes, this should give plenty of fine grain. Thank you very much! Please take these copper coins as a sign of my gratitude."
+skill(peasantry) < 90, queststatus(70) = 1, item(249, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), skill(peasantry) + 1, money + 50, deleteItem(249, 10), queststatus(70) = 2, rankpoints(Runewick) + 5, "Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit."
+queststatus(70) = 1, item(249, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 50, deleteItem(249, 10), queststatus(70) = 2, rankpoints(Runewick) + 5, "Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit."
+skill(peasantry) < 90, queststatus(70) = 1, item(249, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 50 copper coins and your peasantry skill increases."), skill(peasantry) + 1, money + 50, deleteItem(249, 10), queststatus(70) = 2, "Yes, this should give plenty of fine grain. Thank you very much! Please take these copper coins as a sign of my gratitude."
+queststatus(70) = 1, item(249, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 50 copper coins."), money + 50, deleteItem(249, 10), queststatus(70) = 2, "Yes, this should give plenty of fine grain. Thank you very much! Please take these copper coins as a sign of my gratitude."
+skill(peasantry) < 90, queststatus(70) = 1, item(249, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."), skill(peasantry) + 1, money + 50, deleteItem(249, 10), queststatus(70) = 2, "Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit."
+queststatus(70) = 1, item(249, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke."), money + 50, deleteItem(249, 10), queststatus(70) = 2, "Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit."
 
 -- Quest 1 not solved, repeat the instructions
-"recipe", "bowl", queststatus(70) = 1 -> "It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished."
-"Rezept", "Schüssel", queststatus(70) = 1 -> "Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid."
-"quest", "mission", queststatus(70) = 1, english -> "It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished."
-"quest", "mission", queststatus(70) = 1 -> "Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid."
-"task", "adventure", "order", queststatus(70) = 1 -> "It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(70) = 1 -> "Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid."
+queststatus(70) = 1, "recipe", "bowl" -> "It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished."
+queststatus(70) = 1, "Rezept", "Schüssel" -> "Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid."
+queststatus(70) = 1, english, "quest", "mission" -> "It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished."
+queststatus(70) = 1, "quest", "mission" -> "Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid."
+queststatus(70) = 1, "task", "adventure", "order" -> "It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished."
+queststatus(70) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid."
 
 -- 2nd quest: Gather 20 tomatoes for 100cp
-"recipe", "bowl", queststatus(70) = 2 -> "Well, since you helped me before I might even tell you about the recipe. I think about fish in a crust with tomato sauce. But I don't have enough tomatoes and might need your help with this task again."
-"Rezept", "Schüssel", queststatus(70) = 2 -> "Nun, da Ihr mir schon zuvor geholfen habt, kann ich Euch auch etwas über das Rezept sagen. Ich denke da an Fisch im Teigmantel mit Tomatensoße. Aber ich habe nicht genug Tomaten und könnte erneut Eure Hilfe bei dieser Aufgabe gebrauchen."
-"quest", "mission", queststatus(70) = 2, english -> inform("[New quest] Yewdale II"), "I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?", queststatus(70) = 3
-"quest", "mission", queststatus(70) = 2 -> inform("[Neues Quest] Eibenthal II"), "I möchte Fisch im Teigmantel mit Tomatensoße kochen. Ich brauchen zwanzig Tomaten für die Soße. Könnt ihr mir helfen?", queststatus(70) = 3
-"task", "adventure", "order", queststatus(70) = 2 -> inform("[New quest] Yewdale II"), "I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?", queststatus(70) = 3
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(70) = 2 -> inform("[Neues Quest] Eibenthal II"), "I möchte Fisch im Teigmantel mit Tomatensoße kochen. Ich brauchen zwanzig Tomaten für die Soße. Könnt ihr mir helfen?", queststatus(70) = 3
+queststatus(70) = 2, "recipe", "bowl" -> "Well, since you helped me before I might even tell you about the recipe. I think about fish in a crust with tomato sauce. But I don't have enough tomatoes and might need your help with this task again."
+queststatus(70) = 2, "Rezept", "Schüssel" -> "Nun, da Ihr mir schon zuvor geholfen habt, kann ich Euch auch etwas über das Rezept sagen. Ich denke da an Fisch im Teigmantel mit Tomatensoße. Aber ich habe nicht genug Tomaten und könnte erneut Eure Hilfe bei dieser Aufgabe gebrauchen."
+queststatus(70) = 2, english, "quest", "mission" -> inform("[New quest] Yewdale II"), queststatus(70) = 3, "I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?"
+queststatus(70) = 2, "quest", "mission" -> inform("[Neues Quest] Eibenthal II"), queststatus(70) = 3, "I möchte Fisch im Teigmantel mit Tomatensoße kochen. Ich brauchen zwanzig Tomaten für die Soße. Könnt ihr mir helfen?"
+queststatus(70) = 2, "task", "adventure", "order" -> inform("[New quest] Yewdale II"), queststatus(70) = 3, "I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?"
+queststatus(70) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eibenthal II"), queststatus(70) = 3, "I möchte Fisch im Teigmantel mit Tomatensoße kochen. Ich brauchen zwanzig Tomaten für die Soße. Könnt ihr mir helfen?"
 
 -- Quest 2 solved
-".+", skill(peasantry) < 90, queststatus(70) = 3, item(200, all) > 19, english, town = Runewick -> inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."), "Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these copper coins. But my recipe is still not finished.", skill(peasantry) + 1, money + 100, deleteItem(200, 20), queststatus(70) = 4, rankpoints(Runewick) + 10
-".+", queststatus(70) = 3, item(200, all) > 19, english, town = Runewick -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Archmage Elvaine Morgan's favour."), "Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these copper coins. But my recipe is still not finished.", money + 100, deleteItem(200, 20), queststatus(70) = 4, rankpoints(Runewick) + 10
-".+", skill(peasantry) < 90, queststatus(70) = 3, item(200, all) > 19, town = Runewick -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.", skill(peasantry) + 1, money + 100, deleteItem(200, 20), queststatus(70) = 4, rankpoints(Runewick) + 10
-".+", queststatus(70) = 3, item(200, all) > 19, town = Runewick -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.", money + 100, deleteItem(200, 20), queststatus(70) = 4, rankpoints(Runewick) + 10
-".+", skill(peasantry) < 90, queststatus(70) = 3, item(200, all) > 19, english -> inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases."), "Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these copper coins. But my recipe is still not finished.", skill(peasantry) + 1, money + 100, deleteItem(200, 20), queststatus(70) = 4
-".+", queststatus(70) = 3, item(200, all) > 19, english -> inform("[Quest solved] You are awarded 100 copper coins."), "Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these copper coins. But my recipe is still not finished.", money + 100, deleteItem(200, 20), queststatus(70) = 4
-".+", skill(peasantry) < 90, queststatus(70) = 3, item(200, all) > 19 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."), "Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.", skill(peasantry) + 1, money + 100, deleteItem(200, 20), queststatus(70) = 4
-".+", queststatus(70) = 3, item(200, all) > 19 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.", money + 100, deleteItem(200, 20), queststatus(70) = 4
+skill(peasantry) < 90, queststatus(70) = 3, item(200, all) > 19, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."), skill(peasantry) + 1, money + 100, deleteItem(200, 20), queststatus(70) = 4, rankpoints(Runewick) + 10, "Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these copper coins. But my recipe is still not finished."
+queststatus(70) = 3, item(200, all) > 19, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Archmage Elvaine Morgan's favour."), money + 100, deleteItem(200, 20), queststatus(70) = 4, rankpoints(Runewick) + 10, "Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these copper coins. But my recipe is still not finished."
+skill(peasantry) < 90, queststatus(70) = 3, item(200, all) > 19, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), skill(peasantry) + 1, money + 100, deleteItem(200, 20), queststatus(70) = 4, rankpoints(Runewick) + 10, "Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig."
+queststatus(70) = 3, item(200, all) > 19, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 100, deleteItem(200, 20), queststatus(70) = 4, rankpoints(Runewick) + 10, "Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig."
+skill(peasantry) < 90, queststatus(70) = 3, item(200, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases."), skill(peasantry) + 1, money + 100, deleteItem(200, 20), queststatus(70) = 4, "Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these copper coins. But my recipe is still not finished."
+queststatus(70) = 3, item(200, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), money + 100, deleteItem(200, 20), queststatus(70) = 4, "Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these copper coins. But my recipe is still not finished."
+skill(peasantry) < 90, queststatus(70) = 3, item(200, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."), skill(peasantry) + 1, money + 100, deleteItem(200, 20), queststatus(70) = 4, "Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig."
+queststatus(70) = 3, item(200, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), money + 100, deleteItem(200, 20), queststatus(70) = 4, "Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig."
 
 -- Quest 2 not solved, repeat the instructions
-"quest", "mission", queststatus(70) = 3, english -> "Please bring me twenty tomatoes for my sauce.", "Would you please bring me twenty tomatoes? I thank you very much!"
-"quest", "mission", queststatus(70) = 3 -> "Bitte bringt mir zwanzig Tomaten für meine Soße.", "Würdet Ihr mir bitte zwanzig Tomaten bringen? Ich danke Euch vielmals!"
-"task", "adventure", "order", "recipe", "bowl", queststatus(70) = 3 -> "Please bring me twenty tomatoes for my sauce.", "Would you please bring me twenty tomatoes? I thank you very much!"
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "Schüssel", queststatus(70) = 3 -> "Bitte bringt mir zwanzig Tomaten für meine Soße.", "Würdet Ihr mir bitte zwanzig Tomaten bringen? Ich danke Euch vielmals!"
+queststatus(70) = 3, english, "quest", "mission" -> "Please bring me twenty tomatoes for my sauce.", "Would you please bring me twenty tomatoes? I thank you very much!"
+queststatus(70) = 3, "quest", "mission" -> "Bitte bringt mir zwanzig Tomaten für meine Soße.", "Würdet Ihr mir bitte zwanzig Tomaten bringen? Ich danke Euch vielmals!"
+queststatus(70) = 3, "task", "adventure", "order", "recipe", "bowl" -> "Please bring me twenty tomatoes for my sauce.", "Would you please bring me twenty tomatoes? I thank you very much!"
+queststatus(70) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "Schüssel" -> "Bitte bringt mir zwanzig Tomaten für meine Soße.", "Würdet Ihr mir bitte zwanzig Tomaten bringen? Ich danke Euch vielmals!"
 
 -- 3rd quest: Gather onions for 100cp
-"recipe", "bowl", queststatus(70) = 4 -> "You've helped with my recipe quite a lot so far. Please, don't think that I'm ungrateful, but I might have another task for you."
-"Rezept", "Schüssel", queststatus(70) = 4 -> "Ihr habt mir schon sehr bei meinem Rezept geholfen. Bitte, denkt nicht, dass ich undankbar bin, aber ich hätte da noch eine Aufgabe für Euch."
-"quest", "mission", queststatus(70) = 4, english -> inform("[New quest] Yewdale III"), "I think some onions would spice up the sauce. See if you can find at least five onions, please.", queststatus(70) = 5
-"quest", "mission", queststatus(70) = 4 -> inform("[Neues Quest] Eibenthal III"), "Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden.", queststatus(70) = 5
-"task", "adventure", "order", queststatus(70) = 4 -> inform("[New quest] Yewdale III"), "I think some onions would spice up the sauce. See if you can find at least five onions, please.", queststatus(70) = 5
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(70) = 4 -> inform("[Neues Quest] Eibenthal III"), "Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden.", queststatus(70) = 5
+queststatus(70) = 4, "recipe", "bowl" -> "You've helped with my recipe quite a lot so far. Please, don't think that I'm ungrateful, but I might have another task for you."
+queststatus(70) = 4, "Rezept", "Schüssel" -> "Ihr habt mir schon sehr bei meinem Rezept geholfen. Bitte, denkt nicht, dass ich undankbar bin, aber ich hätte da noch eine Aufgabe für Euch."
+queststatus(70) = 4, english, "quest", "mission" -> inform("[New quest] Yewdale III"), queststatus(70) = 5, "I think some onions would spice up the sauce. See if you can find at least five onions, please."
+queststatus(70) = 4, "quest", "mission" -> inform("[Neues Quest] Eibenthal III"), queststatus(70) = 5, "Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden."
+queststatus(70) = 4, "task", "adventure", "order" -> inform("[New quest] Yewdale III"), queststatus(70) = 5, "I think some onions would spice up the sauce. See if you can find at least five onions, please."
+queststatus(70) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eibenthal III"), queststatus(70) = 5, "Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden."
 
 -- Quest 3 solved
-".+", skill(peasantry) < 90, queststatus(70) = 5, item(201, all) > 4, english, town = Runewick -> inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."), "Fantastic! You've really managed to come up with five onions. Here, have some copper coins. But how embarrassing, I have a probem with the recipe now.", skill(peasantry) + 1, money + 100, deleteItem(201, 5), queststatus(70) = 6, rankpoints(Runewick) + 15
-".+", queststatus(70) = 5, item(201, all) > 4, english, town = Runewick -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Archmage Elvaine Morgan's favour."), "Fantastic! You've really managed to come up with five onions. Here, have some copper coins. But how embarrassing, I have a problem with the recipe now.", money + 100, deleteItem(201, 5), queststatus(70) = 6, rankpoints(Runewick) + 15
-".+", skill(peasantry) < 90, queststatus(70) = 5, item(201, all) > 4, town = Runewick -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.", skill(peasantry) + 1, money + 100, deleteItem(201, 5), queststatus(70) = 6, rankpoints(Runewick) + 15
-".+", queststatus(70) = 5, item(201, all) > 4, town = Runewick -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.", money + 100, deleteItem(201, 5), queststatus(70) = 6, rankpoints(Runewick) + 15
-".+", skill(peasantry) < 90, queststatus(70) = 5, item(201, all) > 4, english -> inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases."), "Fantastic! You've really managed to come up with five onions. Here, have some copper coins. But how embarrassing, I have a probem with the recipe now.", skill(peasantry) + 1, money + 100, deleteItem(201, 5), queststatus(70) = 6
-".+", queststatus(70) = 5, item(201, all) > 4, english -> inform("[Quest solved] You are awarded 100 copper coins."), "Fantastic! You've really managed to come up with five onions. Here, have some copper coins. But how embarrassing, I have a problem with the recipe now.", money + 100, deleteItem(201, 5), queststatus(70) = 6
-".+", skill(peasantry) < 90, queststatus(70) = 5, item(201, all) > 4 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."), "Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.", skill(peasantry) + 1, money + 100, deleteItem(201, 5), queststatus(70) = 6
-".+", queststatus(70) = 5, item(201, all) > 4 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.", money + 100, deleteItem(201, 5), queststatus(70) = 6
+skill(peasantry) < 90, queststatus(70) = 5, item(201, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."), skill(peasantry) + 1, money + 100, deleteItem(201, 5), queststatus(70) = 6, rankpoints(Runewick) + 15, "Fantastic! You've really managed to come up with five onions. Here, have some copper coins. But how embarrassing, I have a probem with the recipe now."
+queststatus(70) = 5, item(201, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Archmage Elvaine Morgan's favour."), money + 100, deleteItem(201, 5), queststatus(70) = 6, rankpoints(Runewick) + 15, "Fantastic! You've really managed to come up with five onions. Here, have some copper coins. But how embarrassing, I have a problem with the recipe now."
+skill(peasantry) < 90, queststatus(70) = 5, item(201, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), skill(peasantry) + 1, money + 100, deleteItem(201, 5), queststatus(70) = 6, rankpoints(Runewick) + 15, "Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept."
+queststatus(70) = 5, item(201, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 100, deleteItem(201, 5), queststatus(70) = 6, rankpoints(Runewick) + 15, "Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept."
+skill(peasantry) < 90, queststatus(70) = 5, item(201, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases."), skill(peasantry) + 1, money + 100, deleteItem(201, 5), queststatus(70) = 6, "Fantastic! You've really managed to come up with five onions. Here, have some copper coins. But how embarrassing, I have a probem with the recipe now."
+queststatus(70) = 5, item(201, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), money + 100, deleteItem(201, 5), queststatus(70) = 6, "Fantastic! You've really managed to come up with five onions. Here, have some copper coins. But how embarrassing, I have a problem with the recipe now."
+skill(peasantry) < 90, queststatus(70) = 5, item(201, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."), skill(peasantry) + 1, money + 100, deleteItem(201, 5), queststatus(70) = 6, "Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept."
+queststatus(70) = 5, item(201, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), money + 100, deleteItem(201, 5), queststatus(70) = 6, "Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept."
 
 -- Quest 3 not solved, repeat the instructions
-"quest", "mission", queststatus(70) = 5, english -> "I hope you are able to find at least five onions so that I can spice up my sauce.", "I know that they are hard to find but I would need at least five onions."
-"quest", "mission", queststatus(70) = 5 -> "Ich hoffe Ihr könnt mindestens fünf Zwiebeln finden, so dass ich meine Soße etwas aufpeppen kann.", "Ich weiß, dass sie schwer zu finden sind, aber ich bräuchte mindestens fünf Zwiebeln."
-"task", "adventure", "order", "recipe", "bowl", queststatus(70) = 5 -> "I hope you are able to find at least five onions so that I can spice up my sauce.", "I know that they are hard to find but I would need at least five onions."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "Schüssel", queststatus(70) = 5 -> "Ich hoffe Ihr könnt mindestens fünf Zwiebeln finden, so dass ich meine Soße etwas aufpeppen kann.", "Ich weiß, dass sie schwer zu finden sind, aber ich bräuchte mindestens fünf Zwiebeln."
+queststatus(70) = 5, english, "quest", "mission" -> "I hope you are able to find at least five onions so that I can spice up my sauce.", "I know that they are hard to find but I would need at least five onions."
+queststatus(70) = 5, "quest", "mission" -> "Ich hoffe Ihr könnt mindestens fünf Zwiebeln finden, so dass ich meine Soße etwas aufpeppen kann.", "Ich weiß, dass sie schwer zu finden sind, aber ich bräuchte mindestens fünf Zwiebeln."
+queststatus(70) = 5, "task", "adventure", "order", "recipe", "bowl" -> "I hope you are able to find at least five onions so that I can spice up my sauce.", "I know that they are hard to find but I would need at least five onions."
+queststatus(70) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "Schüssel" -> "Ich hoffe Ihr könnt mindestens fünf Zwiebeln finden, so dass ich meine Soße etwas aufpeppen kann.", "Ich weiß, dass sie schwer zu finden sind, aber ich bräuchte mindestens fünf Zwiebeln."
 
 -- 4th quest: Gather 10 salmon fish for 200cp. Link to Fishing quest in Zzyathis. Hint how to get there.
-"problem", queststatus(70) = 6, english -> "How embarrassing! I was not careful enough with storing the fish for my recipe and now it is rotten. I hope that you can help me one last time with the task to get new fish."
-"Problem", queststatus(70) = 6 -> "Wie peinlich! Ich war bei der Lagerung des Fisch, den ich verwenden will, nicht sorgfältig genug und nun ist er verdorben. Ich hoffe, Ihr helft mir ein letztes Mal bei der Besorgung von neuem Fisch."
-"recipe", "bowl", queststatus(70) = 6 -> "How embarrassing! I was not careful enough with storing the fish for my recipe and now it is rotten. I hope that you can help me one last time with the task to get new fish."
-"Rezept", "Schüssel", queststatus(70) = 6 -> "Wie peinlich! Ich war bei der Lagerung des Fisch, den ich verwenden will, nicht sorgfältig genug und nun ist er verdorben. Ich hoffe, Ihr helft mir ein letztes Mal bei der Besorgung von neuem Fisch."
-"quest", "mission", queststatus(70) = 6, english -> inform("[New quest] Yewdale IV"), "I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again.", queststatus(70) = 7
-"quest", "mission", queststatus(70) = 6 -> inform("[Neues Quest] Eibenthal IV"), "Normalerweise kaufe ich Fisch von Zerarisa. Tut mir wirklich leid, aber ich vergesse immer, wie dieser Fisch heißt. Aber ich bräuchte wieder zehn von diesen Fischen.", queststatus(70) = 7
-"task", "adventure", "order", queststatus(70) = 6 -> inform("[New quest] Yewdale IV"), "I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again.", queststatus(70) = 7
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(70) = 6 -> inform("[Neues Quest] Eibenthal IV"), "Normalerweise kaufe ich Fisch von Zerarisa. Tut mir wirklich leid, aber ich vergesse immer, wie dieser Fisch heißt. Aber ich bräuchte wieder zehn von diesen Fischen.", queststatus(70) = 7
+queststatus(70) = 6, english, "problem" -> "How embarrassing! I was not careful enough with storing the fish for my recipe and now it is rotten. I hope that you can help me one last time with the task to get new fish."
+queststatus(70) = 6, "Problem" -> "Wie peinlich! Ich war bei der Lagerung des Fisch, den ich verwenden will, nicht sorgfältig genug und nun ist er verdorben. Ich hoffe, Ihr helft mir ein letztes Mal bei der Besorgung von neuem Fisch."
+queststatus(70) = 6, "recipe", "bowl" -> "How embarrassing! I was not careful enough with storing the fish for my recipe and now it is rotten. I hope that you can help me one last time with the task to get new fish."
+queststatus(70) = 6, "Rezept", "Schüssel" -> "Wie peinlich! Ich war bei der Lagerung des Fisch, den ich verwenden will, nicht sorgfältig genug und nun ist er verdorben. Ich hoffe, Ihr helft mir ein letztes Mal bei der Besorgung von neuem Fisch."
+queststatus(70) = 6, english, "quest", "mission" -> inform("[New quest] Yewdale IV"), queststatus(70) = 7, "I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again."
+queststatus(70) = 6, "quest", "mission" -> inform("[Neues Quest] Eibenthal IV"), queststatus(70) = 7, "Normalerweise kaufe ich Fisch von Zerarisa. Tut mir wirklich leid, aber ich vergesse immer, wie dieser Fisch heißt. Aber ich bräuchte wieder zehn von diesen Fischen."
+queststatus(70) = 6, "task", "adventure", "order" -> inform("[New quest] Yewdale IV"), queststatus(70) = 7, "I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again."
+queststatus(70) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Eibenthal IV"), queststatus(70) = 7, "Normalerweise kaufe ich Fisch von Zerarisa. Tut mir wirklich leid, aber ich vergesse immer, wie dieser Fisch heißt. Aber ich bräuchte wieder zehn von diesen Fischen."
 
 -- Quest 4 solved
-".+", skill(peasantry) < 90, queststatus(70) = 7, item(355, all) > 9, english, town = Runewick -> inform("[Quest solved] You are awarded 200 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."), "Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!", skill(peasantry) + 1, money + 200, deleteItem(355, 10), queststatus(70) = 8, rankpoints(Runewick) + 20
-".+", queststatus(70) = 7, item(355, all) > 9, english, town = Runewick -> inform("[Quest solved] You are awarded 200 copper coins. You advance in Archmage Elvaine Morgan's favour."), "Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!", money + 200, deleteItem(355, 10), queststatus(70) = 8, rankpoints(Runewick) + 20
-".+", skill(peasantry) < 90, queststatus(70) = 7, item(355, all) > 9, town = Runewick -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!", skill(peasantry) + 1, money + 200, deleteItem(355, 10), queststatus(70) = 8, rankpoints(Runewick) + 20
-".+", queststatus(70) = 7, item(355, all) > 9, town = Runewick -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!", money + 200, deleteItem(355, 10), queststatus(70) = 8, rankpoints(Runewick) + 20
-".+", skill(peasantry) < 90, queststatus(70) = 7, item(355, all) > 9, english -> inform("[Quest solved] You are awarded 200 copper coins and your peasantry skill increases."), "Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!", skill(peasantry) + 1, money + 200, deleteItem(355, 10), queststatus(70) = 8
-".+", queststatus(70) = 7, item(355, all) > 9, english -> inform("[Quest solved] You are awarded 200 copper coins."), "Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!", money + 200, deleteItem(355, 10), queststatus(70) = 8
-".+", skill(peasantry) < 90, queststatus(70) = 7, item(355, all) > 9 -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."), "Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!", skill(peasantry) + 1, money + 200, deleteItem(355, 10), queststatus(70) = 8
-".+", queststatus(70) = 7, item(355, all) > 9 -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), "Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!", money + 200, deleteItem(355, 10), queststatus(70) = 8
+skill(peasantry) < 90, queststatus(70) = 7, item(355, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 200 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."), skill(peasantry) + 1, money + 200, deleteItem(355, 10), queststatus(70) = 8, rankpoints(Runewick) + 20, "Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!"
+queststatus(70) = 7, item(355, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 200 copper coins. You advance in Archmage Elvaine Morgan's favour."), money + 200, deleteItem(355, 10), queststatus(70) = 8, rankpoints(Runewick) + 20, "Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!"
+skill(peasantry) < 90, queststatus(70) = 7, item(355, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), skill(peasantry) + 1, money + 200, deleteItem(355, 10), queststatus(70) = 8, rankpoints(Runewick) + 20, "Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!"
+queststatus(70) = 7, item(355, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 200, deleteItem(355, 10), queststatus(70) = 8, rankpoints(Runewick) + 20, "Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!"
+skill(peasantry) < 90, queststatus(70) = 7, item(355, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 200 copper coins and your peasantry skill increases."), skill(peasantry) + 1, money + 200, deleteItem(355, 10), queststatus(70) = 8, "Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!"
+queststatus(70) = 7, item(355, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 200 copper coins."), money + 200, deleteItem(355, 10), queststatus(70) = 8, "Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!"
+skill(peasantry) < 90, queststatus(70) = 7, item(355, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."), skill(peasantry) + 1, money + 200, deleteItem(355, 10), queststatus(70) = 8, "Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!"
+queststatus(70) = 7, item(355, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), money + 200, deleteItem(355, 10), queststatus(70) = 8, "Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!"
 
 -- Quest 4 not solved, repeat the instructions
-"Zerarisa", queststatus(70) = 7, english -> "Oh, Zerarisa, she is one of the lizard people who live in Cadomyr at Cape Farewell. She comes to Runewick once a month to sell fish."
-"Zerarisa", queststatus(70) = 7 -> "Oh, Zerarisa, sie ist eine von den Echsenleuten, die in Cadomyr am Kap des Abschiedes leben. Sie kommt einmal im Monat nach Runewick um Fisch zu verkaufen."
-"quest", "mission", queststatus(70) = 7, english -> "Did you already speak to Zerarisa about the fish I usually buy from her? I really need ten of these fish to try out my recipe.", "I really need ten of the fish that Zerarisa usually sells me. Would you please get them for me?"
-"quest", "mission", queststatus(70) = 7 -> "Habt Ihr schon mit Zerarisa über die Fische gesprochen, die ich normalerweise bei ihr kaufe? Ich brauche wirklich zehn von diesen Fischen, um mein Rezept auszuprobieren.", "Ich brauche wirklich zehn von diesen Fischen, die mir Zerarisa normalerweise verkauft. Könntet Ihr die bitte für mich besorgen?"
-"task", "adventure", "order", "recipe", "bowl", queststatus(70) = 7 -> "Did you already speak to Zerarisa about the fish I usually buy from her? I really need ten of these fish to try out my recipe.", "I really need ten of the fish that Zerarisa usually sells me. Would you please get them for me?"
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "Schüssel", queststatus(70) = 7 -> "Habt Ihr schon mit Zerarisa über die Fische gesprochen, die ich normalerwiese bei ihr kaufe? Ich brauche wirklich zehn von diesen Fischen, um mein Rezept auszuprobieren.", "Ich brauche wirklich zehn von diesen Fischen, die mir Zerarisa normalerweise verkauft. Könntet Ihr die bitte für mich besorgen?"
-"salmon", queststatus(70) = 7, item(355, all) < 10 -> "Salmon? Yes, that could be the name of the fish. Now that you mention it. I think Zerarisa mentioned that name. But I need ten salmons for my recipe."
-"Lachs", queststatus(70) = 7, item(355, all) < 10 -> "Lachs? Ja, das könnte der Name des Fisches sein. Jetzt wo Ihr es erwähnt. Ich denke Zerarisa hat mal diesen Namen erwähnt. Aber ich brauche zehn Lachse für mein Rezept."
+queststatus(70) = 7, english, "Zerarisa" -> "Oh, Zerarisa, she is one of the lizard people who live in Cadomyr at Cape Farewell. She comes to Runewick once a month to sell fish."
+queststatus(70) = 7, "Zerarisa" -> "Oh, Zerarisa, sie ist eine von den Echsenleuten, die in Cadomyr am Kap des Abschiedes leben. Sie kommt einmal im Monat nach Runewick um Fisch zu verkaufen."
+queststatus(70) = 7, english, "quest", "mission" -> "Did you already speak to Zerarisa about the fish I usually buy from her? I really need ten of these fish to try out my recipe.", "I really need ten of the fish that Zerarisa usually sells me. Would you please get them for me?"
+queststatus(70) = 7, "quest", "mission" -> "Habt Ihr schon mit Zerarisa über die Fische gesprochen, die ich normalerweise bei ihr kaufe? Ich brauche wirklich zehn von diesen Fischen, um mein Rezept auszuprobieren.", "Ich brauche wirklich zehn von diesen Fischen, die mir Zerarisa normalerweise verkauft. Könntet Ihr die bitte für mich besorgen?"
+queststatus(70) = 7, "task", "adventure", "order", "recipe", "bowl" -> "Did you already speak to Zerarisa about the fish I usually buy from her? I really need ten of these fish to try out my recipe.", "I really need ten of the fish that Zerarisa usually sells me. Would you please get them for me?"
+queststatus(70) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "Schüssel" -> "Habt Ihr schon mit Zerarisa über die Fische gesprochen, die ich normalerwiese bei ihr kaufe? Ich brauche wirklich zehn von diesen Fischen, um mein Rezept auszuprobieren.", "Ich brauche wirklich zehn von diesen Fischen, die mir Zerarisa normalerweise verkauft. Könntet Ihr die bitte für mich besorgen?"
+queststatus(70) = 7, item(355, all) < 10, "salmon" -> "Salmon? Yes, that could be the name of the fish. Now that you mention it. I think Zerarisa mentioned that name. But I need ten salmons for my recipe."
+queststatus(70) = 7, item(355, all) < 10, "Lachs" -> "Lachs? Ja, das könnte der Name des Fisches sein. Jetzt wo Ihr es erwähnt. Ich denke Zerarisa hat mal diesen Namen erwähnt. Aber ich brauche zehn Lachse für mein Rezept."
 
 -- Final dialogue: No more quests, just nice hints
-"recipe", "bowl", queststatus(70) = 8 -> "Thanks to you I finally have all the ingredients I need to try out my new recipe. I thank you with all my heart!"
-"Rezept", "Schüssel", queststatus(70) = 8 -> "Dank Euch habe ich endlich alle Zutaten zusammen, um mein neues Rezept auszuprobieren. Ich danke Euch von ganzem Herzen!"
-"quest", "mission", queststatus(70) = 8, english -> "You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!"
-"quest", "mission", queststatus(70) = 8 -> "Ihr habt bereits viel zu viel für mich getan. Ich werde Euch immer in guter Erinnerung behalten. Ihr seid wahrlich ein Held für mich! Möge Oldra Euch segnen!"
-"task", "adventure", "order", queststatus(70) = 8 -> "You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!"
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(70) = 8 -> "Ihr habt bereits viel zu viel für mich getan. Ich werde Euch immer in guter Erinnerung behalten. Ihr seid wahrlich ein Held für mich! Möge Oldra Euch segnen!"
+queststatus(70) = 8, "recipe", "bowl" -> "Thanks to you I finally have all the ingredients I need to try out my new recipe. I thank you with all my heart!"
+queststatus(70) = 8, "Rezept", "Schüssel" -> "Dank Euch habe ich endlich alle Zutaten zusammen, um mein neues Rezept auszuprobieren. Ich danke Euch von ganzem Herzen!"
+queststatus(70) = 8, english, "quest", "mission" -> "You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!"
+queststatus(70) = 8, "quest", "mission" -> "Ihr habt bereits viel zu viel für mich getan. Ich werde Euch immer in guter Erinnerung behalten. Ihr seid wahrlich ein Held für mich! Möge Oldra Euch segnen!"
+queststatus(70) = 8, "task", "adventure", "order" -> "You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!"
+queststatus(70) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr habt bereits viel zu viel für mich getan. Ich werde Euch immer in guter Erinnerung behalten. Ihr seid wahrlich ein Held für mich! Möge Oldra Euch segnen!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe."
 "beruf" -> "Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren."
-"job", english -> "Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe."
+english, "job" -> "Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe."
 "job" -> "Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren."
-"Gobaith", "Gobiath", english -> "I do not want to talk about that... Let's talk about my latest recipe, yes?"
+english, "Gobaith", "Gobiath" -> "I do not want to talk about that... Let's talk about my latest recipe, yes?"
 "Gobaith", "Gobiath" -> "Darüber möchte ich jetzt nicht reden... Lasst uns über mein neuestes Rezept reden, ja?"
 "my name" -> "Oh, hello, I am Nana. Did I mention that?"
 "mein Name" -> "Oh, hallo, ich bin Nana. Oder hab ich das schon gesagt?"
@@ -238,37 +238,37 @@ itemShoes = 53
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Mr Morgan is a very nice man. Elf. Wizard. Ruler. Anyway, he is nice!"
 "Erzmagier" -> "Der Herr Morgan ist ein netter Mann. Elf. Zauberer. Herrscher. Egal, er ist nett!"
-"Elvaine", "Morgan", english -> "Mr Morgan is a very nice man. Elf. Wizard. Ruler. Anyway, he is nice!"
+english, "Elvaine", "Morgan" -> "Mr Morgan is a very nice man. Elf. Wizard. Ruler. Anyway, he is nice!"
 "Elvaine", "Morgan" -> "Der Herr Morgan ist ein netter Mann. Elf. Zauberer. Herrscher. Egal, er ist nett!"
-"Runewick", english -> "Runewick is wonderful. And I'm one of the best cooks around here."
+english, "Runewick" -> "Runewick is wonderful. And I'm one of the best cooks around here."
 "Runewick" -> "Runewick ist wundervoll. Und ich bin eine der besten Köchinnen hier."
-"Valerio", "Guilianni", "Don", english -> "The Don stinks."
+english, "Valerio", "Guilianni", "Don" -> "The Don stinks."
 "Valerio", "Guilianni", "Don" -> "Der Don stinkt."
-"Galmair", english -> "Oh! Galmair is so smelly and dirty!"
+english, "Galmair" -> "Oh! Galmair is so smelly and dirty!"
 "Galmair" -> "Ohje! Galmair ist so stinkig und dreckig!"
 "Queen" -> "Oh, a queen rules Cadomyr? I never knew..."
 "Königin" -> "Oh, in Cadomyr regiert eine Königin? Wußte ich noch gar nicht..."
-"rosaline", "edwards", english -> "Oh, a queen rules Cadomyr? I never knew..."
+english, "rosaline", "edwards" -> "Oh, a queen rules Cadomyr? I never knew..."
 "rosaline", "edwards" -> "Oh, in Cadomyr regiert eine Königin? Wußte ich noch gar nicht..."
-"Cadomyr", english -> "I have never visited Cadomyr myself so far. But I have heard that it is to the south."
+english, "Cadomyr" -> "I have never visited Cadomyr myself so far. But I have heard that it is to the south."
 "Cadomyr" -> "Ich war noch nie in Cadomyr. Aber ich hab gehört, es liegt im Süden."
 
 -- Main land factions
-"albar", english -> "Ochje, leave me alone with abroad countries, will you?"
+english, "albar" -> "Ochje, leave me alone with abroad countries, will you?"
 "albar" -> "Ochje, lasst mich doch mit fernen Ländern in Ruhe."
-"gynk", "gync", english -> "Ochje, leave me alone with abroad countries, will you?"
+english, "gynk", "gync" -> "Ochje, leave me alone with abroad countries, will you?"
 "gync", "gynk" -> "Ochje, lasst mich doch mit fernen Ländern in Ruhe."
-"salkama", english -> "Ochje, leave me alone with abroad countries, will you?"
+english, "salkama" -> "Ochje, leave me alone with abroad countries, will you?"
 "salkama" -> "Ochje, lasst mich doch mit fernen Ländern in Ruhe."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I pray to Adron, Oldra and Sirani."
 "Gott", "Götter" -> "Ich bete zu Adron, Oldra und Sirani."
-"Adron", english -> "Adron is the god of good dishes! So, he is my god and I am his follower."
+english, "Adron" -> "Adron is the god of good dishes! So, he is my god and I am his follower."
 "Adron" -> "Adron ist der Gott der guten Gerichte! Und somit ist er mein Gott und ich bin seine Anhängerin."
-"Oldra", english -> "Oldra gives me what I need for my recipes, so I thank her every day."
+english, "Oldra" -> "Oldra gives me what I need for my recipes, so I thank her every day."
 "Oldra" -> "Oldra gibt mir, was ich für meine Rezepte brauche, also danke ich ihr jeden Tag."
-"Sirani", english -> "Why I pray to Sirani? Good friends become even better friends while dining together. And that's where a cook like me joins the scene!"
+english, "Sirani" -> "Why I pray to Sirani? Good friends become even better friends while dining together. And that's where a cook like me joins the scene!"
 "Sirani" -> "Warum ich zu Sirani bete? Gute Freunde werden noch bessere Freunde, wenn sie zusammen speisen. Und das ist dann der Punkt, wo eine Köchin wie ich die Bühne betritt!"
 
 -- Catching typical NPC phrases
@@ -281,7 +281,7 @@ itemShoes = 53
 "Darkman" -> "Oh can you hear him coming, it's the darkman you better keep running."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Nana", "Winterbutter", english -> "That's me!", "Oh, indeed, I am Nana Winterbutter.", "At your service."
+english, "Nana", "Winterbutter" -> "That's me!", "Oh, indeed, I am Nana Winterbutter.", "At your service."
 "Nana", "Winterbutter" -> "Das bin ich!", "Oh, ja, ich bin Nana Winterbutter.", "Stets zu Diensten."
 "Yes" -> "Pardon, I don't understand what you are referring to.", "What do you mean with 'Yes'?"
 "Ja" -> "Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.", "Was meint Ihr mit 'Ja'?"

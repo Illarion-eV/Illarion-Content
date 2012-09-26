@@ -5,7 +5,58 @@ require("base.common")
 
 module("test.vilarion", package.seeall)
 
+function LookAtItem(player, item)
+    local lookAt = ItemLookAt()
+
+    lookAt.name = "Vilarion's Test Item of pwnage with a microwave"
+    lookAt.rareness = ItemLookAt.epicItem;
+    lookAt.description = "This item has an evil presence. Also it creates cookies. But they all look like Vilarion."
+    lookAt.craftedBy = "Vilarion"
+    lookAt.weight = 1
+    lookAt.worth = 13333320
+    lookAt.qualityText = "supercharged"
+    lookAt.durabilityText = "eternal"
+    lookAt.durabilityValue = 100
+    lookAt.diamondLevel = 1
+    lookAt.emeraldLevel = 1
+    lookAt.rubyLevel =1
+    lookAt.sapphireLevel = 1
+    lookAt.amethystLevel = 1
+    lookAt.obsidianLevel = 1
+    lookAt.topazLevel = 1
+    lookAt.bonus = 255
+    world:itemInform(player, item, lookAt)
+    return true    
+end
+
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
+    if (User.lastSpokenText == "ltenull") then
+        foundEffect, myEffect = User.effects:find(3243)
+        if not foundEffect then
+            User.effects:addEffect( myEffect )
+        end
+    end
+
+    if (User.lastSpokenText == "diagnil") then
+        User:requestInputDialog( nil )
+    end
+
+    if (User.lastSpokenText == "ltenil") then
+        User.effects:addEffect( nil )
+    end
+
+    if (User.lastSpokenText == "setvar") then
+        ScriptVars:set("xq10", "bla123")
+    end
+
+    if (User.lastSpokenText == "getvar") then
+        found, value = ScriptVars:find("xq10")
+        if found then
+            User:inform("Value for xq10: " .. value)
+        else
+            User:inform("Value for xq10 not found")
+        end
+    end
     
     -- setting quest status
     local a, b, quest, status
@@ -27,6 +78,23 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
     if (User.lastSpokenText == "GM") then
         User:pageGM("test ticket")
+    end
+
+    if (User.lastSpokenText == "item") then
+        User:createItem(1, 1, 333, 12);
+		User:inform("Item erzeugt!");
+		local count = User:countItemAt("all", 1, 12);
+		if (count > 0) then
+			User:inform("Item gefunden");
+		else
+			User:inform("Item nicht gefunden");
+		end;
+		count = User:eraseItem(1, 1, 12);
+		if (count > 0) then
+			User:inform("Item gelöscht");
+		else
+			User:inform("Item nicht gelöscht");
+		end;
     end
 
     if (User.lastSpokenText == "die") then
@@ -114,6 +182,25 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         dialog:addSecondaryRequest(1, "Nicht so krasses Schwert", 123)
         User:inform("start dialog")
         User:requestMerchantDialog(dialog)
+    end
+
+    if (User.lastSpokenText == "select") then
+        local items = {1, 2, 2}
+        local names = {"Krasses Schwert", "Weizenmehl", "Roggenmehl"}
+        local callback = function(dialog)
+            success = dialog:getSuccess()
+            if success then
+                selected = dialog:getSelectedIndex()
+                User:inform("Success, selected index " .. selected .. ": '" .. names[selected+1] .. "' (Item ID " .. items[selected+1] .. ").")
+            else
+                User:inform("Selection aborted!")
+            end
+        end
+        local dialog = SelectionDialog("Selection 0",  callback)
+        for i=1,#items do
+            dialog:addOption(items[i], names[i])
+        end
+        User:requestSelectionDialog(dialog)
     end
 end
 

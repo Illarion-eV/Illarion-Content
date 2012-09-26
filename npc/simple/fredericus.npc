@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Martin Karing                                                    --
 --                                                                            --
--- Last parsing: August 29, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Fredericus"
@@ -80,25 +80,25 @@ buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Fischer, Tanora, Handel.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ahoi! Frischer Fisch!", "Tag. Bin gerade von großer Fahrt zurück.", "Nur der beste Fisch, nur heute, nur für euch!"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ahoi! Frischer Fisch!", "Tag. Bin gerade von großer Fahrt zurück.", "Nur der beste Fisch, nur heute, nur für euch!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ahoi! Frischer Fisch!", "Tag. Bin gerade von großer Fahrt zurück.", "Nur der beste Fisch, nur heute, nur für euch!"
 "Farewell", "Bye", "Fare well", "See you" -> "Good trip.", "Until next time, remember, a fish a day keeps the medico away.", "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gute Fahrt.", "Bis zum nächesten Mal, denkt daran, ein Fisch am Tag hält den Medizinmann fern.", "Auf wiedersehen."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Good trip.", "Until next time, remember, a fish a day keeps the medico away.", "Farewell."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good trip.", "Until next time, remember, a fish a day keeps the medico away.", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gute Fahrt.", "Bis zum nächesten Mal, denkt daran, ein Fisch am Tag hält den Medizinmann fern.", "Auf wiedersehen."
 "How are you", "How feel", "How do you do" -> "I feel good, not a wonder, I had fish today.", "I'd feel much better if you buy some fish.", "Fine, thank you."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut, ist auch kein Wunder, ich habe heute Fisch gegessen.", "Mir würde es weit besser gehen, wenn ihr Fisch kaufen würdet.", "Gut, danke der Nachfrage."
-"your name", "who are you", "who art thou" -> "Fredericus. That's me.", "I am the fisherman Fredericus.", "Fredericus is my name, I trade fish."
+"your name", "who are you", "who art thou" -> trade, "Fredericus. That's me.", "I am the fisherman Fredericus.", "Fredericus is my name, Ifish."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fredericus. Das bin ich.", "Ich bin der Fischer Fredericus.", "Fredericus ist mein Name, ich handel mit Fischen."
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.", "I trade fish, do you need any?", "I trade what you need to catch fish and I even buy the fish you caught.", "Ya want to trade? Aye, have a look!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.", "Ich handel Fische, braucht ihr welche?", "Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.", "Du willst handeln? Da schau her was ich hab!", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, trade, trade, trade, trade, "Fish, fish, fish. Ifish. And also herbs, if you need any to spice up your dishes.", "Ifish, do you need any?", "Iwhat you need to catch fish and I even buy the fish you caught.", "Ya want to? Aye, have a look!"
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.", "Ich handel Fische, braucht ihr welche?", "Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.", "Du willst handeln? Da schau her was ich hab!"
 
 -- Catching quest triggers
-"quest", "mission", english -> "I do not issue any quests. But you can bring me fish and I'll pay you for your work."
+english, "quest", "mission" -> "I do not issue any quests. But you can bring me fish and I'll pay you for your work."
 "quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr könnt mir Fisch bringen und ich bezahle eure Arbeit."
 "task", "adventure", "order" -> "I do not issue any quests. But you can bring me fish and I'll pay you for your work."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben. Aber ihr könnt mir Fisch bringen und ich bezahle eure Arbeit."
@@ -109,59 +109,59 @@ buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a fisherman. A hard job, but a honest and honourable job."
 "beruf" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
-"job", english -> "I'm a fisherman. A hard job, but a honest and honourable job."
+english, "job" -> "I'm a fisherman. A hard job, but a honest and honourable job."
 "job" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
-"Gobaith", "Gobiath", english -> "I once sailed to Gobaith, the natives tossed onions at each other!"
+english, "Gobaith", "Gobiath" -> "I once sailed to Gobaith, the natives tossed onions at each other!"
 "Gobaith", "Gobiath" -> "Ich bin einmal nach Gobaith gesegelt, die Eingeborenen dort haben mit Zwiebeln aufeinander geworfen!"
 "my name" -> "Oh, interesting, and do you want to become a fisherman like me?", "A nice name, indeed."
 "mein Name" -> "Oh, interessant, wollt ihr auch ein Fischer wie ich werden?", "Ein netter Name."
 
 -- More small talk; add at least five triggers
-"Zerarisa", english -> "I think Zerarisa is one of the lizards, living at Cape Farewell."
+english, "Zerarisa" -> "I think Zerarisa is one of the lizards, living at Cape Farewell."
 "Zerarisa" -> "Ich meine, Zerarisa ist eine der Echsen, die am Kap des Abschiedes wohnen."
-"Cape", "Farewell" -> "Cape Farewell is to the south and west, land's end, one could say."
+"Cape", "Farewell" -> end, "Cape Farewell is to the south and west, land'sone could say."
 "Kap", "Abschied" -> "Das Kap des Abschiedes ist im Südwesten, am Ende der Welt könnte man sagen."
 "boat", "ship", "vessle" -> "No, I will not lend you my boat. Take a fishing rod and go to the shore."
 "Boot", "Schiff" -> "Ich kann euch mein Boot nicht leihen. Nehmt eine Angelrute und geht zur Küste."
 "Fischer" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
 "fisherman" -> "I'm a fisherman. A hard job, but a honest and honourable job."
-"trader", "merchant", "collegue", "vendor", "market" -> "Here, at the marketplace, there are many traders. You can buy many goods here in Cadomyr."
+"trader", "merchant", "collegue", "vendor", "market" -> trade, "Here, at the marketplace, there are manyrs. You can buy many goods here in Cadomyr."
 "händler", "kollege", "höker", "markt" -> "Hier auf dem Marktplatz gibt es einige Händler. Man kann viele Waren hier in Cadomyr kaufen."
 
 -- Faction stuff
 "archmage" -> "#me snorts angrily.", "Better avoid Runewick's leader. Whatever you say, it is wrong. Whatever you do, it is wrong."
 "Erzmagier" -> "#me schnaubt wütend.", "Vermeidet den Herren von Runewick. Was immer ihr sagt, es ist falsch. Was immer ihr tut, es ist falsch."
-"Elvaine", "Morgan", english -> "#me snorts angrily.", "Better avoid Runewick's leader. Whatever you say, it is wrong. Whatever you do, it is wrong."
+english, "Elvaine", "Morgan" -> "#me snorts angrily.", "Better avoid Runewick's leader. Whatever you say, it is wrong. Whatever you do, it is wrong."
 "Elvaine", "Morgan" -> "#me schnaubt wütend.", "Vermeidet den Herren von Runewick. Was immer ihr sagt, es ist falsch. Was immer ihr tut, es ist falsch."
-"Runewick", english -> "If I were you, I'd never go to Runewick. They might be nice, but also, false and not honest."
+english, "Runewick" -> "If I were you, I'd never go to Runewick. They might be nice, but also, false and not honest."
 "Runewick" -> "Wenn ich an eurer Stelle wäre, würde ich nie nach Runewick gehen. Sie mögen nett dort sein, aber auch unehrlich und falsch. "
-"Valerio", "Guilianni", "Don", english -> "I'd like to toss some smelly fish at the Don. I will never understand how such a... villain can become leader of a community."
+english, "Valerio", "Guilianni", "Don" -> "I'd like to toss some smelly fish at the Don. I will never understand how such a... villain can become leader of a community."
 "Valerio", "Guilianni", "Don" -> "Ich würd' gerne mal ein paar stinkige Fische auf den Don werfen. Ich werde nie verstehen, wie so ein... Rabauke der Anführer einer Gemeinschaft werden konnte."
-"Galmair", english -> "Galmair is not a safe place. The Don does not want it to be, so he can demand money for protection."
+english, "Galmair" -> "Galmair is not a safe place. The Don does not want it to be, so he can demand money for protection."
 "Galmair" -> "Galmair ist kein sicherer Ort. Aber der Don will es nicht anders, denn nur so kann er Schutzgeld erpressen."
 "Queen" -> "Queen Rosaline, well, she is the best thing that could happen to Cadomyr. I say that and I mean it, the best woman is better than the worst man."
 "Königin" -> "Königin Rosaline ist das beste, was Cadomyr geschehen konnte. Ich sage es, weil ich es meine; die beste Frau ist immernoch besser als der schlechteste Mann."
-"rosaline", "edwards", english -> "Queen Rosaline, well, she is the best thing that could happen to Cadomyr. I say that and I mean it, the best woman is better than the worst man."
+english, "rosaline", "edwards" -> "Queen Rosaline, well, she is the best thing that could happen to Cadomyr. I say that and I mean it, the best woman is better than the worst man."
 "rosaline", "edwards" -> "Königin Rosaline ist das beste, was Cadomyr geschehen konnte. Ich sage es, weil ich es meine; die beste Frau ist immernoch besser als der schlechteste Mann."
-"Cadomyr", english -> "Cadomyr is my home, where I return to after setting sails.", "I love Cadomyr as I love the sea.", "Cadomyr's best, forget the rest!"
+english, "Cadomyr" -> "Cadomyr is my home, where I return to after setting sails.", "I love Cadomyr as I love the sea.", "Cadomyr's best, forget the rest!"
 "Cadomyr" -> "Cadomyr ist meine Heimat, in die ich mit vollen Segeln zurückkehre.", "Ich liebe Cadomyr wie das weite, offene Meer.", "Cadomyr kriegt das beste, für die anderen bleiben nur Reste."
 
 -- Main land factions
-"albar", english -> "Oh, Albar, how much I desire to sail there. A land of justice and honour"
+english, "albar" -> "Oh, Albar, how much I desire to sail there. A land of justice and honour"
 "albar" -> "Oh, Albar, wie sehr wünschte ich, ich könnte dorthin segeln. Ein Land der Gerechtigkeit und der Ehre."
-"gynk", "gync", english -> "What did you say?", "I did not understand you.", "Pardon me?", "Shh, do not talk about this too loud."
+english, "gynk", "gync" -> "What did you say?", "I did not understand you.", "Pardon me?", "Shh, do not talk about this too loud."
 "gync", "gynk" -> "Was habt ihr gesagt?", "Ich habe euch nicht verstanden.", "Entschuldigung?", "Psst, sprecht darüber nicht so laut."
-"salkama", english -> "Arrogant wisenheimers they are. And a hard working fisherman does not matter to the oh-so-noble people there."
+english, "salkama" -> "Arrogant wisenheimers they are. And a hard working fisherman does not matter to the oh-so-noble people there."
 "salkama" -> "Arrogante Besserwisser sind das. Und ein hart arbeitender Fischer zählt nichts für die ach-so-noblen Leute dort."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
 "god" -> "Goddesses aren't prayed to in Cadomyr, they say. But when you are at sea, you'll pray to Tanora and Findari, that's for sure."
 "Gott", "Götter" -> "In Cadomyr betet man keinen Göttinnen an, so heißt es. Aber wenn ihr mal auf See seid, dann werdet ihr sicherlich Tanora und Findari anflehen."
-"Tanora", "Zelphia", english -> "Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that crash my boat.", "Hail the goddess!", "I obey Tanora, but if you want to meet perons who adore her, go to Cape Farewell."
+english, "Tanora", "Zelphia" -> "Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that crash my boat.", "Hail the goddess!", "I obey Tanora, but if you want to meet perons who adore her, go to Cape Farewell."
 "Tanora", "Zelphia" -> "Tanora lenkt mein Boot, Tanora schützt mein Boot, Tanora schickt die Wellen, die mein Boot zermalmen.", "Huldigt Tanora!", "Ich gehorche Tanora, aber wenn ihr Leute treffen wollt, die sie verehren, geht zum Kap des Abschiedes."
-"Findari", english -> "Findari grants the devastating storm or the wind that blows the sail; depending on her mood."
+english, "Findari" -> "Findari grants the devastating storm or the wind that blows the sail; depending on her mood."
 "Findari" -> "Findari bringt den vernichtenden Sturm oder den Wind, der die Segel aufbläht, je nach ihrer Stimmungslage."
-"Irmorom", english -> "Irmorom helps me doing good business, but my fate is in the hand of Tanora and Findari."
+english, "Irmorom" -> "Irmorom helps me doing good business, but my fate is in the hand of Tanora and Findari."
 "Irmorom" -> "Irmorom verhilft mir manches mal zu guten Geschäften, aber mein Leben liegt in Tanoras und Findaris Händen."
 
 -- Catching typical NPC phrases
@@ -169,7 +169,7 @@ buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 
 "erzähl was", "erzähl etwas" -> "Ich schwöre, ich habe ein Seeungeheuer gesehen!", "Wenn ein böser Geist auf einem Schiff sein Unwesen treibt, dann ist es meist bald verloren."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Fredericus", english -> "I am merely a humble fisherman. But I could tell you about the gods, shall I?"
+english, "Fredericus" -> "I am merely a humble fisherman. But I could tell you about the gods, shall I?"
 "Fredericus" -> "Ich bin nur ein einfacher Fischer, aber ich könnte euch etwas über die Götter erzählen, wenn ihr Zeit habt."
 "Yes" -> "Aye, aye, and a flounder in addition.", "Well, maybe a herring?", "That's good."
 "Ja" -> "Aye, aye, und eine Flunder dazu.", "Vielleicht einen Hering?", "Das ist gut auch so."

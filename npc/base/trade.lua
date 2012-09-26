@@ -22,6 +22,7 @@ tradeNPC = base.class.class(function(self, rootNPC)
     
     self["_buyItems"] = {};
     
+    self["_wrongItemMsg"] = base.messages.Messages();
     self["_notEnoughMoneyMsg"] = base.messages.Messages();
     self["_dialogClosedMsg"] = base.messages.Messages();
     self["_dialogClosedNoTradeMsg"] = base.messages.Messages();
@@ -37,6 +38,10 @@ function tradeNPC:addItem(item)
     elseif (item._type == "buyPrimary" or item._type == "buySecondary") then
         table.insert(self._buyItems, item);
     end;
+end;
+
+function tradeNPC:addWrongItemMsg(msgGerman, msgEnglish)
+    self._wrongItemMsg:addMessage(msgGerman, msgEnglish);
 end;
 
 function tradeNPC:addNotEnoughMoneyMsg(msgGerman, msgEnglish)
@@ -110,10 +115,11 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
         end;
     end;
 	
-	-- Buying at default price
-	local price = world:getItemStatsFromId(boughtItem.id).Worth * boughtItem.number;
-	if world:erase(boughtItem, boughtItem.number) then
-		base.money.GiveMoneyToChar(player, price);
+	-- Reject item
+	if (self._wrongItemMsg:hasMessages()) then    
+		local msgGerman, msgEnglish = self._wrongItemMsg:getRandomMessage();
+		npcChar:talkLanguage(Character.say, Player.german, msgGerman);
+		npcChar:talkLanguage(Character.say, Player.english, msgEnglish);
 	end;
 end;
 
@@ -159,11 +165,11 @@ tradeNPCItem = base.class.class(function(self, id, itemType, nameDe, nameEn, pri
     
     if (price == nil) then
         if (itemType == "sell") then
-            self["_price"] = world:getItemStatsFromId(id).Worth * 100;
+            self["_price"] = world:getItemStatsFromId(id).Worth;
         elseif (itemType == "buyPrimary") then
-            self["_price"] = world:getItemStatsFromId(id).Worth * 10;
+            self["_price"] = world:getItemStatsFromId(id).Worth * 0.1;
         elseif (itemType == "buySecondary") then
-            self["_price"] = world:getItemStatsFromId(id).Worth * 5;
+            self["_price"] = world:getItemStatsFromId(id).Worth * 0.05;
         end;
     else
         self["_price"] = price;
@@ -172,30 +178,30 @@ tradeNPCItem = base.class.class(function(self, id, itemType, nameDe, nameEn, pri
     if (itemType == "sell" and stack ~= nil) then
         self["_stack"] = stack;
     else
-        self["_stack"] = nil;
+        self["_stack"] = world:getItemStatsFromId(id).BuyStack;
+		if (self["_stack"] == nil) then
+			debug("_stack is NIL, the server failed! Hard.");
+			self["_stack"] = 1;
+		end;
     end;
     
-    if (quality ~= nil or itemType ~= "sell") then
-        self["_quality"] = quality;
-    else
+	if (itemType == "sell" and quality ~= nil) then
+		self["_quality"] = quality;
+	else
         self["_quality"] = 580;
-    end;
+	end;
     
-    if (data ~= nil or itemType ~= "sell") then
+    if (itemType == "sell") then
         self["_data"] = data;
     else
-        self["_data"] = 0;
+        self["_data"] = nil;
     end;
 end);
 
 function tradeNPCItem:addToDialog(player, dialog)
     local name = base.common.GetNLS(player, self._nameDe, self._nameEn);
     if (self._type == "sell") then
-        if (self._stack == nil) then
-            dialog:addOffer(self._itemId, name, self._price);
-        else
-            dialog:addOffer(self._itemId, name, self._price, self._stack);
-        end;
+        dialog:addOffer(self._itemId, name, self._price * self._stack, self._stack);
     elseif (self._type == "buyPrimary") then
         dialog:addPrimaryRequest(self._itemId, name, self._price);
     else

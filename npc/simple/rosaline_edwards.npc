@@ -58,8 +58,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Königin Rosaline Edwards von Cadomyr. Schlüsselwörter: Es lebe die Königin, Cadomyr, Feinde, Sir Reginald, Gruft, Grab.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Speak, but choose your words wisely for my time is short.", "Ah, a servant of mine, good, what news do you bear from my realm?", "You dare to disturb me? Fine, fortunately for you I needed a distraction."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Sagt, was wollt ihr von eurer Königin? Sprecht schnell oder ich werde euch Beine machen.", "Ah, einer meiner Untertanen. Gut, was für Kunde bringt ihr aus meinem Reich?", "Ihr wagt es, mich zu stören. Fein, ich kann etwas Abwechslung gut vertragen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Speak, but choose your words wisely for my time is short.", "Ah, a servant of mine, good, what news do you bear from my realm?", "You dare to disturb me? Fine, fortunately for you I needed a distraction."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Sagt, was wollt ihr von eurer Königin? Sprecht schnell oder ich werde euch Beine machen.", "Ah, einer meiner Untertanen. Gut, was für Kunde bringt ihr aus meinem Reich?", "Ihr wagt es, mich zu stören. Fein, ich kann etwas Abwechslung gut vertragen."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Speak, but choose your words wisely for my time is short.", "Ah, a servant of mine, good, what news do you bear from my realm?", "You dare to disturb me? Fine, fortunately for you I needed a distraction."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Sagt, was wollt ihr von eurer Königin? Sprecht schnell oder ich werde euch Beine machen.", "Ah, einer meiner Untertanen. Gut, was für Kunde bringt ihr aus meinem Reich?", "Ihr wagt es, mich zu stören. Fein, ich kann etwas Abwechslung gut vertragen."
 "Farewell", "Bye", "Fare well", "See you" -> "#me waves: 'Begone.'", "Go with Malachin's blessings and do deeds to honour Cadomyr's name.", "Very well, be off and serve me as I do Cadomyr.", "Fare thee well, and be sure to speak fondly of Cadomyr on your travels."
@@ -80,8 +80,8 @@ itemShoes = 369
 -- Catching quest triggers
 "quest", "mission", english -> "Ah, a loyal subject. Very well, ask one of my servants what you can do for me today, I cannot be bothered such details; I have to rule an entire kingdom."
 "quest", "mission" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
-"task", "adventure" -> "Ah, a loyal subject. Very well, ask one of my servants what you can do for me today, I cannot be bothered such details; I have to rule an entire kingdom."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
+"task", "adventure", "order" -> "Ah, a loyal subject. Very well, ask one of my servants what you can do for me today, I cannot be bothered such details; I have to rule an entire kingdom."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
 
 -- Reward for quest 622
 "Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(10.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(1)

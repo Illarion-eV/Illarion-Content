@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Corporal Piero"
@@ -61,21 +61,21 @@ itemShoes = 53
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends. rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
 
 -- quest done
-"hilfe", queststatus(305) = 6 -> inform("[Game Help] This NPC is Corporal Piero the guard. Keywords: Galmair, Runewick, Queen Rosaline. - Quest solved."), "Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.", state = 0
-"help", queststatus(305) = 6 -> inform("[Game Help] This NPC is Corporal Piero the guard. Keywords: Galmair, Runewick, Queen Rosaline. - Quest gelöst."), "I'm a guard. I guard people. Long live the queen. Thanks for your help with the pirates. Zhambra shall guard you.", state = 0
+queststatus(305) = 6, "hilfe" -> inform("[Game Help] This NPC is Corporal Piero the guard. Keywords: Galmair, Runewick, Queen Rosaline. - Quest solved."), state = 0, "Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen."
+queststatus(305) = 6, "help" -> inform("[Game Help] This NPC is Corporal Piero the guard. Keywords: Galmair, Runewick, Queen Rosaline. - Quest gelöst."), state = 0, "I'm a guard. I guard people. Long live the queen. Thanks for your help with the pirates. Zhambra shall guard you."
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Corporal Piero the guard. Keywords: Adventure, Queen Rosaline."), "Help? I don't know how to help you. But you shoul dbe able to help me, as long as you are looking for an little 'adventure'."
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Corporal Piero der Wächter. Schlüsselwörter: Abenteuer, Königin Rosaline."), "Helfen? Ich weiß nicht wie ich Euch helfen soll. Aber Ihr könntet mir helfen, insofern ihr nach einem 'Abenteuer' sucht.", state = 0
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Corporal Piero der Wächter. Schlüsselwörter: Abenteuer, Königin Rosaline."), state = 0, "Helfen? Ich weiß nicht wie ich Euch helfen soll. Aber Ihr könntet mir helfen, insofern ihr nach einem 'Abenteuer' sucht."
 
 -- generall
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hello.", "Zhambras greets.", "Be greeted.", "Zhambra may bless the queen."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hallo.", "Seid gegrüßt.", "Zhambra zum Gruße.", "Lang lebe Königin Rosaline Edwards."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Hello.", "Zhambras greets.", "Be greeted.", "Zhambra may bless the queen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello.", "Zhambras greets.", "Be greeted.", "Zhambra may bless the queen."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo.", "Seid gegrüßt.", "Zhambra zum Gruße.", "Lang lebe Königin Rosaline Edwards."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello.", "Zhambras greets.", "Be greeted.", "Zhambra may bless the queen."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo.", "Seid gegrüßt.", "Zhambra zum Gruße.", "Lang lebe Königin Rosaline Edwards."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Have a good day.", "Good bye.", "Zhambra shall be with you."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt Euch wohl.", "Einen Schönen Tag noch.", "Zhambra sei mit Euch."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell.", "Have a good day.", "Good bye.", "Zhambra shall be with you."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Have a good day.", "Good bye.", "Zhambra shall be with you."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt Euch wohl.", "Einen Schönen Tag noch.", "Zhambra sei mit Euch."
 "How are you", "How feel", "How do you do" -> "I'm mostly fine. The pirates be quiet. Shall I take this for good or bad? I don't know.", "As long as queen Rosaline rules our land, everything is going well.", "Hail Zhambra, hail queen Rosaline! I'm good."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Größtenteils gut. Die Piraten verhalten sich ruhig. Ist das ein gutes Zeichen oder ein Schlechtes? Ich weiß es nicht.", "So lange Königin Rosaline unser Land regiert, geht alles seinen rechten Weges.", "Heil Zhambra, Heil Königin Rosaline! Mir geht's gut."
@@ -85,10 +85,10 @@ itemShoes = 53
 -- Catching quest triggers. Modify if the NPC does quests.
 
 -- language: human, common
-"Botschaft", "verdienen", "aufgabe", "abenteuer", queststatus(305) = 6 -> "Nochmals... Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen."
-"Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "job", "problem", "mission", queststatus(305) = 6, german -> "Nochmals... Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen."
-"Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "job", "problem", "mission", queststatus(305) = 6, english -> "Thanks, again. You helped Cadomyr very much. Zhambra shall bless you."
-"Mesage", "task", "adventure", "money", "earn", queststatus(305) = 6 -> "Thanks, again. You helped Cadomyr very much. Zhambra shall bless you."
+queststatus(305) = 6, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> "Nochmals... Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen."
+queststatus(305) = 6, german, "Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "job", "problem", "mission" -> "Nochmals... Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen."
+queststatus(305) = 6, english, "Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "job", "problem", "mission" -> "Thanks, again. You helped Cadomyr very much. Zhambra shall bless you."
+queststatus(305) = 6, "Mesage", "task", "adventure", "money", "earn" -> "Thanks, again. You helped Cadomyr very much. Zhambra shall bless you."
 
 -- Galmair - parser don't parses this code.
 -- "Botschaft", "verdienen", "aufgabe", "abenteuer", queststatus(305) = 5,town!=galmair -> "Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6,inform("Der Don hat von deiner Tat erfahren und es heißt, dass er nicht gerade erfreut darüber war.")
@@ -109,31 +109,31 @@ itemShoes = 53
 -- "Mesage", "task", "adventure","money", "earn", queststatus(305) = 5 ,town!=Cadomyr-> "Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6,inform("The queen got knowledge about your deeds, she seemed to be very amused.")
 
 -- none
-"Botschaft", "verdienen", "aufgabe", "abenteuer", queststatus(305) = 5 -> inform("Die Anführer der Fraktionen haben von deiner Tat erfahren, dies wirkt sich mit Sicherheit auf deinen Ruf aus."), "Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6
-"Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "mission", "job", "problem", queststatus(305) = 5, german -> inform("Die Anführer der Fraktionen haben von deiner Tat erfahren, dies wirkt sich mit Sicherheit auf deinen Ruf aus."), "Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6
-"Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "mission", "job", "problem", queststatus(305) = 5, english -> inform("The leaders about the factions got knowledge about your deeds, this influences your reputation."), "Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6
-"Mesage", "task", "adventure", "money", "earn", queststatus(305) = 5 -> inform("The leaders about the factions got knowledge about your deeds, this influences your reputation."), "Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6
-"verdienen", "aufgabe", "abenteuer", queststatus(305) = 1 -> inform("'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!'"), "Irgendwo im Piratebay treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück."
-"info", "quest", "job", "problem", "mission", queststatus(305) = 1, german -> inform("'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!'"), "Irgendwo im Piratebay treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück."
-"info", "quest", "job", "problem", "mission", queststatus(305) = 1, english -> inform("'Awesome! Let's find a way to Pirate Bay! Arr, lubber!'"), "My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His information is very important for the guard of Cadomyr. Good luck."
-"task", "adventure", "money", "earn", queststatus(305) = 1 -> inform("'Awesome! Let's find a way to Pirate Bay! Arr, lubber!'"), "My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His information is very important for the guard of Cadomyr. Good luck."
-"verdienen", "aufgabe", "abenteuer", queststatus(305) = 0 -> inform("'Soll das ein Auftrag sein? Besser, ich frage nach mehr Informationen...'"), "In der Tat. Ja, ja. Im Namen der Wächter Cadomyrs bin ich ermächtigt Euch einen Auftrag zu erteilen. Sucht Euren Weg in die Bucht der Piraten. Tobis Vunu hat Informationen für mich die ausgesprochen wichtig sind. Übergebt mir diese Botschaft.", queststatus(305) = 1
-"quest", "job", "problem", "mission", queststatus(305) = 0, german -> inform("'Soll das ein Auftrag sein? Besser, ich frage nach mehr Informationen...'"), "In der Tat. Ja, ja. Im Namen der Wächter Cadomyrs bin ich ermächtigt Euch einen Auftrag zu erteilen. Sucht Euren Weg in die Bucht der Piraten. Tobis Vunu hat Informationen für mich die ausgesprochen wichtig sind. Übergebt mir diese Botschaft.", queststatus(305) = 1
-"quest", "job", "problem", "mission", queststatus(305) = 0, english -> inform("'Is that a task or not? I should ask for more information..."), "Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich is very important for me. deliver this message to me.", queststatus(305) = 1
-"task", "adventure", "money", "earn", queststatus(305) = 0 -> inform("'Is that a task or not? I should ask for more information..."), "Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich is very important for me. deliver this message to me.", queststatus(305) = 1
+queststatus(305) = 5, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> inform("Die Anführer der Fraktionen haben von deiner Tat erfahren, dies wirkt sich mit Sicherheit auf deinen Ruf aus."), item(505, 1, 733), item(356, 1, 999), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6, "Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben."
+queststatus(305) = 5, german, "Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "mission", "job", "problem" -> inform("Die Anführer der Fraktionen haben von deiner Tat erfahren, dies wirkt sich mit Sicherheit auf deinen Ruf aus."), item(505, 1, 733), item(356, 1, 999), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6, "Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben."
+queststatus(305) = 5, english, "Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "mission", "job", "problem" -> inform("The leaders about the factions got knowledge about your deeds, this influences your reputation."), item(505, 1, 733), item(356, 1, 999), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6, "Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat."
+queststatus(305) = 5, "Mesage", "task", "adventure", "money", "earn" -> inform("The leaders about the factions got knowledge about your deeds, this influences your reputation."), item(505, 1, 733), item(356, 1, 999), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6, "Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat."
+queststatus(305) = 1, "verdienen", "aufgabe", "abenteuer" -> inform("'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!'"), "Irgendwo im Piratebay treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück."
+queststatus(305) = 1, german, "info", "quest", "job", "problem", "mission" -> inform("'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!'"), "Irgendwo im Piratebay treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück."
+queststatus(305) = 1, english, "info", "quest", "job", "problem", "mission" -> inform("'Awesome! Let's find a way to Pirate Bay! Arr, lubber!'"), "My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His information is very important for the guard of Cadomyr. Good luck."
+queststatus(305) = 1, "task", "adventure", "money", "earn" -> inform("'Awesome! Let's find a way to Pirate Bay! Arr, lubber!'"), "My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His information is very important for the guard of Cadomyr. Good luck."
+queststatus(305) = 0, "verdienen", "aufgabe", "abenteuer" -> inform("'Soll das ein Auftrag sein? Besser, ich frage nach mehr Informationen...'"), queststatus(305) = 1, "In der Tat. Ja, ja. Im Namen der Wächter Cadomyrs bin ich ermächtigt Euch einen Auftrag zu erteilen. Sucht Euren Weg in die Bucht der Piraten. Tobis Vunu hat Informationen für mich die ausgesprochen wichtig sind. Übergebt mir diese Botschaft."
+queststatus(305) = 0, german, "quest", "job", "problem", "mission" -> inform("'Soll das ein Auftrag sein? Besser, ich frage nach mehr Informationen...'"), queststatus(305) = 1, "In der Tat. Ja, ja. Im Namen der Wächter Cadomyrs bin ich ermächtigt Euch einen Auftrag zu erteilen. Sucht Euren Weg in die Bucht der Piraten. Tobis Vunu hat Informationen für mich die ausgesprochen wichtig sind. Übergebt mir diese Botschaft."
+queststatus(305) = 0, english, "quest", "job", "problem", "mission" -> inform("'Is that a task or not? I should ask for more information..."), queststatus(305) = 1, "Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich is very important for me. deliver this message to me."
+queststatus(305) = 0, "task", "adventure", "money", "earn" -> inform("'Is that a task or not? I should ask for more information..."), queststatus(305) = 1, "Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich is very important for me. deliver this message to me."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a guard. I guard people. Long live the queen."
 "beruf" -> "Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin."
-"job", english -> "I'm a guard. I guard people. Long live the queen."
+english, "job" -> "I'm a guard. I guard people. Long live the queen."
 "job" -> "Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin."
-"Gobaith", "Gobiath", english -> "Never heard of that. Is it far away?"
+english, "Gobaith", "Gobiath" -> "Never heard of that. Is it far away?"
 "Gobaith", "Gobiath" -> "Davon hab ich nie gehört. Ist das weit weg?"
 "my name" -> "I feel honored to meet you."
 "mein Name" -> "Ich fühle mich geehrt Euch zu treffen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"murgo", english -> "Murgo. Sure I heared about him. He's quite fameous on this lands."
+english, "murgo" -> "Murgo. Sure I heared about him. He's quite fameous on this lands."
 "murgo" -> "Murgo. Sicher hab ich von ihm gehört. Er is richtig berühmt in diesen Landen."
 "your name", "who are you", "who art thou" -> "I am Corporal Piero. Servant of the queen in Cadomyr."
 "wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin Corporal Piero. Diener der Königin von Cadomyr"
@@ -141,49 +141,49 @@ itemShoes = 53
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Archmage Elvaine Morgan is the ruler of Runewick. They say nobody dares to disagree with him, not because one is afraid of him, but nobody knows it better than him."
 "Erzmagier" -> "Erzmagier Elvaine Morgan ist der Herrscher über Runewick. Es heißt niemand wagt es ihm zu widersprechen. Aber nicht aus Angst, sondern weil es niemanden gibt der es besser wüßte."
-"Elvaine", "Morgan", english -> "Archmage Elvaine Morgan is the ruler of Runewick. They say nobody dares to disagree with him, not because one is afraid of him, but nobody knows it better than him."
+english, "Elvaine", "Morgan" -> "Archmage Elvaine Morgan is the ruler of Runewick. They say nobody dares to disagree with him, not because one is afraid of him, but nobody knows it better than him."
 "Elvaine", "Morgan" -> "Erzmagier Elvaine Morgan ist der Herrscher über Runewick. Es heißt niemand wagt es ihm zu widersprechen. Aber nicht aus Angst, sondern weil es niemanden gibt der es besser wüßte."
-"Runewick", english -> "Urgh. Runewick. Sounds to me like a place I never want to go. It's filled with arrogant bookworms who claim to know it all."
+english, "Runewick" -> "Urgh. Runewick. Sounds to me like a place I never want to go. It's filled with arrogant bookworms who claim to know it all."
 "Runewick" -> "Erzmagier Elvaine Morgan ist der Herrscher über Runewick. Es heißt niemand wagt es ihm zu widersprechen. Aber nicht aus Angst, sondern weil es niemanden gibt der es besser wüßte."
-"Valerio", "Guilianni", "Don", english -> "Don Valerio Guilianni is the richest man in whole Galmair. So I will say... he holds the politic in hands there like no other one."
+english, "Valerio", "Guilianni", "Don" -> "Don Valerio Guilianni is the richest man in whole Galmair. So I will say... he holds the politic in hands there like no other one."
 "Valerio", "Guilianni", "Don" -> "Don Valerio Guilianni ist der reichste Mann in ganz Galmair. Also würde ich sagen, er hält die Politik der Stadt in Händen wie kein anderer."
-"Galmair", english -> "A chaotic moloch. Filled with scum. There's wealth the only thing to count. Most people there havn't a sense for honour."
+english, "Galmair" -> "A chaotic moloch. Filled with scum. There's wealth the only thing to count. Most people there havn't a sense for honour."
 "Galmair" -> "Ein chaotisches Moloch. Überfüllt mit Abschaum. Reichtum ist dort alles was zählt. Dort kennt man keine Ehre."
 "king" -> "The king is dead. Long live the queen. When King Reginald Edwards died, queen Rosaline was able to inherit the crown. Aginst the plans of some nobles."
 "könig" -> "Der König ist tot. Lang lebe die Königin. Als König Reginald Edwards verstarb, war es Königin Rosaline möglich den Tron zu besteigen. Wider den Plänen von so manchen Adeligen."
-"Reginald", english -> "The king is dead. Long live the queen. When King Reginald Edwards died, queen Rosaline was able to inherit the crown. Aginst the plans of some nobles."
+english, "Reginald" -> "The king is dead. Long live the queen. When King Reginald Edwards died, queen Rosaline was able to inherit the crown. Aginst the plans of some nobles."
 "Reginald" -> "Der König ist tot. Lang lebe die Königin. Als König Reginald Edwards verstarb, war es Königin Rosaline möglich den Tron zu besteigen. Wider den Plänen von so manchen Adeligen."
 "Queen" -> "God bless queen Rosaline Edwards. She is the absolute ruler of our awesome land. The kings blood is strong and clean in her veins."
 "Königin" -> "Gott schütze Königin Rosaline Edwards. Sie ist die absolute Herrscherin unseres großartigen Landes. Das Blut der Könige fließt stark und rein in ihren Adern."
-"rosaline", "edwards", english -> "God bless queen Rosaline Edwards. She is the absolute ruler of our awesome land. The kings blood is strong and clean in her veins."
+english, "rosaline", "edwards" -> "God bless queen Rosaline Edwards. She is the absolute ruler of our awesome land. The kings blood is strong and clean in her veins."
 "rosaline", "edwards" -> "Gott schütze Königin Rosaline Edwards. Sie ist die absolute Herrscherin unseres großartigen Landes. Das Blut der Könige fließt stark und rein in ihren Adern."
-"Cadomyr", english -> "Heil our crest. Heil our flags! Long live Cadomyr and the code of honour. I'm proud to call myself a servant of queen Rosaline."
+english, "Cadomyr" -> "Heil our crest. Heil our flags! Long live Cadomyr and the code of honour. I'm proud to call myself a servant of queen Rosaline."
 "Cadomyr" -> "Heil unserem Wappen. Heil unserer Fahne! Lang lebe Cadomyr und der Codex der Ehre. Ich bin stolz mich einen Diener, Königin Rosalines zu nennen."
 
 -- Main land factions
-"albar", english -> "This is Cadomyr's Land. Albar is far away and I have no use in knowledge about such countries."
+english, "albar" -> "This is Cadomyr's Land. Albar is far away and I have no use in knowledge about such countries."
 "albar" -> "Wir sind hier in Cadomyr. Albar ist weit weg - was nützt es mir über solche Länder bescheid zu wissen?"
-"gynk", "gync", english -> "This is Cadomyr's Land. Gynk is far away and I have no use in knowledge about such countries."
+english, "gynk", "gync" -> "This is Cadomyr's Land. Gynk is far away and I have no use in knowledge about such countries."
 "gync", "gynk" -> "Wir sind hier in Cadomyr. Gynk ist weit weg - was nützt es mir über solche Länder bescheid zu wissen?"
-"salkama", english -> "This is Cadomyr's Land. Salkamar is far away and I have no use in knowledge about such countries."
+english, "salkama" -> "This is Cadomyr's Land. Salkamar is far away and I have no use in knowledge about such countries."
 "salkama" -> "Wir sind hier in Cadomyr. Salkamar ist weit weg - was nützt es mir über solche Länder bescheid zu wissen?"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "God save the queen. I count on Zhambra for that!", "In Cadomyr, man praise Zhambra or Malachín!"
 "Gott", "Götter" -> "Gott schütze die Königin. Ich persönlich vertraue diese Aufgabe Zhambra an.", "In Cadomyr betet Mann zu Zhambra oder Malachín!"
-"Malachin", "Malachín", english -> "Malachín! The god of knights and hunters! He's a strong fella, each honest man should praise! Do you praise him!?"
+english, "Malachin", "Malachín" -> "Malachín! The god of knights and hunters! He's a strong fella, each honest man should praise! Do you praise him!?"
 "Malachin", "Malachín" -> "Malachín! Der Gott der Ritter und Jäger! Ein starker Gefährte, jeder ehrenhafte Mann sollte ihm Treu ergeben sein! Sprecht! Wem haltet ihr die Treue?"
-"Zhambra", english -> "On the Battlefield I count on a sharp blade and my closest friend to watch my back! That's what Zhambra stands for! Friendship."
+english, "Zhambra" -> "On the Battlefield I count on a sharp blade and my closest friend to watch my back! That's what Zhambra stands for! Friendship."
 "Zhambra" -> "Am Schlachtfällt verlasse ich mich auf eine scharfe Klinge und meine engsten freunde die mir den Rücken decken! Dies ist wofür Zhambra steht. Freundschaft - die bis über den Tot hinaus geht."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I'm a guard. Not a merchant. For sure you are able to trade inside of the town."
+"what sell", "what buy", "list wares", "price of" -> trade, "I'm a guard. Not a merchant. For sure you are able toinside of the town."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin Wächter. Kein Händler. Sicherlich könnt Ihr hinter den Toren der Stadt handeln."
 "tell something" -> "Nowhere the codes of honour are followed like here in Cadomyr. For the colours of our town! Zhambra may bless it."
 "erzähl was", "erzähl etwas" -> "Nirgendwo hat man so viel Gespür für wahre Ehre wie wir, in Cadomyr. Bei den Farben unserer Stadt! Zhambra möge sie bewaren."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "#me salutes."
+english, "<NPC first name>", "<NPC last name>" -> "#me salutes."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "#me salutes."
 "Yes" -> "Proceed! Zak-zak!", "#me salutes.", "May be Zhambra with you."
 "Ja" -> "Weitermachen! Zak-zak!", "#me salutiert.", "Möge Zhambra euch beistehen."
@@ -191,8 +191,8 @@ itemShoes = 53
 "Nein" -> "Verstanden.", "Oh... nun gut.", "#me nickt steif."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "I'm a guard. I guard people.", "Hmh - what? Pirates. Aha.", "Yes for sure. Proceed!"
-".*", german, chance(20.0) -> "Ich bin Wache. Ich be-Wache Leute.", "Hmh - was? Piraten. Aha.", "Ja Genau. - Weitermachen!"
+english, chance(20.0), ".*" -> "I'm a guard. I guard people.", "Hmh - what? Pirates. Aha.", "Yes for sure. Proceed!"
+german, chance(20.0), ".*" -> "Ich bin Wache. Ich be-Wache Leute.", "Hmh - was? Piraten. Aha.", "Ja Genau. - Weitermachen!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

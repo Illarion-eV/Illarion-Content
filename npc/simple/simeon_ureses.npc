@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 26, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Simeon Ureses"
@@ -62,13 +62,13 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparieren, Kosten.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag. Soll ich eure Ausrüstung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag. Soll ich eure Ausrüstung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag. Soll ich eure Ausrüstung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
 "Farewell", "Bye", "Fare well", "See you" -> "Good bye. And do some adventures for me.", "Farewell and come back soon.", "I bid you farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
 "How are you", "How feel", "How do you do" -> "Good. I just got a new rasp.", "Did you know why a raspberry is called raspberry? Take a rasp and a raspberry and feel the surface...", "I need to work, sorry."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Ich habe gerade eine neue Feile bekommen.", "Wußtet ihr, dass eine Erdbeere gar keine Beere sondern eine Nussart ist?", "Ich muss arbeiten, entschuldigt."
@@ -78,7 +78,7 @@ itemShoes = 53
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "Do I look like I'd issue quests?"
+english, "quest", "mission" -> "Do I look like I'd issue quests?"
 "quest", "mission" -> "Sehe ich aus wie einer, der Befehle verteilt?"
 "task", "adventure", "order" -> "Do I look like I'd issue quests?"
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Sehe ich aus wie einer, der Befehle verteilt?"
@@ -86,37 +86,37 @@ itemShoes = 53
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the royal armourer. So, whenever your sword turns blunt, come to me."
 "beruf" -> "Ich bin der königliche Waffenmeister. Wenn also euer Schwert stumpf wird, kommt zu mir."
-"job", english -> "I am the royal armourer. So, whenever your sword turns blunt, come to me."
+english, "job" -> "I am the royal armourer. So, whenever your sword turns blunt, come to me."
 "job" -> "Ich bin der königliche Waffenmeister. Wenn also euer Schwert stumpf wird, kommt zu mir."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "dwarf", "dwarv" -> "Yes, indeed, I am the royal armourer and I am not a dwarf. Do you think only dwarves can forge and smith?"
 "armourer", "armorer" -> "As royal armourer, it is my responsibility that the equipment of the knights of Cadomyr is in a perfect condition."
-"Hastings", "Baron", english -> "Hush! Not in public."
+english, "Hastings", "Baron" -> "Hush! Not in public."
 "Zwerg" -> "Fürwahr, ich bin der königliche Waffenmeister und kein Zwerg. Denkt ihr etwa, nur Zwerge können schmieden?"
 "Waffenmeister" -> "Als königlicher Waffenmeister ist es meine Pflicht, dafür zu sorgen, dass die Ausrüstung der Ritter Cadomyrs in bester Verfassung ist."
 "Hastings", "Baron" -> "Still! Doch nicht in der Öffentlichkeit!"
 
 -- Optional: Catching typical NPC phrases
-"what sell", "what buy", "list wares" -> "I am not a trader but I can repair your items."
+"what sell", "what buy", "list wares" -> trade, "I am not ar but I can repair your items."
 "was verkauf", "was kauf", "warenliste" -> "Ich bin kein Händler aber ich kann eure Gegenstände reparieren."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!"
 "Gott", "Götter" -> "Irmorom, der Gott des Handwerkes, ist der einzige Gott, zu dem ich bete. Ich respektiere sie aber alle, sogar Oldra!"
-"Bragon", "Brágon", english -> "Brágon grants me the fire for forging but he does not grant the hammer."
+english, "Bragon", "Brágon" -> "Brágon grants me the fire for forging but he does not grant the hammer."
 "Bragon", "Brágon" -> "Brágon gibt mir das Schmiedefeuer, doch gibt er mir nicht den Schmiedehammer."
-"Irmorom", "Oldra", english -> "Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!"
+english, "Irmorom", "Oldra" -> "Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!"
 "Irmorom", "Oldra" -> "Irmorom, der Gott des Handwerkes, ist der einzige Gott, zu dem ich bete. Ich respektiere sie aber alle, sogar Oldra!"
-"Malachin", "Malachín", english -> "So, I am with Cadomyr so I have to pray to Malachín? You need to learn a lot..."
+english, "Malachin", "Malachín" -> "So, I am with Cadomyr so I have to pray to Malachín? You need to learn a lot..."
 "Malachin", "Malachín" -> "So, ich bin also aus Cadomyr, also muss ich zu Malachín beten? Ihr müßt noch eine Menge lernen..."
 
 -- Optional: Faction stuff
 "Queen" -> "I serve the queen because she is the queen. Did I make myself clear?"
 "Königin" -> "Ich diene der Königin, weil sie die Königin ist. Habe ich mich klar ausgedrückt?"
-"rosaline", "edwards", english -> "I serve the queen because she is the queen. Did I make myself clear?"
+english, "rosaline", "edwards" -> "I serve the queen because she is the queen. Did I make myself clear?"
 "rosaline", "edwards" -> "Ich diene der Königin, weil sie die Königin ist. Habe ich mich klar ausgedrückt?"
-"Cadomyr", english -> "The wellbeing of Cadomyr is my only concern. I will not do anything against Cadomyr, regardless of my personal opinion."
+english, "Cadomyr" -> "The wellbeing of Cadomyr is my only concern. I will not do anything against Cadomyr, regardless of my personal opinion."
 "Cadomyr" -> "Das Wohlergehen Cadomyrs ist mein einziger Lebensinhalt. Ich werde nichts zum Schaden Cadomyrs tun, unabhängig davon, was meine eigentliche Meinung ist."
 
 ------------------------------------------------------------------------------AC

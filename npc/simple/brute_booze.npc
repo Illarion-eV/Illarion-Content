@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Brute Booze"
@@ -60,13 +60,13 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brute Booze ein berühmter orkischer Glücksritter. Schlüsselwörter: Hallo, Städte, Heldentaten, erzähl etwas")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings! Are you traveling too?", "Good day to you. Are you on a great journey? ", "I welcome you!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings! Are you traveling too?", "Good day to you. Are you on a great journey?", "I welcome you!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings! Are you traveling too?", "Good day to you. Are you on a great journey? ", "I welcome you!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings! Are you traveling too?", "Good day to you. Are you on a great journey?", "I welcome you!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
 "Farewell", "Bye", "Fare well", "See you" -> "Save Travel!", "...or like the southern lizard folk say: May clear waters surround you.", "May your feet walk in good shoes."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Sicheres Reisen!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Save Travel!", "...or like the southern lizard folk say: May clear waters surround you.", "May your feet walk in good shoes."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save Travel!", "...or like the southern lizard folk say: May clear waters surround you.", "May your feet walk in good shoes."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sichere Reise!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
 "How are you", "How feel", "How do you do" -> "Yes! Old Brute is feeling great. Sometime I will leave for a new adventure.", "Oh, it is not important how I'm feeling! Tell me, how are you?", "I feel like I felt on great days, back then, when I was still a young orc."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ja-h! Dem alten Brute geht's prächtigens. Irgendwann werde iche wohl zu einem neuen Abenteuer aufbrechen.", "Ach, das iset doch nicht wichti-hig, wie's mir geht! Sagt mir, wie gehthigt's Euch?", "Es geht mir wie an großen Tagen. Einst als iche noch Orkling war."
@@ -74,7 +74,7 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Iche binne der berühmte Brute Booze! Lebendihige Legende und Berühmtheit! Sicherheitlich habt ihr von meinen Taten gehöright."
 
 -- Catching quest triggers
-"quest", "mission", english -> "Oh, yes! Keep asking people for work and tasks, and one day you will become great hero, just like myself. However I dont have any work for you at the moment."
+english, "quest", "mission" -> "Oh, yes! Keep asking people for work and tasks, and one day you will become great hero, just like myself. However I dont have any work for you at the moment."
 "quest", "mission" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch."
 "task", "adventure", "order" -> "Oh, yes! Keep asking people for work and tasks, and one day you will become great hero, just as I am. However I dont have any work for you at the moment."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch."
@@ -82,9 +82,9 @@ itemShoes = 53
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Im not a king. Not a smith. Not a peasant. I live for adventures."
 "beruf" -> "Binne kein König. Binne kein Schmied. Binne kein Bauer. Mein Leben iset das Abenteuer."
-"job", english -> "Im not a king. Not a smith. Not a peasant. I live for adventures."
+english, "job" -> "Im not a king. Not a smith. Not a peasant. I live for adventures."
 "job" -> "Binne kein König. Binne kein Schmied. Binne kein Bauer. Mein Leben iset das Abenteuer."
-"Gobaith", "Gobiath", english -> "Of course, even on Gobaith I drank a flat beer. Many call it Gobiath, but the truth is: on the maps that have been copied many times, it's name got distorted over time. It's name is GobAIth.", "Of course, even on Gobaith I drank a flat beer. It was a small, inconspicuous island, but there was always something exciting to experience.", "Of course, even on Gobaith I drank a flat beer. An inconspicuous piece of land, but filled with great men of honour and bravery."
+english, "Gobaith", "Gobiath" -> "Of course, even on Gobaith I drank a flat beer. Many call it Gobiath, but the truth is: on the maps that have been copied many times, it's name got distorted over time. It's name is GobAIth.", "Of course, even on Gobaith I drank a flat beer. It was a small, inconspicuous island, but there was always something exciting to experience.", "Of course, even on Gobaith I drank a flat beer. An inconspicuous piece of land, but filled with great men of honour and bravery."
 "Gobaith", "Gobiath" -> "Sicherlin, selbst auf Gobaith drank iche ein schales Bier. Viele meinen es hieße Gobiath, doch tatsächlich wurde der Name in der oft abgezeichneten Karte falsch geschriebigt. Es heißt GobAIth.", "Sicherlin, selbst auf Gobaith drank iche ein schales Bier. Es war eine kleine unscheinbare Insel, dennoche gab es immer viel Spannendes zu erlebigen.", "Sicherlin, selbst auf Gobaith drank iche ein schales Bier. Ein unscheinbarer Flecken, doch befüllt mit großigen Männern voll Ehre und Mut."
 "my name" -> "That sounds very well in my ears.", "Great!", "That's a very nice thing."
 "mein Name" -> "Das klinghigt sehr wohl in meinen Ohren.", "Grossartig!", "Eine sehr feine Sache iset das."
@@ -96,17 +96,17 @@ itemShoes = 53
 -- More small talk; add at least five triggers
 "heroic", "deed" -> "Three winters ago, Brute Nooze slayed the snake beast, Myr Tobars! It's body was as thick as an Oak's trunk and was as long as any number of men. As thanks for slaying the beast, the High Priest gave Brute Booze his daughter to marry!", "Seven winters ago, I brought down the curse of Kang-Arr. A bear big enough for tree Norodaj warriors, with spikes covering its body, as long as an arms-lenght. On that day Aramar Ingelfsen, ruler of Kanthun, appointed me to be travelling knight at his court.", " Once, as I was travelling the frigid lands of Karras, a demonic Wyrm was threatening the land. Many warriors lost their lives to the beast, but eventually it was slayin with united froce. From this day on, the people of Karras' Nordanaj, greeted me with respect and honour.", "Four winters ago, the court magician of Falmarha's triumvirate, managed to stake Lad'Nothratar the butcher, with my help. An ancient vampire, whose death granted me the title 'Honourable Mage of Falmarhas' ", "Huzza! Since one year now, I, Brute Booze, count the coppery fur of the lion Azzor, to my possessions, who once devoured dozens of Nubris' brave warriors. They constructed a copperish monument of this very battle, infront of Malachins temple, in my honour."
 "Heldentat" -> "Vor drei Wintern, erschlug Brute Booze die Schlangenbestie, Myr Tobars! Ihr Leib wahr-higte so dick wie der einer Eiche und ungezähligte Mann lang. Zum dank gab der Hochpriester, Brute Booze seine Tochter zum Weib!.", "Sieben Winter iset es her, da erlegte iche den Fluch Kang-Arr's. Ein Bär groß für drei Norodaj-Krieger, übersähet mit armlangen Stacheln. An jenem Tag ernannte mich Fürst Aramar Ingelfsen von Kathun zum fahrigenden Ritter seines Hofes.", "Einst, als ich im eisigen Karras war, bedrohhigte ein dämonischer Wyrm das Land. Viele Krieger mussten sterben, doch endlich spießte man das Untier mit geeinigter Kraft auf. Seit da an genoß iche Ansehen und Ehre unter Karras' Norodaj.", "Vor vier Wintern, gelang es den Hofmagiern des Triumvirats in Falmarha, mit meiniger Hilfe Lad'Nothratar den Metzger zu pfählen. Ein altertühmlicher Vampir, dessen Tot, iche den Ehrentitel 'Ehrenhafter Magier Falmarhas' verdankige.", "Hossa! Seit einem Jahr besitze iche, Brute Booze das kupferige Fell des Löwen Azzors, der einst dutzende mutige Krieger Nubris' verschlang. Mir zu Ehren steht ein kupferiges Abbild des Kampfes vor einem der Tempel Malachins."
-"Kroch", "Gurak", english -> "Kroch'Gurak! The winter camp of the wild clans. A colossal, cavernous construct, steeped in the rythmic sound of drums. Full of orcs, herding cattle and the smell of bean brandy!"
-"Fireshine", english -> "Fireshine! The Dragoncastle of the Flameorcs. Carved  in black lava-stone, the orcs of Khor-Anthalatosh, bearers of the Inner Flame, are lead by the Dragon of the North. This fortress is literally, illuminating. "
+english, "Kroch", "Gurak" -> "Kroch'Gurak! The winter camp of the wild clans. A colossal, cavernous construct, steeped in the rythmic sound of drums. Full of orcs, herding cattle and the smell of bean brandy!"
+english, "Fireshine" -> "Fireshine! The Dragoncastle of the Flameorcs. Carved  in black lava-stone, the orcs of Khor-Anthalatosh, bearers of the Inner Flame, are lead by the Dragon of the North. This fortress is literally, illuminating. "
 "Judgement", "Flame" -> "Judgement's Flame is a monastery castle, inhabited by the Flameorcs. Three times a day, the loud, resounding sound of horns, is heard through the temples, calling the paladins and monks for prayer. But the inner part of the city is off-limits for travelers. "
-"Khaari", english -> "Let me tell you, the Light of Khaari is a Flameorc city. The Temple of Flames is enthroned above it and the shine of the temples Dragonfire lights up the whole city , so that it never gets dark. Not even at night."
+english, "Khaari" -> "Let me tell you, the Light of Khaari is a Flameorc city. The Temple of Flames is enthroned above it and the shine of the temples Dragonfire lights up the whole city , so that it never gets dark. Not even at night."
 "Kroch", "Gurak" -> "Kroch'Gurak! Das Winterlager, der wilden Klans. Ein kolossales Höhlengebilde, druchdrungen vom rythmischen Klang der Trommeln. Alles iset voll mit Orklingen die Vieh herumtreiben und es riecht nach Bohnenschnaps!"
 "Fireshine" -> "Fireshine! Die Drachenburg der Flammenorks. Aus schwarzem Lava-Stein herausgehauen, werden die Orks von Khor-Anthalatosh, Träger der Inneren Flamme, großer Drache des Nordens, geleitet. Diese Festung iset im wahren Sinn des Worts, erleuchtigt."
 "Flamme", "Gerechtigkeit" -> "Die Flamme der Gerechtigkeit iset eine Klosterburg der Flammenorks. Dreimal täglich rufen laute, tief schallende Hörner in den Tempeln, die Paladine und Mönche zum Gebet. Allerdings verschließt man den Reisenden den Inneren Teil der Stadt."
 "Khaari" -> "Iche will Euch sagen, das Licht von Khaaei iset eine Stadt der Flammenorks. Und über der Stadt thront der Tempel der Flamme dessen Drachenfeuer so hell leuchtet, das die Stadt niemals im Dunkeln liegt. Selbst in der Nacht nicht."
 "Sevenhill" -> "Well, not even humans are allowerd inside Sevenhill by the dwarves. So I can only tell you, what one may hear. It is said to be a mine, with vast treasures recovered from it. "
-"Storm", "Keep", english -> "It was really hard to reach Storm's Keep. Away far north and with only frew strangers there. But the art of smithing there is legendary."
-"Arn-Gharrach", "Arn Gharrach", english -> "Arn-Gharrach, probably the oldest dwarven realm. It is the city of trading and even 'Overlander', as they say, are allowed inside. Before all, I'd like to praise the dwarven beer. '"
+english, "Storm", "Keep" -> "It was really hard to reach Storm's Keep. Away far north and with only frew strangers there. But the art of smithing there is legendary."
+english, "Arn-Gharrach", "Arn Gharrach" -> "Arn-Gharrach, probably the oldest dwarven realm. It is the city of trading and even 'Overlander', as they say, are allowed inside. Before all, I'd like to praise the dwarven beer. '"
 "Siebenberg" -> "Tja, nichtmal Menschen lass-hen die Zwerge nach Siebenberg hinein. Also kann iche Euch nur sagigen, was man hört. Es soll eine Miene sein, und die ausgegrabigten Schätze unermässlich."
 "Storm", "Keep" -> "Es war wirklich schwierig nach Storm's Keep zu gelangen. Sehr weit im Norden und nur wenig Fremde dort. Die Schmiedekunst dort, iset jedoch weithin legendär."
 "Gharrach", "Gharrach" -> "Arn-Gharrach, wohl das älteste Zwergenreich. Es iset die Stadt des Handels und auch 'Oberwelter' wie man dort sagt, haben Zutritt. Vor allem möchte iche das Bier der Zwerge lobend erwähnen."
@@ -116,61 +116,61 @@ itemShoes = 53
 "Firnismühle" -> "Firnismühle iset für seine Gastfreundschaft berühmt. Als Ork, iset man aber trotzdem nicht gern gesehen. Jedenfalls iset es dort sehr Grün und voll mit Gärten."
 "Pfennigmühle" -> "In Pfennigmühle iset das Gemüse für gewöhnlich doppelt so groß wie anders wo. Mir war's dort allerdings zu ruhig und iche blieb nicht besonders lange."
 "Altweiden" -> "Ach, in Altweiden war iche nie. Aber iche glaub kaum, dass es die Reise wert iset."
-"Irulaith", "Quenn", "Shir", "Assiri", "Arah", english -> "This is some kind of gnome city, isn't it? I can't imagine them, brewing any good beer in the desert, so I've never been there."
+english, "Irulaith", "Quenn", "Shir", "Assiri", "Arah" -> "This is some kind of gnome city, isn't it? I can't imagine them, brewing any good beer in the desert, so I've never been there."
 "Irulaith", "Quenn", "Shir", "Assiri", "Arah" -> "Das iset so eine Gnom-Stadt nicht wahr? Iche kann mir nicht vorstellen das die in der Wüste gutes Bier brauen, also war iche dort auch nie."
-"Kjelt", english -> "The stormy city! Kjelt. After month of traveling through cold, bleak steppe, one will find a sightly fortress. The humans there similar to us orcs, but then again completely different."
-"Karras", english -> "Karras is a city made of ice. Even during summer it doesn't get warm enough, to smelt the city walls, they say. There, you get hot beer and spiced wine. The journey was worth every frozen off toe!"
+english, "Kjelt" -> "The stormy city! Kjelt. After month of traveling through cold, bleak steppe, one will find a sightly fortress. The humans there similar to us orcs, but then again completely different."
+english, "Karras" -> "Karras is a city made of ice. Even during summer it doesn't get warm enough, to smelt the city walls, they say. There, you get hot beer and spiced wine. The journey was worth every frozen off toe!"
 "Kjelt" -> "Die Sturmumtoste Stadt! Kjelt. Nachdem man Monate lang durch kalte trostlose Steppe reist, findet man eine anschauliche Festung. Die Menschen dort sind uns Orks teils ähnlich und dann doch wieder ganz anders."
 "Karras" -> "Karras die Stadt aus Eis. Es iset selbst im Sommer nicht warm genug um die Mauern zu schmelzen, ließ iche mir sagen. Man bekommt heißes Bier zum saufen und würzigen Wein. Die Reise war mir jede abgefrorigte Zehe wert!"
-"Korr", english -> "Ann-Korr is a remarkably old harbour city. It got split into different districts, and depending on how wealthy you are, the position of your house would differ."
-"Fennsworth", english -> "If you are an orc, you are only allowed into Fennsworth as a slave. So I've never been there."
-"Kang", english -> "Kang-Arr is probably the most beneficial city for travelers, in the whole albarian realm. Alot humans from the norht are there. I guess, this has a profitable influence."
-"Oldford", english -> "Oldford is a village, one would say, having visited as many great cities as I have. But the inn 'The Gumbler's Head' is quite louche. "
+english, "Korr" -> "Ann-Korr is a remarkably old harbour city. It got split into different districts, and depending on how wealthy you are, the position of your house would differ."
+english, "Fennsworth" -> "If you are an orc, you are only allowed into Fennsworth as a slave. So I've never been there."
+english, "Kang" -> "Kang-Arr is probably the most beneficial city for travelers, in the whole albarian realm. Alot humans from the norht are there. I guess, this has a profitable influence."
+english, "Oldford" -> "Oldford is a village, one would say, having visited as many great cities as I have. But the inn 'The Gumbler's Head' is quite louche. "
 "Korr" -> "Ann'Korr iset eine besonders alte Hafenstadt. Man hat sie in verschiedene Viertel geteilt, und je wohlhabender man iset hat man sein Haus wo anders."
 "Fennsworth" -> "Wenn man n' Ork iset, darf man Fennsworth nur als Sklave betrethigen. Also war iche dort nie."
 "Kang" -> "Kang-Arr iset wohl die bekömmlichste Stadt für einen Reisenden im ganzen Albarischen Reich. Gi-hibt eine Menge Menschen aus dem Norden dort. Schätze das hat einen nützlichen Einfluss."
 "Altfurten" -> "Altfurten iset ein Dorf, wird man sagen, wenn man so viele große Städte beschaut hat wie iche. Aber der Gasthof 'The Grumbler's Head' iset berüchtigend."
-"Myr", "Tobar", english -> "Myr-Tobar, the jade city and green heart of the jungle. The seven great temple are worth visiting. The people living there seem to generally like the number seven very much."
-"Khenserra", english -> "Khenserra is a dusty mining city. I even saw an ogre there. A good city if an orc needs some money fast. It doesn't smeel very good, but is free from elves."
+english, "Myr", "Tobar" -> "Myr-Tobar, the jade city and green heart of the jungle. The seven great temple are worth visiting. The people living there seem to generally like the number seven very much."
+english, "Khenserra" -> "Khenserra is a dusty mining city. I even saw an ogre there. A good city if an orc needs some money fast. It doesn't smeel very good, but is free from elves."
 "Myr", "Tobar" -> "Myr-Tobar, die Jadestadt, das grüne Herz des Dschungels. Die sieben großen Tempel gehören angesehen. Und überhaupt möchten diese Menschen die Zahl Sieben sehr gern."
 "Khenserra" -> "Khenserra iset eine staubige Mienenstadt. Sogar'n Oger hab iche dort gesehen. Eine gute Stadt wenn ein Ork schnell Geld braucht. Es riecht zwar nicht schön, iset aber Elfenfrei."
-"Falmarha", english -> "Falmarha is some kind of sea castle. The inns are cheap and the humans serve you like slaves. I tell you, that many ships I have never seen before."
-"Laris", english -> "Laris is a castle too, if you want to call it that. There, they even tamed a river and redirected. The most important thing is the wine though. THE WHINE!...You should try it."
-"Nubris", english -> "Let me tell you, the humans in Nurbis have as black skin, as mine is green. Their city is called the golden jewel of the south and there is a vast amount of herbs and other stuff you can buy there."
-"Mitsobar", english -> "There is stong beer and pungent, brown liquor in Mitsobar. The humans there, drink a lot of it and eat fish as if they were lizards."
-"Koldamar", english -> "Koldamar is a boring, windy city. Everyone there is thinking a lot and not very talkative. If you dont like the jungle, you can go there to see lizards - as long as the gods are willing."
+english, "Falmarha" -> "Falmarha is some kind of sea castle. The inns are cheap and the humans serve you like slaves. I tell you, that many ships I have never seen before."
+english, "Laris" -> "Laris is a castle too, if you want to call it that. There, they even tamed a river and redirected. The most important thing is the wine though. THE WHINE!...You should try it."
+english, "Nubris" -> "Let me tell you, the humans in Nurbis have as black skin, as mine is green. Their city is called the golden jewel of the south and there is a vast amount of herbs and other stuff you can buy there."
+english, "Mitsobar" -> "There is stong beer and pungent, brown liquor in Mitsobar. The humans there, drink a lot of it and eat fish as if they were lizards."
+english, "Koldamar" -> "Koldamar is a boring, windy city. Everyone there is thinking a lot and not very talkative. If you dont like the jungle, you can go there to see lizards - as long as the gods are willing."
 "Falmarha" -> "Falmarha iset eine Art Festung im Meer. Die Gasthöfe sind günstig und die Menschen bedienen einen wie Sklaven. Iche will sagen, so viele Schiffe sah iche dort zum Ersten Mal."
 "Laris" -> "Laris iset auch eine Festung, wenn man das so sagen will. Man hat sogar einen Fluss gezähmhigt und umgegraben. Das wichtigste iset aber der Wein. DER WEIN!...sollte man getrunken haben."
 "Nubris" -> "Lassigt Euch sagen, die Menschen in Nubris, haben schwarze Haut, wie meine Grün iset. Ihre Stadt nennen sie das goldene Juwel des Südens und es giehebt unzählige Gewürze und anderen Kram zu kaufigen."
 "Mitsobar" -> "In Mitsobar gibt es kräftiges Bier und starkigen , braunen Schnaps. Und davon saufen die Menschen beachtlicher Menge. Außerdem fressen die Menschen dorte Fische als wären sie Echsen."
 "Koldamar" -> "Koldamar iset eine langweilige windige Stadt. Alle denken viel nach und sprechen wene-hig. Wenn ihr den Dschungel nicht mögt, könnt ihr dort Echsenmenschen sehigen... - Sodar die Götter es wollen."
-"Angur", english -> "Lor-Angur is filled with elves that think themselves very celver. And the humans there, aren't different. All of them indulge in sorcery and other dangerous things like it."
+english, "Angur" -> "Lor-Angur is filled with elves that think themselves very celver. And the humans there, aren't different. All of them indulge in sorcery and other dangerous things like it."
 "Angur" -> "In Lor-Angur iset's voll mit Elfen die meinen sie sind besonderig klug. Und die Menschen sind nichtig besser. Allesamte frönen sie der Zauberei und solch gefährlichen Sachen."
 
 -- Faction stuff
 "archmage" -> "I heard the Archmage of Runewick, Elvaine Morgan, is an elf from Lor-Angur."
 "Erzmagier" -> "Iche hab mir sagen lassen der Erzmagier Runewicks, Elvaine Morgan, iset ein Elf aus Lor-Angur."
-"Elvaine", "Morgan", english -> "I heard the Archmage of Runewick, Elvaine Morgan, is an elf from Lor-Angur."
+english, "Elvaine", "Morgan" -> "I heard the Archmage of Runewick, Elvaine Morgan, is an elf from Lor-Angur."
 "Elvaine", "Morgan" -> "Iche hab mir sagen lassen der Erzmagier Runewicks, Elvaine Morgan, iset ein Elf aus Lor-Angur."
-"Runewick", english -> "There's nothing keeping me in Runewick. It makes my hair stend on end, when sorcery is near."
+english, "Runewick" -> end, "There's nothing keeping me in Runewick. It makes my hair stend onwhen sorcery is near."
 "Runewick" -> "In Runewick hält mich nichts. Meine Nackenhaare sträubigen sich wenn Zauberei in der Nähe iset."
-"Valerio", "Guilianni", "Don", english -> "A dwarf from Gynk. Don Valerio Guilianni. A ruthless merchant, in general."
+english, "Valerio", "Guilianni", "Don" -> "A dwarf from Gynk. Don Valerio Guilianni. A ruthless merchant, in general."
 "Valerio", "Guilianni", "Don" -> "Ein Zwerg aus Gynk. Don Valerio Guilianni. Ein Skrupeloser Händler, alles im alligen."
-"Galmair", english -> "The beer in Galmair is good, but if you're not careful they steal your purse, before you can pay for it."
+english, "Galmair" -> "The beer in Galmair is good, but if you're not careful they steal your purse, before you can pay for it."
 "Galmair" -> "Das Bier in Galmair iset gut. Aber wenn man nicht aufpassigt klauen sie einem den Geldbeutel, noch bevor man die Zeche begleichen kann."
 "Queen" -> "A human queen. Chosen by the gods, probably. I prefer lonely princesses in high towers."
 "Königin" -> "Eine Königin der Menschen. Wohl von den Göttern erwählt. Iche bevorzuge ja eher Prinzessinen in vereinsamten Türmsen."
-"rosaline", "edwards", english -> "A human queen. Chosen by the gods, probably. I prefer lonely princesses in high towers."
+english, "rosaline", "edwards" -> "A human queen. Chosen by the gods, probably. I prefer lonely princesses in high towers."
 "rosaline", "edwards" -> "Eine Königin der Menschen. Wohl von den Göttern erwählt. Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen."
-"Cadomyr", english -> "It's too dry in Casomyr, for my liking. And no beer there, is good enough to stay for long."
+english, "Cadomyr" -> "It's too dry in Casomyr, for my liking. And no beer there, is good enough to stay for long."
 "Cadomyr" -> "Es iset mir zu trocken in Cadomyr. Und kein Bier dort iset gut genug um lange dort zu bleibigen."
 
 -- Main land factions
-"Albar", english -> "I have to confess, I never set foot in Albar. They say, people without work are forced to work in the mines. I don't even want meantion what they do with orcs."
+english, "Albar" -> "I have to confess, I never set foot in Albar. They say, people without work are forced to work in the mines. I don't even want meantion what they do with orcs."
 "Albar" -> "Iche muss Euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heißt dort sperrt man Leute ohne Arbeit in die Mienen. Von Orks will iche gar nicht sprechen."
-"gynk", "gync", english -> "Let me tell you, if you plan to do something illegal, do it in Gynk. You can get swampweed and sibanac on practically every corner. And slaves are richer than workers."
+english, "gynk", "gync" -> "Let me tell you, if you plan to do something illegal, do it in Gynk. You can get swampweed and sibanac on practically every corner. And slaves are richer than workers."
 "gynk", "gync" -> "Lasst Euch sagen, wenn ihr was verbotenes machen wollt, macht es in Gynk. Stechkarut und Sibanac, wir einem überall feilgeboten. Und die Sklaven sind reicher als die Arbeiter."
-"salkama", english -> "City of the sun. The biggest temple of the known world is located there, Temple of the wheel, where books are kept like treasures in great halls."
+english, "salkama" -> "City of the sun. The biggest temple of the known world is located there, Temple of the wheel, where books are kept like treasures in great halls."
 "salkama" -> "Salkamar - Die Stadt der Sonne. Dort steht der größte Tempel der bekannten Welt, der Tempel des Rades und Bücher hortet man wie Schätze in großen Hallen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
@@ -192,8 +192,8 @@ itemShoes = 53
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger / Response is only given 1/5 of the time
-".*", english, chance(40.0) -> "But tell me, what do you want to have done, before you die?", "Yes. This is just like in those days, when I slayed the thorned bear of Kang-Arr.", "Hurr- hearing this, I am reminded of my own heroic deeds."
-".*", german, chance(40.0) -> "Aber, sahegt mir, was wollt ihr alles getan haben, seid ihr erst einmalig tot?", "Ja-ha. Das ist gleich wie damalsig. Als iche den Stachelbären Kang-Arr's zur strecke danieder brachte.", "Hurr - wenn iche das hörige muss ich an meine Heldentaten denkigen."
+english, chance(40.0), ".*" -> "But tell me, what do you want to have done, before you die?", "Yes. This is just like in those days, when I slayed the thorned bear of Kang-Arr.", "Hurr- hearing this, I am reminded of my own heroic deeds."
+german, chance(40.0), ".*" -> "Aber, sahegt mir, was wollt ihr alles getan haben, seid ihr erst einmalig tot?", "Ja-ha. Das ist gleich wie damalsig. Als iche den Stachelbären Kang-Arr's zur strecke danieder brachte.", "Hurr - wenn iche das hörige muss ich an meine Heldentaten denkigen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

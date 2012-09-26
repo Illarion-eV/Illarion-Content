@@ -60,8 +60,8 @@ itemShoes = 697
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Don Valerio Guilianni von Galmair. Schlüsselwörter: Quest, Aufgabe, Götter, Fraktionen.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "The Don greets you.", "Greetings, greetings. The Don is busy right now but he always has an open ear for the pleas of his protégés.", "Hm? State your cause to the Don but make it brief or one of my associates might have to cut you off."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Der Don grüßt euch. Ihr seid also gekommen um euch um euer Schicksal zu kümmern?", "Grüße, Grüße. Der Don ist zwar beschäftigt aber für die Anliegen seiner Schützlinge hat er immer ein offenes Ohr.", "Hm? Tragt eure Sache dem Don vor aber fasst es kurz oder ich mache euch ein Angebot, das ihr nicht ablehnen könnt."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "The Don greets you.", "Greetings, greetings. The Don is busy right now but he always has an open ear for the pleas of his protégés.", "Hm? State your cause to the Don but make it brief or one of my associates might have to cut you off."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Der Don grüßt euch. Ihr seid also gekommen um euch um euer Schicksal zu kümmern?", "Grüße, Grüße. Der Don ist zwar beschäftigt aber für die Anliegen seiner Schützlinge hat er immer ein offenes Ohr.", "Hm? Tragt eure Sache dem Don vor aber fasst es kurz oder ich mache euch ein Angebot, das ihr nicht ablehnen könnt."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "The Don greets you. Now tell me what you can do for me.", "Greetings, greetings. The Don is busy right now but he always has an open ear for the pleas of his protégés.", " Hm? State your cause to the Don but make it brief or one of my associates might have to cut you off."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Der Don grüßt euch. Ihr seid also gekommen um euch um euer Schicksal zu kümmern?", "Grüße, Grüße. Der Don ist zwar beschäftigt aber für die Anliegen seiner Schützlinge hat er immer ein offenes Ohr.", "Hm? Tragt eure Sache dem Don vor aber fasst es kurz oder ich mache euch ein Angebot, das ihr nicht ablehnen könnt."
 "Farewell", "Bye", "Fare well", "See you" -> "#me rubs his chin looking contemplative, 'Eh, you may leave. Probably not worth it to send someone to keep an eye on ya.'", "May Ronagan keep ya safe in the shadows but not too safe, and be sure to give my regards to the family!", "#me gives a brief nod and then turns away, 'Hm, an interesting person, gonna get good one day, maybe too good. Hope I don't have to send Miggs to keep an eye on him."
@@ -76,8 +76,8 @@ itemShoes = 697
 -- Catching quest triggers
 "quest", "mission", english -> "The day will come, when the Don will ask you for a favor. Ask Miggs if that day is today."
 "quest", "mission" -> "Es wird der Tag kommen, an dem dich der Don um einen Gefallen bittet. Frage Miggs, ob heute dieser Tag ist."
-"task", "adventure" -> "You know, the Don likes you for some reason, ya gotta look about ya. Maybe I gotta task for ya; go and ask Miggs how you can earn the Don's favor."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Weißt du, der Don mag dich. Und der Don wird dir auch eine Arbeit verschaffen. Frage Miggs, wie du in der Gunst des Don steigen kannst."
+"task", "adventure", "order" -> "You know, the Don likes you for some reason, ya gotta look about ya. Maybe I gotta task for ya; go and ask Miggs how you can earn the Don's favor."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Weißt du, der Don mag dich. Und der Don wird dir auch eine Arbeit verschaffen. Frage Miggs, wie du in der Gunst des Don steigen kannst."
 
 -- Reward for quest 622
 "Mordak al Kharud", queststatus(632) > 0, queststatus(633) = 0, english, chance(10.0) -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(1)

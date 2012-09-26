@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 12, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -18,6 +18,7 @@ VALUES (0, 125, 603, 0, 4, 'Jonathan Cyrus', 'npc.jonathan_cyrus', 0, 2, 6, 192,
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.jonathan_cyrus", package.seeall)
 
@@ -44,6 +45,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Greetings, in the name of our Queen Rosaline! Do you need any glasses, just ask.");
 talkEntry:addResponse("It is a wonderful day in Cadomyr, governed by our magnificient - and beautiful - queen.");
 talkEntry:addResponse("Hello.");
@@ -53,11 +55,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Seid gegrüßt, bei unserer Königin Rosaline.");
 talkEntry:addResponse("Es ist ein wundervoller Tag in Cadomyr, regiert von unserer glorreichen - und wunderschönen - Königin.");
 talkEntry:addResponse("Hallo.");
@@ -65,11 +70,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Greetings, in the name of our Queen Rosaline! Do you need any glasses, just ask.");
 talkEntry:addResponse("It is a wonderful day in Cadomyr, governed by our magnificient - and beautiful - queen.");
 talkEntry:addResponse("Hello.");
@@ -110,11 +115,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Go with the blessing of the Queen.");
 talkEntry:addResponse("Fare thy well, and come back one day.");
 talkEntry:addResponse("One advises: Do not venture too far away, you will not find anything comparable with Cadomyr.");
@@ -172,9 +177,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Adventures? Now, glassblowing is truly a learning adventure in itself.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -189,6 +194,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
 talkEntry:addResponse("Adventures? Now, glassblowing is truly a learning adventure in itself.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -197,14 +203,17 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Abenteuer? Nun, Glasblasen zu erlernen ist wirklich ein Abenteuer für sich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I trade glassware.");
-talkEntry:addResponse("I trade candles and glassware.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Iglassware.");
+talkEntry:addResponse("Icandles and glassware.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -216,10 +225,12 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I trade glassware.");
-talkEntry:addResponse("I trade candles and glassware.");
+talkEntry:addTrigger("job");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Iglassware.");
+talkEntry:addResponse("Icandles and glassware.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,9 +242,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Apologies I do not know much about that island Gobaith, only that some refugees once came from there to Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -258,8 +269,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Rutrus");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Rutrus");
 talkEntry:addResponse("I know Rutrus, he lives at the Oasis of Stars.");
 talkEntry:addResponse("Rutrus, well, I think his head was exposed too long to the scorching sun.");
 talkEntry:addResponse("I used quartz sand from time to time purchased from Rutrus, until he started talking to his shovel.");
@@ -287,8 +298,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sand");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Sand");
 talkEntry:addResponse("The sand is everywhere here in Cadomyr. It is both a blessing and curse .");
 talkEntry:addResponse("You will need a lot of sand for glass blowing. Only fine sand is suitable for the coarse sand is not pure enough.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -302,8 +313,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("glas");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("glas");
 talkEntry:addResponse("Glass is fascinating. It looks like ice, sparkles like diamonds and is as hard as stone.");
 talkEntry:addResponse("The art of glassblowing is very demanding, but I will make sure it is never forgotten.");
 talkEntry:addResponse("It was reported to me once you could concentrate the rays of the sun with a glass into a lethal weapon. What a humbug!");
@@ -352,9 +363,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Oh, please, spare with me with any news from the archmage. He always lies anyway.");
 talkEntry:addResponse("Elvaine Morgan, you could too easily have said 'The Lying Baron' instead.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -369,8 +380,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Runewick is a place of books, boredom and laziness.");
 talkEntry:addResponse("If you ever get to Runewick, will you sell the people there some of my vials please?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -384,10 +395,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Valerio Guilianni is the Don of Galmair. There is nothing more to say.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -401,8 +412,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Never go to Galmair if you want to experience tomorrow.");
 talkEntry:addResponse("Galmair is a place of thieves and scoundrels.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -432,9 +443,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Our Queen came to power by way of the old customs. Who acts against it, acts against our old customs.");
 talkEntry:addResponse("Psst, don't you think it is already too longto remain unmarried?");
 talkEntry:addResponse("My Queen is everything to me!");
@@ -451,8 +462,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Cadomyr is a land of sand and stone, but we have made the best out of it.");
 talkEntry:addResponse("Cadomyr, oh, Cadomyr, how much I like to dwell here!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -466,8 +477,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("albar");
 talkEntry:addResponse("We all have ancestors from Albar. But now our fate lies in the hands of the Queen.");
 talkEntry:addResponse("We honour the traditions of Albar. The Queen does as well, yes, a female sovereign. This is never in question!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -481,9 +492,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("It is all the same to me, what is going on in Gynk. Most probably, the people there just slit each other's throats.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -496,8 +507,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Oh, please, do not talk about them in public. The queen does not like it.");
 talkEntry:addResponse("Shh!");
 talkEntry:addResponse("Quiet!");
@@ -526,8 +537,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Of course I always pray to Irmorom before I fire up the furnace, but I really do adore Adron.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -539,8 +550,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Adron");
 talkEntry:addResponse("Truly, Adron is my saviour. Without him, nobody would enjoy a good wine and I would no longer be able to sell anything.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -556,7 +567,8 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I trade any kind of glass goods. You can also obtain candles from me.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Iany kind of glass goods. You can also obtain candles from me.");
 talkEntry:addResponse("I'll gladly show you my offer of glass wares and candles.");
 talkEntry:addResponse("You can get here anything you need for a perfect dinner.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -591,9 +603,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Jonathan");
 talkEntry:addTrigger("Cyrus");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("No, my daughter is not called Miley.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

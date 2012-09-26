@@ -8,14 +8,12 @@ module("item.keys", package.seeall)
 function UseItem(User,SourceItem,TargetItem,counter,param)
     local WALLPOS = position(-470,241,0);
     local DoorItem = base.common.GetFrontItem( User );
-    if DoorItem == nil or DoorItem.id == 0 then
-		-- try to sentence a character
-		local targetChar = base.common.GetFrontCharacter(User);
-		if targetChar then
-			SentenceCharacter(User,SourceItem,targetChar,counter,param);
-		end
-        return;
-    end
+    
+	if SourceItem:getData("prisonKeyOf") ~= "" then 
+	    -- sentence char to forced labour
+		SentenceCharacter(User,SourceItem)
+	    return
+	end	
 
     if SourceItem.data == 7300 and DoorItem.id == 287 and DoorItem.pos == WALLPOS then
 
@@ -37,37 +35,97 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
     end
 end
 
-function SentenceCharacter(User,SourceItem,TargetChar,Counter,Param)
-	if prisonPosition == nil then
-		prisonPosition = {};
-		prisonPosition[1] = position(122, 520, 0); -- cadomyr (queen rosaline)
-		prisonPosition[2] = position(898, 775, 2); --runewick (      archmage elvaine)
-		prisonPosition[3] = position(337, 215, 0); --galmair (      don valerio)
-	end  
+function SentenceCharacter(User,SourceItem)
 	
-	if SourceItem.data>0 and SourceItem.data<=3 and User:isInRangeToPosition(prisonPosition[SourceItem.data],5) then
-          User:talkLanguage(Character.say,Player.german,"#me verurteilt "..TargetChar.name.." zu "..(Counter*10).." Ressourcen."); 
-          User:talkLanguage(Character.say,Player.english,"#me sentences "..TargetChar.name.." to "..(Counter*10).." resources."); 
-          TargetChar:setQuestProgress(25,(Counter*10)); 
-          TargetChar:setQuestProgress(26, SourceItem.data); --sets the town the char got arrested from as imprisoner id
-          
-          --[[filepoint,errmsg,errno=io.open("/home/SOMEWHERE/SOMETHING","w+"); 
-          filepoint:write(os.date()..":"..user.name.." sentenced "..character.." to "..counter*10.."resources."); 
-          filepoint:close();  ]]--
-          world:gfx(41,TargetChar.pos); 
-          world:makeSound(1,TargetChar.pos); 
-          TargetChar:warp( position(-492,-484,-40) );    --position of the forced labour camp
-          world:gfx(41,TargetChar.pos); 
-     else 
-          base.common.InformNLS( User, "Du scheiterst dabei, den Gauner zu verurteilen. Dies ist nur mit gefesselten Strolchen im Beisein des Anführers möglich.", "You failed to sentence the thug. This works only with tied up rogues in presence of the leader.");
-     end
-     
+	if User:isAdmin() == false then 
+	    return -- for now only GMs are supposed to use the keys
+	end	
+	
+	local myTown = SourceItem:getData("prisonKeyOf")
+	local townId
+	if myTown == "Cadomyr" then
+	    townId = 1
+	elseif myTown == "Runewick" then
+        townId = 2
+    elseif myTown == "Galmair" then
+        townId = 3
+    else
+        User:inform("This prison key does not belong to any town.")
+        return
+    end		
+	
+	local callback = function(dialog)
+	    if not dialog:getSuccess() then
+		    User:inform("Abortion. No one was sentenced to anything.")
+			return
+		else 
+            local myString = dialog:getInput()
+			local myPrisonerId
+			local myPrisonerName
+	        local workLoad
+			local allFound = false
+			local a; local b
+			if string.find(myString,"(%d+) (%d+)") then
+			    a,b,myPrisonerId,workLoad = string.find(myString,"(%d+) (%d+)")
+                myPrisonerId = tonumber(myPrisonerId); workLoad = tonumber(workLoad)
+				allFound = true
+			elseif string.find(myString,"(%d+)") then
+			    a,b,workLoad = string.find(myString,"(%d+)")
+                workLoad = tonumber(workLoad)
+				if a-2 > 1 then 
+					myPrisonerName=string.sub (myString, 1,a-2)
+                    allFound = true
+                end
+			end
+            if allFound then
+			    local onlineChars = world:getPlayersOnline()
+				local thePrisoner
+				for i=1,#onlineChars do
+					local checkChar = onlineChars[i]
+					if myPrisonerId then
+					    if checkChar.id == myPrisonerId then
+						    thePrisoner = checkChar
+				            break
+						end	
+			        else 
+         			    if checkChar.name == myPrisonerName then
+		                    thePrisoner = checkChar
+				            break
+						end
+                    end	
+                end    
+				if not thePrisoner then 
+					User:inform("Character has not been found.")
+				else
+					thePrisoner:setQuestProgress(25,workLoad)
+					thePrisoner:setQuestProgress(26,townId)
+					world:gfx(41,thePrisoner.pos); 
+					world:makeSound(1,thePrisoner.pos); 
+					thePrisoner:warp( position(-495,-484,-40) )
+					world:gfx(41,thePrisoner.pos)
+				    
+					local callbackLabour = function(dialogLabour) end
+		            if thePrisoner:getPlayerLanguage() == 0 then		
+			            dialogLabour = MessageDialog("Arbeitslager","Du wurdest verurteilt "..workLoad.." Rohstoffe aus der Mine abzubauen. Erfülle deine Strafe und du darfst wieder gehen. Spitzhacke und Essen bekommst Du beim Aufseher.", callbackLabour)
+		            else		
+			            dialogLabour = MessageDialog("Labour camp" ,"You have been sentenced to collect "..workLoad.." resources in the mine. If you have served your sentence, you are free to go. You can get a pickaxe and food from the guard.", callbackLabour)
+		            end	
+		            thePrisoner:requestMessageDialog(dialogLabour)
+				    User:createItem(2763,1,777,nil)
+				end
+			else
+                User:inform("You haven't put in all necessary informations.")
+            end
+		end	
+	end
+	local dialog = InputDialog("Insert: [name|id] [workload]",false,255,callback)
+	User:requestInputDialog(dialog)
 end
 
 
 
 function LookAtItem(User,Item)
-    local DataVal=Item.data;
+   --[[ local DataVal=Item.data;
     if (specialnames==nil) then
         specialnames={};
         specialnames[3001]={"Zwergenschlüssel","dwarven key"};
@@ -104,7 +162,7 @@ function LookAtItem(User,Item)
         else
             world:itemInform(User,Item,world:getItemName(Item.id,1));
         end
-    end
+    end]]
 end
 
 function MoveItemBeforeMove(User, SourceItem, TargetItem)

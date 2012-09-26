@@ -58,21 +58,21 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: Warsage, Water, God, Hero, Ice.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome to our temple.", "Great morning isnt it?", "Hey! How may I help you?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome to our temple.", "Great morning isnt it?", "Hey! How may I help you?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Welcome to our temple.", "Great morning isnt it?", "Hey! How may I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Farewell", "Bye", "Fare well", "See you" -> "Have a good day.", "If you ever need something I will be here.", "I will see you later, ok."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have a good day.", "If you ever need something I will be here.", "I will see you later, ok."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel", "How do you do" -> "Even in my old age. I can feel the energy all around me. I feel Great.", "I truly am happy.", "Very bored at the moment."
+"How are you", "How feel", "How do you do" -> "Even in my old age. I can feel energy all around me. I feel Great.", "I truly am happy.", "Very bored at the moment."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "Chal Pal", "Chal The Aquasage", "I am Chal of the Reed 13, former Hero and leader of Paltaka Village."
+"your name", "who are you", "who art thou" -> "Chazhek", "Chal The Aquasage", "I am Chal of the Reed 13, former Hero and leader of Paltaka Village."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- OPTIONAL TRIGGERS
@@ -94,8 +94,9 @@ itemShoes = 53
 "Aqua" -> "I specialize in water and ice magic. I can do massive damage with steam too. You should have seen me in the battle of Arktch, Hahahahaha."
 "Water" -> "It's so versitle it can be used for anything."
 "Ice" -> "Use this when you really want to make a point."
+"Tagik" -> "A lizardman origionated fighting style where every hit is basically a kick to the face."
 "Hero" -> "Back in my prime. I saved my village from the evil Bandit Keith. It was all thanks to the many teachers I met along the way."
-"Skysage" -> "Once the skysage challenged me and Fo to a batttle. He wanted us to fight together even knowing that when the flame and aquasage fight toghether we are stronger than any two individual fighters. Neeless to say, We handed him his arse."
+"Skysage" -> "Once the skysage challenged me and Fondura to a batttle. He wanted us to fight together even knowing that when the flame and aquasage fight toghether we are stronger than any two fighters. Needless to say, we handed him his arse."
 "DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -126,8 +127,8 @@ cycletext "GERMAN.", "I bet you can't swim faster than me."
 cycletext "GERMAN.", "Yes, I am probably the deadliest grandma in existance."
 cycletext "GERMAN.", "Aqua is my magic. Kicking people is my past time."
 cycletext "GERMAN.", "hahahahahahahaha."
-cycletext "GERMAN.", "I love to hear the leers play the tunes of my past hero days."
+cycletext "GERMAN.", "I love to hear the lute players strum the tunes of my past hero days."
 cycletext "GERMAN.", "Maybe someday I will give up this gig and become a full time adventurer."
 cycletext "GERMAN.", "I'm so hungry. Meat, give me meat."
-cycletext "GERMAN.", "Fo needs to be more social. He gives orcs a bad name, hahahaha."
-cycletext "GERMAN.", "I'm going to die soon. I'm just kidding I'm not human, hahahaha"
+cycletext "GERMAN.", "Fondura needs to be more social. He gives orcs a bad name, hahahaha."
+cycletext "GERMAN.", "I'm going to die soon. I'm just kidding, I'm not human, hahahaha"

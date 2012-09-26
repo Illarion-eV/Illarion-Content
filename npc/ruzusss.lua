@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -19,13 +19,13 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
-require("npc.base.condition.race")
 require("npc.base.condition.state")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.ruzusss", package.seeall)
 
@@ -46,21 +46,21 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(640, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have a sssilvercoin for that you found me.");
-talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, 0));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 2));
+talkEntry:addResponse("Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have a sssilvercoin for that you found me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(640, "=", 1));
-talkEntry:addResponse("Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdiente Münze.");
-talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, 0));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 2));
+talkEntry:addResponse("Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdiente Münze.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -71,6 +71,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Greetingsss, can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -78,21 +79,24 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Grüsssse, kann ich helfen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Greetingsss, can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -125,11 +129,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Sssee you again if you need more information.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -178,8 +182,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("inform");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("inform");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] place"));
 talkEntry:addResponse("I have information about placesss clossse to Cadomyr. Just asssk me!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -223,8 +227,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Frizza");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Frizza");
 talkEntry:addResponse("You can find her outssside of the town clossse to the teleporter. Sssshe hasss a lot of information and sssome tasksss for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -236,9 +240,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("IN PROGRESS.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -268,9 +272,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tir");
 talkEntry:addTrigger("Draganfod");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Sevenhill Mountains, northeast, northwest, southwest, southeast"));
 talkEntry:addResponse("This region is called Tir Draganfod and I devide it in northeast, northwest, southwest and southeast. Tir Draganfod is furthermore in the east from the Sevenhill Mountains.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -437,29 +441,29 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wulfgorda");
 talkEntry:addCondition(npc.base.condition.quest.quest(650, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Wulfgorda");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Wulfgorda and bring her the sibanac leafs to get your reward."));
+talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 1));
 talkEntry:addResponse("Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn. Furthermore, you should bring her these leafs here. *hands some sibanac leafs*");
-talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wulfgorda");
 talkEntry:addCondition(npc.base.condition.quest.quest(650, "<", 1));
+talkEntry:addTrigger("Wulfgorda");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Wulfgorda und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten."));
-talkEntry:addResponse("Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*");
-talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 1));
+talkEntry:addResponse("Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wulfgorda");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Wulfgorda");
 talkEntry:addResponse("Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -627,9 +631,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Die findet man in Galmair und die weiß sämtliche Orte im Nordwesten, sprich um Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -729,7 +733,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Milkhouse");
-talkEntry:addResponse("That isss the name of a ssshop for foreign tradersss. It isss in the eassst from here.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("That isss the name of a ssshop for foreignrsss. It isss in the eassst from here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1084,8 +1089,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irundar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Irundar");
 talkEntry:addResponse("Irundar? Somewhere in the desert, but where?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1123,8 +1128,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Lumpskrump Band");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Lumpskrump Band");
 talkEntry:addResponse("This place of bandits on the road to the east after the Desert Hole.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1184,8 +1189,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Khesra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Khesra");
 talkEntry:addResponse("Khesra's Dungeon can be found close to the cursed place. You will not find anything than hate there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1404,9 +1409,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Die findet man in Runewick und die weiß sämtliche Orte im Südosten, sprich um Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1431,9 +1436,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("The archmage ownsss two ssstonesss of power. Thessse are an Emerald and a Ruby. They protect them to get beaten by our forcesss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1446,8 +1451,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Runewick? It isss in the eassst. Crosss Katanbi Desert, get behind Border Mountainsss to the other ssside of the Snakehead Bay. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1459,10 +1464,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("The Don ownsss two ssstonesss of power. These are a Bluestone and a Blackstone. They protect Galmair to get beaten by our forcesss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1476,8 +1481,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Galmair? It isss in the north. Crosss Katanbi Desert, get behind Border Mountainsss, and then walk to the north. Look for sssignposts. But be careful. Dangerousss way, ussse better the teleporter outssside the town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1501,9 +1506,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("The Queen owns two stones of power. These are a Topaz and an Amethyst. They protect us against Runewick and Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1516,8 +1521,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("That isss here and if you want to know more about it asssk Frizza for further information.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1542,8 +1547,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Adron");
 talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1551,27 +1556,27 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addResponse("Wenn du mehr über diessse Gottheit zu wissen möchtessst, dann fragt jemand anderen. Zum Beissspiel Frizza drausssen beim Teleporter.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Bragon");
+talkEntry:addTrigger("Brágon");
+talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
 talkEntry:addResponse("Wenn du mehr über diessse Gottheit zu wissen möchtessst, dann fragt jemand anderen. Zum Beissspiel Frizza drausssen beim Teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cherga");
 talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1583,8 +1588,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Elara");
 talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1592,25 +1597,25 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addResponse("Wenn du mehr über diessse Gottheit zu wissen möchtessst, dann fragt jemand anderen. Zum Beissspiel Frizza drausssen beim Teleporter.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Eldan");
+talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
 talkEntry:addResponse("Wenn du mehr über diessse Gottheit zu wissen möchtessst, dann fragt jemand anderen. Zum Beissspiel Frizza drausssen beim Teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Findari");
 talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1622,8 +1627,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1635,9 +1640,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("You can find a Temple of him in the South. Just go to the mine 'Cornerstone of Candour', and you will find the temple above. Just follow the signposts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1650,36 +1655,45 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Moshran");
+talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 9999));
+talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
 talkEntry:addResponse("#me draws two swords and hisses: 'I warned you, but you did not lisssten. Face the consssequencesss now!'");
-talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 9999));
-talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
-talkEntry:addResponse("#me zieht zwei Schwerter und zischt: 'Wer nicht hören will muss fühlen!'");
+talkEntry:addTrigger("Moshran");
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 9999));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
+talkEntry:addResponse("#me zieht zwei Schwerter und zischt: 'Wer nicht hören will muss fühlen!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Moshran");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("One more word about him and you will have to visit the cross! *hisses with his tongue*");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Ein weiteres Wort über ihn und du wirst das Kreuz aufsuchen müssen! *zischt mit seiner Zunge*");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkEntry:addResponse("Ein weiteres Wort über ihn und du wirst das Kreuz aufsuchen müssen! *zischt mit seiner Zunge*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Nargun");
+talkEntry:addTrigger("Nargún");
+talkEntry:addTrigger("Nargùn");
+talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1687,22 +1701,13 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargún");
-talkEntry:addTrigger("Nargùn");
 talkEntry:addResponse("Wenn du mehr über diessse Gottheit zu wissen möchtessst, dann fragt jemand anderen. Zum Beissspiel Frizza drausssen beim Teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1714,8 +1719,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1727,8 +1732,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("You can find a Temple of her in the Sssoutheast. Just go east first, and then south after you cross the Katanbi-river. Just follow the signposts, but be careful!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1740,26 +1745,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.race.race(5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("One of the elder gods, but except of our race noone cares about this god here. You can find a temple at the Temple of the five, far in the North.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.race.race(5));
-talkEntry:addResponse("Eine der alten Götter, aber ausgenohmen von unserer Rasse niemand kümmert sich hier nicht um diese Gottheit. Du kannst einen Tempel hoch im Norden bei den Tempel der Fünf finden..");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1772,8 +1760,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ushara");
 talkEntry:addResponse("If you like to know more about thisss god asssk sssomone elssse. For example Frizza outssside at the teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1785,8 +1773,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("You can find a Temple of him in our town. Jussst go through the townwall, passs the marketplace and then you will find it on the right after the workshop.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1810,8 +1798,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ruzusss");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Ruzusss");
 talkEntry:addResponse("Yes, that isss my name. About what placesss do you want information?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1847,17 +1835,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Huh, about what placesss ssshall I give you information? Do you mind just to asssk for help asss a firssst ssstep?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Huh, über welche Plätze wünssscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

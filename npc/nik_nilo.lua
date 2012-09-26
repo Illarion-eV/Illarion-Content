@@ -8,7 +8,7 @@
 -- Authors:  Drathe                                                           --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -19,6 +19,7 @@ VALUES (0, 365, 260, 0, 6, 'Nik Nilo', 'npc.nik_nilo', 0, 1, 1, 193, 96, 28, 217
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.nik_nilo", package.seeall)
 
@@ -45,6 +46,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addTrigger("Good night");
 talkEntry:addResponse("#me grins as he waves: 'What can I do for you?'");
 talkEntry:addResponse("#me lifts his head: 'Hello there, you here to buy or sell?'");
 talkEntry:addResponse("Hello, you look like someone who knows a good price for tools, thats why your here, right?");
@@ -54,11 +56,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("#me grinst und winkt: 'Was kann ich für euch tun?'");
 talkEntry:addResponse("#me hebt den Kopf: 'Heda, wollt ihr etwas kaufen oder loswerden?'");
 talkEntry:addResponse("Hallo, ihr seht aus wie jemand, dem ich einen guten Preis für Werkzeuge machen kann. Deshalb seid ihr doch hier?");
@@ -66,11 +71,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yeh, yeh you here to buy or sell?");
 talkEntry:addResponse("#me scratches his cheek as he looks over: 'Want to see my wares?'");
 talkEntry:addResponse("Hello and all that, why don't you spend some of that coin you have with me!");
@@ -111,10 +116,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Aye... another time.");
 talkEntry:addResponse("Come back again now!");
 talkEntry:addResponse("#me chuckles: 'I'll be seeing you again.'");
@@ -135,9 +140,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I do alright, I would do better if you bought something!");
 talkEntry:addResponse("Why do you ask, you wont get a better price for small talk.");
-talkEntry:addResponse("I'm good, all the better for making a trade with you.");
+talkEntry:addResponse("I'm good, all the better for making awith you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -173,9 +179,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me laughs: 'What? I'm a builders merchant, I have tools not quests.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -221,9 +227,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Well I'm a trader, can't you tell.");
+talkEntry:addTrigger("job");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Well I'm ar, can't you tell.");
 talkEntry:addResponse("I buy and sell tool, building supplies and other things.");
 talkEntry:addResponse("I do a little buying, a lot of selling, why what are you after?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -238,8 +245,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Gobaith");
 talkEntry:addResponse("Wasn't that a little island?");
 talkEntry:addResponse("#me looks up in thought: 'I've heard of that place, can't think where it is though.'");
 talkEntry:addResponse("Gobaith, don't know where it is, I don't care.");
@@ -295,8 +302,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Big Nik");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Big Nik");
 talkEntry:addResponse("#me scratches his knee casually: 'Well, Big Nik is my maiden's name. If you know what I mean.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -364,9 +371,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("All light and wisdome, load of dung. He is just like any other pompus mage at Runewick.");
 talkEntry:addResponse("The archmage of Runewick, thinks the light shines out of his bum!");
 talkEntry:addResponse("Just another mage at Runwick with a big title, thinks he is something special, pah, same as all the others.");
@@ -383,8 +390,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("What a horrible place, full of scribes, mages and learned. Supposed to be a place of wisdom, arrogance more like.");
 talkEntry:addResponse("Nice place to look at but wouldn't want to live there.");
 talkEntry:addResponse("#me grins, motioning a hand to the surrounding area: 'Pah! Runewick, you don't want to know about that place when you've got Galmair!'");
@@ -400,13 +407,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Aye, he is alright as long as you stay on his good side, he runs this place.");
 talkEntry:addResponse("Some people say he killed his father to rule this place, me, I recon it's probably true.");
-talkEntry:addResponse("#me chuckles: 'He is firm but fair if you stay on his good side, he keeps this town in free order. That is just how I like it, its good for trade.'");
+talkEntry:addResponse("#me chuckles: 'He is firm but fair if you stay on his good side, he keeps this town in free order. That is just how I like it, its good for.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -421,8 +429,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("#me takes in a deep breath: 'Smell that, no place smells like that. I love this town its all for the free man.'");
 talkEntry:addResponse("It can be a little rough around here some nights, but every man and some of the women need to let off a little steam.");
 talkEntry:addResponse("If you live around here, you are a free man. Around here do as you want just don't upset anyone bigger than you. And I am pretty big.");
@@ -454,9 +462,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Don't know much about her, ain't she the Queen at Cadomyr?");
 talkEntry:addResponse("I hear she is a right witch, that Queen of Cadomyr.");
 talkEntry:addResponse("From what I hear she is quite the woman, bit of a witch though but some men like that.");
@@ -473,8 +481,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("It's a nice place, but too many laws for me, I'm a free man not a slave to laws and Royals.");
 talkEntry:addResponse("#me points to the ground: 'See, here a man can be what he wants, in Cadomyr you have a place and that's it for life. You live in the gutter, you die there.");
 talkEntry:addResponse("Good place, if you get into trouble, you will end up dead or in jail.");
@@ -490,9 +498,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ah, good for trade that place, big harbour town is Ann-Korr and the oldest of the Albarian towns.");
+talkEntry:addTrigger("albar");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Ah, good forthat place, big harbour town is Ann-Korr and the oldest of the Albarian towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -503,9 +512,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("If you're looking for gods, they are the towns to find. It is said the Gynkeesh have a temple for every god you can think of.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -518,8 +527,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Ah the town of the sun as it is called. Used to be just a fishing village now its a place of poets, art and a world known academy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -544,8 +553,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Irmorom be your best bet if you want good business.");
 talkEntry:addResponse("Aye I have trust in the gods, Irmorom has always been good to me.");
 talkEntry:addResponse("Best save a coin and offer it to Irmorom if you want to prosper in this life.");
@@ -565,7 +574,8 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I trade with rocks and stones that are as hard as my muscles!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Iwith rocks and stones that are as hard as my muscles!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -592,8 +602,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("obi");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("obi");
 talkEntry:addResponse("What did you say?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -617,9 +627,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nik");
 talkEntry:addTrigger("Nilo");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Everyone calls me Big Nik. Well, my friends do. Everyone is my friend here in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

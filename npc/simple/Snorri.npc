@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Snorri"
@@ -53,13 +53,13 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Snorri der Fischhändler. Schlüsselwörter: Fisch, Ork, Morri, Nase, Zwerg.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, how can I help you? - No, don't tell me, let me guess. You wanna buy some fish, right?", "Hello, Hello. How are you today? I haven't seen you for years. New haircut? It really suits you!", "Oh! Good day! It's nice to meet you!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho, how can I help you? - No, don't tell me, let me guess. You wanna buy some fish, right?", "Hello, Hello. How are you today? I haven't seen you for years. New haircut? It really suits you!", "Oh! Good day! It's nice to meet you!"
 "GrüßŸ", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho, wie kann ich Euch helfen? - Nein, sagt es nicht, ich weiß es schon, ihr wollt ein paar von meinen Fischen kaufen, nicht wahr?", "Tach, tach. Wie geht's denn heute so? Ihr habt Euch ja ewig nich ansehen lassen. Neue Frisur? Steht euch gut zu Gesicht!", "Oh! Guten Tach! Ist mir eine Freude Euch zu Begrüßen."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho, how can I help you? - No, don't tell me, let me guess. You wanna buy some fish, right?", "Hello, Hello. How are you today? I haven't seen you for years. New haircut? It really suits you!", "Oh! Good day! It's nice to meet you!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, how can I help you? - No, don't tell me, let me guess. You wanna buy some fish, right?", "Hello, Hello. How are you today? I haven't seen you for years. New haircut? It really suits you!", "Oh! Good day! It's nice to meet you!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, wie kann ich Euch helfen? - Nein, sagt es nicht, ich weiß es schon, ihr wollt ein paar von meinen Fischen kaufen, nicht wahr?", "Tach, tach. Wie geht's denn heute so? Ihr habt Euch ja ewig nich ansehen lassen. Neue Frisur? Steht euch gut zu Gesicht!", "Oh! Guten Tach! Ist mir eine Freude Euch zu Begrüßen."
 "Farewell", "Bye", "Fare well", "See you" -> "I hope we'll meet again soon.", "Farewell and don't forget to tell your friends! 'Snorri sells the best fish in Galmair!'", "Irmorom with you. May your beard grow until it reaches the ground."
 "Tschau", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf ein baldiges Wiedersehen.", "Gehabt Euch wohl und berichtet es Euren Freunden! 'Snorri verkauft die besten Fische Galmairs!'", "Irmorom sei mit dir. Möge dir der Bart bis zum Boden wachsen."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "I hope we'll meet again soon.", "Farewell and don't forget to tell your friends! 'Snorri sells the best fish in Galmair!'", "Irmorom with you. May your beard grow until it reaches the ground."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I hope we'll meet again soon.", "Farewell and don't forget to tell your friends! 'Snorri sells the best fish in Galmair!'", "Irmorom with you. May your beard grow until it reaches the ground."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf ein baldiges Wiedersehen.", "Gehabt Euch wohl und berichtet es Euren Freunden! 'Snorri verkauft die besten Fische Galmairs!'", "Irmorom sei mit dir. Möge dir der Bart bis zum Boden wachsen."
 "How are you", "How feel", "How do you do" -> "Oh, thanks for asking! And yes, I am perfectly fine.", "I am fine. Thanks for asking.", "Well, well, I can't complain."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Oh, wie freundlich von Euch, das ihr mich danach fragt! Und ich will sagen, ja! Ja es geht mir ausgezeichnet.", "Ausgezeichnet. Danke das ihr Euch danach erkundigt habt.", "Gut, gut, ich will nun wirklich nichts beklagen."
@@ -67,24 +67,24 @@ itemShoes = 369
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Snorri. Und der Griesgram, hinter mir heißt Morri. *lacht* Er ist mein Bruder, wusstet ihr das?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "I can't hire you, but if you want, I will buy every fish you bring to me. Just make sure it's all fresh. Be sure that I will smell it all very carefully!"
+english, "quest", "mission" -> "I can't hire you, but if you want, I will buy every fish you bring to me. Just make sure it's all fresh. Be sure that I will smell it all very carefully!"
 "quest", "mission" -> "Ich kann Euch nicht einstellen, aber sodar ihr wollt, kauf ich Euch allen Fisch ab den ihr mir bringt. Solange er frisch ist natürlich. Ich werd sorgfältig riechen, seid Euch gewiss."
-"task", "adventure" -> "I can't hire you, but if you want, I will buy every fish you bring to me. Just make sure it's all fresh. Be sure that I will smell it all very carefully!"
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich kann Euch nicht einstellen, aber sodar ihr wollt, kauf ich Euch allen Fisch ab den ihr mir bringt. Solange er frisch ist natürlich. Ich werd sorgfältig riechen, seid Euch gewiss."
+"task", "adventure", "order" -> "I can't hire you, but if you want, I will buy every fish you bring to me. Just make sure it's all fresh. Be sure that I will smell it all very carefully!"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich kann Euch nicht einstellen, aber sodar ihr wollt, kauf ich Euch allen Fisch ab den ihr mir bringt. Solange er frisch ist natürlich. Ich werd sorgfältig riechen, seid Euch gewiss."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a fishmonger. But sometimes I take my fishing rod and catch some fish on my own. What's your profession?"
 "beruf" -> "Ich bin Fischhändler. Aber manches Mal, kitzelt es mir in der Nase, dann nehm ich die Angel und fische selbst ein wenig. Was ist Euer Beruf?"
-"job", english -> "I am a fishmonger. But sometimes I take my fishing rod and catch some fish on my own. What's your profession?"
+english, "job" -> "I am a fishmonger. But sometimes I take my fishing rod and catch some fish on my own. What's your profession?"
 "job" -> "Ich bin Fischhändler. Aber manches Mal, kitzelt es mir in der Nase, dann nehm ich die Angel und fische selbst ein wenig. Was ist Euer Beruf"
-"Gobaith", "Gobiath", english -> "I don't know any good news about Gobaith, do you?"
+english, "Gobaith", "Gobiath" -> "I don't know any good news about Gobaith, do you?"
 "Gobaith", "Gobiath" -> "Von Gobaith hört man nichts Gutes. Oder habt ihr etwas zu berichten?."
 "my name" -> "It's nice to meet you. Which fish you wanna buy?", "Aye, do you wanna buy some fish?"
 "mein Name" -> "Es ist mir eine Freude Euch kennen zu lernen. Welchen Fisch darf ich Euch denn verkaufen?", "Aye, wollt ihr Fisch kaufen?"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "fish", "smell", "stink" -> "#me sniffs pointedly. 'That's what a fresh fish should smell like!'", "The freshest fish in all of Galmair. Even the cook of Don Valerio Guillianni buys his fish from Snorri!", "By my beard, today's fish is fresh! Be careful or they might jump out of your bag!"
-"morri", "brother", english -> "Aye, Morri is my favourite brother.", "I am very happy that Morri and I are able to have this market stall together.", "Morri can be moody so it's my job to make him laugh again. *laughs* That's not easy as you think!"
+english, "morri", "brother" -> "Aye, Morri is my favourite brother.", "I am very happy that Morri and I are able to have this market stall together.", "Morri can be moody so it's my job to make him laugh again. *laughs* That's not easy as you think!"
 "orc", "krudash", "sogg" -> "Aye, orcs, just two market stalls away. But whatever, we take what we can get.", "In Galmair, money rules, and it seems these orcs are somehow able to get enough money to pay the taxes for their market stall."
 "dwarf" -> "Aye, I am proud to be a dwarf! We are the smartest people and the most gifted craftsman", "Gold, we dwarfs love it!", "For a dwarf, his clan is the most important thing! May its wealth and size grow until eternity."
 "nose", "stud", "spoud" -> "#me rubs his nose. 'Aye, thats true. I broke it in a fight with an ogre. Now it's crooked, but I'll bet I can still smell an ogre 2 miles up wind!'", "ENGLISH2.", "ENGLISH3."
@@ -97,39 +97,39 @@ itemShoes = 369
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Aye, you talk about the wizard, right? Elvaine Morgan. He is the king in Runewick, at least I think so. Well anyway, as a fishmonger I don't have to worry about that."
 "Erzmagier" -> "Aye, ihr sprecht über diesen Zauberer nicht wahr? Elvaine Morgan. Ist der König in Runewick, hab ich mir sagen lassen. Oder wie war das? Naja, mit so etwas muss sich ein Fischhändler nicht abmühen"
-"Elvaine", "Morgan", english -> "Aye, you talk about the wizard, right? Elvaine Morgan. He is the king in Runewick, at least I think so. Well anyway, as a fishmonger I don't have to worry about that."
+english, "Elvaine", "Morgan" -> "Aye, you talk about the wizard, right? Elvaine Morgan. He is the king in Runewick, at least I think so. Well anyway, as a fishmonger I don't have to worry about that."
 "Elvaine", "Morgan" -> "Aye, ihr sprecht über diesen Zauberer nicht wahr? Elvaine Morgan. Ist der König in Runewick, hab ich mir sagen lassen. Oder wie war das? Naja, mit so etwas muss sich ein Fischhändler nicht abmühen"
-"Runewick", english -> "You better not trust Runewick. Who knows what evil things they do in their towers. Any minute the sky might fall on our heads! But whatever, the longears will be the first to get hit."
+english, "Runewick" -> "You better not trust Runewick. Who knows what evil things they do in their towers. Any minute the sky might fall on our heads! But whatever, the longears will be the first to get hit."
 "Runewick" -> "Runewick, darf man nicht vertrauen. Wer kann schon sagen welches Unheil man dort in den Türmen zusammen braut. Und irgendwann fällt uns der Himmel auf den Kopf. Mir soll's recht sein, die Spitzohren sind dann die Ersten die's erwischt."
-"Valerio", "Guilianni", "Don", english -> "Aye, don't tell anyone, but my brother Morri and I, we only pay half as much for our market stall as the other traders. We played a trick on the Don, didn't we?"
+english, "Valerio", "Guilianni", "Don" -> trade, "Aye, don't tell anyone, but my brother Morri and I, we only pay half as much for our market stall as the otherrs. We played a trick on the Don, didn't we?"
 "Valerio", "Guilianni", "Don" -> "Aye, sagt's nicht weiter, aber mein Bruder Morri und ich, wir bezahlen nur Halb so viel für unseren Stand wie die anderen Händler. Da haben wir dem Don ein Schnippchen geschlagen, nicht wahr?"
-"Galmair", english -> "Those who have a problem in Galmair should talk with the Don. Valerio Guilianni! If you have a problem with the Don himself....Erm yes..better not get in the Don's way."
+english, "Galmair" -> "Those who have a problem in Galmair should talk with the Don. Valerio Guilianni! If you have a problem with the Don himself....Erm yes..better not get in the Don's way."
 "Galmair" -> "Wer in Galmair ein Problem hat, dem seis geraten sich an den Don zu wenden. Valerio Guilianni! Wenn man allerdings ein Problem mit dem Don selbst hat... *räuspert sich* nun seht zu, dass ihr dem Don nicht in die Quere kommt."
 "Queen" -> "Oh interesting. Did the princess finally become queen? I guess it won't be long before Cadomyr's treasury is gone."
 "Königin" -> "Sieh an, sieh an. Hat sich das Prinzeschen doch noch zur Königin gemaußert? Ich schätze mal, nun wird Cadomyrs Schatzkammer endgültig geleert."
-"rosaline", "edwards", english -> "Oh interesting. Did the princess finally become queen? I guess it won't be long before Cadomyr's treasury is gone."
+english, "rosaline", "edwards" -> "Oh interesting. Did the princess finally become queen? I guess it won't be long before Cadomyr's treasury is gone."
 "rosaline", "edwards" -> "Sieh an, sieh an. Hat sich das Prinzeschen doch noch zur Königin gemaußert? Ich schätze mal, nun wird Cadomyrs Schatzkammer endgültig geleert."
-"Cadomyr", english -> "Cadomyr and its honour. *laughs* Their treasury is as empty as an ogre's head! Who can take them seriously? There is more trading skill in my pinky toe than in all of Cadomyr put together."
+english, "Cadomyr" -> "Cadomyr and its honour. *laughs* Their treasury is as empty as an ogre's head! Who can take them seriously? There is more trading skill in my pinky toe than in all of Cadomyr put together."
 "Cadomyr" -> "Cadomyr und seine Ehre. *lacht* Deren Schatzkammer ist seit Jahren leer! Wer kann die schon Ernst nehmen? In meinem kleinen Zeh, steckt mehr Handelsgeschick als ganz Cadomyr zusammen auf zu bringen vermag."
 
 -- Main land factions
-"albar", english -> "I don't know much about the human land. My brother and I come from Ironsiege. Do you know my home country?"
+english, "albar" -> "I don't know much about the human land. My brother and I come from Ironsiege. Do you know my home country?"
 "albar" -> "Ach, über die Länder der Menschen weiß ich nur wenig. Mein Bruder und ich entstammen dem weit entfernten Ironsiege. Kennt ihr meine Heimat?"
-"gynk", "gync", english -> "I don't know much about the human land. My brother and I come from Ironsiege. Do you know my home country?"
+english, "gynk", "gync" -> "I don't know much about the human land. My brother and I come from Ironsiege. Do you know my home country?"
 "gync", "gynk" -> "Ach, über die Länder der Menschen weiß ich nur wenig. Mein Bruder und ich entstammen dem weit entfernten Ironsiege. Kennt ihr meine Heimat?"
-"salkama", english -> "I don't know much about the human land. My brother and I come from Ironsiege. Do you know my home country?"
+english, "salkama" -> "I don't know much about the human land. My brother and I come from Ironsiege. Do you know my home country?"
 "salkama" -> "Ach, über die Länder der Menschen weiß ich nur wenig. Mein Bruder und ich entstammen dem weit entfernten Ironsiege. Kennt ihr meine Heimat?"
-"ironsiege", english -> "Let me tell you, Ironsiege is an impregnable fortress. Describing the mountain's gates as 'impressive' isn't enough. They are THAAAAAT gigantic.", "Well, in Ironsiege you will find three clans. The Goldaxeclan, the Ironheartclan and , last but not least, my clan. The Flinthammers! Arr!"
+english, "ironsiege" -> "Let me tell you, Ironsiege is an impregnable fortress. Describing the mountain's gates as 'impressive' isn't enough. They are THAAAAAT gigantic.", "Well, in Ironsiege you will find three clans. The Goldaxeclan, the Ironheartclan and , last but not least, my clan. The Flinthammers! Arr!"
 "ironsiege" -> "Last Euch sagen, Ironsiege ist eine uneinnehmbare Festung. Allein die Tore im Berg als 'imposant' zu bezeichnen reicht nicht aus. So gigantisch, erscheinen sie.", "Nun, in Ironsiege findet ihr hauptsächlich drei Klans. Den Goldaxtklan, den Eisenherzklan und zu guter letzt meinen Klan. Die Flinthämmer! Arr!"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Let me tell you, Irmorom made the dwarves out of rock. He got this rock from Ushara as a present. And thats all I want to know about the gods. Except...thank Adron for cheese and beer!"
 "Gott", "Götter" -> "Last Euch sagen, Irmorom schuf einst die Zwerge aus einem Stück Felsen. Jenen hatte er von Ushara zum Geschenk bekommen. Und viel mehr möchte ich von den Göttern nicht wissen müssen. Außer...nun ja Adron sei's gedankt für Käse und Bier!"
-"Adron", english -> "Drink! Let's drink a toast to Adron. Praise his beer and cheese."
+english, "Adron" -> "Drink! Let's drink a toast to Adron. Praise his beer and cheese."
 "Adron" -> "Trinkt! Trinken wir auf Adron. Gepriesen sein Bier und Käse."
-"Irmorom", english -> "Hail Irmorom. Protect my brother and my clan. Thanks be to you, because you created the dwarves."
+english, "Irmorom" -> "Hail Irmorom. Protect my brother and my clan. Thanks be to you, because you created the dwarves."
 "Irmorom" -> "Heil Irmorom. Schütze meinen Bruder und unseren Klan. Gedankt sei dir, denn du bist der Zwergen Schöpfer."
-"Ushara", english -> "Honour to Ushara, mother of rock, stone and earth."
+english, "Ushara" -> "Honour to Ushara, mother of rock, stone and earth."
 "Ushara" -> "Ehre dir, Mutter der Felsen, Steine und Erde."
 
 -- Catching typical NPC phrases
@@ -139,7 +139,7 @@ itemShoes = 369
 "erzähl was", "erzÃ¤hl etwas" -> "Aye, ich bekomm all die Fische jeden zweiten Tag, direkt vom Hafen.", "Morri und ich sind Brüder. Und wir teilen uns den Marktschuppen. Auch wenn er so finster drein schaut, er ist ein netter Kerl.", "Einmal, bekam ich einen Karren mit Fischen, vom Hafen, und ich schwöre bei meinem Bart, die Fische waren so frisch, ich musste sie mit Schnüren auf den Tisch fesseln, damit sie nicht weghüpfen konnten."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Snorri", english -> "Aye. What fish do you wanna buy?"
+english, "Snorri" -> "Aye. What fish do you wanna buy?"
 "Snorri" -> "Aye. Welchen Fisch wollt ihr kaufen?"
 "Yes" -> "Aye. thats good!", "D'kraga...alright.", "Fine, fine, fine, that's how it should be."
 "Ja" -> "Aye. Ist gut!", "D'kraga... in Ordnung.", "Fein-fein-fein, so soll alles sein."
@@ -147,8 +147,8 @@ itemShoes = 369
 "Nein" -> "Solltet Ihr es Euch anders überlegen... ich bin hier.", "Damit muss ich mich wohl abfinden.", "Ah! Das dachte ich mir bereits."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Aye. Everything's alright.", "Hm-h. Do you wanna buy that big fish?", "That's waht she said!"
-".*", german, chance(20.0) -> "Aye. Alles klar.", "Hm-h? Ihr wollt den großen Fisch da?", "Wenn ihr das sagt, will ich zustimmen. *lacht*"
+english, chance(20.0), ".*" -> "Aye. Everything's alright.", "Hm-h. Do you wanna buy that big fish?", "That's waht she said!"
+german, chance(20.0), ".*" -> "Aye. Alles klar.", "Hm-h? Ihr wollt den großen Fisch da?", "Wenn ihr das sagt, will ich zustimmen. *lacht*"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

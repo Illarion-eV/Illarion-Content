@@ -24,13 +24,15 @@ function callEffect(trsEff, trsHunter)
     local fnd;
     local trsPosition;
     local cat;
-    fnd, trsPosition=trsEff:findValue("pos");
-
-    if not fnd then
+    fndX, trsPositionX=trsEff:findValue("posX")
+    fndY, trsPositionY=trsEff:findValue("posY")
+	fndZ, trsPositionZ=trsEff:findValue("posZ")
+	trsPosition = position(trsPositionX,trsPositionY,trsPositionZ)
+	
+    if not (fndX and fndY and fndZ) then
         return false;       -- treasure lost!
     end
 
-    trsPosition = base.common.DataToPosition( trsPosition );
     if not trsHunter:isInRangeToPosition( trsPosition, 40 ) then
         base.common.InformNLS( trsHunter,
         "Der Schatz ist für immer verloren. Die Wächter haben euch in die Flucht geschlagen.",
@@ -47,7 +49,7 @@ function callEffect(trsEff, trsHunter)
         base.common.InformNLS( trsHunter,
         "Die Wächter des Schatzes wurden besiegt. Gebt nicht alles auf einmal aus!",
         "The guardians of the treasure have been slain. Do not spend it all at once!");
-        world:createItemFromId(2830,1,trsPosition,true,333,cat); --spawn a treasure chest
+        world:createItemFromId(2830,1,trsPosition,true,333,{["trsCat"]=cat}); --spawn a treasure chest
         world:gfx(16,trsPosition);
         world:makeSound(13,trsPosition);
         return false;

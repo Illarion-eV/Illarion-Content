@@ -83,8 +83,8 @@ itemShoes = 770
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Beror Oakaxe der königliche Quartiermeister. Schlüsselwörter: Hallo, Quest, Befehle, Ritter, Tor.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ha! A new recruit. You came here to get your orders for today, right?", "Attention! The queen issued new orders, and her majesty will not tolerate delay! Report for duty!"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ha! Ein neuer Rekrut. Du bist hier, um deinen Tagesbefehl zu erhalten, richtig?", "Hergehört! Die Königin hat neue Befehle ausgegeben. Und ihre Majestät mag keine Verzögerungen in ihrer Ausführung."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ha! A new recruit. You came here to get your orders for today, right?", "Attention! The queen issued new orders, and her majesty will not tolerate delay! Report for duty!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ha! Ein neuer Rekrut. Du bist hier, um deinen Tagesbefehl zu erhalten, richtig?", "Hergehört! Die Königin hat neue Befehle ausgegeben. Und ihre Majestät mag keine Verzögerungen in ihrer Ausführung."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Ha! A new recruit. You came here to get your orders for today, right?", "Ha! A new recruit, bet your looking for orders aren't you, greenhorn?", "Attention! The queen issued new orders, and her majesty will not tolerate delay! Report for duty!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ha! Ein neuer Rekrut. Du bist hier, um deinen Tagesbefehl zu erhalten, richtig?", "Hergehört! Die Königin hat neue Befehle ausgegeben. Und ihre Majestät mag keine Verzögerungen in ihrer Ausführung."
 "Farewell", "Bye", "Fare well", "See you" -> "Dismissed.", "Best of luck.", "Move out!"
@@ -227,8 +227,8 @@ itemShoes = 770
 -- Outlaw answer
 "quest", "mission", english -> "You outcast! Can't you find a home? They accept everyone in Galmair I was told, as long as you have some money."
 "quest", "mission" -> "Du Ausgestoßener! Kannst du keine Heimat finden? Sie nehmen jeden in Galmair, solange die Kasse stimmt, sagt man."
-"task", "adventure" -> "You outcast! Can't you find a home? They accept everyone in Galmair I was told, as long as you have some money."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Du Ausgestoßener! Kannst du keine Heimat finden? Sie nehmen jeden in Galmair, solange die Kasse stimmt, sagt man."
+"task", "adventure", "order" -> "You outcast! Can't you find a home? They accept everyone in Galmair I was told, as long as you have some money."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du Ausgestoßener! Kannst du keine Heimat finden? Sie nehmen jeden in Galmair, solange die Kasse stimmt, sagt man."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the royal quartermaster. Didn't I just mention that!?"

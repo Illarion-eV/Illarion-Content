@@ -4,12 +4,15 @@
 
 require("item.general.metal")
 require("base.common")
-
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	--------- TESTING STUFF !!! ------------ Merung
+	if (string.find(User.lastSpokenText,"testp")~=nil) then
+	    User:createItem(59,1,444,{["potionEffectId"]=95555555})
+	    return
+	end	
 	if string.sub(User.lastSpokenText,1,9) == "inform me" then
 	    informNumber = tonumber(string.sub(User.lastSpokenText,10))
 		if informNumber == 1 then
@@ -22,6 +25,18 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return		
 	end
 	
+	if (string.find(User.lastSpokenText,"imprison")~=nil) then
+	    local a,b,workLoad,byFaction=string.find(User.lastSpokenText,"(%d+) (%d+)") 
+		local lockThem = base.common.GetFrontCharacter(User)
+		workLoad = tonumber(workLoad)
+		byFaction = tonumber(byFaction)
+		lockThem:setQuestProgress(25,workLoad)
+		lockThem:setQuestProgress(26,byFaction)
+		lockThem:inform("workload: "..lockThem:getQuestProgress(25).." and factionID: "..lockThem:getQuestProgress(26))
+	    if lockThem.pos.z ~= -40 then
+		    lockThem:forceWarp(position(-489,-484,-40))
+		end	
+	end	
 	if (string.find(User.lastSpokenText,"labour")~=nil) then 
 	    local a,b,workLoad,byFaction=string.find(User.lastSpokenText,"(%d+) (%d+)") 
 		workLoad = tonumber(workLoad)
@@ -29,6 +44,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:setQuestProgress(25,workLoad)
 		User:setQuestProgress(26,byFaction)
 		User:inform("workload: "..User:getQuestProgress(25).." and factionID: "..User:getQuestProgress(26))
+	    if User.pos.z ~= -40 then
+		    User:forceWarp(position(-489,-484,-40))
+		end	
 	end	
 		
 	if (string.find(User.lastSpokenText,"poison")~=nil) then 
@@ -111,45 +129,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    return
 	end	
 	
-	if (User.lastSpokenText == "textbox") then
-		    User:inform("debug 1")
-			local callbackNewbie = function(dialog)
-			   User:inform("debug 2")
-			   User:setQuestProgress(2,1)
-			   User:inform(""..User:getQuestProgress(2))
-			   newbieEffect = LongTimeEffect(13,1)
-			   User.effects:addEffect(newbieEffect)
-			   find, myEffect = User.effects:find(13)
-		       if find then
-			        User:inform("lte 13 wurde geadded")
-	           else 
-                    User:inform("lte 13 wurde NICHT geadded")			   
-		        end 
-		    end
-		
-			if User:getPlayerLanguage() == 0 then
-				User:inform("debug 3")
-				dialog = MessageDialog("Willkommen!", "toller Willkommenstext - in Deutsch!", callbackNewbie)
-			else	
-				dialog = MessageDialog("Welcome!", "fancy welcome text - in English!", callbackNewbie)
-			end	
-			User:requestMessageDialog(dialog)
-		return
-	end
-	
-	-- function to remove noobia lte (for testing)
-	if (User.lastSpokenText == "remove") then	
-		find, myEffect = User.effects:find(13)
-		if find then
-			User.effects:removeEffect(13)
-			User:inform("noobia wurde entfernt")
-			return
-		end
-		User:setQuestProgress(2,0)
-        User:inform(""..User:getQuestProgress(2))
-	end
-	-- function end    
-	
 	-- function changes potion Data; only for testing
 	local potionA = base.common.GetFrontItemID(User);
 	if potionA == 331 or potionA == 166 or potionA == 329 or potionA == 165 or potionA == 330 or potionA == 59 or potionA == 327 or potionA == 328 or potionA == 167 then
@@ -195,21 +174,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	   User:setHairColor(0,64,0)
 	end
 	-- testing end
-	
-	-- again, testing stuff
-	if base.common.GetFrontItemID(User) == 775 then -- infront of a cauldron?
-	   User:setQuestProgress(305,2)
-	   User:inform("queststatus von 305 ist "..User:getQuestProgress(305))
-	   return
-	end
-	--testing end
-	
-	--testing
-	if base.common.GetFrontItemID(User) == 36 then
-	   User:setAttrib("body_height",tonumber(User.lastSpokenText))
-	   return
-	end
-    ------------ TESTTING END !!! ------------
+	 ------------ TESTTING END !!! ------------
 	
 	content.gathering.InitGathering();
 	InitHerblore();

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Ardian                                                           --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Frederik Silvereye"
@@ -58,13 +58,13 @@ itemShoes = 326
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frederik Silvereye der Notar. Schlüsselwörter: 'Ich möchte Bürger werden', 'Ich möchte ein Dekret einlösen', ('Ich möchte eine Lebensversicherung kaufen')")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted.", "Greetings.", "Good day."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tag."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted.", "Greetings.", "Good day."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Good day."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tag."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Good day."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tag."
 "Farewell", "Bye", "Fare well", "See you" -> "Malachin with you.", "Farewell.", "Goodbye."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Malachin mit Euch.", "Auf bald.", "Bis bald."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Malachin with you.", "Farewell.", "Goodbye."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin with you.", "Farewell.", "Goodbye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin mit Euch.", "Auf bald.", "Bis bald."
 "How are you", "How feel", "How do you do" -> "I'm fine, thank you for your concern.", "I can't complain, even if some more action wouldn't be that bad.", "Very good, and you?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage.", "Ich kann nicht klagen, auch wenn ein bisschen mehr Abenteuer mal wieder nicht schlecht wäre.", "Ganz gut, und euch?"
@@ -72,17 +72,17 @@ itemShoes = 326
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Frederik Silvereye, ich kümmere mich um die Neuankömmlinge dieses Ortes.", "Mein Name ist Frederik Silvereye, ich bin der Notar Galmairs.", "Man nennt mich Frederik Silvereye, als Notar kann Ich euch zum Bürger unseres schönen Ortes eintragen."
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."
+english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."
 "quest", "mission" -> "Derzeit habe ich alles, aber danke für eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."
-"task", "adventure" -> "I have no tasks for you right now, maybe another time."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe derzeit keine Aufgaben für euch, vielleicht aber wann anders."
+"task", "adventure", "order" -> "I have no tasks for you right now, maybe another time."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe derzeit keine Aufgaben für euch, vielleicht aber wann anders."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the notary of Galmair and do all the stuff a notary does.", "I take care of the new arrivals in Galmair, I am the notary here."
 "beruf" -> "Ich bin der Notar Galmairs und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Galmair, ich bin hier der Notar."
-"job", english -> "I am the notary of Galmair and do all the stuff a notary does.", "I take care of the new arrivals in Galmair, I am the notary here."
+english, "job" -> "I am the notary of Galmair and do all the stuff a notary does.", "I take care of the new arrivals in Galmair, I am the notary here."
 "job" -> "Ich bin der Notar Galmairs und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Galmair, ich bin hier der Notar."
-"Gobaith", "Gobiath", english -> "Never heard of that. Is it something to eat?"
+english, "Gobaith", "Gobiath" -> "Never heard of that. Is it something to eat?"
 "Gobaith", "Gobiath" -> "Nie davon gehört. Ist es etwas zu Essen?"
 "my name" -> "I'm pleasured to meet you."
 "mein Name" -> "Ich freu mich euch kennenzulernen."
@@ -102,63 +102,63 @@ itemShoes = 326
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Elvaine", "Morgan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Runewick" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Valerio", "Guilianni", "Don" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Galmair" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "rosaline", "edwards" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Cadomyr" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "albar" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "gynk", "gync" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "salkama" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Adron" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Bragon", "Brágon" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Cherga" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Elara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Eldan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Findari" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Irmorom" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Malachin", "Malachín" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Moshran" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Nargun", "Nargún", "Nargùn" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Oldra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Ronagan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Sirani" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Tanora", "Zelphia" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Ushara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Zhambra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Catching typical NPC phrases
@@ -168,7 +168,7 @@ itemShoes = 326
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "<NPC first name>", "<NPC last name>" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -176,8 +176,8 @@ itemShoes = 326
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-".*", german, chance(20.0) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, chance(20.0), ".*" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+german, chance(20.0), ".*" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Rowan Banius"
@@ -73,20 +73,20 @@ itemShoes = 53
 -- Location: on a farm near Runewick, indoors, close to NPC Natiana Banius. Paddock Farm, Merryglade, Yewdale?
 
 -- Debugging
-".+", queststatus(322) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
+queststatus(322) > 11, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Rowan Banius the farmer. Keywords: quest, profession, farm, wife, what sell.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Banius der Bauer. Schlüsselwörter: Auftrag, Beruf, Hof, Frau, was verkauft.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me runs a hand through his ruffled hair, nodding once.", "#me glances at you with red eyes, 'Aye, greetings.'", "#me opens his mouth to speak, his voice quiet and weary, 'Be greeted.'"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me fährt sich mit einer Hand durchs zerzauste Haar und nickt kurz.", "#me blickt dich mit roten Augen an:'Ja, Grüße'.", "#me öffnet seinen Mund um mit leiser, müder Stimme zu antworten, 'Seid gegrüßt'."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "#me runs a hand through his ruffled hair, nodding once.", "#me glances at you with red eyes, 'Aye, greetings.'", "#me opens his mouth to speak, his voice quiet and weary, 'Be greeted.'"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me runs a hand through his ruffled hair, nodding once.", "#me glances at you with red eyes, 'Aye, greetings.'", "#me opens his mouth to speak, his voice quiet and weary, 'Be greeted.'"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me fährt sich mit einer Hand durchs zerzauste Haar und nickt kurz.", "#me blickt dich mit roten Augen an:'Ja, Grüße'.", "#me öffnet seinen Mund um mit leiser, müder Stimme zu antworten, 'Seid gegrüßt'."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me runs a hand through his ruffled hair, nodding once.", "#me glances at you with red eyes, 'Aye, greetings.'", "#me opens his mouth to speak, his voice quiet and weary, 'Be greeted.'"
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me fährt sich mit einer Hand durchs zerzauste Haar und nickt kurz.", "#me blickt dich mit roten Augen an:'Ja, Grüße'.", "#me öffnet seinen Mund um mit leiser, müder Stimme zu antworten, 'Seid gegrüßt'."
 "Farewell", "Bye", "Fare well", "See you" -> "Take care.", "Aye, so long. Please keep my wife in your prayers.", "May the Gods watch over you."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gebt auf euch Acht!.", "Bis Dann! Bedenkt meine Frau in Euren Gebeten!", "Mögen die Götter über Euch wachen."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Take care.", "Aye, so long. Please keep my dear wife in your prayers.", "May the Gods watch over you."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care.", "Aye, so long. Please keep my dear wife in your prayers.", "May the Gods watch over you."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gebt auf euch Acht!", "Bis Dann! Bedenkt meine liebe Frau in Euren Gebeten!", "Mögen die Götter über Euch wachen."
 "How are you", "How feel", "How do you do" -> "I am fine, but my poor, beloved wife has fallen ill. I truly need a helping hand.", "I am torn. My wife is unwell and we run low on supplies. But I cannot afford to leave the farm, for this season's crops would certainly perish.", "Show your concern for my wife, not I. I am in dire need of assistance."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut. Meine arme Freu jedoch ist krank. Ich bräuchte dringend Hilfe.", "Ich bin unschlüssig. Meine Frau ist krank und uns gehen die Vorräte aus. Ich kann nicht riskieren das die Ernte verdirbt, wenn ich jetzt den Hof verlasse.", "Sorgt euch um meine Frau, nicht um mich. Ich benötige schrecklich dringend Hilfe."
@@ -96,69 +96,69 @@ itemShoes = 53
 -- 1st quest: Bring 10 HAM
 
 -- Give out quest 1
-"quest", "mission", queststatus(322) = 0, english -> inform("[New quest] The Farmer's Wife: Part I"), "You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then.", queststatus(322) = 1
-"quest", "mission", queststatus(322) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "Ihr werde uns helfen? Oh, Ihr seid zu gütig. Ich bin wirklich dankbar. Wir haben nur noch wenig Vorräte im Haus und bald ist Erntezeit. Wenn Ihr mir 10 gekochte Schinken bringen könhntet, so werde ich bis zur Ernte genug Essen auf den Tisch bringen können.", queststatus(322) = 1
-"task", "adventure", queststatus(322) = 0 -> inform("[New quest] The Farmer's Wife: Part I"), "You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then.", queststatus(322) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "Ihr werde uns helfen? Oh, Ihr seid zu gütig. Ich bin wirklich dankbar. Wir haben nur noch wenig Vorräte im Haus und bald ist Erntezeit. Wenn Ihr mir 10 gekochte Schinken bringen könhntet, so werde ich bis zur Ernte genug Essen auf den Tisch bringen können.", queststatus(322) = 1
+queststatus(322) = 0, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part I"), queststatus(322) = 1, "You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then."
+queststatus(322) = 0, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(322) = 1, "Ihr werde uns helfen? Oh, Ihr seid zu gütig. Ich bin wirklich dankbar. Wir haben nur noch wenig Vorräte im Haus und bald ist Erntezeit. Wenn Ihr mir 10 gekochte Schinken bringen könhntet, so werde ich bis zur Ernte genug Essen auf den Tisch bringen können."
+queststatus(322) = 0, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part I"), queststatus(322) = 1, "You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then."
+queststatus(322) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(322) = 1, "Ihr werde uns helfen? Oh, Ihr seid zu gütig. Ich bin wirklich dankbar. Wir haben nur noch wenig Vorräte im Haus und bald ist Erntezeit. Wenn Ihr mir 10 gekochte Schinken bringen könhntet, so werde ich bis zur Ernte genug Essen auf den Tisch bringen können."
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(322) = 1, item(306, all) < 10, english -> "I am in urgent need of those ten hams. My poor wife is looking awfully pale, and would do well with a proper meal."
-"quest", "mission", queststatus(322) = 1, item(306, all) < 10 -> "Ich benötige dringesnst besagte 10 Schinken.Meine Frau ist schon ganz bleich, ein anständiges Mahl wird ihr gut tun!"
-"task", "adventure", queststatus(322) = 1, item(306, all) < 10 -> "I am in urgent need of those ten hams. My poor wife is looking awfully pale, and would do well with a proper meal."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 1, item(306, all) < 10 -> "Ich benötige dringesnst besagte 10 Schinken.Meine Frau ist schon ganz bleich, ein anständiges Mahl wird ihr gut tun!"
+queststatus(322) = 1, item(306, all) < 10, english, "quest", "mission" -> "I am in urgent need of those ten hams. My poor wife is looking awfully pale, and would do well with a proper meal."
+queststatus(322) = 1, item(306, all) < 10, "quest", "mission" -> "Ich benötige dringesnst besagte 10 Schinken.Meine Frau ist schon ganz bleich, ein anständiges Mahl wird ihr gut tun!"
+queststatus(322) = 1, item(306, all) < 10, "task", "adventure" -> "I am in urgent need of those ten hams. My poor wife is looking awfully pale, and would do well with a proper meal."
+queststatus(322) = 1, item(306, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich benötige dringesnst besagte 10 Schinken.Meine Frau ist schon ganz bleich, ein anständiges Mahl wird ihr gut tun!"
 
 -- Quest 1 solved, reward: 40cp, meat dish
-".+", queststatus(322) = 1, item(306, all) > 9, english -> inform("[Quest solved] You are awarded 40 copper coins and a meat dish."), "Oh! Thank you, thank you. My wife shall be able to enjoy a decent meal thanks to you. This is sure to raise her spirits.", money + 40, deleteItem(306, 10), item(557, 1, 599, 0), queststatus(322) = 2
-".+", queststatus(322) = 1, item(306, all) > 9 -> inform("[Quest gelöst] Du erhältst 40 Kupferstücke und eimn Fleischgericht."), "Oh! Habt dank, habt Dank! Meine Frau wird dank euch eine anstängige Mahlzeit genießen können. Dies wird ihr sicher wieder auf die Beine helfen.", money + 40, deleteItem(306, 10), item(557, 1, 599, 0), queststatus(322) = 2
+queststatus(322) = 1, item(306, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 40 copper coins and a meat dish."), money + 40, deleteItem(306, 10), item(557, 1, 599), queststatus(322) = 2, "Oh! Thank you, thank you. My wife shall be able to enjoy a decent meal thanks to you. This is sure to raise her spirits."
+queststatus(322) = 1, item(306, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 40 Kupferstücke und eimn Fleischgericht."), money + 40, deleteItem(306, 10), item(557, 1, 599), queststatus(322) = 2, "Oh! Habt dank, habt Dank! Meine Frau wird dank euch eine anstängige Mahlzeit genießen können. Dies wird ihr sicher wieder auf die Beine helfen."
 
 -- 2nd quest: Bring 1 blue coat
 
 -- Give out quest 2
-"quest", "mission", queststatus(322) = 2, english -> inform("[New quest] The Farmer's Wife: Part II"), "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face.", queststatus(322) = 3
-"quest", "mission", queststatus(322) = 2 -> inform("[Neues Quest] Die Geistereiche II"), "Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken.", queststatus(322) = 3
-"task", "adventure", queststatus(322) = 2 -> inform("[New quest] The Farmer's Wife: Part II"), "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face.", queststatus(322) = 3
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 2 -> inform("[Neues Quest] Die Geistereiche II"), "Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken..", queststatus(322) = 3
+queststatus(322) = 2, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part II"), queststatus(322) = 3, "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face."
+queststatus(322) = 2, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(322) = 3, "Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken."
+queststatus(322) = 2, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part II"), queststatus(322) = 3, "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face."
+queststatus(322) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(322) = 3, "Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken.."
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(322) = 3, item(2380, all) = 0, english -> "My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better."
-"quest", "mission", queststatus(322) = 3, item(2380, all) = 0 -> "Meine arme Frau hatte etwas gutes Essen, aber sie zittert tag und nacht. Je eher Ihr den blauen Mantel besoregen könnt, um so besser."
-"task", "adventure", queststatus(322) = 3, item(2380, all) = 0 -> "My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 3, item(2380, all) = 0 -> "Meine arme Frau hatte etwas gutes Essen, aber sie zittert tag und nacht. Je eher Ihr den blauen Mantel besoregen könnt, um so besser.."
+queststatus(322) = 3, item(2380, all) = 0, english, "quest", "mission" -> "My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better."
+queststatus(322) = 3, item(2380, all) = 0, "quest", "mission" -> "Meine arme Frau hatte etwas gutes Essen, aber sie zittert tag und nacht. Je eher Ihr den blauen Mantel besoregen könnt, um so besser."
+queststatus(322) = 3, item(2380, all) = 0, "task", "adventure" -> "My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better."
+queststatus(322) = 3, item(2380, all) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> "Meine arme Frau hatte etwas gutes Essen, aber sie zittert tag und nacht. Je eher Ihr den blauen Mantel besoregen könnt, um so besser.."
 
 -- Quest 2 solved, reward: 60cp, SCYTHE
-".+", queststatus(322) = 3, item(2380, all) > 0, english -> inform("[Quest solved] You are awarded 60 copper coins and a SCYTHE."), "Ah, this is perfect. Thank you, my friend. I hope this money shall be sufficient compensation. Hmm...here, take my old scythe, also.", money + 60, deleteItem(2380, 1), item(271, 1, 599, 0), queststatus(322) = 4
-".+", queststatus(322) = 3, item(2380, all) > 0 -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein eine Sense."), "Ah, das ist ausgezeichnet. Ich danke euch, mein Freund. Ich hoffe dies ist eine angemessene Entschädigung.Hmm...hier, nehmt auch meine alte Sense.", money + 60, deleteItem(2380, 1), item(271, 1, 599, 0), queststatus(322) = 4
+queststatus(322) = 3, item(2380, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded 60 copper coins and a SCYTHE."), money + 60, deleteItem(2380, 1), item(271, 1, 599), queststatus(322) = 4, "Ah, this is perfect. Thank you, my friend. I hope this money shall be sufficient compensation. Hmm...here, take my old scythe, also."
+queststatus(322) = 3, item(2380, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein eine Sense."), money + 60, deleteItem(2380, 1), item(271, 1, 599), queststatus(322) = 4, "Ah, das ist ausgezeichnet. Ich danke euch, mein Freund. Ich hoffe dies ist eine angemessene Entschädigung.Hmm...hier, nehmt auch meine alte Sense."
 
 -- 3rd quest: Obtain and deliver Natiana's medicine
 
 -- Give out quest 3
-"quest", "mission", queststatus(322) = 4, english -> inform("[New quest] The Farmer's Wife: Part III"), "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to Druidhouse and seek out the druid, Aurora Snow, for me.", queststatus(322) = 5
-"quest", "mission", queststatus(322) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf.", queststatus(322) = 5
-"task", "adventure", queststatus(322) = 4 -> inform("[New quest] The Farmer's Wife: Part III"), "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to the Druidhouse and seek out the druid, Aurora Snow, for me.", queststatus(322) = 5
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf.", queststatus(322) = 5
+queststatus(322) = 4, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part III"), queststatus(322) = 5, "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to Druidhouse and seek out the druid, Aurora Snow, for me."
+queststatus(322) = 4, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche III"), queststatus(322) = 5, "Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf."
+queststatus(322) = 4, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part III"), queststatus(322) = 5, "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to the Druidhouse and seek out the druid, Aurora Snow, for me."
+queststatus(322) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche III"), queststatus(322) = 5, "Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf."
 
 -- Quest 3 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(322) = 5, english -> "Have you spoken with the druid yet? Aurora Snow is awaiting your arrival at the Druidhouse. Please, hurry. My poor wife has not improved."
-"quest", "mission", queststatus(322) = 5 -> "Habt Ihr mit der Druidin gesprochen? Aurora Snow erwartet euch am Druidenhaus.Bitte beeilt euch. Meiner armen Frau geht es noch immer nicht besser."
-"task", "adventure", queststatus(322) = 5 -> "Have you spoken with the druid yet? Aurora Snow is awaiting your arrival in Druidhouse. Please, hurry. My poor wife has not improved."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 5 -> "Habt Ihr mit der Druidin gesprochen? Aurora Snow erwartet euch am Druidenhaus.Bitte beeilt euch. Meiner armen Frau geht es noch immer nicht besser."
+queststatus(322) = 5, english, "quest", "mission" -> "Have you spoken with the druid yet? Aurora Snow is awaiting your arrival at the Druidhouse. Please, hurry. My poor wife has not improved."
+queststatus(322) = 5, "quest", "mission" -> "Habt Ihr mit der Druidin gesprochen? Aurora Snow erwartet euch am Druidenhaus.Bitte beeilt euch. Meiner armen Frau geht es noch immer nicht besser."
+queststatus(322) = 5, "task", "adventure" -> "Have you spoken with the druid yet? Aurora Snow is awaiting your arrival in Druidhouse. Please, hurry. My poor wife has not improved."
+queststatus(322) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Habt Ihr mit der Druidin gesprochen? Aurora Snow erwartet euch am Druidenhaus.Bitte beeilt euch. Meiner armen Frau geht es noch immer nicht besser."
 
 -- Quest 3 solved, reward: treasure map, +10 rankpoints (specify faction)
-".+", queststatus(322) = 10, item(391, all) > 0, english -> inform("[Quest solved] You are awarded a treasure map and 10 rankpoints."), "Oh! I am so glad to see you! The medicine! Thank you! I do not think my wife would have lasted another two nights. I shall forever be in your debt, my friend. Please, take this.", queststatus(322) = 11, rankpoints(Runewick) + 10, treasure(6)
-".+", queststatus(322) = 10 -> inform("[Quest gelöst] Du erhältst eine Schatzkarze und 10 Rangpunkte."), "Oh! Ich bin so froh euch zu sehen! Die Medizin! Vielen Dank! Ich hatte schon Sorge meine Frau würde die nächsten zwei Nächte nicht überleben Ich stehe auf Ewig in euer Schuld, mein Freund. Bitte, nehmt dies.", queststatus(322) = 11, rankpoints(Runewick) + 10, treasure(6)
+queststatus(322) = 10, item(391, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a treasure map and 10 rankpoints."), queststatus(322) = 11, rankpoints(Runewick) + 10, treasure(6), "Oh! I am so glad to see you! The medicine! Thank you! I do not think my wife would have lasted another two nights. I shall forever be in your debt, my friend. Please, take this."
+queststatus(322) = 10, ".+" -> inform("[Quest gelöst] Du erhältst eine Schatzkarze und 10 Rangpunkte."), queststatus(322) = 11, rankpoints(Runewick) + 10, treasure(6), "Oh! Ich bin so froh euch zu sehen! Die Medizin! Vielen Dank! Ich hatte schon Sorge meine Frau würde die nächsten zwei Nächte nicht überleben Ich stehe auf Ewig in euer Schuld, mein Freund. Bitte, nehmt dies."
 
 -- No more quests, just nice words of gratitude
-"quest", "mission", queststatus(322) = 11, english -> "My wife is doing well, thanks to you. It shall be a while before she is back out on the farm, but she is alive, and we can ask no more."
-"quest", "mission", queststatus(322) = 11 -> "Meiner Frau geht dank euch es besser. Es wird noch eine Weile dauern bis sie wieder auf dem Hof arbeiten kann, aber sie ist am Leben und das ist mir das wichtigste."
-"task", "adventure", queststatus(1337) = 11 -> "My wife is doing well, thanks to you. It shall be a while before she is back out on the farm, but she is alive, and we can ask no more."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 11 -> "Meiner Frau geht dank euch es besser. Es wird noch eine Weile dauern bis sie wieder auf dem Hof arbeiten kann, aber sie ist am Leben und das ist mir das wichtigste."
+queststatus(322) = 11, english, "quest", "mission" -> "My wife is doing well, thanks to you. It shall be a while before she is back out on the farm, but she is alive, and we can ask no more."
+queststatus(322) = 11, "quest", "mission" -> "Meiner Frau geht dank euch es besser. Es wird noch eine Weile dauern bis sie wieder auf dem Hof arbeiten kann, aber sie ist am Leben und das ist mir das wichtigste."
+queststatus(1337) = 11, "task", "adventure" -> "My wife is doing well, thanks to you. It shall be a while before she is back out on the farm, but she is alive, and we can ask no more."
+queststatus(1337) = 11, "Auftrag", "Aufgabe", "Abenteuer" -> "Meiner Frau geht dank euch es besser. Es wird noch eine Weile dauern bis sie wieder auf dem Hof arbeiten kann, aber sie ist am Leben und das ist mir das wichtigste."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a farmer. Though that may not last too much longer, if my wife does not soon regain her health.", "I run this farm with my wife, Natiana. At least, we did, before she fell ill.", "I am a farmer, though much of my time is spent caring for my sickly wife these days."
 "beruf" -> "Ich bin ein Bauer. Aber vielleicht nicht mehr lange, wenn meimne Frau nicht bald wieder zu Kräften kommt.", "Ich betreibe diesen Hof gemeinsam mit meiner Frau. Zumindest war das so, bevor sie krank wurde.", "Ich bin ein Bauer, jedoch kümmere ich mich zur Zeit nur noch um meine kranke Frau."
-"job", english -> "I am a farmer. Though that may not last too much longer, if my wife does not soon regain her health.", "I run this farm with my wife, Natiana. At least, we did, before she fell ill.", "I am a farmer, though much of my time is spent caring for my sickly wife these days."
+english, "job" -> "I am a farmer. Though that may not last too much longer, if my wife does not soon regain her health.", "I run this farm with my wife, Natiana. At least, we did, before she fell ill.", "I am a farmer, though much of my time is spent caring for my sickly wife these days."
 "job" -> "Ich bin ein Bauer. Aber vielleicht nicht mehr lange, wenn meimne Frau nicht bald wieder zu Kräften kommt.", "Ich betreibe diesen Hof gemeinsam mit meiner Frau. Zumindest war das so, bevor sie krank wurde.", "Ich bin ein Bauer, jedoch kümmere ich mich zur Zeit nur noch um meine kranke Frau."
-"Gobaith", "Gobiath", english -> "That land was always kind to us.", "Gobaith was a wonderful island. There, my wife and I never had so much as a cold between us.", "That island's soil was rich and moist, perfect for a man of my profession."
+english, "Gobaith", "Gobiath" -> "That land was always kind to us.", "Gobaith was a wonderful island. There, my wife and I never had so much as a cold between us.", "That island's soil was rich and moist, perfect for a man of my profession."
 "Gobaith", "Gobiath" -> "Dieses Land meinte es stets gut mit uns.", "Gobaith war eine wunderbare Insel.Dort stand nichts zwischen mir und meiner Frau, außer vielleicht mal einer Erkältung.", "Die Insel war reich und fruchtbar, wie gemacht für einen Mann mit meinem Beruf."
 "my name" -> "It is a pleasure to meet you. I only wish I could have done so at a less troubling time.", "I am pleased to meet you. Though, if you do not mind, I should be caring for my wife.", "It is a pleasure to meet you. I am not one to ask for a favour, but perhaps you would be so kind as to help my wife?"
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -168,7 +168,7 @@ itemShoes = 53
 "animal", "livestock" -> "We have cows here sometimes. Their steak is quite sought after.", "There is always demand for meat. We sell to several cooks, who use them for their meat dishes. With a considerable markup, might I add.", "We sometimes raise pigs here. Their meat is cheaper than that of a cow, but they require far less trouble to raise, also."
 "crop" -> "There is always demand for whatever we grow here. Most meals involve at least a vegetable or two.", "We've grown just about everything here: carrots, grains, cabbage, onions.", "I'd have to say that tomatoes are my favourite vegetable. As hard as I try, I can't seem to get them to grow, though."
 "wife", "natiana" -> "My beloved wife is not feeling too well, unfortunately.", "Natiana is a true treasure. I feel terrible that I can't do much to improve her condition.", "I'm taking care of the farm and running the house, too, while my wife recovers."
-"Aurora", english -> "Aurora Snow is an old friend of my wife.", "Ah, yes, Aurora. She is quite a skilled druid.", "Aurora is a well-respected healer."
+english, "Aurora" -> "Aurora Snow is an old friend of my wife.", "Ah, yes, Aurora. She is quite a skilled druid.", "Aurora is a well-respected healer."
 "Hof", "Bauernhof", "Farm" -> "Dieser Ort ist in Ordnung.", "Wir beide können den Hof gut bestellen. Allein ist es allerdings etwas anspruchsvoller.", "Mir gefälllt es hier. Der Frieden, die Stille, die frische Luft. Das Leben hier ist wunderbar."
 "Vieh", "Tier" -> "Wir halten ab und an Kühe. Ihr Steak ist sehr gefragt.", "Es herrscht ständige Nachfrage nach Fleisch. Wir verkaufen an verschiedene Köche, die daraus Fleischgerichte kochen.Ich muss hinzufügen, sie zahlen natürlich einen großzügigen Aufschlag.", "Wir ziehen auch manchmal Schweine auf, ihr Fleisch ist billiger als Kuhfleisch, aber dafür ist die Haltung der Schweine weniger mühsam."
 "Früchte", "Ernte" -> "Es herscht stetige Nachfrage nach allem was wir hier anbauen. In die meisten Gerichte gehören schließlich ein oder zwei Gemüsesorten.", "Wir bauen hier alles mögliche an: Möhren, Getreide,Kohl, Zwiebeln.", "Ich würdfe sagen, am liebsten mag ich Tomaten."
@@ -178,73 +178,73 @@ itemShoes = 53
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
 "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elvaine", "Morgan", english -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
+english, "Elvaine", "Morgan" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
 "Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Runewick", english -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
+english, "Runewick" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
 "Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Valerio", "Guilianni", "Don", english -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
+english, "Valerio", "Guilianni", "Don" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
 "Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
+english, "Galmair" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
 "Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Queen" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
+english, "rosaline", "edwards" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
 "rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
+english, "Cadomyr" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
 "Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
-"albar", english -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
+english, "albar" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
 "albar" -> "Entschuldigt, aber ich bin in Gedanken gerade ganz wo anders.", "Es tut mir wirklich leid, aber meine Frau braucht meine Hilfe.", "Vielleicht können wir dieses Gespräch ein andermal fortsetzten, ich muss mich jetzt um meine Frau kümmern."
-"gynk", "gync", english -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
+english, "gynk", "gync" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
 "gync", "gynk" -> "Entschuldigt, aber ich bin in Gedanken gerade ganz wo anders.", "Es tut mir wirklich leid, aber meine Frau braucht meine Hilfe.", "Vielleicht können wir dieses Gespräch ein andermal fortsetzten, ich muss mich jetzt um meine Frau kümmern."
-"salkama", english -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
+english, "salkama" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
 "salkama" -> "Entschuldigt, aber ich bin in Gedanken gerade ganz wo anders.", "Es tut mir wirklich leid, aber meine Frau braucht meine Hilfe.", "Vielleicht können wir dieses Gespräch ein andermal fortsetzten, ich muss mich jetzt um meine Frau kümmern."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Gott" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Adron", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Adron" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Adron" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Bragon", "Brágon", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Bragon", "Brágon" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Bragon", "Brágon" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Cherga", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Cherga" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Cherga" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Elara", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Elara" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Elara" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Eldan", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Eldan" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Eldan" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Findari", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Findari" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Findari" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Irmorom", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Irmorom" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Irmorom" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Malachin", "Malachín", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Malachin", "Malachín" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Malachin" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Moshran", english -> "Please, show some respect to my poor wife.", "My wife and I have enough troubles without you bringing such darkness into our home.", "Come, now. This is no time to be mentioning such evil."
+english, "Moshran" -> "Please, show some respect to my poor wife.", "My wife and I have enough troubles without you bringing such darkness into our home.", "Come, now. This is no time to be mentioning such evil."
 "Moshran" -> "Bitte, zeigt meiner Fau gegenüber etwas mehr Respekt.", "Meine Frau und ich haben schon genug Sorgen, ohne das Ihr die Dunkelheit in unser Haus tragt.", "Hört, das ist nicht die rechte Zeit um über solch Böses zu sprechen."
-"Nargun", "Nargún", "Nargùn", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Nargun", "Nargún", "Nargùn" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Nargun" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Oldra", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Oldra" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Oldra" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Ronagan", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Ronagan" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Ronagan" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Sirani", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Sirani" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Sirani" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Tanora", "Zelphia", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Tanora", "Zelphia" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Tanora", "Zelphia" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Ushara", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Ushara" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Ushara" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
-"Zhambra", english -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
+english, "Zhambra" -> "I would welcome the aid of any of the Gods at this point.", "Please, keep my wife in your prayers.", "The Gods have kept my wife and I safe and in good health, I only hope that they do so once more."
 "Zhambra" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of", queststatus(1337) < 11 -> "My apologies, but I am in no mood to trade right now.", "I am sorry, but I cannot trade with you at the moment. I must be caring for my wife.", "I fear that I am too busy dealing with my wife at the moment."
+queststatus(1337) < 11, "what sell", "what buy", "list wares", "price of" -> trade, trade, "My apologies, but I am in no mood toright now.", "I am sorry, but I cannotwith you at the moment. I must be caring for my wife.", "I fear that I am too busy dealing with my wife at the moment."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Entschuldigt, aber ich bin nicht in der Stimmung zu Handeln.", "Es tut mir leid, aber ich kann gerade keinen Handel mit euch Abschließen, icg muss nicht um meine Frau kümmern.", "Ich fürchte ich bin zu beschäftigt mich um meine Frau zu kümmern, als dass ich mit Euch handeln könnte."
 "tell something" -> "I am sorry, but I do not feel much like talking at the moment.", "I apologise, but my wife requires my help.", "I am sorry, but I am too upset to properly engage in conversation at the moment."
 "erzähl was", "erzähl etwas" -> "Es tut mir leid, aber ich bin nicht in der Stimmung etwas zu erzählen.", "Bitte entschuldigt, aber meine Frau bracht meine Hilfe.", "Es tut mir leid, ich bin zu besorgt, als dass ich jetzt ein gutes Gespräch führen könnte."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Rowan", "Banius", english -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."
+english, "Rowan", "Banius" -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."
 "Rowan", "Banius" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
 "Yes" -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."
 "Ja" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
@@ -252,8 +252,8 @@ itemShoes = 53
 "Nein" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."
-".*", german, chance(20.0) -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
+english, chance(20.0), ".*" -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."
+german, chance(20.0), ".*" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

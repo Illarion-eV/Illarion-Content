@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Mirarie Bragolin"
@@ -59,7 +59,7 @@ radius = 0
 -- 14: Quest 5 solved, reward: item D (uber item, magical gem, ring, weapon), (20 rankpoints)
 
 -- Debugging
-".+", queststatus(1337) > 14 -> inform("[Error] Something went wrong, please inform a developer.")
+queststatus(1337) > 14, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is <Insert Name> the <insert profession/function>. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
@@ -68,11 +68,11 @@ radius = 0
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+german, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -88,9 +88,9 @@ radius = 0
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "job" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Gobaith", "Gobiath" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "I am", "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ich bin", "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -108,168 +108,168 @@ radius = 0
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Elvaine", "Morgan", "archmage", "Erzmagier" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Elvaine", "Morgan", "archmage", "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Runewick" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Valerio", "Guilianni", "Don" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Galmair" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "rosaline", "königin", "queen", "edwards" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "rosaline", "königin", "queen", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Cadomyr" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "albar" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+german, "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "gynk", "gync" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+german, "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "salkama" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+german, "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Adron" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Bragon", "Brágon" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Cherga" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Elara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Eldan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Findari" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Irmorom" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Malachin", "Malachín" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Moshran" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Nargun", "Nargún", "Nargùn" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Oldra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Ronagan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Sirani" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Tanora", "Zelphia" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Ushara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+english, "Zhambra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- 1st quest: Bring 5 item A, reward 200cp
 
 -- Give out quest 1
-"quest", "mission", queststatus(1337) = 0, english -> inform("[New quest] QUESTTITLE I"), "ENGLISH.", queststatus(1337) = 1
-"quest", "mission", queststatus(1337) = 0 -> inform("[Neues Quest] QUESTTITEL I"), "GERMAN.", queststatus(1337) = 1
-"task", "adventure", "message", queststatus(1337) = 0 -> inform("[New quest] QUESTTITLE I"), "ENGLISH.", queststatus(1337) = 1
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 0 -> inform("[Neues Quest] QUESTTITEL I"), "GERMAN.", queststatus(1337) = 1
+queststatus(1337) = 0, english, "quest", "mission" -> inform("[New quest] QUESTTITLE I"), queststatus(1337) = 1, "ENGLISH."
+queststatus(1337) = 0, "quest", "mission" -> inform("[Neues Quest] QUESTTITEL I"), queststatus(1337) = 1, "GERMAN."
+queststatus(1337) = 0, "task", "adventure", "message" -> inform("[New quest] QUESTTITLE I"), queststatus(1337) = 1, "ENGLISH."
+queststatus(1337) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] QUESTTITEL I"), queststatus(1337) = 1, "GERMAN."
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 1, item(391, all) < 5, english -> "ENGLISH."
-"quest", "mission", queststatus(1337) = 1, item(391, all) < 5 -> "GERMAN."
-"task", "adventure", "message", queststatus(1337) = 1, item(391, all) < 5 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 1, item(391, all) < 5 -> "GERMAN."
+queststatus(1337) = 1, item(391, all) < 5, english, "quest", "mission" -> "ENGLISH."
+queststatus(1337) = 1, item(391, all) < 5, "quest", "mission" -> "GERMAN."
+queststatus(1337) = 1, item(391, all) < 5, "task", "adventure", "message" -> "ENGLISH."
+queststatus(1337) = 1, item(391, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "GERMAN."
 
 -- Quest 1 solved, reward: 200cp, +5 rankpoints
-".+", queststatus(1337) = 1, item(391, all) > 4, english, town = Cadomyr -> inform("[Quest solved] You are awarded 200 copper coins. You advance in TITLE THISFACTION LEADER's favour."), "ENGLISH.", money + 200, deleteItem(391, 5), queststatus(1337) = 2, rankpoints(Cadomyr) + 5
-".+", queststatus(1337) = 1, item(391, all) > 4, english -> inform("[Quest solved] You are awarded 200 copper coins."), "ENGLISH.", money + 200, deleteItem(391, 5), queststatus(1337) = 2
-".+", queststatus(1337) = 1, item(391, all) > 4, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."), "GERMAN.", money + 200, deleteItem(391, 5), queststatus(1337) = 2, rankpoints(Cadomyr) + 5
-".+", queststatus(1337) = 1, item(391, all) > 4 -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), "GERMAN.", money + 200, deleteItem(391, 5), queststatus(1337) = 2
+queststatus(1337) = 1, item(391, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 200 copper coins. You advance in TITLE THISFACTION LEADER's favour."), money + 200, deleteItem(391, 5), queststatus(1337) = 2, rankpoints(Cadomyr) + 5, "ENGLISH."
+queststatus(1337) = 1, item(391, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 200 copper coins."), money + 200, deleteItem(391, 5), queststatus(1337) = 2, "ENGLISH."
+queststatus(1337) = 1, item(391, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."), money + 200, deleteItem(391, 5), queststatus(1337) = 2, rankpoints(Cadomyr) + 5, "GERMAN."
+queststatus(1337) = 1, item(391, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), money + 200, deleteItem(391, 5), queststatus(1337) = 2, "GERMAN."
 
 -- 2nd quest: Bring a message to a nearby NPC
 
 -- Give out quest 2
-"quest", "mission", queststatus(1337) = 2, english -> inform("[New quest] QUESTTITLE II: You received a message for NPC."), "ENGLISH.", queststatus(1337) = 3
-"quest", "mission", queststatus(1337) = 2 -> inform("[Neues Quest] QUESTTITEL II: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(1337) = 3
-"Task", "Adventure", "Message", queststatus(1337) = 2 -> inform("[New quest] QUESTTITLE II: You received a message for NPC."), "ENGLISH.", queststatus(1337) = 3
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 2 -> inform("[Neues Quest] QUESTTITEL II: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(1337) = 3
+queststatus(1337) = 2, english, "quest", "mission" -> inform("[New quest] QUESTTITLE II: You received a message for NPC."), queststatus(1337) = 3, "ENGLISH."
+queststatus(1337) = 2, "quest", "mission" -> inform("[Neues Quest] QUESTTITEL II: Du hast eine Nachricht für NPC erhalten."), queststatus(1337) = 3, "GERMAN."
+queststatus(1337) = 2, "Task", "Adventure", "Message" -> inform("[New quest] QUESTTITLE II: You received a message for NPC."), queststatus(1337) = 3, "ENGLISH."
+queststatus(1337) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] QUESTTITEL II: Du hast eine Nachricht für NPC erhalten."), queststatus(1337) = 3, "GERMAN."
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 3, english -> "ENGLISH."
-"quest", "mission", queststatus(1337) = 3 -> "GERMAN."
-"Task", "Adventure", "Message", queststatus(1337) = 3 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 3 -> "GERMAN."
+queststatus(1337) = 3, english, "quest", "mission" -> "ENGLISH."
+queststatus(1337) = 3, "quest", "mission" -> "GERMAN."
+queststatus(1337) = 3, "Task", "Adventure", "Message" -> "ENGLISH."
+queststatus(1337) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "GERMAN."
 
 -- Quest 2 solved, reward: 50cp, ITEM, +10 rankpoints
-".+", queststatus(1337) = 4, english, town = Cadomyr -> inform("[Quest solved] You are awarded 50 copper coins and A ITEM. You advance in TITLE THISFACTION LEADER's favour."), "ENGLISH.", money + 50, item(391, 1, 599, 0), queststatus(1337) = 5, rankpoints(Cadomyr) + 10
-".+", queststatus(1337) = 4, english -> inform("[Quest solved] You are awarded 50 copper coins and A ITEM."), "ENGLISH.", money + 50, item(391, 1, 599, 0), queststatus(1337) = 5
-".+", queststatus(1337) = 4, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."), "GERMAN.", money + 50, item(391, 1, 599, 0), queststatus(1337) = 5, rankpoints(Cadomyr) + 10
-".+", queststatus(1337) = 4 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM."), "GERMAN.", money + 50, item(391, 1, 599, 0), queststatus(1337) = 5
+queststatus(1337) = 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 50 copper coins and A ITEM. You advance in TITLE THISFACTION LEADER's favour."), money + 50, item(391, 1, 599), queststatus(1337) = 5, rankpoints(Cadomyr) + 10, "ENGLISH."
+queststatus(1337) = 4, english, ".+" -> inform("[Quest solved] You are awarded 50 copper coins and A ITEM."), money + 50, item(391, 1, 599), queststatus(1337) = 5, "ENGLISH."
+queststatus(1337) = 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."), money + 50, item(391, 1, 599), queststatus(1337) = 5, rankpoints(Cadomyr) + 10, "GERMAN."
+queststatus(1337) = 4, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM."), money + 50, item(391, 1, 599), queststatus(1337) = 5, "GERMAN."
 
 -- 3rd quest: Bring a message to a NPC somewhere inside the faction home land.
 
 -- Give out quest 3
-"quest", "mission", queststatus(1337) = 5, english -> inform("[New quest] QUESTTITLE III: You received a message for NPC."), "ENGLISH.", queststatus(1337) = 6
-"quest", "mission", queststatus(1337) = 5 -> inform("[Neues Quest] QUESTTITEL III: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(1337) = 6
-"Task", "Adventure", "Message", queststatus(1337) = 5 -> inform("[New quest] QUESTTITLE III: You received a message for NPC."), "ENGLISH.", queststatus(1337) = 6
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 5 -> inform("[Neues Quest] QUESTTITEL III: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(1337) = 6
+queststatus(1337) = 5, english, "quest", "mission" -> inform("[New quest] QUESTTITLE III: You received a message for NPC."), queststatus(1337) = 6, "ENGLISH."
+queststatus(1337) = 5, "quest", "mission" -> inform("[Neues Quest] QUESTTITEL III: Du hast eine Nachricht für NPC erhalten."), queststatus(1337) = 6, "GERMAN."
+queststatus(1337) = 5, "Task", "Adventure", "Message" -> inform("[New quest] QUESTTITLE III: You received a message for NPC."), queststatus(1337) = 6, "ENGLISH."
+queststatus(1337) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] QUESTTITEL III: Du hast eine Nachricht für NPC erhalten."), queststatus(1337) = 6, "GERMAN."
 
 -- Quest 3 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 6, english -> "ENGLISH."
-"quest", "mission", queststatus(1337) = 6 -> "GERMAN."
-"Task", "Adventure", "Message", queststatus(1337) = 6 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 6 -> "GERMAN."
+queststatus(1337) = 6, english, "quest", "mission" -> "ENGLISH."
+queststatus(1337) = 6, "quest", "mission" -> "GERMAN."
+queststatus(1337) = 6, "Task", "Adventure", "Message" -> "ENGLISH."
+queststatus(1337) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "GERMAN."
 
 -- Quest 3 solved, reward: NICE ITEM, +10 rankpoints
-".+", queststatus(1337) = 7, english, town = Cadomyr -> inform("[Quest solved] You are awarded A NICE ITEM. You advance in TITLE THISFACTION LEADER's favour."), "ENGLISH.", item(391, 1, 699, 0), queststatus(1337) = 8, rankpoints(Cadomyr) + 10
-".+", queststatus(1337) = 7, english -> inform("[Quest solved] You are awarded A NICE ITEM."), "ENGLISH.", item(391, 1, 699, 0), queststatus(1337) = 8
-".+", queststatus(1337) = 7, town = Cadomyr -> inform("[Quest gelöst] Du erhältst EIN NICE ITEM. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."), "GERMAN.", item(391, 1, 699, 0), queststatus(1337) = 8, rankpoints(Cadomyr) + 10
-".+", queststatus(1337) = 7 -> inform("[Quest gelöst] Du erhältst EIN NICE ITEM."), "GERMAN.", item(391, 1, 699, 0), queststatus(1337) = 8
+queststatus(1337) = 7, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded A NICE ITEM. You advance in TITLE THISFACTION LEADER's favour."), item(391, 1, 699), queststatus(1337) = 8, rankpoints(Cadomyr) + 10, "ENGLISH."
+queststatus(1337) = 7, english, ".+" -> inform("[Quest solved] You are awarded A NICE ITEM."), item(391, 1, 699), queststatus(1337) = 8, "ENGLISH."
+queststatus(1337) = 7, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst EIN NICE ITEM. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."), item(391, 1, 699), queststatus(1337) = 8, rankpoints(Cadomyr) + 10, "GERMAN."
+queststatus(1337) = 7, ".+" -> inform("[Quest gelöst] Du erhältst EIN NICE ITEM."), item(391, 1, 699), queststatus(1337) = 8, "GERMAN."
 
 -- 4th quest: Bring a message to a NPC of another faction.
 
 -- Give out quest 4
-"quest", "mission", queststatus(1337) = 8, english -> inform("[New quest] QUESTTITLE IV_ You received a message for NPC."), "ENGLISH.", queststatus(1337) = 9
-"quest", "mission", queststatus(1337) = 8 -> inform("[Neues Quest] QUESTTITEL IV: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(1337) = 9
-"Task", "Adventure", "Message", queststatus(1337) = 8 -> inform("[New quest] QUESTTITLE IV: You received a message for NPC."), "ENGLISH.", queststatus(1337) = 9
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 8 -> inform("[Neues Quest] QUESTTITEL IV: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(1337) = 9
+queststatus(1337) = 8, english, "quest", "mission" -> inform("[New quest] QUESTTITLE IV_ You received a message for NPC."), queststatus(1337) = 9, "ENGLISH."
+queststatus(1337) = 8, "quest", "mission" -> inform("[Neues Quest] QUESTTITEL IV: Du hast eine Nachricht für NPC erhalten."), queststatus(1337) = 9, "GERMAN."
+queststatus(1337) = 8, "Task", "Adventure", "Message" -> inform("[New quest] QUESTTITLE IV: You received a message for NPC."), queststatus(1337) = 9, "ENGLISH."
+queststatus(1337) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] QUESTTITEL IV: Du hast eine Nachricht für NPC erhalten."), queststatus(1337) = 9, "GERMAN."
 
 -- Quest 4 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 9, english -> "ENGLISH."
-"quest", "mission", queststatus(1337) = 9 -> "GERMAN."
-"Task", "Adventure", "Message", queststatus(1337) = 9 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 9 -> "GERMAN."
+queststatus(1337) = 9, english, "quest", "mission" -> "ENGLISH."
+queststatus(1337) = 9, "quest", "mission" -> "GERMAN."
+queststatus(1337) = 9, "Task", "Adventure", "Message" -> "ENGLISH."
+queststatus(1337) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "GERMAN."
 
 -- Quest 4 solved, reward: 400cp, +15 rankpoints
-".+", queststatus(1337) = 10, english, town = Cadomyr -> inform("[Quest solved] You are awarded 400 copper coins. You advance in TITLE THISFACTION LEADER's favour."), "ENGLISH.", money + 400, queststatus(1337) = 11, rankpoints(Cadomyr) + 15
-".+", queststatus(1337) = 10, english -> inform("[Quest solved] You are awarded 400 copper coins."), "ENGLISH.", money + 400, queststatus(1337) = 11
-".+", queststatus(1337) = 10, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."), "GERMAN.", money + 400, queststatus(1337) = 11, rankpoints(Cadomyr) + 15
-".+", queststatus(1337) = 10 -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke."), "GERMAN.", money + 400, queststatus(1337) = 11
+queststatus(1337) = 10, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 400 copper coins. You advance in TITLE THISFACTION LEADER's favour."), money + 400, queststatus(1337) = 11, rankpoints(Cadomyr) + 15, "ENGLISH."
+queststatus(1337) = 10, english, ".+" -> inform("[Quest solved] You are awarded 400 copper coins."), money + 400, queststatus(1337) = 11, "ENGLISH."
+queststatus(1337) = 10, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."), money + 400, queststatus(1337) = 11, rankpoints(Cadomyr) + 15, "GERMAN."
+queststatus(1337) = 10, ".+" -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke."), money + 400, queststatus(1337) = 11, "GERMAN."
 
 -- 5th quest: Bring a message to another faction's leader.
 
 -- Give out quest 5
-"quest", "mission", queststatus(1337) = 11, english -> inform("[New quest] QUESTTITLE V: You received a message for NPC."), "ENGLISH.", queststatus(1337) = 12
-"quest", "mission", queststatus(1337) = 11 -> inform("[Neues Quest] QUESTTITEL V: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(1337) = 12
-"Task", "Adventure", "Message", queststatus(1337) = 11 -> inform("[New quest] QUESTTITLE V: You received a message for NPC."), "ENGLISH.", queststatus(1337) = 12
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 11 -> inform("[Neues Quest] QUESTTITEL V: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(1337) = 12
+queststatus(1337) = 11, english, "quest", "mission" -> inform("[New quest] QUESTTITLE V: You received a message for NPC."), queststatus(1337) = 12, "ENGLISH."
+queststatus(1337) = 11, "quest", "mission" -> inform("[Neues Quest] QUESTTITEL V: Du hast eine Nachricht für NPC erhalten."), queststatus(1337) = 12, "GERMAN."
+queststatus(1337) = 11, "Task", "Adventure", "Message" -> inform("[New quest] QUESTTITLE V: You received a message for NPC."), queststatus(1337) = 12, "ENGLISH."
+queststatus(1337) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] QUESTTITEL V: Du hast eine Nachricht für NPC erhalten."), queststatus(1337) = 12, "GERMAN."
 
 -- Quest 5 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 12, english -> "ENGLISH."
-"quest", "mission", queststatus(1337) = 12 -> "GERMAN."
-"Task", "Adventure", "Message", queststatus(1337) = 12 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 12 -> "GERMAN."
+queststatus(1337) = 12, english, "quest", "mission" -> "ENGLISH."
+queststatus(1337) = 12, "quest", "mission" -> "GERMAN."
+queststatus(1337) = 12, "Task", "Adventure", "Message" -> "ENGLISH."
+queststatus(1337) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "GERMAN."
 
 -- Quest 5 solved, reward: uber item, +20 rankpoints
-".+", queststatus(1337) = 13, english, town = Cadomyr -> inform("[Quest solved] You are awarded AN UBER ITEM. You advance in TITLE THISFACTION LEADER's favour."), "ENGLISH.", item(391, 1, 999, 0), queststatus(1337) = 14, rankpoints(Cadomyr) + 20
-".+", queststatus(1337) = 13, english -> inform("[Quest solved] You are awarded AN UBER ITEM."), "ENGLISH.", item(391, 1, 999, 0), queststatus(1337) = 14
-".+", queststatus(1337) = 13, town = Cadomyr -> inform("[Quest gelöst] Du erhältst EIN UBER ITEM. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."), "GERMAN.", item(391, 1, 999, 0), queststatus(1337) = 14, rankpoints(Cadomyr) + 20
-".+", queststatus(1337) = 13 -> inform("[Quest gelöst] Du erhältst EIN UBER ITEM."), "GERMAN.", item(391, 1, 999, 0), queststatus(1337) = 14
+queststatus(1337) = 13, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded AN UBER ITEM. You advance in TITLE THISFACTION LEADER's favour."), item(391, 1, 999), queststatus(1337) = 14, rankpoints(Cadomyr) + 20, "ENGLISH."
+queststatus(1337) = 13, english, ".+" -> inform("[Quest solved] You are awarded AN UBER ITEM."), item(391, 1, 999), queststatus(1337) = 14, "ENGLISH."
+queststatus(1337) = 13, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst EIN UBER ITEM. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."), item(391, 1, 999), queststatus(1337) = 14, rankpoints(Cadomyr) + 20, "GERMAN."
+queststatus(1337) = 13, ".+" -> inform("[Quest gelöst] Du erhältst EIN UBER ITEM."), item(391, 1, 999), queststatus(1337) = 14, "GERMAN."
 
 -- No more quests, just nice words of gratitude
-"quest", "mission", queststatus(1337) = 14, english -> "ENGLISH."
-"quest", "mission", queststatus(1337) = 14 -> "GERMAN."
-"Task", "Adventure", "Message", queststatus(1337) = 14 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 14 -> "GERMAN."
+queststatus(1337) = 14, english, "quest", "mission" -> "ENGLISH."
+queststatus(1337) = 14, "quest", "mission" -> "GERMAN."
+queststatus(1337) = 14, "Task", "Adventure", "Message" -> "ENGLISH."
+queststatus(1337) = 14, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "GERMAN."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 "YOURTRIGGER" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

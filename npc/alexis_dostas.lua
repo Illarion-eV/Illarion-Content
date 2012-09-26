@@ -1,13 +1,13 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Alexis Dostas                                            Cadomyr --
--- NPC Job:  mule seller                                                      --
+-- NPC Job:  stablemaster                                                     --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  141, 637, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -16,8 +16,16 @@ VALUES (0, 141, 637, 0, 6, 'Alexis Dostas', 'npc.alexis_dostas', 0, 3, 4, 123, 6
 ---]]
 
 require("npc.base.basic")
+require("npc.base.condition.item")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.condition.town")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
+require("npc.base.consequence.money")
+require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
 module("npc.alexis_dostas", package.seeall)
 
@@ -27,13 +35,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Alexis Dostas the mule seller. Keywords: Hello, mule, Cadomyr, profession, stables."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Alexis Dostas the stablemaster. Keywords: Hello, quest, Cadomyr, profession, stables."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Alexis Dostas der Maultierhändler. Schlüsselwörter: Hallo, Maultier, Cadomyr, Beruf, Stallungen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Alexis Dostas der Stallmeister. Schlüsselwörter: Hallo, Quest, Cadomyr, Beruf, Stallungen."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -44,33 +52,37 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Be greeted. You came here for a mule I suppose.");
+talkEntry:addTrigger("Good night");
+talkEntry:addResponse("Be greeted. You came here for a mount I suppose.");
 talkEntry:addResponse("Welcome to the stables.");
-talkEntry:addResponse("If you need a beast of burden, you came to the right place.");
+talkEntry:addResponse("If you need a mount, you came to the right place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Gute Nacht");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("Seid gegrüßt. Ihr seid hier eines Maultiers wegen, nehme ich an.");
+talkEntry:addTrigger("Mohltied");
+talkEntry:addResponse("Seid gegrüßt. Ihr seid hier eines Reittiers wegen, nehme ich an.");
 talkEntry:addResponse("Willkommen in den Stallungen.");
 talkEntry:addResponse("Falls ihr ein Lasttier benötigt seid ihr hier richtig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Be greeted. You came here for a mule I suppose.");
+talkEntry:addResponse("Be greeted. You came here for a mount I suppose.");
 talkEntry:addResponse("Welcome to the stables.");
 talkEntry:addResponse("If you need a beast of burden, you came to the right place.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -81,9 +93,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Seid gegrüßt. Ihr seid hier eines Maultiers wegen, nehme ich an.");
+talkEntry:addResponse("Seid gegrüßt. Ihr seid hier eines Reittiers wegen, nehme ich an.");
 talkEntry:addResponse("Willkommen in den Stallungen.");
-talkEntry:addResponse("Falls ihr ein Lasttier benötigt seid ihr hier richtig.");
+talkEntry:addResponse("Falls ihr ein Reittier benötigt seid ihr hier richtig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -106,11 +118,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Farewell. And come back alive.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -145,7 +157,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("My name is Alexis Dostas, I am the local mule seller.");
+talkEntry:addResponse("My name is Alexis Dostas, I am the royal stablemaster.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -154,64 +166,349 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Mein Name ist Alexis Dostas, ich bin hier der Maultierhändler.");
+talkEntry:addResponse("Mein Name ist Alexis Dostas, ich bin hier der königliche Stallmeister.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I do not issue quests; but you can rent a mule that will accompany you on your journeys.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich vergebe keine Aufgaben; aber ihr könnt euch ein Maultier leihen, welches euch dann auf euren Reisen begleitet.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Royal Stables I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 1));
+talkEntry:addResponse("As you might know, Cadomyr is not blessed with much fertile farmland. Hence, the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die königlichen Stallungen I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 1));
+talkEntry:addResponse("Wie euch bekannt sein dürfte, ist Cadomyr nicht gerade mit fruchtbarem Ackerland gesegnet. Somit fehlt es in den Stallungen immer an Heu. Bringt ihr mir bitte zehn Bündel Getreide? Mein Dank ist euch gewiss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I do not issue quests; but you can rent a mule that will accompany you on your journeys.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Royal Stables I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 1));
+talkEntry:addResponse("As you might know, Cadomyr is not blessed with much fertile farmland. Hence, the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich vergebe keine Aufgaben; aber ihr könnt euch ein Maultier leihen, welches euch dann auf euren Reisen begleitet.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die königlichen Stallungen I"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 1));
+talkEntry:addResponse("Wie euch bekannt sein dürfte, ist Cadomyr nicht gerade mit fruchtbarem Ackerland gesegnet. Somit fehlt es in den Stallungen immer an Heu. Bringt ihr mir bitte zehn Bündel Getreide? Mein Dank ist euch gewiss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a gold nugget. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but long ago, a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Goldnugget. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat vor langer Zeit ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a gold nugget."));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
+talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but long ago, a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Goldnugget."));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
+talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat vor langer Zeit ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("The mounts urgently need hay. All I am asking for is that you get ten bundles of grain for them.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Die Reittiere brauchen dringend neues Heu. Alles, was ich also von euch für sie erbitte, sind zehn Bündel Getreide.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("The mounts urgently need hay. All I am asking for is that you get ten bundles of grain for them.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Die Reittiere brauchen dringend neues Heu. Alles, was ich also von euch für sie erbitte, sind zehn Bündel Getreide.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Royal Stables II"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
+talkEntry:addResponse("Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die königlichen Stallungen II"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
+talkEntry:addResponse("Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Royal Stables II"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
+talkEntry:addResponse("Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die königlichen Stallungen II"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
+talkEntry:addResponse("Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded fourty coppercoins. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addResponse("You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst vierzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addResponse("Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded fourty coppercoins."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 4));
+talkEntry:addResponse("You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst vierzig Kupferstücke."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 4));
+talkEntry:addResponse("Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("The horses become nervous whenever I just mention the word 'carrot'. Perhaps you have the time to get ten carrots for them?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Die Pferde wiehern aufgeregt wenn ich nur das Wort 'Karotte' erwähne. Vielleicht findet ihr ja die Zeit, zehn Karotten für sie besorgen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("The horses become nervous whenever I just mention the word 'carrot'. Perhaps you have the time to get ten carrots for them?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Die Pferde wiehern aufgeregt wenn ich nur das Wort 'Karotte' erwähne. Vielleicht findet ihr ja die Zeit, zehn Karotten für sie besorgen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Well, there nothing I need at this moment. Perhaps you ask Anthar Vilicon, the chancellor for services you could do to Cadomyr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 4));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Nun, es gibt nichts, was ich derzeit bräuchte. Vielleicht fragt ihr den Kanzler Anthar Vilicon nach Diensten, die ihr Cadomyr leisten könntet?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 4));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("Well, there nothing I need at this moment. Perhaps you ask Anthar Vilicon, the chancellor for services you could do to Cadomyr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 4));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Nun, es gibt nichts, was ich derzeit bräuchte. Vielleicht fragt ihr den Kanzler Anthar Vilicon nach Diensten, die ihr Cadomyr leisten könntet?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rumpelstilzchen");
+talkEntry:addResponse("Den Namen habe ich noch nie gehört. Wer soll das sein, ein Bäcker oder ein Brauer etwa?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rumpelstiltskin");
+talkEntry:addResponse("Never heard that name. Who is that supposed to be, a baker or a brewer?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I feed beasts of burden. I care for them, I lend them to anyone who promises to treat them well.");
+talkEntry:addResponse("I feed the mounts. I care for them, I lend them to anyone who promises to treat them well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich füttere die Lasttiere hier. Ich kümmere mich um sie und leihe sie jedem, der verspricht, sie gut zu behandeln.");
+talkEntry:addResponse("Ich füttere die Reittiere hier. Ich kümmere mich um sie und leihe sie jedem, der verspricht, sie gut zu behandeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I feed beasts of burden. I care for them, I lend them to anyone who promises to treat them well.");
+talkEntry:addTrigger("job");
+talkEntry:addResponse("I feed the mounts. I care for them, I lend them to anyone who promises to treat them well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich füttere die Lasttiere hier. Ich kümmere mich um sie und leihe sie jedem, der verspricht, sie gut zu behandeln.");
+talkEntry:addResponse("Ich füttere die Reittiere hier. Ich kümmere mich um sie und leihe sie jedem, der verspricht, sie gut zu behandeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,9 +584,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Queen Rosaline is a good sovereign. She rules just and fair, just like her father.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -302,8 +599,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("I have to admit: When Sir Reginald... passed away, I was a little afraid about the future. But Queen Rosaline drove away all my sorrows.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -326,7 +623,7 @@ talkingNPC:addCycleText("#me öffnet einen Hafersack.", "#me opens a bag of oat."
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Alexis Dostas der Maultierhändler.", "This NPC is Alexis Dostas the mule seller.");
+mainNPC:setLookat("Dieser NPC ist Alexis Dostas der Stallmeister.", "This NPC is Alexis Dostas the stablemaster.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);

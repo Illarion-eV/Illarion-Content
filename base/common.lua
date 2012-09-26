@@ -19,18 +19,18 @@ end;
 
 -- Default: Medium priority
 function InformNLS(User, textInDe, textInEn)
-    User:inform(GetNLS(User, textInDe, textInEn),Player.mediumPriority);
-end;
+    User:inform(textInDe, textInEn)
+end
 
 -- Temp: Low priority
 function TempInformNLS(User, textInDe, textInEn)
-    User:inform(GetNLS(User, textInDe, textInEn),Player.lowPriority);
-end;
+    User:inform(textInDe, textInEn, Player.lowPriority)
+end
 
 -- High: High priority
 function HighInformNLS(User, textInDe, textInEn)
-    User:inform(GetNLS(User, textInDe, textInEn),Player.highPriority);
-end;
+    User:inform(textInDe, textInEn, Player.highPriority)
+end
 
 --- Triggers a multi language talking for a character
 -- In case there is no player in range who could hear the talking nothing is
@@ -152,6 +152,13 @@ function IsLookingAt(User, Location)
             ((richtung == Character.west) and (Location.x < User.pos.x)) or
             ((richtung == Character.northwest) and
                 ((Location.y < User.pos.y) or (Location.x < User.pos.x))));
+end;
+
+--- Check if a character sequence (string) is nil or empty.
+-- @param the variable to check
+-- @return true in case the text is nil or equal to a empty string
+function IsNilOrEmpty(text)
+	return ((text == nil) or (text == ""));
 end;
 
 --- Determine the direction from one position to another one
@@ -519,6 +526,25 @@ function ToolBreaks(User, theItem, fast)
     return false;
 end;
 
+-- Check if a cooldown for an item is expired (e.g. if using it)
+-- Set a new cooldown if the old one is expired (or none set yet)
+-- @param Item the item to be checked
+-- @param dataKey the key of the data the timestamp is saved in (and the new one is saved in if cooldown ran up)
+-- @param cooldownDuration length of the cooldown in seconds
+-- @return true if the cooldown is expired (or there was none yet) and new one has been set;
+-- false if the cooldown is still valid
+function ItemCooldown(User,Item, dataKey, cooldownDuration)
+    local timeNow = GetCurrentTimestamp()
+	local timeThen = tonumber(Item:getData(dataKey))
+	if (timeThen == nil) or ((timeNow - timeThen) >= cooldownDuration) then
+	    Item:setData(dataKey,timeNow)
+		world:changeItem(Item)
+		return true
+	else
+        return false
+    end		
+end
+
 --- Get a timestamp based on the current server time. Resolution in RL seconds.
 -- @return The current timestamp
 function GetCurrentTimestamp()
@@ -663,6 +689,29 @@ function NormalRnd2(minVal, maxVal, count)
     end;
     return math.ceil(base / 10) + minVal;
 end;
+
+--- Create 2 normally distributed (independent!) numbers with the Box-Muller method
+--- If you only need 1, then just ignore one return value
+-- @param mean The mean of the normal distribution
+-- @param sdev The standard deviation of the normal distribution
+-- @return 2 independent random numbers
+function NormalBoxMuller(mean, sdev)
+    local U = 1 - math.random(); -- samples are in [0,1), but it has to be (0,1]
+    local V = 1 - math.random();
+    -- hack: if only U==1 then both samples are the mean, 
+    -- but if only V==1 then only the second sample is the mean! So switch them
+    if (U==1) then
+        U = V;
+        V = 1;
+    end
+    local a = math.sqrt(-2*math.log(U));
+    local b = 2*math.pi*V;
+    -- X,Y normally distributed with m=0 and sdev=1
+    local X = a*math.cos(b);
+    local Y = a*math.sin(b);
+    -- convert to given mean and sdev
+    return (mean+sdev*X), (mean+sdev*Y);
+end
 
 --[[
     GetItemsOnField
@@ -1085,25 +1134,20 @@ end
     Encodes a position into a value that would fit into the data value of a item
     Use DataToPosition to get the PositionStruct again
     @param PositionStruct - The position that should be encoded
-    @return integer - The value that contains the position
+    @return table - Table containing x,y,z positions 
 ]]
 function PositionToData(posi)
-    return 1048576 * (posi.x) + 1024 * (posi.y) + (posi.z+500);
+    return {["MapPosX"]=posi.x,["MapPosY"]=posi.y,["MapPosZ"]=posi.z}
 end;
 
 --[[
     DataToPosition
     Converts a value encoded with PositionToData back to the PositionStruct
-    @param integer - The value that contains the encoded position
-    @return PositionStruct - The PositionStruct that was encoded in the value
+    @param posList - List containig x,y,z
+    @return PositionStruct - The PositionStruct that was encoded in the list
 ]]
-function DataToPosition(value)
-    local z = math.mod(value, 1024) - 500;
-    value = math.floor(value / 1024);
-    local y = math.mod(value, 1024);
-    value = math.floor(value / 1024);
-    local x = math.mod(value, 1024);
-    return position(x,y,z);
+function DataToPosition(posList)
+    return position(tonumber(posList[1]),tonumber(posList[2]),tonumber(posList[3]))
 end;
 
 --[[
@@ -1568,28 +1612,29 @@ end
 
 --[[
     \fn:    Shuffle
-    \brief: Shuffles the elements of a number list random
+    \brief: Shuffles the elements of a list (with consecutively number indices, no key strings!) using the modern Fisher-Yates algorithm.
     \usage: list = {5,2,7,9,1};
          list = Shuffle(list) shuffles the list and could return: list ={1,7,5,9,2}
    
-   @param NumberList - the number list that shall be shuffled
-    @return list - the shuffled number list
+   @param List The list that shall be shuffled
+    @return The shuffled list
 ]]
-function Shuffle(NumberList)
-   
+function Shuffle(List)
 	local temp = 0
-	local ReplaceIdx = 0;
-   
-   for i = 1, table.getn(NumberList) do -- shuffle all elements
-   
-      ReplaceIdx = math.random(1, table.getn(NumberList));
-      temp = NumberList[i];
-      NumberList[i] = NumberList[ReplaceIdx];   
-      NumberList[ReplaceIdx] = temp;   
-   
-   end
-   
-   return list;
+	local j = 0;
+	local minIndex = 1;
+	local maxIndex = table.getn(List);
+	if (List[0] ~= nil) then -- check if zero index is used
+		minIndex = 0;
+		maxIndex = maxIndex - 1;
+	end
+	for i = maxIndex, minIndex+1, -1 do -- shuffle all elements
+		j = math.random(minIndex, i);
+		temp = List[i];
+		List[i] = List[j];   
+		List[j] = temp;   
+	end
+	return List;
 end
 
 --[[

@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Mesha                                                            --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Timotheus"
@@ -80,13 +80,13 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schneider Timotheus. Schlüsselwörter: Hallo, Schneider.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Welcome wise one.", "Why greetings to you!", "Greetings elevated one."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Willkommen, mein weiser Freund.", "Wie jetzt, seid gegrüßt!", "Grüße, mein Großer."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Not so informal!", "Well... Greetings.", "Is that the way they talk on the street nowadays?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome wise one.", "Why greetings to you!", "Greetings elevated one."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen, mein weiser Freund.", "Wie jetzt, seid gegrüßt!", "Grüße, mein Großer."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Not so informal!", "Well... Greetings.", "Is that the way they talk on the street nowadays?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Na, nicht so schnodderig.", "Nun... seid gegrüßt.", "Redet man heutzutage so auf der Straße?"
 "Farewell", "Bye", "Fare well", "See you" -> "May Elara protect your knowledge!", "Insightful journey to you!", "Farewell now!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge Elara eure Weisheit bewahren.", "Eine aufschlussreiche Reise wünsche ich.", "Gehabt euch wohl."
-"Ciao", "Adieu", "Au revoir", english -> "Charming me huh? Farewell then!", "The courtesies certainly haven't left you."
+english, "Ciao", "Adieu", "Au revoir" -> "Charming me huh? Farewell then!", "The courtesies certainly haven't left you."
 "Ciao", "Adieu", "Au revoir" -> "Ihr wollt mir wohl schmeicheln. Gute Reise!", "Eure Anstandsformen haben euch offensichtlich noch nicht verlassen."
 "How are you", "How feel", "How do you do" -> "I'm feeling wonderful, thank you.", "Great! Did you know the library has books about famous tailors? Amazing literature."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es wunderbar, danke.", "Großartig! Wußtet ihr, dass es in der Bibliothek Bücher über berühmte Schneider gibt? Spannende Lektüre, muss ich sagen."
@@ -94,17 +94,17 @@ itemShoes = 369
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Timotheus.", "Wie jetzt, Timotheus natürlich!"
 
 -- Catching quest triggers
-"quest", english -> "I only sell goods, my apologies. Quests are for the courageous and the air-heads."
+english, "quest" -> "I only sell goods, my apologies. Quests are for the courageous and the air-heads."
 "quest" -> "Ich bin nur ein Händler, entschuldigt. Abenteuer sind für die mutigen und törichten."
-"task", "adventure" -> "Adventures? I'm pretty happy with my robes thank you."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Abenteuer? Ich bin ziemlich glücklich mit meinen Roben, danke."
+"task", "adventure", "order" -> "Adventures? I'm pretty happy with my robes thank you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Abenteuer? Ich bin ziemlich glücklich mit meinen Roben, danke."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a tailor. I sell tailor goods, and even make some myself!", "Profession, my life, whatever you prefer, it's tailoring!"
 "beruf" -> "Ich bin ein Schneider. Ich verkaufe Schneiderwaren und mache auch welche für mich selbst.", "Mein Beruf, ja, mein Leben, das ist die Schneiderei."
-"job", english -> "I am a tailor. I sell tailor goods, and even make some myself!", "Profession, my life, whatever you prefer, it's tailoring!"
+english, "job" -> "I am a tailor. I sell tailor goods, and even make some myself!", "Profession, my life, whatever you prefer, it's tailoring!"
 "job" -> "Ich bin ein Schneider. Ich verkaufe Schneiderwaren und mache auch welche für mich selbst.", "Mein Beruf, ja, mein Leben, das ist die Schneiderei."
-"Gobaith", "Gobiath", english -> "Gobaith? No one goes there anymore man! It's a shadow of it's former glory.", "Ah that's right! All these Gobaithian refugees...", "That good old island isn't much anymore is it?"
+english, "Gobaith", "Gobiath" -> "Gobaith? No one goes there anymore man! It's a shadow of it's former glory.", "Ah that's right! All these Gobaithian refugees...", "That good old island isn't much anymore is it?"
 "Gobaith", "Gobiath" -> "Gobaith? Da wagt sich niemand mehr hin. Es ist nur noch ein Schatten längst vergangenen Ruhmes.", "Ja, genau! All diese Flüchtlinge aus Gobaith...", "Die gute alte Insel gibt es nicht mehr, richtig?"
 "my name" -> "And I am Timotheus. Ti-mo-the-us."
 "mein Name" -> "Und ich bin Timotheus. Ti-mo-the-us."
@@ -116,41 +116,41 @@ itemShoes = 369
 "Ort" -> "Wie jetzt, ihr seid natürlich in Runewick.", "Der Platz schlechthin, Runewick beim Schneider."
 "trader", "merchant", "collegue", "vendor", "market" -> "Well of course there is Francois. He sells the goods all the farmers have been working for on the fields.", "Wise old William, he sells all the goods for your studies late at night.", "Alysa over there is the finest cook there has been in a long time."
 "händler", "kollege", "höker", "markt" -> "Nun, da gibt es Francois. Er handelt mit all dem, was Bauern auf den Feldern bestellt haben.", "Der alte, weise William wird euch alles verkaufen, was ihr bei nächtlichen Studien benötigt.", "Alysa dort drüben ist der beste Köchin weit und breit."
-"Timmy", english -> "I am not living a lie!"
+english, "Timmy" -> "I am not living a lie!"
 "Timmy" -> "Ich lebe keine Lüge!"
 
 -- Faction stuff
 "Archmage" -> "He is a brilliant, BRILLIANT man.", "If he wasn't here... I just wouldn't know what would happen with Runewick. Runewick wouldn't flourish like it does today.", "Rather restrained, isn't he?"
 "Erzmagier" -> "Er ist ein brillianter, ich sage, brillianter Mann.", "Wenn es ihn nicht gäbe... Ich kann mir gar nicht ausmalen, was dann aus Runewick werden würde. Es würde nicht so florieren wie heute, so viel ist sicher.", "Er wirkt ziemlich reserviert, nicht wahr?"
-"Elvaine", "Morgan", english -> "He is a brilliant, BRILLIANT man.", "If he wasn't here... I just wouldn't know what would happen with Runewick. Runewick wouldn't flourish like it does today.", "Rather restrained, isn't he?"
+english, "Elvaine", "Morgan" -> "He is a brilliant, BRILLIANT man.", "If he wasn't here... I just wouldn't know what would happen with Runewick. Runewick wouldn't flourish like it does today.", "Rather restrained, isn't he?"
 "Elvaine", "Morgan" -> "Er ist ein brillianter, ich sage, brillianter Mann.", "Wenn es ihn nicht gäbe... Ich kann mir gar nicht ausmalen, was dann aus Runewick werden würde. Es würde nicht so florieren wie heute, so viel ist sicher.", "Er wirkt ziemlich reserviert, nicht wahr?"
-"Runewick", english -> "The finest city in the land, that's for sure.", "Power through knowledge, that's the motto!", "The south-eastern jewel, that's what it is."
+english, "Runewick" -> "The finest city in the land, that's for sure.", "Power through knowledge, that's the motto!", "The south-eastern jewel, that's what it is."
 "Runewick" -> "Die beste Stadt weit und weit, so viel steht fest.", "Wissen ist Macht, das ist das Motto!", "Das Juwel des Südwesten, das ist es."
-"Don", "Valerio", "Guilianni", english -> "I'm not sure what to think of him. His morals are certainly on the wrong side of a pig.", "Money money money, that's all I hear in my head when I hear that name.", "Valerio Pighead is his name if you ask me."
+english, "Don", "Valerio", "Guilianni" -> "I'm not sure what to think of him. His morals are certainly on the wrong side of a pig.", "Money money money, that's all I hear in my head when I hear that name.", "Valerio Pighead is his name if you ask me."
 "Don", "Valerio", "Guilianni" -> "Ich weiß nicht recht, was ich von ihm halten soll. Seine Moralvorstellungen ähneln dem Hinterteil eines Schweines.", "Geld, Geld, Geld, das ist alles, was mir bei dem Namen in den Kopf kommt.", "Valerio Schweinskopf ist sein Name, wenn ihr mich fragt."
-"Galmair", english -> "About as bad as it's rules I guess.", "Built upon the corpses of those with fewer financial reserves.", "I heard Galmair is ruled by merchants. I say: Ruled by pigs!"
+english, "Galmair" -> "About as bad as it's rules I guess.", "Built upon the corpses of those with fewer financial reserves.", "I heard Galmair is ruled by merchants. I say: Ruled by pigs!"
 "Galmair" -> "Es ist genauso schlecht dort wie die dortigen Regeln.", "Gebaut auf den Leichen derer, die über kein ausreichendes Finanzpolster verfügen.", "Ich habe gehört, Galmair wird von Händlern dominiert. Ich sage: Es wird von Schweinen beherrscht."
 "queen" -> "Queen Rosaline, queen Rosaline. Honourable woman, but not the smartest in her class.", "She should spend more time reading books instead of boasting.", "The archmage is right to distrust her."
 "Königin" -> "Queen Rosaline, queen Rosaline. Honourable woman, but not the smartest in her class.", "She should spend more time reading books instead of boasting.", "The archmage is right to distrust her."
-"Rosaline", "Edwards", english -> "Queen Rosaline, queen Rosaline. Honourable woman, but not the smartest in her class.", "She should spend more time reading books instead of boasting.", "The archmage is right to distrust her."
+english, "Rosaline", "Edwards" -> "Queen Rosaline, queen Rosaline. Honourable woman, but not the smartest in her class.", "She should spend more time reading books instead of boasting.", "The archmage is right to distrust her."
 "Rosaline", "Edwards" -> "Königin Rosaline, Königin Rosaline. Eine ehrbare Frau, aber nicht gerade die schlauste ihrer Art.", "Sie sollte mal mehr Zeit mit Büchern als mit ihren Prahlereien verbringen.", "Ich denke, der Erzmagier tut gut daran, ihr nicht zu trauen."
-"Cadomyr", english -> "Beautiful city I guess, too bad the inhabitants are airheads.", "I bet they have awfully empty libraries."
+english, "Cadomyr" -> "Beautiful city I guess, too bad the inhabitants are airheads.", "I bet they have awfully empty libraries."
 "Cadomyr" -> "Eine schöne Stadt, so denke ich, aber ihre Einwohner sind hirnverbrannt.", "Ich schätze, sie haben dort eine schrecklich leere Bibliothek."
 
 -- Main land factions
-"albar", english -> "Sir Reginald of Cadomyr owned land in Albar I believe.", "Strange customs, those albarians.", "Isn't that somewhere at the end of the Aramon mountains?"
+english, "albar" -> "Sir Reginald of Cadomyr owned land in Albar I believe.", "Strange customs, those albarians.", "Isn't that somewhere at the end of the Aramon mountains?"
 "albar" -> "Ich glaube zu wissen, dass Sir Reginald von Cadomyr Land in Albar besessen hat.", "Merkwürdige Sitten haben sie, die Albarier.", "Ist das nicht irgendwo am Ende der Aramonberge?"
-"gynk", "gync", english -> "Lawless pigs, that's what they are.", "Surrounded by pirate islands. Doesn't surprise me!"
+english, "gynk", "gync" -> "Lawless pigs, that's what they are.", "Surrounded by pirate islands. Doesn't surprise me!"
 "gync", "gynk" -> "Ruchlose Schweine, das sind sie.", "Umgeben von Pirateninseln, mich überrascht gar nichts mehr."
-"salkama", english -> "Above the Middle Mountains. Beautiful city, truely it is!", "Archmage Morgan came from Salkamar, did you know that?", "Oh how I long for it's streets."
+english, "salkama" -> "Above the Middle Mountains. Beautiful city, truely it is!", "Archmage Morgan came from Salkamar, did you know that?", "Oh how I long for it's streets."
 "salkama" -> "Oberhalb der Mittelberge - eine schöne Stadt, das ist es wahrhaftig.", "Erzmagier Morgan stammt aus Salkamar, wußtet ihr das?", "Oh, wie ich mich nach den Gassen von Salkamar sehne."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
 "god" -> "I worship Irmorom and Elara - two gods are enough for one halfling!"
 "Gott", "Götter" -> "Ich bete zu Irmorom und Elara - zwei Götter müssen für einen Halbling reichen!"
-"Elara", english -> "Elara brings us all knowledge. At least, that is what I believe.", "Elara's blessings elevated one."
+english, "Elara" -> "Elara brings us all knowledge. At least, that is what I believe.", "Elara's blessings elevated one."
 "Elara" -> "Elara gewährt uns all unser Wissen - daran glaube ich fest.", "Elaras Segen, mein Großer."
-"Irmorom", english -> "Only dwarves really pray to Irmorom. Everyone else takes what he grants for granted, as it seems."
+english, "Irmorom" -> "Only dwarves really pray to Irmorom. Everyone else takes what he grants for granted, as it seems."
 "Irmorom" -> "Nur Zwerge beten wirklich zu Irmorom. Anscheinend nimmt Jedermann seine Gaben als selbstverständlich hin."
 
 -- Catching typical NPC phrases
@@ -160,7 +160,7 @@ itemShoes = 369
 "erzähl was", "erzähl etwas" -> "Wußtet ihr, dass nur wir in Runewick hier so feine Kleidung haben? Ich frage mich, in was für Lumpen die Leute in Galmair rumrennen.", "Meine Roben sind die besten im ganzen Land."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Timotheus", english -> "Yes, I am Timotheus. Ti-mo-the-us."
+english, "Timotheus" -> "Yes, I am Timotheus. Ti-mo-the-us."
 "Timotheus" -> "Ja, ich bin Timotheus. Ti-mo-the-us."
 "Yes" -> "Yes? Yes to what?", "Yes? I'm happy you agree..."
 "Ja" -> "Ja? Wozu ja?", "Ja? Freut mich, dass ihr zustimmt."
