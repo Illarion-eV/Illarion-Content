@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 103, 558, 0, 4, 'Philipp Molitor', 'npc.philipp_molitor', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 103, 558, 0, 4, 'Philipp Molitor', 'npc.philipp_molitor', 0, 1, 3, 140, 70, 20, 170, 70, 40);
 ---]]
 
 require("npc.base.basic")
@@ -998,16 +998,16 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is <Name> the <profession/function>.");
+mainNPC:setLookat("Dieser NPC ist Philipp Molitor der Karawanenmeister.", "This NPC is Philipp Molitor the caravan master.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
-mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(3, 2367);
+mainNPC:setEquipment(11, 2380);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(9, 2114);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
