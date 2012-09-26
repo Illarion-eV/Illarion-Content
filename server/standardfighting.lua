@@ -827,6 +827,10 @@ function NewbieIsland(Attacker, Defender)
         return true;
     end;
 
+    --if (Attacker.pos.z) ~= -40 then     -- same for the prisons
+    --    return true;
+    --end;
+
     -- in case the character it not a other player character, the Attack is
     -- okay anyway.
     if (Defender:getType() ~= 0) then
