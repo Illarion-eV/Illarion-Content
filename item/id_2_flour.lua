@@ -58,11 +58,18 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     
     if taxFound then
         User:inform("Taxes paid so far: "..taxTotal)
+    else
+        taxTotal=0;
     end
     
     if payFound then
         User:inform("Taxpayers so far: "..payerCount)
+    else
+        return
     end
+    
+    ratio=taxTotal/payerCount;
+    
 end
 
 
