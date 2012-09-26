@@ -2,7 +2,7 @@
 -- NPC Name: Philipp Molitor                                          Cadomyr --
 -- NPC Job:  Caravan master                                                   --
 --                                                                            --
--- NPC Race: human                      NPC Position:  103, 558, 0            --
+-- NPC Race: human                      NPC Position:  103, 588, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Philipp Molitor"
 race = human
 sex = male
-position = 103, 558, 0
+position = 103, 588, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Caravan master"
