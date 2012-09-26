@@ -541,8 +541,8 @@ mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.")
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 2367);
 mainNPC:setEquipment(11, 2380);
-mainNPC:setEquipment(5, 207);
-mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 207);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 2114);
 mainNPC:setEquipment(10, 53);
