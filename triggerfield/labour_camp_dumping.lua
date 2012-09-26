@@ -71,7 +71,7 @@ function MoveToField(User)
 	local noSpam = false
 	local foundEffect, myEffect = User.effects:find(55)
 	if foundEffect then
-		local findCounter,spamProtection_2 = Effect:findValue("spamProtection_2")
+		local findCounter,spamProtection_2 = myEffect:findValue("spamProtection_2")
 		if findCounter then
 			if spamProtection_2 < 1 then
 				noSpam = true
