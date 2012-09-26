@@ -35,7 +35,7 @@ radius = 0
 hairID = 1
 beardID = 3
 colorHair = 140, 70, 20
-colorSkin = 170, 70, 40
+colorSkin = 205, 133, 63
 itemHead = 0
 itemChest = 2367
 itemCoat = 2380
@@ -144,7 +144,7 @@ english, "<NPC first name>", "<NPC last name>" -> "ENGLISH1.", "ENGLISH2.", "ENG
 cycletext "Die letzte Karawane ist vor einer Stunde abgereist.", "The last caravan left an hour ago."
 cycletext "Geht ihr zum Palast?", "Bound of the palace?"
 cycletext "Aufträge für die Ehre Cadomyrs!", "Orders for the glory of Cadomyr!"
-cycletext "GERMAN.", "ENGLISH."
+cycletext "Ich sollte mal wieder einen trinken gehen.", "I should get a drink anytime soon."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
