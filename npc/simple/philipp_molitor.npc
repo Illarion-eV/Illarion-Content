@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 26, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 27, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Philipp Molitor"
@@ -57,9 +57,6 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
 -- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
 
--- TRADING
--- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
-
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
@@ -97,12 +94,12 @@ english, "job" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"caravan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Karawane" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -127,14 +124,10 @@ english, "Cadomyr" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 -- Optional: Main land factions
 english, "albar" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "gynk", "gync" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "salkama" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
-english, "<NPC first name>", "<NPC last name>" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Philipp", "Molitor" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Philipp", "Molitor" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
