@@ -21,13 +21,11 @@ require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
-require("npc.base.trade")
 module("npc.philipp_molitor", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -989,12 +987,6 @@ talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
@@ -1004,7 +996,7 @@ mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.")
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 2367);
 mainNPC:setEquipment(11, 2380);
-mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(5, 207);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 2114);
