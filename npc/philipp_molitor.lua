@@ -1,18 +1,18 @@
 --------------------------------------------------------------------------------
--- NPC Name: Philipp Molitor                                             None --
--- NPC Job:  Insert profession here                                           --
+-- NPC Name: Philipp Molitor                                          Cadomyr --
+-- NPC Job:  Caravan master                                                   --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  103, 558, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Insert your name here                                            --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 24, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 26, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 0, 0, 0, 4, 'Philipp Molitor', 'npc.philipp_molitor', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 103, 558, 0, 4, 'Philipp Molitor', 'npc.philipp_molitor', 0, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
