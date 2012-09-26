@@ -63,8 +63,8 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Philipp Molitor the caravan master. Keywords: Hello, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Philipp Molitor der Karawanenmeister. Schlüsselwörter: Hallo, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Philipp Molitor the caravan master. Keywords: Hello, caravan, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Philipp Molitor der Karawanenmeister. Schlüsselwörter: Hallo, Karawane, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -117,16 +117,6 @@ english, "Ronagan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Faction stuff
-"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Elvaine", "Morgan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Runewick" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Valerio", "Guilianni", "Don" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Galmair" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 english, "rosaline", "edwards" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -151,9 +141,9 @@ english, "<NPC first name>", "<NPC last name>" -> "ENGLISH1.", "ENGLISH2.", "ENG
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "Die letzte Karawane ist vor einer Stunde abgereist.", "The last caravan left an hour ago."
+cycletext "Geht ihr zum Palast?", "Bound of the palace?"
+cycletext "Aufträge für die Ehre Cadomyrs!", "Orders for the glory of Cadomyr!"
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
