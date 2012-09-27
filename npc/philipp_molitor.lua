@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 27, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -490,12 +490,12 @@ talkingNPC:addCycleText("Die letzte Karawane ist vor einer Stunde abgereist.", "
 talkingNPC:addCycleText("Geht ihr zum Palast?", "Bound of the palace?");
 talkingNPC:addCycleText("Aufträge für die Ehre Cadomyrs!", "Orders for the glory of Cadomyr!");
 talkingNPC:addCycleText("Ich sollte mal wieder einen trinken gehen.", "I should get a drink anytime soon.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("Dazu sage ich nichts.", "I am not going to comment on that.");
+talkingNPC:addCycleText("Ist das Hassans Stimme?", "Was that Hassan's voice?");
+talkingNPC:addCycleText("Kommt her, ich habe bestimmt einen Autrag für euch.", "Come here, I think I have an order for you.");
+talkingNPC:addCycleText("Ich bin nicht aus albarischen Geschlecht. Ich bin aus einem Geschlecht Cadomyrs!", "I am not of albarian birth. I am of cadomyrian birth!");
+talkingNPC:addCycleText("#me studiert eine lange Liste.", "#me browses a long list.");
+talkingNPC:addCycleText("#me nickt zufrieden.", "#me nods happily.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
