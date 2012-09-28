@@ -72,8 +72,8 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel", "How do you do" -> "That is none of your business.", "That does not concern you."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Das steht hier nicht zur Debatte.", "Das tut hier nichts zur Sache."
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
@@ -94,40 +94,32 @@ english, "job" -> "I am the caravan master of Cadomyr. How comes people forget a
 "erzähl was", "erzähl etwas" -> "Fragt mich nach einem Auftrag. Ich bin nicht zum Labern geboren worden."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"caravan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Karawane" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"caravan" -> "If you want to contribute to the next caravan, ask me for an order."
+"Karawane" -> "Wenn ihr etwas zur nächsten Karawane beitragen möchtet, frag mich nach einem Auftrag."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Most caravan personal prays to Irmorom, but there might be another god they worship..."
 "Gott", "Götter" -> "Die meisten Krawanenleute beten zu Irmorom, aber einige verehren noch einen anderen Gott..."
 english, "Irmorom" -> "Most caravan personal prays to Irmorom, but there might be another god they worship..."
 "Irmorom" -> "Die meisten Krawanenleute beten zu Irmorom, aber einige verehren noch einen anderen Gott..."
-english, "Ronagan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Ronagan" -> "In secret, some caravan leaders pray to Ronagan, who is not just the god of robbers, but also the god of travellers. And they pray to him not to let both groups meet."
+"Ronagan" -> "Manche Karawanenführer beten heimlich zu Ronagan, der nicht nur der Gott der Räuber sondern auch der Reisenden ist. Sie erflehen von ihm, dass sich diese beiden Gruppen niemals treffen mögen."
 
 -- Optional: Faction stuff
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 english, "rosaline", "edwards" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Cadomyr" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Cadomyr" -> "Did you ever notice how lovely the word Cadomyr sounds? I do my best to make it prosper as caravan master."
+"Cadomyr" -> "Ist euch mal aufgefallen, wie schön das Wort Cadomyr klingt? Ich tu mein bestes, um Cadomyr als Karawanenmeister zu dienen."
 
 -- Optional: Main land factions
-english, "albar" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "albar" -> "It is not a secret that most of our goods are exported to Albar."
+"albar" -> "Es ist kein Geheimnis, dass die meisten unserer Güter für Albar bestimmt sind."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
-english, "Philipp", "Molitor" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Philipp", "Molitor" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Philipp", "Molitor" -> "I am the caravan master."
+"Philipp", "Molitor" -> "Ich bin hier der Karawanenmeister."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
