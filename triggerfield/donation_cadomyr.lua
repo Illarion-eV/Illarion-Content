@@ -13,6 +13,14 @@ module("triggerfield.donation_cadomyr", package.seeall)
 
 function PutItemOnField(Item,User)
 
-    triggerfield.donation_base.donate(Item,User,"Cadomyr","Rosaline Edwards","TreasureCadomyr"); -- That's all folks
+    donated=triggerfield.donation_base.donate(Item,User,"Cadomyr","Rosaline Edwards","TreasureCadomyr"); -- That's all folks
+	
+	-- Quest 151 (Cadomyr Treasury, NPC Ioannes Faber)
 
+    if donated then
+	    User:inform("DONATED!");
+	end
+	
+	-- Quest end
+	
 end
