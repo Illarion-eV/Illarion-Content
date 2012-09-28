@@ -110,7 +110,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me nods slightly and continues his
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Aufwiedersehen.", "Bragon sei mit euch!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Good bye.", "Brágon with you!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Lebt wohl.", "Aufwiedersehen.", "Bragon sei mit euch!"
-"How are you", "How feel", "How do you do" -> "If Brágon listens to me today, better.", "Would you pray with me?", "Fine, Brágon to honor of course!"
+"How are you", "How feel", "How do you do" -> "If Brágon listens to me today, better.", "Would you pray with me?", "Fine, Brágon to honour of course!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Wenn Bragon mich heute erhört, besser.", "Möchtet ihr mit mir beten?", "Gut, Bragon zu Ehren!"
 "your name", "who are you", "who art thou" -> "Nobarg.", "Nobarg, priest of Brágon"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Nobarg", "Nobarg, Priester von Bragon"
@@ -220,7 +220,7 @@ english, "job" -> "Priest of Brágon of course.", "Priest, perhaps you are infli
 "Ich bin", "mein Name" -> "Betet ihr auch zu Bragon?", "Schöner Name, gefällt mir.", "Gut, aber nun kommt und lasst uns zu Bragon beten."
 
 -- More small talk; add at least five triggers
-"Bearer" -> "They fight for the light and protect the weak ones.", "A very honorable community.", "Fire is in them, that they carry the light as far as possible."
+"Bearer" -> "They fight for the light and protect the weak ones.", "A very honourable community.", "Fire is in them, that they carry the light as far as possible."
 "doom", "extinction", "collapse", "fall" -> "It was horrible!", "Brágon be praised that he saved me!", "Pray that it never happens again."
 "horrible" -> "The fall of Gobaith", "The last days of Gobaith.", "Yes, it was so...I don't have words to describe it."
 "died", "death", "what did happen", "what happened" -> "Yes, many died in those days.", "Yes, but some did flee, I think you can find them here somewhere."
@@ -258,7 +258,7 @@ english, "Galmair" -> "They are looking for coins and are not interested to sacr
 "Königin" -> "Glaubt sie an Bragon? Ansonsten interessiert sie mich nicht.", "Sie stürzt Cadomyr in den Ruin.", "Nettes Gesicht, aber nicht mehr."
 english, "rosaline", "edwards" -> "Does she believe in Brágon? Then I do not care about her.", "She is on a quick road to ruin Cadomyr.", "Lovely face, but nothing more."
 "rosaline", "edwards" -> "Glaubt sie an Bragon? Ansonsten interessiert sie mich nicht.", "Sie stürzt Cadomyr in den Ruin.", "Nettes Gesicht, aber nicht mehr."
-english, "Cadomyr" -> "They live for their so called honor, and it is found to the east. Their troops often march by my temple.", "A very sandy town.", "I have no idea the exact route there."
+english, "Cadomyr" -> "They live for their so called honour, and it is found to the east. Their troops often march by my temple.", "A very sandy town.", "I have no idea the exact route there."
 "Cadomyr" -> "Die suchen nach Ehre, und anscheinend dürfte sie im Osten liegen, da ich schon öfters Truppen dieser Stadt diesen Tempel passieren gesehen habe.", "Eine sehr sandige Stadt.", "Ich habe keine Ahnung wie ihr dort hinkommt."
 
 -- Main land factions
@@ -286,7 +286,7 @@ english, "Eldan" -> "This is not a god I take much interest in.", "I once knew a
 "Eldan" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon."
 english, "Findari" -> "I give little attention to this god.", "I cannot recall anyone I know worshipping her.", "Like Brágon she is an elder god.", "One of the statues behind me represents her. Just take a look if you want to know how she could look like."
 "Findari" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon.", "Eine der Statuen hinter mir repräsentiert sie. Wirf einen Blick darauf wenn du wissen möchtest wie sie aussehen könnte."
-english, "Irmorom" -> "Best speak with someone from Galmair about such a god.", "I do not know anyone personally that honors this god.", "Just one of many younger gods that cannot compare to Lord Brágon."
+english, "Irmorom" -> "Best speak with someone from Galmair about such a god.", "I do not know anyone personally that honours this god.", "Just one of many younger gods that cannot compare to Lord Brágon."
 "Irmorom" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
 english, "Malachin", "Malachín" -> "I've heard travelers from Cadomyr utter his name.", "A god of war but cannot purge the field of battle like Lord Brágon.", "One of the younger gods I believe, I lose track of all of them some times."
 "Malachin", "Malachín" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."

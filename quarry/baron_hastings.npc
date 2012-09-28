@@ -102,7 +102,7 @@ itemShoes = 53
 
 -- More small talk; add at least five triggers
 "King Edwards" -> "#me grimaces. 'Do not mention that name! He was for a long time a good king. Then he grew weak and let that bitch-daughter of hers poison his mind against me, now I curse his memory!'"
-"Throne", english -> "The Throne of Cadomyr belongs, by tradition, to the closest male relative of the the former king. It is a travesty that a honorless bitch like Rosaline has been allowed to claim it as hers!"
+"Throne", english -> "The Throne of Cadomyr belongs, by tradition, to the closest male relative of the the former king. It is a travesty that a honourless bitch like Rosaline has been allowed to claim it as hers!"
 "Nobles" -> "#me hisses angrily: 'Spineless 'nobles' scurried behind her back like the dogs they are! All failed to support 'me', the rightful King of Cadomyr. Once I have them beheaded, I shall need new nobles. Interested?'"
 "Interest" -> "#me seems to study you for a moment. 'Maybe, maybe... But first you need to prove your worth by doing a task for me'"
 "Usurper" -> "#me stares at you disdainfully. 'Usurper is what the bitch-queen calls me, but -she- is the true usurper... and she will suffer the fate of one, mark my words.'"
@@ -125,7 +125,7 @@ itemShoes = 53
 "Elvaine", "Morgan" -> "Nur eine andere Miststück-Hexen-Königin, die sich in dreckigen Roben statt königlichen Gewändern kleidet. Ich kann nicht mal erahnen, wie diese Idioten von Runewick auf die Idee kamen, einer Frau die Macht zu geben."
 "Runewick", english -> "The people of Runewick are filthy pawns of the meddlesome Salkamaerians. Once I am the King, I drive them back to the sea where they belong!"
 "Runewick" -> "Die Menschen in Runewick sind nicht mehr als schmutzige Schachfiguren der lästigen Salkamaerianer. Sobald ich Köni bin, treibe ich sie alle wieder ins Meer, wo sie hingehören!"
-"Valerio", "Guilianni", "Don", english -> "A mere thug in a gentleman's attire! The thug has no honor and he is unfit to be the leader of an outhouse, let alone a city. But then again, his servants are all honorless thugs and crooks as well."
+"Valerio", "Guilianni", "Don", english -> "A mere thug in a gentleman's attire! The thug has no honour and he is unfit to be the leader of an outhouse, let alone a city. But then again, his servants are all honourless thugs and crooks as well."
 "Valerio", "Guilianni", "Don" -> "Ein läppischer Verbrecher in der Kleidung eines Ehrenmannes! Dieser Verbrecher hat keine Ehre und ist ungeeignet der Führer eines Abort, geschweige denn einer Stadt zu sein. Auf der anderen Seite sind seine Diener jedoch auch nur ehrlose Verbrecher und Gauner."
 "Galmair", english -> "Galmair is a den of decadence and dishonor. When I am the ruler of Cadomyr, I promise you that I will torch the vile den until nothing but cinders remain!"
 "Galmair" -> "Galmair ist eine Hütte der Dekadenz und Ehrlosigkeit. Wenn ich den Herrscher von Cadomyr bin, so verspreche ich dir, brenne ich diese erbärmliche Hütte ab, bis nur noch Asche zurückbleibt!"
@@ -133,11 +133,11 @@ itemShoes = 53
 "Königin" -> "Dieses Miststück! Sie wandte schwarze Magie an, um ihren Vater zu beeinflussen, damit er mich übergeht! Mich! Den 'rechtmäßigen' Erben! Ich werde diese Hüre in ein Kloster sperren, sobald ich sie gestürzt habe...oder einfach nur ihren Kopf. Auf einer Lanze!"
 "rosaline", "edwards", english -> "That bitch! She used dark magics to sway her father into sidelining me! Me! The 'rightful' heir! I'll lock that wench into a monastery once I overthrow her... or just have her head. On a spike!"
 "rosaline", "edwards" -> "Dieses Miststück! Sie wandte schwarze Magie an, um ihren Vater zu beeinflussen, damit er mich übergeht! Mich! Den 'rechtmäßigen' Erben! Ich werde diese Hüre in ein Kloster sperren, sobald ich sie gestürzt habe...oder einfach nur ihren Kopf. Auf einer Lanze!"
-"Cadomyr", english -> "#me exclaims: 'Cadomyr is the pearl of the island, and it belongs to me by right of tradition and blood! I am the closest male relative of King Edwards!'", "Cadomyr is the finest city of the Island. We believe in tradition, loyalty and honor. We are the true and rightful owners of the island; It all belongs to us... and Cadomyr belongs to me!"
+"Cadomyr", english -> "#me exclaims: 'Cadomyr is the pearl of the island, and it belongs to me by right of tradition and blood! I am the closest male relative of King Edwards!'", "Cadomyr is the finest city of the Island. We believe in tradition, loyalty and honour. We are the true and rightful owners of the island; It all belongs to us... and Cadomyr belongs to me!"
 "Cadomyr" -> "#me ruft heraus: 'Cadomyr ist die Perle dieser Insel und es gehört mir  durch das recht der Tradition und des Blutes. Ich bin der nähste männliche Verwandte von König Edwards.", "Cadomyr ist die feinste Stadt der Insel. Wir glauben an Tradition, Loyalität und Ehre. Wir sind die wahren und rechtmäßigen Besitzer dieser Insel; alles gehört uns...und Cadomyr gehört mir!"
 
 -- Main land factions
-"albar", english -> "We are all Albarianas here, except for that bastard bitch-queen of ours! Like all Albarians, we are full of courage and honor. More than can be said of any other race."
+"albar", english -> "We are all Albarianas here, except for that bastard bitch-queen of ours! Like all Albarians, we are full of courage and honour. More than can be said of any other race."
 "albar" -> "Wir sind hier alle Albarianer, außer diese Miststück-Bastard-Königin! Wie alle Albarianer sind wir voll von Courage und Ehre. Mehr als man von irgendeiner anderen Rasse sagen kann."
 "gynk", "gync", english -> "Treacherous scum! Such a degenerate brood of cutthroats, thieves and charlatans will sooner or later implode in their own filth. We Albarians will remain forever."
 "gync", "gynk" -> "Betrügerischer Dreck! So eine degenerierte Brut von Mördern, Dieben und Scharlatanen wird früher oder später an ihrem eigenen Dreck zugrunde gehen. Wir Albarianer werden immer da sein!"
