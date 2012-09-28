@@ -262,17 +262,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Her majesty encouraged me to use donkeys as beasts of burden for caravans, mainly. I wonder why...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ihre Majestät hat mich dazu bewogen, vor allem Esel als Lasttiere für die Karawanen einzusetzen. Ich frag mich nur, warum...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -280,18 +276,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Her majesty encouraged me to use donkeys as beasts of burden for caravans, mainly. I wonder why...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ihre Majestät hat mich dazu bewogen, vor allem Esel als Lasttiere für die Karawanen einzusetzen. Ich frag mich nur, warum...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

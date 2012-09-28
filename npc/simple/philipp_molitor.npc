@@ -102,10 +102,10 @@ english, "Ronagan" -> "In secret, some caravan leaders pray to Ronagan, who is n
 "Ronagan" -> "Manche Karawanenführer beten heimlich zu Ronagan, der nicht nur der Gott der Räuber sondern auch der Reisenden ist. Sie erflehen von ihm, dass sich diese beiden Gruppen niemals treffen mögen."
 
 -- Optional: Faction stuff
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "rosaline", "edwards" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "Her majesty encouraged me to use donkeys as beasts of burden for caravans, mainly. I wonder why..."
+"Königin" -> "Ihre Majestät hat mich dazu bewogen, vor allem Esel als Lasttiere für die Karawanen einzusetzen. Ich frag mich nur, warum..."
+english, "rosaline", "edwards" -> "Her majesty encouraged me to use donkeys as beasts of burden for caravans, mainly. I wonder why..."
+"rosaline", "edwards" -> "Ihre Majestät hat mich dazu bewogen, vor allem Esel als Lasttiere für die Karawanen einzusetzen. Ich frag mich nur, warum..."
 english, "Cadomyr" -> "Did you ever notice how lovely the word Cadomyr sounds? I do my best to make it prosper as caravan master."
 "Cadomyr" -> "Ist euch mal aufgefallen, wie schön das Wort Cadomyr klingt? Ich tu mein bestes, um Cadomyr als Karawanenmeister zu dienen."
 
