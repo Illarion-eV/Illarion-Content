@@ -16,8 +16,16 @@ VALUES (0, 103, 588, 0, 4, 'Philipp Molitor', 'npc.philipp_molitor', 0, 1, 3, 14
 ---]]
 
 require("npc.base.basic")
+require("npc.base.condition.chance")
+require("npc.base.condition.item")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.condition.town")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.money")
+require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
 module("npc.philipp_molitor", package.seeall)
 
@@ -174,6 +182,243 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Ich bin Philipp Molitor, der Karawanenmeister.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Farewell and my best 'regards' to your Don.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Hinfort mit euch und meine besten 'Grüße' an euren Don.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("Farewell and my best 'regards' to your Don.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Hinfort mit euch und meine besten 'Grüße' an euren Don.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("When you get back to Runewick, could you greet Elvaine Morgan? Tell him he should reconsider the offer I gave him twelve years ago.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Wenn ihr wieder nach Runewick kommt, so grüßt doch Elvaine Morgan von mir. Er möge nochmal über mein Angebot nachdenken, dass ich im vor zwölf Jahren machte.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("When you get back to Runewick, could you greet Elvaine Morgan? Tell him he should reconsider the offer I gave him twelve years ago.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Wenn ihr wieder nach Runewick kommt, so grüßt doch Elvaine Morgan von mir. Er möge nochmal über mein Angebot nachdenken, dass ich im vor zwölf Jahren machte.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(5.0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 1));
+talkEntry:addResponse("Your mission today: The queen desires sweet fruit and I will not dissapoint her. Bring me five strawberries as fast as possible and I'll mention your name infront of her.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(5.0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 1));
+talkEntry:addResponse("Eure heutige Mission: Die Königin verlang nach süßen Früchten und ich werde sie nicht enttäuschen. Bringt mir fünf Erdbeeren und ich werde euren Namen ihr gegenüber lobend erwähnen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 0));
+talkEntry:addCondition(npc.base.condition.chance.chance(5.0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 1));
+talkEntry:addResponse("Your mission today: The queen desires sweet fruit and I will not dissapoint her. Bring five strawberries as fast as possible and I'll mention your name infront of her.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 0));
+talkEntry:addCondition(npc.base.condition.chance.chance(5.0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 1));
+talkEntry:addResponse("Eure heutige Mission: Die Königin verlang nach süßen Früchten und ich werde sie nicht enttäuschen. Bringt mir fünf Erdbeeren und ich werde euren Namen ihr gegenüber lobend erwähnen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(151, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded twenty coppercoins. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(151, 5, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addResponse("Very good. I am authorised to grant you a small reward. The queen will enjoy these fruits!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(151, "all", ">", 4, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(151, 5, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addResponse("Sehr gut. Ich bin berechtigt, euch eine kleine Belohnung zu zahlen. Die Königin wird sich über diese Früchte sicher freuen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(151, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("I told you to bring five strawberries. Her majesty has to rule a whole realm and you fail in such a simple task?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(151, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Ich habe euch befohlen, fünf Erdbeeren zu beschaffen. Ihre Majestät regiert ein ganzes Reich und ihr versagt bei so einer einfachen Aufgabe?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(151, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("I told you to bring five strawberries. Her majesty has to rule a whole realm and you fail in such a simple task?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(151, "all", "<", 5, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Ich habe euch befohlen, fünf Erdbeeren zu beschaffen. Ihre Majestät regiert ein ganzes Reich und ihr versagt bei so einer einfachen Aufgabe?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("You can help me by... staying. Stay a little longer, that's all I ask for. Please!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 3));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("You can help me by... staying. Stay a little longer, that's all I ask for. Please!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 3));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

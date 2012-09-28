@@ -80,6 +80,38 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Don't swallow too much sand
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
+-- Catching quest triggers of other factions' members. Outlaws are ignored.
+english, town = Galmair, "quest", "mission" -> "Farewell and my best 'regards' to your Don."
+town = Galmair, "quest", "mission" -> "Hinfort mit euch und meine besten 'Grüße' an euren Don."
+town = Galmair, "task", "adventure", "order" -> "Farewell and my best 'regards' to your Don."
+town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hinfort mit euch und meine besten 'Grüße' an euren Don."
+english, town = Runewick, "quest", "mission" -> "When you get back to Runewick, could you greet Elvaine Morgan? Tell him he should reconsider the offer I gave him twelve years ago."
+town = Runewick, "quest", "mission" -> "Wenn ihr wieder nach Runewick kommt, so grüßt doch Elvaine Morgan von mir. Er möge nochmal über mein Angebot nachdenken, dass ich im vor zwölf Jahren machte."
+town = Runewick, "task", "adventure", "order", "order" -> "When you get back to Runewick, could you greet Elvaine Morgan? Tell him he should reconsider the offer I gave him twelve years ago."
+town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn ihr wieder nach Runewick kommt, so grüßt doch Elvaine Morgan von mir. Er möge nochmal über mein Angebot nachdenken, dass ich im vor zwölf Jahren machte."
+
+-- 1: Quest 1 taken, get 5 strawberries, reward: 20cp, 5 rankpoints
+-- Quest 1: Gather five strawberries (151)
+queststatus(151) = 0, english, chance(5.0), town = Cadomyr, "quest", "mission" -> inform("[New Quest] Do a good turn daily for Cadomyr"), queststatus(151) = 1, "Your mission today: The queen desires sweet fruit and I will not dissapoint her. Bring me five strawberries as fast as possible and I'll mention your name infront of her."
+queststatus(151) = 0, german, chance(5.0), town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), queststatus(151) = 1, "Eure heutige Mission: Die Königin verlang nach süßen Früchten und ich werde sie nicht enttäuschen. Bringt mir fünf Erdbeeren und ich werde euren Namen ihr gegenüber lobend erwähnen."
+queststatus(151) = 0, chance(5.0), town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] Do a good turn daily for Cadomyr"), queststatus(151) = 1, "Your mission today: The queen desires sweet fruit and I will not dissapoint her. Bring five strawberries as fast as possible and I'll mention your name infront of her."
+queststatus(151) = 0, chance(5.0), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), queststatus(151) = 1, "Eure heutige Mission: Die Königin verlang nach süßen Früchten und ich werde sie nicht enttäuschen. Bringt mir fünf Erdbeeren und ich werde euren Namen ihr gegenüber lobend erwähnen."
+
+-- Quest 1 solved, reward: 20cp, 5 rankpoints, delay: 5h
+queststatus(151) = 1, item(151, all) > 4, english, town = Cadomyr, ".*" -> inform("[Quest solved] You are awarded twenty coppercoins. You advance in Queen Rosaline Edwards' favour."), money + 20, deleteItem(151, 5), queststatus(151) = 0, queststatus(120) = 60, rankpoints(Cadomyr) + 5, "Very good. I am authorised to grant you a small reward. The queen will enjoy these fruits!"
+queststatus(151) = 1, item(151, all) > 4, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), money + 20, deleteItem(151, 5), queststatus(151) = 0, queststatus(120) = 60, rankpoints(Cadomyr) + 5, "Sehr gut. Ich bin berechtigt, euch eine kleine Belohnung zu zahlen. Die Königin wird sich über diese Früchte sicher freuen."
+
+-- Quest 1 taken but not solved, repeat the instructions
+queststatus(151) = 1, item(151, all) < 5, english, town = Cadomyr, "quest", "mission" -> "I told you to bring five strawberries. Her majesty has to rule a whole realm and you fail in such a simple task?"
+queststatus(151) = 1, item(151, all) < 5, town = Cadomyr, "quest", "mission" -> "Ich habe euch befohlen, fünf Erdbeeren zu beschaffen. Ihre Majestät regiert ein ganzes Reich und ihr versagt bei so einer einfachen Aufgabe?"
+queststatus(151) = 1, item(151, all) < 5, town = Cadomyr, "task", "adventure", "order" -> "I told you to bring five strawberries. Her majesty has to rule a whole realm and you fail in such a simple task?"
+queststatus(151) = 1, item(151, all) < 5, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe euch befohlen, fünf Erdbeeren zu beschaffen. Ihre Majestät regiert ein ganzes Reich und ihr versagt bei so einer einfachen Aufgabe?"
+
+-- Final dialogue: No more quests, just nice hints
+queststatus(151) = 3, english, "quest", "mission" -> "You can help me by... staying. Stay a little longer, that's all I ask for. Please!"
+queststatus(151) = 3, "quest", "mission" -> "Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!"
+queststatus(151) = 3, "task", "adventure", "order" -> "You can help me by... staying. Stay a little longer, that's all I ask for. Please!"
+queststatus(151) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the caravan master of Cadomyr. How comes people forget about this?"
