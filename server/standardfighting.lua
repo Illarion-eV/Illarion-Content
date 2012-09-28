@@ -266,6 +266,7 @@ function CauseDamage(Attacker, Defender, Globals)
             CharOffsetX = (Attacker.Weapon.Range - math.abs(CharOffsetY) + 1);
         end;
 
+--- ****** TODO: USE WORLD:LOS HERE
         local newPos = position(Defender.Char.pos.x + CharOffsetX,
             Defender.Char.pos.y + CharOffsetY, Defender.Char.pos.z);
             Defender.Char:warp(newPos);
