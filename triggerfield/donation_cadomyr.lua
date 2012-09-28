@@ -17,8 +17,9 @@ function PutItemOnField(Item,User)
 	
 	-- Quest 151 (Cadomyr Treasury, NPC Ioannes Faber)
 
-    if donated then
-	    User:inform("DONATED!");
+    if (donated) and (User:getQuestProgress(151) == 1) then
+		User:setQuestProgress(151, 2); --Quest solved!
+		base.common.InformNLS(User,"[Queststatus] Du hast den Befehl erfolgreich ausgeführt. Kehre zu Ioannes Faber zurück, um deine Belohnung einzufordern.","[Quest status] You completed your task successfully. Return to Ioannes Faber to claim your reward."); --sending a message
 	end
 	
 	-- Quest end
