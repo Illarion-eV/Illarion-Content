@@ -47,6 +47,8 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Ah, hello. You came here for an order, right?");
 talkEntry:addResponse("What is it? Business, I hope!");
+talkEntry:addResponse("Be greeted. We should get straight to the orders of her majesty.");
+talkEntry:addResponse("You are just the person that needs an order, indeed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -63,6 +65,8 @@ talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Ah, hallo. Ihr seid hier wegen eines Auftrages, richtig?");
 talkEntry:addResponse("Was gibt es? Ich hoffe, es geht ums Geschäft.");
+talkEntry:addResponse("Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.");
+talkEntry:addResponse("Ihr seid genau die Person, die einen Auftrag benötigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -74,6 +78,8 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Ah, hello. You came here for an order, right?");
 talkEntry:addResponse("What is it? Business, I hope!");
+talkEntry:addResponse("Be greeted. We should get straight to the orders of her majesty.");
+talkEntry:addResponse("You are just the person that needs an order, indeed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -84,6 +90,8 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Ah, hallo. Ihr seid hier wegen eines Auftrages, richtig?");
 talkEntry:addResponse("Was gibt es? Ich hoffe, es geht ums Geschäft.");
+talkEntry:addResponse("Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.");
+talkEntry:addResponse("Ihr seid genau die Person, die einen Auftrag benötigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -337,6 +345,7 @@ talkingNPC:addCycleText("Kommt her, ich habe bestimmt einen Autrag für euch.", "
 talkingNPC:addCycleText("Ich bin nicht aus albarischen Geschlecht. Ich bin aus einem Geschlecht Cadomyrs!", "I am not of albarian birth. I am of cadomyrian birth!");
 talkingNPC:addCycleText("#me studiert eine lange Liste.", "#me browses a long list.");
 talkingNPC:addCycleText("#me nickt zufrieden.", "#me nods happily.");
+talkingNPC:addCycleText("Ihr da! Kommt her. Ich habe einen Auftrag der Königin.", "You! Come over here. I have orders of the queen.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);

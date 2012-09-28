@@ -64,10 +64,10 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Philipp Molitor der Karawanenmeister. Schlüsselwörter: Hallo, Karawane, Auftrag, Cadomyr.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, hello. You came here for an order, right?", "What is it? Business, I hope!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, hallo. Ihr seid hier wegen eines Auftrages, richtig?", "Was gibt es? Ich hoffe, es geht ums Geschäft."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, hello. You came here for an order, right?", "What is it? Business, I hope!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Ah, hallo. Ihr seid hier wegen eines Auftrages, richtig?", "Was gibt es? Ich hoffe, es geht ums Geschäft."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, hello. You came here for an order, right?", "What is it? Business, I hope!", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, hallo. Ihr seid hier wegen eines Auftrages, richtig?", "Was gibt es? Ich hoffe, es geht ums Geschäft.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Auftrag benötigt."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, hello. You came here for an order, right?", "What is it? Business, I hope!", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ah, hallo. Ihr seid hier wegen eines Auftrages, richtig?", "Was gibt es? Ich hoffe, es geht ums Geschäft.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Auftrag benötigt."
 "Farewell", "Bye", "Fare well", "See you" -> "Don't swallow too much sand.", "I hope you come back.", "Good travels."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schluckt mir nicht zu viel Sand.", "Ich hoffe, ihr kommt zurück.", "Gute Reise."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Don't swallow too much sand.", "I hope you come back.", "Good travels."
@@ -132,3 +132,4 @@ cycletext "Kommt her, ich habe bestimmt einen Autrag für euch.", "Come here, I 
 cycletext "Ich bin nicht aus albarischen Geschlecht. Ich bin aus einem Geschlecht Cadomyrs!", "I am not of albarian birth. I am of cadomyrian birth!"
 cycletext "#me studiert eine lange Liste.", "#me browses a long list."
 cycletext "#me nickt zufrieden.", "#me nods happily."
+cycletext "Ihr da! Kommt her. Ich habe einen Auftrag der Königin.", "You! Come over here. I have orders of the queen."

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian/Ardian                                         --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Ioannes Faber"
@@ -60,15 +60,11 @@ itemShoes = 53
 "Help" -> inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keywords: Be greeted, treasurer, Gold.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Kämmerer, Gold.")
 
--- Help Big Order Version
-"Help" -> inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keywords: Be greeted, treasurer, 'Do you have any orders for me?', 'I want to see order <number>', 'I want to get order <number>'.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Kämmerer, 'Habt ihr Aufträge für mich?', 'Ich möchte Auftrag <Nummer> ansehen', 'Ich möchte Auftrag <Nummer> annehmen'.")
-
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail and may Malachín bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Malachín zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Befehl benötigt."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail and may Malachín bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Malachín zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Befehl benötigt."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail and may Malachín bless you. I assume you obey the queen."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Malachín zum Gruße. Ich nehme an, ihr gehorcht der Königin."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail and may Malachín bless you. I assume you obey the queen."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Malachín zum Gruße. Ich nehme an, ihr gehorcht der Königin."
 "Farewell", "Bye", "Fare well", "See you" -> "Go forth and do as the queen tells you.", "Farewell and may your journey be a pleasant one.", "Good bye and don't forget to come back."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehet hin und tut, wie die Königin euch geheißt.", "Gehabt euch wohl und möge eure Reise eine angenehme sein.", "Auf wiedersehen und vergesst nicht, zurückzukehren."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go forth and do as the queen tells you.", "Farewell and may your journey be a pleasant one.", "Good bye and don't forget to come back."
@@ -78,11 +74,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go forth and do as the quee
 "your name", "who are you", "who art thou" -> "Faber. Ioannes Faber. I am the royal treasurer, do not underestimate my importance at the palace.", "My name is Ioannes Faber, the royal treasurer of Cadomyr. The queen relies on me, indeed.", "You don't know my name? Better write it down then: Ioannes Faber."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Faber. Ioannes Faber. Ich bin der königliche Kämmerer, ihr solltet meine Bedeutung am Hofe nicht unterschätzen.", "Mein Name ist Ioannes Faber, der königliche Kämmerer von Cadomyr. Die Königin hält große Stücke auf mich.", "Ihr kennt meinen Namen nicht? Schreibt ihn euch besser auf: Ioannes Faber."
 
--- Catching order triggers - remove if Big Order System works
-"order" -> "I currently have no orders for you."
-"Befehl", "Auftrag", "Aufträge" -> "Derzeit habe ich keine Befehle für euch."
-
--- Catching quest triggers
+-- Catching quest triggers (REWORK!)
 english, "quest", "mission" -> "I do not issue quests. I issue orders of queen Rosaline. Obey them!"
 "quest", "mission" -> "Ich biete keine Abenteuer an, ich verteile Befehle von Königin Rosaline. Gehorcht ihnen!"
 "task", "adventure", "order" -> "I do not issue quests. I issue orders of queen Rosaline. Obey them!"
@@ -151,8 +143,8 @@ english, "Irmorom" -> "The dwarves pray to Irmorom to gain wealth; so far, so go
 "Irmorom" -> "Die Zwerge beten zu Irmorom um Reichtümer anzuhäufen, soweit, so gut. Aber ich bete zu Malachín, damit er mir hilft, die Reichtümer Cadomyrs mit dem Schwert zu verteidigen."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, "I'm not ar, I am the royal treasurere. If you obey the orders of the queen, you might get a reward."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler, ich bin der königliche Kämmerer. Wenn ihr den Befehlen der Königin gehorcht, dann werdet ihr vielleicht entlohnt."
+"what sell", "what buy", "list wares", "price of" -> "I'm not merchant, I am the royal treasurere."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler, ich bin der königliche Kämmerer."
 "tell something" -> "Let me tell you something: A whip can make people work. But a crown makes them obey."
 "erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein: Eine Peitsche bringt Leute zum arbeiten, aber eine Krohne bringt sie dazu, zu gehorchen."
 
@@ -163,40 +155,6 @@ english, "Ioannes", "Faber" -> "I am the royal treasurer Ioannes Faber. I obey h
 "Ja" -> "Gut zu wissen.", "Entschuldigt?", "So, so.", "Meine vollste Zustimmung."
 "No" -> "Maybe you reconsider.", "An interesting point of view.", "How comes?"
 "Nein" -> "Vielleicht überlegt ihr es euch nochmal.", "Eine interessante Sichtweise.", "Wieso das?"
-
--- FURTHERMORE YOU CAN ALSO CHANGE THIS STANDARD BIG ORDER Phrases for each npc if you want:
--- --    myOrderNPC.textOrderSay = { {ger="Kommt her, ich habe einen Auftrag ihrer Majestät, den es zu erfüllen gilt.",eng="Come over here. I have one order of her majesty that has to be fulfilled."},{ger="Kommt her, ich habe %d Aufträge ihrer Majestät, die es zu erfüllen gilt.",eng="Come over here. I have %d orders of her majesty that have to be fulfilled."} };
--- myOrderNPC.timeOrderSay = {min=5,max=15};
--- myOrderNPC.timeOrderCycle = -1;
--- myOrderNPC.textFalseNPC.ger = "Lasst mich mit den Aufträgen anderer in Frieden. Ich kümmere mich nur um die Schatzkammer Cadomyrs.";
--- myOrderNPC.textFalseNPC.eng = "Leave me alone with orders of others. I only take care of the treasury of Cadomyr.";
--- myOrderNPC.textNoItems.ger = "Ihr kommt zu mir mit leeren Händen. Würdet ihr es wagen, so der Königin gegenüberzutreten?";
--- myOrderNPC.textNoItems.eng = "You come to me with bare hands. Would you dare to face the queen like this?";
--- myOrderNPC.textSomeItems.ger = "Steter Tropfen höhlt den Stein - aber euer Auftrag ist noch nicht erledigt.";
--- myOrderNPC.textGetSomeItems.ger = "Ah, gut, die Königin wird erfreut sein. Aber nun hurtig, es fehlt noch etwas.";
--- myOrderNPC.textGetSomeItems.eng = "Ah, good, the queen will be pleased. But hurry now, some things are lacking.";
--- myOrderNPC.textSomeItems.eng = "Constant  dripping  wears  away  the  stone. But the order is not fulfilled yet.";
--- myOrderNPC.textQualityLess.ger = "Ihr wagt es, diese Schund anzuschleppen? Hier, nehmt %d Goldstücke, %d Silberstücke und %d Kupferstücke. Aus meinen Augen!";
--- myOrderNPC.textQualityLess.eng = "You dare to bring this scrap to me? Here, have %d gold coins, %d silver coins and %d copper coins. Out of my sight!";
--- myOrderNPC.textTimeOver.ger = "Was wagt ihr es, bei einem Auftrag der Königin zu trödeln! Ich kann euch bei solch flegelhaften Verhalten nur %d Goldstücke, %d Silberstücke und %d Kupferstücke geben.";
--- myOrderNPC.textTimeOver.eng = "How dare you to dawdle during an order of the queen! With such a behaviour, I can only give you %d gold coins, %d silver coins and %d copper coins.";
--- myOrderNPC.textBoth.ger = "Ich bin außer mir! Ihr bringt mir Schund, wohlmöglich noch aus Galmair, und das lange nachdem es der Königin recht wäre. Hier, %d Goldstücke, %d Silberstücke und %d Kupferstücke und lasst euch hier nicht so bald wieder blicken.";
--- myOrderNPC.textBoth.eng = "I am furious! You bring gewgaw, probably from Galmair, and that later than the queen was demanding. Here, %d gold coins, %d silver coins and %d copper coins. Get lost!";
--- myOrderNPC.textNotOk.ger = "So recht zufrienstellen konntet ihr mich und die Königin nicht, aber kein Grund, euch nicht zu entlohnen.";
--- myOrderNPC.textNotOk.eng = "You could not quite please me and the queen, but that is not a reason not to reward you.";
--- myOrderNPC.textOk.ger = "Großartig! Die Königin wird erfreut sein. Ich kann euch großzügig entlohnen.";
--- myOrderNPC.textOk.eng = "Great! The queen will be amused. I can reward you generously.";
--- myOrderNPC.textGetOrder.ger = "Nehmt diesen Befehl und beeilt euch mit dem Zusammentragen der Waren.";
--- myOrderNPC.textGetOrder.eng = "Take this order and hurry while gathering the goods.";
--- myOrderNPC.textRetentionPeriod.ger = "Mir wurde zugetragen, dass ihr nicht integer genug seit, um mit einem Auftrag ihrer Majestät betraut zu werden."
--- myOrderNPC.textRetentionPeriod.eng = "I was told that your integrity is not sufficient to be entrusted with an order of her majesty.";
--- myOrderNPC.textNotThrustworthy.ger = "Schlechter Leumund eilt euch vorraus. Ich denke nicht, dass ich euch einen Auftrag der Königin anvertrauen kann.";
--- myOrderNPC.textNotThrustworthy.eng = "The bad reputation of yours came here in advance. I doubt I can entrust you an order of the queen.";
--- myOrderNPC.textBoni.ger = "Die Königin hat mich autorisiert, euch ein kleines Zubrot für ergebene Dienste zuzuteilen.";
--- myOrderNPC.textBoni.eng = "The queen authorised me to grant you a small extra income for your good services.";
-
--- myOrderNPC.triggerSeeOrder = { ".*[Aa]uftrag.+(%d+).+[Aa]nsehen.*",".*[Ss]ee.+[Oo]rder.+(%d+).*",".*[Aa]uftrag.+(%d+).+sehen.*",".*[Au]ftr[äa][ge][eg].*","[Oo]rder.*", };
--- myOrderNPC.triggerGetOrder = { ".*[Aa]uftrag.+(%d+).+[Aa]nnehmen.*",".*[Gg]et.+[Oo]rder.+(%d+).*", ".*[Aa]uftrag.+(%d+).+[Ll]iefern.*",".*[Dd]eliver.+[Oo]rder.+(%d+).*",".*[Aa]uftrag.+(%d+).+[Hh]aben.*",".*[Hh]ave.+[Oo]rder.+(%d+).*",".*[Aa]uftrag.+(%d+).+[Nn]ehmen.*",".*[Tt]ake.+[Oo]rder.+(%d+).*" };
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -212,4 +170,3 @@ cycletext "Ein Hobbitgewicht in Gold für den Kopf von Baron Hastings!", "The we
 cycletext "Vor jedem verborgenen Feind, vor den Anschlägen der Mörder, schütze Malachín die Königin!", "From every latent foe, from the assassins blow, Malachín save the queen!"
 cycletext "Und wie ein reißender Strom losbrechen, um rebellische Hastings niederzuwerfen!", "And like a torrent rush, rebellious Hastings to crush."
 cycletext "Malachín schütze die Königin!", "Malachín save the queen!"
-cycletext "Ihr da! Kommt her. Ich habe einen Auftrag der Königin.", "You! Come over here. I have orders of the queen."
