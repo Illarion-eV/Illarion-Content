@@ -69,7 +69,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with Brágonspeed.", "An
 "How are you", "How feel", "How do you do" -> "I feel enlightened."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich fühle mich erleuchtet."
 "your name", "who are you", "who art thou" -> "I am Bathelor, high priest of Brágon. Praise Brágon!"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bathelor, Hohepriester Brágons. Lobet Brágon!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bathelor, Hohepriester Brágons. Lobet Brágon!"
 
 -- 1st quest: Visit the shrines of the five
 queststatus(113) = 0, english, "quest", "mission" -> inform("[New quest] A spark to a flame I"), queststatus(113) = 1, "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them."

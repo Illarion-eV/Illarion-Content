@@ -85,7 +85,7 @@ itemShoes = 0
 "How are you", "How feel", "How do you do" -> "I'm feeling very good. Sss. Exss...Extraordinary."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es sssehr gut. Ausssgezzeichnet. Sss."
 "your name", "who are you", "who art thou" -> "I am called Zassaria Riverbank.Nice so meet you. Sss."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Zassaria Riverbank genannt. Sss."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Zassaria Riverbank genannt. Sss."
 
 -- OPTIONAL TRIGGERS
 

@@ -89,7 +89,7 @@ itemShoes = 53
 "How are you", "How feel", "How do you do" -> "I'd feel much better if you could help me a bit, hunting."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich würde mich weit besser fühlen, wenn ihr mir bei der Jagd helfen könntet."
 "your name", "who are you", "who art thou" -> "I am Eugene Burton; father to four hungry mouths. Feeding those mouths has become so difficult these days..."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Eugene Burton, Vater von vier hungrigen Mäulern. Diese zu stopfen ist dieser Tage wirklich schwierig geworden."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Eugene Burton, Vater von vier hungrigen Mäulern. Diese zu stopfen ist dieser Tage wirklich schwierig geworden."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Kill 6 bunnies, provide 6 rabbit meat

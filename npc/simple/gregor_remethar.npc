@@ -78,7 +78,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with the blessing of the
 "How are you", "How feel", "How do you do" -> "I bury those who died. How do yousuppose I feel? To appreciate the value of life is indeed not easy."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich beerdige diejenigen, die starben. Wie meint ihr wohl, fühle ich mich dabei? Den Wert eines Lebens zu schätzen ist fürwahr nicht einfach."
 "your name", "who are you", "who art thou" -> "My name is Gregor Remethar, I am delighted to meet you and to be able to - still - talk to you."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Gregor Remethar, es freut mich, mit mich euch - noch -unterhalten zu können."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Gregor Remethar, es freut mich, mit mich euch - noch -unterhalten zu können."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- Quest 1: Take lamp oil (390) and make sure that the light in the tomb is burning

@@ -91,7 +91,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas! Pray fer old oomi
 "How are you", "How feel", "How do you do" -> "Dem gods, dey will hear mes singin'. Mes gottur dance and sing to scare away spook from old oomie chief tomb.", "Mes feel like dancin'.", "Danks, but mes feel much better if all spook be smashed and Reginald oomie can rest in peace."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Die Götta, werden hören meine Gesang! Grakamesh wird singen und tanzen, alle böser Spuk.", "Mirr fühlt den Rhytmus!", "Danks, aber mirr fühlen besser vieles, wenn alle böser Spuk zerschlagen und zerhauen ist. Dann Reginald-Oomie wir druhen in Ruhe."
 "your name", "who are you", "who art thou" -> "Me dat shaman Grakamesh. Mes know lots about spook and stuff .", "Grakamesh, dat shaman, at yoos service... after mes hab dance.", "Hurr, Grakamesh mes be!"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich binne der Schamane Grakamesh. Er weiß vieles über Sachen und Spuk.", "Grakamesh, der Schamane zu deiner Dienste...wenn mir getanzt fertig.", "Hurr, Ich binne Grakamesh!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich binne der Schamane Grakamesh. Er weiß vieles über Sachen und Spuk.", "Grakamesh, der Schamane zu deiner Dienste...wenn mir getanzt fertig.", "Hurr, Ich binne Grakamesh!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Kill 10 mummies, player receives torch.

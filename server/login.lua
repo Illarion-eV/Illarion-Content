@@ -116,6 +116,10 @@ function onLogin( player )
 		messageG[59]="[Tipp] Der Vollbildmodus kann im Optionsmenü des Clients aktiviert werden.";
 		messageG[60]="[Tipp] Wenn ein neuer Spieler deinem Reich beitritt erhältst du eine kurze Mitteilung. Heiße ihn doch gleich willkommen!";
 		messageG[61]="[Tipp] Um der Staatskasse deines Reiches etwas zu spenden, lege es einfach auf das Spendenfeld in der Nähe deines Anführers."
+		messageG[62]="[Tipp] Um die Sprache deines Charakters umzustellen, MACHE DIES UND DAS."
+		messageG[63]="[Tipp] Laufen ist schneller als Gehen - halte die linke Maustaste gedrückt um zu laufen."
+		messageG[64]="[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter."
+		messageG[65]="[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du DIES UND DAS MACHST."
 		
 		--English
 		messageE={};
@@ -180,6 +184,10 @@ function onLogin( player )
 		messageE[59]="[Hint] Fullscreen mode can be activated from the settings menu when the client is started.";
 		messageE[60]="[Hint] You will receive a notification when a new player chooses to join your realm. Give them a friendly welcome!";
         messageE[61]="[Hint] In order to donate something to your realm's treasury, just place the item on the donation square close to your leader.";
+        messageE[62]="[Hint] To switch the language of your character, DO THIS AND THAT.";
+        messageE[63]="[Hint] Running is faster than walking - hold down the left mouse button to run.";
+        messageE[64]="[Hint] Most NPCs react on 'help' with a list of their most important keywords.";
+        messageE[65]="[Hint] You can review the skills of your character by DOING THIS AND THAT.";
 		
 	    dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	    base.common.InformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message

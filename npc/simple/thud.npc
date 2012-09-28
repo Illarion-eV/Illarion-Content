@@ -201,7 +201,7 @@ itemShoes = 53
 "How are you", "How feel", "How do you do" -> "I Thud! I collect! Trophy!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "I Thud! I collect! Trophy!"
 "your name", "who are you", "who art thou" -> "I Thud. Who youb?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich Thud. Wer du?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich Thud. Wer du?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. - If you bring him enough trophies, he will reward you."), "You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr."
@@ -222,7 +222,7 @@ itemShoes = 53
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "orc", "murgo", "krudash", "grimlug", "olokwa", "Er'hja", "erhja", "mo'rurt", "morurt", race = orc, english -> "You good orc! Orc be Thud's friends. Orc be strong. Make biggest thuds."
 "orc", "murgo", "krudash", "grimlug", "olokwa", "Er'hja", "erhja", "mo'rurt", "morurt", english -> "I'm orc. You orc? Noo! You stupid!"
-"Alice", "alize", "thom", "thomas", "berryard", "berry", "stout", "jack", english -> "Thud be proud orc! Honor! Mes not talk with Snaga! Dirty scheschnak-monkeys!"
+"Alice", "alize", "thom", "thomas", "berryard", "berry", "stout", "jack", english -> "Thud be proud orc! Honour! Mes not talk with Snaga! Dirty scheschnak-monkeys!"
 "ork", "orc", "murgo", "krudash", "grimlug", "olokwa", "Er'hja", "erhja", "mo'rurt", "morurt", race = orc -> "Du guter Ork. Orks sind Thud's Freunde. Orks sind stark. Machen größte Kabums."
 "ork", "orc", "murgo", "krudash", "grimlug", "olokwa", "Er'hja", "erhja", "mo'rurt", "morurt" -> "Ich bin Ork. Bist du Ork? Nöö! Du dumm."
 "Alice", "alize", "thom", "thomas", "berryard", "berry", "stout", "jack" -> "Thud stolzer Ork. Ehre! Ich nix sprech mit Snaga! Dreckige Scheschnak-Affen!"

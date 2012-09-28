@@ -80,7 +80,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Have a good da
 "How are you", "How feel", "How do you do" -> "I'm mostly fine. The pirates be quiet. Shall I take this for good or bad? I don't know.", "As long as queen Rosaline rules our land, everything is going well.", "Hail Zhambra, hail queen Rosaline! I'm good."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Größtenteils gut. Die Piraten verhalten sich ruhig. Ist das ein gutes Zeichen oder ein Schlechtes? Ich weiß es nicht.", "So lange Königin Rosaline unser Land regiert, geht alles seinen rechten Weges.", "Heil Zhambra, Heil Königin Rosaline! Mir geht's gut."
 "your name", "who are you", "who art thou" -> "I am Corporal Piero. Servant of the queen in Cadomyr."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Corporal Piero. Diener der Königin von Cadomyr."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Corporal Piero. Diener der Königin von Cadomyr."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 
@@ -129,7 +129,7 @@ english, "job" -> "I'm a guard. I guard people. Long live the queen."
 "job" -> "Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin."
 english, "Gobaith", "Gobiath" -> "Never heard of that. Is it far away?"
 "Gobaith", "Gobiath" -> "Davon hab ich nie gehört. Ist das weit weg?"
-"my name" -> "I feel honored to meet you."
+"my name" -> "I feel honoured to meet you."
 "mein Name" -> "Ich fühle mich geehrt Euch zu treffen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment

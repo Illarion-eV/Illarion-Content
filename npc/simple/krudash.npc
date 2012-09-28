@@ -72,7 +72,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebas. Have a good sackin
 "How are you", "How feel", "How do you do" -> "Hurr. Mes allrighty! Good shop. Good husband. Good whelps.", "Uh! I'm a rich and mighty orc! Lot's of snagas are mine!", "Hrmpf!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Hurr. Mirr gehts gut. Hab nen feinen Laden. N'guten Mann. Und gute welpen!", "Hrmpf!", "Uh! Ich bin ne reiche und mächtige Ork. Und alle Snagas tun, was ich befehle."
 "your name", "who are you", "who art thou" -> "I am Krudash. And this my Shop. 'Hack'n Sack', sellin all stuff you need for good hack'n sack trip."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Krudash Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Krudash Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> trade, "I... and my snagas do all the work. So there is nothing for a maggot like you to do!"

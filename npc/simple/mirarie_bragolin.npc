@@ -77,7 +77,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "ENGLISH1.", "ENG
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

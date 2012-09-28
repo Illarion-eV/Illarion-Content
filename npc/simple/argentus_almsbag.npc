@@ -85,7 +85,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 "How are you", "How feel", "How do you do" -> trade, "I'm always happy when I can."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es immer gut, wenn ich mit jemandem handeln kann."
 "your name", "who are you", "who art thou" -> "I am Argentus Almsbag. Don't you know me?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Argentus Almsbag. Kennt Ihr mich etwa nicht?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Argentus Almsbag. Kennt Ihr mich etwa nicht?"
 
 -- OPTIONAL TRIGGERS
 

@@ -71,7 +71,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Elara guide your way.",
 "How are you", "How feel", "How do you do" -> "I am busy. I studied the runes of magic, so do not distract me too long."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich bin beschäftigt. Ich erforsche die magischen Runen, also lenkt mich nicht allzu lange ab."
 "your name", "who are you", "who art thou" -> "My name is Arimedus Dalahorn."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "My name is Arimedus Dalahorn."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "My name is Arimedus Dalahorn."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "I am not here to entertain you."

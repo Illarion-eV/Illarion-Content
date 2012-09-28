@@ -71,7 +71,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell. And come back ali
 "How are you", "How feel", "How do you do" -> "This is none of your business, sorry."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Entschuldigt, aber das tut jetzt nichts zur Sache."
 "your name", "who are you", "who art thou" -> "My name is Alexis Dostas, I am the royal stablemaster."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Alexis Dostas, ich bin hier der königliche Stallmeister."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Alexis Dostas, ich bin hier der königliche Stallmeister."
 
 -- OPTIONAL TRIGGERS
 

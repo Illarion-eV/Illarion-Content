@@ -88,7 +88,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go wid dat Moshi. And when 
 "How are you", "How feel", "How do you do" -> "Mes be feelin' gud, mes be on important mission fer clan. Mes be radur sure yoos can do task fer mes."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir gutt! Mir Gutt. Mirr auf wichtige Mission. Yubba. Für mein Klan! Fallleicht du machst Aufgabe, mirr?"
 "your name", "who are you", "who art thou" -> "Mes be mighty Graznok, explorer op dem Clan op dem Bonegnawers. Dat mes."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mirr mächtig Graznok sein! Kundschafter von Klan d' Knochenbeißer. Mirr ist."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mirr mächtig Graznok sein! Kundschafter von Klan d' Knochenbeißer. Mirr ist."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Provide a torch.

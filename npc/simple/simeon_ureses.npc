@@ -73,7 +73,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt
 "How are you", "How feel", "How do you do" -> "Good. I just got a new rasp.", "Did you know why a raspberry is called raspberry? Take a rasp and a raspberry and feel the surface...", "I need to work, sorry."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Ich habe gerade eine neue Feile bekommen.", "Wußtet ihr, dass eine Erdbeere gar keine Beere sondern eine Nussart ist?", "Ich muss arbeiten, entschuldigt."
 "your name", "who are you", "who art thou" -> "I am Simeon Ureses, the royal armourer."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Simeon Ureses, der königliche Waffenmeister."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Simeon Ureses, der königliche Waffenmeister."
 
 -- OPTIONAL TRIGGERS
 

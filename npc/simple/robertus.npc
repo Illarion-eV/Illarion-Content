@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Robertus"
@@ -75,7 +75,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell.", "Good bye.", "Until next t
 "How are you", "How feel", "How do you do" -> "As long as the queen is content, I am happy. And I do anything to please her.", "I just need to finish this calculation, then we can talk.", "Every day is a day to serve queen Rosaline."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Solange die Königin zufrieden ist, bin ich es auch. Und ich werde alles tun, um sie zufrieden zu stellen.", "Ich muss nur noch grad diese Berechnung abschließen, dann können wir reden.", "Jeder Tag ist der richtige, um Königin Rosaline zu dienen."
 "your name", "who are you", "who art thou" -> "Robertus.", "My name is Robertus, I am the royal builder. I serve the queen with every fibre of my body.", "They call me Robertus. I'm the royal builder of Cadomyr, loyal to the queen."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Robertus.", "Mein Name ist Robertus, ich bin der königliche Baumeister. Ich diene der Königin mit jeder Faser meines Körpers.", "Man nennt mich Robertus. Ich bin der königliche Baumeister Cadomyrs, stets der Königin ergeben."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Robertus.", "Mein Name ist Robertus, ich bin der königliche Baumeister. Ich diene der Königin mit jeder Faser meines Körpers.", "Man nennt mich Robertus. Ich bin der königliche Baumeister Cadomyrs, stets der Königin ergeben."
 
 -- Quest 108: A message from Hector Valerion
 queststatus(108) = 3, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), queststatus(108) = 4, "Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!"
@@ -117,7 +117,7 @@ english, "hastings" -> "Baron Hastings? A traitor, he is, indeed!", "The head of
 english, "tavern" -> "I build the tavern; well, I commanded the workers, sometimes, with the whip."
 "tavern" -> "Ich habe die Taverne erbaut; nun, ich habe die Arbeiter befehligt, manchmal auch mit der Peitsche."
 "sklave" -> "Sklaven, nun, ich bevorzugen den Begriff Arbeiter. Es ist doch eine Ehre, der Königin zu dienen.", "Eine Peitsche ist ein wichtiges Werkzeug. Ich verstehe wohl nie, warum einige Arbeiter nicht spuren. Es ist doch eine Ehre, für die Königin zu arbeiten."
-"slave" -> "Slaves, well, I prefer the term workers. It is an honor to work for the queen afterall.", "A whip is an important tool. I'll never understand why some workers do not obey. It is an honor to work for the queen."
+"slave" -> "Slaves, well, I prefer the term workers. It is an honour to work for the queen afterall.", "A whip is an important tool. I'll never understand why some workers do not obey. It is an honour to work for the queen."
 
 -- Faction stuff
 "archmage" -> "Archmage Morgan, he calls himself. He's a bastard of impure blood.", "He hides in his chamber, pretending to study. I assume he tends his whores there!", "An arrogant person, he is. Never trust a mage, I say."

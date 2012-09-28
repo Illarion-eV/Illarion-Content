@@ -85,7 +85,7 @@ itemShoes = 369
 "How are you", "How feel", "How do you do" -> "If nobody disturbed me, it would be better!", "Could you keep silent please?", "Fine, fine, but let me continue my work now."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Würde man mich nicht stören, würde es mir besser gehen.", "Könnt ihr bitte leise sein?", "Gut, Gut, aber nun lasst mich weiterarbeiten."
 "your name", "who are you", "who art thou" -> "Who asks?", "Sir Fludnar Yednos.", "Why do you need to know?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Wer fragt?", "Sir Fludnar Yednos.", "Ist das von belang zu wissen?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Wer fragt?", "Sir Fludnar Yednos.", "Ist das von belang zu wissen?"
 
 -- quest - 1th step: gather some information about bragon and orcs
 -- 1. question

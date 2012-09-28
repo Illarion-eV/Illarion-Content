@@ -84,7 +84,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Good bye, enjoy your time in Elstree f
 "How are you", "How feel", "How do you do" -> "Oh, I am fine, thank you.", "I got a splinter in my thumb but I will handle it.", "My head aches a little but it will pass after some rest."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut, danke euch.", "Ich habe einen Splitter im Daumen aber das wird schon.", "Mein Kopf schmerzt ein wenig aber das geht vorbei nach ein bischen Rast."
 "your name", "who are you", "who art thou" -> "I am Valandil Elensar.", "Valandil Elensar is my name, I am the forester.", "I am Valandil Elensar, the forester."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Valandil Elensar.", "Valandil Elensar ist mein Name, ich bin der Förster hier.", "Ich bin Valandil Elensar, der Förster."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Valandil Elensar.", "Valandil Elensar ist mein Name, ich bin der Förster hier.", "Ich bin Valandil Elensar, der Förster."
 
 -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
 queststatus(69) = 0, english, "quest", "mission" -> inform("[New quest] Elstree Forest I"), item(74, 1, 399), queststatus(69) = 1, "Ah, fine, so you want to help me, caring for the trees. Bark beetles are a real plague these days. Take this hatchet and search for ill naldor trees. Bring me ten logs, will you?"

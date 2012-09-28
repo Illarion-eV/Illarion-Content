@@ -87,7 +87,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Aye... another time.", "Come back agai
 "How are you", "How feel", "How do you do" -> trade, "I do alright, I would do better if you bought something!", "Why do you ask, you wont get a better price for small talk.", "I'm good, all the better for making awith you."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut und es würde mir noch besser gehen, wenn ihr etwas kaufen würdet.", "Warum fragt ihr, denkt ihr, dass ihr durch Geschwätz einen besseren Preis bekommt?", "Gut, genau richtig, um mit euch zu handeln."
 "your name", "who are you", "who art thou" -> "#me chuckles: 'Nik Nilo, but people call me Big Nik.", "Big Nik and don't you forget it!", "You mean you never heard of me, I'm Big Nik Nilo!"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me lacht auf: 'Nik Nilo, aber die Leute nennen mich Big Nik.", "Big Nik, vergesst das besser nicht.", "Ihr habt also noch nie von mir gehört? Ich bin Big Nik Nilo!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me lacht auf: 'Nik Nilo, aber die Leute nennen mich Big Nik.", "Big Nik, vergesst das besser nicht.", "Ihr habt also noch nie von mir gehört? Ich bin Big Nik Nilo!"
 
 -- Catching quest triggers
 english, "quest", "mission" -> "#me laughs: 'What? I'm a builders merchant, I have tools not quests."

@@ -74,7 +74,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare thee well.", "Good-bye
 "How are you", "How do you feel", "How do you do" -> "I'm fine and you?", "I feel wonderful.", "Can't complain."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht's toll. Und dir?", "Ich fühle mich wunderbar.", "Ich kann mich nicht beschweren."
 "your name", "who are you", "who art thou" -> "I'm Viola and I know all that matters about the realms Cadomyr, Galmair and Runewick."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Viola und weiß alle wichtigen Dinge über die Reiche Cadomyr, Galmair und Runewick. So, frag mich was!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Viola und weiß alle wichtigen Dinge über die Reiche Cadomyr, Galmair und Runewick. So, frag mich was!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The realms are always on the look out for adventurers and workers alike!"

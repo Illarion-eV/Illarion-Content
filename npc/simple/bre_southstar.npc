@@ -130,7 +130,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Justice and peace make 
 "How are you", "How feel", "How do you do" -> "I'm doing great, can't really explain why.", "Today is a good day, well I guess everyday is a good day.", "I'm in utter peace... or at least I think I am."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, auch wenn ich gar nicht weiß, wieso.", "Heute ist ein guter Tag, eigentlich ist jeder neue Tag ein guter.", "Ich bin mit mir im Einklang... denke ich."
 "your name", "who are you", "who art thou" -> "I'm Bre Southstar.", "I am the pretty dwarf warrior, Bre Southstar.", "I prefer the name 'Amazing Battle Dwarf Bre the Southstar'."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bre Southstar.", "Ich bin die schicke Zwergenkriegerin, Bre Southstar.", "Ich würde die Anrede 'Großartige Zwergenkriegerin Bre der Southstar' vorziehen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bre Southstar.", "Ich bin die schicke Zwergenkriegerin, Bre Southstar.", "Ich würde die Anrede 'Großartige Zwergenkriegerin Bre der Southstar' vorziehen."
 
 -- OPTIONAL TRIGGERS
 

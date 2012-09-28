@@ -67,7 +67,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a nice day.", "Aye. Co
 "How are you", "How feel", "How do you do" -> "Good - 'nd you?", "It's allright. Like allways."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Gut - 'nd Euch?", "Alles gut - wie immer."
 "your name", "who are you", "who art thou" -> "Great. I am Borgate Northoff, the barkeeper. Do you want something to drink?", "I'm Borgate Northoff. Need a drink?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Borgate Northoff und das ist mein Tresen. Ich schenke Bier aus. Willst du eines?", "Ich bin Borgate Northoff. Willst du was trinken?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Borgate Northoff und das ist mein Tresen. Ich schenke Bier aus. Willst du eines?", "Ich bin Borgate Northoff. Willst du was trinken?"
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Nope, I didn't got a job for you."
@@ -122,7 +122,7 @@ english, "salkama" -> "During my life people told me many tales. Most of them by
 "salkama" -> "Im Laufe meines Lebens wurde mir viel Erzählt. Das Meißte, von Betrunkenen und die sagen eher die Wahrheit. Aber wollt ihr wirklich die verwaschene Meinung eines alten Zwerges Hören?", "Wenn mir die Leute anfangen über ihre Heimat, oder sonst etwas zu erzählen nicke ich eigentlich immer nur uns sage 'Aha..?'"
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "I'm a honorful dwarf and Irmorom created my kin ages ago. His will leads and protects my folk since begin of time."
+"god" -> "I'm a honourful dwarf and Irmorom created my kin ages ago. His will leads and protects my folk since begin of time."
 "Gott", "Götter" -> "Ich bin ein aufrichtiger Zwerg und Irmorom hat einst vor vielen Jahren meine Sippe erschaffen. Sein Wille leitet und schützt mein Volk von Anbeginn her."
 english, "Adron" -> "A bartender is able to tell you many things about Adron, for sure! He's the god of wine and festival. Also halfings say, he got a big wine jug wich never gets emmpty."
 "Adron" -> "Als Schankwirt, kann ich dir natürlich viel über Adron erzählen. Er ist der Gott des Weines und der Feste. Und man erzählt sich, insbesondere bei den Halblingen, er trägt immerzu einen großen Weinkrug bei sich, der niemals leer wird."

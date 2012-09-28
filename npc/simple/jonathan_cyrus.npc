@@ -80,7 +80,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with the blessing of the
 "How are you", "How do you feel", "How do you do" -> "Let us not talk about feelings but about business.", "I am doing well, just yesterday I saw the queen!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Lasst uns nicht über Gefühle sondern übers Geschäft reden.", "Mir geht es bestens, gestern gerade habe ich die Königin gesehen."
 "your name", "who are you", "who art thou" -> "Jonathan Cyrus. Call me John and you will regret it.", "You are in the glassware shop of Cyrus.", "For my good customers, I go by the name of Jonathan."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Jonathan Cyrus. Nennt mich John und ihr werdet es bereuen.", "Ihr seid im Glaswarenladen Cyrus.", "Für meine guten Kunden heiße ich Jonathan."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Jonathan Cyrus. Nennt mich John und ihr werdet es bereuen.", "Ihr seid im Glaswarenladen Cyrus.", "Für meine guten Kunden heiße ich Jonathan."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Adventures? Now, glassblowing is truly a learning adventure in itself."
