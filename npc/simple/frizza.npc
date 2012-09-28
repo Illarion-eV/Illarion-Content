@@ -71,7 +71,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sssee you again if you need
 "How are you", "How feel", "How do you do" -> "Very good, jussst won another game."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sssehr gut, gerade wieder ein Ssspiel gewonnen."
 "your name", "who are you", "who art thou" -> "Frizza, the informant of Cadomyr."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Frizza, die Informantin von Cadomyr."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Frizza, die Informantin von Cadomyr."
 
 -- OPTIONAL TRIGGERS
 

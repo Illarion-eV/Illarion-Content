@@ -112,7 +112,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I don't think you're leavin
 "How are you", "How feel", "How do you do" -> "Mind your business.", "I would feel way better if you'd stop talking and get back to work!", "I feel like whipping you."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Das geht dich nichts an.", "Es würde mir weit besser gehen wenn du die Klappe hieltest und arbeiten würdest.", "Mir ist danach, dich auszupeitschen."
 "your name", "who are you", "who art thou" -> "You can call me 'master'.", "Percy Dryless. You will remember my name in your nightmares.", "At least I have a name, yours will be forgotten when you are released... one distant day."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Du kannst mich 'Meister' nennen.", "Percy Dryless. Du wirst diesen Namen in deinen Alpträumen schreien.", "Wenigstens habe ich einen Namen, deinen wird man längst vergessen haben, wenn du entlassen wirst."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Du kannst mich 'Meister' nennen.", "Percy Dryless. Du wirst diesen Namen in deinen Alpträumen schreien.", "Wenigstens habe ich einen Namen, deinen wird man längst vergessen haben, wenn du entlassen wirst."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "#me points his finger in your face and laughs out loud.", "Erm, no quest for you.", "My quest is to whip those who are lazy.", "Let me see... your quest is to work!"

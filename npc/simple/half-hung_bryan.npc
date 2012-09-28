@@ -63,7 +63,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir.", "Farewell, and
 "How are you", "How feel", "How do you do" -> "It's hard to breath...", "#me hisses slightly. 'My neck hurts.'", "#me touches his neck with a thoughtfull gaze. 'Hm-hm... How's your neck?'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "#me macht einen kehlig würgendes Geräusch. 'Ich habe Nackenschmerzen...'", "#me inhaliert mit einem rasselnden Laut die stickige Luft. 'Das Atmen fällt mir Schwer...'", "#me betastet nachdenklich die dunkel verfärbte Narbe quer über seinem Hals: 'Hm-hm... - Und Euch? Wie fühlt sich Euer Hals an?'"
 "your name", "who are you", "who art thou" -> "I am Bryan, and that is my inn. The Hemp Necktie Inn. You like the name?", "I am Half-hung Bryan. What do you want?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bryan. Und das ist mein Gasthof. Der Gasthof zur Hanfschlinge. Gefällt Euch der Name?", "Ich bin Half-hung Bryan. Was wollt Ihr?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bryan. Und das ist mein Gasthof. Der Gasthof zur Hanfschlinge. Gefällt Euch der Name?", "Ich bin Half-hung Bryan. Was wollt Ihr?"
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Half-hung Bryan doesn't have any work for you."

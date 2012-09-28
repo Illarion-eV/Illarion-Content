@@ -946,7 +946,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adé!", "A bientôt!", "May
 "How are you", "How feel", "How do you do" -> "Thank you for asking. Since I stay away from smoking Sibanac I feel great!", " I drank some tea agains my headache, now I feel better."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage. Seitdem ich kein Sibanac mehr rauche geht es mir ausgezeichnet!", "I trank Tee gegen meine Kopfschmerzen, und nun  geht es mir wieder gut."
 "your name", "who are you", "who art thou" -> "I'm a merchant, I sell fresh herbs. I am called William Deloire.", "I'm William Deloire, at you service."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Händler der frische Kräuter verkauft. Ich werde William Deloire genannt.", "Ich heiße William Deloire, was kann ich für Euch tun?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Händler der frische Kräuter verkauft. Ich werde William Deloire genannt.", "Ich heiße William Deloire, was kann ich für Euch tun?"
 
 -- OPTIONAL TRIGGERS
 

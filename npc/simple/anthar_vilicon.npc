@@ -95,7 +95,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with the gods' blessing.
 "How are you", "How feel", "How do you do" -> "My health is not an issue here. I am an elf as you might see."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Meine Gesundheit spielt keine Rolle. Ich bin ein Elf, wie ihr seht."
 "your name", "who are you", "who art thou" -> "I am Anthar Vilicon, Chancellor of Cadomyr. I am the head of administration and if you are loyal, I have a mission for you."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Anthar Vilicon, Kanzler Cadomyrs. Ich bin das Oberhaupt der Administration und wenn ihr loyal seid, dann habe ich eine Mission für euch."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Anthar Vilicon, Kanzler Cadomyrs. Ich bin das Oberhaupt der Administration und wenn ihr loyal seid, dann habe ich eine Mission für euch."
 
 -- Catching quest triggers of other factions' members. Outlaws are ignored.
 english, town = Galmair, "quest", "mission" -> "Farewell and my best 'regards' to your Don."

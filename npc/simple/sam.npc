@@ -69,7 +69,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "'#me nods a bit.
 "How are you", "How feel", "How do you do" -> "#me raises his arms angrily and shouts drunkenly. 'I'm FINE!", "Nothing...it's nothing. Everything's alright.", "Ah-wh! My life is complete hellbriar! - You don't know what it's like!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "#me hebt zornig die Arme und ruft. 'Es geht mir GUT!'", "Nichts... es ist nichts. Allesch in beschter Ordnuch.", "Ah-wh! Mein Lebn ischt die reinste Qual! - Wischt Ihr wie daasch ischt?"
 "your name", "who are you", "who art thou" -> "Sam...I'm Sam. Just Sam.", "Sam. Yes - THAT Sam, from the Grey Refuge. But... nobody knows that anymore."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Sam... isch bin Sam. Einfach nur Sam.", "Sam. Ja DER Sam, von d' Grauhen Zuflucht. Aba... dasch kennt heute natürlisch keiner mehr."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Sam... isch bin Sam. Einfach nur Sam.", "Sam. Ja DER Sam, von d' Grauhen Zuflucht. Aba... dasch kennt heute natürlisch keiner mehr."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "#me sighs. 'Nothing....simple, just, plain nothing. Everything is gone! They took everything...ewh. Some time ago...yes...Sam sold everything. But now, there is nothing left."

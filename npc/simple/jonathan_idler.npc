@@ -93,7 +93,7 @@ buySecondaryItems = 2, 3
 "How are you", "How feel", "How do you do" -> "Fine. As lomng as I can read my book I fell fine.", "Hm?.", "#me continues reading."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut gut. Solange man mich hier in Ruhe lesen lässt.", "Hm?", "#me liest weiterhin in seinem Buch."
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "Ah, yes...", "#me moves his glasses.", "Who? Me? I'm Joanthat. Joanathan Ideler."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ah, yes...", "#me rückt seine Brille zurecht.", "Wer? Ich? Ich bin Jonathan. Jonathan Idler."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ah, yes...", "#me rückt seine Brille zurecht.", "Wer? Ich? Ich bin Jonathan. Jonathan Idler."
 
 -- OPTIONAL TRIGGERS
 

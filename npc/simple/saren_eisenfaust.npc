@@ -78,7 +78,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye, take care.", "Irmorom 
 "How are you", "How feel", "How do you do" -> "Can't say anything's bothering me and ya?", "So-so, but I'm fine right now."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nich klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
 "your name", "who are you", "who art thou" -> "I'm Saren and who are you?", "I'm called Saren, Saren Eisenfaust and what's your name?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Saren und wer bist du?", "Man nennt mich Saren, Saren Eisenfaust und wie nennt man dich?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Saren und wer bist du?", "Man nennt mich Saren, Saren Eisenfaust und wie nennt man dich?"
 
 -- 1st quest
 skill(smithing) =< 20, english, "quest", "mission" -> item(2763, 1, 399), queststatus(81) = 1, "I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore."

@@ -72,7 +72,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fareebas."
 "How are you", "How feel", "How do you do" -> "Hurr, meh beh fine.", "Tired as usual", "#me scratches his bum."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Hurr, mich fein sein.", "Mude wia imma", "#me kratzt sich am Hintern."
 "your name", "who are you", "who art thou" -> "Tronruk.", "Tronruk, an old orc. Hurr"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Tronruk", "Tronruk, alter Ork mich bin. Hurr."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Tronruk", "Tronruk, alter Ork mich bin. Hurr."
 english, "Tronruk" -> "Yubba, dat meh name! *hits his chest and grunts*"
 "Tronruk" -> "Yubba, das mein Name! *schlägt sich auf die Brust*"
 

@@ -83,7 +83,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a nice day!", "Goodbye
 "How are you", "How feel", "How do you do" -> "I have a grain of sand in my eye - how would you feel?!", "Fine, fine.", "All I can say is: I hope you are feeling as good as I do!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie befind" -> "Ich habe Sand ins Auge bekommen - wie würdest du dich fühlen!?", "Gut, gut.", "Ich kann nur sagen, ich hoffe es geht dir so gut wie mir!"
 "your name", "who are you", "who art thou" -> "I am Rutrus and who are you?", "Be greeted, I am the digger Rutrus.", "I am Rutrus and this here is my shovel."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Rutrus und wer bist du?", "Grüße dich, ich bin der Gräber Rutrus.", "Ich bin Rutrus und das in meinen Händen ist meine Schaufel."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Rutrus und wer bist du?", "Grüße dich, ich bin der Gräber Rutrus.", "Ich bin Rutrus und das in meinen Händen ist meine Schaufel."
 
 -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
 queststatus(67) = 0, english, "quest", "mission" -> inform("[New quest] Oasis of Stars I"), item(24, 1, 399), queststatus(67) = 1, "Oh! You want to help me? Take this shovel and get ten piles of coarse sand. Dig for it next to the rocks in the desert. Your reward will be fifty copper coins."

@@ -78,7 +78,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I hope you'll recommend my 
 "How are you", "How feel", "How do you do" -> "I feel like selling gems."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir ist danach, Edelsteine zu verkaufen."
 "your name", "who are you", "who art thou" -> "I am Jacobus, the jeweller.", "Jacobus.", "Jacobus, so do not call me Jack."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Jacobus der Juwelier.", "Jacobus.", "Jacobus. Und nennt mich nicht Jack."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Jacobus der Juwelier.", "Jacobus.", "Jacobus. Und nennt mich nicht Jack."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "I don't have a quest for you, sorry."

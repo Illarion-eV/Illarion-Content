@@ -85,7 +85,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Uhm...hm.", "#me gives a qu
 "How are you", "How feel", "How do you do" -> "I-I'm f-fine. H-h-haven't d-done some-something wrong, h-have I?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "G-gut! M-Mir geht-gehts g-gut. I-ich h-hab doch n-nichts falsch g-gemacht, o-oder?"
 "your name", "who are you", "who art thou" -> "M-my n-n-name is Alice..."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "I-ich b-bin Alice..."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "I-ich b-bin Alice..."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Y-you just can't help me. I h-have to w-work alone."

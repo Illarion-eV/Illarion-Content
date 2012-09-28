@@ -71,7 +71,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell and come back with
 "How are you", "How feel", "How do you do" -> "Let's skip this and get straight to business."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Überspringen wir die Höflichkeiten und lasst uns zum Geschäft kommen."
 "your name", "who are you", "who art thou" -> "Cassandra."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cassandra."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cassandra."
 
 -- OPTIONAL TRIGGERS
 

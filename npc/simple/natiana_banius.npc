@@ -80,7 +80,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "T...t...take...care.", "#me
 "How are you", "How feel", "How do you do" -> "I am...v...very...sick.", "T...the...medico does...doesn't know what...i...is wrong...with me.", "#me coughs into a handkerchief, stained red."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich...ich bin...s...sehr krank.", "D...der...Heiler, w...weiß nicht, was mit mir n...nicht stimmt.", "#me hustet in ein blutbeflecktes Taschentuch."
 "your name", "who are you", "who art thou" -> "I am...N...Natiana.", "M...m...my name...is Natiana...Banius.", "N...Natiana Banius. I...I am...the wife...o...of Rowan."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "I...Ich bin...Natiana...Banius.", "N...Natiana Banius. I...Ich... bin...Rowans...F...Frau."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "I...Ich bin...Natiana...Banius.", "N...Natiana Banius. I...Ich... bin...Rowans...F...Frau."
 
 -- The Farmer's Wife quest incomplete
 queststatus(322) < 11, english, "quest", "mission" -> "P...please...help my husband."

@@ -58,7 +58,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Bye and enjoy your meal.", 
 "How are you", "How feel", "How do you do" -> "Arr, Snorri's fish stinks like it's a hundred years old! If only this wouldn't stink so bad!", "What do you think? The fish stinks so bad that I can't breathe! I shouldn't have left Ironsiege...", "Fish! Fish in the morning! Fish at lunch time! Fish in the evening! I cannot stand anymore fish. AND smelling! Irmorom be with me! Snorri's fish stinks to high heaven! Drhg'hgin!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Arr, Snorris Fisch stinkt als wäre er vor hundert Jahren frisch gewesen! Wenn nur dieser Gestank nicht wäre!", "Was glaubt ihr denn? Hier stinkt's nach Fisch, ich kann kaum Atmen! - Ich hätte Ironsiege nie verlassen sollen...", "Fisch! Morgens, Fisch! Mittags, Fisch! Abends, Fisch! Ich kann schon keinen Fisch mehr sehn. UND riechen, Irmorom sei mit mir! Snorris Fisch stinkt zum Himmel! Drhg'hgin!"
 "your name", "who are you", "who art thou" -> "I am Morri. And the one with the stinking fish next to me is Snorri my older brother."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Morri. Und der, mit dem stinkenden Fisch, neben mir, ist Snorri, mein älterer Bruder."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Morri. Und der, mit dem stinkenden Fisch, neben mir, ist Snorri, mein älterer Bruder."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "I don't employ anyone. That is my brother Snorri's task, he is the older one of us. He's the one to ask."

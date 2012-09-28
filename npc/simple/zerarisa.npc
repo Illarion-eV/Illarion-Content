@@ -84,7 +84,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly
 "How are you", "How feel", "How do you do" -> "Zerarisa iss fine, yess, but her paw hurtsss."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Zerarisa issst gut, ja, aber Krallensss ssschmerzensss."
 "your name", "who are you", "who art thou" -> "I be Zerarisa, would you like to do a job for me?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich sindss Zerarisa, machenss du Aufgabe für michss?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich sindss Zerarisa, machenss du Aufgabe für michss?"
 
 -- Tool hints
 queststatus(71) = 0, "rod" -> "You'll need a fissshing rod, you can get one from Fredericus, if the line breakss, you need thread to fix."

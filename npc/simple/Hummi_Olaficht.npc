@@ -73,7 +73,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare thee well.", "Tata!", 
 "How are you", "How do you feel", "How do you do" -> "I'm fine and you?", "I feel wonderful.", "Can't complain."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht's toll. Und dir?", "Ich fühle mich wunderbar.", "Ich kann mich nicht beschweren."
 "your name", "who are you", "who art thou" -> "I'm Hummi, the local guide around these parts.", "I'm Hummi and you? Need help with anything?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Hummi und weiß alle wichtigen Dinge über diesen Platz hier. So, frag mich was!", "Ich bin Hummi und du? Möchtest du etwas wissen?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Hummi und weiß alle wichtigen Dinge über diesen Platz hier. So, frag mich was!", "Ich bin Hummi und du? Möchtest du etwas wissen?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> inform("Ask the NPC for 'Elesil', 'Frizza', 'Iradona' or 'Explorer' if you want to know more."), "Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The factions are always on the look out for adventurers and workers alike! For example Elesil Daelwon in Runewick, Frizza in Cadomyr and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them."

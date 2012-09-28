@@ -101,7 +101,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Will I ever see you again? 
 "How are you", "How feel", "How do you do" -> "I don't feel so good today. My stomach hurts. But it's not because of my food! Please don't think my food is bad!", "My head is dizzy.", "I think I ate too much. I shouldn't eat for another two days."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "your name", "who are you", "who art thou" -> "I am the daughter of the sword crafter Asha Lorthelia.", "I am the oldest Lorthelia daughter, but no I cannot craft ornate weapons like my mother. Instead I bake.", "am Alysa Lorthelia, the baker, at least for now."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I bake all kinds of foods.", "I sell people the food that I and old man John Sights bake.", "I started working as a baker a several moons ago."

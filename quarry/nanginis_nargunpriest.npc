@@ -78,7 +78,7 @@ itemShoes = 326
 "How are you", "How feel", "How do you do" -> "I'm fine, thank you for your concern.", "I can't complain, even if some more action wouldn't be that bad.", "Very good, and you?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage.", "Ich kann nicht klagen, auch wenn ein bisschen mehr Abenteuer mal wieder nicht schlecht wäre.", "Ganz gut, und euch?"
 "your name", "who are you", "who art thou" -> "Nanginis! Just call me Nanginis! 'Nargun' has granted me this name in a vision, but to be frank my real name is Peter, hihihi."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Nanginis! Nennt mich einfach Nanginis! 'Nargun' hat mir diesen Namen in einer Vision geschickt, aber unter uns, eigentlich heiße ich Peter. Hihihi."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Nanginis! Nennt mich einfach Nanginis! 'Nargun' hat mir diesen Namen in einer Vision geschickt, aber unter uns, eigentlich heiße ich Peter. Hihihi."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."

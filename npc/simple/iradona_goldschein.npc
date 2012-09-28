@@ -71,7 +71,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See ya soon."
 "How are you", "How feel", "How do you do" -> "My head hurts, because of these thousand of questions of the people of Galmair here."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mein Kopf schmerzt von der vielen Fragerei der Leute von Galmair hier."
 "your name", "who are you", "who art thou" -> "Iradona Goldschein, the informant of Galmair."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Iradona Goldschein, die Auskunftgeberin von Galmair."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Iradona Goldschein, die Auskunftgeberin von Galmair."
 
 -- OPTIONAL TRIGGERS
 

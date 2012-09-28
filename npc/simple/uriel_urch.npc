@@ -67,7 +67,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Just go stranger.", "#me no
 "How are you", "How feel", "How do you do" -> "All the worse for having you in my face.", "Better if I had a bloody drink."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "All der Ärger... und dann auch noch Euer Gesicht sehn. Das ist mir zu viel.", "Weiß nicht. Aber sicher besser - wenn ich was zu saufen hätt."
 "your name", "who are you", "who art thou" -> "My name is Uriel Urch, Why do you ask?!.", "An old soldier.", "A man trying to have a quiet drink!"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein name ist Uriel Urch, warum fragt Ihr?", "Ich bin nur ein alter Soldat.", "Ein Mann, der versucht in Ruhe zu trinken, damit er vergisst was er gesehen hat. - Der bin ich."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein name ist Uriel Urch, warum fragt Ihr?", "Ich bin nur ein alter Soldat.", "Ein Mann, der versucht in Ruhe zu trinken, damit er vergisst was er gesehen hat. - Der bin ich."
 
 -- Quest
 queststatus(307) = 0, english, "quest", "mission" -> inform("Quest: Tales and Swords started. - Fetch a mug filled with beer for Uriel."), queststatus(307) = 1, "I tell you what, go fetch me a beer and I will tell you my story, but don't you dare spill any."

@@ -83,7 +83,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell is what we say aro
 "How are you", "How feel", "How do you do" -> "None of ya business.", "I'm fine and ya?", "I could use some beer."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Geht dich nichts an.", "Gut und dir?", "Ich könnte 'n Bier vertragen."
 "your name", "who are you", "who art thou" -> "I'm Bruno Blackhole.", "I'm a dwarven miner named Bruno.", "Just call meh Bruno for now."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bruno Blackhole.", "Ich bin 'n zwergischer Bergarbeiter namens Bruno.", "Nenn' mich einfach Bruno."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bruno Blackhole.", "Ich bin 'n zwergischer Bergarbeiter namens Bruno.", "Nenn' mich einfach Bruno."
 
 -- Quest 107: A message from Groktan Flintsplit
 queststatus(107) = 6, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder III: You deliver the message from Groktan Flintsplit to Bruno Blackhole."), queststatus(107) = 7, "Oh my goodness! How shall I pay that amount of money to the Don? I just know what I get when I don't pay..."

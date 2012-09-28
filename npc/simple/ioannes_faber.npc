@@ -76,7 +76,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go forth and do as the quee
 "How are you", "How feel", "How do you do" -> "The grin of the queen makes me spin, spinning within.", "Every word of the queen is like caress."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Das Lächeln der Königin macht mich ganz wuschig im Inneren.", "Jedes Wort der Königin ist wie eine Liebkosung."
 "your name", "who are you", "who art thou" -> "Faber. Ioannes Faber. I am the royal treasurer, do not underestimate my importance at the palace.", "My name is Ioannes Faber, the royal treasurer of Cadomyr. The queen relies on me, indeed.", "You don't know my name? Better write it down then: Ioannes Faber."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Faber. Ioannes Faber. Ich bin der königliche Kämmerer, ihr solltet meine Bedeutung am Hofe nicht unterschätzen.", "Mein Name ist Ioannes Faber, der königliche Kämmerer von Cadomyr. Die Königin hält große Stücke auf mich.", "Ihr kennt meinen Namen nicht? Schreibt ihn euch besser auf: Ioannes Faber."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Faber. Ioannes Faber. Ich bin der königliche Kämmerer, ihr solltet meine Bedeutung am Hofe nicht unterschätzen.", "Mein Name ist Ioannes Faber, der königliche Kämmerer von Cadomyr. Die Königin hält große Stücke auf mich.", "Ihr kennt meinen Namen nicht? Schreibt ihn euch besser auf: Ioannes Faber."
 
 -- Catching order triggers - remove if Big Order System works
 "order" -> "I currently have no orders for you."

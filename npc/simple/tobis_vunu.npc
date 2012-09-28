@@ -123,7 +123,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Don't get biten by seedogs!
 "How are you", "How feel", "How do you do" -> "I'm good matee! The winds fair and my bottle is filled. Aye."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht's gut, Kumpel. Die Winde sind gut und die Flasche is voll. Aye."
 "your name", "who are you", "who art thou" -> "I am Tobis Vunu. Siver me timbers!"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Tobis Vunu. Bei meinen wankenden Masten!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Tobis Vunu. Bei meinen wankenden Masten!"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a scary Pirate! Arr!"

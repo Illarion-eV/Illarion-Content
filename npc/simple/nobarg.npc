@@ -113,7 +113,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Good bye.", "B
 "How are you", "How feel", "How do you do" -> "If Brágon listens to me today, better.", "Would you pray with me?", "Fine, Brágon to honor of course!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Wenn Bragon mich heute erhört, besser.", "Möchtet ihr mit mir beten?", "Gut, Bragon zu Ehren!"
 "your name", "who are you", "who art thou" -> "Nobarg.", "Nobarg, priest of Brágon"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Nobarg", "Nobarg, Priester von Bragon"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Nobarg", "Nobarg, Priester von Bragon"
 
 -- 1st quest: Bring 1 pure fire.
 queststatus(600) < 5, "task", "adventure", "know", "question" -> "I don't have to do anything for you."

@@ -98,7 +98,7 @@ itemShoes = 53
 "How are you", "How feel", "How do you do" -> "I underestimated my enemy and I have paid for it, barely made it out alive. Will you continue with my glorious endeavours?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich habe meinen Feind unterschätzt und dafür bezahlt - ich bin froh, mit dem Leben davongekommen zu sein. Werdet ihr meine ehrbaren Taten vollenden?"
 "your name", "who are you", "who art thou" -> "My name is Arenius Batavius. I came to this land not too long ago, but only misfortune I have received. Please stranger, will you help me in my crusade?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Arenius Batavius. Ich weile erst seit kurzem in diesen Landen, aber nur Unglück ist mir widerfahren. Bitte, werdet ihr mir auf meinem Kreuzzug beiseite stehen?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Arenius Batavius. Ich weile erst seit kurzem in diesen Landen, aber nur Unglück ist mir widerfahren. Bitte, werdet ihr mir auf meinem Kreuzzug beiseite stehen?"
 
 -- Quest 108: A message from Hector Valerion
 "message", "news", "letter", "scroll", "parchment", queststatus(108) = 6 -> inform("[Quest status] Delayed Mail III: You deliver the message from Hector Valerion to Arenius Batavius."), "#me reads the scroll: 'This is even worse than I thought. The Cult of Salavesh has committed more sins than I thought. Thank you for the information.'", queststatus(108) = 7

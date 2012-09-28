@@ -63,7 +63,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebas!", "Blessings to yo
 "How are you", "How feel", "How do you do" -> "#me nods slowly. 'I'm fienest. Yubba honored the gods today?'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "#me nickt langsam. 'Ich binne bestens. Hast du heute die Götter geehret?'"
 "your name", "who are you", "who art thou" -> "I am' Grimlug. Who be you?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich binne Grimlug. Wer seist du?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich binne Grimlug. Wer seist du?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "The shaman has no quests for you, right now."

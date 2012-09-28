@@ -82,7 +82,7 @@ itemShoes = 53
 "How are you", "How feel", "How do you do" -> "#me furrows his brows. 'I am upset, for the travesty continues and the bitch still sits on 'my' throne.'", "I weep for Cadomyr", end
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "#me runzelt die Stirn. 'Ich bin darüber erzürnt, dass diese lächerliche Burleske weitergeht und dieses Miststück noch immer auf 'meinem' Thron sitzt.", "Ich beweine Cadomyr.", end
 "your name", "who are you", "who art thou" -> "I am Baron Hastings, the Rightful Lord of Cadomyr", "My name is Hastings. Baron Hastings.", end
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Baron Hastings, der rechtmäßige Herrscher Cadomyrs.", "Meine Name ist Hastings. Baron Hastings.", end
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Baron Hastings, der rechtmäßige Herrscher Cadomyrs.", "Meine Name ist Hastings. Baron Hastings.", end
 
 -- Catching quest triggers
 "quest", "mission", queststatus(999) = 0, english -> inform("[Quest started] An usurper to the throne"), "So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'", queststatus(999) = 1

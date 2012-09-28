@@ -75,7 +75,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Be well! An' careful that n
 "How are you", "How feel", "How do you do" -> "Aye, I'm fine. But you seem to be thirsty..."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Aye, mir gehts gut. Aber ihr seht aus als hättet ihr Durst..."
 "your name", "who are you", "who art thou" -> "I am Hagar Wernson, the innkeeper."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Hagar Wernson, der Wirt."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Hagar Wernson, der Wirt."
 
 -- Catching quest triggers
 english, "quest" -> "I haven't any tasks for you."
