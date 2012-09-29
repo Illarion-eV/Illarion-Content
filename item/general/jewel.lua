@@ -17,27 +17,12 @@ function LookAtItem(user, item)
 end;
 
 
--- ruby amulett
-function UseJewel_67 (User, SourceItem)
-
-   if ( SourceItem:getData("BragonAmuletCircle") == "true" ) then
-	    if base.common.ItemCooldown(User,SourceItem,"BragonAmuletCircleCooldown",15) then
-	        User:talkLanguage(Character.say,Player.german,"#me berührt ein Rubinamulett.")
-			User:talkLanguage(Character.say,Player.english,"#me touches a ruby amulet.")
-			base.common.CreateCircle(User.pos, 1, function(posi) world:createItemFromId(359,1,posi,true,45,nil) end)
-		else
-		    User:inform("Das Amulett leuchtet kurz schwach auf.","For a short time, the amulett lights weakly up.")
-		end	
-   end
-end
-
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     -- list with jewles and the functions belonging to them
     UseMe={}
 	-- UseMe[ITEMID] = function(...) UseJewl_ITEMID(...) end
-	UseMe[67] = function(User, SourceItem) UseJewel_67(User, SourceItem) end -- ruby amulett
-
-                    if not UseMe[SourceItem.id] then -- security check
+	
+	if not UseMe[SourceItem.id] then -- security check
 	    return -- if the jewel is not defined yet, we return
     else
         UseMe[SourceItem.id](User, SourceItem, TargetItem, Counter, Param, ltstate)
