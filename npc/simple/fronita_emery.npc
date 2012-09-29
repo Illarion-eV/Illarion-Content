@@ -80,7 +80,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fair winds and clear sight 
 "How are you", "How feel", "How do you do" -> "I am very well. Look at this bottle here. If you hold it against the light it sparkles in every color imaginable.", "I am a little short of breath and there's blisters from all the glass I polished, but that's to expect from my work."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht es ausgezeichnet. Sehr euch diese Flasche hier an. Hält man sie gegen das Licht funkelt sie in allen Farben.", "Ich bin etwas außer Atem und habe Schwielen vom Glas polieren, aber das ist Berufsrisiko."
 "your name", "who are you", "who art thou" -> "I'm Fronita. I am a glassblower and I sell my wares here.", "My name? Fronita Emery, I deal in glass goods."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin die Fronita. Ich bin Glasbläserin und verkaufe meine Waren hier.", "Mein Name? Fronita Emery, ich handle mit Glaswaren."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin die Fronita. Ich bin Glasbläserin und verkaufe meine Waren hier.", "Mein Name? Fronita Emery, ich handle mit Glaswaren."
 
 -- Quest 107: A message from Groktan Flintsplit
 queststatus(107) = 9, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), queststatus(107) = 10, "#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands."

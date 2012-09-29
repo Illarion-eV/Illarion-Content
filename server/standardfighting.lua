@@ -266,6 +266,7 @@ function CauseDamage(Attacker, Defender, Globals)
             CharOffsetX = (Attacker.Weapon.Range - math.abs(CharOffsetY) + 1);
         end;
 
+--- ****** TODO: USE WORLD:LOS HERE
         local newPos = position(Defender.Char.pos.x + CharOffsetX,
             Defender.Char.pos.y + CharOffsetY, Defender.Char.pos.z);
             Defender.Char:warp(newPos);
@@ -826,6 +827,10 @@ function NewbieIsland(Attacker, Defender)
     if (Attacker.pos.z < 100 or Attacker.pos.z > 105) then
         return true;
     end;
+
+    --if (Attacker.pos.z) ~= -40 then     -- same for the prisons
+    --    return true;
+    --end;
 
     -- in case the character it not a other player character, the Attack is
     -- okay anyway.

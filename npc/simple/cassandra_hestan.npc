@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 26, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Cassandra Hestan"
@@ -37,8 +37,8 @@ beardID = 0
 colorHair = 238, 118, 0
 colorSkin = 210, 180, 140
 itemHead = 0
-itemChest = 803
-itemCoat = 0
+itemChest = 852
+itemCoat = 852
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 0
@@ -71,7 +71,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell and come back with
 "How are you", "How feel", "How do you do" -> "Let's skip this and get straight to business."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Überspringen wir die Höflichkeiten und lasst uns zum Geschäft kommen."
 "your name", "who are you", "who art thou" -> "Cassandra."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cassandra."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cassandra."
 
 -- OPTIONAL TRIGGERS
 

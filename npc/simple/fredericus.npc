@@ -91,7 +91,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good trip.", "Until next ti
 "How are you", "How feel", "How do you do" -> "I feel good, not a wonder, I had fish today.", "I'd feel much better if you buy some fish.", "Fine, thank you."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut, ist auch kein Wunder, ich habe heute Fisch gegessen.", "Mir würde es weit besser gehen, wenn ihr Fisch kaufen würdet.", "Gut, danke der Nachfrage."
 "your name", "who are you", "who art thou" -> trade, "Fredericus. That's me.", "I am the fisherman Fredericus.", "Fredericus is my name, Ifish."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fredericus. Das bin ich.", "Ich bin der Fischer Fredericus.", "Fredericus ist mein Name, ich handel mit Fischen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fredericus. Das bin ich.", "Ich bin der Fischer Fredericus.", "Fredericus ist mein Name, ich handel mit Fischen."
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> trade, trade, trade, trade, trade, "Fish, fish, fish. Ifish. And also herbs, if you need any to spice up your dishes.", "Ifish, do you need any?", "Iwhat you need to catch fish and I even buy the fish you caught.", "Ya want to? Aye, have a look!"

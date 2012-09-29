@@ -72,7 +72,7 @@ itemShoes = 53
 "How are you", "How feel", "How do you do" -> "Goodss, thankss you", "I feelss well und you?", "I do wellsss, thankss you"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Gut, dankess", "I fühless mich gutss und duss?", "Mir gehtss gut, dankess"
 "your name", "who are you", "who art thou" -> "Zzss.. I'm Zssarkes", "Zssarkes at yoursss service", "Zssarkes, pleasuress to meetss youss"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich binss Zssarkes", "Zssarkes zu dienstenss", "Zssarkes, eine Freude euch kennenss zzu lernenss"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich binss Zssarkes", "Zssarkes zu dienstenss", "Zssarkes, eine Freude euch kennenss zzu lernenss"
 
 -- Typical NPC phraces
 "what sell", "what buy", "list wares", "price of" -> "Zzss.. I'm not a trader", "I'm a guard notss a merchant", "I do not tradess"
@@ -119,15 +119,15 @@ itemShoes = 53
 -- leaders, faction and politics
 "cadomyr", english -> "Cadomyr iss my hometown and I protectsss it with my life. That'ss why I joined the guardss to give somethingss back to town. Our queen is good to uss and we do what she wantss"
 "cadomyr", german -> "Cadomyr issst meine Heimat und ich besschütze ssie mit meinem Lebenss. Desswegen bin ich auch der Wache beigetretensss, um der Stadt etwass zurückzugeben. Unsere Königin isst gut zzu unss und wir machen, wass ssie will."
-"runewick", english -> "Runewick? Sss.. the town has some nice waterss and meadowss as far as I know, but knowledge is more worth than honorss there. Is dangerousss..."
+"runewick", english -> "Runewick? Sss.. the town has some nice waterss and meadowss as far as I know, but knowledge is more worth than honourss there. Is dangerousss..."
 "runewick", german -> "Runewick? Sss.. die Stadt hat schöness Wasser und Weideland soweit ich weißss, aber Wissen isst mehr Wert alss Ehre dort. Das ist gefährlichss..."
 "galmair", english -> "Banditsss, robberss and villainss. That'ss where money and liess are the mosst important goodss. I don't like that place."
 "galmair", german -> "Banditen, Räuberss und Schufte. Dort sind Geld und Lügen die wichtigsten Warenss. Ich mag den Ortss nicht."
-"queen", "rosaline edwards", english -> "Queen Rosaline is good to uss and I feelss honored to be member of her palaceguardss. The good god mother Zelphia watchess over her."
+"queen", "rosaline edwards", english -> "Queen Rosaline is good to uss and I feelss honoured to be member of her palaceguardss. The good god mother Zelphia watchess over her."
 "königin", "rosaline edwards", german -> "Königin Rosaline ist gut zu uns und ich fühle mich geehrt dasss ich Mitglied ihrer Palassstwache bin. Die gute Gottmutter Zelphia wacht über ihrss."
 "archmage", "Elvaine Morgan", english -> "Archmage Morgan isss the leader of Runewick. He is studying much and gatherss knowledge about everything. Wise men he iss but weakss."
 "erzmagier", "Elvaine Morgan", german -> "Erzmagier Morgan issst der Anführer von Runewick. Er studiert viel und ssammelt Wisssen über alless. Ein weiser Mann er issst aber schwach."
-"Valerio Guilianni", english -> "Guilianni is scum, nothing more. He hasss no honor and he'll neverss come to great sea of mother Zelphia."
+"Valerio Guilianni", english -> "Guilianni is scum, nothing more. He hasss no honour and he'll neverss come to great sea of mother Zelphia."
 "Valerio Guilianni", german -> "Guilianni ist Abschaumss, mehr nicht. Er hat keiness Ehre und er wird niemalss zu großem Meer von Mutter Zelphia kommenss."
 
 ------------------------------------------------------------------------------AC

@@ -88,7 +88,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye. Be off with you.", "St
 "How are you", "How feel", "How do you do" -> "I am well, thank you.", "Zhambra keeps me safe and in good health.", "I can not complain, the Gods care for me."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht es gut, danke der Nachfrage.", "Zhambra schützt mich und erhält mein Leben.", "Ich kann mich nicht beklagen, die Götter sorgen für mich."
 "your name", "who are you", "who art thou" -> "My name is Brassius Meres. It is an honour to meet you.", "I am Brassius Meres, a guard of Runewick.", "Brassius Meres, faithful servant of the Lords Malachín and Zhambra."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Brassius Meres. Es ist mir eine Ehre, eure Bekanntschaft zu machen.", "Ich bin Brassius Meres, Wächter Runewicks.", "Brassius Meres, frommer Diener der Herren Malachín und Zhambra."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Brassius Meres. Es ist mir eine Ehre, eure Bekanntschaft zu machen.", "Ich bin Brassius Meres, Wächter Runewicks.", "Brassius Meres, frommer Diener der Herren Malachín und Zhambra."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Bring five APPLES (15)

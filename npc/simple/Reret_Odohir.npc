@@ -91,7 +91,7 @@ buySecondaryItems = 2, 3
 "How are you", "How feel", "How do you do" -> "I am fine and how are you?", "I'm fine. Thanks for asking."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut und wie geht es Euch?", "Eigentlich ganz gut, danke der Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Reret Odohir, Notary and citizen of Cadomyr."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" ->"Ich bin Reret Odohir, Notar und Bürger von Cadomyr."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" ->"Ich bin Reret Odohir, Notar und Bürger von Cadomyr."
 
 -- OPTIONAL TRIGGERS
 

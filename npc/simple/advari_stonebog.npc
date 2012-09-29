@@ -67,7 +67,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "G'hruk. Farewell.", "Abunda
 "How are you", "How feel", "How do you do" -> "Aye, the business is well. And the Greennoses behave properly.", "Arr, as soon as I'm able to leave my shop, I am going to drink beer at Hagar's Inn. He is a Longleg, but the stuff is brewed by us dwarves!", "Gold. Tha'ts what a dwarf aspire. And I got a huge amount of it."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Aye, das Geschäft geht gut, und die Grünschnauzen benehmen sich einigermaßen.", "Arr, wenn ich einmal hier wegkomm, geh ich sofort zu Hagar! Der ist zwar ein Langbein, aber das Bier, das haben wir Zwerge ihm gebraut!", "Gold. Das ist was ein Zwerg will. Und ich hab eine Menge davon."
 "your name", "who are you", "who art thou" -> "Arr, just mellow dwarves tell thier real name. And someone like you would just yell it out to everyone. But in common language I'm called Advari Stonebog", "Advari Stonebog. And that's all someone like you need to know."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Arr, nur Weichzwerge verraten ihren wahren Namen. Wer weiß wem, einer wie du, ihn erzählen würde! Aber in der allgemeinen Sprache heiße ich Advari Stonebog.", "Advari Stonebog. Und mehr braucht einer wie du, nicht zu wissen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Arr, nur Weichzwerge verraten ihren wahren Namen. Wer weiß wem, einer wie du, ihn erzählen würde! Aber in der allgemeinen Sprache heiße ich Advari Stonebog.", "Advari Stonebog. Und mehr braucht einer wie du, nicht zu wissen."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "I don't got any tasks for you. Better ask the Don. Aye?"

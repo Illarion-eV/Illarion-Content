@@ -88,7 +88,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell! If your clothes get dirty, j
 "How are you", "How feel", "How do you do" -> "I feel... clean!", "Oh, I am so worried, maybe you can help me.", "Afraid!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es... sauber!", "Oh, ich bin so besorgt, vielleicht könnt ihr mir ja helfen.", "Ich hab Angst!"
 "your name", "who are you", "who art thou" -> "I am Myrthe. Hello!", "Myrthe Mildthorn, at your service.", "Wasch-woman Myrthe Mildthorn reports for duty!"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin die Myrthe. Hallo!", "Myrthe Mildthorn, stets zu Diensten.", "Waschweib Myrthe Mildthorn meldet sich zur Stelle!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin die Myrthe. Hallo!", "Myrthe Mildthorn, stets zu Diensten.", "Waschweib Myrthe Mildthorn meldet sich zur Stelle!"
 
 -- 1st quest: Kill 10 wolves, player receives torch.
 

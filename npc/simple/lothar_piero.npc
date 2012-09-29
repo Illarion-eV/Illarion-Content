@@ -88,7 +88,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good bye. May Oldra bless y
 "How are you", "How feel", "How do you do" -> "Wonderful! Indeed, Oldra smiles upon me.", "Even if a cloud covers the sun, I know that it shines on my every day.", "A dark night is defeated by the sunrise."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ausgezeichnet. Ja, Oldra blickt wohlwollend auf mich herab.", "Auch wenn hier und dort eine Wolke die Sonne verdecken mag, ich weiß, dass sie trotzdem jeden neuen Tag am Himmel stehen wird.", "So finster Euch manche Nacht erscheinen kann, die Sonne wird erwachen und alles Finstere vertreiben."
 "your name", "who are you", "who art thou" -> trade, "My name is Lothar Piero. Welcome to the market of Runewick.", "I am Lothar Piero and I... wood.", "Boards, shields, bows, what do you desire? I am Lothar Piero and I got wood!"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Lothar Piero. Seid mir willkommen am Markt von Runewick.", "Ich bin Lothar Piero und handle mit allerlei hölzernen Gut.", "Bretter, Schilde, Bögen, was wollt Ihr wohl mögen? Ich bin Lothar Piero und handle mit Holz."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Lothar Piero. Seid mir willkommen am Markt von Runewick.", "Ich bin Lothar Piero und handle mit allerlei hölzernen Gut.", "Bretter, Schilde, Bögen, was wollt Ihr wohl mögen? Ich bin Lothar Piero und handle mit Holz."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Sorry, I have no job for you."

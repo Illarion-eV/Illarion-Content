@@ -69,7 +69,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Yes, yes, and come back wit
 "How are you", "How feel", "How do you do" -> "That is none of your business.", "I would feel way better with your money in my purse.", "I feel like playing. Time for some thimblerig?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Das geht dich nichts an.", "Es würde mir weit besser gehen mit deinem Geld in meiner Tasche.", "Mir ist nach Zocken. Zeit für ein kleines Hütchenspiel?"
 "your name", "who are you", "who art thou" -> "Henning, yes, that's me. My friends call me Henni.", "Who wants to know? Nevermind, let's play!", "Well, I am Henning. Are you happy now?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Henning, ja, das bin ich. Meine Freunde nennen mich Henni.", "Wer will das wissen? Ach, was solls, lass uns spielen.", "Also ich bin Henning. Bist du jetzt glücklich?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Henning, ja, das bin ich. Meine Freunde nennen mich Henni.", "Wer will das wissen? Ach, was solls, lass uns spielen.", "Also ich bin Henning. Bist du jetzt glücklich?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "Let me see... I can send you on an epic quest to choose the right nut! Care to bet?", "No quest today, my money has gone away. The nuts stand forlorn, a symbol of the dawn.", "You are the hero, I am the thimblerig!"

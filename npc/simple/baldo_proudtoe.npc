@@ -71,7 +71,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a nice day! And do not
 "How are you", "How feel", "How do you do" -> "I feel lonely, really. But the hedges are always here with me.", "Will you stay a while to talk to me? That would be so great!", "Maybe I should go to the market of Runewick. At least I see some people there..."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich bin wirklich einsam. Aber die Hecken sind ja hier bei mir.", "Bleibt ihr noch etwas zum Reden?", "Vielleicht sollte ich mal auf den Markt von Runewick gehen. Wenigstens kann ich dort mal Leute sehen."
 "your name", "who are you", "who art thou" -> "My name is Baldo, Baldo Proudtoe. I'm the local gardener!", "Proudtoe. Baldo Proudtoe.", "I'm Baldo, the gardener. A garden requires a lot of attention."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Baldo, Baldo Proudtoe. Ich bin hier der Gärtner!", "Proudtoe. Baldo Proudtoe.", "Ich bin Baldo, der Gärtner. So ein Garten verlangt nach einer Menge Pflege."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Baldo, Baldo Proudtoe. Ich bin hier der Gärtner!", "Proudtoe. Baldo Proudtoe.", "Ich bin Baldo, der Gärtner. So ein Garten verlangt nach einer Menge Pflege."
 
 -- 1st quest: Gather 10 apples
 queststatus(118) = 0, english, "quest", "mission" -> inform("[New quest] Runewick Gardens I"), queststatus(118) = 1, "Ah, you want to help me? Look, I'd like to plant some apple trees in my garden. But for that, I need apple seeds. So, please, bring me ten apples!"

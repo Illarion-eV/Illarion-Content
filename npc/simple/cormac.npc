@@ -94,7 +94,7 @@ queststatus(74) = 0, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> inform(
 queststatus(74) = 1, item(1909, all) < 1, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
 queststatus(74) = 2, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ein Bier am Morgen vertreibt Kummer und Sorgen. Und ich hab keine mehr."
 "your name", "who are you", "who art thou" -> "Cormac, the... river transportation entrepreneur."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cormac, der... Flussschiffahrtstransportunternehmer."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cormac, der... Flussschiffahrtstransportunternehmer."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- First part, the gossiper is thirsty--

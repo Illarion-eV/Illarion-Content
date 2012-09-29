@@ -68,7 +68,7 @@ itemShoes = 369
 "How are you", "How feel", "How do you do" -> "#me sighs: 'Well, you know, I was on my way back home, but the Gods blessed me with this old mule, that doesn't want to move.'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "#me seufzt: 'Ach, wisst ihr, ich war auf dem Weg nach Hause, aber die Götter haben mich mit diesem alten Esel bedacht, der sich nicht mehr bewegen will.'"
 "your name", "who are you", "who art thou" -> "My Name is Milo Deepdelver. I am a herbalist from Runewick. If the Gods are with me, I will be on my way home with this no good mule of mine!"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Esel hier!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Esel hier!"
 
 -- quest: start
 "quest", "mission", "Problem", queststatus(106) = 0, english -> "This stupid mule of mine doesn't move a single step and I am late returning to my family. Could you help me with my problem?", queststatus(106) = 1

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -169,6 +169,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -457,8 +458,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("slave");
-talkEntry:addResponse("Slaves, well, I prefer the term workers. It is an honor to work for the queen afterall.");
-talkEntry:addResponse("A whip is an important tool. I'll never understand why some workers do not obey. It is an honor to work for the queen.");
+talkEntry:addResponse("Slaves, well, I prefer the term workers. It is an honour to work for the queen afterall.");
+talkEntry:addResponse("A whip is an important tool. I'll never understand why some workers do not obey. It is an honour to work for the queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

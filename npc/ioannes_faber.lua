@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian/Ardian                                         --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -18,7 +18,6 @@ VALUES (0, 129, 529, 0, 6, 'Ioannes Faber', 'npc.ioannes_faber', 0, 1, 1, 139, 7
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.ioannes_faber", package.seeall)
 
@@ -39,18 +38,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keywords: Be greeted, treasurer, 'Do you have any orders for me?', 'I want to see order <number>', 'I want to get order <number>'."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Kämmerer, 'Habt ihr Aufträge für mich?', 'Ich möchte Auftrag <Nummer> ansehen', 'Ich möchte Auftrag <Nummer> annehmen'."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
@@ -58,9 +45,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Hail and may Malachín bless you. I assume you want to obey the orders of the queen.");
-talkEntry:addResponse("Be greeted. We should get straight to the orders of her majesty.");
-talkEntry:addResponse("You are just the person that needs an order, indeed.");
+talkEntry:addResponse("Hail and may Malachín bless you. I assume you obey the queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -75,9 +60,7 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Malachín zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.");
-talkEntry:addResponse("Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.");
-talkEntry:addResponse("Ihr seid genau die Person, die einen Befehl benötigt.");
+talkEntry:addResponse("Malachín zum Gruße. Ich nehme an, ihr gehorcht der Königin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -87,9 +70,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hail and may Malachín bless you. I assume you want to obey the orders of the queen.");
-talkEntry:addResponse("Be greeted. We should get straight to the orders of her majesty.");
-talkEntry:addResponse("You are just the person that needs an order, indeed.");
+talkEntry:addResponse("Hail and may Malachín bless you. I assume you obey the queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -98,9 +79,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Malachín zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.");
-talkEntry:addResponse("Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.");
-talkEntry:addResponse("Ihr seid genau die Person, die einen Befehl benötigt.");
+talkEntry:addResponse("Malachín zum Gruße. Ich nehme an, ihr gehorcht der Königin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -178,6 +157,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -185,20 +165,6 @@ talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Faber. Ioannes Faber. Ich bin der königliche Kämmerer, ihr solltet meine Bedeutung am Hofe nicht unterschätzen.");
 talkEntry:addResponse("Mein Name ist Ioannes Faber, der königliche Kämmerer von Cadomyr. Die Königin hält große Stücke auf mich.");
 talkEntry:addResponse("Ihr kennt meinen Namen nicht? Schreibt ihn euch besser auf: Ioannes Faber.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("order");
-talkEntry:addResponse("I currently have no orders for you.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Befehl");
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufträge");
-talkEntry:addResponse("Derzeit habe ich keine Befehle für euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -585,8 +551,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("I'm not ar, I am the royal treasurere. If you obey the orders of the queen, you might get a reward.");
+talkEntry:addResponse("I'm not merchant, I am the royal treasurere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -595,7 +560,7 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Ich bin kein Händler, ich bin der königliche Kämmerer. Wenn ihr den Befehlen der Königin gehorcht, dann werdet ihr vielleicht entlohnt.");
+talkEntry:addResponse("Ich bin kein Händler, ich bin der königliche Kämmerer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -669,7 +634,6 @@ talkingNPC:addCycleText("Ein Hobbitgewicht in Gold für den Kopf von Baron Hastin
 talkingNPC:addCycleText("Vor jedem verborgenen Feind, vor den Anschlägen der Mörder, schütze Malachín die Königin!", "From every latent foe, from the assassins blow, Malachín save the queen!");
 talkingNPC:addCycleText("Und wie ein reißender Strom losbrechen, um rebellische Hastings niederzuwerfen!", "And like a torrent rush, rebellious Hastings to crush.");
 talkingNPC:addCycleText("Malachín schütze die Königin!", "Malachín save the queen!");
-talkingNPC:addCycleText("Ihr da! Kommt her. Ich habe einen Auftrag der Königin.", "You! Come over here. I have orders of the queen.");
 mainNPC:addLanguage(0);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber.", "This NPC is the royal treasurere of Cadomyr, Ioannes Faber.");

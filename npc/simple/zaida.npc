@@ -91,7 +91,7 @@ queststatus(76) = 1, item(2057, all) < 1, "Wie geht", "Wie fühlst", "Wie ist es
 queststatus(76) = 2, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich fühle mich wie neu geboren, danke der Nachfrage."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Bis zum nächsten mal, Reisender."
 "Ciao", "Adieu", "Au revoir" -> "Gehabt euch wohl, Reisender."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "My name is Zaida. One day, I'll be a honourable magician, right now, I am just thirsty."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "My name is Zaida. One day, I'll be a honourable magician, right now, I am just thirsty."
 "your name", "who are you", "who art thou" -> "Mein Name ist Zaida. Eines Tages werde ich eine ehrenhafte Magierin sein, jetzt bin ich aber erstmal durstig."
 
 -- First part, the gossiper is thirsty

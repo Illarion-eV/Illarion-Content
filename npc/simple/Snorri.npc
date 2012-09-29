@@ -64,7 +64,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I hope we'll meet again soo
 "How are you", "How feel", "How do you do" -> "Oh, thanks for asking! And yes, I am perfectly fine.", "I am fine. Thanks for asking.", "Well, well, I can't complain."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Oh, wie freundlich von Euch, das ihr mich danach fragt! Und ich will sagen, ja! Ja es geht mir ausgezeichnet.", "Ausgezeichnet. Danke das ihr Euch danach erkundigt habt.", "Gut, gut, ich will nun wirklich nichts beklagen."
 "your name", "who are you", "who art thou" -> "I am Snorri. And the curmudgeon behind me is Morri. *laughs* He is my brother, you know?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Snorri. Und der Griesgram, hinter mir heißt Morri. *lacht* Er ist mein Bruder, wusstet ihr das?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Snorri. Und der Griesgram, hinter mir heißt Morri. *lacht* Er ist mein Bruder, wusstet ihr das?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "I can't hire you, but if you want, I will buy every fish you bring to me. Just make sure it's all fresh. Be sure that I will smell it all very carefully!"
