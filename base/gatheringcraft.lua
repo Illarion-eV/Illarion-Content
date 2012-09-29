@@ -183,17 +183,19 @@ function GatheringCraft:FindRandomItem(User)
 				table.insert(itemIndexList, it);
 			end
 		end
-		local ind = itemIndexList[math.random(1,table.getn(itemIndexList))];
-		if (math.random() <= self.RandomItems[ind].Probability*self.FastActionFactor) then
-			base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
-			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
-			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-				world:createItemFromId( self.RandomItems[ind].ID, notCreated, User.pos, true, self.RandomItems[ind].Quality, self.RandomItems[ind].Data );
-				base.common.InformNLS(User,
-				"Du kannst nichts mehr halten.",
-				"You can't carry any more.");
+		if ( table.getn(itemIndexList) > 0 ) then
+			local ind = itemIndexList[math.random(1,table.getn(itemIndexList))];
+			if (math.random() <= self.RandomItems[ind].Probability*self.FastActionFactor) then
+				base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
+				local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
+				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+					world:createItemFromId( self.RandomItems[ind].ID, notCreated, User.pos, true, self.RandomItems[ind].Quality, self.RandomItems[ind].Data );
+					base.common.InformNLS(User,
+					"Du kannst nichts mehr halten.",
+					"You can't carry any more.");
+				end
+				return true;
 			end
-			return true;
 		end
 		--]]
 	end
