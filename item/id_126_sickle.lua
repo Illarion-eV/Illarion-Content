@@ -92,7 +92,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
 			return;
 		end
-	else if ( not harvestProduct.isFarmingItem and TargetItem.wear == 255 ) then
+	elseif ( not harvestProduct.isFarmingItem and TargetItem.wear == 255 ) then
 		-- first time that a (static!) herb item is harvested
 		amount = MaxAmount;
 		TargetItem:setData("amount","" .. MaxAmount);
@@ -115,7 +115,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
 				"This plant is already fully harvested. Give it time to grow again." );
 				return;
-			else if ( amount > MaxAmount ) then
+			elseif ( amount > MaxAmount ) then
 				-- this should never happen
 				User:inform("[ERROR] Too high amount " .. amount .. " for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
 				return;
@@ -216,7 +216,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		if ( amount > 0 ) then  -- there are still items we can work on
 			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
 			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
-		else if ( not harvestProduct.isFarmingItem ) then -- no items left
+		elseif ( not harvestProduct.isFarmingItem ) then -- no items left
 			-- only inform for non farming items. Farming items with amount==0 should already be erased.
 			base.common.InformNLS(User,
 			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 

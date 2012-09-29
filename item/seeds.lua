@@ -116,7 +116,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         base.common.InformNLS(User,
         "Der Boden ist tief gefroren. Hier wirst du nichts anbauen können.",
         "The ground is frozen deeply. You won't be able to plant anything here.");
-        end
         return
     end
 
