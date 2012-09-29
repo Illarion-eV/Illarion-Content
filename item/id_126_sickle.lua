@@ -193,7 +193,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			if ( t == "") then
 				-- set the next regrow time according to season and grow factor
 				local season = math.ceil(world:getTime("month")/4);
-				TargetItem:setData("next_regrow_" .. i, "" .. world:getTime("unix") + math.floor(RegrowTime*GrowFactors[season]));
+				TargetItem:setData("next_regrow_" .. i, "" .. world:getTime("unix") + math.floor(RegrowTime*harvestProduct.growFactors[season]));
 				regrowOk = true;
 				break;
 			end
