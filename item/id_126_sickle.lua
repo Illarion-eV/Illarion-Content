@@ -247,7 +247,7 @@ function CreateHarvestProduct(ProductId, GroundType, GrowFactors, IsFarmingItem)
     return retValue;
 end
 
-function InitHarvestItems()
+function InitHarvestItems() 
     if (HarvestItems ~= nil) then
         return;
     end
@@ -261,53 +261,53 @@ function InitHarvestItems()
     
     -- druid herbs
     HarvestItems[273] = {                                   -- flower
-    CreateHarvestProduct(144, gt.forest)                        -- virgins weed
-    CreateHarvestProduct(137, gt.sand)                          -- flamegoblet blossom
-    CreateHarvestProduct(135, gt.grass)                         -- yellow weed
-    CreateHarvestProduct(148, gt.rocks)                         -- firnis blossom
-    CreateHarvestProduct(763, gt.water)                         -- mash flower
-    CreateHarvestProduct(138, gt.dirt)                          -- night angels blossom
-    CreateHarvestProduct(757, gt.snow)                          -- godsflower
+    CreateHarvestProduct(144, gt.forest),                        -- virgins weed
+    CreateHarvestProduct(137, gt.sand),                          -- flamegoblet blossom
+    CreateHarvestProduct(135, gt.grass),                         -- yellow weed
+    CreateHarvestProduct(148, gt.rocks),                         -- firnis blossom
+    CreateHarvestProduct(763, gt.water),                         -- mash flower
+    CreateHarvestProduct(138, gt.dirt),                          -- night angels blossom
+    CreateHarvestProduct(757, gt.snow)                           -- godsflower
     }
     
     HarvestItems[274] = {                                   -- fern
-    CreateHarvestProduct(140, gt.forest)                        -- donf blade
-    CreateHarvestProduct(156, gt.sand)                          -- steppe fern
-    CreateHarvestProduct(153, gt.grass)                         -- foot leaf
-    CreateHarvestProduct(768, gt.rocks)                         -- wolverine fern
-    CreateHarvestProduct(754, gt.water)                         -- water fern TODO
-    CreateHarvestProduct(752, gt.dirt)                          -- mandrake
+    CreateHarvestProduct(140, gt.forest),                        -- donf blade
+    CreateHarvestProduct(156, gt.sand),                          -- steppe fern
+    CreateHarvestProduct(153, gt.grass),                         -- foot leaf
+    CreateHarvestProduct(768, gt.rocks),                         -- wolverine fern
+    CreateHarvestProduct(754, gt.water),                         -- water fern TODO
+    CreateHarvestProduct(752, gt.dirt),                          -- mandrake
     CreateHarvestProduct(760, gt.snow)                          -- ice leaf TODO
     }
     
     HarvestItems[301] = {                                   -- hedge
-    CreateHarvestProduct(147, gt.forest)                        -- blackberry
-    CreateHarvestProduct(142, gt.sand)                          -- sandberry
-    CreateHarvestProduct(143, gt.grass)                         -- red elder
-    CreateHarvestProduct(756, gt.rocks)                         -- pious berry
+    CreateHarvestProduct(147, gt.forest),                        -- blackberry
+    CreateHarvestProduct(142, gt.sand),                          -- sandberry
+    CreateHarvestProduct(143, gt.grass),                         -- red elder
+    CreateHarvestProduct(756, gt.rocks),                         -- pious berry
     CreateHarvestProduct(136, gt.dirt)                          -- anger berry
     }
     
     HarvestItems[338] = {                                   -- reed
-    CreateHarvestProduct(134, gt.grass)                         -- fourleafed oneberry
+    CreateHarvestProduct(134, gt.grass),                         -- fourleafed oneberry
     CreateHarvestProduct(155, gt.water)                         -- sibanac leaf
     }
     
     HarvestItems[1782] = {                                   -- grass
-    CreateHarvestProduct(151, gt.forest)                        -- strawberry
-    CreateHarvestProduct(146, gt.sand)                          -- desert sky capsule
-    CreateHarvestProduct(141, gt.grass)                         -- black thistle
-    CreateHarvestProduct(145, gt.rocks)                         -- heath flower
-    CreateHarvestProduct(761, gt.water)                         -- rain weed
+    CreateHarvestProduct(151, gt.forest),                        -- strawberry
+    CreateHarvestProduct(146, gt.sand),                          -- desert sky capsule
+    CreateHarvestProduct(141, gt.grass),                         -- black thistle
+    CreateHarvestProduct(145, gt.rocks),                         -- heath flower
+    CreateHarvestProduct(761, gt.water),                         -- rain weed
     CreateHarvestProduct(762, gt.dirt)                          -- sulphur weed
     }
     
     HarvestItems[1783] = {                                   -- grass
-    CreateHarvestProduct(151, gt.forest)                        -- strawberry
-    CreateHarvestProduct(146, gt.sand)                          -- desert sky capsule
-    CreateHarvestProduct(141, gt.grass)                         -- black thistle
-    CreateHarvestProduct(145, gt.rocks)                         -- heath flower
-    CreateHarvestProduct(761, gt.water)                         -- rain weed
+    CreateHarvestProduct(151, gt.forest),                        -- strawberry
+    CreateHarvestProduct(146, gt.sand),                          -- desert sky capsule
+    CreateHarvestProduct(141, gt.grass),                         -- black thistle
+    CreateHarvestProduct(145, gt.rocks),                         -- heath flower
+    CreateHarvestProduct(761, gt.water),                         -- rain weed
     CreateHarvestProduct(762, gt.dirt)                          -- sulphur weed
     }
 	
@@ -354,12 +354,12 @@ function InitHarvestItems()
     }
     
     HarvestItems[2169] = {									-- old log
-    CreateHarvestProduct(157, gt.grass)							-- rotten tree bark
+    CreateHarvestProduct(157, gt.grass),							-- rotten tree bark
 	CreateHarvestProduct(157, gt.dirt)							-- rotten tree bark
     }
 	
 	HarvestItems[2170] = {									-- old log
-    CreateHarvestProduct(157, gt.grass)							-- rotten tree bark
+    CreateHarvestProduct(157, gt.grass),							-- rotten tree bark
 	CreateHarvestProduct(157, gt.dirt)							-- rotten tree bark
     }
 	
