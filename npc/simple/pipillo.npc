@@ -62,6 +62,10 @@ sellItem = id(1061), de("Portalbuch nach Cadomyr"), en("portal book to Cadomyr")
 sellItem = id(1061), de("Portalbuch nach Galmair"), en("portal book to Galmair"), price (2000), stack(1), quality(333), data("destinationCoordsX"="424","destinationCoordsY"="245","destinationCoordsZ"="0")
 sellItem = id(1061), de("Portalbuch nach Runewick"), en("portal book to Runewick"), price (2000), stack(1), quality(333), data("destinationCoordsX"="788","destinationCoordsY"="826","destinationCoordsZ"="0")
 sellItem = id(1061), de("Portalbuch zum Hamp Necktie Inn"), en("portal book to the Hamp Necktie Inn"), price (2000), stack(1), quality(333), data("destinationCoordsX"="648","destinationCoordsY"="308","destinationCoordsZ"="0")
+tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
+tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+tradeFinishedWithoutTradingMsg "Nichts gefunden was euch gefällt?", "Don't you like my wares?"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the portal merchant Pipillo. Keywords: Hello, portals, trade.")

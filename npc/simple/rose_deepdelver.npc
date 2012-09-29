@@ -57,6 +57,7 @@ buySecondaryItems = 81, 151, 290, 783, 786, 787, 788, 789, 791, 1316, 2500
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
 tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Rose Deepdelver the owner of the tavern. Keywords: Greetings, family, trade.")

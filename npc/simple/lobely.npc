@@ -1,20 +1,20 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Evera                                                  Cadomyr --
+-- NPC Name: Lobely                                               Hamp Necktie Inn --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  139, 622, 0                --
--- NPC Sex:  female                       NPC Direction: west                  --
+-- NPC Race: halfling                   NPC Position:  691, 309, 0                --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
 --                                                                            --
 -- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
-name = "Evera"
+name = "Lobely"
 race = halfling
-sex = female
-position = 139, 622, 0
-direction = west
+sex = male
+position = 691, 309, 0
+direction = south
 affiliation = "None"
 job = "portalbook merchant"
 
@@ -25,17 +25,17 @@ autointroduce = on
 
 author = "Zot, Faladron"
 
-lookatDE = "Dieser NPC ist Evera die Portalbuchhändlerin."
-lookatUS = "This NPC is Evera the portalbook merchant"
+lookatDE = "Dieser NPC ist Lobely der Portalbuchhändler."
+lookatUS = "This NPC is Lobely the portalbook merchant"
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Stop touching me!"
 wrongLangDE = "#me blickt dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 hairID = 1
-beardID = 0
+beardID = 1
 colorSkin = 245, 180, 137
 colorHair = 123, 62, 9
-itemHead = 0
+itemHead = 829
 itemChest = 808
 itemCoat = 2384
 itemMainHand = 1061
@@ -62,10 +62,14 @@ sellItem = id(1061), de("Portalbuch nach Cadomyr"), en("portal book to Cadomyr")
 sellItem = id(1061), de("Portalbuch nach Galmair"), en("portal book to Galmair"), price (2000), stack(1), quality(333), data("destinationCoordsX"="424","destinationCoordsY"="245","destinationCoordsZ"="0")
 sellItem = id(1061), de("Portalbuch nach Runewick"), en("portal book to Runewick"), price (2000), stack(1), quality(333), data("destinationCoordsX"="788","destinationCoordsY"="826","destinationCoordsZ"="0")
 sellItem = id(1061), de("Portalbuch zum Hamp Necktie Inn"), en("portal book to the Hamp Necktie Inn"), price (2000), stack(1), quality(333), data("destinationCoordsX"="648","destinationCoordsY"="308","destinationCoordsZ"="0")
+tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
+tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+tradeFinishedWithoutTradingMsg "Nichts gefunden was euch gefällt?", "Don't you like my wares?"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the portal merchant Evera. Keywords: Hello, portals, trade.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Portalbuchhändlerin Evera. Schlüsselwörter: Hallo, Portale, Handel.")
+"Help" -> inform("[Game Help] This NPC is the portal merchant Lobely. Keywords: Hello, portals, trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuchhändler Lobely. Schlüsselwörter: Hallo, Portale, Handel.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Today is a fine day to travel."
@@ -78,8 +82,8 @@ sellItem = id(1061), de("Portalbuch zum Hamp Necktie Inn"), en("portal book to t
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Immer in Bewegung bleiben!", "Tschüssi!", "Auf wiedersehen."
 "How are you", "How feel", "How do you do" -> "I feel excited, thinking about all the places to travel to.", "I'm itching to make another journey."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.", "Es juckt mich in den Füßen, eine Reise zu machen."
-"your name", "who are you", "who art thou" -> "Evera, portalbook merchant. That's me.", "I am the merchant Evera.", "Evera is my name, I trade portalbooks."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Evera, Portalbuchhändlerin. Das bin ich.", "Ich bin die Händlerin Evera", "Evera mein Name, ich handle mit Portalbüchern"
+"your name", "who are you", "who art thou" -> "Lobely, portalbook merchant. That's me.", "I am the merchant Lobely.", "Lobely is my name, I trade portalbooks."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Lobely, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Lobely", "Lobely mein Name, ich handle mit Portalbüchern"
 
 -- Catching quest triggers
 "quest", "mission", english -> "I do not issue any quests. But I can sell you books to go to other places."
