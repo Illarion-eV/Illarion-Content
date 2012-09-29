@@ -134,7 +134,7 @@ function GatheringCraft:FindRandomItem(User)
 		-- pick a random item
 		local ind = math.random(1,table.getn(self.RandomItems));
 		-- check for probability
-		if (math.random() <= self.RandomItems[ind].Probability) then
+		if (math.random() <= self.RandomItems[ind].Probability*self.FastActionFactor) then
 			base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
 			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
 			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -144,10 +144,11 @@ function GatheringCraft:FindRandomItem(User)
 				"You can't carry any more.");
 			end
 			return true;
-		end]]
+		end
+		--]]
 		
 		-- check each item independently in a random order
-		--
+		--[[
 		local itemIndexList = {};
 		-- just create a list with all indices
 		for it = 1, table.getn(self.RandomItems), 1 do
@@ -170,10 +171,10 @@ function GatheringCraft:FindRandomItem(User)
 				return true;
 			end
 		end
-		
+		--]]
 		
 		-- check all items with same random number and choose any possible item again randomly
-		--[[
+		---[[
 		local itemIndexList = {};
 		local rand = math.random();
 		-- list all items that are possible
@@ -183,7 +184,7 @@ function GatheringCraft:FindRandomItem(User)
 			end
 		end
 		local ind = itemIndexList[math.random(1,table.getn(itemIndexList))];
-		if (math.random() <= self.RandomItems[ind].Probability) then
+		if (math.random() <= self.RandomItems[ind].Probability*self.FastActionFactor) then
 			base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
 			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
 			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -194,7 +195,7 @@ function GatheringCraft:FindRandomItem(User)
 			end
 			return true;
 		end
-		]]
+		--]]
 	end
 	return false;
 end
