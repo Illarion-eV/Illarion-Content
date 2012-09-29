@@ -179,13 +179,13 @@ function GatheringCraft:FindRandomItem(User)
 		local rand = math.random();
 		-- list all items that are possible
 		for it = 1, table.getn(self.RandomItems), 1 do
-			if (rand <= self.RandomItems[it].Probability) then
+			if (rand <= self.RandomItems[it].Probability*self.FastActionFactor) then
 				table.insert(itemIndexList, it);
 			end
 		end
 		if ( table.getn(itemIndexList) > 0 ) then
 			local ind = itemIndexList[math.random(1,table.getn(itemIndexList))];
-			if (math.random() <= self.RandomItems[ind].Probability*self.FastActionFactor) then
+			if (math.random() <= self.RandomItems[ind].Probability) then
 				base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
 				local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
 				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
