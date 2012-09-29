@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Evera                                                    Cadomyr --
+-- NPC Name: Evera                                                       None --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  139, 622, 0            --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 139, 622, 0, 6, 'Evera', 'npc.evera', 1, 1, 1, 123, 62, 9, 245, 180, 137);
+VALUES (2, 139, 622, 0, 6, 'Evera', 'npc.evera', 1, 1, 0, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -497,7 +497,7 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Evera die Portalbuchhändlerin.", "This NPC is Evera the portalbook merchant");
 mainNPC:setUseMessage("Fass mich nicht an!", "Stop touching me!");
 mainNPC:setConfusedMessage("#me blickt dich verwirrt an.", "#me looks at you confused.");
-mainNPC:setEquipment(1, 829);
+mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 808);
 mainNPC:setEquipment(11, 2384);
 mainNPC:setEquipment(5, 1061);

@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Pipillo                                                     None --
+-- NPC Name: Pipillo                                                  Galmair --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  412, 291, 0            --
