@@ -247,7 +247,7 @@ function CreateHarvestProduct(ProductId, GroundType, GrowFactors, IsFarmingItem)
     return retValue;
 end
 
-function InitHarvestItems() then
+function InitHarvestItems()
     if (HarvestItems ~= nil) then
         return;
     end
