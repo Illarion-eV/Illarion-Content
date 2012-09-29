@@ -4,21 +4,42 @@ module("content.gathering", package.seeall)
 
 function InitGathering()
 	if(Init == nil) then
+        -- if FastAction==true then the probabilities are again reduced in FindRandomItem, see gatheringcraft.lua
 		local prob_frequently = 0.1;
 		local prob_occasionally = 0.05;
 		local prob_rarely = 0.01;
 		local prob_extremely_rarely = 0.005;
-		woodchopping = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "lumberjacking", LeadSkillGroup = 2};
+		woodchopping = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "lumberjacking", LeadSkillGroup = 2}; -- id_74_axe
 		honeygathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- id_1005_beehive
-		farming = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- id_271_scythe, id_258_flail, seeds
+		farming = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2, FastActionFactor = 0.5}; -- seeds, id_126_sickle
 		fruitgathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- harvest
-		mining = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2};
+		mining = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_2763_pickaxe
 		sanddigging = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_24_shovel
 		claydigging = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_24_shovel
-		herbgathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "perception", LeadSkill = "herb lore", LeadSkillGroup = 2};
+		herbgathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "perception", LeadSkill = "herb lore", LeadSkillGroup = 2}; -- id_126_sickle
 		fishing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "perception", LeadSkill = "fishing", LeadSkillGroup = 2}; -- id_72_fishingrod
-		woolcutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "peasantry", LeadSkillGroup = 2};
-		potashproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "woodchopping", LeadSkillGroup = 2}; -- item.id_12_campfire
+		woolcutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- id_6_scissors
+		potashproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "lumberjacking", LeadSkillGroup = 2}; -- item.id_12_campfire
+        -- TODO
+        -- id_737_chisel ("mining")
+        -- id_727_sieve ("mining")
+        -- id_258_flail ("peasantry") TODO:create new category
+        -- id_52_filledbucket ("peasantry")
+        -- id_171_spinningwheel TODO: new category? currently in woolcutting
+        -- id_6_scissors ("tailoring"? entrails->thread)
+        -- id_44_squeezer
+        -- id_119_backingoven
+        -- id_169_loom
+        -- id_220_barrel
+        -- id_250_mill
+        -- id_271_scythe
+        -- id_305_smokingoven
+        -- id_313_glassmeltoven
+        -- id_428_candletable
+        -- id_429_candlemold
+        -- id_724_workbench
+        -- id_2052_stretcher
+        -- id_2836_forge
 
 
 		--woodchopping

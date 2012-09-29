@@ -33,7 +33,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if base.common.Encumbrence(User) then
 		base.common.InformNLS( User,
 		"Deine Rüstung behindert Dich beim Sammeln von Honigwaben.",
-		"Your armour disturbes you when collecting honeycombs." );
+		"Your armour disturbs you while collecting honeycombs." );
 		return
 	end
 
@@ -46,7 +46,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil,false);
+		honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
 		User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
 		User:talkLanguage( Character.say, Player.german, "#me beginnt Honigwaben zu sammeln.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to collect honeycombs."); 
@@ -68,7 +68,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil,false);
+		honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
 		User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end
 end

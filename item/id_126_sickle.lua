@@ -7,453 +7,424 @@ require("base.common")
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-	
-	--------- TESTING STUFF !!! ------------ Merung
-	if (string.find(User.lastSpokenText,"testp")~=nil) then
-	    User:createItem(59,1,444,{["potionEffectId"]=95555555})
-	    return
-	end	
-	if string.sub(User.lastSpokenText,1,9) == "inform me" then
-	    informNumber = tonumber(string.sub(User.lastSpokenText,10))
-		if informNumber == 1 then
-		    User:inform("inform worked",Player.lowPriority)
-	    elseif informNumber == 2 then
-		    User:inform("inform worked",Player.mediumPriority)
-		elseif informNumber == 3 then
-		    User:inform("inform worked",Player.highPriority)
-		end
-        return		
-	end
-	
-	if (string.find(User.lastSpokenText,"imprison")~=nil) then
-	    local a,b,workLoad,byFaction=string.find(User.lastSpokenText,"(%d+) (%d+)") 
-		local lockThem = base.common.GetFrontCharacter(User)
-		workLoad = tonumber(workLoad)
-		byFaction = tonumber(byFaction)
-		lockThem:setQuestProgress(25,workLoad)
-		lockThem:setQuestProgress(26,byFaction)
-		lockThem:inform("workload: "..lockThem:getQuestProgress(25).." and factionID: "..lockThem:getQuestProgress(26))
-	    if lockThem.pos.z ~= -40 then
-		    lockThem:forceWarp(position(-489,-484,-40))
-		end	
-	end	
-	if (string.find(User.lastSpokenText,"labour")~=nil) then 
-	    local a,b,workLoad,byFaction=string.find(User.lastSpokenText,"(%d+) (%d+)") 
-		workLoad = tonumber(workLoad)
-		byFaction = tonumber(byFaction)
-		User:setQuestProgress(25,workLoad)
-		User:setQuestProgress(26,byFaction)
-		User:inform("workload: "..User:getQuestProgress(25).." and factionID: "..User:getQuestProgress(26))
-	    if User.pos.z ~= -40 then
-		    User:forceWarp(position(-489,-484,-40))
-		end	
-	end	
-		
-	if (string.find(User.lastSpokenText,"poison")~=nil) then 
-	    local a,b,myPS=string.find(User.lastSpokenText,"(%d+)") 
-		poisonChange = tonumber(myPS)
-		User:increaseAttrib("poisonvalue",poisonChange)
-		myPoisonMsg = "poison value is "..User:increaseAttrib("poisonvalue",0)
-		base.common.InformNLS(User,""..myPoisonMsg,""..myPoisonMsg)
-	end 
-	
-	if (string.find(User.lastSpokenText,"portal")~=nil) then 
-	   local a,b,destCord1,destCord2,destCord3=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)")
-		destString = destCord1.." "..destCord2.." "..destCord3
-		myBookPos = base.common.GetFrontPosition(User, 1)
-	    myPortal = world:createItemFromId( 1061, 1, myBookPos, true, 933 ,0);
-		myPortal:setData("destinationCords",destString)
-		world:changeItem(myPortal)
-	end	
-	if (string.find(User.lastSpokenText,"create potion")~=nil) then 
-	    local a,b,myId,myEffect,myQuali=string.find(User.lastSpokenText,"(%d+) (%d+) (%d+)") 
-		nId = tonumber(myId)
-		nEffect = tonumber(myEffect)
-		nQuali = tonumber(myQuali)
-		local myPosition = base.common.GetFrontPosition(User, 1)
-		world:createItemFromId(nId,1,myPosition,true,nQuali,0)
-		myPotion = base.common.GetFrontItem(User)
-	    myPotion:setData("potionEffectId",nEffect)
-		world:changeItem(myPotion)
-	end	
-	
-	if (string.sub(User.lastSpokenText,1,6) == "delete") then
-	    myItemId = tonumber(string.sub(User.lastSpokenText,7))
-	    deleteAmount = User:countItem(myItemId)
-		User:eraseItem(myItemId,deleteAmount)
-	end	
-	
-	if User.lastSpokenText == "cherga" then
-	    world:createItemFromId(2874,1,position(892,390,0),true,999,0)
-		world:createItemFromId(2952,1,position(891,390,0),true,999,0)
-	end	
-	
-	if User.lastSpokenText == "death" then
-	    find, myEffect = User.effects:find(36)
-		if find then
-		   effectRemoved = User.effects:removeEffect(329)
-		end
-		base.character.DeathAfterTime(User,400,2,4)
-		find, myEffect = User.effects:find(36)
-		if find then
-		   base.common.InformNLS(User,"death death death","death death death")
-		end
-		return
-	end	
-	
-	if base.common.GetFrontItemID(User) == 15 then
-		User:setAttrib("racetyp",tonumber(User.lastSpokenText))
-		newHeight = math.random(80,120)
-		User:setAttrib("body_height",newHeight)
-		User:increaseAttrib("hitpoints",-10)
-	    User:increaseAttrib("hitpoints",10)
-	    User:talkLanguage(Character.say, Player.german, ""..User:getRace())
-	end	
-	
-	--testing stuff
-	if (string.sub(User.lastSpokenText,1,10) == "setfaction") then
-	    newFaction = tonumber(string.sub(User.lastSpokenText,11))
-        if (newFaction > 3) or (newFaction == nil) then
-            User:inform("invalid value: faction can only be set to 1,2 or 3")		
-		    return
-        else
-		    User:setQuestProgress(200,10111+(newFaction*1000))
-		end
-	end	
-        		
-	
-	if (User.lastSpokenText == "faction") then
-	    FactionCheck = base.factions.get_Faction(User)
-		User:inform("factioncheck")
-		User:inform("faction: "..FactionCheck.tid)
-	    return
-	end	
-	
-	-- function changes potion Data; only for testing
-	local potionA = base.common.GetFrontItemID(User);
-	if potionA == 331 or potionA == 166 or potionA == 329 or potionA == 165 or potionA == 330 or potionA == 59 or potionA == 327 or potionA == 328 or potionA == 167 then
-	   myCheck = true
-	 end
-	-- function end
-	
-	-- again, only for testing
-	if ((base.common.GetFrontItemID(User) == 1008) or myCheck) and (User.lastSpokenText == "inform datas") then -- infront of a cauldron?
-	   local cauldron = base.common.GetFrontItem( User );
-	   User:talkLanguage(Character.say, Player.german, "stockdata: "..cauldron:getData("stockData"))
-	   User:talkLanguage(Character.say, Player.german, "potionEffectId: "..cauldron:getData("potionEffectId"))
-	   User:talkLanguage(Character.say, Player.german, "cauldronFilledWith: "..cauldron:getData("cauldronFilledWith"))
-	   User:talkLanguage(Character.say, Player.german, "potionId: "..cauldron:getData("potionId"))
-	   User:talkLanguage(Character.say, Player.german, "potionQuality: "..cauldron:getData("potionQuality"))
-	   User:talkLanguage(Character.say, Player.german, "essenceBrew :"..cauldron:getData("essenceBrew"))
-	end
-	-- function end
-	
-	-- again, only for testing
-	if ((base.common.GetFrontItemID(User) == 1008) or myCheck) and (User.lastSpokenText == "inform herbs") then -- infront of a cauldron?
-	   local cauldron = base.common.GetFrontItem( User );
-	   User:talkLanguage(Character.say, Player.german, "essenceHerbs: "..cauldron:getData("essenceHerbs"))
-	end
-	-- function end
-	
-	if ((base.common.GetFrontItemID(User) == 1008) or myCheck) and (User.lastSpokenText == "remove all datas") then -- infront of a cauldron?
-	   local cauldron = base.common.GetFrontItem( User );
-	   cauldron:setData("stockData","")
-	   cauldron:setData("potionEffectId","")
-	   cauldron:setData("cauldronFilledWith","")
-	   cauldron:setData("potionId","")
-	   cauldron:setData("essenceHerbs","")
-	   cauldron:setData("potionQuality","")
-	   world:changeItem(cauldron)
-	end   
-	
-	-- yet another testing thing
-	local CheckBottle = base.common.GetFrontItemID(User)
-	if CheckBottle == 164 then
-	   
-	   User:setSkinColor(128,255,255)
-	   User:setHairColor(0,64,0)
-	end
-	-- testing end
-	 ------------ TESTTING END !!! ------------
-	
 	content.gathering.InitGathering();
-	InitHerblore();
+	InitHarvestItems();
+    -- if we're gathering herbs or harvesting crops is determined below
 	
-	base.common.ResetInterruption(User, ltstate);
-	if (ltstate == Action.abort) then -- Arbeit unterbrochen
-        if (User:increaseAttrib("sex", 0) == 0) then
-            gText = "seine";
-            eText = "his";
-        else
-            gText = "ihre";
-            eText = "her";
-        end
-        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-        return
-    end
+	-- is the target position needed?
+	local TargetPos = base.common.GetFrontPosition(User);
+	TargetItem = base.common.GetFrontItem(User);
 
-    if not base.common.CheckItem(User, SourceItem) then -- Sicherheitscheck
-        return
-    end
-    
-	if ( ltstate == Action.success ) then         -- Unterbrechungsmeldungen
-        if base.common.IsInterrupted( User ) then
-            local selectMessage = math.random(1,5);
-            if ( selectMessage == 1 ) then
-                        base.common.InformNLS( User,
-                        "Du wischst dir den Schweiß von der Stirn.",
-                        "You wipe sweat off your forehead.");
-                    elseif ( selectMessage == 2 ) then
-                        base.common.InformNLS( User,
-                        "Ein kleines pelziges Tier springt aus dem Gebüsch und rennt davon. Für einen Moment bist du fürchterlich erschrocken.",
-                        "A small, furry critter jumps out of a bush and darts off. That really surprised you.");
-                    elseif ( selectMessage == 3 ) then
-                        base.common.InformNLS( User,
-                        "Du greifst mit der Hand in eine Blattlauskolonie. Verärgert wischt du dir die Hand an der Hose ab.",
-                        "The plant is crowded with lice. Annoyed, you wipe your hand clean on your trousers.");
-                    elseif ( selectMessage == 4 ) then
-                        base.common.InformNLS( User,
-                        "Während du nach Kräutern suchst, verhakt sich deine Sichel und rutscht dir fast aus der Hand.",
-            			"While searching for herbs your sickle gets stuck and it nearly slides out of your hand.");
-					else
-                        base.common.InformNLS( User,
-                        "Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlägst mit der Hand danach und versuchst es zu vertreiben.",
-                        "An annoying bug buzzes around your head. You strike at it in order to drive it away.");
-            end
-            return
-        end
-    end
-    
-    if base.common.Encumbrence(User) then    -- Sehr streife Rï¿½stung?
-        base.common.InformNLS( User,
-        "Deine Rüstung behindert dabei Kräuter zu sammeln.",
-        "Your armour disturbes you collecting herbs." );
-        return
-    end
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
+		end
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
+	end
 
-    local TargetItem = base.common.GetFrontItem( User );
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
+		return
+	end
+	
+	if (SourceItem:getType() ~= 4) then -- tool in Hand
+		base.common.InformNLS( User,
+		"Du musst die Sichel in der Hand haben!",
+		"You need to hold the sickle in your hand!" );
+		return
+	end
 
-    if not TargetItem then
-        base.common.InformNLS( User,
-        "Hier kannst du nichts finden.",
-        "You can't find anything here.");
-        return;
-    end
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich beim Schneiden mit der Sichel.",
+		"Your armour disturbs you while cutting with the sickle." );
+		return
+	end
 
-    if not base.common.IsLookingAt( User, TargetItem.pos ) then
-        base.common.TurnTo( User, TargetItem.pos );
-    end
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
 
-    local harvestList = harvestItem[ TargetItem.id ];
-    if harvestList == nil then
-        return
-    end
+	if not base.common.IsLookingAt( User, TargetPos ) then -- check looking direction
+		base.common.TurnTo( User, TargetPos ); -- turn if necessary
+	end
+	
+	-- any other checks?
+	-- check if there is a harvestable item or any item at all
+	local harvestItem = nil;
+	if ( TargetItem ~= nil ) then
+		harvestItem = HarvestItems[TargetItem.id];
+	end
+	if ( TargetItem == nil or harvestItem == nil) then
+		base.common.InformNLS( User, 
+		"Hier ist nichts, wofür du die Sichel benutzen kannst.", 
+		"There is nothing for which you can use the sickle." );
+		return;
+	end
+	-- there is a harvestable item, but does the ground fit?
+	local GroundType = base.common.GetGroundType(world:getField(TargetPos):tile());
+	local harvestProduct = nil;
+	for _,hp in pairs(harvestItem) do 
+		if (GroundType == hp.groundType) then
+			harvestProduct = hp;
+			break;
+		end
+	end
+	if ( harvestProduct == nil ) then
+		base.common.InformNLS( User, 
+		"Diese Pflanze trägt nichts Nützliches, das du mit deiner Sichel schneiden kannst. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.", 
+		"This plant yields nothing useful which you can cut with your sickle. Maybe this type of plant will flourish better in another soil." );
+		return;
+	end
+	-- check the amount 
+	local amountStr = TargetItem:getData("amount");
+	local amount = 0;
+	if ( amountStr ~= "" ) then
+		amount = tonumber(amountStr);
+		if ( amount < 0 ) then
+			-- this should never happen...
+			User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
+			return;
+		end
+	else if ( not harvestProduct.isFarmingItem and TargetItem.wear == 255 ) then
+		-- first time that a (static!) herb item is harvested
+		amount = MaxAmount;
+		TargetItem:setData("amount","" .. MaxAmount);
+	end
+	if ( amount == 0 ) then
+		if ( not harvestProduct.isFarmingItem ) then
+			-- only non farming items regrow
+			local serverTime = world:getTime("unix");
+			for i=1,MaxAmount do 
+				local t = TargetItem:getData("next_regrow_" .. i);
+				if ( t ~= "" and tonumber(t) <= serverTime ) then
+					-- regrow
+					amount = amount + 1;
+					TargetItem:setData("next_regrow_" .. i, "");
+				end
+			end
+			if ( amount == 0 ) then
+				-- not regrown...
+				base.common.InformNLS( User, 
+				"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
+				"This plant is already fully harvested. Give it time to grow again." );
+				return;
+			else if ( amount > MaxAmount ) then
+				-- this should never happen
+				User:inform("[ERROR] Too high amount " .. amount .. " for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
+				return;
+			else
+				TargetItem:setData("amount", "" .. amount);
+			end
+		else
+			-- this is a farming item, it can't regrow
+			base.common.InformNLS( User, 
+			"Hier kannst du nichts ernten.", 
+			"There is nothing you can harvest." );
+			return;
+		end
+	end
+	
+	-- since we're here, there is something we can harvest
+	
+	local theCraft = content.gathering.herbgathering;
+	if ( harvestProduct.isFarmingItem ) then
+		theCraft = content.gathering.farming;
+	end
 
-    if ( SourceItem:getType() ~= 4 ) then
-        base.common.InformNLS( User,
-        "Du musst die Sichel in der Hand haben um damit zu arbeiten",
-        "You have to hold the sickle in your hand to work with it.");
-        return
-    end
-
-    local GroundTile = world:getField( TargetItem.pos );
-
-    local TileID = GroundTile:tile();
-    local boden = base.common.GetGroundType(TileID);
-
-    local skill = User:getSkill( "herb lore" );
-
-    gem1, str1, gem2, str2=base.common.GetBonusFromTool(SourceItem);
-    step=0;
-    if gem1==3 then     -- ruby modifies skill!
-        step=str1;
-    end
-    if gem2==3 then
-        step=step+str2;
-    end
-    skill=skill+step;
-
-    month=world:getTime("month");
-    if (month == 0) then
-        month = 16;
-    end
-    season=math.ceil(month/4);
-
-    for i, harvest in pairs(harvestList) do
-        groundok=false;
-        if( harvest[ 1 ] == 0 or harvest[ 1 ] == boden ) then
-            groundok = true;
-        elseif ( harvest[ 1 ] < 0 ) then
-            if SearchTileInRange( harvest[ 1 ] * ( -1 ), 3, TargetItem.pos ) then
-                groundok = true;
-            end
-        end
-        if groundok then
-
-            if base.common.ToolBreaks( User, SourceItem ) then -- Werkzeug beschädigen
-                base.common.InformNLS( User,
-                "Die Sichel zerbricht.",
-                "The sickle breaks." );
-                return
-            end
-
-            if not base.common.FitForWork( User ) then
-                return false;
-            end
-
-            success = false;
-            if ( harvest[ 2 ] == 0 ) and ( harvest[ 4 ] ~= 0 ) then
-                success = true;
-            elseif ( harvest[ 2 ] > skill ) then
-                success = false;
-			skilluse=1;
-	        base.common.InformNLS( User,
-                      "Deine Kenntnisse in der Kräuterkunde sind nicht ausreichend, um hier etwas Brauchbares zu sammeln.",
-                      "Your knowlege in herblore is not sufficient to collect herbs here.");
-            elseif ( harvest[ 4 ] ~= 0 ) then
-                if( math.random( 100 ) < 80 ) then
-                    success = true;
-                end
-            elseif ( harvest[ 4 ] == 0 ) then
-                if ( ltstate == Action.none ) then -- Arbeit nicht gestartet -> Starten
-                    User:startAction(content.gathering.herbgathering:GenWorkTime(User,SourceItem), 0, 0, 0, 0 );
-                    User:talkLanguage( Character.say, Player.german, "#me beginnt nach Kräutern zu suchen.");
-                    User:talkLanguage( Character.say, Player.english, "#me starts to search for herbs.");
-                    return
-                end
-
-                if base.common.IsInterrupted( User ) then
-                    local selectMessage = math.random(1,4);
-                    if ( selectMessage == 1 ) then
-                        base.common.InformNLS(User,
-                        "Du wischst dir den Schweiß von der Stirn.",
-                        "You wipe sweat off your forehead.");
-                    elseif ( selectMessage == 2 ) then
-                        base.common.InformNLS(User,
-                        "Ein kleines pelziges Tier springt aus dem Gebüsch und rennt davon. Für einen Moment bist du fürchterlich erschrocken.",
-                        "A small, furry critter jumps out of a bush and darts off. That really surprised you.");
-                    elseif ( selectMessage == 3 ) then
-                        base.common.InformNLS(User,
-                        "Du greifst mit der Hand in eine Blattlauskolonie. Verärgert wischt du dir die Hand an der Hose ab.",
-                        "The plant is crowded with lice. Annoyed, you wipe your hand clean on your trousers.");
-                    else
-                        base.common.base.common.InformNLS(User,
-                        "Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlägst mit der Hand danach und versuchst es zu vertreiben.",
-                        "An annoying bug buzzes around your head. You strike at it in order to drive it away.");
-                    end
-                    return
-                end
-
-                User:startAction(content.gathering.herbgathering:GenWorkTime(User,SourceItem), 0, 0, 0, 0 );
-                AreaHerb=GetAreaHerbs(TargetItem.pos);
-                chance=100*(1.00037765/(1+(35.1237078*math.exp(-0.71059788*AreaHerb))));
-                if chance < 1 then
-                    chance = 1;
-                end
-                -- User:inform( "chance is "..chance );
-                if( math.random( 100 ) < chance ) then
-                    --User:inform( "success!" );
-                    success = true;
-                end
-            end
-
-            if ( harvest[ 4 ] == 0 ) then
-                if( success ) then
-                    if( harvest[ 5 ][ season ] >= math.random(20) ) then
-                        success = true;
-                    else
-                        success = false;
-                    end
-                end
-            end
-
-            -- harvest fruit
-            if( success ) then
-                step=0;
-                if gem1==7 then     -- topas modifies skill!
-                    step=str1;
-                end
-                if gem2==7 then
-                    step=step+str2;
-                end
-                --User:inform( "creating harvest" );
-
-                -- replace item with follow up item
-                if( harvest[ 4 ] ~= 0 ) then
-                    --User:inform( "changing item" );
-                    world:erase( TargetItem, 1 );
-                else
-                    DecreaseAreaHerbs(TargetItem.pos,1);
-                end
-
-				-- Hier wird das neue Item erschaffen
-
-	                QualWert = 333
-	                User:createItem( harvest[ 3 ], 1, QualWert, harvest[ 6 ] );
-					
-
-                User.movepoints=User.movepoints-4;
-                if( harvest[ 2 ] > 0 ) then
-                    --User:learn( 2, "herb lore", 2, 100 );
-					--Replace with new learn function, see learn.lua 
-                    base.common.GetHungry( User, 200 );
-                else
-                    --User:learn( 2, "herb lore", 2, 5 );
-					--Replace with new learn function, see learn.lua 
-                end
-
-                if base.common.ToolBreaks( User, SourceItem ) then
-                    base.common.InformNLS(User,
-                    "Die alte und abgenutzte Sichel in deinen Hï¿½nden zerbricht.",
-                    "The old and used sickle in your hands breaks.");
-                end
-            end
-
-            if( (not success ) and (skilluse~=1) ) and math.random(1,30) == 10 then --spam protection: 1/30 chance for message
-                if( boden == 1 ) then
-                    base.common.InformNLS( User,
-                    "Deine Hände graben durch die Erde, aber Du findest nichts.",
-                    "Your hands muckrake through the dirt, but you do not find anything." );
-                elseif( boden == 2 ) then
-                    base.common.InformNLS( User,
-                    "Altes Laub und Nadeln sind alles was Du findest.",
-                    "Dry leaves are all you find." );
-                elseif( boden == 3 ) then
-                    base.common.InformNLS( User,
-                    "Du findest nichts außer trockenem Sand.",
-                    "You find nothing but dry sand" );
-                elseif( boden == 4 ) then
-                    base.common.InformNLS( User,
-                    "Du findest nichts außer Unkraut und Gras.",
-                    "You find nothing but weed and grass." );
-                elseif( boden == 5 ) then
-                    base.common.InformNLS( User,
-                    "Du findest nichts außer Geröll.",
-                    "You find nothing but boulders." );
-                elseif( boden == 6 ) then
-                    base.common.InformNLS( User,
-                    "Du findest nichts außer ein paar unnützen dürren Stängeln im Wasser.",
-                    "You find nothing except of some useless meagre stipes in the water." );
-                elseif( boden == 7 ) then
-                    base.common.InformNLS( User,
-                    "Du findest nichts außer ein paar modrigen Pflanzenresten.",
-                    "You find nothing but some musty plant remains." );
-                elseif( boden == 8 ) then
-                    base.common.InformNLS( User,
-                    "Du findest nichts außer Eis und Schnee.",
-                    "You find nothing but ice and snow." );
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
+		User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
+		if ( amount > 1) then
+			if ( harvestProduct.isFarmingItem ) then
+				User:talkLanguage( Character.say, Player.german, "#me beginnt mit der Sichel zu ernten.");
+				User:talkLanguage( Character.say, Player.english, "#me starts to harvest with the sickle.");
+			else
+				User:talkLanguage( Character.say, Player.german, "#me beginnt mit der Sichel Kräuter zu schneiden.");
+				User:talkLanguage( Character.say, Player.english, "#me starts to cut herbs with the sickle.");
+			end
+		else
+			-- this is no batch action => no emote message, only inform player
+			if theCraft.SavedWorkTime[User.id] > 15 then
+				if ( harvestProduct.isFarmingItem ) then
+					base.common.InformNLS(User,
+					"Du beginnst mit der Sichel zu ernten.",
+					"You start to harvest with the sickle.");
 				else
-                    base.common.InformNLS( User,
-                    "Du findest nichts.",
-                    "You  do not find anything." );
-                end
-            end -- right tile
-            return
-        end
-    end -- for harvestList
+					base.common.InformNLS(User,
+					"Du beginnst mit der Sichel Kräuter zu schneiden.",
+					"You start to cut herbs with the sickle.");
+
+				end
+			end
+		end
+		return;
+	end
+
+	-- since we're here, we're working
+
+	if theCraft:FindRandomItem(User) then
+		return
+	end
+
+	amount = amount - 1;
+	if ( harvestProduct.isFarmingItem ) then
+		if ( amount == 0 ) then
+			-- nothing left, remove the farming item
+			world:erase(TargetItem, TargetItem.number);
+		else
+			-- just update the amount
+			TargetItem:setData("amount", "" .. amount);
+		end
+	else
+		-- update the amount
+		TargetItem:setData("amount", "" .. amount);
+		-- and update the next regrow
+		local regrowOk = false;
+		for i=1,MaxAmount do 
+			local t = TargetItem:getData("next_regrow_" .. i);
+			-- look for a free slot
+			if ( t == "") then
+				-- set the next regrow time according to season and grow factor
+				local season = math.ceil(world:getTime("month")/4);
+				TargetItem:setData("next_regrow_" .. i, "" .. world:getTime("unix") + math.floor(RegrowTime*GrowFactors[season]));
+				regrowOk = true;
+				break;
+			end
+		end
+		if ( not regrowOk ) then
+			-- there was no free slot, this should never happen
+			User:inform("[ERROR] There was no regrow slot for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
+			return;
+		end
+	end
+	-- since we're here, everything should be alright
+	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.SavedWorkTime[User.id], 100, User:increaseAttrib(theCraft.LeadAttribute,0) );
+	local notCreated = User:createItem( harvestProduct.productId, 1, 333 ); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( PLACEHOLDER, notCreated, User.pos, true, 333 );
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	else -- character can still carry something
+		if ( amount > 0 ) then  -- there are still items we can work on
+			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
+			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
+		else if ( not harvestProduct.isFarmingItem ) then -- no items left
+			-- only inform for non farming items. Farming items with amount==0 should already be erased.
+			base.common.InformNLS(User,
+			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
+			"This plant is already fully harvested. Give it time to grow again." );
+		end
+	end
+
+	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+		base.common.InformNLS(User,
+		"Deine alte Sichel zerbricht.",
+		"Your old sickle breaks.");
+		return
+	end
 end
 
+function CreateHarvestProduct(ProductId, GroundType, GrowFactors, IsFarmingItem)
+    local retValue = {};
+    retValue.productId = ProductId;
+    retValue.groundType = GroundType;
+    if (GrowFactors == nil) then
+        GrowFactors = {1,1,1,1};
+    end
+    retValue.growFactors = GrowFactors;
+	retValue.isFarmingItem = false;
+	if ( IsFarmingItem == true ) then
+		retValue.isFarmingItem = true;
+	end
+    return retValue;
+end
+
+function InitHarvestItems() then
+    if (HarvestItems ~= nil) then
+        return;
+    end
+    HarvestItems = {};
+	-- some definitions
+	MaxAmount = 10;
+	RegrowTime = 300;
+	
+    -- just for short writing
+    local gt = base.common.GroundType;
+    
+    -- druid herbs
+    HarvestItems[273] = {                                   -- flower
+    CreateHarvestProduct(144, gt.forest)                        -- virgins weed
+    CreateHarvestProduct(137, gt.sand)                          -- flamegoblet blossom
+    CreateHarvestProduct(135, gt.grass)                         -- yellow weed
+    CreateHarvestProduct(148, gt.rocks)                         -- firnis blossom
+    CreateHarvestProduct(763, gt.water)                         -- mash flower
+    CreateHarvestProduct(138, gt.dirt)                          -- night angels blossom
+    CreateHarvestProduct(757, gt.snow)                          -- godsflower
+    }
+    
+    HarvestItems[274] = {                                   -- fern
+    CreateHarvestProduct(140, gt.forest)                        -- donf blade
+    CreateHarvestProduct(156, gt.sand)                          -- steppe fern
+    CreateHarvestProduct(153, gt.grass)                         -- foot leaf
+    CreateHarvestProduct(768, gt.rocks)                         -- wolverine fern
+    CreateHarvestProduct(754, gt.water)                         -- water fern TODO
+    CreateHarvestProduct(752, gt.dirt)                          -- mandrake
+    CreateHarvestProduct(760, gt.snow)                          -- ice leaf TODO
+    }
+    
+    HarvestItems[301] = {                                   -- hedge
+    CreateHarvestProduct(147, gt.forest)                        -- blackberry
+    CreateHarvestProduct(142, gt.sand)                          -- sandberry
+    CreateHarvestProduct(143, gt.grass)                         -- red elder
+    CreateHarvestProduct(756, gt.rocks)                         -- pious berry
+    CreateHarvestProduct(136, gt.dirt)                          -- anger berry
+    }
+    
+    HarvestItems[338] = {                                   -- reed
+    CreateHarvestProduct(134, gt.grass)                         -- fourleafed oneberry
+    CreateHarvestProduct(155, gt.water)                         -- sibanac leaf
+    }
+    
+    HarvestItems[1782] = {                                   -- grass
+    CreateHarvestProduct(151, gt.forest)                        -- strawberry
+    CreateHarvestProduct(146, gt.sand)                          -- desert sky capsule
+    CreateHarvestProduct(141, gt.grass)                         -- black thistle
+    CreateHarvestProduct(145, gt.rocks)                         -- heath flower
+    CreateHarvestProduct(761, gt.water)                         -- rain weed
+    CreateHarvestProduct(762, gt.dirt)                          -- sulphur weed
+    }
+    
+    HarvestItems[1783] = {                                   -- grass
+    CreateHarvestProduct(151, gt.forest)                        -- strawberry
+    CreateHarvestProduct(146, gt.sand)                          -- desert sky capsule
+    CreateHarvestProduct(141, gt.grass)                         -- black thistle
+    CreateHarvestProduct(145, gt.rocks)                         -- heath flower
+    CreateHarvestProduct(761, gt.water)                         -- rain weed
+    CreateHarvestProduct(762, gt.dirt)                          -- sulphur weed
+    }
+	
+    HarvestItems[1791] = {                                   -- sunflower
+    CreateHarvestProduct(133, gt.grass)                         -- sun herb
+    }
+    
+    HarvestItems[767] = {                                   -- TODO
+    CreateHarvestProduct(767, gt.grass)                         -- TODO
+    }
+    
+    HarvestItems[1807] = {                                   -- blooming ceridern
+    CreateHarvestProduct(753, nil)                             -- TODO
+    }
+    
+    HarvestItems[1808] = {                                   -- TODO
+    CreateHarvestProduct(755, nil)                         -- TODO
+    }
+	
+	-- mushrooms
+	HarvestItems[159] = {									-- toadstool
+    CreateHarvestProduct(159, nil)								-- toadstool
+    }
+	
+	HarvestItems[161] = {									-- herder's mushroom
+    CreateHarvestProduct(159, nil)								-- herder's mushroom
+    }
+	
+	HarvestItems[426] = {									-- mushroom
+    CreateHarvestProduct(162, nil)								-- birth mushroom
+    }
+	
+	HarvestItems[158] = {									-- bulbsponge mushroom
+    CreateHarvestProduct(158, nil)								-- bulbsponge mushroom
+    }
+	
+	HarvestItems[1790] = {									-- mushroom circle
+    CreateHarvestProduct(163, nil)								-- champignon
+    }
+    
+    -- helper herb
+    HarvestItems[203] = {                                   -- palm tree
+    CreateHarvestProduct(157, nil)                            -- rotten tree bark
+    }
+    
+    HarvestItems[2169] = {									-- old log
+    CreateHarvestProduct(157, gt.grass)							-- rotten tree bark
+	CreateHarvestProduct(157, gt.dirt)							-- rotten tree bark
+    }
+	
+	HarvestItems[2170] = {									-- old log
+    CreateHarvestProduct(157, gt.grass)							-- rotten tree bark
+	CreateHarvestProduct(157, gt.dirt)							-- rotten tree bark
+    }
+	
+	-- field crops
+	HarvestItems[290] = {									-- cabbage
+    CreateHarvestProduct(290, nil, nil, true)					-- cabbage
+    }
+	HarvestItems[537] = {									-- onion
+    CreateHarvestProduct(201, nil, nil, true)					-- onion
+    }
+	HarvestItems[540] = {									-- tomato plant
+    CreateHarvestProduct(200, nil, nil, true)					-- tomato
+    }
+	HarvestItems[731] = {									-- hop
+    CreateHarvestProduct(154, nil, nil, true)					-- hop
+    }
+	HarvestItems[732] = {									-- old hops
+    CreateHarvestProduct(728, nil, nil, true)					-- hop seeds
+    }
+	HarvestItems[2492] = {									-- greens
+    CreateHarvestProduct(2493, nil, nil, true)					-- carrots
+    }
+	HarvestItems[782] = {									-- sugarcane
+    CreateHarvestProduct(778, nil, nil, true)					-- sugarcane
+    }
+	HarvestItems[777] = {									-- withered tobacco plant
+    CreateHarvestProduct(772, nil, nil, true)					-- tobacco
+    }
+	
+	-- anything else
+	--[[ deactivated as players are not allowed to change the map on their own
+	HarvestItems[308] = {									-- fir tree
+    CreateHarvestProduct(149, nil)								-- fir tree sprout
+    }--]]
+	HarvestItems[1812] = {									-- palm tree
+    CreateHarvestProduct(80, gt.sand)							-- banana
+    }
+	HarvestItems[1813] = {									-- palm tree
+    CreateHarvestProduct(80, gt.sand)							-- banana
+    }
+	
+	HarvestItems[125] = {									-- tree trunk (apple)
+    CreateHarvestProduct(152, nil)							-- life root
+    }
+	HarvestItems[309] = {									-- tree trunk (fir)
+    CreateHarvestProduct(152, nil)							-- life root
+    }
+	HarvestItems[541] = {									-- tree trunk (cherry)
+    CreateHarvestProduct(152, nil)							-- life root
+    }
+	HarvestItems[542] = {									-- tree trunk (cachdern)
+    CreateHarvestProduct(152, nil)							-- life root
+    }
+	HarvestItems[584] = {									-- tree trunk (eldan oak)
+    CreateHarvestProduct(152, nil)							-- life root
+    }
+	HarvestItems[585] = {									-- tree trunk (pine)
+    CreateHarvestProduct(152, nil)							-- life root
+    }
+	HarvestItems[587] = {									-- tree trunk (naldor)
+    CreateHarvestProduct(152, nil)							-- life root
+    }
+end
+
+--[[ old list
 function InitHerblore()
     if (harvestItem == nil) then
 
@@ -618,108 +589,4 @@ function InitHerblore()
 
     end
 end
-
-function GetAreaHerbs(TargetPosi) -- 2024 to compensate the lowest coordinate of New Illarion: -2024 -2024 0
-    local AreaFieldX=math.floor((TargetPosi.x+2024))+1;
-    local AreaFieldY=math.floor((TargetPosi.y+2024))+1;
-    if (AreaHerbs[AreaFieldX]==nil) then
-        AreaHerbs[AreaFieldX] = { };
-    end
-    if (AreaTime[AreaFieldX]==nil) then
-        AreaTime[AreaFieldX] = { };
-    end
-    if (AreaHerbs[AreaFieldX][AreaFieldY]==nil) then
-        AreaHerbs[AreaFieldX][AreaFieldY] = 10;
-    end
-    if (AreaTime[AreaFieldX][AreaFieldY]==nil) then
-        AreaTime[AreaFieldX][AreaFieldY] = GetServerSeconds();
-    end
-    IncreaseAreaHerbs(TargetPosi)
-    return AreaHerbs[AreaFieldX][AreaFieldY]
-end
-
-function DecreaseAreaHerbs(TargetPosi,Amount)
-    local AreaFieldX=math.floor((TargetPosi.x+2024))+1;
-    local AreaFieldY=math.floor((TargetPosi.y+2024))+1;
-    AreaHerbs[AreaFieldX][AreaFieldY]=AreaHerbs[AreaFieldX][AreaFieldY]-Amount;
-    AreaTime[AreaFieldX][AreaFieldY]=GetServerSeconds();
-    return
-end
-
-function IncreaseAreaHerbs(TargetPosi)
-    local AreaFieldX=math.floor((TargetPosi.x+2024))+1;
-    local AreaFieldY=math.floor((TargetPosi.y+2024))+1;
-    if (AreaHerbs[AreaFieldX][AreaFieldY]<20) then
-        local TimeDiff=GetServerSeconds()-AreaTime[AreaFieldX][AreaFieldY];
-        if (TimeDiff>600) then
-            AreaHerbs[AreaFieldX][AreaFieldY]=AreaHerbs[AreaFieldX][AreaFieldY]+math.min(10,math.floor(TimeDiff/600));
-            AreaTime[AreaFieldX][AreaFieldY]=GetServerSeconds();
-        end
-    end
-    return
-end
-
-function GetServerSeconds()
-    local retVal=0;
-    retVal=retVal+world:getTime("second");
-    retVal=retVal+world:getTime("minute")*60;
-    retVal=retVal+world:getTime("hour")*60*60;
-    retVal=retVal+world:getTime("day")*24*60*60;
-    local month=world:getTime("month");
-    if (month==0) then
-        retVal=retVal+16*6*24*60*60;
-    else
-        retVal=retVal+month*24*24*60*60;
-    end
-    retVal=retVal+world:getTime("year")*366*24*60*60;
-    return math.floor(retVal/4)
-end
-
-function SearchTileInRange(GroundType,Radius,Posi)
-    local i=-Radius;
-    local k=-Radius
-    local found=false;
-    repeat
-    k=-Radius;
-    repeat
-    SearchPos=position(Posi.x+i,Posi.y+k,Posi.z)
-    field = world:getField( SearchPos )
-    TileID = field:tile();
-    bodenart = base.common.GetGroundType( TileID )
-    for itn=1,table.getn(GroundType) do
-        if (bodenart==GroundType[itn]) then
-            found=true
-        end
-    end
-    k=k+1;
-    until (found or k==Radius+1)
-    i=i+1;
-    until (found or i==Radius+1)
-    return found
-end
-
-function SearchItemInRange(ItemIDs,Radius,Posi)
-    local i=-Radius;
-    local k=-Radius
-    local found=false;
-    repeat
-    k=-Radius;
-    repeat
-    SearchPos=position(Posi.x+i,Posi.y+k,Posi.z)
-    if world:isItemOnField(SearchPos) then
-        for itn=1,table.getn(ItemIDs) do
-            if (Item.id==ItemIDs[itn]) then
-                found=true
-            end
-        end
-    end
-    k=k+1;
-    until (found or k==Radius+1)
-    i=i+1;
-    until (found or i==Radius+1)
-    return found
-end
-
-function CheckValidHerb(HerbID,TargetPos)
-    return true;
-end
+--]]

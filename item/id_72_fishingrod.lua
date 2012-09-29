@@ -43,7 +43,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if base.common.Encumbrence(User) then
 		base.common.InformNLS( User,
 		"Deine Rüstung behindert Dich beim Fischen.",
-		"Your armour disturbes you when fishing." );
+		"Your armour disturbs you while fishing." );
 		return
 	end
 
@@ -70,7 +70,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil,false);
+		fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil);
 		User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		User:talkLanguage( Character.say, Player.german, "#me beginnt zu fischen.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to fish."); 
@@ -104,11 +104,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil,false);
+		fishing.SavedWorkTime[User.id] = fishing:GenWorkTime(User,nil);
 		User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, true ) then -- damage and possibly break the tool
+	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
 		base.common.InformNLS(User,
 		"Deine alte Angel zerbricht.",
 		"Your old fishing rod breaks.");

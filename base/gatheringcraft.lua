@@ -23,7 +23,8 @@ GatheringCraft = {
 	SavedWorkTime = { },
 	Treasure = 0,
 	TreasureMsg = { },
-	FoodLevel = 100
+	FoodLevel = 100,
+    FastActionFactor = 1
 };
 
 Monster = {
@@ -104,7 +105,7 @@ function GatheringCraft:FindRandomItem(User)
 	
 	if (self.Treasure > 0) then
 		local rand = math.random();
-		if(rand < self.Treasure) and base.treasure.createMap(User) then
+		if(rand < self.Treasure*self.FastActionFactor) and base.treasure.createMap(User) then
 			base.common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
 			return true;
 		end
@@ -113,7 +114,7 @@ function GatheringCraft:FindRandomItem(User)
 	if (table.getn(self.Monsters) > 0) then
 		local ra = math.random(table.getn(self.Monsters));
 		local pa = math.random();
-		if(pa < self.Monsters[ra].Probability) then
+		if(pa < self.Monsters[ra].Probability*self.FastActionFactor) then
 			local TargetPos = base.common.GetFrontPosition(User);
 			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
 			for g = 0, table.getn(self.Monsters[ra].GFX), 1 do
@@ -157,7 +158,7 @@ function GatheringCraft:FindRandomItem(User)
 		-- check for each item
 		for it = 1, table.getn(shuffledIndices), 1 do 
 			local ind = shuffledIndices[it];
-			if (math.random() <= self.RandomItems[ind].Probability) then
+			if (math.random() <= self.RandomItems[ind].Probability*self.FastActionFactor) then
 				base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
 				local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
 				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -199,7 +200,7 @@ function GatheringCraft:FindRandomItem(User)
 end
 
 -- Generate working time for gathering actions
-function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
+function GatheringCraft:GenWorkTime(User, toolItem)
     local skill  = math.min(100,math.max(0,User:getSkill(self.LeadSkill)));
     local attrib = math.min(20,math.max(0,User:increaseAttrib(self.LeadAttrib, 0)));
     
@@ -275,9 +276,7 @@ function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
     workTime = mean + dir*math.abs(workTime);
     workTime = math.min(maxTime, math.max(minTime, workTime));
     
-    if (fastAction) then
-        workTime = workTime/2;
-    end
+    workTime = workTime*self.FastActionFactor;
     
     return math.floor(workTime);
 end

@@ -42,7 +42,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if base.common.Encumbrence(User) then
 		base.common.InformNLS( User,
 		"Deine Rüstung behindert Dich beim Getreide dreschen.",
-		"Your armour disturbes you when flailing grain." );
+		"Your armour disturbs you while flailing grain." );
 		return
 	end
 
@@ -57,12 +57,19 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			"You need bundles of grain for flailing grain." );
 			return;
 		end
-		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,SourceItem,true);
+		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,SourceItem);
 		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
 		User:talkLanguage( Character.say, Player.german, "#me beginnt Getreide zu dreschen.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to flail grain."); 
 		return
 	end
+    -- security check: do we still have the item we're working on?
+    if (User:countItemAt("all",249)==0) then
+        base.common.InformNLS( User, 
+        "Du brauchst Getreidebündel um Getreide zu dreschen.", 
+        "You need bundles of grain for flailing grain." );
+        return;
+    end
 
 	-- since we're here, we're working
 
@@ -81,7 +88,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
 		if (User:countItemAt("all",249)>0) then  -- there are still items we can work on
-			farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,SourceItem,true);
+			farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,SourceItem);
 			User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
 			base.common.InformNLS(User,
@@ -90,7 +97,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, true ) then -- damage and possibly break the tool
+	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
 		base.common.InformNLS(User,
 		"Dein alter Dreschflegel zerbricht.",
 		"Your old flail breaks.");
