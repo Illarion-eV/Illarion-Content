@@ -1,8 +1,8 @@
 --------------------------------------------------------------------------------
--- NPC Name: Phillibald                                                  None --
+-- NPC Name: Pipillo                                                     None --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  900, 776, 1            --
+-- NPC Race: halfling                   NPC Position:  412, 291, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 900, 776, 1, 4, 'Phillibald', 'npc.phillibald', 0, 1, 1, 123, 62, 9, 245, 180, 137);
+VALUES (2, 412, 291, 0, 4, 'Pipillo', 'npc.pipillo', 0, 1, 1, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -21,7 +21,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
-module("npc.phillibald", package.seeall)
+module("npc.pipillo", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -46,13 +46,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portals, trade."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the portal merchant Pipillo. Keywords: Hello, portals, trade."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Portalbuch Händler Phillibald. Schlüsselwörter: Hallo, Portale, Handel."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Portalbuchhändler Pipillo. Schlüsselwörter: Hallo, Portale, Handel."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,9 +169,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Phillibald, portalbook merchant. That's me.");
-talkEntry:addResponse("I am the merchant Phillibald.");
-talkEntry:addResponse("Phillibald is my name, I trade portalbooks.");
+talkEntry:addResponse("Pipillo, portalbook merchant. That's me.");
+talkEntry:addResponse("I am the merchant Pipillo.");
+talkEntry:addResponse("Pipillo is my name, I trade portalbooks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -181,9 +181,9 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Phillibald, Portalbuch Händler. Das bin ich.");
-talkEntry:addResponse("Ich bin der Händler Phillibald");
-talkEntry:addResponse("Phillibald mein Name, ich handle mit Portalbüchern");
+talkEntry:addResponse("Pipillo, Portalbuch Händler. Das bin ich.");
+talkEntry:addResponse("Ich bin der Händler Pipillo");
+talkEntry:addResponse("Pipillo mein Name, ich handle mit Portalbüchern");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -494,7 +494,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch zum Hamp 
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Phillibald der Portalbuchhändler.", "This NPC is Phillibald the portalbook merchant");
+mainNPC:setLookat("Dieser NPC ist Pipillo der Portalbuchhändler.", "This NPC is Pipillo the portalbook merchant");
 mainNPC:setUseMessage("Fass mich nicht an!", "Stop touching me!");
 mainNPC:setConfusedMessage("#me blickt dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 829);

@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Phillibald                                                  Runewick --
+-- NPC Name: Lobely                                               Hamp Necktie Inn --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  900, 776, 1                --
+-- NPC Race: halfling                   NPC Position:  691, 309, 0                --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
@@ -10,10 +10,10 @@
 -- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
-name = "Phillibald"
+name = "Lobely"
 race = halfling
 sex = male
-position = 900, 776, 1
+position = 691, 309, 0
 direction = south
 affiliation = "None"
 job = "portalbook merchant"
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Zot, Faladron"
 
-lookatDE = "Dieser NPC ist Phillibald der Portalbuchhändler."
-lookatUS = "This NPC is Phillibald the portalbook merchant"
+lookatDE = "Dieser NPC ist Lobely der Portalbuchhändler."
+lookatUS = "This NPC is Lobely the portalbook merchant"
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Stop touching me!"
 wrongLangDE = "#me blickt dich verwirrt an."
@@ -64,8 +64,8 @@ sellItem = id(1061), de("Portalbuch nach Runewick"), en("portal book to Runewick
 sellItem = id(1061), de("Portalbuch zum Hamp Necktie Inn"), en("portal book to the Hamp Necktie Inn"), price (2000), stack(1), quality(333), data("destinationCoordsX"="648","destinationCoordsY"="308","destinationCoordsZ"="0")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portals, trade.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuch Händler Phillibald. Schlüsselwörter: Hallo, Portale, Handel.")
+"Help" -> inform("[Game Help] This NPC is the portal merchant Lobely. Keywords: Hello, portals, trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuchhändler Lobely. Schlüsselwörter: Hallo, Portale, Handel.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Today is a fine day to travel."
@@ -78,8 +78,8 @@ sellItem = id(1061), de("Portalbuch zum Hamp Necktie Inn"), en("portal book to t
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Immer in Bewegung bleiben!", "Tschüssi!", "Auf wiedersehen."
 "How are you", "How feel", "How do you do" -> "I feel excited, thinking about all the places to travel to.", "I'm itching to make another journey."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.", "Es juckt mich in den Füßen, eine Reise zu machen."
-"your name", "who are you", "who art thou" -> "Phillibald, portalbook merchant. That's me.", "I am the merchant Phillibald.", "Phillibald is my name, I trade portalbooks."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Phillibald, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Phillibald", "Phillibald mein Name, ich handle mit Portalbüchern"
+"your name", "who are you", "who art thou" -> "Lobely, portalbook merchant. That's me.", "I am the merchant Lobely.", "Lobely is my name, I trade portalbooks."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Lobely, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Lobely", "Lobely mein Name, ich handle mit Portalbüchern"
 
 -- Catching quest triggers
 "quest", "mission", english -> "I do not issue any quests. But I can sell you books to go to other places."
