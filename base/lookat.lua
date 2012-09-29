@@ -26,7 +26,7 @@ NONE = 0;
 METAL = 1;
 WOOD = 2;
 CLOTH = 3;
-JEWELERY = 4;
+JEWELLERY = 4;
 
 function GenerateLookAt(user, item, material)
 	if (user == nil) then
@@ -39,7 +39,9 @@ function GenerateLookAt(user, item, material)
 		return;
 	end;
 	
-	if ((material < NONE) or (material > JEWELERY)) then
+    material = material or NONE
+
+	if ((material < NONE) or (material > JEWELLERY)) then
 		debug("Sanity check failed, no valid material supplied.");
 	end;
 	

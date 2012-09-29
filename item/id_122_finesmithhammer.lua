@@ -274,7 +274,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
         "Deine Rüstung behindert beim feinschmieden.",
-        "Your armour disturbes you while fine smithing." );
+        "Your armour disturbs you while fine smithing." );
         Smithing:SwapToInactiveItem( User );
         return
     end

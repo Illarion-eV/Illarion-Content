@@ -24,7 +24,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
         "Deine Rüstung behindert beim Holz sägen.",
-        "Your armour disturbes while sawing wood." );
+        "Your armour disturbs while sawing wood." );
         return
     end
     

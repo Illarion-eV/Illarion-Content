@@ -131,11 +131,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         if (User.pos.z == 100) then
             base.common.InformNLS( User,
             "Deine Rüstung behindert Dich beim Holz schlagen. Wenn du arbeiten willst kannst du keine schwere Rüstungen tragen. Lege deine Rüstung und deinen Helm in deine Tasche. Dann kannst du arbeiten.",
-            "Your armour disturbes you when chopping trees. If you want to work you must not carry heavy armors. Put your armor and your helmet into your bag. Then you can work." );
+            "Your armour disturbs you when chopping trees. If you want to work you must not carry heavy armors. Put your armor and your helmet into your bag. Then you can work." );
         else
             base.common.InformNLS( User,
             "Deine Rüstung behindert Dich beim Holz schlagen.",
-            "Your armour disturbes you when chopping trees" );
+            "Your armour disturbs you when chopping trees" );
         end
         return
     end

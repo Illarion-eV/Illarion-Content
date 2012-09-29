@@ -22,7 +22,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if base.common.Encumbrence(User) then -- Sehr steife Rüstung?
         base.common.InformNLS( User,
         "Deine Rüstung behindert beim Gerben.",
-        "Your armour disturbes while tanning leather." );
+        "Your armour disturbs while tanning leather." );
         return
     end
 

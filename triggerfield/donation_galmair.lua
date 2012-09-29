@@ -13,6 +13,14 @@ module("triggerfield.donation_galmair", package.seeall)
 
 function PutItemOnField(Item,User)
 
-    triggerfield.donation_base.donate(Item,User,"Galmair","Valerio Guilianni","TreasureGalmair"); -- That's all folks
+    donated=triggerfield.donation_base.donate(Item,User,"Galmair","Valerio Guilianni","TreasureGalmair"); -- That's all folks
 
+    -- Here you can add a quest
+	
+    if donated then
+	    -- add your quest here
+	end
+	
+	-- Quest end
+	
 end

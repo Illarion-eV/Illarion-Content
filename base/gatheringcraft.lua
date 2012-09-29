@@ -23,7 +23,8 @@ GatheringCraft = {
 	SavedWorkTime = { },
 	Treasure = 0,
 	TreasureMsg = { },
-	FoodLevel = 100
+	FoodLevel = 100,
+    FastActionFactor = 1
 };
 
 Monster = {
@@ -104,7 +105,7 @@ function GatheringCraft:FindRandomItem(User)
 	
 	if (self.Treasure > 0) then
 		local rand = math.random();
-		if(rand < self.Treasure) and base.treasure.createMap(User) then
+		if(rand < self.Treasure*self.FastActionFactor) and base.treasure.createMap(User) then
 			base.common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
 			return true;
 		end
@@ -113,7 +114,7 @@ function GatheringCraft:FindRandomItem(User)
 	if (table.getn(self.Monsters) > 0) then
 		local ra = math.random(table.getn(self.Monsters));
 		local pa = math.random();
-		if(pa < self.Monsters[ra].Probability) then
+		if(pa < self.Monsters[ra].Probability*self.FastActionFactor) then
 			local TargetPos = base.common.GetFrontPosition(User);
 			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
 			for g = 0, table.getn(self.Monsters[ra].GFX), 1 do
@@ -133,7 +134,7 @@ function GatheringCraft:FindRandomItem(User)
 		-- pick a random item
 		local ind = math.random(1,table.getn(self.RandomItems));
 		-- check for probability
-		if (math.random() <= self.RandomItems[ind].Probability) then
+		if (math.random() <= self.RandomItems[ind].Probability*self.FastActionFactor) then
 			base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
 			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
 			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -143,10 +144,11 @@ function GatheringCraft:FindRandomItem(User)
 				"You can't carry any more.");
 			end
 			return true;
-		end]]
+		end
+		--]]
 		
 		-- check each item independently in a random order
-		--
+		--[[
 		local itemIndexList = {};
 		-- just create a list with all indices
 		for it = 1, table.getn(self.RandomItems), 1 do
@@ -157,7 +159,7 @@ function GatheringCraft:FindRandomItem(User)
 		-- check for each item
 		for it = 1, table.getn(shuffledIndices), 1 do 
 			local ind = shuffledIndices[it];
-			if (math.random() <= self.RandomItems[ind].Probability) then
+			if (math.random() <= self.RandomItems[ind].Probability*self.FastActionFactor) then
 				base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
 				local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
 				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -169,20 +171,20 @@ function GatheringCraft:FindRandomItem(User)
 				return true;
 			end
 		end
-		
+		--]]
 		
 		-- check all items with same random number and choose any possible item again randomly
-		--[[
+		---[[
 		local itemIndexList = {};
 		local rand = math.random();
 		-- list all items that are possible
 		for it = 1, table.getn(self.RandomItems), 1 do
-			if (rand <= self.RandomItems[it].Probability) then
+			if (rand <= self.RandomItems[it].Probability*self.FastActionFactor) then
 				table.insert(itemIndexList, it);
 			end
 		end
-		local ind = itemIndexList[math.random(1,table.getn(itemIndexList))];
-		if (math.random() <= self.RandomItems[ind].Probability) then
+		if ( table.getn(itemIndexList) > 0 ) then
+			local ind = itemIndexList[math.random(1,table.getn(itemIndexList))];
 			base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
 			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
 			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -193,13 +195,13 @@ function GatheringCraft:FindRandomItem(User)
 			end
 			return true;
 		end
-		]]
+		--]]
 	end
 	return false;
 end
 
 -- Generate working time for gathering actions
-function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
+function GatheringCraft:GenWorkTime(User, toolItem)
     local skill  = math.min(100,math.max(0,User:getSkill(self.LeadSkill)));
     local attrib = math.min(20,math.max(0,User:increaseAttrib(self.LeadAttrib, 0)));
     
@@ -275,9 +277,7 @@ function GatheringCraft:GenWorkTime(User, toolItem, fastAction)
     workTime = mean + dir*math.abs(workTime);
     workTime = math.min(maxTime, math.max(minTime, workTime));
     
-    if (fastAction) then
-        workTime = workTime/2;
-    end
+    workTime = workTime*self.FastActionFactor;
     
     return math.floor(workTime);
 end

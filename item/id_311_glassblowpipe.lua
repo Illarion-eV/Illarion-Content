@@ -117,7 +117,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
         "Deine Rüstung behindert beim Glas blasen.",
-        "Your armour disturbes you while blowing glass." );
+        "Your armour disturbs you while blowing glass." );
         Glassblowing:SwapToInactiveItem( User );
         return
     end

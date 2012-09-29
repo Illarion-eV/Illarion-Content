@@ -129,7 +129,7 @@ english, "job" -> "I'm a guard. I guard people. Long live the queen."
 "job" -> "Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin."
 english, "Gobaith", "Gobiath" -> "Never heard of that. Is it far away?"
 "Gobaith", "Gobiath" -> "Davon hab ich nie gehört. Ist das weit weg?"
-"my name" -> "I feel honored to meet you."
+"my name" -> "I feel honoured to meet you."
 "mein Name" -> "Ich fühle mich geehrt Euch zu treffen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
