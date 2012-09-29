@@ -80,9 +80,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	User:learn( farming.LeadSkill, farming.LeadSkillGroup, farming.SavedWorkTime[User.id], 100, User:increaseAttrib(farming.LeadAttribute,0) );
 	User:eraseItem( 249, 1 ); -- erase the item we're working on
 	local amount = math.random(1,4); -- set the amount of items that are produced
-	local notCreated = User:createItem( 259, amount, 333 ); -- create the new produced items
+	local notCreated = User:createItem( 259, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( 259, notCreated, User.pos, true, 333 );
+		world:createItemFromId( 259, notCreated, User.pos, true, 333, nil );
 		base.common.InformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");

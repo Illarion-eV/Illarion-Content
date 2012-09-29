@@ -149,12 +149,12 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
     if (amount ~= "") then
         amount = tonumber(amount);
         if (TargetItem:getType() == 3) then -- item on the map
-            local notCreated = User:createItem(SourceItem.id, amount, 333);
+            local notCreated = User:createItem(SourceItem.id, amount, 333, nil);
             if (notCreated > 0) then
-                world:createItemFromId( SourceItem.id, notCreated, SourceItem.pos, true, 333 );
+                world:createItemFromId( SourceItem.id, notCreated, SourceItem.pos, true, 333, nil );
             end
         else
-            world:createItemFromId( SourceItem.id, amount, SourceItem.pos, true, 333 );
+            world:createItemFromId( SourceItem.id, amount, SourceItem.pos, true, 333, nil );
         end
         world:erase( SourceItem, SourceItem.number );
     end

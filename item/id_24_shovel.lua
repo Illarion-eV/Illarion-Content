@@ -147,9 +147,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.SavedWorkTime[User.id], 100, User:increaseAttrib(theCraft.LeadAttribute,0) );
 	local amount = math.random(1,4); -- set the amount of items that are produced
-	local notCreated = User:createItem( digForID, amount, 333 ); -- create the new produced items
+	local notCreated = User:createItem( digForID, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( digForID, notCreated, User.pos, true, 333 );
+		world:createItemFromId( digForID, notCreated, User.pos, true, 333, nil );
 		base.common.InformNLS(User,
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
