@@ -59,9 +59,19 @@ itemShoes = 53
 -- 5% Stones: 733, 735, 1266
 -- 10% Clay: 26
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I trade with building materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... Iall the workers need.", "I can sell you the tools you need to serve the queen. On, on!"
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!"
+sellItems =  24, 26, 23, 737, 734, 736, 2588, 733, 735, 1266
+buyPrimaryItems = 24, 26
+buySecondaryItems = 23, 737, 734, 736, 2588, 733, 735, 1266
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keywords: Hello, builder.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Baumeister Robertus. Schlüsselwörter: Hallo, Baumeister.")
+"Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keywords: buy, sell, trade, Hello, builder.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Baumeister Robertus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Baumeister.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building material for me?", "Be greeted, in the name of the queen."
@@ -154,8 +164,6 @@ english, "Cherga" -> "I'll never let Cherga take away our queen. If she departs 
 "Cherga" -> "Niemals werde ich Cherga unsere Königin rauben lassen. Sollte sie dennoch diese Welt verlassen, so werde ich folgen.", "Ich fürchte Cherga nicht. Ich werde ihr, Seite an Seite mit der Königin, gegenübertreten."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, trade, "Ibuilding materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... Iall the workers need.", "I can sell you the tools you need to serve the queen. On, on!"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!"
 "tell something" -> "Shh, don't speak about this in public, but we're actually building the queen's grave.", "I wonder where all the refugees came from. More hands for the queen!", "Never venture to the mountains alone. Dragons were reported to roam there."
 "erzähl was", "erzähl etwas" -> "Shh, redet nicht davon in der Öffentlichkeit, aber wir bauen das Grab der Königin", "Ich frage mich nur, wo die Flüchtlinge alle herkamen. Ach, mehr Hände für die Königin!", "Wagt es niemals, alleine in die Berge zu gehen. Angeblich treiben dort Drachen ihr Unwesen."
 

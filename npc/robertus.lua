@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 30, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -22,21 +22,55 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
+require("npc.base.trade")
 module("npc.robertus", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sell");
+talkEntry:addTrigger("buy");
+talkEntry:addTrigger("wares");
+talkEntry:addTrigger("price");
+talkEntry:addTrigger("trade");
+talkEntry:addTrigger("purchase");
+talkEntry:addResponse("I trade with building materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.");
+talkEntry:addResponse("Bricks, stone blocks, marble... Iall the workers need.");
+talkEntry:addResponse("I can sell you the tools you need to serve the queen. On, on!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("kauf");
+talkEntry:addTrigger("waren");
+talkEntry:addTrigger("preis");
+talkEntry:addTrigger("Handel");
+talkEntry:addTrigger("veräußer");
+talkEntry:addTrigger("erwerb");
+talkEntry:addResponse("Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.");
+talkEntry:addResponse("Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.");
+talkEntry:addResponse("Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the royal builder Robertus. Keywords: Hello, builder."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the royal builder Robertus. Keywords: buy, sell, trade, Hello, builder."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der königliche Baumeister Robertus. Schlüsselwörter: Hallo, Baumeister."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der königliche Baumeister Robertus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Baumeister."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -188,8 +222,8 @@ talkEntry:addTrigger("letter");
 talkEntry:addTrigger("scroll");
 talkEntry:addTrigger("parchment");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
 talkEntry:addResponse("Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,8 +235,8 @@ talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Schriftrolle");
 talkEntry:addTrigger("Pergament");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
 talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -212,8 +246,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hector");
 talkEntry:addTrigger("Valerion");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
 talkEntry:addResponse("Oh, my majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -222,8 +256,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
 talkEntry:addTrigger("Hector");
 talkEntry:addTrigger("Valerion");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
 talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,8 +265,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -247,8 +281,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -696,30 +730,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Ibuilding materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.");
-talkEntry:addResponse("Bricks, stone blocks, marble... Iall the workers need.");
-talkEntry:addResponse("I can sell you the tools you need to serve the queen. On, on!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.");
-talkEntry:addResponse("Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.");
-talkEntry:addResponse("Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("Shh, don't speak about this in public, but we're actually building the queen's grave.");
 talkEntry:addResponse("I wonder where all the refugees came from. More hands for the queen!");
@@ -825,6 +835,10 @@ talkEntry:addTrigger("Robertus");
 talkEntry:addResponse("Fürwahr, ich bin Robertus, der königliche Baumeister. Und nein, ich habe keinen Spitznamen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("Hoch lebe die Königin!", "Hail the Queen!");
 talkingNPC:addCycleText("#me beugt sich über eine große Zeichnung und macht sorgfältig Korrekturen an einzelnen Linien.", "#me leans over a huge drawing and corrects individual lines carefully.");
 talkingNPC:addCycleText("#me schlägt mit seiner Faust auf eine auf dem Tisch liegende Zeichnung. 'Nein! So nicht!'", "#me slams his fist on a drawing, lying on the table. 'No! Not this way!'");
@@ -835,6 +849,30 @@ talkingNPC:addCycleText("Dient ihrer Hohheit!", "Serve her majesty!");
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his forehead.");
 talkingNPC:addCycleText("Ein Kubus - wie genial!", "A cube - how genious!");
 talkingNPC:addCycleText("Der Königin ein Grabmal zu erbauen ist eine äußerst ehrbare Tat.", "To build the queen's grave is a very honourable deed.");
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(24,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(26,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(737,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(734,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(736,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2588,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(733,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(735,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1266,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(24,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(26,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(737,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(734,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(736,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2588,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(733,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(735,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1266,"buySecondary"));
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
@@ -849,6 +887,10 @@ mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 2112);
 mainNPC:setEquipment(10, 53);
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

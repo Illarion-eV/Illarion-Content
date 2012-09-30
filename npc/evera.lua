@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Evera                                                       None --
+-- NPC Name: Evera                                                    Cadomyr --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  139, 622, 0            --

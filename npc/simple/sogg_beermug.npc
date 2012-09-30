@@ -46,9 +46,18 @@ itemShoes = 369
 -- Tools (Brewer): 51, 227
 -- Beer: 1909, 1908
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Me sell all bottles and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hurr hurr."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe."
+sellItems = 58, 164, 1008, 51, 227, 1909, 1908
+buyPrimaryItems = 58, 164, 1008, 51, 227, 1909, 1908
+tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can't afford that!"
+tradeFinishedMsg "Vielen Dank, komm bald wieder!", "Thank you, come again!"
+tradeFinishedWithoutTradingMsg "Farebaaaa...!", "Farebaaaa...!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keywords: Occupation, Runewick, Galmair, Cadomyr"), state = 0, "Help? All ob us need help!...'hic'"
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Sogg Beermug der Alchimist. Schlüsselwörter: Beruf, Runewick, Galmair, Cadomyr"), state = 0, "Hilfe brauschn wir alle!...'hick'"
+"Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keywords: buy, sell, trade, Occupation, Runewick, Galmair, Cadomyr"), state = 0, "Help? All ob us need help!...'hic'"
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Sogg Beermug der Alchimist. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf, Runewick, Galmair, Cadomyr"), state = 0, "Hilfe brauschn wir alle!...'hick'"
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas!", "Hurr! Greetings.", "#me grunts and waves a mug of beer.", "Skoal! Come over 'ere and drink with Sogg!"
@@ -133,8 +142,6 @@ german, "adron" -> "Honor to Adron, tha fat man with red nose! Yubba. May he hel
 english, "adron" -> "Geerht sei Adron, der fette Mann mit roter Nase! Yubba. Möge er helfen, zu bewachen alle meine Flasch und Fässa!"
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Me sell all bottles and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hurr hurr."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe."
 "tell something" -> "#me glances around the area with dull eyes.", "#me belches loudly.", "Bean's Booze..."
 "erzähl was", "erzähl etwas" -> "#me rülpst herzhaft.", "#me schmatzt und blickt sich mit trüben Augen um.", "Bohn'nschnaps... "
 

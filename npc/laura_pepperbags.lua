@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 30, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -27,16 +27,20 @@ function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Laura Pepperbags the money changer of Galmair. Keywords: Hello, sell, buy, profession."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Laura Pepperbags the money changer of Galmair. Keywords: Hello, sell, buy, trade, profession."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Laura Pepperbags die Geldwechslerin von Galmair. Schlüsselwörter: Hallo, verkaufen, kaufen, Beruf."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Laura Pepperbags die Geldwechslerin von Galmair. Schlüsselwörter: Hallo, verkaufe, kaufe, Handel, Beruf."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -157,6 +161,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -173,9 +178,9 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I'm a money changer. Want to change?");
 talkEntry:addResponse("You can change your money here.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -186,9 +191,9 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ich bin Geldwechsler. Mögt Ihr wechseln?");
 talkEntry:addResponse("Ihr könnt hier Münzen eintauschen.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -326,12 +331,20 @@ talkEntry:addResponse("Wo soll das denn sein?");
 talkEntry:addResponse("Davon hab ich noch nie gehört.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("#me zählt emsig Münzen.", "#me counts assiduously money.");
 talkingNPC:addCycleText("#me betrachtet ihr Spiegelbild in einer Silbermünze.", "#me looks at her refelction in a silver coin.");
 talkingNPC:addCycleText("Wenn ihn euer Kupfer gegen funkelndes Silber tauschen möchtet, so sprecht mich ruhig an.", "If you want to change your copper to some nice shining silver coins, just talk to me!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(61,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3076,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3077,"sell"));
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
@@ -346,6 +359,10 @@ mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 3076);
 mainNPC:setEquipment(9, 0);
 mainNPC:setEquipment(10, 369);
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
