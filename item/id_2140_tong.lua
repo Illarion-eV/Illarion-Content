@@ -152,7 +152,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
         "Deine Rüstung behindert beim Edelstein schleifen.",
-        "Your armour disturbes you while cutting gems." );
+        "Your armour disturbs you while cutting gems." );
         GemCutting:SwapToInactiveItem( User );
         return
     end

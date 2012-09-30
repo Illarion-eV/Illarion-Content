@@ -5,14 +5,11 @@
 module("item.id_290_cabbage", package.seeall)
 
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
-    if (SourceItem.data > 0) then
-        if (User:getPlayerLanguage() == 0) then
-            User:inform("Du würdest den Kohl beschädigen, ziehst du ihn einfach so heraus. Du benötigst eine Sichel um ihn abzuschneiden.");
-        else
-            User:inform("You would damage the cabbage, if you pull it out. You need a sickle to cut it");
-        end
+    if (SourceItem:getData("amount") ~= "") then
+        base.common.InformNLS(User,
+		"Du würdest den Kohl beschädigen, ziehst du ihn mit bloßen Händen heraus. Du benötigst eine Sichel, um ihn abzuschneiden.",
+		"You would damage the cabbage, if you pulled it out with bare hands. You need a sickle to cut it.");
         return false
-    else
-        return true
     end
+    return true
 end    

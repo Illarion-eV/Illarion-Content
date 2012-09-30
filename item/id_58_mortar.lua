@@ -115,7 +115,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
         "Deine Rüstung behindert beim Farben herstellen.",
-        "Your armour disturbes you while creating dyes." );
+        "Your armour disturbs you while creating dyes." );
         Mortar:SwapToInactiveItem( User );
         return
     end

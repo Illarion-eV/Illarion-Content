@@ -43,7 +43,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
         "Deine Rüstung behindert beim schmelzen von Metall.",
-        "Your armour disturbes you while melting ores." );
+        "Your armour disturbs you while melting ores." );
         return
     end
     
