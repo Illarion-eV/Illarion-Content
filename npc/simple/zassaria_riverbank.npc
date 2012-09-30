@@ -128,7 +128,7 @@ itemShoes = 0
 "job", english -> "I work asss a fisssher. It'sss fun. Zss."
 "job" -> "Ich arbeite alsss Fischerin. Esss macht Spaßsss. Zss."
 "tell something" -> "Do you know there'sss a diffrentce between Zsss, Tsss and Ssss?", "Usssually marriages between my people are arranged by the partentsss. Sss. Usually."
-"erzähl was", "erzähl etwas", "erzähl mir was", "erzählt mir was" -> "Wissst ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?","Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweise."
+"erzähl was", "erzähl etwas", "erzähl mir was", "erzählt mir was" -> "Wissst ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?","Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweissse."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Lizzardsss pray to Zzzelphia. To whom do you pray?"
@@ -166,4 +166,4 @@ cycletext "Ssss!", "Ssss!"
 cycletext "#me zischt.", "#me hisses."
 cycletext "Zss!", "Zss!"
 cycletext "Tsss...", "Tsss..."
-cycletext "lässt ihren Schwanz hin und her schnellen.", "#me moves her Tail."
+cycletext "lässt ihren Schwanz hin und her schnellen.", "#me moves her tail."
