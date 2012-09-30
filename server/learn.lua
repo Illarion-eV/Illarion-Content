@@ -71,6 +71,9 @@ function reduceMC( user )
 end
 
 function getLeadAttrib(Char, Skill)
+
+debug("*** IN LEARN: "..Skill)
+
     if iniLead==nil then
         leadAttrib={};
         leadAttrib["tailoring"]="dexterity"
@@ -105,6 +108,9 @@ function getLeadAttrib(Char, Skill)
         leadAttrib["wrestling"]="strength"
         iniLead=1;
     end
+    
+debug("*** VALUE: "..leadAttrib[Skill])
+
     lAttrib=leadAttrib[Skill]
     if lAttrib~=nil then
         return Char:increaseAttrib(lAttrib,0);

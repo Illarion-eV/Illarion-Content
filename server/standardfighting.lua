@@ -710,7 +710,7 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnDodge(Attacker, Defender, AP)
-    leadAttribName=getLeadAttrib("dodge");
+    --leadAttribName=getLeadAttrib("dodge");
     if (Attacker.skill >= Defender.dodge - 10) then
             --Defender.Char:learn(5, "dodge", 2,base.common.Limit(Attacker.skill + 10, 0, 100 ));
         server.learn.learn(Defender.Char,"dodge", 5, AP, base.common.Limit(Attacker.skill + 10, 0, 100 ) );

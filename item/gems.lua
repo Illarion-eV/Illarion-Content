@@ -69,12 +69,14 @@ function LookAtItem(User,Item)
 
     GEM_DATA_DE= { "latent ", "bedingt ", "leicht ", "mäßig ", "", "bemerkenswert ", "stark ", "sehr stark ", "unglaublich ", "einzigartig " }
     GEM_DATA_EN= { "latent ", "limited ", "slight ", "moderate ", "", "notable ", "strong ", "very strong ", "unbelievable ", "unique " }
-
-    if ( (Item.data > 0) and (Item.data < 11) ) then
+    
+    magLevel=tonumber(Item:getData("magLevel"));
+    
+    if magLevel~=nil then
         if User:getPlayerLanguage() == 0 then
-        world:itemInform(User,Item,GEM_DATA_DE[Item.data].."magischer "..ItemName);
+            world:itemInform(User,Item,GEM_DATA_DE[magLevel].."magischer "..ItemName);
         else
-        world:itemInform(User,Item,GEM_DATA_EN[Item.data].."magical "..ItemName);
+            world:itemInform(User,Item,GEM_DATA_EN[magLevel].."magical "..ItemName);
         end;
     else
         world:itemInform(User,Item,ItemName);
