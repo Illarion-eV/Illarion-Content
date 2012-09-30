@@ -285,7 +285,7 @@ function CauseDamage(Attacker, Defender, Globals)
         
         base.common.CreateLine(Defender.Char.pos, newPos, isNotBlocked);
         
-        if targetPos != startPos then
+        if targetPos ~= startPos then
             Defender.Char:warp(targetPos)
         end
 
