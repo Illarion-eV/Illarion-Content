@@ -111,7 +111,7 @@ debug("*** IN LEARNs: '"..Skill.."'")
         debug("*** DONE INIT!")
     end
 
-debug("*** VALUE: "..leadAttrib[Skill])
+debug("*** VALUE: "..leadAtt[Skill])
 
     lAttrib=leadAtt[Skill]
     if lAttrib~=nil then
