@@ -72,7 +72,7 @@ end
 
 function getLeadAttrib(Char, Skill)
 
-debug("*** IN LEARN: '"..Skill.."'")
+debug("*** IN LEARNs: '"..Skill.."'")
 
     if iniLed==nil then
         debug("*** START INIT")
