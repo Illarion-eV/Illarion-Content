@@ -74,7 +74,7 @@ function getLeadAttrib(Char, Skill)
 
 debug("*** IN LEARN: "..Skill)
 
-    if iniLead==nil then
+    if iniLed==nil then
         debug("*** START INIT")
         leadAttrib={};
         leadAttrib["tailoring"]="dexterity"
@@ -107,7 +107,7 @@ debug("*** IN LEARN: "..Skill)
         leadAttrib["glass blowing"]="dexterity"
         leadAttrib["fishing"]="constitution"
         leadAttrib["wrestling"]="strength"
-        iniLead=1;
+        iniLed=1;
         debug("*** DONE INIT!")
     end
 
