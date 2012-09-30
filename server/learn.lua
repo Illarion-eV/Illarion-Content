@@ -76,44 +76,44 @@ debug("*** IN LEARNs: '"..Skill.."'")
 
     if iniLed==nil then
         debug("*** START INIT")
-        leadAttrib={};
-        leadAttrib["tailoring"]="dexterity"
-        leadAttrib["fireing bricks"]="constitution"
-        leadAttrib["alchemy"]="perception"
-        leadAttrib["tactics"]="perception"
-        leadAttrib["peasantry"]="constitution"
-        leadAttrib["poisoning"]="perception"
-        leadAttrib["harp"]="dexterity"
-        leadAttrib["lumberjacking"]="constitution"
-        leadAttrib["smithing"]="dexterity"
-        leadAttrib["puncture weapons"]="agility"
-        leadAttrib["horn"]="dexterity"
-        leadAttrib["distance weapons"]="perception"
-        leadAttrib["library research"]="intelligence"
-        leadAttrib["gemcutting"]="dexterity"
-        leadAttrib["slashing weapons"]="strength"
-        leadAttrib["magic resistance"]="essence"
-        leadAttrib["carpentry"]="dexterity"
-        leadAttrib["baking"]="dexterity"
-        leadAttrib["goldsmithing"]="dexterity"
-        leadAttrib["concussion weapons"]="strength"
-        leadAttrib["flute"]="dexterity"
-        leadAttrib["parry"]="agility"
-        leadAttrib["lute"]="dexterity"
-        leadAttrib["dodge"]="agility"
-        leadAttrib["herb lore"]="constitution"
-        leadAttrib["mining"]="constitution"
-        leadAttrib["blacksmithing"]="dexterity"
-        leadAttrib["glass blowing"]="dexterity"
-        leadAttrib["fishing"]="constitution"
-        leadAttrib["wrestling"]="strength"
+        leadAtt={};
+        leadAtt["tailoring"]="dexterity"
+        leadAtt["fireing bricks"]="constitution"
+        leadAtt["alchemy"]="perception"
+        leadAtt["tactics"]="perception"
+        leadAtt["peasantry"]="constitution"
+        leadAtt["poisoning"]="perception"
+        leadAtt["harp"]="dexterity"
+        leadAtt["lumberjacking"]="constitution"
+        leadAtt["smithing"]="dexterity"
+        leadAtt["puncture weapons"]="agility"
+        leadAtt["horn"]="dexterity"
+        leadAtt["distance weapons"]="perception"
+        leadAtt["library research"]="intelligence"
+        leadAtt["gemcutting"]="dexterity"
+        leadAtt["slashing weapons"]="strength"
+        leadAtt["magic resistance"]="essence"
+        leadAtt["carpentry"]="dexterity"
+        leadAtt["baking"]="dexterity"
+        leadAtt["goldsmithing"]="dexterity"
+        leadAtt["concussion weapons"]="strength"
+        leadAtt["flute"]="dexterity"
+        leadAtt["parry"]="agility"
+        leadAtt["lute"]="dexterity"
+        leadAtt["dodge"]="agility"
+        leadAtt["herb lore"]="constitution"
+        leadAtt["mining"]="constitution"
+        leadAtt["blacksmithing"]="dexterity"
+        leadAtt["glass blowing"]="dexterity"
+        leadAtt["fishing"]="constitution"
+        leadAtt["wrestling"]="strength"
         iniLed=1;
         debug("*** DONE INIT!")
     end
 
 debug("*** VALUE: "..leadAttrib[Skill])
 
-    lAttrib=leadAttrib[Skill]
+    lAttrib=leadAtt[Skill]
     if lAttrib~=nil then
         return Char:increaseAttrib(lAttrib,0);
     end
