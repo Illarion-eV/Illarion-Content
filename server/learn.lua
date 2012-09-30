@@ -16,7 +16,7 @@ leadAttribute: The value of the lead attribute as integer. You find the mandator
 Example: Character:learn("mining",2,20,100,Character:increaseAttrib("constitution",0));
 ]]
 
-function learn( user, skill, skillGroup, actionPoints, opponent )
+function learn( user, skill, skillGroup, actionPoints, opponent, lA )
 
     leadAttrib=getLeadAttrib(user,skill);
 
