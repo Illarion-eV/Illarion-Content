@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 30, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -20,26 +20,57 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.state")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
+require("npc.base.trade")
 module("npc.sogg_beermug", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sell");
+talkEntry:addTrigger("buy");
+talkEntry:addTrigger("wares");
+talkEntry:addTrigger("price");
+talkEntry:addTrigger("trade");
+talkEntry:addTrigger("purchase");
+talkEntry:addResponse("Me sell all bottles and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hurr hurr.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("kauf");
+talkEntry:addTrigger("waren");
+talkEntry:addTrigger("preis");
+talkEntry:addTrigger("Handel");
+talkEntry:addTrigger("veräußer");
+talkEntry:addTrigger("erwerb");
+talkEntry:addResponse("Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can't afford that!");
+tradingNPC:addDialogClosedMsg("Vielen Dank, komm bald wieder!", "Thank you, come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Farebaaaa...!", "Farebaaaa...!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keywords: Occupation, Runewick, Galmair, Cadomyr"));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keywords: buy, sell, trade, Occupation, Runewick, Galmair, Cadomyr"));
 talkEntry:addResponse("Help? All ob us need help!...'hic'");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Sogg Beermug der Alchimist. Schlüsselwörter: Beruf, Runewick, Galmair, Cadomyr"));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Sogg Beermug der Alchimist. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf, Runewick, Galmair, Cadomyr"));
 talkEntry:addResponse("Hilfe brauschn wir alle!...'hick'");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -164,6 +195,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -413,7 +445,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Skoal! Let us drink for honor of the Don!");
+talkEntry:addResponse("Skoal! Let us drink for honour of the Don!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -614,24 +646,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("Me sell all bottles and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hurr hurr.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("#me glances around the area with dull eyes.");
 talkEntry:addResponse("#me belches loudly.");
@@ -716,6 +730,10 @@ talkEntry:addResponse("Hehe! So ist's.");
 talkEntry:addResponse("Heut empfehl isch... Bohnenschnaps!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can't afford that!");
+tradingNPC:addDialogClosedMsg("Vielen Dank, komm bald wieder!", "Thank you, come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Farebaaaa...!", "Farebaaaa...!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("#me schlägt ein Fass Bier an: 'O-zopft is!'", "#me taps another barrel with beer: 'O-zopft is!'");
 talkingNPC:addCycleText("#me nimmt einen kräftigen Schluck aus seinem Krug.", "#me takes a swig out of his mug.");
 talkingNPC:addCycleText("Booohnenschnäps!! Isch des Beschte!", "Beans Booooze!! Tha besht booze!");
@@ -727,6 +745,24 @@ talkingNPC:addCycleText("'Da-das 's mene Flasch!", "Tha-that 's my bottle!");
 talkingNPC:addCycleText("#me macht einen konzentrierten Gesichtsausdruck, legt die Zunge zwischen die Lippen. Dann läßt er plötzlich einen melodiösen Wind fahren.", "#me pokes out his tongue in deep concentration. He then rips out a loud fart.");
 talkingNPC:addCycleText("#me schnaubt ein wenig.", "#me snorts quietly.");
 talkingNPC:addCycleText("#me rülpst, Duft von schalem Bier und gebratenen Fleisch entschwebt in die Nasen der Umgebung.", "#me burps, the scent of stale beer and roasted meat floats into the noses of anyone in the surrounding area.");
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(58,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(164,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1008,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(51,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(227,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1909,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1908,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(58,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(164,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1008,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(51,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(227,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1909,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1908,"buyPrimary"));
+tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can't afford that!");
+tradingNPC:addDialogClosedMsg("Vielen Dank, komm bald wieder!", "Thank you, come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Farebaaaa...!", "Farebaaaa...!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
@@ -736,6 +772,10 @@ mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.")
 mainNPC:setEquipment(3, 811);
 mainNPC:setEquipment(9, 821);
 mainNPC:setEquipment(10, 369);
+tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can't afford that!");
+tradingNPC:addDialogClosedMsg("Vielen Dank, komm bald wieder!", "Thank you, come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Farebaaaa...!", "Farebaaaa...!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

@@ -8,7 +8,7 @@
 -- Authors:  Faladron                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 30, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -23,22 +23,55 @@ require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.talkstate")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
+require("npc.base.trade")
 module("npc.fronita_emery", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sell");
+talkEntry:addTrigger("buy");
+talkEntry:addTrigger("wares");
+talkEntry:addTrigger("price");
+talkEntry:addTrigger("trade");
+talkEntry:addTrigger("purchase");
+talkEntry:addResponse("Ah, so you are interested in my wares.");
+talkEntry:addResponse("Take your time to look around.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("kauf");
+talkEntry:addTrigger("waren");
+talkEntry:addTrigger("preis");
+talkEntry:addTrigger("Handel");
+talkEntry:addTrigger("veräußer");
+talkEntry:addTrigger("erwerb");
+talkEntry:addResponse("Ah, dann interessiert Ihr Euch also für meine Waren.");
+talkEntry:addResponse("Schaut Euch ruhig in Ruhe um.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Fronita Emery the merchant. Keywords: glas, wares, Runewick."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Fronita Emery the merchant. Keywords: buy, sell, trade, glas, wares, Runewick."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist die Händlerin Fronita Emery. Schlüsselwörter: Glas, Waren, Runewick."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist die Händlerin Fronita Emery. Schlüsselwörter: Handel, kaufe, verkaufe, Glas, Waren, Runewick."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -166,6 +199,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -183,8 +217,8 @@ talkEntry:addTrigger("letter");
 talkEntry:addTrigger("scroll");
 talkEntry:addTrigger("parchment");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
 talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -196,8 +230,8 @@ talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Schriftrolle");
 talkEntry:addTrigger("Pergament");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
 talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -207,8 +241,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Groktan");
 talkEntry:addTrigger("Flintsplit");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
 talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -217,8 +251,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
 talkEntry:addTrigger("Groktan");
 talkEntry:addTrigger("Flintsplit");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
 talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -433,9 +467,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkEntry:addResponse("Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.");
 talkEntry:addResponse("Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -451,9 +485,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkEntry:addResponse("Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.");
 talkEntry:addResponse("Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -935,6 +969,10 @@ talkEntry:addResponse("Wenn du hier weiter so rumbrabbelst vermiest du mir das G
 talkEntry:addResponse("Ja. Aye. Absolut. Und jetzt kauf mir was ab!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("#me poliert ein fein gearbeitetes Weinglas.", "#me polishes a well crafted wine glass.");
 talkingNPC:addCycleText("Genießt die feinen Getränke Runewicks in Runewicks besten Gläsern.", "Enjoy the best of Runewicks beverages in Runewicks best glasses.");
 talkingNPC:addCycleText("In meinen Glaswaren funkelt die Ewigkeit!", "Eternity sparkles in my glass wares!");
@@ -945,6 +983,66 @@ talkingNPC:addCycleText("Seht was ihr trinkt! Benutzt meine Gläser anstatt Holzb
 talkingNPC:addCycleText("Beste Glaswaren!", "Best glas goods!");
 talkingNPC:addCycleText("Ich verkaufe Träume aus Glas und Kristall!", "I sell dreams of glass and crystal!");
 talkingNPC:addCycleText("Shh! Ich habe ein Sonderangebot!", "Shh! I have special offers!");
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(311,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(312,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(75,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(164,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(292,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(315,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1317,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1908,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2055,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2457,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2498,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(41,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(314,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(316,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(726,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(310,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(374,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(390,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(391,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1858,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2183,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2184,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2185,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2717,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2719,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2738,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2744,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2760,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(311,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(312,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(75,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(164,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(292,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(315,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1317,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1908,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2055,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2457,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2498,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(41,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(314,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(316,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(726,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(310,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(374,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(390,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(391,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1858,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2183,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2184,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2185,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2717,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2719,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2738,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2744,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2760,"buySecondary"));
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
@@ -959,6 +1057,10 @@ mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 0);
 mainNPC:setEquipment(10, 369);
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

@@ -81,9 +81,19 @@ itemShoes = 53
 -- Money wise Francois is doing good, but his youth is growing thin. He yearns for a mate and passively lingers the thought if she wants to be with a guy or a girl.
 -- Personality: Gentle, sweet, talented sales person, charismatic, outgoing on the outside, but lonely and self-conscious on the inside.
 
+"kauf", "handel" -> "Lass uns handeln!", trade
+"buy,","sell", "trade" -> "Let's trade!", trade
+sellItems = 51, 126, 258, 271, 59, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 259, 291, 534, 728, 773, 779, 2494, 2917, 330, 307, 552, 553, 2934, 15, 80, 81, 147, 151, 199, 302, 388, 72, 73, 355, 455
+buyPrimaryItems = 51, 126, 258, 271, 59, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 259, 291, 534, 728, 773, 779, 2494, 2917, 330, 307, 552, 553, 2934, 15, 80, 81, 147, 151, 199, 302, 388
+buySecondaryItems = 72, 73, 355, 455
+tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
+tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Francois Delacroix the Trader. Keywords: Hello, Markets, Buy, Sell, Agriculture.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Francois Delacroix the Trader. Keywords: Hello, Markets, Buy, Sell, Agriculture, Trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Händler Francois Delacroix. Schlüsselwörter: Hallo, Märkte, Handel, Ackerbau.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> trade, "Good day.", "How be you?", "It seems to be your lucky day, why? You have found me as your agriculturalr of choice."
@@ -147,8 +157,6 @@ english, "Irmorom" -> "He keeps me at the top of my craft, which makes me money,
 "Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I buy and sell farming tools.", "I sell fish and raw meat.", "I sell smiles and buy your love."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "tell something" -> "What is there to tell? I'm Runewhick's number one agricultural trading pretty boy."
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
