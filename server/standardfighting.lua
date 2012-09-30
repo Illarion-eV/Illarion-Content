@@ -716,7 +716,7 @@ function LearnDodge(Attacker, Defender, AP)
         server.learn.learn(Defender.Char,"dodge", 5, AP, base.common.Limit(Attacker.skill + 10, 0, 100 ) );
     end;
     
-    leadAttribName=getLeadAttrib()
+    --leadAttribName=getLeadAttrib()
     
     if (Defender.dodge >= Attacker.skill - 10) then
             --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
