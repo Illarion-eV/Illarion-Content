@@ -11,12 +11,14 @@ skill: Name of the skill as string, e.g. "mining"
 skillGroup: Group of the skill as integer (e.g. 2 for crafting).  
 movePoints: The amount of movePoints or time (1/10s), required by the action, as integer. Do NOT fill in 0, every action relevant for skillgain HAS TO take some time.
 opponent: In case the action requires a minimum skill, fill it in here as integer. If the action should only yield skillgain up to a certain level, fill in this level-20. Otherwise, fill in 100.
-leadAttribute: The value of the lead attribute as integer. You find the mandatory(!) definition of lead attributes here: http://illarion.org/community/forums/viewtopic.php?p=643700#p643700
+leadAttribute: The value of the lead attribute as integer. You find the mandatory(!) definition of lead attributes here: 
 
 Example: Character:learn("mining",2,20,100,Character:increaseAttrib("constitution",0));
 ]]
 
-function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
+function learn( user, skill, skillGroup, actionPoints, opponent )
+
+    leadAttrib=getLeadAttrib(user,skill);
 
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
 	scalingFactor=1000; --Here, you can mod the learning speed. Higher value=faster ;-)
@@ -66,4 +68,46 @@ function reduceMC( user )
      	user:increaseMentalCapacity(-1*math.floor(user:getMentalCapacity()*0.00025+0.5)); --reduce MC-points by 0.025%, rounded correctly.
 	end
 	
+end
+
+function getLeadAttrib(Char, Skill)
+    if iniLead==nil then
+        leadAttrib={};
+        leadAttrib["tailoring"]="dexterity"
+        leadAttrib["fireing bricks"]="constitution"
+        leadAttrib["alchemy"]="perception"
+        leadAttrib["tactics"]="perception"
+        leadAttrib["peasantry"]="constitution"
+        leadAttrib["poisoning"]="perception"
+        leadAttrib["harp"]="dexterity"
+        leadAttrib["lumberjacking"]="constitution"
+        leadAttrib["smithing"]="dexterity"
+        leadAttrib["puncture weapons"]="agility"
+        leadAttrib["horn"]="dexterity"
+        leadAttrib["distance weapons"]="perception"
+        leadAttrib["library research"]="intelligence"
+        leadAttrib["gemcutting"]="dexterity"
+        leadAttrib["slashing weapons"]="strength"
+        leadAttrib["magic resistance"]="essence"
+        leadAttrib["carpentry"]="dexterity"
+        leadAttrib["baking"]="dexterity"
+        leadAttrib["goldsmithing"]="dexterity"
+        leadAttrib["concussion weapons"]="strength"
+        leadAttrib["flute"]="dexterity"
+        leadAttrib["parry"]="agility"
+        leadAttrib["lute"]="dexterity"
+        leadAttrib["dodge"]="agility"
+        leadAttrib["herb lore"]="constitution"
+        leadAttrib["mining"]="constitution"
+        leadAttrib["blacksmithing"]="dexterity"
+        leadAttrib["glass blowing"]="dexterity"
+        leadAttrib["fishing"]="constitution"
+        leadAttrib["wrestling"]="strength"
+        iniLead=1;
+    end
+    lAttrib=leadAttrib[Skill]
+    if lAttrib~=nil then
+        return Char:increaseAttrib(lAttrib,0);
+    end
+    return 0;
 end
