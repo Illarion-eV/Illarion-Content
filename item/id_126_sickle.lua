@@ -175,6 +175,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	amount = amount - 1;
+	User:inform("new amount: " .. amount);
 	if ( harvestProduct.isFarmingItem ) then
 		if ( amount == 0 ) then
 			-- nothing left, remove the farming item
@@ -205,6 +206,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			return;
 		end
 	end
+	User:inform("amount data: " .. TargetItem:getData("amount"));
 	-- since we're here, everything should be alright
 	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.SavedWorkTime[User.id], 100, User:increaseAttrib(theCraft.LeadAttribute,0) );
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
