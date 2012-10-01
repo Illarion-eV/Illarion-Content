@@ -85,7 +85,7 @@ itemShoes = 0
 "How are you", "How feel", "How do you do" -> "I'm feeling very good. Sss. Exss...Extraordinary."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es sssehr gut. Ausssgezzeichnet. Sss."
 "your name", "who are you", "who art thou" -> "I am called Zassaria Riverbank.Nice so meet you. Sss."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Zassaria Riverbank genannt. Sss."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Zassaria Riverbank genannt. Sss."
 
 -- OPTIONAL TRIGGERS
 
@@ -107,14 +107,33 @@ itemShoes = 0
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(701) = 0 -> inform("[Neues Quest] Frag für mich I"),"Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.", queststatus(701) = 1
 
 -- 1st quest solved, reward sabre(25)
-".+", queststatus(701) = 2, english -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25,1,345,0), queststatus(701) = 3
-".+", queststatus(701) = 2 -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25,1,345,0), queststatus(701) = 3
+english, ".+", queststatus(701) = 2, town=runewick-> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25,1,345,0), rankpoints (runewick) +3 , queststatus(701) = 3
+".+", queststatus(701) = 2, town=runewick -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25,1,345,0),rankpoints (runewick) +3 , queststatus(701) = 3
+
+".+", queststatus(701) = 2, english -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25,1,345,0), rankpoints (runewick) +3 , queststatus(701) = 3
+".+", queststatus(701) = 2 -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25,1,345,0),rankpoints (runewick) +3 , queststatus(701) = 3
 
 -- 1st quest not solved, repeat the instructions
-"quest", "mission", queststatus(701) = 1, english -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
-"quest", "mission", queststatus(701) = 1 -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
-"task", "adventure", "order", queststatus(701) = 1 -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(701) = 1 -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Can you tell him he ssshould talk to me?"
+"quest", "mission", queststatus(701) = 3, english -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
+"quest", "mission", queststatus(701) = 3 -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
+"task", "adventure", "order", queststatus(701) = 3 -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(701) = 3 -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
+
+-- 2nd quest: Bring some 15 Fish to ??
+"quest", "mission", queststatus(701) = 3, english -> inform("[New quest] Ask for me II"), "Ssso, you came to help me again? zss. Thatsss very nice of you. Sss. Pleassse bring 10  to an NPC ", queststatus(701) = 4
+"quest", "mission", queststatus(701) = 3 -> inform("[Neues Quest] Frag für mich II"), "...", queststatus(701) = 4
+"task", "adventure", "order", queststatus(701) = 3 -> inform("[New quest] ask for me II") "...", queststatus(118) = 4
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(701) = 3 -> inform("[Neues Quest] NAME I")"....", queststatus(118) = 4
+
+-- 2nd quest solved, Bring some Fish to ?? old hat(1318)
+".+", queststatus(118) = 1, item(1318, all) > 9, english -> inform("[Quest solved] INFORM ..."), "...", deleteItem (1318, 1), item(356,0,0,0), queststatus(118) = 2
+".+", queststatus(118) = 1, item(1318, all) > 9 -> inform("[Quest gelößt] INFORM..."), "...", deleteItem(1318, 1), item(356,0,0,0), queststatus(118) = 2
+
+-- 2nd questc , Bring some Fish to ??, not solved repeat the instructions
+"quest", "mission", queststatus(118) = 1, english -> "..."
+"quest", "mission", queststatus(118) = 1 -> "..."
+"task", "adventure", "order", queststatus(118) = 1 -> "..."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(118) = 1 -> "..."
 
 -- Final dialogue: No more quests, just nice hints
 "quest", "mission", queststatus(701) = 2, english -> "Thank you. Zss."

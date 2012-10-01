@@ -19,7 +19,7 @@ name = "Johnathan Idler"
 race = human
 sex = male
 position = 898, 760, 1
-direction = south
+direction = north
 affiliation = "None"
 job = "Mage"
 
@@ -56,9 +56,9 @@ itemShoes = 45
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 1, 2, 3
-buyPrimaryItems = 1
-buySecondaryItems = 2, 3
+--sellItems = 1, 2, 3
+--buyPrimaryItems = 1
+--buySecondaryItems = 2, 3
 
 -- Template Version 1.07, 08/30/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -90,10 +90,10 @@ buySecondaryItems = 2, 3
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" ->  "Möge Elara über Euch wachen.", "Möge Eldan über Euch wachen.", "Viel Spaß beim Lesen!"
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "May Elara be with you.", "May Eldan be with you.", "Enjoy reading!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Möge Elara über Euch wachen.", "Möge Eldan über Euch wachen.", "Viel Spaß beim Lesen!"
-"How are you", "How feel", "How do you do" -> "Fine. As lomng as I can read my book I fell fine.", "Hm?.", "#me continues reading."
+"How are you", "How feel", "How do you do" -> "Fine. As long as I can read my book I fell fine.", "Hm?.", "#me continues reading."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut gut. Solange man mich hier in Ruhe lesen lässt.", "Hm?", "#me liest weiterhin in seinem Buch."
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "Ah, yes...", "#me moves his glasses.", "Who? Me? I'm Joanthat. Joanathan Ideler."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ah, yes...", "#me rückt seine Brille zurecht.", "Wer? Ich? Ich bin Jonathan. Jonathan Idler."
+"your name", "who are you", "who art thou" -> "Ah, yes...", "#me moves his glasses.", "Who? Me? I'm Joanthat. Joanathan Ideler."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ah, yes...", "#me rückt seine Brille zurecht.", "Wer? Ich? Ich bin Jonathan. Jonathan Idler."
 
 -- OPTIONAL TRIGGERS
 
@@ -104,12 +104,18 @@ buySecondaryItems = 2, 3
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 
 -- Quest given by Zarissa Riverbank (Talk to Jonathan), if not solved, thoses instruction will be repeated
-"Zarissa", "Lizzard", "oil lamp", queststatus(701) = 2, english -> "Ah, the lizzard lady Zassaria send you? I'm very buys with my studies right now, but i'll see her later. Can you tell her, please?"
-"Zarissa", "Lizzard","oil lamp", queststatus(701) = 2 -> "Ah, die Echsendame Zassaria schickt Euch? Ich bin zur Zeit sehr mit meinen Studien beschäftigt, bitte richtet ihr aus, dass ich sie später aufsuchen werde."
+"Zarissa", "Lizzard", "oil lamp", queststatus(701) = 1, english -> "Ah, the lizzard lady Zassaria send you? I'm very buys with my studies right now, but i'll see her later. Can you tell her, please?",  queststatus(701) = 2
+"Zarissa", "Lizzard","oil lamp", queststatus(701) = 1 -> "Ah, die Echsendame Zassaria schickt Euch? Ich bin zur Zeit sehr mit meinen Studien beschäftigt, bitte richtet ihr aus, dass ich sie später aufsuchen werde.",  queststatus(701) = 2
 
 -- Quest given by Zarissa Riverbank (Talk to Jonathan) solves, Jonathann remaks he has the oil lamp now.
 "quest", "mission", queststatus(701) = 3, english -> "I finally got the oil lamp. Danke."
 "quest", "mission", queststatus(701) = 3 -> "Ich hab nun endlich die Öllampe erhalten. Thanks."
+
+--
+--
+--
+--
+--
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I used all my time in live to study the arts of magic.", "To train my mind I read many books. Mages should do so, don't you think?", "The life o a mages is a live behind pages."
@@ -136,7 +142,7 @@ buySecondaryItems = 2, 3
 "Bragon", "Brágon" ->  "Ah ja...", "Interessant.", "Diese Buch handelt nicht von diesem Gott."
 "Cherga", english ->  "Ah, yes...", "Interesting.", "This book is not about this god."
 "Cherga" ->  "Ah ja...", "Interessant.", "Diese Buch handelt nicht von diesem Gott."
-"Elara", english -> "ENGLISH1.", "Interesting.", "This book is not about this god."
+"Elara", english -> "Ah, yes...", "Interesting.", "This book is not about this god."
 "Elara" ->  "Ah ja...", "Interessant.", "Diese Buch handelt nicht von diesem Gott."
 "Eldan", english -> "Ah, yes...", "Interesting.", "This book is not about this god."
 "Eldan" ->  "Ah ja...", "Interessant.", "Diese Buch handelt nicht von diesem Gott."
@@ -191,7 +197,7 @@ buySecondaryItems = 2, 3
 
 -- Optional: Gobaith
 "Gobaith", "Gobiath", english -> "Gobaith was sometimes called Gobiath, maybe a writer misspelled the name on a map.", "Gobaith was a small place, there where often conflicts between the diffrent towns, it is said.", "People from all other Illarion came to live in Gobaith. But today things are diffrent."
-"Gobaith", "Gobiath" -> "", "Gobaith wurde manchamal Gobiath genannt, vielleicht hat sich ein Schreiber beim Namen auf einer Karte vertan.", "Gobaith war ein kleiner Ort, es gab oft Konflikte zwischen den verschieden Städten.", "Leute aus ganz Illarion kamen nach Gobaith um dort zu leben. Aber heutzutage ist es anders..."
+"Gobaith", "Gobiath" -> "Gobaith wurde manchamal Gobiath genannt, vielleicht hat sich ein Schreiber beim Namen auf einer Karte vertan.", "Gobaith war ein kleiner Ort, es gab oft Konflikte zwischen den verschieden Städten.", "Leute aus ganz Illarion kamen nach Gobaith um dort zu leben. Aber heutzutage ist es anders..."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "#me nods.", "Ah, I heard that name ... Did I just read your book in the library? I must say I really like it.", "Nice to meet you."
