@@ -42,9 +42,18 @@ itemShoes = 53
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I am selling different meals. And as opposed to my brother's fish, it is actually fresh. My nose is still working."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich verkaufe verschiedenstes Essen. Und im Gegensatz zu den Fischen meines Bruders ist es tatsächlich frisch. Meine Nase ist nämlich noch in Ordnung."
+sellItems = 51, 118, 121, 227, 2495, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 2, 5, 2529, 49, 191, 303, 353, 354, 453, 454
+buySecondaryItems = 51, 118, 121, 227, 2495, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 2, 5, 2529, 49, 191, 303, 353, 354, 453, 454
+tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can not afford that!"
+tradeFinishedMsg "Danke, komm bald wieder!", "Thanks, come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Morri the cook. Keywords: Fish, Nose, Snorri, Profession.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: Fisch, Nase, Snorri, Beruf.")
+"Help" -> inform("[Game Help] This NPC is Morri the cook. Keywords: buy, sell, trade, Fish, Nose, Snorri, Profession.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: kaufe, verkaufe, Handel, Fisch, Nase, Snorri, Beruf.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hrm...Greetings. How can I help you?", "#me grumbles moodily: 'Good day'.", "Hail Irmorom. Do you want to buy something?"
@@ -129,8 +138,6 @@ english, "Ushara" -> "Honor to you, mother of the rock, stone and soil."
 "Ushara" -> "Ehre dir, Mutter der Felsen, Steine und Erde."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I am selling different meals. And as opposed to my brother's fish, it is actually fresh. My nose is still working."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe verschiedenstes Essen. Und im Gegensatz zu den Fischen meines Bruders ist es tatsächlich frisch. Meine Nase ist nämlich noch in Ordnung."
 "tell something" -> "I would give half of everything I own, if Snorri would fix his broken nose. But he is too stubborn. On the other hand, I cannot find someone to help with this.", "Snorri is a brave dwarf. I know, he is impatient to prove himself in a fight, but we are up to our ears with work, so I can afford to hire a mercenary soldier.", "I have said to Snorri, he should become a stonecutter. But he is the older one and he has to decide for himself. - I wish he had become a stonecutter."
 "erzähl was", "erzähl etwas" -> "Ich würde mein halbes Vermögen geben, damit Snorri seine kaputte Nase richten lässt. Aber er ist eben ein Sturkopf. Auf der anderen Seite finde ich auch kaum einen Heiler der sich damit auskennt.", "Snorri ist ein tapferer Zwerg. Ich weiß, er brennt darauf sich im Kampf zu beweißen, aber mit diesem Marktstand haben wir zu viel um die Ohren, als das wir als Söldner anheuern könnten.", "Ich hab Snorri gesagt, er soll Steinmetz werden. Aber er ist der Ältere also muss er das entscheiden. - Ich wünschte er wäre Steinmetz geworden."
 
