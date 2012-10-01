@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Phillibald                                                  Runewick --
+-- NPC Name: Pipillo                                                  Galmair --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  900, 776, 1                --
+-- NPC Race: halfling                   NPC Position:  412, 291, 0                --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
@@ -10,10 +10,10 @@
 -- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
 --------------------------------------------------------------------------------
 
-name = "Phillibald"
+name = "Pipillo"
 race = halfling
 sex = male
-position = 900, 776, 1
+position = 412, 291, 0
 direction = south
 affiliation = "None"
 job = "portalbook merchant"
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Zot, Faladron"
 
-lookatDE = "Dieser NPC ist Phillibald der Portalbuchhändler."
-lookatUS = "This NPC is Phillibald the portalbook merchant"
+lookatDE = "Dieser NPC ist Pipillo der Portalbuchhändler."
+lookatUS = "This NPC is Pipillo the portalbook merchant"
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Stop touching me!"
 wrongLangDE = "#me blickt dich verwirrt an."
@@ -68,8 +68,8 @@ tradeFinishedWithoutTradingMsg "Nichts gefunden was euch gefällt?", "Don't you 
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portals, trade.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuch Händler Phillibald. Schlüsselwörter: Hallo, Portale, Handel.")
+"Help" -> inform("[Game Help] This NPC is the portal merchant Pipillo. Keywords: Hello, portals, trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuchhändler Pipillo. Schlüsselwörter: Hallo, Portale, Handel.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Today is a fine day to travel."
@@ -82,8 +82,8 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Immer in Bewegung bleiben!", "Tschüssi!", "Auf wiedersehen."
 "How are you", "How feel", "How do you do" -> "I feel excited, thinking about all the places to travel to.", "I'm itching to make another journey."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.", "Es juckt mich in den Füßen, eine Reise zu machen."
-"your name", "who are you", "who art thou" -> "Phillibald, portalbook merchant. That's me.", "I am the merchant Phillibald.", "Phillibald is my name, I trade portalbooks."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Phillibald, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Phillibald", "Phillibald mein Name, ich handle mit Portalbüchern"
+"your name", "who are you", "who art thou" -> "Pipillo, portalbook merchant. That's me.", "I am the merchant Pipillo.", "Pipillo is my name, I trade portalbooks."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Pipillo, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Pipillo", "Pipillo mein Name, ich handle mit Portalbüchern"
 
 -- Catching quest triggers
 "quest", "mission", english -> "I do not issue any quests. But I can sell you books to go to other places."

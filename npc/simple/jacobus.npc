@@ -62,9 +62,19 @@ itemShoes = 771
 -- 10% Copper goods: 92, 393, 397, 399, 1001, 1840, 2031
 -- 5% Raw gems: 251, 252, 253, 254, 255, 256, 257
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I sell any kind of jewellery.", "Things made of gold, of copper, of gems... What do you need?"
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich handele mit allerlei Juwelen.", "Dinge aus Gold, aus Kupfer, aus Edelsteinen... was braucht ihr?"
+sellItems = 122, 2747, 21, 22, 234, 2534, 2536, 446, 447, 448, 449, 450, 451, 452, 45, 46, 197, 198, 283, 284, 285, 224, 225, 336, 465, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 92, 393, 397, 399, 1001, 1840, 2031, 24, 2763, 2140, 251, 252, 253, 254, 255, 256, 257
+buyPrimaryItems = 122, 2747, 21, 22, 234, 2534, 2536, 446, 447, 448, 449, 450, 451, 452, 45, 46, 197, 198, 283, 284, 285, 224, 225, 336, 465, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 92, 393, 397, 399, 1001, 1840, 2031
+buySecondaryItems = 24, 2763, 2140, 251, 252, 253, 254, 255, 256, 257
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is the jeweller Jacobus. Keywords: Hello, jewellery.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Juwellier Jacobus. Schlüsselwörter: Hallo, Juwelen.")
+"Help" -> inform("[Game Help] This NPC is the jeweller Jacobus. Keywords: buy, sell, trade, Hello, jewellery.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Juwellier Jacobus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Juwelen.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome to Cadomyr.", "Be greeted.", "Hello, do you need a ruby necklace?"
@@ -141,8 +151,6 @@ english, "Zhambra" -> "Zhambra is the god of friendship, and what token is more 
 "Zhambra" -> "Zhambra ist der Gott der Freundschaft. Und was ist besser geeignet, um Freundschaft zu besiegeln, als ein Ring? Ich hätte da gerade einen im Angebot..."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I sell any kind of jewellery.", "Things made of gold, of copper, of gems... What do you need?"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich handele mit allerlei Juwelen.", "Dinge aus Gold, aus Kupfer, aus Edelsteinen... was braucht ihr?"
 "tell something" -> "I cannot tell you any interesting stories, sorry."
 "erzähl was", "erzähl etwas" -> "Ich habe keine interessanten Geschichten zu erzählen."
 

@@ -48,9 +48,18 @@ itemShoes = 369
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I sell fish. Big fish, small fish, colourful fish or boring... they are all different. But they have one thing in common! They are fresh! So fresh, they might even jump out of your pan."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich verkaufe Fisch. Große Fische, kleine Fische, bunte Fische oder langweilige... alle sind sie anders. Aber eines haben sie Gemeinsam. Sie sind frisch! So frisch, sie würden Euch glatt aus der Pfanne hüpfen."
+sellItems = 51, 72, 73, 92, 50, 355, 556, 2459
+buySecondaryItems = 51, 72, 73, 92, 50, 355, 556, 2459
+tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can not afford that!"
+tradeFinishedMsg "Danke, komm bald wieder!", "Thanks, come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Snorri the fishmonger. Keywords: fish, orc, morri, nose, dwarf.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Snorri der Fischhändler. Schlüsselwörter: Fisch, Ork, Morri, Nase, Zwerg.")
+"Help" -> inform("[Game Help] This NPC is Snorri the fishmonger. Keywords: buy, sell, trade, fish, orc, morri, nose, dwarf.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Snorri der Fischhändler. Schlüsselwörter: kaufe, verkaufe, Handel, Fisch, Ork, Morri, Nase, Zwerg.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho, how can I help you? - No, don't tell me, let me guess. You wanna buy some fish, right?", "Hello, Hello. How are you today? I haven't seen you for years. New haircut? It really suits you!", "Oh! Good day! It's nice to meet you!"
@@ -133,8 +142,6 @@ english, "Ushara" -> "Honour to Ushara, mother of rock, stone and earth."
 "Ushara" -> "Ehre dir, Mutter der Felsen, Steine und Erde."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I sell fish. Big fish, small fish, colourful fish or boring... they are all different. But they have one thing in common! They are fresh! So fresh, they might even jump out of your pan."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe Fisch. Große Fische, kleine Fische, bunte Fische oder langweilige... alle sind sie anders. Aber eines haben sie Gemeinsam. Sie sind frisch! So frisch, sie würden Euch glatt aus der Pfanne hüpfen."
 "tell something" -> "Aye, I get all these fish from the harbour.", "Morri and I are brothers. We share this market stall. He may scowl but he is a nice guy.", "Once I got fish from the harbour and I swear they were so fresh that I had to tie them up."
 "erzähl was", "erzÃ¤hl etwas" -> "Aye, ich bekomm all die Fische jeden zweiten Tag, direkt vom Hafen.", "Morri und ich sind Brüder. Und wir teilen uns den Marktschuppen. Auch wenn er so finster drein schaut, er ist ein netter Kerl.", "Einmal, bekam ich einen Karren mit Fischen, vom Hafen, und ich schwöre bei meinem Bart, die Fische waren so frisch, ich musste sie mit Schnüren auf den Tisch fesseln, damit sie nicht weghüpfen konnten."
 

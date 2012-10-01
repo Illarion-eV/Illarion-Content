@@ -64,9 +64,19 @@ itemShoes = 770
 -- 5% Candles, torches: 43, 391
 -- 5% Wax: 431
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I buy any kind of glass goods. You can also obtain candles from me.", "I'll gladly show you my offer of glass wares and candles.", "You can get here anything you need for a perfect dinner."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich handel aller Art Glaswaren. Ebenso könnt ihr Kerzen bei mir erwerben.", "Gerne zeige ich euch mein Angebot an Glaswaren und Kerzen.", "Hier bekommt ihr alles, was ihr für ein perfektes Abendessen braucht."
+sellItems = 311, 312, 164, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 429, 43, 391, 431
+buyPrimaryItems = 311, 312, 164, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726
+buySecondaryItems = 429, 43, 391, 431
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is the glass goods trader Jonathan Cyrus. Keywords: Hello, glass.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Glaswarenhändler Jonathan Cyrus. Schlüsselwörter: Hallo, Glas.")
+"Help" -> inform("[Game Help] This NPC is the glass goods trader Jonathan Cyrus. Keywords: buy, sell, trade, Hello, glass.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Glaswarenhändler Jonathan Cyrus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Glas.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings, in the name of our Queen Rosaline! Do you need any glasses, just ask.", "It is a wonderful day in Cadomyr, governed by our magnificient - and beautiful - queen.", "Hello."
@@ -145,8 +155,6 @@ english, "Adron" -> "Truly, Adron is my saviour. Without him, nobody would enjoy
 "Adron" -> "Fürwahr, Adron ist mein Heiland. Ohne ihn würde niemand mehr einen guten Tropfen Wein genießen und ich würde nichts mehr verkaufen."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, "Iany kind of glass goods. You can also obtain candles from me.", "I'll gladly show you my offer of glass wares and candles.", "You can get here anything you need for a perfect dinner."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich handel aller Art Glaswaren. Ebenso könnt ihr Kerzen bei mir erwerben.", "Gerne zeige ich euch mein Angebot an Glaswaren und Kerzen.", "Hier bekommt ihr alles, was ihr für ein perfektes Abendessen braucht."
 "tell something" -> "Glass is fascinating. It looks like ice, sparkles like diamonds and is as hard as stone.", "The art of glassblowing is very demanding, but I will make sure it is never forgotten.", "It was reported to me once you could concentrate the rays of the sun with a glass into a lethal weapon. What a humbug!"
 "erzähl was", "erzähl etwas" -> "Glas ist faszinierend. Es sieht aus wie Eis, funkelt wie ein Diamant und ist so hart wie Stein.", "Die Kunst der Glasbläserei ist sehr anspruchsvoll, aber ich werde sicherstellen, dass sie nicht in Vergessenheit gerät.", "Man hat mir mal berichtet, dass man die Strahlen der Sonne mit Glas zu einer tödlichen Waffe bündeln könnte. Was für ein Humbug."
 

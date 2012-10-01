@@ -45,9 +45,20 @@ itemHands = 0
 itemTrousers = 823
 itemShoes = 53
 
+-- Noob-stuff: Short sword, wooden shield, leather boots, ham, full beer mug, green robe
+-- Noob-stuff: 78, 17, 53, 306, 1909, 55
+
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, so you are interested in my wares.", "Take your time to look around."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um."
+sellItems = 78, 17, 53, 306, 1909, 55
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hook Gowan a trader of The Hemp Necktie Inn . Keywords: Nubris, Ronagan, King Edwards, tell something")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hook Gowan ein Händler im Gasthof zur Hanfschlinge. Schlüsselwörter: Nubris, Ronagan, König Edwards, erzähl etwas")
+"Help" -> inform("[Game Help] This NPC is Hook Gowan a trader of The Hemp Necktie Inn . Keywords: buy, sell, trade, Nubris, Ronagan, King Edwards, tell something")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hook Gowan ein Händler im Gasthof zur Hanfschlinge. Schlüsselwörter: kaufe, verkaufe, Handel, Nubris, Ronagan, König Edwards, erzähl etwas")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Coateed in shadows, be greeted.", "Good day, do you need something? I buy and sell exquisite third hand equipment.", "Be greeted and see over my goods."
@@ -122,8 +133,6 @@ english, "Ronagan" -> trade, "Ronagan, the god of thieves and shadows! He promis
 "Ronagan" -> "Ronagan, Gott der Diebe und Schatten! Er behütet jene die im Schatten der Reichen und feinen Gesellschaft leben müssen.", "Es heißt es gäbe einen Schrein für den Schattenherrn irgendwo in Galmair. Allerdings konnte ich nichts finden als ich danach suchte.", "Mein Herr, verachtet die Autorität des Adels. Und wie er, lebe ich um Schabernak mit der dekadenten Obrigkeit zu treiben. ", "Manch mal erscheint er als junger Galan, verkleidet, Vagabunden oder Landstreichern. Er soll durchaus humorvoll sein.", "Ronagan verabscheut Vertrauensbruch oder Verrat. Einem Partner zu hintergehen ist eine schlimme Tat, für unsereins und der Schattenherr wird es gewiss nicht übersehen.", "Ich hörte es gibt Händler die dem Schattenherrn opfern, damit sie nicht beraubt werden und er die Langfinger fern hält."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, "Mainly... Iexquisite third hand equipment - Stuff which comes handy when exploring the wilderness."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich handle mit Gütern aus dritter Hand. Hauptsächlich praktische Dinge die man hier draußen in der Wildnis gut brauchen kann."
 "tell something" -> "Stop questioning, nobody likes a snoopy one.", "#me starts to smile braodly: 'Let me tell you I'm a bad lad. Years ago I have stolen the nightdress of old King Edwards.'", "Once I was citizen of Cadomyr, then I got banned. Obviously right after chopping my hand of."
 "erzähl was", "erzähl etwas" -> "Hört auf Fragen zu stellen, das sieht hier niemand gern.", "#me setzt ein lächeln auf und prahlt: 'Lasst Euch sagen, ich bin ein übler Bursche. Vor langer Zeit stahl ich das Nachthemd König Edwards.'", "Einst war ich Bürger Cadomyrs, doch man hat mich verbannt. Zuvor vergaß man allerdings nicht mir die Hand abzuhacken."
 

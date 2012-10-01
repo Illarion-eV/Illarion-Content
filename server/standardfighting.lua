@@ -10,7 +10,7 @@ skillGroup: Group of the skill as integer (e.g. 2 for crafting).
 movePoints: The amount of movePoints or time (1/10s), required by the action, as integer. Do NOT fill in 0, every action relevant for skillgain HAS TO take some time.
 opponent: In case the action requires a minimum skill, fill it in here as integer. If the action should only yield skillgain up to a certain level, fill in this level-20. Otherwise, fill in 100.
 leadAttribute: The value of the lead attribute as integer. You find the mandatory(!) definition of lead attributes here: http://illarion.org/community/forums/viewtopic.php?p=643700#p643700
-Example: Character:learn("mining",2,20,100,Character:increaseAttrib("constitution",0));
+Example: Character:learn("mining",2,20,100);
 
 jeweils nur 1/n der movepoints/FP, weil ja n skills gesteigert werden.
 
@@ -22,6 +22,9 @@ require("base.common")
 -- Include base.character to use the methods changing some attributes of the
 -- character properly there
 require("base.character")
+
+-- For learning skills...
+require("server.learn")
 
 -- Lists with static values of the fighting system
 require("content.fighting")
@@ -80,7 +83,7 @@ function onAttack(Attacker, Defender)
     LoadWeapons(Defender);
     LoadAttribsSkills(Defender, false);
     -- Calculate and reduce the required movepoints ******************* NEW **********************
-    HandleMovepoints(Attacker)
+    APreduction=HandleMovepoints(Attacker);
 
     base.common.TurnTo(Attacker.Char,Defender.Char.pos);
 
@@ -93,7 +96,7 @@ function onAttack(Attacker, Defender)
     -- Calculate the chance to hit
     if not ChanceToHit(Attacker, Defender) then
         -- Target character was not hit
-        LearnDodge(Attacker, Defender);
+        LearnDodge(Attacker, Defender, APreduction);
         
         -- Place some ammo on the ground in case ammo was used
         DropAmmo(Attacker, Defender.Char, true);
@@ -103,7 +106,7 @@ function onAttack(Attacker, Defender)
     -- Calculate the chance to parry
     if ChanceToParry(Defender) then
         -- Hit was parried
-        LearnParry(Attacker, Defender);
+        LearnParry(Attacker, Defender, APreduction);
         
         -- Play the parry sound
         PlayParrySound(Attacker, Defender);
@@ -133,7 +136,7 @@ function onAttack(Attacker, Defender)
     ShowEffects(Attacker, Defender, Globals);
     
     -- Teach the attacker the skill he earned for his success
-    LearnSucess(Attacker, Defender)
+    LearnSucess(Attacker, Defender, APreduction)
 end;
 
 --------------------------------------------------------------------------------
@@ -266,10 +269,25 @@ function CauseDamage(Attacker, Defender, Globals)
             CharOffsetX = (Attacker.Weapon.Range - math.abs(CharOffsetY) + 1);
         end;
 
---- ****** TODO: USE WORLD:LOS HERE
         local newPos = position(Defender.Char.pos.x + CharOffsetX,
             Defender.Char.pos.y + CharOffsetY, Defender.Char.pos.z);
-            Defender.Char:warp(newPos);
+            
+        local targetPos=Defender.Char.pos;
+        
+        isNotBlocked = function(pos)
+            if world:getField(pos):isPassable() then
+                targetPos = pos;
+                return true;
+            else
+                return false;
+            end
+        end
+        
+        base.common.CreateLine(Defender.Char.pos, newPos, isNotBlocked);
+        
+        if targetPos ~= startPos then
+            Defender.Char:warp(targetPos)
+        end
 
         base.common.TalkNLS(Defender.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
@@ -683,7 +701,7 @@ function HandleMovepoints(Attacker)
     base.character.ChangeFightingpoints(Attacker.Char,
         -math.floor(reduceFightpoints));
     Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
-    return true;
+    return reduceFightpoints;
 end;
 
 --- Learning function called when ever the attacked character dodges the attack.
@@ -691,20 +709,23 @@ end;
 -- attack skill as well as the tactics skill.
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
-function LearnDodge(Attacker, Defender)
+function LearnDodge(Attacker, Defender, AP)
+    --leadAttribName=getLeadAttrib("dodge");
     if (Attacker.skill >= Defender.dodge - 10) then
-        --Defender.Char:learn(5, "dodge", 2,base.common.Limit(Attacker.skill + 10, 0, 100 ));
-		--Replace with new learn function, see learn.lua 
+            --Defender.Char:learn(5, "dodge", 2,base.common.Limit(Attacker.skill + 10, 0, 100 ));
+        server.learn.learn(Defender.Char,"dodge", 5, AP, base.common.Limit(Attacker.skill + 10, 0, 100 ) );
     end;
     
+    --leadAttribName=getLeadAttrib()
+    
     if (Defender.dodge >= Attacker.skill - 10) then
-        --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
-		--Replace with new learn function, see learn.lua
+            --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
+        server.learn.learn(Attacker.Char,Attacker.Skillname, 5, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
     end;
     
     if base.common.Chance(0.25) then
-        --Attacker.Char:learn(5, "tactics", 1, 100);
-		--Replace with new learn function, see learn.lua 
+            --Attacker.Char:learn(5, "tactics", 1, 100);
+        server.learn.learn(Attacker.Char,"tactics", 5, AP, 100);
     end;
 end;
 
@@ -713,15 +734,15 @@ end;
 -- attack skill as well as the tactics skill.
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
-function LearnSucess(Attacker, Defender)
+function LearnSucess(Attacker, Defender, AP)
     if (math.max(Defender.dodge, Defender.parry) >= Attacker.skill - 10) then
-        --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
-		--Replace with new learn function, see learn.lua 
+            --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
+        server.learn.learn(Attacker.Char, Attacker.Skillname, 5, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
     end;
     
     if base.common.Chance(0.33) then
-        --Attacker.Char:learn(5, "tactics", 1, 100);3
-		--Replace with new learn function, see learn.lua
+            --Attacker.Char:learn(5, "tactics", 1, 100);
+        server.learn.learn(Attacker.Char,"tactics", 5, AP, 100);
     end;
 end;
 
@@ -730,20 +751,20 @@ end;
 -- attack skill as well as the tactics skill.
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
-function LearnParry(Attacker, Defender)
+function LearnParry(Attacker, Defender, AP)
     if (Attacker.skill >= Defender.parry - 10) then
-        --Defender.Char:learn(5, "parry", 2,base.common.Limit(Attacker.skill + 10, 0, 100 ));
-		--Replace with new learn function, see learn.lua
+            --Defender.Char:learn(5, "parry", 2,base.common.Limit(Attacker.skill + 10, 0, 100 ));
+        server.learn.learn(Defender.Char,"parry", 5, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
     end;
         
     if (Defender.parry >= Attacker.skill - 10) then
-        --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
-		--Replace with new learn function, see learn.lua
+            --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
+        server.learn.learn(Attacker.Char,Attacker.Skillname, 5, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
     end;
         
     if base.common.Chance(0.25) then
-        --Attacker.Char:learn(5, "tactics", 1, 100);
-		--Replace with new learn function, see learn.lua
+            --Attacker.Char:learn(5, "tactics", 1, 100);
+        server.learn.learn(Attacker.Char,"tactics", 5, AP, 100);
     end;
 end;
 

@@ -72,9 +72,18 @@ itemShoes = 53
 -- 10% Instruments: 90, 332, 333, 335
 -- 10% Wands: 323, 2782, 2783, 2784, 2785
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, so you are interested in my wares.", "Take your time to look around."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um."
+sellItems = 9, 74, 2709, 2715, 2752, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 2193, 2194, 2935, 2952, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 3, 56, 543, 544, 2560, 2786, 39, 40, 57, 76, 207, 208, 209, 90, 332, 333, 335, 323, 2782, 2783, 2784, 2785
+buyPrimaryItems = 9, 74, 2709, 2715, 2752, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 2193, 2194, 2935, 2952, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 3, 56, 543, 544, 2560, 2786, 39, 40, 57, 76, 207, 208, 209, 90, 332, 333, 335, 323, 2782, 2783, 2784, 2785
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Lothar Piero the timber merchant. Keywords: Hello, profession, poetry, Pennymill, Archmage Morgan.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lothar Piero der Holzhändler. Schlüsselwörter: Hallo, Beruf, Poesie, Pfennigmühle, Erzmagier Morgan.")
+"Help" -> inform("[Game Help] This NPC is Lothar Piero the timber merchant. Keywords: buy, sell, trade, Hello, profession, poetry, Pennymill, Archmage Morgan.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lothar Piero der Holzhändler. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Beruf, Poesie, Pfennigmühle, Erzmagier Morgan.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "May Oldra bless you. Do you need... wood?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"

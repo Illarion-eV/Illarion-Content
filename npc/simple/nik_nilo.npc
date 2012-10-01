@@ -62,7 +62,7 @@ itemShoes = 53
 
 -- 10% Tools (Brick maker): 734
 -- 10% Tools (Mason): 23, 737
--- 10% Tools (Miner): 24, 2763
+-- 10% Tools (Miner): 24, 736
 -- 5% Tools (Digger): 24
 -- 5% Clay: 26
 -- 10% Bricks: 736, 2588
@@ -71,9 +71,19 @@ itemShoes = 53
 -- 10% Raw gems: 251, 252, 253, 254, 255, 256, 257
 -- 5% Stuff: 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I trade with rocks and stones that are as hard as my muscles!"
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich handel mit Felsen und Steinen, die so hart sind wie meine Muskeln!"
+sellItems = 734, 23, 24, 737, 736, 2588, 733, 735, 1266, 21, 22, 234, 2534, 2536, 26, 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+buyPrimaryItems = 734, 23, 24, 737, 736, 2588, 733, 735, 1266, 21, 22, 234, 2534, 2536
+buySecondaryItems = 26, 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This is 'Big Nik', he is a tool and supply trader. Keywords: Hello, profession, laws.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Werkzeug- und Rohstoffhändler 'Big Nik'. Schlüsselwörter: Hallo, Beruf, Gesetze.")
+"Help" -> inform("[Game Help] This is 'Big Nik', he is a tool and supply trader. Keywords: sell, buy, trade, Hello, profession, laws.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Werkzeug- und Rohstoffhändler 'Big Nik'. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Beruf, Gesetze.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grins as he waves: 'What can I do for you?'", "#me lifts his head: 'Hello there, you here to buy or sell?'", "Hello, you look like someone who knows a good price for tools, thats why your here, right?"
@@ -150,8 +160,6 @@ english, "Irmorom" -> "Irmorom be your best bet if you want good business.", "Ay
 "Irmorom" -> "Irmorom, der Gott der Wahl, wenn man ein gutes Geschäft haben will.", "Ja, ich vertraue den Göttern, Irmorom hat es immer gut mit mir gemeint.", "Spart einen Groschen und opfert ihn Irmorom, wenn ihr Erfolg haben wollt."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, "Iwith rocks and stones that are as hard as my muscles!"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich handel mit Felsen und Steinen, die so hart sind wie meine Muskeln!"
 "tell something" -> "#me makes an inviting gesture and lowers his voice: 'I'll tell you something, buy something or go away!'"
 "erzähl was", "erzähl etwas" -> "#me winkt einladend und senkt dann die Stimme: 'Ich sag dir was, kauf was oder verschwinde!'"
 
