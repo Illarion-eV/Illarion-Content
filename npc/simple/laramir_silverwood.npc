@@ -50,15 +50,6 @@ itemShoes = 369
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins."
-tradeFinishedMsg "Komm wieder, mein Freund.", "Please come again, my friend."
-tradeFinishedWithoutTradingMsg "Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!"
-tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?.", "My friend, what shall I use this thing for?"
-
-sellItems = 1
-buyPrimaryItems = 1
-buySecondaryItems = 2
-
 -- Template Version 1.07, 08/30/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
@@ -74,11 +65,34 @@ buySecondaryItems = 2
 -- TRADING
 -- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
 
+-- 5% Tools (Carpenter/Lumberjack): 9, 74, 2709, 2715, 2752
+-- 5% Wooden leg armour: 2193, 2194
+-- 5% Wooden plates: 2935, 2952
+-- 5% Wands: 323, 2782, 2783, 2784, 2785
+-- 5% Ammo: 64, 237, 322, 1266
+-- 5% Boards: 545, 546, 2543, 2716
+-- 5% Distance weapons: 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780
+-- 5% Handles: 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585
+-- 5% Instruments: 90, 332, 333, 335
+-- 5% Lumber: 3, 56, 543, 544, 2560, 2786
+-- 5% Shields: 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448
+-- 5% Staffs: 39, 40, 57, 76, 207, 208, 209
+-- 5% Throwing weapons: 293, 294, 2645
+
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I trade with wooden goods. Feel free to take a look my friend."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "I handle mit hölzernen Waren. Bitte, sieh dir ruhig um mein Freund!"
+sellItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 323, 2782, 2783, 2784, 2785, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 90, 332, 333, 335, 3, 56, 543, 544, 2560, 2786, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 39, 40, 57, 76, 207, 208, 209, 293, 294, 2645
+buySecondaryItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 323, 2782, 2783, 2784, 2785, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 90, 332, 333, 335, 3, 56, 543, 544, 2560, 2786, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 39, 40, 57, 76, 207, 208, 209, 293, 294, 2645
+tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins."
+tradeFinishedMsg "Komm wieder, mein Freund.", "Please come again, my friend."
+tradeFinishedWithoutTradingMsg "Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!"
+tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?.", "My friend, what shall I use this thing for?"
+
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Laramir  Silverwood the carpenter. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Laramir  Silverwood der Schreiner. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Laramir  Silverwood the carpenter. Keywords: buy, sell, trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Laramir  Silverwood der Schreiner. Schlüsselwörter: kaufe, verkaufe, Handel.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted, my friend. How are you today?", "Greetings my friend. Did you come here for taking a look at my wares?", "#me smiles 'Greetings, my Friend.'"
@@ -95,10 +109,6 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well, my friend.", "St
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Freund, ich heiße Laramir Silverwood.", "Mewin Name ist Laramir silverwood, my friend."
 
 -- OPTIONAL TRIGGERS
-
--- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I trade with wooden goods. Feel free to take a look my friend."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "I handle mit hölzernen Waren. Bitte, sieh dir ruhig um mein Freund!"
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "My Friend, there is nothing I could ask you for. But I'm thankfull for your concern."
