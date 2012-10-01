@@ -42,8 +42,8 @@ itemShoes = 53
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I am selling different meals. And as opposed to my brother's fish, it is actually fresh. My nose is still working."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich verkaufe verschiedenstes Essen. Und im Gegensatz zu den Fischen meines Bruders ist es tatsächlich frisch. Meine Nase ist nämlich noch in Ordnung."
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I am selling different meals, just have a look!"
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich verkaufe verschiedenstes Essen schau dich nur um!"
 sellItems = 51, 118, 121, 227, 2495, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 2, 5, 2529, 49, 191, 303, 353, 354, 453, 454
 buySecondaryItems = 51, 118, 121, 227, 2495, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 2, 5, 2529, 49, 191, 303, 353, 354, 453, 454
 tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can not afford that!"
@@ -52,8 +52,8 @@ tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Morri the cook. Keywords: buy, sell, trade, Fish, Nose, Snorri, Profession.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: kaufe, verkaufe, Handel, Fisch, Nase, Snorri, Beruf.")
+"Help" -> inform("[Game Help] This NPC is Morri the cook. Keywords: buy, sell, trade, Profession.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hrm...Greetings. How can I help you?", "#me grumbles moodily: 'Good day'.", "Hail Irmorom. Do you want to buy something?"
@@ -64,16 +64,16 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hrm...Greetings. How can I help you
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Tschüss und guten Appetit.", "Arr... Bis bald.", "Gehabt Euch wohl und kommt wieder mal bei mir vorbei!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Bye and enjoy your meal.", "Arr... See you soon.", "Fare thee well and come again soon!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Tschüss und guten Appetit.", "Arr... Bis bald.", "Gehabt Euch wohl und kommt wieder mal bei mir vorbei!"
-"How are you", "How feel", "How do you do" -> "Arr, Snorri's fish stinks like it's a hundred years old! If only this wouldn't stink so bad!", "What do you think? The fish stinks so bad that I can't breathe! I shouldn't have left Ironsiege...", "Fish! Fish in the morning! Fish at lunch time! Fish in the evening! I cannot stand anymore fish. AND smelling! Irmorom be with me! Snorri's fish stinks to high heaven! Drhg'hgin!"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Arr, Snorris Fisch stinkt als wäre er vor hundert Jahren frisch gewesen! Wenn nur dieser Gestank nicht wäre!", "Was glaubt ihr denn? Hier stinkt's nach Fisch, ich kann kaum Atmen! - Ich hätte Ironsiege nie verlassen sollen...", "Fisch! Morgens, Fisch! Mittags, Fisch! Abends, Fisch! Ich kann schon keinen Fisch mehr sehn. UND riechen, Irmorom sei mit mir! Snorris Fisch stinkt zum Himmel! Drhg'hgin!"
-"your name", "who are you", "who art thou" -> "I am Morri. And the one with the stinking fish next to me is Snorri my older brother."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Morri. Und der, mit dem stinkenden Fisch, neben mir, ist Snorri, mein älterer Bruder."
+"How are you", "How feel", "How do you do" -> "Great and how are you?", "I'm fine, thanks!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Großartig und wie gehts dir?", "Mir gehts gut, dankie!"
+"your name", "who are you", "who art thou" -> "I am Morri the cook.", "The best cook in Galmair, that's me Morri!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Morri der Koch.", "Der beste Koch in Galmair, das bin ich Morri!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-english, "quest", "mission" -> "I don't employ anyone. That is my brother Snorri's task, he is the older one of us. He's the one to ask."
-"quest", "mission" -> "Ich stelle niemanden ein. Das macht mein Bruder Snorri, er ist der Ältere von uns Beiden. Fragt ihn, darum."
-"task", "adventure", "order" -> "I don't employ anyone. That is my brother Snorri's task, he is the older one of us. He's the one to ask."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich stelle niemanden ein. Das macht mein Bruder Snorri, er ist der Ältere von uns Beiden. Fragt ihn, darum."
+english, "quest", "mission" -> "I don't employ anyone, ask someone else!"
+"quest", "mission" -> "Ich stelle niemanden ein, fragt jemand anderen!"
+"task", "adventure", "order" -> "I don't employ anyone, ask someone else"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich stelle niemanden ein, fragt jemand anderen!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Actually, I am a cook. For a few years I have cooked at my cousin's tavern. But now I am dealing with all kinds of food here in Galmair. What is your daily task?"
@@ -86,18 +86,10 @@ english, "Gobaith", "Gobiath" -> "There is nothing but bad news about Gobaith. W
 "mein Name" -> "Is' recht. Was darf ich Euch verkaufen?", "Arr. Wollt ihr Essen einkaufen?"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"fish" -> "Yuck! Stop talking about fish! It stinks to high heaven, but Snorri cannot smell anything, because his nose is broken!", "If this damn fish is fresh, I am a pignose. And do I look like a pignose? - No!", "#me wrinkles his nose. 'Do you smell that? It's my brother's fish. But he believes it smells like flowers, because his nose is broken'."
-english, "snorri" -> "Arr... You are probably thinking I don't like my brother. But you are wrong in this case. He is my dearest one. The point is that I don't like his fish.", "Snorri took me on a long journey some years ago. Away from Ironsiege. Mother cried like a child. Nevertheless she is very proud of us.", "Do not underrate Snorri. He is a serious competitor where business is concerned. He even defied the Don in negotiations. Aye!"
-"brother" -> "Arr... You are probably thinking I don't like my brother. But you are wrong in this case. He is my dearest one. The point is that I don't like his fish.", "Snorri took me on a long journey some years ago. Away from Ironsiege. Mother cried like a child. Nevertheless she is very proud of us.", "Do not underrate Snorri. He is a serious competitor where business is concerned. He even defied the Don in negotiations. Aye!"
 "orc" -> "Arr. Those greennoses are annyoing. - Every last one of them. Actually, we merchants have to stick together. It is all about business!", "These orcs are smarter than you think. Particularly Krudash! But Sogg, I haven't ever seen him sober.", "Arrr.... I don't know. I think it looks like the entire orc pack here in Galmair belongs to the same clan. But on the other hand,well... I don't know whether that's important."
 "dwarf" -> "What is important to a dwarf? Gold, business and sin-...no. Relatives. Therefore, the clan.", "What does a dwarf like? His craft, his wife and his beer.", "We dwarves are a proud folk. I have to warn you, never insult a dwarf! He will remember even after his sons have grown up."
-"nose" -> "Arr, Snorris nose! He broke his nose when we were coming home from the tavern. Although he thinks it was an ogre, honestly, he ran into a pillar. His nose is broken now and he has serious problems being able to smell."
-"fisch" -> "J'uk! Hört mir auf mit dem Fisch! Der stinkt zum Himmel, aber Snorri kann nichts reichen, weil seine Nase hin ist!", "Wenn der verdammte Fisch frisch ist, dann bin ich eine Schweineschnauze. Und, seh ich aus wie eine Schweineschnauze? - Nein!", "#me rümpft seine Nase. 'Riecht ihr das? Das ist der Fisch, den mein Bruder verkauft. Aber der glaubt es riecht hier nach Blumen, weil seine Nase kaputt ist.'"
-"snorri" -> "Arr... vielleicht denkt ihr ich mag meinen großen Bruder nicht ausstehen. Aber da irrt ihr. Er ist mir der Liebste. Nur eben diese Sache mit dem Fisch passt mir nicht.", "Snorri nahm mich vor einigen Jahren mit auf große Fahrt. Raus aus Ironsiege, Mutter hat gehäult wie ein Gletscherbach. Aber sicher ist sie trozdem sehr, sehr Stolz auf uns.", "Unterschätzt mir Snorri nicht. Wenn's ums Geschäft geht ist er hammerhart. Sogar den Don hat er beim Verhandeln die Stirn geboten. Aye!"
-"bruder" -> "Arr... vielleicht denkt ihr ich mag meinen großen Bruder nicht ausstehen. Aber da irrt ihr. Er ist mir der Liebste. Nur eben diese Sache mit dem Fisch passt mir nicht.", "Snorri nahm mich vor einigen Jahren mit auf große Fahrt. Raus aus Ironsiege, Mutter hat gehäult wie ein Gletscherbach. Aber sicher ist sie trozdem sehr, sehr Stolz auf uns.", "Unterschätzt mir Snorri nicht. Wenn's ums Geschäft geht ist er hammerhart. Sogar dem Don hat er beim Verhandeln die Stirn geboten. Aye!"
 "ork" -> "Arr. Die Grünschnauzen sind ein Ärgernis. - Nicht's weiter. Im Grunde müssen wir Händler zusammen stehen. Es geht ums Geschäft, das ist was zählt!", "Diese Orks sind klüger als Ihr denkt. Im besonderen diese Krudash! Aber dieser Sogg, den hab ich noch nie nüchtern gesehen...", "Arrr... ich weiß nicht. Aber für mich sieht's so aus als wären die alle, die Ganze Orkmeute in Galmair von der selben Sippe. Andererseits muss das bei Orks ja auch nichts heißen."
 "zwerg" -> "Was ist einem Zwerg von Wert? Gold, Geschäfte und Ge-...nein. Verwandte. Also sprich, der Klan.", "Was darf ein Zwerg lieben? Sein Handwerk, seine Frau und Bier.", "Wir Zwerge sind ein stolzes Folk. Ich will euch warnen, beleidigt ihr einen Zwerg wird er sich noch daran erinnern wenn Eure Söhne erwachsen sind."
-"nase" -> "Arr, Snorris Nase! Er hat sie sich eingeschlagen, als wir vom Wirt kamen. Obwohl er meint es wäre ein Oger gewesen, so ist es wahr, dass er gegen eine Säule gelaufen ist. Jetzt ist die Nase hinüber und er kann nicht mehr anständig riechen."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Ha-ha! I've heard that archmage wears women's clothes! Wool under the chain mail undies and so on! *laughs*"
@@ -138,8 +130,8 @@ english, "Ushara" -> "Honor to you, mother of the rock, stone and soil."
 "Ushara" -> "Ehre dir, Mutter der Felsen, Steine und Erde."
 
 -- Catching typical NPC phrases
-"tell something" -> "I would give half of everything I own, if Snorri would fix his broken nose. But he is too stubborn. On the other hand, I cannot find someone to help with this.", "Snorri is a brave dwarf. I know, he is impatient to prove himself in a fight, but we are up to our ears with work, so I can afford to hire a mercenary soldier.", "I have said to Snorri, he should become a stonecutter. But he is the older one and he has to decide for himself. - I wish he had become a stonecutter."
-"erzähl was", "erzähl etwas" -> "Ich würde mein halbes Vermögen geben, damit Snorri seine kaputte Nase richten lässt. Aber er ist eben ein Sturkopf. Auf der anderen Seite finde ich auch kaum einen Heiler der sich damit auskennt.", "Snorri ist ein tapferer Zwerg. Ich weiß, er brennt darauf sich im Kampf zu beweißen, aber mit diesem Marktstand haben wir zu viel um die Ohren, als das wir als Söldner anheuern könnten.", "Ich hab Snorri gesagt, er soll Steinmetz werden. Aber er ist der Ältere also muss er das entscheiden. - Ich wünschte er wäre Steinmetz geworden."
+"tell something" -> "I could tell you a lot about cooking, but sadly I'm really busy right now."
+"erzähl was", "erzähl etwas" -> "Ich könnte dir eine Menge über das Kochen erzählen, aber ich bin im Moment leider sehr beschäftigt."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "morri" -> "Arr. Bura'zak-ka! - Welches Essen wollt Ihr mir abkaufen?"
@@ -150,8 +142,8 @@ english, "morri" -> "Arr. Bura'zak-ka! - What meal would you like to buy?"
 "Nein" -> "Hrm, ist das Euer letztes Wort?", "Arr. Wenn Ihr's so wollt.", "Natürlich."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Arr.", "#me wrinkles his nose and shows his tongue in disgust: 'Do you smell that too?'", "#me turns around suddenly and grumbles: 'Snorri! Listen - the fish stinks like the breath of death'."
-german, chance(20.0), ".*" -> "Arr.", "#me rümpft die Nase und streckt angewidert die Zunge heraus: 'Riecht ihr das auch?'", "#me dreht sich plötzlich um und grummelt: 'Snorri! Hör mir zu - der Fisch stinkt wie das Maul der Fischgesichter!"
+english, chance(20.0), ".*" -> "Arr.", "#me wrinkles his nose and shows his tongue in disgust: 'Do you smell that too?'"
+german, chance(20.0), ".*" -> "Arr.", "#me rümpft die Nase und streckt angewidert die Zunge heraus: 'Riecht ihr das auch?'"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -159,14 +151,10 @@ german, chance(20.0), ".*" -> "Arr.", "#me rümpft die Nase und streckt angewide
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me brummt schlecht gelaunt und wirft einen missmutigen Blick auf die Straße.", "#me grumbles moodily and looks at the street with a discontented glance."
-cycletext "Dein Fisch stinkt, Snorri.", "Your fish smells, Snorri."
 cycletext "#me knurrt kopfschüttelnd: 'Dieser Fisch ist niemals frisch...'", "#me grumbles and shakes his head: 'This fish is not fresh...'"
 cycletext "#me rümpft die Nase.", "#me wrinkles his nose."
 cycletext "#me hält sich die Nase zu und streckt die Zunge heraus: 'Igittigitt!'", "#me covers his nose and shows his tongue: 'Igittigitt!'"
-cycletext "#me bückt sich und hebt einen muffigen Fisch auf. Er kneift ein Auge zusammen und wirft ihn an Snorris Hinterkopf.", "#me bends down and lifts a smelly fish. He pinches his eyes and throws it at the back of Snorri's head."
-cycletext "Irmorom, mach das der Sturkopf es einsieht! Der Fisch stinkt so sehr, ich fürchte der Berg könnte uns auf den Kopf fallen.", "Imrorom, don't let him be that stubborn. His fish stinks so much that I fear the mountain will crumble onto our heads."
 cycletext "#me fasst sich mit einer verzweifelt wirkenden Geste, beidhändig in den langen schwarzen Bart und zieht daran. Dabei gibt er ein lautes Grunzen von sich.", "#me pulls his long black beard with both hands despairingly and grunts loudly."
-cycletext "#me murmelt verärgert: 'Der Gestank vertreibt mir noch die Kunden...'", "#me mumbles in annoyance: 'This stink scares away my customers."
 cycletext "Essen! Feinste Gerichte aller Art! Tretet näher und deckt Euch ein!", "Food! Finest dishes of every kind! Come closer and buy ahead!"
 cycletext "Frisches Brot! Schmackhafte Kuchen! Unverwüstliche Kekse!", "Fresh bread! Tasty cakes! Inedible cookies!"
 cycletext "Wurst mit Zwiebeln, Kohlsuppe, Hasenbraten! Bei mir könnt ihr alles kaufen!", "Sausages with onion, cabbage soup, rabbit dishes! You find everything here!"

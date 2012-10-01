@@ -36,7 +36,7 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("I am selling different meals. And as opposed to my brother's fish, it is actually fresh. My nose is still working.");
+talkEntry:addResponse("I am selling different meals, just have a look!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -48,7 +48,7 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Ich verkaufe verschiedenstes Essen. Und im Gegensatz zu den Fischen meines Bruders ist es tatsächlich frisch. Meine Nase ist nämlich noch in Ordnung.");
+talkEntry:addResponse("Ich verkaufe verschiedenstes Essen schau dich nur um!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -59,13 +59,13 @@ tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Morri the cook. Keywords: buy, sell, trade, Fish, Nose, Snorri, Profession."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Morri the cook. Keywords: buy, sell, trade, Profession."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: kaufe, verkaufe, Handel, Fisch, Nase, Snorri, Beruf."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -172,9 +172,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Arr, Snorri's fish stinks like it's a hundred years old! If only this wouldn't stink so bad!");
-talkEntry:addResponse("What do you think? The fish stinks so bad that I can't breathe! I shouldn't have left Ironsiege...");
-talkEntry:addResponse("Fish! Fish in the morning! Fish at lunch time! Fish in the evening! I cannot stand anymore fish. AND smelling! Irmorom be with me! Snorri's fish stinks to high heaven! Drhg'hgin!");
+talkEntry:addResponse("Great and how are you?");
+talkEntry:addResponse("I'm fine, thanks!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -183,9 +182,8 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("Arr, Snorris Fisch stinkt als wäre er vor hundert Jahren frisch gewesen! Wenn nur dieser Gestank nicht wäre!");
-talkEntry:addResponse("Was glaubt ihr denn? Hier stinkt's nach Fisch, ich kann kaum Atmen! - Ich hätte Ironsiege nie verlassen sollen...");
-talkEntry:addResponse("Fisch! Morgens, Fisch! Mittags, Fisch! Abends, Fisch! Ich kann schon keinen Fisch mehr sehn. UND riechen, Irmorom sei mit mir! Snorris Fisch stinkt zum Himmel! Drhg'hgin!");
+talkEntry:addResponse("Großartig und wie gehts dir?");
+talkEntry:addResponse("Mir gehts gut, dankie!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -193,7 +191,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am Morri. And the one with the stinking fish next to me is Snorri my older brother.");
+talkEntry:addResponse("I am Morri the cook.");
+talkEntry:addResponse("The best cook in Galmair, that's me Morri!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -203,7 +202,8 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Ich bin Morri. Und der, mit dem stinkenden Fisch, neben mir, ist Snorri, mein älterer Bruder.");
+talkEntry:addResponse("Ich bin Morri der Koch.");
+talkEntry:addResponse("Der beste Koch in Galmair, das bin ich Morri!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -211,14 +211,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I don't employ anyone. That is my brother Snorri's task, he is the older one of us. He's the one to ask.");
+talkEntry:addResponse("I don't employ anyone, ask someone else!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich stelle niemanden ein. Das macht mein Bruder Snorri, er ist der Ältere von uns Beiden. Fragt ihn, darum.");
+talkEntry:addResponse("Ich stelle niemanden ein, fragt jemand anderen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -226,7 +226,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I don't employ anyone. That is my brother Snorri's task, he is the older one of us. He's the one to ask.");
+talkEntry:addResponse("I don't employ anyone, ask someone else");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,7 +235,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich stelle niemanden ein. Das macht mein Bruder Snorri, er ist der Ältere von uns Beiden. Fragt ihn, darum.");
+talkEntry:addResponse("Ich stelle niemanden ein, fragt jemand anderen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -294,31 +294,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("fish");
-talkEntry:addResponse("Yuck! Stop talking about fish! It stinks to high heaven, but Snorri cannot smell anything, because his nose is broken!");
-talkEntry:addResponse("If this damn fish is fresh, I am a pignose. And do I look like a pignose? - No!");
-talkEntry:addResponse("#me wrinkles his nose. 'Do you smell that? It's my brother's fish. But he believes it smells like flowers, because his nose is broken'.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("snorri");
-talkEntry:addResponse("Arr... You are probably thinking I don't like my brother. But you are wrong in this case. He is my dearest one. The point is that I don't like his fish.");
-talkEntry:addResponse("Snorri took me on a long journey some years ago. Away from Ironsiege. Mother cried like a child. Nevertheless she is very proud of us.");
-talkEntry:addResponse("Do not underrate Snorri. He is a serious competitor where business is concerned. He even defied the Don in negotiations. Aye!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("brother");
-talkEntry:addResponse("Arr... You are probably thinking I don't like my brother. But you are wrong in this case. He is my dearest one. The point is that I don't like his fish.");
-talkEntry:addResponse("Snorri took me on a long journey some years ago. Away from Ironsiege. Mother cried like a child. Nevertheless she is very proud of us.");
-talkEntry:addResponse("Do not underrate Snorri. He is a serious competitor where business is concerned. He even defied the Don in negotiations. Aye!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("orc");
 talkEntry:addResponse("Arr. Those greennoses are annyoing. - Every last one of them. Actually, we merchants have to stick together. It is all about business!");
 talkEntry:addResponse("These orcs are smarter than you think. Particularly Krudash! But Sogg, I haven't ever seen him sober.");
@@ -335,36 +310,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("nose");
-talkEntry:addResponse("Arr, Snorris nose! He broke his nose when we were coming home from the tavern. Although he thinks it was an ogre, honestly, he ran into a pillar. His nose is broken now and he has serious problems being able to smell.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("fisch");
-talkEntry:addResponse("J'uk! Hört mir auf mit dem Fisch! Der stinkt zum Himmel, aber Snorri kann nichts reichen, weil seine Nase hin ist!");
-talkEntry:addResponse("Wenn der verdammte Fisch frisch ist, dann bin ich eine Schweineschnauze. Und, seh ich aus wie eine Schweineschnauze? - Nein!");
-talkEntry:addResponse("#me rümpft seine Nase. 'Riecht ihr das? Das ist der Fisch, den mein Bruder verkauft. Aber der glaubt es riecht hier nach Blumen, weil seine Nase kaputt ist.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("snorri");
-talkEntry:addResponse("Arr... vielleicht denkt ihr ich mag meinen großen Bruder nicht ausstehen. Aber da irrt ihr. Er ist mir der Liebste. Nur eben diese Sache mit dem Fisch passt mir nicht.");
-talkEntry:addResponse("Snorri nahm mich vor einigen Jahren mit auf große Fahrt. Raus aus Ironsiege, Mutter hat gehäult wie ein Gletscherbach. Aber sicher ist sie trozdem sehr, sehr Stolz auf uns.");
-talkEntry:addResponse("Unterschätzt mir Snorri nicht. Wenn's ums Geschäft geht ist er hammerhart. Sogar den Don hat er beim Verhandeln die Stirn geboten. Aye!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("bruder");
-talkEntry:addResponse("Arr... vielleicht denkt ihr ich mag meinen großen Bruder nicht ausstehen. Aber da irrt ihr. Er ist mir der Liebste. Nur eben diese Sache mit dem Fisch passt mir nicht.");
-talkEntry:addResponse("Snorri nahm mich vor einigen Jahren mit auf große Fahrt. Raus aus Ironsiege, Mutter hat gehäult wie ein Gletscherbach. Aber sicher ist sie trozdem sehr, sehr Stolz auf uns.");
-talkEntry:addResponse("Unterschätzt mir Snorri nicht. Wenn's ums Geschäft geht ist er hammerhart. Sogar dem Don hat er beim Verhandeln die Stirn geboten. Aye!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ork");
 talkEntry:addResponse("Arr. Die Grünschnauzen sind ein Ärgernis. - Nicht's weiter. Im Grunde müssen wir Händler zusammen stehen. Es geht ums Geschäft, das ist was zählt!");
 talkEntry:addResponse("Diese Orks sind klüger als Ihr denkt. Im besonderen diese Krudash! Aber dieser Sogg, den hab ich noch nie nüchtern gesehen...");
@@ -377,12 +322,6 @@ talkEntry:addTrigger("zwerg");
 talkEntry:addResponse("Was ist einem Zwerg von Wert? Gold, Geschäfte und Ge-...nein. Verwandte. Also sprich, der Klan.");
 talkEntry:addResponse("Was darf ein Zwerg lieben? Sein Handwerk, seine Frau und Bier.");
 talkEntry:addResponse("Wir Zwerge sind ein stolzes Folk. Ich will euch warnen, beleidigt ihr einen Zwerg wird er sich noch daran erinnern wenn Eure Söhne erwachsen sind.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("nase");
-talkEntry:addResponse("Arr, Snorris Nase! Er hat sie sich eingeschlagen, als wir vom Wirt kamen. Obwohl er meint es wäre ein Oger gewesen, so ist es wahr, dass er gegen eine Säule gelaufen ist. Jetzt ist die Nase hinüber und er kann nicht mehr anständig riechen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,18 +545,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I would give half of everything I own, if Snorri would fix his broken nose. But he is too stubborn. On the other hand, I cannot find someone to help with this.");
-talkEntry:addResponse("Snorri is a brave dwarf. I know, he is impatient to prove himself in a fight, but we are up to our ears with work, so I can afford to hire a mercenary soldier.");
-talkEntry:addResponse("I have said to Snorri, he should become a stonecutter. But he is the older one and he has to decide for himself. - I wish he had become a stonecutter.");
+talkEntry:addResponse("I could tell you a lot about cooking, but sadly I'm really busy right now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Ich würde mein halbes Vermögen geben, damit Snorri seine kaputte Nase richten lässt. Aber er ist eben ein Sturkopf. Auf der anderen Seite finde ich auch kaum einen Heiler der sich damit auskennt.");
-talkEntry:addResponse("Snorri ist ein tapferer Zwerg. Ich weiß, er brennt darauf sich im Kampf zu beweißen, aber mit diesem Marktstand haben wir zu viel um die Ohren, als das wir als Söldner anheuern könnten.");
-talkEntry:addResponse("Ich hab Snorri gesagt, er soll Steinmetz werden. Aber er ist der Ältere also muss er das entscheiden. - Ich wünschte er wäre Steinmetz geworden.");
+talkEntry:addResponse("Ich könnte dir eine Menge über das Kochen erzählen, aber ich bin im Moment leider sehr beschäftigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -672,7 +607,6 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Arr.");
 talkEntry:addResponse("#me wrinkles his nose and shows his tongue in disgust: 'Do you smell that too?'");
-talkEntry:addResponse("#me turns around suddenly and grumbles: 'Snorri! Listen - the fish stinks like the breath of death'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -682,7 +616,6 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Arr.");
 talkEntry:addResponse("#me rümpft die Nase und streckt angewidert die Zunge heraus: 'Riecht ihr das auch?'");
-talkEntry:addResponse("#me dreht sich plötzlich um und grummelt: 'Snorri! Hör mir zu - der Fisch stinkt wie das Maul der Fischgesichter!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can not afford that!");
@@ -690,14 +623,10 @@ tradingNPC:addDialogClosedMsg("Danke, komm bald wieder!", "Thanks, come again!")
 tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
 tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("#me brummt schlecht gelaunt und wirft einen missmutigen Blick auf die Straße.", "#me grumbles moodily and looks at the street with a discontented glance.");
-talkingNPC:addCycleText("Dein Fisch stinkt, Snorri.", "Your fish smells, Snorri.");
 talkingNPC:addCycleText("#me knurrt kopfschüttelnd: 'Dieser Fisch ist niemals frisch...'", "#me grumbles and shakes his head: 'This fish is not fresh...'");
 talkingNPC:addCycleText("#me rümpft die Nase.", "#me wrinkles his nose.");
 talkingNPC:addCycleText("#me hält sich die Nase zu und streckt die Zunge heraus: 'Igittigitt!'", "#me covers his nose and shows his tongue: 'Igittigitt!'");
-talkingNPC:addCycleText("#me bückt sich und hebt einen muffigen Fisch auf. Er kneift ein Auge zusammen und wirft ihn an Snorris Hinterkopf.", "#me bends down and lifts a smelly fish. He pinches his eyes and throws it at the back of Snorri's head.");
-talkingNPC:addCycleText("Irmorom, mach das der Sturkopf es einsieht! Der Fisch stinkt so sehr, ich fürchte der Berg könnte uns auf den Kopf fallen.", "Imrorom, don't let him be that stubborn. His fish stinks so much that I fear the mountain will crumble onto our heads.");
 talkingNPC:addCycleText("#me fasst sich mit einer verzweifelt wirkenden Geste, beidhändig in den langen schwarzen Bart und zieht daran. Dabei gibt er ein lautes Grunzen von sich.", "#me pulls his long black beard with both hands despairingly and grunts loudly.");
-talkingNPC:addCycleText("#me murmelt verärgert: 'Der Gestank vertreibt mir noch die Kunden...'", "#me mumbles in annoyance: 'This stink scares away my customers.");
 talkingNPC:addCycleText("Essen! Feinste Gerichte aller Art! Tretet näher und deckt Euch ein!", "Food! Finest dishes of every kind! Come closer and buy ahead!");
 talkingNPC:addCycleText("Frisches Brot! Schmackhafte Kuchen! Unverwüstliche Kekse!", "Fresh bread! Tasty cakes! Inedible cookies!");
 talkingNPC:addCycleText("Wurst mit Zwiebeln, Kohlsuppe, Hasenbraten! Bei mir könnt ihr alles kaufen!", "Sausages with onion, cabbage soup, rabbit dishes! You find everything here!");
