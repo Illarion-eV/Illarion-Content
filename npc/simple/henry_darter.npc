@@ -85,7 +85,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See you later!", "Aye, good
 "How are you", "How feel", "How do you do" -> "Good, as long as I have enough to butcher.", "Good as always.", "I'm fine and you?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Gut, so lange ich genug zum Schlachten habe", "Gut wie immer.", "Mir geht's gut und euch?"
 "your name", "who are you", "who art thou" -> "I am Henry the butcher.", "Just the good, old Henry", "Henry Darter."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Henry der Schlachter", "Der gute alte Henry.", "Henry Darter."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Henry der Schlachter", "Der gute alte Henry.", "Henry Darter."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Take a tool and gather 10 raw materials for 50cp.

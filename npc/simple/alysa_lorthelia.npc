@@ -84,9 +84,19 @@ itemShoes = 53
 -- 5% Beer: 1909
 -- 10% Dishes: 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051
 
+"kauf", "handel" -> "Lass uns handeln!", trade
+"buy,","sell", "trade" -> "Let's trade!", trade
+sellItems = 51, 118, 121, 227, 2495, 49, 191, 303, 353, 353, 453, 454, 2, 5, 2529, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 1909
+buyPrimaryItems = 118, 121, 2495, 49, 191, 303, 353, 353, 453, 454, 2, 5, 2529, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051
+buySecondaryItems = 51, 227, 1909
+tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
+tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: buy, sell, trade, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: Handel, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, would you like some something to eat? I think the stuff I made is good.", " Nice to meet you, I am Alysa Lorthelia.", "Ah! You startled me, Hello, I'm sorry."
@@ -101,7 +111,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Will I ever see you again? 
 "How are you", "How feel", "How do you do" -> "I don't feel so good today. My stomach hurts. But it's not because of my food! Please don't think my food is bad!", "My head is dizzy.", "I think I ate too much. I shouldn't eat for another two days."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "your name", "who are you", "who art thou" -> "I am the daughter of the sword crafter Asha Lorthelia.", "I am the oldest Lorthelia daughter, but no I cannot craft ornate weapons like my mother. Instead I bake.", "am Alysa Lorthelia, the baker, at least for now."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I bake all kinds of foods.", "I sell people the food that I and old man John Sights bake.", "I started working as a baker a several moons ago."
@@ -153,8 +163,6 @@ english, "salkama" -> "My father says that only the stupid care about faction re
 "god" -> "The gods cursed me with this body. The only god I will serve is one who will make me pretty."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I sell Baked Goods"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "tell something" -> "I wish I were a fairy"
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
@@ -162,13 +170,13 @@ english, "salkama" -> "My father says that only the stupid care about faction re
 english, "<NPC first name>", "<NPC last name>" -> "That's me, Alysa Lorthelia"
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "Ok"
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ja" -> "In Ordnung.", "GERMAN2.", "GERMAN3."
 "No" -> "Oh no"
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nein" -> "Oh..nein!", "GERMAN2.", "GERMAN3."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "That has nothing to do with me. I'm sorry"
-german, chance(20.0), ".*" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, chance(20.0), ".*" -> "That has nothing to do with me. I'm sorry."
+german, chance(20.0), ".*" -> "Das hat nichts mit mir zu tun, entschuldigt."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -11,7 +11,7 @@ function MoveToField(User)
 		local noSpam = false
 		local foundEffect, myEffect = User.effects:find(55)
 		if foundEffect then
-		    local findCounter,spamProtection_1 = Effect:findValue("spamProtection_1")
+		    local findCounter,spamProtection_1 = myEffect:findValue("spamProtection_1")
 		    if findCounter then
 			    if spamProtection_1 < 1 then
 				    noSpam = true
@@ -40,6 +40,7 @@ function MoveToField(User)
 				end
 			end
 		end
+		base.common.InformNLS(User,"Der Teleporter scheint dir den Dienster zu verweigern, bis deine Strafe abgearbeitet ist.","The teleporter seems to be not working for you as long as you haven't served your sentence.")
 		
 	else -- the char is allowed to leave
         local ItemListe = {49,234,2536,22,21,2763};    --delete ores, coal, pickaxe, gold nuggets and bread

@@ -100,7 +100,7 @@ itemShoes = 53
 "How are you", "How feel", "How do you do" -> "I'd be better if you weren't here.", "I'm busy here doing.. things you wouldn't understand. Scram!", "I'd be better if you'd leave me alone.", end
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir würde es besser gehen, würdet Ihr nicht hier sein.", "Ich hab hier Dinge zu tun...die du nicht verstehen würdest. Hau ab!", "Mir ginge es besser, würdet Ihr mich alleine lassen.", end
 "your name", "who are you", "who art thou" -> "My name is Morthis Nebulum. Mage extraodinaire.", "I am Morthis Nebulum, finest mage in Runewick.", "They call me Morthis Nebulum, and my time is much more important than yours.", end
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Morthis Nebulum. Außergewöhnlicher Magier.", "Ich bin Morthis Nebulum, der beste Magier in Runewick.", "Sie nennen michMorthis Nebulum und meine zeit ist wichtiger als deine.", end
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Morthis Nebulum. Außergewöhnlicher Magier.", "Ich bin Morthis Nebulum, der beste Magier in Runewick.", "Sie nennen michMorthis Nebulum und meine zeit ist wichtiger als deine.", end
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "You think this is the right place to look for a Salesman?", "Do I look like a trader to you? Here's a hint. No I don't.", "The only thing I'm interested in buying with you around is poison."

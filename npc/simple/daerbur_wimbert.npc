@@ -83,7 +83,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "So, you are leaving. That i
 "How are you", "How feel", "How do you do" -> "Good and bad at once I feel. Sometimes, I feel a bit more bad than good, sometimes vice versa.", "I feel just like you, maybe a bit more sad or lucky, who knows.", "Wie fühlst du dich denn so? Ach, warum haben Leute kein Gefühlssinn, dann würde das dusselige Fragen entfallen."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Gut und schlecht gleichzeitig, so fühl ich mich. Manchmal ein bisschen mehr schlecht als gut, manchmal genau anders herum.", "Ich fühl mich genauso wie du, vielleicht ein wenig schlechter oder besser, wer weiß das schon.", "How do you feel? Alas, why don't we all have a sense for feelings, then, all these stupid questions would be unnecessary."
 "your name", "who are you", "who art thou" -> "Daerbur Wimbert.", "Daerbur.", "Daerbur Wimbert, son of Dimbur Wimbert and Klemka Jebmil, brother of Turgen Wimbert and Nadla Wimbert. That's me."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Daerbur Wimbert.", "Daerbur.", "Daerbur Wimbert, Sohn von Dimbur Wimbert und Klemka Jebmil, Bruder von Turgen Wimbert und Nadla Wimbert. Das bin ich."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Daerbur Wimbert.", "Daerbur.", "Daerbur Wimbert, Sohn von Dimbur Wimbert und Klemka Jebmil, Bruder von Turgen Wimbert und Nadla Wimbert. Das bin ich."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- Quest 108: A message from Hector Valerion

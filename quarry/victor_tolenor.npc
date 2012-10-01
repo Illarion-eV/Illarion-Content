@@ -114,7 +114,7 @@ itemShoes = 53
 "How are you", "How feel", "How do you do" -> "I am fine. I bought new wares for my uh... sick aunt.", "I am worried sick about my aunt Hastings... uhh Hastines! Do you bear news from her?", "#w Cut that out and let's get down to buisiness. I think we're being watched.", end
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht es gut. Ich habe neue Waren für meine uh... kranke Tante eingekauft.", "Ich sorge mich sehr um meine Tante Hastings... ähh Hastines! Bringt ihr Neuigkeiten?", "#w Könnt ihr euch das sparen und zum Geschäftlichen kommen? Ich glaube wir werden beobachtet.", end
 "your name", "who are you", "who art thou" -> "I am Victor Tolenor, proud citizen of Cadomyr!", "Is that realy important? Tell me friend, what news do you bring of my aunt?", "Victor Tolenor is my name, gods shave... uh, save the queen!", end
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Victor Tolenor, ein stolzer Bürger Cadomyrs!", "Ist das wirklich so wichtig? Komm Freund, erzähl mir lieber ob meine Tante wohlauf ist.", "Victor Tolenor mein Name, die Götter mögen die Königin stutzen, ähh stützen.", end
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Victor Tolenor, ein stolzer Bürger Cadomyrs!", "Ist das wirklich so wichtig? Komm Freund, erzähl mir lieber ob meine Tante wohlauf ist.", "Victor Tolenor mein Name, die Götter mögen die Königin stutzen, ähh stützen.", end
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I buy a lot of things but the source has to be reliable, I won't buy from you!", "I am responsible for the 'acquisition' of things to strenghten our cause.", "I don't sell things. I buy them and accord them to our cause."

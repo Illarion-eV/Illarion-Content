@@ -50,8 +50,6 @@ itemShoes = 369
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 61, 3076, 3077
-
 -- Template Version 1.06, 08/29/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
@@ -67,11 +65,17 @@ sellItems = 61, 3076, 3077
 -- TRADING
 -- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
 
+sellItems = 61, 3076, 3077
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Laura Pepperbags the money changer of Galmair. Keywords: Hello, sell, buy, profession.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Laura Pepperbags die Geldwechslerin von Galmair. Schlüsselwörter: Hallo, verkaufen, kaufen, Beruf.")
+"Help" -> inform("[Game Help] This NPC is Laura Pepperbags the money changer of Galmair. Keywords: Hello, sell, buy, trade, profession.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Laura Pepperbags die Geldwechslerin von Galmair. Schlüsselwörter: Hallo, verkaufe, kaufe, Handel, Beruf.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeting to you. Did you come here for exchanging money?", "Greetings. Do you need money?"
@@ -85,7 +89,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save Paths.", "Fare well."
 "How are you", "How feel", "How do you do" -> "I'm fine. Thank you. Do you want to change money?"
 "Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage. Möchtet Ihr Geld eintauchen?"
 "your name", "who are you", "who art thou" -> "My name is Laura Pepperbags, I'm the best money changer in Galmair.", "My name is Laura Pfeffersack, I'm the the only money changer in Galmair."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Laura Pepperbags, ich bin die beste Geldwechslerin in Galmair.", "Ich heiße Laura Pfeffersack, ich bin die einzige Geldwechslerin in Galmair."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Laura Pepperbags, ich bin die beste Geldwechslerin in Galmair.", "Ich heiße Laura Pfeffersack, ich bin die einzige Geldwechslerin in Galmair."
 
 -- OPTIONAL TRIGGERS
 

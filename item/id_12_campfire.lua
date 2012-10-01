@@ -5,86 +5,104 @@ require("content.gathering")
 
 module("item.id_12_campfire", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
-	
-    if ( ltstate == Action.abort ) then
-        if (User:increaseAttrib("sex",0) == 0) then
-            gText = "seine";
-            eText = "his";
-        else
-            gText = "ihre";
-            eText = "her";
-        end
-        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-        return
-    end
-    
-    if not base.common.CheckItem( User, SourceItem, 12 ) then
-        return
-    end
-    
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
-        base.common.InformNLS( User,
-        "Deine Rüstung behindert beim Asche herstellen.",
-        "Your armour disturbes you while producing potash." );
-        return
-    end
-    
-    if not base.common.IsLookingAt( User, SourceItem.pos ) then
-        base.common.TurnTo( User, SourceItem.pos );
-    end
-
-    if not base.common.FitForWork( User ) then
-        return
-    end
-    
 	local potashproducing = content.gathering.potashproducing;
-    if ( ltstate == Action.none ) then
-		if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
-			(User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then
-			base.common.InformNLS(User,
-				"Du benötigst Holz um daraus Asche herzustellen.",
-				"You need wood to produce potash.");
-			return;
+
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
 		end
-		potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
-        User:startAction(potashproducing.SavedWorkTime[User.id], 0, 0, 7, 15);
-        User:talkLanguage(Character.say, Player.german, "#me beginnt Asche herzustellen.");
-        User:talkLanguage(Character.say, Player.english, "#me starts to produce potash.");
-        return
-    end
-    
-    if not potashproducing:FindRandomItem(User) then
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
+	end
+
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
 	
-	local woodList = {2560,543,544,3};
-	for _,wood in pairs(woodList) do
-		if (User:countItemAt("all",wood)>0) then
-			User:learn( potashproducing.LeadSkill, potashproducing.LeadSkillGroup, potashproducing.SavedWorkTime[User.id], 20, User:increaseAttrib(potashproducing.LeadAttribute,0) );
-			potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
-			User:eraseItem(wood,1);
-			notCreated = User:createItem(314,3,333,0);
-			if (notCreated > 0) then
-				world:createItemFromId(314, notcreated, User.pos, true, 333 ,0);
-				base.common.InformNLS(User,
-				"Du kannst nichts mehr halten.",
-				"You can't carry any more.");
-			else
-				User:startAction(potashproducing.SavedWorkTime[User.id], 0, 0, 7, 15);
-			end
-			base.common.GetHungry( User, 200 );
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich beim Herstellen der Pottasche.",
+		"Your armour disturbs you while producing potash." );
+		return
+	end
+
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+
+	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
+		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	end
+	
+	-- any other checks?
+
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
+			(User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then -- check for items to work on
+			base.common.InformNLS( User, 
+			"Du brauchst Holz um Pottasche zu produzieren.", 
+			"You need wood for producing potash." );
 			return;
 		end
+		potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
+		User:startAction( potashproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt Pottasche herzustellen.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to produce potash."); 
+		return
 	end
-	-- we started the action with wood, but somehow there is no more there!
-	base.common.InformNLS(User,
-		"Du benötigst Holz um daraus Asche herzustellen.",
-		"You need wood to produce potash.");
-end -- function
+    
+    -- security check: do we still have the item we're working on?
+    if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
+        (User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then 
+        base.common.InformNLS( User, 
+        "Du brauchst Holz um Pottasche zu produzieren.", 
+        "You need wood for producing potash." );
+        return;
+    end
+
+	-- since we're here, we're working
+
+	if potashproducing:FindRandomItem(User) then
+		return
+	end
+
+	User:learn( potashproducing.LeadSkill, potashproducing.LeadSkillGroup, potashproducing.SavedWorkTime[User.id], 100, User:increaseAttrib(potashproducing.LeadAttribute,0) );
+	local woodList = {2560,543,544,3};
+    local woodID = 0;
+    for _,wood in pairs(woodList) do
+		if (User:countItemAt("all",wood)>0) then
+            woodID = wood;
+            break;
+        end
+    end
+    User:eraseItem( woodID, 1 ); -- erase the item we're working on
+	local amount = 3; -- set the amount of items that are produced
+	local notCreated = User:createItem( woodID, amount, 333, nil ); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( woodID, notCreated, User.pos, true, 333, nil );
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	else -- character can still carry something
+		if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
+            (User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then   -- there are still items we can work on
+			potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
+			User:startAction( potashproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		else -- no items left
+			base.common.InformNLS(User,
+			"Du hast kein Holz mehr.",
+			"You have no wood anymore.");
+		end
+	end
+end
 
 function CharacterOnField(User)
     base.common.InformNLS( User,

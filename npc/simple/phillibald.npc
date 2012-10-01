@@ -1,9 +1,9 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Phillibald                                                  None --
+-- NPC Name: Phillibald                                                  Runewick --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  1, 7, 0                --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Race: halfling                   NPC Position:  900, 776, 1                --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
 --                                                                            --
@@ -13,19 +13,13 @@
 name = "Phillibald"
 race = halfling
 sex = male
-position = 1, 7, 0
-direction = north
+position = 900, 776, 1
+direction = south
 affiliation = "None"
 job = "portalbook merchant"
 
 language = common
-language = ancient
-language = dwarf
-language = elf
-language = lizard
-language = human
 language = halfling
-language = orc
 defaultLanguage = common
 autointroduce = on
 
@@ -62,14 +56,20 @@ itemShoes = 53
 -- S/he and the others of their family will be sprawled across the map, also selling portal books to the location they are at.
 -- Intention of this sort of NPC is to act as a Safepoint to be discovered by players to allow quick travel to certain places in the wilderness (for a heavy price!).
 
+"handel","verkauf" -> "Hiho, lass und handeln!", trade
+"trade","sell" -> "Hiho, let's trade!", trade
 sellItem = id(1061), de("Portalbuch nach Cadomyr"), en("portal book to Cadomyr"), price (2000), stack(1), quality(333), data("destinationCoordsX"="127","destinationCoordsY"="647","destinationCoordsZ"="0")
 sellItem = id(1061), de("Portalbuch nach Galmair"), en("portal book to Galmair"), price (2000), stack(1), quality(333), data("destinationCoordsX"="424","destinationCoordsY"="245","destinationCoordsZ"="0")
 sellItem = id(1061), de("Portalbuch nach Runewick"), en("portal book to Runewick"), price (2000), stack(1), quality(333), data("destinationCoordsX"="788","destinationCoordsY"="826","destinationCoordsZ"="0")
 sellItem = id(1061), de("Portalbuch zum Hamp Necktie Inn"), en("portal book to the Hamp Necktie Inn"), price (2000), stack(1), quality(333), data("destinationCoordsX"="648","destinationCoordsY"="308","destinationCoordsZ"="0")
+tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
+tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+tradeFinishedWithoutTradingMsg "Nichts gefunden was euch gefällt?", "Don't you like my wares?"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portals, books.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuch Händler Phillibald. Schlüsselwörter: Hallo, Portale, Bücher.")
+"Help" -> inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portals, trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuch Händler Phillibald. Schlüsselwörter: Hallo, Portale, Handel.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Today is a fine day to travel."
@@ -83,7 +83,7 @@ sellItem = id(1061), de("Portalbuch zum Hamp Necktie Inn"), en("portal book to t
 "How are you", "How feel", "How do you do" -> "I feel excited, thinking about all the places to travel to.", "I'm itching to make another journey."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.", "Es juckt mich in den Füßen, eine Reise zu machen."
 "your name", "who are you", "who art thou" -> "Phillibald, portalbook merchant. That's me.", "I am the merchant Phillibald.", "Phillibald is my name, I trade portalbooks."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Phillibald, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Phillibald", "Phillibald mein Name, ich handle mit Portalbüchern"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Phillibald, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Phillibald", "Phillibald mein Name, ich handle mit Portalbüchern"
 
 -- Catching quest triggers
 "quest", "mission", english -> "I do not issue any quests. But I can sell you books to go to other places."
@@ -102,9 +102,6 @@ sellItem = id(1061), de("Portalbuch zum Hamp Necktie Inn"), en("portal book to t
 "Gobaith", "Gobiath" -> "Mit etwas Glück kann ich dir ein Buch besorgen, das dich dorthin bringt! Nö, nicht wirklich nur'n Scherz."
 "my name" -> "Nice to meet you. If you want to 'book' a travel just ask me, hihi.", "A nice name, indeed."
 "mein Name" -> "Schön dich kennenzulernen. Wenn du eine Reise 'buch'-en willst, frag mich einfach, hihi.", "Ein netter Name."
-
-"handel","verkauf" -> "Hiho, lass und handeln!", trade
-"trade","sell" -> "Hiho, let's trade!", trade
 
 -- More small talk; add at least five triggers
 "family", "siblings", "sister", "brother" -> "Me and my family like to hike and explore, I bet you can find my other siblings at other places if you just look closely!"

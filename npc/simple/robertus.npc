@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Robertus"
@@ -59,9 +59,19 @@ itemShoes = 53
 -- 5% Stones: 733, 735, 1266
 -- 10% Clay: 26
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I trade with building materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... Iall the workers need.", "I can sell you the tools you need to serve the queen. On, on!"
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!"
+sellItems =  24, 26, 23, 737, 734, 736, 2588, 733, 735, 1266
+buyPrimaryItems = 24, 26
+buySecondaryItems = 23, 737, 734, 736, 2588, 733, 735, 1266
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keywords: Hello, builder.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Baumeister Robertus. Schlüsselwörter: Hallo, Baumeister.")
+"Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keywords: buy, sell, trade, Hello, builder.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Baumeister Robertus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Baumeister.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building material for me?", "Be greeted, in the name of the queen."
@@ -75,7 +85,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell.", "Good bye.", "Until next t
 "How are you", "How feel", "How do you do" -> "As long as the queen is content, I am happy. And I do anything to please her.", "I just need to finish this calculation, then we can talk.", "Every day is a day to serve queen Rosaline."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Solange die Königin zufrieden ist, bin ich es auch. Und ich werde alles tun, um sie zufrieden zu stellen.", "Ich muss nur noch grad diese Berechnung abschließen, dann können wir reden.", "Jeder Tag ist der richtige, um Königin Rosaline zu dienen."
 "your name", "who are you", "who art thou" -> "Robertus.", "My name is Robertus, I am the royal builder. I serve the queen with every fibre of my body.", "They call me Robertus. I'm the royal builder of Cadomyr, loyal to the queen."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Robertus.", "Mein Name ist Robertus, ich bin der königliche Baumeister. Ich diene der Königin mit jeder Faser meines Körpers.", "Man nennt mich Robertus. Ich bin der königliche Baumeister Cadomyrs, stets der Königin ergeben."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Robertus.", "Mein Name ist Robertus, ich bin der königliche Baumeister. Ich diene der Königin mit jeder Faser meines Körpers.", "Man nennt mich Robertus. Ich bin der königliche Baumeister Cadomyrs, stets der Königin ergeben."
 
 -- Quest 108: A message from Hector Valerion
 queststatus(108) = 3, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), queststatus(108) = 4, "Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!"
@@ -117,7 +127,7 @@ english, "hastings" -> "Baron Hastings? A traitor, he is, indeed!", "The head of
 english, "tavern" -> "I build the tavern; well, I commanded the workers, sometimes, with the whip."
 "tavern" -> "Ich habe die Taverne erbaut; nun, ich habe die Arbeiter befehligt, manchmal auch mit der Peitsche."
 "sklave" -> "Sklaven, nun, ich bevorzugen den Begriff Arbeiter. Es ist doch eine Ehre, der Königin zu dienen.", "Eine Peitsche ist ein wichtiges Werkzeug. Ich verstehe wohl nie, warum einige Arbeiter nicht spuren. Es ist doch eine Ehre, für die Königin zu arbeiten."
-"slave" -> "Slaves, well, I prefer the term workers. It is an honor to work for the queen afterall.", "A whip is an important tool. I'll never understand why some workers do not obey. It is an honor to work for the queen."
+"slave" -> "Slaves, well, I prefer the term workers. It is an honour to work for the queen afterall.", "A whip is an important tool. I'll never understand why some workers do not obey. It is an honour to work for the queen."
 
 -- Faction stuff
 "archmage" -> "Archmage Morgan, he calls himself. He's a bastard of impure blood.", "He hides in his chamber, pretending to study. I assume he tends his whores there!", "An arrogant person, he is. Never trust a mage, I say."
@@ -154,8 +164,6 @@ english, "Cherga" -> "I'll never let Cherga take away our queen. If she departs 
 "Cherga" -> "Niemals werde ich Cherga unsere Königin rauben lassen. Sollte sie dennoch diese Welt verlassen, so werde ich folgen.", "Ich fürchte Cherga nicht. Ich werde ihr, Seite an Seite mit der Königin, gegenübertreten."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, trade, "Ibuilding materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... Iall the workers need.", "I can sell you the tools you need to serve the queen. On, on!"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!"
 "tell something" -> "Shh, don't speak about this in public, but we're actually building the queen's grave.", "I wonder where all the refugees came from. More hands for the queen!", "Never venture to the mountains alone. Dragons were reported to roam there."
 "erzähl was", "erzähl etwas" -> "Shh, redet nicht davon in der Öffentlichkeit, aber wir bauen das Grab der Königin", "Ich frage mich nur, wo die Flüchtlinge alle herkamen. Ach, mehr Hände für die Königin!", "Wagt es niemals, alleine in die Berge zu gehen. Angeblich treiben dort Drachen ihr Unwesen."
 

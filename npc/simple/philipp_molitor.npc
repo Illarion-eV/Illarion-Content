@@ -1,0 +1,167 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Philipp Molitor                                          Cadomyr --
+-- NPC Job:  Caravan master                                                   --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  103, 588, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                                            --
+-- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Philipp Molitor"
+race = human
+sex = male
+position = 103, 588, 0
+direction = south
+affiliation = "Cadomyr"
+job = "Caravan master"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Estralis Seborian"
+
+lookatDE = "Dieser NPC ist Philipp Molitor der Karawanenmeister."
+lookatUS = "This NPC is Philipp Molitor the caravan master."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 1
+beardID = 3
+colorHair = 140, 70, 20
+colorSkin = 205, 133, 63
+itemHead = 0
+itemChest = 2367
+itemCoat = 2380
+itemMainHand = 0
+itemSecondHand = 207
+itemHands = 48
+itemTrousers = 2114
+itemShoes = 53
+
+-- Template Version 1.07, 08/30/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Philipp Molitor the caravan master. Keywords: Hello, caravan, order, Cadomyr.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Philipp Molitor der Karawanenmeister. Schlüsselwörter: Hallo, Karawane, Auftrag, Cadomyr.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, hello. You came here for an order, right?", "What is it? Business, I hope!", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, hallo. Ihr seid hier wegen eines Auftrages, richtig?", "Was gibt es? Ich hoffe, es geht ums Geschäft.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Auftrag benötigt."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, hello. You came here for an order, right?", "What is it? Business, I hope!", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ah, hallo. Ihr seid hier wegen eines Auftrages, richtig?", "Was gibt es? Ich hoffe, es geht ums Geschäft.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Auftrag benötigt."
+"Farewell", "Bye", "Fare well", "See you" -> "Don't swallow too much sand.", "I hope you come back.", "Good travels."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schluckt mir nicht zu viel Sand.", "Ich hoffe, ihr kommt zurück.", "Gute Reise."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Don't swallow too much sand.", "I hope you come back.", "Good travels."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Schluckt mir nicht zu viel Sand.", "Ich hoffe, ihr kommt zurück.", "Gute Reise."
+"How are you", "How feel", "How do you do" -> "That is none of your business.", "That does not concern you."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Das steht hier nicht zur Debatte.", "Das tut hier nichts zur Sache."
+"your name", "who are you", "who art thou" -> "I am Philipp Molitor, the caravan master."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Philipp Molitor, der Karawanenmeister."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+-- Catching quest triggers of other factions' members. Outlaws are ignored.
+english, town = Galmair, "quest", "mission" -> "Farewell and my best 'regards' to your Don."
+town = Galmair, "quest", "mission" -> "Hinfort mit euch und meine besten 'Grüße' an euren Don."
+town = Galmair, "task", "adventure", "order" -> "Farewell and my best 'regards' to your Don."
+town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hinfort mit euch und meine besten 'Grüße' an euren Don."
+english, town = Runewick, "quest", "mission" -> "When you get back to Runewick, could you greet Elvaine Morgan? Tell him he should reconsider the offer I gave him twelve years ago."
+town = Runewick, "quest", "mission" -> "Wenn ihr wieder nach Runewick kommt, so grüßt doch Elvaine Morgan von mir. Er möge nochmal über mein Angebot nachdenken, dass ich im vor zwölf Jahren machte."
+town = Runewick, "task", "adventure", "order", "order" -> "When you get back to Runewick, could you greet Elvaine Morgan? Tell him he should reconsider the offer I gave him twelve years ago."
+town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn ihr wieder nach Runewick kommt, so grüßt doch Elvaine Morgan von mir. Er möge nochmal über mein Angebot nachdenken, dass ich im vor zwölf Jahren machte."
+
+-- 1: Quest 1 taken, get 5 strawberries, reward: 20cp, 5 rankpoints
+-- Quest 1: Gather five strawberries (151)
+queststatus(151) = 0, english, chance(5.0), town = Cadomyr, "quest", "mission" -> inform("[New Quest] Do a good turn daily for Cadomyr"), queststatus(151) = 1, "Your mission today: The queen desires sweet fruit and I will not dissapoint her. Bring me five strawberries as fast as possible and I'll mention your name infront of her."
+queststatus(151) = 0, german, chance(5.0), town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), queststatus(151) = 1, "Eure heutige Mission: Die Königin verlang nach süßen Früchten und ich werde sie nicht enttäuschen. Bringt mir fünf Erdbeeren und ich werde euren Namen ihr gegenüber lobend erwähnen."
+queststatus(151) = 0, chance(5.0), town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] Do a good turn daily for Cadomyr"), queststatus(151) = 1, "Your mission today: The queen desires sweet fruit and I will not dissapoint her. Bring five strawberries as fast as possible and I'll mention your name infront of her."
+queststatus(151) = 0, chance(5.0), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), queststatus(151) = 1, "Eure heutige Mission: Die Königin verlang nach süßen Früchten und ich werde sie nicht enttäuschen. Bringt mir fünf Erdbeeren und ich werde euren Namen ihr gegenüber lobend erwähnen."
+
+-- Quest 1 solved, reward: 20cp, 5 rankpoints, delay: 5h
+queststatus(151) = 1, item(151, all) > 4, english, town = Cadomyr, ".*" -> inform("[Quest solved] You are awarded twenty coppercoins. You advance in Queen Rosaline Edwards' favour."), money + 20, deleteItem(151, 5), queststatus(151) = 0, queststatus(120) = 60, rankpoints(Cadomyr) + 5, "Very good. I am authorised to grant you a small reward. The queen will enjoy these fruits!"
+queststatus(151) = 1, item(151, all) > 4, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), money + 20, deleteItem(151, 5), queststatus(151) = 0, queststatus(120) = 60, rankpoints(Cadomyr) + 5, "Sehr gut. Ich bin berechtigt, euch eine kleine Belohnung zu zahlen. Die Königin wird sich über diese Früchte sicher freuen."
+
+-- Quest 1 taken but not solved, repeat the instructions
+queststatus(151) = 1, item(151, all) < 5, english, town = Cadomyr, "quest", "mission" -> "I told you to bring five strawberries. Her majesty has to rule a whole realm and you fail in such a simple task?"
+queststatus(151) = 1, item(151, all) < 5, town = Cadomyr, "quest", "mission" -> "Ich habe euch befohlen, fünf Erdbeeren zu beschaffen. Ihre Majestät regiert ein ganzes Reich und ihr versagt bei so einer einfachen Aufgabe?"
+queststatus(151) = 1, item(151, all) < 5, town = Cadomyr, "task", "adventure", "order" -> "I told you to bring five strawberries. Her majesty has to rule a whole realm and you fail in such a simple task?"
+queststatus(151) = 1, item(151, all) < 5, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe euch befohlen, fünf Erdbeeren zu beschaffen. Ihre Majestät regiert ein ganzes Reich und ihr versagt bei so einer einfachen Aufgabe?"
+
+-- Final dialogue: No more quests, just nice hints
+queststatus(151) = 3, english, "quest", "mission" -> "You can help me by... staying. Stay a little longer, that's all I ask for. Please!"
+queststatus(151) = 3, "quest", "mission" -> "Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!"
+queststatus(151) = 3, "task", "adventure", "order" -> "You can help me by... staying. Stay a little longer, that's all I ask for. Please!"
+queststatus(151) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr könntet mir helfen... indem ihr noch eine Weile bleibt. Leistet mir noch etwas Gesellschaft, das ist alles, worum ich bitte!"
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am the caravan master of Cadomyr. How comes people forget about this?"
+"beruf" -> "Ich bin der Karawanenmeister Cadomyrs. Wie kann man sowas nur vergessen?"
+english, "job" -> "I am the caravan master of Cadomyr. How comes people forget about this?"
+"job" -> "Ich bin der Karawanenmeister Cadomyrs. Wie kann man sowas nur vergessen?"
+"tell something" -> "Ask me about an order. I was not born for chatting."
+"erzähl was", "erzähl etwas" -> "Fragt mich nach einem Auftrag. Ich bin nicht zum Labern geboren worden."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"caravan", "business" -> "If you want to contribute to the next caravan, ask me for an order."
+"Karawane", "Geschäft" -> "Wenn ihr etwas zur nächsten Karawane beitragen möchtet, frag mich nach einem Auftrag."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Most caravan personal prays to Irmorom, but there might be another god they worship..."
+"Gott", "Götter" -> "Die meisten Krawanenleute beten zu Irmorom, aber einige verehren noch einen anderen Gott..."
+english, "Irmorom" -> "Most caravan personal prays to Irmorom, but there might be another god they worship..."
+"Irmorom" -> "Die meisten Krawanenleute beten zu Irmorom, aber einige verehren noch einen anderen Gott..."
+english, "Ronagan" -> "In secret, some caravan leaders pray to Ronagan, who is not just the god of robbers, but also the god of travellers. And they pray to him not to let both groups meet."
+"Ronagan" -> "Manche Karawanenführer beten heimlich zu Ronagan, der nicht nur der Gott der Räuber sondern auch der Reisenden ist. Sie erflehen von ihm, dass sich diese beiden Gruppen niemals treffen mögen."
+
+-- Optional: Faction stuff
+"Queen" -> "Her majesty encouraged me to use donkeys as beasts of burden for caravans, mainly. I wonder why..."
+"Königin" -> "Ihre Majestät hat mich dazu bewogen, vor allem Esel als Lasttiere für die Karawanen einzusetzen. Ich frag mich nur, warum..."
+english, "rosaline", "edwards" -> "Her majesty encouraged me to use donkeys as beasts of burden for caravans, mainly. I wonder why..."
+"rosaline", "edwards" -> "Ihre Majestät hat mich dazu bewogen, vor allem Esel als Lasttiere für die Karawanen einzusetzen. Ich frag mich nur, warum..."
+english, "Cadomyr" -> "Did you ever notice how lovely the word Cadomyr sounds? I do my best to make it prosper as caravan master."
+"Cadomyr" -> "Ist euch mal aufgefallen, wie schön das Wort Cadomyr klingt? Ich tu mein bestes, um Cadomyr als Karawanenmeister zu dienen."
+
+-- Optional: Main land factions
+english, "albar" -> "It is not a secret that most of our goods are exported to Albar."
+"albar" -> "Es ist kein Geheimnis, dass die meisten unserer Güter für Albar bestimmt sind."
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+english, "Philipp", "Molitor" -> "I am the caravan master."
+"Philipp", "Molitor" -> "Ich bin hier der Karawanenmeister."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Die letzte Karawane ist vor einer Stunde abgereist.", "The last caravan left an hour ago."
+cycletext "Geht ihr zum Palast?", "Bound of the palace?"
+cycletext "Aufträge für die Ehre Cadomyrs!", "Orders for the glory of Cadomyr!"
+cycletext "Ich sollte mal wieder einen trinken gehen.", "I should get a drink anytime soon."
+cycletext "Dazu sage ich nichts.", "I am not going to comment on that."
+cycletext "Ist das Hassans Stimme?", "Was that Hassan's voice?"
+cycletext "Kommt her, ich habe bestimmt einen Autrag für euch.", "Come here, I think I have an order for you."
+cycletext "Ich bin nicht aus albarischen Geschlecht. Ich bin aus einem Geschlecht Cadomyrs!", "I am not of albarian birth. I am of cadomyrian birth!"
+cycletext "#me studiert eine lange Liste.", "#me browses a long list."
+cycletext "#me nickt zufrieden.", "#me nods happily."
+cycletext "Ihr da! Kommt her. Ich habe einen Auftrag der Königin.", "You! Come over here. I have orders of the queen."

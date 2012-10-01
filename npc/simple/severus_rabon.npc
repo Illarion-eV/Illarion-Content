@@ -47,14 +47,17 @@ itemTrousers = 367
 itemShoes = 369
 
 ------------------------------------------------------------------------------AC
--- Trading
--- Here are all items the NPCs is able to trade. They will be displayed inside
--- the merchant dialog.
 
-sellItems = 1908, 1909, 2055, 2056, 2057, 2058, 2059, 518, 517, 2923, 2935, 454
-buySecondaryItems = 1908, 1909, 2055, 2056, 2057, 2058, 2059, 518, 517, 2923, 2935, 454
+-- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
 
--- stock 1908 (beer mug - empty), 1909 (beer mug), 2055 (glass), 2057 (glass wine), 2058 (glass water), 2056 (glass mead),2059 ( glass cider),518 (bottle wine - empty),517 (bottle wine),2923 (onion stew ),2935 (bowl),454 (muffin)
+sellItems = 164, 191, 224, 353, 453, 454, 517, 518, 783, 784, 785, 786, 787, 788, 789, 790, 791, 1315, 1316, 1317, 1318, 1319, 1840, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1908, 1909, 2055, 2056, 2057, 2058, 2059, 2185, 2186, 2187, 2188, 2189, 2276, 2278, 2456, 2496, 2497, 2498, 2499, 2500, 2501, 2922, 2923, 2935, 2952,
+"verkauf", "handel" -> "Lass uns handeln!", trade
+"sell", "trade" -> "Let's trade!", trade
+buyPrimaryItems = 81, 151, 224, 290, 783, 786, 788, 789, 791, 1315
+buySecondaryItems = 80, 199, 784, 785, 787, 1318, 1316, 1319
+tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
+tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
 
 -- Waiter: Severus Rabon
 -- Occupation: waiter
@@ -85,7 +88,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you please come again
 "How are you", "How feel" -> "I wish Linda would take a break more often. She looks so tired.", "I feel Linda is working too hard. Maybe I should hire an extra hostess.", "May I take your order?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich wünschte, Linda würde öfter mal eine Pause machen. Sie sieht so müde aus.", "Linda arbeitet eindach zu hart. Ich sollte noch eine Kellnerin einstellen.", "Ihre Bestellung, bitte?"
 "your name", "who are you", "who art thou" -> "I am Severus Rabon, father and tavern owner extrodinaire.", "I am Severus Rabon, father of the Cadomyr's most famous cook Linda Rabon.", "I am Severus. This is my tavern the Unicorn Lion. Me and my wife built this place from scratch along with our first home. Please have a seat, a meal and become part of the family."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Severus Rabon, Vater und Tavernenbesitzer.", "Ich bin Severus Rabon, Vater von Cadomyrs berühmtester Köchin, Linda Rabon.", "Ich bin Severus. Dies hier ist meine Tavern, der Einhörnige Löwe. Ich und meine Frau haben sie aus dem Nichts aufgebaut, sie ist unsere Heimat. Setzt euch, esst was und werdet Teil der Familie."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Severus Rabon, Vater und Tavernenbesitzer.", "Ich bin Severus Rabon, Vater von Cadomyrs berühmtester Köchin, Linda Rabon.", "Ich bin Severus. Dies hier ist meine Tavern, der Einhörnige Löwe. Ich und meine Frau haben sie aus dem Nichts aufgebaut, sie ist unsere Heimat. Setzt euch, esst was und werdet Teil der Familie."
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Your order, please?", "What can I serve you today?", "Yes?"

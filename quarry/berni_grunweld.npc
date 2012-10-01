@@ -82,7 +82,7 @@ itemShoes = 53
 "how are you", "how feel", "how do you do" -> "I'm prett good, thank you, and how are you if I may ask?", "I feel very well, yes very, very well, how about you?"
 "wie gehts", "wie fühlst" -> "Mir geht es ganz prima, danke. Wie geht es denn dir?", "Ich fühle mich toll, ganz toll und du, geht es dir auch so gut?"
 "your name", "who are you", "who art thou" -> "I'm Berni Grunweld the great cook and who are you?", "I'm Berni, yes Berni is alright."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Berni Grunweld der großartige Koch und wer bist denn du?", "Ich bin der Berni, ja Berni reicht vollkommen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Berni Grunweld der großartige Koch und wer bist denn du?", "Ich bin der Berni, ja Berni reicht vollkommen."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest

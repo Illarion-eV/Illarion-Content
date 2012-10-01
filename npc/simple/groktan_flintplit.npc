@@ -94,7 +94,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back with some money!"
 "How are you", "How feel", "How do you do" -> "The things I do make me feel alright. How about you?", "Well, I know many folks who feel worse, usually, the owe the Don some money.", "Business is good. The Don cares for me and I care for his debt claims."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Was mache mache, stellt mich zufrieden. Und wie sieht das bei dir aus?", "Nun, ich kenne viele Leute, denen es weit schlechter geht. Meist schulden sie dem Don Geld.", "Das Geschäft läuft bestens. Der Don sorgt für mich und ich kümmere mich um seine Schuldscheine."
 "your name", "who are you", "who art thou" -> "I am Badman!", "They call me Groktan. As long as they didn't mess with me. Then, they call me Master Groktan!", "Groktan Flintsplit. At the Don's service."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Badman!", "Die Leute nennen mich Groktan, solange sie sich mit mir noch nicht angelegt haben. Hinterher nennen sie mich dann Meister Groktan!", "Groktan Flintsplit. Stets dem Don zu Diensten."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Badman!", "Die Leute nennen mich Groktan, solange sie sich mit mir noch nicht angelegt haben. Hinterher nennen sie mich dann Meister Groktan!", "Groktan Flintsplit. Stets dem Don zu Diensten."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Bring 5 ropes, reward 200cp

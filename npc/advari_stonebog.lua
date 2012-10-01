@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 01, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -21,21 +21,53 @@ require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
+require("npc.base.trade")
 module("npc.advari_stonebog", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sell");
+talkEntry:addTrigger("buy");
+talkEntry:addTrigger("wares");
+talkEntry:addTrigger("price");
+talkEntry:addTrigger("trade");
+talkEntry:addTrigger("purchase");
+talkEntry:addResponse("Ah, so you are interested in my wares.");
+talkEntry:addResponse("Take your time to look around.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("kauf");
+talkEntry:addTrigger("waren");
+talkEntry:addTrigger("preis");
+talkEntry:addTrigger("Handel");
+talkEntry:addTrigger("veräußer");
+talkEntry:addTrigger("erwerb");
+talkEntry:addResponse("Ah, dann interessiert Ihr Euch also für meine Waren.");
+talkEntry:addResponse("Schaut Euch ruhig in Ruhe um.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Advari Stonebog the trader. Dwarf, Beer, Orcs, Name."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Advari Stonebog the trader. buy, sell, trade, Dwarf, Beer, Orcs, Name."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. Zwerg, Bier, Orks, Name."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. kaufe, verkaufe, Handel, Zwerg, Bier, Orks, Name."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -179,6 +211,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -222,8 +255,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Iwith seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -236,8 +269,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Iwith seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -551,24 +584,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("I sell everything the farmers heart might crave. And a little bit more.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Ich verkaufe alle Dinge, die eines Farmers Herz begehren könnte. Und noch ein bisschen mehr.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("I administer the seeds of Galmair. A verry important task, which is commissioned only to the best man!");
 talkEntry:addResponse("Arr. I take care that the pignoses, arroun' the market, don't mess it up. They aren't that clever aren't they?");
@@ -652,6 +667,10 @@ talkEntry:addResponse("#me lacht kehlig und streicht sich über den Bart. 'Na gut
 talkEntry:addResponse("Arr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("#me singt mit kehliger Stimme. 'Hai-hie! Hai-hoh. Hai-hi! Hai-ho! Hai-ho-ho! Hai-hi! Hai-ho!'", "#me starts to sing with a throaty voice. 'Hai-hie! Hai-hoh. Hai-hi! Hai-ho! Hai-ho-ho! Hai-hi! Hai-ho!'");
 talkingNPC:addCycleText("#me streicht sich zufrieden lächelnd über den langen buschigen Bart.", "#me strokers his long fluffy beard with a quiet grinning glance.");
 talkingNPC:addCycleText("#me kaut auf seiner Pfeife herum. Gelegentlich stopft er etwas Kraut nach.", "#me chews the snout of his pipe. Once in a while he stuffs some tobacco in.");
@@ -664,6 +683,84 @@ talkingNPC:addCycleText("Frische Schafsmilch! Leute, kommt her und kauft bei mir
 talkingNPC:addCycleText("Dort, edle Dame! Kauft mir leckere Früchte ab! Die besten Früchte Galmairs verkaufe ich.", "Over there, good maiden! Buy tasty fruits! The best fruits of Galmair are sold at this market stall!");
 talkingNPC:addCycleText("#me verengt die Augen und betrachtet einen Moment lang misstrauisch den Ork gegenüber.", "#me narrows his eyes and glances the orc at the opposite market stall.");
 talkingNPC:addCycleText("Ha'ak! Ga strak ja'ada! Arr.", "Ha'ak! Ga strak ja'ada! Arr.");
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(51,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(126,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(258,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(271,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(69,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2547,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2586,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(154,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(200,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(201,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(290,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(249,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(259,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(772,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(778,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2493,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(15,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(80,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(81,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(147,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(151,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(199,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(302,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(388,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(330,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(259,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(291,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(534,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(728,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(773,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(779,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2494,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2917,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(307,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(552,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(553,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2934,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(51,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(126,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(258,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(271,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(69,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2547,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2586,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(154,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(200,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(201,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(290,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(249,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(259,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(772,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(778,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2493,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(15,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(80,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(81,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(147,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(151,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(199,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(302,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(388,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(330,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(259,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(291,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(534,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(728,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(773,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(779,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2494,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2917,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(307,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(552,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(553,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2934,"buySecondary"));
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
@@ -674,6 +771,10 @@ mainNPC:setEquipment(3, 2390);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 2116);
 mainNPC:setEquipment(10, 326);
+tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
+tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
+tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

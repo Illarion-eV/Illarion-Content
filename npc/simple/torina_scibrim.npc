@@ -69,7 +69,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin with you.", "Farew
 "How are you", "How feel", "How do you do" -> "I'm fine, thank you for your concern.", "I can't complain, even if some more action wouldn't be that bad.", "Very good, and you?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage.", "Ich kann nicht klagen, auch wenn ein bisschen mehr Abenteuer mal wieder nicht schlecht wäre.", "Ganz gut, und euch?"
 "your name", "who are you", "who art thou" -> "My name is Torina Scibrim, I take care of the new arrivals of this place.", "I'm Torina Scibrim, I am the notary of Cadomyr.", "You can call me Torina Scibrim, as notary of this town I could put you on the citizen list of this beautiful place."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Torina Scibrim, ich kümmere mich um die Neuankömmlinge dieses Ortes.", "Mein Name ist Torina Scibrim, ich bin die Notarin Cadomyrs.", "Man nennt mich Torina Scibrim, als Notarin kann Ich euch zum Bürger unseres schönen Ortes eintragen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Torina Scibrim, ich kümmere mich um die Neuankömmlinge dieses Ortes.", "Mein Name ist Torina Scibrim, ich bin die Notarin Cadomyrs.", "Man nennt mich Torina Scibrim, als Notarin kann Ich euch zum Bürger unseres schönen Ortes eintragen."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."

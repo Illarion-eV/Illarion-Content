@@ -56,9 +56,18 @@ itemShoes = 53
 -- Metal ingots: 104, 236, 2550, 2535, 2571
 -- Swords: 1, 25, 78, 84, 85, 98, 123, 204, 445 (Holzschert), 2658, 2701, 2731, 2757, 2775, 2778
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Gâsh! I sell everything made in the forge. Sharpest Axes! Mightiest Armors! And best tools. Uh!"
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!"
+sellItems = 23, 2697, 2710, 2748, 2751, 2526, 2542, 2562, 2563, 2564, 2565, 2568, 2569, 2707, 325, 326, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2723, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
+buyPrimaryItems = 23, 2697, 2710, 2748, 2751, 2526, 2542, 2562, 2563, 2564, 2565, 2568, 2569, 2707, 325, 326, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2723, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
+tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can not afford that!"
+tradeFinishedMsg "Danke, komm bald wieder!", "Thanks, come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: Murgo, Er'hja, Kroch'Gurak, Alice, Tom"), state = 0, "Me, Krudash sell and buy lots of stuff! Taghta?"
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: Murgo, Er'hja, Kroch'Gurak, Alice, Tom"), state = 0, "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?"
+"Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Murgo, Er'hja, Kroch'Gurak, Alice, Tom"), state = 0, "Me, Krudash sell and buy lots of stuff! Taghta?"
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: kaufe, verkaufe, Handel, Murgo, Er'hja, Kroch'Gurak, Alice, Tom"), state = 0, "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?"
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
@@ -72,7 +81,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebas. Have a good sackin
 "How are you", "How feel", "How do you do" -> "Hurr. Mes allrighty! Good shop. Good husband. Good whelps.", "Uh! I'm a rich and mighty orc! Lot's of snagas are mine!", "Hrmpf!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Hurr. Mirr gehts gut. Hab nen feinen Laden. N'guten Mann. Und gute welpen!", "Hrmpf!", "Uh! Ich bin ne reiche und mächtige Ork. Und alle Snagas tun, was ich befehle."
 "your name", "who are you", "who art thou" -> "I am Krudash. And this my Shop. 'Hack'n Sack', sellin all stuff you need for good hack'n sack trip."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Krudash Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Krudash Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> trade, "I... and my snagas do all the work. So there is nothing for a maggot like you to do!"
@@ -145,8 +154,6 @@ english, "cherga", "icy witch", "eis Hex" -> "Hurr. Tha icy witch, be god ob anc
 german, "cherga", "icy witch", "eis Hex" -> "Hurr. Eisig Hexe, Gottin von Ahnen ist. Du fragst Grimlug!"
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of", "weapon" -> "Gâsh! I sell everything made in the forge. Sharpest Axes! Mightiest Armors! And best tools. Uh!"
-"was verkauf", "was kauf", "warenliste", "preis von", "waffe" -> "Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!"
 "tell something" -> "Gâsh! I learned the dealing in Gynk! Yp-Yp.", "Hrach! Do you know the blacksmith Frobenius? He sells swords, a horse farrier would be able to make them sharper.", "Murgo is my husband! Er'hja and Ol'hja are us whelps. Taghta?"
 "erzähl was", "erzähl etwas" -> "Gâsh! Ich hab das Handeln in Gynk gelernt! Yp-Yp.", "Hrach! Kennst' du den Schmied Frobenius? Er verkauft Schwerter, ein Hufschmied könnt sie schärfer machen!", "Murgo ist mein Mann! Er'hja und Ol'hja unsere Welpen. Taghta?"
 

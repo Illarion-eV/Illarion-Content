@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 26, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Cassandra Hestan"
@@ -37,8 +37,8 @@ beardID = 0
 colorHair = 238, 118, 0
 colorSkin = 210, 180, 140
 itemHead = 0
-itemChest = 803
-itemCoat = 0
+itemChest = 852
+itemCoat = 852
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 0
@@ -55,9 +55,15 @@ itemShoes = 369
 
 -- MANDATORY TRIGGERS
 
+sellItems = 61, 3076, 3077
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Cassandra Hestan the money changer. Keywords: Hello, money, Cadomyr, profession, Ronagan.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cassandra Hestan die Geldwechslerin. Schlüsselwörter: Hallo, Geld, Cadomyr, Beruf, Ronagan.")
+"Help" -> inform("[Game Help] This NPC is Cassandra Hestan the money changer. Keywords: buy, sell, trade, Hello, money, Cadomyr, profession, Ronagan.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cassandra Hestan die Geldwechslerin. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Geld, Cadomyr, Beruf, Ronagan.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings. You came to me to change money, am I not right?"
@@ -71,7 +77,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell and come back with
 "How are you", "How feel", "How do you do" -> "Let's skip this and get straight to business."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Überspringen wir die Höflichkeiten und lasst uns zum Geschäft kommen."
 "your name", "who are you", "who art thou" -> "Cassandra."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cassandra."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cassandra."
 
 -- OPTIONAL TRIGGERS
 
@@ -98,8 +104,8 @@ english, "gold" -> "A gold coin equals a hundred silver coins."
 "Gold" -> "Ein Goldstück entspricht einhundert Silberstücken."
 
 -- Optional: Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I just change money. I do not offer any other services."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich wechsle einfach nur Geld. Ich biete keine anderen Dienste an."
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I just change money. I do not offer any other services."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich wechsle einfach nur Geld. Ich biete keine anderen Dienste an."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 english, "Ronagan" -> "You don't think that Ronagan is one of the evil guys, do you? If so, you have to learn a lot about the nature of the gods."

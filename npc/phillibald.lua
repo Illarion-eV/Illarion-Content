@@ -2,17 +2,17 @@
 -- NPC Name: Phillibald                                                  None --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  1, 7, 0                --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Race: halfling                   NPC Position:  900, 776, 1            --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
 --                                                                            --
--- Last parsing: September 22, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 29, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 1, 7, 0, 0, 'Phillibald', 'npc.phillibald', 0, 1, 1, 123, 62, 9, 245, 180, 137);
+VALUES (2, 900, 776, 1, 4, 'Phillibald', 'npc.phillibald', 0, 1, 1, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -29,14 +29,34 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("handel");
+talkEntry:addTrigger("verkauf");
+talkEntry:addResponse("Hiho, lass und handeln!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("trade");
+talkEntry:addTrigger("sell");
+talkEntry:addResponse("Hiho, let's trade!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
+tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
+tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was euch gefällt?", "Don't you like my wares?");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portals, books."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portals, trade."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Portalbuch Händler Phillibald. Schlüsselwörter: Hallo, Portale, Bücher."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Portalbuch Händler Phillibald. Schlüsselwörter: Hallo, Portale, Handel."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -153,14 +173,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Phillibald, portalbook merchant. That's me.");
 talkEntry:addResponse("I am the merchant Phillibald.");
-talkEntry:addResponse("Phillibald is my name, Iportalbooks.");
+talkEntry:addResponse("Phillibald is my name, I trade portalbooks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -254,23 +274,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
 talkEntry:addResponse("Schön dich kennenzulernen. Wenn du eine Reise 'buch'-en willst, frag mich einfach, hihi.");
 talkEntry:addResponse("Ein netter Name.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("handel");
-talkEntry:addTrigger("verkauf");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Hiho, lass und handeln!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("trade");
-talkEntry:addTrigger("sell");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Hiho, let's!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -487,18 +490,20 @@ talkEntry:addTrigger("erzähl etwas");
 talkEntry:addResponse("Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
+tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
+tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was euch gefällt?", "Don't you like my wares?");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("Ich kann euch an interessante Orte bringen.", "I can take you to interesting places.");
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Cadomyr","portal book to Cadomyr",nil,nil,nil,nil));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Galmair","portal book to Galmair",nil,nil,nil,nil));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Runewick","portal book to Runewick",nil,nil,nil,nil));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch zum Hamp Necktie Inn","portal book to the Hamp Necktie Inn",nil,nil,nil,nil));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Cadomyr","portal book to Cadomyr",2000,1,333,{["destinationCoordsY"] = "647", ["destinationCoordsX"] = "127", ["destinationCoordsZ"] = "0"}));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Galmair","portal book to Galmair",2000,1,333,{["destinationCoordsY"] = "245", ["destinationCoordsX"] = "424", ["destinationCoordsZ"] = "0"}));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Runewick","portal book to Runewick",2000,1,333,{["destinationCoordsY"] = "826", ["destinationCoordsX"] = "788", ["destinationCoordsZ"] = "0"}));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch zum Hamp Necktie Inn","portal book to the Hamp Necktie Inn",2000,1,333,{["destinationCoordsY"] = "308", ["destinationCoordsX"] = "648", ["destinationCoordsZ"] = "0"}));
+tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
+tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
+tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was euch gefällt?", "Don't you like my wares?");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(10);
-mainNPC:addLanguage(2);
-mainNPC:addLanguage(3);
-mainNPC:addLanguage(4);
-mainNPC:addLanguage(1);
-mainNPC:addLanguage(5);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Phillibald der Portalbuchhändler.", "This NPC is Phillibald the portalbook merchant");
@@ -511,6 +516,10 @@ mainNPC:setEquipment(5, 1061);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 824);
 mainNPC:setEquipment(10, 53);
+tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
+tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
+tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was euch gefällt?", "Don't you like my wares?");
+tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

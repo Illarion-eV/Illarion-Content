@@ -48,7 +48,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if base.common.Encumbrence(User) then
 		base.common.InformNLS( User,
 		"Deine Rüstung behindert Dich beim Graben.",
-		"Your armour disturbes you when digging." );
+		"Your armour disturbs you while digging." );
 		return
 	end
 
@@ -56,8 +56,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	if not base.common.IsLookingAt( User, PLACEHOLDER ) then -- check looking direction
-		base.common.TurnTo( User, PLACEHOLDER ); -- turn if necessary
+	if not base.common.IsLookingAt( User, TargetPos ) then -- check looking direction
+		base.common.TurnTo( User, TargetPos ); -- turn if necessary
 	end
 	
 	-- first check for a treasure
@@ -132,7 +132,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem,false);
+		theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
 		User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
 		User:talkLanguage( Character.say, Player.german, "#me beginnt nach " .. digForDE .. "zu graben.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to dig for " .. digForEN .. "."); 
@@ -147,9 +147,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.SavedWorkTime[User.id], 100, User:increaseAttrib(theCraft.LeadAttribute,0) );
 	local amount = math.random(1,4); -- set the amount of items that are produced
-	local notCreated = User:createItem( digForID, amount, 333 ); -- create the new produced items
+	local notCreated = User:createItem( digForID, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( digForID, notCreated, User.pos, true, 333 );
+		world:createItemFromId( digForID, notCreated, User.pos, true, 333, nil );
 		base.common.InformNLS(User,
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
@@ -158,7 +158,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, true ) then -- damage and possibly break the tool
+	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
 		base.common.InformNLS(User,
 		"Deine alte Schaufel zerbricht.",
 		"Your old shovel breaks.");

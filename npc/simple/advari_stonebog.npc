@@ -51,9 +51,18 @@ itemShoes = 326
 -- Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917
 -- Raw meat: 307, 552, 553, 2934
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, so you are interested in my wares.", "Take your time to look around."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um."
+sellItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 330, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934
+buySecondaryItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 330, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Advari Stonebog the trader. Dwarf, Beer, Orcs, Name.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. Zwerg, Bier, Orks, Name.")
+"Help" -> inform("[Game Help] This NPC is Advari Stonebog the trader. buy, sell, trade, Dwarf, Beer, Orcs, Name.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. kaufe, verkaufe, Handel, Zwerg, Bier, Orks, Name.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk. - would I say and means good day.", "H'druk g'har. This's my cottage. Do you like to buy something?"
@@ -67,7 +76,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "G'hruk. Farewell.", "Abunda
 "How are you", "How feel", "How do you do" -> "Aye, the business is well. And the Greennoses behave properly.", "Arr, as soon as I'm able to leave my shop, I am going to drink beer at Hagar's Inn. He is a Longleg, but the stuff is brewed by us dwarves!", "Gold. Tha'ts what a dwarf aspire. And I got a huge amount of it."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Aye, das Geschäft geht gut, und die Grünschnauzen benehmen sich einigermaßen.", "Arr, wenn ich einmal hier wegkomm, geh ich sofort zu Hagar! Der ist zwar ein Langbein, aber das Bier, das haben wir Zwerge ihm gebraut!", "Gold. Das ist was ein Zwerg will. Und ich hab eine Menge davon."
 "your name", "who are you", "who art thou" -> "Arr, just mellow dwarves tell thier real name. And someone like you would just yell it out to everyone. But in common language I'm called Advari Stonebog", "Advari Stonebog. And that's all someone like you need to know."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Arr, nur Weichzwerge verraten ihren wahren Namen. Wer weiß wem, einer wie du, ihn erzählen würde! Aber in der allgemeinen Sprache heiße ich Advari Stonebog.", "Advari Stonebog. Und mehr braucht einer wie du, nicht zu wissen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Arr, nur Weichzwerge verraten ihren wahren Namen. Wer weiß wem, einer wie du, ihn erzählen würde! Aber in der allgemeinen Sprache heiße ich Advari Stonebog.", "Advari Stonebog. Und mehr braucht einer wie du, nicht zu wissen."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "I don't got any tasks for you. Better ask the Don. Aye?"
@@ -134,8 +143,6 @@ english, "Ronagan" -> "Aye, I sacrifice a good part of my income the Lord of the
 "Ronagan" -> "Aye, ich opfere einen guten Teil meiner Einkünfte dem Schattengott. So sorgt er dafür, dass ich vom diebischen Gesindel verschont bleibe! Arr."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I sell everything the farmers heart might crave. And a little bit more."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe alle Dinge, die eines Farmers Herz begehren könnte. Und noch ein bisschen mehr."
 "tell something" -> "I administer the seeds of Galmair. A verry important task, which is commissioned only to the best man!", "Arr. I take care that the pignoses, arroun' the market, don't mess it up. They aren't that clever aren't they?", " Praise Irmorom and thank Ronagan the last week just went fine. And not a single piferer arround. Arr."
 "erzähl was", "erzähl etwas" -> "Ich verwalte das Saatgut von Galmair. Eine äußerst wichtige Aufgabe. Die der Don, nur den fähigsten Männern anvertraut.", "Arr. Ich pass auf das die Schweineschnauzen, hier am Markt, keinen Unsinn treiben! Sind ja so wie so nicht die klügsten, nicht wahr?", "Gepriesen sei Irmorom, und gedankt sei's Ronagan. Die letzte Woche lief ausgezeichnet, und kein einziger Langfinger in der Nähe. Arr."
 

@@ -75,9 +75,18 @@ itemShoes = 369
 -- 10% Hats: 357, 358, 370, 371, 828, 829, 830, 831, 832
 -- 10% Leather goods: 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, so you are interested in my wares.", "Take your time to look around."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um."
+sellItems = 6, 47, 51, 58, 2659, 2746, 2781, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 180, 181, 182, 457, 458, 839, 840, 841, 842, 843, 50, 63, 168, 170, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 357, 358, 370, 371, 828, 829, 830, 831, 832, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
+buyPrimaryItems = 6, 47, 51, 58, 2659, 2746, 2781, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 180, 181, 182, 457, 458, 839, 840, 841, 842, 843, 50, 63, 168, 170, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 357, 358, 370, 371, 828, 829, 830, 831, 832, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is the tailor Timotheus. Keywords: Hello, tailor.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schneider Timotheus. Schlüsselwörter: Hallo, Schneider.")
+"Help" -> inform("[Game Help] This NPC is the tailor Timotheus. Keywords: sell, buy, trade, Hello, tailor.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schneider Timotheus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Schneider.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome wise one.", "Why greetings to you!", "Greetings elevated one."
@@ -91,7 +100,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Charming me huh? Farewell then!", "The
 "How are you", "How feel", "How do you do" -> "I'm feeling wonderful, thank you.", "Great! Did you know the library has books about famous tailors? Amazing literature."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es wunderbar, danke.", "Großartig! Wußtet ihr, dass es in der Bibliothek Bücher über berühmte Schneider gibt? Spannende Lektüre, muss ich sagen."
 "your name", "who are you", "who art thou" -> "I am Timotheus.", "Why, Timotheus of course!"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Timotheus.", "Wie jetzt, Timotheus natürlich!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Timotheus.", "Wie jetzt, Timotheus natürlich!"
 
 -- Catching quest triggers
 english, "quest" -> "I only sell goods, my apologies. Quests are for the courageous and the air-heads."
@@ -154,8 +163,6 @@ english, "Irmorom" -> "Only dwarves really pray to Irmorom. Everyone else takes 
 "Irmorom" -> "Nur Zwerge beten wirklich zu Irmorom. Anscheinend nimmt Jedermann seine Gaben als selbstverständlich hin."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I sell all kinds of tailored goods."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe allerlei Schneiderwaren."
 "tell something" -> "Did you know only we from Runewick have such marvelous clothing? I wonder what rags the people of Galmair wear.", "My robes are the finest in the land!"
 "erzähl was", "erzähl etwas" -> "Wußtet ihr, dass nur wir in Runewick hier so feine Kleidung haben? Ich frage mich, in was für Lumpen die Leute in Galmair rumrennen.", "Meine Roben sind die besten im ganzen Land."
 

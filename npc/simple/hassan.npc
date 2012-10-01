@@ -94,7 +94,7 @@ queststatus(75) = 0, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> inform(
 queststatus(75) = 1, item(2057, all) < 1, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
 queststatus(75) = 2, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Nun, da ihr mir Wein gebracht habt: Fein."
 "your name", "who are you", "who art thou" -> "Hassan, the royal fan-waver."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Hassan, der königliche Fächelwedler."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Hassan, der königliche Fächelwedler."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 queststatus(75) = 0, english, "quest", "mission" -> inform("[New Quest] Cadomyr's Gossiper"), queststatus(75) = 1, "Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!"

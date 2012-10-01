@@ -72,9 +72,18 @@ itemShoes = 53
 -- 5% Leather goods: 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
 -- 5% Hats: 357, 358, 370, 371, 828, 829, 830, 831, 832
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Robes, dresses, capes, shirts, trousers... what do you need, I have everything."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Roben, Kleider, Umhänge, Hemden, Hosen,... was braucht ihr, ich habe alles."
+sellItems = 6, 47, 51, 58, 2659, 2746, 2781, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 839, 840, 841, 842, 843, 180, 181, 182, 457, 458, 50, 63, 168, 170, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114, 357, 358, 370, 371, 828, 829, 830, 831, 832
+buySecondaryItems = 6, 47, 51, 58, 2659, 2746, 2781, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 839, 840, 841, 842, 843, 180, 181, 182, 457, 458, 50, 63, 168, 170, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114, 357, 358, 370, 371, 828, 829, 830, 831, 832
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is the tailor Thomas Dalenus. Keywords: Hello, tailor, Cadomyr, needle, dye.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schneider Thomas Dalenus. Schlüsselwörter: Hallo, Schneider, Cadomyr, Nadel, Färben.")
+"Help" -> inform("[Game Help] This NPC is the tailor Thomas Dalenus. Keywords: buy, sell, trade, Hello, tailor, Cadomyr, needle, dye.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schneider Thomas Dalenus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Schneider, Cadomyr, Nadel, Färben.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. Do you need a coat?", "Greetings. How are you?", "Hello. I have all kinds of clothes."
@@ -88,7 +97,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell, go with the gods.", "Good by
 "How are you", "How feel", "How do you do" -> "I just finished this robe. Maybe you want to take a look at it?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich habe gerade diese Robe fertiggestellt. Wollt ihr sie euch ansehen?"
 "your name", "who are you", "who art thou" -> "My name is Thomas, Thomas Dalenus. I'm a tailor.", "Dalenus' tailored goods - that is my business.", "Thomas Dalenus. And do not call me Tom or I'll sting my needle into your eye."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Thomas, Thomas Dalenus. Ich bin ein Schneider.", "Dalenus Schneiderwaren - das ist mein Geschäft.", "Thomas Dalenus. Und nennt mich nicht Tom, sonst stech ich euch die Augen mit meiner Nadel aus."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Thomas, Thomas Dalenus. Ich bin ein Schneider.", "Dalenus Schneiderwaren - das ist mein Geschäft.", "Thomas Dalenus. Und nennt mich nicht Tom, sonst stech ich euch die Augen mit meiner Nadel aus."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help."
@@ -153,9 +162,7 @@ english, "Malachin", "Malachín" -> "Malachin is the god of battles and hunting.
 "Malachin", "Malachín" -> "Malachin ist der Gott der Schlachten und der Jagd. Ich würde auch gerne Kämpfen und Jagen, aber ich bin besser in der Schneiderei."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Robes, dresses, capes, shirts, trousers... what do you need, I have everything."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Roben, Kleider, Umhänge, Hemden, Hosen,... was braucht ihr, ich habe alles."
-"tell something" -> trade, "Neverwith Galmair. Just saying."
+"tell something" -> trade, "Never trade with Galmair. Just saying."
 "erzähl was", "erzähl etwas" -> "Handelt niemals mit Galmair, sage ich."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here

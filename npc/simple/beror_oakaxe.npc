@@ -94,7 +94,7 @@ itemShoes = 770
 "How are you", "How feel", "How do you do" -> "Casual conversation? Small talk? Do you think Cadomyr was built by words!?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Eine entspannte Unterhaltung? Klatsch und Tratsch? Denkst du, Cadomyr wurde mit Worten gebaut!?"
 "your name", "who are you", "who art thou" -> "I am the royal quartermaster, Beror Oakaxe, and yes, I am a dwarf. An angry dwarf!"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der königliches Quartiermeister Beror Oakaxe. Und ja, ich bin ein Zwerg. Ein zorniger Zwerg!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der königliches Quartiermeister Beror Oakaxe. Und ja, ich bin ein Zwerg. Ein zorniger Zwerg!"
 
 -- Catching quest triggers of other factions' members
 "quest", "mission", english, town = Galmair -> "I do not issue quests to honourless commoners, sorry."
@@ -341,5 +341,5 @@ cycletext "Du da! Komm mal her.", "You! Come here."
 cycletext "Wo ist Gefreiter Rasselschwinger schon wieder!?", "Where is private Rattleswinger!?"
 cycletext "#me grummelt vor sich hin.", "#me curses silently."
 cycletext "#me geht eine Liste durch und streicht einen Namen durch: 'Armer Kerl...'.", "#me browses a list and marks out a name, 'Poor fellow.'."
-cycletext "Es gibt nichts ehrbareres als ein Duell bis zum Tod. Seine Prinzipien bis in den Tod treu zu bleiben, das macht einen Mann aus.", "There is nothing more honorable than a duel to death. To be true to one's principles until death, that is the mark of a true man."
+cycletext "Es gibt nichts ehrbareres als ein Duell bis zum Tod. Seine Prinzipien bis in den Tod treu zu bleiben, das macht einen Mann aus.", "There is nothing more honourable than a duel to death. To be true to one's principles until death, that is the mark of a true man."
 cycletext "Alles in bester Ordnung.", "All clear."
