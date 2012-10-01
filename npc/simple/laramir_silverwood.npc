@@ -1,0 +1,125 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Laramir  Silverwood                                         None --
+-- NPC Job:  carpenter                                                        --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  352, 256, 0            --
+-- NPC Sex:  elf                        NPC Direction: south                  --
+--                                                                            --
+-- Author: Miriam                                                             --
+--                                                                            --
+-- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Laramir  Silverwood"
+race = elf
+sex = male
+position = 352, 256, 0
+direction = east
+affiliation = "None"
+job = "Carpenter/Schmied"
+
+language = common
+language = elf
+defaultLanguage = common
+autointroduce = on
+
+author = "Miriam"
+
+lookatDE = "Dieser NPC ist Laramir Silverwood der Schreiner."
+lookatUS = "This NPC is Laramir Silverwood the carpenter."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me lächelt und zuckt mit den Schultern."
+wrongLangUS = "#me smilies and shrougs his shoulders."
+radius = 0
+hairID = 2
+beardID = 0
+colorHair = 200, 221, 243
+colorSkin = 245, 217, 200
+itemHead = 0
+itemChest = 364
+itemCoat = 196
+itemMainHand = 335
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 183
+itemShoes = 369
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+-- Template Version 1.07, 08/30/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+
+-- 5% Tools (Carpenter/Lumberjack): 9, 74, 2709, 2715, 2752
+-- 5% Wooden leg armour: 2193, 2194
+-- 5% Wooden plates: 2935, 2952
+-- 5% Wands: 323, 2782, 2783, 2784, 2785
+-- 5% Ammo: 64, 237, 322, 1266
+-- 5% Boards: 545, 546, 2543, 2716
+-- 5% Distance weapons: 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780
+-- 5% Handles: 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585
+-- 5% Instruments: 90, 332, 333, 335
+-- 5% Lumber: 3, 56, 543, 544, 2560, 2786
+-- 5% Shields: 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448
+-- 5% Staffs: 39, 40, 57, 76, 207, 208, 209
+-- 5% Throwing weapons: 293, 294, 2645
+
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I trade with wooden goods. Feel free to take a look my friend."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "I handle mit hölzernen Waren. Bitte, sieh dir ruhig um mein Freund!"
+sellItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 323, 2782, 2783, 2784, 2785, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 90, 332, 333, 335, 3, 56, 543, 544, 2560, 2786, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 39, 40, 57, 76, 207, 208, 209, 293, 294, 2645
+buySecondaryItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 323, 2782, 2783, 2784, 2785, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 90, 332, 333, 335, 3, 56, 543, 544, 2560, 2786, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 39, 40, 57, 76, 207, 208, 209, 293, 294, 2645
+tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins."
+tradeFinishedMsg "Komm wieder, mein Freund.", "Please come again, my friend."
+tradeFinishedWithoutTradingMsg "Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!"
+tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?.", "My friend, what shall I use this thing for?"
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Laramir  Silverwood the carpenter. Keywords: buy, sell, trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Laramir  Silverwood der Schreiner. Schlüsselwörter: kaufe, verkaufe, Handel.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted, my friend. How are you today?", "Greetings my friend. Did you come here for taking a look at my wares?", "#me smiles 'Greetings, my Friend.'"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid Gegrüßt mein Freund. Wie geht es dir heute?", "Grüße, mein Freund. Bist du gekommen um meine Ware zu bewundern?", "#me lächelt 'Grüße, mein Freund.'"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted, my friend. How are you today?", "Greetings my friend. Did you come here for taking a look at my wares?", "#me smiles 'Greetings, my Friend.'"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid Gegrüßt mein Freund. Wie geht es dir heute?", "Grüße, mein Freund. Bist du gekommen um meine Ware zu bewundern?", "#me lächelt 'Grüße, mein Freund.'"
+"Farewell", "Bye", "Fare well", "See you" -> "Fare well, my friend.", "Stay safe, my friend!", "My the gods protect you, my Friend!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl, mein Freund.", "Pass auf dich auf, mein Freund.", "Mögen die Götter dich beschützen, mein Freund."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well, my friend.", "Stay safe, my friend!", "My the gods protect you, my Friend!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Lebt wohl, mein Freund.", "Pass auf dich auf, mein Freund.", "Mögen die Götter dich beschützen, mein Freund."
+"How are you", "How feel", "How do you do" -> "Thank you for asking, my friend. I feel fine. And you?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage, mein Freund. Ich fühle mich gut. Und du?"
+"your name", "who are you", "who art thou" -> "My friend, my name is Laramir Silverwood.", "My name is Laramir Silverwood, my friend."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Freund, ich heiße Laramir Silverwood.", "Mewin Name ist Laramir silverwood, my friend."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "My Friend, there is nothing I could ask you for. But I'm thankfull for your concern."
+"quest", "mission" -> "Mein Freund, es gibts nicht um was ich dich bitten könnte. Aber ichbin dankbar für deine Sorge."
+"task", "adventure", "order" -> "My Friend, there is nothing I could ask you for. But I'm thankfull for your concern."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Mein Freund, es gibts nicht um was ich dich bitten könnte. Aber ichbin dankbar für deine Sorge."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I'm an elven trader, my friend.", "I'm an elven carpenter, my friend."
+"beruf" -> "Ich bin ein elfischer Händler, mein Freund.", "Ich bin ein elfischer Schreiner, mein Freund."
+english, "job" ->  "I'm an elven trader, my friend.", "I'm an elven carpenter, my friend."
+"job" -> "Ich bin ein elfischer Händler, mein Freund.", "Ich bin ein elfischer Schreiner, mein Freund."
+"tell something" -> "Do you like nice conversations, my friend? We have to lean how to talk with others from young age on."
+"erzähl was" -> "Magst du nette Plaudereinen, mein Freund? Wir müssen von klein auf lernen mit anderen zu reden."

@@ -1,0 +1,140 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Fijanna Spuall                                              None --
+-- NPC Job:  fortune telling Findari priest                                   --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  670, 323, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
+--                                                                            --
+-- Author:  Miriam                                                            --
+--                                                                            --
+-- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Fijanna Spuall"
+race = human
+sex = female
+position = 670, 323, 0
+direction = south
+affiliation = "None"
+job = "fortune teller"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Miriam"
+
+lookatDE = "Dieser NPC ist Fijanna Spuall die Wahrsagerin."
+lookatUS = "This NPC is Fijanna Spuall the fortune teller."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 2
+hairID = 1
+beardID = 0
+colorHair = 188, 91, 13
+colorSkin = 253, 227, 205
+itemHead = 0
+itemChest = 182
+itemCoat = 2421
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 34
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 1, 2, 3
+buyPrimaryItems = 1
+buySecondaryItems = 2, 3
+
+-- Template Version 1.07, 08/30/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Fijanna Spuall the fortune teler. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Fijanna Spuall die Wahrsagerin. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted in the name of the godess of air.", "Greetings, traveler."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Sei gegrüßt im Namen der Göttin der Luft.", "Sei gegrüßt, Reisender."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted in the name of the godess of air.", "Greetings, traveler."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Sei gegrüßt im Namen der Göttin der Luft.", "Sei gegrüßt, Reisender."
+"Farewell", "Bye", "Fare well", "See you" -> "May Findari watch over you.", "Save paths, traveler.", "Fare well."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge Findari über dichh wachen.", "Sichere Pfade, Reisender.", "Auf Bald."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Findari watch over you.", "Save paths, traveler.", "Fare well."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Möge Findari über dichh wachen.", "Sichere Pfade, Reisender.", "Auf Bald."
+"How are you", "How feel", "How do you do" -> "I feel the wind. I know where it went. And I know the places where it will go. Do you feel the wind?", "I feel as light as air."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich spüre den Wind. Ich weiß woher er kam und wohin er geht. Spürst du den Wind?", "Ich fühle mich so leicht wie Luft."
+"your name", "who are you", "who art thou" -> "I am Fijanna Spuall, a travelling Seer.", "I am a travelling priest of the godess of air. My name is Fijanna. Nice to meet you.", "My Name is Fijanna. Nice to meet you."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Fijanna Spuall, eine wandernde Seherin.", "Ich bin eine reisende Prieserin der Götin der Luft. Ich heiße Fijanna. Es freut mich dich zu treffen.", "Ich heiße Fijanna. Freut mich dich zu sehen."
+
+-- Fortune telling phrases
+"fortune" -> "I'll tell you your future, if you give me a silver coin in retun. Do you to hear about your fortune?", state = 1
+"Zukunft" -> "Ich sage dir deine Zukunft vorraus, wenn du mir dafür ein Silberstück gibst. Möchtest du etwas über deine deine Zukunft hören?",  state= 1
+
+money >= 100, state = 1, "Yes" -> "Very well. I shall tell your fortune. What do you want to hear?", money-100, state =2
+money >= 100, state = 1, "Ja" -> "Gut. Ich werde deine Zukunft lesen. Worüber möchtest du etwas erfahren?", money-100, state =2
+state = 1, "No", "Thanks" -> "Come back, anxtime you want to hear bout your fortune.", state = 0
+state = 1, "Nein", "Danke" ->  "Komm einfach wieder vorbei wenn dfu etwas über deine Zukunft erfahren möchtest.", state = 0
+state = 1, english, "*." -> "Do you want to hear your Fortune in exange for a silvercoin? Say yes or no."
+state = 1, "*." -> "Willst du deine Zukunft im Tausch für ein Silberstück gesagt bekommen? Antwortet einfach mit ja oder nein."
+
+-- Warnings
+"*", state =2 -> ". . . lauf!", "Du wirst strake Freunde brauchen.","Gibt in nächster Zeit gut auf dich Acht.", "Meide Schwierigkeiten soweit es geht.", "Gehe Monstern besser aus dem Weg, sonst erwartet dich Unglück.", "Du wirst in nächster Zeit viel Glück gebrauchen können.", "Sei in nächster Zeit sehr vorsichtig.", "Besser du meidest unnötige Gefahren.", "Es tut mir leid. Dich erwartet eine Enttäuschung.", state = 0
+"*", state =2 -> ". . . run!", "You'll need stromg friends", "Take good care of yourself during the next days." , "Stray away from trouble as far es possible.", "Avoiding monsters, will keep you save.", "In the near future you'll need lots of luck.", "In the near future you'd better be very carefull.", "It would be wise to avoid un0necssary danger", "I'm sorry. You will experience a disappointment.", state = 0
+
+-- Hints and Advice
+"*", state =2 -> "Bedenke, Hochmut kommt vor dem Fall.", "Bedenke: Wer Streit sucht, wird Ärger finden.", "Wie man sich bettet so liegt man. Denke darüber nach.","Sei freundlich zu anderen und sie werden freundlich zu dir sein.", "Lächeln und Lachen sind Tür und Pforte durch die viel Gutes in den Menschen hineinschlüpfen kann","Du wirst ein Abenteuer erleben.", "Du wirst Ruhm erlangen, aber du musst auch etwas dafür tun.", "Gib auf dich Acht, das ist alles was ich dir raten kann.","Gib Acht, dass du dir keine Feide machst.", "Fordere das Glück nicht herraus.", "Ärgere die Götter nicht.","Du wirst eine neue Bekanntschaft machen.","Harte Arbeit wird sich für dich auszahlen.", "Sei fleißig und du wirst es nicht bereuhen.", "Glaube an dich selbst, und du wirst großes erreichen", "Du wirst Ruhm erlangen, aber du musst auch etwas dafür tun.", "Alles was du brauchst ist Glaube an dich und an deine Fähigkeiten.", "Denke Positiv, das ist der einzige Rat den ich dir geben kann.", state = 0
+"*", state =2 -> "Pride will have a fall", "Consider this, if you sow mischeif, you'll reap fighting.", "As you make your bed so you must lie on it. Condsider this well.", "Be friendly and others will be friendly to you aswell.", "Smiling and laugthing will like be open the doors for the good things in life.","You will go on an adventure.","You will arcive fame but you'll have to work for that.", "Take good care of yourself, that's all I can tell you.", "Be carefull not to make enemies.", "Don't try your luck.", "Don't anger the gods."," You'll a make a new acquaintance.","Hard work will pay off.", "Work diligent and you won't reget it.", "Belive in yozrself, and you'll achive great things.", "You'll be famous one day, but you have to work for it.", "Think positiv, that's the only advice I can give you.",  state = 0
+
+-- nice Words
+"*", state =2 -> "Dich erwartet Reichtum","Du wirst ein Geschenk bekommen.", "Du wirst Geld finden.","Du wirst in nächster Zeit großes Glück haben.","Du wirst positive Erfahrungen machen.", "Du wirst neue Freunde finden.", "Du wirst das Gute in anderen erkennen.", "Du wirst einen neuen Freund finden." ,state = 0
+"*", state =2 -> "Wealth is waiting for you.", "You will recive a present." ,"You will be very lucky in the near futur.", "You will make a positive expirience.","You'll find new friends.", "You'll see the good in others.", "You'll find a new friend.", state = 0
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a fortune teller. You know what a fortune teller does?", "I listen to the wind and the people.", "People come and ask me for advice, so I give advice."
+"beruf" -> "Ich bin eine Wahrsagerin. Wisst ihr was eine Wahrsagerin tut?", "Ich höre dem Wind und den Leuten zu.", "Die Leute kommen und fragen mich um Rat, also gebe ich Rat."
+english, "job" -> "I am a fortune teller. You know what a fortune teller does?", "I listen to the wind and the people.", "People come and ask me for advice, so I give advice."
+"job" -> "Ich bin eine Wahrsagerin. Wisst ihr was eine Wahrsagerin tut?", "Ich höre dem Wind und den Leuten zu.", "Die Leute kommen und fragen mich um Rat, also gebe ich Rat."
+"tell something" -> "We all breath air. So do the aniimals and the plants."
+"erzähl was", "erzähl etwas" -> "Wir alle atmen Luft. Auch die Tiere und Pflanzen."
+
+english, "Findari" -> "Oh, the godness of air. All my prayers are for her.", "Yes, the godness of air. All my doing is done to serve her."
+"Findari" -> "Oh, die Göittin der Luft. All meine Gebete gelten ihr.", "Ja, die Göttin der Luft, alle mein Tun ist getan um ihr zu dienen."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "I feel the wind...", "Can you hear the wind?", "#me closes her eyes for a moment."
+german, chance(20.0), ".*" -> "Ich spüre den Wind...", "Kannst du den Wind hören?", "#me schließt für einen Moment ihre Augen."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me breitet ihre Arme im Wind aus.", "#me streches her arms to the wind."
+cycletext "#me lächelt.", "#me smilies."
+cycletext "#me schließt für einen Moment ihre Augen.", "#me closes her eyes for a moment."
+cycletext "Ich spüre den Wind...", "I feel the wind..."
+cycletext "Kannst du den Wind hören?", "Can you hear the wind?"
+cycletext "#me atmet tief ein.", "#me takes a deep breath."
