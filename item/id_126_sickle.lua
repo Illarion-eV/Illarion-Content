@@ -84,6 +84,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	-- check the amount 
 	local amountStr = TargetItem:getData("amount");
+	User:inform("original data amount: " .. amountStr);
 	local amount = 0;
 	if ( amountStr ~= "" ) then
 		amount = tonumber(amountStr);
