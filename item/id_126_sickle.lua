@@ -97,6 +97,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		amount = MaxAmount;
 		TargetItem:setData("amount","" .. MaxAmount);
 	end
+	User:inform("amount: " .. amount);
 	if ( amount == 0 ) then
 		if ( not harvestProduct.isFarmingItem ) then
 			-- only non farming items regrow
