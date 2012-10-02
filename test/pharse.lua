@@ -128,8 +128,9 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	local msgDialog = MessageDialog("Your possibilities:", possibilities, nil);
     local inputDialog = InputDialog("What do you want to do?", false, 255, cbChooseOne);
 	
-	User:requestMessageDialog(msgDialog);
-    User:requestInputDialog(inputDialog);
+	-- User:requestMessageDialog(msgDialog);
+    -- User:requestInputDialog(inputDialog);
+	User:inform("okay, here should be the dialogs");
 end
 
 function UseItem_deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
