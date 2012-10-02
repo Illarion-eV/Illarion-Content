@@ -20,13 +20,14 @@ function InitGathering()
 		fishing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "perception", LeadSkill = "fishing", LeadSkillGroup = 2}; -- id_72_fishingrod
 		woolcutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- id_6_scissors
 		potashproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "lumberjacking", LeadSkillGroup = 2}; -- item.id_12_campfire
-        -- TODO
+        
+		entrailscutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "tailoring", LeadSkillGroup = 2}; -- id_6_scissors
+		-- TODO
         -- id_737_chisel ("mining")
         -- id_727_sieve ("mining")
         -- id_258_flail ("peasantry") TODO:create new category
         -- id_52_filledbucket ("peasantry")
         -- id_171_spinningwheel TODO: new category? currently in woolcutting
-        -- id_6_scissors ("tailoring"? entrails->thread)
         -- id_44_squeezer
         -- id_119_backingoven
         -- id_169_loom

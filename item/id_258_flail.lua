@@ -50,26 +50,20 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
+	if (User:countItemAt("all",249)==0) then -- check for items to work on
+		base.common.InformNLS( User, 
+		"Du brauchst Getreidebündel um Getreide zu dreschen.", 
+		"You need bundles of grain for flailing grain." );
+		return;
+	end
+	
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		if (User:countItemAt("all",249)==0) then -- check for items to work on
-			base.common.InformNLS( User, 
-			"Du brauchst Getreidebündel um Getreide zu dreschen.", 
-			"You need bundles of grain for flailing grain." );
-			return;
-		end
 		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,SourceItem);
 		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
 		User:talkLanguage( Character.say, Player.german, "#me beginnt Getreide zu dreschen.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to flail grain."); 
 		return
 	end
-    -- security check: do we still have the item we're working on?
-    if (User:countItemAt("all",249)==0) then
-        base.common.InformNLS( User, 
-        "Du brauchst Getreidebündel um Getreide zu dreschen.", 
-        "You need bundles of grain for flailing grain." );
-        return;
-    end
 
 	-- since we're here, we're working
 

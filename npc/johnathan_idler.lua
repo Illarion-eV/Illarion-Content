@@ -3,16 +3,16 @@
 -- NPC Job:  Mage                                                             --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  898, 760, 1            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: September 13, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: September 30, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 898, 760, 1, 4, 'Johnathan Idler', 'npc.johnathan_idler', 0, 2, 5, 221, 199, 140, 255, 210, 204);
+VALUES (0, 898, 760, 1, 0, 'Johnathan Idler', 'npc.johnathan_idler', 0, 2, 5, 221, 199, 140, 255, 210, 204);
 ---]]
 
 require("npc.base.basic")
@@ -20,14 +20,13 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
-require("npc.base.trade")
 module("npc.johnathan_idler", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -148,7 +147,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Fine. As lomng as I can read my book I fell fine.");
+talkEntry:addResponse("Fine. As long as I can read my book I fell fine.");
 talkEntry:addResponse("Hm?.");
 talkEntry:addResponse("#me continues reading.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -169,7 +168,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("Ah, yes...");
 talkEntry:addResponse("#me moves his glasses.");
 talkEntry:addResponse("Who? Me? I'm Joanthat. Joanathan Ideler.");
@@ -214,21 +212,23 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zarissa");
 talkEntry:addTrigger("Lizzard");
 talkEntry:addTrigger("oil lamp");
 talkEntry:addResponse("Ah, the lizzard lady Zassaria send you? I'm very buys with my studies right now, but i'll see her later. Can you tell her, please?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
 talkEntry:addTrigger("Zarissa");
 talkEntry:addTrigger("Lizzard");
 talkEntry:addTrigger("oil lamp");
 talkEntry:addResponse("Ah, die Echsendame Zassaria schickt Euch? Ich bin zur Zeit sehr mit meinen Studien beschäftigt, bitte richtet ihr aus, dass ich sie später aufsuchen werde.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -417,7 +417,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("Ah, yes...");
 talkEntry:addResponse("Interesting.");
 talkEntry:addResponse("This book is not about this god.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -837,7 +837,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("");
 talkEntry:addResponse("Gobaith wurde manchamal Gobiath genannt, vielleicht hat sich ein Schreiber beim Namen auf einer Karte vertan.");
 talkEntry:addResponse("Gobaith war ein kleiner Ort, es gab oft Konflikte zwischen den verschieden Städten.");
 talkEntry:addResponse("Leute aus ganz Illarion kamen nach Gobaith um dort zu leben. Aber heutzutage ist es anders...");
@@ -942,12 +941,6 @@ talkingNPC:addCycleText("#me blättert in einem Buch herum.", "#me skims throug a
 talkingNPC:addCycleText("#me macht sich Notizen in einem zerfledderten Büchlein.", "#me takes nots, writing into a small tattered book.");
 talkingNPC:addCycleText("#me trinkt eine Tasse Tee.", "#me drinks a cup of tea.");
 talkingNPC:addCycleText("Ah ja... so macht das Sinn...", "Ah...yes... like this it makes sense.");
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
