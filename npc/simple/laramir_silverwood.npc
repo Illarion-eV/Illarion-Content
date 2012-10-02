@@ -10,6 +10,8 @@
 -- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
+-- Cycle Texts are missing!
+--
 name = "Laramir  Silverwood"
 race = elf
 sex = male

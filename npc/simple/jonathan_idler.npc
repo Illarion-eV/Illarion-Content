@@ -44,7 +44,6 @@ colorSkin = 255, 210, 204
 itemHead = 257
 itemChest = 181
 itemCoat = 558
--- 2377
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 48
@@ -53,12 +52,6 @@ itemShoes = 45
 
 ------------------------------------------------------------------------------AC
 -- Trading
--- Here are all items the NPCs is able to trade. They will be displayed inside
--- the merchant dialog.
-
---sellItems = 1, 2, 3
---buyPrimaryItems = 1
---buySecondaryItems = 2, 3
 
 -- Template Version 1.07, 08/30/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
