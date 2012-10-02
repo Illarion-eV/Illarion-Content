@@ -69,6 +69,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	-- there is a harvestable item, but does the ground fit?
 	local GroundType = base.common.GetGroundType(world:getField(TargetPos):tile());
+	User:inform("ground type: " .. GroundType);
 	local harvestProduct = nil;
 	for _,hp in pairs(harvestItem) do 
 		if (GroundType == hp.groundType) then
