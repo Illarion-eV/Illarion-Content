@@ -85,7 +85,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- check the amount 
 	local changeItem = false;
 	local amountStr = TargetItem:getData("amount");
-	User:inform("original data amount: " .. amountStr);
 	local amount = 0;
 	if ( amountStr ~= "" ) then
 		amount = tonumber(amountStr);
@@ -100,20 +99,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		TargetItem:setData("amount","" .. MaxAmount);
 		changeItem = true;
 	end
-	User:inform("amount: " .. amount);
 	if ( amount <= 1 and not harvestProduct.isFarmingItem ) then
 		-- check for regrow even at amount==1, so a continuous working is guaranteed
 		-- only non farming items regrow
 		local serverTime = world:getTime("unix");
-		local tmin = RegrowTime;
-		local tmax = 0;
 		for i=1,MaxAmount do 
 			local t = TargetItem:getData("next_regrow_" .. i);
-			if (t~="") then
-				math.min(tmin, t-serverTime);
-				math.max(tmax, t-serverTime);
-				User:inform("next regrow " .. i .. ": " .. t-serverTime);
-			end
 			if ( t ~= "" and tonumber(t) <= serverTime ) then
 				-- regrow
 				amount = amount + 1;
@@ -121,7 +112,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				changeItem = true;
 			end
 		end
-		User:inform("min: " .. tmin .. "; max: " .. tmax);
 		if ( amount == 0 ) then
 			-- not regrown...
 			base.common.InformNLS( User, 
