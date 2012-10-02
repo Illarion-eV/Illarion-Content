@@ -112,6 +112,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				if (t~="") then
 					math.min(tmin, t-serverTime);
 					math.max(tmax, t-serverTime);
+					User:inform("next regrow " .. i .. ": " .. t);
 				end
 				if ( t ~= "" and tonumber(t) <= serverTime ) then
 					-- regrow
@@ -290,7 +291,7 @@ function InitHarvestItems()
     HarvestItems = {};
 	-- some definitions
 	MaxAmount = 10;
-	RegrowTime = 300;
+	RegrowTime = 30;
 	
     -- just for short writing
     local gt = base.common.GroundType;
