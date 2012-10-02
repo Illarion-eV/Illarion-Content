@@ -7,173 +7,200 @@ require("item.base.crafts")
 
 module("item.id_6_scissors", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    base.common.ResetInterruption( User, ltstate );
-    math.randomseed( os.time() );
-    
-    if ( ltstate == Action.abort ) then
-        if (User:increaseAttrib("sex",0) == 0) then
-            gText = "seine";
-            eText = "his";
-        else
-            gText = "ihre";
-            eText = "her";
-        end
-        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-        return
-    end
-    
-    if (SourceItem:getType()~=4) then
-        base.common.InformNLS(User,
-        "Du musst die Schere in der Hand halten.",
-        "You have to hold the scissors in your hands!");
-        return
-    end
-    
-    if not base.common.CheckItem( User, SourceItem ) then
-        return
-    end
-    
-    if not base.common.FitForWork( User ) then
-        return
-    end
-    
-    if ( User:countItemAt("belt",63) < 1 ) then
-        Char = base.common.GetFrontCharacter( User );
-        if (Char ~=nil) then
-            GetWoolFromSheep(User,SourceItem, Char, ltstate)
-        elseif (ltstate ~= Action.success) then
-            base.common.InformNLS( User,
-            "Du brauchst entweder ein Schaf dem du die Wolle abnehmen kannst oder Eingeweide die du zerschneiden kannst.",
-            "You either need a sheep you can take the wool from or some entrails you can cut.");
-        end
-        return
-    end
-    
-    if ( ltstate == Action.none ) then
-        User:startAction( 16, 0, 0, 0, 0);
-        User:talkLanguage( Character.say, Player.german, "#me beginnt Eingeweide zu zerschneiden.");
-        User:talkLanguage( Character.say, Player.english, "#me starts to cut entrails.");
-        return
-    end
-    
-    if base.common.IsInterrupted( User ) then
-        local selectMessage = math.random(1,3);
-        if ( selectMessage == 1 ) then
-            base.common.InformNLS(User,
-            "Du wischst dir den Schweiß von der Stirn.",
-            "You wipe sweat off your forehead.");
-        elseif ( selectMessage == 2 ) then
-            base.common.InformNLS(User,
-            "Die Schere scheint schon ziemlich stumpf zu sein. Du schleifst sie kurz nach.",
-            "The scissors got blunt, you sharpen them with a whetstone.");
-        else
-            base.common.InformNLS(User,
-            "Dir tun die Finger weh vom vielen Schneiden und du machst eine kurze Pause.",
-            "Your fingers hurt from cutting, you take a short break.");
-        end
-        return
-    end
-    
-    User:eraseItem( 63, 1 );
-    User:createItem(50,1,333,0);
-    
-    if base.common.ToolBreaks( User, SourceItem, true ) then
-        base.common.InformNLS(User,
-        "Die alte und abgenutzte Schere in deinen Händen zerbricht.",
-        "The old and used scissors in your hands breaks.");
-    else
-        User:startAction( 16, 0, 0, 0, 0);
-    end
-    
-    base.common.GetHungry( User, 100 ); 
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	-- first decide if we're cutting wool or entrails
+	local targetCharacter = base.common.GetFrontCharacter(User);
+	if (targetCharacter ~= nil and targetCharacter:getRace()==18) then -- check for sheep
+		UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltstate );
+		return;
+	end
+	if (User:countItemAt("all",63)>0) then -- check for entrails
+		UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, ltstate );
+		return;
+	end
+	-- there is no sheep and no entrails
+	base.common.InformNLS( User,
+	"Du brauchst entweder ein Schaf, um es zu scheren, oder Eingeweide, um sie zu Garn zu zerschneiden.",
+	"You need either a sheep for shearing it, or entrails for cutting it and thus producing thread." );
 end
 
-function GetWoolFromSheep(User,SourceItem, Sheep, ltstate)
-    
-    math.randomseed( os.time() );
-    
-    if ( ltstate == Action.abort ) then
-        if (User:increaseAttrib("sex",0) == 0) then
-            gText = "seine";
-            eText = "his";
-        else
-            gText = "ihre";
-            eText = "her";
-        end
-        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-        return
-    end
-    
-    if (SourceItem:getType()~=4) then
-        base.common.InformNLS(User,
-        "Du musst die Schere in der Hand halten.",
-        "You have to hold the scissors in your hands!");
-        return
-    end
-    
-    if not base.common.CheckItem( User, SourceItem ) then
-        return
-    end
-    
-    if not base.common.FitForWork( User ) then
-        return
-    end
-    
-    if (Sheep:getRace()~=18) then
-        base.common.InformNLS( User,
-        "Du kannst nur Schafen die Wolle abnehmen.",
-        "You can only cut wool from sheeps.");
-        return
-    end
-    
-    if (math.abs(Sheep.pos.x-User.pos.x) > 1) or (math.abs(Sheep.pos.y-User.pos.y) > 1 ) then
-        base.common.InformNLS( User,
-        "Das Schaf ist zu weit weg!",
-        "The sheep is too far away!");
-        return
-    end
-    
-    if ( ltstate == Action.none ) then
-        User:startAction( 13, 0, 0, 0, 0);
-        User:talkLanguage( Character.say, Player.german, "#me beginnt das Schaf zu scheren");
-        User:talkLanguage( Character.say, Player.english, "#me starts to shear the sheep.");
-        Sheep.movepoints = Sheep.movepoints - 30;
-        return
-    end
-    
-    if base.common.IsInterrupted( User ) then
-        local selectMessage = math.random(1,3);
-        if ( selectMessage == 1 ) then
-            base.common.InformNLS(User,
-            "Du wischst dir den Schweiß von der Stirn.",
-            "You wipe sweat off your forehead.");
-        elseif ( selectMessage == 2 ) then
-            base.common.InformNLS(User,
-            "Die Schere scheint schon ziemlich stumpf zu sein. Du schleifst sie kurz nach.",
-            "The scissors got blunt, you sharpen them with a whetstone.");
-        else
-            base.common.InformNLS(User,
-            "Dir tun die Finger weh vom vielen Schneiden und du machst eine kurze Pause.",
-            "Your fingers hurt from cutting, you take a short break.");
-        end
-        return
-    end
-    
-    User:createItem(170,1,333,0);
-    Sheep.movepoints = Sheep.movepoints - 20;
-    
-    if base.common.ToolBreaks( User, SourceItem ) then
-        base.common.InformNLS(User,
-        "Die alte und abgenutzte Schere in deinen Händen zerbricht.",
-        "The old and used scissors in your hands breaks.");
-    else
-        User:startAction( 13, 0, 0, 0, 0);
-    end
-    
-    base.common.GetHungry( User, 100 ); 
+function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	content.gathering.InitGathering();
+	local woolcutting = content.gathering.woolcutting;
+	
+	local targetCharacter = base.common.GetFrontCharacter(User);
+
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
+		end
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
+	end
+
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
+		return
+	end
+	
+	if (SourceItem:getType() ~= 4) then -- tool in Hand
+		base.common.InformNLS( User,
+		"Du musst die Schere in der Hand haben!",
+		"You need to hold the scissors in your hand!" );
+		return
+	end
+
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich beim Scheren der Schafe.",
+		"Your armour disturbs you while shearing sheep." );
+		return
+	end
+
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+	
+	if ( targetCharacter == nil or (targetCharacter ~= nil and targetCharacter:getRace()~=18) ) then
+		base.common.InformNLS( User,
+		"Du musst vor einem Schaf stehen, um es zu scheren.",
+		"You have to stand in front of a sheep for shearing it." );
+		return;
+	end
+
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
+		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt ein Schaf zu scheren.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to shear a sheep."); 
+		-- make sure the sheep doesn't move away
+		targetCharacter.movepoints = math.min(targetCharacter.movepoints - woolcutting.SavedWorkTime[User.id], -1*woolcutting.SavedWorkTime[User.id]);
+		return;
+	end
+
+	-- since we're here, we're working
+
+	if woolcutting:FindRandomItem(User) then
+		return
+	end
+
+	User:learn( woolcutting.LeadSkill, woolcutting.LeadSkillGroup, woolcutting.SavedWorkTime[User.id], 100, User:increaseAttrib(woolcutting.LeadAttribute,0) );
+	local amount = 1; -- set the amount of items that are produced
+	local notCreated = User:createItem( 170, amount, 333, nil); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( 170, notCreated, User.pos, true, 333, nil);
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	else -- character can still carry something
+		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
+		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 0, 0);
+		-- the sheep may move away
+		targetCharacter.movepoints = targetCharacter.movepoints - 0.5*woolcutting.SavedWorkTime[User.id];
+	end
+
+	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+		base.common.InformNLS(User,
+		"Deine alte Schere zerbricht.",
+		"Your old scissors break.");
+		return
+	end
+end
+
+function UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	content.gathering.InitGathering();
+	local entrailscutting = content.gathering.entrailscutting;
+
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
+		end
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
+	end
+
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
+		return
+	end
+	
+	if (SourceItem:getType() ~= 4) then -- tool in Hand
+		base.common.InformNLS( User,
+		"Du musst die Schere in der Hand haben!",
+		"You need to hold the scissors in your hand!" );
+		return
+	end
+
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich beim Schneiden der Eingeweide.",
+		"Your armour disturbs you while cutting entrails." );
+		return
+	end
+
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+	
+	-- any other checks?
+
+	if (User:countItemAt("all",63)==0) then -- check for items to work on
+		base.common.InformNLS( User, 
+		"Du brauchst Eingeweide um daraus Garn herzustellen.", 
+		"You need entrails for producing thread." );
+		return;
+	end
+	
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		entrailscutting.SavedWorkTime[User.id] = entrailscutting:GenWorkTime(User,SourceItem);
+		User:startAction( entrailscutting.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt Eingeweide zu zerschneiden.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to cut entrails."); 
+		return
+	end
+
+	-- since we're here, we're working
+
+	if entrailscutting:FindRandomItem(User) then
+		return
+	end
+
+	User:learn( entrailscutting.LeadSkill, entrailscutting.LeadSkillGroup, entrailscutting.SavedWorkTime[User.id], 100, User:increaseAttrib(entrailscutting.LeadAttribute,0) );
+	User:eraseItem( 63, 1 ); -- erase the item we're working on
+	local amount = 1; -- set the amount of items that are produced
+	local notCreated = User:createItem( 50, amount, 333, nil ); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( 50, notCreated, User.pos, true, 333, nil );
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	else -- character can still carry something
+		if (User:countItemAt("all",63)>0) then  -- there are still items we can work on
+			entrailscutting.SavedWorkTime[User.id] = entrailscutting:GenWorkTime(User,SourceItem);
+			User:startAction( entrailscutting.SavedWorkTime[User.id], 0, 0, 0, 0);
+		else -- no items left
+			base.common.InformNLS(User,
+			"Du hast keine Eingeweide mehr.",
+			"You have no entrails anymore.");
+		end
+	end
+
+	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+		base.common.InformNLS(User,
+		"Deine alte Schere zerbricht.",
+		"Your old scissors break.");
+		return
+	end
 end
 
 function LookAtItem(User,Item)

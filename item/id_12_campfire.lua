@@ -44,29 +44,21 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	-- any other checks?
 
+	if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
+		(User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then -- check for items to work on
+		base.common.InformNLS( User, 
+		"Du brauchst Holz um Pottasche zu produzieren.", 
+		"You need wood for producing potash." );
+		return;
+	end
+	
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
-			(User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then -- check for items to work on
-			base.common.InformNLS( User, 
-			"Du brauchst Holz um Pottasche zu produzieren.", 
-			"You need wood for producing potash." );
-			return;
-		end
 		potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
 		User:startAction( potashproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		User:talkLanguage( Character.say, Player.german, "#me beginnt Pottasche herzustellen.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to produce potash."); 
 		return
 	end
-    
-    -- security check: do we still have the item we're working on?
-    if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
-        (User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then 
-        base.common.InformNLS( User, 
-        "Du brauchst Holz um Pottasche zu produzieren.", 
-        "You need wood for producing potash." );
-        return;
-    end
 
 	-- since we're here, we're working
 
