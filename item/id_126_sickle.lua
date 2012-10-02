@@ -101,57 +101,56 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		changeItem = true;
 	end
 	User:inform("amount: " .. amount);
-	if ( amount == 0 ) then
-		if ( not harvestProduct.isFarmingItem ) then
-			-- only non farming items regrow
-			local serverTime = world:getTime("unix");
-			local tmin = RegrowTime;
-			local tmax = 0;
-			for i=1,MaxAmount do 
-				local t = TargetItem:getData("next_regrow_" .. i);
-				if (t~="") then
-					math.min(tmin, t-serverTime);
-					math.max(tmax, t-serverTime);
-					User:inform("next regrow " .. i .. ": " .. t-serverTime);
-				end
-				if ( t ~= "" and tonumber(t) <= serverTime ) then
-					-- regrow
-					amount = amount + 1;
-					TargetItem:setData("next_regrow_" .. i, "");
-					changeItem = true;
-				end
+	if ( amount <= 1 and not harvestProduct.isFarmingItem ) then
+		-- check for regrow even at amount==1, so a continuous working is guaranteed
+		-- only non farming items regrow
+		local serverTime = world:getTime("unix");
+		local tmin = RegrowTime;
+		local tmax = 0;
+		for i=1,MaxAmount do 
+			local t = TargetItem:getData("next_regrow_" .. i);
+			if (t~="") then
+				math.min(tmin, t-serverTime);
+				math.max(tmax, t-serverTime);
+				User:inform("next regrow " .. i .. ": " .. t-serverTime);
 			end
-			User:inform("min: " .. tmin .. "; max: " .. tmax);
-			if ( amount == 0 ) then
-				-- not regrown...
-				base.common.InformNLS( User, 
-				"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
-				"This plant is already fully harvested. Give it time to grow again." );
-				if ( changeItem ) then
-					world:changeItem(TargetItem);
-				end
-				return;
-			elseif ( amount > MaxAmount ) then
-				-- this should never happen
-				User:inform("[ERROR] Too high amount " .. amount .. " for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
-				if ( changeItem ) then
-					world:changeItem(TargetItem);
-				end
-				return;
-			else
-				TargetItem:setData("amount", "" .. amount);
+			if ( t ~= "" and tonumber(t) <= serverTime ) then
+				-- regrow
+				amount = amount + 1;
+				TargetItem:setData("next_regrow_" .. i, "");
 				changeItem = true;
 			end
-		else
-			-- this is a farming item, it can't regrow
+		end
+		User:inform("min: " .. tmin .. "; max: " .. tmax);
+		if ( amount == 0 ) then
+			-- not regrown...
 			base.common.InformNLS( User, 
-			"Hier kannst du nichts ernten.", 
-			"There is nothing you can harvest." );
+			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
+			"This plant is already fully harvested. Give it time to grow again." );
 			if ( changeItem ) then
 				world:changeItem(TargetItem);
 			end
 			return;
+		elseif ( amount > MaxAmount ) then
+			-- this should never happen
+			User:inform("[ERROR] Too high amount " .. amount .. " for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
+			if ( changeItem ) then
+				world:changeItem(TargetItem);
+			end
+			return;
+		else
+			TargetItem:setData("amount", "" .. amount);
+			changeItem = true;
 		end
+	elseif ( amount == 0 and harvestProduct.isFarmingItem ) then
+		-- this is a farming item, it can't regrow
+		base.common.InformNLS( User, 
+		"Hier kannst du nichts ernten.", 
+		"There is nothing you can harvest." );
+		if ( changeItem ) then
+			world:changeItem(TargetItem);
+		end
+		return;
 	end
 	
 	-- since we're here, there is something we can harvest
