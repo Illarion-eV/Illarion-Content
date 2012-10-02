@@ -83,7 +83,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return;
 	end
 	-- check the amount 
+	local changeItem = false;
 	local amountStr = TargetItem:getData("amount");
+	User:inform("original data amount: " .. amountStr);
 	local amount = 0;
 	if ( amountStr ~= "" ) then
 		amount = tonumber(amountStr);
@@ -96,38 +98,58 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		-- first time that a (static!) herb item is harvested
 		amount = MaxAmount;
 		TargetItem:setData("amount","" .. MaxAmount);
+		changeItem = true;
 	end
 	User:inform("amount: " .. amount);
 	if ( amount == 0 ) then
 		if ( not harvestProduct.isFarmingItem ) then
 			-- only non farming items regrow
 			local serverTime = world:getTime("unix");
+			local tmin = RegrowTime;
+			local tmax = 0;
 			for i=1,MaxAmount do 
 				local t = TargetItem:getData("next_regrow_" .. i);
+				if (t~="") then
+					math.min(tmin, t-serverTime);
+					math.max(tmax, t-serverTime);
+					User:inform("next regrow " .. i .. ": " .. t-serverTime);
+				end
 				if ( t ~= "" and tonumber(t) <= serverTime ) then
 					-- regrow
 					amount = amount + 1;
 					TargetItem:setData("next_regrow_" .. i, "");
+					changeItem = true;
 				end
 			end
+			User:inform("min: " .. tmin .. "; max: " .. tmax);
 			if ( amount == 0 ) then
 				-- not regrown...
 				base.common.InformNLS( User, 
 				"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
 				"This plant is already fully harvested. Give it time to grow again." );
+				if ( changeItem ) then
+					world:changeItem(TargetItem);
+				end
 				return;
 			elseif ( amount > MaxAmount ) then
 				-- this should never happen
 				User:inform("[ERROR] Too high amount " .. amount .. " for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
+				if ( changeItem ) then
+					world:changeItem(TargetItem);
+				end
 				return;
 			else
 				TargetItem:setData("amount", "" .. amount);
+				changeItem = true;
 			end
 		else
 			-- this is a farming item, it can't regrow
 			base.common.InformNLS( User, 
 			"Hier kannst du nichts ernten.", 
 			"There is nothing you can harvest." );
+			if ( changeItem ) then
+				world:changeItem(TargetItem);
+			end
 			return;
 		end
 	end
@@ -165,12 +187,18 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				end
 			end
 		end
+		if ( changeItem ) then
+			world:changeItem(TargetItem);
+		end
 		return;
 	end
 
 	-- since we're here, we're working
 
 	if theCraft:FindRandomItem(User) then
+		if ( changeItem ) then
+			world:changeItem(TargetItem);
+		end
 		return
 	end
 
@@ -182,10 +210,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		else
 			-- just update the amount
 			TargetItem:setData("amount", "" .. amount);
+			changeItem = true;
 		end
 	else
 		-- update the amount
 		TargetItem:setData("amount", "" .. amount);
+		changeItem = true;
 		-- and update the next regrow
 		local regrowOk = false;
 		for i=1,MaxAmount do 
@@ -196,12 +226,16 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				local season = math.ceil(world:getTime("month")/4);
 				TargetItem:setData("next_regrow_" .. i, "" .. world:getTime("unix") + math.floor(RegrowTime*harvestProduct.growFactors[season]));
 				regrowOk = true;
+				changeItem = true;
 				break;
 			end
 		end
 		if ( not regrowOk ) then
 			-- there was no free slot, this should never happen
 			User:inform("[ERROR] There was no regrow slot for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
+			if ( changeItem ) then
+				world:changeItem(TargetItem);
+			end
 			return;
 		end
 	end
@@ -229,7 +263,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		base.common.InformNLS(User,
 		"Deine alte Sichel zerbricht.",
 		"Your old sickle breaks.");
-		return
+	end
+	if ( changeItem ) then
+		world:changeItem(TargetItem);
 	end
 end
 
@@ -255,7 +291,7 @@ function InitHarvestItems()
     HarvestItems = {};
 	-- some definitions
 	MaxAmount = 10;
-	RegrowTime = 300;
+	RegrowTime = 30;
 	
     -- just for short writing
     local gt = base.common.GroundType;
