@@ -81,7 +81,6 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 	if not base.common.IsLookingAt( User, Sheep.pos ) then -- check looking direction
 		base.common.TurnTo( User, Sheep.pos ); -- turn if necessary
 	end
-	
 	-- Sheep should actually be already a sheep character struct, but check it nevertheless
 	if ( Sheep == nil or (Sheep ~= nil and Sheep:getRace()~=18) ) then
 		base.common.InformNLS( User,
