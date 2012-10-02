@@ -280,7 +280,7 @@ function InitHarvestItems()
     HarvestItems = {};
 	-- some definitions
 	MaxAmount = 10;
-	RegrowTime = 30;
+	RegrowTime = 300;
 	
     -- just for short writing
     local gt = base.common.GroundType;
