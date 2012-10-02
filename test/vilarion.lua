@@ -137,7 +137,7 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
 				User:inform("You wrote: " .. dialog:getInput())
 			end
 		end
-		local dialog = InputDialog("Insert some text!", false, 255, callback)
+		local dialog = InputDialog("Insert some text!", "Some boring long text has to be inserted, not that anyone cared, but whatever...", false, 255, callback)
 		User:requestInputDialog(dialog)
 		return
 	end
