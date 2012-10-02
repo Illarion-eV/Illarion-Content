@@ -10,9 +10,23 @@ module("item.id_6_scissors", package.seeall)
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- first decide if we're cutting wool or entrails
 	local targetCharacter = base.common.GetFrontCharacter(User);
-	if (targetCharacter ~= nil and targetCharacter:getRace()==18) then -- check for sheep
-		UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltstate );
+	-- check for sheep in front
+	if (targetCharacter ~= nil and targetCharacter:getRace()==18) then
+		UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltstate, targetCharacter );
 		return;
+	end
+	-- look for a nearby sheep
+	for x=-1,1 do 
+		for y=-1,1 do 
+			local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
+			if ( world:isCharacterOnField(pos) ) then
+				targetCharacter = world:getCharacterOnField(pos);
+				if ( targetCharacter:getRace() == 18 ) then
+					UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltstate, targetCharacter );
+					return;
+				end
+			end
+		end
 	end
 	if (User:countItemAt("all",63)>0) then -- check for entrails
 		UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, ltstate );
@@ -24,11 +38,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	"You need either a sheep for shearing it, or entrails for cutting it and thus producing thread." );
 end
 
-function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltstate, Sheep )
 	content.gathering.InitGathering();
 	local woolcutting = content.gathering.woolcutting;
-	
-	local targetCharacter = base.common.GetFrontCharacter(User);
 
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
@@ -66,7 +78,8 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 		return
 	end
 	
-	if ( targetCharacter == nil or (targetCharacter ~= nil and targetCharacter:getRace()~=18) ) then
+	-- Sheep should actually be already a sheep character struct, but check it nevertheless
+	if ( Sheep == nil or (Sheep ~= nil and Sheep:getRace()~=18) ) then
 		base.common.InformNLS( User,
 		"Du musst vor einem Schaf stehen, um es zu scheren.",
 		"You have to stand in front of a sheep for shearing it." );
@@ -79,7 +92,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 		User:talkLanguage( Character.say, Player.german, "#me beginnt ein Schaf zu scheren.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to shear a sheep."); 
 		-- make sure the sheep doesn't move away
-		targetCharacter.movepoints = math.min(targetCharacter.movepoints - woolcutting.SavedWorkTime[User.id], -1*woolcutting.SavedWorkTime[User.id]);
+		Sheep.movepoints = math.min(Sheep.movepoints - woolcutting.SavedWorkTime[User.id], -1*woolcutting.SavedWorkTime[User.id]);
 		return;
 	end
 
@@ -101,7 +114,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
 		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 0, 0);
 		-- the sheep may move away
-		targetCharacter.movepoints = targetCharacter.movepoints - 0.8*woolcutting.SavedWorkTime[User.id];
+		Sheep.movepoints = Sheep.movepoints - 0.8*woolcutting.SavedWorkTime[User.id];
 	end
 
 	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
