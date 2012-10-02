@@ -101,7 +101,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
 		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 0, 0);
 		-- the sheep may move away
-		targetCharacter.movepoints = targetCharacter.movepoints - 0.5*woolcutting.SavedWorkTime[User.id];
+		targetCharacter.movepoints = targetCharacter.movepoints - 0.8*woolcutting.SavedWorkTime[User.id];
 	end
 
 	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
