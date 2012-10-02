@@ -125,10 +125,10 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		end
 	end
 	
-	-- local msgDialog = MessageDialog("Your possibilities:", possibilities, nil);
+	local msgDialog = MessageDialog("Your possibilities:", possibilities, nil);
     local inputDialog = InputDialog("What do you want to do?", false, 255, cbChooseOne);
 	
-	-- User:requestMessageDialog(msgDialog);
+	User:requestMessageDialog(msgDialog);
     User:requestInputDialog(inputDialog);
 end
 
