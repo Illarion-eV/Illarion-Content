@@ -80,7 +80,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             base.common.InformNLS( User,
             "Du gräbst ein kleines Loch in den Waldboden doch findest du hier gar nichts.",
             "You dig a small hole into the forest ground. But you find nothing.");
-        elseif ( GroundType == gt.gras ) then
+        elseif ( GroundType == gt.grass ) then
             base.common.InformNLS( User,
             "Du gräbst ein kleines Loch in die Wiese doch findest du hier gar nichts.",
             "You dig a small hole into the grass. But you find nothing.");

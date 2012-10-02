@@ -642,8 +642,8 @@ function GetGroundType(TileID)
         return GroundType.forest;
     elseif (TileID == 3 or TileID == 12) then -- sand
         return GroundType.sand;
-    elseif (TileID == 11) then -- gras
-        return GroundType.gras;
+    elseif (TileID == 11) then -- grass
+        return GroundType.grass;
     elseif (TileID == 2 or TileID == 15) then -- rocks
         return GroundType.rocks;
     elseif (TileID == 8 or TileID == 16) then -- dirt
@@ -662,7 +662,7 @@ GroundType = {
     ["field"] = 1,
     ["forest"] = 2,
     ["sand"] = 3,
-    ["gras"] = 4,
+    ["grass"] = 4,
     ["rocks"] = 5,
     ["water"] = 6,
     ["dirt"] = 7,
