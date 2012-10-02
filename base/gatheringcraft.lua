@@ -241,7 +241,11 @@ function GatheringCraft:GenWorkTime(User, toolItem)
     ]]
     
     local minTime = 10;
-    local maxTime = 80;
+    local maxTime = 90;
+	
+	-- apply the quality bonus
+	local qual = math.min(9,math.max(1,math.floor(toolItem.quality/100))) - 1; -- quality integer in [0,8]
+	maxTime = maxTime - 20*(qual/8);
     
     -- apply time bonus: reduce maxTime
     if (timeBonus>0) then
