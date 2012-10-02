@@ -33,6 +33,8 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	possibilities = [[remove all
 	set skill
 	get skill
+	heal
+	restore items
 	]];
 	
 	local cbRemoveAll = function (dialog)
@@ -105,6 +107,18 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 				User:requestInputDialog(InputDialog("For setting a skill value, first enter the skill group:  1=Language,  2=Craftsmanship,  3=Magic,  4=Other,  5=Fighting,  6=Druid,7=Priest, 8=Bard", false, 255, cbSetSkill));
 			elseif (input == "get skill") then
 				User:requestInputDialog(InputDialog("For getting a skill value, enter the skill name:", false, 255, cbGetSkill));
+			elseif (input == "heal") then
+				User:increaseAttrib("hitpoints", 10000);
+				User:increaseAttrib("foodlevel", 10000);
+				User:increaseAttrib("mana", 10000);
+				User:increaseAttrib("poisonvalue", -10000);
+			elseif (input == "restore items") then
+				User:createItem(97,1,333,nil);
+				User:createItem(99,1,333,nil);
+				User:createItem(362,1,999,nil);
+				User:createItem(366,1,999,nil);
+				User:createItem(527,1,999,nil);
+				User:createItem(698,1,999,nil);
 			else
 				User:inform("Sorry, I didn't understand you.");
 			end
