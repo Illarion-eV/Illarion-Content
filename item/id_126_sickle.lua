@@ -105,8 +105,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		if ( not harvestProduct.isFarmingItem ) then
 			-- only non farming items regrow
 			local serverTime = world:getTime("unix");
+			local tmin = RegrowTime;
+			local tmax = 0;
 			for i=1,MaxAmount do 
 				local t = TargetItem:getData("next_regrow_" .. i);
+				if (t~="") then
+					math.min(tmin, t-serverTime);
+					math.max(tmax, t-serverTime);
+				end
 				if ( t ~= "" and tonumber(t) <= serverTime ) then
 					-- regrow
 					amount = amount + 1;
@@ -114,6 +120,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 					changeItem = true;
 				end
 			end
+			User:inform("min: " .. tmin .. "; max: " .. tmax);
 			if ( amount == 0 ) then
 				-- not regrown...
 				base.common.InformNLS( User, 
@@ -195,7 +202,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	amount = amount - 1;
-	User:inform("new amount: " .. amount);
 	if ( harvestProduct.isFarmingItem ) then
 		if ( amount == 0 ) then
 			-- nothing left, remove the farming item
@@ -232,7 +238,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			return;
 		end
 	end
-	User:inform("amount data: " .. TargetItem:getData("amount"));
 	-- since we're here, everything should be alright
 	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.SavedWorkTime[User.id], 100, User:increaseAttrib(theCraft.LeadAttribute,0) );
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
