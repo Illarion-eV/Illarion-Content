@@ -71,7 +71,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
 	end
 	
-	local tree = TreeItem[TargetItem.id];
+	local tree = TreeItems[TargetItem.id];
 	
 	-- any other checks?
 	local changeItem = false;
