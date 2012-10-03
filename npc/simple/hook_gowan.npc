@@ -45,12 +45,12 @@ itemHands = 0
 itemTrousers = 823
 itemShoes = 53
 
--- Noob-stuff: Short sword, wooden shield, leather boots, ham, full beer mug, green robe
--- Noob-stuff: 78, 17, 53, 306, 1909, 55
+-- Noob-stuff: Helm, Dolch, Brot, Robe, Tasche, Hose, Lederrüstung, Schuhe, Handschuhe, Holzschild, Keule, Wurst
+-- Noob-stuff: 7, 27, 49, 55, 97, 183, 363, 369, 2295, 2445, 2664, 3051
 
 "sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, so you are interested in my wares.", "Take your time to look around."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um."
-sellItems = 78, 17, 53, 306, 1909, 55
+sellItems = 7, 27, 49, 55, 97, 183, 363, 369, 2295, 2445, 2664, 3051
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
