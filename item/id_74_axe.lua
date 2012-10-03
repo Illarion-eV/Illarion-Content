@@ -96,7 +96,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		woodchopping.SavedWorkTime[User.id] = woodchopping:GenWorkTime(User,SourceItem);
-		User:startAction( woodchopping.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:startAction( woodchopping.SavedWorkTime[User.id], 0, 0, 6, 0);
 		User:talkLanguage( Character.say, Player.german, "#me beginnt Holz zu hacken.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to chop wood."); 
 		if ( changeItem ) then
@@ -130,7 +130,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	else -- character can still carry something
 		if (amount>0) then  -- there are still items we can work on
 			woodchopping.SavedWorkTime[User.id] = woodchopping:GenWorkTime(User,SourceItem);
-			User:startAction( woodchopping.SavedWorkTime[User.id], 0, 0, 0, 0);
+			User:startAction( woodchopping.SavedWorkTime[User.id], 0, 0, 6, 0);
 		end
 	end
 
