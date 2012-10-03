@@ -1,4 +1,4 @@
--- Herblore mit Sichel und Ausbreitung der Pflanzen
+-- harvesting herbs and field crops
 
 -- UPDATE common SET com_script='item.id_126_sickle' WHERE com_itemid=126;
 
@@ -232,7 +232,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.SavedWorkTime[User.id], 100, User:increaseAttrib(theCraft.LeadAttribute,0) );
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( PLACEHOLDER, notCreated, User.pos, true, 333, nil );
+		world:createItemFromId( harvestProduct.productId, notCreated, User.pos, true, 333, nil );
 		base.common.InformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");

@@ -112,7 +112,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     -- not in winter
     local month=world:getTime("month");
     local season=math.ceil(month/4);
-    if (season == 4) then
+    if (false and season == 4) then
         base.common.InformNLS(User,
         "Der Boden ist tief gefroren. Hier wirst du nichts anbauen können.",
         "The ground is frozen deeply. You won't be able to plant anything here.");
