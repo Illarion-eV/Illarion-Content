@@ -33,7 +33,7 @@ Monster = {
 	MessageDE = "",
 	MessageEN = "",
 	Sound = nil,
-	GFX = {}
+	GFX = nil
 };
 
 function GatheringCraft:new(gc)
@@ -117,8 +117,8 @@ function GatheringCraft:FindRandomItem(User)
 		if(pa < self.Monsters[ra].Probability*self.FastActionFactor) then
 			local TargetPos = base.common.GetFrontPosition(User);
 			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
-			for g = 0, table.getn(self.Monsters[ra].GFX), 1 do
-				world:gfx(self.Monsters[ra].GFX[g], TargetPos);
+			if ( self.Monsters[ra].GFX ~= nil ) then
+				world:gfx(self.Monsters[ra].GFX, TargetPos);
 			end
 			if(self.Monsters[ra].Sound ~= nil) then
 				world:makeSound(self.Monsters[ra].Sound, TargetPos);
