@@ -71,7 +71,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local GroundType = base.common.GetGroundType(world:getField(TargetPos):tile());
 	local harvestProduct = nil;
 	for _,hp in pairs(harvestItem) do 
-		if (GroundType == hp.groundType) then
+		if (hp.groundType == nil or GroundType == hp.groundType) then
 			harvestProduct = hp;
 			break;
 		end
