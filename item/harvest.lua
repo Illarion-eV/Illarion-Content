@@ -131,6 +131,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		local season = math.ceil(world:getTime("month")/4);
 		SourceItem.wear = harvestProduct.growCycles[4];
 	end
+	SourceItem:setData("amount","" .. amount);
 	world:changeItem(SourceItem);
 end
 
