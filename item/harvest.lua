@@ -76,7 +76,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	else
 		-- first time that this item is harvested
 		amount = harvestProduct.MaxAmount;
-		SourceItem:setData("amount","" .. MaxAmount);
+		SourceItem:setData("amount","" .. harvestProduct.MaxAmount);
 		world:changeItem(SourceItem);
 	end
 	if ( amount < 0 ) then
