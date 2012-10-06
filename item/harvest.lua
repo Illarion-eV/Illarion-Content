@@ -8,6 +8,7 @@ module("item.harvest", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
+	InitHarvestItems();
 	local fruitgathering = content.gathering.fruitgathering;
 
 	base.common.ResetInterruption( User, ltstate );
