@@ -8,18 +8,175 @@ module("item.harvest", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
-    local fruitgathering = content.gathering.fruitgathering;
+	local fruitgathering = content.gathering.fruitgathering;
 
-    --User:inform( "harvesting" );
-    SourceItem = world:getItemOnField( SourceItem.pos );
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
+		end
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
+	end
 
-    if( harvestItem == nil ) then
-        --User:inform( "Init harvest" );
-        harvestItem = {  };
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
+		return
+	end
 
-        raceBonus = { 0, -20, 10, 5, 0, 0 };   -- malus for dwarfs, bonus for halflings and elves
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich beim Sammeln der Früchte.",
+		"Your armour disturbs you while gathering fruits." );
+		return
+	end
 
-        -- Format of entry: ground type, difficulty, product, followup item, available in seasons {spring,summer,fall,winter} (probability [0...10])
+	-- TODO: should it be disabled?
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+
+	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
+		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	end
+	
+	-- any other checks?
+	-- check if there is a harvestable item or any item at all
+	local harvestItem = nil;
+	harvestItem = HarvestItems[SourceItem.id];
+	if ( harvestItem == nil) then
+		User:inform("[ERROR] Unknown harvest item, id: " .. SourceItem.id .. ". Please inform a developer.");
+		return;
+	end
+	-- there is a harvestable item, but does the ground fit?
+	local GroundType = base.common.GetGroundType(world:getField(TargetPos):tile());
+	local harvestProduct = nil;
+	for _,hp in pairs(harvestItem) do 
+		if (hp.groundType == nil or GroundType == hp.groundType) then
+			harvestProduct = hp;
+			break;
+		end
+	end
+	if ( harvestProduct == nil ) then
+		base.common.InformNLS( User, 
+		"Diese Pflanze trägt keine Früchte. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.", 
+		"This plant bears no fruits. Maybe this type of plant will flourish better in another soil." );
+		return;
+	end
+	-- check the amount 
+	local amountStr = SourceItem:getData("amount");
+	local amount = 0;
+	if ( amountStr ~= "" ) then
+		amount = tonumber(amountStr);
+	else
+		-- first time that this item is harvested
+		amount = harvestProduct.MaxAmount;
+		SourceItem:setData("amount","" .. MaxAmount);
+		world:changeItem(SourceItem);
+	end
+	if ( amount < 0 ) then
+		-- this should never happen...
+		User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
+		return;
+	end
+	if ( amount == 0 ) then
+		-- this should never happen...
+		User:inform("[ERROR] Zero amount for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
+		return;
+	end
+	
+	-- since we're here, there is something we can harvest
+	
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User,nil);
+		User:startAction( fruitgathering.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt Früchte zu sammeln.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to gather fruits."); 
+		return
+	end
+
+	-- since we're here, we're working
+
+	if fruitgathering:FindRandomItem(User) then
+		return
+	end
+
+	User:learn( fruitgathering.LeadSkill, fruitgathering.LeadSkillGroup, fruitgathering.SavedWorkTime[User.id], 100, User:increaseAttrib(fruitgathering.LeadAttribute,0) );
+	amount = amount - 1;
+	local notCreated = User:createItem( harvestProduct.ProductId, 1, 333, nil ); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( harvestProduct.ProductId, notCreated, User.pos, true, 333, nil );
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	else -- character can still carry something
+		if (amount>0) then  -- there are still fruits we can gather
+			fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User,nil);
+			User:startAction( fruitgathering.SavedWorkTime[User.id], 0, 0, 0, 0);
+		end
+	end
+	if (amount<=0) then
+		base.common.InformNLS(User,
+		"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
+		"This plant is already fully harvested. Give it time to grow again." );
+		-- reset amount
+		amount = harvestProduct.MaxAmount;
+		-- change item id
+		SourceItem.id = harvestProduct.NextItemId;
+		local season = math.ceil(world:getTime("month")/4);
+		SourceItem.wear = harvestProduct.GrowCycles[4];
+	end
+	world:changeItem(SourceItem);
+end
+
+function InitHarvestItems()
+	if ( HarvestItems ~= nil ) then
+		return;
+	end
+	HarvestItems = {};
+	
+	RegrowTime = 300;
+	
+    -- just for short writing
+    local gt = base.common.GroundType;
+	
+	HarvestItems[ 14 ] = {									-- apple tree
+	CreateHarvestProduct(15, nil, nil, 10, 11)					-- apple
+	}
+	HarvestItems[ 300 ] = {									-- cherry tree
+	CreateHarvestProduct(302, nil, nil, 20, 299)				-- cherry
+	}
+	HarvestItems[ 387 ] = {									-- bush
+	CreateHarvestProduct(81, gt.forest, nil, 5, 386),			-- berries
+	CreateHarvestProduct(199, gt.sand, nil, 7, 386),			-- tangerine
+	CreateHarvestProduct(388, gt.grass, nil, 10, 386)			-- grapes
+	}
+end
+
+-- for GroundType, see base.common.GroundType. If it doesn't matter, just set it to nil
+-- GrowCycles define how fast the plants regrow in the 4 seasons. 1 cycle takes 3 minutes
+function CreateHarvestProduct(ProductId, GroundType, GrowCycles, MaxAmount, NextItemId)
+    local retValue = {};
+    retValue.productId = ProductId;
+    retValue.groundType = GroundType;
+	retValue.GrowCycles = {1,1,1,1};
+    if (GrowCycles ~= nil) then
+		retValue.GrowCycles = GrowCycles;
+    end
+	retValue.MaxAmount = 10;
+	if ( MaxAmount ~= nil ) then
+		retValue.MaxAmount = MaxAmount;
+	end
+	retValue.NextItemId = NextItemId;
+    return retValue;
+end
+
+--[[ old list
+		-- Format of entry: ground type, difficulty, product, followup item, available in seasons {spring,summer,fall,winter} (probability [0...10])
         -- ground types:
 		-- -- all = 0
 		-- -- Acker: = 1
@@ -43,150 +200,4 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         { 2, 0, 81,  386, {5,8,10,0}, 11,  5 },             -- Wald: Beeren
         { 3, 0, 199, 386, {6,10,9,0}, 11,  7 },             -- Sand: Mandarinen
         { 4, 0, 388, 386, {6,10,9,0}, 84, 10 } };           -- Wiese: Weintrauben
-        --User:inform( "Init done" );
-    end
-
-    -- check orientation
-    if not base.common.IsLookingAt( User, SourceItem.pos ) then
-		base.common.TurnTo(User, SourceItem.pos);
-    end
-
-    --User:inform( "getting tile" );
-    local GroundTile = world:getField( SourceItem.pos );
-
-    local TileID = GroundTile:tile();
-    local boden = base.common.GetGroundType( TileID );
-    --User:inform( "tile is ".:tile()ID );
-    --User:inform( "boden is "..boden );
-
-    --User:inform( "getting skill" );
-
-    -- get configuration for current item
-    local harvestList = harvestItem[ SourceItem.id ];
-    if harvestList == nil then
-        User:inform( "unkown harvest item " );
-        return
-    end
-
-    local chance = 0;
-    local success = false;
-    local groundok = false;
-
-    month=world:getTime("month");
-    if (month == 0) then
-        month = 16;
-    end
-    season=math.ceil(month/4);
-
-    -- go through all fruits
-    for i, harvest in pairs(harvestList) do
-        -- only on proper tile
-        --User:inform( "checking tile" );
-        if( harvest[ 1 ] == 0 or harvest[ 1 ] == boden ) then
-            groundok = true;
-        else
-            groundok=false;
-        end
-        if groundok then
-            
-            if ( harvest[ 4 ] == 0 ) then
-                if( harvest[ 5 ][ season ] >= math.random(10) ) then
-                    success = true;
-                else
-                    success = false;
-                end
-            else
-                success = true;
-            end
-            if (ltstate==Action.abort) then
-            	return
-            end
-            if (ltstate==Action.none) then
-                fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User,nil,true);
-				User:talkLanguage(Character.say, Player.german, "#me fängt an Früchte zu sammeln.");
-                User:talkLanguage(Character.say, Player.english,"#me starts to collect fruits.");
-                User:startAction(fruitgathering.SavedWorkTime[User.id],0,0,0,0);
-        		return
-        	end
-			
-			if not fruitgathering:FindRandomItem(User) then
-				return
-			end
-			
-			-- harvest fruit
-            if( success ) then
-                -- Qualität nach Zufall:
-                QualWert = math.random(111,999)
-                --User:inform( "creating harvest" );
-                User:createItem( harvest[ 3 ], 1, QualWert, harvest[ 6 ] );
-
-				-- always enough fruits on Noobia
-				local onNoobia = false;
-				if User.pos.z == 100 or User.pos.z == 101 then
-					onNoobia = true;
-				end
-
-                -- replace item with follow up item
-                if( harvest[ 4 ] ~= 0 ) then
-                    if( harvest[ 4 ] > 0 ) then
-                        if ( harvest[ 7 ] ~= nil ) then
-                            -- always enough fruits
-							if (SourceItem.data == 1) or ((harvest[ 5 ][ season ] == 0) and not onNoobia) then
-                                SourceItem.id = harvest[ 4 ];
-                                SourceItem.quality = QualWert;
-                                SourceItem.data = 0;
-                                SourceItem.wear = ( onNoobia and 1 or math.floor(-3.6 * harvest[ 5 ][ season ] + 42) );
-                                world:changeItem(SourceItem);
-                            else
-                                if (SourceItem.data == 0) then
-                                    SourceItem.data = harvest[ 7 ] - 2;
-                                else
-                                    SourceItem.data = SourceItem.data - 1;
-                                end
-                                world:changeItem(SourceItem);
-                            end
-                        else
-                            SourceItem.id = harvest[ 4 ];
-                            SourceItem.quality = QualWert;
-                            SourceItem.wear = math.floor(2 * harvest[ 5 ][ season ] + 22);
-                            world:changeItem(SourceItem);
-                        end
-                    else
-                        world:erase( SourceItem, 1 );
-                    end
-                end
-                
-                User:learn( fruitgathering.LeadSkill, fruitgathering.LeadSkillGroup, fruitgathering.SavedWorkTime[User.id], 30, User:increaseAttrib(fruitgathering.LeadAttribute,0) );
-            end
-            if (SourceItem.data > 0) then
-                fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User,nil,true);
-            	User:startAction(fruitgathering.SavedWorkTime[User.id],0,0,0,0);
-            end
-
-            if( not success )then
-                if( boden == 1 ) then
-                    base.common.InformNLS( User,
-                    "Deine Hände graben durch die Erde, aber Du findest nichts.",
-                    "Your hands muckrake through the dirt, but you do not find anything." );
-                elseif( boden == 2 ) then
-                    base.common.InformNLS( User,
-                    "Altes Laub und Nadeln sind alles was Du findest.",
-                    "Dry leaves are all you find." );
-                elseif( boden == 3 ) then
-                    base.common.InformNLS( User,
-                    "Du findest nichts außer trockenem Sand.",
-                    "You find nothing but dry sand" );
-                elseif( boden == 4 ) then
-                    base.common.InformNLS( User,
-                    "Du findest nichts außer Unkraut und Gras.",
-                    "You find nothing but weed and grass." );
-                else
-                    base.common.InformNLS( User,
-                    "Du findest nichts.",
-                    "You  do not find anything." );
-                end
-            end
-
-        end -- right tile
-    end -- for harvestList
-end
+--]]

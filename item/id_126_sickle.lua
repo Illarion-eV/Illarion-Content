@@ -88,16 +88,16 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local amount = 0;
 	if ( amountStr ~= "" ) then
 		amount = tonumber(amountStr);
-		if ( amount < 0 ) then
-			-- this should never happen...
-			User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
-			return;
-		end
 	elseif ( not harvestProduct.isFarmingItem and TargetItem.wear == 255 ) then
 		-- first time that a (static!) herb item is harvested
 		amount = MaxAmount;
 		TargetItem:setData("amount","" .. MaxAmount);
 		changeItem = true;
+	end
+	if ( amount < 0 ) then
+		-- this should never happen...
+		User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. TargetItem.id .. " at (" .. TargetPos.x .. "," .. TargetPos.y .. "," .. TargetPos.z .. "). Please inform a developer.");
+		return;
 	end
 	if ( amount <= 1 and not harvestProduct.isFarmingItem ) then
 		-- check for regrow even at amount==1, so a continuous working is guaranteed
@@ -258,6 +258,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 end
 
+-- for GroundType, see base.common.GroundType. If it doesn't matter, just set it to nil
+-- GrowFactors define how fast the plants regrow in the 4 seasons
 function CreateHarvestProduct(ProductId, GroundType, GrowFactors, IsFarmingItem)
     local retValue = {};
     retValue.productId = ProductId;
@@ -285,6 +287,7 @@ function InitHarvestItems()
     -- just for short writing
     local gt = base.common.GroundType;
     
+	-- herbs marked with TODO probably have the wrong name in the database. Correct names in German are given in the old list below
     -- druid herbs
     HarvestItems[273] = {                                   -- flower
     CreateHarvestProduct(144, gt.forest),                        -- virgins weed
@@ -426,6 +429,10 @@ function InitHarvestItems()
 	HarvestItems[1813] = {									-- palm tree
     CreateHarvestProduct(80, gt.sand)							-- banana
     }
+	
+	HarvestItems[ 1809 ] = {								-- eldan oak
+	CreateHarvestProduct(759, nil, {0.5,0.5,0.5,0.5})			-- nuts (was actually in harvest.lua with 20 MaxAmount, so just let it regrow twice as fast)
+	}
 	
 	HarvestItems[125] = {									-- tree trunk (apple)
     CreateHarvestProduct(152, nil)							-- life root
