@@ -75,8 +75,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		amount = tonumber(amountStr);
 	else
 		-- first time that this item is harvested
-		amount = harvestProduct.MaxAmount;
-		SourceItem:setData("amount","" .. harvestProduct.MaxAmount);
+		amount = harvestProduct.maxAmount;
+		SourceItem:setData("amount","" .. harvestProduct.maxAmount);
 		world:changeItem(SourceItem);
 	end
 	if ( amount < 0 ) then
@@ -108,9 +108,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	User:learn( fruitgathering.LeadSkill, fruitgathering.LeadSkillGroup, fruitgathering.SavedWorkTime[User.id], 100, User:increaseAttrib(fruitgathering.LeadAttribute,0) );
 	amount = amount - 1;
-	local notCreated = User:createItem( harvestProduct.ProductId, 1, 333, nil ); -- create the new produced items
+	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( harvestProduct.ProductId, notCreated, User.pos, true, 333, nil );
+		world:createItemFromId( harvestProduct.productId, notCreated, User.pos, true, 333, nil );
 		base.common.InformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
@@ -125,11 +125,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
 		"This plant is already fully harvested. Give it time to grow again." );
 		-- reset amount
-		amount = harvestProduct.MaxAmount;
+		amount = harvestProduct.maxAmount;
 		-- change item id
-		SourceItem.id = harvestProduct.NextItemId;
+		SourceItem.id = harvestProduct.nextItemId;
 		local season = math.ceil(world:getTime("month")/4);
-		SourceItem.wear = harvestProduct.GrowCycles[4];
+		SourceItem.wear = harvestProduct.growCycles[4];
 	end
 	world:changeItem(SourceItem);
 end
@@ -164,15 +164,15 @@ function CreateHarvestProduct(ProductId, GroundType, GrowCycles, MaxAmount, Next
     local retValue = {};
     retValue.productId = ProductId;
     retValue.groundType = GroundType;
-	retValue.GrowCycles = {1,1,1,1};
+	retValue.growCycles = {1,1,1,1};
     if (GrowCycles ~= nil) then
-		retValue.GrowCycles = GrowCycles;
+		retValue.growCycles = GrowCycles;
     end
-	retValue.MaxAmount = 10;
+	retValue.maxAmount = 10;
 	if ( MaxAmount ~= nil ) then
-		retValue.MaxAmount = MaxAmount;
+		retValue.maxAmount = MaxAmount;
 	end
-	retValue.NextItemId = NextItemId;
+	retValue.nextItemId = NextItemId;
     return retValue;
 end
 
