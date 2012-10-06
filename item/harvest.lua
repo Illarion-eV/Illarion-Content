@@ -109,6 +109,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	User:learn( fruitgathering.LeadSkill, fruitgathering.LeadSkillGroup, fruitgathering.SavedWorkTime[User.id], 100, User:increaseAttrib(fruitgathering.LeadAttribute,0) );
 	amount = amount - 1;
+	User:inform("reduced amount: " .. amount);
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( harvestProduct.productId, notCreated, User.pos, true, 333, nil );
@@ -133,7 +134,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		SourceItem.wear = harvestProduct.growCycles[4];
 	end
 	SourceItem:setData("amount","" .. amount);
+	User:inform("data amount set to " .. amount);
 	world:changeItem(SourceItem);
+	User:inform("security check after changed item: " .. SourceItem:getData("amount"));
 end
 
 function InitHarvestItems()
