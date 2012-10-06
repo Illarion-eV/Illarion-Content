@@ -8,6 +8,7 @@ module("item.harvest", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
+	InitHarvestItems();
 	local fruitgathering = content.gathering.fruitgathering;
 
 	base.common.ResetInterruption( User, ltstate );
@@ -53,7 +54,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return;
 	end
 	-- there is a harvestable item, but does the ground fit?
-	local GroundType = base.common.GetGroundType(world:getField(TargetPos):tile());
+	local GroundType = base.common.GetGroundType(world:getField(SourceItem.pos):tile());
 	local harvestProduct = nil;
 	for _,hp in pairs(harvestItem) do 
 		if (hp.groundType == nil or GroundType == hp.groundType) then
