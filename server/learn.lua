@@ -19,7 +19,7 @@ Example: Character:learn("mining",2,20,100,Character:increaseAttrib("constitutio
 function learn( user, skill, skillGroup, actionPoints, opponent, lA )
 
     local leadAttrib=getLeadAttrib(user,skill);
-	user:inform("learn called: skill: "..skill.." AP: "..actionPoints.." opponent: "..oponent.." LeadAttribut: "..lA)
+	user:inform("learn called: skill: "..skill.." AP: "..actionPoints.." opponent: "..oponent);
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
 	scalingFactor=1000; --Here, you can mod the learning speed. Higher value=faster ;-)
 	
