@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: October 01, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 03, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -693,12 +693,18 @@ talkingNPC:addCycleText("#me stemmt seine Arme in die Seiten und blickt mit zwei
 talkingNPC:addCycleText("#me lehnt sich ein wenig zurück und atmet lächelnd aus.", "#me leans back slightly and breaths out with a smile.");
 talkingNPC:addCycleText("#me murmelt: 'Ein Schritt im Schatten und Einer über die Rinne, der Diebe Stern verbirgt sich am Gestirne.'", "#me mumbles: 'A step into the shadow and one over the roadside ditch, the thieves star is hiding uppon the sky.'");
 talkingNPC:addCycleText("#me wirft einen ungeduldigen Blick aus dem nächst liegenden Fenster.", "#me eyes trough the window next to him, seeming quite impatient.");
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(78,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(17,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(53,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(306,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1909,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(7,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(27,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(49,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(55,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(97,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(183,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(363,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(369,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2295,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2445,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2664,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(3051,"sell"));
 tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
 tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
 tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");

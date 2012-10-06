@@ -33,7 +33,7 @@ Monster = {
 	MessageDE = "",
 	MessageEN = "",
 	Sound = nil,
-	GFX = {}
+	GFX = nil
 };
 
 function GatheringCraft:new(gc)
@@ -117,8 +117,8 @@ function GatheringCraft:FindRandomItem(User)
 		if(pa < self.Monsters[ra].Probability*self.FastActionFactor) then
 			local TargetPos = base.common.GetFrontPosition(User);
 			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
-			for g = 0, table.getn(self.Monsters[ra].GFX), 1 do
-				world:gfx(self.Monsters[ra].GFX[g], TargetPos);
+			if ( self.Monsters[ra].GFX ~= nil ) then
+				world:gfx(self.Monsters[ra].GFX, TargetPos);
 			end
 			if(self.Monsters[ra].Sound ~= nil) then
 				world:makeSound(self.Monsters[ra].Sound, TargetPos);
@@ -244,8 +244,12 @@ function GatheringCraft:GenWorkTime(User, toolItem)
     local maxTime = 90;
 	
 	-- apply the quality bonus
-	local qual = math.min(9,math.max(1,math.floor(toolItem.quality/100))) - 1; -- quality integer in [0,8]
-	maxTime = maxTime - 20*(qual/8);
+	if ( toolItem ~= nil ) then
+		local qual = math.min(9,math.max(1,math.floor(toolItem.quality/100))) - 1; -- quality integer in [0,8]
+		maxTime = maxTime - 20*(qual/8);
+	else
+		maxTime = 80;
+	end
     
     -- apply time bonus: reduce maxTime
     if (timeBonus>0) then
