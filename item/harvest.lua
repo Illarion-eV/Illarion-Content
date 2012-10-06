@@ -79,6 +79,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		SourceItem:setData("amount","" .. harvestProduct.maxAmount);
 		world:changeItem(SourceItem);
 	end
+	User:inform("amount: " .. amount);
 	if ( amount < 0 ) then
 		-- this should never happen...
 		User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
