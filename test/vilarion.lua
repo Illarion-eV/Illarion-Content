@@ -184,6 +184,45 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         User:requestMerchantDialog(dialog)
     end
 
+    if (User.lastSpokenText == "craft") then
+        local callback = function(dialog)
+            result = dialog:getResult()
+            if result == CraftingDialog.playerCrafts then
+                local item = dialog:getCraftableIndex()
+                local amount = dialog:getCraftableAmount()
+                User:inform("Craft " .. amount .. " of item index " .. item);
+            else
+                if result == CraftingDialog.playerLooksAtItem then
+                    local item = dialog:getCraftableIndex()
+                    User:inform("Look at item index " .. item);
+                else
+                    if result == CraftingDialog.playerLooksAtIngredient then
+                        local item = dialog:getCraftableIndex()
+                        local ingredient = dialog:getIngredientIndex()
+                        User:inform("Look at ingredient " .. ingredient .. " of item index " .. item);
+                    else
+                        User:inform("Crafting aborted!")
+                    end
+                end
+            end
+        end
+        local dialog = CraftingDialog("Craft 0", callback)
+        dialog:addGroup("Group 1")
+        dialog:addGroup("Group 2")
+        dialog:addGroup("Group 3")
+        dialog:addCraftable(0, 1, "Krasses Schwert", 20)
+        dialog:addCraftableIngredient(104, 13);
+        dialog:addCraftable(1, 2, "Weizenmehl", 10, 10)
+        dialog:addCraftableIngredient(2)
+        dialog:addCraftableIngredient(2, 7)
+        dialog:addCraftable(1, 2, "Roggenmehl", 10, 10)
+        dialog:addCraftableIngredient(136, 11)
+        dialog:addCraftableIngredient(138, 2)
+        dialog:addCraftableIngredient(140, 7)
+        User:requestCraftingDialog(dialog)
+
+    end
+
     if (User.lastSpokenText == "select") then
         local items = {1, 2, 2}
         local names = {"Krasses Schwert", "Weizenmehl", "Roggenmehl"}
