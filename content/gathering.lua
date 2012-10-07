@@ -22,6 +22,7 @@ function InitGathering()
 		potashproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "lumberjacking", LeadSkillGroup = 2}; -- item.id_12_campfire
         
 		entrailscutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "tailoring", LeadSkillGroup = 2}; -- id_6_scissors
+		stonecutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_737_chisel
 		-- TODO
         -- id_737_chisel ("mining")
         -- id_727_sieve ("mining")
