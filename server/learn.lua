@@ -19,7 +19,7 @@ Example: Character:learn("mining",2,20,100,Character:increaseAttrib("constitutio
 function learn( user, skill, skillGroup, actionPoints, opponent, lA )
 
     local leadAttrib=getLeadAttrib(user,skill);
-
+	user:inform("learn called: skill: "..skill.." AP: "..actionPoints.." opponent: "..opponent);
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
 	scalingFactor=1000; --Here, you can mod the learning speed. Higher value=faster ;-)
 	
@@ -49,7 +49,8 @@ function learn( user, skill, skillGroup, actionPoints, opponent, lA )
                 user:increaseMinorSkill(skillGroup,skill,minorIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
             else
      			user:increaseMinorSkill(skillGroup,skill,minorIncrease);
-				base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit steigt von "..skillValue.." auf "..(user:getSkill(skill)).."!","[Level up] Your skill '"..skill.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
+				base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skill.."' steigt von "..skillValue.." auf "..(skillValue+1).."!",
+					"[Level up] Your skill '"..skill.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
 				world:gfx(13,user.pos); --swirly!           
 		    end
 
