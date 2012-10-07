@@ -1,6 +1,6 @@
--- Dreschflegel ( 258 )
+-- flail ( 258 )
 
--- Getreidebündel  --> Getreidekörner
+-- bundle of grain (249)  --> grain (259)
 
 -- UPDATE common SET com_script='item.id_258_flail' WHERE com_itemid IN (258);
 
@@ -12,7 +12,7 @@ module("item.id_258_flail", package.seeall, package.seeall(item.general.wood))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
-	local farming = content.gathering.farming;
+	local flailing = content.gathering.flailing;
 
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
@@ -58,8 +58,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,SourceItem);
-		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
+		flailing.SavedWorkTime[User.id] = flailing:GenWorkTime(User,SourceItem);
+		User:startAction( flailing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		User:talkLanguage( Character.say, Player.german, "#me beginnt Getreide zu dreschen.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to flail grain."); 
 		return
@@ -67,11 +67,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	-- since we're here, we're working
 
-	if farming:FindRandomItem(User) then
+	if flailing:FindRandomItem(User) then
 		return
 	end
 
-	User:learn( farming.LeadSkill, farming.LeadSkillGroup, farming.SavedWorkTime[User.id], 100, User:increaseAttrib(farming.LeadAttribute,0) );
+	User:learn( flailing.LeadSkill, flailing.LeadSkillGroup, flailing.SavedWorkTime[User.id], 100, User:increaseAttrib(flailing.LeadAttribute,0) );
 	User:eraseItem( 249, 1 ); -- erase the item we're working on
 	local amount = math.random(1,4); -- set the amount of items that are produced
 	local notCreated = User:createItem( 259, amount, 333, nil ); -- create the new produced items
@@ -82,8 +82,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
 		if (User:countItemAt("all",249)>0) then  -- there are still items we can work on
-			farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,SourceItem);
-			User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
+			flailing.SavedWorkTime[User.id] = flailing:GenWorkTime(User,SourceItem);
+			User:startAction( flailing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
 			base.common.InformNLS(User,
 			"Du hast kein Getreidebündel mehr.",

@@ -24,6 +24,9 @@ function InitGathering()
 		entrailscutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "tailoring", LeadSkillGroup = 2}; -- id_6_scissors
 		stonecutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_737_chisel
 		sieving = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_727_sieve
+		flailing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2, FastActionFactor = 0.5}; -- id_258_flail
+		grainharvesting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2, FastActionFactor = 0.5}; -- id_271_scythe
+		
 		-- TODO
         -- id_258_flail ("peasantry") TODO:create new category
         -- id_52_filledbucket ("peasantry")
@@ -33,7 +36,6 @@ function InitGathering()
         -- id_169_loom
         -- id_220_barrel
         -- id_250_mill
-        -- id_271_scythe
         -- id_305_smokingoven
         -- id_313_glassmeltoven
         -- id_428_candletable
