@@ -63,7 +63,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
 		base.common.InformNLS( User,
 		"Du musst die Schere in der Hand haben!",
-		"You need to hold the scissors in your hand!" );
+		"You have to hold the scissors in your hand!" );
 		return
 	end
 
@@ -153,7 +153,7 @@ function UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, l
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
 		base.common.InformNLS( User,
 		"Du musst die Schere in der Hand haben!",
-		"You need to hold the scissors in your hand!" );
+		"You have to hold the scissors in your hand!" );
 		return
 	end
 

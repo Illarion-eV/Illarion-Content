@@ -23,9 +23,8 @@ function InitGathering()
         
 		entrailscutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "tailoring", LeadSkillGroup = 2}; -- id_6_scissors
 		stonecutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_737_chisel
+		sieving = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_727_sieve
 		-- TODO
-        -- id_737_chisel ("mining")
-        -- id_727_sieve ("mining")
         -- id_258_flail ("peasantry") TODO:create new category
         -- id_52_filledbucket ("peasantry")
         -- id_171_spinningwheel TODO: new category? currently in woolcutting

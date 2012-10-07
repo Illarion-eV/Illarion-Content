@@ -80,7 +80,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
 		base.common.InformNLS( User,
 		"Du musst das Saatgut in der Hand haben!",
-		"You need to hold the seeds in your hand!" );
+		"You have to hold the seeds in your hand!" );
 		return
 	end
 

@@ -420,7 +420,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if (SourceItem:getType() ~= 4) then
         base.common.InformNLS( User,
         "Du musst eine Spitzhacke in der Hand haben!",
-        "You need to hold the pick-axe in your hand!" );
+        "You have to hold the pick-axe in your hand!" );
         return
     end
 
