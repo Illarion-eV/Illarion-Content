@@ -286,6 +286,9 @@ function GatheringCraft:GenWorkTime(User, toolItem)
     workTime = math.min(maxTime, math.max(minTime, workTime));
     
     workTime = workTime*self.FastActionFactor;
+	
+	-- clamp at last
+	workTime = math.min(maxTime, math.max(5, workTime));
     
     return math.floor(workTime);
 end

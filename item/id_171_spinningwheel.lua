@@ -1,10 +1,9 @@
--- Spinnrad ( 270 )
+-- spinning wheel ( 270 )
 
--- Wolle  --> Wollkneul
--- Sibanac --> Garn
+-- 2x wool (170)  --> thread (50)
+-- 3x sibanac leaf (155) --> thread (50)
 
--- Arbeitscyclus: 1s - 4s
--- Zusätzliches Werkzeug: Schere ( 6 )
+-- additional tool: scissors (6)
 
 -- UPDATE common SET com_script='item.id_171_spinningwheel' WHERE com_itemid IN (171);
 
@@ -13,111 +12,123 @@ require("content.gathering")
 
 module("item.id_171_spinningwheel", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
-	local woolcutting = content.gathering.woolcutting;
-	
-    base.common.ResetInterruption( User, ltstate );
-    if ( ltstate == Action.abort ) then
-        if (User:increaseAttrib("sex",0) == 0) then
-            gText = "seine";
-            eText = "his";
-        else
-            gText = "ihre";
-            eText = "her";
-        end
-        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-        return
-    end
-    
-    if not base.common.CheckItem( User, SourceItem ) then
-        return
-    end
-    
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
-        base.common.InformNLS( User,
-        "Deine Rüstung behindert beim Spinnen.",
-        "Your armour disturbs you while spinning." );
-        return
-    end
-    
-    if not base.common.IsLookingAt( User, SourceItem.pos ) then
-        base.common.TurnTo( User, SourceItem.pos );
-    end
-    
-    if (User:countItemAt("body",6)==0) then -- Schere
-        base.common.InformNLS( User,
-        "Du benötigst eine Schere um die Wolle oder Sibanac zu spinnen.",
-        "You need scissors to spin the wool or sibanac." );
-        return
-    end
-    
-    local Tool = User:getItemAt(Character.left_tool); -- Item in Linker Hand auslesen
-    if ((Tool == nil) or (Tool.id ~= 6)) then -- Wenn das Item nicht die Zange ist
-        Tool = User:getItemAt(Character.right_tool); -- In anderer Hand nachsehen
-    end
-    
-    if base.common.ToolBreaks( User, Tool, true) then -- Schere beschädigen
-        base.common.InformNLS( User, 
-        "Die Schere wird stumpf.", 
-        "The scissors went blunt." );
-        return
-    end
-    
-    if ((User:countItemAt("belt",170) < 1) and (User:countItemAt("belt",155) < 3)) then
-        if (ltstate ~= Action.success) then
-            base.common.InformNLS( User, 
-            "Du benötigst Wolle oder Sibanac um am Spinnrad zu arbeiten.", 
-            "You need some wool or sibanac to work at the spinning wheel." );
-        end
-        return
-    end
-    
-    if ( ltstate == Action.none ) then
-        User:startAction( GenWorkTime(User), 0, 0, 0, 0);
-        User:talkLanguage( Character.say, Player.german, "#me beginnt Wolle zu spinnen.");
-        User:talkLanguage( Character.say, Player.english, "#me starts to spin wool.");
-        return
-    end
-    
-	if not woolcutting:FindRandomItem(User) then
-		return false;
+	local threadproducing = content.gathering.threadproducing;
+
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
+		end
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
+	end
+
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
+		return
 	end
 	
-    if (User:countItemAt("belt",170) > 1) then --Removes 2 wool, and returns 1 thread for each
-        User:eraseItem( 170, 2 );
-        local notcreated = User:createItem(50, 1, 333 ,0 );
-        if (notcreated > 0) then
-            world:createItemFromId( 50, 1, User.pos, true, 333 ,0);
-            base.common.InformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You can't carry any more.");
-        else
-            User:startAction( GenWorkTime(User), 0, 0, 0, 0 );
-        end
-    else
-        User:eraseItem( 155, 3 );
-        local notcreated = User:createItem(50, 1, 333 ,0 );
-        if (notcreated > 0) then
-            world:createItemFromId( 50, 1, User.pos, true, 333 ,0);
-            base.common.InformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You can't carry any more.");
-        else
-            User:startAction( GenWorkTime(User), 0, 0, 0, 0 );
-        end
-    end
+	-- additional tool item is needed
+	if (User:countItemAt("all",6)==0) then
+		base.common.InformNLS( User,
+		"Du brauchst eine Schere Garn herzustellen.", 
+		"You need a pair of scissors for producing thread." );
+		return
+	end
+	local toolItem = User:getItemAt(5);
+	if ( toolItem.id ~= 6 ) then
+		toolItem = User:getItemAt(6);
+		if ( toolItem.id ~= 6 ) then
+			base.common.InformNLS( User,
+			"Du musst die Schere in der Hand haben!",
+			"You have to hold the scissors in your hand!" );
+			return
+		end
+	end
 
-    --User:learn( 2, "tailoring", 2, 10 );
-	--Replace with new learn function, see learn.lua 
-    
-end -- function
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich bei der Herstellung des Garns.",
+		"Your armour disturbs you while producing thread." );
+		return
+	end
 
--- Arbeitszeit generieren
-function GenWorkTime(User)
-    local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
-    local Skill  = math.min(100,User:getSkill("tailoring")*10);     -- Schneidern: 0 - 100
-    
-    return math.floor(-0.25 * (Attrib + Skill) + 40);
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+
+	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
+		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	end
+	
+	-- any other checks?
+
+	if (User:countItemAt("all",170)<2 and User:countItemAt("all",155)<3) then -- check for items to work on
+		if (User:countItemAt("all",170)==0 and User:countItemAt("all",155)==0) then
+			base.common.InformNLS( User, 
+			"Du brauchst Wolle oder Sibanacblätter um Garn herzustellen.", 
+			"You need wool or sibanac leaves for producing thread." );
+		else
+			base.common.InformNLS( User, 
+			"Du hast nicht genug Wolle oder Sibanacblätter um Garn herzustellen.", 
+			"You don't have enough wool or sibanac leaves for producing thread." );
+		end
+		return;
+	end
+	
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		threadproducing.SavedWorkTime[User.id] = threadproducing:GenWorkTime(User,toolItem);
+		User:startAction( threadproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt Garn herzustellen.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to produce thread."); 
+		return
+	end
+
+	-- since we're here, we're working
+
+	if threadproducing:FindRandomItem(User) then
+		return
+	end
+
+	User:learn( threadproducing.LeadSkill, threadproducing.LeadSkillGroup, threadproducing.SavedWorkTime[User.id], 100, User:increaseAttrib(threadproducing.LeadAttribute,0) );
+	local itemId = 170; -- first check for wool
+	if ( User:countItemAt("all",170)<2 ) then
+		itemId = 155; -- not enough wool, then there must be enough sibanac leaves
+		if ( User:countItemAt("all",155)<3 ) then
+			-- this should never happen ...
+			User:inform("[ERROR] Not enough wool and sibanac leaves. Please inform a developer.");
+			return;
+		end
+	end
+	User:eraseItem( itemId, 1 ); -- erase the item we're working on
+	local amount = 1; -- set the amount of items that are produced
+	local notCreated = User:createItem( 50, amount, 333, nil ); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( 50, notCreated, User.pos, true, 333, nil );
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	else -- character can still carry something
+		if ((User:countItemAt("all",170)>=2 or User:countItemAt("all",155)>=3)) then  -- there are still items we can work on
+			threadproducing.SavedWorkTime[User.id] = threadproducing:GenWorkTime(User,toolItem);
+			User:startAction( threadproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		else -- not enough items left
+			base.common.InformNLS( User, 
+			"Du hast nicht mehr genug Wolle oder Sibanacblätter.", 
+			"You don't have enough wool or sibanac leaves anymore." );
+		end
+	end
+
+	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+		base.common.InformNLS(User,
+		"Dein alte Schere zerbricht.",
+		"Your old scissors break.");
+		return
+	end
 end

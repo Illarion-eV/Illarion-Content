@@ -26,11 +26,11 @@ function InitGathering()
 		sieving = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_727_sieve
 		flailing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2, FastActionFactor = 0.5}; -- id_258_flail
 		grainharvesting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2, FastActionFactor = 0.5}; -- id_271_scythe
+		threadproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "tailoring", LeadSkillGroup = 2}; -- id_171_spinningwheel
+		oilsqueezing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- id_44_squeezer
 		
 		-- TODO
-        -- id_258_flail ("peasantry") TODO:create new category
         -- id_52_filledbucket ("peasantry")
-        -- id_171_spinningwheel TODO: new category? currently in woolcutting
         -- id_44_squeezer
         -- id_119_backingoven
         -- id_169_loom
