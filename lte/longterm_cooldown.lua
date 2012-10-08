@@ -39,14 +39,14 @@ function callEffect( Effect, Char ) -- Effect is called
 	
 	if theQuestStatus == 1 then --Time over!
 	
-        base.common.InformNLS(User,"[Auftragssstatus] Du hast es nicht geschafft, den Auftrag von Philipp Molitor zu erledigen.","[Order status] You failed to fulfill the order of Philipp Molitor."); -- Feedback!
+        base.common.InformNLS(Char,"[Auftragssstatus] Du hast es nicht geschafft, den Auftrag von Philipp Molitor zu erledigen.","[Order status] You failed to fulfill the order of Philipp Molitor."); -- Feedback!
 		Char:setQuestProgress(127,0);
 		
 	end
 	
 	if theQuestStatus == 12 then --One hour left
 	
-	    base.common.InformNLS(User,"[Auftragssstatus] Es verbleibt dir noch eine Stunde, um den Auftrag von Philipp Molitor zu erledigen.","[Order status] You have one hour left to fulfill the order of Philipp Molitor."); -- Feedback!
+	    base.common.InformNLS(Char,"[Auftragssstatus] Es verbleibt dir noch eine Stunde, um den Auftrag von Philipp Molitor zu erledigen.","[Order status] You have one hour left to fulfill the order of Philipp Molitor."); -- Feedback!
 	
 	end
 	
