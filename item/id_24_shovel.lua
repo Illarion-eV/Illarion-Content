@@ -134,7 +134,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
 		User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt nach " .. digForDE .. "zu graben.");
+		User:talkLanguage( Character.say, Player.german, "#me beginnt nach " .. digForDE .. " zu graben.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to dig for " .. digForEN .. "."); 
 		return
 	end
