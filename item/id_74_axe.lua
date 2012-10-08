@@ -53,9 +53,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( TargetItem == nil ) then -- if there is no front item, check for nearby tree
 		for x=-1,1 do 
 			for y=-1,1 do 
-				TargetItem = base.common.GetFrontItem(User);
-				if ( TargetItem ~= nil and TreeItems[TargetItem.id] ~= nil) then
-					break;
+				local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
+				if ( world:isItemOnField(pos) ) then
+					TargetItem = world:getItemOnField(pos);
+					if ( TreeItems[TargetItem.id] ~= nil) then
+						break;
+					end
 				end
 			end
 		end
