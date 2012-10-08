@@ -59,6 +59,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 					if ( TreeItems[TargetItem.id] ~= nil) then
 						break;
 					end
+					TargetItem = nil;
 				end
 			end
 		end
