@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian/Ardian                                         --
 --                                                                            --
--- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 02, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Ioannes Faber"
@@ -52,7 +52,8 @@ itemShoes = 53
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
--- Npc: Ioannes Faber; Location: Cadomyr Marketplace; Task: Big orders glass blowing and goldsmithing; Gender&Race: Male Human
+-- NPC: Ioannes Faber; Location: Cadomyr Marketplace
+-- Quest 151: Cadomyr Treasury
 
 -- Dialogues by Estralis Seborian
 
@@ -74,11 +75,44 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go forth and do as the quee
 "your name", "who are you", "who art thou" -> "Faber. Ioannes Faber. I am the royal treasurer, do not underestimate my importance at the palace.", "My name is Ioannes Faber, the royal treasurer of Cadomyr. The queen relies on me, indeed.", "You don't know my name? Better write it down then: Ioannes Faber."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Faber. Ioannes Faber. Ich bin der königliche Kämmerer, ihr solltet meine Bedeutung am Hofe nicht unterschätzen.", "Mein Name ist Ioannes Faber, der königliche Kämmerer von Cadomyr. Die Königin hält große Stücke auf mich.", "Ihr kennt meinen Namen nicht? Schreibt ihn euch besser auf: Ioannes Faber."
 
--- Catching quest triggers (REWORK!)
-english, "quest", "mission" -> "I do not issue quests. I issue orders of queen Rosaline. Obey them!"
-"quest", "mission" -> "Ich biete keine Abenteuer an, ich verteile Befehle von Königin Rosaline. Gehorcht ihnen!"
-"task", "adventure", "order" -> "I do not issue quests. I issue orders of queen Rosaline. Obey them!"
-"Aufgabe", "Abenteuer" -> "Ich biete keine Abenteuer an, ich verteile Befehle von Königin Rosaline. Gehorcht ihnen!"
+-- Catching quest triggers of other factions' members. Outlaws are ignored.
+english, town = Galmair, "quest", "mission" -> "I doubt you came to the right place for a mission. How about you try the sewers?"
+town = Galmair, "quest", "mission" -> "Dies dürfte nicht der richtige Ort für eure Mission sein. Schaut doch mal im Abwasserkanal nach."
+town = Galmair, "task", "adventure", "order" -> "I doubt you came to the right place for a mission. How about you try the sewers?"
+town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Dies dürfte nicht der richtige Ort für eure Mission sein. Schaut doch mal im Abwasserkanal nach."
+english, town = Runewick, "quest", "mission" -> "While I admire the wisdom of Runewick, I have my orders not to issue any tasks to citizens of it."
+town = Runewick, "quest", "mission" -> "Ich bewundere zwar die Weisheit Runewicks aber ich habe meine Befehle und vergebe keine Aufgaben an Bürger von dort."
+town = Runewick, "task", "adventure", "order", "order" -> "While I admire the wisdom of Runewick, I have my orders not to issue any tasks to citizens of it."
+town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bewundere zwar die Weisheit Runewicks aber ich habe meine Befehle und vergebe keine Aufgaben an Bürger von dort."
+
+-- Quest 1: Donate something to the treasury
+-- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
+queststatus(151) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] Cadomyr Treasury"), "As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to her majesty's throne, place your donation on it. But don't you dare to donate just alms!", queststatus(151) = 1
+queststatus(151) = 0, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Die Schatzkammer Cadomyrs"), "Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!", queststatus(151) = 1
+queststatus(151) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] Cadomyr Treasury"), "As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to her majesty's throne, place your donation on it. But don't you dare to donate just alms!", queststatus(151) = 1
+queststatus(151) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Schatzkammer Cadomyrs"), "Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!", queststatus(151) = 1
+
+-- Quest 1 solved, reward: 20 rankpoints
+queststatus(151) = 2, english, town = Cadomyr, ".*" -> inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."), "I see you understood the way how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the queen next time.", queststatus(151) = 3, rankpoints(Cadomyr) + 20
+queststatus(151) = 2, town = Cadomyr, ".*" -> inform("[Quest gelöst] Dein Ansehen bei Königin Rosaline Edwards steigt."), "Nun, ihr habt verstanden, wie man etwas an die Schatzkammer spendet. Das nächste Mal spendet ihr aber gefälligst mehr! Ich werde euren Namen in meinem nächsten Gespräch mit der Königin erwähnen.", queststatus(151) = 3, rankpoints(Cadomyr) + 20
+
+-- Quest 1 taken but not solved, repeat the instructions
+queststatus(151) = 1, english, town = Cadomyr, "quest", "mission" -> "Donating is quite easy: Just drop your items on the donation place. Obey!"
+queststatus(151) = 1, town = Cadomyr, "quest", "mission" -> "Spenden ist eigentlich ganz einfach: Legt einen Gegenstand auf den Spendenplatz. Gehorcht!"
+queststatus(151) = 1, town = Cadomyr, "task", "adventure", "order" -> "Donating is quite easy: Just drop your items on the donation place. Obey!"
+queststatus(151) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Spenden ist eigentlich ganz einfach: Legt einen Gegenstand auf den Spendenplatz. Gehorcht!"
+
+-- Final dialogue: No more quests, just nice hints
+queststatus(151) = 3, english, town = Cadomyr, "quest", "mission" -> "If you want to do further deeds in the name of Cadomyr, ask Chancellor Anthar Vilicon."
+queststatus(151) = 3, town = Cadomyr, "quest", "mission" -> "Wenn ihr weitere Taten im Namen Cadomyrs vollbringen wollt, fragt Kanzler Anthar Vilicon."
+queststatus(151) = 3, town = Cadomyr, "task", "adventure", "order" -> "If you want to do further deeds in the name of Cadomyr, ask Chancellor Anthar Vilicon."
+queststatus(151) = 3, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn ihr weitere Taten im Namen Cadomyrs vollbringen wollt, fragt Kanzler Anthar Vilicon."
+
+-- Outlaw exception: If 'quest' is not triggered until here, the speaker is an outlaw or an error occured. Condition town=none does not work!
+english, "quest", "mission" -> "You have no business here, outcast."
+"quest", "mission" -> "Für Ausgestoßene gibt es hier nichts zu holen."
+"task", "adventure", "order", "order" -> "You have no business here, outcast."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Für Ausgestoßene gibt es hier nichts zu holen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the royal treasurer. The queen entrusted me the wealth of Cadomyr; and I am not the one who will disappoint her. Will you?"
@@ -93,7 +127,7 @@ english, "Gobaith", "Gobiath" -> "Well, I heard many refugees came from Gobaith 
 -- More small talk; add at least five triggers
 "treasurer", "treasury" -> "The office of treasurere requires loyality, integrity and meekness. And you won't find anyone of Cadomyr who suits the office better than Ioannes Faber."
 english, "gold" -> "Gold is important for Cadomyr's wealth, but more important is our honour. For honour, you cannot buy but just sell."
-"jewels" -> "Jewels, gems, diamonds, only the brightest ones for the crown of Cadomyr. Got some?"
+"jewel" -> "Jewels, gems, diamonds, only the brightest ones for the crown of Cadomyr. Got some?"
 english, "glas" -> "The queen uses to have banquets with her nobley from time to time. Thus, finest tableware is needed frequently."
 "wealth" -> "I hold the keys to the treasury. And there is nothing even Baron Hastings could offer me to betray my queen. I'd rather die... like my wife."
 "honor", "honour" -> "Honour is what shapes a man and crafted Cadomyr."
@@ -101,7 +135,7 @@ english, "glas" -> "The queen uses to have banquets with her nobley from time to
 "wife" -> "It is not a secret anymore; my wife was slain by henchmen of Baron Hastings in an attempt to blackmail me. But I did not surrender the treasury to them... Instead..."
 "Kämmerer", "Schatzkammer" -> "Das Amt des Kämmerers erfordert Loyalität, Integrität und Demut. Es gibt niemanden in Cadomyr, der von all dem mehr aufweißt als Ioannes Faber."
 "gold" -> "Gold ist wichtig für Cadomyrs Reichtum, aber weit wichtiger noch ist die Ehre. Denn Ehre kann man nicht kaufen, sehr wohl aber verkaufen."
-"Juwelen" -> "Juwelen, Edelsteine, Diamanten, nur die funkelnsten für die Krone Cadomyrs. Habt ihr welche?"
+"Juwel" -> "Juwelen, Edelsteine, Diamanten, nur die funkelnsten für die Krone Cadomyrs. Habt ihr welche?"
 "Glas" -> "Die Königin hält des öfteren Banketts mit ihren Oberen ab. Hierfür wird stets das beste Geschirr gebraucht."
 "Reichtum", "Reichtümer" -> "Ich verwahre die Schlüssel zur Schatzkammer und es gibt nichts, was mir nicht einmal Baron Hastings bieten könnte, um meine Königin zu verraten. Ich würde viel lieber sterben... wie meine Frau."
 "Ehre" -> "Ehre es, was einen Mann ausmacht und auf was Cadomyrs Fundament steht."
