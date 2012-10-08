@@ -40,30 +40,30 @@ function InitCraftingTool( )
         --------------------------------------------------------------------------------------------
         
         ---------------- BREAD ROLL - 191 ----------------------
-        product = baking:AddProduct( 0, 191, {0, 20 }, 1, { 10, 20 } );
+        product = baking:AddProduct( 0, 191, {0, 20 }, 1, { 5, 10 } );
         product:AddProductionSteps( {   5, 1, "all" }, 1 ); -- Step 1: Dough (5) 1x
         -------------- BRÖTCHEN - DONE ----------------
 
         ---------------- COOKIES - 453 ----------------------
-        product = baking:AddProduct( 0, 453, {10, 30 }, 2, { 15, 30 } );
+        product = baking:AddProduct( 0, 453, {10, 30 }, 2, { 7, 14 } );
         product:AddProductionSteps( {   5, 1, "all" }, 1 ); -- Step 1: Dough (5) 1x
         product:AddProductionSteps( {2529, 1, "all" }, 1 ); -- Step 2: Honey(2529) 1x
         -------------- COOKIES - DONE ----------------
         
         ---------------- BREAD - 49 ----------------------
-        product = baking:AddProduct( 0, 49, {25, 45 }, 1, { 23, 46 } );
+        product = baking:AddProduct( 0, 49, {25, 45 }, 1, { 11, 22 } );
         product:AddProductionSteps( {   5, 1, "all" }, 2 ); -- Stepe 1 - 2: Dough (5) 1x
         -------------- BREAD - DONE ----------------
 
         ---------------- MUFFIN - 454 ----------------------
-        product = baking:AddProduct( 0, 454, {45, 65 }, 2, { 33, 66 } );
+        product = baking:AddProduct( 0, 454, {45, 65 }, 2, { 16, 32 } );
         product:AddProductionSteps( {   5, 1, "all" }, 2 ); -- Step 1-2: Dough (5) 1x
         product:AddProductionSteps( {2529, 1, "all" }, 1 ); -- Step 3: Honey(2529) 1x
         product:AddProductionSteps( { 147, 5, "all" }, 1 ); -- Step 4: Blackberry(147) 5x
         -------------- MUFFIN - DONE ----------------
         
         ---------------- APPLE PIE - 353 ----------------------
-        product = baking:AddProduct( 0, 353, {55, 75 }, 1, { 38, 76 } );
+        product = baking:AddProduct( 0, 353, {55, 75 }, 1, { 19, 38 } );
         product:AddProductionSteps( {   5, 1, "all" }, 2 ); -- Step 1-2: Dough (5) 1x
         product:AddProductionSteps( {2529, 2, "all" }, 1 ); -- Step 3: Honey(2529) 2x
         product:AddProductionSteps( {  15, 5, "all" }, 2 ); -- Step 4-5: Apple(15) 5x
@@ -71,14 +71,14 @@ function InitCraftingTool( )
         -------------- APPLE PIE - DONE ----------------
         
         ---------------- CHERRY CAKE - 303 ----------------------
-        product = baking:AddProduct( 0, 303, {70, 90 }, 1, { 45, 90 } );
+        product = baking:AddProduct( 0, 303, {70, 90 }, 1, { 22, 44 } );
         product:AddProductionSteps( {   5, 1, "all" }, 3 ); -- Step 1-3: Dough (5) 1x
         product:AddProductionSteps( {2529, 2, "all" }, 1 ); -- Step 4: Honey(2529) 2x
         product:AddProductionSteps( { 302, 5, "all" }, 2 ); -- Step 5-6: Cherries(302) 5x
         -------------- CHERRY CAKE - DONE ----------------
         
         ---------------- STRAWBERRY CAKE - 354 ----------------------
-        product = baking:AddProduct( 0, 354, {80, 100 }, 1, { 50, 100 } );
+        product = baking:AddProduct( 0, 354, {80, 100 }, 1, { 25, 50 } );
         product:AddProductionSteps( {   5, 1, "all" }, 4); -- Step 1-4: Dough (5) 1x
         product:AddProductionSteps( {2529, 2, "all" }, 1); -- Step 5: Honey(2529) 2x
         product:AddProductionSteps( { 151, 5, "all" }, 2 ); -- Step 6-7: Strawberries(151) 5x
