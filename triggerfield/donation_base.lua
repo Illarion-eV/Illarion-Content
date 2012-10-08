@@ -12,6 +12,7 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 	if ItemStats.Worth == 0 then -- worthless item -> inform
 	
         base.common.InformNLS(User,"[Spende] Dieser Gegenstand ist wertlos.","[Donation] This item is worthless."); -- Feedback!
+		donated=false; -- no donation
 		
 	else -- item with worth
 	
@@ -58,8 +59,10 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
         base.common.InformNLS(User,"[Spende] Du spendest Gegenstände im Gegenwert von"..gstring.." in die Schatzkammer von "..FactionName..". "..LeaderName.." wird zufrieden sein.","[Donation] You donate items valued at"..estring.." to the treasury of "..FactionName..". "..LeaderName.." will be pleased."); -- Feedback!		
 		world:gfx(46,Item.pos); -- nice GFX
 		world:erase(Item,Item.number); -- delete the item
-	    return true; -- donation worked
+	    donated=true; -- donation worked
 	
 	end    
+	
+	return donated; -- returning whether the donation worked or not
 	
 end
