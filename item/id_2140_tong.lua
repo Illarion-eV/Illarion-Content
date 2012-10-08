@@ -29,78 +29,78 @@ function InitCraftingTool( )
         "The gem slips out of your hand and falls down to the ground. You have to search for a moment to find it again.");
 		
         ---------------- AMETHYST - 197 ----------------
-        local product = gemcutting:AddProduct( 0, 197, {0, 40 }, 1, { 20, 60 } );
+        local product = gemcutting:AddProduct( 0, 197, {0, 40 }, 1, { 10, 20 } );
         product:AddProductionSteps( { 251, 1, "all" }, 1 ); -- Schritt 1: Rohe Amethysten(251) 1x
         -------------- AMETHYST - FERTIG ---------------
 		
 		---------------- AMETHYSTSTAUB - 450 ----------------
-        local product = gemcutting:AddProduct( 0, 450, {0, 30 }, 1, {20, 60 } );
+        local product = gemcutting:AddProduct( 0, 450, {0, 30 }, 1, {10, 20 } );
         product:AddProductionSteps( { 197, 2, "all" }, 1 ); -- Schritt 1: Amethyst(197) 2x
 		product:AddProductionSteps( { 197, 2, "all" }, 1 ); -- Schritt 2: Amethyst(197) 2x
         -------------- AMETHYSTSTAUB - FERTIG ---------------
         
         ------------------ RUBIN - 46 ------------------
-        product = gemcutting:AddProduct( 0, 46, {10, 50 }, 1, { 30, 70 } );
+        product = gemcutting:AddProduct( 0, 46, {10, 50 }, 1, { 15, 30 } );
         product:AddProductionSteps( { 255, 1, "all" }, 1 ); -- Schritt 1: Rohe Rubine(255) 1x
         --------------- RUBIN - FERTIG -----------------
 		
 		---------------- RUBINSTAUB - 447 ----------------
-        local product = gemcutting:AddProduct( 0, 447, {10, 40 }, 1, { 30, 70 } );
+        local product = gemcutting:AddProduct( 0, 447, {10, 40 }, 1, { 15, 30 } );
         product:AddProductionSteps( { 46, 2, "all" }, 1 ); -- Schritt 1: Rubin(46) 1x
 		product:AddProductionSteps( { 46, 2, "all" }, 1 ); -- Schritt 2: Rubin(46) 2x
         -------------- RUBINSTAUB - FERTIG ---------------
         
         --------------- BLAUSTEIN - 284 ----------------
-        product = gemcutting:AddProduct( 0, 284, {20, 60 }, 1, { 40, 80 } );
+        product = gemcutting:AddProduct( 0, 284, {20, 60 }, 1, { 20, 40 } );
         product:AddProductionSteps( { 253, 1, "all" }, 1 ); -- Schritt 1: Roher Blaustein(253) 1x
         ------------- BLAUSTEIN - FERTIG ---------------
 		
         --------------- BLAUSTEINSTAUB - 446 ----------------
-        product = gemcutting:AddProduct( 0, 446, {20, 50 }, 1, { 40, 80 } );
+        product = gemcutting:AddProduct( 0, 446, {20, 50 }, 1, { 20, 40 } );
         product:AddProductionSteps( { 284, 2, "all" }, 1 ); -- Schritt 1: Blaustein(284) 2x
 		product:AddProductionSteps( { 284, 2, "all" }, 1 ); -- Schritt 2: Blaustein(284) 2x
         ------------- BLAUSTEINSTAUB - FERTIG ---------------
         
         ------------- SCHWARZSTEIN - 283 ---------------
-        product = gemcutting:AddProduct( 0, 283, {30, 70 }, 1, { 50, 90 } );
+        product = gemcutting:AddProduct( 0, 283, {30, 70 }, 1, { 25, 50 } );
         product:AddProductionSteps( { 252, 1, "all" }, 1 ); -- Schritt 1: Roher Schwarzstein(252) 1x
         ----------- SCHWARZSTEIN - FERTIG --------------
 		
         ------------- SCHWARZSTEINSTAUB - 449 ---------------
-        product = gemcutting:AddProduct( 0, 449, {30, 60 }, 1, { 50, 90 } );
+        product = gemcutting:AddProduct( 0, 449, {30, 60 }, 1, { 25, 50 } );
         product:AddProductionSteps( { 283, 2, "all" }, 1 ); -- Schritt 1: Schwarzstein(283) 2x
         product:AddProductionSteps( { 283, 2, "all" }, 1 ); -- Schritt 2: Schwarzstein(283) 2x
         ----------- SCHWARZSTEINSTAUB - FERTIG --------------
         
         ---------------- SMARAGD - 45 ------------------
-        product = gemcutting:AddProduct( 0, 45, {40, 90 }, 1, { 60, 100 } );
+        product = gemcutting:AddProduct( 0, 45, {40, 90 }, 1, { 30, 60 } );
         product:AddProductionSteps( { 256, 1, "all" }, 1 ); -- Schritt 1: Roher Smaragd(256) 1x
         ------------- SMARAGD - FERTIG -----------------
 		
         ---------------- SMARAGDSTAUB - 448 ------------------
-        product = gemcutting:AddProduct( 0, 448, {40, 80 }, 1, { 60, 100 } );
+        product = gemcutting:AddProduct( 0, 448, {40, 80 }, 1, { 30, 60 } );
         product:AddProductionSteps( { 45, 2, "all" }, 1 ); -- Schritt 1: Smaragd(45) 2x
         product:AddProductionSteps( { 45, 2, "all" }, 1 ); -- Schritt 2: Smaragd(45) 2x
         ------------- SMARAGDSTAUB - FERTIG -----------------
         
         --------------- TOPAS - 198 --------------------
-        product = gemcutting:AddProduct( 0, 198, {50, 110 }, 1, { 70, 110 } );
+        product = gemcutting:AddProduct( 0, 198, {50, 110 }, 1, { 35, 70 } );
         product:AddProductionSteps( {   257, 1, "all" }, 1 ); -- Schritt 1: Roher Topas(257) 1x
         --------------- TOPAS - FERTIG -----------------
 		
 		--------------- TOPASSTAUB - 451 --------------------
-        product = gemcutting:AddProduct( 0, 451, {50, 100 }, 1, { 70, 110 } );
+        product = gemcutting:AddProduct( 0, 451, {50, 100 }, 1, { 35, 70 } );
         product:AddProductionSteps( {   198, 2, "all" }, 1 ); -- Schritt 1: Topas(198) 2x
 		product:AddProductionSteps( {   198, 2, "all" }, 1 ); -- Schritt 2: Topas(198) 2x
         --------------- TOPASSTAUB - FERTIG -----------------
 		
 		--------------- DIAMANT - 285 --------------------
-        product = gemcutting:AddProduct( 0, 285, {60, 130 }, 1, { 80, 120 } );
+        product = gemcutting:AddProduct( 0, 285, {60, 130 }, 1, { 40, 80 } );
         product:AddProductionSteps( {   254, 1, "all" }, 1 ); -- Schritt 1: Rohdiamanten(254) 1x
         --------------- DIAMANT - FERTIG -----------------
 		
 		--------------- DIAMANTSTAUB - 452 --------------------
-        product = gemcutting:AddProduct( 0, 452, {60, 120 }, 1, { 80, 120 } );
+        product = gemcutting:AddProduct( 0, 452, {60, 120 }, 1, { 40, 80 } );
         product:AddProductionSteps( {   285, 2, "all" }, 1 ); -- Schritt 1: Diamant(285) 2x
         product:AddProductionSteps( {   285, 2, "all" }, 1 ); -- Schritt 2: Diamant(285) 2x
         --------------- DIAMANTSTAUB - FERTIG -----------------
