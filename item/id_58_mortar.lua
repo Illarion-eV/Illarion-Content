@@ -37,27 +37,27 @@ function InitCraftingTool( )
         "A big, fat bug has found its way into your ingredients. It takes a while to catch it and seal its fate.");
         
         --Red Dye
-product = mortar:AddProduct( 0, 2681, { 0, 20}, 1, { 10, 20 } );
+product = mortar:AddProduct( 0, 2681, { 0, 20}, 1, { 5, 10 } );
 product:AddProductionSteps( { 302, 1, "all" }, 3 ); -- Cherries: 3x1
 product:AddProductionSteps( { 52, 1, "all" }, 1 ); -- Water bucket: 1x1
 
 --Green Dye
-product = mortar:AddProduct( 0, 2679, { 5, 25}, 1, { 13, 26 } );
+product = mortar:AddProduct( 0, 2679, { 5, 25}, 1, { 6, 12 } );
 product:AddProductionSteps( { 290, 1, "all" }, 3 ); -- Cabbage: 3x1
 product:AddProductionSteps( { 52, 1, "all" }, 1 ); -- Water bucket: 1x1
 
 --Black Dye
-product = mortar:AddProduct( 0, 2678, { 10, 30}, 1, { 15, 30 } );
+product = mortar:AddProduct( 0, 2678, { 10, 30}, 1, { 7, 14 } );
 product:AddProductionSteps( { 136, 1, "all" }, 3 ); -- Anger berry: 3x1
 product:AddProductionSteps( { 52, 1, "all" }, 1 ); -- Water bucket: 1x1
 
 --Yellow Dye
-product = mortar:AddProduct( 0, 2682, { 15, 35}, 1, { 18, 36 } );
+product = mortar:AddProduct( 0, 2682, { 15, 35}, 1, { 9, 18 } );
 product:AddProductionSteps( { 135, 1, "all" }, 3 ); -- Yellow Weed: 3x1
 product:AddProductionSteps( { 52, 1, "all" }, 1 ); -- Water bucket: 1x1
 
 --Blue Dye
-product = mortar:AddProduct( 0, 2680, { 20, 40}, 1, { 20, 40 } );
+product = mortar:AddProduct( 0, 2680, { 20, 40}, 1, { 10, 20 } );
 product:AddProductionSteps( { 753, 1, "all" }, 3 ); -- Blue Bird's Berry: 3x1
 product:AddProductionSteps( { 52, 1, "all" }, 1 ); -- Water bucket: 1x1 
         
