@@ -25,9 +25,9 @@ function LookAtItem( User, Item )
     lang=User:getPlayerLanguage();
     if ( equapos(Item.pos, mpos) and (User:getFaceTo() == 2) and equapos(User.pos, position(-29,193,-8)) ) then
         if lang==0 then
-            world:itemInform(User, Item, "Hinter deinem Rücken erkennst du deutlich eine Leiter im Spiegel");
+            world:itemInform(User, Item, "Hinter deinem Rücken erkennst du deutlich eine Leiter im Spiegel.");
         else
-            world:itemInform(User, Item, "Behind your back you can clearly see a ladder in the mirror");
+            world:itemInform(User, Item, "Behind your back you can clearly see a ladder in the mirror.");
         end
         if ( not base.common.isItemIdInFieldStack( 35, lpos ) ) then
             world:createItemFromId( 35, 1, lpos, true, 999 ,0);
