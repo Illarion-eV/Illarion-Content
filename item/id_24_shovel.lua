@@ -61,7 +61,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	-- first check for a treasure
-	if (GroundType ~= gt.rocks) and
+	if (groundType ~= gt.rocks) and
 			base.treasure.DigForTreasure( User, TargetPos, (User:getSkill("mining")/10)+1,
 			base.common.GetNLS( User,
 				"Du gräbst mit deiner Schaufel in den Boden und stößt auf etwas hartes, von dem ein hölzerner Klang ausgeht. Noch einmal graben und du hältst den Schatz in deinen Händen.",
@@ -71,24 +71,24 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 	
 	-- neither sand nor dirt => find nothing
-    if (( GroundType ~= gt.sand ) and ( GroundType ~= gt.dirt )) then
-        if ( GroundType == gt.field ) then
+    if (( groundType ~= gt.sand ) and ( groundType ~= gt.dirt )) then
+        if ( groundType == gt.field ) then
             base.common.InformNLS( User,
             "Du gräbst ein kleines Loch in den Ackerboden doch findest du hier gar nichts.",
             "You dig a small hole into the farming ground. But you find nothing.");
-        elseif ( GroundType == gt.forest ) then
+        elseif ( groundType == gt.forest ) then
             base.common.InformNLS( User,
             "Du gräbst ein kleines Loch in den Waldboden doch findest du hier gar nichts.",
             "You dig a small hole into the forest ground. But you find nothing.");
-        elseif ( GroundType == gt.grass ) then
+        elseif ( groundType == gt.grass ) then
             base.common.InformNLS( User,
             "Du gräbst ein kleines Loch in die Wiese doch findest du hier gar nichts.",
             "You dig a small hole into the grass. But you find nothing.");
-        elseif ( GroundType == gt.rocks ) then
+        elseif ( groundType == gt.rocks ) then
             base.common.InformNLS( User,
             "Der Boden besteht hier aus solidem Stein. Mit einer Schaufel hast du eindeutig das falsche Werkzeug.",
             "The ground here is heavy stone. With a shovel you have the wrong tool here for sure.");
-        elseif ( GroundType == gt.water ) then
+        elseif ( groundType == gt.water ) then
             base.common.InformNLS( User,
             "Im Wasser mit einer Schaufel zu graben geht zwar relativ leicht, doch der Effekt ist recht gering.",
             "To dig with a shovel in the water is pretty easy. But sadly there is no effect in doing this.");
@@ -103,8 +103,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- since we're here, we're digging in sand or dirt
 	
 	-- check location, only succeed if there is a stone / water nearby
-	if not LocationCheck(TargetPos,GroundType, User) then
-        if ( GroundType == gt.sand ) then
+	if not LocationCheck(TargetPos,groundType, User) then
+        if ( groundType == gt.sand ) then
             base.common.InformNLS( User,
             "Der Wind hat hier allen Sand fortgeweht. Vielleicht solltest du es in der Nähe eines Steins versuchen.",
             "The wind has blown away the whole sand. Maybe you should try it somewhere near a rock." );
