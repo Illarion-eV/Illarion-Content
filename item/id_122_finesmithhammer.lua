@@ -54,92 +54,92 @@ function InitCraftingTool( )
         local CurrentCatID = smithing:AddCategory( 1858 ) -- Random Stuff
      
 	 --Goblet
-local product = smithing:AddProduct( CurrentCatID, 1858, { 0, 40}, 1, { 10, 20 } );
+local product = smithing:AddProduct( CurrentCatID, 1858, { 0, 40}, 1, { 5, 10 } );
 product:AddProductionSteps( { 2535, 1, "all" }, 1 ); -- Iron Ingot: 1x1
 
 --Oil Lamp
-product = smithing:AddProduct( CurrentCatID, 92, { 9, 49}, 1, { 15, 30 } );
+product = smithing:AddProduct( CurrentCatID, 92, { 9, 49}, 1, { 7, 14 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 2 ); -- Copper Ingot: 2x1
 
 --Candlestick
-product = smithing:AddProduct( CurrentCatID, 399, { 18, 58}, 1, { 19, 38 } );
+product = smithing:AddProduct( CurrentCatID, 399, { 18, 58}, 1, { 9, 18 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 
 --Lantern
-product = smithing:AddProduct( CurrentCatID, 393, { 27, 67}, 1, { 24, 48 } );
+product = smithing:AddProduct( CurrentCatID, 393, { 27, 67}, 1, { 12, 24 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 2 ); -- Copper Ingot: 2x1
 product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
 
 --Plate
-product = smithing:AddProduct( CurrentCatID, 1001, { 36, 76}, 1, { 28, 56 } );
+product = smithing:AddProduct( CurrentCatID, 1001, { 36, 76}, 1, { 14, 28 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 2 ); -- Copper Ingot: 2x1
 
 --Copper Goblet
-product = smithing:AddProduct( CurrentCatID, 1840, { 45, 85}, 1, { 33, 66 } );
+product = smithing:AddProduct( CurrentCatID, 1840, { 45, 85}, 1, { 16, 32 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 2 ); -- Copper Ingot: 2x1
 
 --Gold Goblet
-product = smithing:AddProduct( CurrentCatID, 224, { 54, 94}, 1, { 37, 74 } );
+product = smithing:AddProduct( CurrentCatID, 224, { 54, 94}, 1, { 18, 36 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 2 ); -- Copper Ingot: 2x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 
 --Plate
-product = smithing:AddProduct( CurrentCatID, 2031, { 63, 103}, 1, { 42, 84 } );
+product = smithing:AddProduct( CurrentCatID, 2031, { 63, 103}, 1, { 21, 42 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 3 ); -- Copper Ingot: 3x1
 
 --Cutlery
-product = smithing:AddProduct( CurrentCatID, 2647, { 72, 112}, 1, { 46, 92 } );
+product = smithing:AddProduct( CurrentCatID, 2647, { 72, 112}, 1, { 23, 46 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 3 ); -- Copper Ingot: 3x1
 
 --Mirror
-product = smithing:AddProduct( CurrentCatID, 336, { 81, 101}, 1, { 51, 102 } );
+product = smithing:AddProduct( CurrentCatID, 336, { 81, 101}, 1, { 25, 50 } );
 product:AddProductionSteps( { 236, 1, "all" }, 3 ); -- Gold Ingot: 3x1
 product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
 
 CurrentCatID = smithing:AddCategory( 82 ) -- amulets
 --Amulets
-product = smithing:AddProduct( CurrentCatID, 222, { 20, 40}, 1, { 20, 40 } );
+product = smithing:AddProduct( CurrentCatID, 222, { 20, 40}, 1, { 10, 20 } );
 product:AddProductionSteps( { 2535, 1, "all" }, 2 ); -- Iron Ingot: 2x1
 
 --Amethyst Amulet
-product = smithing:AddProduct( CurrentCatID, 79, { 30, 50}, 1, { 25, 50 } );
+product = smithing:AddProduct( CurrentCatID, 79, { 30, 50}, 1, { 12, 24 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 197, 1, "all" }, 1 ); -- Amethyst: 1x1
 
 --Ruby Amulet
-product = smithing:AddProduct( CurrentCatID, 67, { 40, 60}, 1, { 30, 60 } );
+product = smithing:AddProduct( CurrentCatID, 67, { 40, 60}, 1, { 15, 30 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 46, 1, "all" }, 1 ); -- Ruby: 1x1
 
 --Blackstone Amulet
-product = smithing:AddProduct( CurrentCatID, 82, { 50, 70}, 1, { 35, 70 } );
+product = smithing:AddProduct( CurrentCatID, 82, { 50, 70}, 1, { 17, 34 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 283, 1, "all" }, 1 ); -- Blackstone: 1x1
 
 --Bluestone Amulet
-product = smithing:AddProduct( CurrentCatID, 71, { 60, 80}, 1, { 40, 80 } );
+product = smithing:AddProduct( CurrentCatID, 71, { 60, 80}, 1, { 20, 40 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 284, 1, "all" }, 1 ); -- Bluestone: 1x1
 
 --Emerald Amulet
-product = smithing:AddProduct( CurrentCatID, 62, { 70, 90}, 1, { 45, 90 } );
+product = smithing:AddProduct( CurrentCatID, 62, { 70, 90}, 1, { 22, 44 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 45, 1, "all" }, 1 ); -- Emerald: 1x1
 
 --Topas Amulet
-product = smithing:AddProduct( CurrentCatID, 83, { 80, 100}, 1, { 50, 100 } );
+product = smithing:AddProduct( CurrentCatID, 83, { 80, 100}, 1, { 25, 50 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 198, 1, "all" }, 1 ); -- Topas: 1x1
 
 --Charm of the Icebird
-product = smithing:AddProduct( CurrentCatID, 334, { 90, 110}, 1, { 55, 110 } );
+product = smithing:AddProduct( CurrentCatID, 334, { 90, 110}, 1, { 27, 54 } );
 product:AddProductionSteps( { 236, 1, "all" }, 2 ); -- Gold Ingot: 2x1
 product:AddProductionSteps( { 285, 1, "all" }, 2 ); -- Diamond: 2x1
 product:AddProductionSteps( { 2571, 1, "all" }, 1 ); -- Mernium Ingot: 1x1
@@ -147,13 +147,13 @@ product:AddProductionSteps( { 2571, 1, "all" }, 1 ); -- Mernium Ingot: 1x1
 CurrentCatID = smithing:AddCategory( 465 ) --Headware
 
 --Diadem
-product = smithing:AddProduct( CurrentCatID, 465, { 50, 70}, 1, { 35, 70 } );
+product = smithing:AddProduct( CurrentCatID, 465, { 50, 70}, 1, { 17, 34 } );
 product:AddProductionSteps( { 2250, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 2 ); -- Gold Ingot: 2x1
 product:AddProductionSteps( { 284, 1, "all" }, 1 ); -- Bluestone: 1x1
 
 --Crown
-product = smithing:AddProduct( CurrentCatID, 225, { 70, 90}, 1, { 45, 90 } );
+product = smithing:AddProduct( CurrentCatID, 225, { 70, 90}, 1, { 22, 44 } );
 product:AddProductionSteps( { 2250, 1, "all" }, 3 ); -- Copper Ingot: 3x1
 product:AddProductionSteps( { 236, 1, "all" }, 3 ); -- Gold Ingot: 3x1
 product:AddProductionSteps( { 284, 1, "all" }, 1 ); -- Bluestone: 1x1
@@ -163,54 +163,54 @@ product:AddProductionSteps( { 285, 1, "all" }, 2 ); -- Diamond: 2x1
 CurrentCatID = smithing:AddCategory( 277 ) --Rings
 
 --Golden Ring
-product = smithing:AddProduct( CurrentCatID, 235, { 5, 25}, 1, { 13, 26 } );
+product = smithing:AddProduct( CurrentCatID, 235, { 5, 25}, 1, { 6, 12 } );
 product:AddProductionSteps( { 2250, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 
 --Amethyst Ring
-product = smithing:AddProduct( CurrentCatID, 277, { 15, 35}, 1, { 18, 36 } );
+product = smithing:AddProduct( CurrentCatID, 277, { 15, 35}, 1, { 9, 18 } );
 product:AddProductionSteps( { 2250, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 197, 1, "all" }, 1 ); -- Amethyst: 1x1
 
 --Ruby Ring
-product = smithing:AddProduct( CurrentCatID, 68, { 25, 45}, 1, { 23, 46 } );
+product = smithing:AddProduct( CurrentCatID, 68, { 25, 45}, 1, { 11, 22 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 46, 1, "all" }, 1 ); -- Ruby: 1x1
 
 --Blackstone Ring
-product = smithing:AddProduct( CurrentCatID, 278, { 35, 55}, 1, { 28, 56 } );
+product = smithing:AddProduct( CurrentCatID, 278, { 35, 55}, 1, { 14, 28 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 283, 1, "all" }, 1 ); -- Blackstone: 1x1
 
 --Bluestone Ring
-product = smithing:AddProduct( CurrentCatID, 279, { 45, 65}, 1, { 33, 66 } );
+product = smithing:AddProduct( CurrentCatID, 279, { 45, 65}, 1, { 16, 32 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 284, 1, "all" }, 1 ); -- Bluestone: 1x1
 
 --Emerald Ring
-product = smithing:AddProduct( CurrentCatID, 281, { 55, 75}, 1, { 38, 76 } );
+product = smithing:AddProduct( CurrentCatID, 281, { 55, 75}, 1, { 19, 38 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 45, 1, "all" }, 1 ); -- Emerald: 1x1
 
 --Topas Ring
-product = smithing:AddProduct( CurrentCatID, 282, { 65, 85}, 1, { 43, 86 } );
+product = smithing:AddProduct( CurrentCatID, 282, { 65, 85}, 1, { 21, 42 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 198, 1, "all" }, 1 ); -- Topas: 1x1
 
 --Diamond Ring
-product = smithing:AddProduct( CurrentCatID, 280, { 75, 95}, 1, { 48, 96 } );
+product = smithing:AddProduct( CurrentCatID, 280, { 75, 95}, 1, { 24, 48 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 1 ); -- Copper Ingot: 1x1
 product:AddProductionSteps( { 236, 1, "all" }, 1 ); -- Gold Ingot: 1x1
 product:AddProductionSteps( { 285, 1, "all" }, 1 ); -- Diamond: 1x1
 
 --Ring of the Archmage
-product = smithing:AddProduct( CurrentCatID, 2559, { 90, 110}, 1, { 55, 110 } );
+product = smithing:AddProduct( CurrentCatID, 2559, { 90, 110}, 1, { 27, 54 } );
 product:AddProductionSteps( { 2550, 1, "all" }, 2 ); -- Copper Ingot: 2x1
 product:AddProductionSteps( { 236, 1, "all" }, 3 ); -- Gold Ingot: 3x1
 product:AddProductionSteps( { 285, 1, "all" }, 1 ); -- Diamond: 1x1
