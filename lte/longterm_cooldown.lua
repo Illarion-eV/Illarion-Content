@@ -14,7 +14,7 @@ end;
 
 function callEffect( Effect, Char ) -- Effect is called
 
-    if Char:idleTime() < 180 then --absolutely no regeneration effect if the player is afk for more than three minutes
+    if Char:idleTime() < 300 then --absolutely no regeneration effect if the player is afk for more than five minutes
 
 		--Addition by Estralis: Quest 119/120 (Cadomyr daily missions)
 	    theQuestStatus=Char:getQuestProgress(120);
