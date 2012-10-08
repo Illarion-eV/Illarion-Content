@@ -14,6 +14,9 @@ module("item.id_24_shovel", package.seeall, package.seeall(item.general.metal))
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
 	-- the craft has to be determined according to ground type, see below
+	if ( StoneList == nil ) then
+		StoneList={ 914, 915, 1245, 1246, 1273, 1276 };
+	end
 	
 	local TargetPos = base.common.GetFrontPosition(User);
 	local groundTile = world:getField( TargetPos ):tile();
