@@ -1,4 +1,4 @@
--- Glas Produkte Herstellen
+-- Glasprodukte herstellen
 
 -- UPDATE common SET com_script='item.id_311_glassblowpipe' WHERE com_itemid=311;
 
@@ -37,35 +37,35 @@ function InitCraftingTool( )
         "You interrupt to apply a gravure, but you reconsider.");
         
 --Small Empty Bottle
-product = glassblowing:AddProduct( 0, 1317, { 0, 40}, 1, { 10, 20 } );
+product = glassblowing:AddProduct( 0, 1317, { 0, 40}, 1, { 5, 10 } );
 product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
 
 --Empty Bottle
-product = glassblowing:AddProduct( 0, 164, { 10, 50}, 1, { 15, 30 } );
+product = glassblowing:AddProduct( 0, 164, { 10, 50}, 1, { 7, 14 } );
 product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
 
 --Empty Bottle (790) (Smoothies :p)
-product = glassblowing:AddProduct( 0, 790, { 15, 50}, 1, { 15, 30 } );
+product = glassblowing:AddProduct( 0, 790, { 15, 50}, 1, { 7, 14 } );
 product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
 
 --Empty Bottle(518) (Rum)
-product = glassblowing:AddProduct( 0, 518, { 20, 50}, 1, { 15, 30 } );
+product = glassblowing:AddProduct( 0, 518, { 20, 50}, 1, { 7, 14 } );
 product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
 
 --Large Empty Bottle
-product = glassblowing:AddProduct( 0, 2498, { 30, 70}, 1, { 25, 50 } );
+product = glassblowing:AddProduct( 0, 2498, { 30, 70}, 1, { 12, 24 } );
 product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
 
 --Glass
-product = glassblowing:AddProduct( 0, 2055, { 50, 90}, 1, { 35, 70 } );
+product = glassblowing:AddProduct( 0, 2055, { 50, 90}, 1, { 17, 34 } );
 product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
 
 --Glass Mug
-product = glassblowing:AddProduct( 0, 1908, { 60, 100}, 1, { 40, 80 } );
+product = glassblowing:AddProduct( 0, 1908, { 60, 100}, 1, { 20, 40 } );
 product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
 
 --Vase
-product = glassblowing:AddProduct( 0, 315, { 90, 110}, 1, { 55, 110 } );
+product = glassblowing:AddProduct( 0, 315, { 90, 110}, 1, { 27, 54 } );
 product:AddProductionSteps( { 41, 1, "all" }, 3 ); -- Glass Ingot: 3x1
 product:AddProductionSteps( { 197, 1, "all" }, 1 ); -- Amethyst: 1x1
 product:AddProductionSteps( { 46, 1, "all" }, 1 ); -- Ruby: 1x1 
