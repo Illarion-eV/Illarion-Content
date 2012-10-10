@@ -373,14 +373,10 @@ function payNow(User)
 
 	end
 
-	if player:getPlayerLanguage() == 0 then
-		infText="Du hast somit deinen monatlichen Tribut bezahlt. Diesen Monat waren es "..gstring..", was sich zusammensetzt aus einer Rate von "..(taxHeight*100).."%";
-		local dialog=MessageDialog("Tribut information",infText,closeTrib);
-	else
-		infText="You have thereby paid your monthly tribut. This month, it were"..estring..", which result from a tribute rate of "..(taxHeight*100).."%";
-		local dialog=MessageDialog("Tribute information",infText,closeTrib);
-	end
+	infText="You have thereby paid your monthly tribut. This month, it were"..estring..", which result from a tribute rate of "..(taxHeight*100).."%";
+	local dialog=MessageDialog("Tribute information",infText,closeTrib);
     --Please add the information to which town the tribute was paid ~Estralis
+	--German translation is missing
 
     local closeTrib=function(onClose)
     -- do nothing
@@ -414,8 +410,5 @@ function exchangeFactionLeader( factionLeaderName )
 	if world:isCharacterOnField(npcPositions[0]) == true then
 		npcCharObject = world:getCharacterOnField(npcPositions[0]);
 		npcCharObject:forcewarp(npcPositions[1]);
-		if world:isCharacterOnField(npcPositions[1]) == true then
-			base.common.InformNLS( player,"NPC erfolgreich versetzt.","NPC moved successfully.");
-		end
 	end
 end
