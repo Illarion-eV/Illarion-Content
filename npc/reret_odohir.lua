@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
 --                                                                            --
--- Last parsing: September 22, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 10, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -26,7 +26,6 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
 module("npc.reret_odohir", package.seeall)
@@ -35,6 +34,10 @@ function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
+tradingNPC:addNotEnoughMoneyMsg("Ihr habt nicht genug Geld.", "You don't have enought Money.");
+tradingNPC:addDialogClosedMsg("Danke euch.", "Thank you.");
+tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal.", "Hope to see you again!");
+tradingNPC:addWrongItemMsg("Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy that. Sorry.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -58,8 +61,8 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Be greeted.");
 talkEntry:addResponse("Greetings.");
-talkEntry:addResponse("Be greeted %CHARNAME, nice to see you here.");
-talkEntry:addResponse("Be greeted, I am the notary of this town. You can buy here decrees or exchange them. Also I can register you as citizen or sell you a key.");
+talkEntry:addResponse("Be greeted, nice to see you here.");
+talkEntry:addResponse("Be greeted, I am the notary of this town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -76,8 +79,8 @@ talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Seid grüßt.");
 talkEntry:addResponse("Grüße.");
-talkEntry:addResponse("Grüße %CHARNAME, schön Euch mal wieder hier zu sehen.");
-talkEntry:addResponse("Zum Gruße, ich bin die Notarin dieser Stadt, bei mir könnt ihr Dekrete kaufen und einlösen.Außerdem könnst Ihr Euch hier Schlüssel kaufen und Euch als Bürger anmelden.");
+talkEntry:addResponse("Grüße, schön Euch mal wieder hier zu sehen.");
+talkEntry:addResponse("Zum Gruße, ich bin die Notarin dieser Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -89,8 +92,8 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Be greeted.");
 talkEntry:addResponse("Greetings.");
-talkEntry:addResponse("Greetings %CHARNAME, nice to see you again");
-talkEntry:addResponse("Be greeted, I am the notary of this town. You can buy here decrees or exchange them. Also I can register you as citizen or sell you a key.");
+talkEntry:addResponse("Greetings, nice to see you again");
+talkEntry:addResponse("Be greeted, I am the notary of this town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -101,7 +104,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Seid grüßt.");
 talkEntry:addResponse("Grüße.");
-talkEntry:addResponse("Be greeted, I am the notary of this town. You can buy here decrees or exchange them. Also I can register you as citizen or sell you a key.");
+talkEntry:addResponse("Be greeted, I am the notary of this town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -190,7 +193,7 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("I sell decrees and keys.");
+talkEntry:addResponse("I sell nothing, but I can register you as a citizen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,7 +204,7 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Ick verkauf nur Dekrete und Schlüssel.");
+talkEntry:addResponse("Ick verkauf nichts, aber ich kann Euch als Bürger eintragen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -244,8 +247,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 1));
 talkEntry:addResponse("I'd like to send my Grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -255,8 +258,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschenk aus Cadomyr"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
 talkEntry:addResponse("Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüsenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,8 +270,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 1));
 talkEntry:addResponse("I'd like to send my Grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -280,8 +283,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschenk aus Cadomyr"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
 talkEntry:addResponse("Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüsenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -291,11 +294,11 @@ talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 16, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] INFORM ..."));
+talkEntry:addResponse("Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 7));
-talkEntry:addResponse("Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -304,11 +307,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(0, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 16, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] INFORM..."));
+talkEntry:addResponse("Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 7));
-talkEntry:addResponse("Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -390,26 +393,26 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I sell decrees and keys, furthermore you can exchange decrees and get registered as citizen here.");
+talkEntry:addResponse("You can exchange decrees and get registered as citizen here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich verkaufe Dekrete und Schlüssel, außerdem könnt Ihr bei mir Dekrete einlösen und Euch als Bürger eintragen lassen.");
+talkEntry:addResponse("Hier könnt Ihr bei mir Dekrete einlösen und Euch als Bürger eintragen lassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I sell decrees and keys, furthermore you can exchange decrees and get registered as citizen here.");
+talkEntry:addResponse("You can exchange decrees and get registered as citizen here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich verkaufe Dekrete und Schlüssel, außerdem könnt ihr bei mir Dekrete einlösen und euch als Bürger eintragen lassen.");
+talkEntry:addResponse("Hier könnt ihr bei mir Dekrete einlösen und euch als Bürger eintragen lassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -794,8 +797,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Manyrs come from Gync, at least that's my impression.");
+talkEntry:addResponse("Many traders come from Gync, at least that's my impression.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -836,13 +838,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("A pleasure %CHARNAME, I am Redet Odohir. And who are you?");
+talkEntry:addResponse("A pleasure, I am Redet Odohir. And who are you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Freut mich %CHARNAME, ich bin Redet Odohir. Und wer seid Ihr?");
+talkEntry:addResponse("Freut mich, ich bin Redet Odohir. Und wer seid Ihr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -904,11 +906,19 @@ talkEntry:addTrigger(".*");
 talkEntry:addResponse("Willkommen in Cadomyr. Möchtet Ihr hier Bürger werden?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+tradingNPC:addNotEnoughMoneyMsg("Ihr habt nicht genug Geld.", "You don't have enought Money.");
+tradingNPC:addDialogClosedMsg("Danke euch.", "Thank you.");
+tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal.", "Hope to see you again!");
+tradingNPC:addWrongItemMsg("Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy that. Sorry.");
 talkingNPC:addCycleText("#me unterzeichnet ein Dokument.", "#me signs a document.");
 talkingNPC:addCycleText("#me befestigt ein Siegel an einem Brief.", "#me puts a seal under a letter.");
 talkingNPC:addCycleText("#me lächelt", "#me smilies");
 talkingNPC:addCycleText("#me macht sich ein paar Notizen.", "#me takes some notes.");
 talkingNPC:addCycleText("#me summt eine Melodie.", "#me hums a melody.");
+tradingNPC:addNotEnoughMoneyMsg("Ihr habt nicht genug Geld.", "You don't have enought Money.");
+tradingNPC:addDialogClosedMsg("Danke euch.", "Thank you.");
+tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal.", "Hope to see you again!");
+tradingNPC:addWrongItemMsg("Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy that. Sorry.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
@@ -929,6 +939,10 @@ mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 34);
 mainNPC:setEquipment(10, 45);
+tradingNPC:addNotEnoughMoneyMsg("Ihr habt nicht genug Geld.", "You don't have enought Money.");
+tradingNPC:addDialogClosedMsg("Danke euch.", "Thank you.");
+tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal.", "Hope to see you again!");
+tradingNPC:addWrongItemMsg("Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy that. Sorry.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

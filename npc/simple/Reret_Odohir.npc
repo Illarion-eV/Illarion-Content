@@ -49,10 +49,10 @@ itemShoes = 45
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
---tradeNotEnoughMoneyMsg "<deutsch>", "<englisch>"
---tradeFinishedMsg "<deutsch>", "<englisch>"
---tradeFinishedWithoutTradingMsg "<deutsch>", "<englisch>"
---tradeWrongItemMsg "<deutsch>", "<englisch>"
+tradeNotEnoughMoneyMsg "Ihr habt nicht genug Geld.", "You don't have enought Money."
+tradeFinishedMsg "Danke euch.", "Thank you."
+tradeFinishedWithoutTradingMsg "Bis zum nächsten mal.", "Hope to see you again!"
+tradeWrongItemMsg "Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy that. Sorry."
 --Thanks, but I already have everything I need.
 sellItems = 1, 2, 3
 buyPrimaryItems = 1
@@ -80,10 +80,10 @@ buySecondaryItems = 2, 3
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notar von Cadomyr. Schlüsselwörter: Dekret kaufen, Dekret einlösen, Schlüssel, Bürger werden.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Be greeted %CHARNAME, nice to see you here.", "Be greeted, I am the notary of this town. You can buy here decrees or exchange them. Also I can register you as citizen or sell you a key."
-"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid grüßt.", "Grüße.", "Grüße %CHARNAME, schön Euch mal wieder hier zu sehen.", "Zum Gruße, ich bin die Notarin dieser Stadt, bei mir könnt ihr Dekrete kaufen und einlösen.Außerdem könnst Ihr Euch hier Schlüssel kaufen und Euch als Bürger anmelden."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted.", "Greetings.", "Greetings %CHARNAME, nice to see you again", "Be greeted, I am the notary of this town. You can buy here decrees or exchange them. Also I can register you as citizen or sell you a key."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid grüßt.", "Grüße.",  "Be greeted, I am the notary of this town. You can buy here decrees or exchange them. Also I can register you as citizen or sell you a key."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Be greeted, nice to see you here.", "Be greeted, I am the notary of this town."
+"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid grüßt.", "Grüße.", "Grüße, schön Euch mal wieder hier zu sehen.", "Zum Gruße, ich bin die Notarin dieser Stadt."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted.", "Greetings.", "Greetings, nice to see you again", "Be greeted, I am the notary of this town."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid grüßt.", "Grüße.", "Be greeted, I am the notary of this town."
 "Farewell", "Bye", "Fare well", "See you" -> "Fare well!", "Bye!", "#me smiles at you and waves."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald!", "Bis bald", "#me lächelt dich an und winkt zum Abschied"
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Fare well!", "#me smiles at you and waves."
@@ -91,13 +91,13 @@ buySecondaryItems = 2, 3
 "How are you", "How feel", "How do you do" -> "I am fine and how are you?", "I'm fine. Thanks for asking."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut und wie geht es Euch?", "Eigentlich ganz gut, danke der Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Reret Odohir, Notary and citizen of Cadomyr."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" ->"Ich bin Reret Odohir, Notar und Bürger von Cadomyr."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" ->"Ich bin Reret Odohir, Notar und Bürger von Cadomyr."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I sell decrees and keys."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ick verkauf nur Dekrete und Schlüssel."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I sell nothing, but I can register you as a citizen."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ick verkauf nichts, aber ich kann Euch als Bürger eintragen."
 --"Danke nein, ich habe bereits alles, was ich brauche."
 --"Habt Ihr ein Dekret für mich oder wollt ihr vielleicht ein Dekret oder Schlüßel kaufen?"
 -- "Gut, ich trage euch als neuen Anführer dieser Stadt ein."/ "Good, I will enregister you as new leader of this town."
@@ -141,10 +141,10 @@ buySecondaryItems = 2, 3
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(150) = 2 -> "Seid vorsichtig, nicht nur die Wüste wird von Monstern bevölkert. Sondern auch die meisten abderen Orte.", "Danke nochmals für Eure Hilfe."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I sell decrees and keys, furthermore you can exchange decrees and get registered as citizen here."
-"beruf" -> "Ich verkaufe Dekrete und Schlüssel, außerdem könnt Ihr bei mir Dekrete einlösen und Euch als Bürger eintragen lassen."
-"job", english -> "I sell decrees and keys, furthermore you can exchange decrees and get registered as citizen here."
-"job" -> "Ich verkaufe Dekrete und Schlüssel, außerdem könnt ihr bei mir Dekrete einlösen und euch als Bürger eintragen lassen."
+"profession" -> "You can exchange decrees and get registered as citizen here."
+"beruf" -> "Hier könnt Ihr bei mir Dekrete einlösen und Euch als Bürger eintragen lassen."
+"job", english -> "You can exchange decrees and get registered as citizen here."
+"job" -> "Hier könnt ihr bei mir Dekrete einlösen und euch als Bürger eintragen lassen."
 "tell something" -> "Sand can be used to make glass, but I like it just the way it is. This place is full of sand, it is on the streets, inside my shoes, even the air is filled with sand if the wind is blowing. If you don't like sand, don't go to the desert.","I really like sand. Especially quarz sand "
 "erzähl was", "erzähl etwas" -> "Sand kann man nutzen um Glas daraus zu machen, aber ich mag Sand so wie er ist. Dieser Ort ist voll von Sand, er ist auf den Straßen, in meinen Schuhen, selbst in der Luft ist Sand, wenn der Wind weht. Wer keinen Sand mag, sollte nicht in die Wüste gehen. ","Ich mag Sand sehr gerne, besonders Quartzsand."
 
@@ -219,8 +219,8 @@ buySecondaryItems = 2, 3
 "Gobaith", "Gobiath" -> "Ich kenne diese Stadt nicht, haben die da auch Notare?"
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
-"my name" -> "A pleasure %CHARNAME, I am Redet Odohir. And who are you?"
-"mein Name" -> "Freut mich %CHARNAME, ich bin Redet Odohir. Und wer seid Ihr?"
+"my name" -> "A pleasure, I am Redet Odohir. And who are you?"
+"mein Name" -> "Freut mich, ich bin Redet Odohir. Und wer seid Ihr?"
 "Redet", "Odohir", english -> "That's me. How can I help you?"
 "Redet", "Odohir" -> "Das bin ich. Was kann ich für Euch tun?"
 "Yes" -> "#me smiles.","That what I expected to hear from you."
