@@ -244,8 +244,8 @@ function InitCraftingTool( )
 		------------------- FLASCHE MIT BÄRENTÖTER - 1316 ---------------------------
 		product = brewing:AddProduct( CurrentCatID, 1316, {56, 75 }, 1, { 19, 38 } );
 		product:AddProductionSteps( { 1317, 1, "all" }, 1, nil, { 1317, 1, 70 }  ); -- Schritt 6: leere Flasche(1317) 1x
-		product:AddProductionSteps( {  158, 2, "all" }, 2 ); -- Schritt 1 - 2: Knollenschwamm Pilz(158) 2x
-		product:AddProductionSteps( {  159, 2, "all" }, 2 ); -- Schritt 2 - 4: Fliegenpilz(159) 2x
+		product:AddProductionSteps( {  158, 2, "all" }, 4 ); -- Schritt 1 - 4: Apfel(15) 2x
+		product:AddProductionSteps( {  159, 2, "all" }, 2 ); -- Schritt 5 - 6: Fliegenpilz(159) 2x
 		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
         ------------------- FLASCHE MIT BÄRENTÖTER - FERTIG ---------------------------
 		
@@ -253,7 +253,7 @@ function InitCraftingTool( )
 		product = brewing:AddProduct( CurrentCatID, 1318, {87, 100 }, 1, { 27, 54 } );
 		product:AddProductionSteps( { 1317, 1, "all" }, 1, nil, { 1317, 1, 70 }  ); -- Schritt 6: leere Flasche(1317) 1x
 		product:AddProductionSteps( {  759, 1, "all" }, 2 ); -- Schritt 1 - 2: Nüsse(759) x1
-		product:AddProductionSteps( {  80, 1, "all" }, 1 ); -- Schritt 3: Banane(80) x1
+		product:AddProductionSteps( {  80, 3, "all" }, 1 ); -- Schritt 3: Beeren(81) x3
 		product:AddProductionSteps( {  2529, 2, "all" }, 1 ); -- Schritt 4: Honig(2529) x2
 		------------------- FLASCHE MIT ELBENWEIN - FERTIG ---------------------------
 		
