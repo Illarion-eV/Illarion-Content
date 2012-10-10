@@ -196,7 +196,7 @@ function onLogin( player )
 
 	if player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan" then
 		base.common.InformNLS( player,"Willkommen "..player.name..". Der NPC wird nun versetzt.","Welcome "..player.name..". The NPC will now be moved."); --sending the message
-		exchangeFactionLeader( player.name )
+		exchangeFactionLeader( player.name );
 	end
 
 	--TEMPORARY SOLUTION TO CATCH NEW PLAYERS
@@ -408,8 +408,8 @@ function exchangeFactionLeader( factionLeaderName )
 	else
 		npcPositions = {position(898, 775, 2), position(239, 104, 0)};
 	end
-	if world:isCharacterOnField(npcPositions[0]) == true then
-		npcCharObject = world:getCharacterOnField(npcPositions[0]);
-		npcCharObject:forcewarp(npcPositions[1]);
+	if world:isCharacterOnField(npcPositions[1]) == true then
+		npcCharObject = world:getCharacterOnField(npcPositions[1]);
+		npcCharObject:forcewarp(npcPositions[2]);
 	end
 end
