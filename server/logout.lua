@@ -39,7 +39,7 @@ function onLogout( theChar )
 	end
 	-- end tying
 
-	if theChar.name == ("Valerio Guilianni" or "Rosaline Edwards" or "Elvaine Morgan") then
+	if theChar.name == "Valerio Guilianni" or theChar.name == "Rosaline Edwards" or theChar.name == "Elvaine Morgan" then
 		exchangeFactionLeader( theChar.name )
 	end
 
