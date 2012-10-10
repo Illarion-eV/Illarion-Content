@@ -9,7 +9,7 @@ function onLogout( theChar )
 	  end
 
     world:gfx(31,theChar.pos); --A nice GFX that announces clearly: A player logged out.
-    
+
 	-- begin newbie island
     if (theChar:getQuestProgress(2) == 320) then -- Der Char. ist ein Newb und befindet sich gerade auf der Newbieinsel am Kaempfen
 		theChar:setQuestProgress(2,322);
@@ -18,7 +18,7 @@ function onLogout( theChar )
 		theChar:setQuestProgress(2,36);
     end
 	-- end newbie island
-	
+
 	-- begin tying
 	local foundEffect, Tying = theChar.effects:find(24);
 	if foundEffect then -- Char is a captive, save logout time
@@ -38,5 +38,12 @@ function onLogout( theChar )
 		end
 	end
 	-- end tying
+
+	if player.name == "Alsaya" then
+		npcDefaultPosition = position(122, 521, 0);
+		npcNewPosition = position(100, 100, 0);
+		npcCharObject = world:getCharacterOnField(npcNewPosition);
+		npcCharObject:warp(npcDefaultPosition);
+	end
 
 end
