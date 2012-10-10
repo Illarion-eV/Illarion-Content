@@ -39,11 +39,25 @@ function onLogout( theChar )
 	end
 	-- end tying
 
-	if theChar.name == "Alsaya" then
-		npcDefaultPosition = position(122, 521, 0);
-		npcNewPosition = position(122, 525, 0);
-		npcCharObject = world:getCharacterOnField(npcNewPosition);
-		npcCharObject:warp(npcDefaultPosition);
+	if theChar.name == ("Valerio Guilianni" or "Rosaline Edwards" or "Elvaine Morgan") then
+		exchangeFactionLeader( theChar.name )
 	end
 
+end
+
+-- Function to exchange the faction leader of a town.
+-- @factionLeaderName Name of the faction leader
+-- @npcPositions Array of position {default position, new position}
+function exchangeFactionLeader( factionLeaderName )
+	if factionLeaderName == "Rosaline Edwards" then
+		npcPositions = {position(122, 521, 0), position(237, 104, 0)};
+	elseif factionLeaderName == "Valerio Guilianni" then
+		npcPositions = {position(337, 215, 0), position(238, 104, 0)};
+	else
+		npcPositions = {position(898, 775, 2), position(239, 104, 0)};
+	end
+	if world:isCharacterOnField(npcPositions[1]) == true then
+		npcCharObject = world:getCharacterOnField(npcPositions[1]);
+		npcCharObject:forcewarp(npcPositions[0]);
+	end
 end

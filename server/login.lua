@@ -194,18 +194,8 @@ function onLogin( player )
 	    base.common.InformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
     end
 
-	if player.name == "Alsaya" then
-		base.common.InformNLS( player,"Hello world","Hello world");
-		npcDefaultPosition = position(122, 521, 0);
-		npcNewPosition = position(122, 525, 0);
-		if world:isCharacterOnField(npcDefaultPosition) == true then
-			base.common.InformNLS( player,"NPC gefunden","NPC found");
-			npcCharObject = world:getCharacterOnField(npcDefaultPosition);
-			npcCharObject:warp(npcNewPosition);
-		end
-		if world:isCharacterOnField(npcNewPosition) == true then
-			base.common.InformNLS( player,"NPC erfolgreich versetzt.","NPC moved successfully.");
-		end
+	if player.name == ("Valerio Guilianni" or "Rosaline Edwards" or "Elvaine Morgan") then
+		exchangeFactionLeader( player.name )
 	end
 
 	--TEMPORARY SOLUTION TO CATCH NEW PLAYERS
@@ -383,15 +373,18 @@ function payNow(User)
 
 	end
 
-    infText="You have thereby paid your monthly tribut. This month, it were"..estring..", which result from a tribute rate of "..(taxHeight*100).."%";
+	if player:getPlayerLanguage() == 0 then
+		infText="Du hast somit deinen monatlichen Tribut bezahlt. Diesen Monat waren es "..gstring..", was sich zusammensetzt aus einer Rate von "..(taxHeight*100).."%";
+		local dialog=MessageDialog("Tribut information",infText,closeTrib);
+	else
+		infText="You have thereby paid your monthly tribut. This month, it were"..estring..", which result from a tribute rate of "..(taxHeight*100).."%";
+		local dialog=MessageDialog("Tribute information",infText,closeTrib);
+	end
     --Please add the information to which town the tribute was paid ~Estralis
-	--German translation is missing ~Estralis
 
     local closeTrib=function(onClose)
     -- do nothing
     end
-
-    local dialog=MessageDialog("Tribute information",infText,closeTrib);
 
     User:requestMessageDialog(dialog);
 
@@ -405,4 +398,24 @@ function payNow(User)
         ScriptVars:set("taxTotal",tax);
 		ScriptVars:save();
     end
+end
+
+-- Function to exchange the faction leader of a town.
+-- @factionLeaderName Name of the faction leader
+-- @npcPositions Array of position {default position, new position}
+function exchangeFactionLeader( factionLeaderName )
+	if factionLeaderName == "Rosaline Edwards" then
+		npcPositions = {position(122, 521, 0), position(237, 104, 0)};
+	elseif factionLeaderName == "Valerio Guilianni" then
+		npcPositions = {position(337, 215, 0), position(238, 104, 0)};
+	else
+		npcPositions = {position(898, 775, 2), position(239, 104, 0)};
+	end
+	if world:isCharacterOnField(npcPositions[0]) == true then
+		npcCharObject = world:getCharacterOnField(npcPositions[0]);
+		npcCharObject:forcewarp(npcPositions[1]);
+		if world:isCharacterOnField(npcPositions[1]) == true then
+			base.common.InformNLS( player,"NPC erfolgreich versetzt.","NPC moved successfully.");
+		end
+	end
 end
