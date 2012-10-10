@@ -195,6 +195,7 @@ function onLogin( player )
     end
 
 	if player.name == ("Valerio Guilianni" or "Rosaline Edwards" or "Elvaine Morgan") then
+		base.common.InformNLS( player,"Willkommen "..player.name..". Der NPC wird nun versetzt.","Welcome "..player.name..". The NPC will now be moved."); --sending the message
 		exchangeFactionLeader( player.name )
 	end
 
