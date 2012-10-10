@@ -410,6 +410,6 @@ function exchangeFactionLeader( factionLeaderName )
 	end
 	if world:isCharacterOnField(npcPositions[1]) == true then
 		npcCharObject = world:getCharacterOnField(npcPositions[1]);
-		npcCharObject:forcewarp(npcPositions[2]);
+		npcCharObject:forceWarp(npcPositions[2]);
 	end
 end
