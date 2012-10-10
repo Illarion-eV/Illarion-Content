@@ -198,8 +198,11 @@ function onLogin( player )
 		base.common.InformNLS( player,"Hello world","Hello world");
 		npcDefaultPosition = position(122, 521, 0);
 		npcNewPosition = position(100, 100, 0);
-		npcCharObject = world:getCharacterOnField(npcDefaultPosition);
-		npcCharObject:warp(npcNewPosition);
+		if world:isCharacterOnField(npcDefaultPosition) == true then
+			base.common.InformNLS( player,"NPC gefunden","NPC found");
+			npcCharObject = world:getCharacterOnField(npcDefaultPosition);
+			npcCharObject:warp(npcNewPosition);
+		end
 		if world:isCharacterOnField(npcNewPosition) == true then
 			base.common.InformNLS( player,"NPC erfolgreich versetzt.","NPC moved successfully.");
 		end

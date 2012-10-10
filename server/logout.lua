@@ -39,7 +39,7 @@ function onLogout( theChar )
 	end
 	-- end tying
 
-	if player.name == "Alsaya" then
+	if theChar.name == "Alsaya" then
 		npcDefaultPosition = position(122, 521, 0);
 		npcNewPosition = position(100, 100, 0);
 		npcCharObject = world:getCharacterOnField(npcNewPosition);
