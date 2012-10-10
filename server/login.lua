@@ -197,7 +197,7 @@ function onLogin( player )
 	if player.name == "Alsaya" then
 		base.common.InformNLS( player,"Hello world","Hello world");
 		npcDefaultPosition = position(122, 521, 0);
-		npcNewPosition = position(100, 100, 0);
+		npcNewPosition = position(122, 525, 0);
 		if world:isCharacterOnField(npcDefaultPosition) == true then
 			base.common.InformNLS( player,"NPC gefunden","NPC found");
 			npcCharObject = world:getCharacterOnField(npcDefaultPosition);

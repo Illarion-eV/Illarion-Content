@@ -41,7 +41,7 @@ function onLogout( theChar )
 
 	if theChar.name == "Alsaya" then
 		npcDefaultPosition = position(122, 521, 0);
-		npcNewPosition = position(100, 100, 0);
+		npcNewPosition = position(122, 525, 0);
 		npcCharObject = world:getCharacterOnField(npcNewPosition);
 		npcCharObject:warp(npcDefaultPosition);
 	end
