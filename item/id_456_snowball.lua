@@ -22,9 +22,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local myValue1
 	local myValue2
 	local myInform = ""
+	local myCounter
 	if (string.find(User.lastSpokenText,"distribution")~=nil) then
+		myCounter = base.common.NormalRnd2(1,9,10)
 		for i=1,100 do
-		    myValue = base.common.NormalRnd2(1, 9, 15)
+		    myValue = base.common.NormalRnd2(1, 9, myCounter)
 		    myInform = myInform.." "..myValue
 		end	
 		User:inform(myInform)
