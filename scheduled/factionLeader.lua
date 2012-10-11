@@ -13,7 +13,7 @@ function checkFactionLeader()
 			updatePosition(npcPositions)
 		elseif playerName == "Valerio Guilianni" then
 			npcPositions = {position(337, 215, 0), position(238, 104, 0)};
-u			pdatePosition(npcPositions)
+			updatePosition(npcPositions)
 		elseif playerName == "Elvaine Morgan" then
 			npcPositions = {position(898, 775, 2), position(239, 104, 0)};
 			updatePosition(npcPositions)
