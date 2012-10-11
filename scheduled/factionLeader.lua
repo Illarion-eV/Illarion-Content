@@ -4,16 +4,17 @@ require("base.common")
 
 module("scheduled.factionLeader", package.seeall)
 
+local informationTable = {
+	"Rosaline Edwards"= {usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)},
+	"Valerio Guilianni" = {usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)},
+	"Elvaine Morgan" = {usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)}
+}
+
 function checkFactionLeader()
-	if base.common.CheckIfOnline("Rosaline Edwards")[1] == true then
-		npcPositions = {usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)};
-		updatePosition(npcPositions)
-	elseif base.common.CheckIfOnline("Valerio Guilianni")[1] == true then
-		npcPositions = {usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)};
-		updatePosition(npcPositions)
-	elseif base.common.CheckIfOnline("Elvaine Morgan")[1] == true then
-		npcPositions = {usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)};
-		updatePosition(npcPositions)
+	for name, npcPositions in pairs(informationTable) do
+		if base.common.CheckIfOnline(informationTable.name)[1] ~= nil then
+			updatePosition(informationTable.npcPositions)
+		end
 	end
 end
 
