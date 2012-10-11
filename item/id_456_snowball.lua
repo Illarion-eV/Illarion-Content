@@ -18,8 +18,13 @@ end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- merung's test land -- 
+	local myValue
+	local myInform = ""
 	if (string.find(User.lastSpokenText,"distribution")~=nil) then
-		local myValue = base.common.NormalRnd2(1, 9, 3)
-		User:inform(""..myValue)
+		for i=1,100 do
+		    myValue = base.common.NormalRnd2(1, 9, 3)
+		    myInform = myInform.." "..myValue
+		end	
+		User:inform(myInform)
     end
 end
