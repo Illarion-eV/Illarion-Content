@@ -5,19 +5,15 @@ require("base.common")
 module("scheduled.factionLeader", package.seeall)
 
 function checkFactionLeader()
-
-	players=world:getPlayersOnline()
-	for index, player in pairs(players) do
-		if player.name == "Rosaline Edwards" then
-			npcPositions = {usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)};
-			updatePosition(npcPositions)
-		elseif player.name == "Valerio Guilianni" then
-			npcPositions = {usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)};
-			updatePosition(npcPositions)
-		elseif player.name == "Elvaine Morgan" then
-			npcPositions = {usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)};
-			updatePosition(npcPositions)
-		end
+	if base.common.CheckIfOnline("Rosaline Edwards")[1] == true then
+		npcPositions = {usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)};
+		updatePosition(npcPositions)
+	elseif base.common.CheckIfOnline("Valerio Guilianni")[1] == true then
+		npcPositions = {usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)};
+		updatePosition(npcPositions)
+	elseif base.common.CheckIfOnline("Elvaine Morgan")[1] == true then
+		npcPositions = {usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)};
+		updatePosition(npcPositions)
 	end
 end
 
