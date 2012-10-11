@@ -2,6 +2,7 @@
 require("base.common")
 require("base.money")
 require("content.dailymessage")
+require("npc.aldania_elthewan")
 
 module("server.login", package.seeall);
 
@@ -12,53 +13,53 @@ function onLogin( player )
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
 	base.common.InformNLS(player,"[Login] Willkomme auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
-    
+
 	-- So let there be taxes!
 	payTaxes(player);
 
 	--Noobia handling
-	if (player.pos.z == 100) or (player.pos.z == 101) then --On Noobia	
-	
+	if (player.pos.z == 100) or (player.pos.z == 101) then --On Noobia
+
 	    if not player:isAdmin() then --non admin chars need help!
-		
+
             player:pageGM("This player just logged in on Noobia.");
-			
+
 		end
-		
+
 		found, myEffect = player.effects:find(13); --Noob effect
-			
+
 		if not found then --new player!
-		
+
             newbieEffect = LongTimeEffect(13,1);
 		    player.effects:addEffect(newbieEffect);
-					    
+
 		end
 
 		if  player:isInRangeToPosition(position(31,22,100),7) then --only show the dialog if the char is close to the noob spawn
-		
+
 		    local callbackNewbie = function(dialogNewbie) end; --empty callback
-		
-		    if player:getPlayerLanguage() == 0 then		
+
+		    if player:getPlayerLanguage() == 0 then
 			    dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du bist von Bord des Schiffes gegangen, welches dich zu den letzten sicheren Bastionen der Menscheit Illarions gebracht hat. Das edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen? Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie);
-		    else		
+		    else
 			    dialogNewbie = MessageDialog("Welcome to Illarion!", "A long journey comes to an end. You disembarked the ship that brought you to Illarion's last save strongholds of mankind. Noble Cadomyr, wise Runewick or wealthy Galmair - which way will you chose? Welcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and teach you the controls of the game. You may skip the tutorial at any time by saying 'skip tutorial' to a NPC.", callbackNewbie);
-		    end	
-		
+		    end
+
 		    player:requestMessageDialog(dialogNewbie); --showing the welcome text
-			
+
 		end --Dialog
-		
+
     end --Noobia end
-	
+
     if (player.pos.z ~= 100) and (player.pos.z~= 101) then --Not on Noobia, confuses noobs
-	
+
 		--Messages of the day
 		--German
 		messageG={};
 		messageG[1]="[Tipp] Leichte Rüstungen aus Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.";
 		messageG[2]="[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stichwaffen.";
 		messageG[3]="[Tipp] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stichwaffen aber schlecht gegen stumpfe Waffen.";
-		messageG[4]="[Tipp] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!";	
+		messageG[4]="[Tipp] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!";
 		messageG[5]="[Tipp] Bitte besuche uns auch im IRC-Chat: #illarion auf Quakenet.";
 		messageG[6]="[Tipp] Im Forum sind viele interessante Diskussion und Informationen zu finden. Meld dich gleich an!";
 		messageG[7]="[Tipp] Wenn du einen Gamemaster erreichen möchtest, schreibe !gm <Deine Nachricht> im Chatfenster.";
@@ -79,7 +80,7 @@ function onLogin( player )
 		messageG[22]="[Tipp] Sirani ist die Göttin der Liebe und der Freude.";
 		messageG[23]="[Tipp] Zhambra ist der Gott der Freundschaft und Treue.";
 		messageG[24]="[Tipp] Cadomyr ist das Reich der Ehre.";
-		messageG[25]="[Tipp] Runewick ist das Reich der Weisheit.";		
+		messageG[25]="[Tipp] Runewick ist das Reich der Weisheit.";
 		messageG[26]="[Tipp] Galmair ist das Reich des Reichtums.";
 		messageG[27]="[Tipp] Manchen Monstern sollte man lieber nicht alleine begegnen.";
 		messageG[28]="[Tipp] Gegenstände von geringer Haltbarkeit drohen zu zerbrechen. Ein Fachmann kann sie ausbessern.";
@@ -120,7 +121,7 @@ function onLogin( player )
 		messageG[63]="[Tipp] Laufen ist schneller als Gehen - halte die linke Maustaste gedrückt um zu laufen."
 		messageG[64]="[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter."
 		messageG[65]="[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du DIES UND DAS MACHST."
-		
+
 		--English
 		messageE={};
 		messageE[1]="[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons.";
@@ -128,7 +129,7 @@ function onLogin( player )
 		messageE[3]="[Hint] Heavy armours, such as those made from sturdy metal plates, offer good protection against puncture weapons but are vulnerable to blunt weapons.";
 		messageE[4]="[Hint] We play with, not against each other. Have fun playing!";
 		messageE[5]="[Hint] Please join our IRC chat: #illarion on Quakenet.";
-		messageE[6]="[Hint] The forum contains many interesting discussions and a lot of useful information. Register today!";	
+		messageE[6]="[Hint] The forum contains many interesting discussions and a lot of useful information. Register today!";
 		messageE[7]="[Hint] If you want to contact a gamemaster, type !gm <Your message> in the chat box.";
 		messageE[8]="[Hint] Brágon is the God of fire.";
 		messageE[9]="[Hint] Eldan is the God of spirit.";
@@ -172,7 +173,7 @@ function onLogin( player )
 		messageE[47]="[Hint] The best glass blowers are living in Cadomyr.";
 		messageE[48]="[Hint] The best diggers are living in Cadomyr.";
 		messageE[49]="[Hint] The best finesmiths are living in Cadomyr.";
-		messageE[50]="[Hint] The best gem grinders are living in Cadomyr.";	
+		messageE[50]="[Hint] The best gem grinders are living in Cadomyr.";
 		messageE[51]="[Hint] Each realm specialises in certain crafts. If you can't find what you are looking for in your home market, you may need to travel abroad.";
 		messageE[52]="[Hint] If you ever get stuck while communicating with an NPC, the 'help' command will provide you with a list of useful topics.";
 		messageE[53]="[Hint] Fruit trees have saved the lives of countless starving travellers. You will soon find yourself needing a more filling meal, though.";
@@ -188,11 +189,16 @@ function onLogin( player )
         messageE[63]="[Hint] Running is faster than walking - hold down the left mouse button to run.";
         messageE[64]="[Hint] Most NPCs react on 'help' with a list of their most important keywords.";
         messageE[65]="[Hint] You can review the skills of your character by DOING THIS AND THAT.";
-		
+
 	    dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	    base.common.InformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
     end
-	
+
+	if player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan" then
+		base.common.InformNLS( player,"Willkommen "..player.name..". Der NPC wird nun versetzt.","Welcome "..player.name..". The NPC will now be moved."); --sending the message
+		exchangeFactionLeader( player.name );
+	end
+
 	--TEMPORARY SOLUTION TO CATCH NEW PLAYERS
 	if player:getMentalCapacity() < 1999 or player:getQuestProgress(122) == 0 then --Mental Capacity CANNOT drop below 1999 -> New player or cheater. However, new players should start with a higher value
 	    player:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
@@ -200,15 +206,15 @@ function onLogin( player )
 		player:setQuestProgress(122,1); --Saving the information that the player went throuh this process
 	end
 	--TEMPORARY SOLUTION END
-	
+
 	player:increaseAttrib("foodlevel",-1);
-	
+
 	-- Überprüfung für korrekt initiertes Regenerationsskript
 	find, reg_effect = player.effects:find(2);
 	if not find then
 		player.effects:addEffect( LongTimeEffect(2,10) );
 	end
-	
+
 	--Checking longterm cooldown
 	find, reg_effect = player.effects:find(33);
 	if not find then
@@ -220,7 +226,7 @@ function onLogin( player )
 	if find then
 		player.effects:removeEffect(18);
 	end
-	
+
 	-- Cold effect removed for the time being (annoying!!!)
 	find, coldEffekt = player.effects:find(3);
 	if find then
@@ -315,10 +321,10 @@ end
 
 function payNow(User)
 --cadomyr = 101
---runewick = 102 
+--runewick = 102
 --galmair = 103
 --gasthof = 104 (der ist aber unwichtig, da das keine stadt ist)
-    
+
     taxHeight=0.05;  -- 5% taxes for testing purposes
     -- *** DEPOT-LIST HAS TO BE CHANGED ACCORDING TO FACTION MEMBERSHIP! ***
     depNr={101,104};
@@ -331,7 +337,7 @@ function payNow(User)
     val=valBody+valDepot[1]+valDepot[2];
     tax=math.floor(val*taxHeight);
     totTax=tax;
-    
+
     -- try to get it from homedepot:
     if tax<=valDepot[1] then
         base.money.TakeMoneyFromDepot(User,tax,depNr[1]);
@@ -348,35 +354,34 @@ function payNow(User)
         tax=tax-valDepot[2];
         base.money.TakeMoneyFromChar(User,tax);
     end
-        
+
     gp,sp,cp=base.money.MoneyToCoins(totTax)
-	
+
 	if totTax >= 10000 then -- at least one gold coin
-	
+
 	    estring=" "..gp.." gold coins, "..sp.." silver coins and "..cp.." copper coins";
 		gstring=" "..gp.." Goldstücke, "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
 
     elseif totTax >= 100 then -- at least one silver coin
-	
+
 		estring=" "..sp.." silver coins and "..cp.." copper coins";
 		gstring=" "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
-		
+
 	else -- just copper coins
-	
+
 		estring=" "..cp.." copper coins";
 		gstring=" "..cp.." Kupferstücke"; --what a name for a variable...
-		
+
 	end
-		
-    infText="You have thereby paid your monthly tribut. This month, it were"..estring..", which result from a tribute rate of "..(taxHeight*100).."%";
+
+	infText="You have thereby paid your monthly tribut. This month, it were"..estring..", which result from a tribute rate of "..(taxHeight*100).."%";
+	local dialog=MessageDialog("Tribute information",infText,closeTrib);
     --Please add the information to which town the tribute was paid ~Estralis
-	--German translation is missing ~Estralis
-	
+	--German translation is missing
+
     local closeTrib=function(onClose)
     -- do nothing
     end
-
-    local dialog=MessageDialog("Tribute information",infText,closeTrib);
 
     User:requestMessageDialog(dialog);
 
@@ -389,5 +394,22 @@ function payNow(User)
     else
         ScriptVars:set("taxTotal",tax);
 		ScriptVars:save();
-    end    
+    end
+end
+
+-- Function to exchange the faction leader of a town.
+-- @factionLeaderName Name of the faction leader
+-- @npcPositions Array of position {default position, new position}
+function exchangeFactionLeader( factionLeaderName )
+	if factionLeaderName == "Rosaline Edwards" then
+		npcPositions = {position(122, 521, 0), position(237, 104, 0)};
+	elseif factionLeaderName == "Valerio Guilianni" then
+		npcPositions = {position(337, 215, 0), position(238, 104, 0)};
+	else
+		npcPositions = {position(898, 775, 2), position(239, 104, 0)};
+	end
+	if world:isCharacterOnField(npcPositions[1]) == true then
+		npcCharObject = world:getCharacterOnField(npcPositions[1]);
+		npcCharObject:forceWarp(npcPositions[2]);
+	end
 end
