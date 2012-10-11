@@ -687,7 +687,7 @@ function NormalRnd2(minVal, maxVal, count)
     for _ = 1, count do
         base = base + math.random(maxVal - minVal + 1) - 1;
     end;
-    return math.ceil(base / 10) + minVal;
+    return math.ceil(base / count) + minVal;
 end;
 
 --- Create 2 normally distributed (independent!) numbers with the Box-Muller method
