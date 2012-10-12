@@ -26,6 +26,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local erwart
 	local std; local a; local b
 	local counterList = {}
+	for i=1,9 do
+	    counterList[i] = {}
+	end	
 	if (string.find(User.lastSpokenText,"vert")~=nil) then
 		a,b,erwart,std = string.find(User.lastSpokenText,"(%d+) (%d+)")
 		std = tonumber(std)
@@ -37,7 +40,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				myValue = math.floor((myValue + 0.5))
 			until myValue > 0 and myValue < 10
 			myInform = myInform.." "..myValue
-		    table.insert (counterList[myValue],myValue)
+		    
+			table.insert (counterList[myValue],myValue)
 		end	
 		for i=1,9 do
 		    User:inform("[i] = "..#counterList[i])
