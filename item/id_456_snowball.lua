@@ -23,12 +23,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local myValue2
 	local myInform = ""
 	local myCounter
+	local erwart
 	local std; local a; local b
 	if (string.find(User.lastSpokenText,"vert")~=nil) then
-		a,b,std = string.find(User.lastSpokenText,"(%d+)")
+		a,b,,erwart,std = string.find(User.lastSpokenText,"(%d+)")
 		std = tonumber(std)
 		for i=1,100 do
-		    myValue =Random.normal(9,std)
+		    myValue =Random.normal(erwart,std)
 			myValue = math.floor((myValue + 0.5))
 			myInform = myInform.." "..myValue
 		end	
