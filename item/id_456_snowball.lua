@@ -26,7 +26,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local erwart
 	local std; local a; local b
 	if (string.find(User.lastSpokenText,"vert")~=nil) then
-		a,b,,erwart,std = string.find(User.lastSpokenText,"(%d+)")
+		a,b,erwart,std = string.find(User.lastSpokenText,"(%d+)")
 		std = tonumber(std)
 		for i=1,100 do
 		    myValue =Random.normal(erwart,std)
