@@ -44,7 +44,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			table.insert (counterList[myValue],myValue)
 		end	
 		for i=1,9 do
-		    User:inform("[i] = "..#counterList[i])
+		    User:inform("["..i.."] = "..#counterList[i])
 		end	
 	end
 end	
