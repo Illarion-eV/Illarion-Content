@@ -280,7 +280,7 @@ function GatheringCraft:GenWorkTime(User, toolItem)
     end
     
     -- draw a sample from a normal distribution
-    local workTime = base.common.NormalBoxMuller(0,sdev);
+    local workTime = Random:normal(0, sdev)
     -- depending on dir, add or subtract the time
     workTime = mean + dir*math.abs(workTime);
     workTime = math.min(maxTime, math.max(minTime, workTime));

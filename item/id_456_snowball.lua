@@ -31,7 +31,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end	
 		User:inform(myInform)
 		--[[for i=1,100 do 
-		    myValue1, myValue2=base.common.NormalBoxMuller(0, 2)
+		    myValue1, myValue2=Random:normal(0, 2)
 			myInform = myInform.." "..myValue1
 	    end
 		User:inform(myInform)]]
