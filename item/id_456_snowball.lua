@@ -28,6 +28,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if (string.find(User.lastSpokenText,"vert")~=nil) then
 		a,b,erwart,std = string.find(User.lastSpokenText,"(%d+) (%d+)")
 		std = tonumber(std)
+		erwart = tonumber(erwart)
 		for i=1,100 do
 		    myValue =Random.normal(erwart,std)
 			myValue = math.floor((myValue + 0.5))
