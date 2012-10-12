@@ -24,7 +24,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local myInform = ""
 	local myCounter
 	local std; local a; local b
-	if (string.find(User.lastSpokenText,"vert")~=nil then
+	if (string.find(User.lastSpokenText,"vert")~=nil) then
 		a,b,std = string.find(User.lastSpokenText,"(%d+)")
 		std = tonumber(std)
 		for i=1,100 do
