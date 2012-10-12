@@ -29,6 +29,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		std = tonumber(std)
 		for i=1,100 do
 		    myValue =Random.normal(9,std)
+			myValue = math.floor((myValue + 0.5))
 			myInform = myInform.." "..myValue
 		end	
 		User:inform(myInform)
