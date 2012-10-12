@@ -31,8 +31,8 @@ end
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     if (User.lastSpokenText == "random") then
-        User:inform("uniform: " .. Random:uniform())
-        User:inform("d6: " .. Random:uniform(1, 6))
+        -- User:inform("uniform: " .. Random:uniform())
+        -- User:inform("d6: " .. Random:uniform(1, 6))
         User:inform("normal: " .. Random:normal(0, 1))
     end
 
