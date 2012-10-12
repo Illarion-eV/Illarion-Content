@@ -32,6 +32,5 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			myInform = myInform.." "..myValue
 		end	
 		User:inform(myInform)
-		
     end
-end
+end	

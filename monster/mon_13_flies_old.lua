@@ -82,7 +82,7 @@ function onDeath(Monster)
 	return;
 	end
 	
-    if killer[Monster.id] ~= nil then   -- last one who attacked
+    if killer and killer[Monster.id] ~= nil then   -- last one who attacked
 
         murderer=getCharForId(killer[Monster.id]); -- get hold of character struct
     
