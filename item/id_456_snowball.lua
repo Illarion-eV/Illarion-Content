@@ -30,8 +30,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		std = tonumber(std)
 		erwart = tonumber(erwart)
 		for i=1,100 do
-		    myValue =Random.normal(erwart,std)
-			myValue = math.floor((myValue + 0.5))
+		    myValue = 10
+			repeat 
+				myValue =Random.normal(erwart,std)
+				myValue = math.floor((myValue + 0.5))
+			until myValue > 0 and myValue < 10
 			myInform = myInform.." "..myValue
 		end	
 		User:inform(myInform)
