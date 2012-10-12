@@ -28,7 +28,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		a,b,std = string.find(User.lastSpokenText,"(%d+)")
 		std = tonumber(std)
 		for i=1,100 do
-		    myValue = math.floor(0.5+Random.normal(5,std))
+		    myValue =Random.normal(9,std)
 			myInform = myInform.." "..myValue
 		end	
 		User:inform(myInform)
