@@ -318,7 +318,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me II"));
-talkEntry:addResponse("Ssso, you came to help me again? zss. Thatsss very nice of you. Sss. Pleassse bring 10  to an NPC ");
+talkEntry:addResponse("Ssso, you came to help me again? zss. Thatsss very nice of you. Sss. Pleassse bring 10 ?? to an NPC ");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
