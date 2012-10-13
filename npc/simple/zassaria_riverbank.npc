@@ -13,7 +13,7 @@
 name = "Zassaria Riverbank"
 race = lizardman
 sex = female
-position = 900, 800, 1
+position = 908, 812, 1
 direction = east
 affiliation = "Runewick"
 job = "Messaege quest giver"
@@ -120,10 +120,10 @@ english, ".+", queststatus(701) = 2, town=runewick-> inform("[Quest solved] You 
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(701) = 3 -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
 
 -- 2nd quest: Bring some 15 Fish to ??
-"quest", "mission", queststatus(701) = 3, english -> inform("[New quest] Ask for me II"), "Ssso, you came to help me again? zss. Thatsss very nice of you. Sss. Pleassse bring 10 ?? to an NPC ", queststatus(701) = 4
+"quest", "mission", queststatus(701) = 3, english -> inform("[New quest] Ask for me II"), "Ssso, you came to help me again? zss. Thatsss very nice of you. Sss. Pleassse bring 10  to an NPC ", queststatus(701) = 4
 "quest", "mission", queststatus(701) = 3 -> inform("[Neues Quest] Frag für mich II"), "...", queststatus(701) = 4
-"task", "adventure", "order", queststatus(701) = 3 -> inform("[New quest] ask for me II") "...", queststatus(118) = 4
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(701) = 3 -> inform("[Neues Quest] NAME I")"....", queststatus(118) = 4
+"task", "adventure", "order", queststatus(701) = 3 -> inform("[New quest] ask for me II"), "...", queststatus(118) = 4
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(701) = 3 -> inform("[Neues Quest] NAME I"),"....", queststatus(118) = 4
 
 -- 2nd quest solved, Bring some Fish to ?? old hat(1318)
 ".+", queststatus(701) = 4, item(1318, all) > 9, english -> inform("[Quest solved] INFORM ..."), "...", deleteItem (1318, 1), item(356,0,0,0), queststatus(118) = 2

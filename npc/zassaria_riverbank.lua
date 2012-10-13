@@ -2,7 +2,7 @@
 -- NPC Name: Zassaria Riverbank                                      Runewick --
 -- NPC Job:  Messaege quest giver                                             --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  900, 800, 1            --
+-- NPC Race: lizardman                  NPC Position:  908, 812, 1            --
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (5, 900, 800, 1, 2, 'Zassaria Riverbank', 'npc.zassaria_riverbank', 1, 3, 0, 70, 77, 0, 70, 52, 0);
+VALUES (5, 908, 812, 1, 2, 'Zassaria Riverbank', 'npc.zassaria_riverbank', 1, 3, 0, 70, 77, 0, 70, 52, 0);
 ---]]
 
 require("npc.base.basic")
@@ -318,7 +318,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me II"));
-talkEntry:addResponse("Ssso, you came to help me again? zss. Thatsss very nice of you. Sss. Pleassse bring 10 ?? to an NPC ");
+talkEntry:addResponse("Ssso, you came to help me again? zss. Thatsss very nice of you. Sss. Pleassse bring 10  to an NPC ");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -338,7 +338,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.inform.inform(""[New quest] ask for me II""));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] ask for me II"));
 talkEntry:addResponse("...");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -350,7 +350,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.inform.inform(""[Neues Quest] NAME I""));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] NAME I"));
 talkEntry:addResponse("....");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
