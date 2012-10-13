@@ -10,7 +10,7 @@
 -- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
-name = "Fijanna Spuall"
+name = "Fijanna Squall"
 race = human
 sex = female
 position = 670, 323, 0

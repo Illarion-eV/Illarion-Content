@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Fijanna Spuall                                              None --
+-- NPC Name: Fijanna Squall                                              None --
 -- NPC Job:  fortune teller                                                   --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  670, 323, 0            --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 670, 323, 0, 4, 'Fijanna Spuall', 'npc.fijanna_spuall', 1, 1, 0, 188, 91, 13, 253, 227, 205);
+VALUES (0, 670, 323, 0, 4, 'Fijanna Squall', 'npc.fijanna_squall', 1, 1, 0, 188, 91, 13, 253, 227, 205);
 ---]]
 
 require("npc.base.basic")
@@ -24,7 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.money")
 require("npc.base.consequence.state")
 require("npc.base.talk")
-module("npc.fijanna_spuall", package.seeall)
+module("npc.fijanna_squall", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
