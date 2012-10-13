@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Zassaeria Riverbank                                     Runewick --
+-- NPC Name: Zassaria Riverbank                                     Runewick --
 -- NPC Job:  Questgiver                                                   --
 --                                                                            --
 -- NPC Race: lizzard      NPC Position:  900, 800, 1 (Runewick marekt place)  --
@@ -13,7 +13,7 @@
 name = "Zassaria Riverbank"
 race = lizardman
 sex = female
-position = 908, 812, 1
+position = 900, 800, 1
 direction = east
 affiliation = "Runewick"
 job = "Messaege quest giver"
@@ -126,8 +126,8 @@ english, ".+", queststatus(701) = 2, town=runewick-> inform("[Quest solved] You 
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(701) = 3 -> inform("[Neues Quest] NAME I")"....", queststatus(118) = 4
 
 -- 2nd quest solved, Bring some Fish to ?? old hat(1318)
-".+", queststatus(118) = 1, item(1318, all) > 9, english -> inform("[Quest solved] INFORM ..."), "...", deleteItem (1318, 1), item(356,0,0,0), queststatus(118) = 2
-".+", queststatus(118) = 1, item(1318, all) > 9 -> inform("[Quest gelößt] INFORM..."), "...", deleteItem(1318, 1), item(356,0,0,0), queststatus(118) = 2
+".+", queststatus(701) = 4, item(1318, all) > 9, english -> inform("[Quest solved] INFORM ..."), "...", deleteItem (1318, 1), item(356,0,0,0), queststatus(118) = 2
+".+", queststatus(701) = 4, item(1318, all) > 9 -> inform("[Quest gelößt] INFORM..."), "...", deleteItem(1318, 1), item(356,0,0,0), queststatus(118) = 2
 
 -- 2nd questc , Bring some Fish to ??, not solved repeat the instructions
 "quest", "mission", queststatus(118) = 1, english -> "..."
