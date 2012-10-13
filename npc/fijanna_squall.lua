@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: September 30, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 13, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -24,23 +24,21 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.money")
 require("npc.base.consequence.state")
 require("npc.base.talk")
-require("npc.base.trade")
 module("npc.fijanna_spuall", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Fijanna Spuall the fortune teler. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Fijanna Squall the fortune teler. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Fijanna Spuall die Wahrsagerin. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Fijanna Squall die Wahrsagerin. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -442,16 +440,10 @@ talkingNPC:addCycleText("#me schließt für einen Moment ihre Augen.", "#me closes
 talkingNPC:addCycleText("Ich spüre den Wind...", "I feel the wind...");
 talkingNPC:addCycleText("Kannst du den Wind hören?", "Can you hear the wind?");
 talkingNPC:addCycleText("#me atmet tief ein.", "#me takes a deep breath.");
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Fijanna Spuall die Wahrsagerin.", "This NPC is Fijanna Spuall the fortune teller.");
+mainNPC:setLookat("Dieser NPC ist Fijanna Squall die Wahrsagerin.", "This NPC is Fijanna Squall the fortune teller.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);

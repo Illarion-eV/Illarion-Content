@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Fijanna Spuall                                              None --
+-- NPC Name: Fijanna Squall                                              None --
 -- NPC Job:  fortune telling Findari priest                                   --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  670, 323, 0            --
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Miriam"
 
-lookatDE = "Dieser NPC ist Fijanna Spuall die Wahrsagerin."
-lookatUS = "This NPC is Fijanna Spuall the fortune teller."
+lookatDE = "Dieser NPC ist Fijanna Squall die Wahrsagerin."
+lookatUS = "This NPC is Fijanna Squall the fortune teller."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
@@ -50,10 +50,6 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 1, 2, 3
-buyPrimaryItems = 1
-buySecondaryItems = 2, 3
-
 -- Template Version 1.07, 08/30/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
@@ -72,8 +68,8 @@ buySecondaryItems = 2, 3
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Fijanna Spuall the fortune teler. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Fijanna Spuall die Wahrsagerin. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Fijanna Squall the fortune teler. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Fijanna Squall die Wahrsagerin. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted in the name of the godess of air.", "Greetings, traveler."
