@@ -244,8 +244,9 @@ function InitCraftingTool( )
 		------------------- FLASCHE MIT BÄRENTÖTER - 1316 ---------------------------
 		product = brewing:AddProduct( CurrentCatID, 1316, {56, 75 }, 1, { 19, 38 } );
 		product:AddProductionSteps( { 1317, 1, "all" }, 1, nil, { 1317, 1, 70 }  ); -- Schritt 6: leere Flasche(1317) 1x
-		product:AddProductionSteps( {  158, 2, "all" }, 4 ); -- Schritt 1 - 4: Apfel(15) 2x
-		product:AddProductionSteps( {  159, 2, "all" }, 2 ); -- Schritt 5 - 6: Fliegenpilz(159) 2x
+		product:AddProductionSteps( {  15, 2, "all" }, 4 ); -- Schritt 1 - 4: Apfel(15) 2x
+		product:AddProductionSteps( {  2529, 2, "all" }, 1 ); -- Schritt 5: Honig(2529) x2
+		product:AddProductionSteps( {  159, 1, "all" }, 1 ); -- Schritt 6: Fliegenpilz(159) 1x
 		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
         ------------------- FLASCHE MIT BÄRENTÖTER - FERTIG ---------------------------
 		
@@ -297,11 +298,12 @@ function InitCraftingTool( )
 		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
 		------------------- FLASCHE MIT KOHLSAFT - FERTIG ---------------------------
 		
-		------------------- FLASCHE MIT TEE - 787 --------------------------- 
+		------------------- FLASCHE MIT JUNGFERNKRAUTTEE - 787 --------------------------- 
 		product = brewing:AddProduct( CurrentCatID, 787, {29, 45 }, 1, { 11, 22 } );
 		product:AddProductionSteps( { 790, 1, "all" }, 1, nil, { 790, 1, 70 }  ); -- Schritt 6: leere Flasche(790) 1x
-		product:AddProductionSteps( { 155, 2, "all" }, 4 ); -- Schritt 1 - 2: Sibanac(155) 2x
-		product:AddProductionSteps( { 143, 2, "all" }, 4 ); -- Schritt 2 - 4: Roter Hollunder(143) 2x
+		product:AddProductionSteps( { 144, 2, "all" }, 3 ); -- Schritt 1 - 3: Jungfernkraut(144) 2x
+		product:AddProductionSteps( {  157, 2, "all" }, 1 ); -- Schritt 4: Brombeeren(157) 2x
+		product:AddProductionSteps( {  2529, 1, "all" }, 1 ); -- Schritt 5: Honig(2529) x1
 		product:AddProductionSteps( {   52, 1, "all" }, 1, { 51, 1 }, nil, true ); -- Schritt 5: Eimer mit Wasser(52) 1x
 		------------------- FLASCHE MIT TEE - FERTIG --------------------------- 
 		
