@@ -128,7 +128,7 @@ function CreateCircle(gfxid,Damage,CenterPos,Radius,setFlames)
                 if not SetNextTrap(HitPos,CenterPos) then
                     if setFlames then
                         if (math.random(1,5)==1) then
-                            world:createItemFromId(359,1,HitPos,true,math.random(200,600),0);
+                            world:createItemFromId(359,1,HitPos,true,math.random(200,600),nil);
                         end
                     end
                 end
@@ -184,9 +184,10 @@ function SetNextTrap(Posi,CenterPos)
     
     TestItem = world:getItemOnField(Posi);
     
-    if (TestItem.data ~= 2) then
-        return false
-    end
+    -- item.data is deprecated, do not use anymore
+    -- if (TestItem.data ~= 2) then
+    --     return false
+    -- end
     
     if ((TestItem.id >= 377) and (TestItem.id <=381)) then
         local tempmonster = world:createMonster(401,Posi,-50);
