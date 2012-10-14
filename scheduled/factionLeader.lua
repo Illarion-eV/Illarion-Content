@@ -4,16 +4,16 @@ require("base.common")
 
 module("scheduled.factionLeader", package.seeall)
 
+
 function checkFactionLeader()
-	if base.common.CheckIfOnline("Rosaline Edwards")[1] == true then
-		npcPositions = {usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)};
-		updatePosition(npcPositions)
-	elseif base.common.CheckIfOnline("Valerio Guilianni")[1] == true then
-		npcPositions = {usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)};
-		updatePosition(npcPositions)
-	elseif base.common.CheckIfOnline("Elvaine Morgan")[1] == true then
-		npcPositions = {usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)};
-		updatePosition(npcPositions)
+	informationTable = {["Rosaline Edwards"] = {usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)}, ["Valerio Guilianni"] = {usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)}, ["Elvaine Morgan"] = {usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)}}
+	alsaya = base.common.CheckIfOnline("Alsaya")
+	for i=1, #(informationTable) do
+		charObject = base.common.CheckIfOnline(informationTable[i])
+		base.common.InformNLS(alsaya,"name: "..informationTable[i].." ende",".."); --sending the message
+		if charObject.name ~= nil then
+			updatePosition(npcPositions)
+		end
 	end
 end
 

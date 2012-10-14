@@ -2,9 +2,9 @@
 -- alchemy system: using gemdust infront of a cauldron - creating essence brew or enchant a stock
 
 require("base.common")
-require("druid.base.alchemy")
+require("alchemy.base.alchemy")
 
-module("druid.base.gemdust", package.seeall)
+module("alchemy.base.gemdust", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
@@ -20,7 +20,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		  return;
 	    end
 
-        gemDust = druid.base.alchemy.CheckIfGemDust(User,SourceItem)
+        gemDust = alchemy.base.alchemy.CheckIfGemDust(User,SourceItem)
 	    if gemDust then -- security check if it is really gem dust
 	        BrewingGemDust(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end

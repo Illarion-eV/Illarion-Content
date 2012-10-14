@@ -4,12 +4,12 @@
 -- complete rework by merung, 2011
 
 require("base.common")
-require("druid.base.alchemy")
-require("druid.item.id_165_blue_bottle")
+require("alchemy.base.alchemy")
+require("alchemy.item.id_165_blue_bottle")
 
-module("druid.item.id_329_black_bottle",package.seeall); --, package.seeall(druid.base.alchemy))
+module("alchemy.item.id_329_black_bottle",package.seeall); --, package.seeall(druid.base.alchemy))
 
--- UPDATE common SET com_script='druid.item.id_329_black_bottle' WHERE com_itemid = 329;
+-- UPDATE common SET com_script='alchemy.item.id_329_black_bottle' WHERE com_itemid = 329;
 
 --lists for HUMANS, DWARVES, HALFLINGS, ELVES, ORCS and LIZARDS
 -- apperance lists with the different values for the six races

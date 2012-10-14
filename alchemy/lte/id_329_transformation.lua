@@ -3,9 +3,9 @@
 -- Zeitverlauf und Rückwandlung bei Verwandlungen
 require("base.common")
 
-module("druid.lte.id_329_transformation", package.seeall)
+module("alchemy.lte.id_329_transformation", package.seeall)
 
--- INSERT INTO longtimeeffects VALUES (329, 'druids_transformation', 'druid.lte.id_329_transformation');
+-- INSERT INTO longtimeeffects VALUES (329, 'alchemy_transformation', 'alchemy.lte.id_329_transformation');
 
 function getAction(User,Effect,Runde)
 	--Hier die eigentlichen Aktionen eintragen  

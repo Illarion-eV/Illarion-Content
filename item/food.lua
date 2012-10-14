@@ -50,6 +50,7 @@ FoodList:add( 200,	 1500,	   0,	-15); -- tomato
 FoodList:add( 201,	  750,	   0,	 -8); -- onion
 FoodList:add( 302,	 1250,	   0,	-13,	{0,0,0,0,0,0,0,13,0,0}); -- cherry
 FoodList:add( 388,	 1750,	   0,	-18,	{0,0,0,0,0,0,0,18,0,0}); -- grapes
+FoodList:add( 759,	 2500,	   0,	-25); -- nuts
 FoodList:add(2493,	 2500,	   0,	-25); -- carrots
 
 -- Racial Food (no racial diet necessary)

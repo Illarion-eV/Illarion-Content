@@ -4,9 +4,9 @@
 
 require("base.common")
 
-module("druid.lte.id_330_language", package.seeall)
+module("alchemy.lte.id_330_language", package.seeall)
 
--- INSERT INTO longtimeeffects VALUES (330, 'druids_language', 'druid.lte.id_330_language');
+-- INSERT INTO longtimeeffects VALUES (330, 'alchemy_language', 'alchemy.lte.id_330_language');
 
 ListLanguages={"human language","dwarf language","elf language","lizard language","orc language","halfling language","fairy language","gnome language","goblin language","ancient language"}
 

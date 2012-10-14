@@ -4,12 +4,12 @@
 --Falk
 -- reworked by Merung
 require("base.common")
-require("druid.base.alchemy")
-require("druid.item.id_165_blue_bottle")
+require("alchemy.base.alchemy")
+require("alchemy.item.id_165_blue_bottle")
 
-module("druid.item.id_330_white_bottle",package.seeall)
+module("alchemy.item.id_330_white_bottle",package.seeall)
 
--- UPDATE common SET com_script='druid.item.id_330_white_bottle' WHERE com_itemid = 330;
+-- UPDATE common SET com_script='alchemy.item.id_330_white_bottle' WHERE com_itemid = 330;
 
 function DrinkPotion(User,SourceItem)
 

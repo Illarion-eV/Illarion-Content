@@ -2,11 +2,11 @@
 -- by Falk
 -- started to redo - Merung
 require("base.common")
-require("druid.base.outfit")
+require("alchemy.base.outfit")
 
-module("druid.lte.id_167_illness", package.seeall) --(druid.base.outfit))
+module("alchemy.lte.id_167_illness", package.seeall) --(druid.base.outfit))
 
--- INSERT INTO longtimeeffects VALUES (167, 'druids_illness', 'druid.lte.id_167_illness');
+-- INSERT INTO longtimeeffects VALUES (167, 'alchemy_illness', 'alchemy.lte.id_167_illness');
 
 ---- will probably a postVBU project
 -- functions for Effect_1

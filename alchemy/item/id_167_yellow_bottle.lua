@@ -1,11 +1,11 @@
 -- Druidsystem: diseases
 --Falk
 require("base.common")
-require("druid.base.alchemy")
+require("alchemy.base.alchemy")
 
-module("druid.item.id_167_yellow_bottle", package.seeall, package.seeall(druid.base.alchemy))
+module("alchemy.item.id_167_yellow_bottle", package.seeall)
 
--- UPDATE common SET com_script='druid.item.id_167_yellow_bottle' WHERE com_itemid = 167;
+-- UPDATE common SET com_script='alchemy.item.id_167_yellow_bottle' WHERE com_itemid = 167;
 
 function DrinkPotion(Character,SourceItem)
 
