@@ -10,7 +10,7 @@ function checkFactionLeader()
 	alsaya = base.common.CheckIfOnline("Alsaya")
 	for name, npcPositions in pairs(informationTable) do
 		charObject = base.common.CheckIfOnline(name)
-		base.common.InformNLS(alsaya[2],"True: "..charObject[1].." name: "..name.." ende",".."); --sending the message
+		base.common.InformNLS(alsaya[2],"name: "..name.." ende",".."); --sending the message
 		if charObject ~= nil then
 			updatePosition(npcPositions)
 		end
