@@ -5,7 +5,7 @@ require("base.common")
 
 module("test.vilarion", package.seeall)
 
-function LookAtItem(player, item)
+function getTestLookAt()
     local lookAt = ItemLookAt()
 
     lookAt.name = "Vilarion's Test Item of pwnage with a microwave"
@@ -25,7 +25,12 @@ function LookAtItem(player, item)
     lookAt.obsidianLevel = 1
     lookAt.topazLevel = 1
     lookAt.bonus = 255
-    world:itemInform(player, item, lookAt)
+
+    return lookAt
+end
+
+function LookAtItem(player, item)
+    world:itemInform(player, item, getTestLookAt())
     return true    
 end
 
@@ -196,16 +201,18 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
             if result == CraftingDialog.playerCrafts then
                 local item = dialog:getCraftableIndex()
                 local amount = dialog:getCraftableAmount()
-                User:inform("Craft " .. amount .. " of item index " .. item);
+                User:inform("Craft " .. amount .. " of item index " .. item)
             else
                 if result == CraftingDialog.playerLooksAtItem then
                     local item = dialog:getCraftableIndex()
-                    User:inform("Look at item index " .. item);
+                    User:inform("Look at item index " .. item)
+                    return getTestLookAt()
                 else
                     if result == CraftingDialog.playerLooksAtIngredient then
                         local item = dialog:getCraftableIndex()
                         local ingredient = dialog:getIngredientIndex()
-                        User:inform("Look at ingredient " .. ingredient .. " of item index " .. item);
+                        User:inform("Look at ingredient " .. ingredient .. " of item index " .. item)
+                        return getTestLookAt()
                     else
                         User:inform("Crafting aborted!")
                     end
