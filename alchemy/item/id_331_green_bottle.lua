@@ -8,11 +8,11 @@
 -- include base.common for additional functions
 require("base.common")
 require("base.character")
-require("druid.item.id_165_blue_bottle")
+require("alchemy.item.id_165_blue_bottle")
 
-module("druid.item.id_331_green_bottle", package.seeall)
+module("alchemy.item.id_331_green_bottle", package.seeall)
 
--- UPDATE common SET com_script='druid.item.id_331_green_bottle' WHERE com_itemid = 331;
+-- UPDATE common SET com_script='alchemy.item.id_331_green_bottle' WHERE com_itemid = 331;
 
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )

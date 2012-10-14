@@ -2,9 +2,9 @@
 -- by Falk
 -- immunity. Has actually nothing to do with healing potion 328 orange bottle
 
-module("druid.lte.id_328_immunity", package.seeall)
+module("alchemy.lte.id_328_immunity", package.seeall)
 
--- INSERT INTO longtimeeffects VALUES (328, 'druids_immunity', 'druid.lte.id_328_immunity');
+-- INSERT INTO longtimeeffects VALUES (328, 'alchemy_immunity', 'alchemy.lte.id_328_immunity');
 
 function getAction(Character,Effect,Runde)
 --Hier die eigentlichen Aktionen eintragen  

@@ -55,7 +55,7 @@
 -- 153 Fussblatt                  52 / 9016 / 36 "Wiesen-Rhabarber" / "meadow rhabarb"
 
 require("base.common");
-module("druid.base.alchemy", package.seeall)
+module("alchemy.base.alchemy", package.seeall)
 
 dataZList = { }
 plantList =     { 158,159,160,161,162,758,759,763,15,155,388,81,80,151,147,199,9001,133,134,135,136,137,138,140,141,142,9016,144,145,146,9014,148,9004,152,153,9005,9015,156,9013,9003,9006,9007,9002,9008,9009,9010,9011,9012}

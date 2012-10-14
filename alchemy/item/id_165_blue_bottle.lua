@@ -4,11 +4,11 @@
 -- e.g. change a potion's quality, remove cooldown of  potion
 
 require("base.common")
-require("druid.base.alchemy")
+require("alchemy.base.alchemy")
 
-module("druid.item.id_165_blue_bottle", package.seeall)
+module("alchemy.item.id_165_blue_bottle", package.seeall)
 
--- UPDATE common SET com_script='druid.item.id_165_blue_bottle' WHERE com_itemid = 165;
+-- UPDATE common SET com_script='alchemy.item.id_165_blue_bottle' WHERE com_itemid = 165;
 
 function DrinkPotion(User,SourceItem)
     -- no effecs yet

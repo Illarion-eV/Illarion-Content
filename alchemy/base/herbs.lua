@@ -7,9 +7,9 @@
 
 
 require("base.common")
-require("druid.base.alchemy")
+require("alchemy.base.alchemy")
 
-module("druid.base.herbs", package.seeall)
+module("alchemy.base.herbs", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 

@@ -1,12 +1,12 @@
 -- Druidsystem: potion
 
 require("base.common")
-require("druid.base.alchemy")
+require("alchemy.base.alchemy")
 require("base.character")
 
-module("druid.item.id_166_pink_bottle", package.seeall)
+module("alchemy.item.id_166_pink_bottle", package.seeall)
 
--- UPDATE common SET com_script='druid.item.id_166_pink_bottle' WHERE com_itemid = 166;
+-- UPDATE common SET com_script='alchemy.item.id_166_pink_bottle' WHERE com_itemid = 166;
 
 bottomBorder = 2;
 topBorder = {7000       ,7000  ,50000      ,10000        ,7000         ,7000    ,50000        ,10000}

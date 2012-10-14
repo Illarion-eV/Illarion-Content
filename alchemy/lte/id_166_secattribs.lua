@@ -2,9 +2,9 @@
 -- by Falk
 -- complete new version by Merung
 
-module("druid.lte.id_166_secattribs", package.seeall)
+module("alchemy.lte.id_166_secattribs", package.seeall)
 
--- INSERT INTO longtimeeffects VALUES (166, 'druids_secattribs', 'druid.lte.id_166_secattribs');
+-- INSERT INTO longtimeeffects VALUES (166, 'alchemy_secattribs', 'alchemy.lte.id_166_secattribs');
 
 function addEffect(Effect, User)               -- we start with adding the effect
 	--User:inform("debug func addEffect")
