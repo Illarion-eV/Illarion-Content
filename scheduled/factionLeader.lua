@@ -7,7 +7,7 @@ module("scheduled.factionLeader", package.seeall)
 
 function checkFactionLeader()
 	local informationTable = {}
-	informationTable = {Rosaline Edwards = {usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)}, Valerio Guilianni = {usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)}, Elvaine Morgan = {usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)}}
+	informationTable = {"Rosaline Edwards" = [usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)], "Valerio Guilianni" = [usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)], "Elvaine Morgan" = [usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)]}
 
 	--table.insert(informationTable, "Rosaline Edwards" = {usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)})
 
