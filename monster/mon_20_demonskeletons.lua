@@ -126,7 +126,7 @@ function onDeath(Monster)
 	return;
 	end
 	
-    if killer[Monster.id] ~= nil then
+    if killer and killer[Monster.id] ~= nil then
 
         murderer=getCharForId(killer[Monster.id]);
     

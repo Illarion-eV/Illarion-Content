@@ -23,17 +23,28 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local myValue2
 	local myInform = ""
 	local myCounter
-	if (string.find(User.lastSpokenText,"distribution")~=nil) then
-		--myCounter = base.common.NormalRnd2(1,9,10)
+	local erwart
+	local std; local a; local b
+	local counterList = {}
+	for i=1,9 do
+	    counterList[i] = {}
+	end	
+	if (string.find(User.lastSpokenText,"vert")~=nil) then
+		a,b,erwart,std = string.find(User.lastSpokenText,"(%d+) (%d+)")
+		std = tonumber(std)
+		erwart = tonumber(erwart)
 		for i=1,100 do
-		    myValue = base.common.NormalRnd2(1, 9, 10)
-		    myInform = myInform.." "..myValue
+		    myValue = 10
+			repeat 
+				myValue =Random.normal(erwart,std)
+				myValue = math.floor((myValue + 0.5))
+			until myValue > 0 and myValue < 10
+			myInform = myInform.." "..myValue
+		    
+			table.insert (counterList[myValue],myValue)
 		end	
-		User:inform(myInform)
-		--[[for i=1,100 do 
-		    myValue1, myValue2=base.common.NormalBoxMuller(0, 2)
-			myInform = myInform.." "..myValue1
-	    end
-		User:inform(myInform)]]
-    end
-end
+		for i=1,9 do
+		    User:inform("["..i.."] = "..#counterList[i])
+		end	
+	end
+end	
