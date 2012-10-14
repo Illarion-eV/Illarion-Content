@@ -9,9 +9,9 @@ function checkFactionLeader()
 	informationTable = {["Rosaline Edwards"] = {usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)}, ["Valerio Guilianni"] = {usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)}, ["Elvaine Morgan"] = {usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)}}
 
 	for name, npcPositions in pairs(informationTable) do
-		charObject = base.common.CheckIfOnline(informationTable.name)
+		charObject = base.common.CheckIfOnline(name)
 		if charObject[1] ~= nil then
-			updatePosition(informationTable.npcPositions)
+			updatePosition(npcPositions)
 		end
 	end
 end
