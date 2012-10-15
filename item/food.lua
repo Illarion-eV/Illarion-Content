@@ -1,6 +1,6 @@
 -- Food script
 require("base.common")
-require("druid.base.alchemy")
+
 
 module("item.food", package.seeall)
 
@@ -94,10 +94,7 @@ FoodList:add( 158,	 -200,	   0,	-20,	nil,	nil,	 400); -- bulbsponge mushroom
 FoodList:add( 159,	 -500,	   0,	-50,	nil,	nil,	1000); -- toadstool
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-	-- if the char uses the herb for alchemy, he shouldn't eat it
-	if druid.base.alchemy.CheckIfAlchemyPlant and base.common.GetFrontItemID(User) == 1008 then
-       return;
-    end 
+	 
 	-- Item not on map!
 	if SourceItem.wear == 255 then
 		return;
