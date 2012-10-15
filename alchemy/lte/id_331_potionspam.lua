@@ -1,9 +1,9 @@
 -- LTE für das Druidensystem
 -- by Blay09
 
-module("druid.lte.id_331_potionspam", package.seeall)
+module("alchemy.lte.id_331_potionspam", package.seeall)
 
--- INSERT INTO longtimeeffects VALUES (331, 'druids_potionspam', 'druid.lte.id_331_potionspam');
+-- INSERT INTO longtimeeffects VALUES (331, 'alchemy_potionspam', 'alchemy.lte.id_331_potionspam');
 
 function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 

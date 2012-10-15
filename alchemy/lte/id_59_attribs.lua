@@ -2,9 +2,9 @@
 -- by Falk
 require("base.common")
 
-module("druid.lte.id_59_attribs", package.seeall)
+module("alchemy.lte.id_59_attribs", package.seeall)
 
--- INSERT INTO longtimeeffects VALUES (59, 'druids_attribs', 'druid.lte.id_59_attribs');
+-- INSERT INTO longtimeeffects VALUES (59, 'alchemy_attribs', 'alchemy.lte.id_59_attribs');
 
 attribList ={"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"};
 bottomBorder = 1;

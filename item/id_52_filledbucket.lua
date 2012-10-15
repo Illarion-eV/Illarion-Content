@@ -3,7 +3,7 @@
 -- UPDATE common SET com_script='item.id_52_filledbucket' WHERE com_itemid IN (52);
 
 require("base.common")
-require("druid.base.brewing_plants_gemdust")
+
 
 module("item.id_52_filledbucket", package.seeall)
 
@@ -25,11 +25,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return;
 	end
 	
-    -- infront of a cauldron
+    --[[ infront of a cauldron
 	if (TargetItem.id == 1008) then
 	    WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return
-	end
+	end]]
 	
 	-- Wasserflasche auffüllen
 	if( TargetItem.id == 2498 ) then

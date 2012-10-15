@@ -2,11 +2,11 @@
 --Druidensystem in Arbeit
 --Falk
 require("base.common")
-require("druid.base.alchemy")
+require("alchemy.base.alchemy")
 
-module("druid.item.id_328_orange_bottle", package.seeall, package.seeall(druid.base.alchemy))
+module("alchemy.item.id_328_orange_bottle", package.seeall)
 
--- UPDATE common SET com_script='druid.item.id_328_orange_bottle' WHERE com_itemid = 328;
+-- UPDATE common SET com_script='alchemy.item.id_328_orange_bottle' WHERE com_itemid = 328;
 
 function DoDruidism(Character,SourceItem)
 --Heilmittel für 8 Virus-Erkrankungen

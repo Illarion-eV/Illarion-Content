@@ -1,6 +1,6 @@
 -- Food script
 require("base.common")
-require("druid.base.alchemy")
+
 
 module("item.food", package.seeall)
 
@@ -50,6 +50,7 @@ FoodList:add( 200,	 1500,	   0,	-15); -- tomato
 FoodList:add( 201,	  750,	   0,	 -8); -- onion
 FoodList:add( 302,	 1250,	   0,	-13,	{0,0,0,0,0,0,0,13,0,0}); -- cherry
 FoodList:add( 388,	 1750,	   0,	-18,	{0,0,0,0,0,0,0,18,0,0}); -- grapes
+FoodList:add( 759,	 2500,	   0,	-25); -- nuts
 FoodList:add(2493,	 2500,	   0,	-25); -- carrots
 
 -- Racial Food (no racial diet necessary)
@@ -93,10 +94,7 @@ FoodList:add( 158,	 -200,	   0,	-20,	nil,	nil,	 400); -- bulbsponge mushroom
 FoodList:add( 159,	 -500,	   0,	-50,	nil,	nil,	1000); -- toadstool
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-	-- if the char uses the herb for alchemy, he shouldn't eat it
-	if druid.base.alchemy.CheckIfAlchemyPlant and base.common.GetFrontItemID(User) == 1008 then
-       return;
-    end 
+	 
 	-- Item not on map!
 	if SourceItem.wear == 255 then
 		return;

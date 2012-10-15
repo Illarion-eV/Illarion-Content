@@ -5,11 +5,11 @@
 --rework by Merung
 
 require("base.common")
-require("druid.base.alchemy")
+require("alchemy.base.alchemy")
 
-module("druid.item.id_59_red_bottle",package.seeall)
+module("alchemy.item.id_59_red_bottle",package.seeall)
 
--- UPDATE common SET com_script='druid.item.id_59_red_bottle' WHERE com_itemid = 59;
+-- UPDATE common SET com_script='alchemy.item.id_59_red_bottle' WHERE com_itemid = 59;
 
 taste = {}
 attribList   ={"strength","intelligence","dexterity"       ,"perception"  ,"constitution","essence","agility"      ,"willpower"}

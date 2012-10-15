@@ -12,7 +12,7 @@
 
 require("base.common")
 
-module("druid.base.missile", package.seeall);
+module("alchemy.base.missile", package.seeall);
 
 ListeObjHolz = {39,40,56,57,76,207,208,209,293,323,2782,2783,2784,2785,2786};
 

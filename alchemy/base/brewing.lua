@@ -4,12 +4,12 @@
 -- by Merung
 
 require("base.common")
-require("druid.base.alchemy")
-require("druid.base.herbs")
-require("druid.base.gemdust")
+require("alchemy.base.alchemy")
+require("alchemy.base.herbs")
+require("alchemy.base.gemdust")
 
 
-module("druid.base.brewing_plants_gemdust", package.seeall)
+module("alchemy.base.brewing_plants_gemdust", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem)
