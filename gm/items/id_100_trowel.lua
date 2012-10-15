@@ -25,8 +25,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 
     -- check if a number was said, if not: don't do anything
     local a,b, value = string.find(User.lastSpokenText, "(%d+)");
-    if value == nil or tonumber(vaule) == nil then
-        return;
+    if value == nil or tonumber(value) == nil then
+        User:inform("debug 1")
+		return;
     end;
     
     local target = base.common.GetFrontPosition(User);
@@ -34,7 +35,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     local itemId = tonumber(value);
     local itemQual = 333;
     local itemData = nil
-    
+    User:inform("denbug 2")
     world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
 end;
 
