@@ -14,7 +14,7 @@ function checkFactionLeader()
 	for i=1, #(informationTable) do
 		charObject = base.common.CheckIfOnline(informationTable[i])
 		base.common.InformNLS(alsaya,"name: "..informationTable[i].." ende","..");
-		if charObject.name ~= nil then
+		if charObject ~= nil then
 			updatePosition(informationTable[i].usualPosition, informationTable[i].newPosition)
 		end
 	end
