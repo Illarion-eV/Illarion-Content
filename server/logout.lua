@@ -1,5 +1,6 @@
 require("base.keys")
 require("base.common")
+require("scheduled.factionLeader")
 
 module("server.logout", package.seeall)
 
@@ -39,25 +40,18 @@ function onLogout( theChar )
 	end
 	-- end tying
 
-	if theChar.name == "Valerio Guilianni" or theChar.name == "Rosaline Edwards" or theChar.name == "Elvaine Morgan" then
-		exchangeFactionLeader( theChar.name )
-	end
+--	if theChar.name == "Valerio Guilianni" or theChar.name == "Rosaline Edwards" or theChar.name == "Elvaine Morgan" then
+--		exchangeFactionLeader( theChar.name )
+--	end
 
 end
 
 -- Function to exchange the faction leader of a town.
--- @factionLeaderName Name of the faction leader
--- @npcPositions Array of position {default position, new position}
-function exchangeFactionLeader( factionLeaderName )
-	if factionLeaderName == "Rosaline Edwards" then
-		npcPositions = {position(122, 521, 0), position(237, 104, 0)};
-	elseif factionLeaderName == "Valerio Guilianni" then
-		npcPositions = {position(337, 215, 0), position(238, 104, 0)};
-	else
-		npcPositions = {position(898, 775, 2), position(239, 104, 0)};
-	end
-	if world:isCharacterOnField(npcPositions[2]) == true then
-		npcCharObject = world:getCharacterOnField(npcPositions[2]);
-		npcCharObject:forceWarp(npcPositions[1]);
+function exchangeFactionLeader( playerName )
+	for i=1, #(scheduled.factionLeader.informationTable) do
+		if playerName == scheduled.factionLeader.informationTable[i].npcName then
+			scheduled.factionLeader.updatePosition(scheduled.factionLeader.informationTable[i].newPosition,
+				scheduled.factionLeader.informationTable[i].usualPosition)
+		end
 	end
 end
