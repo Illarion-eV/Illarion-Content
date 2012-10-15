@@ -33,7 +33,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     
     local itemId = tonumber(value);
     local itemQual = 333;
-    local itemData = 0;
+    local itemData = nil
     
     world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
 end;
