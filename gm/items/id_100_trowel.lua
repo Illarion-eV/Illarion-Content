@@ -1,7 +1,7 @@
 -- I_100.lua GM-Kelle
 
 require("base.common")
-require("druid.base.alchemy")
+
 
 module("gm.items.id_100_trowel", package.seeall)
 

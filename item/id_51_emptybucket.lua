@@ -3,7 +3,7 @@
 -- UPDATE common SET com_script='item.id_51_emptybucket' WHERE com_itemid IN (51);
 
 require("base.common")
-require("druid.base.brewing_plants_gemdust")
+
 
 module("item.id_51_emptybucket", package.seeall)
 
@@ -23,8 +23,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		FillBucket(User, SourceItem);
 	elseif (boden == 6) then -- Am Wasser fuellen
 		FillBucket(User, SourceItem);
-	elseif(IdfrontItem == 1008) and (frontItem:getData("cauldronFilledWith") == "water") then -- cauldron with water
-	    FillFromCauldron(User,SourceItem,frontItem,Counter,Param,ltstate)
+	--[[elseif(IdfrontItem == 1008) and (frontItem:getData("cauldronFilledWith") == "water") then -- cauldron with water
+	    FillFromCauldron(User,SourceItem,frontItem,Counter,Param,ltstate)]]
 	else
 		base.common.InformNLS(User, "Du musst am Brunnen stehen, um Wasser zu schöpfen.", "You need to stand in front of the well to scoop water.");
 	end
