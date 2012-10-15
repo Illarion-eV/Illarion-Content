@@ -190,7 +190,8 @@ function Ini()
 end;
 
 function LookAtItem(User, Item)
-    --base.common.InformNLS(User, "Blablabla", "Bl ablablablabla");
+--[[   
+   --base.common.InformNLS(User, "Blablabla", "Bl ablablablabla");
 	--User:inform ("blabla hätte funktionieren müssen!");
 	if (texts == nil) then
         texts={};
@@ -210,5 +211,5 @@ function LookAtItem(User, Item)
         User:inform("This is the WOOOONDER trowel. Say a number between 1 and "..table.maxn(texts).." to view that help page and look at me then.");
     else
         User:inform(texts[pagenumber]);
-    end;
+    end;]]
 end;
