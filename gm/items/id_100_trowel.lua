@@ -24,14 +24,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     end;
 
     -- check if a number was said, if not: don't do anything
-    local a, b, spoken = User.lastSpokenText:find("(%d+)");
-    if spoken == nil or tonumber(spoken) == 0 then
+    local a,b, value = string.find(string.lower(User.lastSpokenText), "(%d+)");
+    if value == nil or tonumber(vaule) == nil then
         return;
     end;
     
     local target = base.common.GetFrontPosition(User);
     
-    local itemId = tonumber(spoken);
+    local itemId = tonumber(value);
     local itemQual = 333;
     local itemData = 0;
     
