@@ -35,11 +35,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     local itemQual = 333;
     local itemData = 0;
     
-    if (druid.base.alchemy.plantDataListById ~= nil and druid.base.alchemy.plantDataListById[itemId] ~= nil) then
-        itemQual = base.common.NormalRnd(111, 999);
-        itemData = druid.base.alchemy.plantDataListById[itemId];
-    end;
-    
     world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
 end;
 
