@@ -683,7 +683,7 @@ end;
 -- @param count How often will be diced
 -- @return The random number
 function NormalRnd2(minVal, maxVal, count)
-    local base = 0;
+    base = 0;
     for _ = 1, count do
         base = base + math.random(maxVal - minVal + 1) - 1;
     end;
