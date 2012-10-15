@@ -25,7 +25,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 
     -- check if a number was said, if not: don't do anything
     local a,b, value = string.find(User.lastSpokenText, "(%d+)");
-    if value == nil or tonumber(vaule) == nil then
+    if value == nil or tonumber(value) == nil then
         User:inform("debug 1")
 		return;
     end;
