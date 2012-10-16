@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
 --                                                                            --
--- Last parsing: October 10, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 16, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -293,7 +293,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(0, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 16, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] INFORM ..."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved]Reret smiles as she sees the flowers you brought."));
 talkEntry:addResponse("Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
@@ -306,7 +306,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(0, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 16, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] INFORM..."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Reret lächelt, als sie die Blumen sieht, die du ihr bringst."));
 talkEntry:addResponse("Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));

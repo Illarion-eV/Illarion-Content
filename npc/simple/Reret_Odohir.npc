@@ -125,8 +125,8 @@ buySecondaryItems = 2, 3
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl",town = Cadomyr, queststatus(150) = 0 -> inform("[Neues Quest] Geschenk aus Cadomyr"),"Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüsenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?", queststatus(150) = 1
 
 -- 1st quest solved, Reward:(dagger 27)
-".+", queststatus(000) = 1, item(146, all) > 16, english -> inform("[Quest solved] INFORM ..."), "Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.", deleteItem (146, 15), item(27,1,433,0),rankpoints(Cadomyr)+ 7, queststatus(000) = 2
-".+", queststatus(000) = 1, item(146, all) > 16 -> inform("[Quest gelößt] INFORM..."), "Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.", deleteItem(146, 15), item(27,1,433,0),rankpoints(Cadomyr)+ 7, queststatus(000) = 2
+".+", queststatus(000) = 1, item(146, all) > 16, english -> inform("[Quest solved]Reret smiles as she sees the flowers you brought."), "Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.", deleteItem (146, 15), item(27,1,433,0),rankpoints(Cadomyr)+ 7, queststatus(000) = 2
+".+", queststatus(000) = 1, item(146, all) > 16 -> inform("[Quest gelößt] Reret lächelt, als sie die Blumen sieht, die du ihr bringst."), "Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.", deleteItem(146, 15), item(27,1,433,0),rankpoints(Cadomyr)+ 7, queststatus(000) = 2
 
 -- 1st quest not solved, repeat the instructions
 "quest", "mission", queststatus(150) = 1, english -> "I'm still busy working, so could I ask you to go and find fifteen desert sky capsule for me, please?"
