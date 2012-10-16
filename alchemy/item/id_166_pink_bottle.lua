@@ -1,24 +1,16 @@
---ds_059_rote_flasche
---Druidensystem in Arbeit
---Falk
---Delay added by Blay09
---rework by Merung
+-- Druidsystem: potion
 
 require("base.common")
-require("druid.base.alchemy")
+require("alchemy.base.alchemy")
+require("base.character")
 
-module("druid.item.id_59_red_bottle",package.seeall)
+module("alchemy.item.id_166_pink_bottle", package.seeall)
 
--- UPDATE common SET com_script='druid.item.id_59_red_bottle' WHERE com_itemid = 59;
+-- UPDATE common SET com_script='alchemy.item.id_166_pink_bottle' WHERE com_itemid = 166;
 
-taste = {}
-attribList   ={"strength","intelligence","dexterity"       ,"perception"  ,"constitution","essence","agility"      ,"willpower"}
-attribListDe ={"Stärke"  ,"Intelligenz" ,"Geschicklichkeit","Wahrnehmung" ,"Ausdauer"    ,"Essenz" ,"Schnelligkeit","Willenskraft"}
-taste[0]     ={"fruchtig","herb"        ,"bitter"          ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"       ,"süß"}
-taste[1]     ={"fruity"  ,"tartly"      ,"bitter"          ,"putrefactive","acidly"      ,"salt"   ,"hot"          ,"sweet"}
-
-intensityListDe = {"stark"   ,"merkbar"  ,"leicht"  ,"kaum merklich"   ,"","kaum merklich"   ,"leicht"  ,"merkbar"  ,"stark"}
-intensityListEn = {"strongly","noticably","slightly","barely noticably","","barely noticable","slightly","noticably","strongly"}
+bottomBorder = 2;
+topBorder = {7000       ,7000  ,50000      ,10000        ,7000         ,7000    ,50000        ,10000}
+attribList ={"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
 
 function DrinkPotion(User,SourceItem)
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
@@ -29,78 +21,89 @@ function DrinkPotion(User,SourceItem)
 	    return
 	
 	elseif potionEffectId >= 11111111 then -- it's an attribute changer  
-		  -- there is already an effect, we remove it
-		foundEffect, myEffect = User.effects:find(59);
+	    
+		-- there is already an effect; sadly,therefore, the current potion will have no effect
+		foundEffect, myEffect = User.effects:find(166)
 		if foundEffect then
-			effectRemoved = User.effects:removeEffect(59)
-		    base.common.InformNLS(User, "Du spürst das der alte Stärkungstrank seine Wirkung verliert und wie der neue zu wirken einsetzt.", 
-		    "You feel that the strengthening potion looses its effect and how the new one takes effect.")
-		end
-		local myEffectDuration = SourceItem.quality*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
-		myEffect=LongTimeEffect(59,myEffectDuration) -- new effect
-		
-		local dataZList = druid.base.alchemy.SplitBottleData(User,potionEffectId)
-		druid.base.alchemy.generateTasteMessage(User,dataZList)
-	    GenerateEffectMessage(User,dataZList)
-		
+			base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert. Scheinbar verhindert der bereits wirkende Heiltranktrank weitere Effekte.", 
+			"You don't have the feeling that something happens. It seems that the already affecting healing potion prevents other effects.")
+			return
+	    end
+	
+	    local dataZList = druid.base.alchemy.SplitBottleData(User,potionEffectId);
+	    -- taste and effect message
+	    druid.base.alchemy.generateTasteMessage(User,dataZList)
+		GenerateEffectMessage(User,dataZList)
 		for i=1,8 do
-			
-			attribValue = User:increaseAttrib(attribList[i],0);
-
-			bottomBorder = 1
-			
-			if (attribValue + dataZList[i] - 5) < bottomBorder then
-				dataZList[i] = (bottomBorder - attribValue) + 5;
-			end
-
-			if dataZList[i] ~= 5 then
-				User:increaseAttrib(attribList[i],dataZList[i]-5);
-				myEffect:addValue(""..attribList[i],dataZList[i]);
+			-- effects
+			if (i == 3) or (i == 6) then  -- poison
+				CalculationStep = ((10-dataZList[i])-5) -- we need a slightly different calculation for poison
+			else
+				CalculationStep = (dataZList[i]-5) -- for everything else
 			end
 			
-		end
-		local pax = User:increaseAttrib("strength",0)
-		local bellum = User:increaseAttrib("constitution",0)
-		
-		foundEffect, checkedEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
-		if not foundEffect then
-		   User.effects:addEffect( myEffect )
-		end
-    else
-	    -- something else
+			local Val = CalculationStep * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
+			
+			-- over time effect values
+			if ( attribList[i] == "hitpointsOT" ) then
+				hitpointsOT = (Val * 1.25) / 5;
+			elseif ( attribList[i] == "poisonvalueOT" ) then
+				   poisonvalueOT = (Val * 1.25) / 5;
+			elseif ( attribList[i] == "manaOT" ) then
+				   manaOT = (Val * 1.25) / 5;
+			elseif ( attribList[i] == "foodlevelOT" ) then     			
+				   foodlevelOT = (Val * 1.25) / 5;
+			-- instatnt poison value cannot be < 0
+			elseif ( attribList[i] == "poisonvalue" ) then
+				Val = base.common.Limit( (User:getPoisonValue() + Val) , 0, 10000 ); 
+				User:setPoisonValue( Val );
+			-- instant foodlevel; you cannot overeat on food potion
+			elseif ( attribList[i] == "foodlevel" ) then
+				Val = base.common.Limit( (User:increaseAttrib("foodlevel",0) + Val) , 0 , 60000 );
+			else
+				User:increaseAttrib(attribList[i],Val);
+			end
+	    end
+	    -- LTE
+		myEffect=LongTimeEffect(166,70);
+		-- now we add the values
+	   myEffect:addValue("hitpointsIncrease",hitpointsOT)
+	   myEffect:addValue("manaIncrease",manaOT)
+	   myEffect:addValue("foodlevelIncrease",foodlevelOT)
+	   myEffect:addValue("poisonvalueIncrease",poisonvalueOT)
+	   myEffect:addValue("counterPink",5)	   
+	   User.effects:addEffect(myEffect)
+	else
+	    --whatever
 	end	
 end
 
 function GenerateEffectMessage(User,dataZList)
-    local effectMessagesDe = ""
-    local effectMessagesEn = ""
+    local effectMessageDE = ""
+	local effectMessageEN = ""
 	local anyEffect = false
 	
+	ListPositiveEffectDE = {"Deine Lebenskraft nimmt sofort zu."   ,"Dein Mana nimmt sofort zu."   ,"Du fühlst dich sofort satter."      ,"Das Gift in dir wird geschwächt."       ,"Deine Lebenskraft nimmt mit der Zeit zu.","Dein Mana nimmt mit der Zeit zu.","Mit der Zeit nimmt dein Hunger ab.","Das Gift in dir wird mit der Zeit schwächer."}
+	ListNegativeEffectDE = {"Deine Lebenskraft nimmt sofort ab."   ,"Dein Mana nimmt sofort ab."   ,"Du fühlst dich plötlzich hungriger.","Gift breitet sich in dir aus."          ,"Deine Lebenskraft nimmt mit der Zeit ab.","Dein Mana nimmt mit der Zeit ab.","Mit der Zeit nimmt dein Hunger zu.","Mit der Zeit breitet sich ein stärker werdendes Gift aus."}
+	ListPositiveEffectEN = {"Your life energy increases instantly.","Your mana increases instanly.","You feel instantly more sated."     ,"The poison in you is instalny weakened.","Your life energy increases with time."   ,"Your mana increases with time."  ,"Your hunger decreases with time."  ,"The poison is weakend with time."}
+	ListNegativeEffectEN = {"Your life energy decreases instantly.","Your mana decreases instanly.","You feel instantly more hungry."    ,"You are poisoned."                      ,"Your life energy decreases with time."   ,"Your mana decreases with time."  ,"Your hunger increases with time."  ,"A with time stronger getting poison spreads in your body."}
+	
 	for i=1,8 do
-	    if dataZList[i] ~= 5 then
-		    
-			attribEn = attribList[i] -- attribute
-			attribDe = attribListDe[i]
-			if dataZList[i] > 5 then
-			    nPTagEn = "in" -- increasing 
-				nPTagDe = "zu"
-			else
-                nPTagEn = "de" -- decreasing
-                nPTagDe = "ab"				
-		    end
-	        attribIntensityEn = intensityListEn[dataZList[i]] -- how strong it is in/decreased
-			attribIntensityDe = intensityListDe[dataZList[i]]
-            anyEffect = true
-			-- we put everything together
-			effectMessagesDe = effectMessagesDe.."Deine "..attribDe.." nimmt".." "..attribIntensityDe.." "..nPTagDe..". "
-			effectMessagesEn = effectMessagesEn.."Your "..attribEn..nPTagEn.."creases "..attribIntensityEn..". "
-		end
-    end		
-    if anyEffect == false then -- no effect
-	    base.common.InformNLS(User,"Du spürst keine Wirkung.","You don't feel any effect.")
-	else
-	    base.common.InformNLS(User,effectMessagesDe,effectMessagesEn)
-    end
+		if (dataZList[i] > 5) then
+		   effectMessageDE = effectMessageDE.." "..ListPositiveEffectDE[i]
+		   effectMessageEN = effectMessageEN.." "..ListPositiveEffectEN[i]
+	       anyEffect = true
+	   elseif (dataZList[i] < 5) then
+			effectMessageDE = effectMessageDE.." "..ListNegativeEffectDE[i]
+			effectMessageEN = effectMessageEN.." "..ListNegativeEffectEN[i]
+	        anyEffect = true
+	   end
+	end
+	if anyEffect == false then
+	    effectMessageDE = "Du spührst keine Wirkung."
+		effectMessageEN = "You don't feel any effect."
+	end
+	base.common.InformNLS(User,effectMessageDE,effectMessageEN);
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
@@ -230,8 +233,9 @@ end
 
 function LookAtItem(User,Item)
     if (User:getPlayerLanguage()==0) then
-        world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: \"Zaubertrank\"")
+        world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: \"Zaubertrank\"");
     else
-        world:itemInform(User,Item,"You look at a sticker telling: \"Potion\"")
+        world:itemInform(User,Item,"You look at a sticker telling: \"Potion\"");
+        
     end
 end

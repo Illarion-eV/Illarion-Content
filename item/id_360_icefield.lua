@@ -31,8 +31,7 @@ function CharacterOnField(User)
                 resist=SpellResistence(User);      -- Magieresistenz prüfen
                 if resist<FieldItem.quality then   -- Qualität des Items --> Stärke mit Magie Resistenz vergleichen
 					if AffectedStren[i]==nil then AffectedStren[i]=100 end;
-				
-                    damageDealt=base.common.NormalRnd((7/100)*math.floor((FieldItem.quality-resist)*AffectedStren[i]),(9/100)*math.floor((FieldItem.quality-resist)*AffectedStren[i]));--AffectedStren[i]
+                    damageDealt=math.random((7/100)*math.floor((FieldItem.quality-resist)*AffectedStren[i]),(9/100)*math.floor((FieldItem.quality-resist)*AffectedStren[i]));--AffectedStren[i]
                     User:increaseAttrib("hitpoints",-damageDealt); -- Schaden berechnen und bewirken
                 end
             end
@@ -74,16 +73,6 @@ function SpellResistence(TChar)                 -- should be 0 (no res) to 100 (
     return math.max(math.ceil((BaseSuccess*base.common.NormalRnd(0,100))/50),0);
 end
 
-function base.common.NormalRnd(min,max)     -- returns ~normal distribution between min/max with m=(min+max)/2
-    base=0;
-    for t=1,10 do
-        base=base+math.random(max-min+1)-1; -- creates ~normal distri from 0 to (max-min)*10 with mu=(max-min)*10/2
-    end
-    base=math.ceil(base/10);                -- scale to 0-(max-min)
-    base=base+min;                          -- shift to min -> min to max
-    return base;
-end
-
 function ItemRotsOnField(oldItem,newItem)
     if (firstrot==nil) then
         rotted={};
@@ -97,4 +86,4 @@ function ItemRotsOnField(oldItem,newItem)
     end
     rotted[Posi]=rotted[Posi]+1;
 end
-    
+

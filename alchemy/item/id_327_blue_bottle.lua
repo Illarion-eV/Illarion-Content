@@ -5,13 +5,13 @@
 -- reworked by Merung
 
 require("base.common")
-require("druid.base.alchemy")
-require("druid.base.missile")
-require("druid.item.id_165_blue_bottle")
+require("alchemy.base.alchemy")
+require("alchemy.base.missile")
+require("alchemy.item.id_165_blue_bottle")
 
-module("druid.item.id_327_blue_bottle", package.seeall) --, package.seeall(druid.base.alchemy))
+module("alchemy.item.id_327_blue_bottle", package.seeall)
 
--- UPDATE common SET com_script='druid.item.id_327_blue_bottle' WHERE com_itemid = 327;
+-- UPDATE common SET com_script='alchemy.item.id_327_blue_bottle' WHERE com_itemid = 327;
 
 function Explode(User,TargetItem)
 Item = TargetItem

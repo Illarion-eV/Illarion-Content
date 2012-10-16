@@ -4,22 +4,27 @@ require("base.common")
 
 module("scheduled.factionLeader", package.seeall)
 
+informationTable = {
+	{npcName="Rosaline Edwards", usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)},
+	{npcName="Valerio Guilianni", usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)},
+	{npcName="Elvaine Morgan", usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)}}
+
 function checkFactionLeader()
-	if base.common.CheckIfOnline("Rosaline Edwards")[1] == true then
-		npcPositions = {usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)};
-		updatePosition(npcPositions)
-	elseif base.common.CheckIfOnline("Valerio Guilianni")[1] == true then
-		npcPositions = {usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)};
-		updatePosition(npcPositions)
-	elseif base.common.CheckIfOnline("Elvaine Morgan")[1] == true then
-		npcPositions = {usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)};
-		updatePosition(npcPositions)
+	for i=1, #(informationTable) do
+		charObject = base.common.CheckIfOnline(informationTable[i].npcName)
+		if charObject ~= nil then
+			updatePosition(informationTable[i].usualPosition, informationTable[i].newPosition)
+		else
+			updatePosition(informationTable[i].newPosition, informationTable[i].usualPosition)
+		end
 	end
 end
 
-function updatePosition(npcPositions)
-	if world:isCharacterOnField(npcPositions.usualPosition) == true then
-		npcCharObject = world:getCharacterOnField(npcPositions.usualPosition);
-		npcCharObject:forceWarp(npcPositions.newPosition);
+function updatePosition(usualPosition, newPosition)
+	if world:isCharacterOnField(usualPosition) == true then
+		npcCharObject = world:getCharacterOnField(usualPosition);
+		if npcCharObject:getType() == Character.npc then
+			npcCharObject:forceWarp(newPosition);
+		end
 	end
 end

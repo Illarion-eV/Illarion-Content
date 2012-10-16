@@ -1,16 +1,9 @@
 require("base.common")
-require("druid.base.brewing_plants_gemdust")
+
 
 module("item.id_316_sand", package.seeall)
 
 -- UPDATE common SET com_script='item.id_316_sand' WHERE com_itemid = 316;
-
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    -- for the alchemy system
-    if base.common.GetFrontItemID(User) == 1008 then 
-        druid.base.brewing_plants_gemdust.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-	end	
-end
 
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
     deleteIt=false;

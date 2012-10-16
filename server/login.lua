@@ -3,6 +3,7 @@ require("base.common")
 require("base.money")
 require("content.dailymessage")
 require("npc.aldania_elthewan")
+require("scheduled.factionLeader")
 
 module("server.login", package.seeall);
 
@@ -195,7 +196,6 @@ function onLogin( player )
     end
 
 	if player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan" then
-		base.common.InformNLS( player,"Willkommen "..player.name..". Der NPC wird nun versetzt.","Welcome "..player.name..". The NPC will now be moved."); --sending the message
 		exchangeFactionLeader( player.name );
 	end
 
@@ -398,18 +398,11 @@ function payNow(User)
 end
 
 -- Function to exchange the faction leader of a town.
--- @factionLeaderName Name of the faction leader
--- @npcPositions Array of position {default position, new position}
-function exchangeFactionLeader( factionLeaderName )
-	if factionLeaderName == "Rosaline Edwards" then
-		npcPositions = {position(122, 521, 0), position(237, 104, 0)};
-	elseif factionLeaderName == "Valerio Guilianni" then
-		npcPositions = {position(337, 215, 0), position(238, 104, 0)};
-	else
-		npcPositions = {position(898, 775, 2), position(239, 104, 0)};
-	end
-	if world:isCharacterOnField(npcPositions[1]) == true then
-		npcCharObject = world:getCharacterOnField(npcPositions[1]);
-		npcCharObject:forceWarp(npcPositions[2]);
+function exchangeFactionLeader( playerName )
+	for i=1, #(scheduled.factionLeader.informationTable) do
+		if playerName == scheduled.factionLeader.informationTable[i].npcName then
+			scheduled.factionLeader.updatePosition(scheduled.factionLeader.informationTable[i].usualPosition,
+				scheduled.factionLeader.informationTable[i].newPosition)
+		end
 	end
 end

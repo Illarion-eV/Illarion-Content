@@ -1,7 +1,7 @@
 -- I_100.lua GM-Kelle
 
 require("base.common")
-require("druid.base.alchemy")
+
 
 module("gm.items.id_100_trowel", package.seeall)
 
@@ -24,22 +24,18 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     end;
 
     -- check if a number was said, if not: don't do anything
-    local a, b, spoken = User.lastSpokenText:find("(%d+)");
-    if spoken == nil or tonumber(spoken) == 0 then
-        return;
+    local a,b, value = string.find(User.lastSpokenText, "(%d+)");
+    if value == nil or tonumber(value) == nil then
+        User:inform("debug 1")
+		return;
     end;
     
     local target = base.common.GetFrontPosition(User);
     
-    local itemId = tonumber(spoken);
+    local itemId = tonumber(value);
     local itemQual = 333;
-    local itemData = 0;
-    
-    if (druid.base.alchemy.plantDataListById ~= nil and druid.base.alchemy.plantDataListById[itemId] ~= nil) then
-        itemQual = base.common.NormalRnd(111, 999);
-        itemData = druid.base.alchemy.plantDataListById[itemId];
-    end;
-    
+    local itemData = nil
+    User:inform("denbug 2")
     world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
 end;
 
@@ -195,7 +191,8 @@ function Ini()
 end;
 
 function LookAtItem(User, Item)
-    --base.common.InformNLS(User, "Blablabla", "Bl ablablablabla");
+--[[   
+   --base.common.InformNLS(User, "Blablabla", "Bl ablablablabla");
 	--User:inform ("blabla hätte funktionieren müssen!");
 	if (texts == nil) then
         texts={};
@@ -215,5 +212,5 @@ function LookAtItem(User, Item)
         User:inform("This is the WOOOONDER trowel. Say a number between 1 and "..table.maxn(texts).." to view that help page and look at me then.");
     else
         User:inform(texts[pagenumber]);
-    end;
+    end;]]
 end;
