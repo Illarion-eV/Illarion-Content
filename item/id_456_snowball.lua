@@ -211,11 +211,13 @@ answerEN[3][10]=  {"a1"    ,"a2","a3"}
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
-    if (string.find(User.lastSpokenText,"reset")~=nil) then
-	    User:setQuestprogress(350,0)
-		User:setQuestprogress(351,0)
-		User:setQuestprogress(352,0)
-	    return
+    if (string.find(User.lastSpokenText,"set")~=nil) then
+	    local a,b,new = string.find(User.lastSpokenText,"(%d+)")
+		User:setQuestProgress(350,new)
+		User:setQuestProgress(351,new)
+		User:setQuestProgress(352,new)
+	    User:inform("set questprogress to "..new)
+		return
 	end	
 	--[[local mType = User:getMagicType
 	if XXX then
