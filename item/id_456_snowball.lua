@@ -247,9 +247,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    qstPrg = 1
 		User:setQuestProgress(questId,qstPrg)
 	end
-	User:inform(""..HerbsDeleteTextEN[teacherEN])
-	User:inform(""..HerbsTaskTwoNameEN[teacherEN][1])
-	User:inform(""..HerbsTaskTwoNameEN[teacherEN][2])
+	
 	if qstPrg == 1 then
 	    
 		SendMessage(User, 
@@ -270,8 +268,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			return
 		else
 		    SendMessage(User, 
-			           HerbsDeleteTextEN[teacherEN].." For a short amount fo time it seems as if someone would smack their lips, then the voice says: \"Good, very good. But there is an other task for you left. Now bring me two rar herbs - "..HerbsTaskTwoNameEN[teacherEN][1].." and "..HerbsTaskTwoNameEN[teacherEN][2]..". Be successfull and you are a step closer to your goal.", 
-					   HerbsDeleteTextDE[teacherEN].." Für einen Moment glaubst du etwas wie ein Schmatzen zu hören, bevor die Stimme erklingt: \"Sehr gut, sehr gut. Aber es erwartet dich noch eine Aufgabe. Nun sollst du mir zwei seltene Kräuter bringen und zwar "..HerbsTaskTwoNameDE[teacherEN][1].." und "..HerbsTaskTwoNameDE[teacherEN][2]..". Sei erfolgreich und du bist deinem Ziel ein Stück näher.",
+			           HerbsDeleteTextEN[teacherEN][1].." For a short amount fo time it seems as if someone would smack their lips, then the voice says: \"Good, very good. But there is an other task for you left. Now bring me two rar herbs - "..HerbsTaskTwoNameEN[teacherEN][1].." and "..HerbsTaskTwoNameEN[teacherEN][2]..". Be successfull and you are a step closer to your goal.", 
+					   HerbsDeleteTextDE[teacherEN][1].." Für einen Moment glaubst du etwas wie ein Schmatzen zu hören, bevor die Stimme erklingt: \"Sehr gut, sehr gut. Aber es erwartet dich noch eine Aufgabe. Nun sollst du mir zwei seltene Kräuter bringen und zwar "..HerbsTaskTwoNameDE[teacherEN][1].." und "..HerbsTaskTwoNameDE[teacherEN][2]..". Sei erfolgreich und du bist deinem Ziel ein Stück näher.",
 					   teacherEN
 					   );
 			User:eraseItem(HerbsTaskOneId[teacherEN][1],5)
@@ -291,8 +289,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    else
 		    User:setQuestProgress(questId,4)
 			SendMessage(User, 
-			            HerbsDeleteTextEN[teacherEN].." For a moment you believe to hear something like: \"Delicious, mh, so delicious...\" Then you hear the familiar voice: \"Yes, you solved this task. Now I have to ask you some questions. When you have answered three, I will tell you the secret of alchemy.\"", 
-						HerbsDeleteTextDE[teacherEN].." Einen Moment lang glaubst du ein Murmeln zu hören: \"Lecker, mh, so lecker...\" Dann erklingt die Stimme wieder auf bekannte Weise: \"Ja, du hast diese Aufgabe bestanden. Als nächstes muss ich dir einige Fragen stellen. Sobald du mir drei beantworten konntest, werde ich dir das Geheimnis verraten.\"",
+			            HerbsDeleteTextEN[teacherEN][1].." For a moment you believe to hear something like: \"Delicious, mh, so delicious...\" Then you hear the familiar voice: \"Yes, you solved this task. Now I have to ask you some questions. When you have answered three, I will tell you the secret of alchemy.\"", 
+						HerbsDeleteTextDE[teacherEN][1].." Einen Moment lang glaubst du ein Murmeln zu hören: \"Lecker, mh, so lecker...\" Dann erklingt die Stimme wieder auf bekannte Weise: \"Ja, du hast diese Aufgabe bestanden. Als nächstes muss ich dir einige Fragen stellen. Sobald du mir drei beantworten konntest, werde ich dir das Geheimnis verraten.\"",
 						teacherEN,
 						true
 						);
