@@ -214,7 +214,7 @@ function GetRope( Character )
 	local Rope = Character:getItemAt(5);
 	if not ( Rope.id == 2760 and Rope:getData("tyingStatus") == "tied" ) then
 		Rope = Character:getItemAt(6);
-		if not ( Rope.id == 2760 and :getData("tyingStatus") == "tied" ) then
+		if not ( Rope.id == 2760 and Rope:getData("tyingStatus") == "tied" ) then
 			return nil;
 		end
 	end
