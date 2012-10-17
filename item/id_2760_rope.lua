@@ -312,10 +312,6 @@ end
 -- @return true if something was done
 function TyingRopeHandler(User, Rope, Target)
 	
-	if Rope:getData("tyingStatus") ~= "untied" then
-		return false;
-	end
-	
 	local foundEffect, Tying = User.effects:find(26);
 	if not foundEffect then
 		Rope:setData("tyingStatus", "untied");
