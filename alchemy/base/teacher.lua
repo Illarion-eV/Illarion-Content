@@ -267,7 +267,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		    questionEN = "one question"; questionDE = "eine Frage"
 	    end
 	    SendMessage(User, 
-			            "Once again you hear the voice you already have heard often before: \"You still have to answer "..questionEN..", then you will leran the secret of alchemy.\""
+			            "Once again you hear the voice you already have heard often before: \"You still have to answer "..questionEN..", then you will leran the secret of alchemy.\"",
 						"Erneut erklingt die dir mittlerweile bekannte Stimme: \"Du hast mir noch "..questionDE.." zu beantworten, dann wirst du das Geheimnis der Alchemie erfahren.\"",
 						teacherEN,
 						true
