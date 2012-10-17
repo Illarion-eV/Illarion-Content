@@ -65,7 +65,13 @@ HerbsDeleteTextEN["Thinking Stone"] = {"As if they had an own will, the herbs fa
 HerbsDeleteTextEN["Recognizing Spring"] = {"A wave raises from the spring and flushes the herbs from your hand, which disappear in the water."}
 
 questionDE ={}
+questionDE[1] = {}
+questionDE[2] = {}
+questionDE[3] = {}
 answerDE = {}
+answerDE[1] = {}
+answerDE[2] = {}
+answerDE[3] = {}
 
 questionDE[1][1]={"Frage1",nil ,nil}
 answerDE[1][1]=  {"a1"    ,"a2","a3"}
@@ -131,7 +137,13 @@ questionDE[3][10]={"Frage1",nil ,nil}
 answerDE[3][10]=  {"a1"    ,"a2","a3"}
 
 questionEN ={}
+questionEN[1] = {}
+questionEN[2] = {}
+questionEN[3] = {}
 answerEN = {}
+answerEN[1] = {}
+answerEN[2] = {}
+answerEN[3] = {}
 
 questionEN[1][1]={"Frage1",nil ,nil}
 answerEN[1][1]=  {"a1"    ,"a2","a3"}
