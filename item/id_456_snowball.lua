@@ -247,7 +247,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    qstPrg = 1
 		User:setQuestProgress(questId,qstPrg)
 	end
-	User:inform("debug3 "..teacherEN)
+	User:inform(""..HerbsDeleteTextEN[teacherEN])
+	User:inform(""..HerbsTaskTwoNameEN[teacherEN][1])
+	User:inform(""..HerbsTaskTwoNameEN[teacherEN][2])
 	if qstPrg == 1 then
 	    
 		SendMessage(User, 
