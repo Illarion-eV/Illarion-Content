@@ -210,12 +210,13 @@ answerEN[3][10]=  {"a1"    ,"a2","a3"}
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
---
+
     --[[local mType = User:getMagicType
 	if XXX then
         return
 	end]]
 	User:inform("debug1")
+	local teacherEN; local teacherDE
 	local questId
 	if SourceItem.pos == position(1,1,0) or SourceItem.id == 456 then
 	    User:inform("debug2")
@@ -241,7 +242,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if qstPrg == 1 then
 	    
 		SendMessage(User, 
-		            "You hear a voice, but you cannot tell from where it comes. Maybe it's even just in your head and it says: \"I am the "..teacherEN". I help those who wish to enter the world of fine matter. If you want to learn about the great secret of alchemy, fullfill my tasks. Go and bring me five "..HerbsTaskOneNameEN[teacherEN][1]..", five "..HerbsTaskOneNameEN[teacherEN][2].." and five "..HerbsTaskOneNameEN[teacherEN][3]..". If you have them, touch me with and you will have my attention.\"", 
+		            "You hear a voice, but you cannot tell from where it comes. Maybe it's even just in your head and it says: \"I am the "..teacherEN..". I help those who wish to enter the world of fine matter. If you want to learn about the great secret of alchemy, fullfill my tasks. Go and bring me five "..HerbsTaskOneNameEN[teacherEN][1]..", five "..HerbsTaskOneNameEN[teacherEN][2].." and five "..HerbsTaskOneNameEN[teacherEN][3]..". If you have them, touch me with and you will have my attention.\"", 
 					"Du vernimmst eine Stimme, von der du nicht sagen kannst, woher sie kommt, oder ob sie vielleicht auch nur in deinem Kopf ist und sie spricht: \"Ich bin "..teacherDE". Ich helfe jenen, die die Welt der Feinstofflichkeit betreten zu wollen. Willst du also das große Geheimnis der Alchmie erfahren, erfülle meine erste Prüfungen. Geh und bringe mir fünf "..HerbsTaskOneNameDE[teacherEN][1]..", fünf "..HerbsTaskOneNameDE[teacherEN][2].." und fünf "..HerbsTaskOneNameDE[teacherEN][3]..". Wenn du sie hast, berühre mich und du wirst meine Aufmerksamkeit haben.\""
 					);
 		User:setQuestprogress(questId,2)
