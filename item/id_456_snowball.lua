@@ -1,5 +1,6 @@
 -- UPDATE common SET com_script='item.id_456_snowball' WHERE com_itemid IN (456);
 require("base.common")
+require("alchemy.base.teacher")
 
 module("item.id_456_snowball", package.seeall)
 
@@ -18,6 +19,10 @@ end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- merung's test land -- 
+	if (string.find(User.lastSpokenText,"teacher")~=nil) then
+	    alchemy.base.teacher.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+	end	
+	
 	local myValue
 	local myValue1
 	local myValue2
