@@ -211,7 +211,13 @@ answerEN[3][10]=  {"a1"    ,"a2","a3"}
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
-    --[[local mType = User:getMagicType
+    if (string.find(User.lastSpokenText,"reset")~=nil) then
+	    User:setQuestprogress(350,0)
+		User:setQuestprogress(351,0)
+		User:setQuestprogress(352,0)
+	    return
+	end	
+	--[[local mType = User:getMagicType
 	if XXX then
         return
 	end]]
