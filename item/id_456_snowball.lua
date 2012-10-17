@@ -275,6 +275,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			User:eraseItem(HerbsTaskOneId[teacherEN][1],5)
 			User:eraseItem(HerbsTaskOneId[teacherEN][2],5)
 			User:eraseItem(HerbsTaskOneId[teacherEN][3],5)
+		    User:setQuestProgress(questId,3)
 		end    
 	
 	elseif qstPrg == 3 then
