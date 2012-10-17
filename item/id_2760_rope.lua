@@ -1,4 +1,6 @@
 -- Rope
+-- reworked to work with new client by Lillian
+
 require("base.common")
 require("quest.aquest28")    
 require("lte.tying_capturer") 
@@ -12,10 +14,9 @@ tyingQuality[1] = {"strong", "stable", "", "threadbare", "weak"};
 tyingQuality["limits"] = {15,10,5,2,0};
 
 function LookAtItem(User,Item)
-    
 	local gText;
 	local eText;
-	if Item.data == 1 then
+	if Item:getData("tyingStatus") == "tied" then
 		local eQual, gQual;
 		local minutes = (Item.quality - 100)/120;
 		for i,limit in tyingQuality.limits do
@@ -36,33 +37,31 @@ end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
-	-- TYING IS BUGGY IN NEW CLIENT, NEEDS REWORK
-	-- if SourceItem.data == 1 then
-		-- -- it's a tying rope!
-		-- local targetChar = base.common.GetFrontCharacter(User);
-		-- if TyingRopeHandler(User, SourceItem, targetChar) then
-			-- return;
-		-- end
-		-- if targetChar then
-			-- -- actually nothing can happen anyway, mostly just for the error messages
-			-- UseRopeWithCharacter(User, SourceItem, targetChar, ltstate);
-			-- return;
-		-- end
-		-- return;
-	-- end
+	if SourceItem:getData("tyingStatus") == "tied" then
+		-- it's a tying rope!
+		local targetChar = base.common.GetFrontCharacter(User);
+		if TyingRopeHandler(User, SourceItem, targetChar) then
+			return;
+		end
+		if targetChar then
+			-- actually nothing can happen anyway, mostly just for the error messages
+			UseRopeWithCharacter(User, SourceItem, targetChar, ltstate);
+			return;
+		end
+		return;
+	end
 	
-	-- -- it's a normal rope!
+	-- try to strengthen the knot (if User has tied up someone...)
+	if StrengthenKnot(User, SourceItem, base.common.GetTargetItem(User, SourceItem)) then
+		return;
+	end
 	
-	-- -- try to strengthen the knot (if User has tied up someone...)
-	-- if StrengthenKnot(User, SourceItem, base.common.GetTargetItem(User, SourceItem)) then
-		-- return;
-	-- end
-	-- -- try to tie up the frontChar!
-	-- local frontChar = base.common.GetFrontCharacter(User);
-	-- if frontChar then
-		-- UseRopeWithCharacter(User, SourceItem, frontChar, ltstate);
-		-- return;
-	-- end
+	-- try to tie up the frontChar!
+	local frontChar = base.common.GetFrontCharacter(User);
+	if frontChar then
+		UseRopeWithCharacter(User, SourceItem, frontChar, ltstate);
+		return;
+	end
 	
 	-- noone infront... perhaps climb down a well then.
 	local TargetItem = base.common.GetFrontItem(User);
@@ -72,10 +71,10 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     end
     local dummy_1, task = quest.aquest28.split_questdata(User);
     
-	if equapos(TargetItem.pos,position(-73,-108,0)) then
-        User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
-        User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
-        User:warp(position(-73,-108,-3));
+	--if equapos(TargetItem.pos,position(-73,-108,0)) then
+      --  User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
+        --User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
+        --User:warp(position(-73,-108,-3));
    -- elseif equapos(TargetItem.pos,position(-131,-123,0)) then
    --     User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
    --     User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
@@ -84,7 +83,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     --    User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
     --    User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
     --    User:warp(position(797,791,-3));
-	elseif equapos(TargetItem.pos,position(528, 555, 0)) then
+	if equapos(TargetItem.pos,position(528, 555, 0)) then
         User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         User:warp(position(518,559, -3));
@@ -92,26 +91,24 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         User:warp(position(292, 377, -6));
-    elseif ( equapos(TargetItem.pos,position(787,801,0)) and (task == 4 or true)) then --FARMER WELL POSITION TO PUT HERE
+    elseif ( equapos(TargetItem.pos,position(787,801,0)) and (task == 4 or true)) then
         User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         local monster_list = world:getMonstersInRangeOf(position(799,794,-3),10); --check if already a monster spawned there
 		if (monster_list[1]==nil) then
-        	world:createMonster(133,position(801,795,-3), 14);--create a monster here
+        	world:createMonster(10,position(801,795,-3), 14);--create a monster here
 		end
 		User:warp(position(797,791,-3));
 	else
-    	if ( User:getPlayerLanguage() == 0 ) then
-            User:inform( "Das Wasser steht recht hoch im Brunnen. Hier hinein zu klettern bringt nichts." );
-    	else
-            User:inform( "The water is rather high in the well. To climb in here is useless." );
-		end
+    	base.common.InformNLS( User,
+			"Das Wasser steht recht hoch im Brunnen. Hier hinein zu klettern bringt nichts.",
+            "The water is rather high in the well. To climb in here is useless.");
     end
 end
 
 function MoveItemBeforeMove( User, SourceItem, TargetItem )
 	
-	if SourceItem.data == 1 then
+	if SourceItem:getData("tyingStatus") == "tied" then
 		
 		base.common.InformNLS(User,
 			"Du solltest das Seil fest in der Hand behalten. Damit ist jemand gefesselt.",
@@ -251,7 +248,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 		coldLog:write(logText.."\n");
 		coldLog:close();
 	end
-	SourceItem.data = 1;
+	SourceItem:setData("tyingStatus", "tied");
 	world:changeItem(SourceItem);
 	if not foundEffectTarget then
 		Tying = LongTimeEffect(24,1);
@@ -303,13 +300,13 @@ end
 function StrengthenKnot(User, Rope, TargetItem)
 	local foundEffect, Tying = User.effects:find(26);
 	if not foundEffect then
-		Rope.data = 0;
+		Rope:setData("tyingStatus", "untied");
 		return false;
 	end
 	
 	if TargetItem then
 		if TargetItem.id == 2760 then
-			if TargetItem.data == 1 and Rope.data == 0 then
+			if TargetItem:getData("tyingStatus") == "tied" and Rope:getData("tyingStatus") == "untied" then
 				foundCaptive, Captive = Tying:findValue("Captive");
 				Target = lte.tying_capturer.IsCharidInRangeOf(Captive,User.pos,5);
 				if Target then
@@ -333,13 +330,13 @@ end
 -- @return true if something was done
 function TyingRopeHandler(User, Rope, Target)
 	
-	if Rope.data ~= 1 then
+	if Rope:getData("tyingStatus") ~= "untied" then
 		return false;
 	end
 	
 	local foundEffect, Tying = User.effects:find(26);
 	if not foundEffect then
-		Rope.data = 0;
+		Rope:setData("tyingStatus", "untied");
 		return false;
 	end
 	
@@ -429,24 +426,24 @@ function GetRaceGenderText( Language, Character )
 	if not InitRaceGenderText then
 		InitRaceGenderText = true;
 		articleGerman={"den","die"};
-		descriptionGerman={"Mensch","Zwerg","Halbling","Elf","Ork","Echsenmensch","Gnom","Feenmann","Goblin","Menschendame","Zwergenmaid","Halblingsdame","Elfendame","Orkfrau","Echse","Gnomin","Fee","Goblinfrau"};
-		descriptionEnglish={"human","dwarf","halfling","elf","orc","lizard","gnome","male faerie","goblin","human lady","dwarven maid","halfling lady","elven lady","orcess","female lizard","female gnome","faerie","goblin woman"};
+		descriptionGerman={"Mensch","Zwerg","Halbling","Elf","Ork","Echsenmensch","Menschendame","Zwergenmaid","Halblingsdame","Elfendame","Orkfrau","Echse"};
+		descriptionEnglish={"human","dwarf","halfling","elf","orc","lizard","human lady","dwarven maid","halfling lady","elven lady","orcess","female lizard"};
 	end
 	
 	race=Character:increaseAttrib("racetyp",0);
 	gender=Character:increaseAttrib("sex",0);
 	
 	if Language == 0 then
-		if race > 8 or gender > 1 then
+		if race > 5 or gender > 1 then
 			outText = "das Wesen"
 		else
-			outText = articleGerman[gender+1].." "..descriptionGerman[race+1+9*gender];
+			outText = articleGerman[gender+1].." "..descriptionGerman[race+1+6*gender];
 		end
 	else
-		if race > 8 or gender > 1 then
+		if race > 5 or gender > 1 then
 			outText = "the creature"
 		else
-			outText = "the "..descriptionEnglish[race+1+9*gender];
+			outText = "the "..descriptionEnglish[race+1+6*gender];
 		end
 	end
 	
