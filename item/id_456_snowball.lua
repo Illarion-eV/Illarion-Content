@@ -234,7 +234,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end         
 	
 	local qstPrg = User:getQuestProgress(questId)
-	if qstPrg == nil then
+	if qstPrg == 0 then
 	    qstPrg = 1
 		User:inform("debug3")
 		User:setQuestProgress(questId,qstPrg)
