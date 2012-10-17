@@ -14,7 +14,7 @@ tyingQuality[1] = {"strong", "stable", "", "threadbare", "weak"};
 tyingQuality["limits"] = {15,10,5,2,0};
 
 function LookAtItem(User,Item)
-	world:itemInform(player, item, getTestLookAt(Item,User:getPlayerLanguage()))
+	world:itemInform(player, item, getLookAt(Item,User:getPlayerLanguage()))
 	return true;
 end
 
