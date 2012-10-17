@@ -23,6 +23,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    alchemy.base.teacher.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end	
 	
+	if (string.find(User.lastSpokenText,"reset")~=nil) then
+	    User:setQuestprogress(350,0)
+		User:setQuestprogress(351,0)
+		User:setQuestprogress(352,0)
+	end	
+	
 	local myValue
 	local myValue1
 	local myValue2
