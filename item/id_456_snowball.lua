@@ -216,7 +216,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return
 	end]]
 	User:inform("debug1")
-	local teacherEN; local teacherDE
 	local questId
 	if SourceItem.pos == position(1,1,0) or SourceItem.id == 456 then
 	    User:inform("debug2")
