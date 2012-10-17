@@ -14,29 +14,41 @@ tyingQuality[1] = {"strong", "stable", "", "threadbare", "weak"};
 tyingQuality["limits"] = {15,10,5,2,0};
 
 function LookAtItem(User,Item)
-	local gText;
-	local eText;
+	world:itemInform(player, item, getTestLookAt(Item,User:getPlayerLanguage()))
+	return true;
+end
+
+function getLookAt(Item, language)
+	local gText, eText;
 	if Item:getData("tyingStatus") == "tied" then
-		local eQual, gQual;
-		local minutes = (Item.quality - 100)/120;
-		for i,limit in tyingQuality.limits do
-			if ( minutes > limit ) then
-				gQual = tyingQuality[0][i];
-				eQual = tyingQuality[1][i];
-				break;
-			end
-		end
-		gText = gQual.." Fesslungsseil";
-		eText = eQual.." tying rope";
+		gText = " Fesslungsseil";
+		eText = " tying rope";
 	else
 		gText = "Seil";
 		eText = "rope";
 	end
-	if (User:getPlayerLanguage()==0) then
-		world:itemInform(User,Item,gText);
-	else
-		world:itemInform(User,Item,eText);
+	
+	--calculate the quality of the rope
+	local eQual, gQual;
+	local minutes = (Item.quality - 100)/120;
+	for i,limit in tyingQuality.limits do
+		if ( minutes > limit ) then
+			gQual = tyingQuality[0][i];
+			eQual = tyingQuality[1][i];
+			break;
+		end
 	end
+	
+	if(language==0) then
+		lookAt.name = gText
+		lookAt.qualityText = gQual
+	else
+		lookAt.name = eText
+		lookAt.qualityText = eQual
+	end
+	lookAt.rareness = ItemLookAt.epicItem;
+	
+	return lookAt;
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
