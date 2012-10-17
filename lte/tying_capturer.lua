@@ -150,7 +150,7 @@ function removeEffect( Tying, Capturer )
 				"Das Seil zerreiﬂt.",
 				"The rope breaks.");
 		else
-			rope:setData("tyingStatus") = "untied";
+			rope:setData("tyingStatus", "untied");
 			rope.quality = 333;
 			world:changeItem(rope);
 		end
