@@ -150,7 +150,7 @@ function removeEffect( Tying, Capturer )
 				"Das Seil zerreiﬂt.",
 				"The rope breaks.");
 		else
-			rope.data = 0;
+			rope:setData("tyingStatus") = "untied";
 			rope.quality = 333;
 			world:changeItem(rope);
 		end
@@ -212,9 +212,9 @@ end
 function GetRope( Character )
 	
 	local Rope = Character:getItemAt(5);
-	if not ( Rope.id == 2760 and Rope.data == 1 ) then
+	if not ( Rope.id == 2760 and Rope:getData("tyingStatus") == "tied" ) then
 		Rope = Character:getItemAt(6);
-		if not ( Rope.id == 2760 and Rope.data == 1 ) then
+		if not ( Rope.id == 2760 and :getData("tyingStatus") == "tied" ) then
 			return nil;
 		end
 	end
