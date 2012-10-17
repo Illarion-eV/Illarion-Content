@@ -32,7 +32,11 @@ function LookAtItem(User,Item)
 		gText = "Seil";
 		eText = "rope";
 	end
-	world:itemInform(User,Item,base.common.GetNLS(User,gText,eText));
+	if (User:getPlayerLanguage()==0) then
+		world:itemInform(User,Item,gText);
+	else
+		world:itemInform(User,Item,eText);
+	end
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
@@ -96,7 +100,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         local monster_list = world:getMonstersInRangeOf(position(799,794,-3),10); --check if already a monster spawned there
 		if (monster_list[1]==nil) then
-        	world:createMonster(10,position(801,795,-3), 14);--create a monster here
+        	world:createMonster(111,position(801,795,-3), 14);--create a monster here
 		end
 		User:warp(position(797,791,-3));
 	else
