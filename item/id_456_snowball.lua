@@ -213,6 +213,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     if (string.find(User.lastSpokenText,"set")~=nil) then
 	    local a,b,new = string.find(User.lastSpokenText,"(%d+)")
+		new = tonumber(new)
 		User:setQuestProgress(350,new)
 		User:setQuestProgress(351,new)
 		User:setQuestProgress(352,new)
