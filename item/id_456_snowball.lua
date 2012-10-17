@@ -38,7 +38,8 @@ HerbsTaskOneNameEN["Recognizing Spring"] = {"7","8","9"}
 HerbsTaskOneNameDE["Recognizing Spring"] = {"7","8","9"}
 
 HerbsTaskTwoId = {}
-HerbsTaskTwoName = {}
+HerbsTaskTwoNameEN = {}
+HerbsTaskTwoNameDE = {}
 
 HerbsTaskTwoId["Knowing Tree"] =   {756,755}
 HerbsTaskTwoNameEN["Knowing Tree"] = {"frommbeere","feuerwurz"}
