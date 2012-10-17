@@ -202,11 +202,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if XXX then
         return
 	end]]
-	
+	User:inform("debug1")
 	local teacherEN; local teacherDE
 	local questId
 	if SourceItem.pos == position(1,1,0) or SourceItem.id == 456 then
-	    teacherEN = "Knowing Tree"
+	    User:inform("debug2")
+		teacherEN = "Knowing Tree"
 		teacherDE = "der Wissende Baum"
 		questId = 350
 	elseif SourceItem.pos == postion(2,1,0) then
