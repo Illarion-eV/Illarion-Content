@@ -236,10 +236,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	local qstPrg = User:getQuestProgress(questId)
 	if qstPrg == 0 then
 	    qstPrg = 1
-		User:inform("debug3 "..teacherEN)
 		User:setQuestProgress(questId,qstPrg)
 	end
-	
+	User:inform("debug3 "..teacherEN)
 	if qstPrg == 1 then
 	    
 		SendMessage(User, 
