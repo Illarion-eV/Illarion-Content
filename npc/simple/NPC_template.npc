@@ -54,7 +54,7 @@ sellItems = 1, 2, 3
 buyPrimaryItems = 1
 buySecondaryItems = 2, 3
 
--- Template Version 1.07, 08/30/2012 by Estralis Seborian
+-- Template Version 1.08, 10/18/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
 -- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
