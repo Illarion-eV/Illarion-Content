@@ -85,7 +85,7 @@ queststatus(322) > 11, ".+" -> inform("[Error] Something went wrong, please info
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me runs a hand through his ruffled hair, nodding once.", "#me glances at you with red eyes, 'Aye, greetings.'", "#me opens his mouth to speak, his voice quiet and weary, 'Be greeted.'"
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me fährt sich mit einer Hand durchs zerzauste Haar und nickt kurz.", "#me blickt dich mit roten Augen an:'Ja, Grüße'.", "#me öffnet seinen Mund um mit leiser, müder Stimme zu antworten, 'Seid gegrüßt'."
 "Farewell", "Bye", "Fare well", "See you" -> "Take care.", "Aye, so long. Please keep my wife in your prayers.", "May the Gods watch over you."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gebt auf euch Acht!.", "Bis Dann! Bedenkt meine Frau in Euren Gebeten!", "Mögen die Götter über Euch wachen."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gebt auf euch Acht!", "Bis Dann! Bedenkt meine Frau in Euren Gebeten!", "Mögen die Götter über Euch wachen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care.", "Aye, so long. Please keep my dear wife in your prayers.", "May the Gods watch over you."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gebt auf euch Acht!", "Bis Dann! Bedenkt meine liebe Frau in Euren Gebeten!", "Mögen die Götter über Euch wachen."
 "How are you", "How feel", "How do you do" -> "I am fine, but my poor, beloved wife has fallen ill. I truly need a helping hand.", "I am torn. My wife is unwell and we run low on supplies. But I cannot afford to leave the farm, for this season's crops would certainly perish.", "Show your concern for my wife, not I. I am in dire need of assistance."

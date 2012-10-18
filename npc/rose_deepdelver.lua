@@ -282,7 +282,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("child");
-talkEntry:addResponse("I have a small daughter of three years, she is wonderful!.");
+talkEntry:addResponse("I have a small daughter of three years, she is wonderful!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

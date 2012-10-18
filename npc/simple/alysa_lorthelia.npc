@@ -194,7 +194,7 @@ german, chance(20.0), ".*" -> "Das hat nichts mit mir zu tun, entschuldigt."
 
 cycletext "Diess Mädchen ist so dünn.", "That girl is so skinny."
 cycletext "Ich habe hunger. Ich meine, ich habe keinem Hunger.", "I'm hungry. I mean I'm not hungry."
-cycletext "Kommt, esst mein Brot, schmeckt besser als cadomyrische Sandratte!.", "Come eat my bread. It's better than a Cadomyrian sand rat."
+cycletext "Kommt, esst mein Brot, schmeckt besser als cadomyrische Sandratte!", "Come eat my bread. It's better than a Cadomyrian sand rat."
 cycletext "Der alte John Sights sagte mir, ich soll Euch sagen, dass ich Alysa Lorthelia bin, die Tochter der Waffenschmiedein Asha Lorthelia.", "Old Man John Sights told me to tell you that I am Alysa Lorthelia, daughter of Aysha. The famous Weopons smith."
 cycletext "Ich backe Brot so gut, wie meine Mutter Waffen herstellt.", "I bake bread as good as my mother crafts weapons."
 cycletext "Mein Magen schmerzt. Diese Brot um mich herum. Das ist Folter.", "My stomach hurts. All this bread sitting around me. It's torture."

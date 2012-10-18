@@ -460,7 +460,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Albarian scrumbags! Speared my father on the battlefield!.");
+talkEntry:addResponse("Albarian scrumbags! Speared my father on the battlefield!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -585,7 +585,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Why do you talk with me? I don't even know you!");
 talkEntry:addResponse("You talk like some smart ass elven girl.");
-talkEntry:addResponse("Shut up and bring me another beer!.");
+talkEntry:addResponse("Shut up and bring me another beer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

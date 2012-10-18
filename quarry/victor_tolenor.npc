@@ -113,7 +113,7 @@ itemShoes = 53
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Richtet meiner Tante schöne Grüße aus wenn ihr sie seht.", "Vergesst nicht Baron Has...lints. Barton Haslints von mir zu grüßen.", "Bis bald. Ich verlasse mich auf euch.", end
 "How are you", "How feel", "How do you do" -> "I am fine. I bought new wares for my uh... sick aunt.", "I am worried sick about my aunt Hastings... uhh Hastines! Do you bear news from her?", "#w Cut that out and let's get down to buisiness. I think we're being watched.", end
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht es gut. Ich habe neue Waren für meine uh... kranke Tante eingekauft.", "Ich sorge mich sehr um meine Tante Hastings... ähh Hastines! Bringt ihr Neuigkeiten?", "#w Könnt ihr euch das sparen und zum Geschäftlichen kommen? Ich glaube wir werden beobachtet.", end
-"your name", "who are you", "who art thou" -> "I am Victor Tolenor, proud citizen of Cadomyr!", "Is that realy important? Tell me friend, what news do you bring of my aunt?", "Victor Tolenor is my name, gods shave... uh, save the queen!", end
+"your name", "who are you", "who art thou" -> "I am Victor Tolenor, proud citizen of Cadomyr!", "Is that really important? Tell me friend, what news do you bring of my aunt?", "Victor Tolenor is my name, gods shave... uh, save the queen!", end
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Victor Tolenor, ein stolzer Bürger Cadomyrs!", "Ist das wirklich so wichtig? Komm Freund, erzähl mir lieber ob meine Tante wohlauf ist.", "Victor Tolenor mein Name, die Götter mögen die Königin stutzen, ähh stützen.", end
 
 -- Catching typical NPC phrases
@@ -137,7 +137,7 @@ itemShoes = 53
 "revolution", "rebellion" -> "Yes. Sadly everyone seems happy to be at the mercy of a woman."
 "aunt" -> "My aunt could rule Cadomyr even better than the queen.", "You know who I'm talking about."
 "torture", "jail" -> "You should've thought about that earlier.", "#me shrugs passively: 'All I have to do is run faster than you once they come for us. And I will'"
-"Hastings", "baron" -> "Yes, shout it out realy loud.", "Hey there guards! This one's plotting against the queen!"
+"Hastings", "baron" -> "Yes, shout it out really loud.", "Hey there guards! This one's plotting against the queen!"
 "reward" -> "I'm a simple man with a simple taste. Gold, jewelry, a small fiefdom.", "Once the garbage is removed those that were labourous will be rewarded!"
 "unsere Sache" -> "Die Verbesserung unserer Lebensbedingungen in Cadomyr natürlich!", "Als ob euch das meine Tante nicht schon gesagt hätte.", "GERMAN3."
 "Revolution", "rebellion" -> "Ja. Leider scheinen alle zufrieden damit nach der Pfeife einer Frau zu tanzen."

@@ -96,7 +96,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Familie" -> "Ich lebe zusammen mit meinem Mann und meinem Kind in Runewick. Es ist ein sehr friedvoller Ort."
 "husband" -> "My husband Milo knows a lot about herb lore, just ask him if you want to know something about herbs!"
 "Mann" -> "Mein Mann Milo weiß eine menge über Kräuterkunde, wenn du etwas wissen willst, frag ihn einfach!"
-"child" -> "I have a small daughter of three years, she is wonderful!."
+"child" -> "I have a small daughter of three years, she is wonderful!"
 "Kind" -> "Ich habe eine kleine Tochter von drei Jahren, sie ist einfach wundervoll!"
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here

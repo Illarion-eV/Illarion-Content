@@ -295,7 +295,7 @@ talkEntry:addTrigger("profession");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I raise dairy cattle in order to sell their milk.");
 talkEntry:addResponse("I'm a peasant byand specialize in tending to dairy cows.");
-talkEntry:addResponse("I live and work on this farm breeding the best dairy cattle from here to Cadoymr. I sell their milk with great pride!.");
+talkEntry:addResponse("I live and work on this farm breeding the best dairy cattle from here to Cadoymr. I sell their milk with great pride!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

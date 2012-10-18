@@ -290,7 +290,7 @@ english, "Thomas", "Berryard", "Berry", "Tom", "Thom", "snaga" -> "Hm-h? Do you 
 "Nein" -> "Was auch immer.", "A-ha?", "Meinetwegen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "I tried to found a labour union, but Murgo forbade it.", "Yeah? ... what a bummer!.", "Heh-heh. You are quite funny."
+english, chance(20.0), ".*" -> "I tried to found a labour union, but Murgo forbade it.", "Yeah? ... what a bummer!", "Heh-heh. You are quite funny."
 german, chance(20.0), ".*" -> "Ich wollte eine Gewerkschaft gründen. Aber Murgo war dagegen.", "Yeah? ... so ein Mist!", "Hä-hä. Du bist richtig drollig."
 
 ------------------------------------------------------------------------------AC

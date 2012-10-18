@@ -1047,7 +1047,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addResponse("The dead be dead. Everywhere should it be that way.");
 talkEntry:addResponse("Argh-ch...");
-talkEntry:addResponse("...Lubber!.");
+talkEntry:addResponse("...Lubber!");
 talkEntry:addResponse("Har-har-har-ha!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
