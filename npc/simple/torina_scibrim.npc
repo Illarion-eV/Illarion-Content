@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Ardian                                                           --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 18, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Torina Scibrim"
@@ -102,20 +102,20 @@ english, "Galmair" -> "In Galmair only wealth and money is important.", "There i
 "Königin" -> "Ehre der Königin!", "Mögen die Götter die Königin schützen!"
 english, "rosaline", "edwards" -> "This is the name of our fair and noble queen.", "Honour to the queen!", "May the gods protecht the queen!"
 "rosaline", "edwards" -> "Dies ist der Name unsere gerechten und edlen Königin.", "Ehre der Königin!", "Mögen die Götter die Königin schützen!"
-english, "Cadomyr" -> "We are lucky to live in a place where everyone knows his place, this way chaos can not spread.", "Every Place should be as nice as Cadomyr.", "ENGLISH3."
-"Cadomyr" -> "We haben Glück an einem Ort zu leben, wo jeder seinen Platz kennt, so kann keine Unordnung aufkommen.", "Jeder Ort sollte so schön sein, wie Cadomyr.", "GERMAN3."
+english, "Cadomyr" -> "We are lucky to live in a place where everyone knows his place, this way chaos can not spread.", "Every Place should be as nice as Cadomyr."
+"Cadomyr" -> "We haben Glück an einem Ort zu leben, wo jeder seinen Platz kennt, so kann keine Unordnung aufkommen.", "Jeder Ort sollte so schön sein, wie Cadomyr."
 
 -- Main land factions
-english, "albar" -> "Albar ist ein schöner Land.Oder is important there.", "ENGLISH2."
-"albar" -> "Albar is a nice country. Dort herrscht Ordung.", "GERMAN2."
-english, "gynk", "gync" -> "Gync isn't the best place to grow up. It's a dirty place, just like Galmair.", "I've never been to Gync, I don't think i'd like it there."
-"gync", "gynk" -> "Gynk ist nicht der beste Ort wo man aufzuwachsen kann.Es ist ein dreckiger Ort,genau wie Galmair.", "Ich war noch nie in Gynk, I denke dort würde es mir nicht gefallen."
-english, "salkama" -> "Salkamar is a nice place. It's sunny there.", "I've never been to Salkmar, I think this place lieas near the sea."
+english, "albar" -> "Albar is a nice country. Oder is important there."
+"albar" -> "Albar ist ein schönes Land. Dort herrscht Ordnung."
+english, "gynk", "gync" -> "Gync isn't the best place to grow up. It's a dirty place, just like Galmair.", "I've never been to Gync, I don't think I'd like it there."
+"gync", "gynk" -> "Gynk ist nicht der beste Ort wo man aufzuwachsen kann.Es ist ein dreckiger Ort, genau wie Galmair.", "Ich war noch nie in Gynk, I denke dort würde es mir nicht gefallen."
+english, "salkama" -> "Salkamar is a nice place. It's sunny there.", "I've never been to Salkmar, I think this place lies near the sea."
 "salkama" -> "Salkamar ist ein schöner Ort. Dort ist es recht sonnig.", "Ich war noch nie in Salkamar, I glaube dieser Ort liegt am Meer."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "The month were named after the 16 Gods, we should name one month after the queen!", "I pray to Zhambar. To wich God do you pray?"
-"Gott", "Götter" -> "Nach den 16 Göttern wurden die Monate des Jahres beannt. Wir sollten einem Monat nach der Königin benennen!", "I bete zu Zhambar. zu welchem Gott betet Ihr?"
+"god" -> "The month were named after the 16 Gods, we should name one month after the queen!", "I pray to Zhambra. To wich God do you pray?"
+"Gott", "Götter" -> "Nach den 16 Göttern wurden die Monate des Jahres benannt. Wir sollten einem Monat nach der Königin benennen!", "I bete zu Zhambar. zu welchem Gott betet Ihr?"
 english, "Adron" -> "Some people in Cadomyr pray to Adron.", "I don't worship this god."
 "Adron" -> "Einige Leute in Cadomyr beten zu Adron.", "I don't worship this god."
 english, "Bragon", "Brágon" -> "I don't worship this god."
@@ -130,8 +130,8 @@ english, "Findari" -> "I don't worship this god."
 "Findari" -> "Ich verehre diesen Gott nicht."
 english, "Irmorom" -> "I don't worship this god."
 "Irmorom" -> "Ich verehre diesen Gott nicht."
-english, "Malachin", "Malachín" -> "Many noble kngihts pray to Malachín."
-"Malachin", "Malachín" -> "Viele Edle Ritter beten zu Malachín."
+english, "Malachin", "Malachín" -> "Many noble knights pray to Malachín."
+"Malachin", "Malachín" -> "Viele dle Ritter beten zu Malachín."
 english, "Moshran" -> "I don't worship this god. He's evil!"
 "Moshran" -> "Ich verehre diesen Gott nicht. Er ist böse!"
 english, "Nargun", "Nargún", "Nargùn" -> "I don't worship this god."
