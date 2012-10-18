@@ -231,10 +231,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    User:inform(""..questionList[1])
 	end
     return	
-	--[[local mType = User:getMagicType
-	if XXX then
-        return
-	end]]
+	
+	
 	User:inform("debug1")
 	local teacherEN; local teacherDE
 	local questId
