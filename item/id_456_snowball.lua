@@ -220,6 +220,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    User:inform("set questprogress to "..new)
 		return
 	end	
+	
+	User:inform(""..questionDE[1][1][1])
 	--[[local mType = User:getMagicType
 	if XXX then
         return
