@@ -10,7 +10,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     -- we check if the char holds a bottle to label it
     local bottle = alchemy.base.alchemy.CheckIfBottleInHand(User)
 	if bottle then 
-	    WriteLabel(User,SourceItem,bottle)
+	    User:inform("1")
+		WriteLabel(User,SourceItem,bottle)
 	end	
 
 end
