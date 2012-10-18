@@ -406,7 +406,8 @@ function SendMessage(User, textEN, textDE, teacherEN, questionTrigger)
 	
 	local callback = function(dialog) 
 	    if questionTrigger then
-		    AskQuestion(User,teacherEN)
+		    User:inform("debug 3")
+			AskQuestion(User,teacherEN)
 	    end
 	end
 	if User:getPlayerLanguage() == 0 then
