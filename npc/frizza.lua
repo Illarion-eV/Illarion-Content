@@ -317,7 +317,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("law");
-talkEntry:addResponse("We do not have realy lawsss. We have rather a codex which can be found at a rider-ssstatue in front of the palace.");
+talkEntry:addResponse("We do not have really lawsss. We have rather a codex which can be found at a rider-ssstatue in front of the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

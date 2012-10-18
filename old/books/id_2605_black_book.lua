@@ -84,7 +84,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("But because of it's production and it's shape it'll never reach tha quality of a dwarvenaxe, smithed by dwarven smiths.",0,0,1);
             base.books.AddEnglishBookText("Legends tell that there are magicial and fire waraxes.",0,0,1);
             base.books.AddEnglishBookText("Battleaxe",2629,0,1); -- ### battleaxe ###
-            base.books.AddEnglishBookText("The battleaxe is not realy a good axe, that's why dwarves use them mostly for training because the damage causes it's causes isn't big.",0,0,1);
+            base.books.AddEnglishBookText("The battleaxe is not really a good axe, that's why dwarves use them mostly for training because the damage causes it's causes isn't big.",0,0,1);
             base.books.AddEnglishBookText("Doubleaxe",205,0,1); -- ### doubleaxe ###
             base.books.AddEnglishBookText("With size and dimensions of this axe, strikes with this weapon can inevitably terminates lives.",0,0,1);
             base.books.AddEnglishBookText("But only few can handle this axe with enough skill, even after long years of training.",0,0,1);
