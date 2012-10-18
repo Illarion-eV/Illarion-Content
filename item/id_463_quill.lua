@@ -21,6 +21,7 @@ function WriteLabel (User,SourceItem,bottle)
 	-- does the char have parchment?
     if User:countItem(2745) < 1 then 
 	    User:inform("Dir fehlt Pergament, das Du als Etikett nutzen könntest.","You don't have any parchment you could use as a label.")		
+	    return
 	end
 	
     local title
