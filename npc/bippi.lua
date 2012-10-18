@@ -768,9 +768,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("I've heard a dwarf mention his name a time or two, is he their king?.");
+talkEntry:addResponse("I've heard a dwarf mention his name a time or two, is he their king?");
 talkEntry:addResponse("Not a clue who Irm- whatever is but I've heard a dwarf say his name before.");
-talkEntry:addResponse("What was that name again?.");
+talkEntry:addResponse("What was that name again?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

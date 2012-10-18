@@ -59,7 +59,7 @@ function initializeNpc()
     npc.base.functions.AddAdditionalText("Hello. Do you need something? I'm alchemist and dyes of all colors. All are selfmade!");
     npc.base.functions.AddTraderTrigger("[Gg]rü[ßs]+e","Hiho! Wie kann ich dir helfen? Ich habe allerhand Farben. Alle selbst gemacht!");
     npc.base.functions.AddAdditionalTrigger("[Hh]allo");
-    npc.base.functions.AddAdditionalText("Hallo. Wer bist du denn?.");
+    npc.base.functions.AddAdditionalText("Hallo. Wer bist du denn?");
     npc.base.functions.AddTraderTrigger("[Yy]ou.+[Tt]rader","Yes, i trade with dyes and ingredients to make them.");
     npc.base.functions.AddTraderTrigger("[DdIi][uh]r*.+[Hh][äa]ndler","Ja, ich handle mit Farben und Zutaten zur Herstellung von Farben.");
     npc.base.functions.AddTraderTrigger("[Yy]ou.+[Hh]ealer","No, i am not. I am alchemist and sell dyes");
@@ -74,7 +74,7 @@ function initializeNpc()
     npc.base.functions.AddTraderTrigger("[Ww]as.+[Kk]leidung","Ich habe keine Kleidung mehr im Angebot. Das Geschäft mit den abgetragenen Klamotten lief nicht gut.");
     npc.base.functions.AddTraderTrigger("[Ww]hat.+[Mm]ore","I need different tools and goods to make dyes");
     npc.base.functions.AddTraderTrigger("[Ww]as.+[Mm]ehr","Ich brauche verschiedene Werkzeuge und Sachen um Farben herzustellen.");
-    npc.base.functions.AddTraderTrigger("[Ww]hat.+[Dd]ye","I'm an alchemist and prepare differnet dyes. You are interested in red, blue, yellow or other?.");
+    npc.base.functions.AddTraderTrigger("[Ww]hat.+[Dd]ye","I'm an alchemist and prepare differnet dyes. You are interested in red, blue, yellow or other?");
     npc.base.functions.AddTraderTrigger("[Ww]as.+[Ff]arbe","Ja, ich bin Alchemist und verkaufe verschiedene Farben. Bist du vielleicht an Rot oder Blau interessiert? Was anderes?");
     npc.base.functions.AddTraderTrigger("[Gg]oodbye","Have a nice day. Oldra my bless you.");
     npc.base.functions.AddAdditionalTrigger("[Bb]ye");

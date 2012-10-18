@@ -1093,7 +1093,7 @@ talkingNPC:addCycleText("Die Dunkelheit wartet... darauf, dass das Licht ausgeht
 talkingNPC:addCycleText("Eine helle Kerze soll dir ein Leuchtfeuer sein.", "A candle of light, to you shall be a beacon.");
 talkingNPC:addCycleText("Drei Schicksale und ich bin der Schätzer; was wird wohl euer Schicksal sein?", "Three fates and I am the valuer; what will become your fate?");
 talkingNPC:addCycleText("Es ist nicht die Zeit, Trübsal zu blasen.", "No time to wallow in the mire.");
-talkingNPC:addCycleText("Drei Pfade; welchen werdet ihr beschreiten?.", "Three paths, which will you tread?");
+talkingNPC:addCycleText("Drei Pfade; welchen werdet ihr beschreiten?", "Three paths, which will you tread?");
 talkingNPC:addCycleText("#me rollt bedächtig ein Maßband aus.", "#me slowly rolls out a measuring tape.");
 talkingNPC:addCycleText("Soll ich eure Maße jetzt oder später aufnehmen?", "Should I take your measurements now or later?");
 talkingNPC:addCycleText("Mein Geschäft ist sicher - gestorben wird immer!", "My business is safe - there will always be death.");

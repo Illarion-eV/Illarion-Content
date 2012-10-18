@@ -34,7 +34,7 @@ function initializeNpc()
     npc.base.functions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nichts! Ich beschwöre höhstens etwas.");
     npc.base.functions.AddTraderTrigger("[Ww]hat.+sell","I don't sell anything! I just summon things.");
     npc.base.functions.AddTraderTrigger("[Ww]as.+beschwör","Ich kann euch einen Golem beschwören, der Eure Sachen für euch trägt...wäre das nicht toll?");
-    npc.base.functions.AddTraderTrigger("[Ww]hat.+summon","I can summon a golem for you, which can carry your things...isn't that great?.");
+    npc.base.functions.AddTraderTrigger("[Ww]hat.+summon","I can summon a golem for you, which can carry your things...isn't that great?");
     npc.base.functions.AddTraderTrigger("[Ww]hat.+sell","I don't sell anything!");
     npc.base.functions.AddTraderTrigger("[Ff]arewell","Farewell");
     npc.base.functions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");

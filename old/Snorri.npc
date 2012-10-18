@@ -87,7 +87,7 @@ english, "quest", "mission" -> "I can't hire you, but if you want, I will buy ev
 english, "job" -> "I am a fishmonger. But sometimes I take my fishing rod and catch some fish on my own. What's your profession?"
 "job" -> "Ich bin Fischhändler. Aber manches Mal, kitzelt es mir in der Nase, dann nehm ich die Angel und fische selbst ein wenig. Was ist Euer Beruf"
 english, "Gobaith", "Gobiath" -> "I don't know any good news about Gobaith, do you?"
-"Gobaith", "Gobiath" -> "Von Gobaith hört man nichts Gutes. Oder habt ihr etwas zu berichten?."
+"Gobaith", "Gobiath" -> "Von Gobaith hört man nichts Gutes. Oder habt ihr etwas zu berichten?"
 "my name" -> "It's nice to meet you. Which fish you wanna buy?", "Aye, do you wanna buy some fish?"
 "mein Name" -> "Es ist mir eine Freude Euch kennen zu lernen. Welchen Fisch darf ich Euch denn verkaufen?", "Aye, wollt ihr Fisch kaufen?"
 

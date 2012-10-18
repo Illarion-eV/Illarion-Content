@@ -646,7 +646,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("Aye.");
-talkEntry:addResponse("Are you Sure?.");
+talkEntry:addResponse("Are you Sure?");
 talkEntry:addResponse("Really? Is that true?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

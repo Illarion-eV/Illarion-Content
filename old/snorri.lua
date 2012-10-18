@@ -272,7 +272,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Von Gobaith hört man nichts Gutes. Oder habt ihr etwas zu berichten?.");
+talkEntry:addResponse("Von Gobaith hört man nichts Gutes. Oder habt ihr etwas zu berichten?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
