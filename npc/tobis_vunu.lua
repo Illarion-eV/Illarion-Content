@@ -1022,7 +1022,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("The guard of queen Rosaline makes it hard to live our pirate-life. But we'll Kkep our tails up!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

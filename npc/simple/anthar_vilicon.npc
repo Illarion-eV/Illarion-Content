@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: October 02, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 18, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Anthar Vilicon"
@@ -506,7 +506,7 @@ english, "Zhambra" -> "Zhambra is the god of loyality. And I am loyal to my quee
 "erzähl was", "erzähl etwas" -> "Ich könnte euch etwas über Cadomyr, Königin Rosaline und den Palast erzählen."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-english, "Anthar", "Vilicon" -> "I am the royal chancellor, Anthar Vilicon. Treat me with respect and I will treat you likewise. Treat me without respect and you'll end up beheaded.", "ENGLISH2.", "ENGLISH3."
+english, "Anthar", "Vilicon" -> "I am the royal chancellor, Anthar Vilicon. Treat me with respect and I will treat you likewise. Treat me without respect and you'll end up beheaded."
 "Anthar", "Vilicon" -> "Ich bin der königliche Kanzler, Anthar Vilicon. Erweißt mir Respekt und ich werde euch entsprechend behandeln. Seid respektlos und ihr werdet geköpft."
 "Yes" -> "Very well.", "I assume you agree.", "What do you mean?", "Pardon?"
 "Ja" -> "Sehr gut.", "Ich nehme an, ihr stimmt mir zu.", "Wie meinen?", "Pardon?"
