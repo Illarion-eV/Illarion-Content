@@ -40,7 +40,7 @@ function WriteLabel (User,SourceItem,bottle)
 			-- player canceld the dialog; nothing
 		else
 			local labelText = dialog:getInput()
-			SetSpecialDescription(bottle, labelText, labelText)
+			base.lookat.SetSpecialDescription(bottle, labelText, labelText)
 			world:changeItem(bottle)
 			User:eraseItem(2745,1)
 		end
