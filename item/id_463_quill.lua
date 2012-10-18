@@ -43,7 +43,7 @@ function WriteLabel (User,SourceItem,bottle)
 			base.lookat.SetSpecialDescription(bottle, labelText, labelText)
 			world:changeItem(bottle)
 			User:eraseItem(2745,1)
-			User:inform("lalala: "..item:getData("descriptionDe"))
+			User:inform("lalala: "..bottle:getData("descriptionDe"))
 		end
 	end
 	local dialog = InputDialog(title, infoText, false, 100, callback)
