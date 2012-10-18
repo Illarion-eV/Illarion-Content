@@ -221,7 +221,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return
 	end	
 	
-	User:inform(""..questionDE[1][1][1])
 	--[[local mType = User:getMagicType
 	if XXX then
         return
@@ -340,7 +339,7 @@ function AskQuestion(User,teacherEN)
 	local difficulty = User:getQuestProgress(questId) - 3; User:inform(""..difficulty)
 	local question; local questionList
 	local answer; local answerList
-	local rnd = 1
+	local rnd = math.random(10)
 	local title
 	if User:getPlayerLanguage() == 0 then
 	    questionList = questionDE[difficulty][rnd]
