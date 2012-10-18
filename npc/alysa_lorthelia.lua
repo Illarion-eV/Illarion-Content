@@ -630,7 +630,7 @@ tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was dir gefällt?", "Don't 
 tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("Diess Mädchen ist so dünn.", "That girl is so skinny.");
 talkingNPC:addCycleText("Ich habe hunger. Ich meine, ich habe keinem Hunger.", "I'm hungry. I mean I'm not hungry.");
-talkingNPC:addCycleText("Kommt, esst mein Brot, schmeckt besser als cadomyrische Sandratte!.", "Come eat my bread. It's better than a Cadomyrian sand rat.");
+talkingNPC:addCycleText("Kommt, esst mein Brot, schmeckt besser als cadomyrische Sandratte!", "Come eat my bread. It's better than a Cadomyrian sand rat.");
 talkingNPC:addCycleText("Der alte John Sights sagte mir, ich soll Euch sagen, dass ich Alysa Lorthelia bin, die Tochter der Waffenschmiedein Asha Lorthelia.", "Old Man John Sights told me to tell you that I am Alysa Lorthelia, daughter of Aysha. The famous Weopons smith.");
 talkingNPC:addCycleText("Ich backe Brot so gut, wie meine Mutter Waffen herstellt.", "I bake bread as good as my mother crafts weapons.");
 talkingNPC:addCycleText("Mein Magen schmerzt. Diese Brot um mich herum. Das ist Folter.", "My stomach hurts. All this bread sitting around me. It's torture.");

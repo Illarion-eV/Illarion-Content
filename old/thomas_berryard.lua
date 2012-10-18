@@ -1988,7 +1988,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("I tried to found a labour union, but Murgo forbade it.");
-talkEntry:addResponse("Yeah? ... what a bummer!.");
+talkEntry:addResponse("Yeah? ... what a bummer!");
 talkEntry:addResponse("Heh-heh. You are quite funny.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

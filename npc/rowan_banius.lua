@@ -124,7 +124,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("Gebt auf euch Acht!.");
+talkEntry:addResponse("Gebt auf euch Acht!");
 talkEntry:addResponse("Bis Dann! Bedenkt meine Frau in Euren Gebeten!");
 talkEntry:addResponse("Mögen die Götter über Euch wachen.");
 talkingNPC:addTalkingEntry(talkEntry);

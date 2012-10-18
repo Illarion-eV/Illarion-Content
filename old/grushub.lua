@@ -1622,7 +1622,7 @@ function receiveText(texttype, message, originator)
                         eText="Me buy stuff for war, herbs, food and clothes!";
                     end
                     if (Status==17) then -- Liste der Waren die der NPC kauft ist leer // List of the wares the NPC buys, is empty
-                        gText="Ich kauf' nix!.";
+                        gText="Ich kauf' nix!";
                         eText="Me buy nothing!";
                     end
                     if (Status==18) then

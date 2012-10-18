@@ -266,7 +266,7 @@ talkEntry:addCondition(npc.base.condition.item.item(63, "all", "<", 5, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Ihr habt 10 schwarze Disteln, aber wir benötigen noch fünf Eingeweide. Um Frau Willen, so beeilt euch!.");
+talkEntry:addResponse("Ihr habt 10 schwarze Disteln, aber wir benötigen noch fünf Eingeweide. Um Frau Willen, so beeilt euch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

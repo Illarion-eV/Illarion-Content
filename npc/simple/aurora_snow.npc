@@ -95,7 +95,7 @@ queststatus(322) = 7, item(141, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> 
 queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5, english, "quest", "mission" -> "You have ten black thistles, but we still need five entrails also. Hurry, Miss Banius may not have much time left."
 queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5, "quest", "mission" -> "Ihr habt 10 schwarze Disteln, aber wir benötigen noch fünf Eingeweide. Um Frau Willen, so beeilt euch!"
 queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5, "task", "adventure" -> "You have ten black thistles, but we still need five entrails also. Hurry, Miss Banius may not have much time left."
-queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Ihr habt 10 schwarze Disteln, aber wir benötigen noch fünf Eingeweide. Um Frau Willen, so beeilt euch!."
+queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Ihr habt 10 schwarze Disteln, aber wir benötigen noch fünf Eingeweide. Um Frau Willen, so beeilt euch!"
 
 -- Quest 1 solved, reward: 80cp
 queststatus(322) = 7, item(141, all) > 9, item(63, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), money + 100, deleteItem(141, 10), deleteItem(63, 5), queststatus(322) = 8, "Yes, these shall suffice. Well done. Hmm...perhaps you shall find more use for these coins than I am able."
