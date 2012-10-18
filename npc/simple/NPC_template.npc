@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Insert your name here                                            --
 --                                                                            --
--- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 18, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "John Doe"
@@ -92,8 +92,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "ENGLISH1.", "ENGLISH2.", "E
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "GERMAN1.", "GERMAN2.", "GERMAN3."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", trade
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -124,6 +124,10 @@ english, "job" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "religion" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"religion" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"faith" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Glaube" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 english, "Adron" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 english, "Bragon", "Brágon" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
