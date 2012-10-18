@@ -101,5 +101,5 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 end
 function LookAtItem(User,Item)
-    world:itemInform(player, item, base.lookat.GenerateLookAt(user, item, 0))
+    world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
 end   
