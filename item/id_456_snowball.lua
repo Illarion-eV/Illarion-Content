@@ -350,7 +350,7 @@ function AskQuestion(User,teacherEN)
 	local rnd = math.random(10)
 	local title
 	if User:getPlayerLanguage() == 0 then
-	    questionList = questionDE[difficulty][rnd]
+	    questionList = item.id_456_snowball.questionDE[difficulty][rnd]
 	    User:inform(""..questionList[1])
 		answerList = answerDE[difficulty][rnd]
 	    title = titleDE
