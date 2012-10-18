@@ -247,7 +247,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if User:getPlayerLanguage() == 0 then
 	    questionList = questionDE[difficulty][rnd]
 	    User:inform(""..questionList[1])
-	    return	
+	  --  return	
 	end
     
 	
