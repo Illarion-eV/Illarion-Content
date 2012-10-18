@@ -342,7 +342,7 @@ function AskQuestion(User,teacherEN)
 	local rnd = math.random(10)
 	local title
 	if User:getPlayerLanguage() == 0 then
-	    questionList = questionDE[difficulty][rnd]
+	    --questionList = questionDE[difficulty][rnd]
 	    answerList = answerDE[difficulty][rnd]
 	    title = titleDE
 	else 
