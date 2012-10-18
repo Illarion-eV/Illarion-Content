@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Zot                                                              --
 --                                                                            --
--- Last parsing: September 29, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 18, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -307,16 +307,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Milo");
+talkEntry:addTrigger("Rose");
 talkEntry:addTrigger("Deepdelver");
-talkEntry:addResponse("Yes, this is my name. If you need some information on the Gods or herb lore just talk to me.");
+talkEntry:addResponse("Yes, this is my name. If you need something to drink, just ask me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Milo");
+talkEntry:addTrigger("Rose");
 talkEntry:addTrigger("Deepdelver");
-talkEntry:addResponse("Ja, so heiße ich. Falls ihr ein paar Informationen zu den Göttern oder Kräuterkunde benötigt, stehe ich zu eurer Verfügung.");
+talkEntry:addResponse("Ja, so heiße ich. Falls ihr etwas trinken wollt, fragt nur mich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
