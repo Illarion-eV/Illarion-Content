@@ -335,7 +335,7 @@ function AskQuestion(User,teacherEN)
         titleEN = "The Recognizing Spring"		
 	    questId = 352
 	end   
-	local difficulty = User:getQuestProgress(questId) - 3
+	local difficulty = User:getQuestProgress(questId) - 3; User:inform(""..difficulty)
 	local question; local questionList
 	local answer; local answerList
 	local rnd = math.random(1,10)
