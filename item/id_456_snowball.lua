@@ -245,7 +245,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	local rnd = math.random(10)
 	local title
 	if User:getPlayerLanguage() == 0 then
-	    questionList = questionDE[difficulty][rnd]
+	    User:inform(""..rnd)
+		User:inform(""..difficulty)
+		questionList = questionDE[difficulty][rnd]
 	    User:inform(""..questionList[1])
 	  --  return	
 	end
