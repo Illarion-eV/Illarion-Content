@@ -338,7 +338,7 @@ function AskQuestion(User,teacherEN)
 	local difficulty = User:getQuestProgress(questId) - 3; User:inform(""..difficulty)
 	local question; local questionList
 	local answer; local answerList
-	local rnd = math.random(1,10)
+	local rnd = 1
 	local title
 	if User:getPlayerLanguage() == 0 then
 	    questionList = questionDE[difficulty][rnd]
