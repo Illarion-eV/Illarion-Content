@@ -9,15 +9,15 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     -- we check if the char holds a bottle to label it
     local bottle = alchemy.base.alchemy.CheckIfBottleInHand(User)
-	if bottle = alchemy.base.alchemy.CheckIfBottleInHand(User) then 
-	    -- does the char have parchment?
-		WriteLabel(User,SourceItem,bottle)
+	if bottle then 
+	    WriteLabel(User,SourceItem,bottle)
 	end	
 
 end
 
 function WriteLabel (User,SourceItem,bottle)
-
+    
+	-- does the char have parchment?
     if User:countItem(2745) < 1 then 
 	    User:inform("Dir fehlt Pergament, das Du als Etikett nutzen könntest.","You don't have any parchment you could use as a label.")		
 	end
