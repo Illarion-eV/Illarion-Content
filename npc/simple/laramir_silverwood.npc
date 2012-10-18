@@ -88,7 +88,7 @@ buySecondaryItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 323, 2782, 
 tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins."
 tradeFinishedMsg "Komm wieder, mein Freund.", "Please come again, my friend."
 tradeFinishedWithoutTradingMsg "Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!"
-tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?.", "My friend, what shall I use this thing for?"
+tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?"
 
 -- MANDATORY TRIGGERS
 

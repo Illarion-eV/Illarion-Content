@@ -30,7 +30,7 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
 tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
 tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?.", "My friend, what shall I use this thing for?");
+tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -279,7 +279,7 @@ end;
 tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
 tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
 tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?.", "My friend, what shall I use this thing for?");
+tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
@@ -300,7 +300,7 @@ mainNPC:setEquipment(10, 369);
 tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
 tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
 tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?.", "My friend, what shall I use this thing for?");
+tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

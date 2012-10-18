@@ -138,7 +138,7 @@ english, "Ushara" -> "Honor to you, mother of the rock, stone and soil."
 english, "morri" -> "Arr. Bura'zak-ka! - What meal would you like to buy?"
 "Yes" -> "Arr. It's good.", "D'kraga...so, and not otherwise!", "It should be fine by me."
 "Ja" -> "Arr. Ist gut!", "D'kraga... so, und nicht anders!", "Mir soll's auch recht sein."
-"No" -> "Hrm, is this your last word?.", "Arr. If that's what you want..", "Of course."
+"No" -> "Hrm, is this your last word?", "Arr. If that's what you want..", "Of course."
 "Nein" -> "Hrm, ist das Euer letztes Wort?", "Arr. Wenn Ihr's so wollt.", "Natürlich."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time

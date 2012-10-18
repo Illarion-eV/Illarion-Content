@@ -197,7 +197,7 @@ itemShoes = 53
 "Nein" -> "#me lächelt ein wenig und schweigt.", "Jene Dinge von denen einer glauben mag, er wolle sie, sind oft nicht die die einer braucht.", "Warum nicht?"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Why? What is your reasoning?.", "I see.", "If you prefer to say it this way...", "Virtue needs some cheaper thrills"
+".*", english, chance(20.0) -> "Why? What is your reasoning?", "I see.", "If you prefer to say it this way...", "Virtue needs some cheaper thrills"
 ".*", german, chance(20.0) -> "Weshalb? Was ist der Grund dafür?", "Ich verstehe.", "Wenn Ihr das auf diese Art ausdrücken wollt...", "Tugend bedarf einiger billigerer Vergnügen."
 
 ------------------------------------------------------------------------------AC

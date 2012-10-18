@@ -70,7 +70,7 @@ function initializeNpc()
     npc.base.autonpcfunctions.AddTraderTrigger("[Ww]o bin ich","Du bist in Cadomyr.");
     npc.base.autonpcfunctions.AddCondition("lang","german");
 
-    npc.base.autonpcfunctions.AddTraderTrigger("[Hh]ow.+are.you","I am fine and how are you?.");
+    npc.base.autonpcfunctions.AddTraderTrigger("[Hh]ow.+are.you","I am fine and how are you?");
     npc.base.autonpcfunctions.AddCondition("lang","english");
     npc.base.autonpcfunctions.AddTraderTrigger("[Ww]ie.+gehts","Eigentlich ganz gut, danke der Nachfrage.");
     npc.base.autonpcfunctions.AddCondition("lang","german");

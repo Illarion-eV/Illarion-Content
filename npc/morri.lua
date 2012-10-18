@@ -587,7 +587,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("Hrm, is this your last word?.");
+talkEntry:addResponse("Hrm, is this your last word?");
 talkEntry:addResponse("Arr. If that's what you want..");
 talkEntry:addResponse("Of course.");
 talkingNPC:addTalkingEntry(talkEntry);

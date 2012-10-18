@@ -75,7 +75,7 @@ itemShoes = 369
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Could you lower your voice? But be greeted anyway!", "Hmm...Can I help you?", "Be greeted as well, but now let me continue my research."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!", "Hmm...Kann ich euch helfen?.", "Seid auch gegrüßt, aber nun last mich doch weiter forschen!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!", "Hmm...Kann ich euch helfen?", "Seid auch gegrüßt, aber nun last mich doch weiter forschen!"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Are you lost?", "Leave me alone!", "Who is disturbing my work?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Habt ihr euch verlaufen?", "Raus hier aber schnell!", "Wer stört mich hier bei der Arbeit?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Good bye.", "Don't forget to close the door!"
@@ -277,7 +277,7 @@ itemShoes = 369
 "Northern", "Mountains", "krest" -> "Ein mächtiger Klan einst. Einige von denen leben nun hier. Besser ihr vermeidet diese zu ärgern.", "Die hatten einen ehrenhaften Chief.", "Deren Kriegsherr zerstörte eine ganze Armee von Zwergen einst. Vielleicht weiß einer der Orks mehr."
 "Halbling" -> "Halblinge...das favorisierte Essen der Orks.", "Orks haben verschiedene Rezepte für sie.", "Orks verwenden sie auch als Sklaven."
 "Blutgott" -> "Ich möchte seinen Namen nicht nennen. Es wäre Häresie.", "Orks feiern und folgen ihm, weil er sie erschaffen hat.", "Hütet euch von jenen die ihm folgen. Verloren wie er, sind auch sie."
-"orc" -> "There is a great settlement of orcs close to the Death Marsh. But you should be careful if you go there, because they have a powerful shaman.", "Green, strong, bloody. These are my words for the orcs in Katanbi-Desert. Also known as Moshran's Brood.", "An interesting race for research, isn't?.", "Better you show some respect if you meet one! You never know if the enslave you otherwise!"
+"orc" -> "There is a great settlement of orcs close to the Death Marsh. But you should be careful if you go there, because they have a powerful shaman.", "Green, strong, bloody. These are my words for the orcs in Katanbi-Desert. Also known as Moshran's Brood.", "An interesting race for research, isn't?", "Better you show some respect if you meet one! You never know if the enslave you otherwise!"
 "ork" -> "Da ist eine große Siedlung von Orks nahe dem Todes Sumpf. Aber ihr solltet vorsichtig sein, wenn ihr dort hingeht, weil die einen mächtigen Schamanen haben.", "Grün, stark, Blutig. Das sind meine Worte für die Orks in der Katanbi Wüste. Auch bekann als Moshran's Brut.", "Eine interessante Rasse zum forschen, oder?", "Besser ihr zeigt ihnen gegenüber etwas Respekt. Man weiß nie, ob sie einen sonst versklaven?"
 "marsh" -> "The Death Marsh is in the north from here, beyond the dragon's lair. But be careful!"
 "sumpf" -> "Der Todes Sumpf ist nördlich von hier, hinter der Drachenhöhle. Aber sei vorsichtig!"
@@ -320,7 +320,7 @@ itemShoes = 369
 
 -- Main land factions
 "albar", english -> "Why are you not going there?", "That is no place I like to live.", "Are they still enslaving people?"
-"albar" -> "Warum geht ihr nicht dort hin?.", "Das ist kein Ort wo ich leben möchte.", "Versklaven die noch immer Leute?"
+"albar" -> "Warum geht ihr nicht dort hin?", "Das ist kein Ort wo ich leben möchte.", "Versklaven die noch immer Leute?"
 "gync", "gynk", english -> "Why are you not going there?", "Huuu, why do remember me that I still have to pay my debts there.", "They have nice game halls."
 "gync", "gynk" -> "Warum geht ihr nicht dort hin?", "Huuu, warum müsst ihr mich erinnern, dass ich dort noch Schulden zu begleichen habe?", "Nette Spielhallen haben sie dort."
 "salkama", english -> "Why are you not going there?", "I hope they come and free us from all this evil here.", "I say you, I am very sorry that they killed their prince at Gobaith."
