@@ -78,7 +78,7 @@ function GenerateLookAt(user, item, material)
 		usedDescription = item:getData("descriptionEn");
 	end;
 	
-	if base.common.IsNilOrEmpty(usedDescription) then
+	if not base.common.IsNilOrEmpty(usedDescription) then
 		lookAt.description = usedDescription;
 	end;
 	
