@@ -336,14 +336,15 @@ function AskQuestion(User,teacherEN)
         titleEN = "The Recognizing Spring"		
 	    questId = 352
 	end   
-	local difficulty = User:getQuestProgress(questId) - 3; User:inform(""..difficulty)
+	local difficulty = User:getQuestProgress(questId) - 3
 	local question; local questionList
 	local answer; local answerList
 	local rnd = math.random(10)
 	local title
 	if User:getPlayerLanguage() == 0 then
-	    --questionList = questionDE[difficulty][rnd]
-	    answerList = answerDE[difficulty][rnd]
+	    questionList = questionDE[difficulty][rnd]
+	    User:inform(""..questionList[1])
+		answerList = answerDE[difficulty][rnd]
 	    title = titleDE
 	else 
 	    questionList = questionEN[difficulty][rnd]
