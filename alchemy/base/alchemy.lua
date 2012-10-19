@@ -71,7 +71,7 @@ end
 qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"};
 qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
 
-bottleList = { 164,331 }
+bottleList = { 164,166,331 }
 bottleExchList = {166,329,165,330,59,327,328,167}
 --alte Mineralien-Liste:
 --gemList = { 251,252,253,254,255,256,257,234 }
