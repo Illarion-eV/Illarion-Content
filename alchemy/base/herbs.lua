@@ -130,7 +130,7 @@ function FilterStock(User,cauldron,plant)
             end    			
         end
 	end
-    if success = false then
+    if success == false then
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)	
 	end	
 end
