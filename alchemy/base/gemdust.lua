@@ -62,7 +62,7 @@ end
 
 function GemDustInStock(User,cauldron,gemDust)
     
-	local potionEffectId ""
+	local potionEffectId = ""
 	local addCon
 	if (gemDust.id == 447) or (gemDust.id == 450) then 
 		local mySubstances = alchemy.base.alchemy.wirkstoff
