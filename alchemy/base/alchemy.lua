@@ -200,45 +200,6 @@ taste = {};
 taste[0]   ={"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"   ,"süß"};
 taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","sour"        ,"salty"  ,"hot"      ,"sweet"};
 
-
--- --------------------------------------------------------------------
-function SplitBottleData(User,potionEffectId)
-    local dataZList = {};
-	local thisDigit;
-	local workData=potionEffectId
-   for digit=1,8 do
-      thisDigit=math.floor(workData/10^(8-digit));
-      workData=workData-thisDigit*10^(8-digit);
-      dataZList[digit] = (thisDigit==0 and 5 or math.min(9,math.max(1,thisDigit)));
-   end
-   return dataZList;
-end
--- --------------------------------------------------------------------
-function PasteBottleData(User,dataZList)
-
-   -- neuen Datawert basteln:
-   local NDW = 0
-   for i=1,8 do
-		NDW = NDW + math.min(9,math.max(1,dataZList[i]))*10^(8-i);
-   end
-   return NDW
-
-end
--- --------------------------------------------------------------------
-
-function DisplayData(User,debugtxt,wert)
-    User:inform("debug:"..debugtxt..wert)
-end
--- ---------------------------------------------------------------------
-function IsThatABottle(einItem)
-   retVal = false
-   for i =1,table.getn(bottleList) do
-      if bottleList[i] == einItem.id then
-         retVal = true
-      end
-   end
-   return retVal
-end
 -- -------------------------------------------------------------------------------
 function CheckAttrRow(User,dataZList)
 
@@ -327,36 +288,6 @@ function generateTasteMessage(Character,dataZList)
     base.common.InformNLS(Character,textDe,textEn);
 end
 
-function ds_skillgain(User)
-	--Alchemieskill erhöhen
-	User:learn("alchemy",6,30,100,User:increaseAttrib("willpower",0));
-	--Auf Runengewinn prüfen
-	if(User:getMagicType() == 3) then
-		local alcskill = User:getSkill("alchemy");
-		if(alcskill >= 10 and alcskill <= 20) then
-			User:teachMagic(3, 2^3); -- analyze stock
-		elseif(alcskill <= 30) then
-			User:teachMagic(3, 2^3); -- analyze stock
-			User:teachMagic(3, 2^4); -- quality stock
-		elseif(alcskill <= 40) then
-			User:teachMagic(3, 2^3); -- analyze stock
-			User:teachMagic(3, 2^4); -- quality stock
-			User:teachMagic(3, 2^5); -- analyze potion
-		elseif(alcskill <= 50) then
-			User:teachMagic(3, 2^3); -- analyze stock
-			User:teachMagic(3, 2^4); -- quality stock
-			User:teachMagic(3, 2^5); -- analyze potion
-			User:teachMagic(3, 2^6); -- quality potion
-		elseif(alcskill > 50) then
-			User:teachMagic(3, 2^3); -- analyze stock
-			User:teachMagic(3, 2^4); -- quality stock
-			User:teachMagic(3, 2^5); -- analyze potion
-			User:teachMagic(3, 2^6); -- quality potion
-			User:teachMagic(3, 2^9); -- analyze illness
-		end
-	end
-end
-
 function checkPotionSpam(User)
 	-- Check ob der Begrenzungseffekt da ist
 	foundEffect, myEffect = User.effects:find(331);
@@ -382,29 +313,6 @@ function checkPotionSpam(User)
 		-- all is fine
 		return false;
 	end
-end
-
-function SplitCauldronData(User,CauldronData)
-    local dataZList = {};
-	local thisDigit;
-	local workData=CauldronData
-     for digit=1,8 do
-      thisDigit=math.floor(workData/10^(8-digit));
-      workData=workData-thisDigit*10^(8-digit);
-      dataZList[digit] = (thisDigit==0 and 5 or math.min(9,math.max(1,thisDigit)));
-   end
-   return dataZList;
-end
-
-function PasteCauldronData(User,dataZList)
-
--- create new data:
-local NDW = 0
-     for i=1,8 do
-     NDW = NDW + math.min(9,math.max(1,dataZList[i]))*10^(8-i);
-     end
-     return NDW
-
 end
 
 function CheckIfGemDust(SourceItem)
