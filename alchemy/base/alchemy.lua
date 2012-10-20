@@ -1,66 +1,96 @@
 -- ds_base_alchemy.lua
 
--- documentation of the datas used in the alchemy system:
--- "stockData" - used to save the combination of active agents. 
--- "cauldronFilledWith" - can have the value "water" or "essenceBrew"; (to check if there is a stock in, we can use "stockData", for a potion "potionIdEffect")
--- "potionEffectId" - the id of the effect a potion has
--- "essenceHerbs" - the ids of the herbs of the essence brew in one string, seperated by spaces
--- "essenceBrew" - actually, only used to distinguish an essence brew from a potion. returns "true", note the quotes!
--- "potionId" -- id of the potion 
--- "potionQuality" -- quality of the potion
-
--- PFLANZENLISTE:
-
--- 133 Sonnenkraut / sun herb						15				
--- 134 Vierblättrige Einbeere / fourleafed oneberry	16		
--- 135 Gelbkraut / yellow weed						17											
--- 136 Wutbeere / anger berry						18											
--- 137 Flammenkelchblüte / flamegoblet blossom		25					
--- 138 Nachtengelsblüte / night angels blossom		26					
--- 140 Donfblatt / donf blade						27											
--- 141 Schwarze Distel / black thistle				28								
--- 142 Sandbeere / sandberry						35											
--- 144 Jungfernkraut / virgins weed					37									
--- 145 Heideblüte / heath flower					38										
--- 146 Wüstenhimmelskapsel / desert sky capsule		45				
--- 148 Firnisblüte / firnis blossom					47										
--- 152 Lebenswurz / life root						51											
--- 153 Fussblatt / foot leaf						52												
--- 156 Steppenfarn / steppe fern					61							
-
--- 158 Knollenschwammpilz / bulbsponge mushroom		82	
--- 159 Fliegenpilz / toadstool							
--- 160 Rotköpfchen / red head							
--- 161 Hirtenpilz / herders mushroom					
--- 162 Geburtspilz / birth mushroom						
-			
--- 752 Alraune / mandrake							74						
--- 753 Blaue Vogelbeere / blue birdsberry			72							
--- 754 einblättrige Vierbeere / oneleaved fourberry	81				
--- 755 Feuerwurz / fire root						62												
--- 756 Frommbeere / pious berry						48																	
--- 757 Gottesblume / godsflower						84											
-				
--- 760 Rauchblatt / reek leave						71											
--- 761 Regenkraut	/ rainweed						83											
--- 762 Schwefelgras / sulfur weed					63										
--- 763 Sumpfblume / marsh flower										
--- 767 Wasserblume / water blossom					53									
--- 768 Wolfsfarn / wolverine fern                   54
-
-
--- 138 Nachtengelsblï¿½te           26 / 9006 / 64 "Tagteufel" / "daydevil"
--- 141 Schwarze Distel            28 / 9008 / 73 "Graue Distel" / "grey thistle"
--- 148 Firnisblï¿½te                47 / 9014 / 46 "Trugblï¿½te" / "con blossom"
--- 153 Fussblatt                  52 / 9016 / 36 "Wiesen-Rhabarber" / "meadow rhabarb"
-
 require("base.common");
 module("alchemy.base.alchemy", package.seeall)
+
+function InitAlchemy()
+    InitPlants()
+	InitPotions()
+end
+
+-- the list of plants with their substances
+plantSubstanceList = {};
+
+function InitPlantSubstance()
+    setPlant(133, "Adrazin", "Orcanol") -- sunherb / Sonnenkraut
+    setPlant(758, "Adrzain", "") -- heart blood / Herzblut
+end;
+
+function setPlantSubstance(id, plusSubstance, minusSubstance)
+    plantList[id] = {plusSubstance, minusStubstance}
+end
+
+function getPlantSubstance(id)
+    if not plantList[id] then
+	    return false
+	end	
+	local plus; local minus
+	if plantList[id][1] == nil then
+	    plus = ""
+	elseif plantList[id][2] == nil then
+	    minus = ""
+	else
+        plus = plantList[id][1]
+		minus = plantList[id][2]
+    end     	
+	return plus, minus    
+end
+
+
+-- the list of possible potions effects
+potionsList = {};
+
+-- on reload, this function is called
+-- setPotion(effect id, stock data, Herb1, Herb2, Herb3, Herb4, Herb5, Herb6, Herb7, Herb8)
+-- every effect id is only used once!
+-- stock data is the concentration of the active substances put together in the following order: Adrazin, Illidrium, Caprazin, Hyperborelium, Echolon, Dracolin, Orcanol, Fenolin 
+-- Herb1...Herb8 are optional. If you use only x Herbs and x < 8 just leave the others out
+-- Example: setPotion(15, 95554553, 133, 15, 81)
+-- document properly, please
+function InitPotions()
+    setPotion(45, 55555555, 45, 775, 3443, 33);
+end;
+
+--- Set the effect of a potion
+-- @param resultingEffect the resulting effect of the potion
+-- @param ... the components effecting the potion one by one
+function setPotion(resultingEffect, ...)
+	local currentList = potionsList;
+	for i, v in ipairs(arg) do
+		if (currentList[v] == nil) then
+			currentList[v] = {};
+		end;
+		currentList = currentList[v];
+	end;
+	currentList[0] = resultingEffect;
+end;
+
+--- Get the effect of a potion
+-- @param ... the components effecting the potion one by one
+-- @return the resulting effect of the potion
+function getPotion(...)
+	local currentList = potionsList;
+	for i, v in ipairs(arg) do
+			if (currentList[v] == nil) then
+					return 0;
+			end;
+			currentList = currentList[v];
+	end;
+   
+	if (currentList[0] == nil) then
+			return 0;
+	end;
+	return currentList[0];
+end;
+
 
 dataZList = { }
 plantList =     { 158,159,160,161,162,758,759,763,15,155,388,81,80,151,147,199,9001,133,134,135,136,137,138,140,141,142,9016,144,145,146,9014,148,9004,152,153,9005,9015,156,9013,9003,9006,9007,9002,9008,9009,9010,9011,9012}
 plantDataList = {   1,  2,  3,  4,  5,  6,  7,  8,10, 20, 30,40,50, 60, 70, 80,  81, 15, 16, 17, 18, 25, 26, 27, 28, 35,  36, 37, 38, 45,  46, 47,  48, 51, 52,  53,  54, 61,  62,  63,  64,  71,  72,  73,  82,  74,  83,  84}
 plantNames = {"a", "b","c","df","ww","rer","wf","jwe","wd","fe","je","pe","bj","qk","fqq","qg","qq","wh","öö","klk","rrg","fef","ilui","fgege","efc","jjhth","few","threg","he","rg","gr","rgr","grerg","rgerg","jzgheg","efe","ilztg","uwef","grq","rbw","gr","dwd","fwsd","urs","erh","wfw","wfki","htw","sdf"} 
+
+plantList = []
+plantList[]
 
 plantDataListById = {};
 for i,plant in pairs(plantList) do
@@ -73,9 +103,8 @@ qListEn={"awful","bad","weak","slightly weak","average","good","very good","grea
 
 bottleList = { 164,166,331 }
 bottleExchList = {166,329,165,330,59,327,328,167}
---alte Mineralien-Liste:
---gemList = { 251,252,253,254,255,256,257,234 }
---neue Mineralien-Liste (Beutel mit Mineralienstaub)
+
+-- list with gemDust
 gemList = {450,449,446,452,447,448,451,234}
 
 newBottle = {}
@@ -176,99 +205,6 @@ taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","sour"        ,"
 
 
 -- --------------------------------------------------------------------
-function CheckIfRtbInHand(User)     -- Faulbaumrinde in der Hand ? (rotten tree bark)
-	local checkId = 157;
-	local retVal = nil;
-	local theItem = nil;
-	theItem = User:getItemAt(5);
-	if theItem.id == checkId then
-		retVal = theItem;
-	else
-		theItem = User:getItemAt(6);
-		if theItem.id == checkId then
-			retVal = theItem;
-		end
-	end
-	return retVal;
-end
--- --------------------------------------------------------------------
-function CheckIfPlantInHand(User)
-  -- Hier muss noch abgefangen werden, wenn die Pflanze einen Datawert von 0 hat
-
-	local retVal = nil;
-	local theItem = nil;
-	for i,checkId in pairs(plantList) do
-		theItem = User:getItemAt(5);
-		if theItem.id == checkId then
-			retVal = theItem;
-			break;
-		else
-			theItem = User:getItemAt(6);
-			if theItem.id == checkId then
-				retVal = theItem;
-				break;
-			end
-		end
-	end
-	return retVal;
-end
--- --------------------------------------------------------------------
-
-function CheckIfGemInHand(User)
-	local retVal1 = nil;
-	local retVal2 = nil;
-	local theItem = nil;
-	for i,checkId in pairs(gemList) do
-		theItem = User:getItemAt(5);
-		if theItem.id == checkId then
-			retVal1 = theItem;
-			retVal2 = bottleExchList[i];
-			break;
-		else
-			theItem = User:getItemAt(6);
-			if theItem.id == checkId then
-				retVal1 = theItem;
-				retVal2 = bottleExchList[i];
-				break;
-			end
-		end
-	end
-	return retVal1,retVal2;
-end
--- --------------------------------------------------------------------
-function SplitPlantData(Plant)
-local plantData = plantDataListById[Plant];
-local plusWertPos = math.floor(plantData/10)
-local minusWertPos = plantData-plusWertPos*10
-   if minusWertPos == 0 then
-      return math.min(8,math.max(1,plusWertPos)),0     
-   elseif plusWertPos == 0 then
-      return 0,math.min(8,math.max(1,minusWertPos))
-  else
-      return math.min(8,math.max(1,plusWertPos)),math.min(8,math.max(1,minusWertPos))
-    end
-end
-
--- --------------------------------------------------------------------
-function CheckIfBottleInHand(User)
-	local retVal = nil;
-	local theItem = nil;
-	for i,checkId in pairs(bottleList) do
-		theItem = User:getItemAt(5);
-		if theItem.id == checkId then
-			retVal = theItem;
-			break;
-		else
-			theItem = User:getItemAt(6);
-			if theItem.id == checkId then
-				retVal = theItem;
-				break;
-			end
-		end
-	end
-	return retVal;
-end
--- --------------------------------------------------------------------
 function SplitBottleData(User,potionEffectId)
     local dataZList = {};
 	local thisDigit;
@@ -296,16 +232,6 @@ end
 function DisplayData(User,debugtxt,wert)
     User:inform("debug:"..debugtxt..wert)
 end
--- --------------------------------------------------------------------
-function IsThatAPlant(einItem)
-   retVal = false
-   for i =1,table.getn(plantList) do
-      if plantList[i] == einItem.id then
-         retVal = true
-      end
-   end
-   return retVal
-end
 -- ---------------------------------------------------------------------
 function IsThatABottle(einItem)
    retVal = false
@@ -315,31 +241,6 @@ function IsThatABottle(einItem)
       end
    end
    return retVal
-end
--- ---------------------------------------------------------------------
-function BottleHasSpecfunction(dataZList)
-   retVal = false
-   specFuncNo = 0
-
-   for i=1,8 do
-      if dataZList[i] == 9 then
-         specFuncNo = specFuncNo + 2^(i-1)
-      end
-   end
-   return retVal, specFuncNo
-end
--- -------------------------------------------------------------------------------
-function BottleHasIllnessFunction(dataZList)
-   retVal = false
-   illnessNo = 0
-
-   for i = 1,8 do
-      if dataZList[i] == 0 then
-         illnessNo = i
-         retVal = true
-      end
-   end
-   return retVal, illnessNo
 end
 -- -------------------------------------------------------------------------------
 function CheckAttrRow(User,dataZList)
@@ -382,31 +283,6 @@ function ImpactRow1(User,dataZList)
 
 
   --User:inform("debug 13")
-end
--- -------------------------------------------------------------------------------
-function ImpactRow2(User,dataZList)
-  for i=1,8 do
-     -- block
-     -- Wirkungen der Reihe 2 können erst eingebaut werden, wenn wir Zeiteffekte haben.
-  end
-end
--- -------------------------------------------------------------------------------
-function IsItemBlackBottle(TargetItem)
-	retVal = false
-	if TargetItem.id == 2501 then
-		retVal = true
-	end
-	return retVal
-end
--- -------------------------------------------------------------------------------
-function IsBottleAlreadyInfected(dataZList)
-	infect = 0
-	for i = 1,8 do
-		if dataZList[i] == 0 then
-			infect = i
-		end
-	end
-	return infect
 end
 -- --------------------------------------------------------------------------------
 function generateTasteMessage(Character,dataZList)
@@ -511,36 +387,6 @@ function checkPotionSpam(User)
 	end
 end
 
-function CheckIfQuillInHand(User) -- we need this check for labeling the potions   
-	local checkId = 463;
-	local retVal = nil;
-	local theItem = nil;
-	theItem = User:getItemAt(5);
-	if theItem.id == checkId then
-		retVal = theItem;
-	else
-		theItem = User:getItemAt(6);
-		if theItem.id == checkId then
-			retVal = theItem;
-		end
-	end
-	return retVal;
-end
-
--- the following functions are adaptions of existing ones
--- the old ones will be delted as soon as the reworked alchemy system works fine
-function CheckIfAlchemyPlant(User,SourceItem)
-local retVal = nil;
-for i,checkId in pairs(plantList) do
-    theItem = SourceItem
-	if theItem.id == checkId then
-    retVal = theItem
-    break;
-    end
-end	
-return retVal
-end
-
 function SplitCauldronData(User,CauldronData)
     local dataZList = {};
 	local thisDigit;
@@ -564,7 +410,7 @@ local NDW = 0
 
 end
 
-function CheckIfGemDust(User,SourceItem)
+function CheckIfGemDust(SourceItem)
 local retVal = nil;
 for i,checkId in pairs(gemList) do
     theItem = SourceItem
@@ -576,30 +422,70 @@ end
 return retVal
 end
 
-function CauldronExplosion(User,cauldron,ListGfx)
-    world:makeSound(5,cauldron.pos)
-    for i=1,#ListGfx do
-	    world:gfx(ListGfx[i],cauldron.pos)
-    end
-	base.common.InformNLS( User,
-	    "Deine letzte Handlung scheint den Inhalt des Kessels zerstört und zu einer Explosion geführt zu haben.",
-	    "Your last doing seems to have destroyed the substance in the cauldron and caused an explosion."
-				);
-    local myVictims = world:getPlayersInRangeOf(cauldron.pos,1) -- we hurt everyone around the cauldron!
-	for i=1,#myVictims do
-	    --[[myVictims[i]:increaseAttrib("hitpoints",-3000)]] world:gfx(13,myVictims[i].pos)
-	    base.common.HighInformNLS(myVictims[i], "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
+function CheckIfAlchemist(User,textDE,textEN)
+    if User:getMagicType() ~= 3 then
+	    User:inform(textDE,textEN)
+		return false
+	else
+        return true
+    end		
+end
+
+function RemoveEssenceBrew(Item)
+    for i=1,8 do
+	    Item:setData("essenceHerb"..i,"")  
+	end	
+    world:changeItem(Item)
+end
+
+function RemoveStock(Item)
+    for i=1,8 do
+	    Item:setData(wirkstoff[i].."Concentration","")
 	end
-	-- we remove every possible data the cauldron could have to cover all substances
-	cauldron:setData("essenceHerbs","")  
-	cauldron:setData("stockData","")
-    cauldron:setData("cauldronFilledWith","")
+	world:changeItem(Item)
+end
+
+function RemoveAll(Item)
+    RemoveEssenceBrew(Item)
+	RemoveStock(Item)
 	cauldron:setData("potionEffectId","")
-	cauldron:setData("potionId","")
 	cauldron:setData("potionQuality","")
+	cauldron:setData("cauldronFilledWith","")
+	cauldron:setData("potionId","") -- cauldron.id = X 
 	world:changeItem(cauldron)
 end
 
+function CauldronDestruction(User,cauldron,effectId)
+    
+	if (effectId < 1) or (effectId > 3) or (effectId == nil) then
+	    effectId = 1
+	end
+	
+	local textDE = nil; local textEN = nil
+	if effectId == 1 then
+	    world:gfx(1,cauldron.pos)
+		world:makeSound(5,cauldron.pos)
+	    User:inform("Du Inhalt des Kessels verpufft, als Du das Kraut hinzu tust.",
+		            "The substance in the cauldron blows out, as you put the herb in."
+					)
+	elseif effectId == 2 then
+	    world:makeSound(5,cauldron.pos)
+		world:gfx(36,cauldron.pos)
+	    User:inform("Deine letzte Handlung scheint den Inhalt des Kessels zerstört und zu einer Explosion geführt zu haben.",
+		            "Your last doing seems to have destroyed the substance in the cauldron and caused an explosion."
+		            )
+		local myVictims = world:getPlayersInRangeOf(cauldron.pos,1) -- we hurt everyone around the cauldron!
+	    for i=1,#myVictims do
+			myVictims[i]:increaseAttrib("hitpoints",-3000)
+			base.common.HighInformNLS(myVictims[i], "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
+	    end			
+	end
+	RemoveAll(cauldron)
+end
+
+function GetQuality(User)
+return 999
+end
 ----------------------------------------------------
 -- combine of stock and essence brew to create a potion
 -- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
