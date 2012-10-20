@@ -61,7 +61,7 @@ function PlantInStock(User,cauldron,plant)
     local plusSubstance, minusSubstance = alchemy.base.alchemy.getPlantSubstance(plant.id)
 	if plusSubstance == "" and minusSubstance == "" then
 	    alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
-	elseif
+	else
 	    if plusSubstance ~= "" then
 		    local oldConcentration = tonumber(cauldron:getData(plusSubstance.."Concentration"))
 			if concentration == nil then

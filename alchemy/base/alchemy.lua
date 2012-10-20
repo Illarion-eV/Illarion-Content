@@ -89,9 +89,6 @@ plantList =     { 158,159,160,161,162,758,759,763,15,155,388,81,80,151,147,199,9
 plantDataList = {   1,  2,  3,  4,  5,  6,  7,  8,10, 20, 30,40,50, 60, 70, 80,  81, 15, 16, 17, 18, 25, 26, 27, 28, 35,  36, 37, 38, 45,  46, 47,  48, 51, 52,  53,  54, 61,  62,  63,  64,  71,  72,  73,  82,  74,  83,  84}
 plantNames = {"a", "b","c","df","ww","rer","wf","jwe","wd","fe","je","pe","bj","qk","fqq","qg","qq","wh","öö","klk","rrg","fef","ilui","fgege","efc","jjhth","few","threg","he","rg","gr","rgr","grerg","rgerg","jzgheg","efe","ilztg","uwef","grq","rbw","gr","dwd","fwsd","urs","erh","wfw","wfki","htw","sdf"} 
 
-plantList = []
-plantList[]
-
 plantDataListById = {};
 for i,plant in pairs(plantList) do
 	plantDataListById[plant] = plantDataList[i];
