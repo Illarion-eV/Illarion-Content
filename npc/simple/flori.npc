@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Flori                                                       None --
+-- NPC Name: Flori                                                   Runewick --
 -- NPC Job:  Beast of burden                                                  --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  883, 632, 0            --
@@ -8,7 +8,7 @@
 -- Authors:  Nanuk                                                            --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 19, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Flori"
@@ -16,7 +16,7 @@ race = halfling
 sex = male
 position = 883, 632, 0
 direction = south
-affiliation = "None"
+affiliation = "Runewick"
 job = "Beast of burden"
 
 language = common
@@ -27,12 +27,12 @@ autointroduce = on
 author = "Nanuk"
 author = "Estralis Seborian"
 
-lookatDE = "Dies ist Flori, der störrische Esel. Aus technischen Gründen wird der NPC als Kuh angezeigt."
-lookatUS = "This is Flori, the stubborn mule. Due to technical reasons, this NPC is shown as cow."
-useMsgDE = "Iiihhhh-aahhhh!"
-useMsgUS = "Iiihhhh-aahhhh!"
-wrongLangDE = "Iiihhhh-aahhhh?"
-wrongLangUS = "Iiihhhh-aahhhh?"
+lookatDE = "Dies ist Flori, der eigensinnige Ochse."
+lookatUS = "This is Flori, the stubborn ox."
+useMsgDE = "Muh!"
+useMsgUS = "Moo!"
+wrongLangDE = "Muh?"
+wrongLangUS = "Moo?"
 
 -- NPC by Nanuk
 -- Revised by Estralis Seborian
@@ -44,12 +44,13 @@ wrongLangUS = "Iiihhhh-aahhhh?"
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Iiihhhh-aahhhh!", "Iiihhhh-aahhhh!"
+cycletext "Muh!", "Moo!"
+cycletext "Muh.", "Moo."
+cycletext "Muh?", "Moo?"
 cycletext "#me stampft störrisch auf.", "#me stubbornly stamps one foot."
 cycletext "#me zerrt am Halfter.", "#me tears at the headcollar."
 cycletext "#me versucht den Halbling zu beißen.", "#me tries to bite the halfling."
 cycletext "#me schüttelt seinen Kopf.", "#me tosses his head."
 cycletext "#me tritt mit den Hinterläufen aus.", "#me kicks with his hind legs."
-cycletext "#me bäumt sich auf.", "#me rears up."
-cycletext "#me lässt ein paar Eselsäpfel fallen.", "#me drops some mule droppings."
+cycletext "#me hebt den Schwanz.", "#me drops some droppings."
 cycletext "#me schlägt mit dem Schwanz nach ein paar Fliegen.", "#me wags his tail to get rid of some flies."
