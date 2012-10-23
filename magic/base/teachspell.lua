@@ -136,13 +136,13 @@ function DoTeachSpell(TeachingChar,StudentChar)
     if not TeachingRoom( StudentChar.pos ) then
         if Teacher.skill then
             if (Teacher.skill.name~="all") then
-                TeachingChar:increaseSkill(3,Teacher.skill.name,-1);
+                --TeachingChar:increaseSkill(Teacher.skill.name,-1);
             else
-                TeachingChar:increaseSkill(3,"commotio",-1);
-                TeachingChar:increaseSkill(3,"transformo",-1);
-                TeachingChar:increaseSkill(3,"transfreto",-1);
-                TeachingChar:increaseSkill(3,"pervestigatio",-1);
-                TeachingChar:increaseSkill(3,"desicio",-1);
+                --TeachingChar:increaseSkill("commotio",-1);
+                --TeachingChar:increaseSkill("transformo",-1);
+                --TeachingChar:increaseSkill("transfreto",-1);
+                --TeachingChar:increaseSkill("pervestigatio",-1);
+                --TeachingChar:increaseSkill(desicio",-1);
             end
         end
     end
@@ -305,7 +305,7 @@ end
 
 function GetSkillValue( Char, Skill )
     if ( Skill == "all" ) then
-        return Char:getSkill("commotio")+Char:getSkill("transformo")+Char:getSkill("transfreto")+Char:getSkill("pervestigatio")+Char:getSkill("desicio");
+        --return Char:getSkill("commotio")+Char:getSkill("transformo")+Char:getSkill("transfreto")+Char:getSkill("pervestigatio")+Char:getSkill("desicio");
     else
         return Char:getSkill( Skill );
     end

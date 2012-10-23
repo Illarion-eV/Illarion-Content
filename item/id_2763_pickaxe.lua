@@ -322,7 +322,7 @@ function GetRessource(AreaID, StoneID, Skill)
 end
 
 function GetModifiedSkill(Char)
-    local USkill=Char:getSkill("mining");
+    local USkill=Char:getSkill(Skill.mining);
     local UStr=Char:increaseAttrib("strength",0);
     local UPerc=Char:increaseAttrib("perception",0);
     return math.max(0,math.min(100,(USkill * Scale(0.5,1.2,UStr*4 + UPerc))));

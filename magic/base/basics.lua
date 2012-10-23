@@ -87,7 +87,7 @@ end
 function MagicResistence( Char )
     local CWil   = Char:increaseAttrib("willpower",0);
     local CEss   = Char:increaseAttrib("essence",0);
-    local CSkill = Char:getSkill("magic resistance") * GetDefensiveRaceBoni( Char:getRace() );
+    local CSkill = Char:getSkill(Skill.magicResistance) * GetDefensiveRaceBoni( Char:getRace() );
     CSkill = base.common.Limit( CSkill, 0, MaximalMagicResistance( Char ) );
 
     local ResTry=base.common.Limit(CSkill * ( ( CEss*3 + CWil*2 ) / 63 ), 0, 100 );

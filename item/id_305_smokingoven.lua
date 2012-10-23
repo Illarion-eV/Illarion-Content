@@ -144,7 +144,7 @@ end -- function
 
 function GenWorkTime(User)
     local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
-    local Skill  = User:getSkill("baking");     -- Backen & Kochen: 0 - 100
+    local Skill  = User:getSkill(Skill.cooking);     -- Backen & Kochen: 0 - 100
     
     return math.floor(-0.3 * (Attrib + Skill) + 50);
 end

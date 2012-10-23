@@ -23,7 +23,7 @@ Interrupt_Messages:add(	"Der Boden unter dir rutscht leicht weg, sodass du gerad
 						"Some stones slip away from the bank, disturbing all the fish.");
 
 function GenWorkTime(User) -- generate work time
-	local Skill  = User:getSkill( "fishing" );
+	local Skill  = User:getSkill(Skill.fishing);
 	local Attrib = User:increaseAttrib( "dexterity", 0 );
 	return math.floor( ( ( -0.2 * (Skill+Attrib) + 50) + math.random(0,40) )/2);
 end

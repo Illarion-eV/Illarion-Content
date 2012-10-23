@@ -14,6 +14,7 @@ end
 
 function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 	--Caster:inform("debug #32.2")
+	--TODO: Might need a rework!
 	if Caster:getSkill("exquirere")>50 then	 
 		--Analyse TargetChar auf Viruskrankheiten  
 	  if ft == nil then

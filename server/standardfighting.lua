@@ -622,14 +622,14 @@ function GetAttackType(CharStruct)
     if not CharStruct.IsWeapon then
         CharStruct["AttackKind"] = 0;
         CharStruct["UsedHands"] = 1;
-        CharStruct["Skillname"] = "wrestling";
+        CharStruct["Skillname"] = Skill.wrestling;
         return;
     end;
     
     local weaponType = CharStruct.Weapon.WeaponType;
     if (weaponType == 1) or (weaponType == 4) then
         CharStruct["AttackKind"] = 1;
-        CharStruct["Skillname"] = "slashing weapons";
+        CharStruct["Skillname"] = Skill.slashingWeapons;
         if (weaponType == 1) then
             CharStruct["UsedHands"] = 1;
         else
@@ -637,7 +637,7 @@ function GetAttackType(CharStruct)
         end;
     elseif (weaponType == 2) or (weaponType == 5) then
         CharStruct["AttackKind"] = 2;
-        CharStruct["Skillname"] = "concussion weapons";
+        CharStruct["Skillname"] = Skill.concussionWeapons;
         if (weaponType == 2) then
             CharStruct["UsedHands"] = 1;
         else
@@ -645,7 +645,7 @@ function GetAttackType(CharStruct)
         end;
     elseif (weaponType == 3) or (weaponType == 6) then
         CharStruct["AttackKind"] = 3;
-        CharStruct["Skillname"] = "puncture weapons";
+        CharStruct["Skillname"] = Skill.punctureWeapons;
         if (weaponType == 3) then
             CharStruct["UsedHands"] = 1;
         else
@@ -653,7 +653,7 @@ function GetAttackType(CharStruct)
         end;
     elseif (weaponType == 7) then
         CharStruct["AttackKind"] = 4;
-        CharStruct["Skillname"] = "distance weapons";
+        CharStruct["Skillname"] = Skill.distanceWeapons;
         if (weaponType == 255) then
             CharStruct["UsedHands"] = 1;
         else
@@ -720,7 +720,7 @@ function LearnDodge(Attacker, Defender, AP)
     
     if (Defender.dodge >= Attacker.skill - 10) then
             --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
-        server.learn.learn(Attacker.Char,Attacker.Skillname, 5, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
+        server.learn.learn(Attacker.Char,Attacker.Skillname, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
     end;
     
     if base.common.Chance(0.25) then
@@ -737,7 +737,7 @@ end;
 function LearnSucess(Attacker, Defender, AP)
     if (math.max(Defender.dodge, Defender.parry) >= Attacker.skill - 10) then
             --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
-        server.learn.learn(Attacker.Char, Attacker.Skillname, 5, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
+        server.learn.learn(Attacker.Char, Attacker.Skillname, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
     end;
     
     if base.common.Chance(0.33) then
@@ -754,12 +754,12 @@ end;
 function LearnParry(Attacker, Defender, AP)
     if (Attacker.skill >= Defender.parry - 10) then
             --Defender.Char:learn(5, "parry", 2,base.common.Limit(Attacker.skill + 10, 0, 100 ));
-        server.learn.learn(Defender.Char,"parry", 5, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
+        server.learn.learn(Defender.Char,Skill.parry, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
     end;
         
     if (Defender.parry >= Attacker.skill - 10) then
             --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
-        server.learn.learn(Attacker.Char,Attacker.Skillname, 5, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
+        server.learn.learn(Attacker.Char,Attacker.Skillname, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
     end;
         
     if base.common.Chance(0.25) then
@@ -788,8 +788,8 @@ function LoadAttribsSkills(CharStruct, Offensive)
         CharStruct["perception"]
             = NotNil(CharStruct.Char:increaseAttrib("perception", 0));
         CharStruct["skill"] = NotNil(CharStruct.Char:getSkill(CharStruct.Skillname));
-        CharStruct["natpoison"] = NotNil(CharStruct.Char:getSkill("poisonstrength"));
-        CharStruct["tactics"] = NotNil(CharStruct.Char:getSkill("tactics"));
+        CharStruct["natpoison"] = 0;
+        CharStruct["tactics"] = NotNil(CharStruct.Char:getSkill(Skill.tactics));
         CharStruct["dexterity"]
             = NotNil(CharStruct.Char:increaseAttrib("dexterity", 0));
     else
@@ -797,8 +797,8 @@ function LoadAttribsSkills(CharStruct, Offensive)
             = NotNil(CharStruct.Char:increaseAttrib("dexterity", 0));
         CharStruct["constitution"]
             = NotNil(CharStruct.Char:increaseAttrib("constitution", 0));
-        CharStruct["parry"] = NotNil(CharStruct.Char:getSkill("parry"));
-        CharStruct["dodge"] = NotNil(CharStruct.Char:getSkill("dodge"));
+        CharStruct["parry"] = NotNil(CharStruct.Char:getSkill(Skill.parry));
+        CharStruct["dodge"] = NotNil(CharStruct.Char:getSkill(Skill.dodge));
     end;
     CharStruct["Race"] = CharStruct.Char:getRace();
 end;

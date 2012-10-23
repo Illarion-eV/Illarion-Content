@@ -65,7 +65,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	-- first check for a treasure
 	if (groundType ~= gt.rocks) and
-			base.treasure.DigForTreasure( User, TargetPos, (User:getSkill("mining")/10)+1,
+			base.treasure.DigForTreasure( User, TargetPos, (User:getSkill(Skill.mining)/10)+1,
 			base.common.GetNLS( User,
 				"Du gräbst mit deiner Schaufel in den Boden und stößt auf etwas hartes, von dem ein hölzerner Klang ausgeht. Noch einmal graben und du hältst den Schatz in deinen Händen.",
 				"You dig with your shovel into the ground and hit suddenly something hard and wooden sounding. You only have to dig another time to get the treasure." ),
@@ -148,7 +148,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.SavedWorkTime[User.id], 100, User:increaseAttrib(theCraft.LeadAttribute,0) );
+	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], 100, User:increaseAttrib(theCraft.LeadAttribute,0) );
 	local amount = math.random(1,4); -- set the amount of items that are produced
 	local notCreated = User:createItem( digForID, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore

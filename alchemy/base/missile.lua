@@ -252,7 +252,7 @@ function checkHit( User, Item )
     local wetter     = world.weather.fog_density + world.weather.thunderstorm; -- 0 - 200
     local dexterity  = User:increaseAttrib( "dexterity", 0 ); -- 3 - 20
     local perception = User:increaseAttrib( "perception", 0 ); -- 3 - 20
-    local Skill      = User:getSkill( "distance weapons" ); -- 0 - 100
+    local Skill      = User:getSkill(Skill.distanceWeapons); -- 0 - 100
     local distance   = User:distanceMetricToPosition( Item.pos ); -- 1 - 10
 
     local factor = Skill + dexterity * 2 + perception * 3; -- 15 - 300

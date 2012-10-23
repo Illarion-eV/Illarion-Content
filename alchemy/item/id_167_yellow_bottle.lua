@@ -82,7 +82,7 @@ function PoisonCharacter(User,SourceItem,Character)
 	end
 	if base.common.IsLookingAt(User,Character.pos) then
 		if not base.common.IsLookingAt(Character,User.pos) then
-			local SkillName="poisoning";
+			local SkillName=Skill.poisoning;
 			local SkillVal=User:getSkill(SkillName);
 			local AttribVal=math.floor((User:increaseAttrib("dexterity",0)*2+User:increaseAttrib("agility",0))/3)*(math.random(7,13)/10);
 			local PoiTry=(6/10)*(SkillVal+AttribVal)+10;

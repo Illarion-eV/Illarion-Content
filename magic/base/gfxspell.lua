@@ -264,7 +264,7 @@ function TargetHitting( Caster, Target, CasterValue, Resistance, Percent)
         return true;
     end
 
-    if (magic.base.basics.MaximalMagicResistance( Target ) > Target:getSkill("magic resistance")) then
+    if (magic.base.basics.MaximalMagicResistance( Target ) > Target:getSkill(Skill.magicResistance)) then
         --Target:learn(3,"magic resistance",2,100);
 		--Replace with new learn function, see learn.lua 
     end

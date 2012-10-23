@@ -456,10 +456,10 @@ end
 
 function ds_skillgain(User)
 	--Alchemieskill erhöhen
-	User:learn("alchemy",6,30,100,User:increaseAttrib("willpower",0));
+	User:learn(Skill.alchemy,30,100,User:increaseAttrib("essence",0));
 	--Auf Runengewinn prüfen
 	if(User:getMagicType() == 3) then
-		local alcskill = User:getSkill("alchemy");
+		local alcskill = User:getSkill(Skill.alchemy);
 		if(alcskill >= 10 and alcskill <= 20) then
 			User:teachMagic(3, 2^3); -- analyze stock
 		elseif(alcskill <= 30) then

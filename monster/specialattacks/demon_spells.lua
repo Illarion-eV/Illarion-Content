@@ -7,8 +7,8 @@ module("monster.specialattacks.demon_spells", package.seeall)
 
 function Demon_Pull (monster, char)
  --Pull - The demon pulls the weakest char to himself.
-	if monster:getSkill("common language") < 100 then
-		monster:increaseSkill(1,"common language",100);
+	if monster:getSkill(Skill.commonLanguage) < 100 then
+		monster:increaseSkill(Skill.commonLanguage,100);
 	end
 
 	if (math.random(100)<= 10) then

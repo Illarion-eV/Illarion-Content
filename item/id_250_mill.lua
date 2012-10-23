@@ -124,7 +124,7 @@ end -- function UseItem()
 
 -- Arbeitszeit Generieren
 function GenWorkTime(User)
-    local Skill  = math.min(100,User:getSkill("baking")*10);
+    local Skill  = math.min(100,User:getSkill(Skill.cooking)*10);
     local Attrib = User:increaseAttrib( "dexterity", 0 );
     
     return math.floor( -0.2 * (Skill+Attrib) + 30);

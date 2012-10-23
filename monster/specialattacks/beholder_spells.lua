@@ -26,8 +26,8 @@ end
 		
 function Energy_Beam (monster, char, distance)
 -- Energy Beam - straight line spell that does damage to everything in it's way.
-	if monster:getSkill("common language") < 100 then
-		monster:increaseSkill(1,"common language",100);
+	if monster:getSkill(Skill.commonLanguage) < 100 then
+		monster:increaseSkill(Skill.commonLanguage,100);
 	end
 	
 	if (math.random(100)<= 10) then

@@ -200,7 +200,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 "Du kannst nichts mehr halten.",
                 "You can't carry any more.");
             else
-                User:startAction( GenWorkTime(User,"fireing bricks"), 0, 0, 0, 0 );
+                User:startAction( GenWorkTime(User,Skill.firingBricks), 0, 0, 0, 0 );
             end
             --User:learn(2,"fireing bricks",2,100);
 			--Replace with new learn function, see learn.lua 

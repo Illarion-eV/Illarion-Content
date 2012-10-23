@@ -9,7 +9,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     local modecode = SourceItem.data - (langcode * 10);
     
     if (modecode == 2) then
-        if (User:getSkill("ancient language") < 60) then return end
+        if (User:getSkill(Skill.ancientLanguage) < 60) then return end
         if ( ltstate == nil or ltstate == Action.success ) then
             User:warp(position(-243,-340,-3));
         elseif ( ltstate == Action.none ) then
@@ -23,11 +23,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return
     end 
     
-    local Skillname = GetLanguage(langcode,true);
+    local Skillname = GetSkillName(langcode,true);
     
     local Skill=User:getSkill(Skillname);
     if (Skill==0 and modecode==1) then
-        User:increaseSkill(1,Skillname,1);
+        User:increaseSkill(Skillname,1);
         SourceItem.data=SourceItem.data-1;
         world:changeItem(SourceItem);
     end
@@ -133,10 +133,22 @@ function Learning(User,Value,Skillname)
     else
         User:setMentalCapacity(2100);
         local Skill=User:getSkill(Skillname);
-        User:increaseSkill(1,Skillname,Value-Skill);
+        User:increaseSkill(Skillname,Value-Skill);
         return true
     end
 end
+
+function GetSkillName(code)
+    if (code==0) then return Skill.ancientLanguage;
+    elseif (code==1) then return Skill.commonLanguage;
+    elseif (code==2) then return Skill.humanLanguage;
+    elseif (code==3) then return Skill.dwarfLanguage;
+    elseif (code==4) then return Skill.elfLanguage;
+    elseif (code==5) then return Skill.orcLanguage;
+    elseif (code==6) then return Skill.halflingLanguage;
+    elseif (code==7) then return Skill.lizardLanguage;
+    end
+end;
 
 function GetLanguage(code,engl)
     if (code==0) then return ( engl and "ancient language" or "Altertümlichen Sprache" );

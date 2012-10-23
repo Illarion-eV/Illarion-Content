@@ -107,7 +107,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( fruitgathering.LeadSkill, fruitgathering.LeadSkillGroup, fruitgathering.SavedWorkTime[User.id], 100, User:increaseAttrib(fruitgathering.LeadAttribute,0) );
+	User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], 100, User:increaseAttrib(fruitgathering.LeadAttribute,0) );
 	amount = amount - 1;
 	User:inform("reduced amount: " .. amount);
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items

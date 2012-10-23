@@ -67,7 +67,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		   druid.base.alchemy.CauldronExplosion(User,cauldron,{36})
         else
 		    cauldron:setData("essenceHerbs",herbString.." "..SourceItem.id) -- put the herb into the essence brew
-			User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
+			User:learn(Skill.alchemy,20,100,User:increaseAttrib("essence",0))
 		end	
 		
 	elseif (cauldron:getData("stockData") ~= "") or (cauldron:getData("cauldronFilledWith") == "water") then -- water or a stock we put the herb in
@@ -96,7 +96,7 @@ function BrewingPlant(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end
 		    newStockData = druid.base.alchemy.PasteCauldronData(User,dataZList);
 		    cauldron:setData("stockData",""..newStockData);
-		    User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
+		    User:learn(Skill.alchemy,6,20,100,User:increaseAttrib("essence",0))
 		end
 		
         cauldron:setData("cauldronFilledWith","")

@@ -5,20 +5,23 @@ module("server.learn", package.seeall)
 -- called by the server when user:learn(...) is issued by a script
 
 --[[
-Call: Character:learn(skill,skillGroup,movePoints,opponent,leadAttribute);
+Call: Character:learn(skill,movePoints,opponent,leadAttrib);
 
-skill: Name of the skill as string, e.g. "mining"
-skillGroup: Group of the skill as integer (e.g. 2 for crafting).  
+skill: Name of the skill as skill key, e.g. Skill.mining
 movePoints: The amount of movePoints or time (1/10s), required by the action, as integer. Do NOT fill in 0, every action relevant for skillgain HAS TO take some time.
 opponent: In case the action requires a minimum skill, fill it in here as integer. If the action should only yield skillgain up to a certain level, fill in this level-20. Otherwise, fill in 100.
-leadAttribute: The value of the lead attribute as integer. You find the mandatory(!) definition of lead attributes here: 
+leadAttrib: The value of the lead attribute as integer. You find the mandatory(!) definition of lead attributes here: 
 
-Example: Character:learn("mining",2,20,100,Character:increaseAttrib("constitution",0));
+Example: Character:learn(Skill.mining,2,20,100,Character:increaseAttrib("constitution",0));
 ]]
 
-function learn( user, skill, skillGroup, actionPoints, opponent, lA )
+function learn( user, skill, actionPoints, opponent, leadAttrib )
 
-    local leadAttrib=getLeadAttrib(user,skill);
+	if (leadAttrib == nil) then
+		debug("Missing lead attribute. Applying default value.");
+		leadAttrib = getLeadAttrib(user,skill);
+	end;
+	
 	user:inform("learn called: skill: "..skill.." AP: "..actionPoints.." opponent: "..opponent);
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
 	scalingFactor=1000; --Here, you can mod the learning speed. Higher value=faster ;-)
@@ -46,9 +49,9 @@ function learn( user, skill, skillGroup, actionPoints, opponent, lA )
 			minorIncrease=math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor);
 
             if minorSkill+minorIncrease<10000 then
-                user:increaseMinorSkill(skillGroup,skill,minorIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
+                user:increaseMinorSkill(skill,minorIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
             else
-     			user:increaseMinorSkill(skillGroup,skill,minorIncrease);
+     			user:increaseMinorSkill(skill,minorIncrease);
 				base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skill.."' steigt von "..skillValue.." auf "..(skillValue+1).."!",
 					"[Level up] Your skill '"..skill.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
 				world:gfx(13,user.pos); --swirly!           
@@ -76,43 +79,39 @@ function getLeadAttrib(Char, Skill)
 
     if iniLed==nil then
         leadAtt={};
-        leadAtt["tailoring"]="dexterity"
-        leadAtt["fireing bricks"]="constitution"
-        leadAtt["alchemy"]="perception"
-        leadAtt["tactics"]="perception"
-        leadAtt["peasantry"]="constitution"
-        leadAtt["poisoning"]="perception"
-        leadAtt["harp"]="dexterity"
-        leadAtt["lumberjacking"]="constitution"
-        leadAtt["smithing"]="dexterity"
-        leadAtt["puncture weapons"]="agility"
-        leadAtt["horn"]="dexterity"
-        leadAtt["distance weapons"]="perception"
-        leadAtt["library research"]="intelligence"
-        leadAtt["gemcutting"]="dexterity"
-        leadAtt["slashing weapons"]="strength"
-        leadAtt["magic resistance"]="essence"
-        leadAtt["carpentry"]="dexterity"
-        leadAtt["baking"]="dexterity"
-        leadAtt["goldsmithing"]="dexterity"
-        leadAtt["concussion weapons"]="strength"
-        leadAtt["flute"]="dexterity"
-        leadAtt["parry"]="agility"
-        leadAtt["lute"]="dexterity"
-        leadAtt["dodge"]="agility"
-        leadAtt["herb lore"]="constitution"
-        leadAtt["mining"]="constitution"
-        leadAtt["blacksmithing"]="dexterity"
-        leadAtt["glass blowing"]="dexterity"
-        leadAtt["fishing"]="constitution"
-        leadAtt["wrestling"]="strength"
+        leadAtt[Skill.tailoring]="dexterity"
+        leadAtt[Skill.alchemy]="perception"
+        leadAtt[Skill.tactics]="perception"
+        leadAtt[Skill.farming]="constitution"
+        leadAtt[Skill.poisoning]="perception"
+        leadAtt[Skill.harp]="dexterity"
+        leadAtt[Skill.woodcutting]="constitution"
+        leadAtt[Skill.smithing]="dexterity"
+        leadAtt[Skill.punctureWeapons]="agility"
+        leadAtt[Skill.horn]="dexterity"
+        leadAtt[Skill.distanceWeapons]="perception"
+        leadAtt[Skill.gemcutting]="dexterity"
+        leadAtt[Skill.slashingWeapons]="strength"
+        --leadAtt[Skill.magicResistance]="essence"
+        leadAtt[Skill.carpentry]="dexterity"
+        leadAtt[Skill.cooking]="dexterity"
+        leadAtt[Skill.goldsmithing]="dexterity"
+        leadAtt[Skill.concussionWeapons]="strength"
+        leadAtt[Skill.flute]="dexterity"
+        leadAtt[Skill.parry]="agility"
+        leadAtt[Skill.lute]="dexterity"
+        leadAtt[Skill.dodge]="agility"
+        leadAtt[Skill.herblore]="constitution"
+        leadAtt[Skill.mining]="constitution"
+        leadAtt[Skill.smithing]="dexterity"
+        leadAtt[Skill.glassBlowing]="dexterity"
+        leadAtt[Skill.fishing]="constitution"
+        leadAtt[Skill.wrestling]="strength"
         iniLed=1;
     end
 
-
-    lAttrib=leadAtt[Skill]
     if lAttrib~=nil then
         return Char:increaseAttrib(lAttrib,0);
     end
-    return 0;
+    return 5;
 end

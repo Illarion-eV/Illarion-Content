@@ -424,7 +424,7 @@ end
 ---[[DEBUG
 function InitDebug( Char )
     if DebugLevel > 0 then
-        Char:increaseSkill(1,"common language",100-Char:getSkill("common language"));
+        Char:increaseSkill(Skill.commonLanguage,100-Char:getSkill(Skill.commonLanguage));
     end
 
     storedText = "";

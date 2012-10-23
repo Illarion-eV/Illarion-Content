@@ -1,6 +1,7 @@
 module("item.book.id_105_selfawareness", package.seeall)
 
 -- UPDATE common SET com_script='item.book.id_105_selfawareness' WHERE com_itemid = 105;
+-- TODO: needs to be adapted to the new skills
 
 function InitRanks()
     AddRank("untaught","unwissend");

@@ -96,7 +96,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( threadproducing.LeadSkill, threadproducing.LeadSkillGroup, threadproducing.SavedWorkTime[User.id], 100, User:increaseAttrib(threadproducing.LeadAttribute,0) );
+	User:learn( threadproducing.LeadSkill, threadproducing.SavedWorkTime[User.id], 100, User:increaseAttrib(threadproducing.LeadAttribute,0) );
 	local itemId = 170; -- first check for wool
 	if ( User:countItemAt("all",170)<2 ) then
 		itemId = 155; -- not enough wool, then there must be enough sibanac leaves
