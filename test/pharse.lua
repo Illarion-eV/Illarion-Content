@@ -78,10 +78,10 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 							User:increaseSkill(skillGroup, skillName, skillValue-curSkill);
 						end
 					end
-					User:requestInputDialog(InputDialog("Chosen skill name: " .. skillName .. ", now enter the skill value:", false, 255, cbSkillValue));
+					User:requestInputDialog(InputDialog("Enter the skill value","Chosen skill name: " .. skillName, false, 255, cbSkillValue));
 				end
 			end
-			User:requestInputDialog(InputDialog("Chosen skill group: " .. groupNames[skillGroup] .. ", now enter the skill name:", false, 255, cbSkillName));
+			User:requestInputDialog(InputDialog("Enter the skill name","Chosen skill group: " .. groupNames[skillGroup], false, 255, cbSkillName));
 		end
 	end
 	
@@ -100,13 +100,13 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		if (dialog:getSuccess()) then
 			local input = dialog:getInput();
 			if (input == "remove all") then
-				local inputDialog = InputDialog("Enter an item ID you want to remove", false, 255, cbRemoveAll);
+				local inputDialog = InputDialog("Enter an item ID you want to remove","", false, 255, cbRemoveAll);
 				User:requestInputDialog(inputDialog);
 				return;
 			elseif (input == "set skill") then
-				User:requestInputDialog(InputDialog("For setting a skill value, first enter the skill group:  1=Language,  2=Craftsmanship,  3=Magic,  4=Other,  5=Fighting,  6=Druid,7=Priest, 8=Bard", false, 255, cbSetSkill));
+				User:requestInputDialog(InputDialog("For setting a skill value, first enter the skill group","1=Language,\n 2=Craftsmanship,\n 3=Magic,\n 4=Other,\n 5=Fighting,  6=Druid,7=Priest, 8=Bard", false, 255, cbSetSkill));
 			elseif (input == "get skill") then
-				User:requestInputDialog(InputDialog("For getting a skill value, enter the skill name:", false, 255, cbGetSkill));
+				User:requestInputDialog(InputDialog("For getting a skill value, enter the skill name:","", false, 255, cbGetSkill));
 			elseif (input == "heal") then
 				User:increaseAttrib("hitpoints", 10000);
 				User:increaseAttrib("foodlevel", 10000);
