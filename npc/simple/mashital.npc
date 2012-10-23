@@ -58,147 +58,85 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: god, noble, lightning, naginata, equality.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is <Mashital> the <Lightningsage>. Keyphrases: Waresage, lightning, Naginata, equality")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Why are you here?", "Move out of my way.", "What business do you have with me?"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Why are you here?", "Move out of my way.", "What business do you have with me?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+
+"Farewell", "Bye", "Fare well", "See you" -> "Please only come back if you have actual business.", "I don't have time to talk to you, goodbye.", "#Mashital waves you away."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Please only come back if you have actual business.", "I don't have time to talk to you, goodbye.", "#Mashital waves you away."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+
+"How are you", "How feel", "How do you do" -> "Why do you want to know?", "Please stop pretending that you actually care.", "Obviously I'm not in a good mood so please stop talking to me."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"your name", "who are you", "who art thou" -> "Mashital Besual Telk Me", "The Lightningsage, Mashital Besual Telk Me.", "I am a person just like you."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-english, "quest", "mission" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"quest", "mission", english -> "to be determined.", "To be determined.", "To be determined."
+--"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"task", "adventure", "order" -> "to be determined.", "To be determined.", "To be determined."
+--"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"profession" -> "The standing Lightningsage.", "I am a killer for Runewick; it is what I truly am.", "Even before I chose to be a Warsage I was disgustingly labeled a Noble."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "job" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"job", english -> "The standing Lightningsage.", "I am a killer for Runewick; it is what I truly am.", "Even before I chose to be a Warsage I was disgustingly labeled a Noble."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Warsage" -> "We are the best magic useing fighters in the land.", "We answer only to Archmage Morgan.", "If you wish to join talk to Apple."
+"Noble" -> "Disgusting pariahs of man and elf.", "We eat the food that you fish, we smoke the reeds that you grow and then we pass laws that make this all legal.","The enimies of equality."
+"Equality" ->"There should not be a rich or poor, Orc or Elf. We are all the same. It is only through the manipulation of the some that we are seperated into hierarchie."
+"Lightning" -> "The most direct of all the magics. It suits me.", "Beautiful, quick, deadly.", "In my hands lightning is a blade from heaven to strike down those that strike down others."
+"Naginata" ->"Its kind of like a spear with a curved blade.","None of the other seven use it. Apple jokes about having lost his. I don't think it a joke.", "A beautiful weapon for killing things at a safe distance."
 "DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Optional: Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"god" -> "Magic was created by the Gods to communicate with the hand of man."
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Adron" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Bragon", "Brágon" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Cherga" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Elara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Eldan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Findari" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Irmorom" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Malachin", "Malachín" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Moshran" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Nargun", "Nargún", "Nargùn" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Oldra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Ronagan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Sirani" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Tanora", "Zelphia" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Ushara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Zhambra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Optional: Faction stuff
-"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Elvaine", "Morgan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Runewick" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Valerio", "Guilianni", "Don" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Galmair" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "rosaline", "edwards" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Cadomyr" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Optional: Main land factions
-english, "albar" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "gynk", "gync" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "salkama" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gobaith
-english, "Gobaith", "Gobiath" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+--"Gobaith", "Gobiath", english ->"write after knows what happened to globaith."
 
--- Optional: Last catch - Think about keywords the player might say and that are not caught until here
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
+"my name" -> "Mashital Besual Telk Me "
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "<NPC first name>", "<NPC last name>" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<Fo>", "<Duh Rah>", english -> "That is me, please state your business."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-german, chance(20.0), ".*" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "Move out of my way."
+cycletext "GERMAN.", "I am a dog of war. That is what I am."
+cycletext "GERMAN.", "Nobles, Nobles, Nobles, What do they know?"
+cycletext "GERMAN.", "Magic was created by the Gods to communicate with the hand of man."
+cycletext "GERMAN.", "Don't let a Noble demean you."
+cycletext "GERMAN.", "Orcs, Elves, lizardmen, Gnomes, Humans, Dwarves They are all the same."
+cycletext "GERMAN.", "Repeated observation is the only accurate way to understand the truth."
+cycletext "GERMAN.", "In this world reading a bunch of books is far more important than swinging a bunch of swords."
+cycletext "GERMAN.", "Everyone should learn to read. If not, the nobles will use the ability to read to subjegate you."
+cycletext "GERMAN.", "I write books and spread them around the world, but sadly they usually end up in some stupid Baron's Library."
