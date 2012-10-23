@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Insert your name here                                            --
 --                                                                            --
--- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 18, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "John Doe"
@@ -54,7 +54,7 @@ sellItems = 1, 2, 3
 buyPrimaryItems = 1
 buySecondaryItems = 2, 3
 
--- Template Version 1.07, 08/30/2012 by Estralis Seborian
+-- Template Version 1.08, 10/18/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
 -- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
@@ -92,8 +92,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "ENGLISH1.", "ENGLISH2.", "E
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "GERMAN1.", "GERMAN2.", "GERMAN3."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", trade
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -124,6 +124,10 @@ english, "job" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "religion" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"religion" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"faith" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Glaube" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 english, "Adron" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 english, "Bragon", "Brágon" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

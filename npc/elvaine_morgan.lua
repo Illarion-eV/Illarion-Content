@@ -1243,7 +1243,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
-talkEntry:addResponse("Why? What is your reasoning?.");
+talkEntry:addResponse("Why? What is your reasoning?");
 talkEntry:addResponse("I see.");
 talkEntry:addResponse("If you prefer to say it this way...");
 talkEntry:addResponse("Virtue needs some cheaper thrills");

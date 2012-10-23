@@ -49,7 +49,7 @@ function initializeNpc()
     TraderCopper=10000;
 
     npc.base.functions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    npc.base.functions.AddTraderTrigger("[Gg]reet","Greetingsss. How i can help you?.");
+    npc.base.functions.AddTraderTrigger("[Gg]reet","Greetingsss. How i can help you?");
     npc.base.functions.AddAdditionalTrigger("[Hh]ello");
     npc.base.functions.AddAdditionalTrigger("[Hh]i");
     npc.base.functions.AddAdditionalText("Aye! You are interested in my wares?");

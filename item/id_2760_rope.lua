@@ -14,25 +14,7 @@ tyingQuality[1] = {"strong", "stable", "", "threadbare", "weak"};
 tyingQuality["limits"] = {15,10,5,2,0};
 
 function LookAtItem(User,Item)
-	local gText;
-	local eText;
-	if Item:getData("tyingStatus") == "tied" then
-		local eQual, gQual;
-		local minutes = (Item.quality - 100)/120;
-		for i,limit in tyingQuality.limits do
-			if ( minutes > limit ) then
-				gQual = tyingQuality[0][i];
-				eQual = tyingQuality[1][i];
-				break;
-			end
-		end
-		gText = gQual.." Fesslungsseil";
-		eText = eQual.." tying rope";
-	else
-		gText = "Seil";
-		eText = "rope";
-	end
-	world:itemInform(User,Item,base.common.GetNLS(User,gText,eText));
+	return
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
@@ -96,7 +78,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         local monster_list = world:getMonstersInRangeOf(position(799,794,-3),10); --check if already a monster spawned there
 		if (monster_list[1]==nil) then
-        	world:createMonster(10,position(801,795,-3), 14);--create a monster here
+        	world:createMonster(111,position(801,795,-3), 14);--create a monster here
 		end
 		User:warp(position(797,791,-3));
 	else
@@ -329,10 +311,6 @@ end
 --- Handles actions with a tying rope (data 1), like tightening, untie or handing the leading rope over
 -- @return true if something was done
 function TyingRopeHandler(User, Rope, Target)
-	
-	if Rope:getData("tyingStatus") ~= "untied" then
-		return false;
-	end
 	
 	local foundEffect, Tying = User.effects:find(26);
 	if not foundEffect then

@@ -56,20 +56,20 @@ itemShoes = 53
 -- S/he and the others of their family will be sprawled across the map, also selling portal books to the location they are at.
 -- Intention of this sort of NPC is to act as a Safepoint to be discovered by players to allow quick travel to certain places in the wilderness (for a heavy price!).
 
-"handel","verkauf" -> "Hiho, lass und handeln!", trade
-"trade","sell" -> "Hiho, let's trade!", trade
+"handel","verkauf","portal" -> "Hiho, lass und handeln!", trade
+"trade","sell","portal" -> "Hiho, let's trade!", trade
 sellItem = id(1061), de("Portalbuch nach Cadomyr"), en("portal book to Cadomyr"), price (2000), stack(1), quality(333), data("destinationCoordsX"="127","destinationCoordsY"="647","destinationCoordsZ"="0")
 sellItem = id(1061), de("Portalbuch nach Galmair"), en("portal book to Galmair"), price (2000), stack(1), quality(333), data("destinationCoordsX"="424","destinationCoordsY"="245","destinationCoordsZ"="0")
 sellItem = id(1061), de("Portalbuch nach Runewick"), en("portal book to Runewick"), price (2000), stack(1), quality(333), data("destinationCoordsX"="788","destinationCoordsY"="826","destinationCoordsZ"="0")
-sellItem = id(1061), de("Portalbuch zum Hamp Necktie Inn"), en("portal book to the Hamp Necktie Inn"), price (2000), stack(1), quality(333), data("destinationCoordsX"="648","destinationCoordsY"="308","destinationCoordsZ"="0")
+sellItem = id(1061), de("Portalbuch zum Hemp Necktie Inn"), en("portal book to the Hemp Necktie Inn"), price (2000), stack(1), quality(333), data("destinationCoordsX"="648","destinationCoordsY"="308","destinationCoordsZ"="0")
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
 tradeFinishedWithoutTradingMsg "Nichts gefunden was euch gefällt?", "Don't you like my wares?"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the portal merchant Lobely. Keywords: Hello, portals, trade.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuchhändler Lobely. Schlüsselwörter: Hallo, Portale, Handel.")
+"Help" -> inform("[Game Help] This NPC is the portal merchant Lobely. Keywords: Hello, portal, trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuchhändler Lobely. Schlüsselwörter: Hallo, Portal, Handel.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Today is a fine day to travel."
@@ -98,7 +98,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "beruf" -> "Ich handle mit Portalbüchern."
 "job", english -> "I am a merchant of portalbooks."
 "job" -> "Ich handle mit Portalbüchern."
-"Gobaith", "Gobiath", english -> "With a little luck I can get a book to take you there! Nah, not realy just kidding."
+"Gobaith", "Gobiath", english -> "With a little luck I can get a book to take you there! Nah, not really just kidding."
 "Gobaith", "Gobiath" -> "Mit etwas Glück kann ich dir ein Buch besorgen, das dich dorthin bringt! Nö, nicht wirklich nur'n Scherz."
 "my name" -> "Nice to meet you. If you want to 'book' a travel just ask me, hihi.", "A nice name, indeed."
 "mein Name" -> "Schön dich kennenzulernen. Wenn du eine Reise 'buch'-en willst, frag mich einfach, hihi.", "Ein netter Name."

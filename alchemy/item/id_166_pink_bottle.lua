@@ -232,10 +232,5 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 end
 
 function LookAtItem(User,Item)
-    if (User:getPlayerLanguage()==0) then
-        world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: \"Zaubertrank\"");
-    else
-        world:itemInform(User,Item,"You look at a sticker telling: \"Potion\"");
-        
-    end
-end
+    world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
+end   

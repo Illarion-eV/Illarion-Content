@@ -437,7 +437,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
 talkEntry:addTrigger("i am");
 talkEntry:addCondition(npc.base.condition.quest.quest(63, "<", 1));
-talkEntry:addResponse("Very good, very good! Nargun be beside you %CHARNAME. You didn't realy expect your favourite color to matter at all to me. Anyways, back to the blessing. Are you still interrested?");
+talkEntry:addResponse("Very good, very good! Nargun be beside you %CHARNAME. You didn't really expect your favourite color to matter at all to me. Anyways, back to the blessing. Are you still interrested?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(63, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;

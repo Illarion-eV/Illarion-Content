@@ -92,7 +92,7 @@ english, "Borgate", "barkeeper", "innkeeper", "Northoff" -> "Borgate is an old c
 "refuge", "grey" -> "The Order of the Grey Light and Grey Rose. Yessh! Once the most powerful knights and landowners. If I would have stayed at my store I would be dead now. Dead...but happy."
 english, "sam" -> "Huh? Did someone call me?", "#me raises his head. 'I am Sam!'", " Ah-Leave me alone."
 "market", "shop", "market", "store" -> "Yes, my old store is gone. Far away..and I am here and ... drunk. Who can tell what's happening there?!"
-english, "eliza" -> "Awh-h. Eliza lives in the s-shh-swamp. Alone, you know? - We both lost our stores. But you can't do anything about it..it's too late...all too late. Isn't it?."
+english, "eliza" -> "Awh-h. Eliza lives in the s-shh-swamp. Alone, you know? - We both lost our stores. But you can't do anything about it..it's too late...all too late. Isn't it?"
 german, "Borgate", "wirt", "Northoff" -> "Borgate kenn isch von damalsch, alsch wir auf Gobaith warn. Wie immer hat er schein Ding gemacht, alsch wir alle weg muschten von dort. Eh-h. Wir zwe' und Eliza sin übrich gebliebn. Die soll jetz im Sumpf lebn."
 "Zuflucht", "grau" -> "Der Orden desch graun Lischts und die Graue Rosche. Jeh-nau. Einst beschtimmten die mächtigsten Ritter und Meischter über deren Lande. Wer isch bei meinem Laden gebliebn, wär isch jetzt genau scho tot. Aber glücklisch."
 "laden", "schop", "Gesch[aeä]ft", "Markt" -> "Ja-h men alter Laden isch weg. Weit weg und isch bin hier und sauf. Wer kann schon sagen was jetz dort paschiert?"
@@ -114,7 +114,7 @@ english, "Cadomyr" -> "...scumbags, pigs, horse's arses, slimeballs! Thats what 
 "Cadomyr" -> "...Dummköpfe, Sturschädl, Blauau'en, Ziechenbärte, Pferdeorhn! Scho will ich dasch Volk Cadomirsch nenn'."
 
 -- Main land factions
-english, "albar" -> "Albarian scrumbags! Speared my father on the battlefield!."
+english, "albar" -> "Albarian scrumbags! Speared my father on the battlefield!"
 german, "albar" -> "Albarische Drecksäcke! Habn mein' Papa aufn Schlachtfeld aufgeschpischt! Flusch! Jawohl - FLUSCH über 'n Könich Albarsch!"
 english, "gynk", "gync" -> "Too hot there right now. - Actually , it's always too hot in Gynk. I heard it doesn't snow during winter there."
 german, "gync", "gynk" -> "Isch Viel schu heisch dort, um die Jahreschzeit. - Eigntlisch um jede Jahreschzeit. Im Winter soll nischtmal Schnee falln."
@@ -140,7 +140,7 @@ german, "quest" -> "Sche ich scho auch als hätt isch arbeit für disch? Verschw
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger / Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Why do you talk with me? I don't even know you!", "You talk like some smart ass elven girl.", "Shut up and bring me another beer!."
+english, chance(20.0), ".*" -> "Why do you talk with me? I don't even know you!", "You talk like some smart ass elven girl.", "Shut up and bring me another beer!"
 german, chance(20.0), ".*" -> "Warum quatscht Ihr misch su? Wir kenn'n unsch nich. Verschwindet!", "Du quaschelscht wie so'n neunmal kluges Elfnweib.", "Halt's Maul und bring mir noch 'n Bier!"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.

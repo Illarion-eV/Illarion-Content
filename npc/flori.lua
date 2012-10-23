@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Flori                                                       None --
+-- NPC Name: Flori                                                   Runewick --
 -- NPC Job:  Beast of burden                                                  --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  883, 632, 0            --
@@ -8,7 +8,7 @@
 -- Authors:  Nanuk                                                            --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 19, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -23,21 +23,22 @@ module("npc.flori", package.seeall)
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-talkingNPC:addCycleText("Iiihhhh-aahhhh!", "Iiihhhh-aahhhh!");
+talkingNPC:addCycleText("Muh!", "Moo!");
+talkingNPC:addCycleText("Muh.", "Moo.");
+talkingNPC:addCycleText("Muh?", "Moo?");
 talkingNPC:addCycleText("#me stampft störrisch auf.", "#me stubbornly stamps one foot.");
 talkingNPC:addCycleText("#me zerrt am Halfter.", "#me tears at the headcollar.");
 talkingNPC:addCycleText("#me versucht den Halbling zu beißen.", "#me tries to bite the halfling.");
 talkingNPC:addCycleText("#me schüttelt seinen Kopf.", "#me tosses his head.");
 talkingNPC:addCycleText("#me tritt mit den Hinterläufen aus.", "#me kicks with his hind legs.");
-talkingNPC:addCycleText("#me bäumt sich auf.", "#me rears up.");
-talkingNPC:addCycleText("#me lässt ein paar Eselsäpfel fallen.", "#me drops some mule droppings.");
+talkingNPC:addCycleText("#me hebt den Schwanz.", "#me drops some droppings.");
 talkingNPC:addCycleText("#me schlägt mit dem Schwanz nach ein paar Fliegen.", "#me wags his tail to get rid of some flies.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dies ist Flori, der störrische Esel. Aus technischen Gründen wird der NPC als Kuh angezeigt.", "This is Flori, the stubborn mule. Due to technical reasons, this NPC is shown as cow.");
-mainNPC:setUseMessage("Iiihhhh-aahhhh!", "Iiihhhh-aahhhh!");
-mainNPC:setConfusedMessage("Iiihhhh-aahhhh?", "Iiihhhh-aahhhh?");
+mainNPC:setLookat("Dies ist Flori, der eigensinnige Ochse.", "This is Flori, the stubborn ox.");
+mainNPC:setUseMessage("Muh!", "Moo!");
+mainNPC:setConfusedMessage("Muh?", "Moo?");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

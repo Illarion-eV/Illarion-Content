@@ -142,7 +142,7 @@ english, "Gowan", "Hook", "hand" -> "Yes, I got a hook instead of a hand. What'S
 "haken", "hand" -> "Ja, ich hab einen Haken an der Hand. Was wollt Ihr?", "Nein ich bin kein Pirat. Ich mag nicht mal das Meer, von zu viel Geschaukle wird mir nämlich immer übel.", "Der alte König, Cadomyrs hat mir damals noch die Hand abgehackt. Ist wahr - ist wahr."
 "Yes" -> "Awesome, thats in my interesst.", "Yes! Yes-yes. There we go.", "Superb!"
 "Ja" -> "Fein! Das kommt mir eigentlich ganz gelegen.", "Ja! Ja-ja, so machen wir das.", "Ausgezeichnet."
-"No" -> "Aye.", "Are you Sure?.", "Really? Is that true?"
+"No" -> "Aye.", "Are you Sure?", "Really? Is that true?"
 "Nein" -> "Aye.", "Seid ihr sicher?", "Tatsächlich?"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time

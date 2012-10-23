@@ -114,7 +114,7 @@ queststatus(28) = 0, "task", "adventure" -> inform("Say 'I help you' if you want
 queststatus(28) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("Sag 'Ich helfe Euch' wenn du ihm helfen möchtest."), state = 1, "Wenn Ihr Euch um meine Kühe kümmert, könnt Ihr auch etwas Milch haben. Helft Ihr mir?", "Nun, ich könnte Hände die zupacken können gebrauchen. Wollt Ihr mir helfen?", "Könntet Ihr mir helfen? Ich kann Euch nicht viel dafür geben aber es würde mir viel bedeuten und mir einige Sorgen abnehmen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> trade, "I raise dairy cattle in order to sell their milk.", "I'm a peasant byand specialize in tending to dairy cows.", "I live and work on this farm breeding the best dairy cattle from here to Cadoymr. I sell their milk with great pride!."
+"profession" -> trade, "I raise dairy cattle in order to sell their milk.", "I'm a peasant byand specialize in tending to dairy cows.", "I live and work on this farm breeding the best dairy cattle from here to Cadoymr. I sell their milk with great pride!"
 "beruf" -> "Ich ziehe Kühe groß um dann deren Milch zu verkaufen.", "Ich bin Bauer und habe mich auf Milchkuh Haltung spezialisiert.", "Ich lebe und arbeite hier als Kuhzüchter. Die gemolkene Milch verkaufe ich."
 english, "job" -> trade, "I raise dairy cattle in order to sell their milk.", "I'm a peasant byand specialize in tending to dairy cows.", "I live and work here breeding the best dairy cattle from here to Cadoymr. I sell their milk with great pride!"
 "job" -> "Ich ziehe Kühe groß um dann deren Milch zu verkaufen.", "Ich bin Bauer und habe mich auf Milchkuh Haltung spezialisiert.", "Ich lebe und arbeite hier als Kuhzüchter. Die gemolkene Milch verkaufe ich."
@@ -178,7 +178,7 @@ english, "Eldan" -> "Eldan? Who's that?", "Eldan... Eldan... sounds familiar. *S
 "Eldan" -> "Eldan? Wer ist das?", "Eldan...Eldan ... dieser Name sagt mir irgendwas.*zuckt mit den Schultern*", "Meint Ihr Eldan mag Milch?"
 english, "Findari" -> "Now that is a pretty name, Findari!", "Pretty sure she is one of the elder gods.", "My mum always said I never paid attention, I think she is a god of sorts but... *Shrugs*"
 "Findari" -> "Na, das ist ja mal ein schöner Name, Findari!", "Ich bin mir ganz sich das sie eine der alten Götter ist. ", "Meine Mutter sagte immer ich hätte nie aufgepasst, ich denke Findari ist eine Göttin, oder so ähnlich..."
-english, "Irmorom" -> "I've heard a dwarf mention his name a time or two, is he their king?.", "Not a clue who Irm- whatever is but I've heard a dwarf say his name before.", "What was that name again?."
+english, "Irmorom" -> "I've heard a dwarf mention his name a time or two, is he their king?", "Not a clue who Irm- whatever is but I've heard a dwarf say his name before.", "What was that name again?"
 "Irmorom" -> "Ich habe gehört wie Zwerg den ofter mal erwähnt haben, ist das ihr König?", "Ich habe keinen Schimmer wer Irmo-wie-auch-immer ist, aber ich hörte schon Zwerge seinen Namen nennen.", "Wie war das Name noch gleich?"
 english, "Malachin", "Malachín" -> "I've heard those folks from Cadomyr mention his name, that's about all I can tell you.", "Malachin, I think he lives in Cadomyr.", "I think you should ask someone in Cadomyr about him."
 "Malachin", "Malachín" -> "Ich glaube diese Leute in Cadomyr spachen von ihm, das ist allen was ich dir sagen kann.", "Malachin, ich glaube er lebt in Cadomyr.", "Besser wenn Ihr jemanden aus Cadomyr nach ihm fragt."

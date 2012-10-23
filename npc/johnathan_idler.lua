@@ -148,7 +148,7 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("Fine. As long as I can read my book I fell fine.");
-talkEntry:addResponse("Hm?.");
+talkEntry:addResponse("Hm?");
 talkEntry:addResponse("#me continues reading.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

@@ -12,11 +12,11 @@ require("alchemy.base.gemdust")
 module("alchemy.base.brewing_plants_gemdust", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-    AlchemyPlant = druid.base.alchemy.CheckIfAlchemyPlant(User,SourceItem)
-	gemDust = druid.base.alchemy.CheckIfGemDust(User,SourceItem)
-	if AlchemyPlant  or SourceItem.id == 157 then
-	    druid.base.herbs.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+    local isPlant = alchemy.base.alchemy.getPlant(SourceItem.id)
+	local isGemDust = alchemy.base.alchemy.CheckIfGemDust(SourceItem)
+	if isPlant  or SourceItem.id == 157 then
+	    alchemy.base.herbs.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	elseif gemDust then
-	    druid.base.gemdust.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+	    alchemy.base.gemdust.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 end	

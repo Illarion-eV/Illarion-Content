@@ -295,7 +295,7 @@ talkEntry:addTrigger("profession");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I raise dairy cattle in order to sell their milk.");
 talkEntry:addResponse("I'm a peasant byand specialize in tending to dairy cows.");
-talkEntry:addResponse("I live and work on this farm breeding the best dairy cattle from here to Cadoymr. I sell their milk with great pride!.");
+talkEntry:addResponse("I live and work on this farm breeding the best dairy cattle from here to Cadoymr. I sell their milk with great pride!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -768,9 +768,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("I've heard a dwarf mention his name a time or two, is he their king?.");
+talkEntry:addResponse("I've heard a dwarf mention his name a time or two, is he their king?");
 talkEntry:addResponse("Not a clue who Irm- whatever is but I've heard a dwarf say his name before.");
-talkEntry:addResponse("What was that name again?.");
+talkEntry:addResponse("What was that name again?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Evera                                                    Cadomyr --
+-- NPC Name: Evera                                                       None --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  139, 622, 0            --
@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
 --                                                                            --
--- Last parsing: September 29, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 18, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,6 +31,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("handel");
 talkEntry:addTrigger("verkauf");
+talkEntry:addTrigger("portal");
 talkEntry:addResponse("Hiho, lass und handeln!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -39,6 +40,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("sell");
+talkEntry:addTrigger("portal");
 talkEntry:addResponse("Hiho, let's trade!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -50,13 +52,13 @@ tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the portal merchant Evera. Keywords: Hello, portals, trade."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the portal merchant Evera. Keywords: Hello, portal, trade."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist die Portalbuchhändlerin Evera. Schlüsselwörter: Hallo, Portale, Handel."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist die Portalbuchhändlerin Evera. Schlüsselwörter: Hallo, Portal, Handel."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -252,7 +254,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("With a little luck I can get a book to take you there! Nah, not realy just kidding.");
+talkEntry:addResponse("With a little luck I can get a book to take you there! Nah, not really just kidding.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -498,7 +500,7 @@ talkingNPC:addCycleText("Ich kann euch an interessante Orte bringen.", "I can ta
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Cadomyr","portal book to Cadomyr",2000,1,333,{["destinationCoordsY"] = "647", ["destinationCoordsX"] = "127", ["destinationCoordsZ"] = "0"}));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Galmair","portal book to Galmair",2000,1,333,{["destinationCoordsY"] = "245", ["destinationCoordsX"] = "424", ["destinationCoordsZ"] = "0"}));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Runewick","portal book to Runewick",2000,1,333,{["destinationCoordsY"] = "826", ["destinationCoordsX"] = "788", ["destinationCoordsZ"] = "0"}));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch zum Hamp Necktie Inn","portal book to the Hamp Necktie Inn",2000,1,333,{["destinationCoordsY"] = "308", ["destinationCoordsX"] = "648", ["destinationCoordsZ"] = "0"}));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch zum Hemp Necktie Inn","portal book to the Hemp Necktie Inn",2000,1,333,{["destinationCoordsY"] = "308", ["destinationCoordsX"] = "648", ["destinationCoordsZ"] = "0"}));
 tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
 tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
 tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was euch gefällt?", "Don't you like my wares?");

@@ -101,7 +101,5 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 end
 function LookAtItem(User,Item)
-         world:itemInform( User, Item, base.common.GetNLS( User,
-        "Du siehst ein Flaschenetikett mit der Aufschrift: \"Kräutersud\"",
-        "You look at a sticker telling: \"Herbage Broth\"" ) );
-  end   
+    world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
+end   

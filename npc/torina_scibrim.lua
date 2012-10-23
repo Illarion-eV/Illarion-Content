@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Ardian                                                           --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 18, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -168,6 +168,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -386,7 +387,6 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("We are lucky to live in a place where everyone knows his place, this way chaos can not spread.");
 talkEntry:addResponse("Every Place should be as nice as Cadomyr.");
-talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -394,22 +394,19 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("We haben Glück an einem Ort zu leben, wo jeder seinen Platz kennt, so kann keine Unordnung aufkommen.");
 talkEntry:addResponse("Jeder Ort sollte so schön sein, wie Cadomyr.");
-talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Albar ist ein schöner Land.Oder is important there.");
-talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("Albar is a nice country. Oder is important there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Albar is a nice country. Dort herrscht Ordung.");
-talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("Albar ist ein schönes Land. Dort herrscht Ordnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -418,14 +415,14 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addResponse("Gync isn't the best place to grow up. It's a dirty place, just like Galmair.");
-talkEntry:addResponse("I've never been to Gync, I don't think i'd like it there.");
+talkEntry:addResponse("I've never been to Gync, I don't think I'd like it there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Gynk ist nicht der beste Ort wo man aufzuwachsen kann.Es ist ein dreckiger Ort,genau wie Galmair.");
+talkEntry:addResponse("Gynk ist nicht der beste Ort wo man aufzuwachsen kann.Es ist ein dreckiger Ort, genau wie Galmair.");
 talkEntry:addResponse("Ich war noch nie in Gynk, I denke dort würde es mir nicht gefallen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -434,7 +431,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Salkamar is a nice place. It's sunny there.");
-talkEntry:addResponse("I've never been to Salkmar, I think this place lieas near the sea.");
+talkEntry:addResponse("I've never been to Salkmar, I think this place lies near the sea.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -448,14 +445,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
 talkEntry:addResponse("The month were named after the 16 Gods, we should name one month after the queen!");
-talkEntry:addResponse("I pray to Zhambar. To wich God do you pray?");
+talkEntry:addResponse("I pray to Zhambra. To wich God do you pray?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Nach den 16 Göttern wurden die Monate des Jahres beannt. Wir sollten einem Monat nach der Königin benennen!");
+talkEntry:addResponse("Nach den 16 Göttern wurden die Monate des Jahres benannt. Wir sollten einem Monat nach der Königin benennen!");
 talkEntry:addResponse("I bete zu Zhambar. zu welchem Gott betet Ihr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -559,14 +556,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Many noble kngihts pray to Malachín.");
+talkEntry:addResponse("Many noble knights pray to Malachín.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Viele Edle Ritter beten zu Malachín.");
+talkEntry:addResponse("Viele dle Ritter beten zu Malachín.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

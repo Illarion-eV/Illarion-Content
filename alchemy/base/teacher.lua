@@ -8,7 +8,8 @@ module("alchemy.base.teacher", package.seeall)
 -- recognizing spring
 
 HerbsTaskOneId = {}
-HerbsTaskOneName = {}
+HerbsTaskOneNameEN = {}
+HerbsTaskOneNameDE = {}
 
 HerbsTaskOneId["Knowing Tree"] =   {133  ,  81, 140}
 HerbsTaskOneNameEN["Knowing Tree"] = {"sonnenkraut","beeren","donfblatt"}

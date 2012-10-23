@@ -54,7 +54,7 @@ function initializeNpc()
     npc.base.functions.AddTraderTrigger("[Ww]hat.+sell","I sell all kinds of carpentry tools");
     npc.base.functions.AddTraderTrigger("[Ww]hat.+[Tt]ools","I sell tools for carpenters. Saws, axes, planes and carving tools.");
     npc.base.functions.AddTraderTrigger("[Tt]ell.+[Ss]omething","This is Tol Vanima, the home of us elves.");
-    npc.base.functions.AddTraderTrigger("[Gg]oodbye","The five with you!.");
+    npc.base.functions.AddTraderTrigger("[Gg]oodbye","The five with you!");
     npc.base.functions.AddAdditionalTrigger("[Bb]ye");
     npc.base.functions.AddAdditionalText("May the gods bless your path!");
     npc.base.functions.AddAdditionalTrigger("[Ff]arewell");

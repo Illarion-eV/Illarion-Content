@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 18, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Tobis Vunu"
@@ -54,28 +54,28 @@ itemShoes = 369
 
 -- QuestID=305
 -- Queststatus Overview "spionage bei den Piraten"
--- 1: Quest started. 'spy the pirates' - Player is sended into Pirate Bay. To search Tobis vunu.
--- 2: Player is ordered to dress like a pirate and burn the tobacco field with a toarch.
+-- 1: Quest started. 'spy the pirates' - Player is sent to Pirate Bay to search Tobis Vunu.
+-- 2: Player is ordered to dress like a pirate and burn the tobacco field with a torch.
 -- 3: Player burned the tabaco field
--- 4: Tobis vunu hands you 3 silver.  rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
+-- 4: Tobis Vunu hands you 3 silver.
 -- 5: Secret Message told.
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends.
-"Help" -> inform("[Game Help] This NPC is Tobis Vunu the pirate. Keywords: Adventure, Gods."), state = 0, "Help? I won't help you.  Get rid, Jack!"
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tobis Vunu der Pirat. Schlüsselwörter: Abenteuer, Götter."), state = 0, "Helfen? Ich werd dir nich helfen. Verschwinde Leichtmatrose!"
+"Help" -> inform("[Game Help] This NPC is Tobis Vunu the pirate. Keywords: Adventure, Gods."), "Help? I won't help you. Get rid, Jack!", state = 0
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tobis Vunu der Pirat. Schlüsselwörter: Abenteuer, Götter."), "Helfen? Ich werd dir nich helfen. Verschwinde, Leichtmatrose!", state = 0
 
 -- create script at tobacco field. [[use 'lighted toarch' & 'tobaccofield tile = spawn flames (item wich disapear by time) over whole tobacco field tiles. + set queststauts=3 + inform( You destroyed the tabacco field. Well done. Talk to Tobis Vunu now. ) // inform( Du hast das Tabakfeld zerstört. gut gemacht. Spreche nun mit Tobis Vunu. ) ]]
-queststatus(305) = 1, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> inform("Tobis Vunu reicht dir ein Bündel Gewand und einen Schlapphut. Du sollst alles anziehen und das Tabakfeld suchen um es mit einer Fackel unbemerkt zu zerstören."), item(356, 1, 550), item(180, 1, 550), item(181, 1, 550), item(391, 1, 550), queststatus(305) = 2, "Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!"
-queststatus(305) = 1, german, "Coporal", "Piero", "info", "quest", "job", "problem" -> inform("Tobis Vunu reicht dir ein Bündel Gewand und einen Schlapphut. Du sollst alles anziehen und das Tabakfeld suchen um es mit einer Fackel unbemerkt zu zerstören."), item(356, 1, 550), item(180, 1, 550), item(181, 1, 550), item(391, 1, 550), queststatus(305) = 2, "Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!"
-queststatus(305) = 1, english, "Coporal", "Piero", "info", "quest", "job", "problem" -> inform("Tobis Vunu hands you a bunch cloth and a slouch hat. Dress up and sneak at the tobaccofield to burn it."), item(356, 1, 550), item(180, 1, 550), item(181, 1, 550), item(391, 1, 550), queststatus(305) = 2, "Aye. Piero sends you? Allright, get dressed with this stuff. Take the toarch and burn the pirates tabacco field. And do't let you catched, by doing it!"
-queststatus(305) = 1, "Mesage", "task", "adventure", "mission", "money", "earn" -> inform("Tobis Vunu hands you a bunch cloth and a slouch hat. Dress up and sneak at the tobaccofield to burn it."), item(356, 1, 550), item(180, 1, 550), item(181, 1, 550), item(391, 1, 550), queststatus(305) = 2, "Aye. Piero sends you? Allright, get dressed with this stuff. Take the toarch and burn the pirates tabacco field. And do't let you catched, by doing it!"
-queststatus(305) = 3, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> inform("Du hast ein paar Münzen bekommen. Frage nun nach der geheimen Bootschaft die zu Corpotal Piero gebracht werden soll."), money + 230, queststatus(305) = 4, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6, "#me hebt seine Nase in die Luft und schnuppert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen."
-queststatus(305) = 3, german, "Coporal", "Piero", "info", "quest", "job", "problem" -> inform("Du hast ein paar Münzen bekommen. Frage nun nach der geheimen Bootschaft die zu Corpotal Piero gebracht werden soll."), money + 230, queststatus(305) = 4, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6, "#me hebt seine Nase in die Luft und schnuppert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen."
-queststatus(305) = 3, english, "Coporal", "Piero", "info", "quest", "job", "problem" -> inform("You earned some coins. Ask him about the secret information you shall deliver to Corporal Piero."), money + 230, queststatus(305) = 4, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6, "#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's a coin for you. "
-queststatus(305) = 3, "Mesage", "task", "adventure", "mission", "money", "earn" -> inform("You earned some coins. Ask him about the secret information you shall deliver to Corporal Piero."), money + 230, queststatus(305) = 4, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6, "#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's a coin for you. "
-queststatus(305) = 4, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> queststatus(305) = 5, "Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-Feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen."
-queststatus(305) = 4, german, "Coporal", "Piero", "info", "quest", "job", "problem" -> queststatus(305) = 5, "Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-Feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen."
-queststatus(305) = 4, english, "Coporal", "Piero", "info", "quest", "job", "problem" -> queststatus(305) = 5, "Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now."
-queststatus(305) = 4, "Mesage", "task", "adventure", "mission", "money", "earn" -> queststatus(305) = 5, "Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now."
+queststatus(305) = 1, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> inform("Tobis Vunu reicht dir ein Bündel Gewand und einen Schlapphut. Du sollst alles anziehen und das Tabakfeld suchen um es mit einer Fackel unbemerkt zu zerstören."), "Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!", item(356, 1, 550), item(180, 1, 550), item(181, 1, 550), item(391, 1, 550), queststatus(305) = 2
+queststatus(305) = 1, german, "Coporal", "Piero", "info", "quest", "job", "problem" -> inform("Tobis Vunu reicht dir ein Bündel Gewand und einen Schlapphut. Du sollst alles anziehen und das Tabakfeld suchen um es mit einer Fackel unbemerkt zu zerstören."), "Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!", item(356, 1, 550), item(180, 1, 550), item(181, 1, 550), item(391, 1, 550), queststatus(305) = 2
+queststatus(305) = 1, english, "Coporal", "Piero", "info", "quest", "job", "problem" -> inform("Tobis Vunu hands you a bunch cloth and a slouch hat. Dress up and sneak at the tobaccofield to burn it."), "Aye. Piero sends you? Allright, get dressed with this stuff. Take the toarch and burn the pirates tabacco field. And do't let you catched, by doing it!", item(356, 1, 550), item(180, 1, 550), item(181, 1, 550), item(391, 1, 550), queststatus(305) = 2
+queststatus(305) = 1, "Mesage", "task", "adventure", "mission", "money", "earn" -> inform("Tobis Vunu hands you a bunch cloth and a slouch hat. Dress up and sneak at the tobaccofield to burn it."), "Aye. Piero sends you? Allright, get dressed with this stuff. Take the toarch and burn the pirates tabacco field. And do't let you catched, by doing it!", item(356, 1, 550), item(180, 1, 550), item(181, 1, 550), item(391, 1, 550), queststatus(305) = 2
+queststatus(305) = 3, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> inform("Du hast ein paar Münzen bekommen. Frage nun nach der geheimen Bootschaft die zu Corpotal Piero gebracht werden soll."), "#me hebt seine Nase in die Luft und schnuppert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.", money + 230, queststatus(305) = 4
+queststatus(305) = 3, german, "Coporal", "Piero", "info", "quest", "job", "problem" -> inform("Du hast ein paar Münzen bekommen. Frage nun nach der geheimen Bootschaft die zu Corpotal Piero gebracht werden soll."), "#me hebt seine Nase in die Luft und schnuppert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.", money + 230, queststatus(305) = 4
+queststatus(305) = 3, english, "Coporal", "Piero", "info", "quest", "job", "problem" -> inform("You earned some coins. Ask him about the secret information you shall deliver to Corporal Piero."), "#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's a coin for you. ", money + 230, queststatus(305) = 4
+queststatus(305) = 3, "Mesage", "task", "adventure", "mission", "money", "earn" -> inform("You earned some coins. Ask him about the secret information you shall deliver to Corporal Piero."), "#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's a coin for you. ", money + 230, queststatus(305) = 4
+queststatus(305) = 4, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> "Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-Feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.", queststatus(305) = 5
+queststatus(305) = 4, german, "Coporal", "Piero", "info", "quest", "job", "problem" -> "Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-Feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.", queststatus(305) = 5
+queststatus(305) = 4, english, "Coporal", "Piero", "info", "quest", "job", "problem" -> "Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now.", queststatus(305) = 5
+queststatus(305) = 4, "Mesage", "task", "adventure", "mission", "money", "earn" -> "Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now.", queststatus(305) = 5
 queststatus(305) = 5, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> "Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen."
 queststatus(305) = 5, german, "Coporal", "Piero", "info", "quest", "job", "problem" -> "Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen."
 queststatus(305) = 5, english, "Coporal", "Piero", "info", "quest", "job", "problem" -> "Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now."
@@ -109,7 +109,7 @@ queststatus(305) = 2, "task", "adventure", "mission", "money", "earn" -> inform(
 "Botschaft", "verdienen", "aufgabe", "abenteuer" -> "Nimm dir 'n Messer und entführ ne Jungfrau! Arr. Und dann steckst du sie dir an den Ort wo die Sonne nich scheint! Verschwinde du Landratte."
 german, "quest", "job", "problem" -> "Nimm dir 'n Messer und entführ ne Jungfrau! Arr. Und dann steckst du sie dir an den Ort wo die Sonne nich scheint! Verschwinde du Landratte."
 english, "quest", "job", "problem" -> "Take a Knife and take a Virgins as hostage! Arr. And then you put her at the place where the sun never shines! Get rid, Lubber."
-"Mesage", "task", "adventure", "mission", "money", "earn" -> "Take a Knife and take a Virgins as hostage! Arr. And then you put her at the place where the sun never shines! Get rid, Lubber."
+"Message", "task", "adventure", "mission", "money", "earn" -> "Take a knife and take a virgin as hostage! Arr. And then you put her at the place where the sun never shines! Get rid, Lubber."
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
@@ -136,7 +136,7 @@ english, "Pirat" -> "Hey - pirates ho! Ho-h! We're mean guys, ho!", "Arr! We're 
 english, "Reginald", "king" -> "Oh... good old King Reginald. I'm sad he's dead now."
 german, "Reginald", "king" -> "Oh... guter alter König Reginald. Schade, dass er jetzt tot ist."
 german, "Piero" -> "Ich kenne keinen Piero."
-english, "Piero" -> "I don't know any Piero's."
+english, "Piero" -> "I don't know any Pieros."
 german, "ruggero", "bloom" -> "Aye, Ruggero ist ein guter Kumpel von mir. Leg dich lieber nicht mit ihm an, er ist leicht reizbar."
 english, "ruggero", "bloom" -> "Aye Ruggero is my matee! Don't annoy him, he's kind of bullsish."
 "Pirat" -> "Hey - Pirat'n ho! Ho-h! Wir sin' üble Kerle, ho!", "Arr! Wirr raub'n und entern und schlitzn und ... äh raubn! Aye."
@@ -146,7 +146,7 @@ german, "murgo" -> "Auch unter den Falggen von uns Piraten ist der Ork Murgo bes
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Har, Har! I'm a pirate! I don't BUY stuff! I take it! Aye?"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Har, Har! Ich bin n' Piart! Ich KAUFE kein Zeug! Ich nehms mir einfach, klar?"
-"tell something" -> "Once, when we shipped over the sea I saw a ...you never guess what... a mermaid! Honestly."
+"tell something" -> "Once, when we shipped over the sea I saw a... you never guess what... a mermaid! Honestly."
 "erzähl was", "erzähl etwas" -> "Einmal... als wir über die See reisten sah ich... ihr werdets nich glauben... ne Meerjungfrau! Ehrlich."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
@@ -172,7 +172,7 @@ english, "Valerio", "Guilianni", "Don" -> "Do you know... there are people bette
 "Valerio", "Guilianni", "Don" -> "Weißt du.. es gibt Leute mit denen sollte man sich nicht anlegen. Don Valerio Guilianni ist wohl genauso jemand, wenn du mich fragst."
 english, "Galmair" -> "Galmair would be a nice place indeed, when ignored all the churlish dwarves there."
 "Galmair" -> "Galmair wäre ja ein nettes Plätzchen. Wäre es dort bloß nicht voller knausriger Zwerge."
-"Queen" -> "ENGLISH1.", "The guard of queen Rosaline makes it hard to live our pirate-life. But we'll Kkep our tails up!"
+"Queen" -> "The guard of queen Rosaline makes it hard to live our pirate-life. But we'll Kkep our tails up!"
 "Königin" -> "Die Wache von Königin Rosaline macht uns das Piratenleben schwer. Aber wir lassen uns nicht unterkriegen!"
 english, "rosaline", "edwards" -> "The guard of queen Rosaline makes it hard to live our pirate-life. But we'll Kkep our tails up!"
 "rosaline", "edwards" -> "Die Wache von Königin Rosaline macht uns das Piratenleben schwer. Aber wir lassen uns nicht unterkriegen!"

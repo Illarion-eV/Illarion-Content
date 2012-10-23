@@ -410,7 +410,7 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("I am Victor Tolenor, proud citizen of Cadomyr!");
-talkEntry:addResponse("Is that realy important? Tell me friend, what news do you bring of my aunt?");
+talkEntry:addResponse("Is that really important? Tell me friend, what news do you bring of my aunt?");
 talkEntry:addResponse("Victor Tolenor is my name, gods shave... uh, save the queen!");
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -571,7 +571,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hastings");
 talkEntry:addTrigger("baron");
-talkEntry:addResponse("Yes, shout it out realy loud.");
+talkEntry:addResponse("Yes, shout it out really loud.");
 talkEntry:addResponse("Hey there guards! This one's plotting against the queen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
