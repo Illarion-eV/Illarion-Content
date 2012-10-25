@@ -12,5 +12,5 @@ createItem = base.class.class(function(creitem, posi, ID, qual, amnt)
 end);
 
 function createItem:execute()
-    world:createItemFromId(self.itemId, self.amount, self.pos,true,self.quality,0);
+    world:createItemFromId(self.itemId, self.amount, self.pos,true,self.quality,nil);
 end

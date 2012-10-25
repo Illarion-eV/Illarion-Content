@@ -11,5 +11,5 @@ end);
 
 function createPlayerItem:execute()
     person=self.player
-    person:createItem(self.itemId, self.amount,self.quality,0);
+    person:createItem(self.itemId, self.amount,self.quality,nil);
 end
