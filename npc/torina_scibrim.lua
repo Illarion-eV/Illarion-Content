@@ -754,7 +754,6 @@ talkEntry:addResponse("Ihr seht dies also anders?");
 talkEntry:addResponse("Nun ja... so würde ich das nicht sagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("become citizen");
