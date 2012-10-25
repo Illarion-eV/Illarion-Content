@@ -8,18 +8,18 @@ require("base.common")
 
 module("base.factions", package.seeall)
 
+
+
 function InitFactionLists()
+   
+	notaryNames = {"Torina Scibrim"}
    
 	--Lists for Functions--
 	NpcLocation = {};   --holds the location(townID) of the NPC
 	TextRepeatCnt={}; --a value/counter to allow text repeation(e.g.for questions)
 	
-	--helps reading/writing faction values by index by using Factionvalues[DigitToIndex[digit]]
-	DigitToIndex ={"towncnt","tid","rankC","rankR","rankG","rankTown", "rankGuild", "gid", "rankpointsC", "rankpointsR", "rankpointsG"}
 	--Towns--
-	TownIDList={};
-    TownNameGList={};
-    TownNameEList={};
+	TownList={};
     
 	TownMainKey={};
 	TownJailKey={};
@@ -32,9 +32,7 @@ function InitFactionLists()
 	
 	--OtherLists
 
-	          -- townchange   1 2 3 4 5  6  7..8.  9
-    PriceListForTownChange = {1,2,4,6,8,16,32,64,128}; --includes the prices for a town change (in Silvercoins), every town change leads to a doubled price
-					--aspirant guild, member guild, leader guild, main key guild, jail key guild
+
 	PriceListForDecreeAndKey = {2, 10, 30, 2, 2}; --prices of the membership decrees for a guild and for the keys(in SILVERCOINS!)
 
     GuildRanklist = { {gusage = "(Anwärter)", eusage = "(aspirant)"},
@@ -54,17 +52,54 @@ function InitFactionLists()
 	TownRankList[0] = {gRank="Geächteter", eRank="outcast"};         --rank 0
 end
 
+if not InitFaction then
+	InitFactionLists();
+	InitFaction = true;
+	RANK_OFFSET = 2;      --needed to know from where the ranks for each town begin (look return value of get)
+	RANKPOINTS_OFFSET = 8;--needed to know from where the rankpoints for each town begin (look return value of get)
+    citizenRank = 1;
+    outcastRank = 0;
+    leaderRank = 9;
+
+--==================================ADD NEW TOWNS AND GUILDS HERE===============
+--AddTown(TownID,TownName), IDs from 1-9
+--AddAdditionalTownName(German Trigger, English Trigger)
+--AddTownMainKey(TownID, KeyID, KeyQuality, KeyData)
+
+AddTown(1,"Cadomyr");
+AddTownMainKey(1,2121, 333, 5030);
+AddTownJailKey(12,2121, 333, 5031);
+AddTown(2,"Runewick");
+AddTown(3,"Galmair");
+
+--[[AddTown(12,"Silberbrand","Silverbrand", 1022, 102, 111);
+AddTownMainKey(12,2121, 333, 5030);
+AddTownJailKey(12,2121, 333, 5031);   ]]--
+
+
+
+
+-------The Guilds        Same as above IDs from 11-99 only!
+AddGuild(11,"Graue Rose","Grey Rose");
+AddGuildMainKey(11,2121, 333,5014);
+AddGuildJailKey(11,2121, 333,5015);
+AddGuild(12,"Die Illarion Gruppe", "The Illarion Group");
+AddGuild(13,"Stadtwache Cadomyr","Townguard Cadomyr");
+AddGuildJailKey(13,2121, 333,5015);
+AddGuild(14,"Stadtwache Runewick","Townguard Runewick");
+AddGuild(15,"Stadtwache Galmair","Townguard Galmair");
+end
+--==================================END OF THE EDITABLE PART====================
+
 
 --[[
     AddTown
 	Add a Town to the Faction System(be carefull, adding a new town needs further changes in the whole script!)
-    @param TownID              - the ID of the town(1-9 allowed)
-    @param TownNameG,TownNameE - the Townname in German and English
+    @param TownID		- the ID of the town(1-9 allowed)
+    @param TownName		- the Townname 
 ]]
-function AddTown(TownID, TownNameG, TownNameE)
-	table.insert(TownIDList,TownID);
-    table.insert(TownNameGList,{TownNameG});
-    table.insert(TownNameEList,{TownNameE});
+function AddTown(TownID, TownName)
+	table.insert(TownList,{townID=TownID, townName=TownName});
 end
 --[[
     AddGuild
@@ -78,11 +113,6 @@ function AddGuild(GuildID, GuildNameG, GuildNameE)
     table.insert(GuildNameEList,GuildID,{GuildNameE});
 end
 
---Add another Name for the Town(e.g. Trollsbane, Trolls Bane, Troll's Bane)
-function AddAdditionalTownName(TownNameG,TownNameE)
-    table.insert(TownNameGList[table.getn(TownNameGList)],TownNameG)
-    table.insert(TownNameEList[table.getn(TownNameEList)],TownNameE)
-end
 --Add an additional Name for the Guild(e.g. Trollsbane Guards, Trolls Bane Guards,..)
 function AddAdditionalGuildName(GuildNameG,GuildNameE)
     table.insert(GuildNameGList[table.getn(GuildNameGList)],GuildNameG)
@@ -114,6 +144,15 @@ function AddGuildJailKey(GuildJID,KeyID, KeyQuality,KeyData)
 	if KeyQuality==nil then KeyQuality=333; end
 	table.insert(GuildJailKey,GuildJID, {KeyID,KeyQuality,KeyData});
 end
+
+function getTownNameByID(TownID)
+	for i=1, #(TownList) do
+		if (TownList[i].townID == TownID) then
+			return TownList[i].townName
+		end
+	end
+end
+
 
 --[[
     CheckTheName
@@ -159,51 +198,51 @@ end
 
     @return digit - the townID of the town the npc is placed in
 ]]
-function setLocation(thisNPC)
-	local townID = 0;
-	if (border==nil) then
-		border={}
-	end
+-- function setLocation(thisNPC)
+	-- local townID = 0;
+	-- if (border==nil) then
+		-- border={}
+	-- end
 			--border-Xpos-left, border-Xpos-right, border-Ypos-top, border-Ypos-bottom
-	border[1]={             0,                500,             415,                845};  --cadomyrs borders
+	-- border[1]={             0,                500,             415,                845};  --cadomyrs borders
 			--border-Xpos-left, border-Xpos-right, border-Ypos-top, border-Ypos-bottom
-	border[2]={           650,               1000,             380,                950}; --runewicks borders
+	-- border[2]={           650,               1000,             380,                950}; --runewicks borders
 			--border-Xpos-left, border-Xpos-right, border-Ypos-top, border-Ypos-bottom
-	border[3]={           220,                650,             100,                415}; --galmairs borders
+	-- border[3]={           220,                650,             100,                415}; --galmairs borders
 
-	if thisNPC.pos.x>border[1][1] and thisNPC.pos.x<border[1][2] then         --checks the x-Coordinates with the borders
-	    if thisNPC.pos.y>border[1][3] and thisNPC.pos.y<border[1][4] then     --checks the y-Coordinates with the borders
-			townID = 1;
-		end
-	end
-	if thisNPC.pos.x>border[2][1] and thisNPC.pos.x<border[2][2] then         --checks the x-Coordinates with the borders
-	    if thisNPC.pos.y>border[2][3] and thisNPC.pos.y<border[2][4] then     --checks the y-Coordinates with the borders
-			townID = 2;
-		end
-	end
-	if thisNPC.pos.x>border[3][1] and thisNPC.pos.x<border[3][2] then         --checks the x-Coordinates with the borders
-	    if thisNPC.pos.y>border[3][3] and thisNPC.pos.y<border[3][4] then     --checks the y-Coordinates with the borders
-			townID = 3;
-		end
-	end
-	NpcLocation[thisNPC.id]=townID;
-	return townID;
-end
+	-- if thisNPC.pos.x>border[1][1] and thisNPC.pos.x<border[1][2] then         --checks the x-Coordinates with the borders
+	    -- if thisNPC.pos.y>border[1][3] and thisNPC.pos.y<border[1][4] then     --checks the y-Coordinates with the borders
+			-- townID = 1;
+		-- end
+	-- end
+	-- if thisNPC.pos.x>border[2][1] and thisNPC.pos.x<border[2][2] then         --checks the x-Coordinates with the borders
+	    -- if thisNPC.pos.y>border[2][3] and thisNPC.pos.y<border[2][4] then     --checks the y-Coordinates with the borders
+			-- townID = 2;
+		-- end
+	-- end
+	-- if thisNPC.pos.x>border[3][1] and thisNPC.pos.x<border[3][2] then         --checks the x-Coordinates with the borders
+	    -- if thisNPC.pos.y>border[3][3] and thisNPC.pos.y<border[3][4] then     --checks the y-Coordinates with the borders
+			-- townID = 3;
+		-- end
+	-- end
+	-- NpcLocation[thisNPC.id]=townID;
+	-- return townID;
+-- end
 
 --[[ returns "rankC", "rankG" ... for easier writing the faction values over the id in the faction struct
 example:
-	local factionv = get(originator);
+	local factionv = getFactionInformations(originator);
 	factionv[r_index(1)] = 5; --sets factionvalue of cadomyr to 5
 
 ]]--
-function r_index(townid)
-	return DigitToIndex[townid+RANK_OFFSET];
-end
+-- function r_index(townid)
+	-- return DigitToIndex[townid+RANK_OFFSET];
+-- end
 
--- same like the above function, only for the rankpoints
-function rp_index(townid)
-	return DigitToIndex[townid+RANKPOINTS_OFFSET];
-end
+--same like the above function, only for the rankpoints
+-- function rp_index(townid)
+	-- return DigitToIndex[townid+RANKPOINTS_OFFSET];
+-- end
 
 
 --[[
@@ -216,23 +255,17 @@ end
 ]]
 function get_Faction(originator)
 
+	--format of questprogress 2 digits faction change counter, 1 digit town id, 1 digit town rank
 	local qpg = originator:getQuestProgress(200);
 	if qpg==nil or qpg == 0 then
-		originator:setQuestProgress(200,10111); --set the qpg to "zero"
+		originator:setQuestProgress(200,0100); --set the qpg to "zero"
 	end
 
-	local towncnt = math.floor(qpg/10^4); -- a counter which states how often a char switched the faction
-	local 	  tid = math.floor ( (qpg-towncnt*10^4)/10^3 );   -- the id of the town the char belongs to
-	local   rankC = math.floor ( (qpg - (towncnt*10^4 + tid*10^3))/10^2 ); --the reputation of the char in Cadomyr
-	local   rankR = math.floor ( (qpg - (towncnt*10^4 + tid*10^3 + rankC*10^2))/10 ); --the reputation of the char in Runewick
-	local   rankG = math.floor ( (qpg - (towncnt*10^4 + tid*10^3 + rankC*10^2 + rankR*10)) );
+	local towncnt = math.floor(qpg/10^2); -- a counter which states how often a char switched the faction
+	local 	  tid = math.floor ((qpg-towncnt*10^2)/10);   -- the id of the town the char belongs to
+	local rankTown = math.floor(qpg-(towncnt*10^2+ tid*10));
 
-		if tid == 1 then rankTown = rankC;
-	elseif tid == 2 then rankTown = rankR;
-	elseif tid == 3 then rankTown = rankG; 
-	else	rankTown = 0;			end
-
-	return { towncnt = towncnt, tid = tid, rankC = rankC, rankR = rankR, rankG = rankG, rankTown = rankTown};
+	return { towncnt = towncnt, tid = tid, rankTown = rankTown};
 end
 
 --[[
@@ -259,20 +292,16 @@ end
 	Looks up how much Rankpoints a Character has
     @param originator -- the CharacterStruct
 
-    @return Array - 1.the rankpoints in Cadomyr, 2.the Rankpoints for Runewick, 3.the Rankpoints for Galmair
+    @return qpg - rankpoints in realm
 ]]
 function get_Rankpoints(originator)
 
-	local qpg = originator:getQuestProgress(202); -- digit 1&2 = rankCadomyr, digit 3&4 = rankRunewick, digit 5&6 = rankGalmair
+	local qpg = originator:getQuestProgress(202); -- digit 1&2 = rankpoints
 	if qpg==nil or qpg == 0 then
-		originator:setQuestProgress(202,101010); --set the qpg to "zero"
+		originator:setQuestProgress(202,00); --set the qpg to "zero"
 	end
 
-	local   rankpointsC = math.floor (qpg/10^4);
-	local   rankpointsR = math.floor ( (qpg - rankpointsC*10^4)/10^2);
-	local   rankpointsG = math.floor ( (qpg - (rankpointsC*10^4 + rankpointsR*10^2)) );
-
-	return {rankpointsC = rankpointsC, rankpointsR = rankpointsR, rankpointsG = rankpointsG};
+	return gpg;
 end
 
 --[[
@@ -282,15 +311,15 @@ end
 
     @return Array - all values about Factionmembership, Guildmembership and Rankpoints
 ]]--
-function get(originator)
+function getFactionInformations(originator)
 
 	local Faction = get_Faction(originator);
 	local Guild = get_Guild(originator);
 	local Rankpoints = get_Rankpoints(originator);
 
-	return {towncnt = Faction.towncnt, tid = Faction.tid, rankC = Faction.rankC, rankR = Faction.rankR, rankG = Faction.rankG, rankTown = Faction.rankTown,
+	return {towncnt = Faction.towncnt, tid = Faction.tid, rankTown = Faction.rankTown,
 			rankGuild = Guild.rankGuild, gid = Guild.gid,
-			rankpointsC = Rankpoints.rankpointsC, rankpointsR = Rankpoints.rankpointsR, rankpointsG = Rankpoints.rankpointsG};
+			rankpoints = Rankpoints};
 end
 
 --[[
@@ -302,19 +331,11 @@ end
 ]]
 function put_Faction(originator,Faction)
 
-	oldFactionvalues=get_Faction(originator);
-	if oldFactionvalues.rankTown~=Faction.rankTown then
-			if	Faction.tid == 1 then Faction.rankC = Faction.rankTown;
-		elseif  Faction.tid == 2 then Faction.rankR = Faction.rankTown;
-		elseif  Faction.tid == 3 then Faction.rankG = Faction.rankTown; end
-	end
 	--------don't allow unknown ranks-----
-	if Faction.rankC>9 then Faction.rankC = 9 elseif Faction.rankC<0 then Faction.rankC = 0; end
-	if Faction.rankR>9 then Faction.rankR = 9 elseif Faction.rankR<0 then Faction.rankR = 0; end
-	if Faction.rankG>9 then Faction.rankG = 9 elseif Faction.rankG<0 then Faction.rankG = 0; end
+	if Faction.rankTown>9 then Faction.rankTown = 9 elseif Faction.rankTown<0 then Faction.rankTown = 0; end
 	-------------write changes------------
 	
-	local qpg=(Faction.towncnt..Faction.tid..Faction.rankC..Faction.rankR..Faction.rankG)+1-1;
+	local qpg=tonumber(Faction.towncnt..Faction.tid..Faction.rankTown);
 	originator:setQuestProgress(200,qpg);
 end
 
@@ -351,46 +372,31 @@ end
     put_Rankpoints
 	Saves the Factionchanges of the Char//Guildchanges of the Char
     @param CharacterStruct - The character who gets the new Questprogress
-    @param Rankpoints - the Array which includes the values Rankpoints
+    @param Rankpoints - the value Rankpoints
 
 ]]
-function put_Rankpoints(originator,Rankpoints)
-	local Faction = get_Faction(originator);
+function put_Rankpoints(originator, rankpoints)
+	local Faction = getFactionInformations(originator);
 	 ---increase rank ----
-	if (Rankpoints.rankpointsC >99) then
-		local rank = Faction.rankC; Rankpoints.rankpointsC,Faction.rankC = IncreaseRank(Rankpoints.rankpointsC,Faction.rankC);
-		if Faction.rankC>rank then  base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in Cadomyr erreicht.", "You reached a new town rank in Cadomyr." ) end
+	if (Faction.rankpoints >99) then
+		local rank = Faction.rankTown; 
+		local Faction.rankpoints,Faction.rankTown = IncreaseRank(Faction.rankpoints,Faction.rankTown);
+		if Faction.rankTown>rank then  
+			base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in "..getTownNameByID(Faction.tid).." erreicht.", 
+				"You reached a new town rank in "..getTownNameByID(Faction.tid).. ) end
 	end
-
-	if (Rankpoints.rankpointsR >99) then
-		local rank = Faction.rankR; Rankpoints.rankpointsR,Faction.rankR = IncreaseRank(Rankpoints.rankpointsR,Faction.rankR);
-		if Faction.rankR>rank then  base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in Runewick erreicht.", "You reached a new town rank in Runewick." ) end
-	end
-
-	if (Rankpoints.rankpointsG >99) then
-		local rank = Faction.rankG; Rankpoints.rankpointsG,Faction.rankG = IncreaseRank(Rankpoints.rankpointsG,Faction.rankG);
-		if Faction.rankG>rank then  base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in Galmair erreicht.", "You reached a new town rank in Galmair." ) end
-	end
-	------------------------
 	----lower rank----------
-	if (Rankpoints.rankpointsC <10) then
-		local rank = Faction.rankC; Rankpoints.rankpointsC,Faction.rankC = DecreaseRank(Rankpoints.rankpointsC,Faction.rankC);
-		if Faction.rankC<rank then  base.common.InformNLS( originator, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Cadomyr um eine Stufe gesunken.", "Because of your permanent conflicts with the law your rank sinks for a degree in Cadomyr." ) end
+	if (Faction.rankpoints <10) then
+		local rank = Faction.rankTown; 
+		local Faction.rankpoints,Faction.rankTown = DecreaseRank(Faction.rankpoints,Faction.rankTown);
+		if Faction.rankTown<rank then  
+			base.common.InformNLS( originator, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in "..getTownNameByID(Faction.tid).." um eine Stufe gesunken.", 
+				"Because of your permanent conflicts with the law your rank sinks for a degree in "..getTownNameByID(Faction.tid).. ) end
 	end
 
-	if (Rankpoints.rankpointsR <10) then
-		local rank = Faction.rankR; Rankpoints.rankpointsR,Faction.rankR = DecreaseRank(Rankpoints.rankpointsR,Faction.rankR);
-		if Faction.rankR<rank then  base.common.InformNLS( originator, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Runewick um eine Stufe gesunken.", "Because of your permanent conflicts with the law your rank sinks for a degree in Runewick." ) end
-	end
-
-	if (Rankpoints.rankpointsG <10) then
-		local rank = Faction.rankG; Rankpoints.rankpointsG,Faction.rankG = DecreaseRank(Rankpoints.rankpointsG,Faction.rankG);
-		if Faction.rankG<rank then  base.common.InformNLS( originator, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Galmair um eine Stufe gesunken.", "Because of your permanent conflicts with the law your rank sinks for a degree in Galmair." ) end
-	end
 	------save changes----------------
 	put_Faction(originator,Faction);
-	local qpg=(Rankpoints.rankpointsC..Rankpoints.rankpointsR..Rankpoints.rankpointsG)+1-1;
-	originator:setQuestProgress(202,qpg);
+	originator:setQuestProgress(202,rankpoints);
 end
 --[[
     put_
@@ -399,7 +405,7 @@ end
     @param Faction - the Array which includes the values Rankpoints//Guild Values//Town Values
 
 ]]
-function put(originator,Factionvalues)
+function setFactionInformations(originator,Factionvalues)
 	--town
     put_Faction(originator,Factionvalues);
 	-----------------------
@@ -410,44 +416,6 @@ function put(originator,Factionvalues)
 	put_Rankpoints(originator,Factionvalues);
 end
 
-if not InitFaction then
-	InitFactionLists();
-	InitFaction = true;
-	RANK_OFFSET = 2;      --needed to know from where the ranks for each town begin (look return value of get)
-	RANKPOINTS_OFFSET = 8;--needed to know from where the rankpoints for each town begin (look return value of get)
-    citizenRank = 1;
-    outcastRank = 0;
-    leaderRank = 9;
-
---==================================ADD NEW TOWNS AND GUILDS HERE===============
---AddTown(TownID,TownName-German,TownName-English), IDs from 1-9
---AddAdditionalTownName(German Trigger, English Trigger)
---AddTownMainKey(TownID, KeyID, KeyQuality, KeyData)
-
-AddTown(1, "Cadomyr", "Cadomyr");
-AddTownMainKey(1,2121, 333, 5030);
-AddTownJailKey(12,2121, 333, 5031);
-AddTown(2, "Runewick", "Runewick");
-AddTown(3, "Galmair", "Galmair");
-
---[[AddTown(12,"Silberbrand","Silverbrand", 1022, 102, 111);
-AddTownMainKey(12,2121, 333, 5030);
-AddTownJailKey(12,2121, 333, 5031);   ]]--
-
-
-
-
--------The Guilds        Same as above IDs from 11-99 only!
-AddGuild(11,"Graue Rose","Grey Rose");
-AddGuildMainKey(11,2121, 333,5014);
-AddGuildJailKey(11,2121, 333,5015);
-AddGuild(12,"Die Illarion Gruppe", "The Illarion Group");
-AddGuild(13,"Stadtwache Cadomyr","Townguard Cadomyr");
-AddGuildJailKey(13,2121, 333,5015);
-AddGuild(14,"Stadtwache Runewick","Townguard Runewick");
-AddGuild(15,"Stadtwache Galmair","Townguard Galmair");
-end
---==================================END OF THE EDITABLE PART====================
 
 
 
@@ -564,6 +532,15 @@ end
     @param theRank(number) -- the rank the char shall get in the town
 ]]
 function makeCharMemberOfTown(originator,fv,theRank, theTown)
+	NPCList = world:getNPCSInRangeOf(originator.pos, 3);
+	for i = 1, #(NPCList) do
+		for j=1, #(notaryNames) do
+			if NPCList[i].name == notaryNames[j] then
+				thisNPC = NPCList[i]
+			end
+		end
+	end
+	
 	if theRank==leaderRank then --make char to leader of this town
 		fv.tid = theTown; --make him member of this town
 		fv.rankTown = leaderRank; --give him the leader rank
@@ -574,32 +551,31 @@ function makeCharMemberOfTown(originator,fv,theRank, theTown)
 		if (fv.tid == theTown) then --already citizen
 		 	gText="Ihr seid bereits Bürger dieser Stadt!";
 			eText="You're already citizen of this town!";
-			base.common.InformNLS(originator,gText,eText);
+			outText=base.common.GetNLS(originator,gText,eText);
+            thisNPC:talk(Character.say, outText);
 			return;
 		end
 
-		local GAmount, SAmount,CAmount = CalcSilverCopper(100*PriceListForTownChange[fv.towncnt]);
+		local GAmount, SAmount,CAmount = CalcSilverCopper(100*(2^fv.towncnt));
 		if not CheckMoney(originator,GAmount,SAmount,CAmount) then --not enough money!
 		 	gText="Ihr habt nicht genug Geld dabei!";
 			eText="You don't have enough money with you!";
-			base.common.InformNLS(originator,gText,eText);
+			outText=base.common.GetNLS(originator,gText,eText);
+            thisNPC:talk(Character.say, outText);
 			return;
 		end
 		
-		fv[ rp_index(fv.tid)]= --remove 80 rankpoints in old town
-		     fv[ rp_index(fv.tid) ] -80;
+		fv.rankpoints = 20 -- set default value for rankpoints
 		fv.tid = theTown; --set new Town ID
-		
-		fv[ rp_index(fv.tid) ]=
-		     fv[ rp_index(fv.tid) ] +20;--add 20 rankpoints for new town
 				
-		if fv.towncnt ~=9 then fv.towncnt = fv.towncnt+1; end -- raise the town counter
-		fv = put_Faction(originator,fv); --write fv in Questprogress
+		if (fv.towncnt<99) then fv.towncnt = fv.towncnt+1; end; -- raise the town counter
+		put_Faction(originator,fv); --write fv in Questprogress
 		Pay(originator,GAmount,SAmount,CAmount); --take money
 
 		gText="Ihr seid nun als Bürger dieser Stadt eingetragen.";
 		eText="You're now registered as citizen of this town.";
-		base.common.InformNLS(originator,gText,eText);
+		outText=base.common.GetNLS(originator,gText,eText);
+        thisNPC:talk(Character.say, outText);
 	end
 	return;
 end
@@ -610,11 +586,11 @@ end
 	Exchanges a decree against guild membership etc., 
     @param originator -- the PlayerStruct
 ]]
-function deleteDecree(originator)
+--[[function deleteDecree(originator)
 	thisNPC = world:getNPCSInRangeOf(originator.pos, 3);
 	
 	if not ((originator:countItem(3110))==0) then --does he really have decrees
-			fv = get(originator); --read faction values
+			fv = getFactionInformations(originator); --read faction values
 			  decree= originator:getItemList(3110); --get a list of decrees
 
 			if decree[1].quality == 750 then --guild decree
@@ -624,7 +600,7 @@ function deleteDecree(originator)
 
 				gText="Gut, ich werde euch als "..GuildRanklist[fv.rankGuild].gusage.." in der Gilde "..GuildNameGList[fv.gid][1].." eintragen.";
     			eText="Good, I will write your name down as "..GuildRanklist[fv.rankGuild].eusage.." in the guild "..GuildNameEList[fv.gid][1];
-            	fv = put(originator,fv); --write faction values
+            	fv = setFactionInformations(originator,fv); --write faction values
 				world:erase(decree[1],1); --deletes 1 decree
 			elseif decree[1].quality == 751 then -- unban decree
 			
@@ -632,7 +608,7 @@ function deleteDecree(originator)
 					gText = "Ihr wurdet aus der Verbanntenliste gestrichen, nun könnt ihr Bürger dieser Stadt werden wenn Ihr es wollt.";
 					eText = "You're now deleted from the banned register, now you can join this town as citizen, if you want.";
 					fv[r_index(decree[1].data)] = 1; --set rank to 1
-					fv = put(originator,fv); --write faction values
+					fv = setFactionInformations(originator,fv); --write faction values
 					world:erase(decree[1],1);
 				else
 					gText = "Ihr seid in dieser Stadt nicht verbannt!";
@@ -653,4 +629,4 @@ function deleteDecree(originator)
             thisNPC:talk(Character.say, outText);
 			return;
 	end
-end
+end]]--
