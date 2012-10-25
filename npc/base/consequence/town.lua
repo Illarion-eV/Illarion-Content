@@ -3,7 +3,7 @@ require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.town", package.seeall)
 
-quest = base.class.class(npc.base.consequence.consequence.consequence,
+town = base.class.class(npc.base.consequence.consequence.consequence,
 function(self, mode, value)
     npc.base.consequence.consequence.consequence:init(self);
     self["value"], self["valuetype"] = npc.base.talk._set_value(value);
@@ -16,6 +16,6 @@ end);
 
 function _town_helper_set(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);	
-	factionValues = base.factions.get_Faction(player)
-	base.factions.makeCharMemberOfTown(player,factionValues,2, value)
+	local factionValues = base.factions.get_Faction(player);
+	base.factions.makeCharMemberOfTown(player,factionValues,2, value);
 end;
